@@ -5,14 +5,14 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 12/11/2020
 ms.custom: seo-nov-2020
-ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ba0dd347c4ee2cb41b34c2fc34f1848a7295dc3a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337518"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368657"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contêineres e bancos de dados do Azure Cosmos com taxa de transferência de dimensionamento automático
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -59,7 +59,7 @@ O ponto de entrada para taxa de transferência máxima de dimensionamento autom�
 
 ## <a name="enable-autoscale-on-existing-resources"></a>Habilitar dimensionamento automático em recursos existentes
 
-Use o [portal do Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para habilitar o dimensionamento automático em um banco de dados ou contêiner existente. Você pode alternar entre o dimensionamento automático e a taxa de transferência provisionada (manual) padrão a qualquer momento. Confira esta [documentação](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obter mais informações. Atualmente, para todas as APIs, você só pode usar o portal do Azure para habilitar o dimensionamento automático em recursos existentes.
+Use o [portal do Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), o [modelo de Azure Resource Manager](how-to-provision-autoscale-throughput.md#azure-resource-manager), a [CLI](how-to-provision-autoscale-throughput.md#azure-cli) ou o [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) para habilitar o dimensionamento automático em um banco de dados ou contêiner existente. Você pode alternar entre o dimensionamento automático e a taxa de transferência provisionada (manual) padrão a qualquer momento. Confira esta [documentação](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obter mais informações.
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limites de taxa de transferência e armazenamento para dimensionamento automático
 

@@ -180,6 +180,8 @@
       href: ./policy-reference.md
 - name: Recursos
   items:
+    - name: Desenvolva suas habilidades com o Microsoft Learn
+      href: /learn/browse/?products=azure-resource-manager
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
     - name: Calculadora de preço

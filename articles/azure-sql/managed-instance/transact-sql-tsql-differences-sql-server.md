@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 610ab649d64351b0897ef7358cdaf9280fe3ba55
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c18ee43eefe9c6cf9cba7f4e8f6c3fd3f55bba5a
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684910"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368691"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -396,9 +396,9 @@ Não há suporte para [Pesquisa semântica](/sql/relational-databases/search/sem
 
 Os servidores vinculados no SQL Instância Gerenciada dão suporte a um número limitado de destinos:
 
-- Os destinos com suporte são SQL Instância Gerenciada, banco de dados SQL, Azure Synapse SQL e instâncias de SQL Server. 
+- Os destinos com suporte são SQL Instância Gerenciada, banco de dados SQL, pools dedicados e sem SQL [Server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) do Azure Synapse e instâncias de SQL Server. 
 - Os servidores vinculados não dão suporte a transações graváveis distribuídas (MS DTC).
-- Destinos sem suporte: arquivos, Analysis Services e outros RDBMS. Tente usar a importação de CSV nativo do armazenamento de Blobs do Azure usando `BULK INSERT` ou `OPENROWSET` como uma alternativa para a importação de arquivos.
+- Destinos sem suporte: arquivos, Analysis Services e outros RDBMS. Tente usar a importação de CSV nativo do armazenamento de BLOBs do Azure usando `BULK INSERT` `OPENROWSET` o ou como uma alternativa para importação de arquivo ou carregue arquivos usando um [pool SQL sem servidor no Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operações: 
 
@@ -406,11 +406,12 @@ Operações:
 - `sp_dropserver` é compatível com o descarte um servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - A função `OPENROWSET` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - A função `OPENDATASOURCE` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Somente os valores `SQLNCLI`, `SQLNCLI11` e `SQLOLEDB` têm suporte como provedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
-- Os servidores vinculados não podem ser usados para ler arquivos (Excel, CSV) dos compartilhamentos de rede. Tente usar [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que leia arquivos CSV do armazenamento de blobs do Azure. Acompanhar essas solicitações no [item de comentário sobre o SQL instância gerenciada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
+- Os servidores vinculados não podem ser usados para ler arquivos (Excel, CSV) dos compartilhamentos de rede. Tente usar [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) que lê arquivos CSV do armazenamento de BLOBs do Azure ou um [servidor vinculado que faz referência a um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Acompanhar essas solicitações no [item de comentário sobre o SQL instância gerenciada](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
 
-O único tipo de fonte externa com suporte é RDBMS, para o banco de dados SQL do Azure e para outros Instância Gerenciada do SQL do Azure. Para obter informações sobre o Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
+Os únicos tipos de fonte externa disponíveis são RDBMS (em visualização pública) para o banco de dados SQL do Azure, instância gerenciada do SQL do Azure e pool Synapse do Azure. Você pode usar [uma tabela externa que faz referência a um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) como uma solução alternativa para tabelas externas do polybase que o lê diretamente do armazenamento do Azure. Na instância gerenciada do SQL do Azure, você pode usar servidores vinculados em [um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server para ler dados do armazenamento do Azure.
+Para obter informações sobre o Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicação
 

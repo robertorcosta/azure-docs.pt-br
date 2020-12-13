@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: baf2734c2f3c4de86b75a20239ecf7440c61a632
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0cad8fcdf58f4827f28b40550ae93e607e0c0858
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534039"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368997"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Pool de SQL dedicado (anteriormente conhecido como SQL DW) nas notas de versão do Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ Para melhorias de ferramentas, a versão instalada correta deve estar especifica
 | Melhorias nos serviços | Detalhes |
 | --- | --- |
 |**Gerenciamento de carga de trabalho – experiência do portal**|Os usuários podem usar o portal do Azure para configurar e gerenciar suas configurações de gerenciamento de carga de trabalho. Está disponível a capacidade de configurar [grupos de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) e [classificadores de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) com importância.|
-|**Exibição do catálogo de mapeamentos de tabela aprimorada**|A nova exibição de catálogo [Sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapeia **object_ids** de tabelas de usuário permanentes para seus nomes de tabela física.|
+|**Exibição do catálogo de mapeamentos de tabela aprimorada**|A nova exibição de catálogo [Sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql) mapeia **object_ids** de tabelas de usuário permanentes para seus nomes de tabela física.|
 
 ## <a name="july-2020"></a>Julho de 2020
 

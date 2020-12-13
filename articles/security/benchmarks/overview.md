@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2471aaad4ef10b611ab4ad812c5b1566cc7c4a07
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3bc97a932e622838315f717cc7b036a559787805
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412673"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97369150"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Visão geral do benchmark de segurança do Azure (v2)
 
@@ -25,7 +25,7 @@ Esse parâmetro de comparação faz parte de um conjunto de diretrizes de segura
 - **Estrutura de Well-Architected do Azure** – diretrizes sobre como [proteger suas cargas de trabalho](/assessments/?mode=pre-assessment&session=local) no Azure.
 - **Práticas recomendadas de segurança da Microsoft** – [recomendações](/security/compass/microsoft-security-compass-introduction) com exemplos no Azure.
 
- O benchmark de segurança do Azure concentra-se em áreas de controle centradas na nuvem. Esses controles são consistentes com benchmarks de segurança conhecidos, como os descritos pelos controles do CIS (Center for Internet Security), versão 7,1 e National Institute of Standards and Technology (NIST) SP800-53.
+ O benchmark de segurança do Azure concentra-se em áreas de controle centradas na nuvem. Esses controles são consistentes com benchmarks de segurança conhecidos, como os descritos pelos controles do CIS (Center for Internet Security) versão 7,1 e do NIST (National Institute of Standards and Technology) SP 800-53.
 Os seguintes controles estão incluídos no benchmark de segurança do Azure:
 
 | Domínios de controle ASB | Descrição 
@@ -46,12 +46,12 @@ Os seguintes controles estão incluídos no benchmark de segurança do Azure:
 
 Cada recomendação inclui as seguintes informações:
 
-- **ID do Azure** : a ID de benchmark de segurança do Azure que corresponde à recomendação.
-- Os **controles do CIS v 7.1 ID (s)** : o cis controla os controles do v 7.1 que correspondem a essa recomendação.
-- **NIST SP800-53 ID (s) R4** : os controles NIST SP800-53 R4 (moderado) que correspondem a essa recomendação.
-- **Detalhes** : a lógica para a recomendação e links para orientação sobre como implementá-la. Se a recomendação for suportada pela central de segurança do Azure, essas informações também serão listadas.
-- **Responsabilidade** : se o cliente, o provedor de serviços ou ambos são responsáveis por implementar essa recomendação. As responsabilidades de segurança são compartilhadas na nuvem pública. Alguns controles de segurança só estão disponíveis para o provedor de serviços de nuvem e, portanto, o provedor é responsável por lidar com eles. Essas são observações gerais – para alguns serviços individuais, a responsabilidade será diferente do que está listado no benchmark de segurança do Azure. Essas diferenças são descritas nas recomendações de linha de base para o serviço individual.
-- **Participantes de segurança do cliente** : [as funções de segurança](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) na organização cliente que podem ser responsáveis, responsáveis ou consultados pelo respectivo controle. Ele pode ser diferente da organização para a organização, dependendo da estrutura da organização de segurança de sua empresa, e das funções e responsabilidades que você configurou relacionadas à segurança do Azure.
+- **ID do Azure**: a ID de benchmark de segurança do Azure que corresponde à recomendação.
+- Os **controles do CIS v 7.1 ID (s)**: o cis controla os controles do v 7.1 que correspondem a essa recomendação.
+- **ID (s) do NIST sp 800-53 R4**: os controles nist SP 800-53 R4 (moderado) que correspondem a essa recomendação.
+- **Detalhes**: a lógica para a recomendação e links para orientação sobre como implementá-la. Se a recomendação for suportada pela central de segurança do Azure, essas informações também serão listadas.
+- **Responsabilidade**: se o cliente, o provedor de serviços ou ambos são responsáveis por implementar essa recomendação. As responsabilidades de segurança são compartilhadas na nuvem pública. Alguns controles de segurança só estão disponíveis para o provedor de serviços de nuvem e, portanto, o provedor é responsável por lidar com eles. Essas são observações gerais – para alguns serviços individuais, a responsabilidade será diferente do que está listado no benchmark de segurança do Azure. Essas diferenças são descritas nas recomendações de linha de base para o serviço individual.
+- **Participantes de segurança do cliente**: [as funções de segurança](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) na organização cliente que podem ser responsáveis, responsáveis ou consultados pelo respectivo controle. Ele pode ser diferente da organização para a organização, dependendo da estrutura da organização de segurança de sua empresa, e das funções e responsabilidades que você configurou relacionadas à segurança do Azure.
 
 > [!NOTE]
 > Os mapeamentos de controle entre o ASB e os benchmarks do setor (como NIST e CIS) indicam apenas que um recurso específico do Azure pode ser usado para resolver de forma completa ou parcial um requisito de controle definido no NIST ou no CIS. Você deve estar ciente de que essa implementação não é necessariamente traduzida para a conformidade total do controle correspondente no CIS ou NIST.

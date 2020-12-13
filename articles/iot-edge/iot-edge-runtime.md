@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, mqtt, devx-track-csharp
-ms.openlocfilehash: 133be436853ee8c2b04df2f943368513108b226b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c0c3a452c93b88483ac7027405665c26ceab8183
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444260"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368487"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o runtime do Azure IoT Edge e sua arquitetura
 
@@ -81,7 +81,7 @@ O Hub de IoT Edge não é uma versão completa do Hub IoT em execução localmen
 
 Para reduzir a largura de banda que sua solução de IoT Edge usa, o Hub de IoT Edge otimiza quantas conexões reais são feitas na nuvem. O Hub de IoT Edge usa conexões lógicas de módulos ou dispositivos downstream e os combina para uma única conexão física com a nuvem. Os detalhes desse processo são transparentes para o restante da solução. Os clientes pensam que têm sua própria conexão para a nuvem, mesmo que estejam todos sendo enviados pela mesma conexão. O Hub de IoT Edge pode usar o AMQP ou o protocolo MQTT para comunicar upstream com a nuvem, independentemente dos protocolos usados pelos dispositivos downstream. No entanto, o Hub de IoT Edge atualmente só dá suporte à combinação de conexões lógicas em uma única conexão física usando AMQP como o protocolo upstream e seus recursos de multiplexação. AMQP é o protocolo padrão de upstream.
 
-![O hub do IoT Edge é um gateway entre os dispositivos físicos e o Hub IoT](./media/iot-edge-runtime/Gateway.png)
+![O hub do IoT Edge é um gateway entre os dispositivos físicos e o Hub IoT](./media/iot-edge-runtime/gateway-communication.png)
 
 O hub do IoT Edge pode determinar se ele está conectado ao Hub IoT. Se a conexão for perdida, o hub do IoT Edge salvará mensagens ou as atualizações duplicadas localmente. Depois que uma conexão é restabelecida, ela sincroniza todos os dados. O local usado para esse cache temporário é determinado por uma propriedade do módulo de IoT Edge do Hub. O tamanho do cache não tem limite e aumentará até atingir toda a capacidade de armazenamento do dispositivo. Para obter mais informações, consulte [recursos offline](offline-capabilities.md).
 
@@ -94,7 +94,7 @@ O hub do IoT Edge facilita a comunicação de módulo para módulo. O uso do hub
 
 ![O hub do IoT Edge facilita a comunicação de módulo para módulo](./media/iot-edge-runtime/module-endpoints.png)
 
-Para enviar dados ao hub do IoT Edge, um módulo chamará o método SendEventAsync. O primeiro argumento especifica em qual saída enviar a mensagem. O pseudocódigo a seguir envia uma mensagem em **Saída1** :
+Para enviar dados ao hub do IoT Edge, um módulo chamará o método SendEventAsync. O primeiro argumento especifica em qual saída enviar a mensagem. O pseudocódigo a seguir envia uma mensagem em **Saída1**:
 
    ```csharp
    ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings);
@@ -102,7 +102,7 @@ Para enviar dados ao hub do IoT Edge, um módulo chamará o método SendEventAsy
    await client.SendEventAsync("output1", message);
    ```
 
-Para receber uma mensagem, registre um retorno de chamada que processa as mensagens recebidas em uma entrada específica. O pseudocódigo a seguir registra a função messageProcessor a ser usada para processar todas as mensagens recebidas em **entrada1** :
+Para receber uma mensagem, registre um retorno de chamada que processa as mensagens recebidas em uma entrada específica. O pseudocódigo a seguir registra a função messageProcessor a ser usada para processar todas as mensagens recebidas em **entrada1**:
 
    ```csharp
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
@@ -112,7 +112,7 @@ Para obter mais informações sobre a classe ModuleClient e seus métodos de com
 
 O desenvolvedor da solução é responsável por especificar as regras que determinam como o hub do IoT Edge passa mensagens entre os módulos. As regras de roteamento são definidas na nuvem e enviadas por push para IoT Edge Hub em seu módulo. A mesma sintaxe para rotas do Hub IoT é usada para definir rotas entre módulos no Azure IoT Edge. Para obter mais informações, confira [Aprenda a implantar módulos e estabelecer rotas no IoT Edge](module-composition.md).
 
-![As rotas entre módulos passam pelo hub do IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![As rotas entre módulos passam pelo hub do IoT Edge](./media/iot-edge-runtime/module-endpoints-routing.png)
 ::: moniker-end
 
 <!-- <1.2> -->
@@ -134,7 +134,7 @@ O Hub de IoT Edge dá suporte a dois mecanismos de agente:
 
 O primeiro mecanismo de agente utiliza os mesmos recursos de roteamento que o Hub IoT para especificar como as mensagens são passadas entre dispositivos ou módulos. Os primeiros dispositivos ou módulos especificam as entradas nas quais eles aceitam mensagens e as saídas nas quais eles gravam mensagens. Em seguida, um desenvolvedor de solução pode rotear mensagens entre uma fonte, por exemplo, saídas e um destino, por exemplo, entradas, com filtros potenciais.
 
-![As rotas entre módulos passam pelo hub do IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
+![As rotas entre módulos passam pelo hub do IoT Edge](./media/iot-edge-runtime/module-endpoints-routing.png)
 
 O roteamento pode ser usado por dispositivos ou módulos criados com os SDKs do dispositivo IoT do Azure por meio do AMQP ou do protocolo MQTT. Todos os primitivos do Hub IoT do sistema de mensagens, por exemplo, telemetria, métodos diretos, C2D, gêmeos, têm suporte, mas não há suporte para a comunicação em tópicos definidos pelo usuário.
 

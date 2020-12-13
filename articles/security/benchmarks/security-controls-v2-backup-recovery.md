@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1ed477c6cf069dbb402e5bda9c1f48f7bc208f18
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698794"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368878"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controle de segurança v2: backup e recuperação
 
@@ -20,7 +20,7 @@ O backup e a recuperação abrangem controles para garantir que os backups de da
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: garantir backups automatizados regulares
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
@@ -50,7 +50,7 @@ Para um nível mais alto de proteção, você pode habilitar a opção de armaze
 
 ## <a name="br-2-encrypt-backup-data"></a>BR-2: criptografar dados de backup
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | BR-2 | 10,2 | CP-9 |
 
@@ -80,7 +80,7 @@ Use o controle de acesso baseado em função do Azure no backup do Azure, Azure 
 
 ## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: validar todos os backups, incluindo chaves gerenciadas pelo cliente
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | BR-3 | 10,3 | CP-4, CP-9 |
 
@@ -100,13 +100,13 @@ Execute periodicamente a restauração de dados do seu backup. Verifique se voc�
 
 ## <a name="br-4-mitigate-risk-of-lost-keys"></a>BR-4: reduzir o risco de perda de chaves
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 
-Verifique se você tem medidas em vigor para evitar e se recuperar da perda de chaves. Habilite a exclusão reversível e a proteção de limpeza no Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.  
+Verifique se você tem medidas em vigor para evitar e se recuperar da perda de chaves. Habilite a exclusão temporária e a proteção de limpeza no Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.  
 
-- [Como habilitar a exclusão reversível e limpar a proteção no Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Como habilitar a exclusão temporária e a proteção de limpeza no Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsabilidade**: Cliente
 

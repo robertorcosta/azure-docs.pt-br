@@ -3,12 +3,12 @@ title: Entrega de eventos, identidade de serviço gerenciada e link privado
 description: Este artigo descreve como habilitar a identidade do serviço gerenciado para um tópico da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte.
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: d16310ac61121af0cc9d76664bfeeeb14e1bc243
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: edb3e5ac8257a29ecd3835e1dfd4c116c3cc7164
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491708"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368606"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com uma identidade gerenciada
 Este artigo descreve como habilitar uma [identidade de serviço gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para os tópicos ou domínios da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte, como filas e tópicos de Barramento de Serviço, hubs de eventos e contas de armazenamento.
@@ -45,7 +45,7 @@ Na seção anterior, você aprendeu como habilitar uma identidade gerenciada pel
 ### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 O procedimento a seguir mostra como habilitar a identidade gerenciada pelo sistema para um tópico. As etapas para habilitar uma identidade para um domínio são semelhantes. 
 
-1. Acesse o [portal do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Procure **Tópicos da grade de eventos** na barra de pesquisa na parte superior.
 3. Selecione o **tópico** para o qual deseja habilitar a identidade gerenciada. 
 4. Alterne para a guia **Identidade**. 
@@ -74,7 +74,7 @@ Atualmente, a grade de eventos do Azure dá suporte a tópicos ou domínios conf
 | Destino | Função do Azure | 
 | ----------- | --------- | 
 | Filas e tópicos do Barramento de Serviço | [Remetente de dados do Barramento de Serviço do Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
-| Hubs de Eventos do Azure | [Remetente de dados dos Hubs de Eventos do Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
+| Hubs de eventos do Azure | [Remetente de dados dos Hubs de Eventos do Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
 | Armazenamento de Blobs do Azure | [Colaborador de dados de blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
 | Armazenamento de Filas do Azure |[Remetente da mensagem de dados da fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
@@ -89,7 +89,7 @@ O exemplo a seguir adiciona uma identidade gerenciada para um tópico da grade d
 1. Vá para o **namespace do barramento de serviço** na [portal do Azure](https://portal.azure.com). 
 1. Selecione **controle de acesso** no painel esquerdo. 
 1. Selecione **Adicionar** na seção **Adicionar uma atribuição de função**. 
-1. Na página **Adicionar uma atribuição de função** , siga os seguintes passos:
+1. Na página **Adicionar uma atribuição de função**, siga os seguintes passos:
     1. Selecione a função. Neste caso, é **Remetente de dados do Barramento de Serviço do Azure**. 
     1. Selecione a **identidade** para seu tópico ou domínio. 
     1. Selecione **salvar** para salvar a configuração.

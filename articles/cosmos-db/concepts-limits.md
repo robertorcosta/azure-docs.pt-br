@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: f591a9781cb81ec735d22f4f687f8d413923dc93
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349122"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368729"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Para estimar a taxa de transferência mínima necessária de um banco de dados d
 * RU/s mais alto provisionado no banco de dados/100
 * 400 + MAX (contagem de contêineres-25, 0) * 100 RU/s
 
-Exemplo: Suponha que você tenha um banco de dados provisionado com 400 RU/s, 15 GB de armazenamento e 10 contêineres. O mínimo de RU/s é `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Se houver 30 contêineres no banco de dados, o RU/s mínimo seria `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 ru/s. 
+Exemplo: Suponha que você tenha um banco de dados provisionado com 400 RU/s, 15 GB de armazenamento e 10 contêineres. O mínimo de RU/s é `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Se houver 30 contêineres no banco de dados, o RU/s mínimo seria `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ru/s. 
 
 **Observação:** se o contêiner ou banco de dados contiver mais de 1 TB, sua conta poderá estar qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8602450ef7df7f728fc5bdcda4f46ae30058fc94
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f0c2fe78c32357798e1f9acb43f5867df9148b38
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487789"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97368895"
 ---
 # <a name="security-control-v2-asset-management"></a>Controle de segurança v2: gerenciamento de ativos
 
@@ -20,7 +20,7 @@ O gerenciamento de ativos abrange controles para garantir a visibilidade e a gov
 
 ## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: garantir que a equipe de segurança tenha visibilidade dos riscos de ativos
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | AM-1 | 1,1, 1,2 | CM-8, PM-5 |
 
@@ -46,7 +46,7 @@ Observação: podem ser necessárias permissões adicionais a fim de obter visib
 
 ## <a name="am-2-ensure-security-team-has-access-to-asset-inventory-and-metadata"></a>AM-2: verificar se a equipe de segurança tem acesso ao inventário de ativos e metadados
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | AM-2 | 1,1, 1,2, 1,4, 1,5, 9,1, 12,1 | CM-8, PM-5 |
 
@@ -72,7 +72,7 @@ Organize logicamente os ativos de acordo com a taxonomia de sua organização us
 
 ## <a name="am-3-use-only-approved-azure-services"></a>AM-3: usar somente serviços do Azure aprovados
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | AM-3 | 2.3, 2.4 | CM-7, CM-8 |
 
@@ -94,7 +94,7 @@ Use o Azure Policy para auditar e restringir quais serviços os usuários podem 
 
 ## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: garantir a segurança do gerenciamento do ciclo de vida dos ativos
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | AM-4 | 2,3, 2,4, 2,5 | CM-7, CM-8, CM-10, CM-11 |
 
@@ -116,7 +116,7 @@ Remova os recursos do Azure quando eles não forem mais necessários.
 
 ## <a name="am-5-limit-users-ability-to-interact-with-azure-resource-manager"></a>AM-5: limitar a capacidade dos usuários de interagir com Azure Resource Manager
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | -5 | 2,9 | AC-3 |
 
@@ -134,7 +134,7 @@ Use o acesso condicional do Azure AD para limitar a capacidade dos usuários de 
 
 ## <a name="am-6-use-only-approved-applications-in-compute-resources"></a>AM-6: usar somente aplicativos aprovados em recursos de computação
 
-| ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
+| ID do Azure | Controles do CIS v 7.1 ID (s) | ID (s) do NIST SP 800-53 R4 |
 |--|--|--|--|
 | -6 | 2,6, 2,7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
