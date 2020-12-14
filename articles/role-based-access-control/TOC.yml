@@ -9,7 +9,7 @@
       href: rbac-and-directory-admin-roles.md
 - name: Inícios rápidos
   items:
-    - name: Ver o acesso de um usuário
+    - name: Verificar o acesso de um usuário
       href: check-access.md
     - name: Modelo de ARM
       displayName: Resource Manager
