@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 396d6f69673f8758d8d1302f8d10b8a92e5f50b4
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530742"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399359"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -95,8 +95,8 @@ A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAu
 | Logout único baseado na Web| √| √ |
 | Logon único baseado em móvel| √| √* |
 | Logout único baseado em celular| √| √* |
-| Políticas de acesso condicional para aplicativos móveis| √| X |
-| Experiência de MFA direta para aplicativos móveis| √| X |
+| Políticas de acesso condicional para aplicativos móveis| √| √* |
+| Experiência de MFA direta para aplicativos móveis| √| √* |
 | Provisionamento de SCIM| √| √ |
 | Acessar o Microsoft Graph| √| X |
 
@@ -178,7 +178,7 @@ Para saber mais sobre os padrões e benefícios do SCIM para seus clientes, cons
 Para saber mais sobre a implementação do Azure AD SCIM, consulte [criar um ponto de extremidade scim e configurar o provisionamento de usuário com o Azure ad](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
 
 ### <a name="implement-scim"></a>Implementar SCIM
-O Azure AD fornece o [código de referência](https://aka.ms/scimoverview) para ajudá-lo a criar um ponto de extremidade SCIM. Também há muitas referências/bibliotecas de terceiros que você pode encontrar no github.  
+O Azure AD fornece o [código de referência](https://aka.ms/scimoverview) para ajudá-lo a criar um ponto de extremidade SCIM. Também há muitas referências/bibliotecas de terceiros que você pode encontrar no GitHub.  
 
 ## <a name="step-4---create-your-azure-tenant-and-test-your-app"></a>Etapa 4 – criar seu locatário do Azure e testar seu aplicativo
 

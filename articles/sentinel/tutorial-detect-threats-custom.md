@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: b685f716688cfbe732fa7d3566e1af97cc81272a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 390d2c8488fd2b35c775eabe43677b9349b547a1
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652103"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401637"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>Tutorial: criar regras de análise personalizadas para detectar ameaças
 
@@ -145,7 +145,13 @@ Você pode criar regras de análise personalizadas para ajudá-lo a Pesquisar os
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-### <a name="a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Uma regra agendada não pôde ser executada ou aparece com DESABILITAdo automaticamente adicionado ao nome
+### <a name="issue-no-events-appear-in-query-results"></a>Problema: nenhum evento aparece nos resultados da consulta
+
+Se o **agrupamento de eventos** estiver definido para **disparar um alerta para cada evento**, em determinados cenários, ao exibir os resultados da consulta em um momento posterior (como ao dinamizar de volta para alertas de um incidente), é possível que nenhum resultado da consulta seja exibido. Isso ocorre porque a conexão do evento com o alerta é realizada pelo hash das informações do evento específico e pela inclusão do hash na consulta. Se os resultados da consulta tiverem sido alterados desde que o alerta foi gerado, o hash não será mais válido e nenhum resultado será exibido. 
+
+Para ver os eventos, remova manualmente a linha com o hash da consulta da regra e execute a consulta.
+
+### <a name="issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name"></a>Problema: uma regra agendada não pôde ser executada ou aparece com DESABILITAdo automaticamente adicionado ao nome
 
 É uma rara ocorrência de falha na execução de uma regra de consulta agendada, mas isso pode acontecer. O Azure Sentinel classifica as falhas antecipadamente como transitórias ou permanentes, com base no tipo específico da falha e nas circunstâncias que levaram a ela.
 

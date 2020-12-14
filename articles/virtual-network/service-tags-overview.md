@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ece6dfb5277e7ca363548c8d90021835a96a61ba
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: d01136ea4377bd7d35a2e11b4bcf654bcf677fbe
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937348"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401552"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ As colunas indicam se a marca:
 Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Algumas marcas de serviço também permitem um controle mais granular ao restringir os intervalos de IP correspondentes a uma região especificada. Por exemplo, a marca de serviço **Armazenamento** representa o Armazenamento do Azure para toda a nuvem, mas **Storage.WestUS** limita o intervalo apenas aos intervalos de endereços IP de armazenamento da região do Oeste dos EUA. A tabela a seguir indica se cada marca de serviço dá suporte a esse escopo regional.  
 
 | Marca | Finalidade | É possível usar entrada ou saída? | Pode ser regional? | É possível usar com o Firewall do Azure? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| --- | -------- |:---:|:---:|:---:|
 | **ActionGroup** | Grupo de ações. | Entrada | Não | Não |
 | **ApiManagement** | Tráfego do gerenciamento de implantações dedicadas do Gerenciamento de API do Azure. <br/><br/>*Observação:* essa marca representa o ponto de extremidade do serviço de Gerenciamento de API do Azure para o plano de controle por região. Isso permite que os clientes executem operações de gerenciamento nas APIs, Operações, Políticas, NamedValues configurados no serviço de Gerenciamento de API.  | Entrada | Sim | Sim |
 | **ApplicationInsightsAvailability** | Disponibilidade do Application Insights. | Entrada | Não | Não |

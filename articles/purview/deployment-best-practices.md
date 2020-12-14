@@ -1,18 +1,18 @@
 ---
 title: Melhores práticas de implantação
-description: Este artigo fornece as práticas recomendadas para a implantação do Azure alcance. O Azure alcance permite que qualquer usuário registre, descubra, entenda e consuma fontes de dados.
-author: hophan
+description: Este artigo fornece as práticas recomendadas para a implantação do Azure alcance. O Azure Purview permite que qualquer usuário registre, descubra, entenda e consuma fontes de dados.
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: cae4904d0b3dacc608c7b41b638dc507b3cda6b5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b2841f69ebe91dac748a4b2e24dc0c33756b1da
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551480"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400685"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Práticas recomendadas de implantação do Azure alcance
 

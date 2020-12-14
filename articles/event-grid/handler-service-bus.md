@@ -3,12 +3,12 @@ title: Tópicos e filas do Barramento de Serviço como manipuladores de eventos 
 description: Descreve como você pode usar tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 2b18009f8fb31f1a5f057c7395781f63f182847f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 12b72420e3475b46a4cd61ce5032b478af740dde
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "96024207"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399852"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Barramento de Serviço do Azure** é um deles. 
@@ -40,7 +40,7 @@ No portal do Azure, ao criar uma assinatura de evento, selecione o **Tópico do 
 
 ### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Como usar a CLI para adicionar um manipulador de tópico do Barramento de Serviço
 
-Para a CLI do Azure, o seguinte exemplo assina e conecta um tópico da grade de eventos a uma fila do Barramento de Serviço:
+Por CLI do Azure, o exemplo a seguir assina e conecta um tópico da grade de eventos a um tópico do barramento de serviço:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \

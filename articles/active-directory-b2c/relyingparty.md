@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/11/2020
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 321669457c479f7f59ccbb9b7950457b7f9a1af5
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8b33c7f76cc2ac7a2012dc9d8c854a1dde46c3ea
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108290"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399121"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -77,8 +77,35 @@ O elemento **RelyingParty** opcional contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | O percurso do usuário padrão para o aplicativo de RP. |
+| Pontos de extremidade | 0:1 | Uma lista de pontos de extremidade. Para obter mais informações, consulte [ponto de extremidade de UserInfo](userinfo-endpoint.md). |
 | UserJourneyBehaviors | 0:1 | O escopo dos comportamentos do percurso do usuário. |
 | TechnicalProfile | 1:1 | Um perfil técnico é compatível com o aplicativo de RP. O perfil técnico fornece um contrato para o aplicativo de RP contatar o Azure AD B2C. |
+
+## <a name="endpoints"></a>Pontos de extremidade
+
+O elemento de **pontos de extremidade** contém o seguinte elemento:
+
+| Elemento | Ocorrências | Descrição |
+| ------- | ----------- | ----------- |
+| Ponto de extremidade | 1:1 | Uma referência a um ponto de extremidade.|
+
+O elemento de **ponto de extremidade** contém os seguintes atributos:
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| Id | Sim | Um identificador exclusivo do ponto de extremidade.|
+| UserJourneyReferenceId | Sim | Um identificador de percurso do usuário na política. Para obter mais informações, confira [percursos do usuário](userjourneys.md)  | 
+
+O exemplo a seguir mostra uma terceira parte confiável com o [ponto de extremidade UserInfo](userinfo-endpoint.md):
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+  ...
+```
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
@@ -163,7 +190,7 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Name | Sim | O nome do par chave-valor. |
+| Nome | Sim | O nome do par chave-valor. |
 
 Para obter mais informações, confira [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
@@ -190,7 +217,7 @@ O elemento **Protocol** contém os seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Name | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2`. O valor `OpenIdConnect` representa o padrão de protocolo do OpenID Connect 1.0 de acordo com a especificação OpenID Foundation. O representa `SAML2` o padrão de protocolo SAML 2.0 de acordo com a especificação OASIS. |
+| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2`. O valor `OpenIdConnect` representa o padrão de protocolo do OpenID Connect 1.0 de acordo com a especificação OpenID Foundation. O representa `SAML2` o padrão de protocolo SAML 2.0 de acordo com a especificação OASIS. |
 
 ### <a name="metadata"></a>Metadados
 

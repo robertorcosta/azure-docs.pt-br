@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/11/2020
-ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.date: 12/14/2020
+ms.openlocfilehash: 7277ad060c57b44d633054c4fc4d29d151bd7192
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387659"
+ms.locfileid: "97400804"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultando no Azure Pesquisa Cognitiva
 
-O Azure Pesquisa Cognitiva oferece uma linguagem de consulta avançada para dar suporte a uma ampla gama de cenários, da pesquisa de texto livre, a padrões de consulta altamente especificados. Este artigo resume os tipos de consultas que você pode criar.
+O Azure Pesquisa Cognitiva oferece uma linguagem de consulta avançada para dar suporte a uma ampla gama de cenários, da pesquisa de texto livre, a padrões de consulta altamente especificados. Este artigo descreve as solicitações de consulta e os tipos de consultas que você pode criar.
 
-No Pesquisa Cognitiva, uma consulta é uma especificação completa de uma operação de viagem de ida e **`search`** volta, com parâmetros que informam a execução da consulta e moldam a resposta que retorna. Os parâmetros e os analisadores determinam o tipo de solicitação de consulta. O exemplo de consulta a seguir usa os [documentos de pesquisa (API REST)](/rest/api/searchservice/search-documents), direcionando o [índice de demonstração de hotéis](search-get-started-portal.md).
+No Pesquisa Cognitiva, uma consulta é uma especificação completa de uma operação de viagem de ida e **`search`** volta, com parâmetros que informam a execução da consulta e moldam a resposta que retorna. Os parâmetros e os analisadores determinam o tipo de solicitação de consulta. O exemplo de consulta a seguir é uma consulta de texto livre com um operador booliano, usando os [documentos de pesquisa (API REST)](/rest/api/searchservice/search-documents), direcionando a coleção de documentos [Hotéis-Sample-index](search-get-started-portal.md) .
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,7 +34,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 }
 ```
 
-Parâmetros usados durante a execução da consulta:
+Os parâmetros usados durante a execução da consulta incluem:
 
 + **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para constructos de consulta avançada, como expressões regulares, pesquisa de proximidade, pesquisa difusa e de curinga, para citar alguns.
 
@@ -66,7 +66,7 @@ Se o seu aplicativo de pesquisa incluir uma caixa de pesquisa que coleta entrada
 
 No Pesquisa Cognitiva, a pesquisa de texto completo é criada no mecanismo de consulta do Apache Lucene. As cadeias de caracteres de consulta na pesquisa de texto completo passam por análise lexical para tornar as verificações mais eficientes. A análise inclui todos os termos de maiúsculas e minúsculas, removendo palavras de parada como "a" e reduzindo os termos para formulários raiz primitivos. O analisador padrão é o Lucene padrão.
 
-Quando termos correspondentes são encontrados, o mecanismo de consulta reconstitui um documento de pesquisa que contém a correspondência, classifica os documentos em ordem de relevância e retorna os 50 principais (por padrão) na resposta.
+Quando termos correspondentes são encontrados, o mecanismo de consulta reconstitui um documento de pesquisa que contém a correspondência usando a chave ou ID do documento para montar valores de campo, classifica os documentos em ordem de relevância e retorna os 50 principais (por padrão) na resposta ou em um número diferente, se você tiver especificado **`top`** .
 
 Se você estiver implementando a pesquisa de texto completo, entender como o conteúdo é indexado ajudará você a depurar quaisquer anomalias de consulta. As consultas em cadeias de caracteres hifenizadas ou especiais podem precisar usar um analisador diferente do padrão Lucene padrão para garantir que o índice contenha os tokens corretos. Você pode substituir o padrão por [analisadores de linguagem](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores especializados](index-add-custom-analyzers.md#AnalyzerTable) que modificam a análise léxica. Um exemplo é a [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único token. É útil para dados como códigos postais, IDs e alguns nomes de produtos. Para obter mais informações, consulte [pesquisa de termo parcial e padrões com caracteres especiais](search-query-partial-matching.md).
 
@@ -78,7 +78,7 @@ Se você antecipar o uso intensivo de operadores boolianos, o que é mais prová
 
 ## <a name="filter-search"></a>Pesquisa de filtro
 
-Os filtros são amplamente usados em aplicativos que incluem Pesquisa Cognitiva. Em páginas de aplicativo, os filtros são geralmente visualizados como facetas em estruturas de navegação de link para filtragem direcionada pelo usuário. Os filtros também são usados internamente para expor fatias de conteúdo indexado. Por exemplo, você pode filtrar em um idioma se um índice contiver campos em inglês e em francês. 
+Os filtros são amplamente usados em aplicativos que incluem Pesquisa Cognitiva. Em páginas de aplicativo, os filtros são geralmente visualizados como facetas em estruturas de navegação de link para filtragem direcionada pelo usuário. Os filtros também são usados internamente para expor fatias de conteúdo indexado. Por exemplo, você pode inicializar uma página de pesquisa usando um filtro em uma categoria de produto ou um idioma se um índice contiver campos em inglês e em francês.
 
 Você também pode precisar de filtros para invocar um formulário de consulta especializado, conforme descrito na tabela a seguir. Você pode usar um filtro com uma pesquisa não especificada ( **`search=*`** ) ou com uma cadeia de caracteres de consulta que inclua termos, frases, operadores e padrões.
 

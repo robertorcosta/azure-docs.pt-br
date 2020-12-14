@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d8e4a9201c14e71520bd58ff1017b700ca47fa21
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 73a3be62e57991b63525372f008e15d8e4f36a74
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109803"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401722"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implantar um cluster de Service Fabric do Azure entre Zonas de Disponibilidade
 Zonas de Disponibilidade no Azure é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. Uma zona de disponibilidade é um local físico exclusivo equipado com energia, resfriamento e rede independentes em uma região do Azure.
@@ -407,12 +407,12 @@ O nodeType Service Fabric deve ser habilitado para dar suporte a várias zonas d
 >[!NOTE]
 > * Os recursos de IP público e Load Balancer devem usar o SKU Standard, conforme descrito anteriormente neste artigo.
 > * a propriedade "multipleAvailabilityZones" no nodeType só pode ser definida no momento da criação de nodeType e não pode ser modificada posteriormente. Portanto, os nodeTypes existentes não podem ser configurados com essa propriedade.
-> * Quando "hierarchicalUpgradeDomain" for omitido ou definido como true, as implantações de cluster e de aplicativo serão mais lentas, pois há mais domínios de atualização no cluster. É importante ajustar corretamente os tempos limite da política de atualização para incorporar a duração do tempo de atualização para 15 domínios de atualização.
+> * Quando "sfZonalUpgradeMode" for omitido ou definido como "Hierarchical", as implantações de cluster e aplicativo serão mais lentas, pois há mais domínios de atualização no cluster. É importante ajustar corretamente os tempos limite da política de atualização para incorporar a duração do tempo de atualização para 15 domínios de atualização.
 > * É recomendável definir o nível de confiabilidade do cluster para Platinum para garantir que o cluster sobreviver ao cenário de uma zona inativa.
 
 >[!NOTE]
-> Para uma prática recomendada, recomendamos hierarchicalUpgradeDomain definido como true ou ser omitido. A implantação seguirá a distribuição zonal de VMs que afetam uma quantidade menor de réplicas e/ou instâncias tornando-as mais seguras.
-> Use hierarchicalUpgradeDomain definido como false se a velocidade de implantação for uma prioridade ou apenas uma carga de trabalho sem estado for executada no tipo de nó com várias AZ. Isso fará com que a UD Walk aconteça em paralelo em todos os AZ.
+> Para uma prática recomendada, recomendamos sfZonalUpgradeMode definido como Hierarchical ou ser omitido. A implantação seguirá a distribuição zonal de VMs que afetam uma quantidade menor de réplicas e/ou instâncias tornando-as mais seguras.
+> Use sfZonalUpgradeMode definido como Parallel se a velocidade de implantação for uma prioridade ou apenas uma carga de trabalho sem estado for executada no tipo de nó com várias AZ. Isso fará com que a UD Walk aconteça em paralelo em todos os AZ.
 
 ### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migração para o tipo de nó com vários Zonas de Disponibilidade
 Para todos os cenários de migração, é necessário adicionar um novo nodeType que terá várias zonas de disponibilidade com suporte. Um nodeType existente não pode ser migrado para dar suporte a várias zonas.
