@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: d2e93ccfaf3ff2c5b74ceef1f6a274f71ee52c4e
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 4155cda1e1de6f15aefa6d5fc960988eba15068d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309827"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371961"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
@@ -48,7 +48,7 @@ Log Analytics exportação de dados de espaço de trabalho exporta dados continu
 > [!NOTE]
 > Log Analytics exportação de dados grava dados como um blob de acréscimo que está atualmente em visualização para Azure Data Lake Storage Gen2. Você deve abrir uma solicitação de suporte antes de configurar a exportação para esse armazenamento. Use os detalhes a seguir para esta solicitação.
 > - Tipo de problema: técnico
-> - Assinatura: sua assinatura
+> - Assinatura: Sua assinatura
 > - Serviço: Data Lake Storage Gen2
 > - Recurso: o nome do recurso
 > - Resumo: solicitando o registro de assinatura para aceitar dados de Log Analytics exportação de dados.
@@ -58,7 +58,7 @@ Log Analytics exportação de dados de espaço de trabalho exporta dados continu
 ## <a name="data-completeness"></a>Integridade dos dados
 A exportação de dados continuará a tentar enviar dados por até 30 minutos caso o destino não esteja disponível. Se ainda não estiver disponível após 30 minutos, os dados serão descartados até que o destino fique disponível.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 No momento, não há encargos adicionais para o recurso de exportação de dados. Os preços para exportação de dados serão anunciados no futuro e um aviso fornecido antes do início da cobrança. Se você optar por continuar usando a exportação de dados após o período de aviso, você será cobrado na taxa aplicável.
 
 ## <a name="export-destinations"></a>Destinos de exportação
@@ -122,6 +122,10 @@ Uma regra de exportação de dados define os dados a serem exportados para um co
 
 N/D
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Use o comando da CLI a seguir para exibir tabelas em seu espaço de trabalho. Ele pode ajudar a copiar as tabelas que você deseja e incluir na regra de exportação de dados.
@@ -133,13 +137,22 @@ az monitor log-analytics workspace table list -resource-group resourceGroupName 
 Use o comando a seguir para criar uma regra de exportação de dados para uma conta de armazenamento usando a CLI.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountId
+$storageAccountResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/storage-account-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $storageAccountResourceId
 ```
 
-Use o comando a seguir para criar uma regra de exportação de dados para um hub de eventos usando a CLI.
+Use o comando a seguir para criar uma regra de exportação de dados para um hub de eventos usando a CLI. Um hub de eventos separado é criado para cada tabela.
 
 ```azurecli
-az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesId
+$eventHubsNamespacesResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubsNamespacesResourceId
+```
+
+Use o comando a seguir para criar uma regra de exportação de dados para um hub de eventos específico usando a CLI. Todas as tabelas são exportadas para o nome do hub de eventos fornecido. 
+
+```azurecli
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 
 # <a name="rest"></a>[REST](#tab/rest)
@@ -205,9 +218,13 @@ Veja a seguir um corpo de exemplo para a solicitação REST para um hub de event
 ```
 ---
 
-## <a name="view-data-export-configuration"></a>Exibir configuração de exportação de dados
+## <a name="view-data-export-rule-configuration"></a>Exibir configuração da regra de exportação de dados
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 N/D
 
@@ -231,6 +248,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="disable-an-export-rule"></a>Desabilitar uma regra de exportação
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+N/D
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 N/D
 
@@ -272,6 +293,10 @@ Content-type: application/json
 
 N/D
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Use o comando a seguir para excluir uma regra de exportação de dados usando a CLI.
@@ -295,6 +320,10 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 
 N/D
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+N/D
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Use o comando a seguir para exibir todas as regras de exportação de dados em um espaço de trabalho usando a CLI.
@@ -315,7 +344,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Tabelas sem suporte
 Se a regra de exportação de dados incluir uma tabela sem suporte, a configuração terá sucesso, mas nenhum dado será exportado para essa tabela. Se a tabela for suportada posteriormente, seus dados serão exportados nesse momento.
 
-Se a regra de exportação de dados incluir uma tabela que não existe, ela falhará com o erro ```Table <tableName> does not exist in the workspace.```
+Se a regra de exportação de dados incluir uma tabela que não existe, ela falhará com o erro "a tabela não <tableName> existe no espaço de trabalho".
 
 
 ## <a name="supported-tables"></a>Tabelas com suporte

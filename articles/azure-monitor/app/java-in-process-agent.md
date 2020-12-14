@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 4b29e5375c10fc3c1aaa203df720fdd24090d11e
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3cab22c2271fd5874b4b094be65c36f5b5f3a22d
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601128"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371876"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
@@ -25,7 +25,7 @@ Você ainda pode enviar telemetria personalizada do seu aplicativo. O agente 3,0
 
 O agente 3,0 dá suporte a Java 8 e superior.
 
-## <a name="quickstart"></a>Guia de Início Rápido
+## <a name="quickstart"></a>Início Rápido
 
 **1. baixar o agente**
 
@@ -186,17 +186,17 @@ Log4J, Logback e Java. util. Logging são instrumentados automaticamente e o reg
 Por padrão, o registro em log só é coletado quando esse log é executado no nível de informações ou acima.
 Consulte as [Opções de configuração](./java-standalone-config.md#auto-collected-logging) para saber como alterar esse nível.
 
-Se você quiser anexar dimensões personalizadas a seus logs, poderá usar [Log4J 1 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4J 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)ou [Logback MDC](http://logback.qos.ch/manual/mdc.html)e Application insights o Java 3,0 capturará automaticamente essas propriedades MDC como dimensões personalizadas em seu rastreamento e telemetria de exceção.
+Se você quiser anexar dimensões personalizadas a seus logs, você pode usar [Log4j 1,2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4J 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)ou [Logback MDC](http://logback.qos.ch/manual/mdc.html)e Application insights o Java 3,0 irá capturar automaticamente essas propriedades MDC como dimensões personalizadas em seu rastreamento e telemetria de exceção.
 
 ### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Enviar telemetria personalizada usando Application Insights SDK do Java 2. x
 
-Adicione `applicationinsights-core-2.6.0.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
+Adicione `applicationinsights-core-2.6.2.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
 
 ```xml
 <dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>applicationinsights-core</artifactId>
-  <version>2.6.0</version>
+  <version>2.6.2</version>
 </dependency>
 ```
 

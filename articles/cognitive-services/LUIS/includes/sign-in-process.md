@@ -8,18 +8,20 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 10/30/2020
 ms.topic: include
-ms.openlocfilehash: e592c11062e81d48014a90895a0e42b460d4b77c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e006f804b8ab6411f4949424147acf567dc2ed24
+ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128110"
+ms.lasthandoff: 12/13/2020
+ms.locfileid: "97371297"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Entrar no portal do LUIS
 
+[!INCLUDE [Note about portal deprecation](luis-portal-note.md)]
+
 Um novo usuário do LUIS precisa seguir este procedimento:
 
-1. Entrar no [portal do LUIS](https://www.luis.ai), selecionar seu país/região e concordar com os termos de uso. Caso, em vez disso, você consulte **Meus aplicativos** , um recurso do LUIS já existirá e você deverá avançar e criar um aplicativo. Você terá duas opções de inscrição:
+1. Entrar no [portal do LUIS](https://www.luis.ai), selecionar seu país/região e concordar com os termos de uso. Caso, em vez disso, você consulte **Meus aplicativos**, um recurso do LUIS já existirá e você deverá avançar e criar um aplicativo. Você terá duas opções de inscrição:
 
     * Usando um recurso do Azure (recomendado) – permite vincular sua conta do LUIS a um recurso de criação do Azure novo ou existente. Isso é equivalente a inscrever-se já migrado. Você não precisará passar pelo [processo de migração](../luis-migration-authoring.md#what-is-migration) mais tarde.
 
