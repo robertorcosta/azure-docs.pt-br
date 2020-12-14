@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 12/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 0f668f3a9ec4e158dfddd15f9c5d744fb0a5a847
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: be942f73ee0a3d5a8850141c937754bad330db90
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763632"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96912183"
 ---
 Comece a usar o reconhecimento do rosto usando a API REST de Detecção Facial. O serviço de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -22,6 +22,9 @@ Use a API REST de Detecção Facial para:
 
 * [Detectar faces em uma imagem](#detect-faces-in-an-image)
 * [Encontrar rostos semelhantes](#find-similar-faces)
+
+> [!NOTE]
+> Este guia de início rápido usa comandos cURL para chamar a API REST. Você também pode chamar a API REST usando uma linguagem de programação. Confira as amostras do GitHub para obter exemplos em [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Face/rest), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Face/rest), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/Face/rest), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Face/rest) e [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/Face/rest).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

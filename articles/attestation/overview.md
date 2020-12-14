@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
+ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670539"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96748766"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Atestado do Microsoft Azure (versão prévia)
 
-O Atestado do Microsoft Azure (versão prévia) é uma solução para atestar TEEs (Ambientes de Execução Confiáveis), como os enclaves do Intel® [SGX](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (Software Guard Extensions) da [VBS](/windows-hardware/design/device-experiences/oem-vbs) (Segurança baseada em virtualização). O atestado de enclave é um processo usado para verificar se um enclave é seguro e confiável.
+O Atestado do Microsoft Azure (versão prévia) é uma solução unificada para verificar remotamente a confiabilidade de uma plataforma e a integridade dos binários em execução dentro dela. O serviço dá suporte ao atestado das plataformas com suporte de TPMs (Trusted Platform Modules) juntamente com a capacidade de atestar TEEs (Ambientes de Execução Confiável), como enclaves [Intel® SGX](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (Software Guard Extensions) e enclaves [VBS](/windows-hardware/design/device-experiences/oem-vbs) (Segurança baseada em Virtualização). 
 
 O atestado é um processo usado para demonstrar que os binários de software foram instanciados corretamente em uma plataforma confiável. Em seguida, as partes confiáveis remotas podem ter a confiança de que apenas esse software pretendido está sendo executado no hardware confiável. O Atestado do Azure é um serviço unificado voltado ao cliente e uma estrutura para o atestado.
 
@@ -34,12 +34,6 @@ O Atestado do Azure fornece serviços de atestado abrangentes para vários ambie
 O SGX refere-se ao isolamento no nível de hardware, que é compatível com alguns modelos de CPUs Intel. O SGX permite que o código seja executado em compartimentos corrigidos conhecidos como enclaves do SGX. Depois, as permissões de acesso e de memória são gerenciadas pelo hardware para garantir uma superfície de ataque mínima com isolamento adequado.
 
 Os aplicativos cliente podem ser criados para aproveitar os enclaves do SGX, delegando a ocorrência de tarefas de segurança confidenciais nesses enclaves. Em seguida, esses aplicativos podem usar o Atestado do Azure para estabelecer a confiança rotineiramente no enclave e a capacidade de acessar dados confidenciais.
-
-### <a name="vbs-attestation"></a>Atestado da VBS
-
-A VBS é uma arquitetura baseada em software para uma proteção de memória de enclave com base no Hyper-V. Ela impede que o código de administrador do host, bem como os administradores de serviços locais e de nuvem, de acessar os dados em um enclave da VBS ou de afetar a execução dele.
-
-Semelhante à tecnologia SGX, o Atestado do Azure dá suporte à validação de enclaves da VBS em relação às políticas configuradas e à emissão de uma declaração de certificação como prova de validade.
 
 ### <a name="open-enclave"></a>Open Enclave
 O [OE](https://openenclave.io/sdk/) (Open Enclave) é uma coleção de bibliotecas destinadas à criação de uma abstração unificada de enclaves para que os desenvolvedores criem aplicativos baseados em TEE. Ele oferece um modelo de aplicativo seguro universal que minimiza as especificidades de plataforma. A Microsoft o considera como uma base essencial para a democratização das tecnologias de enclave baseadas em hardware, como o SGX, e para a adoção delas no Azure.
@@ -65,19 +59,15 @@ Os clientes do Atestado do Azure expressaram um requisito para que a Microsoft f
 
 O Atestado do Azure é a escolha preferencial para atestar os TEEs, pois oferece os seguintes benefícios: 
 
-- Estrutura unificada para atestar vários TEEs, como enclaves do SGX e da VBS
+- Estrutura unificada para atestar vários ambientes como enclaves TPMs, SGX e VBS 
 - Serviço multilocatário que permite a configuração de provedores de atestado personalizados e políticas para restringir a geração de token
 - Oferece provedores padrão que podem fornecer um atestado sem nenhuma configuração dos usuários
 - Protege os dados durante o uso com a implementação em um enclave do SGX
-- Serviço altamente disponível que oferecerá um Contrato de Nível de Serviço (SLA)
+- Serviço altamente disponível 
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Suporte de BCDR (continuidade dos negócios e recuperação de desastres)
 
 A [BCDR](../best-practices-availability-paired-regions.md) (continuidade dos negócios e recuperação de desastres) do Atestado do Azure permite reduzir as interrupções de serviço resultantes de problemas de disponibilidade ou eventos de desastres significativos em uma região.
-
-Veja abaixo as regiões atualmente com suporte na BCDR
-- Leste dos EUA 2 => emparelhada com a região EUA Central.
-- EUA Central => emparelhada com a região Leste dos EUA 2.
 
 Os clusters implantados em duas regiões funcionarão de maneira independente em circunstâncias normais. No caso de uma falha ou uma interrupção de uma região, ocorrerá o seguinte:
 

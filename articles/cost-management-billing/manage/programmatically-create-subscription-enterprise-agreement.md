@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 34fe909c7fca3c91845c58b41abb0d8885e156e6
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94850865"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780596"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Criar assinaturas do Contrato Enterprise do Azure de modo programático com as APIs mais recentes
 
@@ -89,7 +89,7 @@ A resposta da API lista todas as contas de registro às quais você tem acesso:
 
 ```
 
-Observe a `id` de um de seus `enrollmentAccounts`. Esse será o escopo do orçamento no qual uma solicitação de criação de assinatura será iniciada. 
+O valor de um escopo do orçamento e de `id` são a mesma coisa. O `id` de sua conta de registro é o escopo do orçamento com o qual a solicitação de assinatura é iniciada. É importante conhecer a ID porque ela é um parâmetro necessário que você usa posteriormente no artigo para criar uma assinatura.
 
 <!-- 
 ### [PowerShell](#tab/azure-powershell-getEnrollments)
@@ -130,6 +130,8 @@ No corpo da solicitação, forneça o `billingScope` e a `id` de um de seus `enr
   }
 }
 ```
+
+Os valores permitidos para `Workload` são `Production` e `DevTest`.
 
 #### <a name="response"></a>Resposta
 

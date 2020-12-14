@@ -4,12 +4,12 @@ description: Neste tutorial, você vai configurar a recuperação de desastre de
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 90527ad39055e438e4970ad4686f204f72d20cd2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 6d07082b4a9c18461d5cc74de8844be803da7168
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394011"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922478"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-azure-vms"></a>Tutorial: Configurar a recuperação de desastre para VMs do Azure
 
@@ -56,7 +56,7 @@ Sua conta do Azure precisará de permissões para criar um cofre dos Serviços d
 
 ### <a name="verify-target-settings"></a>Verificar as configurações de destino
 
-Durante a recuperação da descoberta, quando você fizer failover da região de origem, as VMs serão criadas na região de destino. 
+Durante a recuperação de desastre, quando você faz failover da região de origem, as VMs são criadas na região de destino. 
 
 Verifique se a assinatura tem recursos suficientes na região de destino. Você deverá ser capaz de criar VMs com tamanhos que correspondam às VMs da região de origem. Ao configurar a recuperação de desastres, o Site Recovery escolherá o mesmo tamanho (ou o tamanho mais próximo possível) para a VM de destino.
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d2b90db18a31fff4190be4f84625ad52fcaae578
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657305"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905663"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao Gerenciamento de Custos do Azure para parceiros
 
@@ -262,7 +262,7 @@ Você também pode fazer um agrupamento e aplicar um filtro pela propriedade **P
 
 ## <a name="export-cost-data-to-azure-storage"></a>Exportar os dados de custo para o Armazenamento do Azure
 
-Os parceiros com acesso aos escopos de cobrança em um locatário do parceiro podem exportar os dados de custo e de uso para um Azure Storage Blob. O blob precisa estar em uma assinatura no locatário do parceiro que não seja uma assinatura de serviço compartilhado ou uma assinatura do cliente. Para habilitar a exportação de dados de custo, recomendamos que você configure uma assinatura independente paga conforme o uso no locatário do parceiro para hospedar os dados de custo exportados. A conta de armazenamento de exportação é criada no Azure Storage Blob hospedado na assinatura paga conforme o uso. Com base no escopo em que o parceiro cria a exportação, os dados associados são exportados para a conta de armazenamento automaticamente de modo recorrente.
+Os parceiros com acesso aos escopos de cobrança em um locatário do parceiro podem exportar os dados de custo e de uso para um Azure Storage Blob. O blob precisa estar em uma assinatura no locatário do parceiro que não seja uma [assinatura de serviço compartilhado](/partner-center/shared-services) nem uma assinatura do cliente. Para habilitar a exportação de dados de custo, recomendamos que você configure uma assinatura independente paga conforme o uso no locatário do parceiro para hospedar os dados de custo exportados. A conta de armazenamento de exportação é criada no Azure Storage Blob hospedado na assinatura paga conforme o uso. Com base no escopo em que o parceiro cria a exportação, os dados associados são exportados para a conta de armazenamento automaticamente de modo recorrente.
 
 Os usuários com acesso do Azure RBAC à assinatura também podem exportar os dados de custo para um Azure Storage Blob hospedado em qualquer assinatura no locatário do cliente.
 

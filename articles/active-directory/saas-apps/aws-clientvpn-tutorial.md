@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 557d2eb636e51f4259bc525fe39f8c95303774cd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9a2c52674bafeb170efd41afa9c395aeecda9df8
+ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181018"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96602114"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao AWS ClientVPN
 
@@ -80,7 +80,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<LOCALHOST>`
 
-    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<LOCALHOST>`
+    b. Na caixa de texto **URL de Resposta**, digite uma URL nos seguintes padrões:
+
+    | URL de resposta |
+    |------------|
+    | `https://<LOCALHOST>` |
+    | `https://self-service.clientvpn.amazonaws.com/api/auth/sso/saml` |
+    |
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de resposta e a URL de logon propriamente ditas. Entre em contato com a [equipe de suporte ao cliente do AWS ClientVPN](https://aws.amazon.com/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -146,11 +152,11 @@ Nesta seção, um usuário chamado Brenda Fernandes será criado no AWS ClientVP
 
 Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-1. Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do AWS ClientVPN, na qual você poderá iniciar o fluxo de logon. 
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do AWS ClientVPN, na qual você poderá iniciar o fluxo de logon. 
 
-2. Acesse a URL de Logon do AWS ClientVPN diretamente e inicie o fluxo de logon nela.
+* Acesse a URL de Logon do AWS ClientVPN diretamente e inicie o fluxo de logon nela.
 
-3. Use o Painel de Acesso da Microsoft. Ao clicar no bloco do AWS ClientVPN no Painel de Acesso, você será redirecionado para a URL de Logon do AWS ClientVPN. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do AWS ClientVPN no portal Meus Aplicativos, você será redirecionado à URL de Logon do AWS ClientVPN. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## <a name="next-steps"></a>Próximas etapas

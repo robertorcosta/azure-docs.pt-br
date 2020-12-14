@@ -1,21 +1,21 @@
 ---
 title: Tutorial – adicionar funções de modelo
-description: Adicione funções de modelo ao modelo do Azure Resource Manager para construir valores.
+description: Adicione funções de modelo ao modelo do ARM (modelo do Azure Resource Manager) para construir valores.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: c6ced832cad6809e7cd016eee132713c6b266480
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c88e98d966a21163aafefcad8363086d5b3bf4
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613842"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931037"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>Tutorial: Adicionar funções de modelo ao modelo do ARM
 
-Neste tutorial, você aprenderá como adicionar [funções de modelo](template-functions.md) ao modelo do ARM (Azure Resource Manager). Você usa essas funções para construir valores dinamicamente. Além dessas funções de modelo fornecidas pelo sistema, você também pode criar [funções definidas pelo usuário](./template-user-defined-functions.md). Este tutorial leva **7 minutos** para ser concluído.
+Neste tutorial, você aprenderá a adicionar [funções de modelo](template-functions.md) ao modelo do ARM (modelo do Azure Resource Manager). Você usa essas funções para construir valores dinamicamente. Além dessas funções de modelo fornecidas pelo sistema, você também pode criar [funções definidas pelo usuário](./template-user-defined-functions.md). Este tutorial leva **7 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ A localização da conta de armazenamento é embutida em código para **Leste do
 
 ## <a name="use-function"></a>Usar uma função
 
-Se você completou o tutorial anterior nesta série, você já usou uma função. Quando adicionou **"[parameters('storageName')]"** , você usou a função [parameters](template-functions-deployment.md#parameters). Os colchetes indicam que a sintaxe dentro dos colchetes é uma [expressão de modelo](template-expressions.md). O Resource Manager resolve a sintaxe, em vez de tratá-la como um valor literal.
+Se você completou o tutorial anterior nesta série, você já usou uma função. Quando adicionou `"[parameters('storageName')]"` , você usou a função [parameters](template-functions-deployment.md#parameters). Os colchetes indicam que a sintaxe dentro dos colchetes é uma [expressão de modelo](template-expressions.md). O Resource Manager resolve a sintaxe, em vez de tratá-la como um valor literal.
 
 As funções adicionam flexibilidade ao modelo ao obter valores dinamicamente durante a implantação. Neste tutorial, você usa uma função para obter a localização do grupo de recursos que você está usando para implantação.
 

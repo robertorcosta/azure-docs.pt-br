@@ -9,6 +9,25 @@
       href: text-analytics-user-scenarios.md
     - name: Novidades
       href: whats-new.md
+- name: Uso responsável da IA
+  items:
+    - name: Observações de transparência
+      items:
+        - name: Para Análise de Texto
+          href: /legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context
+          displayName: 'Transparency note for Text Analytics, Text Analytics Transparency, Responsible AI, Responsible use of AI'
+        - name: Para Integridade
+          href: /legal/cognitive-services/text-analytics/transparency-note-health?context=/azure/cognitive-services/text-analytics/context/context
+          displayName: 'Transparency note for Text Analytics for Health, Text Analytics Transparency for Health, Responsible AI, Responsible use of AI, Text Analytics Health'
+        - name: Para Informações de Identificação Pessoal
+          href: /legal/cognitive-services/text-analytics/transparency-note-personally-identifiable-information?context=/azure/cognitive-services/text-analytics/context/context
+          displayName: 'Transparency note for Text Analytics PII, Transparency note for Text Analytics Personally Identifiable Information, Text Analytics Transparency for PII, Responsible AI, Responsible use of AI, Text Analytics PII'
+        - name: Para Análise de Sentimento
+          href: /legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis?context=/azure/cognitive-services/text-analytics/context/context
+          displayName: 'Transparency note for Text Analytics Sentiment Analysis, Text Analytics Transparency for Sentiment Analysis, Responsible AI, Responsible use of AI, Text Analytics Sentiment Analysis, Sentiment Analysis Transparency Note'
+    - name: Integração e uso responsável
+      href: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context
+      displayName: 'Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use'
 - name: Inícios rápidos
   expanded: true
   items:

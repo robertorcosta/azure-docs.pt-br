@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: serviço de aplicativo do azure, aplicativo Web, linux, windows, docker, contêiner
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: b5682275a9e5f3993de715ab5f23a708d5df47ae
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 68fe49ff201ead89d846a0676e81dda9fc9b75b9
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130095"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558599"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrar software personalizado para o Serviço de Aplicativo do Azure usando um contêiner personalizado
 
@@ -228,31 +228,16 @@ Concluir este tutorial incorre em um pequeno encargo na sua conta do Azure para 
 
 ## <a name="set-up-your-initial-environment"></a>Configurar o seu ambiente inicial
 
-* Tenha uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Instale o [Docker](https://docs.docker.com/get-started/#setup), que você usa para criar imagens do Docker. A instalação do Docker pode exigir uma reinicialização do computador.
-* Instale a <a href="/cli/azure/install-azure-cli" target="_blank">CLI do Azure</a> 2.0.80 ou superior, com a qual você executa comandos em qualquer shell para provisionar e configurar os recursos do Azure.
+- Tenha uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Instale o [Docker](https://docs.docker.com/get-started/#setup), que você usa para criar imagens do Docker. A instalação do Docker pode exigir uma reinicialização do computador.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- Este tutorial exige a versão 2.0.80 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
-Depois de instalar o Docker e a CLI do Azure, abra uma janela do terminal e verifique se o docker está instalado:
+Depois de instalar o Docker ou executar o Azure Cloud Shell, abra uma janela do terminal e verifique se o docker está instalado:
 
 ```bash
 docker --version
 ```
-
-Verifique também se a sua versão da CLI do Azure é 2.0.80 ou superior:
-
-```azurecli
-az --version
-```
-
-Em seguida, entre no Azure por meio da CLI:
-
-```azurecli
-az login
-```
-
-O comando `az login` abre um navegador para coletar as suas credenciais. Quando o comando for concluído, ele mostrará a saída JSON que contém informações sobre as suas assinaturas.
-
-Depois de conectado, você poderá executar os comandos do Azure com a CLI do Azure para trabalhar com recursos na sua assinatura.
 
 ## <a name="clone-or-download-the-sample-app"></a>Clonar ou baixar o aplicativo de exemplo
 
@@ -343,8 +328,6 @@ ENTRYPOINT ["init.sh"]
 1. Navegue para `http://localhost:8000` para verificar se o aplicativo Web e o contêiner estão funcionando corretamente.
 
     ![Testar o aplicativo Web localmente](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
-
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9cf503f374cd2fd1ca04aad6650b2c07abebbc46
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a52188dc5058dbc74d3b03fba860b98540cd4a41
+ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519346"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96608484"
 ---
 # <a name="communication-services-notifications"></a>Notificações de Serviços de Comunicação
 
@@ -48,13 +48,10 @@ Os Serviços de Comunicação usam o Hub de Notificação do Azure como um servi
 Para entregar notificações por push a dispositivos cliente usando Hubs de Notificação, [crie um Hub de Notificação](../../notification-hubs/create-notification-hub-portal.md) na mesma assinatura que o recurso de Serviços de Comunicação. Os Hubs de Notificação do Azure devem ser configurados para os Serviços de Notificações de Plataforma que você deseja usar. Para saber como obter notificações por push em seu aplicativo cliente desde Hubs de Notificação, veja [Introdução aos Hubs de Notificação](../../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md) e selecione a plataforma de cliente de destino na lista suspensa na parte superior da página.
 
 > [!NOTE]
-> No momento, há suporte para APNs e plataformas FCM.
+> No momento, há suporte para APNs e plataformas FCM.  
+A plataforma de APNs precisa ser configurada com o modo de autenticação de token. O modo de autenticação de certificado não terá mais suporte a partir de agora. 
 
 Depois que o hub de notificações estiver configurado, você poderá associá-lo ao recurso de Serviços de Comunicação fornecendo uma cadeia de conexão para o hub usando o Cliente do Azure Resource Manager ou por meio do portal do Azure. A cadeia de conexão deve conter permissões para "Enviar". É recomendável criar outra política de acesso com permissões para "Enviar" apenas para o seu hub. Saiba mais sobre [políticas de acesso e segurança dos Hubs de Notificação](../../notification-hubs/notification-hubs-push-notification-security.md)
-
-> [!IMPORTANT]
-> Isso é aplicável somente ao modo de autenticação de token. O modo de autenticação de certificado não terá mais suporte a partir de agora.  
-Para habilitar as notificações VOIP do APNS, você precisa definir o valor da ID do pacote ao configurar o hub de notificações para ser sua ID de pacote de aplicativo com o sufixo `.voip`. Confira [Usar o VOIP do APNS por meio de Hubs de Notificação](../../notification-hubs/voip-apns.md) para obter mais detalhes.
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Como usar o cliente do Azure Resource Manager para configurar o Hub de Notificação
 

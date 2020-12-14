@@ -11,16 +11,16 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1b4ee9f06e8ed8bd47be1075070dea71b42b1cef
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349062"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96574149"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Introdução ao Azure Machine Learning no seu ambiente de desenvolvimento (parte 1 de 4)
 
-Nesta *série de tutoriais de quatro partes* , você aprenderá os conceitos básicos do Azure Machine Learning e concluirá as tarefas de machine learning do Python baseadas em trabalhos na plataforma de nuvem do Azure. 
+Nesta *série de tutoriais de quatro partes*, você aprenderá os conceitos básicos do Azure Machine Learning e concluirá as tarefas de machine learning do Python baseadas em trabalhos na plataforma de nuvem do Azure. 
 
 Na Parte 1 desta série de tutoriais, você vai:
 
@@ -52,7 +52,10 @@ Você pode usar as ferramentas mais conhecidas para você (por exemplo, o Conda 
 pip install azureml-sdk
 ```
 
-## <a name="create-a-directory-structure-for-code"></a>Criar uma estrutura de diretório para o código
+> [!div class="nextstepaction"]
+> [Instalei o SDK](?success=install-sdk#dir) [Encontrei um problema](https://www.research.net/r/7C8Z3DN?issue=install-sdk)
+
+## <a name="create-a-directory-structure-for-code"></a><a name="dir"></a>Criar uma estrutura de diretório para o código
 Recomendamos que você configure a seguinte estrutura de diretório simples para este tutorial:
 
 ```markdown
@@ -63,7 +66,11 @@ tutorial
 - `tutorial`: diretório de nível superior do projeto.
 - `.azureml`: subdiretório oculto usado para armazenar arquivos de configuração do Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Criar um workspace do Azure Machine Learning
+
+> [!div class="nextstepaction"]
+> [Criei um diretório](?success=create-dir#workspace) [Encontrei um problema](https://www.research.net/r/7C8Z3DN?issue=create-dir)
+
+## <a name="create-an-azure-machine-learning-workspace"></a><a name="workspace"></a>Criar um workspace do Azure Machine Learning
 
 Um workspace é um recurso de nível superior para Azure Machine Learning e é um local centralizado para:
 
@@ -103,7 +110,7 @@ python ./01-create-workspace.py
 > Se a execução desse código fornecer um erro informando que você não tem acesso à assinatura, confira [Criar um workspace](how-to-manage-workspace.md?tab=python#create-multi-tenant) para obter informações sobre as opções de autenticação.
 
 
-Depois de executar com êxito *01-create-workspace.py* , sua estrutura de pastas terá a seguinte aparência:
+Depois de executar com êxito *01-create-workspace.py*, sua estrutura de pastas terá a seguinte aparência:
 
 ```markdown
 tutorial
@@ -119,7 +126,10 @@ O arquivo `.azureml/config.json` contém os metadados necessários para se conec
 >
 > A autenticação ainda é necessária para interagir com seu workspace do Azure Machine Learning.
 
-## <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de computação do Azure Machine Learning
+> [!div class="nextstepaction"]
+> [Criei um workspace](?success=create-workspace#cluster) [Encontrei um problema](https://www.research.net/r/7C8Z3DN?issue=create-workspace)
+
+## <a name="create-an-azure-machine-learning-compute-cluster"></a><a name="cluster"></a> Criar um cluster de cálculo do Azure Machine Learning
 
 Crie um script Python no diretório de nível superior `tutorial` chamado `02-create-compute.py`. Preencha-o com o seguinte código para criar um cluster de cálculo do Azure Machine Learning que fará o dimensionamento automático entre zero e quatro nós:
 
@@ -167,6 +177,9 @@ tutorial
 └──01-create-workspace.py
 └──02-create-compute.py
 ```
+
+> [!div class="nextstepaction"]
+> [Criei um cluster de cálculo](?success=create-compute-cluster#next-steps) [Encontrei um problema](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)
 
 ## <a name="next-steps"></a>Próximas etapas
 

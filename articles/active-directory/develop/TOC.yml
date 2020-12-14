@@ -322,9 +322,10 @@
               href: msal-net-migration-ios-broker.md
             - name: Considerações de navegador da Web
               href: msal-net-web-browsers.md
-            - name: Lidar com erros e exceções
-              href: msal-handling-exceptions.md?tabs=dotnet
-            - name: Registro em log
+            - name: Tratar erros e exceções em MSAL.NET
+              href: msal-error-handling-dotnet.md
+              displayName: 'handling, catch'
+            - name: Registro em log no MSAL.NET
               href: msal-logging.md?tabs=dotnet
             - name: Adquirir um token do cache
               href: msal-net-acquire-token-silently.md
@@ -363,9 +364,10 @@
               href: msal-js-use-ie-browser.md
             - name: Problemas conhecidos – IE e Microsoft Edge
               href: msal-js-known-issues-ie-edge-browsers.md
-            - name: Lidar com erros e exceções
-              href: msal-handling-exceptions.md?tabs=javascript
-            - name: Registro em log
+            - name: Tratar erros e exceções em MSAL.js
+              href: msal-error-handling-js.md
+              displayName: 'handling, catch'
+            - name: Como fazer registro em log no MSAL.js
               href: msal-logging.md?tabs=javascript
         - name: MSAL para iOS e macOS
           items:
@@ -392,9 +394,10 @@
               href: sso-between-adal-msal-apps-macos-ios.md
             - name: Solucionar problemas de SSL (MSAL iOS/macOS)
               href: ssl-issues.md
-            - name: Lidar com erros e exceções
-              href: msal-handling-exceptions.md?tabs=iosmacos
-            - name: Registro em log
+            - name: Tratar erros e exceções em MSAL para iOS/macOS
+              href: msal-error-handling-ios.md
+              displayName: 'handling, catch'
+            - name: Registrar em log em MSAL para iOS/macOS
               href: msal-logging.md?tabs=swift
         - name: MSAL para Python
           items:
@@ -404,9 +407,10 @@
               href: migrate-python-adal-msal.md
             - name: Suporte do ADFS na MSAL para Python
               href: msal-python-adfs-support.md
-            - name: Lidar com erros e exceções
-              href: msal-handling-exceptions.md?tabs=python
-            - name: Registro em log
+            - name: Tratar erros e exceções em MSAL para Python
+              href: msal-error-handling-python.md
+              displayName: 'handling, catch'
+            - name: Registrar em log em MSAL para Python
               href: msal-logging.md?tabs=python
         - name: MSAL para Java
           items:
@@ -418,9 +422,10 @@
               href: migrate-adal-msal-java.md
             - name: Suporte do ADFS no MSAL para Java
               href: msal-java-adfs-support.md
-            - name: Lidar com erros e exceções
-              href: msal-handling-exceptions.md?tabs=java
-            - name: Registro em log
+            - name: Tratar erros e exceções em MSAL para Java
+              href: msal-error-handling-java.md
+              displayName: 'handling, catch'
+            - name: Registrar em log em MSAL para Java
               href: msal-logging.md?tabs=java
         - name: MSAL para Android
           items:
@@ -437,10 +442,10 @@
               displayName: 'firstline worker, frontline worker, flw'
             - name: Aplicativos cliente públicos de uma única conta e de várias contas
               href: single-multi-account.md
-            - name: Lidar com erros e exceções
+            - name: Tratar erros e exceções em MSAL para Android
               href: msal-android-handling-exceptions.md
-              displayName: 'android, mobile'
-            - name: Registro em log
+              displayName: 'android, mobile, handling, catch'
+            - name: Registrar em log em MSAL para Android
               href: msal-logging.md?tabs=android
     - name: Personalizar tokens e declarações
       items:

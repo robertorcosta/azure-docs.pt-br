@@ -1,20 +1,20 @@
 ---
-title: Tutorial – Migrar um aplicativo Web do Google Maps | Microsoft Azure Mapas
+title: Tutorial – Migrar um aplicativo Web do Google Maps para o Microsoft Azure Mapas
 description: Tutorial sobre como migrar um aplicativo Web do Google Maps para o Microsoft Azure Mapas
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/18/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: b95800bea4bceffabad56aa29b68a57b310c5518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4dee8de8f42b78ecdab9d9e15bb277d58fa8ba70
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896439"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905053"
 ---
 # <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Tutorial – Migrar um aplicativo Web do Google Maps
 
@@ -75,7 +75,7 @@ A tabela lista os principais recursos da API no SDK do Google Maps V3 para JavaS
 | Serviço geocodificador        | ✓                          |
 | Serviço de instruções      | ✓                          |
 | Serviço da matriz de distância | ✓                          |
-| Serviço de elevação       | Planejado                     |
+| Serviço de elevação       | ✓                          |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>Diferenças notáveis nos SDKs da Web
 

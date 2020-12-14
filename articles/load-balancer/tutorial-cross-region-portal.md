@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/24/2020
-ms.openlocfilehash: fe335b00df23ff132ad61b27efd733d195ee3bfb
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 7ee203595a796529ae0aefe8b0c52a689ac29968
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030913"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762322"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um Azure Load Balancer entre regiões usando o portal do Azure
 
@@ -28,6 +28,10 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+> [!IMPORTANT]
+> O Azure Load Balancer entre regiões está em versão prévia pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure.
@@ -37,8 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
 
-> [!IMPORTANT]
-> Atualmente, o balanceador de carga entre regiões está em versão prévia e oculto na versão prévia do portal.  Entre em **https://preview.portal.azure.com/?feature.globallb=true** para ver e implantar o recurso.
+[Entre](https://preview.portal.azure.com) na Versão Prévia do Portal do Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Criar um balanceador de carga entre regiões
 
@@ -48,7 +51,7 @@ Nesta seção, você criará um balanceador de carga entre regiões e um endere�
 
 2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
-    | Configuração                 | Valor                                              |
+    | Setting                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **Criar** e insira **CreateCRLBTutorial-rg** na caixa de texto.|

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/28/2020
-ms.openlocfilehash: 0b777fdef344ce1a60ed00ee46eeaa8cee23b8c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c4d4c659fd1c33c9ffc1b833b92d0727b5c17bf7
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099181"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96922887"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Início Rápido: Criar e gerenciar definições do fluxo de trabalho de aplicativos lógicos usando o Visual Studio Code
 
@@ -58,7 +58,7 @@ Antes de começar, verifique se você tem estes itens:
 
    ![Selecione o ícone do Azure na barra de ferramentas do Visual Studio Code](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. Na janela do Azure, em **Aplicativos Lógicos** , selecione **Fazer login no Azure**. Quando a página de entrada da Microsoft solicitar, entre com sua conta do Azure.
+1. Na janela do Azure, em **Aplicativos Lógicos**, selecione **Fazer login no Azure**. Quando a página de entrada da Microsoft solicitar, entre com sua conta do Azure.
 
    ![Selecione "Entrar no Azure"](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
@@ -74,7 +74,7 @@ Antes de começar, verifique se você tem estes itens:
 
       ![Confirmar abertura de um navegador e ir para o site de autenticação](./media/quickstart-create-logic-apps-visual-studio-code/confirm-open-link.png)
 
-   1. Na página **Entrar na sua conta** , insira seu código de autenticação e selecione **Avançar**.
+   1. Na página **Entrar na sua conta**, insira seu código de autenticação e selecione **Avançar**.
 
       ![Inserir código de autenticação para entrar no Azure](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
@@ -88,12 +88,12 @@ Antes de começar, verifique se você tem estes itens:
 
    1. Na lista exibida, selecione as assinaturas que você quer que sejam exibidas.
 
-1. Em **Aplicativos Lógicos** , selecione a assinatura que você quer. O nó da assinatura expande e mostra todos os aplicativos lógicos existentes nela.
+1. Em **Aplicativos Lógicos**, selecione a assinatura que você quer. O nó da assinatura expande e mostra todos os aplicativos lógicos existentes nela.
 
    ![Selecionar sua assinatura do Azure](./media/quickstart-create-logic-apps-visual-studio-code/select-azure-subscription.png)
 
    > [!TIP]
-   > Em **Contas de Integração** , selecionar sua assinatura mostra todas as contas de integração existentes nela.
+   > Em **Contas de Integração**, selecionar sua assinatura mostra todas as contas de integração existentes nela.
 
 <a name="create-logic-app"></a>
 
@@ -101,7 +101,7 @@ Antes de começar, verifique se você tem estes itens:
 
 1. Caso ainda não tenha entrado na sua conta e assinatura do Azure de dentro do Visual Studio Code, siga as [etapas anteriores para entrar agora](#access-azure).
 
-1. No Visual Studio Code, em **Aplicativos Lógicos** , abra o menu de atalho de sua assinatura e selecione **Criar Aplicativo Lógico**.
+1. No Visual Studio Code, em **Aplicativos Lógicos**, abra o menu de atalho de sua assinatura e selecione **Criar Aplicativo Lógico**.
 
    ![No menu de assinatura, selecione "Criar Aplicativo Lógico"](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
@@ -204,7 +204,7 @@ Antes de começar, verifique se você tem estes itens:
 
 No Visual Studio Code, você pode abrir seu aplicativo lógico no modo de exibição de design somente leitura. Embora você não possa editar o aplicativo lógico no designer, é possível verificar visualmente o fluxo de trabalho do aplicativo lógico usando o modo de exibição do designer.
 
-Na janela do Azure, em **Aplicativos Lógicos** , abra o menu de atalho do aplicativo lógico e selecione **Abrir no Designer**.
+Na janela do Azure, em **Aplicativos Lógicos**, abra o menu de atalho do aplicativo lógico e selecione **Abrir no Designer**.
 
 O designer somente leitura é aberto em uma janela separada e mostra o fluxo de trabalho do aplicativo lógico, por exemplo:
 
@@ -228,7 +228,7 @@ No Visual Studio Code, se editar um aplicativo lógico publicado e salvar suas a
 
 1. Caso ainda não tenha entrado na sua conta e assinatura do Azure de dentro do Visual Studio Code, siga as [etapas anteriores para entrar agora](#access-azure).
 
-1. Na janela do Azure, em **Aplicativos Lógicos** , expanda sua assinatura do Azure para que possa exibir todos os aplicativos lógicos nela.
+1. Na janela do Azure, em **Aplicativos Lógicos**, expanda sua assinatura do Azure para que possa exibir todos os aplicativos lógicos nela.
 
    1. Para desabilitar o aplicativo lógico que deseja, abra o menu do aplicativo lógico e selecione **Desabilitar**.
 
@@ -249,7 +249,7 @@ No Visual Studio Code, você pode abrir e editar a definição de fluxo de traba
 
 1. Caso ainda não tenha entrado na sua conta e assinatura do Azure de dentro do Visual Studio Code, siga as [etapas anteriores para entrar agora](#access-azure).
 
-1. Na janela do Azure, em **Aplicativos Lógicos** , expanda sua assinatura do Azure e selecione o aplicativo lógico desejado.
+1. Na janela do Azure, em **Aplicativos Lógicos**, expanda sua assinatura do Azure e selecione o aplicativo lógico desejado.
 
 1. Abra o menu de seu aplicativo lógico e selecione **Abrir no Editor**. Ou, ao lado do nome do seu aplicativo lógico, selecione o ícone de edição.
 
@@ -276,7 +276,7 @@ No Visual Studio Code, você pode abrir e examinar as versões anteriores de seu
 > [!IMPORTANT] 
 > Antes de alterar um aplicativo lógico em execução ativa na produção, evite o risco de interromper o aplicativo lógico e minimize interrupções [desabilitando seu aplicativo lógico primeiro](#disable-enable-logic-app).
 
-1. Na janela do Azure, em **Aplicativos Lógicos** , expanda sua assinatura do Azure para que possa exibir todos os aplicativos lógicos nela.
+1. Na janela do Azure, em **Aplicativos Lógicos**, expanda sua assinatura do Azure para que possa exibir todos os aplicativos lógicos nela.
 
 1. Em sua assinatura, expanda o aplicativo lógico e expanda **Versões**.
 
@@ -286,7 +286,7 @@ No Visual Studio Code, você pode abrir e examinar as versões anteriores de seu
 
 1. Para exibir uma versão anterior, selecione uma das etapas:
 
-   * Para exibir a definição de JSON, em **Versões** , selecione o número de versão da definição. Ou abra o menu de atalho da versão e selecione **Abrir no Editor**.
+   * Para exibir a definição de JSON, em **Versões**, selecione o número de versão da definição. Ou abra o menu de atalho da versão e selecione **Abrir no Editor**.
 
      É aberto um novo arquivo no computador local, que mostra a definição de JSON da versão.
 
@@ -294,7 +294,7 @@ No Visual Studio Code, você pode abrir e examinar as versões anteriores de seu
 
 1. Para promover uma versão anterior para a versão atual, siga estas etapas:
 
-   1. Em **Versões** , abra o menu de atalho da versão anterior e selecione **Promover**.
+   1. Em **Versões**, abra o menu de atalho da versão anterior e selecione **Promover**.
 
       ![Promover versão anterior](./media/quickstart-create-logic-apps-visual-studio-code/promote-earlier-version.png)
 
@@ -307,4 +307,4 @@ No Visual Studio Code, você pode abrir e examinar as versões anteriores de seu
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar aplicativos lógicos com ou sem estado no Visual Studio Code (versão prévia)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
+> [Criar aplicativos lógicos com e sem estado no Visual Studio Code (versão prévia)](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)

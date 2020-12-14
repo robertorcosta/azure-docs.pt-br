@@ -8,16 +8,23 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f261db8d40e1a1cc1737ff6a3f5c50da661b73e6
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: d86a273a69203a92a9b437f021486feb3bcb31da
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433476"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932363"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Tutorial: Configurar um ambiente para aprendizado de máquina no IoT Edge
 
 Este artigo ajuda você a preparar seu ambiente para desenvolvimento e implantação. Primeiro, configure um computador de desenvolvimento com todas as ferramentas necessárias. Em seguida, crie os recursos de nuvem necessários no Azure.
+
+Nesta seção do tutorial, você aprenderá a:
+
+> [!div class="checklist"]
+>
+> * Configurar uma máquina virtual para desenvolvimento.
+> * Configurar um hub IoT e o armazenamento em nuvem para uso do seu ambiente de desenvolvimento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -210,15 +217,13 @@ Como parte da criação do Hub IoT, o script que executamos na seção anterior 
 
 1. Como nenhuma edição foi feita, basta fechar esta página.
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este tutorial faz parte de um conjunto em que cada artigo se baseia no trabalho feito nos anteriores. Aguarde para limpar todos os recursos até concluir o tutorial final.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, criamos um Hub IoT e configuramos uma rota para uma conta do Armazenamento do Azure. Em seguida, enviaremos dados de um conjunto de dispositivos simulados por meio do Hub IoT para a conta de armazenamento. Mais adiante no tutorial, após configuramos o dispositivo e os módulos do IoT Edge, vamos revisitar as rotas e examinar um pouco mais a consulta de roteamento.
-
-Para obter mais informações sobre as etapas abordadas nesta parte do tutorial de Machine Learning no IoT Edge, confira:
-
-* [Conceitos básicos do Azure IoT](../iot-fundamentals/index.yml)
-* [Configurar o roteamento de mensagens com o Hub IoT](../iot-hub/tutorial-routing.md)
-* [Criar um Hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md)
 
 Continue para o próximo artigo para criar um dispositivo simulado para monitoramento.
 

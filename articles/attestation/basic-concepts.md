@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a4ab8372e23e3621f7d73f8dbc38957c809acc9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89236792"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921612"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -30,7 +30,7 @@ A [JWK](https://tools.ietf.org/html/rfc7517) (Chave da Web JSON) é uma estrutur
 
 O provedor de atestado pertence ao provedor de recursos do Azure chamado Microsoft.Attestation. O provedor de recursos é um ponto de extremidade de serviço que fornece o contrato REST do Atestado do Azure e é implantado por meio do [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada provedor de atestado respeita uma política específica e detectável. 
 
-Os provedores de atestado são criados com uma política padrão para cada tipo de TEE (observe que o enclave da VBS não tem nenhuma política padrão). Confira os [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão do SGX.
+Os provedores de atestado são criados com uma política padrão para cada tipo de atestado (observe que o enclave da VBS não tem nenhuma política padrão). Confira os [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão do SGX.
 
 ### <a name="regional-default-provider"></a>Provedor padrão regional
 
@@ -38,11 +38,11 @@ O Atestado do Azure fornece um provedor padrão em cada região. Os clientes pod
 
 | Região | URI do atestado | 
 |--|--|
-| Sul do Reino Unido | https://shareduks.uks.attest.azure.net | 
-| Leste dos EUA 2 | https://sharedeus2.eus2.attest.azure.net | 
-| Centro dos EUA | https://sharedcus.cus.attest.azure.net | 
-| Leste dos EUA| https://sharedeus.eus.attest.azure.net | 
-| Canadá Central | https://sharedcac.cac.attest.azure.net | 
+| Sul do Reino Unido | `https://shareduks.uks.attest.azure.net` | 
+| Leste dos EUA 2 | `https://sharedeus2.eus2.attest.azure.net` | 
+| Centro dos EUA | `https://sharedcus.cus.attest.azure.net` | 
+| Leste dos EUA| `https://sharedeus.eus.attest.azure.net` | 
+| Canadá Central | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Solicitação de atestado
 
@@ -50,13 +50,13 @@ A solicitação de atestado é um objeto JSON serializado enviado pelo aplicativ
 - “Quote”: o valor da propriedade “Quote” é uma cadeia de caracteres que contém uma representação codificada em Base64URL da cotação do atestado
 - “EnclaveHeldData”: o valor da propriedade “EnclaveHeldData” é uma cadeia de caracteres que contém uma representação codificada em Base64URL dos dados contidos no enclave.
 
-O Atestado do Azure validará a “Cotação” fornecida do TEE e garantirá que o hash SHA256 dos Dados Contidos no Enclave fornecido seja expresso nos primeiros 32 bytes do campo reportData na cotação. 
+O Atestado do Azure validará a “Cotação” fornecida e garantirá que o hash SHA256 dos Dados Contidos no Enclave fornecidos seja expresso nos primeiros 32 bytes do campo reportData na cotação. 
 
 ## <a name="attestation-policy"></a>Política de atestado
 
 A política de atestado é usada para processar as evidências de atestado e pode ser configurada pelos clientes. No centro do Atestado do Azure está um mecanismo de política, que processa as declarações que constituem as evidências. As políticas são usadas para determinar se o Atestado do Azure deverá emitir um token de atestado com base nas evidências (ou não) e, portanto, endossa o Atestador (ou não). Da mesma forma, a falha na aprovação em todas as políticas fará com que nenhum token JWT seja emitido.
 
-Se a política padrão do TEE no provedor de atestado não atender às necessidades, os clientes poderão criar políticas personalizadas em uma das regiões com suporte no Atestado do Azure. O gerenciamento de políticas é um recurso importante fornecido aos clientes pelo Atestado do Azure. As políticas serão específicas do TEE e podem ser usadas para identificar enclaves ou adicionar declarações ao token de saída ou modificar declarações em um token de saída. 
+Se a política padrão no provedor de atestado não atender às necessidades, os clientes poderão criar políticas personalizadas em uma das regiões com suporte no Atestado do Azure. O gerenciamento de políticas é um recurso importante fornecido aos clientes pelo Atestado do Azure. As políticas serão específicas do tipo de atestado e podem ser usadas para identificar enclaves ou adicionar declarações ao token de saída ou modificar declarações em um token de saída. 
 
 Confira os [exemplos de uma política de atestado](policy-examples.md) para obter o conteúdo e os exemplos de política padrão.
 
@@ -99,6 +99,15 @@ Exemplo de JWT gerado para um enclave do SGX:
 }.[Signature]
 ```
 Declarações como “exp”, “iat”, “iss” e “nbf” são definidas pelo [RFC JWT](https://tools.ietf.org/html/rfc7517) e as restantes são geradas pelo Atestado do Azure. Confira as [declarações emitidas pelo Atestado do Azure](claim-sets.md) para obter mais informações.
+
+## <a name="encryption-of-data-at-rest"></a>Criptografia de dados em repouso
+
+Para proteger os dados do cliente, o Atestado do Azure persiste os dados no Armazenamento do Azure. O Armazenamento do Azure fornece criptografia de dados inativos durante a gravação deles em data centers e descriptografa-os para serem acessados pelos clientes. Essa criptografia ocorre com uma chave de criptografia gerenciada pela Microsoft. 
+
+Além de proteger os dados no Armazenamento do Azure, o Atestado do Azure também aproveita o ADE (Azure Disk Encryption) para criptografar as VMs de serviço. Para o Atestado do Azure em execução em um enclave nos ambientes de computação confidencial do Azure, atualmente, não há suporte para a extensão do ADE. Nesses cenários, para impedir que os dados sejam armazenados na memória, o arquivo de paginação fica desabilitado. 
+
+Nenhum dado do cliente é persistido nas unidades de disco rígido locais da instância do Atestado do Azure.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

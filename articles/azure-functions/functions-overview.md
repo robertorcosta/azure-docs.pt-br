@@ -1,24 +1,30 @@
 ---
 title: Visão geral do Azure Functions
-description: Saiba como o Azure Functions pode ajudar a criar aplicativos sem servidor escalonáveis.
+description: Saiba como o Azure Functions pode ajudar a criar aplicativos sem servidor robustos.
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 11/20/2020
 ms.author: cshoe
 ms.custom: contperfq2
-ms.openlocfilehash: 514f2e9a82a50f95f9c054c6a54e7b5af3c0af15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 269d911c13cbc59a054c5548e106780d630c8e2b
+ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96167770"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96620861"
 ---
 # <a name="introduction-to-azure-functions"></a>Introdução ao Azure Functions
 
+O Azure Functions é uma solução sem servidor que permite que você escreva menos código, mantenha menos infraestrutura e economize nos custos. Em vez de se preocupar com a implantação e manutenção de servidores, a infraestrutura de nuvem fornece todos os servidores atualizados necessários para manter seus aplicativos em execução.
+
+Você se concentra nas partes do código mais importantes para você e o Azure Functions lida com o restante.<br /><br />
+
+> [!VIDEO https://www.youtube.com/embed/8-jz5f_JyEQ]
+
 Muitas vezes, criamos sistemas para reagir a uma série de eventos críticos. Se você estiver criando uma API Web, respondendo a alterações no banco de dados, processando fluxos IoT ou até mesmo gerenciando filas de mensagens, cada aplicativo precisa ter uma forma de executar algum código à medida que esses eventos ocorrem.
 
-Para atender a essa necessidade, o Azure Functions fornece "computação sob demanda" – e de duas maneiras significativas.
+Para atender a essa necessidade, o Azure Functions fornece "computação sob demanda" de duas maneiras significativas.
 
 Primeiro, o Azure Functions permite que você implemente a lógica do seu sistema em blocos de código prontamente disponíveis. Esses blocos de código são denominados "funções". Funções diferentes poderão ser executadas sempre que você precisar responder a eventos críticos.
 
@@ -43,7 +49,7 @@ Veja a seguir um conjunto comum, _mas não exaustivo_, de cenários para o Azure
 | **Executar tarefas agendadas** | Execute o código em [horários definidos](./functions-bindings-timer.md) |
 | **Criar sistemas de fila de mensagens confiáveis** | Processe filas de mensagens usando o [Armazenamento de Filas](./functions-bindings-storage-queue.md), o [Barramento de Serviço](./functions-bindings-service-bus.md) ou os [Hubs de Eventos](./functions-bindings-event-hubs.md) |
 | **Analisar fluxos de dados de IoT** | Colete e processe [dados de dispositivos IoT](./functions-bindings-event-iot.md) |
-| **Processar dados em tempo real** | Use o [Functions e o Signal R](./functions-bindings-signalr-service.md) para responder aos dados no momento |
+| **Processar dados em tempo real** | Use o [Functions e SignalR](./functions-bindings-signalr-service.md) para responder aos dados no momento |
 
 Ao criar suas funções, você tem as seguintes opções e recursos disponíveis:
 

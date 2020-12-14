@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 11/24/2020
+ms.date: 12/08/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 904456de527e8d0acb1319059c18f9a3c6b0a1a3
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 42701fbcee9833fd31fff3ace55d48079015dbcd
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95992954"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906396"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – portal do Azure
 
@@ -153,8 +153,9 @@ Para fazer isso, você precisará:
     - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
     - **Nome da máquina virtual**: Insira *myVM* para o nome da máquina virtual.
     - **Região**: Selecione a mesma região em que você criou o gateway de aplicativo.
-    - **Nome de usuário**: Digite *azureuser* para o nome de usuário do administrador.
+    - **Nome de usuário**: digite um nome para o nome de usuário do administrador.
     - **Senha**: Digite uma senha.
+    - **Porta de entrada públicas**: Nenhum.
 4. Aceite os outros padrões e selecione **Próximo: Discos**.  
 5. Aceite os padrões na guia **Discos** e selecione **Próximo: Rede**.
 6. Na guia **Rede**, verifique se **myVNet** está selecionado para a **Rede virtual** e se a **Sub-rede** está definida como **myBackendSubnet**. Aceite os outros padrões e selecione **Próximo: Gerenciamento**.<br>O Gateway de Aplicativo pode comunicar-se com instâncias fora da rede virtual em que está, mas é necessário garantir que há conectividade IP.

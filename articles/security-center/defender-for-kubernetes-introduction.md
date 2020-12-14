@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a0dd00709dbe8a1b0e037fe22750adea7e071162
+ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791912"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97371995"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
@@ -31,7 +31,7 @@ A detecção de ameaças no nível de host para os nós AKS do Linux estará dis
 |Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|O **Azure Defender para Kubernetes** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
 |Funções e permissões necessárias:|O **Administrador de segurança** pode ignorar alertas.<br>**O leitor de segurança** pode exibir as conclusões.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Governo da China<br>![Não](./media/icons/no-icon.png) US Gov, outros governos|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Quais são os benefícios do Azure Defender para Kubernetes?
@@ -49,7 +49,7 @@ A Central de Segurança fornece proteção contra ameaças em diferentes níveis
     >[!IMPORTANT]
     > Se você optar por não instalar os agentes em seus hosts, receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados a análises de rede e comunicações com servidores mal-intencionados.
 
-- **Nível de cluster do AKS (fornecido pelo Azure Defender para Kubernetes)** – No nível do cluster, a proteção contra ameaças baseia-se na análise dos logs de auditoria do Kubernetes. Para habilitar esse monitoramento **sem agente** , habilite o Azure Defender. Para gerar alertas nesse nível, a Central de Segurança monitora seus serviços gerenciados pelo AKS usando os logs recuperados pelo AKS. Exemplos de eventos nesse nível incluem painéis expostos do Kubernetes, a criação de funções com altos privilégios e a criação de montagens confidenciais.
+- **Nível de cluster do AKS (fornecido pelo Azure Defender para Kubernetes)** – No nível do cluster, a proteção contra ameaças baseia-se na análise dos logs de auditoria do Kubernetes. Para habilitar esse monitoramento **sem agente**, habilite o Azure Defender. Para gerar alertas nesse nível, a Central de Segurança monitora seus serviços gerenciados pelo AKS usando os logs recuperados pelo AKS. Exemplos de eventos nesse nível incluem painéis expostos do Kubernetes, a criação de funções com altos privilégios e a criação de montagens confidenciais.
 
     Para obter uma lista dos alertas no nível do cluster AKS, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-akscluster).
 
@@ -72,7 +72,7 @@ Você pode ver que os itens recebidos e analisados pela Central de Segurança in
 - logs de auditoria do servidor de API
 - eventos de segurança brutos do agente do Log Analytics
 - informações de configuração de cluster do cluster do AKS
-- configuração da carga de trabalho do Azure Policy (por meio do **complemento do Azure Policy para Kubernetes** ). [Saiba mais sobre as melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- configuração da carga de trabalho do Azure Policy (por meio do **complemento do Azure Policy para Kubernetes**). [Saiba mais sobre as melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 :::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Arquitetura de alto nível da interação entre a Central de Segurança do Azure, o Serviço de Kubernetes do Azure e o Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 

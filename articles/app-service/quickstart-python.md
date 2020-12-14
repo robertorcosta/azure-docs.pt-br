@@ -6,12 +6,12 @@ ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7eebbe5605c0b4d70ea15c1605cff5416965e535
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506185"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780766"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
@@ -64,7 +64,7 @@ Esse comando abre um navegador para coletar suas credenciais. Quando o comando f
 
 Depois de conectado, você poderá executar os comandos do Azure com a CLI do Azure para trabalhar com recursos na sua assinatura.
 
-Está enfrentando problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
+Está com problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clone-the-sample"></a>Clonar o exemplo
 
@@ -74,23 +74,11 @@ Clone o repositório de exemplo usando o comando a seguir e navegue até a pasta
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 ```
-
-Em seguida, acesse esta pasta:
-
-```terminal
-cd python-docs-hello-world
-```
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-django
-```
-
-Em seguida, acesse esta pasta:
-
-```terminal
-cd python-docs-hello-django
 ```
 ::: zone-end
 
@@ -101,7 +89,11 @@ Está enfrentando problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHel
 ## <a name="run-the-sample"></a>Execute o exemplo
 
 ::: zone pivot="python-framework-flask"
-1. Verifique se você está na pasta *python-docs-hello-world*. 
+1. Navegue até a pasta *python-docs-hello-world*:
+
+    ```terminal
+    cd python-docs-hello-world
+    ```
 
 1. Crie um ambiente virtual e instale as dependências:
 
@@ -115,7 +107,11 @@ Está enfrentando problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHel
     flask run
     ```
     
-    Por padrão, o servidor presume que o módulo de entrada do aplicativo esteja em *app.py*, conforme usado no exemplo. (Se usar outro nome de módulo, defina a variável de ambiente `FLASK_APP` com esse nome.)
+    Por padrão, o servidor presume que o módulo de entrada do aplicativo esteja em *app.py*, conforme usado no exemplo.
+
+    Se usar outro nome de módulo, defina a variável de ambiente `FLASK_APP` com esse nome.
+
+    Se encontrar o erro "Não foi possível localizar um aplicativo Flask. Você não forneceu a variável de ambiente 'FLASK_APP' e um módulo 'wsgi.py' ou 'app.py' não foi encontrado no diretório atual.", verifique se você está na pasta `python-docs-hello-world` que contém o exemplo.
 
 1. Abra um navegador da Web e vá até o aplicativo de exemplo em `http://localhost:5000/`. O aplicativo exibe a mensagem **Olá, Mundo!** .
 
@@ -125,7 +121,11 @@ Está enfrentando problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHel
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Verifique se você está na pasta *python-docs-hello-django*. 
+1. Navegue até a pasta *python-docs-hello-django*:
+
+    ```terminal
+    cd python-docs-hello-django
+    ```
 
 1. Crie um ambiente virtual e instale as dependências:
 
@@ -259,7 +259,7 @@ A seleção do aplicativo abre a página **Visão geral** dele, em que você pod
 
 O menu de Serviço de Aplicativo fornece páginas diferentes para configurar seu aplicativo.
 
-Está enfrentando problemas? Confira primeiro o [Guia de solução de problemas](configure-language-python.md#troubleshooting). Caso contrário, [fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
+Está enfrentando problemas? Veja primeiro o [Guia de solução de problemas](configure-language-python.md#troubleshooting). Caso contrário, [fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

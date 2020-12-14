@@ -1,5 +1,5 @@
 ---
-title: Usar o Time Series Insights para armazenar e analisar a telemetria do dispositivo IoT Plug and Play do Azure | Microsoft Docs
+title: Use o Azure Time Series Insights para armazenar e analisar a telemetria de seu dispositivo IoT Plug and Play do Azure
 description: Configure um ambiente do Time Series Insights e conecte o hub IoT para exibir e analisar a telemetria por meio dos seus dispositivos IoT Plug and Play.
 author: lyrana
 ms.author: lyhughes
@@ -7,21 +7,21 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ad5c6f205fc832eb125e52b4135990fc58742e62
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5491df61a1198e8eee4ba4701ccfc56154ec75eb
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453234"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96905071"
 ---
-# <a name="preview-tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>Versão prévia do tutorial: criar o Time Series Insights Gen2 e conectar-se a ele para armazenar, visualizar e analisar a telemetria de dispositivos do IoT Plug and Play
+# <a name="preview-tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Versão prévia do tutorial: Criar e configurar um ambiente do Time Series Insights Gen2
 
-Neste tutorial, você aprenderá a criar e configurar de modo correto um ambiente do [TSI](../time-series-insights/overview-what-is-tsi.md) (Azure Time Series Insights Gen2) para integrá-lo à sua solução de IoT Plug and Play. Use o TSI para coletar, processar, armazenar, consultar e visualizar dados de série temporal na escala da IoT (Internet das Coisas).
+Neste tutorial, você aprende a criar e configurar um ambiente do [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) para integração à sua solução de IoT Plug and Play. Use o Time Series Insights para coletar, processar, armazenar, consultar e visualizar dados de série temporal na escala da IoT (Internet das Coisas).
 
-Primeiro, você provisionará um ambiente do TSI e conectará o hub IoT como uma origem do evento de streaming. Depois, você trabalhará com a sincronização de modelos para criar o [Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md) com base nos arquivos de modelos de exemplo da [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl) usados para o controlador de temperatura e os dispositivos de termostato.
+Primeiro, você provisiona um ambiente do Time Series Insights e conecta o hub IoT como uma origem do evento de streaming. Em seguida, você trabalha com a sincronização do modelo para criar seu [Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md). Use os arquivos do modelo de exemplo de [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl) que você usou para os dispositivos de controlador de temperatura e termostato.
 
 > [!NOTE]
-> Essa integração está em versão prévia. A forma como os modelos de dispositivos DTDL são mapeados para o Modelo de Série Temporal poderá ser alterada.
+> Essa integração entre o Time Series Insights e o IoT Plug and Play está em versão prévia. A maneira como os modelos do dispositivo DTDL são mapeados para o Modelo de Série Temporal do Time Series Insights pode mudar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,49 +30,49 @@ Primeiro, você provisionará um ambiente do TSI e conectará o hub IoT como uma
 Até agora, você tem:
 
 * Um Hub IoT do Azure.
-* Uma instância do DPS vinculada ao seu hub IoT, com um registro de dispositivo individual para seu dispositivo IoT Plug and Play.
-* Uma conexão com o hub IoT por meio de um dispositivo de um só componente ou de vários componentes, transmitindo os dados simulados.
+* Uma instância do DPS (Serviço de Provisionamento de Dispositivos) vinculada ao seu hub IoT. A instância do DPS deve ter um registro de dispositivo individual para seu dispositivo IoT Plug and Play.
+* Uma conexão com o hub IoT por meio de um dispositivo de componente único ou de vários componentes que transmite os dados simulados.
 
-Evitar a necessidade de instalar a CLI do Azure localmente. É possível usar o Azure Cloud Shell para configurar serviços de nuvem.
+Para evitar a necessidade de instalar a CLI do Azure localmente, use o Azure Cloud Shell para configurar os serviços de nuvem.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="prepare-your-event-source"></a>Preparar a origem do evento
 
-O hub IoT criado anteriormente será a [origem do evento](../time-series-insights/concepts-streaming-ingestion-event-sources.md) do seu ambiente do TSI.
+O hub IoT criado anteriormente será a [origem do evento](../time-series-insights/concepts-streaming-ingestion-event-sources.md) de seu ambiente do Time Series Insights.
 
 > [!IMPORTANT]
-> Desabilite as rotas existentes do Hub IoT. Há um problema conhecido quando você usa um hub IoT como uma origem do evento do TSI com o [roteamento](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) configurado. Desabilite temporariamente os pontos de extremidade de roteamento e, quando o hub IoT estiver conectado ao TSI, habilite-os novamente.
+> Desabilite as rotas existentes do Hub IoT. Há um problema conhecido com o uso de um hub IoT com [roteamento](../iot-hub/iot-hub-devguide-messages-d2c.md#routing-endpoints) configurado. Desabilite temporariamente os pontos de extremidade de roteamento. Quando o hub IoT estiver conectado ao Time Series Insights, você poderá habilitar os pontos de extremidade de roteamento novamente.
 
-Crie um grupo de consumidores exclusivo no hub IoT para consumo do TSI. Substitua `my-pnp-hub` pelo nome do hub IoT usado anteriormente:
+No hub IoT, crie um grupo de consumidores exclusivo para consumo do Time Series Insights. No exemplo a seguir, substitua `my-pnp-hub` pelo nome do hub IoT usado anteriormente.
 
 ```azurecli-interactive
 az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group
 ```
 
-## <a name="choose-your-time-series-id"></a>Escolher a ID da Série Temporal
+## <a name="choose-a-time-series-id"></a>Escolha uma ID do Time Series
 
-Ao provisionar seu ambiente do TSI, você precisará escolher uma *ID da Série Temporal*. É importante escolher a ID da Série Temporal apropriada, pois essa propriedade é imutável e não poderá ser alterada após a definição. Uma ID da Série Temporal é como uma chave de partição de banco de dados. A ID da Série Temporal funciona como a chave primária do Modelo de Série Temporal. Para saber mais, confira [Melhores práticas para a escolha de uma ID da Série Temporal](../time-series-insights/how-to-select-tsid.md).
+Ao provisionar seu ambiente do Time Series Insights, você precisará selecionar uma *ID da Série Temporal*. É importante selecionar a ID da Série Temporal apropriada. Essa propriedade é imutável e não pode ser alterada depois de definida. Uma ID da Série Temporal é como uma chave de partição de banco de dados. A ID da Série Temporal funciona como a chave primária do Modelo de Série Temporal. Para obter mais informações, confira [Melhores práticas para a escolha de uma ID do Time Series](../time-series-insights/how-to-select-tsid.md).
 
-Como usuário do IoT Plug and Play, especifique uma _chave composta_ que consiste em `iothub-connection-device-id` e `dt-subject` como a ID da Série Temporal. O Hub IoT adiciona essas propriedades do sistema que contêm a identificação do dispositivo IoT Plug and Play e os nomes dos componentes do dispositivo, respectivamente.
+Como usuário do IoT Plug and Play, para a ID da Série Temporal, especifique uma _chave composta_ que consista em `iothub-connection-device-id` e `dt-subject`. O hub IoT adiciona essas propriedades do sistema que contêm a identificação do dispositivo IoT Plug and Play e os nomes dos componentes do dispositivo, respectivamente.
 
-Mesmo que os modelos de dispositivos IoT Plug and Play não usem os componentes no momento, você deverá incluir `dt-subject` como parte de uma chave composta de modo que possa usá-los no futuro. Como a ID da Série Temporal é imutável, a Microsoft recomenda habilitar essa opção caso você precise dela no futuro.
+Mesmo que seus modelos de dispositivos IoT Plug and Play não usem componentes no momento, inclua `dt-subject` como parte de uma chave composta de modo que possa usar componentes no futuro. Como a ID da Série Temporal é imutável, a Microsoft recomenda habilitar essa opção caso você precise dela no futuro.
 
 > [!NOTE]
-> Os exemplos abaixo referem-se ao dispositivo de **TemperatureController** de vários componentes, mas os conceitos são os mesmos para o dispositivo de **Termostato** sem componente.
+> Os exemplos neste artigo são referentes ao dispositivo `TemperatureController` com vários componentes. No entanto, os conceitos são os mesmos para o dispositivo `Thermostat` sem componentes.
 
-## <a name="provision-your-tsi-environment"></a>Provisionar seu ambiente do TSI
+## <a name="provision-your-time-series-insights-environment"></a>Provisionar o ambiente do Time Series Insights
 
 Esta seção descreve como provisionar seu ambiente do Azure Time Series Insights Gen2.
 
-O seguinte comando:
+Execute o seguinte comando para:
 
-* Cria uma conta de armazenamento do Azure para o [armazenamento frio](../time-series-insights/concepts-storage.md#cold-store) do ambiente, projetada para a retenção de longo prazo e a análise de dados históricos.
-  * Substitua `mytsicoldstore` por um nome exclusivo para a sua conta de armazenamento frio.
-* Cria um ambiente do Azure Time Series Insights Gen2, incluindo o armazenamento warm com um período de retenção de sete dias e um armazenamento frio para a retenção infinita.
-  * Substitua `my-tsi-env` por um nome exclusivo para seu ambiente do TSI.
-  * Substitua `my-pnp-resourcegroup` pelo nome do grupo de recursos usado durante a configuração.
-  * `iothub-connection-device-id, dt-subject` é a propriedade da ID da Série Temporal.
+* Criar uma conta de armazenamento do Azure para o [armazenamento frio](../time-series-insights/concepts-storage.md#cold-store) de seu ambiente. Essa conta foi projetada para retenção e análise de longo prazo de dados históricos.
+  * No código, substitua `mytsicoldstore` por um nome exclusivo para sua conta de armazenamento frio.
+* Criar um ambiente do Azure Time Series Insights Gen2. O ambiente será criado com um armazenamento warm com um período de retenção de sete dias. A conta de armazenamento frio será anexada para retenção infinita.
+  * No código, substitua `my-tsi-env` por um nome exclusivo para seu ambiente do Time Series Insights.
+  * No código, substitua `my-pnp-resourcegroup` pelo nome do grupo de recursos usado durante a configuração.
+  * A propriedade da ID da Série Temporal é `iothub-connection-device-id, dt-subject`.
 
 ```azurecli-interactive
 storage=mytsicoldstore
@@ -82,7 +82,7 @@ key=$(az storage account keys list -g $rg -n $storage --query [0].value --output
 az timeseriesinsights environment longterm create --name my-tsi-env --resource-group $rg --time-series-id-properties iothub-connection-device-id, dt-subject --sku-name L1 --sku-capacity 1 --data-retention 7 --storage-account-name $storage --storage-management-key $key --location eastus2
 ```
 
-Conecte a origem do evento do Hub IoT. Substitua `my-pnp-resourcegroup`, `my-pnp-hub` e `my-tsi-env` pelos valores escolhidos. O seguinte comando referencia o grupo de consumidores do TSI criado anteriormente:
+Conecte a origem do evento do Hub IoT. Substitua `my-pnp-resourcegroup`, `my-pnp-hub` e `my-tsi-env` pelos valores escolhidos. O seguinte comando referencia o grupo de consumidores do Time Series Insights criado anteriormente:
 
 ```azurecli-interactive
 rg=my-pnp-resourcegroup
@@ -93,9 +93,9 @@ shared_access_key=$(az iot hub policy list -g $rg --hub-name $iothub --query "[?
 az timeseriesinsights event-source iothub create -g $rg --environment-name $env -n iot-hub-event-source --consumer-group-name tsi-consumer-group  --key-name iothubowner --shared-access-key $shared_access_key --event-source-resource-id $es_resource_id
 ```
 
-Navegue até o seu grupo de recursos no [portal do Azure](https://portal.azure.com) e escolha o novo ambiente do Time Series Insights. Acesse a *URL do Gerenciador do Time Series Insights* mostrada na visão geral da instância:
+No [portal do Azure](https://portal.azure.com), vá até seu grupo de recursos e selecione o novo ambiente do Time Series Insights. Vá até a **URL do Gerenciador do Time Series Insights** mostrada na visão geral da instância:
 
-![Página de visão geral do portal](./media/tutorial-configure-tsi/view-environment.png)
+![Captura de tela da página de visão geral do portal.](./media/tutorial-configure-tsi/view-environment.png)
 
 No Gerenciador, você verá três instâncias:
 
@@ -104,43 +104,45 @@ No Gerenciador, você verá três instâncias:
 * &lt;a identificação do dispositivo PnP&gt;, `null`
 
 > [!NOTE]
-> A terceira marca representa a telemetria do próprio **TemperatureController**, como o conjunto de trabalho da memória do dispositivo. Como essa é uma propriedade de nível superior, o valor do nome do componente é nulo. Em uma etapa posterior, você atualizará isso para um nome mais amigável.
+> A terceira marca representa a telemetria do próprio `TemperatureController`, como o conjunto de trabalho da memória do dispositivo. Como essa é uma propriedade de nível superior, o valor do nome do componente é nulo. Em uma etapa posterior, você deixará esse nome mais amigável.
 
-![Exibição do gerenciador 1](./media/tutorial-configure-tsi/tsi-env-first-view.png)
+![Captura de tela mostrando três instâncias no Gerenciador.](./media/tutorial-configure-tsi/tsi-env-first-view.png)
 
 ## <a name="configure-model-translation"></a>Configurar a conversão do modelo
 
-Em seguida, você converterá o modelo de dispositivo DTDL no modelo de ativo do TSI (Azure Time Series Insights). O Modelo de Série Temporal do TSI é uma ferramenta de modelagem semântica para a contextualização de dados dentro do TSI. O Modelo de Série Temporal tem três componentes principais:
+Em seguida, você converterá o modelo de dispositivo DTDL no modelo de ativo no Azure Time Series Insights. No Time Series Insights, o Modelo de Série Temporal é uma ferramenta de modelagem semântica para contextualização de dados. O modelo tem três componentes principais:
 
-* [Instâncias do Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-instances). As instâncias são representações virtuais da série temporal. As instâncias são identificadas exclusivamente pela ID da Série Temporal.
-* [Hierarquias do Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies). As hierarquias organizam instâncias especificando nomes de propriedade e suas relações.
-* [Tipos de Modelos de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-types). Os tipos ajudam você a definir [variáveis](../time-series-insights/concepts-variables.md) ou fórmulas para cálculos. Os tipos são associados a uma instância específica.
+* [Instâncias do Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-instances) são representações virtuais da série temporal. As instâncias são identificadas exclusivamente pela ID da Série Temporal.
+* [Hierarquias do Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-hierarchies) organizam instâncias especificando nomes de propriedade e suas relações.
+* [Tipos do Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md#time-series-model-types) ajudam a definir [variáveis](../time-series-insights/concepts-variables.md) ou fórmulas para fazer cálculos. Os tipos são associados a uma instância específica.
 
 ### <a name="define-your-types"></a>Definir os tipos
 
-Você pode começar ingerindo dados no Azure Time Series Insights Gen2 sem ter um modelo predefinido. Quando a telemetria é recebida, o TSI tenta resolver automaticamente as instâncias de série temporal com base nos valores da propriedade da ID da Série Temporal. Todas as instâncias recebem o *tipo padrão*. Você precisa criar um tipo manualmente para categorizar corretamente as instâncias. Os seguintes detalhes mostram o método mais simples para sincronizar os modelos de dispositivo DTDL com os tipos do Modelo de Série Temporal:
+Você pode começar ingerindo dados no Azure Time Series Insights Gen2 sem ter um modelo predefinido. Quando a telemetria é recebida, o Time Series Insights tenta resolver automaticamente as instâncias de série temporal com base nos valores da propriedade da ID da Série Temporal. Todas as instâncias recebem o *tipo padrão*. Você precisa criar um tipo manualmente para categorizar corretamente as instâncias. 
+
+Os seguintes detalhes descrevem o método mais simples para sincronizar os modelos de dispositivo DTDL com os tipos do Modelo de Série Temporal:
 
 * O identificador de modelo do gêmeo digital passa a ser a ID do tipo.
 * O nome do tipo pode ser o nome do modelo ou o nome de exibição.
 * A descrição do modelo passa a ser a descrição do tipo.
 * Pelo menos uma variável de tipo é criada para cada telemetria com um esquema numérico.
-  * Somente tipos de dados numéricos podem ser usados para as variáveis. Porém, se um valor é enviado como outro tipo que possa ser convertido, `"0"`, por exemplo, você pode usar uma função de [conversão](/rest/api/time-series-insights/reference-time-series-expression-syntax.md#conversion-functions), como `toDouble`.
+  * Somente tipos de dados numéricos podem ser usados para as variáveis. Porém, se um valor é enviado como outro tipo que possa ser convertido, `"0"`, por exemplo, você pode usar uma função de [conversão](/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions), como `toDouble`.
 * O nome da variável pode ser o nome da telemetria ou o nome de exibição.
-* Ao definir a Expressão de Série Temporal da variável, veja o nome da telemetria na conexão e o respectivo tipo de dados.
+* Ao definir a variável de Expressão de Série Temporal, veja o nome da telemetria na conexão e o respectivo tipo de dados da telemetria.
 
 | DTDL JSON | JSON do tipo de Modelo de Série Temporal | Valor de exemplo |
 |-----------|------------------|-------------|
 | `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
 | `displayName`    | `name`   |   `Temperature Controller`  |
 | `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
-|`contents` (matriz)| `variables` (objeto)  | Veja o exemplo abaixo
+|`contents` (matriz)| `variables` (objeto)  | Veja o exemplo a seguir.
 
-![DTDL para o tipo de Modelo de Série Temporal](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
+![Captura de tela mostrando a DTDL para o tipo de Modelo de Série Temporal.](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
 > [!NOTE]
-> Este exemplo mostra três variáveis, mas cada tipo pode ter até 100. Variáveis diferentes podem referenciar o mesmo valor de telemetria para fazer diferentes cálculos, conforme necessário. Para obter a lista completa de filtros, agregações e funções escalares, confira [Sintaxe da Expressão de Série Temporal do Time Series Insights Gen2](/rest/api/time-series-insights/reference-time-series-expression-syntax.md).
+> Este exemplo mostra três variáveis, mas cada tipo pode ter até 100. Variáveis diferentes podem referenciar o mesmo valor de telemetria para fazer diferentes cálculos, conforme necessário. Para obter a lista completa de filtros, agregações e funções escalares, confira [Sintaxe da Expressão de Série Temporal do Time Series Insights Gen2](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
-Abra um editor de texto e salve o seguinte JSON na unidade local:
+Abra um editor de texto e salve o JSON a seguir na unidade local.
 
 ```JSON
 {
@@ -180,50 +182,50 @@ Abra um editor de texto e salve o seguinte JSON na unidade local:
 }
 ```
 
-No Gerenciador do Time Series Insights, acesse a guia **Modelo** selecionando o ícone de modelo à esquerda. Selecione **Tipos** e escolha **Carregar JSON**:
+No Gerenciador do Time Series Insights, selecione o ícone do modelo à esquerda para abrir a guia **Modelo**. Selecione **Tipos** e escolha **Carregar JSON**:
 
-![Carregar](./media/tutorial-configure-tsi/upload-type.png)
+![Captura de tela mostrando como carregar um JSON.](./media/tutorial-configure-tsi/upload-type.png)
 
-Selecione **Escolher arquivo**, escolha o JSON que você salvou anteriormente e selecione **Carregar**
+Selecione **Escolher arquivo**, escolha o JSON que você salvou anteriormente e selecione **Carregar**.
 
 Você verá o tipo de **Controlador de Temperatura** recém-definido.
 
 ### <a name="create-a-hierarchy"></a>Criar uma hierarquia
 
-Crie uma hierarquia para organizar as marcas no pai **TemperatureController**. O exemplo simples a seguir tem um só nível, mas as soluções de IoT costumam ter muitos níveis de aninhamento para contextualizar as marcas na posição física e semântica dentro de uma organização.
+Crie uma hierarquia para organizar as marcas no pai `TemperatureController`. O exemplo simples a seguir tem um só nível, mas as soluções de IoT costumam ter muitos níveis de aninhamento para contextualizar as marcas na posição física e semântica dentro de uma organização.
 
-Escolha **Hierarquias** e selecione **Adicionar hierarquia**. Insira *Frota de Dispositivos* como o nome e crie um nível chamado *Nome do Dispositivo*. Depois, selecione **Salvar**.
+Selecione **Hierarquias** e escolha **Adicionar hierarquia**. Para o nome, insira *Frota de Dispositivos*. Crie um nível chamado *Nome do Dispositivo*. Depois, selecione **Salvar**.
 
-![Adicionar uma hierarquia](./media/tutorial-configure-tsi/add-hierarchy.png)
+![Captura de tela mostrando como adicionar uma hierarquia.](./media/tutorial-configure-tsi/add-hierarchy.png)
 
 ### <a name="assign-your-instances-to-the-correct-type"></a>Atribuir instâncias ao tipo correto
 
 Em seguida, altere o tipo das instâncias e coloque-as na hierarquia.
 
-Selecione a guia **Instâncias**, localize a instância que representa o conjunto de trabalho do dispositivo e escolha o ícone **Editar** na extrema direita:
+Selecione a guia **Instâncias**. Localize a instância que representa o conjunto de trabalho do dispositivo e escolha o ícone **Editar** na extremidade direita.
 
-![Editar instâncias](./media/tutorial-configure-tsi/edit-instance.png)
+![Captura de tela mostrando como editar uma instância.](./media/tutorial-configure-tsi/edit-instance.png)
 
-Selecione a lista suspensa **Tipo** e escolha **Controlador de Temperatura**. Insira *defaultComponent, <your device name>* para atualizar o nome da instância que representa todas as marcas de nível superior associadas ao seu dispositivo.
+Abra o menu suspenso **Tipo** e selecione **Controlador de temperatura**. Insira *defaultComponent, <your device name>* para atualizar o nome da instância que representa todas as marcas de nível superior associadas ao seu dispositivo.
 
-![Alterar o tipo de instância](./media/tutorial-configure-tsi/change-type.png)
+![Captura de tela mostrando como alterar um tipo de instância.](./media/tutorial-configure-tsi/change-type.png)
 
-Antes de selecionar Salvar, escolha a guia **Campos de Instância** e marque a caixa **Frota de Dispositivos**. Insira `<your device name> - Temp Controller` para agrupar a telemetria e selecione **Salvar**.
+Antes de selecionar **Salvar**, escolha a guia **Campos de Instância** e selecione **Frota de Dispositivos**. Para agrupar a telemetria, insira *\<your device name> – Controlador de Temperatura*. Depois, selecione **Salvar**.
 
-![Como atribuir à hierarquia](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
+![Captura de tela mostrando como atribuir uma instância a uma hierarquia](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 
 Repita as etapas anteriores para atribuir as marcas do termostato à hierarquia e ao tipo corretos.
 
 ## <a name="view-your-data"></a>Exibir seus dados
 
-Volte ao painel de gráficos e expanda **Frota de Dispositivos > seu dispositivo**. Selecione **thermostat1**, escolha a variável **Temperatura** e selecione **Adicionar** para adicionar o valor ao gráfico. Faça o mesmo para **thermostat2** e o valor de **workingSet** do **defaultComponent**.
+Volte ao painel de gráficos e expanda **Frota de Dispositivos** > seu dispositivo. Selecione **thermostat1**, escolha a variável **Temperatura** e selecione **Adicionar** para adicionar o valor ao gráfico. Faça o mesmo para **thermostat2** e o valor de **workingSet** do **defaultComponent**.
 
-![Alterar o tipo de instância do thermostat2](./media/tutorial-configure-tsi/charting-values.png)
+![Captura de tela mostrando como alterar o tipo de instância de thermostat2.](./media/tutorial-configure-tsi/charting-values.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre as várias opções de gráficos, incluindo o dimensionamento de intervalos e os controles do eixo y, confira [Gerenciador do Azure Time Series Insights](../time-series-insights/concepts-ux-panels.md).
 
-* Para obter uma visão geral detalhada do Modelo de Série Temporal do seu ambiente, confira o artigo [Modelo de Série Temporal no Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
+* Para ter uma visão geral detalhada do Modelo de Série Temporal do seu ambiente, confira [Modelo de Série Temporal no Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
 
-* Para saber mais sobre as APIs de consulta e a sintaxe da Expressão de Série Temporal, confira [APIs de consulta do Azure Time Series Insights Gen2](/rest/api/time-series-insights/reference-query-apis.md).
+* Para saber mais sobre as APIs de consulta e a sintaxe da Expressão de Série Temporal, confira [APIs de consulta do Azure Time Series Insights Gen2](/rest/api/time-series-insights/reference-query-apis).

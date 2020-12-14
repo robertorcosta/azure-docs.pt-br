@@ -1,15 +1,18 @@
 ---
 title: Descobrir VMs do Hyper-V usando a Avaliação de Servidor das Migrações para Azure
 description: Saiba como descobrir VMs do Hyper-V locais com a ferramenta de Avaliação de Servidor das Migrações para Azure.
+author: vineetvikram
+ms.author: vivikram
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0643a13a07572dc24ef895062593e00188a0752f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 1b860c739ab9ed9737f9f946cb13c731fa4722db
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317161"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753052"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: descobrir VMs do Hyper-V com a Avaliação de Servidor
 
@@ -149,7 +152,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
     - Para o Azure Government:
 
-        **Cenário*** | **Download** | **SHA256**
+        **Cenário** _ | _ *Download** | **SHA256**
         --- | --- | ---
         Hyper-V (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 

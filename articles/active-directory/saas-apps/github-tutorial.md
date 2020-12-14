@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com GitHub | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o GitHub.
+title: 'Tutorial: Integração do Azure Active Directory a um GitHub Enterprise Cloud – Organização | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o GitHub Enterprise Cloud – Organização.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: cb5ef751a3fc2241924eaee1c5da9507006389cc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 67a17aaa647d9aa6943b37d54fc0e3308ad8955f
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449244"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558531"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao GitHub
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>Tutorial: Integração de SSO (logon único) do Azure Active Directory ao GitHub Enterprise Cloud – Organização
 
-Neste tutorial, você aprenderá como integrar o GitHub ao Azure AD (Azure Active Directory). Ao integrar o GitHub ao Azure AD, você poderá:
+Neste tutorial, você aprenderá a integrar o GitHub Enterprise Cloud – **Organização** ao Azure AD (Azure Active Directory). Ao integrar o GitHub Enterprise Cloud – Organização ao Azure AD, você pode:
 
 * Controlar, no Azure AD, quem tem acesso à sua organização do GitHub Enterprise Cloud.
 * Gerenciar o acesso à sua organização do GitHub Enterprise Cloud em um local central: o portal do Azure.
@@ -29,7 +29,7 @@ Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com o GitHub, você precisará dos seguintes itens:
+Para configurar a integração do Azure AD a um GitHub Enterprise Cloud – Organização, você precisa dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
 * Uma organização do GitHub criada na [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), que requer o [plano de cobrança do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
@@ -48,15 +48,15 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 Para configurar a integração do GitHub ao Azure AD, você precisará adicionar o GitHub da galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory** .
-1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos** .
-1. Para adicionar um novo aplicativo, escolha **Novo aplicativo** .
-1. Na seção **Adicionar da galeria** , digite **GitHub** na caixa de pesquisa.
-1. Selecione **GitHub** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar da galeria**, digite **GitHub** na caixa de pesquisa.
+1. Selecione **GitHub Enterprise Cloud – Organização** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Configurar e testar o logon único do Azure AD para o GitHub
 
-Configure e teste o SSO do Azure AD com o GitHub usando uma usuária de teste chamada **B.Fernandes** . Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do GitHub.
+Configure e teste o SSO do Azure AD com o GitHub usando uma usuária de teste chamada **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do GitHub.
 
 Para configurar e testar o SSO do Azure AD com o GitHub, conclua os seguintes blocos de construção:
 
@@ -71,15 +71,15 @@ Para configurar e testar o SSO do Azure AD com o GitHub, conclua os seguintes bl
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **GitHub** , localize a seção **Gerenciar** e selecione **logon único** .
-1. Na página **Selecionar um método de logon único** , escolha **SAML** .
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **GitHub**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-   a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão: `https://github.com/orgs/<Organization ID>/sso`
+   a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://github.com/orgs/<Organization ID>/sso`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://github.com/orgs/<Organization ID>`
 
@@ -89,15 +89,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Observe que esses não são os valores reais. Você precisa atualizar esses valores com a URL de Entrada, o Identificador e a URL de Resposta reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Acesse a seção Administração do GitHub para recuperar esses valores.
 
-5. Seu aplicativo GitHub espera as declarações de SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que o **Identificador de Usuário Único (ID de nome)** é mapeada com **user.userprincipalname** . O aplicativo GitHub espera que o **Identificador de Usuário Único (ID de nome)** seja mapeado com **user.mail** . Portanto, você precisa editar o mapeamento de atributos clicando no ícone **Editar** e alterando-o.
+5. Seu aplicativo GitHub espera as declarações de SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que o **Identificador de Usuário Único (ID de nome)** é mapeada com **user.userprincipalname**. O aplicativo GitHub espera que o **Identificador de Usuário Único (ID de nome)** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributos clicando no ícone **Editar** e alterando-o.
 
     ![Captura de tela que mostra a seção "Atributos do Usuário" com o ícone "Editar" selecionado.](common/edit-attribute.png)
 
-6. Na página **Configurar logon único com SAML** , na seção **Certificado de Autenticação SAML** , clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+6. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-7. Na seção **Configurar o GitHub** , copie as URLs apropriadas de acordo com suas necessidades.
+7. Na seção **Configurar o GitHub**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -111,37 +111,37 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários** .
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha** .
-   1. Clique em **Criar** .
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo acesso ao GitHub.
 
-1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos** .
-1. Na lista de aplicativos, selecione **GitHub** .
-1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos** .
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **GitHub**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição** .
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar uma função** , escolha a função apropriada para o usuário na lista e clique no botão **Selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar uma função**, escolha a função apropriada para o usuário na lista e clique no botão **Selecionar** na parte inferior da tela.
 
     ![função de usuário](./media/github-tutorial/user-role.png)
 
     > [!NOTE]
     > A opção **Selecionar uma função** será desabilitada, e a função padrão é USUÁRIO para o usuário selecionado.
 
-7. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir** .
+7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-github-sso"></a>Configurar o SSO do GitHub
 
@@ -151,7 +151,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![Captura de tela que mostra o menu "Configurações da organização" do GitHub com "Segurança" selecionado.](./media/github-tutorial/security.png)
 
-3. Marque a caixa **Habilitar autenticação SAML** , revelando os campos de configuração de Logon Único. Execute as seguintes etapas:
+3. Marque a caixa **Habilitar autenticação SAML**, revelando os campos de configuração de Logon Único. Execute as seguintes etapas:
 
     ![Captura de tela que mostra a seção "Logon único de SAML" com a "Habilitar autenticação SAML" com as caixas de texto de URL realçadas.](./media/github-tutorial/saml-sso.png)
 
@@ -163,11 +163,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![Captura de tela que mostra as caixas de texto "URL de Logon", "Emissor" e Certificado Público".](./media/github-tutorial/configure.png)
 
-    a. Na caixa de texto **URL de Logon** , cole o valor da **URL de Logon** que você copiou do portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
-    b. Na caixa de texto **Emissor** , cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    b. Na caixa de texto **Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    c. Abra o certificado baixado do portal do Azure no bloco de notas e cole o conteúdo na caixa de texto **Certificado Público** .
+    c. Abra o certificado baixado do portal do Azure no bloco de notas e cole o conteúdo na caixa de texto **Certificado Público**.
 
     d. Clique no ícone **Editar** para editar o **Método de Assinatura** e **Método de Resumo** do **RSA-SHA1** e **SHA1** para **RSA-SHA256** e **SHA256** conforme mostrado abaixo.
     
@@ -192,21 +192,21 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no GitHub. O 
 
 1. Faça logon em seu site de empresa do GitHub como administrador.
 
-2. Clique em **Pessoas** .
+2. Clique em **Pessoas**.
 
     ![A captura de tela mostra o site do GitHub com a opção Pessoas selecionada.](./media/github-tutorial/people.png "Pessoas")
 
-3. Clique em **Convidar membro** .
+3. Clique em **Convidar membro**.
 
     ![Convidar Usuários](./media/github-tutorial/invite-member.png "Convidar Usuários")
 
-4. Na caixa de diálogo **Convidar membro** , execute as seguintes etapas:
+4. Na caixa de diálogo **Convidar membro**, execute as seguintes etapas:
 
-    a. Na caixa de texto **Email** , digite o endereço de email da conta de Brenda Fernandes.
+    a. Na caixa de texto **Email**, digite o endereço de email da conta de Brenda Fernandes.
 
     ![Convidar Pessoas](./media/github-tutorial/email-box.png "Convidar Pessoas")
 
-    b. Clique em **Enviar Convite** .
+    b. Clique em **Enviar Convite**.
 
     ![Captura de tela que mostra a página de diálogo "Convidar membro" com "Membro" selecionado e o botão "Enviar convite" selecionado.](./media/github-tutorial/send-invitation.png "Convidar Pessoas")
 

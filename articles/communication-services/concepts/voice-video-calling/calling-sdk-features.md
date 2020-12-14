@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 44365dec247b9f3135a090cee397cad32598fd29
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977860"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576461"
 ---
 # <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
 
@@ -64,12 +64,32 @@ A tabela a seguir representa o conjunto de navegadores e versões com suporte di
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    |
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ |
-| **Biblioteca de clientes de chamada** | Chrome*, novo Microsoft Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
+| **Biblioteca de clientes de chamada** | Chrome*, novo Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** |
 
 
 *Observe há suporte para a versão mais recente do Chrome, além das duas versões anteriores.<br/>
 
 **Observe que há suporte para as versões posteriores à 13.1 do Safari. Ainda não há suporte para vídeo de saída para o Safari no macOS, mas há suporte no iOS. Só há suporte para o compartilhamento de tela de saída no iOS desktop.
+
+## <a name="calling-client---browser-security-model"></a>Cliente chamador – modelo de segurança do navegador
+
+### <a name="user-webrtc-over-https"></a>WebRTC do usuário por meio do HTTPS
+
+APIs WebRTC como `getUserMedia` exigem que o aplicativo que chama essas APIs seja atendido por meio do HTTPS.
+
+Para o desenvolvimento local, você pode usar `http://localhost`.
+
+### <a name="embed-the-communication-services-calling-sdk-in-an-iframe"></a>Inserir o SDK Chamador dos Serviços de Comunicação em um iframe
+
+Uma nova [política de permissões (também chamada de política de recurso)](https://www.w3.org/TR/permissions-policy-1/#iframe-allow-attribute) está sendo adotada por vários navegadores. Essa política afeta a chamada de cenários controlando como os aplicativos podem acessar a câmera e o microfone de um dispositivo por meio de um elemento iframe entre origens.
+
+Se você quiser usar um iframe para hospedar parte do aplicativo de um domínio diferente, será necessário adicionar o atributo `allow` com o valor correto ao seu iframe.
+
+Por exemplo, esse iframe permite o acesso à câmera e ao microfone:
+
+```html
+<iframe allow="camera *; microphone *">
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

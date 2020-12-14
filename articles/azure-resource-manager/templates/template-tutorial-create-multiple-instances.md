@@ -1,21 +1,21 @@
 ---
 title: Criar múltiplas instâncias de recursos
-description: Saiba como criar um modelo do Azure Resource Manager para criar várias instâncias de recurso do Azure.
+description: Saiba como criar um modelo do ARM (modelo do Azure Resource Manager) para criar várias instâncias de recurso do Azure.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: dac1e9429965607aea1490f0ec3b540d7b441d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94509ba209e95eb9199ddd760529d47eb48bda10
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614386"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930790"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Criar vários instâncias de recurso com os modelos do ARM
 
-Saiba como iterar em seu modelo do ARM (Azure Resource Manager) para criar várias instâncias de um recurso do Azure. Neste tutorial, você modificará um modelo para criar três instâncias de conta de armazenamento.
+Saiba como iterar no seu modelo do ARM (modelo do Azure Resource Manager) para criar várias instâncias de um recurso do Azure. Neste tutorial, você modificará um modelo para criar três instâncias de conta de armazenamento.
 
 ![O Azure Resource Manager cria um diagrama de várias instâncias](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
@@ -32,7 +32,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 

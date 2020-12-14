@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6f4610887092b1dac5cdc85622739318d5921d7
+ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460692"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96852227"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Tutorial: Implantar HSMs em uma rede virtual existente usando a CLI do Azure
 
@@ -233,14 +233,14 @@ A saída deve se parecer com a mostrada na imagem abaixo:
 
 ![A captura de tela mostra a saída na janela do PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-A essa altura, você alocou todos os recursos para ter uma implantação de dois HSMs altamente disponíveis e validou o acesso e o estado operacional. Outras configurações ou testes envolvem mais trabalho com o próprio dispositivo HSM. Para inicializar o HSM e criar partições, siga as instruções no Capítulo 7 do Guia de administração do Gemalto Luna Network HSM 7. Toda a documentação e o software estão disponíveis para download diretamente na Gemalto depois que você tiver se registrado no Portal de suporte do cliente da Gemalto e tiver uma ID de cliente. Baixe o software cliente versão 7.2 para obter todos os componentes necessários.
+A essa altura, você alocou todos os recursos para ter uma implantação de dois HSMs altamente disponíveis e validou o acesso e o estado operacional. Outras configurações ou testes envolvem mais trabalho com o próprio dispositivo HSM. Para inicializar o HSM e criar partições, siga as instruções no Capítulo 7 do Guia de Administração do Thales Luna Network HSM 7. Toda a documentação e o software estão disponíveis para download diretamente na Thales depois que você tiver se registrado no Portal de atendimento ao cliente da Thales e tiver uma ID do cliente. Baixe o software cliente versão 7.2 para obter todos os componentes necessários.
 
 ## <a name="delete-or-clean-up-resources"></a>Excluir ou limpar recursos
 
 Caso tenha terminado de usar somente o dispositivo HSM, ele poderá ser excluído como um recurso e devolvido ao pool gratuito. O motivo óbvio de preocupação aqui diz respeito a dados confidenciais de clientes que estejam no dispositivo. A melhor maneira de "zerar" um dispositivo é inserir a senha incorreta do administrador do HSM três vezes (observação: esse não é o administrador do dispositivo, é o administrador real do HSM). Como medida de segurança para proteger o material da chave, o dispositivo não pode ser excluído como um recurso do Azure até que esteja no estado zerado.
 
 > [!NOTE]
-> Caso tenha problema com alguma configuração do dispositivo Gemalto, entre em contato com o [atendimento ao cliente da Gemalto](https://safenet.gemalto.com/technical-support/).
+> Caso tenha problema com alguma configuração do dispositivo Thales, entre em contato com o [atendimento ao cliente da Thales](https://safenet.gemalto.com/technical-support/).
 
 Ao concluir o uso de todos os recursos desse grupo de recursos, remova-os com o seguinte comando:
 

@@ -1,21 +1,21 @@
 ---
 title: Usar o Azure Key Vault em modelos
-description: Saiba como usar o Azure Key Vault para passar valores de parâmetro seguros durante a implantação de modelo do Resource Manager
+description: Saiba como usar o Azure Key Vault para transmitir valores de parâmetro seguros durante a implantação de um modelo do ARM (modelo do Azure Resource Manager).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75eb977559573b72883de3ddbc27391c7e299a6f
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119269"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96929309"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o Azure Key Vault em sua implantação de modelo do ARM
 
-Saiba como recuperar segredos de um cofre de chaves do Azure e transmitir os segredos como parâmetros durante a implantação de um modelo do ARM (Azure Resource Manager). O valor do parâmetro nunca fica exposto porque você só faz referência à ID do cofre de chaves. Você pode fazer referência ao segredo do cofre de chaves usando uma ID estática ou uma ID dinâmica. Este tutorial usa uma ID estática. Com a abordagem de ID estática, você faz referência ao cofre de chaves no arquivo de parâmetro de modelo, não no arquivo de modelo. Para saber mais sobre ambas as abordagens, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./key-vault-parameter.md).
+Saiba como recuperar segredos de um cofre de chaves do Azure e transmitir os segredos como parâmetros durante a implantação de um modelo do ARM (modelo do Azure Resource Manager). O valor do parâmetro nunca fica exposto porque você só faz referência à ID do cofre de chaves. Você pode fazer referência ao segredo do cofre de chaves usando uma ID estática ou uma ID dinâmica. Este tutorial usa uma ID estática. Com a abordagem de ID estática, você faz referência ao cofre de chaves no arquivo de parâmetro de modelo, não no arquivo de modelo. Para saber mais sobre ambas as abordagens, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](./key-vault-parameter.md).
 
 No tutorial [Definir a ordem de implantação do recurso](./template-tutorial-create-templates-with-dependent-resources.md), você cria uma VM (máquina virtual). Você precisará fornecer o nome de usuário e a senha do administrador da VM. Em vez de fornecer a senha, armazene previamente a senha em um cofre de chaves do Azure e personalize o modelo para recuperar a senha do cofre de chaves durante a implantação.
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, use uma senha gerada para a conta Administrador da VM. Veja um exemplo de geração de senha:
 
     ```console

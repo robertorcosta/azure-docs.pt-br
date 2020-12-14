@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: ac400efe66ab740f5fb87977ac531cbe465e3f91
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: e860a33ba44743dcc5a96d7656f22fd952a1d0b8
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95995141"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96762560"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo Web Node usando o fluxo de código de autenticação
 
@@ -42,15 +42,14 @@ Este guia de início rápido usa a biblioteca de autenticação da Microsoft par
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 >
 > 1. Entre no [portal do Azure](https://portal.azure.com).
-> 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta na parte superior direita e defina sua sessão do portal para o locatário Azure AD que deseja usar.
-> 1. Selecione [Registros do Aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Selecione **Novo registro**.
-> 1. Quando a página **Registrar um aplicativo** aparecer, insira um nome para o seu aplicativo.
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+> 1. Insira um **Nome** para seu aplicativo. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
 > 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 > 1. Defina o valor do **URI de Redirecionamento** como `http://localhost:3000/redirect`.
 > 1. Selecione **Registrar**. 
 > 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** para uso posterior.
-> 1. Em **Certificados e segredos**, selecione **Novo segredo do cliente**.  Deixe a descrição em branco e a expiração padrão e clique em **Adicionar**.
+> 1. Em **Gerenciar**, selecione **Certificados e segredos** > **Novo segredo do cliente**.  Deixe a descrição em branco e a expiração padrão e selecione **Adicionar**.
 > 1. Observe o **Valor** do **Segredo do cliente** para uso posterior.
 
 #### <a name="step-2-download-the-project"></a>Etapa 2: Baixe o projeto

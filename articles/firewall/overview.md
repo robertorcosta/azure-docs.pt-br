@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 11/10/2020
+ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: e714e88e47ec20adec44a104c659d03e62d8010a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: fc68170a89a3d9a359ae9cb2c0d5543af301e738
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658376"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96573027"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -70,7 +70,8 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |O DNS personalizado não funciona com túnel forçado|Se o túnel forçado estiver habilitado, o DNS personalizado não funcionará.|Uma correção está sendo investigada.|
 |Novo suporte para endereço IP público para várias Zonas de Disponibilidade|Você não pode adicionar um novo endereço IP público ao implantar um firewall com duas zonas de disponibilidade (1 e 2, 2 e 3 ou 1 e 3)|Trata-se de uma limitação do recurso de endereço IP público.|
 |Iniciar/Parar não funciona com um firewall configurado no modo de túnel forçado|Iniciar/Parar não funciona com um firewall do Azure configurado no modo de túnel forçado. A tentativa de iniciar o Firewall do Azure com o túnel forçado configurado resulta no seguinte erro:<br><br>*Set-AzFirewall: a configuração de IP de gerenciamento do AzureFirewall FW-xx não pode ser adicionada a um firewall existente. Reimplante com uma configuração de IP de gerenciamento se desejar usar o suporte de túnel forçado.<br>StatusCode: 400<br>ReasonPhrase: Bad Request*|Sob Investigação.<br><br>Como alternativa, você pode excluir o firewall existente e criar outro com os mesmos parâmetros.|
-|Não é possível adicionar marcações de política de firewall usando o portal|A Política de Firewall do Azure tem uma limitação de suporte de patch que impede a adição de marcação usando o portal do Azure. O seguinte erro é gerado: *Não foi possível salvar as marcações para o recurso*.|Uma correção está sendo investigada. Como alternativa, você pode usar o cmdlet `Set-AzFirewallPolicy` do Azure PowerShell para atualizar as marcações.
+|Não é possível adicionar marcações de política de firewall usando o portal|A Política de Firewall do Azure tem uma limitação de suporte de patch que impede a adição de marcação usando o portal do Azure. O seguinte erro é gerado: *Não foi possível salvar as marcações para o recurso*.|Uma correção está sendo investigada. Como alternativa, você pode usar o cmdlet `Set-AzFirewallPolicy` do Azure PowerShell para atualizar as marcações.|
+|IPv6 ainda não compatível|Se você adicionar um endereço IPv6 a uma regra, o firewall falhará.|Use somente endereços IPv4. O suporte a IPv6 está em investigação.|
 
 
 ## <a name="next-steps"></a>Próximas etapas

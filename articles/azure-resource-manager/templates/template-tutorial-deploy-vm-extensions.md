@@ -1,21 +1,21 @@
 ---
 title: Implantar extensões de VM com o modelo
-description: Aprenda a implantar extensões de máquina virtual do Azure com modelos do Azure Resource Manager
+description: Saiba como implantar extensões da máquina virtual com modelos do ARM (modelos do Azure Resource Manager).
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f82e0eb45f4bc7c3260554b1b1120025029336bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49bc1a77e2e25cb069a89812603ff562b8a4c1cd
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073635"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931445"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutorial: Implantar extensões de máquina virtual com modelos do ARM
 
-Saiba como usar [extensões de máquina virtual do Azure](../../virtual-machines/extensions/features-windows.md) para executar tarefas de configuração e automação pós-implantação em VMs do Azure. Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Neste tutorial, você implantará uma extensão de Script Personalizado de um modelo do ARM (Azure Resource Manager) para executar um script do PowerShell em uma VM Windows.  O script instala o servidor Web na VM.
+Saiba como usar [extensões de máquina virtual do Azure](../../virtual-machines/extensions/features-windows.md) para executar tarefas de configuração e automação pós-implantação em VMs do Azure. Muitas extensões de VM diferentes estão disponíveis para uso com as VMs do Azure. Neste tutorial, você implantará uma extensão de script personalizado com base em um modelo do ARM (modelo do Azure Resource Manager) para executar um script do PowerShell em uma VM do Windows. O script instala o servidor Web na VM.
 
 Este tutorial cobre as seguintes tarefas:
 
@@ -31,14 +31,14 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
 
     ```console
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na implantação de modelo do ARM](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
+    O Azure Key Vault é projetado para proteger chaves de criptografia e outros segredos. Para saber mais, confira [Tutorial: Integrar o Azure Key Vault na sua implantação de modelo do ARM](./template-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="prepare-a-powershell-script"></a>Preparar um script do PowerShell
 

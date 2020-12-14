@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: af967c58cdeb2c750178141193a711a66af7477c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: fbe1e84525eed47127a08abc9fb7ec5d1144d02f
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426708"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763597"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-openvinotrade"></a>Tutorial: Criar um aplicativo de detecção de objetos e movimentos e análise de vídeo no Azure IoT Central (OpenVINO&trade;)
 
@@ -24,10 +24,10 @@ Como construtor de soluções, saiba como criar um aplicativo de análise de ví
 
 [!INCLUDE [iot-central-video-analytics-part1](../../../includes/iot-central-video-analytics-part1.md)]
 
-- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
+- [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt) – esse arquivo ajuda você a registrar as diversas opções de configuração necessárias à medida que trabalha nesses tutoriais.
 - [deployment.openvino.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json)
 - [LvaEdgeGatewayDcm.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/LvaEdgeGatewayDcm.json)
-- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json)
+- [state.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/state.json) – você só precisa baixar esse arquivo se planeja usar o dispositivo Intel NUC no segundo tutorial.
 
 [!INCLUDE [iot-central-video-analytics-part2](../../../includes/iot-central-video-analytics-part2.md)]
 
@@ -39,7 +39,7 @@ Para preparar o manifesto de implantação:
 
 1. Abra o arquivo *deployment.openvino.amd64.json*, que você salvou na pasta *lva-configuration*, usando um editor de texto.
 
-1. Localize as configurações do `LvaEdgeGatewayModule` e altere o nome da imagem, conforme mostrado no seguinte snippet:
+1. Localize as configurações do `LvaEdgeGatewayModule` e verifique se o nome da imagem é igual ao mostrado no seguinte snippet:
 
     ```json
     "LvaEdgeGatewayModule": {
@@ -47,7 +47,7 @@ Para preparar o manifesto de implantação:
             "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
 
-1. Adicione o nome da sua conta dos Serviços de Mídia ao nó `env` da seção `LvaEdgeGatewayModule`. Você anotou o nome dessa conta no arquivo *scratchpad.txt*:
+1. Adicione o nome da sua conta dos Serviços de Mídia ao nó `env` da seção `LvaEdgeGatewayModule`. Você tomou nota do nome da conta dos Serviços de Mídia no arquivo *scratchpad.txt*:
 
     ```json
     "env": {
@@ -55,7 +55,7 @@ Para preparar o manifesto de implantação:
             "value": "lvaEdge"
         },
         "amsAccountName": {
-            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+            "value": "<YOUR_AZURE_MEDIA_SERVICES_ACCOUNT_NAME>"
         }
     }
     ```
@@ -64,7 +64,16 @@ Para preparar o manifesto de implantação:
 
     A `azureMediaServicesArmId` é a **ID do Recurso** que você anotou no arquivo *scratchpad.txt* quando criou a conta dos Serviços de Mídia.
 
-    Você anotou a `aadTenantId`, a `aadServicePrincipalAppId` e o `aadServicePrincipalSecret` no arquivo *scratchpad.txt* quando criou a entidade de serviço para a sua conta dos Serviços de Mídia:
+    A seguinte tabela mostra os valores de **Conectar-se à API dos Serviços de Mídia (JSON)** no arquivo *scratchpad.txt* que você deve usar no manifesto de implantação:
+
+    | Manifesto de implantação       | Scratchpad  |
+    | ------------------------- | ----------- |
+    | aadTenantId               | AadTenantId |
+    | aadServicePrincipalAppId  | AadClientId |
+    | aadServicePrincipalSecret | AadSecret   |
+
+    > [!CAUTION]
+    > Use a tabela anterior para adicionar os valores corretos no manifesto de implantação, caso contrário, o dispositivo não funcionará.
 
     ```json
     {

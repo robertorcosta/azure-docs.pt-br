@@ -1,20 +1,20 @@
 ---
 title: Solucionar problemas das implantações
-description: Saiba como monitorar e solucionar problemas de implantações de modelo do Azure Resource Manager. Mostra os logs de atividade e o histórico de implantação.
+description: Saiba como monitorar implantações de modelo do ARM (modelo do Azure Resource Manager) e solucionar problemas ocorridos com elas. Mostra os logs de atividade e o histórico de implantação.
 author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891798"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96928521"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solucionar problemas de implantações do modelo do ARM
 
-Saiba como solucionar erros de implantação de modelo do ARM (Azure Resource Manager). Neste tutorial, você configurará dois erros em um modelo e aprenderá a usar os logs de atividades e o histórico de implantação para resolver os problemas.
+Saiba como solucionar erros de implantação de modelo do ARM (modelo do Azure Resource Manager). Neste tutorial, você configurará dois erros em um modelo e aprenderá a usar os logs de atividades e o histórico de implantação para resolver os problemas.
 
 Há dois tipos de erros relacionados à implantação de modelo:
 
@@ -37,14 +37,14 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-- Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+- Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="create-a-problematic-template"></a>Criar um modelo com problemas
 
 Abra um modelo chamado [Criar uma conta de armazenamento Standard](https://azure.microsoft.com/resources/templates/101-storage-account-create/) em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/) e configure dois problemas de modelo.
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
-2. Em **Nome do arquivo** , cole a seguinte URL:
+2. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
@@ -122,7 +122,7 @@ Para obter uma lista de erros comuns, confira [Solução de erros comuns de impl
 Quando os recursos do Azure já não forem necessários, limpe os recursos implantados excluindo o grupo de recursos.
 
 1. No portal do Azure, escolha **Grupos de recursos** do menu à esquerda.
-2. No campo **Filtrar por nome** , insira o nome do grupo de recursos.
+2. No campo **Filtrar por nome**, insira o nome do grupo de recursos.
 3. Selecione o nome do grupo de recursos.  Você deverá ver um total de seis recursos no grupo de recursos.
 4. Escolha **Excluir grupo de recursos** no menu superior.
 

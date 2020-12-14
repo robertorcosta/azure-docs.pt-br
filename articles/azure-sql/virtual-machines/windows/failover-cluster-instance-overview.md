@@ -7,17 +7,18 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: hadr
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685929"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358139"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com o SQL Server nas Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +51,7 @@ O SQL Server nas VMs do Azure oferece várias opções como solução de armazen
 |---------|---------|---------|---------|
 |**Versão mínima do SO**| Todos |Windows Server 2012|Windows Server 2016|
 |**Versão mínima do SQL Server**|Todos|SQL Server 2012|SQL Server 2016|
-|**Disponibilidade de VM com suporte** |Conjuntos de disponibilidade com grupos de posicionamento por proximidade |Conjuntos de disponibilidade e zonas de disponibilidade|Conjuntos de disponibilidade |
+|**Disponibilidade de VM com suporte** |Conjuntos de disponibilidade com grupos de posicionamento por proximidade (para SSD Premium) </br> Mesma zona de disponibilidade (para SSD Ultra) |Conjuntos de disponibilidade e zonas de disponibilidade|Conjuntos de disponibilidade |
 |**Dá suporte ao FileStream**|Sim|Não|Sim |
 |**Cache de blob do Azure**|Não|Não|Sim|
 
@@ -69,12 +70,16 @@ Os [discos compartilhados do Azure](../../../virtual-machines/disks-shared.md) s
 - Dá suporte ao SSD Premium do Azure compartilhado e ao armazenamento de Disco Ultra do Azure.
 - Pode usar um só disco compartilhado ou distribuir vários discos compartilhados para criar um pool de armazenamento compartilhado. 
 - Dá suporte ao FileStream.
+- Conjuntos de disponibilidade de suporte de SSDs Premium. 
 
 
 **Limitações**: 
-- as máquinas virtuais precisam ser colocadas no mesmo conjunto de disponibilidade e no mesmo grupo de posicionamento por proximidade.
-- Não há suporte para zonas de disponibilidade.
+- é recomendável colocar as máquinas virtuais no mesmo conjunto de disponibilidade e no mesmo grupo de posicionamento por proximidade.
+- Discos Ultra não dão suporte a conjuntos de disponibilidade. 
+- As zonas de disponibilidade têm suporte para Discos Ultra, mas as VMs precisam estar na mesma zona de disponibilidade, o que reduz a disponibilidade da máquina virtual. 
+- Independentemente da solução de disponibilidade de hardware escolhida, a disponibilidade do cluster de failover sempre será de 99,9% quando usar os Discos Compartilhados do Azure. 
 - Não há suporte para o cache de disco SSD Premium.
+
  
 Para começar, confira [Instância de cluster de failover do SQL Server com discos compartilhados do Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 

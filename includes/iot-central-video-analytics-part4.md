@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
+ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426712"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96763379"
 ---
 ### <a name="publish-the-device-template"></a>Publicar o modelo de dispositivo
 
@@ -40,6 +40,12 @@ Para migrar o dispositivo **gateway-001**:
 1. Na lista na caixa de diálogo **Migrar**, selecione **Gateway de LVA do Edge v2** e, em seguida, selecione **Migrar**.
 
 Após alguns segundos, a migração é concluída. Seu dispositivo agora está usando o modelo de dispositivo **LVA Edge Gateway v2** com o manifesto de implantação personalizado.
+
+Agora, não há dispositivos usando o modelo de dispositivo **LVA Edge Gateway** original. Exclua este modelo de dispositivo:
+
+1. Navegue até a página **Modelos de dispositivo** e selecione o modelo de dispositivo **LVA Edge Gateway**.
+
+1. Selecione **Excluir** para excluir o modelo de dispositivo.
 
 ### <a name="get-the-device-credentials"></a>Obter as credenciais do dispositivo
 

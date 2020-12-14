@@ -3,12 +3,12 @@ title: Planejando a implantação da Solução VMware no Azure
 description: Este artigo descreve um fluxo de trabalho de implantação da Solução VMware no Azure.  O resultado final é um ambiente pronto para a criação e a migração da VM (máquina virtual).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 1ef83a568e41fe99f1e8e385a599de9c5ab7c0ca
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1d1deebd56717c63a745500198eb8df9e3687b49
+ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95529713"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96558684"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planejando a implantação da Solução VMware no Azure
 
@@ -25,7 +25,7 @@ Os processos deste início rápido resultam em um ambiente pronto para produçã
 Identifique a assinatura que você planeja usar para implantar a Solução VMware no Azure.  Você pode criar uma assinatura ou reutilizar uma existente.
 
 >[!NOTE]
->A assinatura deve ser associada a um Contrato Enterprise da Microsoft.
+>A assinatura precisa ser associada a um plano do Azure do Provedor de Soluções de Nuvem ou o Contrato Enterprise da Microsoft. Para obter mais informações, confira [Como habilitar o recurso de Solução VMware no Azure](enable-azure-vmware-solution.md).
 
 ## <a name="resource-group"></a>Resource group
 

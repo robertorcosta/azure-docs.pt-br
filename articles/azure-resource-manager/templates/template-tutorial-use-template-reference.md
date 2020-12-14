@@ -1,21 +1,21 @@
 ---
 title: Usar referência de modelo
-description: Use a referência do modelo do Azure Resource Manager para criar um modelo.
+description: Use a referência de modelo do ARM (modelo do Azure Resource Manager) para criar um modelo.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 3709511fa8da0a40f4faf4ab2dac9505d69003ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfd6311fab8d9c65fa7c82d2f707ac96549a32a9
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118504"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931411"
 ---
-# <a name="tutorial-utilize-the-resource-manager-template-reference"></a>Tutorial: Utilizar a referência de modelo do Resource Manager
+# <a name="tutorial-utilize-the-arm-template-reference"></a>Tutorial: Utilizar a referência de modelo do ARM
 
-Saiba como localizar as informações de esquema de modelo e usar as informações para criar modelos do ARM (Azure Resource Manager).
+Saiba como encontrar as informações de esquema de modelo e usá-las para criar modelos do ARM (modelos do Azure Resource Manager).
 
 Neste tutorial, você usará um modelo de base dos modelos de Início Rápido do Azure. Usando a documentação de referência de modelo, você personaliza o modelo.
 
@@ -36,7 +36,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 

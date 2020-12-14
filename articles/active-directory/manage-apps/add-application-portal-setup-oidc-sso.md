@@ -10,16 +10,18 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0253dc3c9dc029cd964fb32b148be1405e7fbad
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656591"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96780171"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)
 
 Comece a usar logons de usuário simplificados configurando o SSO (logon único) para um aplicativo que você adicionou ao seu locatário do Azure AD (Azure Active Directory). Depois de configurar o SSO, os usuários poderão entrar em um aplicativo usando as respectivas credenciais do Azure AD. O SSO está incluído na edição gratuita do Azure AD.
+
+Para saber mais sobre o SSO baseado em OIDC, confira [Entender o logon único baseado em OIDC](configure-oidc-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +54,7 @@ Para configurar o logon único para um aplicativo:
    > [!IMPORTANT]
     > Se você já tiver uma assinatura para o aplicativo, a validação dos detalhes do usuário e das informações de locatário/diretório ocorrerão. Se o aplicativo não puder verificar o usuário, ele redirecionará você para se inscrever no serviço de aplicativo ou para a página de erro.
 
-3. Após a autenticação bem-sucedida, uma caixa de diálogo será exibida solicitando o consentimento do administrador. Selecione **Consentir em nome da organização** e selecione **Aceitar**. 
+3. Após a autenticação bem-sucedida, uma caixa de diálogo será exibida solicitando o consentimento do administrador. Selecione **Consentir em nome da organização** e selecione **Aceitar**. Para saber mais sobre o consentimento do usuário e do administrador, confira [Entender o consentimento do usuário e do administrador](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
     :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Captura de tela mostra a tela de consentimento de um aplicativo." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
@@ -62,6 +64,11 @@ Para configurar o logon único para um aplicativo:
 > [!TIP]
 > Para automatizar o gerenciamento de aplicativos usando a API do Graph, confira [Automatizar o gerenciamento de aplicativos com a API do Microsoft Graph](/graph/application-saml-sso-configure-api).
 
+Assista a um vídeo que aborda detalhes adicionais sobre como adicionar um aplicativo baseado em OIDC ao Azure AD.
+
+Adicionar um aplicativo baseado em OIDC no Azure Active Directory
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

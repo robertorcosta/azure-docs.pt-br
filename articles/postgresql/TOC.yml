@@ -12,6 +12,10 @@
           href: concepts-certificate-rotation.md
 - name: Documentação compartilhada
   items:
+    - name: Implantação de banco de dados
+      items:
+        - name: Github Actions
+          href: how-to-deploy-github-action.md
     - name: Migração
       items:
         - name: Migrar dados com pg_dump e pg_restore
@@ -202,6 +206,8 @@
               displayName: 'query store, performance, optimize, recommendations'
         - name: Desenvolvimento de aplicativos
           items:
+            - name: Práticas recomendadas
+              href: application-best-practices.md
             - name: Bibliotecas de conexão
               href: concepts-connection-libraries.md
               displayName: 'libraries, drivers'
@@ -416,10 +422,16 @@
               href: flexible-server/connect-python.md
     - name: Tutoriais
       items:
-        - name: Criar um aplicativo Web em uma rede virtual
-          href: flexible-server/tutorial-webapp-server-vnet.md
-        - name: Implantar um aplicativo do Django
-          href: flexible-server/tutorial-django-app-service-postgres.md
+        - name: Criar usando o AKS
+          items:
+            - name: Implantar aplicativo Python no Kubernetes
+              href: flexible-server/tutorial-django-aks-database.md
+        - name: Criar usando os Serviços de Aplicativos
+          items:
+            - name: Criar um aplicativo Web em uma rede virtual
+              href: flexible-server/tutorial-webapp-server-vnet.md
+            - name: Implantar um aplicativo Django no Serviço de Aplicativo
+              href: flexible-server/tutorial-django-app-service-postgres.md
     - name: Conceitos
       items:
         - name: Servidores
@@ -466,6 +478,8 @@
               href: flexible-server/how-to-manage-server-portal.md
             - name: CLI do Azure
               href: flexible-server/how-to-manage-server-cli.md
+            - name: Guia Conectar e consultar
+              href: flexible-server/how-to-connect-query-guide.md
         - name: Manutenção agendada
           items:
             - name: Portal do Azure

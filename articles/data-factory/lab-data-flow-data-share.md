@@ -6,13 +6,13 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/08/2020
-ms.openlocfilehash: 0a578f1edb51efd5f0905e663d42bf5a6fbfc783
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 12/09/2020
+ms.openlocfilehash: bdf9cbfef7dfdcf80976641b527ddeb61368d50b
+ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489013"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96921032"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integração de dados usando o Azure Data Factory e o Azure Data Share
 
@@ -34,7 +34,7 @@ Os dados usados nesse laboratório são os dados de táxi da cidade de Nova York
 
 * **Conta de armazenamento do Azure Data Lake Storage Gen2**: se você não tiver uma conta de armazenamento do ADLS Gen2, aprenda a [criar uma conta de armazenamento do ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (anteriormente conhecido como SQL DW)** : se você não tiver um Azure Synapse Analytics (anteriormente conhecido como SQL DW), aprenda a [criar uma instância do Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+* **Azure Synapse Analytics**: caso você não tenha um Azure Synapse Analytics, aprenda a [criar uma instância do Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 * **Azure Data Factory**: se você não tiver criado um data factory, confira como [criar um data factory](./quickstart-create-data-factory-portal.md).
 
@@ -79,7 +79,7 @@ Nos serviços vinculados do Azure Data Factory, defina as informações de conex
 
 ### <a name="create-an-azure-synapse-analytics-linked-service"></a>Criar um serviço vinculado do Azure Synapse Analytics
 
-1. Repita o mesmo processo para adicionar um serviço vinculado do Azure Synapse Analytics. Na guia de conexões, clique em **Novo**. Selecione o bloco **Azure Synapse Analytics (anteriormente conhecido como SQL DW)** e clique em continuar.
+1. Repita o mesmo processo para adicionar um serviço vinculado do Azure Synapse Analytics. Na guia de conexões, clique em **Novo**. Selecione o bloco do **Azure Synapse Analytics** e clique em Continuar.
 
     ![Configuração do portal 6](media/lab-data-flow-data-share/configure6.png)
 1. No painel de configuração do serviço vinculado, insira "SQLDW" como o nome do serviço vinculado. Insira suas credenciais para permitir que o data factory se conecte ao seu banco de dados. Se estiver usando a autenticação SQL, insira o nome do servidor, o banco de dados, o nome de usuário e a senha. Você pode verificar se as informações de conexão estão corretas clicando em **Testar conexão**. Clique em **Criar** quando terminar.
@@ -155,7 +155,7 @@ Você criou com êxito o conjunto de dados de origem. Verifique se, nas configur
 1. Para verificar se sua atividade de cópia está funcionando corretamente, clique em **Depurar** na parte superior da tela do pipeline para executar uma execução de depuração. Uma execução de depuração permite que você teste seu pipeline de ponta a ponta ou até um ponto de interrupção antes de publicá-lo no serviço de data factory.
 
     ![Cópia do portal 11](media/lab-data-flow-data-share/copy11.png)
-1. Para monitorar a execução de depuração, acesse a guia **Saída** da tela do pipeline. A tela de monitoramento será atualizada automaticamente a cada 20 segundos ou quando você clicar manualmente no botão atualizar. A atividade de cópia tem uma exibição de monitoramento especial que você pode acessar clicando no ícone de óculos na coluna **Ações**.
+1. Para monitorar a execução de depuração, acesse a guia **Saída** da tela do pipeline. A tela de monitoramento será atualizada automaticamente a cada 20 segundos ou quando você clicar manualmente no botão atualizar. A atividade de cópia tem uma exibição de monitoramento especial, que você pode acessar clicando no ícone de óculos na coluna **Ações**.
 
     ![Cópia do portal 12](media/lab-data-flow-data-share/copy12.png)
 1. A exibição de monitoramento da cópia fornece os detalhes de execução e as características de desempenho da atividade. Você pode ver informações como os dados lidos/gravados, linhas lidas/gravadas, arquivos lidos/gravados e a taxa de transferência. Se você tiver configurado tudo corretamente, deverá ver 49.999 linhas gravadas em um arquivo em seu coletor do ADLS.
@@ -226,7 +226,7 @@ O fluxo de dados criado nesta etapa interna ingressa o conjunto de dados "TripDa
     ![Ingresso no portal 1](media/lab-data-flow-data-share/join1.png)
 1. Dê à sua transformação de junção o nome "InnerJoinWithTripFares". Selecione "TripFaresSQL" no menu suspenso do fluxo direito. Selecione **Interno** como o tipo de junção. Para saber mais sobre os diferentes tipos de junção no fluxo de dados de mapeamento, confira [tipos de junção](./data-flow-join.md#join-types).
 
-    Selecione quais colunas você deseja corresponder de cada fluxo por meio do menu suspenso **Condições de junção**. Para adicionar uma condição de junção adicional, clique no ícone de adição ao lado de uma condição existente. Por padrão, todas as condições de junção são combinadas com um operador AND, o que significa que todas as condições devem ser atendidas para uma correspondência. Neste laboratório, desejamos corresponder às colunas `medallion`, `hack_license`, `vendor_id` e `pickup_datetime`
+    Selecione quais colunas você deseja corresponder de cada fluxo por meio do menu suspenso **Condições de junção**. Para adicionar uma condição de junção adicional, clique no ícone de adição ao lado de uma condição existente. Por padrão, todas as condições de junção são combinadas com um operador AND, o que significa que todas as condições precisam ser atendidas para obter uma correspondência. Neste laboratório, desejamos corresponder às colunas `medallion`, `hack_license`, `vendor_id` e `pickup_datetime`
 
     ![Ingresso no portal 2](media/lab-data-flow-data-share/join2.png)
 1. Verifique se você ingressou 25 colunas com êxito com uma visualização de dados.
@@ -274,7 +274,7 @@ O fluxo de dados criado nesta etapa interna ingressa o conjunto de dados "TripDa
 
     ![Coletor do portal 2](media/lab-data-flow-data-share/sink2.png)
 
-1. Selecione o bloco **Azure Synapse Analytics (anteriormente conhecido como SQL DW)** e clique em continuar.
+1. Selecione o bloco do **Azure Synapse Analytics** e clique em Continuar.
 
     ![Coletor do portal 3](media/lab-data-flow-data-share/sink3.png)
 1. Chame o conjunto de dados de "AggregatedTaxiData". Selecione "SQLDW" como seu serviço vinculado. Selecione **Criar tabela** e dê à nova tabela o nome dbo.AggregateTaxiData. Clique em OK após a conclusão
@@ -330,7 +330,7 @@ Após criar um compartilhamento de dados, você trocará de lugar e se tornará 
 
 1. Em **Nome do compartilhamento**, especifique um nome de sua escolha. Esse é o nome do compartilhamento que será visto por seu consumidor de dados. Portanto, dê a ele um nome descritivo como TaxiData.
 
-1. Em **Descrição**, insira uma frase que descreve o conteúdo do compartilhamento de dados. O compartilhamento de dados conterá dados de corridas de táxi de todo o mundo armazenados em vários repositórios, incluindo o Azure Synapse Analytics e o Azure Data Lake Storage. 
+1. Em **Descrição**, insira uma frase que descreva o conteúdo do compartilhamento de dados. O compartilhamento de dados conterá dados de corridas de táxi de todo o mundo armazenados em vários repositórios, incluindo o Azure Synapse Analytics e o Azure Data Lake Storage. 
 
 1. Em **Termos de uso**, especifique um conjunto de termos que você gostaria que seu consumidor de dados obedecesse. Alguns exemplos incluem "Não distribua esses dados fora de sua organização" ou "Veja o contrato legal". 
 

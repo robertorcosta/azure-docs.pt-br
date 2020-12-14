@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9a29e890553d15d19853ec836f8c4296869e143
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 757e34fd45b7d3d9703aa09daa7f040c5f605637
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959621"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96932380"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutorial: Treinar e implantar um modelo do Azure Machine Learning
 
@@ -26,6 +26,14 @@ Neste artigo, executaremos as seguintes tarefas:
 O Azure Notebooks tira proveito de um workspace do Azure Machine Learning, um bloco básico usado para fazer experimentos, treinar e implantar modelos de machine learning.
 
 As etapas neste artigo normalmente são executadas por cientistas de dados.
+
+Nesta seção do tutorial, você aprenderá a:
+
+> [!div class="checklist"]
+>
+> * Criar um projeto do Azure Notebooks para treinar um modelo de machine learning.
+> * Colocar o modelo de machine learning treinado em um contêiner.
+> * Criar um módulo do Azure IoT Edge com base no modelo de machine learning conteinerizado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -179,6 +187,10 @@ Para verificar se os notebooks foram concluídos com êxito, verifique se alguns
 Você pode inserir instruções do Python no notebook para depuração, como o comando `print()` para mostrar valores. Se você vir variáveis ou objetos que não estão definidos, execute as células em que eles são declarados ou instanciados primeiro.
 
 Talvez seja necessário excluir arquivos e recursos do Azure criados anteriormente se precisar refazer os notebooks.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este tutorial faz parte de um conjunto em que cada artigo se baseia no trabalho feito nos anteriores. Aguarde para limpar todos os recursos até concluir o tutorial final.
 
 ## <a name="next-steps"></a>Próximas etapas
 

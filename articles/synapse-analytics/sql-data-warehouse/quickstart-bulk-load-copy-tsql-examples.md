@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9ed3a4b0827e81b3f779d95a6eab1dc341e69bb1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de446209104c113b10346645f79b461239c3efab
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019371"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96901260"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar dados com segurança usando o SQL do Synapse
 
@@ -23,11 +23,14 @@ Este artigo realça e fornece exemplos sobre os mecanismos de autenticação seg
 
 A matriz a seguir descreve os métodos de autenticação compatíveis com cada tipo de arquivo e conta de armazenamento. Isso se aplica ao local de armazenamento de origem e ao local do arquivo de erros.
 
-|                          |                CSV                |              Parquet               |                ORC                 |
-| :----------------------: | :-------------------------------: | :-------------------------------:  | :-------------------------------:  |
-|  **Armazenamento de Blobs do Azure**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY               |              SAS/KEY               |
-| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS (ponto de extremidade do blob)/MSI (ponto de extremidade do dfs)/SERVICE PRINCIPAL/KEY/AAD | SAS (ponto de extremidade do blob)/MSI (ponto de extremidade do dfs)/SERVICE PRINCIPAL/KEY/AAD |
+|                          |                CSV                |                      Parquet                       |                        ORC                         |
+| :----------------------: | :-------------------------------: | :------------------------------------------------: | :------------------------------------------------: |
+|  **Armazenamento de Blobs do Azure**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |                      SAS/KEY                       |                      SAS/KEY                       |
+| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS (blob<sup>1</sup>)/MSI (dfs<sup>2</sup>)/SERVICE PRINCIPAL/KEY/AAD | SAS (blob<sup>1</sup>)/MSI (dfs<sup>2</sup>)/SERVICE PRINCIPAL/KEY/AAD |
 
+1: O ponto de extremidade .blob ( **.blob**.core.windows.net) no seu caminho de localização externa é necessário nesse método de autenticação.
+
+2: O ponto de extremidade .dfs ( **.dfs**.core.windows.net) no seu caminho de localização externa é necessário nesse método de autenticação.
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>a. Chave de conta de armazenamento com LF como terminador de linha (nova linha em estilo UNIX)
 
@@ -74,22 +77,35 @@ A autenticação de identidade gerenciada é obrigatória quando sua conta de ar
 1. Instalar o Azure PowerShell usando este [guia](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário primeiro atualizar para uso geral v2 usando este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 3. É necessário ativar **Permitir que os serviços confiáveis da Microsoft acessem essa conta de armazenamento** no menu de configurações **Firewalls e redes virtuais** da conta do Armazenamento do Azure. Confira este [guia](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) para saber mais.
+
 #### <a name="steps"></a>Etapas
 
-1. No PowerShell, **registre seu SQL Server** com o Azure Active Directory:
+1. Se você tem um pool de SQL dedicado autônomo, registre o SQL Server com o AAD (Azure Active Directory) usando o PowerShell: 
 
    ```powershell
    Connect-AzAccount
-   Select-AzSubscription -SubscriptionId your-subscriptionId
-   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   Select-AzSubscription -SubscriptionId <subscriptionId>
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-2. Crie uma **Conta de armazenamento de uso geral v2** usando este [guia](../../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   Esta etapa não é necessária para pools de SQL dedicados em um workspace do Azure Synapse.
+
+1. Se você tem um workspace do Azure Synapse, registre a identidade gerenciada pelo sistema do workspace:
+
+   1. Vá até o workspace do Azure Synapse no portal do Azure
+   2. Vá até a folha Identidades gerenciadas 
+   3. Verificar se a opção "Permitir Pipelines" está habilitada
+   
+   ![Registrar o msi do sistema do workspace](./media/quickstart-bulk-load-copy-tsql-examples/msi-register-example.png)
+
+1. Crie uma **Conta de armazenamento de uso geral v2** usando este [guia](../../storage/common/storage-account-create.md).
 
    > [!NOTE]
-   > Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   >
+   > - Se você tiver uma conta de armazenamento de blobs ou de uso geral v1, será necessário **primeiro atualizar para v2** usando este [guia](../../storage/common/storage-account-upgrade.md).
+   > - Para problemas conhecidos com o Azure Data Lake Storage Gen2, confira este [guia](../../storage/blobs/data-lake-storage-known-issues.md).
 
-3. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função do Azure de **Proprietário, Colaborador ou Leitor de Dados de Blob de Armazenamento** ao seu SQL Server.
+1. Na conta de armazenamento, navegue até o **Controle de Acesso (IAM)** e selecione **Adicionar atribuição de função**. Atribua a função do Azure **Colaborador de Dados do Blob de Armazenamento** ao servidor ou workspace que hospeda seu pool de SQL dedicado que você registrou com o AAD (Azure Active Directory).
 
    > [!NOTE]
    > Somente membros com o privilégio Proprietário podem executar essa etapa. Para obter várias funções internas do Azure, confira este [guia](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).

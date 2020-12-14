@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 838276c47085a3c7ad0f7c0a35a2578b13eb5026
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: a427c77ec23bb933f96d8aec54ca33169aee84d4
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511252"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96576019"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Neste guia, você verá as perguntas mais frequentes sobre o Azure Synapse Analy
 
 ## <a name="general"></a>Geral
 
-### <a name="q-what-rbac-roles-exist-and-how-do-i-use-them-to-secure-a-synapse-workspace"></a>P: Quais funções RBAC existem e como usá-las para proteger um workspace do Azure Synapse?
+### <a name="q-how-can-i-use-rbac-roles-to-secure-my-workspace"></a>P: Como posso usar funções RBAC para proteger meu workspace?
 
 A: O Azure Synapse introduz várias funções e escopos que podem ser atribuídos que simplificarão a proteção do seu workspace.
 
@@ -36,16 +36,16 @@ Funções RBAC do Azure Synapse:
 * Operador de Computação do Azure Synapse (versão prévia)
 * Usuário de Credencial do Azure Synapse (versão prévia)
 
-Escopos do RBAC do Azure Synapse:
-* Workspace 
-* Pool do Spark
-* runtime de integração
-* Serviço vinculado
-* Credencial
+Para proteger o workspace do Azure Synapse, atribua as Funções RBAC a estes escopos RBAC:
+* Workspaces
+* Pools do Spark
+* Runtimes de integração
+* Serviços vinculados
+* Credenciais
 
 Além disso, com os pools de SQL dedicados, você tem todos os recursos de segurança que você já conhece e adora.
 
-### <a name="q-how-can-i-cost-control-for-the-capabilities-inside-a-synapse-workspace-such-as-dedicated-sql-pools-serverless-spark-pools-and-serverless-sql-pools"></a>P: Como posso controlar os custos das funcionalidades em um workspace do Azure Synapse, como pools de SQL dedicados, pools do Spark sem servidor e pools do SQL sem servidor?
+### <a name="q-how-do-i-control-cont-dedicated-sql-pools-serverless-sql-pools-and-serverless-spark-pools"></a>P: Como fazer para controlar o custo de pools de SQL dedicados, pools de SQL sem servidor e pools do Spark sem servidor?
 
 A: Como ponto de partida, o Azure Synapse trabalha com análise de custo e alertas de custo internos disponíveis no nível de assinatura do Azure.
 
@@ -83,7 +83,7 @@ A: Cada atividade em um Pipeline do Azure Synapse é executada usando as credenc
 
 ### <a name="q-how-do-i-migrate-existing-pipelines-from-azure-data-factory-to-an-azure-synapse-workspace"></a>P: Como fazer para migrar pipelines existentes do Azure Data Factory para um workspace do Azure Synapse?
 
-A: Neste momento, você precisa recriar manualmente os seus pipelines do Azure Data Factory e artefatos relacionados manualmente. 
+A: Neste momento, você precisa recriar manualmente seus pipelines do Azure Data Factory e artefatos relacionados exportando o JSON do pipeline original e importando-o para o workspace do Azure Synapse.
 
 ## <a name="apache-spark"></a>Apache Spark
 

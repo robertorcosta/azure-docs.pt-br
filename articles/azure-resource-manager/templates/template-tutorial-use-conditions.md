@@ -5,16 +5,16 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 1f4e8c0bc6a066e0d82d393474bfc804be5e3fb3
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896983"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931360"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Usar condição em modelos do ARM
 
-Saiba como implantar recursos do Azure com base em condições em um modelo do ARM (Azure Resource Manager).
+Saiba como implantar recursos do Azure com base em condições em um modelo do ARM (modelo do Azure Resource Manager).
 
 No tutorial [Definir ordem de implantação de recursos](./template-tutorial-create-templates-with-dependent-resources.md), você criará uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar uma nova conta de armazenamento todas as vezes, você permitirá que as pessoas escolham entre criar uma nova conta de armazenamento e usar uma conta de armazenamento existente. Para isso, você definirá um parâmetro adicional. Se o valor do parâmetro for “new”, uma nova conta de armazenamento será criada. Caso contrário, uma conta de armazenamento existente com o nome fornecido é usada.
 
@@ -41,7 +41,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com a extensão de Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador da máquina virtual. Veja um exemplo para gerar uma senha:
 
     ```console
@@ -55,7 +55,7 @@ Para concluir este artigo, você precisa do seguinte:
 Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
-1. Em **Nome do arquivo** , cole a seguinte URL:
+1. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
@@ -117,7 +117,7 @@ Aqui está o procedimento para fazer as alterações:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    A condição verifica o valor de um parâmetro chamado **newOrExisting**. Se o valor do parâmetro for **new** , a implantação criará a conta de armazenamento.
+    A condição verifica o valor de um parâmetro chamado **newOrExisting**. Se o valor do parâmetro for **new**, a implantação criará a conta de armazenamento.
 
     A definição da conta de armazenamento atualizada será assim:
 
@@ -172,7 +172,7 @@ Aqui está o procedimento para fazer as alterações:
     ```
 
     > [!NOTE]
-    > A implantação falhará se **newOrExisting** for **new** , mas a conta de armazenamento com o nome da conta de armazenamento especificado já existir.
+    > A implantação falhará se **newOrExisting** for **new**, mas a conta de armazenamento com o nome da conta de armazenamento especificado já existir.
 
 Tente criar outra implantação com **newOrExisting** definido como “existing” e especifique uma conta de armazenamento existente. Para criar uma conta de armazenamento com antecedência, confira [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md).
 

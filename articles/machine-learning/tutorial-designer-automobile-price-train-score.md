@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: ca812fc7548e3c70f1faa1e1ed6a34afda3872af
+ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555249"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96575968"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço de automóvel com o designer
 
@@ -48,7 +48,10 @@ Para criar um pipeline do Azure Machine Learning, você precisa de um workspace 
 
 ### <a name="create-a-new-workspace"></a>Criar um novo workspace
 
-Para usar o designer, primeiro você precisa de um Workspace do Azure Machine Learning. O workspace é o recurso de nível superior para Azure Machine Learning; ele fornece um local centralizado para trabalhar com todos os artefatos que você cria no Azure Machine Learning.
+Você precisa de um Workspace do Azure Machine Learning para usar o designer. O workspace é o recurso de nível superior para Azure Machine Learning; ele fornece um local centralizado para trabalhar com todos os artefatos que você cria no Azure Machine Learning. Para obter instruções sobre como criar um workspace, confira [Criar e gerenciar workspaces do Azure Machine Learning](how-to-manage-workspace.md).
+
+> [!NOTE]
+> Se o seu workspace usa uma rede virtual, há etapas de configuração adicionais que você precisa seguir para usar o designer. Para obter mais informações, confira [Usar o estúdio do Azure Machine Learning em uma rede virtual do Azure](how-to-enable-studio-virtual-network.md)
 
 ### <a name="create-the-pipeline"></a>Criar o pipeline
 
@@ -275,7 +278,7 @@ Agora que o pipeline está configurado, você poderá enviar uma execução de p
     
     Você pode exibir o status e os detalhes da execução no canto superior direito da tela.
     
-    Se for a primeira execução do pipeline, ela poderá levar até 20 minutos para ser concluída. As configurações de computação padrão têm um tamanho de nó mínimo de 0, o que significa que o designer precisa alocar recursos depois de ficar ocioso. Execuções de pipeline repetidas levarão menos tempo, já que os recursos de computação já estão alocados. Além disso, o designer usa resultados armazenados em cache para cada módulo para melhorar ainda mais a eficiência.
+    Se essa for a primeira execução do pipeline, ela poderá levar até 20 minutos para ser concluída. As configurações de computação padrão têm um tamanho de nó mínimo de 0, o que significa que o designer precisa alocar recursos depois de ficar ocioso. Execuções de pipeline repetidas levarão menos tempo, já que os recursos de computação já estão alocados. Além disso, o designer usa resultados armazenados em cache para cada módulo para melhorar ainda mais a eficiência.
 
 ### <a name="view-scored-labels"></a>Exibir os rótulos pontuados
 

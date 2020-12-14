@@ -1,20 +1,20 @@
 ---
 title: Importar arquivos BACPAC do SQL com modelos
-description: Saiba como usar a extensão de Banco de Dados SQL do Azure para importar arquivos BACPAC do SQL com modelos do Azure Resource Manager.
+description: Saiba como usar extensões do Banco de Dados SQL do Azure para importar arquivos BACPAC do SQL com modelos do ARM (modelos do Azure Resource Manager).
 author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a56602ad5217af07d9e35872a26ddb478146d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b798e5ceb72ece3989fb81014555f2bc0fea5926
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86101878"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931394"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM
 
-Saiba como usar a extensão de Banco de Dados SQL do Azure para importar um arquivo BACPAC com modelos do ARM (Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato.
+Saiba como usar extensões do Banco de Dados SQL do Azure para importar um arquivo BACPAC com modelos do ARM (modelos do Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato.
 
 Neste tutorial, você criará um modelo para implantar um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) e um banco de dados individual e importar um arquivo BACPAC. Para obter informações sobre como implantar extensões de máquina virtual do Azure usando modelos do ARM, confira o [Tutorial: Implantar extensões de máquina virtual com modelos do ARM](./template-tutorial-deploy-vm-extensions.md).
 
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir este artigo, você precisa do seguinte:
 
-* Visual Studio Code com a extensão Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code com a extensão Ferramentas do Resource Manager. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 * Para aumentar a segurança, use uma senha gerada para a conta de administrador do servidor. Aqui está um exemplo que você pode usar para gerar uma senha:
 
     ```console

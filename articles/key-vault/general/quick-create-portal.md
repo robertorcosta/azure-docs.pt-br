@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e1c780d1eb9535343373701e6dfe4899a9cba366
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: b5f4f3d2b3eda9f00049cee26ae95850d65257d6
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803894"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778862"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Início Rápido: Criar um cofre de chaves usando o portal do Azure
 
@@ -67,7 +67,7 @@ Quando não for mais necessário, exclua o grupo de recursos, que excluirá o Ke
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um Key Vault e armazenou um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
+Neste início rápido, você criou um Key Vault usando o portal do Azure. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Key Vault](overview.md)
 - Confira o [Guia do desenvolvedor do Azure Key Vault](developers-guide.md)

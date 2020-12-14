@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f4803cc9871b71e65e4d94ed37d3f9771be1cae0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: adc08e978be699ea6ea3dd00beae1762d48644c0
+ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454965"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96781055"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -70,6 +70,7 @@ O Link Privado do Azure fornece os seguintes benefícios:
 | Azure Monitor <br/>(Log Analytics e Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
 | Lote do Azure | Todas as regiões públicas, exceto: Alemanha CENTRAL, Nordeste da ALEMANHA <br/> Todas as regiões do Governo  | | GA <br/> [Saiba como criar um ponto de extremidade privado para o Lote do Azure.](../batch/private-connectivity.md) |
 |Fábrica de dados do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | As credenciais devem ser armazenadas no Azure Key Vault| GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
+|Azure Managed Disks | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | [Clique aqui para ver as limitações conhecidas](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Saiba como criar um ponto de extremidade privado para os Azure Managed Disks.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 
 
 

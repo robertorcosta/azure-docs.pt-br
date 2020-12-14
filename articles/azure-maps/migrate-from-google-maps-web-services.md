@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0bb252e227e4f23388929f2fca18769e0bd02e19
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 813cb567ab3edddd6fb37cee050dc5e38ee4289f
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187027"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904883"
 ---
 # <a name="tutorial---migrate-web-service-from-google-maps"></a>Tutorial – Migrar serviço Web do Google Maps
 
@@ -40,19 +40,19 @@ A tabela mostra as APIs de serviço dos Azure Mapas, que têm uma funcionalidade
 
 | API de serviço do Google Maps | API de serviço do Azure Mapas                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Instruções              | [Route](/rest/api/maps/route)                                     |
-| Matriz de Distância         | [Matrix de Rota](/rest/api/maps/route/postroutematrixpreview)       |
-| Geocodificação               | [Pesquisar](/rest/api/maps/search)                                   |
-| Pesquisa de locais           | [Pesquisar](/rest/api/maps/search)                                   |
-| Preenchimento automático de locais      | [Pesquisar](/rest/api/maps/search)                                   |
-| Ajustar à estrada            | Confira a seção [Calcular rotas e instruções](#calculate-routes-and-directions).            |
-| Limites de Velocidade            | Confira a seção [Geocodificação inversa de uma coordenada](#reverse-geocode-a-coordinate).                  |
-| Mapa estático              | [Render](/rest/api/maps/render/getmapimage)                       |
-| Fuso horário               | [Fuso horário](/rest/api/maps/timezone)                              |
+| Instruções              | [Route](/rest/api/maps/route)                                     |                         
+| Matriz de Distância         | [Matrix de Rota](/rest/api/maps/route/postroutematrixpreview)       |                         
+| Geocodificação               | [Pesquisar](/rest/api/maps/search)                                   |                         
+| Pesquisa de locais           | [Pesquisar](/rest/api/maps/search)                                   |                         
+| Preenchimento automático de locais      | [Pesquisar](/rest/api/maps/search)                                   |                         
+| Ajustar à estrada            | Confira a seção [Calcular rotas e instruções](#calculate-routes-and-directions).            
+| Limites de Velocidade            | Confira a seção [Geocodificação inversa de uma coordenada](#reverse-geocode-a-coordinate).                  
+| Mapa estático              | [Render](/rest/api/maps/render/getmapimage)                       |                         
+| Fuso horário               | [Fuso horário](/rest/api/maps/timezone)                              |                         
+| Elevação               | [Elevação (versão prévia)](/rest/api/maps/elevation)                   |                         |
 
 As seguintes APIs de serviço não estão atualmente disponíveis nos Azure Mapas:
 
-- Elevação
 - Geolocalização
 - Detalhes e fotos de locais – Números de telefone e a URL de site estão disponíveis na API de pesquisa dos Azure Mapas.
 - URLs de mapa
@@ -203,7 +203,7 @@ O serviço de roteiros do Azure Mapas fornece as seguintes APIs para calcular ro
 
 - [**Calcular rota**](/rest/api/maps/route/getroutedirections): Calcule uma rota e tenha a solicitação seja processada imediatamente. Essa API é compatível com solicitações GET e POST. Solicitações POST são recomendadas ao especificar um grande número de marcos ou ao usar muitas das opções de rota para garantir que a solicitação de URL não se torne longa demais e cause problemas. A Direção da Rota POST nos Azure Mapas tem uma opção que pode admitir milhares de [pontos de suporte](/rest/api/maps/route/postroutedirections#supportingpoints) e os usará para recriar um caminho de rota lógico entre eles (ajustar à estrada). 
 - [**Rota de lote**](/rest/api/maps/route/postroutedirectionsbatchpreview): Crie uma solicitação contendo até 1.000 solicitação de rota e faça com que elas sejam processadas durante um período de tempo. Todos os dados serão processados em paralelo no servidor e, quando concluído, o conjunto de resultados completo poderá ser baixado.
-- [**Serviços de mobilidade**](/rest/api/maps/mobility): Calcule rotas e instruções usando o trânsito público.
+- [**Serviços Mobilidade (versão prévia) **](/rest/api/maps/mobility): Calcule rotas e instruções usando o trânsito público.
 
 A tabela faz uma referência cruzada dos parâmetros da API do Google Maps com os parâmetros comparáveis da API dos Azure Mapas.
 
@@ -221,8 +221,8 @@ A tabela faz uma referência cruzada dos parâmetros da API do Google Maps com o
 | `origin`                       | `query`                            |
 | `region`                       | *N/A*: este recurso está relacionado ao geocódigo. Use o parâmetro *countrySet* ao usar a API de geocódigo do Azure Mapas.  |
 | `traffic_model`               | *N/A* – só é possível especificar se os dados de tráfego devem ser usados com o parâmetro *traffic*. |
-| `transit_mode`                | Confira a [documentação de serviços de mobilidade](/rest/api/maps/mobility) |
-| `transit_routing_preference` | Confira a [documentação de serviços de mobilidade](/rest/api/maps/mobility) |
+| `transit_mode`                | Confira a [Documentação dos serviços Mobilidade (versão prévia)](/rest/api/maps/mobility) |
+| `transit_routing_preference` | Confira a [Documentação dos serviços Mobilidade (versão prévia)](/rest/api/maps/mobility) |
 | `units`                        | *N/A* – o Azure Mapas usa apenas o sistema métrico.  |
 | `waypoints`                    | `query`                            |
 

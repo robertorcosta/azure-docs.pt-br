@@ -1,15 +1,18 @@
 ---
 title: Avaliar instâncias da AWS a fim de obter uma migração para o Azure com a Avaliação de Servidor das Migrações para Azure
-description: Descreve como avaliar instâncias da AWS a fim de obter uma migração para o Azure usando a Avaliação de Servidor das Migrações para Azure.
+description: Saiba como acessar instâncias da AWS a fim de obter uma migração para o Azure com a Avaliação de Servidor das Migrações para Azure.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 14928c8a3249cca172ad088f290b54a22a125ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7d64d239eeb3be5bf94830a425c6e097a69a64b
+ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90107907"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96753344"
 ---
 # <a name="tutorial-assess-aws-instances-for-migration-to-azure"></a>Tutorial: Avaliar instâncias da AWS para migração para o Azure
 

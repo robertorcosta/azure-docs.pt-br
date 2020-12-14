@@ -1,21 +1,21 @@
 ---
 title: Tutorial – adicionar marcas a recursos no modelo
-description: Adicione marcas a recursos que você implanta em seu modelo do Azure Resource Manager. As marcas permitem que você organize logicamente os recursos.
+description: Adicione marcas aos recursos implantados no modelo do ARM (modelo do Azure Resource Manager). As marcas permitem que você organize logicamente os recursos.
 author: mumian
 ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 16fc294784d9d6ff3c2fdd920d053eae5cd4b56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4084508202fc7db5280d34c157552fe723b1dfba
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613196"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96930935"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Tutorial: Adicionar marcas em seu modelo do ARM
 
-Neste tutorial, você aprenderá a adicionar marcas aos recursos no modelo do ARM (Azure Resource Manager). As [marcas](../management/tag-resources.md) ajudam você a organizar logicamente seus recursos. Os valores de tag aparecem em relatórios de custo. Este tutorial leva **8 minutos** para ser concluído.
+Neste tutorial, você aprenderá a adicionar marcas aos recursos no modelo do ARM (modelo do Azure Resource Manager). As [marcas](../management/tag-resources.md) ajudam você a organizar logicamente seus recursos. Os valores de tag aparecem em relatórios de custo. Este tutorial leva **8 minutos** para ser concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

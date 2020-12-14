@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 12/11/2020
 ms.author: jeedes
-ms.openlocfilehash: 6b4484b9bb235b24d2b733c329b52ab6b04be183
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2fd4346467b0cacbbb4eeb78072749e416b16de1
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006414"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97358496"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Zoom
 
@@ -25,8 +25,6 @@ Neste tutorial, você aprenderá a integrar o Zoom ao Azure AD (Azure Active Dir
 * Controlar no Azure AD quem tem acesso ao Zoom.
 * Permitir que os usuários sejam conectados automaticamente ao Zoom com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
-
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,18 +44,18 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 Para configurar a integração do Zoom com o Azure AD, você precisará adicionar o Zoom da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
 1. Na seção **Adicionar por meio da galeria**, digite **Zoom** na caixa de pesquisa.
 1. Selecione **Zoom** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-zoom"></a>Configurar e testar o logon único do Azure AD para o Zoom
+## <a name="configure-and-test-azure-ad-sso-for-zoom"></a>Configurar e testar o SSO do Azure AD para o Zoom
 
 Configure e teste o SSO do Azure AD com o Zoom usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Zoom.
 
-Para configurar e testar o SSO do Azure AD com o Zoom, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Zoom, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -70,7 +68,7 @@ Para configurar e testar o SSO do Azure AD com o Zoom, conclua os seguintes bloc
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zoom**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Zoom**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Escolher um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
@@ -120,20 +118,22 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Zoom**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-zoom-sso"></a>Configurar o SSO do Zoom
 
-1. Em uma janela diferente do navegador da Web, entre em seu site da empresa do Zoom como administrador.
+1. Para automatizar a configuração no Zoom, é necessário instalar a **extensão do navegador My Apps Secure Sign-in** clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+2. Após a adição da extensão ao navegador, clique em **Configurar o Zoom** e você será direcionado ao aplicativo Zoom. Nele, forneça as credenciais de administrador para entrar no Zoom. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se desejar configurar o Zoom manualmente, em uma janela diferente do navegador da Web, entre em seu site da empresa do Zoom como administrador.
 
 2. Clique na guia **Logon Único**.
 
@@ -177,16 +177,14 @@ O objetivo desta seção é criar um usuário chamado B.Fernandes no Zoom. O Zoo
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir.
 
-Ao clicar no bloco do Zoom no Painel de Acesso, você deverá ser conectado automaticamente ao Zoom no qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você à URL de Logon do Zoom, na qual você poderá iniciar o fluxo de logon.
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse diretamente a URL de Logon do Zoom e inicie o fluxo de logon de lá.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Zoom em Meus Aplicativos, isso redirecionará você à URL de Logon do Zoom. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimentar o Zoom com o Azure AD](https://aad.portal.azure.com/)
+Depois de configurar o Zoom do Azure AD, você poderá impor o Controle de sessão, que fornece proteção contra a exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O Controle de Sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

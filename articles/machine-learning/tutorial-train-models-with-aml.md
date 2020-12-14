@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de classificação de imagens: Treinar modelos'
 titleSuffix: Azure Machine Learning
-description: Use o Azure Machine Learning para treinar um modelo de classificação de imagem com o scikit-learn em um Jupyter Notebook em Python. Este tutorial é a primeira parte de duas.
+description: Use o Azure Machine Learning para treinar um modelo de classificação de imagens com o Scikit-learn em um Jupyter Notebook em Python. Este tutorial é a primeira parte de duas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d1dbe51dd095290c296699bbb4bc6bd3a8caf7bf
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321287"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96862421"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Treinar modelos de classificação de imagem usando dados MNIST e scikit-learn 
 
@@ -49,7 +49,7 @@ Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começ
 * Na pasta *tutorials/image-classification-mnist-data* clonada, abra o notebook *img-classification-part1-training.ipynb*. 
 
 
-O tutorial (e o arquivo complementar **utils.py** ) também estará disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Execute `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` para instalar as dependências para este tutorial.
+O tutorial (e o arquivo complementar **utils.py**) também estará disponível no [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) se você quiser usá-lo em seu próprio [ambiente local](how-to-configure-environment.md#local). Execute `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` para instalar as dependências para este tutorial.
 
 > [!Important]
 > O restante deste artigo contém o mesmo conteúdo que você vê no notebook.  
@@ -368,15 +368,15 @@ No total, a primeira execução leva **aproximadamente 10 minutos**. Mas para ex
 
 O que acontece enquanto você espera:
 
-- **Criação de imagem** : será criada uma imagem do Docker correspondente ao ambiente Python especificado pelo ambiente do Azure ML. A imagem é carregada no workspace. A criação e o envio da imagem leva **cerca de cinco minutos**.
+- **Criação de imagem**: será criada uma imagem do Docker correspondente ao ambiente Python especificado pelo ambiente do Azure ML. A imagem é carregada no workspace. A criação e o envio da imagem leva **cerca de cinco minutos**.
 
   Este estágio ocorre uma vez para cada ambiente Python, pois o contêiner é armazenado em cache para execuções subsequentes. Durante a criação da imagem, os logs são transmitidos para o histórico de execução. Você pode monitorar o progresso da criação da imagem usando esses logs.
 
-- **Dimensionamento** : Se o cluster remoto exigir mais nós para realizar a execução que está disponível, mais nós serão adicionados automaticamente. O dimensionamento normalmente leva **cerca de cinco minutos.**
+- **Dimensionamento**: Se o cluster remoto exigir mais nós para realizar a execução que está disponível, mais nós serão adicionados automaticamente. O dimensionamento normalmente leva **cerca de cinco minutos.**
 
-- **Em execução** : Neste estágio, os arquivos e scripts necessários são enviados para o destino de computação. Em seguida, armazenamentos de dados são montados ou copiados. Em seguida, o **entry_script** é executado. Enquanto o trabalho está em execução, o **stdout** e o diretório **./logs** são transmitidos para o histórico de execução. Você pode monitorar o progresso da execução usando esses logs.
+- **Em execução**: Neste estágio, os arquivos e scripts necessários são enviados para o destino de computação. Em seguida, armazenamentos de dados são montados ou copiados. Em seguida, o **entry_script** é executado. Enquanto o trabalho está em execução, o **stdout** e o diretório **./logs** são transmitidos para o histórico de execução. Você pode monitorar o progresso da execução usando esses logs.
 
-- **Pós-processamento** : O diretório **./outputs** da execução é copiado para o histórico de execução em seu workspace para que você possa acessar esses resultados.
+- **Pós-processamento**: O diretório **./outputs** da execução é copiado para o histórico de execução em seu workspace para que você possa acessar esses resultados.
 
 Você pode verificar o andamento de um trabalho em execução de várias maneiras. Este tutorial usa um widget do Jupyter, bem como um método `wait_for_completion`.
 

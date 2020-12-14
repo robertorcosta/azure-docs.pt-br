@@ -3,18 +3,18 @@ title: 'Tutorial: Migrar serviços Web do Bing Mapas | Microsoft Azure Mapas'
 description: Tutorial sobre como migrar serviços Web do Bing Maps para o Microsoft Azure Mapas.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 9/10/2020
+ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: c6e63f67aca279b64829e67e1aa06a69d312fd58
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d257c66de8fb62fb57c573d91966f3e7d8d1b123
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897017"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96904951"
 ---
 # <a name="tutorial---migrate-web-service-from-bing-maps"></a>Tutorial – Migrar serviço Web do Bing Mapas
 
@@ -37,21 +37,21 @@ A tabela a seguir apresenta as APIs de serviço do Azure Mapas que fornecem func
 | SDS (Serviços de Dados Espaciais)           | [Pesquisar](/rest/api/maps/search) + [Rota](/rest/api/maps/route) + outros Serviços do Azure |
 | Fuso horário                             | [Fuso horário](/rest/api/maps/timezone)  |
 | Incidentes de tráfego                     | [Detalhes do incidente de tráfego](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
+| Elevação                             | [Elevação (versão prévia)](/rest/api/maps/elevation)
 
 As seguintes APIs de serviço não estão disponíveis atualmente no Azure Mapas:
 
--   Elevação – planejado
 -   Rotas de itinerário otimizadas – planejado. A API de Rota do Azure Mapas dá suporte à otimização de caixeiro viajante para apenas um veículo.
 -   Metadados de imagens – usados principalmente para obter URLs de peça no Bing Mapas. O Azure Mapas tem um serviço autônomo para acessar diretamente as peças de mapa.
 
 O Azure Mapas tem vários serviços Web REST adicionais que podem ser interessantes;
 
--   [Criador do Azure Mapas](./creator-indoor-maps.md) – crie um gêmeo digital privado personalizado de edifícios e espaços.
+-   [Criador do Azure Mapas (versão prévia)](./creator-indoor-maps.md) – crie um gêmeo digital privado personalizado de edifícios e espaços.
 -   [Operações espaciais](/rest/api/maps/spatial) – descarregue operações e cálculos espaciais complexos, como a delimitação geográfica, para um serviço.
 -   [Peças de Mapa](/rest/api/maps/render/getmaptile) – acesse peças de estradas e de imagens do Azure Mapas como peças de varredura e de vetor.
 -   [Roteamento em lote](/rest/api/maps/route/postroutedirectionsbatchpreview) – permite que até 1.000 solicitações de rota sejam feitas em um só lote em um determinado período. As rotas são calculadas em paralelo no servidor para um processamento mais rápido.
 -   [Fluxo de Tráfego](/rest/api/maps/traffic) – acesse dados de fluxo de tráfego em tempo real como peças de varredura e de vetor.
--   [API de Geolocalização](/rest/api/maps/geolocation/getiptolocationpreview) – obtenha a localização de um endereço IP.
+-   [API de Geolocalização (versão prévia)](/rest/api/maps/geolocation/getiptolocationpreview) – obtenha a localização de um endereço IP.
 -   [Serviços de Clima](/rest/api/maps/weather) – tenha acesso a dados meteorológicos e de previsão em tempo real.
 
 Confira também os seguintes guias de melhores práticas:
@@ -186,7 +186,7 @@ O serviço de roteamento do Azure Mapas fornece as seguintes APIs para calcular 
 
 -   [Calcular rota](/rest/api/maps/route/getroutedirections): Calcule uma rota e tenha a solicitação seja processada imediatamente. Essa API é compatível com solicitações GET e POST. Solicitações POST são recomendadas ao especificar um grande número de marcos ou ao usar muitas das opções de rota para garantir que a solicitação de URL não se torne longa demais e cause problemas.
 -   [Rota de lote](/rest/api/maps/route/postroutedirectionsbatchpreview): Crie uma solicitação contendo até 1.000 solicitação de rota e faça com que elas sejam processadas durante um período de tempo. Todos os dados serão processados em paralelo no servidor e, quando concluído, o conjunto de resultados completo poderá ser baixado.
--   [Serviços de mobilidade](/rest/api/maps/mobility): Calcule rotas e instruções usando o trânsito público.
+-   [Serviços Mobilidade (versão prévia) ](/rest/api/maps/mobility): Calcule rotas e instruções usando o trânsito público.
 
 A tabela a seguir faz referência cruzada dos parâmetros da API do Bing Mapas com os parâmetros comparáveis da API do Azure Mapas.
 

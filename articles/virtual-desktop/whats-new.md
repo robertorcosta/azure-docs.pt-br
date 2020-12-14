@@ -3,17 +3,17 @@ title: O que há de novo na Área de Trabalho Virtual do Windows? - Azure
 description: Novos recursos e atualizações de produto para a Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 11/11/2020
+ms.date: 12/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
+ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537383"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96533954"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -25,6 +25,31 @@ A Área de Trabalho Virtual do Windows é atualizada regularmente. Neste artigo,
 - Correções de bug
 
 Este artigo é atualizado mensalmente. Volte a consultá-lo com frequência para acompanhar as atualizações.
+
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="azure-portal-experience"></a>Experiência do portal do Azure
+
+Corrigimos dois bugs na experiência do usuário do portal do Azure:
+
+- O nome amigável do aplicativo de desktop não é mais substituído no fluxo de trabalho "Adicionar VM".
+- A guia de host de sessão será carregada agora se os hosts de sessão fizerem parte dos conjuntos de dimensionamento.
+
+### <a name="fslogix-client-version-2009"></a>Cliente FSLogix, versão 2009 
+
+Lançamos uma nova versão do cliente FSLogix com muitas correções e aprimoramentos. Saiba mais em [nossa postagem no blog](https://social.msdn.microsoft.com/Forums/en-US/defe5828-fba4-4715-a68c-0e4d83eefa6b/release-notes-for-fslogix-apps-release-2009-29762130127?forum=FSLogix).
+
+### <a name="rdp-shortpath-public-preview"></a>Versão prévia pública do Shortpath RDP
+
+O Shortpath RDP introduz a conectividade direta com o host de sessão da Área de Trabalho Virtual do Windows usando VPNs ponto a site e site a site e o ExpressRoute. Ele também introduz o protocolo de transporte URCP. O Shortpath RDP foi criado para reduzir a latência e os saltos de rede a fim de aprimorar a experiência do usuário. Saiba mais em [Shortpath RDP da Área de Trabalho Virtual do Windows](shortpath.md).
+
+### <a name="azdesktopvirtualization-version-201"></a>Az.DesktopVirtualization, versão 2.0.1
+
+Lançamos a versão 2.0.1 dos cmdlets da Área de Trabalho Virtual do Windows. Essa atualização inclui cmdlets que permitirão que você gerencie a Anexação de Aplicativo MSIX. Você pode baixar a nova versão na [galeria do PowerShell](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.0.1).
+
+### <a name="azure-advisor-updates"></a>Atualizações do Assistente do Azure
+
+O Assistente do Azure agora tem uma nova recomendação para diretrizes de proximidade na Área de Trabalho Virtual do Windows. Saiba mais no [site do Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## <a name="october-2020"></a>Outubro de 2020
 
@@ -174,7 +199,6 @@ Isto é o que essa alteração faz para você:
 - As funções de monitoramento que costumavam ser feitas por meio do PowerShell ou do aplicativo Web do Serviço de Diagnóstico agora foram movidas para Log Analytics no portal do Azure. Agora, você também tem duas opções para visualizar seus relatórios. Você pode executar consultas do Kusto e usar Pastas de Trabalho para criar relatórios visuais.
 
 - Não é mais necessário o consentimento completo do Azure Active Directory (Azure AD) para usar a Área de Trabalho Virtual do Windows. Nessa atualização, o locatário do Azure AD na sua assinatura do Azure autentica os usuários e fornece controles RBAC do Azure para seus administradores.
-
 
 ### <a name="powershell-support"></a>Suporte ao PowerShell
 

@@ -1,19 +1,19 @@
 ---
 title: Integração contínua com o Azure Pipelines
-description: Saiba como criar, testar e implantar continuamente modelos do Azure Resource Manager.
+description: Saiba como criar, testar e implantar continuamente modelos do ARM (Azure Resource Manager).
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7688a4e4838cb591bcd3ac0045a5ed22180c063
+ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333229"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96906345"
 ---
-# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines
+# <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos do ARM com o Azure Pipelines
 
-No [tutorial anterior](./deployment-tutorial-linked-template.md), você implantou um modelo vinculado.  Neste tutorial, você saberá como usar o Azure Pipelines para criar e implantar continuamente os projetos de modelo do Azure Resource Manager.
+No [tutorial anterior](./deployment-tutorial-linked-template.md), você implantou um modelo vinculado.  Neste tutorial, você aprende a usar o Azure Pipelines para criar e implantar continuamente projetos de modelo do ARM (Azure Resource Manager).
 
 O Azure DevOps fornece serviços de desenvolvedor para capacitar as equipes a fim de planejar o trabalho, colaborar com o desenvolvimento de código e criar e implantar aplicativos. Os desenvolvedores podem trabalhar na nuvem usando o Azure DevOps Services. O Azure DevOps fornece um conjunto integrado de recursos que pode ser acessado por meio do seu navegador da Web ou do cliente do IDE. O Azure Pipelines é um desses recursos. O Azure Pipelines é um serviço CI (integração contínua) e CD (entrega contínua) cheio de recursos. Ele funciona com seu provedor Git de preferência e pode ser implantado na maioria dos principais serviços de nuvem. É possível automatizar o build, o teste e a implantação do seu código para Microsoft Azure, Google Cloud Platform ou Amazon Web Services.
 
@@ -40,7 +40,7 @@ Para concluir este artigo, você precisa do seguinte:
 * **Uma conta do GitHub**, em que você a usa para criar um repositório para seus modelos. Se não tiver uma, poderá [criá-la gratuitamente](https://github.com). Para saber mais sobre como usar os repositórios GitHub, confira [Criar repositórios GitHub](/azure/devops/pipelines/repos/github).
 * **Instalar o Git**. Essa instrução tutorial usa o *Git Bash* ou o *Git Shell*. Para obter instruções, confira [Instalar o Git]( https://www.atlassian.com/git/tutorials/install-git).
 * **Uma organização do Azure DevOps**. Se não tiver uma, poderá criá-la gratuitamente. Confira [Criar uma coleção de projeto ou organização](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
-* (opcional) **Visual Studio Code com a extensão de Ferramentas do Resource Manager**. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* (opcional) **Visual Studio Code com a extensão de Ferramentas do Resource Manager**. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Preparar um repositório GitHub
 

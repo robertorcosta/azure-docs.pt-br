@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: bb2eb36e4116c17efb20946b0da4586678838f3b
+ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489940"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96861996"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Executar o Azure Functions a partir dos trabalhos do Azure Stream Analytics 
 
@@ -195,7 +195,9 @@ Siga o tutorial [Detecção de fraudes em tempo real](stream-analytics-real-time
 Se ocorrer uma falha durante o envio de eventos para o Azure Functions, o Stream Analytics repetirá a maioria das operações. Todas as exceções http serão repetidas até serem bem-sucedidas, com exceção do erro http 413 (entidade grande demais). Um erro de entidade grande demais é tratado como um erro de dados que está sujeito à [política de repetição ou remoção](stream-analytics-output-error-policy.md).
 
 > [!NOTE]
-> O tempo limite para solicitações HTTP do Stream Analytics para Azure Functions é definido como 100 segundos. Se o aplicativo do Azure Functions levar mais de 100 segundos para processar um lote, o Stream Analytics apresentará erro.
+> O tempo limite para solicitações HTTP do Stream Analytics para Azure Functions é definido como 100 segundos. Se o aplicativo do Azure Functions levar mais de 100 segundos para processar um lote, o Stream Analytics apresentará erro e tentará executar o lote novamente.
+
+A repetição de tentativas após atingir o tempo limite pode levar à gravação de eventos duplicados no coletor de saída. Quando o Stream Analytics tenta executar novamente um lote com falha, ele tenta todos os eventos no lote. Por exemplo, considere um lote de 20 eventos que são enviados para o Azure Functions do Stream Analytics. Suponha que o Azure Functions leve 100 segundos para processar os 10 primeiros eventos nesse lote. Após os 100 segundos, o Stream Analytics suspende a solicitação, uma vez que não recebeu uma resposta positiva do Azure Functions, e outra solicitação é enviada para o mesmo lote. Os 10 primeiros eventos no lote são processados novamente pelo Azure Functions, o que causa uma duplicata. 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

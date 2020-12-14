@@ -1,6 +1,6 @@
 ---
 title: Usar scripts de implantação de modelo | Microsoft Docs
-description: Saiba como usar scripts de implantação em modelos do Azure Resource Manager.
+description: Saiba como usar scripts de implantação em modelos do ARM (modelos do Azure Resource Manager).
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc19222cf1e610c6c65d7c721a54f9949bed70ae
+ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88825487"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96931428"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutorial: Usar scripts de implantação para criar um certificado autoassinado (Versão prévia)
 
-Saiba como usar scripts de implantação em modelos do ARM (Azure Resource Manager). Os scripts de implantação podem ser usados para executar etapas personalizadas que não podem ser feitas por modelos do ARM. Por exemplo, criar um certificado autoassinado.  Neste tutorial, você criará um modelo para implantar um Azure Key Vault e, em seguida, usará um recurso `Microsoft.Resources/deploymentScripts` no mesmo modelo para criar um certificado e adicioná-lo ao cofre de chaves. Para saber mais sobre o script de implantação, confira [Usar scripts de implantação em modelos do ARM](./deployment-script-template.md).
+Saiba como usar scripts de implantação em modelos do ARM (modelos do Azure Resource Manager). Os scripts de implantação podem ser usados para executar etapas personalizadas que não podem ser feitas por modelos do ARM. Por exemplo, criar um certificado autoassinado.  Neste tutorial, você criará um modelo para implantar um Azure Key Vault e, em seguida, usará um recurso `Microsoft.Resources/deploymentScripts` no mesmo modelo para criar um certificado e adicioná-lo ao cofre de chaves. Para saber mais sobre o script de implantação, confira [Usar scripts de implantação em modelos do ARM](./deployment-script-template.md).
 
 > [!IMPORTANT]
 > Dois recursos de script de implantação, uma conta de armazenamento e uma instância de contêiner, são criados no mesmo grupo de recursos para execução de script e solução de problemas. Esses recursos geralmente são excluídos pelo serviço de script quando a execução de script entra em um estado terminal. Você será cobrado pelos recursos até que eles sejam excluídos. Para saber mais, confira [Limpar recursos do script de implantação](./deployment-script-template.md#clean-up-deployment-script-resources).
@@ -40,7 +40,7 @@ Este tutorial cobre as seguintes tarefas:
 
 Para concluir este artigo, você precisa do seguinte:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) com a extensão Ferramentas do Resource Manager**. Confira [Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) com a extensão Ferramentas do Resource Manager**. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **Uma identidade gerenciada atribuída por usuário com função de colaborador no nível da assinatura**. Essa identidade é usada para executar scripts de implantação. Para criar uma, confira [Identidade gerenciada atribuída por usuário](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Você precisa da ID da identidade ao implantar o modelo. O formato da identidade é:
 
