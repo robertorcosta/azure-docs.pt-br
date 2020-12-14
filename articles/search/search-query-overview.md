@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: 9cac0a0026a7007e227607e04e03a77e4df99ecd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 9ce0ab34aac1a3dda823c9270f4eacebfb99166f
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368113"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387659"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultando no Azure Pesquisa Cognitiva
 
-O Azure Pesquisa Cognitiva oferece uma linguagem de consulta abrangente para dar suporte a uma ampla gama de cenários, desde pesquisa de forma livre até padrões de consulta altamente especificados. Este artigo resume os tipos de consultas que você pode criar.
+O Azure Pesquisa Cognitiva oferece uma linguagem de consulta avançada para dar suporte a uma ampla gama de cenários, da pesquisa de texto livre, a padrões de consulta altamente especificados. Este artigo resume os tipos de consultas que você pode criar.
 
 No Pesquisa Cognitiva, uma consulta é uma especificação completa de uma operação de viagem de ida e **`search`** volta, com parâmetros que informam a execução da consulta e moldam a resposta que retorna. Os parâmetros e os analisadores determinam o tipo de solicitação de consulta. O exemplo de consulta a seguir usa os [documentos de pesquisa (API REST)](/rest/api/searchservice/search-documents), direcionando o [índice de demonstração de hotéis](search-get-started-portal.md).
 
@@ -38,7 +38,7 @@ Parâmetros usados durante a execução da consulta:
 
 + **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para constructos de consulta avançada, como expressões regulares, pesquisa de proximidade, pesquisa difusa e de curinga, para citar alguns.
 
-+ **`search`** fornece os critérios de correspondência, geralmente os termos ou frases inteiras, com ou sem operadores. Qualquer campo atribuído como *pesquisável* no esquema de índice é um candidato para esse parâmetro. 
++ **`search`** fornece os critérios de correspondência, geralmente os termos ou frases inteiras, com ou sem operadores. Qualquer campo atribuído como *pesquisável* no esquema de índice é um candidato para esse parâmetro.
 
 + **`searchFields`** restringe a execução da consulta a campos pesquisáveis específicos.
 
@@ -110,10 +110,8 @@ Um formulário de consulta avançada depende do analisador de Lucene completo e 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use o portal ou outra ferramenta, como o postmaster ou Visual Studio Code, ou um dos SDKs para explorar consultas com mais profundidade. Os links a seguir vão ajudá-lo a começar.
+Para uma análise mais detalhada da implementação da consulta, examine os exemplos de cada sintaxe. Se você for novo na pesquisa de texto completo, uma análise mais detalhada do que o mecanismo de consulta pode ser uma opção igualmente boa.
 
-+ [Gerenciador de pesquisa](search-explorer.md)
-+ [Como consultar em REST](search-get-started-rest.md)
-+ [Como consultar em .NET](search-get-started-dotnet.md)
-+ [Como consultar em Python](search-get-started-python.md)
-+ [Como consultar em JavaScript](search-get-started-javascript.md)
++ [Exemplos de consulta simples](search-query-simple-examples.md)
++ [Exemplos de consulta de sintaxe Lucene para criar consultas avançadas](search-query-lucene-examples.md)
++ [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)

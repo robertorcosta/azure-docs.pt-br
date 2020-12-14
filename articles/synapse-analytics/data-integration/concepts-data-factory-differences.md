@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: makromer
 ms.reviewer: jrasnick
-ms.openlocfilehash: a8fd0ef006b246e30c02cfb321c72b4e070f54de
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8818d4db489cef8203ae515c18c61e215d577033
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109140"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387608"
 ---
 # <a name="data-integration-in-azure-synapse-analytics-versus-azure-data-factory"></a>Integração de dados no Azure Synapse Analytics versus Azure Data Factory
 
 No Azure Synapse Analytics, os recursos de integração de dados, como pipelines Synapse e fluxos de dados, são baseados nos Azure Data Factory. Para obter mais informações, consulte [o que é Azure data Factory](../../data-factory/introduction.md).
 
 
-## <a name="available-features-in-azure-data-factory-and-azure-synapse-analytics"></a>Recursos disponíveis no Azure Data Factory e no Azure Synapse Analytics
+## <a name="available-features-in-adf--azure-synapse-analytics"></a>Recursos disponíveis no ADF & análise de Synapse do Azure
 
 Verifique a tabela abaixo para obter a disponibilidade dos recursos:
 

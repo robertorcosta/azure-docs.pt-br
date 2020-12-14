@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f9bb53f62c5edf055e17f198b7adb45a36bcb2f8
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 83b8755ea8e629e0f5c3f16d2a38e62882373a7f
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936617"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386895"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do OAuth2 em uma política personalizada Azure Active Directory B2C
 
@@ -98,7 +98,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | ExtraParamsInAccessTokenEndpointResponse | Não | Contém os parâmetros extra que podem ser retornados na resposta de **AccessTokenEndpoint** por alguns provedores de identidade. Por exemplo, a resposta de **AccessTokenEndpoint** contém um parâmetro extra, como `openid`, que é um parâmetro obrigatório, além de access_token em uma cadeia de caracteres de consulta de solicitação **ClaimsEndpoint**. Vários nomes de parâmetro devem ter um escape e ser separados pelo delimitador de vírgula ','. |
 | ExtraParamsInClaimsEndpointRequest | Não | Contém os parâmetros extra que podem ser retornados na solicitação **ClaimsEndpoint** por alguns provedores de identidade. Vários nomes de parâmetro devem ter um escape e ser separados pelo delimitador de vírgula ','. |
 | IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
-| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true` ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized` , ou `data.0.to.0.email` .|
+| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true` ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#output-claims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized` , ou `data.0.to.0.email` .|
 |token_endpoint_auth_method| Não| Especifica como Azure AD B2C envia o cabeçalho de autenticação para o ponto de extremidade do token. Valores possíveis: `client_secret_post` (padrão) e `client_secret_basic` (visualização pública). Para obter mais informações, consulte a [seção autenticação de cliente OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 |SingleLogoutEnabled| Não| Indica se, durante a entrada, o perfil técnico tenta sair de provedores de identidade federada. Para obter mais informações, consulte [Azure ad B2C sessão](session-overview.md#sign-out)sair.  Valores possíveis: `true` (padrão) ou `false` .|
 

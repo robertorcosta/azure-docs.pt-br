@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/25/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e5aca04a649dfa5228d12737b21ef2ee2b14013b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 891991fa938ad3dcfacae6d02e40efd6d6e9689e
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750418"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97386843"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -122,7 +122,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 | ClaimUsedForRequestPayload| Não | Nome de uma declaração de cadeia de caracteres que contém a carga a ser enviada para a API REST. |
 | DebugMode | Não | Executa o perfil técnico no modo de depuração. Valores possíveis: `true` ou `false` (padrão). No modo de depuração, a API REST pode retornar mais informações. Consulte a seção [retornando mensagem de erro](#returning-validation-error-message) . |
 | IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
-| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true` ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#outputclaims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized` , ou `data.0.to.0.email` .|
+| ResolveJsonPathsInJsonTokens  | Não | Indica se o perfil técnico resolve caminhos JSON. Valores possíveis: `true` ou `false` (padrão). Use esses metadados para ler dados de um elemento JSON aninhado. Em um [OutputClaim](technicalprofiles.md#output-claims), defina o `PartnerClaimType` como o elemento de caminho JSON que você deseja gerar. Por exemplo: `firstName.localized` , ou `data.0.to.0.email` .|
 | UseClaimAsBearerToken| Não| O nome da declaração que contém o token de portador.|
 
 ## <a name="error-handling"></a>Tratamento de erros

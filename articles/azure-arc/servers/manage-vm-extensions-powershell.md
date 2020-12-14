@@ -3,12 +3,12 @@ title: Habilitar extensão de VM usando Azure PowerShell
 description: Este artigo descreve como implantar extensões de máquina virtual para servidores habilitados para Arc do Azure em execução em ambientes de nuvem híbrida usando o Azure PowerShell.
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 40f3d6ab98411d5b8e42f4f79817c66f56fdaaef
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 6b38c425042c260a29682db11212a1f6324abd38
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029023"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387396"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Habilitar extensões de VM do Azure usando Azure PowerShell
 
@@ -35,7 +35,7 @@ O exemplo a seguir habilita a extensão de VM Log Analytics em um servidor Linux
 ```powershell
 PS C:\> $Setting = @{ "workspaceId" = "workspaceId" }
 PS C:\> $protectedSetting = @{ "workspaceKey" = "workspaceKey" }
-PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType OmsAgentforLinux"
+PS C:\> New-AzConnectedMachineExtension -Name OMSLinuxAgent -ResourceGroupName "myResourceGroup" -MachineName "myMachine" -Location "eastus" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -TypeHandlerVersion "1.10" -Settings $Setting -ProtectedSetting $protectedSetting -ExtensionType "OmsAgentforLinux"
 ```
 
 O exemplo a seguir habilita a extensão de script personalizado em um servidor habilitado para Arc:

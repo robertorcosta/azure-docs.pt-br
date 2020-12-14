@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49d8e83c158cd14357a74b9dde4af1daba26dc36
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: c8f4c91070d87e9e6e3cdbb5534b988063eaba14
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109106"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387169"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do Azure Active Directory em uma política personalizada no Azure Active Directory B2C
 
@@ -64,13 +64,13 @@ Para ler, atualizar ou excluir uma conta de usuário existente, a declaração d
 
 Para criar uma nova conta de usuário, a declaração de entrada é uma chave que identifica exclusivamente uma conta local ou federada. Por exemplo, conta local: **signInNames. EmailAddress** ou **signInNames. username**. Para uma conta federada: o **alternativeSecurityId**.
 
-O elemento [InputClaimsTransformations](technicalprofiles.md#inputclaimstransformations) pode conter uma coleção de elementos de transformação de declarações de entrada que são usados para modificar a declaração de entrada ou gerar uma nova.
+O elemento [InputClaimsTransformations](technicalprofiles.md#input-claims-transformations) pode conter uma coleção de elementos de transformação de declarações de entrada que são usados para modificar a declaração de entrada ou gerar uma nova.
 
 ## <a name="outputclaims"></a>OutputClaims
 
 O elemento **OutputClaims** contém uma lista de declarações retornadas pelo perfil técnico do Azure AD. Talvez seja necessário mapear o nome da declaração definida em sua política para o nome definido no Azure Active Directory. Você também pode incluir declarações que não são retornadas pelo Azure Active Directory, desde que defina o atributo `DefaultValue`.
 
-O elemento [OutputClaimsTransformations](technicalprofiles.md#outputclaimstransformations) pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
+O elemento [OutputClaimsTransformations](technicalprofiles.md#output-claims-transformations) pode conter uma coleção de elementos **OutputClaimsTransformation** usados para modificar as declarações de saída ou gerar novas declarações.
 
 Por exemplo, o perfil técnico de **AAD-UserWriteUsingLogonEmail** cria uma conta local e retorna as seguintes declarações:
 

@@ -7,19 +7,19 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: ce23119e568347fff2ad270cfea7f8b563cae529
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1f08bfd6b7c0439dd08a3091b5ea927781af9b84
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904985"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387574"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrar e verificar um locatário Power BI (versão prévia)
 
 Este artigo mostra como usar o portal alcance do Azure para registrar e verificar um locatário Power BI.
 
 > [!Note]
-> Se a instância alcance e o locatário Power BI estiverem no mesmo locatário do Azure, você só poderá usar a autenticação de identidade gerenciada (MSI) para configurar uma verificação de um locatário Power BI. Se a instância alcance e o locatário Power BI estiverem em locatários diferentes do Azure, você deverá autenticar com a autenticação delegada e deverá usar o PowerShell para configurar suas verificações. Consulte [usar o PowerShell para registrar e verificar Power bi](powershell-register-scan-power-bi.md).
+> Se a instância alcance e o locatário Power BI estiverem no mesmo locatário do Azure, você só poderá usar a autenticação de identidade gerenciada (MSI) para configurar uma verificação de um locatário Power BI. 
 
 ## <a name="create-a-security-group-for-permissions"></a>Criar um grupo de segurança para permissões
 

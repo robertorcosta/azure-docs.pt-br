@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8ee23adf569a6afafc57dac786cd907a3481abde
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fbe37152f4ff1ce24754bc2d7b968c8e1c76ca10
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485783"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387710"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,6 +26,9 @@ A atividade da Web pode ser usada para chamar um ponto de extremidade REST perso
 
 > [!NOTE]
 > A atividade da Web também pode invocar URLs que são hospedadas em uma rede virtual privada aproveitando o runtime de integração auto-hospedada. O runtime de integração deve ter uma linha de visão para o ponto de extremidade da URL. 
+
+> [!NOTE]
+> O tamanho máximo de carga de resposta de saída com suporte é 4 MB.  
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -74,7 +77,7 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 name | Nome da atividade da Web | String | Sim
 type | Deve ser definido como **WebActivity**. | String | Sim
-method | Método da API REST para o ponto de extremidade de destino. | Cadeia. <br/><br/>Tipos com suporte: "GET", "POST", "PUT" | Sim
+method | Método da API REST para o ponto de extremidade de destino. | Cadeia de caracteres. <br/><br/>Tipos com suporte: "GET", "POST", "PUT" | Sim
 url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade. | Sim
 headers | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
 body | Representa o conteúdo enviado para o ponto de extremidade.  | Cadeia de caracteres (ou expressão com um resultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [Esquema de carga de solicitação](#request-payload-schema). | Necessário para os métodos PUT/POST.
