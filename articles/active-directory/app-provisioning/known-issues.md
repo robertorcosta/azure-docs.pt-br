@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 12/14/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: b8bdb216cbe8d359f35c758ae89f4267ab223483
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928742"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509539"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
 Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
@@ -68,7 +68,8 @@ Não há suporte para extensões de diretório, appRoleAssignments, UserType e a
 
 - Não há suporte para o provisionamento de senhas. 
 - Não há suporte para o provisionamento de grupos aninhados. 
-- O provisionamento para locatários B2C não tem suporte devido ao tamanho dos locatários. 
+- O provisionamento para locatários B2C não tem suporte devido ao tamanho dos locatários.
+- Nem todos os aplicativos de provisionamento estão disponíveis em todas as nuvens. Por exemplo, Atlassian ainda não está disponível na nuvem governamental. Estamos trabalhando com desenvolvedores de aplicativos para integrar seus aplicativos a todas as nuvens.
 
 **O provisionamento automático não está disponível no meu aplicativo baseado em OIDC**
 

@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a5fcbf80850fd9de77e6f9a431afea6d48cb14d1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 6abc3316e18fc70a2969bc220fd75e10e10f0e6e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949404"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507771"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gerenciar Azure AD B2C contas de usuário com Microsoft Graph
 
@@ -60,7 +60,7 @@ Um usuário com uma conta de cliente pode entrar com várias identidades. Por ex
 
 Na API Microsoft Graph, as identidades local e federada são armazenadas no atributo User `identities` , que é do tipo [objectidentity][graph-objectIdentity]. A `identities` coleção representa um conjunto de identidades usadas para entrar em uma conta de usuário. Essa coleção permite que o usuário entre na conta de usuário com qualquer uma de suas identidades associadas.
 
-| Propriedade   | Tipo |Descrição|
+| Propriedade   | Type |Descrição|
 |:---------------|:--------|:----------|
 |signInType|string| Especifica os tipos de entrada do usuário em seu diretório. Para conta local:,,,,  `emailAddress` `emailAddress1` `emailAddress2` `emailAddress3`  `userName` ou qualquer outro tipo que você desejar. A conta social deve ser definida como  `federated` .|
 |emissor|string|Especifica o emissor da identidade. Para contas locais (em que **signInType** não é `federated` ), essa propriedade é o nome de domínio padrão do locatário B2C local, por exemplo `contoso.onmicrosoft.com` . Para a identidade social (em que **signInType** é  `federated` ), o valor é o nome do emissor, por exemplo `facebook.com`|
@@ -115,7 +115,7 @@ Em cenários de migração de usuário, se as contas que você deseja migrar tiv
 
 ### <a name="extension-properties"></a>Propriedades de extensão
 
-Cada aplicativo voltado para o cliente tem requisitos exclusivos para que as informações sejam coletadas. Seu locatário de Azure AD B2C vem com um conjunto interno de informações armazenadas em Propriedades, como nome, sobrenome, cidade e CEP fornecidos. Com Azure AD B2C, você pode estender o conjunto de propriedades armazenadas em cada conta de cliente. Para obter mais informações sobre como definir atributos personalizados, consulte [atributos personalizados (fluxos de usuário)](user-flow-custom-attributes.md) e [atributos personalizados (políticas personalizadas)](custom-policy-custom-attributes.md).
+Cada aplicativo voltado para o cliente tem requisitos exclusivos para que as informações sejam coletadas. Seu locatário de Azure AD B2C vem com um conjunto interno de informações armazenadas em Propriedades, como nome, sobrenome, cidade e CEP fornecidos. Com Azure AD B2C, você pode estender o conjunto de propriedades armazenadas em cada conta de cliente. Para obter mais informações sobre como definir atributos personalizados, consulte [atributos personalizados](user-flow-custom-attributes.md).
 
 A API do Microsoft Graph dá suporte à criação e à atualização de um usuário com atributos de extensão. Os atributos de extensão no API do Graph são nomeados usando a Convenção `extension_ApplicationClientID_attributename` , em que o `ApplicationClientID` é a **ID do aplicativo (cliente)** do `b2c-extensions-app` aplicativo (encontrado em **registros de aplicativo**  >  **todos os aplicativos** no portal do Azure). Observe que a **ID do aplicativo (cliente)** , como é representada no nome do atributo de extensão, não inclui hifens. Por exemplo:
 
@@ -135,7 +135,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 Depois de obter o exemplo de código, configure-o para o seu ambiente e, em seguida, compile o projeto:
 
 1. Abra o projeto no [Visual Studio](https://visualstudio.microsoft.com) ou [Visual Studio Code](https://code.visualstudio.com).
-1. Abra o `src/appsettings.json`.
+1. Abra `src/appsettings.json`.
 1. Na `appSettings` seção, substitua `your-b2c-tenant` pelo nome do seu locatário e `Application (client) ID` `Client secret` com os valores para o registro do aplicativo de gerenciamento (consulte a seção [registrar um aplicativo de gerenciamento](#register-a-management-application) deste artigo).
 1. Abra uma janela de console no seu clone local do repositório, alterne para o `src` diretório e, em seguida, compile o projeto:
     ```console

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85030285810433dc77d1f466d160c50d1f89770e
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 31926653950594b986aca19e2db2877cd655ca24
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750400"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509590"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil do usuário
 
@@ -52,8 +52,8 @@ A tabela a seguir lista os atributos do [tipo de recurso de usuário](/graph/api
 |facsimileTelephoneNumber<sup>1</sup>|String|O número de telefone do aparelho de fax comercial do usuário.|Sim|Não|Persistente, Saída|
 |givenName       |String|O nome (primeiro nome) do usuário. Comprimento máximo de 64.|Sim|Sim|Persistente, Saída|
 |jobTitle        |String|O cargo do usuário. Comprimento máximo de 128.|Sim|Sim|Persistente, Saída|
-|immutableId     |String|Um identificador normalmente usado para usuários migrados do Active Directory local.|Não|Não|Persistente, Saída|
-|legalAgeGroupClassification|String|Classificação de grupo de faixa etária. Somente leitura e calculado com base nas propriedades ageGroup e consentProvidedForMinor. Valores permitidos: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult e adult.|Sim|Não|Persistente, Saída|
+|immutableId     |String|Um identificador que é normalmente usado para usuários migrados do Active Directory local.|Não|Não|Persistente, Saída|
+|legalAgeGroupClassification|String|Classificação de grupo de faixa etária. Somente leitura e calculado com base nas propriedades ageGroup e consentProvidedForMinor. Valores permitidos: NULL, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, não adulto e adulto.|Sim|Não|Persistente, Saída|
 |legalCountry<sup>1</sup>  |String|País/Região para fins legais.|Não|Não|Persistente, Saída|
 |mail            |String|O endereço SMTP para o usuário, por exemplo "bob@contoso.com". Somente leitura.|Não|Não|Persistente, Saída|
 |mailNickName    |String|O alias de email para o usuário. Comprimento máximo de 64.|Não|Não|Persistente, Saída|
@@ -62,15 +62,15 @@ A tabela a seguir lista os atributos do [tipo de recurso de usuário](/graph/api
 |objectId        |String|Um GUID (identificador global exclusivo) que é o identificador exclusivo do usuário. Exemplo: 12345678-9abc-def0-1234-56789abcde. Somente leitura, Imutável.|Somente leitura|Sim|Entrada, Persistente, Saída|
 |otherMails      |Coleção de Cadeias de Caracteres|Uma lista de endereços de e-mail adicionais do usuário. Exemplo: ["bob@contoso.com", "Robert@fabrikam.com"].|Sim (E-mail alternativo)|Não|Persistente, Saída|
 |password        |String|A senha da conta local durante a criação do usuário.|Não|Não|Persistente|
-|passwordPolicies     |String|Política da senha. É uma cadeia de caracteres que consiste em um nome de política diferente separado por vírgula. isto é "DisablePasswordExpiration, DisableStrongPassword".|Não|Não|Persistente, Saída|
+|passwordPolicies     |String|Política da senha. É uma cadeia de caracteres que consiste em um nome de política diferente separado por vírgula. Por exemplo, "DisablePasswordExpiration, DisableStrongPassword".|Não|Não|Persistente, Saída|
 |physicalDeliveryOfficeName (officeLocation)|String|A localização do escritório na sede da empresa do usuário. Comprimento máximo de 128.|Sim|Não|Persistente, Saída|
 |postalCode      |String|O CEP do endereço postal do usuário. O CEP é específico do país/região do usuário. No Estados Unidos da América, esse atributo contém o código ZIP. Comprimento máximo de 40.|Sim|Não|Persistente, Saída|
 |preferredLanguage    |String|O idioma preferencial do usuário. Deve seguir o código ISO 639-1. Exemplo: "en-US".|Não|Não|Persistente, Saída|
 |refreshTokensValidFromDateTime|Datetime|Todos os tokens de atualização emitidos antes desse horário são inválidos e os aplicativos receberão um erro ao usar um token de atualização inválido para adquirir um novo token de acesso. Se isso acontecer, o aplicativo precisará adquirir um novo token de atualização fazendo uma solicitação para o ponto de extremidade de autorização. Somente leitura.|Não|Não|Saída|
-|signInNames ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|O nome de entrada exclusivo do usuário da conta local de qualquer tipo no diretório. Use-o para obter um usuário com valor de entrada sem especificar o tipo de conta local.|Não|Não|Entrada|
-|signInNames.userName ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|O nome de usuário exclusivo do usuário da conta local no diretório. Use-o para criar ou obter um usuário com um nome de usuário específico para entrada. Especificar isso só no PersistedClaims durante a operação do Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de signInNames, também precisará manter o signInNames existente.|Não|Não|Entrada, Persistente, Saída|
-|signInNames.phoneNumber ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|O número de telefone exclusivo do usuário da conta local no diretório. Use isso para criar ou obter um usuário com um número de telefone específico para entrada. Especificar isso só no PersistedClaims durante a operação do Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de signInNames, também precisará manter o signInNames existente.|Não|Não|Entrada, Persistente, Saída|
-|signInNames.emailAddress ([Identidades](manage-user-accounts-graph-api.md#identities-property))|String|O endereço de e-mail exclusivo do usuário da conta local no diretório. Use-o para criar ou obter um usuário com um e-mail específico para entrada. Especificar isso só no PersistedClaims durante a operação do Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de signInNames, também precisará manter o signInNames existente.|Não|Não|Entrada, Persistente, Saída|
+|signInNames ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|O nome de entrada exclusivo do usuário da conta local de qualquer tipo no diretório. Use esse atributo para obter um usuário com valor de entrada sem especificar o tipo de conta local.|Não|Não|Entrada|
+|signInNames.userName ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|O nome de usuário exclusivo do usuário da conta local no diretório. Use esse atributo para criar ou obter um usuário com um nome de logon específico. Especificar isso só no PersistedClaims durante a operação do Patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de signInNames, também precisará manter o signInNames existente.|Não|Não|Entrada, Persistente, Saída|
+|signInNames.phoneNumber ([Identidades](manage-user-accounts-graph-api.md#identities-property)) |String|O número de telefone exclusivo do usuário da conta local no diretório. Use esse atributo para criar ou obter um usuário com um número de telefone de entrada específico. A especificação desse atributo no PersistedClaims sozinho durante a operação do patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de signInNames, também precisará manter o signInNames existente.|Não|Não|Entrada, Persistente, Saída|
+|signInNames.emailAddress ([Identidades](manage-user-accounts-graph-api.md#identities-property))|String|O endereço de e-mail exclusivo do usuário da conta local no diretório. Use-o para criar ou obter um usuário com um e-mail específico para entrada. A especificação desse atributo no PersistedClaims sozinho durante a operação do patch removerá outros tipos de signInNames. Se quiser adicionar um novo tipo de signInNames, também precisará manter o signInNames existente.|Não|Não|Entrada, Persistente, Saída|
 |state           |String|O estado ou a província no endereço do usuário. Comprimento máximo de 128.|Sim|Sim|Persistente, Saída|
 |streetAddress   |String|O endereço da sede da empresa do usuário. Comprimento máximo de 1024.|Sim|Sim|Persistente, Saída|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|Um número de telefone secundário do usuário, que é usado para autenticação multifator.|Sim|Não|Persistente, Saída|
@@ -120,5 +120,4 @@ Os tipos de dados a seguir têm suporte ao definir uma propriedade em uma extens
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre os atributos de extensão:
 - [Extensões de esquema](/graph/extensibility-overview#schema-extensions)
-- [Definir atributos personalizados com fluxo dos usuários](user-flow-custom-attributes.md)
-- [Definir atributos personalizados com política personalizada](custom-policy-custom-attributes.md)
+- [Definir atributos personalizados](user-flow-custom-attributes.md)

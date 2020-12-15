@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 12d74e2f21678fdbb02719c29a31c0fcdc4fa132
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f73186612fe79af88e84956bb4d0f0b374f4c986
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030137"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507788"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Tempos de vida de token configuráveis na plataforma Microsoft Identity (versão prévia)
 
 > [!IMPORTANT]
-> Após 30 de janeiro de 2021, os locatários não poderão mais configurar a atualização e tempos de vida de token de sessão e Azure Active Directory deixarão de respeitar a configuração de token de atualização e de sessão nas políticas após essa data.
+> Depois de maio de 2020, os locatários não poderão mais configurar a atualização e tempos de vida de token de sessão.  Azure Active Directory deixará de respeitar a configuração existente e o token de sessão em políticas após 30 de janeiro de 2021. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
 >
-> Se você precisar continuar a definir o período de tempo antes que um usuário seja solicitado a entrar novamente, configure a frequência de entrada no acesso condicional. Para saber mais sobre o acesso condicional, visite a [página de preços do Azure ad](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+> Se você precisar continuar a definir o período de tempo antes que um usuário seja solicitado a entrar novamente, configure a frequência de entrada no acesso condicional. Para saber mais sobre o acesso condicional, visite o [Configurar gerenciamento de sessão de autenticação com acesso condicional](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
 >
 > Para locatários que não desejam usar o acesso condicional após a data de desativação, eles podem esperar que o Azure AD honrará a configuração padrão descrita na próxima seção.
 

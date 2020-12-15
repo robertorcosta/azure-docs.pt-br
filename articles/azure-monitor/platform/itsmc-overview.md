@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 6c9e2ae420e56c5ef99ff79cdcb49592bc7e049e
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 3d4e5ad0b24b7163072d7e3110a523dad9608923
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371978"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507364"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -152,12 +152,12 @@ Use o procedimento a seguir para criar itens de trabalho:
 
 9. Se você selecionar **criar itens de trabalho individuais para cada item de configuração**, cada item de configuração terá seu próprio item de trabalho. Haverá um item de trabalho por item de configuração. Ele será atualizado de acordo com os alertas que serão criados.
 
-   * Em um caso que você selecionar no menu suspenso "incidente" ou "alerta" do item de trabalho: se você desmarcar a caixa de seleção **criar itens de trabalho individuais para cada item de configuração** , cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
+    * Em um caso que você selecionar no menu suspenso "incidente" ou "alerta" do item de trabalho: se você desmarcar a caixa de seleção **criar itens de trabalho individuais para cada item de configuração** , cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
 
-   ![Captura de tela que mostra a janela de tíquete de ITSM.](media/itsmc-overview/itsm-action-configuration.png)
-   
-   * Caso você selecione no menu suspenso "evento" do item de trabalho: se você selecionar **criar itens de trabalho individuais para cada entrada de log** na seleção de botões de opção, cada alerta criará um novo item de trabalho. Se você selecionar **criar itens de trabalho individuais para cada item de configuração** na seleção de botões de opção, cada item de configuração terá seu próprio item de trabalho.
-   ![Captura de tela que mostra a janela de tíquete de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
+       ![Captura de tela que mostra a janela incidente de ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+
+    * Caso você selecione no menu suspenso "evento" do item de trabalho: se você selecionar **criar itens de trabalho individuais para cada entrada de log** na seleção de botões de opção, cada alerta criará um novo item de trabalho. Se você selecionar **criar itens de trabalho individuais para cada item de configuração** na seleção de botões de opção, cada item de configuração terá seu próprio item de trabalho.
+   ![Captura de tela que mostra a janela de evento de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Selecione **OK**.
 
@@ -169,26 +169,6 @@ Quando você cria ou edita uma regra de alerta do Azure, use um grupo de ações
 >
 >
 >- O campo Descrição curta na definição de regra de alerta é limitado a 40 caracteres quando você o envia usando a ação de ITSM.
-
-
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar os dados de incidente e solicitação de alteração
-
-Dependendo de sua configuração quando você configurar uma conexão, o ITSMC poderá sincronizar até 120 dias de incidentes e dados de solicitação de alteração. O esquema de registro de log para esses dados é fornecido na [próxima seção](#additional-information) deste artigo.
-
-Você pode visualizar o incidente e alterar os dados de solicitação usando o painel do ITSMC:
-
-![Captura de tela que mostra o painel do ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
-
-O painel também fornece informações sobre o status do conector, que você pode usar como ponto de partida para analisar problemas com as conexões.
-
-Você também pode visualizar os incidentes sincronizados em relação aos computadores afetados no Mapa do Serviço.
-
-O Mapa do Serviço descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Ele permite que você exiba seus servidores da maneira como você os considera: como sistemas interconectados que fornecem serviços críticos. Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP. Além da instalação de um agente, nenhuma configuração é necessária. Para obter mais informações, consulte [usando mapa do serviço](../insights/service-map.md).
-
-Se você estiver usando Mapa do Serviço, poderá exibir os itens da central de serviços criados em soluções de ITSM, conforme mostrado aqui:
-
-![Captura de tela que mostra a exibição de Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
-
 
 ## <a name="additional-information"></a>Informações adicionais
 
@@ -299,32 +279,12 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por data |
 | ClosedDate_t | Data de fechamento |
-| PlannedStartDate_t  |     Data de início planejada |
-| PlannedEndDate_t  |   Data de término planejada |
+| PlannedStartDate_t  | Data de início planejada |
+| PlannedEndDate_t  | Data de término planejada |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de término real|
 | Description_s | Descrição |
 | Computador  | Item de Configuração |
-
-
-## <a name="troubleshoot-itsm-connections"></a>Solução de problemas de conexões de ITSM
-- Se uma conexão falhar na interface do usuário da fonte conectada e você receber um **erro ao salvar** a mensagem de conexão, execute as seguintes etapas:
-   - Para as conexões ServiceNow, Cherwell e Provance:  
-     - Certifique-se de que você inseriu corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
-     - Verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão.  
-   - Para conexões Service Manager:  
-     - Verifique se o aplicativo Web foi implantado com êxito e se a conexão híbrida foi criada. Para verificar se a conexão foi estabelecida com êxito com o computador Service Manager local, vá para a URL do aplicativo Web, conforme descrito na documentação para fazer a [conexão híbrida](./itsmc-connections.md#configure-the-hybrid-connection).  
-
-- Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow às vezes entram em suspensão quando estão ociosas por muito tempo. Se isso não for o que está acontecendo, relate o problema.
-- Se Log Analytics alertas forem acionados, mas os itens de trabalho não forem criados no produto de ITSM, se os itens de configuração não forem criados/vinculados a itens de trabalho ou para outras informações, consulte estes recursos:
-   -  ITSMC: a solução mostra um resumo de conexões, itens de trabalho, computadores e muito mais. Selecione o bloco que tem o rótulo **status do conector** . Isso o levará para a **pesquisa de logs** com a consulta relevante. Examine os registros de log com um `LogType_S` de `ERROR` para obter mais informações.
-   - Página **pesquisa de logs** : exiba os erros e as informações relacionadas diretamente usando a consulta `*ServiceDeskLog_CL*` .
-
-## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas Service Manager implantação de aplicativo Web
--   Se você tiver problemas com a implantação do aplicativo Web, verifique se você tem permissões para criar/implantar recursos na assinatura.
--   Se você receber uma **referência de objeto não definida como uma instância de um erro de objeto** ao executar o [script](itsmc-service-manager-script.md), certifique-se de que você inseriu valores válidos na seção **configuração do usuário** .
--   Se você não conseguir criar o namespace de retransmissão do barramento de serviço, verifique se o provedor de recursos necessário está registrado na assinatura. Se não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço do portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](./itsmc-connections.md#configure-the-hybrid-connection) no portal do Azure.
-
 
 ## <a name="contact-us"></a>Fale conosco
 

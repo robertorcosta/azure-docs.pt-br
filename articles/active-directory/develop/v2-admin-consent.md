@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7de97fd775853f64803ab62ac397e754d065e4df
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119599"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509318"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento do administrador na plataforma Microsoft Identity
 
@@ -31,7 +31,7 @@ Ao conectar o usuário ao seu aplicativo, você pode identificar a organização
 
 ## <a name="request-the-permissions-from-a-directory-admin"></a>Solicitar permissões de um administrador de diretório
 
-Quando estiver pronto para solicitar permissões do administrador da sua organização, você poderá redirecionar o usuário para o ponto de *extremidade de consentimento do administrador*da plataforma de identidade da Microsoft.
+Quando estiver pronto para solicitar permissões do administrador da sua organização, você poderá redirecionar o usuário para o ponto de *extremidade de consentimento do administrador* da plataforma de identidade da Microsoft.
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -44,14 +44,13 @@ https://graph.microsoft.com/calendars.read
 https://graph.microsoft.com/mail.send
 ```
 
-
-| Parâmetro     | Condição     | Descrição                                                                               |
-|--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
+| Parâmetro | Condição | Descrição |
+| ---: | ---: | :---: |
 | `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido no GUID ou formato de nome amigável, OU referenciado de maneira genérica com `organizations`, como visto no exemplo. Não use ' Common ', pois as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
 | `client_id` | Obrigatório | A **ID do Aplicativo (cliente)** que a experiência [Portal do Microsoft Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribui ao seu aplicativo. |
 | `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
 | `state` | Recomendadas | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-|`scope`        | Obrigatório      | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Pode ser estático (usando/.default) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC ( `openid` , `profile` , `email` ). |
+|`scope` | Obrigatório | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Pode ser estático (usando/.default) ou escopos dinâmicos. Isso pode incluir os escopos OIDC ( `openid` , `profile` , `email` ). |
 
 
 Neste ponto, o Azure AD requer um administrador de locatários para entrar e concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no `scope` parâmetro.  Se você usou um valor estático ( `/.default` ), ele funcionará como o ponto de extremidade de consentimento do administrador v 1.0 e solicitará o consentimento para todos os escopos encontrados nas permissões necessárias para o aplicativo.
@@ -64,12 +63,12 @@ Se o administrador aprovar as permissões para o seu aplicativo, a resposta bem-
 http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-a743-29f2956fd429&state=12345&scope=https%3a%2f%2fgraph.microsoft.com%2fCalendars.Read+https%3a%2f%2fgraph.microsoft.com%2fMail.Send
 ```
 
-| Parâmetro         | Descrição                                                                                       |
-|------------------:|:-------------------------------------------------------------------------------------------------:|
+| Parâmetro | Descrição |
+| ---: | :---: |
 | `tenant`| O locatário do diretório que concedeu as permissões solicitadas, no formato de GUID.|
-| `state`           | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava.|
-| `scope`          | O conjunto de permissões ao qual foi concedido acesso para o aplicativo.|
-| `admin_consent`   | Será definido como `True`.|
+| `state` | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava.|
+| `scope` | O conjunto de permissões ao qual foi concedido acesso para o aplicativo.|
+| `admin_consent` | Será definido como `True`.|
 
 ### <a name="error-response"></a>Resposta de erro
 
@@ -77,13 +76,13 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 
 Adicionando aos parâmetros vistos em uma resposta bem-sucedida, os parâmetros de erro são vistos como abaixo.
 
-| Parâmetro          | Descrição                                                                                      |
+| Parâmetro | Descrição |
 |-------------------:|:-------------------------------------------------------------------------------------------------:|
-| `error`            | Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros.|
-| `error_description`| Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro.|
+| `error` | Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros.|
+| `error_description` | Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro.|
 | `tenant`| O locatário do diretório que concedeu as permissões solicitadas, no formato de GUID.|
-| `state`           | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava.|
-| `admin_consent`   | Será definido como `True` para indicar que essa resposta ocorreu em um fluxo de consentimento do administrador.|
+| `state` | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava.|
+| `admin_consent` | Será definido como `True` para indicar que essa resposta ocorreu em um fluxo de consentimento do administrador.|
 
 ## <a name="next-steps"></a>Próximas etapas
 - Veja [como converter um aplicativo em multilocatário](howto-convert-app-to-be-multi-tenant.md)

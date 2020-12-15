@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 6c9e5b6466d3da675975dbf2c532602561e820c9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 417306e09a9424b302bb226aea5dd2c1debe96f5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495065"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508417"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -60,7 +60,7 @@ Estas são as etapas típicas para criar um pipeline do data factory com uma ati
 
 1. Carregue **test.py** para a pasta **pyFiles** no contêiner **adfspark** em seu armazenamento de blobs. Crie o contêiner e a pasta, caso eles não existam.
 
-### <a name="create-a-data-factory"></a>Criar um data factory
+### <a name="create-a-data-factory"></a>Criar uma data factory
 Para criar um data factory, siga estas etapas:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
@@ -118,13 +118,13 @@ Nesta etapa, você cria um serviço vinculado do HDInsight para vincular o clust
 
 1. Copie e cole o snippet a seguir na janela de Rascunho-1. No editor de JSON, execute as seguintes etapas:
 
-    a. Especifique o URI do cluster HDInsight Spark. Por exemplo: `https://<sparkclustername>.azurehdinsight.net/`.
+    1. Especifique o URI do cluster HDInsight Spark. Por exemplo: `https://<sparkclustername>.azurehdinsight.net/`.
 
-    b. Especifique o nome do usuário que tem acesso ao cluster Spark.
+    1. Especifique o nome do usuário que tem acesso ao cluster Spark.
 
-    c. Especifique a senha para o usuário.
+    1. Especifique a senha para o usuário.
 
-    d. Especifique o serviço vinculado do Armazenamento associado ao cluster HDInsight Spark. Neste exemplo, ele é AzureStorageLinkedService.
+    1. Especifique o serviço vinculado do Armazenamento associado ao cluster HDInsight Spark. Neste exemplo, ele é AzureStorageLinkedService.
 
     ```json
     {
@@ -213,20 +213,21 @@ Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, 
         }
     }
     ```
+
     Observe os seguintes pontos:
 
-    a. A propriedade **Type** é definida como **HDInsightSpark**.
+    1. A propriedade **Type** é definida como **HDInsightSpark**.
 
-    b. A propriedade **rootPath** é definida como **adfspark\\pyFiles**, em que adfspark é o contêiner de blobs e pyFiles é a pasta de arquivos nesse contêiner. Neste exemplo, o armazenamento de blobs é aquele que está associado ao cluster Spark. Carregue o arquivo em outra conta de armazenamento. Se você fizer isso, crie um serviço vinculado do Armazenamento para vincular essa conta de armazenamento ao data factory. Em seguida, especifique o nome do serviço vinculado como um valor para a propriedade **sparkJobLinkedService** . Para obter mais informações sobre essa propriedade e outras propriedades compatíveis com a atividade do Spark, consulte [Propriedades da atividade do Spark](#spark-activity-properties).
+    1. A propriedade **rootPath** é definida como **adfspark\\pyFiles**, em que adfspark é o contêiner de blobs e pyFiles é a pasta de arquivos nesse contêiner. Neste exemplo, o armazenamento de blobs é aquele que está associado ao cluster Spark. Carregue o arquivo em outra conta de armazenamento. Se você fizer isso, crie um serviço vinculado do Armazenamento para vincular essa conta de armazenamento ao data factory. Em seguida, especifique o nome do serviço vinculado como um valor para a propriedade **sparkJobLinkedService** . Para obter mais informações sobre essa propriedade e outras propriedades compatíveis com a atividade do Spark, consulte [Propriedades da atividade do Spark](#spark-activity-properties).
 
-    c. A propriedade **entryFilePath** é definida como **test.py**, que é o arquivo Python.
+    1. A propriedade **entryFilePath** é definida como **test.py**, que é o arquivo Python.
 
-    d. A propriedade **getDebugInfo** é definida como **Always**, o que significa que os arquivos de log sempre são gerados (êxito ou falha).
+    1. A propriedade **getDebugInfo** é definida como **Always**, o que significa que os arquivos de log sempre são gerados (êxito ou falha).
 
-    > [!IMPORTANT]
-    > Recomendamos que você não defina essa propriedade como `Always` em um ambiente de produção, a menos que esteja solucionando um problema.
+       > [!IMPORTANT]
+       > Recomendamos não definir essa propriedade como `Always` em um ambiente de produção, a menos que você esteja solucionando um problema.
 
-    e. A seção de **saídas** tem um conjunto de uma saída. É necessário especificar um conjunto de dados de saída, mesmo que o programa do Spark não produza nenhuma saída. O conjunto de dados de saída aciona o agendamento para o pipeline (por hora, diariamente, etc.).
+    1. A seção de **saídas** tem um conjunto de uma saída. É necessário especificar um conjunto de dados de saída, mesmo que o programa do Spark não produza nenhuma saída. O conjunto de dados de saída aciona o agendamento para o pipeline (por hora, diariamente, etc.).
 
     Para obter mais informações sobre as propriedades compatíveis com a atividade do Spark, consulte a seção [Propriedades da atividade do Spark](#spark-activity-properties).
 

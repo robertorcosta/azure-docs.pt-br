@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 3b4795a47f0e6dbf945bd4a1f9aaaa0df2137f91
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 41ba08aef7aed761c3c6063f97768f22bffe3a36
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495575"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508485"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de Script do JSON
 > [!NOTE]
@@ -249,7 +249,7 @@ A tabela a seguir descreve as propriedades na definição de JSON de atividade:
 | properties - type | Tipo de serviço vinculado. Por exemplo: Armazenamento do Azure, Banco de Dados SQL do Azure. |
 | typeProperties | A seção typeProperties possui elementos que são diferentes para cada armazenamento de dados ou ambiente de computação. Confira a seção armazenamentos de dados para saber sobre todos os serviços vinculados de repositório de dados e [ambientes de computação](#compute-environments) para os serviços vinculados à computação |
 
-## <a name="dataset"></a>Dataset
+## <a name="dataset"></a>Conjunto de dados
 Um conjunto de dados no Azure Data Factory é definido da seguinte maneira:
 
 ```json
@@ -452,7 +452,7 @@ O serviço vinculado de SAS de armazenamento do Azure permite que você vincule 
 
 Para obter mais informações sobre esses serviços vinculados, consulte o artigo [Conector de Armazenamento de Blobs do Azure](data-factory-azure-blob-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados de Blob do Azure, defina o **type** do conjunto de dados para **AzureBlob**. Em seguida, especifique as seguintes propriedades específicas do Blob do Azure na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -635,7 +635,7 @@ Para definir um serviço vinculado do Azure Data Lake Store, defina o tipo do se
 
 Para saber mais, consulte o artigo [Conector do Azure Data Lake Store](data-factory-azure-datalake-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Azure Data Lake Store, defina o **type** do conjunto de dados para **AzureDataLakeStore** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -803,7 +803,7 @@ Para definir um serviço vinculado do Azure Cosmos DB, defina o **type** do serv
 ```
 Para obter mais informações, consulte o artigo [Conector do Azure Cosmos DB](data-factory-azure-documentdb-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Azure Cosmos DB, defina o **type** do conjunto de dados como **DocumentDbCollection** e especifique as seguintes propriedades na seção **typeProperties**:
 
 | **Propriedade** | **Descrição** | **Necessário** |
@@ -953,7 +953,7 @@ Para definir um serviço vinculado do Banco de Dados SQL do Azure, defina o **ty
 
 Para obter mais informações, consulte o artigo [Conector de SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Banco de Dados SQL do Azure, defina o **type** do conjunto de dados para **AzureSqlTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -1127,7 +1127,7 @@ Para definir um serviço vinculado do Azure Synapse Analytics, defina o **tipo**
 
 Para obter mais informações, consulte o artigo [conector do Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) .
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de Synapse de análise do Azure, defina o **tipo** do conjunto de um como **AzureSqlDWTable** e especifique as propriedades a seguir na seção **typeproperties** :
 
 | Propriedade | Descrição | Obrigatório |
@@ -1306,7 +1306,7 @@ Para definir um serviço vinculado do Azure Pesquisa Cognitiva, defina o **tipo*
 
 Para obter mais informações, consulte o artigo [conector de pesquisa cognitiva do Azure](data-factory-azure-search-connector.md#linked-service-properties) .
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de Pesquisa Cognitiva do Azure, defina o **tipo** do conjunto de um como **AzureSearchIndex** e especifique as propriedades a seguir na seção **typeproperties** :
 
 | Propriedade | Descrição | Obrigatório |
@@ -1439,7 +1439,7 @@ O serviço vinculado de SAS de armazenamento do Azure permite que você vincule 
 
 Para obter mais informações sobre esses serviços vinculados, consulte o artigo [Conector de Armazenamento de Tabelas do Azure](data-factory-azure-table-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados da Tabela do Azure, defina o **type** do conjunto de dados para **AzureTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -1618,7 +1618,7 @@ Para definir um serviço vinculado do Amazon Redshift, defina o **type** do serv
 
 Para obter mais informações, confira o artigo Conector do Amazon Redshift.
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Amazon Redshift, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -1732,7 +1732,7 @@ Para definir um serviço vinculado do IBM DB2, defina o **type** do serviço vin
 ```
 Para obter mais informações, confira o artigo Conector do IBM DB2.
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do DB2, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -1850,7 +1850,7 @@ Para definir um serviço vinculado do MySQL, defina o **type** do serviço vincu
 
 Para obter mais informações, consulte o artigo [Conector do MySQL](data-factory-onprem-mysql-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do MySQL, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -1963,7 +1963,7 @@ Para definir um serviço vinculado do Oracle, defina o **type** do serviço vinc
 
 Para obter mais informações, consulte o artigo [Conector do Oracle](data-factory-onprem-oracle-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Oracle, defina o **type** do conjunto de dados para **OracleTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -2140,7 +2140,7 @@ Para definir um serviço vinculado do PostgreSQL, defina o **type** do serviço 
 ```
 Para obter mais informações, consulte o artigo [Conector do PostgreSQL](data-factory-onprem-postgresql-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do PostgreSQL, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -2259,7 +2259,7 @@ encryptedCredential | A cadeia de caracteres de credencial criptografada. | Cade
 
 Para obter mais informações, consulte o artigo [Conector do SAP Business Warehouse](data-factory-sap-business-warehouse-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir o conjunto de dados do SAP BW defina o **type** do conjunto de dados como **RelationalTable**. Não há propriedades específicas ao tipo com suporte para o conjunto de dados do SAP BW do tipo **RelationalTable**.
 
 #### <a name="example"></a>Exemplo
@@ -2367,7 +2367,7 @@ encryptedCredential | A cadeia de caracteres de credencial criptografada. | Cade
 ```
 Para obter mais informações, consulte o artigo [Conector do SAP HANA](data-factory-sap-hana-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir o conjunto de dados do SAP HANA defina o **type** do conjunto de dados como **RelationalTable**. Não há propriedades específicas ao tipo com suporte para o conjunto de dados do SAP HANA do tipo **RelationalTable**.
 
 #### <a name="example"></a>Exemplo
@@ -2500,7 +2500,7 @@ Se o nome de usuário e a senha forem especificados, o gateway os usará para re
 
 Para obter mais informações, consulte o artigo [Conector de SQL Server](data-factory-sqlserver-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do SQL Server, defina o **type** do conjunto de dados para **SqlServerTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -2698,7 +2698,7 @@ Para definir um serviço vinculado do Sybase, defina o **type** do serviço vinc
 
 Para obter mais informações, consulte o artigo [Conector do Sybase](data-factory-onprem-sybase-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Sybase, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -2814,7 +2814,7 @@ Para definir um serviço vinculado do Teradata, defina o **type** do serviço vi
 
 Para obter mais informações, consulte o artigo [Conector do Teradata](data-factory-onprem-teradata-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir o conjunto de dados do Blobo do Teradata defina o **type** do conjunto de dados como **RelationalTable**. Atualmente, não há nenhuma propriedade do tipo com suporte para o conjunto de dados Teradata.
 
 #### <a name="example"></a>Exemplo
@@ -2932,7 +2932,7 @@ Para definir um serviço vinculado do Cassandra, defina o **type** do serviço v
 
 Para obter mais informações, consulte o artigo [Conector do Cassandra](data-factory-onprem-cassandra-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Cassandra, defina o **type** do conjunto de dados para **CassandraTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -3063,7 +3063,7 @@ Para definir um serviço vinculado do MongoDB, defina o **type** do serviço vin
 
 Para obter mais informações, consulte o artigo [Conector do MongoDB](data-factory-on-premises-mongodb-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do MongoDB, defina o **type** do conjunto de dados para **MongoDbCollection** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -3170,7 +3170,7 @@ Para definir um serviço vinculado do Amazon S3, defina o **type** do serviço v
 
 Para obter mais informações, consulte o artigo [Conector do Amazon S3](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Amazon S3, defina o **type** do conjunto de dados para **AmazonS3** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
@@ -3365,7 +3365,7 @@ Você pode vincular um sistema de arquivos local a um data factory do Azure com 
 
 Para obter mais informações, consulte o [artigo Conector do Sistema de Arquivos](data-factory-onprem-file-system-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do Sistema de Arquivos, defina o **type** do conjunto de dados para **FileShare** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -3631,7 +3631,7 @@ Para definir um serviço vinculado do FTP, defina o **type** do serviço vincula
 
 Para obter mais informações, consulte o artigo [Conector do FTP](data-factory-ftp-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do FTP, defina o **type** do conjunto de dados para **FileShare** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -3773,7 +3773,7 @@ Para definir um serviço vinculado do HDFS, defina o **type** do serviço vincul
 
 Para obter mais informações, confira o artigo Conector do HDFS.
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do HDFS, defina o **type** do conjunto de dados para **FileShare** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -3973,7 +3973,7 @@ Para usar a autenticação Básica, defina `authenticationType` como `SshPublicK
 
 Para obter mais informações, consulte o artigo [Conector do SFTP](data-factory-sftp-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do SFTP, defina o **type** do conjunto de dados para **FileShare** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -4154,7 +4154,7 @@ Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. E
 
 Para obter mais informações, consulte o artigo [Conector do HTTP](data-factory-http-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do HDFS, defina o **type** do conjunto de dados para **Http** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -4344,7 +4344,7 @@ Para definir um serviço vinculado do OData, defina o **type** do serviço vincu
 
 Para obter mais informações, consulte o artigo [Conector do OData](data-factory-odata-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do OData, defina o **type** do conjunto de dados para **ODataResource** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -4499,7 +4499,7 @@ Você pode criptografar as credenciais usando o cmdlet [New-AzDataFactoryEncrypt
 
 Para obter mais informações, consulte o artigo [Conector do ODBC](data-factory-odbc-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados do ODBC, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -4616,7 +4616,7 @@ Para definir um serviço vinculado da Salesforce, defina o **type** do serviço 
 
 Para obter mais informações, consulte o artigo [Conector da Salesforce](data-factory-salesforce-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados da Salesforce, defina o **type** do conjunto de dados para **RelationalTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |
@@ -4738,7 +4738,7 @@ Para definir um serviço vinculado da Web, defina o **type** do serviço vincula
 
 Para obter mais informações, consulte o artigo [Conector da Tabela da Web](data-factory-web-table-connector.md#linked-service-properties).
 
-### <a name="dataset"></a>Dataset
+### <a name="dataset"></a>Conjunto de dados
 Para definir um conjunto de dados da Web, defina o **type** do conjunto de dados para **WebTable** e especifique as propriedades a seguir na seção **typeProperties**:
 
 | Propriedade | Descrição | Obrigatório |

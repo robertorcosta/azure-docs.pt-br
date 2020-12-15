@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b522f234343cc6a50d76607d1629c46cd180b7d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6a4053eb70c02e27599bbd9086dfa32b0bcc65
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894007"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508825"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -112,7 +112,7 @@ Dependendo da linguagem do SDK de fala, você definirá a `"SpeechServiceRespons
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```csharp
 speechConfig.SetProperty(
@@ -121,7 +121,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```cpp
 speechConfig->SetProperty(
@@ -130,7 +130,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 speechConfig.setProperty(
@@ -139,7 +139,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```python
 speech_config.set_property_by_name(
@@ -148,7 +148,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -157,7 +157,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -165,7 +165,7 @@ Para obter mais informações, <a href="https://docs.microsoft.com/objectivec/co
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>consulte.
+Para obter mais informações, confira <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -200,6 +200,7 @@ Atualmente, os ajustes de estilo de fala têm suporte para essas vozes neurais:
 * `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
+* `zh-CN-YunyeNeural`
 * `zh-CN-YunxiNeural` Apresentação
 * `zh-CN-XiaohanNeural` Apresentação
 * `zh-CN-XiaomoNeural` Apresentação
@@ -271,7 +272,14 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 |                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |   
 |                         | `style="lyrical"`         | Expressa emoções de uma maneira Melodic e tem valor sentimental         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  | 
-| `zh-CN-YunxiNeural`    | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | Expressa uma atitude fria, coletada e composta durante a fala. Tom, pitch, Prosody é muito mais uniforme em comparação com outros tipos de fala.    | 
+|                         | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
+|                         | `style="sad"`             | Expressa um tom de sorrowful, com mais densidade, menos intensidade e menor energia de voz. Indicadores comuns dessa emoção seriam whimpers ou chorando durante a fala.            |
+|                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
+|                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
+|                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
+|                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.          |
+| `zh-CN-YunxiNeural`     | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
 |                         | `style="sad"`             | Expressa um tom de sorrowful, com mais densidade, menos intensidade e menor energia de voz. Indicadores comuns dessa emoção seriam whimpers ou chorando durante a fala.            |
 |                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
 |                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
@@ -383,7 +391,7 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 | `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, e esse valor deve ser definido como menor que 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Opcional |
 
-| Segurança                      | Description |
+| Segurança                      | Descrição |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor for fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |
@@ -536,7 +544,7 @@ Os alfabetos fonéticos são compostos por telefones, que são compostos por let
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | O endereço do documento PLS externo. | Obrigatórios.           |
 
-**Usage**
+**Uso**
 
 Para definir como várias entidades são lidas, você pode criar um léxico personalizado, que é armazenado como um arquivo. xml ou. pls. Este é um arquivo. XML de exemplo.
 
@@ -657,12 +665,12 @@ Como os valores de atributo prosódico podem variar em um intervalo maior, o rec
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `pitch` | Indica o tom de linha de base para o texto. Você pode expressar o timbre como:<ul><li>Um valor absoluto, expresso como um número seguido por "Hz" (hertz). Por exemplo, `<prosody pitch="600Hz">some text</prosody>`.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" e seguido por "Hz" ou "St", que especifica um valor para alterar a densidade. Por exemplo: `<prosody pitch="+80Hz">some text</prosody>` ou `<prosody pitch="-2st">some text</prosody>`. O "St" indica que a unidade de alteração é semitone, que é metade de um tom (uma metade) na escala diatonic padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>low</li><li>média</li><li>high</li><li>x-alto</li><li>default</li></ul></li></ul> | Opcional |
+| `pitch` | Indica o tom de linha de base para o texto. Você pode expressar o timbre como:<ul><li>Um valor absoluto, expresso como um número seguido por "Hz" (hertz). Por exemplo, `<prosody pitch="600Hz">some text</prosody>`.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" e seguido por "Hz" ou "St", que especifica um valor para alterar a densidade. Por exemplo: `<prosody pitch="+80Hz">some text</prosody>` ou `<prosody pitch="-2st">some text</prosody>`. O "St" indica que a unidade de alteração é semitone, que é metade de um tom (uma metade) na escala diatonic padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>low</li><li>média</li><li>high</li><li>x-alto</li><li>padrão</li></ul></li></ul> | Opcional |
 | `contour` |A delimitação agora dá suporte às vozes neural e Standard. A delimitação representa as alterações em pitch. Essas alterações são representadas como uma matriz de destinos em posições de tempo especificadas na saída de fala. Cada destino é definido por conjuntos de pares de parâmetros. Por exemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor em cada conjunto de parâmetros Especifica o local da alteração de timbre como uma porcentagem da duração do texto. O segundo valor especifica o valor para aumentar ou diminuir a densidade, usando um valor relativo ou um valor de enumeração para pitch (consulte `pitch` ). | Opcional |
 | `range` | Um valor que representa o intervalo de timbre do texto. Você pode expressar `range` usando os mesmos valores absolutos, valores relativos ou valores de enumeração usados para descrever `pitch` . | Opcional |
-| `rate` | Indica a taxa de fala do texto. Você pode expressar `rate` como:<ul><li>Um valor relativo, expresso como um número que atua como um multiplicador do padrão. Por exemplo, um valor de *1* resulta em nenhuma alteração na taxa. Um valor de *0,5* resulta em uma metade da taxa. Um valor de *3* resulta em uma viagem da taxa.</li><li>Um valor constante:<ul><li>x-lento</li><li>lento</li><li>média</li><li>rápido</li><li>x-rápido</li><li>default</li></ul></li></ul> | Opcional |
+| `rate` | Indica a taxa de fala do texto. Você pode expressar `rate` como:<ul><li>Um valor relativo, expresso como um número que atua como um multiplicador do padrão. Por exemplo, um valor de *1* resulta em nenhuma alteração na taxa. Um valor de *0,5* resulta em uma metade da taxa. Um valor de *3* resulta em uma viagem da taxa.</li><li>Um valor constante:<ul><li>x-lento</li><li>lento</li><li>média</li><li>rápido</li><li>x-rápido</li><li>padrão</li></ul></li></ul> | Opcional |
 | `duration` | O período de tempo que deve decorrer enquanto o serviço de síntese de fala (TTS) lê o texto, em segundos ou milissegundos. Por exemplo, *2s* ou *1800ms*. A duração dá suporte apenas a vozes padrão.| Opcional |
-| `volume` | Indica o nível de volume da voz de fala. Você pode expressar o volume como:<ul><li>Um valor absoluto, expresso como um número no intervalo de 0,0 a 100,0, do mais *baixo* para o mais *alto*. Por exemplo, 75. O padrão é 100,0.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" que especifica um valor para alterar o volume. Por exemplo, + 10 ou-5,5.</li><li>Um valor constante:<ul><li>silent</li><li>x-Soft</li><li>pessoais</li><li>média</li><li>alto</li><li>x-alto</li><li>default</li></ul></li></ul> | Opcional |
+| `volume` | Indica o nível de volume da voz de fala. Você pode expressar o volume como:<ul><li>Um valor absoluto, expresso como um número no intervalo de 0,0 a 100,0, do mais *baixo* para o mais *alto*. Por exemplo, 75. O padrão é 100,0.</li><li>Um valor relativo, expresso como um número precedido por "+" ou "-" que especifica um valor para alterar o volume. Por exemplo, + 10 ou-5,5.</li><li>Um valor constante:<ul><li>silent</li><li>x-Soft</li><li>pessoais</li><li>média</li><li>alto</li><li>x-alto</li><li>padrão</li></ul></li></ul> | Opcional |
 
 ### <a name="change-speaking-rate"></a>Alterar taxa de fala
 
@@ -760,7 +768,7 @@ A seguir estão os tipos de conteúdo com suporte para os `interpret-as` `format
 | `telephone` | | O texto é falado como um número de telefone. O `format` atributo pode conter dígitos que representam um código de país. Por exemplo, "1" para o Estados Unidos ou "39" para a Itália. O mecanismo de síntese de fala pode usar essas informações para orientar sua pronúncia de um número de telefone. O número de telefone também pode incluir o código do país e, nesse caso, tem precedência sobre o código do país no `format` . O mecanismo de síntese de fala pronuncia:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Como "meu número é código de área 8 8 8 5 5 5 1 2 1 2." |
 | `time` | hms12, hms24 | O texto é falado como uma hora. O `format` atributo especifica se a hora é especificada usando um relógio de 12 horas (hms12) ou um relógio de 24 horas (hms24). Use dois-pontos para separar números que representam horas, minutos e segundos. Estes são exemplos de tempo válidos: 12:35, 1:14:32, 08:15 e 02:50:45. O mecanismo de síntese de fala pronuncia:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Como "o treinamento faz parte de quatro A M". |
 
-**Usage**
+**Uso**
 
 O `say-as` elemento pode conter apenas texto.
 

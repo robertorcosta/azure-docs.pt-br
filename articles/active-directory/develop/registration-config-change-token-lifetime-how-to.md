@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 9483fe972cf1a4dce4fb285ced3cb390d0bda725
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 90b4468693736068bd54b62082c43a1988202e6f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516776"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509097"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os padrões de tempo de vida do token para um aplicativo personalizado
 
 Este artigo mostra como usar o PowerShell do Azure AD para definir uma política de tempo de vida do token. O Azure AD Premium permite que desenvolvedores de aplicativos e administradores de locatários configurem o tempo de vida de tokens emitidos para clientes não confidenciais. As políticas de tempo de vida do token são definidas com base em todos os locatários ou nos recursos que estão sendo acessados.
 
 > [!IMPORTANT]
-> Após 30 de janeiro de 2021, os locatários não poderão mais configurar a atualização e tempos de vida de token de sessão e Azure Active Directory deixarão de respeitar a configuração existente e o token de sessão em políticas após essa data. Você ainda pode configurar tempos de vida de token de acesso após a reprovação. Para obter mais informações, leia [tempos de vida de token configuráveis no Azure ad](./active-directory-configurable-token-lifetimes.md).
+> Depois de maio de 2020, os locatários não poderão mais configurar a atualização e tempos de vida de token de sessão.  Azure Active Directory deixará de respeitar a configuração existente e o token de sessão em políticas após 30 de janeiro de 2021. Você ainda pode configurar tempos de vida de token de acesso após a reprovação. Para obter mais informações, leia [tempos de vida de token configuráveis no Azure ad](./active-directory-configurable-token-lifetimes.md).
 > Implementamos os [recursos de gerenciamento de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md)   no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada.  
 
 Para definir uma política de tempo de vida do token, você precisa baixar o [Módulo PowerShell do Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).

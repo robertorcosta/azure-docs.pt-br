@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 12/14/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2815041f32ebd7c2dae235229d1ca19aad253f7d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e663cdd3846e804d1dcf96076c07b9a3db84272c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503614"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507737"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configurar políticas de tempo de vida do token (versão prévia)
 Muitos cenários são possíveis no Azure AD quando você cria e gerencia tempos de vida de token para aplicativos, entidades de serviço e sua organização geral.  
 
 > [!IMPORTANT]
-> Após 30 de janeiro de 2021, os locatários não poderão mais configurar a atualização e tempos de vida de token de sessão, e o Azure AD deixará de respeitar a atualização existente e a configuração de token de sessão nas políticas após essa data. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.  Para saber mais, leia [tempos de vida de token configuráveis na plataforma Microsoft Identity](active-directory-configurable-token-lifetimes.md).
+> Depois de maio de 2020, os locatários não poderão mais configurar a atualização e tempos de vida de token de sessão.  Azure Active Directory deixará de respeitar a configuração existente e o token de sessão em políticas após 30 de janeiro de 2021. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.  Para saber mais, leia [tempos de vida de token configuráveis na plataforma Microsoft Identity](active-directory-configurable-token-lifetimes.md).
 > Implementamos os [recursos de gerenciamento de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md)   no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada.
 
 
@@ -116,7 +116,7 @@ Neste exemplo, crie uma política que exige dos usuários a autenticação mais 
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    1. Para ver sua nova política e obter o **ObjectID**da política, execute o cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) :
+    1. Para ver sua nova política e obter o **ObjectID** da política, execute o cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) :
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -153,7 +153,7 @@ Neste exemplo, crie uma política que exige dos usuários a autenticação menos
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-1. Atribua a política à sua API da Web. Você também precisará da **ObjectId** de seu aplicativo. Use o cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para localizar o **ObjectID**do seu aplicativo ou use o [portal do Azure](https://portal.azure.com/).
+1. Atribua a política à sua API da Web. Você também precisará da **ObjectId** de seu aplicativo. Use o cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) para localizar o **ObjectID** do seu aplicativo ou use o [portal do Azure](https://portal.azure.com/).
 
     Obtenha o **ObjectID** do seu aplicativo e atribua a política:
 

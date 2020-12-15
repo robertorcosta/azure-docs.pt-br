@@ -12,12 +12,12 @@ ms.date: 12/10/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 698864a4dc1081cb8cad9036ff1cfc737a17473c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53f5346030e3c5a247d1ad2a73b23882e83ed41a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111110"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508111"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Adicionar atributos de usuário e personalizar a entrada do usuário no Azure Active Directory B2C
 
@@ -129,7 +129,7 @@ O `LocalizedCollections` é uma matriz de `Name` `Value` pares e. A ordem dos it
 ::: zone pivot="b2c-custom-policy"
 
 > [!NOTE]
-> Este exemplo usa a declaração interna ' City '. Em vez disso, você pode escolher um dos [atributos internos de Azure ad B2C](user-profile-attributes.md) com suporte ou um atributo personalizado. Para usar um atributo personalizado, [habilite atributos personalizados em sua política](custom-policy-custom-attributes.md). Para usar um atributo interno ou personalizado diferente, substitua ' City ' pelo atributo de sua escolha, por exemplo, o atributo interno *JobTitle* ou um atributo personalizado como *extension_loyaltyId*.  
+> Este exemplo usa a declaração interna ' City '. Em vez disso, você pode escolher um dos [atributos internos de Azure ad B2C](user-profile-attributes.md) com suporte ou um atributo personalizado. Para usar um atributo personalizado, [habilite atributos personalizados](user-flow-custom-attributes.md). Para usar um atributo interno ou personalizado diferente, substitua ' City ' pelo atributo de sua escolha, por exemplo, o atributo interno *JobTitle* ou um atributo personalizado como *extension_loyaltyId*.  
 
 Você pode coletar dados iniciais de seus usuários usando a jornada do usuário de inscrição ou de entrada. Declarações adicionais podem ser coletadas posteriormente usando um percurso do usuário de edição de perfil. A qualquer momento Azure AD B2C coleta informações diretamente do usuário de forma interativa, a estrutura de experiência de identidade usa seu [perfil técnico autodeclarado](self-asserted-technical-profile.md). Neste exemplo, você:
 
@@ -342,6 +342,6 @@ O token enviado de volta ao seu aplicativo inclui a declaração `city`.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o elemento [ClaimsSchema](claimsschema.md) na referência do IEF.
-- Saiba como [usar atributos personalizados em uma política de edição de perfil personalizado](custom-policy-custom-attributes.md).
+- Saiba como [usar atributos personalizados no Azure ad B2C](user-flow-custom-attributes.md).
 
 ::: zone-end

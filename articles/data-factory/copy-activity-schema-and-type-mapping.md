@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637251"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507516"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Esquema e mapeamento de tipo de dados na atividade de cópia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -170,7 +170,7 @@ Por exemplo, se você tiver um documento do MongoDB de origem com o seguinte con
 }
 ```
 
-E você deseja copiá-lo em um arquivo de texto no formato a seguir com a linha de cabeçalho, mesclando os dados dentro da matriz *(order_pd e order_price)* e entre junções com as informações de raiz comuns *(número, data e cidade)* :
+E você deseja copiá-lo em um arquivo de texto no formato a seguir com a linha de cabeçalho, mesclando os dados dentro da matriz *(order_pd e order_price)* e entre junções com as informações de raiz comuns *(número, data e cidade)*:
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
@@ -182,13 +182,13 @@ Você pode definir esse mapeamento na interface do usuário de criação de Data
 
 1. Na guia atividade de cópia – mapeamento de >, clique no botão **importar esquema** para importar os esquemas de origem e de coletor. Como Data Factory amostras dos principais objetos ao importar o esquema, se algum campo não aparecer, você poderá adicioná-lo à camada correta na hierarquia-focalizar um nome de campo existente e escolher Adicionar um nó, um objeto ou uma matriz.
 
-2. Selecione a matriz da qual você deseja iterar e extrair dados. Ele será preenchido automaticamente como **referência de coleção** . Observação apenas uma única matriz tem suporte para essa operação.
+2. Selecione a matriz da qual você deseja iterar e extrair dados. Ele será preenchido automaticamente como **referência de coleção**. Observação apenas uma única matriz tem suporte para essa operação.
 
 3. Mapeie os campos necessários para o coletor. Data Factory determina automaticamente os caminhos JSON correspondentes para o lado hierárquico.
 
 ![Mapear hierárquica para tabular usando a interface do usuário](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
-Você também pode alternar para o **Editor avançado** ; nesse caso, você pode ver e editar os caminhos JSON dos campos diretamente. Se você optar por adicionar um novo mapeamento nessa exibição, especifique o caminho JSON.
+Você também pode alternar para o **Editor avançado**; nesse caso, você pode ver e editar os caminhos JSON dos campos diretamente. Se você optar por adicionar um novo mapeamento nessa exibição, especifique o caminho JSON.
 
 ![Mapear hierárquica para tabular usando o editor avançado](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
 
@@ -283,9 +283,9 @@ Atualmente, a atividade de cópia dá suporte aos seguintes tipos de dados provi
 
 As conversões de tipo de dados a seguir têm suporte entre os tipos provisórios da origem para o coletor.
 
-| Source\Sink | Booliano | Matriz de bytes | Decimal | Data/hora <small>(1)</small> | Ponto flutuante <small>(2)</small> | GUID | Inteiro <small>(3)</small> | String | TimeSpan |
+| Source\Sink | Boolean | Matriz de bytes | Decimal | Data/hora <small>(1)</small> | Ponto flutuante <small>(2)</small> | GUID | Inteiro <small>(3)</small> | String | TimeSpan |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Booliano     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Matriz de bytes  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
 | Data/Hora   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
 | Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
@@ -356,7 +356,7 @@ As propriedades a seguir têm suporte na atividade de cópia para conversão de 
 
 ### <a name="alternative-column-mapping-legacy-model"></a>Alternativa-mapeamento de coluna (modelo herdado)
 
-Você pode especificar a atividade de cópia-> `translator`  ->  `columnMappings` para mapear entre dados em formato tabular. Nesse caso, a seção "Structure" é necessária para os conjuntos de dados de entrada e saída. O mapeamento de coluna dá suporte ao **mapeamento de todas as colunas ou de um subconjunto de colunas na “structure” do conjunto de dados de origem para todas as colunas na “structure” do conjunto de dados do coletor** . Veja a seguir condições de erro que resultam em uma exceção:
+Você pode especificar a atividade de cópia-> `translator`  ->  `columnMappings` para mapear entre dados em formato tabular. Nesse caso, a seção "Structure" é necessária para os conjuntos de dados de entrada e saída. O mapeamento de coluna dá suporte ao **mapeamento de todas as colunas ou de um subconjunto de colunas na “structure” do conjunto de dados de origem para todas as colunas na “structure” do conjunto de dados do coletor**. Veja a seguir condições de erro que resultam em uma exceção:
 
 - O resultado da consulta do armazenamento de dados de origem não tem um nome de coluna especificado na seção “structure” do conjunto de dados de entrada.
 - O armazenamento de dados do coletor (se estiver com o esquema predefinido) não tem um nome de coluna especificado na seção “structure” do conjunto de dados de saída.
@@ -455,7 +455,7 @@ Você pode especificar a atividade de cópia-> `translator`  ->  `schemaMapping`
 | Propriedade            | Descrição                                                  | Obrigatório |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | A propriedade Type do tradutor de atividade de cópia deve ser definida como: **TabularTranslator** | Sim      |
-| schemaMapping       | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor** .<br/>- **Chave:** representa a origem. Para **fonte de tabela** , especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica** , especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Valor:** representa o coletor. Para o **coletor de tabela** , especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico** , especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento da matriz. | Sim      |
+| schemaMapping       | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>- **Chave:** representa a origem. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Valor:** representa o coletor. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento da matriz. | Sim      |
 | collectionReference | Se você quiser fazer uma iteração e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON da matriz para realizar a aplicação cruzada. Essa propriedade só terá suporte quando os dados hierárquicos forem a origem. | Não       |
 
 **Exemplo: copiar do MongoDB para a Oracle:**
@@ -487,7 +487,7 @@ Por exemplo, se você tiver o documento do MongoDB com o seguinte conteúdo:
 }
 ```
 
-e você deseja copiá-lo para uma tabela do Azure SQL no formato a seguir, ao nivelar os dados de dentro da matriz *(order_pd e order_price)* e fazer uma união cruzada com as informações de raiz comuns *(número, data e cidade)* :
+e você deseja copiá-lo para uma tabela do Azure SQL no formato a seguir, ao nivelar os dados de dentro da matriz *(order_pd e order_price)* e fazer uma união cruzada com as informações de raiz comuns *(número, data e cidade)*:
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |

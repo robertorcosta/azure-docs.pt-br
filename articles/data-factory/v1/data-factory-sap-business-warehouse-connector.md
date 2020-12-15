@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 108bdf057cd375e28b10a6838ec5c8c6f57749a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb91a09ed31658c2d547a7b46cf2f986bfbd0e50
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019575"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97508281"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -63,12 +63,12 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Yes
-systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Yes
+Servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
+systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
 clientId | ID de Cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
 Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
-password | Senha do usuário. | string | Yes
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | Yes
+password | Senha do usuário. | string | Sim
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | Sim
 encryptedCredential | A cadeia de caracteres de credencial criptografada. | Cadeia de caracteres | No
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -86,7 +86,7 @@ Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que incl
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| Consulta | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | Yes |
+| Consulta | Especifica a consulta MDX para ler dados da instância do SAP BW. | Consulta MDX. | Sim |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Exemplo de JSON: Copiar dados do SAP Business Warehouse para o Blob do Azure
@@ -278,8 +278,6 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 }
 ```
 
-
-
 ### <a name="type-mapping-for-sap-bw"></a>Mapeamento de tipo para SAP BW
 Conforme mencionado no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) , a Atividade de cópia executa conversões automáticas de tipo de fonte para tipos de coletor, com a abordagem em duas etapas descritas a seguir:
 
@@ -296,7 +294,7 @@ CLNT | String
 CURR | Decimal
 CUKY | String
 DEC | Decimal
-FLTP | Duplo
+FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | int

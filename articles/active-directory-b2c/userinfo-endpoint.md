@@ -11,12 +11,12 @@ ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 62f2869bfe1110dd5bf8459c9f6f6b21701dc934
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 95f41283b78c39ed2cf3b4abb75275902d8cf7bd
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425703"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509573"
 ---
 # <a name="userinfo-endpoint"></a>Ponto de extremidade UserInfo
 
@@ -103,7 +103,7 @@ As informações de usuário userjornada especificam:
 
 1. A seção outputClaims no perfil técnico do UserInfoIssuer especifica os atributos que você deseja retornar. O perfil técnico do UserInfoIssuer é chamado no final da jornada do usuário. 
 1. O perfil técnico do UserInfoAuthorization valida a assinatura, o nome do emissor e o público do token e extrai a declaração do token de entrada. Altere os metadados a seguir para refletir seu ambiente:
-    1. **emissor** -esse valor deve ser idêntico à `iss` declaração dentro da declaração de token de acesso. Tokens emitidos por Azure AD B2C usam um emissor no formato `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` . Saiba mais sobre a [personalização de token](configure-tokens-custom-policy.md).
+    1. **emissor** -esse valor deve ser idêntico à `iss` declaração dentro da declaração de token de acesso. Tokens emitidos por Azure AD B2C usam um emissor no formato `https://yourtenant.b2clogin.com/your-tenant-id/v2.0/` . Saiba mais sobre a [personalização de token](configure-tokens.md).
     1. **IdTokenAudience** -deve ser idêntico à `aud` declaração dentro da declaração de token de acesso. Em Azure AD B2C a `aud` declaração é a ID do seu aplicativo de terceira parte confiável. Esse valor é uma coleção e dá suporte a vários valores usando um delimitador de vírgula.
 
 No token de acesso a seguir, o `iss` valor da declaração é `https://contoso.b2clogin.com/11111111-1111-1111-1111-111111111111/v2.0/` . O `aud` valor da declaração é `22222222-2222-2222-2222-222222222222` .

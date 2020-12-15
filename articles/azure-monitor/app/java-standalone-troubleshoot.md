@@ -4,12 +4,12 @@ description: Saiba como solucionar problemas do agente Java para Azure Monitor A
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ccfd583b58d129268af2a94e3072200e58308cd
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 14644f76b7de53b2b6ee3f04131daaf59267a5ff
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347823"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507635"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guia de solução de problemas: Azure Monitor Application Insights para Java
 
@@ -34,6 +34,14 @@ Essas alterações incluem:
 -  O nome do arquivo de configuração foi alterado de `ApplicationInsights.json` para `applicationinsights.json` .
 -  O `instrumentationSettings` nó não está mais presente. Todo o conteúdo em `instrumentationSettings` é movido para o nível raiz. 
 -  Nós de configuração como `sampling` , `jmxMetrics` , `instrumentation` e `heartbeat` são movidos de `preview` para o nível raiz.
+
+## <a name="some-logging-is-not-auto-collected"></a>Algum registro em log não é coletado automaticamente
+
+O registro em log só será capturado se ele atender primeiro ao limite configurado da estrutura de registro em log e o segundo também atender ao limite configurado Application Insights.
+
+A melhor maneira de saber se uma determinada instrução de log atende ao limite configurado da estrutura de registro em log é confirmar que ela está aparecendo no log normal do aplicativo (por exemplo, arquivo ou console).
+
+Consulte a [configuração de log coletada automaticamente](./java-standalone-config.md#auto-collected-logging) para obter mais detalhes.
 
 ## <a name="import-ssl-certificates"></a>Importar certificados SSL
 

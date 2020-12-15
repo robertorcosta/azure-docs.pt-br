@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2020
+ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: d92047a5b24f04ee7e0d08454867ec9e1a52a8b1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d3492685efbf70b69e5bafba919d38a4f06fb666
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754361"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387463"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços da Central de Segurança do Azure
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudar você a acompanhar o ritmo veloz da evolução dos riscos cibernéticos.
@@ -68,12 +68,24 @@ Veja abaixo a página de preços para obter um exemplo de assinatura. Você obse
 
 ## <a name="faq---pricing-and-billing"></a>Perguntas frequentes – Preços e cobrança 
 
-### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Como posso acompanhar quem, na minha organização, habilitou as alterações no Azure Defender na Central de Segurança do Azure?
+- [Como posso rastrear quem, na minha organização, habilitou as alterações no Azure Defender na Central de Segurança do Azure?](#how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center)
+- [Quais são os planos oferecidos pela Central de Segurança?](#what-are-the-plans-offered-by-security-center)
+- [Como fazer para habilitar o Azure Defender para minha assinatura?](#how-do-i-enable-azure-defender-for-my-subscription)
+- [Posso habilitar o Azure Defender para servidores em um subconjunto de servidores em minha assinatura?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Minha assinatura tem o Azure Defender para servidores habilitado. Os servidores que não estão em execução são cobrados?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
+- [Serei cobrado pelos computadores sem o agente do Log Analytics instalado?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
+- [Se um agente do Log Analytics for subordinado a vários workspaces, serei cobrado duas vezes?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
+- [Se um agente do Log Analytics for subordinado a vários workspaces, a ingestão de dados gratuita de 500 MB estará disponível em todos eles?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
+- [A ingestão de dados gratuita de 500 MB é calculada para um workspace inteiro ou estritamente por computador?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+
+### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Como posso rastrear quem, na minha organização, habilitou as alterações no Azure Defender na Central de Segurança?
 As assinaturas do Azure podem ter vários administradores com permissões para alterar as configurações de preço. Para descobrir qual usuário fez uma alteração, use o log de atividades do Azure.
 
-Se as informações do usuário não estiverem listadas na coluna **Evento iniciado por**, explore o evento para obter os detalhes relevantes.
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Log de atividades do Azure mostrando um evento de alteração de preço":::
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="Log de eventos do Azure mostrando um evento de alteração de preço":::
+Se as informações do usuário não estiverem listadas na coluna **Evento iniciado por**, explore o JSON do evento para ver os detalhes relevantes.
+
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Explorador de JSON do Log de atividades do Azure":::
 
 
 ### <a name="what-are-the-plans-offered-by-security-center"></a>Quais são os planos oferecidos pela Central de Segurança? 
@@ -115,6 +127,10 @@ Sim. Se você tiver configurado o agente do Log Analytics para enviar dados para
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Se um agente do Log Analytics for subordinado a vários workspaces, a ingestão de dados gratuita de 500 MB estará disponível em todos eles?
 Sim. Se você tiver configurado o agente do Log Analytics para enviar dados para dois ou mais workspaces diferentes do Log Analytics (hospedagem múltipla), obterá a ingestão de dados gratuita de 500 MB. Isso é calculado por nó, por workspace relatado e por dia e está disponível para todos os workspaces com soluções de 'Segurança' ou 'Antimalware' instaladas. Você será cobrado por todos os dados ingeridos acima dos 500 MB.
 
+### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>A ingestão de dados gratuita de 500 MB é calculada para um workspace inteiro ou estritamente por computador?
+Você receberá a ingestão de dados gratuita de 500 MB por dia para cada computador conectado ao workspace. Especificamente para tipos de dados de segurança coletados diretamente pela Central de Segurança do Azure.
+
+Esses dados são uma taxa diária média em todos os nós. Sendo assim, mesmo que alguns computadores enviem 100 MB e outros enviem 800 MB, se o total não ultrapassar o limite gratuito de **[número de computadores] x 500 MB**, você não precisará pagar nenhum valor extra.
 
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo explicou as opções de preços da Central de Segurança. Para obter materiais relacionados, confira:

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b33c7f76cc2ac7a2012dc9d8c854a1dde46c3ea
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9c50bd71f4e2e5bbe12518f5a5d1cd486af9723a
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399121"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509744"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -153,7 +153,7 @@ O elemento **SingleSignOn** contém o seguinte atributo:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Escopo | Sim | O escopo do comportamento de logon único. Valores possíveis: `Suppressed`, `Tenant`, `Application` ou `Policy`. O `Suppressed` valor indica que o comportamento é suprimido e o usuário sempre será solicitado a fornecer uma seleção de provedor de identidade.  O valor `Tenant` indica que o comportamento é aplicado a todas as políticas no locatário. Por exemplo, um usuário navegando por dois percursos de política para um locatário não é solicitado a fazer uma seleção de provedor de identidade. O valor `Application` indica que o comportamento é aplicado a todas as políticas para o aplicativo que está fazendo a solicitação. Por exemplo, um usuário navegando por dois percursos de política para um aplicativo não é solicitado a fazer uma seleção de provedor de identidade. O valor `Policy` indica que o comportamento se aplica somente a uma política. Por exemplo, um usuário que navega pelas dois percursos de política para uma estrutura de confiança é solicitado a informar uma seleção de provedor de identidade ao alternar entre políticas. |
-| KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. A definição do valor como 0 desliga a funcionalidade KMSI. Para obter mais informações, confira [Manter-me conectado](custom-policy-keep-me-signed-in.md). |
+| KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. A definição do valor como 0 desliga a funcionalidade KMSI. Para obter mais informações, confira [Manter-me conectado](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi). |
 |EnforceIdTokenHintOnLogout| Não|  Force a passar um token de ID emitido anteriormente para o ponto de extremidade de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. Valores possíveis: `false` (padrão) ou `true`. Para obter mais informações, consulte [entrada na Web com o OpenID Connect](openid-connect.md).  |
 
 
