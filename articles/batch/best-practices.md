@@ -3,12 +3,12 @@ title: Práticas recomendadas
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1eaa34e02a4c505691662e9fc29334cb823a3185
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95254656"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511205"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -140,6 +140,10 @@ Um [nó de computação](nodes-and-pools.md#nodes) é uma máquina virtual (VM) 
 ### <a name="idempotent-start-tasks"></a>Tarefas de início idempotentes
 
 Assim como ocorre com outras tarefas, a [tarefa de início](jobs-and-tasks.md#start-task) do nó deve ser idempotente, pois ela será executada novamente sempre que o nó for inicializado. Uma tarefa idempotente produz um resultado consistente quando executada várias vezes.
+
+### <a name="isolated-nodes"></a>Nós isolados
+
+Considere usar o tamanho de VM isolado para cargas de trabalho com requisitos de conformidade ou regulamentações. Os tamanhos isolados com suporte no modo de configuração de máquina virtual incluem `Standard_E64i_v3` ,,,, `Standard_E80ids_v4` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` e `Standard_M128ms` . Para obter mais informações sobre tamanhos de VM isoladas, consulte [isolamento de máquina virtual no Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gerenciar serviços de execução longa por meio da interface de serviços do sistema operacional
 

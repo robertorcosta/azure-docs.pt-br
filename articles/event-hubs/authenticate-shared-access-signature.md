@@ -4,12 +4,12 @@ description: Este artigo mostra como autenticar o acesso a recursos de hubs de e
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332426"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510083"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos de hubs de eventos usando SAS (assinaturas de acesso compartilhado)
 A SAS (assinatura de acesso compartilhado) oferece controle granular sobre o tipo de acesso que você concede aos clientes que têm a assinatura de acesso compartilhado. Aqui estão alguns dos controles que você pode definir em uma SAS: 
@@ -212,7 +212,7 @@ Por exemplo, para definir regras de autorização com escopo para enviar/publica
 >
 > Quando o cliente envia dados para um hub de eventos, ele marca sua solicitação com o token. Para evitar que um invasor intercepte e roube o token, a comunicação entre o cliente e o hub de eventos deve ocorrer em um canal criptografado.
 > 
-> Se um token for roubado por um invasor, este poderá representar o cliente cujo token foi roubado. A lista de bloqueios de um Publicador torna o cliente inutilizável até receber um novo token que usa um Publicador diferente.
+> Se um token for roubado por um invasor, este poderá representar o cliente cujo token foi roubado. Inclusão na lista um Publicador, renderiza esse cliente inutilizável até receber um novo token que usa um Publicador diferente.
 
 
 ## <a name="authenticating-event-hubs-consumers-with-sas"></a>Autenticando consumidores de hubs de eventos com SAS 

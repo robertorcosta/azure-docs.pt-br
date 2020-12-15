@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd4c70354920655507f987f43a542e4b474803e1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e4463b932c95e224981b74093effbb355de24f6b
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170932"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509811"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operações disponíveis para Azure AD B2C
 
@@ -24,7 +24,7 @@ As operações de API de Microsoft Graph a seguir têm suporte para o gerenciame
 
 Cada link nas seções a seguir visa a página correspondente dentro do Microsoft Graph referência de API para essa operação.
 
-## <a name="user-management"></a>Gerenciamento de Usuários
+## <a name="user-management"></a>Gerenciamento de usuários
 
 - [Listar usuários](/graph/api/user-list)
 - [Criar um usuário do consumidor](/graph/api/user-post-users)
@@ -107,7 +107,7 @@ O recurso de nível superior para chaves de política na API de Microsoft Graph 
 
 - [Listar Propriedades de extensão](/graph/api/application-list-extensionproperty)
 
-O Azure AD B2C fornece um diretório que pode conter 100 atributos personalizados por usuário. Para fluxos de usuário, essas propriedades de extensão são [gerenciadas usando o portal do Azure](custom-policy-custom-attributes.md). Para políticas personalizadas, Azure AD B2C cria a propriedade para você, na primeira vez em que a política grava um valor na propriedade de extensão.
+O Azure AD B2C fornece um diretório que pode conter 100 atributos personalizados por usuário. Para fluxos de usuário, essas propriedades de extensão são [gerenciadas usando o portal do Azure](user-flow-custom-attributes.md). Para políticas personalizadas, Azure AD B2C cria a propriedade para você, na primeira vez em que a política grava um valor na propriedade de extensão.
 
 ## <a name="audit-logs"></a>Logs de auditoria
 

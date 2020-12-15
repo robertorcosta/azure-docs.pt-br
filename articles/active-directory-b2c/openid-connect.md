@@ -11,12 +11,12 @@ ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dbfeefc14059785ba82cbf245a60e5e72759db76
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 48c60878a6a58b2f4629768b81af894a741dab1c
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840399"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509794"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -262,7 +262,7 @@ As respostas de erro se parecem com:
 
 ## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de saída
 
-Quando você deseja desconectar o usuário do aplicativo, não é suficiente limpar os cookies do aplicativo ou encerrar a sessão com o usuário. Redirecione o usuário para Azure AD B2C para sair. Se você não conseguir fazer isso, o usuário poderá se autenticar novamente em seu aplicativo sem inserir suas credenciais novamente. Para obter mais informações, consulte [Azure ad B2C Session](session-overview.md).
+Quando você deseja desconectar o usuário do aplicativo, não é suficiente limpar os cookies do aplicativo ou encerrar a sessão com o usuário. Redirecione o usuário para Azure AD B2C para sair. Se você não conseguir fazer isso, o usuário poderá se autenticar novamente em seu aplicativo sem inserir suas credenciais novamente. Para obter mais informações, consulte [Azure ad B2C Session](session-behavior.md).
 
 Para desconectar o usuário, redirecione o usuário para o `end_session` ponto de extremidade listado no documento de metadados do OpenID Connect descrito anteriormente:
 
@@ -283,8 +283,8 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 Após o logout, o usuário é redirecionado para o URI especificado no `post_logout_redirect_uri` parâmetro, independentemente das URLs de resposta que foram especificadas para o aplicativo. No entanto, se um valor válido `id_token_hint` for passado e o **token de ID necessário em solicitações de logout** estiver ativado, Azure ad B2C verificará se o valor de `post_logout_redirect_uri` corresponde a um dos URIs de redirecionamento configurados do aplicativo antes de executar o redirecionamento. Se nenhuma URL de resposta correspondente tiver sido configurada para o aplicativo, uma mensagem de erro será exibida e o usuário não será redirecionado.
 
-Para definir o token de ID necessário em solicitações de logout, consulte [Configurar o comportamento da sessão no Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect)e [Configurar o comportamento da sessão usando políticas personalizadas no Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
+Para definir o token de ID necessário em solicitações de logout, consulte [Configurar o comportamento da sessão no Azure Active Directory B2C](session-behavior.md#secure-your-logout-redirect).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [sessão do Azure AD B2C](session-overview.md).
+- Saiba mais sobre a [sessão do Azure AD B2C](session-behavior.md).

@@ -3,15 +3,15 @@ title: Melhores práticas de segurança da Área de Trabalho Virtual do Windows 
 description: Melhores práticas para manter a segurança do seu ambiente da Área de Trabalho Virtual do Windows.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023149"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511528"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -98,6 +98,25 @@ Monitore o uso e a disponibilidade do serviço de Área de Trabalho Virtual do W
 ## <a name="session-host-security-best-practices"></a>Melhores práticas de segurança do host da sessão
 
 Os hosts de sessão são máquinas virtuais que são executadas dentro de uma assinatura e rede virtual do Azure. A segurança geral da implantação de Área de Trabalho Virtual do Windows depende dos controles de segurança que você colocou em seus hosts de sessão. Esta seção descreve as melhores práticas para manter seus hosts de sessão seguros.
+
+### <a name="enable-screen-capture-protection-preview"></a>Habilitar proteção de captura de tela (visualização)
+
+O recurso proteção de captura de tela impede que informações confidenciais sejam capturadas nos pontos de extremidade do cliente. Quando você habilita esse recurso, o conteúdo remoto será bloqueado automaticamente ou oculto em capturas de tela e compartilhamentos de telas. Ele também será ocultado de software mal-intencionado que pode estar capturando continuamente o conteúdo da tela.
+
+Essa política é imposta no nível do host por meio da configuração de uma chave do registro. Para habilitar essa política, abra o PowerShell e defina a chave do registro **fEnableScreenCaptureProtection** executando este cmdlet:
+
+```powershell
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
+```
+
+Para testar esse novo recurso:
+
+- Verifique se os pools de hosts estão provisionados no ambiente de validação.
+- Verifique se você baixou e instalou o cliente de área de trabalho do Windows, versão 1.2.1526 ou posterior.
+
+>[!NOTE]
+>Durante a visualização, somente as conexões de área de trabalho completas dos pontos de extremidade do Windows 10 dão suporte a esse recurso.
+
 
 ### <a name="enable-endpoint-protection"></a>Habilitar a proteção de ponto de extremidade
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: cd64c19e7e9af05becd7a6978ceb4d0306112170
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351888"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97512038"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -93,7 +93,7 @@ A tabela a seguir fornece algumas diretrizes de alto nível.
 |                            |Pesquisa Cognitiva do Azure | Limitações                      |
 | -------------------------- |------------ | -------------------------------- |
 | **Experimentação**        |Camada Gratuita    | Publicar até 2 KB/s, tamanho de 50 MB  |
-| **Ambiente de Desenvolvimento/Teste**   |Básico        | Publicar até 14 KBs, com tamanho de 2 GB    |
+| **Ambiente de Desenvolvimento/Teste**   |Basic        | Publicar até 14 KBs, com tamanho de 2 GB    |
 | **Ambiente de Produção** |Standard     | Publicar até 49 KBs, tamanho de 25 GB |
 
 ---
@@ -104,11 +104,11 @@ A tabela a seguir fornece algumas diretrizes de alto nível.
 
 |QPS de destino | Serviço de Aplicativo | Pesquisa Cognitiva do Azure |
 | -------------------- | ----------- | ------------ |
-| 3             | S1, 1 instância   | S1, 1 instância    |
-| 50         | S3, 10 instâncias       | S1, 12 instâncias         |
-| 80         | S3, 10 instâncias      |  S3, 12 instâncias  |
-| 100         | P3V2, 10 instâncias  | S3, 12 instâncias, 3 partições   |
-| 200 a 250         | P3V2, 20 instâncias | S3, 12 instâncias, 3 partições    |
+| 3             | S1, 1 réplica   | S1, 1 réplica    |
+| 50         | S3, 10 réplicas       | S1, 12 réplicas         |
+| 80         | S3, 10 réplicas      |  S3, 12 réplicas  |
+| 100         | P3V2, 10 réplicas  | S3, 12 réplicas, 3 partições   |
+| 200 a 250         | P3V2, 20 réplicas | S3, 12 réplicas, 3 partições    |
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
@@ -240,7 +240,7 @@ Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
 |Nome|Localização|Finalidade|
 |--|--|--|
-|Chave de criação|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
+|Chave de criação|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
 |Chave do ponto de extremidade da consulta|[Portal do QnA Maker](https://www.qnamaker.ai)|Essas chaves são usadas para consultar o ponto de extremidade da base de dados de conhecimento publicado para obter uma resposta para uma pergunta de usuário. Normalmente, você usa esse ponto de extremidade de consulta em seu bot de chat ou no código do aplicativo cliente que se conecta ao serviço de QnA Maker. Essas chaves são criadas quando você publica sua base de dados de conhecimento QnA Maker.<br><br>Localize essas chaves na página **configurações de serviço** . Localize essa página no menu do usuário no canto superior direito da página no menu suspenso.|
 
 ### <a name="subscription-keys"></a>Chaves de assinatura
@@ -317,8 +317,8 @@ Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
 |Nome|Localização|Finalidade|
 |--|--|--|
-|Chave de criação|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
-|Chave de administração de Pesquisa Cognitiva do Azure|[Azure portal](../../../search/search-security-api-keys.md)|Essas chaves são usadas para se comunicar com o serviço de pesquisa cognitiva do Azure implantado na assinatura do Azure do usuário. Quando você associa uma pesquisa cognitiva do Azure com o serviço QnA Maker gerenciado (versão prévia), a chave de administração é passada automaticamente para o serviço QnA Maker. <br><br>Você pode encontrar essas chaves no recurso **pesquisa cognitiva do Azure** na página **chaves** .|
+|Chave de criação|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
+|Chave de administração de Pesquisa Cognitiva do Azure|[Portal do Azure](../../../search/search-security-api-keys.md)|Essas chaves são usadas para se comunicar com o serviço de pesquisa cognitiva do Azure implantado na assinatura do Azure do usuário. Quando você associa uma pesquisa cognitiva do Azure com o serviço QnA Maker gerenciado (versão prévia), a chave de administração é passada automaticamente para o serviço QnA Maker. <br><br>Você pode encontrar essas chaves no recurso **pesquisa cognitiva do Azure** na página **chaves** .|
 
 ### <a name="subscription-keys"></a>Chaves de assinatura
 

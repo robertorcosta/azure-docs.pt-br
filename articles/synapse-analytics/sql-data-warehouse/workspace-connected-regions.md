@@ -11,12 +11,12 @@ ms.date: 11/11/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: references_regions
-ms.openlocfilehash: d46f8b518476cdf2f68b51ed93498cf822f8d8a5
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 4ecf8a578343a10e7c1ddb0ac5e9345a652bc9af
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504144"
+ms.locfileid: "97511698"
 ---
 # <a name="enabling-synapse-workspace-features-on-a-dedicated-sql-pool-formerly-sql-dw-in-your-region"></a>Habilitando recursos de espaço de trabalho Synapse em um pool SQL dedicado (anteriormente conhecido como SQL DW) em sua região.
 
@@ -39,7 +39,7 @@ A tabela a seguir resume por região em que a capacidade de habilitar os recurso
  
  
 > [!NOTE]
-> A lista de regiões acima está relacionada apenas a regiões em que habilitar os recursos de espaço de trabalho Synapse não estão disponíveis no momento. 
+> A lista de regiões acima está relacionada apenas a regiões em que a habilitação de recursos de espaço de trabalho Synapse não está disponível no momento. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Introdução ao [Synapse Workspace and Studio](../get-started.md).

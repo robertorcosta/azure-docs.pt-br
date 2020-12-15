@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 572d6964384c711a7d2b98b0fa27852a7d28951f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 3f8ba563345f5aa4f35bcf07546abdad05c3b6ed
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936702"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509777"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico do provedor de identidade SAML em uma política personalizada Azure Active Directory B2C
 
@@ -168,7 +168,7 @@ O elemento **OutputClaimsTransformations** pode conter uma coleção de elemento
 | IncludeAuthnContextClassReferences | Não | Especifique uma ou mais referências de URI que identifica as classes de contexto de autenticação. Por exemplo, para permitir que um usuário entre com o nome de usuário e senha apenas, defina o valor `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Para permitir a entrada com o nome de usuário e senha ao longo de uma sessão protegida (SSL/TLS), especifique `PasswordProtectedTransport`. Examine a documentação do provedor de identidade para obter orientação sobre os URIs **AuthnContextClassRef** suportados. Especifique vários URIs como uma lista delimitada por vírgula. |
 | IncludeKeyInfo | Não | Indica se a solicitação de autenticação SAML contém a chave pública do certificado quando a associação é definida como `HTTP-POST`. Valores possíveis: `true` ou `false`. |
 | IncludeClaimResolvingInClaimsHandling  | Não | Para declarações de entrada e saída, especifica se a [resolução de declarações](claim-resolver-overview.md) está incluída no perfil técnico. Valores possíveis: `true` ou `false` (padrão). Se você quiser usar um resolvedor de declarações no perfil técnico, defina como `true` . |
-|SingleLogoutEnabled| Não| Indica se, durante a entrada, o perfil técnico tenta sair de provedores de identidade federada. Para obter mais informações, consulte [Azure ad B2C sessão](session-overview.md#sign-out)sair.  Valores possíveis: `true` (padrão) ou `false` .|
+|SingleLogoutEnabled| Não| Indica se, durante a entrada, o perfil técnico tenta sair de provedores de identidade federada. Para obter mais informações, consulte [Azure ad B2C sessão](session-behavior.md#sign-out)sair.  Valores possíveis: `true` (padrão) ou `false` .|
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 

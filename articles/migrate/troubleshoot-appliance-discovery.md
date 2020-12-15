@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 26bb61e0c5a473a56c57391b53009419453956fd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 90abe6bf680f6a186b970631dcd0a42d6d36bf94
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753409"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511579"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -31,7 +31,7 @@ Se você receber o erro "o arquivo de manifesto fornecido é inválido: entrada 
 2. Se a implantação ainda falhar e você estiver usando o VMware vSphere cliente para implantar o arquivo OVF, tente implantá-lo por meio do cliente Web vSphere. Se a implantação ainda falhar, tente usar um navegador da Web diferente.
 3. Se você estiver usando o cliente Web vSphere e tentando implantá-lo no vCenter Server 6,5 ou 6,7, tente implantar o OVA diretamente no host ESXi:
    - Conecte-se diretamente ao host ESXi (em vez de vCenter Server) com o cliente Web (https://<*endereço IP do host*>/UI).
-   - Em **Home**  >  **inventário** doméstico, selecione **arquivo**  >  **implantar modelo de OVF**. Navegue até o OVA e conclua a implantação.
+   - Em   >  **inventário** doméstico, selecione **arquivo**  >  **implantar modelo de OVF**. Navegue até o OVA e conclua a implantação.
 4. Se a implantação ainda falhar, entre em contato com o suporte do Migrações para Azure.
 
 ## <a name="cant-connect-to-the-internet"></a>Não é possível conectar à Internet
@@ -41,6 +41,13 @@ Isso pode acontecer se a máquina do dispositivo estiver atrás de um proxy.
 - Certifique-se de fornecer as credenciais de autorização se o proxy precisar delas.
 - Se você estiver usando um proxy de firewall baseado em URL para controlar a conectividade de saída, adicione [essas URLs](migrate-appliance.md#url-access) a uma lista de permissões.
 - Se você estiver usando um proxy de interceptação para se conectar à Internet, importe o certificado de proxy para a VM do dispositivo usando [estas etapas](./migrate-appliance.md).
+
+
+## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>Clicar no botão ' login ' abre uma nova guia sem código de dispositivo
+
+Se, depois de clicar em ' login no Gerenciador de configuração do dispositivo, uma nova guia for aberta sem código, volte para a guia Gerenciador de configurações do dispositivo e você poderá encontrar o código do dispositivo em negrito no botão ' login ', conforme mostrado na captura de tela abaixo. Copie o código e cole-o na guia logon para autenticar com o Azure.
+
+![Código do dispositivo](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Não é possível entrar no Azure por meio do aplicativo Web do dispositivo
 

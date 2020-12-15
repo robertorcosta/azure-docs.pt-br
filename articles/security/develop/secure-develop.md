@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517080"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511273"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicativos seguros no Azure
 Neste artigo, apresentamos as atividades de segurança e os controles a serem considerados ao desenvolver aplicativos para a nuvem. Abordamos as perguntas e os conceitos de segurança a serem considerados durante as fases de implementação e verificação do ciclo de vida de desenvolvimento do [Microsoft SDL (Security Development Lifecycle)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). O objetivo é ajudá-lo a definir atividades e serviços do Azure que você possa usar para desenvolver um aplicativo mais seguro.
@@ -38,7 +38,7 @@ Antes de fazer verificar o código, faça [revisões de código](/azure/devops/l
 
 ### <a name="perform-static-code-analysis"></a>Executar análise de código estático
 
-A [análise de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (também conhecida como *análise de código-fonte* ) geralmente é executada como parte de uma revisão de código. A análise de código estático normalmente refere-se à execução de ferramentas de análise de código estático para encontrar possíveis vulnerabilidades no código que não está em execução por meio de técnicas como [verificação de contaminação](https://en.wikipedia.org/wiki/Taint_checking) e [análise de fluxo de dados](https://en.wikipedia.org/wiki/Data-flow_analysis).
+A [análise de código estático](https://owasp.org/www-community/controls/Static_Code_Analysis) (também conhecida como *análise de código-fonte*) geralmente é executada como parte de uma revisão de código. A análise de código estático normalmente refere-se à execução de ferramentas de análise de código estático para encontrar possíveis vulnerabilidades no código que não está em execução por meio de técnicas como [verificação de contaminação](https://en.wikipedia.org/wiki/Taint_checking) e [análise de fluxo de dados](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 O Azure Marketplace oferece [ferramentas de desenvolvedor](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) que fazem análise de código estático e auxiliam nas revisões de código.
 
@@ -48,21 +48,21 @@ Trate todas as entradas como não confiáveis para proteger seu aplicativo das v
 
 Valide a entrada no início do fluxo de dados para ter certeza de que apenas os dados formados corretamente entrarão no fluxo de trabalho. Você não quer que dados malformados persistam em seu banco de dados ou criem um problema em um componente downstream.
 
-As listas de bloqueios e de permissões são duas abordagens gerais para executar a validação da sintaxe de entrada:
+Inclusão na lista e allowlisting são duas abordagens gerais para executar a validação da sintaxe de entrada:
 
-  - Tentativas da lista de bloqueio de verificar se determinada entrada do usuário não apresenta conteúdo "conhecido como mal-intencionado".
+  - Inclusão na lista tenta verificar se uma determinada entrada do usuário não contém conteúdo "conhecido como mal-intencionado".
 
-  - Tentativas da lista de permissões de verificar se determinada entrada do usuário corresponde a um conjunto de entradas "conhecidas como boas". A lista de permissões baseada em caracteres é uma forma de lista de permissões em que um aplicativo verifica se a entrada do usuário contém apenas caracteres "corretos" ou se corresponde a um formato conhecido.
+  - O Allowlisting tenta verificar se uma determinada entrada do usuário corresponde a um conjunto de entradas "boas conhecidas". A allowlisting baseada em caracteres é uma forma de allowlisting em que um aplicativo verifica se a entrada do usuário contém apenas caracteres "bons" ou se a entrada corresponde a um formato conhecido.
     Por exemplo, isso pode envolver a verificação de que um nome de usuário contém apenas caracteres alfanuméricos ou que contém exatamente dois números.
 
-A lista de permissões é a abordagem preferida para a criação de software seguro.
-A lista de bloqueios está propensa a erros, pois é impossível pensar em uma lista completa de entradas potencialmente inadequadas.
+Allowlisting é a abordagem preferida para a criação de software seguro.
+O inclusão na lista está propenso a erros porque é impossível considerar uma lista completa de entradas potencialmente inadequadas.
 
 Faça isso no servidor, não no lado do cliente (ou no servidor e no lado do cliente).
 
 ### <a name="verify-your-applications-outputs"></a>Verificar as saídas do aplicativo
 
-Qualquer saída que você apresente visualmente ou dentro de um documento sempre deve ser codificada e com escape. O [Escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecido como *codificação de saída* , é usado para garantir que os dados não confiáveis não sejam um veículo para um ataque de injeção. O escape, combinado com a validação de dados, oferece defesas em camadas para aumentar a segurança do sistema como um todo.
+Qualquer saída que você apresente visualmente ou dentro de um documento sempre deve ser codificada e com escape. O [Escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecido como *codificação de saída*, é usado para garantir que os dados não confiáveis não sejam um veículo para um ataque de injeção. O escape, combinado com a validação de dados, oferece defesas em camadas para aumentar a segurança do sistema como um todo.
 
 O escape faz com que tudo seja exibido como *saída.* O escape também permite que o intérprete saiba que os dados não devem ser executados, e isso impede o sucesso dos ataques. Essa é outra técnica de ataque comum chamada *XSS* (Script entre sites).
 

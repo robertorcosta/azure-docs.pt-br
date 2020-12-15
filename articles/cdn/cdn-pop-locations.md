@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 4d74d2a5f23fce28eed4901d1f5a5a4a6537adf5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 46fd9285f550b1a730b9040c46bacd7e34650b1e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852533"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511664"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura do CDN do Azure por Metro 
 > [!div class="op_single_selector"]
@@ -49,4 +49,4 @@ Este artigo lista os Metros atuais que contêm locais POP (ponto de presença), 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter os endereços de IP mais recentes para a lista de permissões, consulte o [API de Nós de Borda de CDN do Azure](/rest/api/cdn/edgenodes).
+* Para obter os endereços IP mais recentes para allowlisting, consulte a [API de nós de borda da CDN do Azure](/rest/api/cdn/edgenodes).

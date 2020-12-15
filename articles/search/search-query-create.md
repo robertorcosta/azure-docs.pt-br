@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: a02d51d66b9d2b8bf3c08d4515713ecb062e0c8e
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: db36a77d93735b151ad893b7e25ba86f104e7b90
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400209"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510457"
 ---
 # <a name="create-a-query-in-azure-cognitive-search"></a>Criar uma consulta no Azure Pesquisa Cognitiva
 
@@ -76,31 +76,7 @@ Se sua consulta for pesquisa de texto completo, um analisador será usado para p
 
 A [sintaxe de consulta Lucene completa](query-Lucene-syntax.md#bkmk_syntax), habilitada quando você adiciona `queryType=full` à solicitação, é baseada no [analisador do Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-A sintaxe completa é uma extensão da sintaxe simples, com mais operadores para que você possa construir consultas avançadas, como pesquisa difusa, pesquisa de caracteres curinga, pesquisa de proximidade e expressões regulares. Os exemplos a seguir ilustram o ponto: a mesma consulta, mas com **`queryType`** configurações diferentes, que produzem resultados diferentes. Na primeira consulta simples, o `^3` After `historic` é tratado como parte do termo de pesquisa. O resultado mais classificado para essa consulta é "Marquis pedágio & Suites", que tem o *oceano* em sua descrição.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "simple",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
-
-A mesma consulta que usa o analisador Lucene completo interpreta `^3` como um preforçador de termo em campo. A alternância de analisadores altera a classificação, com os resultados que contêm o termo *histórico* movendo para a parte superior.
-
-```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "ocean historic^3",
-    "searchFields": "Description",
-    "select": "HotelId, HotelName, Tags, Description",
-}
-```
+A sintaxe completa e a sintaxe simples se sobrepõem à extensão que dão suporte ao mesmo prefixo e às operações booleanas, mas a sintaxe completa fornece mais operadores. Em total, há mais operadores para expressões booleanas e mais operadores para consultas avançadas, como pesquisa difusa, pesquisa de caracteres curinga, pesquisa de proximidade e expressões regulares.
 
 ## <a name="choose-query-methods"></a>Escolher métodos de consulta
 
