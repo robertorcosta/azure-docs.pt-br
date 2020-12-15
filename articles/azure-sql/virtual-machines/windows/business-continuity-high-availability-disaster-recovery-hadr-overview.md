@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: dbe5fba838e7c4ad9487a29889eab11d4e42671f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1a0d1018991be9d78623b0826aeab3d13958e996
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358904"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504127"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em máquinas virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ O GRS (armazenamento com redundância geográfica) no Azure é implementado com 
 ## <a name="deployment-architectures"></a>Arquiteturas de implantação
 O Azure dá suporte a essas tecnologias de SQL Server para continuidade dos negócios:
 
-* [Grupos de disponibilidade AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
+* [grupos de disponibilidade Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
 * [Always On FCIs (instâncias de cluster de failover)](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 * [Envio de logs](/sql/database-engine/log-shipping/about-log-shipping-sql-server)
 * [SQL Server Backup e restauração com o armazenamento de BLOBs do Azure](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
@@ -85,20 +85,13 @@ Você pode ter uma solução de recuperação de desastre para seus bancos de da
 
 Se você tiver o [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), poderá implementar planos de Dr (recuperação de desastre híbrido) com o SQL Server sem incorrer em custos de licenciamento adicionais para a instância de recuperação de desastre passiva.
 
-Por exemplo, você pode ter um primário ativo local e um secundário passivo gratuito para DR no Azure: 
-
-![Passivo secundário gratuito no Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-secondary-in-azure.png)
-
-Na imagem anterior, a instalação usa SQL Server em execução em uma máquina virtual do Azure que usa 12 núcleos como uma réplica de recuperação de desastre para uma implantação de SQL Server local que usa 12 núcleos. No passado, você precisaria licenciar 12 núcleos de SQL Server para a implantação local e a implantação de máquinas virtuais do Azure. O novo benefício oferece benefícios de réplica passiva para execução em uma máquina virtual do Azure. Agora, você precisará licenciar apenas 12 núcleos de SQL Server em execução local, desde que os critérios de recuperação de desastre para a réplica passiva em máquinas virtuais do Azure sejam atendidos.
-
-Você também pode ter dois secundários passivos gratuitos quando todas as três réplicas são hospedadas no Azure: 
+Por exemplo, você pode ter dois secundários passivos gratuitos quando todas as três réplicas são hospedadas no Azure: 
 
 ![Dois passivos gratuitos quando tudo no Azure](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/failover-with-primary-in-azure.png)
 
-Ou você pode configurar um ambiente de failover híbrido, com um primário licenciado local, um passivo gratuito para HA e dois passivos gratuitos para DR: 
+Ou você pode configurar um ambiente de failover híbrido, com um primário licenciado local, um passivo gratuito para HA, um passivo gratuito para DR local e um passivo gratuito para DR no Azure:
 
 ![Três passivos gratuitos quando o ambiente é híbrido com uma réplica local primária](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-with-primary-on-prem.png)
-
 
 Para obter mais informações, confira os [termos de licenciamento de produtos](https://www.microsoft.com/licensing/product-licensing/products). 
 

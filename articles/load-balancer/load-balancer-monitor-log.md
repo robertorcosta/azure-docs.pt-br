@@ -1,7 +1,7 @@
 ---
-title: Monitorar operações, eventos e contadores para o Load Balancer básico público
+title: Monitorar operações, eventos e contadores para um balanceador de carga público
 titleSuffix: Azure Load Balancer
-description: Saiba como habilitar o registro em log para o Azure Load Balancer
+description: Saiba como habilitar o registro em log para Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,111 +13,104 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 6742723e24df83ac8112e224f1999f116ab82c94
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: fcfd3da30ef9ace723b4204f5924591b1e2717f8
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572772"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503158"
 ---
-# <a name="azure-monitor-logs-for-the-standard-azure-load-balancer"></a>Logs de Azure Monitor para o Azure Load Balancer padrão
+# <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Logs de Azure Monitor do Azure Standard Load Balancer
 
-Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar problemas de balanceadores de carga padrão. Os logs podem ser transmitidos para um hub de eventos ou um espaço de trabalho Log Analytics. Todos os logs podem ser extraídos do armazenamento de BLOBs do Azure e exibidos em diferentes ferramentas, como Excel e Power BI.  Você pode saber mais sobre os diferentes tipos de logs na lista abaixo.
+Você pode usar diferentes tipos de logs de Azure Monitor para gerenciar e solucionar problemas de Standard Load Balancer do Azure. Os logs podem ser transmitidos para um hub de eventos ou um espaço de trabalho Log Analytics. Você pode extrair todos os logs do armazenamento de BLOBs do Azure e exibi-los em ferramentas como Excel e Power BI. 
 
-* **Logs de atividade:** Você pode usar [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) para exibir todas as atividades que estão sendo enviadas para suas assinaturas do Azure e seu status. Os logs de atividade são habilitados por padrão e podem ser exibidos no portal do Azure. Esses logs estão disponíveis para os balanceadores de carga básico e Standard.
-* **Métricas de Standard Load Balancer:** Você pode usar esse log para consultar as métricas exportadas como logs para o Azure Load Balancer padrão. Esses logs só estão disponíveis para balanceadores de carga padrão.
+Os tipos de logs são:
+
+* **Logs de atividade:** Você pode exibir todas as atividades que estão sendo enviadas para suas assinaturas do Azure, junto com seu status. Para obter mais informações, consulte [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md). Os logs de atividade são habilitados por padrão e podem ser exibidos no portal do Azure. Esses logs estão disponíveis para o Load Balancer básico do Azure e Standard Load Balancer.
+* **Métricas de Standard Load Balancer:** Você pode usar esse log para consultar as métricas exportadas como logs para Standard Load Balancer. Esses logs estão disponíveis apenas para Standard Load Balancer.
 
 > [!IMPORTANT]
-> **Os logs de eventos de alertas de investigação de integridade e Load Balancer não estão funcionais no momento e estão listados nos [problemas conhecidos do Azure Load Balancer](whats-new.md#known-issues).** 
+> Os logs de eventos de alertas de investigação de integridade e Load Balancer não estão funcionais no momento e estão listados nos [problemas conhecidos do Azure Load Balancer](whats-new.md#known-issues). 
 
 > [!IMPORTANT]
-> Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para saber mais sobre esses modelos de implantação, consulte [Understanding Resource Manager deployment and classic deployment (Noções básicas sobre a implantação do Resource Manager e a implantação clássica)](../azure-resource-manager/management/deployment-models.md).
+> Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Azure Resource Manager. Você não pode usar logs para recursos no modelo de implantação clássico. Para saber mais sobre esses modelos de implantação, consulte [Understanding Resource Manager deployment and classic deployment (Noções básicas sobre a implantação do Resource Manager e a implantação clássica)](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="enable-logging"></a>Habilitar o registro em log
 
-O log de atividade é habilitado automaticamente para todos os recursos do Resource Manager. Habilite o log de investigação de integridade e de evento para começar a coletar os dados disponíveis por meio desses logs. Use as etapas a seguir para habilitar o registro em log.
+O log de atividade é habilitado automaticamente para todos os recursos do Resource Manager. Habilite o log de investigação de integridade e de evento para começar a coletar os dados disponíveis por meio desses logs. Use as seguintes etapas:
 
-Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver um balanceador de carga, [crie um](./quickstart-load-balancer-standard-public-portal.md) antes de continuar.
-
-1. No portal, clique em **grupos de recursos**.
+1. Entre no [portal do Azure](https://portal.azure.com). Se você ainda não tiver um balanceador de carga, [crie um](./quickstart-load-balancer-standard-public-portal.md) antes de continuar.
+1. No portal, selecione **grupos de recursos**.
 2. Selecione **\<resource-group-name>** onde está o balanceador de carga.
 3. Selecione seu balanceador de carga.
-4. Selecione Configurações de diagnóstico do **log de atividades**  >  **Diagnostic settings**.
+4. Selecione Configurações de diagnóstico do **log de atividades**  >  .
 5. No painel **configurações de diagnóstico** , em **configurações de diagnóstico**, selecione **+ Adicionar configuração de diagnóstico**.
-6. No painel criação de **configurações de diagnóstico** , insira **MyLBDiagnostics** no campo **nome** .
-7. Você tem três opções para as **configurações de diagnóstico**.  Você pode escolher um, dois ou todos os três e configurar cada um para seus requisitos:
-   * **Arquivar em uma conta de armazenamento**
-   * **Transmitir por streaming para um hub de eventos**
-   * **Enviar para o Log Analytics**
+6. No painel criação de **configurações de diagnóstico** , insira **MyLBDiagnostics** na caixa **nome** .
+7. Você tem três opções para as **configurações de diagnóstico**. Você pode escolher um, dois ou todos os três e configurar cada um para seus requisitos:
 
-    ### <a name="archive-to-a-storage-account"></a>Arquivar em uma conta de armazenamento
-    Você precisará de uma conta de armazenamento já criada para esse processo.  Para criar uma conta de armazenamento, consulte [criar uma conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal)
+   * **Arquivar em uma conta de armazenamento**. Você precisará de uma conta de armazenamento já criada para esse processo. Para criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal).
+     1. Marque a caixa de seleção **arquivar em uma conta de armazenamento** .
+     2. Selecione **Configurar** para abrir o painel **selecionar uma conta de armazenamento** .
+     3. Na lista suspensa **assinatura** , selecione a assinatura na qual sua conta de armazenamento foi criada.
+     4. Na lista suspensa **conta de armazenamento** , selecione o nome da sua conta de armazenamento.
+     5. Selecione **OK**.
 
-    1. Marque a caixa de seleção ao lado de **arquivar em uma conta de armazenamento**.
-    2. Selecione **Configurar** para abrir o painel **selecionar uma conta de armazenamento** .
-    3. Selecione a **assinatura** na qual sua conta de armazenamento foi criada na caixa de pull.
-    4. Selecione o nome da sua conta de armazenamento em **conta de armazenamento** na caixa de pull.
-    5. Selecione OK.
+   * **Transmitir para um hub de eventos**. Você precisará de um hub de eventos já criado para esse processo. Para criar um hub de eventos, consulte [início rápido: criar um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md).
+     1. Marque a caixa de seleção **Transmitir para um hub de eventos**.
+     2. Selecione **Configurar** para abrir o painel **selecionar Hub de eventos** .
+     3. Na lista suspensa **assinatura** , selecione a assinatura na qual o Hub de eventos foi criado.
+     4. Na lista suspensa **selecionar namespace do hub de eventos** , selecione o namespace.
+     5. Na lista suspensa **selecionar nome da política do hub de eventos** , selecione o nome.
+     6. Selecione **OK**.
 
-    ### <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
-    Você precisará de um hub de eventos já criado para esse processo.  Para criar um hub de eventos, consulte [início rápido: criar um hub de eventos usando portal do Azure](../event-hubs/event-hubs-create.md)
+   * **Enviar para log Analytics**. Você precisará já ter um espaço de trabalho do log Analytics criado e configurado para esse processo. Para criar um espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+     1. Marque a caixa de seleção **Enviar para o Log Analytics**.
+     2. Na lista suspensa **assinatura** , selecione a assinatura na qual está o espaço de trabalho do log Analytics.
+     3. Na lista suspensa **log Analytics espaço de trabalho** , selecione o espaço de trabalho.
 
-    1. Marque a caixa de seleção ao lado de **transmitir para um hub de eventos**
-    2. Selecione **Configurar** para abrir o painel **selecionar Hub de eventos** .
-    3. Selecione a **assinatura** na qual o Hub de eventos foi criado na caixa de pull.
-    4. **Selecione o namespace do hub de eventos** na caixa de pull.
-    5. **Selecione nome da política do hub de eventos** na caixa de pull.
-    6. Selecione OK.
+8. Na seção **métrica** do painel **configurações de diagnóstico** , marque a caixa de seleção **biométricas** .
 
-    ### <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
-    Você precisará já ter um espaço de trabalho do log Analytics criado e configurado para esse processo.  Para criar um espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md)
+9. Verifique se tudo está correto e, em seguida, selecione **salvar** na parte superior do painel criação de **configurações de diagnóstico** .
 
-    1. Marque a caixa de seleção ao lado de **Enviar para log Analytics**.
-    2. Selecione a **assinatura** na qual seu espaço de trabalho do log Analytics está na caixa de pull.
-    3. Selecione o **espaço de trabalho log Analytics** na caixa de pull.
+## <a name="view-and-analyze-the-activity-log"></a>Exibir e analisar o log de atividades
 
+O log de atividades é gerado por padrão. Você pode configurá-lo para ser exportado em um nível de assinatura seguindo [as instruções neste artigo](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
 
-8.  Abaixo da seção **métrica** no painel **configurações de diagnóstico** , marque a caixa de seleção ao lado de: **biométricas**
+Você pode exibir e analisar os dados do log de atividades usando um dos seguintes métodos:
 
-9. Verifique se tudo está correto e clique em **salvar** na parte superior do painel criar **configurações de diagnóstico** .
+* **Ferramentas do Azure:** Recupere informações do log de atividades por meio de Azure PowerShell, o CLI do Azure, a API REST do Azure ou o portal do Azure. O artigo [operações de auditoria com o Resource Manager](../azure-resource-manager/management/view-activity-logs.md) fornece instruções passo a passo para cada método.
+* **Power bi:** Se você ainda não tiver uma conta de [Power bi](https://powerbi.microsoft.com/pricing) , poderá experimentá-la gratuitamente. Usando a [integração dos logs de auditoria do Azure para Power bi](https://powerbi.microsoft.com/integrations/azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados. Ou você pode personalizar modos de exibição para atender às suas necessidades.
 
-## <a name="activity-log"></a>Log de atividades
+## <a name="view-and-analyze-metrics-as-logs"></a>Exibir e analisar métricas como logs
+Usando a funcionalidade de exportação no Azure Monitor, você pode exportar suas métricas de Load Balancer. Essas métricas irão gerar uma entrada de log para cada intervalo de amostragem de um minuto.
 
-O log de atividades é gerado por padrão. Ele pode ser configurado para ser exportado em um nível de assinatura [seguindo as instruções neste artigo](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
+A exportação de métricas para logs está habilitada em um nível por recurso. Para habilitar esses logs:
 
-### <a name="view-and-analyze-the-activity-log"></a>Exibir e analisar o log de atividades
+1. Vá para o painel **configurações de diagnóstico** .
+1. Filtre por grupo de recursos e selecione a instância de Load Balancer para a qual você deseja habilitar a exportação de métricas. 
+1. Quando a página Configurações de diagnóstico para Load Balancer estiver ativa, selecione **biométricas** para exportar métricas qualificadas como logs.
 
-Você pode exibir e analisar dados do log de atividades usando qualquer um dos seguintes métodos:
+Para limitações de exportação de métrica, consulte a seção [limitações](#limitations) deste artigo.
 
-* **Ferramentas do Azure:** Recupere informações do log de atividades por meio do Azure PowerShell, a CLI (interface de linha de comando) do Azure, a API REST do Azure ou o portal do Azure. Instruções passo a passo para cada método são detalhadas no artigo [Operações de auditoria com o Gerenciador de Recursos](../azure-resource-manager/management/view-activity-logs.md) .
-* **Power bi:** Se você ainda não tiver uma conta de [Power bi](https://powerbi.microsoft.com/pricing) , poderá experimentá-la gratuitamente. Usando a [integração dos logs de auditoria do Azure para Power bi](https://powerbi.microsoft.com/integrations/azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados ou pode personalizar modos de exibição para atender às suas necessidades.
+Depois de habilitar as **biométricas** nas configurações de diagnóstico de Standard Load Balancer, se você estiver usando um hub de eventos ou log Analytics espaço de trabalho, esses logs serão preenchidos na tabela **AzureMonitor** . 
 
-## <a name="metrics-as-logs"></a>Métricas como logs
-Usando métricas para logs funcionalidade de exportação fornecida por Azure Monitor, você pode exportar suas métricas de Load Balancer. Essas métricas irão gerar uma entrada de log para cada intervalo de amostragem de um minuto.
-
-A métrica para a exportação de log está habilitada em um nível por recurso. Você pode habilitar esses logs acessando a folha configurações de diagnóstico, filtrando por grupo de recursos e selecionando o Load Balancer para o qual você gostaria de habilitar a exportação de métricas. Quando a página Load Balancer configurações de diagnóstico estiver ativa, selecione biométricas para exportar métricas qualificadas como logs.
-
-Consulte a seção [limitações](#limitations) deste artigo para obter limitações de exportação de métrica.
-
-### <a name="view-and-analyze-metrics-as-logs"></a>Exibir e analisar métricas como logs
-Depois de habilitar as biométricas nas configurações de diagnóstico de seu Standard Load Balancer, se estiver usando um hub de eventos ou Log Analytics espaço de trabalho, esses logs serão preenchidos na tabela AzureMonitor. Se estiver exportando para o armazenamento, conecte-se à sua conta de armazenamento e recupere as entradas de log JSON para logs de investigação de eventos e de integridade. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-los no Excel, Power BI ou em qualquer outra ferramenta de visualização de dados. 
+Se você estiver exportando para o armazenamento, conecte-se à sua conta de armazenamento e recupere as entradas de log JSON para logs de investigação de eventos e de integridade. Depois de baixar os arquivos JSON, você pode convertê-los em CSV e exibi-los no Excel, Power BI ou em qualquer outra ferramenta de visualização de dados. 
 
 > [!TIP]
-> Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C#, você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
+> Se você estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores para constantes e variáveis em C#, poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no github.
 
 ## <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
-Quando as informações de diagnóstico são transmitidas para um hub de eventos, elas podem ser usadas para análise de log centralizada em uma ferramenta SIEM de terceiros com integração de Azure Monitor. Para obter mais informações, consulte [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
+Quando as informações de diagnóstico são transmitidas para um hub de eventos, você pode usá-las para análise de log centralizada em uma ferramenta SIEM de parceiro com integração de Azure Monitor. Para obter mais informações, consulte [transmitir dados de monitoramento do Azure para um hub de eventos](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
-Os recursos no Azure podem ter suas informações de diagnóstico enviadas diretamente para um espaço de trabalho Log Analytics onde consultas complexas podem ser executadas em relação às informações para solução de problemas e análise.  Para obter mais informações, consulte [coletar logs de recursos do Azure no espaço de trabalho log Analytics no Azure monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
+Você pode enviar informações de diagnóstico para recursos no Azure diretamente para um espaço de trabalho Log Analytics. Nesse espaço de trabalho, você pode executar consultas complexas em relação às informações para solução de problemas e análise. Para obter mais informações, consulte [coletar logs de recursos do Azure em um espaço de trabalho log Analytics no Azure monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 ## <a name="limitations"></a>Limitações
-Atualmente, há as seguintes limitações ao usar o recurso de exportação de métricas para logs para balanceadores de carga:
-* As métricas são atualmente exibidas usando nomes internos quando exportadas como logs você pode encontrar o mapeamento na tabela abaixo
-* A dimensionalidade das métricas não é preservada. Por exemplo, com métricas como DipAvailability (status de investigação de integridade), você não poderá dividir ou exibir por endereço IP de back-end
-* As portas SNAT usadas e as métricas de portas SNAT alocadas não estão disponíveis no momento para exportação como logs
+O recurso de exportação de métricas para logs para Azure Load Balancer tem as seguintes limitações:
+* As métricas são exibidas atualmente por meio de nomes internos quando exportadas como logs. Você pode encontrar o mapeamento na tabela abaixo.
+* A dimensionalidade das métricas não é preservada. Por exemplo, com métricas como **DipAvailability** (status de investigação de integridade), você não poderá dividir ou exibir por endereço IP de back-end.
+* As métricas para portas de SNAT usadas e portas SNAT alocadas não estão disponíveis no momento para exportação como logs.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Examine as métricas disponíveis para seu Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
-* [Criar e testar consultas seguindo instruções de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
-* Forneça comentários sobre este artigo ou Load Balancer funcionalidade usando os links abaixo
+* [Examinar as métricas disponíveis para o balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
+* [Criar e testar consultas seguindo as instruções de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)

@@ -2,13 +2,13 @@
 title: O que há de novo no agente de servidores habilitados para Arc do Azure
 description: Este artigo tem notas de versão para o agente de servidores habilitados para o Azure Arc. Para muitos dos problemas resumidos, há links para detalhes adicionais.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 12/14/2020
+ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445278"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505640"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>O que há de novo no agente de servidores habilitados para Arc do Azure
 
@@ -17,6 +17,16 @@ O agente de máquina conectado de servidores habilitados para Arc do Azure receb
 - As versões mais recentes
 - Problemas conhecidos
 - Correções de bug
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+### <a name="new-feature"></a>New recurso
+
+Adicionado suporte para o Windows Server 2008 R2
+
+### <a name="fixed"></a>Fixo
+
+Problema resolvido impedindo que a extensão de script personalizado no Linux seja instalada com êxito.
 
 ## <a name="november-2020"></a>Novembro de 2020
 
@@ -71,7 +81,7 @@ Versão: 0,11
 
 ### <a name="known-issues"></a>Problemas conhecidos
 
-Se você estiver usando uma versão mais antiga do agente do Linux e o tiver configurado para usar um servidor proxy, será necessário reconfigurar a configuração do servidor proxy após a atualização. Para fazer isso, execute `sudo azcmagent_proxy add http://proxyserver.local:83`.
+Se você estiver usando uma versão mais antiga do agente do Linux e estiver configurado para usar um servidor proxy, será necessário reconfigurar a configuração do servidor proxy após a atualização. Para fazer isso, execute `sudo azcmagent_proxy add http://proxyserver.local:83`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

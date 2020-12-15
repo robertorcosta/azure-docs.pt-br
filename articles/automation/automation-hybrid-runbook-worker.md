@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7bd9560399a2b2b377cb543a4f829883bcbdf7c8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7feac3ccb94cd8b4b0fab509477d4dbf772df2ae
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183763"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505521"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Visão geral do Hybrid Runbook Worker
 
@@ -22,7 +22,7 @@ A imagem a seguir ilustra essa funcionalidade:
 
 Há dois tipos de runbook Workers-System e User. A tabela a seguir descreve a diferença entre eles.
 
-|Tipo | Descrição |
+|Type | Descrição |
 |-----|-------------|
 |**System** |O oferece suporte a um conjunto de runbooks ocultos usados pelo recurso de Gerenciamento de Atualizações que foram criados para instalar atualizações especificadas pelo usuário em computadores Windows e Linux.<br> Esse tipo de Hybrid Runbook Worker não é um membro de um grupo de Hybrid Runbook Worker e, portanto, não executa runbooks direcionados a um grupo de runbook Worker. |
 |**Usuário** |Dá suporte a runbooks definidos pelo usuário destinados a serem executados diretamente no computador Windows e Linux que são membros de um ou mais grupos do runbook Worker. |
@@ -92,7 +92,7 @@ A Hybrid Runbook Worker de automação do Azure pode ser usada no Azure governam
 
 * [Máquina virtual isolada](../azure-government/documentation-government-impact-level-5.md#isolated-virtual-machines). Quando implantados, eles consomem todo o host físico para esse computador, fornecendo o nível necessário de isolamento necessário para dar suporte a cargas de trabalho do IL5.
 
-* Os [hosts dedicados do Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-hosts), que fornecem servidores físicos capazes de hospedar uma ou mais máquinas virtuais, dedicados a uma assinatura do Azure.
+* Os [hosts dedicados do Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host), que fornecem servidores físicos capazes de hospedar uma ou mais máquinas virtuais, dedicados a uma assinatura do Azure.
 
 >[!NOTE]
 >O isolamento de computação por meio da função Hybrid Runbook Worker está disponível para nuvens comerciais do Azure e do governo dos EUA. 

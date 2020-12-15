@@ -1,20 +1,20 @@
 ---
 title: Gerenciamento de extensão de VM com servidores habilitados para Arc do Azure
 description: Os servidores habilitados para Arc do Azure podem gerenciar a implantação de extensões de máquina virtual que fornecem tarefas de automação e configuração pós-implantação com VMs não Azure.
-ms.date: 11/06/2020
+ms.date: 12/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7682f6c8631bbaf2310d501d7cee6aecb2311226
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 55e21f9c6bcd2dfe5f995093034773f2a87d9b03
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358024"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504501"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gerenciamento de extensão de máquina virtual com servidores habilitados para Arc do Azure
 
-As extensões de VM (máquina virtual) são pequenos aplicativos que fornecem tarefas de configuração e automação de pós-implantação em VMs do Azure. Por exemplo, se uma máquina virtual exigir instalação de software, proteção antivírus ou executar um script dentro dela, uma extensão de VM poderá ser usada.
+As extensões de VM (máquina virtual) são pequenos aplicativos que fornecem tarefas de configuração e automação de pós-implantação em VMs do Azure. Por exemplo, se uma máquina virtual exigir instalação de software, proteção antivírus ou para executar um script nele, uma extensão de VM poderá ser usada.
 
-Os servidores habilitados para Arc do Azure permitem implantar extensões de VM do Azure em VMs não Azure Windows e Linux, simplificando o gerenciamento de seu computador híbrido local, Edge e outros ambientes de nuvem por meio de seu ciclo de vida. As extensões de VM podem ser gerenciadas usando os seguintes métodos em seus computadores híbridos ou servidores gerenciados por servidores habilitados para Arc:
+Os servidores habilitados para Arc do Azure permitem implantar extensões de VM do Azure em VMs não Azure Windows e Linux, simplificando o gerenciamento da sua máquina híbrida por meio de seu ciclo de vida. As extensões de VM podem ser gerenciadas usando os seguintes métodos em seus computadores híbridos ou servidores gerenciados por servidores habilitados para Arc:
 
 - O [Portal do Azure](manage-vm-extensions-portal.md)
 - A [CLI do Azure](manage-vm-extensions-cli.md)
@@ -27,7 +27,7 @@ O suporte à extensão de VM dos servidores habilitados para Arc do Azure oferec
 
 - Use a [configuração de estado da automação do Azure](../../automation/automation-dsc-overview.md) para armazenar configurações centralmente e manter o estado desejado de computadores conectados híbridos habilitados por meio da extensão de VM de DSC.
 
-- Coletar dados de log para análise com [logs no Azure monitor](../../azure-monitor/platform/data-platform-logs.md) habilitado por meio da extensão de VM do agente log Analytics. Isso é útil para executar análises complexas em dados de uma variedade de fontes.
+- Coletar dados de log para análise com [logs no Azure monitor](../../azure-monitor/platform/data-platform-logs.md) habilitado por meio da extensão de VM do agente log Analytics. Isso é útil para fazer análises complexas em dados de diferentes tipos de fontes.
 
 - Com o [Azure monitor para VMs](../../azure-monitor/insights/vminsights-overview.md), o analisa o desempenho de suas VMs do Windows e do Linux e monitora seus processos e dependências em outros recursos e processos externos. Isso é obtido por meio da habilitação do agente de Log Analytics e das extensões de VM do agente de dependência.
 
@@ -43,7 +43,7 @@ A funcionalidade de extensão de VM está disponível somente na lista de [regi�
 
 Nesta versão, damos suporte às seguintes extensões de VM em computadores Windows e Linux.
 
-|Extensão |Sistema operacional |Publisher |Informações adicionais |
+|Extensão |Sistema operacional |Publicador |Informações adicionais |
 |----------|---|----------|-----------------------|
 |CustomScriptExtension |Windows |Microsoft.Compute |[Extensão de script personalizado do Windows](../../virtual-machines/extensions/custom-script-windows.md)|
 |DSC |Windows |Microsoft. PowerShell|[Extensão DSC do Windows PowerShell](../../virtual-machines/extensions/dsc-windows.md)|
@@ -67,13 +67,15 @@ Esse recurso depende dos seguintes provedores de recursos do Azure em sua assina
 
 Se eles ainda não estiverem registrados, siga as etapas em [registrar provedores de recursos do Azure](agent-overview.md#register-azure-resource-providers).
 
+Certifique-se de examinar a documentação de cada extensão de VM referenciada na tabela anterior para entender se ela tem requisitos de rede ou de sistema. Isso pode ajudá-lo a evitar problemas de conectividade com um serviço ou recurso do Azure que dependa dessa extensão de VM.
+
 ### <a name="log-analytics-vm-extension"></a>Log Analytics extensão de VM
 
-A extensão de VM do agente de Log Analytics para Linux requer o Python 2. x instalado no computador de destino.
+A extensão de VM do agente de Log Analytics para Linux requer o Python 2. x instalado no computador de destino. 
 
 ### <a name="azure-key-vault-vm-extension-preview"></a>Extensão de VM Azure Key Vault (versão prévia)
 
-A extensão de VM Key Vault (versão prévia) não oferece suporte aos seguintes sistemas operacionais Linux:
+A extensão de VM Key Vault (versão prévia) não dá suporte aos seguintes sistemas operacionais Linux:
 
 - CentOS Linux 7 (x64)
 - RHEL (Red Hat Enterprise Linux) 7 (x64)

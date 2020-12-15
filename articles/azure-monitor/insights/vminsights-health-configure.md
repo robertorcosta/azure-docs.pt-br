@@ -1,19 +1,19 @@
 ---
-title: Configurar o monitoramento na integridade do convidado do Azure Monitor para VMs (versão prévia)
+title: Configurar o monitoramento na integridade de convidado do Azure Monitor para VMs (versão prévia)
 description: Descreve como modificar o monitoramento padrão para Azure Monitor para VMs integridade de convidado (versão prévia) usando o portal do Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
-ms.openlocfilehash: f41a43e76993a03554d32fc7f3ce3149848989a9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.date: 12/14/2020
+ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686619"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505589"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configurar o monitoramento na integridade do convidado do Azure Monitor para VMs (versão prévia)
+# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configurar o monitoramento na integridade de convidado do Azure Monitor para VMs (versão prévia)
 Azure Monitor para VMs integridade de convidado permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como você pode modificar o monitoramento padrão usando o portal do Azure. Ele também descreve os conceitos fundamentais dos monitores necessários para [Configurar o monitoramento usando uma regra de coleta de dados](vminsights-health-configure-dcr.md).
 
 ## <a name="open-monitor-configuration"></a>Abrir configuração do monitor
@@ -33,6 +33,12 @@ Os monitores de unidade e os monitores agregados têm uma configuração de **st
 Quando um monitor é desabilitado, todos os critérios são mostrados como não disponíveis, conforme mostrado no exemplo a seguir.
 
 ![Monitor desabilitado](media/vminsights-health-configure/disabled-monitor.png)
+
+
+> [!NOTE]
+> Se um monitor pai estiver desabilitado, todos os monitores filho também serão desabilitados. Se você habilitar explicitamente o monitor filho, o pai também será habilitado, mas seu status de configuração permanecerá o mesmo. Nesse caso, você receberá a seguinte mensagem no monitor pai.
+>
+> *Há uma discrepância, pois o status configurado do monitor é ' desabilitado ', mas o estado de integridade não reflete isso. Isso ocorre porque as alterações configuradas estão sendo propagadas ou qualquer um de seus monitores filhos foi explicitamente habilitado.*
 
 ## <a name="enable-or-disable-virtual-machine"></a>Habilitar ou desabilitar a máquina virtual
 Você pode desabilitar o monitoramento de uma VM para interromper temporariamente todos os monitores. Você pode desabilitar o monitoramento de uma VM, por exemplo, quando estiver executando a manutenção nela.

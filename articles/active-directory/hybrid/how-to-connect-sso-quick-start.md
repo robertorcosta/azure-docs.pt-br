@@ -16,18 +16,21 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40d77f4ebb897884f03377e6d9f1243a6d436766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500199"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504382"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory logon único contínuo: início rápido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implantar Logon Único Contínuo
 
 O SSO Contínuo (Logon Único Contínuo) do Azure Active Directory (Azure AD) conecta os usuários automaticamente quando estão nos respectivos desktops corporativos conectados à rede corporativa. O SSO Contínuo fornece aos usuários acesso fácil aos aplicativos baseados em nuvem, sem necessidade de componentes locais adicionais.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *lista* de permissões, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 Para implantar o SSO Contínuo, siga estas etapas.
 
@@ -124,7 +127,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até políticas de **configuração do usuário**  >  **Policies**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  **Internet Control Panel**  >  **página segurança** do painel de controle Internet do Internet Explorer. Em seguida, selecione **Lista de atribuição de sites a zonas**.
+3. Navegue até políticas de **configuração do usuário**  >    >  **modelos administrativos**  >  **componentes do Windows**  >    >    >  **página segurança** do painel de controle Internet do Internet Explorer. Em seguida, selecione **Lista de atribuição de sites a zonas**.
     ![Captura de tela que mostra a "página de segurança" com "lista de atribuição de site a zona" selecionada.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e insira os valores a seguir na caixa de diálogo:
    - **Nome do valor**: a URL do Azure Active Directory para as quais os tíquetes Kerberos são encaminhados.
@@ -144,7 +147,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
     ![Captura de tela que mostra a janela "Mostrar conteúdo" com uma atribuição de zona selecionada.](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue até as políticas de **configuração do usuário**  >  **Policies**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  **Internet Control Panel**  >  **segurança** da  >  **área** de rede do painel de controle da Internet. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
+6. Navegue até as políticas de **configuração do usuário**  >    >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >    >  **segurança** da  >  **área** de rede do painel de controle da Internet. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
 
     ![Captura de tela que mostra a página "zona da intranet" com a seleção de "permitir atualizações na barra de status por meio do script".](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,7 +159,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
-3. Navegue até **User Configuration**  >  **preferências** configuração do usuário  >  **configurações**  >  **do Windows registro**  >  **novo**  >  **item do registro**.
+3. Navegue até   >  **preferências** configuração do usuário  >  **configurações**  >  **do Windows registro**  >  **novo**  >  **item do registro**.
 
     ![Captura de tela que mostra "registro" selecionado e "item do registro" selecionado.](./media/how-to-connect-sso-quick-start/sso15.png)
 

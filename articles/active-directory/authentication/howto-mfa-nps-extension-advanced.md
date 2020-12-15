@@ -11,16 +11,19 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdadc02c8bb1c3f9450ff34ac935547343989cf6
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 6d436414393d77c83acc835110f17e55e491dce1
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742962"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503482"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para autenticação multifator
 
-A extensão NPS (servidor de políticas de rede) estende seus recursos de autenticação multifator do Azure AD baseados em nuvem para sua infraestrutura local. Este artigo pressupõe que você já tenha a extensão instalada e agora deseje saber como personalizá-la para as suas necessidades. 
+A extensão NPS (servidor de políticas de rede) estende seus recursos de autenticação multifator do Azure AD baseados em nuvem para sua infraestrutura local. Este artigo pressupõe que você já tenha a extensão instalada e agora deseje saber como personalizá-la para as suas necessidades.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *lista* de permissões, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 ## <a name="alternate-login-id"></a>ID de logon alternativa
 

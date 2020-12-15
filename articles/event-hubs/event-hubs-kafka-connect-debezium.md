@@ -5,12 +5,12 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ae3ef2e1f35be432558769c512845543867ef27a
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369549"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505402"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrar o suporte do Apache Kafka Connect nos hubs de eventos do Azure (versão prévia) com o Debezium para captura de dados de alterações
 
@@ -18,10 +18,13 @@ A **captura de dados de alteração (CDC)** é uma técnica usada para rastrear 
 
 Este tutorial orienta você sobre como configurar um sistema baseado na captura de dados de alterações no Azure usando os [hubs de eventos do Azure](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (para Kafka), o [BD do Azure para PostgreSQL](../postgresql/overview.md) e o Debezium. Ele usará o [conector Debezium PostgreSQL](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) para transmitir modificações de banco de dados do PostgreSQL para tópicos do Kafka nos hubs de eventos do Azure
 
+> [!NOTE]
+> Este artigo contém referências ao termo *lista* de permissões, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+
 Neste tutorial, você deve executar as seguintes etapas:
 
 > [!div class="checklist"]
-> * Criar um namespace dos hubs de eventos
+> * Criar um namespace de Hubs de Eventos
 > * Instalar e configurar o banco de dados do Azure para PostgreSQL
 > * Configurar e executar o Kafka Connect com o conector do Debezium PostgreSQL
 > * Testar captura de dados de alterações
@@ -35,7 +38,7 @@ Para concluir essa orientação, você precisará de:
 - Kafka (versão 1.1.1, versão do Scala 2.11), disponível em [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Leia o artigo introdutório [Hubs de Eventos para o Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md)
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace de Hubs de Eventos
 É necessário um namespace do Hubs de Eventos para enviar e receber de qualquer serviço de Hub de Eventos. Consulte [criando um hub de eventos](event-hubs-create.md) para obter instruções para criar um namespace e um hub de eventos. Obtenha a cadeia de conexão dos Hubs de Eventos e o FQDN (nome de domínio totalmente qualificado) para uso posterior. Para obter instruções, confira [Obter uma cadeia de conexão dos Hubs de Eventos](event-hubs-get-connection-string.md). 
 
 ## <a name="setup-and-configure-azure-database-for-postgresql"></a>Instalar e configurar o banco de dados do Azure para PostgreSQL
@@ -100,7 +103,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 ```
 
 > [!IMPORTANT]
-> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para obter instruções sobre como obter a cadeia de conexão, consulte [obter uma cadeia de conexão de hubs de eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+> Substitua `{YOUR.EVENTHUBS.CONNECTION.STRING}` pela cadeia de conexão do seu namespace dos Hubs de Eventos. Para ver as instruções sobre como obter uma cadeia de conexão, confira [Obter cadeia de conexão para Hubs de Eventos](event-hubs-get-connection-string.md). Aqui está um exemplo de configuração: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 
 ### <a name="run-kafka-connect"></a>Executar o Kafka Connect

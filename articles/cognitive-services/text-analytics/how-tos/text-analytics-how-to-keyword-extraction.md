@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 68da6a134f2410ca81ae16b8e00c40d0a9c8f22c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 39823792a438e533134f38c04e72f2c314c57678
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965010"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505181"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: como extrair frases-chave usando Análise de Texto
 
@@ -33,7 +33,7 @@ Para obter mais informações, consulte [Linguagens com suporte](../language-sup
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-A extração de frase-chave funciona melhor quando você concede trechos maiores de texto com os quais ela pode trabalhar. Isso é o oposto da análise de sentimento, que executa melhor em blocos de texto menores. Considere reestruturar adequadamente as entradas para obter os melhores resultados de ambas as operações.
+A extração de frase-chave funciona melhor quando você concede trechos maiores de texto com os quais ela pode trabalhar. Isso é o oposto da análise de sentimento, que executa melhor em blocos de texto menores. Para obter os melhores resultados de ambas as operações, considere a reestruturação de entradas adequadamente.
 
 Você deve ter documentos JSON neste formato: ID, texto, idioma
 
@@ -88,7 +88,7 @@ Para saber mais sobre a definição de solicitação, confira [Como chamar a API
 
 ## <a name="step-2-post-the-request"></a>Etapa 2: postar a solicitação
 
-A análise é executada após o recebimento da solicitação. Para saber mais sobre o tamanho e o número de solicitações que você pode enviar por minuto ou por segundo, confira a seção [limites de dados](../overview.md#data-limits) na visão geral.
+A análise é executada após o recebimento da solicitação. Para obter informações sobre o tamanho e o número de solicitações que você pode enviar por minuto ou por segundo, consulte a seção [limites de dados](../overview.md#data-limits) na visão geral.
 
 Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua conta. Os resultados são retornados imediatamente na resposta.
 
@@ -177,5 +177,5 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho de extração de
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral da Análise de Texto](../overview.md)
-* [Como usar a biblioteca de clientes da Análise de Texto](../quickstarts/text-analytics-sdk.md)
+* [Como usar a biblioteca de clientes da Análise de Texto](../quickstarts/client-libraries-rest-api.md)
 * [Novidades](../whats-new.md)

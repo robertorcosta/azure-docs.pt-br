@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: b5a3ec1d6e33c08b460088c9aeb4fd18f6bf29ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 410b73d3f9011f9384fafa18394d9318e3eafa67
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88864894"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504484"
 ---
 ## <a name="authentication"></a>Autenticação
 
@@ -151,7 +151,7 @@ def get_token(subscription_key):
 
 O token de acesso deve ser enviado para o serviço como o cabeçalho `Authorization: Bearer <TOKEN>`. Cada token de acesso é válido por 10 minutos. Você pode obter um novo token a qualquer momento, no entanto, para minimizar o tráfego de rede e a latência, recomendamos usar o mesmo token por nove minutos.
 
-Aqui está um exemplo de solicitação HTTP para a API REST de conversão de texto em fala:
+Aqui está um exemplo de solicitação HTTP para a API REST de conversão de fala em texto para áudio curto:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

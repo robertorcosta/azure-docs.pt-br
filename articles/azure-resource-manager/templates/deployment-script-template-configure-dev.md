@@ -5,16 +5,16 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 232a1ae5d125a2ea1d5723e85073fb3dd02420cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87293935"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503549"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates-preview"></a>Configurar o ambiente de desenvolvimento para scripts de implantação em modelos (versão prévia)
+# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configurar o ambiente de desenvolvimento para scripts de implantação em modelos
 
 Saiba como criar um ambiente de desenvolvimento para desenvolver e testar scripts de implantação com uma imagem de script de implantação. Você pode criar a [instância de contêiner do Azure](../../container-instances/container-instances-overview.md) ou usar o [Docker](https://docs.docker.com/get-docker/). Ambos são abordados neste artigo.
 
@@ -197,7 +197,7 @@ Você também pode carregar o arquivo usando o portal do Azure e CLI do Azure.
 
     ![script de implantação conectar instância de contêiner](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
-1. Selecione **conectar**e, em seguida, selecione **conectar**. Se você não conseguir se conectar à instância de contêiner, reinicie o grupo de contêineres e tente novamente.
+1. Selecione **conectar** e, em seguida, selecione **conectar**. Se você não conseguir se conectar à instância de contêiner, reinicie o grupo de contêineres e tente novamente.
 1. No painel de console, execute os seguintes comandos:
 
     ```

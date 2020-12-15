@@ -4,13 +4,13 @@ description: Descreve como exibir solicitações de suporte, enviar mensagens, a
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: 882dfaa802638efd98eaf6f12a33a77a9727adc2
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.date: 12/14/2020
+ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359057"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504807"
 ---
 # <a name="manage-an-azure-support-request"></a>Gerenciar uma solicitação de suporte do Azure
 
@@ -119,9 +119,17 @@ Siga estas diretrizes ao usar a opção de carregamento de arquivo:
 | -           | -     | -           | -     | -        | -          | .zix    |
 | -           | -     | -           | -     | -        | -          | .zzz    |
 
+## <a name="close-a-support-request"></a>Fechar uma solicitação de suporte
+
+Se você precisar fechar uma solicitação de suporte, [envie uma mensagem](#send-a-message) solicitando que a solicitação seja fechada.
+
 ## <a name="reopen-a-closed-request"></a>Reabrir uma solicitação fechada
 
 Se você precisar reabrir uma solicitação de suporte fechada, crie uma [nova mensagem](#send-a-message), que reabrirá automaticamente a solicitação.
+
+## <a name="cancel-a-support-plan"></a>Cancelar um plano de suporte
+
+Se você precisar cancelar um plano de suporte, consulte [cancelar um plano de suporte](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 
 ## <a name="next-steps"></a>Próximas etapas
 

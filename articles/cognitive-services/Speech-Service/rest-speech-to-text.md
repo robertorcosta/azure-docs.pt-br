@@ -8,35 +8,66 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 12/10/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dff7ff0afd6c236645731dc7edd936b0b808716b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c746666d58e21c2705a2ef1d6a17d0d1196f7590
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483913"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97504467"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
-Como alternativa ao SDK de [fala](speech-sdk.md), o serviço de fala permite que você converta a fala em texto usando uma API REST. Cada terminal acessível está associado a uma região. Seu aplicativo requer uma chave de assinatura para o endpoint que você planeja usar. A API REST é muito limitada e só deve ser usada nos casos em que o [SDK de fala](speech-sdk.md) não pode.
+A conversão de fala em texto tem duas APIs REST diferentes. Cada API atende a sua finalidade especial e usa conjuntos diferentes de pontos de extremidade.
 
-Antes de usar a API REST de fala em texto, considere o seguinte:
+As APIs REST de conversão de fala em texto são:
+- [A API REST de fala em texto v 3.0](#speech-to-text-rest-api-v30) é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . o v 3.0 é um [sucessor da v 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- A [API REST de conversão de fala em texto para áudio curto](#speech-to-text-rest-api-for-short-audio) é usada para a transcrição online como uma alternativa ao [SDK de fala](speech-sdk.md). As solicitações que usam essa API podem transmitir apenas até 60 segundos de áudio por solicitação. 
 
-* As solicitações que usam a API REST e transmitem áudio diretamente podem conter até 60 segundos de áudio.
-* A API REST de fala para texto só retorna os resultados finais. Resultados parciais não são fornecidos.
+## <a name="speech-to-text-rest-api-v30"></a>API REST de conversão de fala em texto v 3.0
 
-Se o envio de áudio mais longo for um requisito para seu aplicativo, considere usar o [SDK de fala](speech-sdk.md) ou uma API REST baseada em arquivo, como a [transcrição do lote](batch-transcription.md).
+A API REST de fala em texto v 3.0 é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . Se você precisar se comunicar com a transcrição OnLine via REST, use a [API REST de fala em texto para áudio curto](#speech-to-text-rest-api-for-short-audio).
+
+Use a API REST v 3.0 para:
+- Copie modelos para outras assinaturas caso você queira que os colegas tenham acesso a um modelo que você criou ou nos casos em que você deseja implantar um modelo em mais de uma região
+- Transcrever dados de um contêiner (transcrição em massa) e fornecer várias URLs de arquivo de áudio
+- Carregar dados de contas de armazenamento do Azure por meio do uso de um URI de SAS
+- Obter logs por ponto de extremidade se os logs tiverem sido solicitados para esse ponto de extremidade
+- Solicite o manifesto dos modelos que você criar, para a finalidade de configurar contêineres locais
+
+A API REST v 3.0 inclui recursos como:
+- **Notificações-WebHooks**– todos os processos em execução do serviço agora dão suporte a notificações de webhook. A API REST v 3.0 fornece as chamadas para permitir que você registre seus WebHooks onde as notificações são enviadas
+- **Atualizando modelos por trás de pontos de extremidade** 
+- **Adaptação de modelo com vários conjuntos de dados**— adapte um modelo usando várias combinações de conjunto de dados de dados acústicos, de linguagem e de pronúncia
+- **Traga seu próprio armazenamento**– use suas próprias contas de armazenamento para logs, arquivos de transcrição e outros dados
+
+Veja exemplos sobre como usar a API REST v 3.0 com a transcrição do lote [neste artigo](batch-transcription.md).
+
+Se você estiver usando a API REST de fala em texto v 2.0, veja como migrar para o v 3.0 neste [guia](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+
+Consulte a referência completa da API REST de fala em texto v 3.0 [aqui](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
+
+## <a name="speech-to-text-rest-api-for-short-audio"></a>API REST de conversão de fala em texto para áudio curto
+
+Como alternativa ao SDK de [fala](speech-sdk.md), o serviço de fala permite que você converta a fala em texto usando uma API REST. Cada terminal acessível está associado a uma região. Seu aplicativo requer uma chave de assinatura para o endpoint que você planeja usar. A API REST para áudio curto é muito limitada e só deve ser usada nos casos em que o [SDK de fala](speech-sdk.md) não possa.
+
+Antes de usar a API REST de fala em texto para áudio curto, considere o seguinte:
+
+* As solicitações que usam a API REST para áudio curto e transmissão de áudio diretamente podem conter até 60 segundos de áudio.
+* A API REST de conversão de fala em texto para áudio curto retorna apenas os resultados finais. Resultados parciais não são fornecidos.
+
+Se o envio de áudio mais longo for um requisito para seu aplicativo, considere o uso do [SDK de fala](speech-sdk.md) ou da [API REST de fala em texto v 3.0](#speech-to-text-rest-api-v30).
 
 > [!TIP]
 > Consulte a [documentação](../../azure-government/compare-azure-government-global-azure.md) do Azure governamental para pontos de extremidade de nuvem do governo (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="regions-and-endpoints"></a>Regiões e endpoints
+### <a name="regions-and-endpoints"></a>Regiões e endpoints
 
-O ponto de extremidade para a API REST tem este formato:
+O ponto de extremidade para a API REST para áudio curto tem este formato:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -49,7 +80,7 @@ Substituir `<REGION_IDENTIFIER>` pelo identificador correspondente à região da
 > [!NOTE]
 > O parâmetro de linguagem deve ser anexado à URL para evitar o recebimento de um erro HTTP 4xx. Por exemplo, o idioma definido para inglês dos EUA usando o ponto de extremidade West US é: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
-## <a name="query-parameters"></a>Parâmetros de consulta
+### <a name="query-parameters"></a>Parâmetros de consulta
 
 Esses parâmetros podem ser incluídos na string de consulta da solicitação REST.
 
@@ -60,9 +91,9 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 | `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked` , que substitui profanação por asteriscos, `removed` , que remove toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
 | `cid` | Ao usar o [portal de fala personalizada](./custom-speech-overview.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o argumento para o `cid` parâmetro de cadeia de caracteres de consulta. | Opcional |
 
-## <a name="request-headers"></a>Cabeçalhos de solicitação
+### <a name="request-headers"></a>Cabeçalhos de solicitação
 
-Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de fala para texto.
+Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de fala em texto.
 
 |Cabeçalho| Descrição | Obrigatório/Opcional |
 |------|-------------|---------------------|
@@ -74,7 +105,7 @@ Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de f
 | `Expect` | Se usar transferência em partes, envie `Expect: 100-continue`. O serviço de Fala reconhece a solicitação inicial e aguarda os dados adicionais.| Necessário se enviar dados de áudio em partes. |
 | `Accept` | Se fornecido, deve ser `application/json`. O serviço de fala fornece resultados em JSON. Algumas estruturas de solicitação fornecem um valor padrão incompatível. É uma boa prática sempre incluir `Accept` . | Opcional, mas recomendado. |
 
-## <a name="audio-formats"></a>Formatos de áudio
+### <a name="audio-formats"></a>Formatos de áudio
 
 O áudio é enviado no corpo da solicitação HTTP `POST`. Ele deve estar em um dos formatos nesta tabela:
 
@@ -84,9 +115,9 @@ O áudio é enviado no corpo da solicitação HTTP `POST`. Ele deve estar em um 
 | OGG    | OPUS  | 256 kpbs | 16 kHz, mono |
 
 >[!NOTE]
->Os formatos acima têm suporte por meio da API REST e do WebSocket no serviço de fala. O [SDK de fala](speech-sdk.md) atualmente dá suporte ao formato WAV com o codec PCM, bem como [outros formatos](how-to-use-codec-compressed-audio-input-streams.md).
+>Os formatos acima têm suporte por meio da API REST para áudio curto e WebSocket no serviço de fala. O [SDK de fala](speech-sdk.md) atualmente dá suporte ao formato WAV com o codec PCM, bem como [outros formatos](how-to-use-codec-compressed-audio-input-streams.md).
 
-## <a name="pronunciation-assessment-parameters"></a>Parâmetros de avaliação de pronúncia
+### <a name="pronunciation-assessment-parameters"></a>Parâmetros de avaliação de pronúncia
 
 Esta tabela lista os parâmetros obrigatórios e opcionais para avaliação de pronúncia.
 
@@ -123,7 +154,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 >[!NOTE]
 >No momento, o recurso avaliação de pronúncia está disponível apenas nas `westus` `eastasia` `centralindia` regiões e. E esse recurso está atualmente disponível apenas no `en-US` idioma.
 
-## <a name="sample-request"></a>Solicitação de exemplo
+### <a name="sample-request"></a>Solicitação de exemplo
 
 O exemplo abaixo inclui o nome do host e os cabeçalhos necessários. É importante observar que o serviço também espera dados de áudio, o que não está incluído nesta amostra. Como mencionado anteriormente, o chunking é recomendado, no entanto, não é obrigatório.
 
@@ -143,7 +174,7 @@ Para habilitar a avaliação de pronúncia, você pode adicionar o cabeçalho ab
 Pronunciation-Assessment: eyJSZWZlcm...
 ```
 
-## <a name="http-status-codes"></a>Códigos de status HTTP
+### <a name="http-status-codes"></a>Códigos de status HTTP
 
 O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 
@@ -155,9 +186,9 @@ O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 | `401` | Não Autorizado | Chave de assinatura ou token de autorização inválido na região especificada, ou ponto de extremidade inválido. |
 | `403` | Proibido | Chave de assinatura ou token de autorização ausente. |
 
-## <a name="chunked-transfer"></a>Transferência em partes
+### <a name="chunked-transfer"></a>Transferência em partes
 
-A transferência em partes ( `Transfer-Encoding: chunked` ) pode ajudar a reduzir a latência de reconhecimento. Ele permite que o serviço de fala comece a processar o arquivo de áudio enquanto ele é transmitido. A API REST não fornece resultados parciais ou provisórios.
+A transferência em partes ( `Transfer-Encoding: chunked` ) pode ajudar a reduzir a latência de reconhecimento. Ele permite que o serviço de fala comece a processar o arquivo de áudio enquanto ele é transmitido. A API REST para áudio curto não fornece resultados parciais ou provisórios.
 
 Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro bloco deve conter o cabeçalho do arquivo de áudio. `request` é um `HttpWebRequest` objeto conectado ao ponto de extremidade REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
 
@@ -191,7 +222,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-## <a name="response-parameters"></a>Parâmetros de resposta
+### <a name="response-parameters"></a>Parâmetros de resposta
 
 Os resultados são fornecidos como JSON. O `simple` formato inclui esses campos de nível superior.
 
@@ -233,7 +264,7 @@ O objeto na `NBest` lista pode incluir:
 | `PronScore` | Pontuação geral que indica a qualidade da pronúncia da fala determinada. Isso é agregado de `AccuracyScore` `FluencyScore` e `CompletenessScore` com peso. |
 | `ErrorType` | Esse valor indica se uma palavra é omitida, inserida ou pronunciada incorretamente, em comparação com `ReferenceText` . Os valores possíveis são `None` (ou seja, nenhum erro nesta palavra), `Omission` `Insertion` e `Mispronunciation` . |
 
-## <a name="sample-responses"></a>Respostas de exemplo
+### <a name="sample-responses"></a>Respostas de exemplo
 
 Uma resposta típica para `simple` reconhecimento:
 
@@ -309,3 +340,4 @@ Uma resposta típica para reconhecimento com avaliação de pronúncia:
 - [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalizar modelos acústicos](./how-to-custom-speech-train-model.md)
 - [Personalizar modelos de linguagem](./how-to-custom-speech-train-model.md)
+- [Familiarize-se com a transcrição do lote](batch-transcription.md)
