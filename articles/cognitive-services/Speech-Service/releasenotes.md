@@ -11,21 +11,64 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: c6cc033e4814553020957310224a8ed4cdacbc8e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2db93ec6806d4b9cc8c8ac17cfb2c15458bf4dc9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483947"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401144"
 ---
 # <a name="speech-service-release-notes"></a>Notas de versão do Serviço de Fala
+
+## <a name="text-to-speech-2020-december-release"></a>Conversão de texto em fala 2020 – versão de dezembro
+
+**Novas vozes neurais no GA e na versão prévia**
+
+Lançada 51 novas vozes para um total de 129 vozes neurais em 54 idiomas/localidades:
+
+- **46 novas vozes em localidades de GA**: Shakir em `ar-EG` árabe (Egito), Hamed em `ar-SA` árabe (Arábia Saudita), Borislav `bg-BG` em búlgaro (Bulgária), Joana em `ca-ES` Catalão (Espanha), Antonin na `cs-CZ` tcheco (República Tcheca), Jeppe em `da-DK` dinamarquês (Dinamarca), Jonas em `de-AT` alemão (Áustria), Jan em `de-CH` alemão (Suíça), Nestoras em `el-GR` grego (Grécia), Liam em `en-CA` Inglês (Canadá), Connor em inglês `en-IE` (Irlanda), Madhur em `en-IN` híndi (Índia), Mohan em `en-IN` télugo (Índia), Prabhat em `en-IN` Inglês (Índia), Valluvar na `en-IN` tâmil (Índia), Enric in `es-ES` Catalão (Espanha), Kert em `et-EE` estoniano (Estônia), Harri em `fi-FI` finlandês (Finlândia), Selma em `fi-FI` finlandês (Finlândia), Fabrice em `fr-CH` francês (Suíça), Colm na `ga-IE` irlandês (Irlanda), avri em `he-IL` Hebraico (Israel), Srecko em `hr-HR` Croata (Croácia), Tamas em `hu-HU` húngaro (Hungria), Gadis em `id-ID` indonésio (Indonésia), Leonas em `lt-LT` Lituano (Lituânia), Nils em `lv-LV` letão (Letônia), Osman em `ms-MY` Malaio (Malásia), Joseph em `mt-MT` Maltês (Malta) , Finn em `nb-NO` norueguês, Bokmål (Noruega), Pernille em `nb-NO` norueguês, Bokmål (Noruega), Fenna em `nl-NL` holandês (Holanda), Maarten em `nl-NL` holandês (Holanda), Agnieszka em `pl-PL` polonês (Polônia), Marek em `pl-PL` polonês (Polônia), Duarte em `pt-BR` Português (Brasil), Raquel em `pt-PT` Português (Potugal), Emil em `ro-RO` romeno (Romênia), Dmitry em `ru-RU` russo (Rússia), Svetlana em `ru-RU` russo (Rússia), Lukas em `sk-SK` Eslovaco (Eslováquia), Rok em `sl-SI` esloveno (Eslovênia), Mattias em `sv-SE` sueco (Suécia), Sofie em `sv-SE` sueco (Suécia), Niwat em `th-TH` tailandês (Tailândia), Ahmet em `tr-TR` Turco (Turquia), NamMinh em `vi-VN` vietnamita (Vietnã), HsiaoChen em `zh-TW` dólar taiwanês mandarim (Taiwan), YunJhe em `zh-TW` dólar taiwanês mandarim (Taiwan), HiuMaan em `zh-HK` chinês cantonês (Hong Kong), WanLung em `zh-HK` chinês cantonês (Hong Kong).
+
+- **5 novas vozes em localidades de visualização**: Kert em `et-EE` estoniano (Estônia), Colm na `ga-IE` irlandês (Irlanda), Nils em `lv-LV` letão (Letônia), Leonas em `lt-LT` Lituano (Lituânia), Joseph em `mt-MT` Maltês (Malta).
+
+Com esta versão, agora damos suporte a um total de 129 vozes neurais em 54 idiomas/localidades. Além disso, mais de 70 vozes padrão estão disponíveis em 49 idiomas/localidades. Visite [suporte a idiomas](language-support.md#text-to-speech) para obter a lista completa.
+
+**Atualizações de criação de conteúdo de áudio**
+- Interface do usuário de seleção de voz aprimorada com categorias de voz e descrições de voz detalhadas. 
+- Habilitado o ajuste de intonation para todas as vozes neurais em diferentes idiomas.
+- Automatizar a interface do usuário do localizaiton com base no idioma do navegador.
+- Controles habilitados `StyleDegree` para todas as `zh-CN` vozes neurais.
+Visite a [ferramenta de criação de conteúdo de áudio](https://speech.microsoft.com/audiocontentcreation) para conferir os novos recursos. 
+
+**Atualizações para as vozes zh-CN**
+- Foram atualizadas todas as `zh-CN` vozes neurais para dar suporte ao discurso em inglês.
+- Habilitou todas as `zh-CN` vozes neurais para dar suporte ao ajuste intonation. A ferramenta de criação de conteúdo de áudio ou SSML pode ser usada para se ajustar para o melhor intonation.
+- Todas as `zh-CN` vozes neurais de vários estilos foram atualizadas para dar suporte ao `StyleDegree` controle. A intensidade de emoção (suave ou forte) é ajustável.
+- Atualizado `zh-CN-YunyeNeural` para dar suporte a vários estilos que podem executar emoções diferentes.
+
+## <a name="text-to-speech-2020-november-release"></a>Conversão de texto em fala 2020 – versão de novembro
+
+**Novas localidades e vozes em visualização**
+- **Cinco novas vozes e linguagens** são introduzidas no portfólio de TTS do neural. Eles são: cortesia em maltês (Malta), ona em lituano (Lituânia), Anu em estoniano (Estônia), orla na irlandês (Irlanda) e Everita em letão (Letônia).
+- **Cinco novas `zh-CN` vozes com vários estilos e funções dão suporte a**: Xiaohan, Xiaomo, Xiaorui, Xiaoxuan e Yunxi.
+
+> Essas vozes estão disponíveis em visualização pública em três regiões do Azure: Lesteus, SouthEastAsia e WestEurope.
+
+**GA de contêiner de TTS do neural**
+- Com o contêiner de TTS do neural, os desenvolvedores podem executar a síntese de fala com as vozes digitais mais naturais em seu próprio ambiente para requisitos específicos de segurança e governança de dados. Verifique [como instalar os contêineres de fala](speech-container-howto.md). 
+
+**Novos recursos**
+- **Voz personalizada**: enabed usuários para copiar um modelo de voz de uma região para outra; suspensão e retomada de ponto de extremidade com suporte. Acesse o [portal](https://speech.microsoft.com/customvoice) aqui.
+- Suporte à [marca de silêncio de SSML](speech-synthesis-markup.md#add-silence) . 
+- Aprimoramentos gerais de qualidade de voz TTS: precisão de pronúncia de nível de palavra aprimorada em NB – não. Redução de 53% de erro de pronúncia.
+
+> Leia mais neste [blog técnico](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604).
 
 ## <a name="text-to-speech-2020-october-release"></a>Conversão de texto em fala 2020 – versão de outubro
 
 **Novos recursos**
 - Maria dá suporte a um novo `newscast` estilo. Veja [como usar os estilos de fala em SSML](speech-synthesis-markup.md#adjust-speaking-styles).
 - **Vozes neurais atualizadas para HiFiNet vocoder, com maior fidelidade de áudio e velocidade de síntese mais rápida**. Isso beneficia os clientes cujo cenário depende de áudio de alta Fi ou interações longas, incluindo Dubbing de vídeo, livros de áudio ou materiais de educação online. [Leia mais sobre a história e ouça os exemplos de voz em nosso blog da comunidade de tecnologia](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
-- O ** &  [estúdio de criação de conteúdo de áudio](https://speech.microsoft.com/audiocontentcreation) de voz personalizado localizado para 17 localidades [Custom Voice](https://speech.microsoft.com/customvoice)**. Os usuários podem facilmente alternar a interface do usuário para um idioma local para uma experiência mais amigável.   
+- O ** &  [estúdio de criação de conteúdo de áudio](https://speech.microsoft.com/audiocontentcreation) de voz personalizado localizado para 17 localidades [](https://speech.microsoft.com/customvoice)**. Os usuários podem facilmente alternar a interface do usuário para um idioma local para uma experiência mais amigável.   
 - **Criação de conteúdo de áudio**: controle de grau de estilo adicionado para XiaoxiaoNeural; Refinado o recurso de quebra personalizada para incluir quebras incrementais de 50 ms. 
 
 **Melhorias gerais de qualidade de voz TTS**
@@ -51,7 +94,7 @@ ms.locfileid: "96483947"
 **Alteração significativa**
 - **JavaScript**: PullAudioOutputStream. Read () tem um tipo de retorno alterado de uma promessa interna para uma promessa de JavaScript nativo.
 
-**Correções de bugs**
+**Correções de bug**
 - **Todos**: regressão de 1,13 corrigido em `SetServiceProperty` onde os valores com determinados caracteres especiais foram ignorados.
 - **C#**: amostras de console do Windows fixas no Visual Studio 2019 falha ao localizar DLLs nativas.
 - **C#**: falha fixa com gerenciamento de memória se o fluxo for usado como `KeywordRecognizer` entrada.
@@ -194,7 +237,7 @@ A conversão de fala em texto lançou 26 novas localidades em agosto: 2 idiomas 
 - **Objective-C**: suporte adicionado para [conversa com vários dispositivos](./multi-device-conversation.md) e [transcrição de conversa](./conversation-transcription.md). 
 - **Python**: suporte de áudio compactado adicionado para Python no Windows e Linux. Consulte a documentação [aqui](./how-to-use-codec-compressed-audio-input-streams.md). 
 
-**Correções de bugs**
+**Correções de bug**
 - **Tudo**: Corrigido um problema que fazia com que o KeywordRecognizer não avançasse os fluxos após um reconhecimento.
 - **Todos**: Corrigido um problema que fazia com que o fluxo fosse obtido de um KeywordRecognitionResult para não conter a palavra-chave.
 - **Tudo**: Corrigido um problema em que o SendMessageAsync não envia realmente a mensagem pela conexão depois que os usuários terminam de esperar.
@@ -248,7 +291,7 @@ Mantenha-se íntegro!
 
 * Precisão de pronúncia de nível de palavra aprimorada em cinco idiomas.
 
-    | Linguagem | Redução de erros de pronúncia |
+    | Idioma | Redução de erros de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -261,7 +304,7 @@ Mantenha-se íntegro!
 * Leitura de moeda
     * Corrigido o problema com a leitura de moeda para `es-ES` e `es-MX`
      
-    | Linguagem | Entrada | Leitura após aperfeiçoamento |
+    | Idioma | Entrada | Leitura após aperfeiçoamento |
     |---|---|---|
     | `es-MX` | $1.58 | un peso Cincuenta y Ocho centavos |
     | `es-ES` | $1.58 | Dólar Cincuenta y Ocho centavos |
@@ -291,7 +334,7 @@ Mantenha-se íntegro!
 **Novos recursos**
 -   **C \# , C++**: reconhecimento do locutor Preview: esse recurso habilita a identificação do orador (que está falando?) e a verificação do palestrante (é o palestrante que alega ser?). Comece com uma [visão geral](./speaker-recognition-overview.md), leia o [artigo reconhecimento do locutor noções básicas](./get-started-speaker-recognition.md)ou os [documentos de referência de API](/rest/api/speakerrecognition/).
 
-**Correções de bugs**
+**Correções de bug**
 -   **C \# , C++**: a gravação fixa do microfone não estava funcionando em 1,12 no reconhecimento do viva-voz.
 -   **JavaScript**: correções de conversão de texto em fala no Firefox e Safari no MacOS e Ios.
 -   Correção da falha na violação de acesso do verificador de aplicativos do Windows na transcrição de conversa ao usar o fluxo de oito canais.
@@ -323,7 +366,7 @@ Mantenha-se íntegro!
 - Lógica de conexão aprimorada para tentar se conectar várias vezes quando ocorrerem erros de serviço e de rede.
 - Atualização da página de início rápido do [Portal.Azure.com](https://portal.azure.com) Speech para ajudar os desenvolvedores a executarem a próxima etapa na jornada de fala do Azure.
 
-**Correções de bugs**
+**Correções de bug**
 - **C#, Java**: Corrigido um [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) com o carregamento de bibliotecas do SDK no ARM do Linux (de 32 bits e 64 bits).
 - **C#**: descarte explícito fixo de identificadores nativos para objetos TranslationRecognizer, IntentRecognizer e Connection.
 - **C#**: gerenciamento de tempo de vida de entrada de áudio corrigido para o objeto ConversationTranscriber.
@@ -350,7 +393,7 @@ Mantenha-se íntegro!
 - JavaScript: suporte à síntese de fala (conversão de texto em fala) no NodeJS. Saiba mais [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech). 
 - JavaScript: adicione novas APIs para habilitar a inspeção de todas as mensagens de envio e recebidas. Saiba mais [aqui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript). 
         
-**Correções de bugs**
+**Correções de bug**
 - C#, C++: Corrigido um problema; `SendMessageAsync` agora, envia uma mensagem binária como um tipo binário. Detalhes de [C#](/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C++](/cpp/cognitive-services/speech/connection).
 - C#, C++: Corrigido um problema em que o uso do `Connection MessageReceived` evento pode causar falha se `Recognizer` for descartado antes do `Connection` objeto. Detalhes de [C#](/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?preserve-view=true&view=azure-dotnet), [C++](/cpp/cognitive-services/speech/connection#messagereceived).
 - Android: o tamanho do buffer de áudio do microfone diminuiu de 800ms para 100 ms para melhorar a latência.
@@ -379,7 +422,7 @@ Mantenha-se íntegro!
  - A TTS agora usa a chave de assinatura para autenticação, reduzindo a latência de primeiro byte do primeiro resultado de síntese após a criação de um sintetizador.
  - Modelos de reconhecimento de fala atualizados para 19 localidades para uma redução média da taxa de erros do Word de 18,6% (es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN, ZH-HK, NB-NO, Fi-FL, ru-RU, pl-PL, CA-ES, zh-TW, th-ÉSIMO, pt-PT, TR-TR). Os novos modelos trazem melhorias significativas em vários domínios, incluindo o ditado, Call-Center cenários de transcrição e de indexação de vídeo.
 
-**Correções de bugs**
+**Correções de bug**
 
  - Corrigido o bug em que o transcrevedor de conversa não aguardou corretamente em APIs JAVA 
  - Correção do emulador do Android x86 para o problema do Xamarin [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/363)
@@ -415,7 +458,7 @@ Mantenha-se íntegro!
 - Alteramos o tipo de dados retornado para C# `WordLevelTimingResult.Offset` de `int` para `long` para permitir o acesso ao `WordLevelTimingResults` quando os dados de fala forem maiores do que 2 minutos.
 - `PushAudioInputStream` e `PullAudioInputStream` agora envie informações de cabeçalho WAV para o serviço de fala com base em `AudioStreamFormat` , opcionalmente especificado quando elas foram criadas. Os clientes agora devem usar o [formato de entrada de áudio com suporte](how-to-use-audio-input-streams.md). Qualquer outro formato terá resultados de reconhecimento de qualidade inferior ou poderá causar outros problemas. 
 
-**Correções de bugs**
+**Correções de bug**
 
 - Consulte a `OpenSSL` atualização em alterações significativas acima. Corrigimos uma falha intermitente e um problema de desempenho (contenção de bloqueio sob alta carga) no Linux e no Java. 
 - Java: fez melhorias no fechamento de objetos em cenários de alta simultaneidade.
@@ -456,7 +499,7 @@ Mantenha-se íntegro!
 - Partes dos métodos de conversação são movidas para a nova `Conversation` classe.
 - Suporte removido para iOS de 32 bits (ARMv7 e x86)
 
-**Correções de bugs**
+**Correções de bug**
 
 - Correção de falha se `KeywordRecognizer` o local for usado sem uma chave de assinatura de serviço de fala válida
 
@@ -479,7 +522,7 @@ Mantenha-se íntegro!
 - Suporte à reprodução de TTS adicionado para macOS, iOS e Android.
 - Informações de "limite de palavras" adicionadas para TTS.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Correção do problema de compilação do IL2CPP no Unity 2019 para Android
 - Corrigido o problema com cabeçalhos malformados na entrada do arquivo WAV que está sendo processada incorretamente
@@ -519,7 +562,7 @@ Mantenha-se íntegro!
   - Melhoria no relatório de erros: os métodos que podem resultar em um erro agora estão presentes em duas versões: uma que expõe um `NSError` objeto para tratamento de erros e outra que gera uma exceção. O primeiro é exposto a Swift. Essa alteração requer adaptações para o código Swift existente.
   - Manipulação de eventos aprimorada
 
-**Correções de bugs**
+**Correções de bug**
 
 - Correção para TTS: em que o `SpeakTextAsync` futuro retornou sem aguardar até que o áudio tenha concluído a renderização
 - Correção para o marshaling de cadeias de caracteres em C# para habilitar o suporte a idioma completo
@@ -534,7 +577,7 @@ Mantenha-se íntegro!
 
 Essa é uma liberação de correção de bug e afeta apenas o SDK nativo/gerenciado. Ele não está afetando a versão JavaScript do SDK.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Corrigir o FromSubscription quando usado com a transcrição de conversa.
 - Correção de bug na palavra-chave para assistentes de voz.
@@ -544,7 +587,7 @@ Essa é uma liberação de correção de bug e afeta apenas o SDK nativo/gerenci
 **Novos recursos**
 
 - A palavra-chave (KWS) está disponível agora para Windows e Linux. A funcionalidade do KWS pode funcionar com qualquer tipo de microfone, o suporte oficial do KWS, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos de fala.
-- A funcionalidade de dica de frase está disponível por meio do SDK. Para saber mais, clique [aqui](./get-started-speech-to-text.md).
+- A funcionalidade de dica de frase está disponível por meio do SDK. Para mais informações, consulte [aqui](./get-started-speech-to-text.md).
 - A funcionalidade de transcrição de conversa está disponível por meio do SDK. Consulte [aqui](./conversation-transcription.md).
 - Adicione suporte para assistentes de voz usando o canal de fala de linha direta.
 
@@ -559,7 +602,7 @@ Essa é uma liberação de correção de bug e afeta apenas o SDK nativo/gerenci
 - Objective-C: `OutputFormat` a propriedade foi adicionada a `SPXSpeechConfiguration` .
 - O SDK agora dá suporte a Debian 9 como uma distribuição do Linux.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Corrigido um problema em que o recurso do orador foi destruido muito cedo em texto para fala.
 
@@ -595,7 +638,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 - Para obter suporte adicional para desenvolvimento e depuração, você pode redirecionar as informações de log e diagnóstico do SDK para um arquivo de log (mais detalhes [aqui](how-to-use-logging.md)).
 - JavaScript: melhorar o desempenho de processamento de áudio.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Mac/iOS: um bug que levou a uma longa espera quando uma conexão com o serviço de fala não pôde ser estabelecida foi corrigida.
 - Python: melhorar o tratamento de erros para argumentos em retornos de chamada do Python.
@@ -646,7 +689,7 @@ O novo conteúdo a seguir está disponível no nosso [repositório de exemplo](h
 - DLLs do Windows agora contêm um recurso de versão.
 - Se você criar um reconhecedor `FromEndpoint` , poderá adicionar parâmetros diretamente à URL do ponto de extremidade. Usando `FromEndpoint` o, você não pode configurar o reconhecedor por meio das propriedades de configuração padrão.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Nome de usuário de proxy e senha de proxy vazios não foram tratados corretamente. Com esta versão, se você definir o nome de usuário de proxy e a senha de proxy como uma cadeia de caracteres vazia, eles não serão enviados ao conectarem-se ao proxy.
 - As SessionIds criadas pelo SDK nem sempre eram realmente aleatórias para alguns idiomas&nbsp;/ambientes. Adicionada a inicialização aleatória do gerador para corrigir esse problema.
@@ -687,7 +730,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 - Relatório/informações de erros aprimorados. Em vários casos, as mensagens de erro não foram propagadas até o fim.
 - As dependências de desenvolvimento atualizadas do JavaScript para usar módulos atualizados.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Correção de vazamentos de memória devido a uma incompatibilidade de tipo em `RecognizeAsync` .
 - Em alguns casos, as exceções foram sendo vazadas.
@@ -719,7 +762,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 - Manipulação aprimorada de silêncio de longa duração no meio de um arquivo de áudio.
 - Pacote NuGet: para projetos do .NET Framework, ele impede a construção com a configuração AnyCPU.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Corrigido várias exceções encontradas em reconhecedores. Além disso, as exceções são capturadas e convertidas em `Canceled` evento.
 - Corrigir um vazamento de memória no gerenciamento de propriedades.
@@ -781,7 +824,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 - No Java (Android), a função `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` não requer mais um parâmetro de caminho. Agora, o caminho é detectado automaticamente em todas as plataformas com suporte.
 - O get-accessor da propriedade `EndpointUrl` em Java e C# foi removido.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Em Java, o resultado da síntese de áudio no reconhecedor de tradução agora está implementado.
 - Foi corrigido um bug que podia causar threads inativos e um grande número de soquetes abertos e não usados.
@@ -815,7 +858,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
   - Em C++, os métodos `Read` e `GetFormat` agora retornam `size_t` em vez de `int`.
 - C++: as instâncias de fluxos de entrada de áudio agora podem ser passadas apenas como um `shared_ptr`.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Foram corrigidos os valores retornados incorretos no resultado quando `RecognizeAsync()` atinge o tempo limite.
 - A dependência das bibliotecas do Media Foundation no Windows foi removida. O SDK agora usa as APIs Core Audio.
@@ -841,7 +884,7 @@ Em nosso [repositório de exemplos](https://aka.ms/csspeech/samples), um novo ex
 
 - Alterado para `SpeechRecognitionResult.Text` de `SpeechRecognitionResult.RecognizedText` em C#.
 
-**Correções de bugs**
+**Correções de bug**
 
 - Foi corrigido um possível problema de retorno de chamada na camada USP durante o desligamento.
 - Se um reconhecedor consumir um arquivo de entrada de áudio, ele manteve o identificador de arquivo por mais tempo do que o necessário.

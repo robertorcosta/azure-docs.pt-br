@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 03ef75f43d8c8c854c3803ceb30f31b292d566c3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033418"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97399240"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -317,7 +317,7 @@ Use o link relevante abaixo para obter guias sobre como habilitar logs de fluxo.
 
 ## <a name="updating-parameters"></a>Atualizando parâmetros
 
-**Azure portal**
+**Portal do Azure**
 
 Na portal do Azure, navegue até a seção de logs de fluxo NSG no observador de rede. Em seguida, clique no nome do NSG. Isso abrirá o painel configurações para o log de fluxo. Altere os parâmetros desejados e clique em **salvar** para implantar as alterações.
 
@@ -371,9 +371,11 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Habilitar em VNETs/sub-redes críticas**: os logs de fluxo devem ser habilitados em todas as VNETs/sub-redes críticas em sua assinatura como uma prática recomendada de auditoria e de segurança. 
 
-**Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra de NSG. Em cenários em que vários NSGs são utilizados, é recomendável Habilitar logs de fluxo de NSG em todos os NSGs aplicados à sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registrado. Para obter mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em grupos de segurança de rede.
+**Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra de NSG. Em cenários em que vários NSGs são utilizados, recomendamos habilitar os logs de fluxo do NSG em todos os NSGs aplicados à sub-rede do recurso ou à interface de rede para garantir que todo o tráfego seja registrado. Para obter mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em grupos de segurança de rede. 
 
-**Ter NSG no nível de NIC e de sub-rede**: no caso de NSG ser configurado na NIC, bem como no nível de sub-rede, o registro em log de fluxo deve ser habilitado em ambos os NSGs. 
+Alguns cenários comuns:
+1. **Vários NSG em uma NIC**: caso vários NSGs sejam anexados a uma NIC, o registro em log de fluxo deve ser habilitado em todos eles
+1. **Ter NSG no nível de NIC e de sub-rede**: no caso de NSG ser configurado na NIC, bem como no nível de sub-rede, o registro em log de fluxo deve ser habilitado em ambos os NSGs. 
 
 **Provisionamento de armazenamento**: o armazenamento deve ser provisionado em sintonia com o volume de log de fluxo esperado.
 
