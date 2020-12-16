@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.date: 12/15/2020
+ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107820"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591337"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -143,7 +143,7 @@ As consultas de pesquisa e solicitações de indexação são limitadas à medid
 
 Limites de solicitação de taxa estática para operações relacionadas a um índice:
 
-+ Listar índices (GET/índices): 5 por segundo por unidade de pesquisa
++ Listar índices (GET/indexes): 3 por segundo por unidade de pesquisa
 + Obter índice (GET/índices/myindex): 10 por segundo por unidade de pesquisa
 + Criar índice (POST/índices): 12 por minuto por unidade de pesquisa
 + Criar ou atualizar índice (PUT/índices/myindex): 6 por segundo por unidade de pesquisa

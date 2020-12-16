@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025660"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591609"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Fala Personalizada
 
@@ -31,7 +31,7 @@ As soluções personalizadas de CI/CD são possíveis, mas para uma solução ro
 
 A finalidade desses fluxos de trabalho é garantir que cada modelo de Fala Personalizada tenha uma precisão de reconhecimento melhor do que a compilação anterior. Se as atualizações dos dados de teste e/ou treinamento melhorarem a precisão, esses fluxos de trabalho criarão um novo ponto de extremidade Fala Personalizada.
 
-Os servidores git, como GitHub e Azure DevOps, podem executar fluxos de trabalho automatizados quando eventos git específicos acontecem, como mesclagens ou solicitações pull. Por exemplo, um fluxo de trabalho de CI pode ser disparado quando as atualizações de dados de teste são enviadas por push para o Branch *mestre* . Diferentes servidores git terão ferramentas diferentes, mas permitirão comandos de CLI (interface de linha de comando) de script para que possam ser executados em um servidor de compilação.
+Os servidores git, como GitHub e Azure DevOps, podem executar fluxos de trabalho automatizados quando eventos git específicos acontecem, como mesclagens ou solicitações pull. Por exemplo, um fluxo de trabalho de CI pode ser disparado quando as atualizações de dados de teste são enviadas por push para a ramificação *principal* . Diferentes servidores git terão ferramentas diferentes, mas permitirão comandos de CLI (interface de linha de comando) de script para que possam ser executados em um servidor de compilação.
 
 Ao longo do caminho, os fluxos de trabalho devem nomear e armazenar dados, testes, arquivos de teste, modelos e pontos de extremidade, de forma que eles possam ser rastreados de volta para a confirmação ou a versão da qual vieram. Também é útil nomear esses ativos para que seja fácil ver quais foram criados após a atualização de dados de teste versus dados de treinamento.
 
@@ -84,7 +84,7 @@ O [repositório de modelos de fala DevOps](https://github.com/Azure-Samples/Spee
 
 - Copie o repositório de modelos para sua conta do GitHub e, em seguida, crie recursos do Azure e uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) para os fluxos de trabalho de CI/CD de ações do github.
 - Percorra o "[loop interno de desenvolvimento](https://mitchdenny.com/the-inner-loop/)". Atualize os dados de treinamento e teste de um Branch de recurso, teste as alterações com um modelo de desenvolvimento temporário e gere uma solicitação de pull para propor e revisar as alterações.
-- Quando os dados de treinamento são atualizados em uma solicitação de pull para o *mestre*, treine modelos com o fluxo de trabalho de CI de ações do github.
+- Quando os dados de treinamento são atualizados em uma solicitação pull para *Main*, treine modelos com o fluxo de trabalho de CI de ações do github.
 - Execute o teste de precisão automatizado para estabelecer a [taxa de erros do Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) do modelo (WER). Armazene os resultados de teste no blob do Azure.
 - Execute o fluxo de trabalho do CD para criar um ponto de extremidade quando o WER melhorar.
 

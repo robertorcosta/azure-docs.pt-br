@@ -7,12 +7,12 @@ description: Revisar e testar alterações de uma solicitação pull diretamente
 keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêineres, ações do GitHub, Helm, malha de serviço, roteamento de malha de serviço, kubectl, K8S
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9bed61861c80f141270e50b644b32ae42fbe8e77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 447c41055ededfc55e44bebd92de89b3d23de3c7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995550"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591558"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Ações do GitHub & serviço kubernetes do Azure (versão prévia)
 
@@ -103,7 +103,7 @@ Navegue até o repositório bifurcado e clique em *configurações*. Clique em *
 > [!NOTE]
 > Todos esses segredos são usados pela ação do GitHub e são configurados em [. github/workflows/bikes. yml][github-action-yaml].
 
-Opcionalmente, se você quiser atualizar o espaço mestre depois que a PR é mesclada, adicione o *GATEWAY_HOST* segredo, que assume o formato *<MASTER_SPACE>. GATEWAY. <HOST_SUFFIX*>, que neste exemplo é *dev.gateway.fedcab0987.eus.azds.Io*. Depois de mesclar suas alterações no Branch mestre na bifurcação, outra ação será executada para recompilar e executar o aplicativo inteiro no espaço de desenvolvimento mestre. Neste exemplo, o espaço mestre é *dev*. Essa ação está configurada em [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Opcionalmente, se você quiser atualizar o espaço mestre depois que a PR é mesclada, adicione o *GATEWAY_HOST* segredo, que assume o formato *<MASTER_SPACE>. GATEWAY. <HOST_SUFFIX*>, que neste exemplo é *dev.gateway.fedcab0987.eus.azds.Io*. Depois de mesclar suas alterações no Branch principal na bifurcação, outra ação será executada para recompilar e executar o aplicativo inteiro no espaço de desenvolvimento mestre. Neste exemplo, o espaço mestre é *dev*. Essa ação está configurada em [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 Além disso, se você quiser que as alterações na sua PR sejam executadas em um espaço neto, atualize o *MASTER_SPACE* e os segredos do *host* . Por exemplo, se seu aplicativo estiver sendo executado em *desenvolvimento* com um espaço filho *dev/azureuser1*, para que a pr seja executada em um espaço filho de *dev/azureuser1*:
 
@@ -149,7 +149,7 @@ Use `git push` para enviar por push seu novo Branch para o repositório bifurcad
 git push origin bike-images
 ```
 
-Depois que o envio por push for concluído, navegue até o repositório bifurcado no GitHub para criar uma solicitação de pull com a Branch *mestre* no repositório bifurcado como a ramificação de base em comparação com a ramificação de *imagens de bicicletas* .
+Depois que o envio por push for concluído, navegue até o repositório bifurcado no GitHub para criar uma solicitação de pull com a ramificação *principal* no repositório bifurcado como a ramificação base em comparação com a ramificação de *imagens de bicicletas* .
 
 Depois que sua solicitação de pull for aberta, navegue até a guia *ações* . Verifique se uma nova ação foi iniciada e se está criando o serviço de *bicicletas* .
 
@@ -162,7 +162,7 @@ Depois que a ação for concluída, você verá um comentário com uma URL para 
 
 Navegue até o serviço *bikesharingweb* abrindo a URL do comentário. Selecione *Aurelia Briggs (cliente)* como o usuário e, em seguida, selecione uma bicicleta para alugar. Verifique se você não vê mais a imagem de espaço reservado para a bicicleta.
 
-Se você mesclar suas alterações no Branch *mestre* na bifurcação, outra ação será executada para recompilar e executar todo o aplicativo no espaço de desenvolvimento pai. Neste exemplo, o espaço pai é *dev*. Essa ação está configurada em [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
+Se você mesclar suas alterações na ramificação *principal* em sua bifurcação, outra ação será executada para recompilar e executar todo o aplicativo no espaço de desenvolvimento pai. Neste exemplo, o espaço pai é *dev*. Essa ação está configurada em [. github/workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Limpar os recursos do Azure
 

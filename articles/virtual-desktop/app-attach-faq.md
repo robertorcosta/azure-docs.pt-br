@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 73fb9bf436c043e903977fafbb5a502e2edc5488
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518678"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591188"
 ---
 # <a name="msix-app-attach-faq"></a>Perguntas frequentes sobre anexação de aplicativo MSIX
 
@@ -27,7 +27,7 @@ MSIX é um formato de empacotamento para aplicativos, enquanto a anexação do a
 
 A anexação de aplicativo MSIX não usa FSLogix. No entanto, o MSIX app Attach e o FSLogix são projetados para trabalhar juntos para proporcionar uma experiência de usuário tranqüila.
 
-## <a name="can-i-use-msix-app-attach-outside-of-windows-virtual-desktop"></a>Posso usar o anexo de aplicativo MSIX fora da área de trabalho virtual do Windows?
+## <a name="can-i-use-the-msix-app-attach-outside-of-windows-virtual-desktop"></a>Posso usar a anexação do aplicativo MSIX fora da área de trabalho virtual do Windows?
 
 As APIs que o Power MSIX app Attach estão disponíveis para o Windows 10 Enterprise. Essas APIs podem ser usadas fora da área de trabalho virtual do Windows. No entanto, não há nenhum plano de gerenciamento para anexação de aplicativo MSIX fora da área de trabalho virtual do Windows.
 

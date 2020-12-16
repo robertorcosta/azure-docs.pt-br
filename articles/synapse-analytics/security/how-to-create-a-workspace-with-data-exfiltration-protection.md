@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8f11f104e8d3d0a4f3a004ebe9f149cb4132d910
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501362"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590553"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Criar um espaço de trabalho com o data vazamento Protection habilitado
 Este artigo descreve como criar um espaço de trabalho com a proteção de vazamento de dados habilitada e como gerenciar os locatários do Azure AD aprovados para este espaço de trabalho.
@@ -33,7 +33,7 @@ Siga as etapas listadas em [início rápido: criar um espaço de trabalho Synaps
 1. Selecione "Sim" para a opção "permitir tráfego de dados de saída somente para destinos aprovados".
 1. Escolha os locatários aprovados do Azure AD para este espaço de trabalho.
 1. Examine a configuração e crie o espaço de trabalho.
-:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Criar um espaço de trabalho com o data vazamento Protection":::
+:::image type="content" source="./media/how-to-create-a-workspace-with-data-exfiltration-protection/workspace-creation-data-exfiltration-protection.png" alt-text="Captura de tela que mostra um espaço de trabalho criar Synapse com ' habilitar gerenciar rede virtual ' selecionada.":::
 
 ## <a name="manage-approved-azure-active-directory-tenants-for-the-workspace"></a>Gerenciar locatários de Azure Active Directory aprovados para o espaço de trabalho
 1. Na portal do Azure do espaço de trabalho, navegue até "locatários aprovados do Azure AD". A lista de locatários aprovados do Azure AD para o espaço de trabalho será listada aqui. O locatário do espaço de trabalho é incluído por padrão e não está listado.

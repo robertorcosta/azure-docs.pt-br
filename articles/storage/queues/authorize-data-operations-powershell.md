@@ -1,21 +1,21 @@
 ---
 title: Executar comandos do PowerShell com as credenciais do Azure AD para acessar os dados da fila
 titleSuffix: Azure Storage
-description: O PowerShell dá suporte à entrada com as credenciais do Azure AD para executar comandos nos dados da fila de armazenamento do Azure. Um token de acesso é fornecido para a sessão e usado para autorizar operações de chamada. As permissões dependem da função do Azure atribuída à entidade de segurança do Azure AD.
-services: storage
+description: O PowerShell dá suporte à entrada com as credenciais do Azure AD para executar comandos nos dados de armazenamento de filas do Azure. Um token de acesso é fornecido para a sessão e usado para autorizar operações de chamada. As permissões dependem da função do Azure atribuída à entidade de segurança do Azure AD.
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 09/14/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozgun
+ms.date: 09/14/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf2696d329f852741c42219219600dc773090623
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637277"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590708"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Executar comandos do PowerShell com as credenciais do Azure AD para acessar os dados da fila
 
@@ -25,7 +25,7 @@ Você pode atribuir permissões para dados de fila a uma entidade de segurança 
 
 ## <a name="supported-operations"></a>Operações com suporte
 
-As extensões de armazenamento do Azure têm suporte para operações em dados de fila. As operações que você pode chamar dependem das permissões concedidas à entidade de segurança do Azure AD com a qual você entra no PowerShell. As permissões para filas de armazenamento do Azure são atribuídas por meio do RBAC do Azure. Por exemplo, se você tiver atribuído a função de **leitor de dados de fila** , poderá executar comandos de script que lêem dados de uma fila. Se você tiver atribuído a função **colaborador de dados de fila** , poderá executar comandos de script que lêem, gravam ou excluem uma fila ou os dados que eles contêm.
+As extensões de armazenamento do Azure têm suporte para operações em dados de fila. As operações que você pode chamar dependem das permissões concedidas à entidade de segurança do Azure AD com a qual você entra no PowerShell. As permissões para filas são atribuídas por meio do RBAC do Azure. Por exemplo, se você tiver atribuído a função de **leitor de dados de fila** , poderá executar comandos de script que lêem dados de uma fila. Se você tiver atribuído a função **colaborador de dados de fila** , poderá executar comandos de script que lêem, gravam ou excluem uma fila ou os dados que eles contêm.
 
 Para obter detalhes sobre as permissões necessárias para cada operação de armazenamento do Azure em uma fila, consulte [chamar operações de armazenamento com tokens OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 

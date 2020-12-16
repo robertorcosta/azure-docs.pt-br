@@ -2,21 +2,21 @@
 title: Escolha como autorizar o acesso aos dados da fila no portal do Azure
 titleSuffix: Azure Storage
 description: Quando você acessa os dados da fila usando o portal do Azure, o portal faz solicitações para o armazenamento do Azure nos bastidores. Essas solicitações para o armazenamento do Azure podem ser autenticadas e autorizadas usando sua conta do Azure AD ou a chave de acesso da conta de armazenamento.
-services: storage
 author: tamram
-ms.service: storage
-ms.topic: how-to
-ms.date: 09/08/2020
+services: storage
 ms.author: tamram
 ms.reviewer: ozguns
+ms.date: 09/08/2020
+ms.topic: how-to
+ms.service: storage
 ms.subservice: queues
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 68ac9cd5e89617a820cba9a1d6c61890e50a56a7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 504d2eb939758e6045a2af095c66093c8754cb94
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031735"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590742"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Escolha como autorizar o acesso aos dados da fila no portal do Azure
 
@@ -28,22 +28,22 @@ Dependendo de como você deseja autorizar o acesso aos dados da fila no portal d
 
 ### <a name="use-the-account-access-key"></a>Usar a chave de acesso da conta
 
-Para acessar os dados da fila com a chave de acesso da conta, você deve ter uma função do Azure atribuída a você que inclua a ação do RBAC do Azure **Microsoft. Storage/storageAccounts/listkeys/Action**. Essa função do Azure pode ser uma função interna ou personalizada. Funções internas que dão suporte a **Microsoft. Storage/storageAccounts/listkeys/Action** incluem:
+Para acessar os dados da fila com a chave de acesso da conta, você deve ter uma função do Azure atribuída a você que inclua a ação do RBAC do Azure `Microsoft.Storage/storageAccounts/listkeys/action` . Essa função do Azure pode ser uma função interna ou personalizada. Funções internas com suporte `Microsoft.Storage/storageAccounts/listkeys/action` incluem:
 
-- A função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
-- A função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
-- A função de [colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+- A [função de proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager
+- A [função colaborador](../../role-based-access-control/built-in-roles.md#contributor) de Azure Resource Manager
+- A [função de colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Quando você tenta acessar os dados da fila no portal do Azure, o portal primeiro verifica se você recebeu uma função com **Microsoft. Storage/storageAccounts/listkeys/Action**. Se você tiver recebido uma função com essa ação, o portal usará a chave de conta para acessar os dados da fila. Se você não tiver recebido uma função com essa ação, o portal tentará acessar os dados usando sua conta do Azure AD.
+Quando você tenta acessar os dados da fila no portal do Azure, o portal primeiro verifica se você recebeu uma função com `Microsoft.Storage/storageAccounts/listkeys/action` . Se você tiver recebido uma função com essa ação, o portal usará a chave de conta para acessar os dados da fila. Se você não tiver recebido uma função com essa ação, o portal tentará acessar os dados usando sua conta do Azure AD.
 
 > [!NOTE]
-> O administrador de serviço de funções de administrador de assinatura clássica e Co-Administrator incluem o equivalente da função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) de Azure Resource Manager. A função de **proprietário** inclui todas as ações, incluindo a **ação Microsoft. Storage/storageAccounts/listkeys/**, para que um usuário com uma dessas funções administrativas também possa acessar os dados da fila com a chave de conta. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> O **administrador de serviço** das funções de administrador de assinatura clássica e o **coadministrador** incluem o equivalente da [`Owner`](../../role-based-access-control/built-in-roles.md#owner) função Azure Resource Manager. A função de **proprietário** inclui todas as ações, incluindo o `Microsoft.Storage/storageAccounts/listkeys/action` , para que um usuário com uma dessas funções administrativas também possa acessar os dados da fila com a chave de conta. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Usar sua conta do Azure AD
 
 Para acessar os dados da fila do portal do Azure usando sua conta do Azure AD, as duas instruções a seguir devem ser verdadeiras para você:
 
-- Você recebeu a função [leitor](../../role-based-access-control/built-in-roles.md#reader) de Azure Resource Manager, no mínimo, no escopo do nível da conta de armazenamento ou superior. A função **leitor** concede as permissões mais restritas, mas outra função de Azure Resource Manager que concede acesso aos recursos de gerenciamento da conta de armazenamento também é aceitável.
+- Você recebeu a função de Azure Resource Manager [`Reader`](../../role-based-access-control/built-in-roles.md#reader) , no mínimo, com escopo para o nível da conta de armazenamento ou superior. A função **leitor** concede as permissões mais restritas, mas outra função de Azure Resource Manager que concede acesso aos recursos de gerenciamento da conta de armazenamento também é aceitável.
 - Você foi atribuído a uma função interna ou personalizada que fornece acesso aos dados da fila.
 
 A atribuição de função de **leitor** ou outra atribuição de função de Azure Resource Manager é necessária para que o usuário possa exibir e navegar pelos recursos de gerenciamento de conta de armazenamento no portal do Azure. As funções do Azure que concedem acesso aos dados da fila não concedem acesso aos recursos de gerenciamento da conta de armazenamento. Para acessar os dados da fila no portal, o usuário precisa de permissões para navegar pelos recursos da conta de armazenamento. Para obter mais informações sobre esse requisito, consulte [atribuir a função leitor para acesso ao portal](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
@@ -58,11 +58,11 @@ As funções personalizadas podem dar suporte a diferentes combinações das mes
 Não há suporte para a listagem de filas com uma função de administrador de assinatura clássica. Para listar filas, um usuário deve ter atribuído a eles a função **leitor** de Azure Resource Manager, a função de **leitor de dados fila de armazenamento** ou a função **colaborador de dados da fila de armazenamento** .
 
 > [!IMPORTANT]
-> A versão de visualização do Gerenciador de Armazenamento no portal do Azure não oferece suporte ao uso de credenciais do Azure AD para exibir e modificar os dados da fila. Gerenciador de Armazenamento no portal do Azure sempre usa as chaves de conta para acessar dados. Para usar Gerenciador de Armazenamento no portal do Azure, você deve ser atribuído a uma função que inclui **Microsoft. Storage/storageAccounts/listkeys/Action**.
+> A versão de visualização do Gerenciador de Armazenamento no portal do Azure não oferece suporte ao uso de credenciais do Azure AD para exibir e modificar os dados da fila. Gerenciador de Armazenamento no portal do Azure sempre usa as chaves de conta para acessar dados. Para usar Gerenciador de Armazenamento no portal do Azure, você deve ser atribuído a uma função que inclua o `Microsoft.Storage/storageAccounts/listkeys/action` .
 
 ## <a name="navigate-to-queues-in-the-azure-portal"></a>Navegue até as filas no portal do Azure
 
-Para exibir os dados da fila no portal, navegue até a **visão geral** da sua conta de armazenamento e clique nos links para **filas**. Como alternativa, você pode navegar até as seções de **serviço fila** no menu.
+Para exibir os dados da fila no portal, navegue até a **visão geral** da sua conta de armazenamento e clique nos links para **filas**. Como alternativa, você pode navegar até a seção **serviço fila** no menu.
 
 :::image type="content" source="media/authorize-data-operations-portal/queue-access-portal.png" alt-text="Captura de tela mostrando como navegar até os dados da fila no portal do Azure":::
 

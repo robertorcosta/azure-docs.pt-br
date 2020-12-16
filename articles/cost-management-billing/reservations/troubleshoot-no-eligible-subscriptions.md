@@ -7,13 +7,13 @@ ms.subservice: reservations
 ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
-ms.date: 11/16/2020
-ms.openlocfilehash: 1b36577c3c0940687f98394f8ea4faae83f371be
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 12/15/2020
+ms.openlocfilehash: ad85bd278b5dff1532f218acc0b8e88515d96070
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887188"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561198"
 ---
 # <a name="troubleshoot-no-eligible-subscriptions"></a>Solução de problemas de ausência de assinaturas qualificadas
 
@@ -94,8 +94,8 @@ O proprietário do pedido de reserva atual ou o proprietário da reserva podem d
 1. Digite o endereço de email do usuário que você deseja adicionar como proprietário.
 1. Selecione o usuário e, em seguida, selecione **Salvar**.
 
-Para obter mais informações, consulte [Adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+Para obter mais informações, consulte [Adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine [Adicionar ou alterar usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) se precisar que um proprietário de reserva permita acesso a você.
+- Examine [Adicionar ou alterar usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default) se precisar que um proprietário de reserva permita acesso a você.

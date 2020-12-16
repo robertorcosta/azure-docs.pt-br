@@ -1,20 +1,20 @@
 ---
-title: Referência de dados de monitoramento do armazenamento de filas do Azure | Microsoft Docs
+title: Referência de dados de monitoramento do armazenamento de filas do Azure
 description: Referência de log e métricas para monitorar dados do armazenamento de filas do Azure.
 author: normesta
 services: azure-monitor
-ms.service: azure-monitor
-ms.topic: reference
-ms.date: 10/02/2020
 ms.author: normesta
+ms.date: 10/02/2020
+ms.topic: reference
+ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: a3a07f828bb8ef20da630e909e46f03e8556eb98
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ba8a82ed1113bfb3e71560ca9a6c713602df21f2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780358"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590640"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referência de dados de monitoramento do armazenamento de filas do Azure
 
@@ -30,19 +30,19 @@ Os valores de métricas de capacidade são atualizados diariamente (até 24 hora
 
 O Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Monitor.
 
-#### <a name="account-level"></a>Nível de conta
+#### <a name="account-level-capacity-metrics"></a>Métricas de capacidade de nível de conta
 
-[!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
+[!INCLUDE [Account-level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### <a name="queue-storage"></a>Armazenamento de filas
+#### <a name="queue-storage-metrics"></a>Métricas de armazenamento de filas
 
 Esta tabela mostra as [métricas de armazenamento de filas](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Métrica | Descrição |
 | ------------------- | ----------------- |
-| QueueCapacity | A quantidade de armazenamento de fila usada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| QueueCount   | O número de filas em uma conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| QueueMessageCount | O número aproximado de mensagens de fila na serviço Fila da conta de armazenamento. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| **QueueCapacity** | A quantidade de armazenamento de fila usada pela conta de armazenamento. <br><br> Unidade `Bytes` <br> Tipo de agregação: `Average` <br> Exemplo de valor: `1024` |
+| **QueueCount** | O número de filas em uma conta de armazenamento. <br><br> Unidade `Count` <br> Tipo de agregação: `Average` <br> Exemplo de valor: `1024` |
+| **QueueMessageCount** | O número aproximado de mensagens de fila na conta de armazenamento. <br><br> Unidade `Count` <br> Tipo de agregação: `Average` <br> Exemplo de valor: `1024` |
 
 ### <a name="transaction-metrics"></a>Métricas de transação
 
@@ -77,7 +77,7 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
-- Consulte [monitoramento do armazenamento de filas do Azure](monitor-queue-storage.md) para obter uma descrição do monitoramento do armazenamento do Azure.
+- Consulte [monitoramento do armazenamento de filas do Azure](monitor-queue-storage.md) para obter uma descrição de monitoramento do armazenamento de filas do Azure.
 - Confira [Como monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.

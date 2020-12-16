@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: 077815d117af0328a3466346727e135caaf8ff21
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8d4c1928ae1fac9b840245756c4bf5fe22a83f0f
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458000"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590504"
 ---
 # <a name="synapse-studio-sql-scripts-in-azure-synapse-analytics"></a>Scripts SQL do Synapse Studio no Azure Synapse Analytics 
 
@@ -79,7 +79,7 @@ Explore o gesto disponível clicando com o botão direito do mouse nos nós de b
 No menu Ações, em desenvolver scripts SQL, escolha "nova pasta" no menu "ações" em desenvolver scripts SQL. E digite o nome da nova pasta na janela pop-up. 
 
 > [!div class="mx-imgBorder"] 
-> ![newsqlscript](./media/author-sql-script/new-sql-script-create-folder.png)
+> ![Captura de tela que mostra um exemplo de um script SQL com ' nova pasta ' selecionada.](./media/author-sql-script/new-sql-script-create-folder.png)
 
 Para mover um script SQL para uma pasta, você pode selecionar o script SQL e escolher "mover para" no menu ações. Em seguida, localize a pasta de destino na nova janela e mova o script SQL para a pasta selecionada. Você também pode arrastar rapidamente o script SQL e soltá-lo em uma pasta.  
 
