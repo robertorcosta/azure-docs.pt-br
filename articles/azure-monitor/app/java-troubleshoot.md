@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: dbc9e48987f527c9579decc3db84091a432a17e5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601009"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607891"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Solução de problemas e perguntas e respostas para o Application Insights para o SDK do Java
 
@@ -63,7 +63,6 @@ Você configurou com êxito seu aplicativo para enviar telemetria do servidor. A
 Como alternativa, se o cliente for um aplicativo em um [telefone ou outro dispositivo][platforms], você poderá enviar telemetria por meio dele.
 
 Use a mesma chave de instrumentação para configurar a telemetria de seu cliente e do servidor. Os dados serão exibidos no mesmo recurso do Application Insights, e você poderá correlacionar eventos do cliente e do servidor.
-
 
 ## <a name="disabling-telemetry"></a>Desabilitando a telemetria
 **Como desabilitar a coleta da telemetria?**
@@ -183,7 +182,6 @@ O Application Insights usa `org.apache.http`. Isso é realocado no jars do núcl
 
 >[!NOTE]
 >Se você habilitar o registro em log de nível DEBUG para todos os namespaces no aplicativo, isso será respeitado por todos os módulos em execução, incluindo `org.apache.http` renomeado como `com.microsoft.applicationinsights.core.dependencies.http`. O Application Insights não poderá aplicar a filtragem a essas chamadas, pois a chamada de log estará sendo feita pela biblioteca Apache. O registro em log do nível DEBUG gera uma quantidade considerável de dados de log e não é recomendado para instâncias de produção.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 **Configurei o Application Insights para meu aplicativo de servidor Java. O que mais posso fazer?**

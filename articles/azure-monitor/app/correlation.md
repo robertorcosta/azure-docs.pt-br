@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 7a206d61124b2524feae0cf155083c1939696e18
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 20e9ed7e83ff3359651acebc11a939a998f2889d
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853315"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607908"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -79,7 +79,6 @@ Os modelos de dados do [W3C Trace-Context](https://w3c.github.io/trace-context/)
 | `Operation_Id`                         | [ID do rastreamento](https://w3c.github.io/trace-context/#trace-id)                                           |
 | `Operation_ParentId`                   | [ID pai](https://w3c.github.io/trace-context/#parent-id) da extensão pai deste span. Se esse for um Span raiz, esse campo deverá estar vazio.     |
 
-
 Para obter mais informações, consulte [Application insights modelo de dados de telemetria](../../azure-monitor/app/data-model.md).
 
 ### <a name="enable-w3c-distributed-tracing-support-for-net-apps"></a>Habilitar o suporte ao rastreamento distribuído W3C para aplicativos .NET
@@ -103,7 +102,7 @@ O rastreamento distribuído baseado em W3C de TraceContext é habilitado por pad
        <Param name ="enableW3CBackCompat" value = "true" />
     </Add>
     ```
-    
+
   - Para aplicativos Spring boot, adicione estas propriedades:
 
     - `azure.application-insights.web.enable-W3C=true`
@@ -139,7 +138,7 @@ Adicione a seguinte configuração:
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
-  
+
 - **[Configuração baseada em trecho](./javascript.md#snippet-based-setup)**
 
 Adicione a seguinte configuração:

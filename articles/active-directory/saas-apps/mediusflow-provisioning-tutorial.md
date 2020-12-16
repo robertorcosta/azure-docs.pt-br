@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4d3ee6df90424788c6f9b6bb4e2055023a5d56a6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182034"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607874"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configurar o MediusFlow para provisionamento automático de usuário
 
@@ -172,11 +172,11 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 11. Examine os atributos de grupo que serão sincronizados do Azure AD no MediusFlow na seção **Mapeamento de atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder os grupos do MediusFlow em operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-      |Atributo|Type|
-      |---|---|
-      |displayName|String|
-      |externalID|String|
-      |membros|Referência|
+    | Atributo | Type |
+    |--|--|
+    | displayName | String |
+    | externalID | String |
+    | membros | Referência |
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
