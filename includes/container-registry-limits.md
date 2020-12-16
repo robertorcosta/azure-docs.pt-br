@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3f68ca0fc577e6cf3f896ede0418f11f59756701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4d8f8783e9f6eece4de8dc1c35740fa7aaf03f8
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512599"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531838"
 ---
 | Recurso | Basic | Standard | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "86512599"
 | Tamanho máximo da camada de imagem (GiB) | 200 | 200 | 200 |
 | ReadOps por minuto<sup>2, 3</sup> | 1,000 | 3\.000 | 10.000 |
 | WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
-| MBps de largura de banda de download<sup>2</sup> | 30 | 60 | 100 |
-| MBps de largura de banda de upload<sup>2</sup> | 10 | 20 | 50 |
+| Mbps de largura de banda de download<sup>2</sup> | 30 | 60 | 100 |
+| Mbps de largura de banda de upload<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Replicação geográfica | N/D | N/D | [Com suporte][geo-replication] |
 | Confiança em conteúdo | N/D | N/D | [Com suporte][content-trust] |

@@ -190,6 +190,8 @@
               href: platform/metrics-getting-started.md
             - name: Recursos avançados do Metrics Explorer
               href: platform/metrics-charts.md
+            - name: Exibindo vários recursos no Metric Explorer
+              href: platform/metrics-dynamic-scope.md
             - name: Exemplos de gráficos de métricas
               href: platform/metric-chart-samples.md
             - name: Solução de problemas de gráficos de métricas
@@ -546,12 +548,12 @@
               href: platform/itsmc-overview.md
             - name: Conexões de Gerenciamento do Serviço de TI
               href: platform/itsmc-connections.md
-            - name: Integrar-se à Exportação Segura
-              href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Criar aplicativo Web do Service Manager
               href: platform/itsmc-service-manager-script.md
             - name: Solução de problemas no Conector ITSM
               href: platform/itsmc-resync-servicenow.md
+            - name: Integrar-se à Exportação Segura
+              href: platform/it-service-management-connector-secure-webhook-connections.md
         - name: Migrar regras de alerta clássicas
           items:
             - name: Sobre alertas clássicos
@@ -752,6 +754,8 @@
               href: app/pre-aggregated-metrics-log-metrics.md
             - name: Definições de métrica baseadas em log
               href: platform/app-insights-metrics.md
+            - name: Métricas padrão
+              href: app/standard-metrics.md
         - name: Search
           href: app/diagnostic-search.md
         - name: Criador de perfil

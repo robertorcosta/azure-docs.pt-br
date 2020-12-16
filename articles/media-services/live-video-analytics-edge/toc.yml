@@ -66,6 +66,7 @@
     - name: Grafo de mídia
       href: media-graph-concept.md
     - name: Extensão do grafo de mídia
+      displayName: AI
       href: media-graph-extension-concept.md
     - name: Gravação de vídeo
       href: video-recording-concept.md
@@ -99,6 +100,10 @@
       href: configure-signal-gate-how-to.md
     - name: Solucionar problemas
       href: troubleshoot-how-to.md
+    - name: Atualizando
+      href: upgrading-lva-module.md
+    - name: Desenvolver e implantar um servidor de inferência gRPC
+      href: develop-deploy-grpc-inference-srv-how-to.md
 - name: Referência
   items:
     - name: Protocolo de extensão HTTP

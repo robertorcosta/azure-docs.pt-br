@@ -1,6 +1,6 @@
 ---
 title: Instalar o agente de provisionamento em nuvem do Azure AD Connect
-description: Este artigo descreve como instalar o agente de provisionamento em nuvem do Azure AD Connect.
+description: Saiba como instalar o agente de provisionamento de nuvem Azure AD Connect e como configurá-lo no portal do Azure.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4ba11dabc8e805f3604afc2fc4388840ac67cf
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9553608fdd72d4dec4c1572e0d38cd460018a469
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348527"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584333"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalar o agente de provisionamento em nuvem do Azure AD Connect
 Este documento mostra o processo de instalação do agente de provisionamento do Azure AD (Azure Active Directory) Connect e como configurá-lo inicialmente no portal do Azure.
@@ -54,7 +54,7 @@ Para instalar o agente, siga estas etapas.
    ![Tela Pacote do agente de provisionamento do Microsoft Azure AD Connect](media/how-to-install/install-1.png)</br>
  8. Após a conclusão desta operação, o assistente de configuração é iniciado. Entre com sua conta de administrador global do Azure AD.
  9. Na **tela configurar conta de serviço** , selecione **criar gMSA** ou **usar o gMSA personalizado**.  Se você permitir que o agente crie a conta, ele será nomeado provAgentgMSA $. Se você especificar **usar gMSA personalizado** , será solicitado a fornecer essa conta.
- 10. Insira as credenciais de administrador de domínio para criar a conta de serviço gerenciado de grupo que será usada para executar o serviço do Agent. Clique em **Próximo**.  
+ 10. Insira as credenciais de administrador de domínio para criar a conta de serviço gerenciado de grupo que será usada para executar o serviço do Agent. Clique em **Avançar**.  
    ![Criar gMSA](media/how-to-install/install-12.png)</br>
  11. Na tela **Active Directory Connect**, selecione **Adicionar diretório**. Em seguida, entre com sua conta de administrador do Active Directory. Esta operação adiciona seu diretório local. 
  12. Opcionalmente, você pode gerenciar a preferência de controladores de domínio que o agente usará selecionando **selecionar prioridade do controlador de domínio** e ordenando a lista de controladores de domínio.   Clique em **OK**.

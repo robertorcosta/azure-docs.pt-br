@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 75073cd2f0dae9cac12175677427671101813a90
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e839b8a22da50ce172043f57a4467219a1771175
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355215"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584181"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -103,7 +103,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 | **Organização do Azure Repos** | O nome da organização do Azure Repos. Localize o nome de organização do Azure Repos em `https://{organization name}.visualstudio.com`. Você pode [entrar na sua organização do Azure Repos](https://www.visualstudio.com/team-services/git/) para acessar seu perfil do Visual Studio e ver seus repositórios e projetos. | `<your organization name>` |
 | **ProjectName** | O nome do projeto do Azure Repos. Localize o nome do projeto do Azure Repos em `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | O nome do seu repositório de código do Azure Repos. Os projetos do Azure Repos contêm repositórios Git para gerenciar seu código-fonte à medida que o projeto aumenta. Você pode criar um novo repositório ou usar um existente que já esteja no projeto. | `<your Azure Repos code repository name>` |
-| **Ramificação de colaboração** | Seu branch de colaboração do Azure Repos que é usado para publicação. Por padrão, é o `master`. Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch name>` |
+| **Ramificação de colaboração** | Seu branch de colaboração do Azure Repos que é usado para publicação. Por padrão, é `main` . Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch name>` |
 | **Pasta raiz** | A pasta raiz em seu branch de colaboração do Azure Repos. | `<your root folder name>` |
 | **Importar recursos existentes do Data Factory para o repositório** | Especifica se é necessário importar recursos existentes do data factory da **Tela de criação** da UX em um repositório Git do Azure Repos. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
 | **Branch para importar o recurso** | Especifica em qual branch os recursos do data factory (pipelines, conjuntos de dados, serviços vinculados etc.) serão importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Usar Existente |  |
@@ -153,7 +153,7 @@ O painel de configuração mostra as seguintes configurações do repositório d
 | **URL do GitHub Enterprise** | A URL raiz do GitHub Enterprise (precisa ser HTTPS para o servidor do GitHub Enterprise local). Por exemplo: `https://github.mydomain.com`. Obrigatório somente se a opção **Usar o GitHub Enterprise** for selecionada | `<your GitHub enterprise url>` |                                                           
 | **Conta do GitHub** | Seu nome de conta do GitHub. Esse nome pode ser encontrado em https:\//github.com/{nome da conta}/{nome do repositório}. Navegar até essa página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
 | **Nome do repositório**  | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios Git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um existente que já esteja na conta. | `<your repository name>` |
-| **Ramificação de colaboração** | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, seu mestre. Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch>` |
+| **Ramificação de colaboração** | Sua ramificação de colaboração do GitHub usada para publicação. Por padrão, é principal. Altere essa configuração se você desejar publicar recursos de outra ramificação. | `<your collaboration branch>` |
 | **Pasta raiz** | Sua pasta raiz em sua ramificação de colaboração GitHub. |`<your root folder name>` |
 | **Importar recursos existentes do Data Factory para o repositório** | Especifica se deve-se importar recursos do data factory existentes da UX Tela de criação em um repositório do GitHub. Selecione a caixa para importar os recursos do data factory para o repositório do Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços vinculados e conjuntos de dados são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionada (padrão) |
 | **Branch para importar o recurso** | Especifica em qual branch os recursos do data factory (pipelines, conjuntos de dados, serviços vinculados etc.) serão importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Usar Existente |  |
@@ -207,11 +207,11 @@ Os sistemas de controle de versão (também conhecidos como _controle do código
 
 ### <a name="creating-feature-branches"></a>Criando branches de recurso
 
-Cada repositório Git do Azure Repos que está associado a um data factory tem um branch de colaboração. (`main` é a ramificação de colaboração padrão). Os usuários também podem criar branches de recurso clicando em **+ Novo Branch** na lista suspensa do branch. Depois que o novo painel do branch for exibido, insira o nome do branch de recurso.
+Cada repositório Git do Azure Repos que está associado a um data factory tem um branch de colaboração. ( `main` ) é a ramificação de colaboração padrão). Os usuários também podem criar branches de recurso clicando em **+ Novo Branch** na lista suspensa do branch. Depois que o novo painel do branch for exibido, insira o nome do branch de recurso.
 
 ![Criar uma nova ramificação](media/author-visually/new-branch.png)
 
-Quando você estiver pronto para mesclar as alterações do branch de recurso com o branch de colaboração, clique na lista suspensa do branch e selecione **Criar solicitação de pull**. Essa ação o levará para o Git do Azure Repos, em que será possível gerar solicitações de pull, realizar revisões de código e mesclar alterações com o branch de colaboração. (`master` é o padrão). Você só tem permissão para publicar no serviço do Data Factory de sua ramificação de colaboração. 
+Quando você estiver pronto para mesclar as alterações do branch de recurso com o branch de colaboração, clique na lista suspensa do branch e selecione **Criar solicitação de pull**. Essa ação o levará para o Git do Azure Repos, em que será possível gerar solicitações de pull, realizar revisões de código e mesclar alterações com o branch de colaboração. (`main` é o padrão). Você só tem permissão para publicar no serviço do Data Factory de sua ramificação de colaboração. 
 
 ![Criar uma nova solicitação pull](media/author-visually/create-pull-request.png)
 
@@ -232,7 +232,7 @@ O Azure Data Factory pode ter apenas um branch de publicação por vez. Quando v
 
 ### <a name="publish-code-changes"></a>Publicar alterações de código
 
-Depois de ter mesclado alterações para a ramificação de colaboração (`master` é o padrão), clique em **Publicar** para publicar manualmente as alterações de código no branch mestre para o serviço do Data Factory.
+Depois de mesclar as alterações para a ramificação de colaboração ( `main` é o padrão), clique em **publicar** para publicar manualmente as alterações de código na ramificação principal para o serviço de data Factory.
 
 ![Publicar as alterações no serviço do Data Factory](media/author-visually/publish-changes.png)
 
@@ -241,7 +241,7 @@ Um painel lateral será aberto para você confirmar que o branch de publicação
 ![Confirmar o branch de publicação correto](media/author-visually/configure-publish-branch.png)
 
 > [!IMPORTANT]
-> O branch mestre não é representativo do que é implantado no serviço de Data Factory. O branch mestre *deve* ser publicado manualmente no serviço de Data Factory.
+> A ramificação principal não representa o que está implantado no serviço de Data Factory. O Branch principal *deve* ser publicado manualmente para o serviço de data Factory.
 
 ## <a name="best-practices-for-git-integration"></a>Melhores práticas para a integração do Git
 
@@ -264,7 +264,7 @@ Usar a autenticação do Key Vault ou MSI também facilita a integração e a im
 
 ### <a name="stale-publish-branch"></a>Branch de publicação obsoleto
 
-Se o branch de publicação estiver fora de sincronia com o branch mestre e contiver recursos desatualizados apesar de ter havido uma publicação recente, tente seguir estas etapas:
+Se a ramificação de publicação estiver fora de sincronia com a ramificação principal e contiver recursos desatualizados, independentemente de uma publicação recente, tente seguir estas etapas:
 
 1. Remover seu repositório Git atual
 1. Reconfigure o Git com as mesmas configurações, mas verifique se **Importar recursos de Data Factory existentes para o repositório** está selecionado e escolha **Novo branch**

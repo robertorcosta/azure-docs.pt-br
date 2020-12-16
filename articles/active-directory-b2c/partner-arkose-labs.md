@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cf0437b985865248393e9f68da264fcae5af7f12
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 2c7eea87101a36edb0d77026489ea351b601158b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108545"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584588"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial para configurar o arkose Labs com o Azure Active Directory B2C
 
@@ -100,7 +100,7 @@ O código do Azure AD B2C em um navegador usa uma abordagem moderna e padrão pa
 
    ![Inscrever-se e entrar no arkose Labs](media/partner-arkose-labs/signup-signin-arkose.png)
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 ### <a name="part-2--set-up-a-back-end-server"></a>Parte 2 – configurar um servidor back-end
 
@@ -120,7 +120,7 @@ Baixe o Git bash e siga as etapas abaixo:
 
    ``git commit -am "updated output"``
 
-   ``git push azure master``  
+   ``git push azure main``  
 
 ### <a name="part-3---final-setup"></a>Parte 3 – instalação final
 

@@ -306,10 +306,12 @@
       items:
         - name: Escolha uma faixa
           href: search-sku-tier.md
-        - name: Limites de serviço
-          href: search-limits-quotas-capacity.md
+        - name: Estimar capacidade e custo
+          href: search-sku-manage-costs.md
         - name: Ajustar a capacidade
           href: search-capacity-planning.md
+        - name: Limites de serviço
+          href: search-limits-quotas-capacity.md
         - name: Dimensionamento em razão de desempenho
           href: search-performance-optimization.md
         - name: Arquitetura de multilocatários
@@ -362,12 +364,6 @@
               href: service-configure-firewall.md
             - name: Criar um ponto de extremidade privado
               href: service-create-private-endpoint.md
-        - name: Acesso baseado em identidade
-          items:
-            - name: Filtros de segurança
-              href: search-security-trimming-for-azure-search.md
-            - name: Filtrar por identidades de usuário
-              href: search-security-trimming-for-azure-search-with-aad.md
         - name: Segurança de saída (indexadores)
           items:
             - name: Acesso em um intervalo de IP
@@ -376,6 +372,12 @@
               href: search-indexer-howto-access-trusted-service-exception.md
             - name: Acesso por meio de pontos de extremidade privados
               href: search-indexer-howto-access-private.md
+        - name: Acesso baseado em identidade
+          items:
+            - name: Filtros de segurança
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtrar por identidades de usuário
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Gerenciar
       items:
         - name: Portal
@@ -552,5 +554,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: vídeos
+    - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

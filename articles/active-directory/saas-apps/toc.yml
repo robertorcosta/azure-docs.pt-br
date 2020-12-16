@@ -405,6 +405,8 @@
           href: consent2go-tutorial.md
         - name: Com conteúdo
           href: contentful-tutorial.md
+        - name: SSO da Contentsquare
+          href: contentsquare-sso-tutorial.md
         - name: SSO do ContractSafe Saml2
           href: contractsafe-saml2-sso-tutorial.md
         - name: ContractWorks

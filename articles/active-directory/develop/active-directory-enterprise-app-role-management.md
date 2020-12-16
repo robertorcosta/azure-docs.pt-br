@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 46a676f90eb9b628551c50f9c3bf664056dd6ca7
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e88a721d500ea1c17c768e9f28835248711bd361
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355927"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97584435"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -56,84 +56,81 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
 6. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) em outra janela e execute as seguintes etapas:
 
-    a. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
+    1. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
 
-    b. Você precisa ter permissões suficientes para criar as funções. Selecione **modificar permissões** para obter as permissões.
+    1. Você precisa ter permissões suficientes para criar as funções. Selecione **modificar permissões** para obter as permissões.
 
-      ![O botão "modificar permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+        ![O botão "modificar permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    >[!NOTE]
-    >A função de Administrador do Aplicativo na Nuvem e de Administrador do Aplicativo não funcionarão neste cenário, pois são necessárias as permissões de Administrador Global para Leitura e Gravação do Diretório.
+        > [!NOTE]
+        > A função de Administrador do Aplicativo na Nuvem e de Administrador do Aplicativo não funcionarão neste cenário, pois são necessárias as permissões de Administrador Global para Leitura e Gravação do Diretório.
 
-    c. Selecione as permissões da lista a seguir (se você já não tiver) e clique em **Modificar Permissões**.
+    1. Selecione as permissões da lista a seguir (se você já não tiver) e clique em **Modificar Permissões**.
 
-      ![Lista de permissões e botão "Modificar Permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+        ![Lista de permissões e botão "Modificar Permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
-    d. Aceite a solicitação de consentimento. Você está conectado ao sistema novamente.
+    1. Aceite a solicitação de consentimento. Você está conectado ao sistema novamente.
 
-    e. Altere a versão para **beta** e busque a lista de entidades de serviço do locatário usando a consulta abaixo:
+    1. Altere a versão para **beta** e busque a lista de entidades de serviço do locatário usando a consulta abaixo:
 
-     `https://graph.microsoft.com/beta/servicePrincipals`
+        `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Se você está usando vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+        Se você está usando vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-      ![Caixa de diálogo do Explorador do Graph, com a consulta para buscar as entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+        ![Caixa de diálogo do Explorador do Graph, com a consulta para buscar as entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      
-    f. Da lista de entidades de serviço retornada, obtenha a que deve ser modificada. Você também pode usar Ctrl+F para pesquisar o aplicativo de todas as entidades de serviço listadas. Procure a ID de objeto copiada da página **Propriedades** e use a seguinte consulta para obter a entidade de serviço:
+    1. Da lista de entidades de serviço retornada, obtenha a que deve ser modificada. Você também pode usar Ctrl+F para pesquisar o aplicativo de todas as entidades de serviço listadas. Procure a ID de objeto copiada da página **Propriedades** e use a seguinte consulta para obter a entidade de serviço:
 
-      `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
+        `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-      ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+        ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
+    1. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
 
-      ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+        ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-      
-      Se você estiver usando o aplicativo personalizado (não o aplicativo do Azure Marketplace), verá duas funções padrão: msiam_access e user. Para o aplicativo do Marketplace, msiam_access é a única função padrão. Você não precisa fazer alterações nas funções padrão.
+        Se você estiver usando o aplicativo personalizado (não o aplicativo do Azure Marketplace), verá duas funções padrão: msiam_access e user. Para o aplicativo do Marketplace, msiam_access é a única função padrão. Você não precisa fazer alterações nas funções padrão.
 
-    h. Gere novas funções para o aplicativo.
+    1. Gere novas funções para o aplicativo.
 
-      O JSON a seguir é um exemplo do objeto **appRoles**. Crie um objeto semelhante para adicionar as funções desejadas no aplicativo.
+        O JSON a seguir é um exemplo do objeto **appRoles**. Crie um objeto semelhante para adicionar as funções desejadas no aplicativo.
 
-      ```
-      {
-         "appRoles": [
-          {
-              "allowedMemberTypes": [
+        ```json
+        {
+          "appRoles": [
+            {
+               "allowedMemberTypes": [
                   "User"
-              ],
-              "description": "msiam_access",
-              "displayName": "msiam_access",
-              "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
-              "isEnabled": true,
-              "origin": "Application",
-              "value": null
-          },
-          {
-              "allowedMemberTypes": [
-                  "User"
-              ],
-              "description": "Administrators Only",
-              "displayName": "Admin",
-              "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
-              "isEnabled": true,
-              "origin": "ServicePrincipal",
-              "value": "Administrator"
-          }
-      ]
-      }
-      ```
+                ],
+                "description": "msiam_access",
+                "displayName": "msiam_access",
+                "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+                "isEnabled": true,
+                "origin": "Application",
+                "value": null
+            },
+            {
+                "allowedMemberTypes": [
+                    "User"
+                ],
+                "description": "Administrators Only",
+                "displayName": "Admin",
+                "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
+                "isEnabled": true,
+                "origin": "ServicePrincipal",
+                "value": "Administrator"
+            }
+         ]
+        }
+        ```
 
-      
-      Você só pode adicionar novas funções depois do msiam_access para a operação patch. Além disso, você pode adicionar quantas regras quiser de acordo com a necessidade da sua organização. O Azure AD enviará o valor dessas funções como o valor da declaração na resposta SAML. Para gerar os valores de GUID para a ID das novas funções, use ferramentas da Web como [esta](https://www.guidgenerator.com/)
+        Você só pode adicionar novas funções depois do msiam_access para a operação patch. Além disso, você pode adicionar quantas regras quiser de acordo com a necessidade da sua organização. O Azure AD enviará o valor dessas funções como o valor da declaração na resposta SAML. Para gerar os valores de GUID para a ID das novas funções, use ferramentas da Web como [esta](https://www.guidgenerator.com/)
 
-    i. Volte ao Explorador do Graph e altere o método de **GET** para **PATCH**. Execute o patch no objeto da entidade de serviço para obter as funções desejadas após a atualização da propriedade **appRoles**, conforme exemplo anterior. Clique em **Executar Consulta** para executar a operação de patch. Uma mensagem confirma a criação da função.
+    1. Volte ao Explorador do Graph e altere o método de **GET** para **PATCH**. Execute o patch no objeto da entidade de serviço para obter as funções desejadas após a atualização da propriedade **appRoles**, conforme exemplo anterior. Clique em **Executar Consulta** para executar a operação de patch. Uma mensagem confirma a criação da função.
 
-      ![Operação de patch bem-sucedida](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
+        ![Operação de patch bem-sucedida](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-7. Após a atualização da entidade de serviço com mais funções, será possível atribuir usuários às respectivas funções. Você pode atribuir os usuários acessando o portal e navegando até o aplicativo. Selecione a guia **usuários e grupos** . Essa guia lista todos os usuários e grupos que já estão atribuídos ao aplicativo. Você pode adicionar novos usuários às novas funções. Você também pode selecionar um usuário existente e selecionar **Editar** para alterar a função.
+1. Após a atualização da entidade de serviço com mais funções, será possível atribuir usuários às respectivas funções. Você pode atribuir os usuários acessando o portal e navegando até o aplicativo. Selecione a guia **usuários e grupos** . Essa guia lista todos os usuários e grupos que já estão atribuídos ao aplicativo. Você pode adicionar novos usuários às novas funções. Você também pode selecionar um usuário existente e selecionar **Editar** para alterar a função.
 
     ![Guia “Usuários e grupos”](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
@@ -144,34 +141,33 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
     
     Você precisa atualizar sua sessão no Portal do Azure para ver as novas funções.
 
-8. Atualize a tabela **Atributos** para definir um mapeamento personalizado da declaração de função.
+1. Atualize a tabela **Atributos** para definir um mapeamento personalizado da declaração de função.
 
-9. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
+1. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
     | Nome do atributo | Valor do atributo |
     | -------------- | ----------------|
     | Nome da função  | user.assignedroles |
 
-    
     Se o valor de declaração de função for nulo, o Azure AD não enviará esse valor no token e isso será padrão de acordo com o design.
 
-    a. Clique no ícone **Editar** para abrir **atributos de usuário &** caixa de diálogo declarações.
+    1. Clique no ícone **Editar** para abrir **atributos de usuário &** caixa de diálogo declarações.
 
-      ![Captura de tela que realça o ícone de edição usado para abrir a caixa de diálogo atributos de usuário & declarações.](./media/active-directory-enterprise-app-role-management/editattribute.png)
+        ![Captura de tela que realça o ícone de edição usado para abrir a caixa de diálogo atributos de usuário & declarações.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Na caixa de diálogo **gerenciar declarações do usuário** , adicione o atributo de token SAML clicando em **Adicionar nova declaração**.
+    1. Na caixa de diálogo **gerenciar declarações do usuário** , adicione o atributo de token SAML clicando em **Adicionar nova declaração**.
 
-      ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
+        ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
-      ![Painel “Adicionar Atributo”](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
+        ![Painel “Adicionar Atributo”](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    c. Na caixa **Nome**, digite o nome do atributo conforme necessário. Este exemplo usa **Nome da Função** como o nome da declaração.
+    1. Na caixa **Nome**, digite o nome do atributo conforme necessário. Este exemplo usa **Nome da Função** como o nome da declaração.
 
-    d. Deixe a caixa **Namespace** em branco.
+    1. Deixe a caixa **Namespace** em branco.
 
-    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
+    1. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    f. Clique em **Salvar**.
+    1. Selecione **Salvar**.
 
 10. Para testar seu aplicativo em um logon único iniciado por um provedor de identidade, entre no [Painel de Acesso](https://myapps.microsoft.com) e selecione o bloco do aplicativo. No token SAML, você deve ver todas as funções atribuídas ao usuário com o nome da declaração fornecido.
 
@@ -181,9 +177,9 @@ Para atualizar uma função existente, execute as seguintes etapas:
 
 1. Abra o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-2. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
+1. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
 
-3. Altere a versão para **beta** e busque a lista de entidades de serviço do locatário usando a consulta abaixo:
+1. Altere a versão para **beta** e busque a lista de entidades de serviço do locatário usando a consulta abaixo:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -191,27 +187,27 @@ Para atualizar uma função existente, execute as seguintes etapas:
 
     ![Caixa de diálogo do Explorador do Graph, com a consulta para buscar as entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. Da lista de entidades de serviço retornada, obtenha a que deve ser modificada. Você também pode usar Ctrl+F para pesquisar o aplicativo de todas as entidades de serviço listadas. Procure a ID de objeto copiada da página **Propriedades** e use a seguinte consulta para obter a entidade de serviço:
+1. Da lista de entidades de serviço retornada, obtenha a que deve ser modificada. Você também pode usar Ctrl+F para pesquisar o aplicativo de todas as entidades de serviço listadas. Procure a ID de objeto copiada da página **Propriedades** e use a seguinte consulta para obter a entidade de serviço:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
     ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
+1. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
 
     ![Detalhes da propriedade appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-6. Para atualizar a função existente, use as etapas a seguir.
+1. Para atualizar a função existente, use as etapas a seguir.
 
     ![Corpo da solicitação para "PATCH", com "description" e "displayname" realçados](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
 
-    a. Altere o método de **GET** para **PATCH**.
+    1. Altere o método de **GET** para **PATCH**.
 
-    b. Copie as funções existentes e cole-as em **Corpo da Solicitação**.
+    1. Copie as funções existentes e cole-as em **Corpo da Solicitação**.
 
-    c. Atualize o valor de uma função atualizando a descrição da função, o valor da função ou o nome de exibição da função, conforme necessário.
+    1. Atualize o valor de uma função atualizando a descrição da função, o valor da função ou o nome de exibição da função, conforme necessário.
 
-    d. Depois de atualizar todas as funções necessárias, selecione **Executar Consulta**.
+    1. Depois de atualizar todas as funções necessárias, selecione **Executar Consulta**.
 
 ## <a name="delete-an-existing-role"></a>Excluir uma função existente
 
@@ -219,9 +215,9 @@ Para excluir uma função existente, execute as seguintes etapas:
 
 1. Abra o [Explorador do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) em outra janela.
 
-2. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
+1. Entre no site do Explorador do Graph usando as credenciais de administrador ou de coadministrador globais para o locatário.
 
-3. Altere a versão para **beta** e busque a lista de entidades de serviço do locatário usando a consulta abaixo:
+1. Altere a versão para **beta** e busque a lista de entidades de serviço do locatário usando a consulta abaixo:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -229,43 +225,40 @@ Para excluir uma função existente, execute as seguintes etapas:
 
     ![Caixa de diálogo do Explorador do Graph, com a consulta para buscar a lista de entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-4. Da lista de entidades de serviço retornada, obtenha a que deve ser modificada. Você também pode usar Ctrl+F para pesquisar o aplicativo de todas as entidades de serviço listadas. Procure a ID de objeto copiada da página **Propriedades** e use a seguinte consulta para obter a entidade de serviço:
+1. Da lista de entidades de serviço retornada, obtenha a que deve ser modificada. Você também pode usar Ctrl+F para pesquisar o aplicativo de todas as entidades de serviço listadas. Procure a ID de objeto copiada da página **Propriedades** e use a seguinte consulta para obter a entidade de serviço:
 
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
     ![Consulta para obter a entidade de serviço que você precisa modificar](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-5. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
+1. Extraia a propriedade **appRoles** do objeto de entidade de serviço.
 
     ![Detalhes da propriedade appRoles do objeto da entidade de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-6. Para excluir a função existente, use as etapas a seguir.
+1. Para excluir a função existente, use as etapas a seguir.
 
     ![Corpo da solicitação para "PATCH", com IsEnabled definido como false](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-    a. Altere o método de **GET** para **PATCH**.
+    1. Altere o método de **GET** para **PATCH**.
 
-    b. Copie as funções existentes do aplicativo e cole-as em **Corpo da Solicitação**.
+    1. Copie as funções existentes do aplicativo e cole-as em **Corpo da Solicitação**.
 
-    c. Defina o valor **IsEnabled** como **false** para a função que deseja excluir.
+    1. Defina o valor **IsEnabled** como **false** para a função que deseja excluir.
 
-    d. Selecione **Executar Consulta**.
+    1. Selecione **Executar Consulta**.
 
-    
     Verifique se você tem a função msiam_access e se a ID corresponde com a função gerada.
 
-7. Depois que a função é desabilitada, exclua esse bloco de função na seção **appRoles**. Mantenha o método como **PATCH** e selecione **Executar Consulta**.
+1. Depois que a função é desabilitada, exclua esse bloco de função na seção **appRoles**. Mantenha o método como **PATCH** e selecione **Executar Consulta**.
 
-8. Depois que a consulta é executada, a função é excluída.
+1. Depois que a consulta é executada, a função é excluída.
 
-    
     A função deve ser desabilitada antes de ser removida.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter as etapas adicionais, confira a [documentação do aplicativo](../saas-apps/tutorial-list.md).
 
-<!--Image references-->
 <!--Image references-->
 
 [1]: ./media/active-directory-enterprise-app-role-management/tutorial_general_01.png

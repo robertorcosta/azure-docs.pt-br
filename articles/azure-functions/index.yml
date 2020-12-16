@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentação do Azure Functions
-summary: O Azure Functions é um serviço de computação sem servidor que permite a você executar código disparado por eventos sem precisar provisionar explicitamente ou gerenciar a infraestrutura.
+summary: O Azure Functions é um serviço de computação sem servidor que permite a você executar código disparado por eventos sem precisar provisionar explicitamente ou gerenciar a infraestrutura. As funcionalidades de "computação sob demanda" dele habilitam a integração leve e a funcionalidade de suporte único. Você também pode usá-lo para fornecer APIs Web, responder a alterações no banco de dados, processar fluxos de dados IoT e gerenciar filas de mensagens.
 metadata:
   title: Documentação do Azure Functions
-  description: O Azure Functions é um serviço de computação sem servidor que permite a você executar código disparado por eventos sem precisar provisionar explicitamente ou gerenciar a infraestrutura.
+  description: O Azure Functions é um serviço de computação sem servidor que permite a você executar código disparado por eventos sem precisar provisionar explicitamente ou gerenciar a infraestrutura. As funcionalidades de "computação sob demanda" dele habilitam a integração leve e a funcionalidade de suporte único. Você também pode usá-lo para fornecer APIs Web, responder a alterações no banco de dados, processar fluxos de dados IoT e gerenciar filas de mensagens.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: c2271970fb9a8b500e78687547030d39c5f241e3
-  ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+  ms.openlocfilehash: e6c3cb1a9d536ed898c48c45f57434dc4bf66970
+  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96751701"
+  ms.lasthandoff: 12/15/2020
+  ms.locfileid: "97505283"
 landingContent:
 - title: Sobre o Azure Functions
   linkLists:

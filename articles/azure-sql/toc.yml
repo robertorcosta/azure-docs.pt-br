@@ -67,8 +67,10 @@
               items:
                 - name: Avaliação de Vulnerabilidades SQL
                   href: database/sql-vulnerability-assessment.md
-                - name: Regras de avaliação de vulnerabilidade
+                - name: Regras da Avaliação de Vulnerabilidades
                   href: database/sql-database-vulnerability-assessment-rules.md
+                - name: Log de mudanças de regras da Avaliação de Vulnerabilidades
+                  href: database/sql-database-vulnerability-assessment-rules-changelog.md
                 - name: Armazenar verificações de vulnerabilidade no armazenamento
                   href: database/sql-database-vulnerability-assessment-storage.md
             - name: 'Logons, contas de usuário, funções e permissões'

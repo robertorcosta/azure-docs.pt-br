@@ -126,7 +126,7 @@
           href: troubleshoot-reservation-utilization.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Solucionar problemas de recomendações de reserva
           href: troubleshoot-reservation-recommendation.md?toc=/azure/cost-management-billing/reservations/toc.json
-        - name: Solucionar problemas de reserva não disponível
+        - name: Solucionar problemas de reserva desabilitada no SKU
           href: troubleshoot-product-not-available.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Solucionar problemas para baixar detalhes de uso
           href: troubleshoot-download-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
