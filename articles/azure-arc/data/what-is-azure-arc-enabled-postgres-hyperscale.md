@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7e8746d9b29b0b4af30ba799628328acc3fd8bc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c0e63b02d61b3aecf70624bc97a468d18f66fe
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90933197"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607500"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>O que é a hiperescala PostgreSQL habilitada para o Arc do Azure?
 
@@ -43,14 +43,14 @@ Esse é o fator forma de hiperescala do mecanismo de banco de dados Postgres dis
 
 ## <a name="azure-arc-enabled-postgresql-hyperscale"></a>Hiperescala do PostgreSQL habilitado para Arc do Azure
 
-:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Citus (Azure SQL Database para PostgreSQL de hiperescala)":::
+:::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-arc.png" alt-text="Hiperescala do PostgreSQL habilitado para Arc do Azure":::
 
 Esse é o fator forma de hiperescala do mecanismo de banco de dados do postgres que está disponível com o Azure Arc habilitados para o Microsoft Data Services. Ele também é equipado com a extensão Citus que habilita a experiência de hiperescala. Nesse fator forma, nossos clientes fornecem a infraestrutura que hospeda os sistemas e os opera.
 
 ## <a name="next-steps"></a>Próximas etapas
 - **Criar**
-   > **Quer apenas experimentar as novidades?**  
-   > Obtenha uma introdução rápida com o artigo [Começar a usar o Azure Arc rapidamente](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no AKS (Serviço de Kubernetes do Azure), no AWS EKS (Elastic Kubernetes Service), no GKE (Google Cloud Kubernetes Engine) ou em uma VM do Azure.
+   > **Deseja apenas experimentar as coisas? Você não tem um cluster kubernetes disponível? Fornecemos uma área restrita:**  
+   > Obtenha uma introdução rápida com o artigo [Começar a usar o Azure Arc rapidamente](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) no AKS (Serviço de Kubernetes do Azure), no AWS EKS (Elastic Kubernetes Service), no GKE (Google Cloud Kubernetes Engine) ou em uma VM do Azure.
 
    - **Criada**
       - [Instalar as ferramentas de cliente](install-client-tools.md)

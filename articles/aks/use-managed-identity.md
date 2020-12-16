@@ -3,13 +3,13 @@ title: Usar identidades gerenciadas no serviço kubernetes do Azure
 description: Saiba como usar identidades gerenciadas no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/06/2020
-ms.openlocfilehash: 68d8111da5ec10f23d14b375a18229bca075da84
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.date: 12/16/2020
+ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97026822"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607279"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
 
@@ -36,7 +36,7 @@ O AKS usa várias identidades gerenciadas para serviços e Complementos internos
 
 | Identidade                       | Nome    | Caso de uso | Permissões padrão | Traga sua própria identidade
 |----------------------------|-----------|----------|
-| Painel de controle | não visível | Usado pelos componentes do plano de controle AKS para gerenciar recursos de cluster, incluindo balanceadores de carga de entrada e IPs públicos gerenciados por AKS e operações de dimensionamento automático do cluster | Função de colaborador para grupo de recursos de nó | Versão Prévia
+| Painel de controle | não visível | Usado pelos componentes do plano de controle AKS para gerenciar recursos de cluster, incluindo balanceadores de carga de entrada e IPs públicos gerenciados por AKS e operações de dimensionamento automático do cluster | Função de colaborador para grupo de recursos de nó | com suporte
 | Kubelet | Nome do cluster AKS – agentpool | Autenticação com o ACR (registro de contêiner do Azure) | NA (para kubernetes v 1.15 +) | Sem suporte no momento
 | Complemento | AzureNPM | Nenhuma identidade necessária | NA | No
 | Complemento | Monitoramento de rede AzureCNI | Nenhuma identidade necessária | NA | No

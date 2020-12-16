@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: b04a5535ada9532d62d395f7070d9bcd8aa4380c
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cef2e2ca9c7ad4640014d9b5a9a7da42d308ef7c
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591771"
+ms.locfileid: "97605137"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usar avisos de acompanhamento para criar várias rodadas de uma conversa
 
@@ -38,7 +38,6 @@ Com o multi-Transform, um bot de chat gerencia uma conversa com um usuário para
 Na imagem anterior, um usuário iniciou uma conversa inserindo **minha conta**. A base de dados de conhecimento tem três pares de perguntas e respostas vinculados. Para refinar a resposta, o usuário seleciona uma das três opções na base de dados de conhecimento. A pergunta (#1), tem três prompts de acompanhamento, que são apresentados no bot de bate-papo como três opções (#2).
 
 Quando o usuário seleciona uma opção (#3), a próxima lista de opções de refinamento (#4) é apresentada. Essa sequência continua (#5) até que o usuário determine a resposta final correta (#6).
-
 
 ### <a name="use-multi-turn-in-a-bot"></a>Usar o multi-Transform em um bot
 
@@ -79,7 +78,6 @@ Quando você adiciona um documento hierárquico, QnA Maker determina os prompts 
 > [!Caution]
 > Não há suporte para o suporte para o uso de um arquivo base de conhecimento multiturns TSV ou XLS exportado como fonte de dados para uma base de conhecimento nova ou vazia. Você precisa **importar** esse tipo de arquivo, na página **configurações** do portal de QnA Maker, para adicionar prompts de multiativação exportados a uma base de dados de conhecimento.
 
-
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Criar uma base de dados de conhecimento com prompts de múltipla ativação com a API de criação
 
 Você pode criar um caso de conhecimento com prompts de múltipla ativação usando o [QnA Maker criar API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Os prompts estão sendo adicionados na `context` matriz da propriedade `prompts` .
@@ -116,7 +114,6 @@ Adicione um aviso de acompanhamento a um par de perguntas e respostas existentes
     |Somente contexto| Marcar essa caixa de seleção. Uma resposta será retornada somente se a pergunta especificar o contexto.|
     |Link para responder|Digite **usar a tela de entrada** para localizar o par de perguntas e respostas existente.|
 
-
 1.  Uma correspondência é retornada. Selecione essa resposta como o acompanhamento e, em seguida, selecione **salvar**.
 
     ![A página "aviso de acompanhamento (visualização)"](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
@@ -137,7 +134,6 @@ Quando um prompt de acompanhamento é criado e um par de perguntas e respostas e
 1. Quando terminar de editar o texto de exibição, selecione **salvar**.
 1. Na barra de navegação superior, **salve e treine**.
 
-
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Adicionar um novo par de perguntas e respostas como um aviso de acompanhamento
 
 Quando você adiciona um novo par de perguntas e respostas à base de dados de conhecimento, cada par deve ser vinculado a uma pergunta existente como um aviso de acompanhamento.
@@ -155,7 +151,6 @@ Quando você adiciona um novo par de perguntas e respostas à base de dados de c
     |||
 
     ![Criar uma nova pergunta e resposta de prompt](../media/conversational-context/create-child-prompt-from-parent.png)
-
 
 1. Selecione **criar novo** e, em seguida, selecione **salvar**.
 
@@ -353,7 +348,6 @@ A resposta JSON do QnA Maker _GenerateAnswer_ inclui os prompts de acompanhament
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Consultar a base de dados de conhecimento com a ID de QnA Maker
 
 Se você estiver criando um aplicativo personalizado usando o recurso de troca múltipla. Na resposta da pergunta inicial, qualquer prompt de acompanhamento e seu associado `qnaId` são retornados. Agora que você tem a ID, é possível passá-la no corpo da solicitação do prompt de acompanhamento. Se o corpo da solicitação contiver o `qnaId` , e o objeto de contexto (que contém as propriedades de QnA Maker anteriores), GenerateAnswer retornará a pergunta exata por ID, em vez de usar o algoritmo de classificação para localizar a resposta pelo texto da pergunta.
-
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>A ordem de exibição tem suporte na API de atualização
 

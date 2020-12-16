@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: cc17dcef7a554bee2715c79ba7d0c2356db2c6b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 55ad9c90129a5d732f377ac1b6c905c14de319dc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185650"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607416"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guia de solução de problemas comuns do serviço Signaler do Azure
 
@@ -144,11 +144,17 @@ Para o Signalr ASP.NET, quando a [conexão do cliente cai](#client_connection_dr
 
 ## <a name="429-too-many-requests-returned-for-client-requests"></a>429 (muitas solicitações) retornadas para solicitações do cliente
 
-429 retorna se a contagem de conexões **simultâneas** excede o limite.
+Existem dois casos.
+
+### <a name="concurrent-connection-count-exceeds-limit"></a>A contagem de conexões **simultâneas** excede o limite.
 
 Para instâncias **gratuitas** , o limite de contagem de conexões **simultâneas** é de 20 para instâncias **padrão** , o limite de contagem de conexões **simultâneas** **por unidade** é 1 K, o que significa que o Unit100 permite conexões simultâneas de 100-K.
 
 As conexões incluem conexões de cliente e de servidor. Verifique [aqui](./signalr-concept-messages-and-connections.md#how-connections-are-counted) como as conexões são contadas.
+
+### <a name="too-many-negotiate-requests-at-the-same-time"></a>Muitas solicitações Negotiate ao mesmo tempo.
+
+Sugerimos ter um atraso aleatório antes da reconexão, consulte [aqui](#restart_connection) para obter amostras de novas tentativas.
 
 ## <a name="500-error-when-negotiate-azure-signalr-service-is-not-connected-yet-please-try-again-later"></a>erro 500 ao negociar: o serviço de Signaler do Azure ainda não está conectado. tente novamente mais tarde.
 

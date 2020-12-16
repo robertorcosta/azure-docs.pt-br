@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1b49faabb1c61a10418bfce3ae2e8187429981ad
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 00e264cea34c7c3e7223b47217ecf5a59b76ba41
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186075"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592459"
 ---
 # <a name="azure-activity-log"></a>Log de Atividades do Azure
 O log de atividades é um [log de plataforma](platform-logs-overview.md) no Azure que fornece insights sobre eventos no nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
@@ -56,7 +56,8 @@ Você também pode acessar eventos do log de atividades usando os métodos a seg
 - Use consultas de log para executar uma análise complexa e obter informações aprofundadas sobre entradas do log de atividades.
 - Use alertas de log com entradas de atividade, permitindo uma lógica de alerta mais complexa.
 - Armazene entradas do log de atividades por mais de 90 dias.
-- Nenhuma ingestão de dados ou cobrança de retenção de dados para dados de log de atividades armazenados em um espaço de trabalho Log Analytics.
+- Não há encargos de ingestão de dados para dados de log de atividades armazenados em um espaço de trabalho Log Analytics.
+- Não há encargos de retenção de dados até 90 dias para os dados do log de atividades armazenados em um espaço de trabalho Log Analytics.
 
 [Crie uma configuração de diagnóstico](diagnostic-settings.md) para enviar o log de atividades para um espaço de trabalho log Analytics. Você pode enviar o log de atividades de qualquer assinatura única para até cinco espaços de trabalho. A coleta de logs entre locatários requer o [Azure Lighthouse](../../lighthouse/index.yml).
 

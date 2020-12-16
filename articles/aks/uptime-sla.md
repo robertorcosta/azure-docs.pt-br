@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 51430a37f34600d3191a646df7c1890b6d94f481
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033010"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607332"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -25,9 +25,8 @@ Os clientes ainda podem criar clusters grátis ilimitados com um objetivo de ní
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O SLA de tempo de atividade está disponível em regiões públicas e regiões do Azure governamental em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-
-## <a name="limitations"></a>Limitações
+* O SLA de tempo de atividade está disponível em regiões públicas e regiões do Azure governamental em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+* O SLA de tempo de atividade está disponível para [clusters AKs privados][private-clusters] em todas as regiões em que AKs tem suporte.
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
@@ -108,7 +107,7 @@ Use o [`az aks update`][az-aks-nodepool-update] comando para atualizar o cluster
   },
   ```
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para evitar cobranças, limpe todos os recursos que você criou. Para excluir o cluster, use o [`az group delete`][az-group-delete] comando para excluir o grupo de recursos AKs:
 
@@ -138,3 +137,4 @@ Configure o cluster para [limitar o tráfego de saída](limit-egress-traffic.md)
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool?#az-aks-nodepool-update
 [az-group-delete]: /cli/azure/group#az-group-delete
+[private-clusters]: private-clusters.md

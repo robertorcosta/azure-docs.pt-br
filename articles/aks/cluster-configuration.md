@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 439714f8fe4a6373f2ffce80e744802dd19b67f0
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: ab9e2a5483f0699ad7bfca991539025adff34b11
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928776"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606905"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -173,7 +173,7 @@ Se você quiser criar pools de nós com o tempo de execução Moby (Docker), pod
 * Você não pode mais acessar o mecanismo do Docker, `/var/run/docker.sock` ou usar o Docker-in-Docker (DinD).
   * Se, no momento, você extrair logs de aplicativos ou dados de monitoramento do mecanismo do Docker, use algo como [Azure monitor para contêineres](../azure-monitor/insights/container-insights-enable-new-cluster.md) em vez disso. Além disso, o AKS não dá suporte à execução de nenhum comando fora de banda nos nós do agente que poderiam causar instabilidade.
   * Mesmo ao usar o Moby/Docker, a criação de imagens e o aproveitamento direto do mecanismo do Docker por meio dos métodos acima é fortemente desencorajada. O kubernetes não está totalmente ciente desses recursos consumidos, e essas abordagens apresentam vários problemas detalhados [aqui](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) e [aqui](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), por exemplo.
-* Criando imagens-a abordagem recomendada para a criação de imagens é usar [tarefas ACR](../container-registry/container-registry-quickstart-task-cli.md). Uma abordagem alternativa é usar opções mais seguras no cluster, como o [Docker buildx](https://github.com/docker/buildx).
+* Criando imagens – você pode continuar a usar o fluxo de trabalho de Build do Docker atual, a menos que esteja criando imagages dentro do cluster AKS. Nesse caso, considere a possibilidade de alternar para a abordagem recomendada para criar imagens usando [tarefas ACR](../container-registry/container-registry-quickstart-task-cli.md)ou uma opção mais segura no cluster, como [Docker buildx](https://github.com/docker/buildx).
 
 ## <a name="generation-2-virtual-machines-preview"></a>Máquinas virtuais de geração 2 (versão prévia)
 

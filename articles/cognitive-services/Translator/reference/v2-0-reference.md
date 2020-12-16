@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 25dda63c6450040e396de9ee0d3fb0a459416343
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369504"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606820"
 ---
 # <a name="translator-v20"></a>Tradutor v 2.0
 
@@ -51,9 +51,9 @@ Se você quiser evitar profanação na tradução mesmo quando ela estiver no te
 
 |ProfanityAction    |Ação |Exemplo de origem (japonês)  |Tradução de exemplo (inglês)  |
 |:--|:--|:--|:--|
-|NoAction   |Padrão. O mesmo que não configurar a opção. O conteúdo ofensivo passará da origem para o destino.        |彼はジャッカスです。     |Ele é um babaca.   |
-|Marked     |Palavras vulgares serão colocadas entre marcas XML \<profanity> e \</profanity>.       |彼はジャッカスです。 |Ele é um \<profanity>babaca\</profanity>.  |
-|Excluído    |Palavras ofensivas serão removidas da saída sem substituição.     |彼はジャッカスです。 |Ele é um.   |
+|NoAction   |Padrão. O mesmo que não configurar a opção. O conteúdo ofensivo passará da origem para o destino. |彼はジャッカスです。 |Ele é um babaca.  |
+|Marked |Palavras vulgares serão colocadas entre marcas XML \<profanity> e \</profanity>. |彼はジャッカスです。   |Ele é um \<profanity>babaca\</profanity>.  |
+|Excluído    |Palavras ofensivas serão removidas da saída sem substituição. |彼はジャッカスです。 |Ele é um.   |
 
     
 ## <a name="excluding-content-from-translation"></a>Excluindo conteúdo da tradução
@@ -86,7 +86,7 @@ Tipo de conteúdo da resposta: Application/XML
 |Parâmetro|Valor|Descrição    |Tipo de parâmetro|tipo de dados|
 |:--|:--|:--|:--|:--|
 |appid  |(vazio)    |Obrigatórios. Se o `Authorization` `Ocp-Apim-Subscription-Key` cabeçalho ou for usado, deixe o `appid` campo vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"` .|Consulta|string|
-|text|(vazio)   |Obrigatórios. Uma cadeia de caracteres que representa o texto a ser traduzido. O texto não pode conter mais de 10.000 caracteres.|Consulta|string|
+|texto|(vazio)   |Obrigatórios. Uma cadeia de caracteres que representa o texto a ser traduzido. O texto não pode conter mais de 10.000 caracteres.|Consulta|string|
 |de|(vazio)   |Opcional. Uma cadeia de caracteres que representa o código de idioma do texto que está sendo traduzido. Por exemplo, en para inglês.|Consulta|string|
 |para|(vazio) |Obrigatórios. Uma cadeia de caracteres que representa o código do idioma no qual converter o texto.|Consulta|string|
 |contentType|(vazio)    |Opcional. O formato do texto que está sendo traduzido. Os formatos com suporte são `text/plain` (padrão) e  `text/html` . Todos os elementos HTML precisam ser bem formados, elementos completos.|Consulta|string|
@@ -209,7 +209,7 @@ Recupera nomes amigáveis para os idiomas passados como o parâmetro `languageCo
 
 O URI da solicitação é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
 
-O corpo da solicitação inclui uma matriz de cadeia de caracteres que representa os códigos de idioma ISO 639-1 para os quais recuperar os nomes amigáveis. Aqui está um exemplo:
+O corpo da solicitação inclui uma matriz de cadeia de caracteres que representa os códigos de idioma ISO 639-1 para os quais recuperar os nomes amigáveis. Veja um exemplo:
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -232,7 +232,7 @@ Tipo de conteúdo da resposta: Application/XML
 |Parâmetro|Valor|Descrição|Tipo de parâmetro|Tipo de dados|
 |:--|:--|:--|:--|:--|
 |appid|(vazio)|Obrigatórios. Se o `Authorization` `Ocp-Apim-Subscription-Key` cabeçalho ou for usado, deixe o `appid` campo vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"` .|Consulta|string|
-|locale|(vazio) |Obrigatórios. Uma cadeia de caracteres que representa um dos seguintes, usado para localizar os nomes dos idiomas: <ul><li>A combinação de um código de cultura de letra minúscula ISO 639 2 associado a uma linguagem e um código de subcultura em maiúsculas de letra ISO 3166 2. <li>Um código de cultura ISO 639 minúsculo por si só.|Consulta|string|
+|localidade|(vazio) |Obrigatórios. Uma cadeia de caracteres que representa um dos seguintes, usado para localizar os nomes dos idiomas: <ul><li>A combinação de um código de cultura de letra minúscula ISO 639 2 associado a uma linguagem e um código de subcultura em maiúsculas de letra ISO 3166 2. <li>Um código de cultura ISO 639 minúsculo por si só.|Consulta|string|
 |Autorização|(vazio)  |Necessário se o `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key|(vazio)  |Necessário se o `appid` campo e o `Authorization` cabeçalho forem deixados vazios.|header|string|
 
@@ -331,7 +331,7 @@ Tipo de conteúdo da resposta: Application/XML
 |Parâmetro|Valor|Descrição|Tipo de parâmetro|Tipo de dados|
 |:--|:--|:--|:--|:--|
 |appid|(vazio)|Obrigatórios. Se o `Authorization` `Ocp-Apim-Subscription-Key` cabeçalho ou for usado, deixe o `appid` campo vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"` .|Consulta|string|
-|text|(vazio)   |Obrigatórios. Uma cadeia de caracteres que contém uma ou mais frases a serem faladas para o fluxo, no idioma especificado. O texto não deve exceder 2.000 caracteres.|Consulta|string|
+|texto|(vazio)   |Obrigatórios. Uma cadeia de caracteres que contém uma ou mais frases a serem faladas para o fluxo, no idioma especificado. O texto não deve exceder 2.000 caracteres.|Consulta|string|
 |Linguagem|(vazio)   |Obrigatórios. Uma cadeia de caracteres que representa o código de idioma com suporte do idioma no qual falar o texto. O código deve ser um dos códigos retornados pelo método `GetLanguagesForSpeak` .|Consulta|string|
 |format|(vazio)|Opcional. Uma cadeia de caracteres que especifica a ID do tipo de conteúdo. Atualmente, `audio/wav` e `audio/mp3` estão disponíveis. O valor padrão é `audio/wav`.|Consulta|string|
 |opções|(vazio)    |Opcional. Uma cadeia de caracteres que especifica as propriedades da fala sintetizada:<ul><li>`MaxQuality` e `MinSize` especifique a qualidade do sinal de áudio. `MaxQuality` fornece a qualidade mais alta. `MinSize` fornece o menor tamanho de arquivo. O padrão é  `MinSize` .</li><li>`female` e `male` especifique o sexo desejado da voz. O padrão é `female`. Use a barra vertical ( <code>\|</code> ) para incluir várias opções. Por exemplo, `MaxQuality|Male`.</li></li></ul>  |Consulta|string|
@@ -367,7 +367,7 @@ Tipo de conteúdo da resposta: Application/XML
 |Parâmetro|Valor|Descrição|Tipo de parâmetro|Tipo de dados|
 |:--|:--|:--|:--|:--|
 |appid|(vazio)  |Obrigatórios. Se o `Authorization` `Ocp-Apim-Subscription-Key` cabeçalho ou for usado, deixe o `appid` campo vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"` .|Consulta|string|
-|text|(vazio)|Obrigatórios. Uma cadeia de caracteres que contém o texto cujo idioma deve ser identificado. O texto não deve exceder 10.000 caracteres.|Consulta|  string|
+|texto|(vazio)|Obrigatórios. Uma cadeia de caracteres que contém o texto cujo idioma deve ser identificado. O texto não deve exceder 10.000 caracteres.|Consulta|  string|
 |Autorização|(vazio)|Necessário se o `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|header|string|
 |Ocp-Apim-Subscription-Key  |(vazio)    |Necessário se o `appid` campo e o `Authorization` cabeçalho forem deixados vazios.|header|string|
 
@@ -569,7 +569,7 @@ Tipo de conteúdo da resposta: Application/XML
 |Parâmetro|Valor|Descrição|Tipo de parâmetro|Tipo de dados|
 |:--|:--|:--|:--|:--|
 |appid|(vazio)  |Obrigatórios. Se o `Authorization` `Ocp-Apim-Subscription-Key` cabeçalho ou for usado, deixe o `appid` campo vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"` .|Consulta| string|
-|text|(vazio)   |Obrigatórios. Uma cadeia de caracteres que representa o texto a ser dividido em sentenças. O tamanho máximo do texto é de 10.000 caracteres.|Consulta|string|
+|texto|(vazio)   |Obrigatórios. Uma cadeia de caracteres que representa o texto a ser dividido em sentenças. O tamanho máximo do texto é de 10.000 caracteres.|Consulta|string|
 |Linguagem   |(vazio)    |Obrigatórios. Uma cadeia de caracteres que representa o código de idioma do texto de entrada.|Consulta|string|
 |Autorização|(vazio)|Necessário se o `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.   |header|string|
 |Ocp-Apim-Subscription-Key|(vazio)|Necessário se o `appid` campo e o `Authorization` cabeçalho forem deixados vazios.|header|string|
@@ -611,7 +611,7 @@ O `TranslateOptions` objeto contém os valores na lista a seguir. Eles são todo
     - As. As classificações são aplicadas desta forma: 
          - A melhor tradução automática tem uma classificação de 5.
        - As alternativas de CTF refletem a autoridade do revisor. Elas variam de-10 a + 10.
-       - As alternativas de tradução ( *n* -melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
+       - As alternativas de tradução (*n*-melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
     - Número de alternativas. O número de alternativas retornadas pode ser tão alto quanto o valor especificado em `maxTranslations` , mas pode ser menor.
     - Pares de idiomas. Essa funcionalidade não está disponível para traduções entre chinês simplificado e chinês tradicional, em qualquer direção. Ele está disponível para todos os outros pares de idiomas com suporte do Microsoft Translator.
 * `State`: Estado do usuário para ajudar a correlacionar a solicitação e a resposta. O mesmo conteúdo será retornado na resposta.
@@ -666,7 +666,7 @@ Tipo de conteúdo da resposta: Application/XML
 |Parâmetro|Valor|Descrição|Tipo de parâmetro|Tipo de dados|
 |:--|:--|:--|:--|:--|
 |appid|(vazio)|Obrigatórios. Se o `Authorization` `Ocp-Apim-Subscription-Key` cabeçalho ou for usado, deixe o `appid` campo vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"` .|Consulta|string|
-|text|(vazio)|Obrigatórios. Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho máximo do texto é de 10.000 caracteres.|Consulta|string|
+|texto|(vazio)|Obrigatórios. Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho máximo do texto é de 10.000 caracteres.|Consulta|string|
 |de|(vazio)|Obrigatórios. Uma cadeia de caracteres que representa o código de idioma do texto que está sendo traduzido.|Consulta|string|
 |para |(vazio)    |Obrigatórios. Uma cadeia de caracteres que representa o código de idioma do idioma no qual converter o texto.|Consulta|string|
 |maxTranslations|(vazio)|Obrigatórios. Um inteiro que representa o número máximo de traduções a serem retornadas.|Consulta|inteiro|
@@ -723,7 +723,7 @@ Este é o formato do corpo da solicitação:
         - As classificações são aplicadas como esta:
           - A melhor tradução automática tem uma classificação de 5.
           - As alternativas de CTF refletem a autoridade do revisor. Elas variam de-10 a + 10.
-          - As alternativas de tradução ( *n* -melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
+          - As alternativas de tradução (*n*-melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
         - Número de alternativas. O número de alternativas retornadas pode ser tão alto quanto o valor especificado em `maxTranslations` , mas pode ser menor.
         - Pares de idiomas. Essa funcionalidade não está disponível para traduções entre chinês simplificado e chinês tradicional, em qualquer direção. Ele está disponível para todos os outros pares de idiomas com suporte do Microsoft Translator.
 * `State`: Estado do usuário para ajudar a correlacionar a solicitação e a resposta. O mesmo conteúdo será retornado na resposta.

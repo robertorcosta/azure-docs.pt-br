@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 09/11/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 799c0dbc3ddb673cafe0fe4962f7346a841bd4b7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 544b22e3395cacf0cc2e7a21e4b86325a8f4d236
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543095"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605251"
 ---
-# <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurar um fluxo de trabalho de ações do GitHub para implantar seu site estático no armazenamento do Azure
+# <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurar um fluxo de trabalho de GitHub Actions para implantar seu site estático no Armazenamento do Azure
 
-Introdução às [ações do GitHub](https://docs.github.com/en/actions) usando um fluxo de trabalho para implantar um site estático em uma conta de armazenamento do Azure. Depois de configurar um fluxo de trabalho de ações do GitHub, você poderá implantar automaticamente seu site no Azure do GitHub quando fizer alterações no código do site.
+Introdução às [ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions) usando um fluxo de trabalho para implantar um site estático em uma conta de armazenamento do Azure. Depois de configurar um fluxo de trabalho de ações do GitHub, você poderá implantar automaticamente seu site no Azure do GitHub quando fizer alterações no código do site.
 
 > [!NOTE]
 > Se você estiver usando [aplicativos Web estáticos do Azure](../../static-web-apps/index.yml), não será necessário configurar manualmente um fluxo de trabalho de ações do github.
@@ -45,7 +45,7 @@ Substitua o espaço reservado `myStaticSite` pelo nome do seu site hospedado no 
    az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-No exemplo acima, substitua os espaços reservados por sua ID de assinatura e o nome do grupo de recursos. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso à sua conta de armazenamento semelhante à mostrada abaixo. Copie este objeto JSON para mais tarde.
+No exemplo acima, substitua os espaços reservados pela sua ID da assinatura e o nome do grupo de recursos. A saída é um objeto JSON com as credenciais de atribuição de função que fornecem acesso à sua conta de armazenamento semelhante à mostrada abaixo. Copie esse objeto JSON para uso posterior.
 
 ```output 
   {

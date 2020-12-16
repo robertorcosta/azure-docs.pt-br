@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 11/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 2866633503399e9f6d78e8665f7a45d9063f01d9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8ec0f8cf090b3ae85a8602fb39cb07f03a417133
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585778"
+ms.locfileid: "97605591"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usar identidades gerenciadas no gerenciamento de API do Azure
 
@@ -38,7 +38,6 @@ Para configurar uma identidade gerenciada no portal do Azure, primeiro você cri
 3. Na guia **atribuído pelo sistema** , alterne o **status** para **ativado**. Selecione **Salvar**.
 
     :::image type="content" source="./media/api-management-msi/enable-system-msi.png" alt-text="Seleções para habilitar uma identidade gerenciada atribuída pelo sistema" border="true":::
-
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -118,7 +117,6 @@ Quando a instância é criada, ela tem as seguintes propriedades adicionais:
 ```
 
 A `tenantId` propriedade identifica a qual locatário do Azure ad a identidade pertence. A `principalId` propriedade é um identificador exclusivo para a nova identidade da instância. No Azure AD, a entidade de serviço tem o mesmo nome que você atribuiu à sua instância de gerenciamento de API.
-
 
 > [!NOTE]
 > Uma instância de gerenciamento de API pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a `type` propriedade seria `SystemAssigned,UserAssigned` .
@@ -265,7 +263,6 @@ O exemplo a seguir mostra um modelo do Azure Resource Manager que contém as seg
 ### <a name="authenticate-to-the-back-end-by-using-an-api-management-identity"></a>Autenticar para o back-end usando uma identidade de gerenciamento de API
 
 Você pode usar a identidade atribuída pelo sistema para se autenticar no back-end por meio da política de [identidade gerenciada por autenticação](api-management-authentication-policies.md#ManagedIdentity) .
-
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário
 
@@ -415,7 +412,6 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 ### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>Autenticar para o back-end usando uma identidade atribuída pelo usuário
 
 Você pode usar a identidade atribuída pelo usuário para se autenticar no back-end por meio da política de [identidade gerenciada por autenticação](api-management-authentication-policies.md#ManagedIdentity) .
-
 
 ## <a name="remove-an-identity"></a><a name="remove"></a>Remover uma identidade
 

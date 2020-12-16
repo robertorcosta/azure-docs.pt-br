@@ -4,16 +4,16 @@ description: Descreve como implantar modelos de Azure Resource Manager (modelos 
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 4cda8307d417880469e6043b84c3ac55ed30071c
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8c669393d38d7af2af4f63f251740d8ad72edf7
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905835"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607296"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implantar modelos de ARM usando ações do GitHub
 
-As [ações do GitHub](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) são um conjunto de recursos do GitHub para automatizar seus fluxos de trabalho de desenvolvimento de software no mesmo local em que você armazena código e colabora em solicitações de pull e problemas.
+As [ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions) são um conjunto de recursos do GitHub para automatizar seus fluxos de trabalho de desenvolvimento de software no mesmo local em que você armazena código e colabora em solicitações de pull e problemas.
 
 Use a [ação implantar modelo de Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) para automatizar a implantação de um modelo de Azure Resource Manager (modelo ARM) no Azure.
 
@@ -21,7 +21,7 @@ Use a [ação implantar modelo de Azure Resource Manager](https://github.com/mar
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Uma conta do GitHub. Caso ainda não tenha uma, inscreva-se [gratuitamente](https://github.com/join).
-    - Um repositório GitHub para armazenar seus modelos do Resource Manager e seus arquivos de fluxo de trabalho. Para criá-lo, confira [Como criar um repositório](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
+    - Um repositório GitHub para armazenar seus modelos do Resource Manager e seus arquivos de fluxo de trabalho. Para criá-lo, confira [Como criar um repositório](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
 
 ## <a name="workflow-file-overview"></a>Visão geral do arquivo do fluxo de trabalho

@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b3391727b19e9e8e88646f72667545f1df7fe5a7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0ef6c97f7924c890bb6665100259970372f1cd26
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012860"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606939"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Usar atividades personalizadas em um pipeline Azure Data Factory versão 1
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -98,8 +98,10 @@ O método utiliza quatro parâmetros:
 O método retorna um dicionário que pode ser usado para unir atividades personalizadas no futuro. Este recurso ainda não está implementado, portanto, retorne um dicionário vazio do método.
 
 ### <a name="procedure"></a>Procedimento
+
 1. Crie um projeto de **Biblioteca de Classes do .NET** .
-   <ol type="a">
+   
+    <ol type="a">
      <li>Inicie o Visual Studio.</li>
      <li>Clique em <b>Arquivo</b>, aponte para <b>Novo</b> e clique em <b>Projeto</b>.</li>
      <li>Expanda <b>Modelos</b> e selecione <b>Visual C#</b> . Neste passo a passo, você pode usar C#, mas você pode usar qualquer linguagem .NET para desenvolver a atividade personalizada.</li>
@@ -116,6 +118,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
+
 4. Importe o pacote NuGet do **Armazenamento do Azure** para o projeto.
 
     ```powershell
@@ -149,16 +152,19 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
     ```
+
 6. Altere o nome do **namespace** para **MyDotNetActivityNS**.
 
     ```csharp
     namespace MyDotNetActivityNS
     ```
+
 7. Altere o nome da classe para **MyDotNetActivity** e derive-a da interface **IDotNetActivity** , conforme mostrado no trecho de código a seguir:
 
     ```csharp
     public class MyDotNetActivity : IDotNetActivity
     ```
+
 8. Implemente (Adicione) o método **Execute** da interface **IDotNetActivity** à classe **MyDotNetActivity** e copie o seguinte código de exemplo para o método.
 
     O exemplo a seguir conta o número de ocorrências do termo de pesquisa ("Microsoft") em cada blob associado a uma fatia de dados.
@@ -279,6 +285,7 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
         return new Dictionary<string, string>();
     }
     ```
+
 9. Adicione os seguintes métodos auxiliares:
 
     ```csharp
@@ -367,25 +374,30 @@ O método retorna um dicionário que pode ser usado para unir atividades persona
     ```
 
     O método Calculate calcula o número de instâncias da palavra-chave Microsoft nos arquivos de entrada (blobs na pasta). O termo de pesquisa ("Microsoft") é embutido no código.
+
 10. Compile o projeto. Clique em **Compilar** no menu e clique em **Compilar Solução**.
 
     > [!IMPORTANT]
     > Defina a versão 4.5.2 do .NET Framework como o framework de destino para o seu projeto: clique com botão direito no projeto e, em seguida, clique em **Propriedades** para definir o framework de destino. O Data Factory não oferece suporte a atividades personalizadas compiladas em versões do .NET Framework posteriores a 4.5.2.
 
 11. Inicie o **Windows Explorer** e navegue até a pasta **bin\debug** ou **bin\release**, dependendo do tipo do build.
+
 12. Crie um arquivo zip **MyDotNetActivity.zip** que contenha todos os binários na \<project folder\> pasta \bin\Debug. Inclua o arquivo **MyDotNetActivity.pdb** para obter detalhes adicionais, como número de linha no código-fonte que causou o problema, se houver falha.
 
     > [!IMPORTANT]
     > Todos os arquivos no arquivo zip da atividade personalizada devem estar no **nível superior** , sem subpastas.
 
     ![Arquivos de saída binários](./media/data-factory-use-custom-activities/Binaries.png)
-14. Crie um contêiner de blob chamado **customactivitycontainer** se ele ainda não existir.
-15. Carregue MyDotNetActivity.zip como um blob para customactivitycontainer em um armazenamento de Blobs do Azure de **uso geral** (e não um armazenamento de Blobs de dinâmico/estático) que seja referenciado por AzureStorageLinkedService.
+
+13. Crie um contêiner de blob chamado **customactivitycontainer** se ele ainda não existir.
+
+14. Carregue MyDotNetActivity.zip como um blob para customactivitycontainer em um armazenamento de Blobs do Azure de **uso geral** (e não um armazenamento de Blobs de dinâmico/estático) que seja referenciado por AzureStorageLinkedService.
 
 > [!IMPORTANT]
 > Se você adicionar este projeto de atividade do .NET a uma solução no Visual Studio que contenha um projeto de Data Factory e adicionar uma referência ao projeto de atividade do .NET do projeto de aplicativo do Data Factory, não será necessário executar as duas últimas etapas de criar o arquivo zip e carregá-lo para o armazenamento de blobs do Azure de uso geral. Quando você publica entidades de Data Factory usando o Visual Studio, essas etapas são executadas automaticamente pelo processo de publicação. Para obter mais informações, consulte a seção [projeto de Data Factory no Visual Studio](#data-factory-project-in-visual-studio).
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Criar um pipeline com atividade personalizada
+
 Você criou uma atividade personalizada e carregou o arquivo zip com binários em um contêiner de blobs em uma Conta de Armazenamento do Azure de **uso geral**. Nesta seção, você vai criar um Azure data factory com um pipeline que usa a atividade personalizada.
 
 O conjunto de dados de entrada da atividade personalizada representa os blobs (arquivos) da pasta customactivityinput do contêiner adftutorial do armazenamento de blobs. O conjunto de dados de saída da atividade representa os blobs de saída da pasta customactivityinput do contêiner adftutorial do armazenamento de blobs.

@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 3c2f90403afbc581f80312be2271d802f4d719a8
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0c10cc683d8c8c2496ca8fdbd00f0e5065e2db35
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584231"
+ms.locfileid: "97604916"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implantação no Serviço de Aplicativo usando o GitHub Actions
 
-Introdução às [ações do GitHub](https://help.github.com/en/articles/about-github-actions) para automatizar o fluxo de trabalho e implantá-lo no [serviço Azure app](overview.md) do github. 
+Introdução às [ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) para automatizar o fluxo de trabalho e implantá-lo no [serviço Azure app](overview.md) do github. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -63,7 +63,7 @@ Você também pode implantar um fluxo de trabalho sem usar a central de implanta
 
 A maneira recomendada de autenticar com os serviços Azure App para ações do GitHub é com um perfil de publicação. Você também pode autenticar com uma entidade de serviço, mas o processo requer mais etapas. 
 
-Salve a credencial de perfil de publicação ou a entidade de serviço como um [segredo do GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) para autenticar com o Azure. Você acessará o segredo em seu fluxo de trabalho. 
+Salve a credencial de perfil de publicação ou a entidade de serviço como um [segredo do GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) para autenticar com o Azure. Você acessará o segredo em seu fluxo de trabalho. 
 
 # <a name="publish-profile"></a>[Perfil de publicação](#tab/applevel)
 
@@ -746,7 +746,7 @@ Encontre nosso conjunto de ações agrupadas em diferentes repositórios no GitH
 
 - [Logon/logoff do Docker](https://github.com/Azure/docker-login)
 
-- [Eventos que disparam fluxos de trabalho](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Eventos que disparam fluxos de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
 
 - [Implantação do K8s](https://github.com/Azure/k8s-deploy)
 

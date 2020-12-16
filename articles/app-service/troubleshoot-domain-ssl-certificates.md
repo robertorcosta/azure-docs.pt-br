@@ -8,19 +8,18 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c8d6f59f64aed2870494fa8697014e670e373337
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 691cbd79e82432c8e919dcbb51642a76000296dc
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590351"
+ms.locfileid: "97607602"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e TLS/certificado SSL no serviço Azure App
 
 Este artigo lista os problemas comuns que você pode encontrar ao configurar um domínio ou um certificado TLS/SSL para seus aplicativos Web no serviço Azure App. Adicionalmente, descreve as possíveis causas e soluções para esses problemas.
 
 Se você precisar de mais ajuda em qualquer ponto deste artigo, contate os especialistas do Azure nos [fóruns do Azure e do Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **obter suporte**.
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -262,7 +261,7 @@ Esse problema ocorre por um dos seguintes motivos:
 
     |Tipo de registro|Host|Apontar para|
     |------|------|-----|
-    |A|@|Endereço IP para um aplicativo|
+    |Um|@|Endereço IP para um aplicativo|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 

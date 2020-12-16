@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: cd644ed4a3edb1110f2cef60c2bb9170a81fe8d7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 588efd692119c9e2831e16c1ce26c2759898a1e5
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584061"
+ms.locfileid: "97607357"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizar o repositório GitHub com a configuração do aplicativo
 
@@ -20,9 +20,9 @@ As equipes que desejam continuar usando suas práticas de controle do código-fo
 &nbsp;&nbsp;&nbsp;&nbsp;• Atualizando a configuração sem reimplantar seu aplicativo inteiro <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Integração com serviços como o Funções e Serviço de Aplicativo do Azure. 
 
-Um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) de GitHub Actions define um processo automatizado em um repositório GitHub. A ação *Sincronização de Configuração de Aplicativos do Azure* dispara atualizações para uma instância de configuração de aplicativo, quando são feitas alterações no repositório de origem. Ele usa um arquivo YAML (.yml) encontrado no caminho `/.github/workflows/` do seu repositório, para definir as etapas e os parâmetros. Você pode disparar atualizações de configuração ao enviar, revisar ou ramificar arquivos de configuração de aplicativo exatamente como faz com o código do aplicativo.
+Um [fluxo de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) de GitHub Actions define um processo automatizado em um repositório GitHub. A ação *Sincronização de Configuração de Aplicativos do Azure* dispara atualizações para uma instância de configuração de aplicativo, quando são feitas alterações no repositório de origem. Ele usa um arquivo YAML (.yml) encontrado no caminho `/.github/workflows/` do seu repositório, para definir as etapas e os parâmetros. Você pode disparar atualizações de configuração ao enviar, revisar ou ramificar arquivos de configuração de aplicativo exatamente como faz com o código do aplicativo.
 
-A [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) do GitHub fornece uma visão detalhada dos fluxos de trabalho e ações do GitHub. 
+A [documentação](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) do GitHub fornece uma visão detalhada dos fluxos de trabalho e ações do GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Habilitar GitHub Actions em seu repositório
 Para começar a usar essa ação do GitHub, vá para o repositório e selecione a guia **ações** . Selecione **novo fluxo de trabalho** e, em seguida, **Configure um fluxo de trabalho por conta própria**. Por fim, pesquise "Sincronização de configuração de Aplicativos do Azure" no Marketplace.
@@ -35,7 +35,7 @@ Para começar a usar essa ação do GitHub, vá para o repositório e selecione 
 ## <a name="sync-configuration-files-after-a-push"></a>Sincronizar arquivos de configuração após um envio por push
 Essa ação sincroniza os arquivos de Configuração de Aplicativos do Azure, quando uma alteração é enviada por push para `appsettings.json`. Quando um desenvolvedor muda para `appsettings.json`, a ação de sincronização de configuração de aplicativo atualiza a instância de configuração de aplicativos com os novos valores.
 
-A primeira seção desse fluxo de trabalho especifica que a ação é disparada *em* um *Push* que contém `appsettings.json` o Branch *principal* . A segunda seção lista os trabalhos executados quando a ação é disparada. A ação verifica os arquivos relevantes e atualiza a instância de configuração do aplicativo usando a cadeia de conexão armazenada como um segredo no repositório.  Para obter mais informações sobre como usar segredos no GitHub, consulte o [Artigo do GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sobre como criar e usar segredos criptografados.
+A primeira seção desse fluxo de trabalho especifica que a ação é disparada *em* um *Push* que contém `appsettings.json` o Branch *principal* . A segunda seção lista os trabalhos executados quando a ação é disparada. A ação verifica os arquivos relevantes e atualiza a instância de configuração do aplicativo usando a cadeia de conexão armazenada como um segredo no repositório.  Para obter mais informações sobre como usar segredos no GitHub, consulte o [Artigo do GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) sobre como criar e usar segredos criptografados.
 
 ```json
 on: 
@@ -300,7 +300,7 @@ Dada uma profundidade de 2, o exemplo acima agora retorna o seguinte par chave-v
 | Object:Inner | {"InnerKey":"InnerValue"} |
 
 ## <a name="understand-action-inputs"></a>Entender as entradas da ação
-Os parâmetros de entrada especificam os dados usados pela ação durante o tempo de execução.  A tabela a seguir contém parâmetros de entrada aceitos pela sincronização de configuração de aplicativo e os valores esperados para cada um.  Para obter mais informações sobre entradas de ação para GitHub Actions, consulte a [documentação](https://help.github.com/actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions#inputs) do GitHub.
+Os parâmetros de entrada especificam os dados usados pela ação durante o tempo de execução.  A tabela a seguir contém parâmetros de entrada aceitos pela sincronização de configuração de aplicativo e os valores esperados para cada um.  Para obter mais informações sobre entradas de ação para GitHub Actions, consulte a [documentação](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions#inputs) do GitHub.
 
 > [!Note]
 > As IDs de entrada não diferenciam maiúsculas de minúsculas.

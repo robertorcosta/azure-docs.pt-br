@@ -7,16 +7,16 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: ae587b9501c9c68600ff880744d311ba966923ed
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 4f5deb33218c336da7a477b4f39cd45f7386debf
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008020"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97604967"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no Serviço de Aplicativo usando as GitHub Actions
 
-As [ações do GitHub](https://help.github.com/en/articles/about-github-actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento de software automatizado. Com a [ação de implantação da Web do Azure](https://github.com/Azure/webapps-deploy), você pode automatizar o fluxo de trabalho para implantar contêineres personalizados no [serviço de aplicativo](overview.md) usando ações do github.
+As [ações do GitHub](https://docs.github.com/en/free-pro-team@latest/actions) oferecem a flexibilidade para criar um fluxo de trabalho de desenvolvimento de software automatizado. Com a [ação de implantação da Web do Azure](https://github.com/Azure/webapps-deploy), você pode automatizar o fluxo de trabalho para implantar contêineres personalizados no [serviço de aplicativo](overview.md) usando ações do github.
 
 Um fluxo de trabalho é definido por um arquivo YAML (.yml) no caminho `/.github/workflows/` no repositório. Essa definição contém as várias etapas e parâmetros que estão no fluxo de trabalho.
 
@@ -39,7 +39,7 @@ Para um fluxo de trabalho de contêiner de serviço Azure App, o arquivo tem tr�
 
 A maneira recomendada de autenticar com os serviços Azure App para ações do GitHub é com um perfil de publicação. Você também pode autenticar com uma entidade de serviço, mas o processo requer mais etapas. 
 
-Salve a credencial de perfil de publicação ou a entidade de serviço como um [segredo do GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) para autenticar com o Azure. Você acessará o segredo em seu fluxo de trabalho. 
+Salve a credencial de perfil de publicação ou a entidade de serviço como um [segredo do GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) para autenticar com o Azure. Você acessará o segredo em seu fluxo de trabalho. 
 
 # <a name="publish-profile"></a>[Perfil de publicação](#tab/publish-profile)
 
@@ -273,7 +273,7 @@ Encontre nosso conjunto de ações agrupadas em diferentes repositórios no GitH
 
 - [Logon/logoff do Docker](https://github.com/Azure/docker-login)
 
-- [Eventos que disparam fluxos de trabalho](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Eventos que disparam fluxos de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
 
 - [Implantação do K8s](https://github.com/Azure/k8s-deploy)
 

@@ -9,15 +9,15 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 08/31/2020
-ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/16/2020
+ms.openlocfilehash: 7f30ff70e0219a803051b0f8e1208740c359863a
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985511"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97605387"
 ---
-# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário no SQL Instância Gerenciada
+# <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário na Instância Gerenciada de SQL
 
 Este artigo explica como fazer failover manual de um nó primário nas camadas de serviço GP (SQL Instância Gerenciada Uso Geral) e Comercialmente Crítico (BC) e como fazer failover manualmente de um nó de réplica somente leitura secundário na camada de serviço BC.
 
@@ -46,7 +46,7 @@ O usuário que estiver iniciando um failover precisará ter uma das seguintes fu
 - Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Usar o PowerShell
+### <a name="using-powershell"></a>Usando o PowerShell
 
 A versão mínima do AZ. SQL precisa ser [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Considere o uso de [Azure cloud Shell](../../cloud-shell/overview.md) do portal do Azure que sempre tenha a versão mais recente do PowerShell disponível. 
 
@@ -140,7 +140,7 @@ Você não poderá ver a mesma saída com a camada de serviço GP como aquela ac
 
 > [!IMPORTANT]
 > As limitações funcionais do failover manual iniciado pelo usuário são:
-> - Pode haver um (1) failover iniciado no mesmo Instância Gerenciada a cada **30 minutos**.
+> - Pode haver um (1) failover iniciado no mesmo Instância Gerenciada a cada **15 minutos**.
 > - Para instâncias de BC, deve existir quorum de réplicas para que a solicitação de failover seja aceita.
 > - Para instâncias de BC, não é possível especificar em qual réplica secundária legível iniciar o failover.
 

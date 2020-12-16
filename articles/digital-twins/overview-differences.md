@@ -7,19 +7,19 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: af8d768ceeaacdf1c8a0f6cdc8be0041e4ae4ed1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fb0d3e3c57a26f7ca14b74edc42cb657ba6074c3
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099072"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97604986"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>O que são os novos Gêmeos Digitais do Azure? Qual é a diferença entre a versão atual e a anterior (2018)?
 
 A primeira versão prévia pública dos Gêmeos Digitais do Azure foi lançada em outubro de 2018. Embora os conceitos principais da primeira versão tenham sido realizados no novo serviço, muitas das interfaces e detalhes de implementação mudaram para tornar o serviço mais flexível e acessível. Essas alterações foram motivadas por comentários do cliente.
 
 > [!IMPORTANT]
-> À luz das funcionalidades expandidas do novo serviço, o serviço de Gêmeos Digitais do Azure anterior será desativado até o fim do ano 2020.
+> Na luz dos recursos expandidos do novo serviço, o serviço de gêmeos digital do Azure anterior será desativado, com suas APIs e os dados associados não estarão mais disponíveis a partir de 18 de janeiro de 2021.
 
 Se você usou a primeira versão do Azure digital gêmeos durante a primeira visualização pública, use as informações e as práticas recomendadas neste artigo para aprender a trabalhar com o novo serviço e aproveitar seus recursos.
 
@@ -38,7 +38,7 @@ O gráfico a seguir fornece uma exibição lado a lado dos conceitos que foram a
 
 ## <a name="service-limits"></a>Limites de serviço
 
-Para obter uma lista de limites de gêmeos digitais do Azure, consulte [*referência: limites de serviço*](reference-service-limits.md).
+Para obter uma lista dos limites dos Gêmeos Digitais do Azure, confira [*Referência: limites de serviço*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

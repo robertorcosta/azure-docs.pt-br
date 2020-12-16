@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b84d24174771e8395677874c9dac863fa6f27a54
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a6b92d1b7f36b73d91b8e0e8e519981b936d8735
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185905"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592425"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -150,11 +150,11 @@ A retenção também pode ser [definida por meio do Azure Resource Manager](../s
 
 Os espaços de trabalho com retenção de 30 dias podem realmente reter dados por 31 dias. Se for imperativo que os dados sejam mantidos por apenas 30 dias, use a Azure Resource Manager para definir a retenção para 30 dias e com o `immediatePurgeDataOn30Days` parâmetro.  
 
-Dois tipos de dados — `Usage` e `AzureActivity` — são retidos por um mínimo de 90 dias por padrão, e não há nenhum custo para esse período de retenção. Caso a retenção do workspace seja aumentada para mais de 90 dias, a retenção desses tipos de dados também será aumentada.  Também não são cobrados encargos de ingestão de dados para esses tipos de dados. 
+Dois tipos de dados-- `Usage` e `AzureActivity` --são retidos por um mínimo de 90 dias por padrão, e não há nenhum encargo para essa retenção de 90 dias. Caso a retenção do workspace seja aumentada para mais de 90 dias, a retenção desses tipos de dados também será aumentada.  Também não são cobrados encargos de ingestão de dados para esses tipos de dados. 
 
 Os tipos de dados dos recursos do Application Insights baseados em workspace (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` e `AppTraces`) também são retidos por 90 dias por padrão, e não há nenhum custo para esse período de retenção. Essa retenção pode ser ajustada usando a funcionalidade de retenção por tipo de dados. 
 
-Observe que a [API de limpeza](/rest/api/loganalytics/workspacepurge/purge) de log Analytics não afeta a cobrança de retenção e destina-se a ser usada em casos muito limitados. Para reduzir sua fatura de retenção, o período de retenção deve ser reduzido para o espaço de trabalho ou para tipos de dados específicos. 
+A [API de limpeza](/rest/api/loganalytics/workspacepurge/purge) do Log Analytics não afeta a cobrança de retenção e se destina a ser usada em casos muito limitados. Para reduzir sua fatura de retenção, o período de retenção deve ser reduzido para o espaço de trabalho ou para tipos de dados específicos. 
 
 ### <a name="retention-by-data-type"></a>Retenção por tipo de dados
 

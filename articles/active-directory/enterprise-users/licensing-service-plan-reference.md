@@ -16,12 +16,12 @@ ms.author: kakern
 ms.reviewer: kakern
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78da02a5312a45026e28f1749606186a783af976
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 55649263b1dfdc358c4063eb4e0e8fbf3fc6dd93
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545852"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606854"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 
@@ -136,7 +136,7 @@ Ao gerenciar licenças no [portal do Azure](https://portal.azure.com/#blade/Micr
 | SKYPE FOR BUSINESS ONLINE (PLANO 2)    | MCOSTANDARD   | d42c793f-6c78-4f43-92ca-e8f6a02b035f  | MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c) | SKYPE FOR BUSINESS ONLINE (PLANO 2) (0feaeb32-d00e-4d66-bd5a-43b5b83db82c) |
 | CHAMADAS PSTN DOMÉSTICAS E INTERNACIONAIS DO SKYPE FOR BUSINESS    | MCOPSTN2  | d3b4fe1f-9992-4930-8acb-ca6ec609365e  | MCOPSTN2 (5a10155d-f5c1-411a-a8ec-e99aae125390) | PLANO DE CHAMADAS DOMÉSTICAS E INTERNACIONAIS (5a10155d-f5c1-411a-a8ec-e99aae125390) |
 | CHAMADAS PSTN DOMÉSTICAS DO SKYPE FOR BUSINESS  | MCOPSTN1  | 0dab259f-bf13-4952-b7f8-7db8f131b28d  | MCOPSTN1 (4ed3ff63-69d7-4fb7-b984-5aec7f605ca8) | PLANO DE CHAMADAS DOMÉSTICAS (4ed3ff63-69d7-4fb7-b984-5aec7f605ca8) |
-| CHAMADAS PSTN DOMÉSTICAS DO SKYPE FOR BUSINESS (120 minutos)| MCOPSTN5 | 54a152dc-90de-4996-93d2-bc47e670fc06  | MCOPSTN5 (54a152dc-90de-4996-93d2-bc47e670fc06) | PLANO DE CHAMADAS DOMÉSTICAS (54a152dc-90de-4996-93d2-bc47e670fc06) |
+| CHAMADA doméstica PSTN do SKYPE FOR BUSINESS (120 minutos)| MCOPSTN5  | 54a152dc-90de-4996-93d2-bc47e670fc06  | MCOPSTN5 (54a152dc-90de-4996-93d2-bc47e670fc06) | PLANO DE CHAMADAS DOMÉSTICAS (54a152dc-90de-4996-93d2-bc47e670fc06) |
 | VISIO ONLINE PLAN 1   | VISIOONLINE_PLAN1 | 4b244418-9658-4451-a2b8-b5e2b364e9bd  | ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) | ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) |
 | VISIO Online Plan 2   | VISIOCLIENT   | c5928f49-12ba-48f7-ada3-0d743a3601d5  | ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIO_CLIENT_SUBSCRIPTION (663a804f-1c30-4ff0-9915-9db84f0d1cea)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) | ONEDRIVE_BASIC (da792a53-cbc0-4184-a10d-e544dd34b3c1)<br/>VISIO_CLIENT_SUBSCRIPTION (663a804f-1c30-4ff0-9915-9db84f0d1cea)<br/>VISIOONLINE (2bdbaf8f-738f-4ac7-9234-3c3ee2ce7d0f) |
 | WINDOWS 10 ENTERPRISE E3  | WIN10_PRO_ENT_SUB | cb10e6cd-9da4-4992-867b-67546b1db821  | WIN10_PRO_ENT_SUB (21b439ba-a0ca-424f-a6cc-52f954a5b111) | WINDOWS 10 ENTERPRISE (21b439ba-a0ca-424f-a6cc-52f954a5b111) |
