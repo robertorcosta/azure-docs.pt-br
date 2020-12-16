@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e3245053fcc9943814268835fa5ac0f40a6f94c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750502"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516366"
 ---
 # <a name="secure-your-restful-services"></a>Proteger os serviços RESTful 
 
@@ -230,7 +230,7 @@ Uma declaração fornece armazenamento temporário de dados durante uma execuç�
 
 ### <a name="acquiring-an-access-token"></a>Aquisição de um token de acesso 
 
-Você pode obter um token de acesso de várias maneiras: obtendo [de um provedor de identidade federado](idp-pass-through-custom.md), chamando uma API REST que retorna um token de acesso, usando um [fluxo de ROPC](../active-directory/develop/v2-oauth-ropc.md) ou usando o [fluxo de credenciais do cliente](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
+Você pode obter um token de acesso de várias maneiras: obtendo [de um provedor de identidade federado](idp-pass-through-user-flow.md), chamando uma API REST que retorna um token de acesso, usando um [fluxo de ROPC](../active-directory/develop/v2-oauth-ropc.md) ou usando o [fluxo de credenciais do cliente](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
 O exemplo a seguir usa um perfil técnico da API REST para fazer uma solicitação para o ponto de extremidade do token do Azure AD, usando as credenciais do cliente passadas como autenticação básica HTTP. Para configurar isso no Azure AD, confira a [plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Talvez seja necessário modificar isso para a interface com o Provedor de identidade. 
 

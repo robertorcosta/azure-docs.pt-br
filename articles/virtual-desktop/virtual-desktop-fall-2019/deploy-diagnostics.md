@@ -3,25 +3,20 @@ title: Implantar a ferramenta de diagnóstico para a área de trabalho virtual d
 description: Como implantar a ferramenta de diagnóstico UX para a área de trabalho virtual do Windows (clássico).
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023064"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515630"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico da área de trabalho virtual do Windows (clássico)
 
 >[!IMPORTANT]
 >Este conteúdo se aplica à Área de Trabalho Virtual do Windows (clássica), que não é compatível com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager.
-
->[!IMPORTANT]
->A partir de 16 de março de 2020, desabilitamos temporariamente as consultas de diagnóstico que afetaram a experiência do usuário devido à maior demanda no serviço. Isso fará com que a ferramenta pare de funcionar porque depende dessas consultas para funcionar. Atualizaremos este artigo quando as consultas de diagnóstico estiverem disponíveis novamente.
->
->Até lá, é altamente recomendável [usar log Analytics](diagnostics-log-analytics-2019.md) para monitoramento contínuo.
 
 Veja o que a ferramenta de diagnóstico para a área de trabalho virtual do Windows pode fazer por você:
 
@@ -43,8 +38,8 @@ Você precisa criar um registro de aplicativo Azure Active Directory e um espaç
 
 Você também precisa instalar esses dois módulos do PowerShell antes de começar:
 
-- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
-- [Módulo do AD do Azure](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
+- [Módulo do Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/&preserve-view=true)
+- [Módulo do AD do Azure](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/&preserve-view=true)
 
 Verifique se sua ID de assinatura está pronta para quando você entrar.
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: d3ce6e888c937676027f2b71578c38b56f3bd6af
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 266c04a049cab574576f781c397aee566efe5372
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97388012"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516617"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implantar um cluster de Service Fabric do Azure com tipos de nó somente sem estado (versão prévia)
 Service Fabric tipos de nó vêm com pressuposição inerente que, em algum momento, os serviços com estado podem ser colocados em nós. Os tipos de nó sem monitoração de estado relaxar essa suposição para um tipo de nó, permitindo que o tipo de nó use outros recursos, como operações de expansão mais rápidas, suporte para atualizações automáticas do so na durabilidade de bronze e dimensionamento para mais de 100 nós em um único conjunto de dimensionamento de máquinas virtuais.
@@ -24,6 +24,8 @@ Os modelos de exemplo estão disponíveis: [Service Fabric modelo de tipos de n�
 
 ## <a name="enabling-stateless-node-types-in-service-fabric-cluster"></a>Habilitando tipos de nó sem monitoração de estado no Cluster Service Fabric
 Para definir um ou mais tipos de nó como sem estado em um recurso de cluster, defina a propriedade **Isstateless** como "true". Ao implantar um cluster de Service Fabric com tipos de nó sem monitoração de estado, lembre-se de ter pelo menos um tipo de nó primário no recurso de cluster.
+
+* O recurso de Cluster Service Fabric apiVersion deve ser "2020-12-01-Preview" ou superior.
 
 ```json
 {
@@ -238,6 +240,8 @@ Standard Load Balancer e IP público Standard introduzem novas capacidades e com
 
 
 ### <a name="migrate-to-using-stateless-node-types-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip"></a>Migrar para usar tipos de nó sem monitoração de estado de um cluster usando um Load Balancer de SKU básico e um IP de SKU básico
+Para todos os cenários de migração, um novo tipo de nó somente sem estado precisa ser adicionado. O tipo de nó existente não pode ser migrado para ser somente sem estado.
+
 Para migrar um cluster, que estava usando um Load Balancer e IP com um SKU básico, primeiro você deve criar um recurso de Load Balancer e IP totalmente novo usando o SKU Standard. Não é possível atualizar esses recursos in-loco.
 
 O novo LB e o IP devem ser referenciados nos novos tipos de nó sem estado que você gostaria de usar. No exemplo acima, um novo recurso de conjunto de dimensionamento de máquinas virtuais é adicionado para ser usado para tipos de nó sem monitoração de estado. Esses conjuntos de dimensionamento de máquinas virtuais referenciam o LB e o IP recém-criados e são marcados como tipos de nó sem monitoração de estado no recurso de Cluster Service Fabric.
@@ -247,28 +251,8 @@ Para começar, será necessário adicionar os novos recursos ao modelo do Resour
 * Um recurso Load Balancer usando o SKU Standard.
 * Um NSG referenciado pela sub-rede na qual você implanta seus conjuntos de dimensionamento de máquinas virtuais.
 
-
-Um exemplo desses recursos pode ser encontrado no modelo de [exemplo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure).
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-    -ResourceGroupName $ResourceGroupName `
-    -TemplateFile $Template `
-    -TemplateParameterFile $Parameters
-```
-
 Depois que os recursos terminarem de implantar, você poderá começar a desabilitar os nós no tipo de nó que deseja remover do cluster original.
 
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName `
-    -KeepAliveIntervalInSec 10 `
-    -X509Credential `
-    -ServerCertThumbprint $thumb  `
-    -FindType FindByThumbprint `
-    -FindValue $thumb `
-    -StoreLocation CurrentUser `
-    -StoreName My 
-```
 
 ## <a name="next-steps"></a>Próximas etapas 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

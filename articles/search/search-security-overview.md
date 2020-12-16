@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 12/15/2020
 ms.custom: references_regions
-ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 118ee6ffb189b7a5558477912bd6b27ea739afde
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011788"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516171"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança no Azure Pesquisa Cognitiva-visão geral
 
@@ -40,7 +40,7 @@ No Azure Pesquisa Cognitiva, a criptografia começa com conexões e transmissõe
 
 Para dados manipulados internamente pelo serviço de pesquisa, a tabela a seguir descreve os [modelos de criptografia de dados](../security/fundamentals/encryption-models.md). Alguns recursos, como armazenamento de conhecimento, enriquecimento incremental e indexação baseada em indexador, leitura ou gravação em estruturas de dados em outros serviços do Azure. Esses serviços têm seus próprios níveis de suporte de criptografia separados do Azure Pesquisa Cognitiva.
 
-| Modelar | Novas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
+| Modelo | Novas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
 |------------------|-------|-------------|--------------|------------|
 | criptografia do lado do servidor | Chaves gerenciadas pela Microsoft | Nenhum (interno) | Nenhum, disponível em todas as camadas, em todas as regiões, para o conteúdo criado após janeiro de 24 2018. | Conteúdo (índices e mapas de sinônimos) e definições (indexadores, fontes de dados, habilidades) |
 | criptografia do lado do servidor | chaves gerenciadas pelo cliente | Cofre de Chave do Azure | Disponível em camadas faturáveis, em todas as regiões, para conteúdo criado depois de janeiro de 2019. | Conteúdo (mapas e índices de sinônimos) em discos de dados |
@@ -76,7 +76,7 @@ Os recursos de segurança de entrada protegem o ponto de extremidade do serviço
 
 ### <a name="public-access-using-api-keys"></a>Acesso público usando chaves de API
 
-Por padrão, um serviço de pesquisa é acessado por meio da nuvem pública, usando a autenticação baseada em chave para acesso de administrador ou de consulta ao ponto de extremidade do serviço de pesquisa. Uma chave de api é uma cadeia de caracteres composta de letras e números gerados aleatoriamente. O tipo de chave (administrador ou consulta) determina o nível de acesso. O envio de uma chave válida é considerado uma prova de que a solicitação se origina de uma entidade confiável.
+Por padrão, um serviço de pesquisa é acessado por meio da nuvem pública, usando a autenticação baseada em chave para acesso de administrador ou de consulta ao ponto de extremidade do serviço de pesquisa. Uma [chave de API](search-security-rbac.md) é uma cadeia de caracteres composta de números e letras gerados aleatoriamente. O tipo de chave (administrador ou consulta) determina o nível de acesso. O envio de uma chave válida é considerado uma prova de que a solicitação se origina de uma entidade confiável.
 
 Há dois níveis de acesso ao serviço de pesquisa, habilitados pelas seguintes chaves de API:
 
@@ -114,15 +114,15 @@ Embora essa solução seja a mais segura, usar serviços adicionais é um custo 
 
 No Azure Pesquisa Cognitiva, um índice individual não é um objeto protegível. Em vez disso, o acesso a um índice é determinado na camada de serviço (acesso de leitura ou gravação ao serviço), juntamente com o contexto de uma operação.
 
-Para acesso do usuário final, é possível estruturar solicitações de consulta para conectar usando uma chave de consulta, o que torna qualquer solicitação somente leitura e inclui o índice específico usado pelo aplicativo. Em uma solicitação de consulta, não há o conceito de adicionar índices ou acessar vários índices simultaneamente. Portanto, todas as solicitações têm um único índice de destino por definição. Como tal, a construção da solicitação de consulta em si (uma chave mais um único índice de destino) define o limite de segurança.
+Para acesso do usuário final, você pode estruturar solicitações de consulta para se conectar usando uma [chave de consulta](search-security-rbac.md), que faz com que qualquer solicitação seja somente leitura e inclua o índice específico usado pelo seu aplicativo. Em uma solicitação de consulta, não há o conceito de adicionar índices ou acessar vários índices simultaneamente. Portanto, todas as solicitações têm um único índice de destino por definição. Como tal, a construção da solicitação de consulta em si (uma chave mais um único índice de destino) define o limite de segurança.
 
-O acesso de administrador e de desenvolvedor aos índices não é diferenciado: ambos precisam de acesso de gravação para criar, excluir e atualizar os objetos gerenciados pelo serviço. Qualquer pessoa com uma chave de administrador para seu serviço pode ler, modificar ou excluir um índice no mesmo serviço. Para proteção contra exclusão de índices acidental ou mal-intencionada, o controle do código-fonte interno para ativos de código é a solução para reverter uma modificação ou exclusão de índice indesejada. O Azure Pesquisa Cognitiva tem um failover no cluster para garantir a disponibilidade, mas não armazena ou executa o código proprietário usado para criar ou carregar índices.
+O acesso de administrador e de desenvolvedor aos índices não é diferenciado: ambos precisam de acesso de gravação para criar, excluir e atualizar os objetos gerenciados pelo serviço. Qualquer pessoa com uma [chave de administração](search-security-rbac.md) para seu serviço pode ler, modificar ou excluir qualquer índice no mesmo serviço. Para proteção contra exclusão de índices acidental ou mal-intencionada, o controle do código-fonte interno para ativos de código é a solução para reverter uma modificação ou exclusão de índice indesejada. O Azure Pesquisa Cognitiva tem um failover no cluster para garantir a disponibilidade, mas não armazena ou executa o código proprietário usado para criar ou carregar índices.
 
 Para soluções de multilocação que exigem limites de segurança no nível do índice, essas soluções normalmente incluem uma camada intermediária que os clientes usam para lidar com isolamento de índice. Para obter mais informações sobre o caso de uso multilocatário, consulte [padrões de design para aplicativos SaaS multilocatários e pesquisa cognitiva do Azure](search-modeling-multitenant-saas-applications.md).
 
 ## <a name="user-access"></a>Acesso do usuário
 
-Como um usuário acessa um índice e outros objetos é determinado pelo tipo de chave de API na solicitação. A maioria dos desenvolvedores cria e atribui [*chaves de consulta*](search-security-api-keys.md) para solicitações de pesquisa no lado do cliente. Uma chave de consulta concede acesso somente leitura ao conteúdo pesquisável dentro do índice.
+Como um usuário acessa um índice e outros objetos é determinado pelo tipo de chave de API na solicitação. A maioria dos desenvolvedores cria e atribui [chaves de consulta](search-security-api-keys.md) para solicitações de pesquisa no lado do cliente. Uma chave de consulta concede acesso somente leitura ao conteúdo pesquisável dentro do índice.
 
 Se você precisar de controle granular por usuário sobre os resultados da pesquisa, poderá criar filtros de segurança em suas consultas, retornando documentos associados a uma determinada identidade de segurança. Em vez de funções predefinidas e atribuições de função, o controle de acesso baseado em identidade é implementado como um *filtro* que corta os resultados da pesquisa de documentos e conteúdo com base em identidades. A tabela a seguir descreve duas abordagens para cortar resultados da pesquisa com conteúdo não autorizado.
 

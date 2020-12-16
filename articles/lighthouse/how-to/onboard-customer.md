@@ -1,18 +1,18 @@
 ---
 title: Integrar um cliente ao Azure Lighthouse
 description: Saiba como integrar um cliente ao Azure Lighthouse, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário usando o gerenciamento de recursos delegado do Azure.
-ms.date: 12/04/2020
+ms.date: 12/15/2020
 ms.topic: how-to
-ms.openlocfilehash: b353a8194b9f5dd48b315340435669531359e8d5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608462"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516134"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Integrar um cliente ao Azure Lighthouse
 
-Este artigo explica como você, como um provedor de serviços, pode integrar um cliente ao Azure Lighthouse. Quando você faz isso, os recursos delegados do cliente (assinaturas e/ou grupos de recursos) podem ser acessados e gerenciados por meio de seu próprio locatário do Azure Active Directory (Azure AD) usando o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md).
+Este artigo explica como você, como um provedor de serviços, pode integrar um cliente ao Azure Lighthouse. Quando você faz isso, os recursos delegados (assinaturas e/ou grupos de recursos) no locatário do Azure Active Directory do cliente (AD do Azure) podem ser gerenciados por meio de seu próprio locatário usando o [Gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md).
 
 > [!TIP]
 > Embora possamos nos referimos a provedores de serviços e clientes neste tópico, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar o mesmo processo para configurar o Azure Lighthouse e consolidar sua experiência de gerenciamento.
@@ -22,7 +22,7 @@ Você pode repetir o processo de integração para vários clientes. Quando um u
 Para acompanhar o impacto nas participações do cliente e receber reconhecimento, associe a ID do MPN (Microsoft Partner Network) a pelo menos uma conta de usuário que tenha acesso a cada uma das assinaturas integradas. Você precisará executar essa associação em seu locatário do provedor de serviços. É recomendável criar uma conta de entidade de serviço em seu locatário associado à ID do MPN e, em seguida, incluir essa entidade de serviço sempre que você carregar um cliente. Para obter mais informações, consulte [vincular sua ID de parceiro para habilitar o crédito ganho do parceiro em recursos delegados](partner-earned-credit.md).
 
 > [!NOTE]
-> Os clientes também podem ser integrados ao Azure Lighthouse quando compram uma oferta de serviço gerenciado (pública ou privada) que você [publica no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de integração descrito aqui junto com as ofertas publicadas no Azure Marketplace.
+> Como alternativa, os clientes podem ser integrados ao Azure Lighthouse quando compram uma oferta de serviço gerenciado (pública ou privada) que você [publica no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de integração descrito aqui junto com as ofertas publicadas no Azure Marketplace.
 
 O processo de integração requer que as ações sejam executadas dentro do locatário do provedor de serviços e do locatário do cliente. Todas essas etapas são descritas neste artigo.
 
@@ -303,7 +303,19 @@ az account list
 
 Se você precisar fazer alterações depois que o cliente tiver sido integrado, você poderá [atualizar a delegação](update-delegation.md). Você também pode [remover o acesso à delegação](remove-delegation.md) completamente.
 
+## <a name="troubleshooting"></a>Solução de problemas
+
+Se não for possível integrar o cliente com êxito ou se os usuários tiverem problemas para acessar os recursos delegados, verifique as seguintes dicas e requisitos e tente novamente.
+
+- O `managedbyTenantId` valor não deve ser o mesmo que a ID de locatário para a assinatura que está sendo integrada.
+- Você não pode ter várias atribuições no mesmo escopo com a mesma `mspOfferName` . 
+- O provedor de recursos **Microsoft. managedservices** deve ser registrado para a assinatura delegada. Isso deve ocorrer automaticamente durante a implantação, mas se não estiver, você poderá [registrá-lo manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+- As autorizações não devem incluir nenhum usuário com a função interna de [proprietário](../../role-based-access-control/built-in-roles.md#owner) ou com funções internas com [dataactions](../../role-based-access-control/role-definitions.md#dataactions).
+- Os grupos devem ser criados com o [**tipo de grupo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) definido como **segurança** e não **Microsoft 365**.
+- Os usuários que precisam exibir recursos no portal do Azure devem ter a função [leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de leitor).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
 - [Exiba e gerencie clientes](view-manage-customers.md) acessando **Meus clientes** no portal do Azure.
+- Saiba como [Atualizar](update-delegation.md) ou [remover](remove-delegation.md) uma delegação.

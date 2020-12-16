@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 0e209e8114d8f1791a00e87894fa12206edcf34e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 29a314553584843ed6241b9311e9d72b42ec8705
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700215"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516412"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerenciar chaves de API para um serviço de Pesquisa Cognitiva do Azure
 
@@ -27,7 +27,7 @@ As chaves são criadas com o serviço de pesquisa durante o provisionamento de s
 
 :::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Página do portal, configurações de recuperação, seção de chaves" border="false":::
 
-## <a name="what-is-an-api-key"></a>O que é uma api-key
+## <a name="what-is-an-api-key"></a>O que é uma chave de API?
 
 Uma chave de api é uma cadeia de caracteres composta de letras e números gerados aleatoriamente. Por meio de [permissões baseadas em função](search-security-rbac.md), você pode excluir ou ler as chaves, mas não pode substituir uma chave por uma senha definida pelo usuário ou usar o Active Directory como a metodologia de autenticação primária para acessar operações de pesquisa. 
 
@@ -76,7 +76,7 @@ Restringir o acesso e as operações em aplicativos cliente é essencial para pr
 
 Duas chaves de administração são criadas para cada serviço para que você possa girar uma chave primária usando a chave secundária para continuidade dos negócios.
 
-1. Na página **Settings**  > **chaves** de configurações, copie a chave secundária.
+1. Na página   > **chaves** de configurações, copie a chave secundária.
 2. Para todos os aplicativos, atualize as configurações de chave de API para usar a chave secundária.
 3. Regenere a chave primária.
 4. Atualize todos os aplicativos para usar a nova chave primária.
@@ -88,6 +88,7 @@ Você ainda pode acessar o serviço por meio do portal ou da camada de gerenciam
 Depois de criar novas chaves por meio do portal ou da camada de gerenciamento, o acesso é restaurado para seu conteúdo (índices, indexadores, fontes de dados, mapas de sinônimos) quando você tem as novas chaves e fornece essas chaves em solicitações.
 
 ## <a name="secure-api-keys"></a>Proteger api-keys
+
 A chave de segurança é protegida restringindo o acesso por meio do portal ou interfaces do Gerenciador de Recursos (PowerShell ou interface de linha de comando). Conforme observado, os administradores de assinatura podem exibir e gerar novamente todas as chaves de api. Como precaução, revise as atribuições de função para entender quem tem acesso às chaves admin.
 
 + No painel de serviços, clique em **Controle de Acesso (IAM)** e, em seguida, na guia **Atribuições de função** para exibir as atribuições de função do serviço.

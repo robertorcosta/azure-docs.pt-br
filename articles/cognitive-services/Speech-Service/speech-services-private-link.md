@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: c88a7820518d0a73bfb0e93d3b364190207b8f90
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 01a0171ed2b660fbabebf4276a74f8a3ea631bde
+ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051200"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97516534"
 ---
 # <a name="using-speech-services-with-private-endpoints-provided-by-azure-private-link"></a>Usando os serviços de fala com pontos de extremidade privados fornecidos pelo link privado do Azure
 
@@ -44,7 +44,7 @@ Os pontos de extremidade privados exigem o uso de [nomes de subdomínio personal
 >
 > Especialmente em casos em que o recurso de fala tem muitos modelos personalizados e projetos associados criados por meio do [Speech Studio](https://speech.microsoft.com/) , é **altamente** recomendável tentar a configuração com um recurso de teste e, em seguida, modificar apenas o usado na produção.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 - Vá para [portal do Azure](https://portal.azure.com/) e entre em sua conta do Azure
 - Selecionar o recurso de fala necessário
@@ -53,11 +53,11 @@ Os pontos de extremidade privados exigem o uso de [nomes de subdomínio personal
 - Um novo painel será exibido com instruções para criar um subdomínio personalizado exclusivo para seu recurso
 > [!WARNING]
 > Depois de criar um nome de domínio personalizado, ele **não poderá** ser alterado. Veja mais informações no aviso acima.
-- Depois que a operação for concluída, talvez você queira selecionar *chaves e ponto de extremidade* (grupo de *Gerenciamento de recursos* ) e verificar o nome do novo ponto de extremidade do recurso no formato de `{your custom name}.cognitiveservices.azure.com`
+- Depois que a operação for concluída, talvez você queira selecionar *chaves e ponto de extremidade* (grupo de *Gerenciamento de recursos* ) e verificar o nome do novo ponto de extremidade do recurso no formato de <p />`{your custom name}.cognitiveservices.azure.com`
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Esta seção requer a execução local do PowerShell versão 7. x ou posterior com o módulo Azure PowerShell versão 5.1.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisar instalar ou atualizar, consulte [instalar Azure PowerShell Module](/powershell/azure/install-Az-ps) .
+Esta seção requer a execução local do PowerShell versão 7. x ou posterior com o módulo Azure PowerShell versão 5.1.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
 Antes de continuar, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
@@ -275,10 +275,10 @@ Os serviços de fala têm a API REST para [conversão de fala em texto](rest-spe
 A conversão de fala em texto tem duas APIs REST diferentes. Cada API atende a uma finalidade diferente, usa pontos de extremidade diferentes e requer uma abordagem diferente quando usado individualmente no cenário de ponto de extremidades privado habilitado.
 
 As APIs REST de conversão de fala em texto são:
-- [v 1.0](rest-speech-to-text.md) é usado para transcrição online
-- o v 3.0 é usado para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . (Consulte [referência completa](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0))
+- [A API REST de fala em texto v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . o v 3.0 é um [sucessor da v 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- [A API REST de conversão de fala em texto para áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) é usada para transcrição online. 
 
-O uso de Speech-to-Text v 1.0 e API REST de conversão de texto em fala no cenário do ponto de extremidade privado é o mesmo e equivalente ao [caso do SDK de fala](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk) descrito posteriormente neste artigo. 
+O uso da API REST de fala em texto para a API REST de áudio curto e de conversão de texto em fala no cenário de ponto de extremidade privado é o mesmo e equivalente ao [caso do SDK de fala](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk) descrito posteriormente neste artigo. 
 
 A API REST de conversão de fala em texto v 3.0 está usando um conjunto diferente de pontos de extremidade e, portanto, requer uma abordagem diferente para o cenário do Endpoint privado habilitado.
 
@@ -287,7 +287,7 @@ Ambos os casos são descritos nas próximas subseções.
 
 ##### <a name="speech-to-text-rest-api-v30"></a>API REST de conversão de fala em texto v 3.0
 
-Normalmente, os recursos de fala usam [pontos de extremidade regionais de serviços cognitivas](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) para se comunicar com a [API REST de fala em texto v 3.0](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Esses recursos têm o seguinte formato de nomenclatura: <p/>`{region}.api.cognitive.microsoft.com`
+Normalmente, os recursos de fala usam [pontos de extremidade regionais de serviços cognitivas](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) para se comunicar com a [API REST de fala em texto v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). Esses recursos têm o seguinte formato de nomenclatura: <p/>`{region}.api.cognitive.microsoft.com`
 
 Este é um exemplo de URL de solicitação:
 
@@ -311,15 +311,18 @@ Em geral, falando depois de habilitar o nome de domínio personalizado para um r
 >
 > O nome de domínio personalizado do recurso de fala **não** contém informações sobre a região em que o recurso foi implantado. Portanto, a lógica do aplicativo descrita acima **não** funcionará e precisará ser alterada.
 
-##### <a name="speech-to-text-rest-api-v10-and-text-to-speech-rest-api"></a>API REST de conversão de fala em texto v 1.0, e de conversão de texto em fala
+##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de fala em texto para API REST de áudio curto e de conversão de texto em fala
 
-A API REST de [conversão de fala em texto v 1.0](rest-speech-to-text.md) e de conversão de [texto em fala](rest-text-to-speech.md) usam dois tipos de pontos de extremidade:
+[API REST de fala em texto para API REST de áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e de [conversão de texto em fala](rest-text-to-speech.md) usa dois tipos de pontos de extremidade:
 - [Pontos de extremidade regionais de serviços cognitivas](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) para se comunicar com a API REST de serviços cognitivas para obter um token de autorização
 - Pontos de extremidade especiais para todas as outras operações
 
 A descrição detalhada dos pontos de extremidade especiais e de como sua URL deve ser transformada para um recurso de fala habilitado para ponto de extremidades privado é fornecida nesta [subseção](#general-principle) da seção "uso com o SDK de fala" abaixo. O mesmo princípio descrito para o SDK se aplica à API REST de conversão de fala em texto v 1.0 e de conversão de texto em fala.
 
-Familiarize-se com o material na subseção mencionada no parágrafo anterior e veja o exemplo a seguir. (O exemplo descreve a API REST de conversão de texto em fala; o uso da API REST de fala em texto v 1.0 é totalmente equivalente)
+Familiarize-se com o material na subseção mencionada no parágrafo anterior e veja o exemplo a seguir. (O exemplo descreve a API REST de conversão de texto em fala; o uso da API REST de fala em texto para áudio curto é totalmente equivalente)
+
+> [!NOTE]
+> Ao usar a **API REST de fala em texto para um áudio curto** em cenários de ponto de extremidade privado, você precisa usar o token de autorização [passado pelo](rest-speech-to-text.md#request-headers) `Authorization` [cabeçalho](rest-speech-to-text.md#request-headers); passar a chave de assinatura de fala para o ponto de extremidade especial por meio do `Ocp-Apim-Subscription-Key` cabeçalho **não** funcionará e gerará o erro 401.
 
 **Exemplo de uso da API REST de conversão de texto em fala.**
 
@@ -497,14 +500,16 @@ Compare-o com a saída [desta seção](#optional-check-dns-resolution-from-other
 
 O uso da API REST de fala em texto v 3.0 é totalmente equivalente ao caso de [recursos de fala habilitados para ponto de extremidade privado](#speech-to-text-rest-api-v30).
 
-##### <a name="speech-to-text-rest-api-v10-and-text-to-speech-rest-api"></a>API REST de conversão de fala em texto v 1.0, e de conversão de texto em fala
+##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de fala em texto para API REST de áudio curto e de conversão de texto em fala
 
-Nesse caso, a API REST de fala para texto v 1.0 e o uso da API REST de conversão de texto em fala não têm nenhuma diferença para o caso geral e devem ser usados conforme descrito em documentação REST de [fala para texto v 1.0](rest-speech-to-text.md) e [API REST de conversão de texto em fala](rest-text-to-speech.md) .
+Nesse caso, a API REST de fala em texto para o uso da API REST de áudio curto e de conversão de texto em fala não tem nenhuma diferença para o caso geral, com uma exceção para a API REST de conversão de fala em texto para áudio curto (veja a observação abaixo). Ambas as APIs devem ser usadas conforme descrito em [API REST de fala para texto para documentação de API REST de áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e de [conversão de texto em fala](rest-text-to-speech.md) .
 
+> [!NOTE]
+> Ao usar a **API REST de fala em texto para um áudio curto** em cenários de domínio personalizado, você precisa usar o token de autorização [passado pelo](rest-speech-to-text.md#request-headers) `Authorization` [cabeçalho](rest-speech-to-text.md#request-headers); passar a chave de assinatura de fala para o ponto de extremidade especial por meio do `Ocp-Apim-Subscription-Key` cabeçalho **não** funcionará e gerará o erro 401.
 
 #### <a name="speech-resource-with-custom-domain-name-without-private-endpoints-usage-with-speech-sdk"></a>Recurso de fala com nome de domínio personalizado sem pontos de extremidade privados. Uso com o SDK de fala
 
-Usando o SDK de fala com o nome de domínio personalizado, os recursos de fala habilitados **sem** pontos de extremidade privados exigem a revisão e as alterações prováveis do código do aplicativo. Observe que essas alterações são comparadas **diferentes** ao caso de um [recurso de fala habilitado para ponto de extremidade privado](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk). Estamos trabalhando para obter suporte mais contínuo de ponto de extremidade privado/domínio personalizado.
+Usando o SDK de fala com o nome de domínio personalizado, os recursos de fala habilitados **sem** pontos de extremidade privados exigem a revisão e as alterações prováveis do código do aplicativo. Observe que essas alterações são comparadas **diferentes** ao caso de um [recurso de fala habilitado para ponto de extremidade privado](#speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-speech-sdk). Estamos trabalhando em um suporte mais contínuo de cenário de ponto de extremidade privado/domínio personalizado.
 
 Usaremos `my-private-link-speech.cognitiveservices.azure.com` como um nome DNS de recurso de fala de exemplo (domínio personalizado) para esta seção.
 
