@@ -1,7 +1,7 @@
 ---
 title: O que há de novo no gerenciamento de aplicativos Azure Active Directory
 description: Documentação nova e atualizada para o gerenciamento de aplicativos Azure Active Directory.
-ms.date: 12/03/2020
+ms.date: 12/15/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -9,16 +9,30 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 38602482f1a25f212829342fe691d7bb75666d31
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571004"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563391"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gerenciamento de aplicativos Azure Active Directory: o que há de novo
 
 Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos Azure Active Directory. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço de gerenciamento de aplicativos, consulte [What ' s New in Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)](add-application-portal-setup-oidc-sso.md)
+- [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md)
+- [Entender o logon único baseado em OIDC](configure-oidc-single-sign-on.md)
+- [Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Trabalhar com servidores proxy locais existentes](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Gerenciamento de aplicativos Azure Active Directory: o que há de novo](whats-new-docs.md)
+- [Usar o AD FS relatório de atividade do aplicativo (versão prévia) para migrar aplicativos para o Azure AD](migrate-adfs-application-activity.md)
+- [Publicar a Área de Trabalho Remota com o Proxy de aplicativo do Azure AD](application-proxy-integrate-with-remote-desktop-services.md)
+
 
 ## <a name="november-2020"></a>Novembro de 2020
 
@@ -53,7 +67,7 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 ### <a name="new-articles"></a>Novos artigos
 - [Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)](add-application-portal-setup-oidc-sso.md)
 - [Início Rápido: Atribuir usuários a um aplicativo que está usando o Azure AD como um provedor de identidade](add-application-portal-assign-users.md)
-- [O que há de novo no Docs?](whats-new-docs.md)
+- [O que há de novo no docs?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Artigos atualizados
