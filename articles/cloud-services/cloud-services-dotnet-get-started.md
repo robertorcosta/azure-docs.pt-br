@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a875c036c79419357f1134c32f62fdb060fec7c6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164356"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562286"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -57,7 +57,7 @@ As instruções do tutorial funcionam com qualquer um dos seguintes produtos:
 
 Se você não tiver nenhum desses produtos, o Visual Studio poderá ser instalado automaticamente ao instalar o SDK do Azure.
 
-## <a name="application-architecture"></a>Arquitetura do aplicativo
+## <a name="application-architecture"></a>Arquitetura de aplicativo
 O aplicativo armazena anúncios em um banco de dados SQL usando Entity Framework Code First para criar as tabelas e acessar os dados. Para cada anúncio, o banco de dados armazena duas URLs: uma para a imagem em tamanho total e outra para a miniatura.
 
 ![Tabela de anúncios](./media/cloud-services-dotnet-get-started/adtable.png)
@@ -218,12 +218,12 @@ Você usará uma [transformação de Web.config](https://www.asp.net/mvc/tutoria
 7. Em **Gerenciador de Soluções**, em **Funções** no projeto de serviço de nuvem, clique com o botão direito do mouse em **ContosoAdsWorker**; depois, clique em **Propriedades**.
 
     ![Captura de tela que realça a opção de menu Propriedades.](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
-8. Clique na guia **Configurações**.
+8. Clique na guia **Configurações** .
 9. Altere **Configuração de Serviço** para **Nuvem**.
 10. Selecione o campo **Valor** para a configuração `ContosoAdsDbConnectionString` e cole a cadeia de conexão que você copiou da seção anterior do tutorial.
 
      ![Cadeia de conexão de banco de dados para função de trabalho](./media/cloud-services-dotnet-get-started/workerdbcs.png)
-11. Salve suas alterações.  
+11. Salve as alterações.  
 
 ### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Configurar a solução para usar sua conta de armazenamento do Azure quando ela for executada no Azure
 As cadeias de conexão da conta de armazenamento do Azure do projeto de função de trabalho e do projeto de função Web são armazenadas nas configurações de ambiente do projeto de serviço de nuvem. Para cada projeto existe um conjunto separado de configurações a ser usado quando o aplicativo é executado localmente e quando é executado na nuvem. Você atualizará as configurações de ambiente de nuvem para os projetos de função de trabalho e da Web.
@@ -240,7 +240,7 @@ As cadeias de conexão da conta de armazenamento do Azure do projeto de função
 4. Na caixa de diálogo **Criar Cadeia de Conexão de Armazenamento**, clique em **Sua assinatura**, escolha a conta de armazenamento que você criou anteriormente e, em seguida, clique em **OK**. Se você não tiver feito logon, suas credenciais da conta do Azure serão solicitadas.
 
     ![Criar cadeia de conexão de armazenamento](./media/cloud-services-dotnet-get-started/createstoragecs.png)
-5. Salve suas alterações.
+5. Salve as alterações.
 6. Siga o mesmo procedimento que usou para a cadeia de conexão `StorageConnectionString` para definir a cadeia de conexão `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`.
 
     Essa cadeia de conexão é usada para o log.
@@ -375,7 +375,7 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
     ```
 
     Se você estiver usando o Visual Studio 2015 ou superior, substitua "v11.0" por "MSSQLLocalDB".
-2. Salve suas alterações.
+2. Salve as alterações.
 3. No projeto ContosoAdsCloudService, clique com o botão direito do mouse em ContosoAdsWeb abaixo de **Funções** e depois clique em **Propriedades**.
 
     ![Captura de tela que realça a opção de menu Propriedades em funções.](./media/cloud-services-dotnet-get-started/roleproperties.png)
@@ -385,7 +385,7 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
 5. Adicione uma configuração chamada *StorageConnectionString*. Defina **Tipo** como *ConnectionString* e defina **Valor** como *UseDevelopmentStorage=true*.
 
     ![Nova cadeia de conexão](./media/cloud-services-dotnet-get-started/scall.png)
-6. Salve suas alterações.
+6. Salve as alterações.
 7. Siga o mesmo procedimento para adicionar uma cadeia de conexão nas propriedades da função ContosoAdsWorker.
 8. Ainda na janela de propriedades de **ContosoAdsWorker [Role]** , adicione outra cadeia de conexão:
 
@@ -744,7 +744,7 @@ Esse código lê o banco de dados para obter a URL da imagem, converte a imagem 
 Caso algo não funcione enquanto você estiver seguindo as instruções nesse tutorial, veja a seguir alguns erros comuns e como resolvê-los.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
-O objeto `RoleEnvironment` é fornecido pelo Azure quando você executa uma aplicação no Azure ou quando você executa localmente usando o emulador de computação do Azure.  Se você obter esse erro quando estiver executando localmente, certifique-se de que definiu o projeto ContosoAdsCloudService como o projeto de inicialização. Isso define o projeto para ser executado usando o emulador de computação do Azure.
+O `RoleEnvironment` objeto é fornecido pelo Azure quando você executa um aplicativo no Azure ou quando executa localmente usando o emulador de computação do Azure.  Se você obter esse erro quando estiver executando localmente, certifique-se de que definiu o projeto ContosoAdsCloudService como o projeto de inicialização. Isso configura o projeto para ser executado usando o emulador de computação do Azure.
 
 Uma das coisas para as quais o aplicativo usa o RoleEnvironment do Azure é para obter os valores de cadeia de conexão armazenados nos arquivos *.cscfg* e, portanto, uma nova causa dessa exceção é uma cadeia de conexão perdida. Certifique-se de que criou a configuração StorageConnectionString para as configurações local e de nuvem no projeto ContosoAdsWeb, e de que criou as duas cadeias de conexão para as ambas as configurações do projeto ContosoAdsWorker. Se fizer uma pesquisa **Localizar Tudo** para StorageConnectionString na solução inteira, você deverá vê-la 9 vezes em 6 filas.
 
@@ -754,7 +754,7 @@ Tente alterar o número da porta usado pelo projeto Web. Clique com o botão dir
 Para obter uma outra alternativa que possa resolver o problema, consulte a seção a seguir.
 
 ### <a name="other-errors-when-running-locally"></a>Outros erros que podem ocorrer ao executar localmente
-Por padrão, os novos projetos de serviço de nuvem usam o emulador de computação expresso do Azure para simular o ambiente do Azure. Essa é uma versão leve do emulador de computação completo e em algumas condições o emulador completo funcionará quando a versão expressa não funcionar.  
+Por padrão, novos projetos de serviço de nuvem usam o emulador de computação do Azure Express para simular o ambiente do Azure. Essa é uma versão leve do emulador de computação completo e em algumas condições o emulador completo funcionará quando a versão expressa não funcionar.  
 
 Para alterar o projeto a fim de usar o emulador completo, clique com o botão direito do mouse no projeto ContosoAdsCloudService e depois clique em **Propriedades**. Na janela **Propriedades**, clique na guia **Web** e depois clique no botão de opção **Usar Emulador Completo**.
 
@@ -772,7 +772,7 @@ Para obter informações sobre como desenvolver para a nuvem, consulte [Criando 
 
 Para assistir a um vídeo de introdução às melhores práticas e padrões de armazenamento do Azure [Armazenamento do Microsoft Azure – O que há de novo, melhores práticas e padrões](https://channel9.msdn.com/Events/Build/2014/3-628).
 
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte os seguintes recursos:
 
 * [Serviços de nuvem do Azure Parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperf-fy20q4, tracking-python
-ms.openlocfilehash: 8dc8446ecbc203622ce7c2163136c1c26aac1cc7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3f128b7ee7fa8f690c2097a5d27e274ec1eb2a8a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032721"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559532"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usar o Azure Machine Learning Studio em uma rede virtual do Azure
 
@@ -71,7 +71,7 @@ O estúdio dá suporte à leitura de dados dos seguintes tipos de repositório d
 
 ### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurar os repositórios de armazenamento para usar identidade gerenciada pelo espaço de trabalho
 
-Depois de adicionar uma conta de armazenamento do Azure à sua rede virtual com um [ponto de extremidade de serviço](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou ponto de [extremidade particular](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), você deve configurar seu repositório de armazenamento para usar a autenticação de [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) . Isso permite que o estúdio acesse dados em sua conta de armazenamento.
+Depois de adicionar uma conta de armazenamento do Azure à sua rede virtual com um [ponto de extremidade de serviço](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou [ponto de extremidade particular](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), você deve configurar seu repositório de armazenamento para usar a autenticação de [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) . Isso permite que o estúdio acesse dados em sua conta de armazenamento.
 
 Azure Machine Learning usa [repositórios](concept-data.md#datastores) de armazenamento para se conectar a contas de armazenamento. Use as etapas a seguir para configurar um repositório de armazenamento para usar a identidade gerenciada:
 
@@ -89,7 +89,9 @@ Essas etapas adicionam a identidade gerenciada pelo espaço de trabalho como um 
 
 ### <a name="enable-managed-identity-authentication-for-default-storage-accounts"></a>Habilitar a autenticação de identidade gerenciada para contas de armazenamento padrão
 
-Cada espaço de trabalho Azure Machine Learning é fornecido com duas contas de armazenamento padrão, que são definidas quando você cria seu espaço de trabalho. O estúdio usa as contas de armazenamento padrão para armazenar os artefatos de experimento e modelo, que são fundamentais para determinados recursos no estúdio.
+Cada espaço de trabalho Azure Machine Learning tem duas contas de armazenamento padrão, uma conta de armazenamento de BLOBs padrão e uma conta de armazenamento de arquivo padrão, que são definidas quando você cria seu espaço de trabalho. Você também pode definir novos padrões na página de gerenciamento do **repositório de armazenamento** .
+
+![Captura de tela mostrando onde os repositórios de armazenamento padrão podem ser encontrados](./media/how-to-enable-studio-virtual-network/default-datastores.png)
 
 A tabela a seguir descreve porque você deve habilitar a autenticação de identidade gerenciada para suas contas de armazenamento padrão do espaço de trabalho.
 
@@ -98,8 +100,12 @@ A tabela a seguir descreve porque você deve habilitar a autenticação de ident
 |Armazenamento de BLOBs padrão do espaço de trabalho| Armazena ativos de modelo do designer. Você deve habilitar a autenticação de identidade gerenciada nessa conta de armazenamento para implantar modelos no designer. <br> <br> Você pode visualizar e executar um pipeline de designer se ele usa um repositório de armazenamento não padrão que foi configurado para usar a identidade gerenciada. No entanto, se você tentar implantar um modelo treinado sem identidade gerenciada habilitada no repositório de armazenamento padrão, a implantação falhará independentemente de quaisquer outros repositórios de armazenamento em uso.|
 |Repositório de arquivos padrão do espaço de trabalho| Armazena ativos de teste do AutoML. Você deve habilitar a autenticação de identidade gerenciada nessa conta de armazenamento para enviar experimentos de AutoML. |
 
-
-![Captura de tela mostrando onde os repositórios de armazenamento padrão podem ser encontrados](./media/how-to-enable-studio-virtual-network/default-datastores.png)
+> [!WARNING]
+> Há um problema conhecido em que o repositório de arquivos padrão não cria automaticamente a `azureml-filestore` pasta, que é necessária para enviar experimentos AutoML. Isso ocorre quando os usuários trazem um filestore existente para definir como o repositório de armazenamento padrão durante a criação do espaço de trabalho.
+> 
+> Para evitar esse problema, você tem duas opções: 1) usar o repositório de armazenamento padrão que é criado automaticamente para a criação do espaço de trabalho. 2) para colocar seu próprio repositório de armazenamento, verifique se o filestore está fora da VNet durante a criação do espaço de trabalho. Depois que o espaço de trabalho for criado, adicione a conta de armazenamento à rede virtual.
+>
+> Para resolver esse problema, remova a conta de armazenamento de filestore da rede virtual e adicione-a novamente à rede virtual.
 
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Conceder acesso do __leitor__ de identidade gerenciada do espaço de trabalho ao link privado do armazenamento

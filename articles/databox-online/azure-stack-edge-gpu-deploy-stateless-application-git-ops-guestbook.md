@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 8637b33ebc4b697ee6f498acb84ee33718c53f6d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448861"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561929"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implantar um aplicativo sem monitoração de estado do PHP com Redis em um cluster kubernetes habilitado para Arc na GPU pro Azure Stack Edge
 
@@ -31,6 +31,9 @@ Este procedimento destina-se a aqueles que revisaram as [cargas de trabalho do k
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de implantar o aplicativo sem estado, verifique se você concluiu os seguintes pré-requisitos no seu dispositivo e o cliente que será usado para acessar o dispositivo:
+
+> [!NOTE]
+> Este artigo contém referências ao termo subordinado, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 ### <a name="for-device"></a>Para dispositivo
 

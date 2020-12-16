@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287042"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560026"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicionar um fluxo do usuário de inscrição por autoatendimento a um aplicativo (visualização)
 > [!NOTE]
@@ -53,7 +53,7 @@ Para poder adicionar um fluxo de usuário de inscrição de autoatendimento aos 
 4. Alterne a opção **Habilitar a inscrição de autoatendimento de convidado por meio de fluxos de usuário (versão prévia)** para **Sim**.
 
    ![Habilitar inscrição de autoatendimento de convidado](media/self-service-sign-up-user-flow/enable-self-service-sign-up.png)
-
+5. Selecione **Salvar**.
 ## <a name="create-the-user-flow-for-self-service-sign-up"></a>Criar o fluxo de usuário para inscrição de autoatendimento
 
 Em seguida, você criará o fluxo de usuário para inscrição de autoatendimento e o adicionará a um aplicativo.

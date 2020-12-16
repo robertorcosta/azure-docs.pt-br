@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 1f5c0c7a877964eeb480fa958c7e76eb5706122f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95535547"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561266"
 ---
 # <a name="devops-practices-for-luis"></a>Práticas de DevOps para LUIS
 
@@ -98,7 +98,7 @@ Seja qual for a estratégia de ramificação que você adotar, um princípio fun
 
 Para dar suporte a trabalho independente em branches com um projeto LUIS:
 
-- **O Branch mestre tem seu próprio aplicativo LUIS.** Este aplicativo representa o estado atual de sua solução para seu projeto e sua versão ativa atual sempre deve mapear para a `.lu` origem que está no Branch mestre. Todas as atualizações na `.lu` origem para esse aplicativo devem ser examinadas e testadas para que esse aplicativo possa ser implantado para criar ambientes como a produção a qualquer momento. Quando as atualizações do `.lu` são mescladas no mestre de um Branch de recurso, você deve criar uma nova versão no aplicativo Luis e aumentar [o número de versão](#versioning).
+- **O Branch principal tem seu próprio aplicativo LUIS.** Este aplicativo representa o estado atual de sua solução para seu projeto e sua versão ativa atual sempre deve mapear para a `.lu` origem que está na ramificação principal. Todas as atualizações na `.lu` origem para esse aplicativo devem ser examinadas e testadas para que esse aplicativo possa ser implantado para criar ambientes como a produção a qualquer momento. Quando as atualizações do `.lu` são mescladas em Main de um Branch de recurso, você deve criar uma nova versão no aplicativo Luis e aumentar [o número de versão](#versioning).
 
 - **Cada ramificação de recurso deve usar sua própria instância de um aplicativo Luis**. Os desenvolvedores trabalham com esse aplicativo em uma ramificação de recursos sem o risco de afetar os desenvolvedores que trabalham em outras ramificações. Este aplicativo de ' ramificação de desenvolvimento ' é uma cópia funcional que deve ser excluída quando a ramificação de recurso é excluída.
 
@@ -108,13 +108,13 @@ Para dar suporte a trabalho independente em branches com um projeto LUIS:
 
 Os desenvolvedores podem trabalhar em atualizações em um aplicativo LUIS independentemente de outros branches:
 
-1. Criar uma ramificação de recurso a partir da ramificação principal (dependendo da sua estratégia de Branch, geralmente mestre ou desenvolvimento).
+1. Criar uma ramificação de recurso a partir da ramificação principal (dependendo da sua estratégia de ramificação, geralmente principal ou desenvolva).
 
 1. [Crie um novo aplicativo Luis no portal do Luis](./luis-how-to-start-new-app.md) (o "*aplicativo de ramificação de desenvolvimento*") somente para dar suporte ao trabalho na ramificação de recurso.
 
    * Se a `.lu` origem da sua solução já existir em seu Branch, pois ela foi salva após o trabalho feito em outra ramificação anterior no projeto, crie seu aplicativo Luis Branch de desenvolvimento importando o `.lu` arquivo.
 
-   * Se você estiver iniciando o trabalho em um novo projeto, ainda não terá a `.lu` origem do seu aplicativo Luis mestre no repositório. Você criará o `.lu` arquivo exportando seu aplicativo de Branch de desenvolvimento do portal quando tiver concluído o trabalho de ramificação de recursos e o enviará como parte de sua pr.
+   * Se você estiver iniciando o trabalho em um novo projeto, ainda não terá a `.lu` origem do seu aplicativo Luis principal no repositório. Você criará o `.lu` arquivo exportando seu aplicativo de Branch de desenvolvimento do portal quando tiver concluído o trabalho de ramificação de recursos e o enviará como parte de sua pr.
 
 1. Trabalhe na versão ativa do seu aplicativo de Branch de desenvolvimento para implementar as alterações necessárias. É recomendável que você trabalhe apenas em uma única versão do seu aplicativo de ramificação de desenvolvimento para todo o trabalho de ramificação de recursos. Se você criar mais de uma versão em seu aplicativo de Branch de desenvolvimento, tenha cuidado para controlar qual versão contém as alterações que você deseja fazer check-in ao gerar sua PR.
 
@@ -124,7 +124,7 @@ Os desenvolvedores podem trabalhar em atualizações em um aplicativo LUIS indep
 
 1. Faça check-in de suas atualizações e convide a revisão de pares de suas atualizações. Se você estiver usando o GitHub, você gerará uma [solicitação de pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-1. Quando as alterações forem aprovadas, mescle as atualizações no Branch mestre. Neste ponto, você criará uma nova [versão](./luis-how-to-manage-versions.md) do aplicativo *Master* Luis, usando a atualização `.lu` no mestre. Consulte [controle de versão](#versioning) para obter considerações sobre como definir o nome da versão.
+1. Quando as alterações forem aprovadas, mescle as atualizações na ramificação principal. Neste ponto, você criará uma nova [versão](./luis-how-to-manage-versions.md) do aplicativo Luis *principal* , usando o atualizado `.lu` no principal. Consulte [controle de versão](#versioning) para obter considerações sobre como definir o nome da versão.
 
 1. Quando o Branch de recurso é excluído, é uma boa ideia excluir o aplicativo LUIS Branch de desenvolvimento que você criou para o trabalho de ramificação de recursos.
 
@@ -150,7 +150,7 @@ Você pode dar suporte a vários desenvolvedores que trabalham na mesma ramifica
 
 ### <a name="incorporating-changes-from-one-branch-to-another-with-rebase-or-merge"></a>Incorporando alterações de uma ramificação para outra com a troca de base ou mesclagem
 
-Alguns outros desenvolvedores da sua equipe que trabalham em outra ramificação podem ter feito atualizações na `.lu` origem e mesclá-los no Branch mestre após a criação do Branch de recursos. Talvez você queira incorporar suas alterações em sua versão de trabalho antes de continuar a fazer alterações no seu Branch de recursos. Você pode fazer isso [rebasear ou mesclar para o mestre](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) da mesma maneira que qualquer outro ativo de código. Como o aplicativo LUIS no formato LUDown é legível por humanos, ele dá suporte à mesclagem usando ferramentas de mesclagem padrão.
+Alguns outros desenvolvedores da sua equipe que trabalham em outra ramificação podem ter feito atualizações na `.lu` origem e mesclá-los no Branch principal após a criação do Branch de recursos. Talvez você queira incorporar suas alterações em sua versão de trabalho antes de continuar a fazer alterações no seu Branch de recursos. Você pode fazer isso [rebasear ou mesclar para o principal](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) da mesma forma que qualquer outro ativo de código. Como o aplicativo LUIS no formato LUDown é legível por humanos, ele dá suporte à mesclagem usando ferramentas de mesclagem padrão.
 
 Siga estas dicas se estiver rebaseando seu aplicativo LUIS em uma ramificação de recurso:
 
@@ -162,7 +162,7 @@ Siga estas dicas se estiver rebaseando seu aplicativo LUIS em uma ramificação 
 
 ### <a name="merge-prs"></a>Mesclar PRs
 
-Depois que sua PR for aprovada, você poderá mesclar suas alterações em seu Branch mestre. Nenhuma consideração especial se aplica à origem do LUDown para um aplicativo LUIS: é legível por humanos e, portanto, dá suporte à mesclagem usando ferramentas de mesclagem padrão. Quaisquer conflitos de mesclagem podem ser resolvidos da mesma maneira que com outros arquivos de origem.
+Depois que sua PR for aprovada, você poderá mesclar suas alterações em seu Branch principal. Nenhuma consideração especial se aplica à origem do LUDown para um aplicativo LUIS: é legível por humanos e, portanto, dá suporte à mesclagem usando ferramentas de mesclagem padrão. Quaisquer conflitos de mesclagem podem ser resolvidos da mesma maneira que com outros arquivos de origem.
 
 Depois que sua PR foi mesclada, é recomendável limpar:
 
@@ -173,7 +173,7 @@ Depois que sua PR foi mesclada, é recomendável limpar:
 Da mesma maneira que com os ativos de código do aplicativo, você deve escrever testes de unidade para acompanhar as atualizações do aplicativo LUIS. Você deve empregar fluxos de trabalho de integração contínua para testar:
 
 - Atualizações em uma PR antes de a PR ser mesclada
-- O aplicativo LUIS da ramificação mestre após uma PR foi aprovado e as alterações foram mescladas no mestre.
+- O aplicativo LUIS do Branch principal após uma PR foi aprovado e as alterações foram mescladas no principal.
 
 Para obter mais informações sobre o teste do LUIS DevOps, consulte [Testing for DevOps for Luis](luis-concept-devops-testing.md). Para obter mais detalhes sobre como implementar fluxos de trabalho, consulte [fluxos de trabalho de automação para Luis DevOps](luis-concept-devops-automation.md).
 
@@ -185,9 +185,9 @@ Um aplicativo LUIS no formato LUDown é legível por humanos, que dá suporte à
 
 Um aplicativo consiste em vários componentes que podem incluir coisas como um bot em execução no [serviço de bot do Azure](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), [serviço de fala do Azure](../speech-service/overview.md)e muito mais. Para atingir o objetivo de aplicativos menos rígidos, use o [controle de versão](/azure/devops/learn/git/what-is-version-control) para que cada componente de um aplicativo tenha versão independente, permitindo que os desenvolvedores detectem alterações significativas ou atualizações apenas examinando o número de versão. É mais fácil fazer a versão do seu aplicativo LUIS independentemente de outros componentes, se você o mantiver em seu próprio repositório.
 
-O aplicativo LUIS para o Branch mestre deve ter um esquema de controle de versão aplicado. Ao mesclar atualizações para o `.lu` para um aplicativo Luis no mestre, você importará essa origem atualizada para uma nova versão no aplicativo Luis para a ramificação mestre.
+O aplicativo LUIS para a ramificação principal deve ter um esquema de controle de versão aplicado. Ao mesclar atualizações para o `.lu` para um aplicativo Luis no principal, você importará essa origem atualizada para uma nova versão no aplicativo Luis para a ramificação principal.
 
-É recomendável que você use um esquema de controle de versão numérico para a versão do aplicativo LUIS mestre, por exemplo:
+É recomendável que você use um esquema de controle de versão numérico para a versão principal do aplicativo LUIS, por exemplo:
 
 `major.minor[.build[.revision]]`
 
@@ -199,7 +199,7 @@ A versão principal/secundária pode ser usada para indicar o escopo das altera�
 * Versão secundária: uma alteração secundária compatível com versões anteriores, como após um novo treinamento significativo
 * Compilação: nenhuma alteração de funcionalidade, apenas uma compilação diferente.
 
-Depois de determinar o número de versão para a revisão mais recente do seu aplicativo LUIS mestre, você precisará criar e testar a nova versão do aplicativo e publicá-la em um ponto de extremidade onde ela possa ser usada em diferentes ambientes de compilação, como garantia de qualidade ou produção. É altamente recomendável que você automatize todas essas etapas em um fluxo de trabalho de CI (integração contínua).
+Depois de determinar o número de versão para a revisão mais recente do seu aplicativo LUIS principal, você precisará criar e testar a nova versão do aplicativo e publicá-la em um ponto de extremidade onde ela possa ser usada em diferentes ambientes de compilação, como garantia de qualidade ou produção. É altamente recomendável que você automatize todas essas etapas em um fluxo de trabalho de CI (integração contínua).
 
 Consulte:
 - [Fluxos de trabalho de automação](luis-concept-devops-automation.md) para obter detalhes sobre como implementar um fluxo de trabalho de CI para testar e liberar um aplicativo Luis.
@@ -207,9 +207,9 @@ Consulte:
 
 ### <a name="versioning-the-feature-branch-luis-app"></a>Controle de versão do aplicativo LUIS ' ramificação de recurso '
 
-Quando você estiver trabalhando com um aplicativo LUIS "Branch de desenvolvimento" que você criou para dar suporte ao trabalho em uma ramificação de recursos, você exportará seu aplicativo quando seu trabalho for concluído e você incluirá o atualizado `'lu` em seu pr. A ramificação em seu repositório e o aplicativo LUIS ' Branch de desenvolvimento ' devem ser excluídos depois que a PR é mesclada no mestre. Como esse aplicativo existe apenas para dar suporte ao trabalho na ramificação de recursos, não há nenhum esquema de controle de versão específico que você precise aplicar nesse aplicativo.
+Quando você estiver trabalhando com um aplicativo LUIS "Branch de desenvolvimento" que você criou para dar suporte ao trabalho em uma ramificação de recursos, você exportará seu aplicativo quando seu trabalho for concluído e você incluirá o atualizado `'lu` em seu pr. A ramificação em seu repositório e o aplicativo LUIS ' Branch de desenvolvimento ' devem ser excluídos depois que a PR é mesclada em Main. Como esse aplicativo existe apenas para dar suporte ao trabalho na ramificação de recursos, não há nenhum esquema de controle de versão específico que você precise aplicar nesse aplicativo.
 
-Quando as alterações na sua PR são mescladas no mestre, isso ocorre quando o controle de versão deve ser aplicado, de modo que todas as atualizações para o mestre tenham controle de versão de forma independente.
+Quando as alterações na sua PR são mescladas no principal, isso ocorre quando o controle de versão deve ser aplicado, de modo que todas as atualizações para o principal tenham controle de versão de forma independente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

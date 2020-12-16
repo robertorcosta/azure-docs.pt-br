@@ -10,16 +10,34 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.author: aahi
-ms.openlocfilehash: 7b035af85e250d97fb05625bf386bec8dc94a74c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.custom: references_regions
+ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505249"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562558"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
 Neste artigo, usamos a API REST do Análise de Texto e o [postmaster](https://www.postman.com/downloads/) para demonstrar os principais conceitos. A API fornece vários pontos de extremidade síncronos e assíncronos para usar os recursos do serviço. 
+
+## <a name="create-a-text-analytics-resource"></a>Criar um recurso de Análise de Texto
+
+> [!NOTE]
+> * Você precisará de um recurso de Análise de Texto usando um tipo de [preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) padrão (S) se desejar usar `/analyze` os `/health` pontos de extremidade ou. O `/analyze` ponto de extremidade está incluído em seu [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+Antes de usar o API de Análise de Texto, você precisará criar um recurso do Azure com uma chave e um ponto de extremidade para seus aplicativos. 
+
+1.  Primeiro, vá para a [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e crie um novo recurso de análise de texto, se você ainda não tiver um. Escolha um [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+
+2.  Selecione a região que você deseja usar para o ponto de extremidade.  Observe que os `/analyze` `/health` pontos de extremidade e estão disponíveis apenas nas seguintes regiões: oeste dos EUA 2, leste dos EUA 2, EUA Central, Europa Setentrional e Europa Ocidental.
+
+3.  Crie o recurso Análise de Texto e vá para a "chaves e folha de ponto de extremidade" à esquerda da página. Copie a chave a ser usada posteriormente quando você chamar as APIs. Você o adicionará posteriormente como um valor para o `Ocp-Apim-Subscription-Key` cabeçalho.
+
+## <a name="using-the-api-synchronously"></a>Usando a API de forma síncrona
+
+Você pode chamar Análise de Texto de forma síncrona (para cenários de baixa latência). Você precisa chamar cada API (recurso) separadamente ao usar a API síncrona. Se você precisar chamar vários recursos, confira a seção abaixo sobre como chamar Análise de Texto de forma assíncrona. 
 
 ## <a name="using-the-api-asynchronously"></a>Usando a API de forma assíncrona
 
@@ -48,24 +66,16 @@ Consulte a tabela abaixo para ver quais recursos podem ser usados de forma assí
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-
-> [!NOTE]
-> * Você precisará de um recurso de Análise de Texto usando um tipo de [preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) padrão (S) se desejar usar `/analyze` os `/health` pontos de extremidade ou.
-
-1.  Primeiro, vá para a [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e crie um novo recurso de análise de texto, se você ainda não tiver um. Escolha o **tipo de preço Standard (S)** se desejar usar os `/analyze` pontos de `/health` extremidade ou. O `/analyze` ponto de extremidade está incluído em seu [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
-2.  Selecione a região que você deseja usar para o ponto de extremidade.  Observe que os `/analyze` `/health` pontos de extremidade e estão disponíveis apenas nas seguintes regiões: oeste dos EUA 2, leste dos EUA 2, EUA Central, Europa Setentrional e Europa Ocidental.
-
-3.  Crie o recurso Análise de Texto e vá para a "chaves e folha de ponto de extremidade" à esquerda da página. Copie a chave a ser usada posteriormente quando você chamar as APIs. Você o adicionará posteriormente como um valor para o `Ocp-Apim-Subscription-Key` cabeçalho.
-
 
 <a name="json-schema"></a>
 
-## <a name="api-request-format"></a>Formato de solicitação de API
+## <a name="api-request-formats"></a>Formatos de solicitação de API
+
+Você pode enviar chamadas síncronas e assíncronas para o API de Análise de Texto.
 
 #### <a name="synchronous"></a>[Síncrono](#tab/synchronous)
+
+### <a name="synchronous-requests"></a>Solicitações síncronas
 
 O formato das solicitações de API é o mesmo para todas as operações síncronas. Os documentos são enviados em um objeto JSON como texto não estruturado bruto. Não há suporte para XML. O esquema JSON consiste nos elementos descritos abaixo.
 
@@ -89,7 +99,9 @@ Veja a seguir um exemplo de uma solicitação de API para os pontos de extremida
 }
 ```
 
-#### <a name="analyze"></a>[Analisar](#tab/analyze)
+#### <a name="asynchronous"></a>[Assíncronos](#tab/asynchronous)
+
+### <a name="asynchronous-requests-to-the-analyze-endpoint"></a>Solicitações assíncronas para o `/analyze` ponto de extremidade
 
 > [!NOTE]
 > A versão mais recente da biblioteca de cliente do Análise de Texto permite que você chame operações de análise assíncrona usando um objeto de cliente. Você pode encontrar exemplos no GitHub:
@@ -154,7 +166,7 @@ O `/analyze` ponto de extremidade permite que você escolha qual dos recursos de
 
 ```
 
-#### <a name="text-analytics-for-health"></a>[Análise de Texto para integridade](#tab/health)
+### <a name="asynchronous-requests-to-the-health-endpoint"></a>Solicitações assíncronas para o `/health` ponto de extremidade
 
 O formato de solicitações de API para o Análise de Texto para API de integridade hospedada é o mesmo para seu contêiner. Os documentos são enviados em um objeto JSON como texto não estruturado bruto. Não há suporte para XML. O esquema JSON consiste nos elementos descritos abaixo.  Preencha e envie o formulário de [solicitação de serviços cognitivas](https://aka.ms/csgate) para solicitar acesso ao análise de texto para visualização pública de integridade. Você não será cobrado por Análise de Texto para uso de integridade. 
 
@@ -194,6 +206,8 @@ No postmaster (ou outra ferramenta de teste de API Web), adicione o ponto de ext
 
 #### <a name="synchronous"></a>[Síncrono](#tab/synchronous)
 
+### <a name="endpoints-for-sending-synchronous-requests"></a>Pontos de extremidade para enviar solicitações síncronas
+
 | Recurso | Tipo de solicitação | Pontos de extremidade do recurso |
 |--|--|--|
 | Detecção de idioma | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
@@ -204,20 +218,22 @@ No postmaster (ou outra ferramenta de teste de API Web), adicione o ponto de ext
 | Reconhecimento de entidade nomeada-PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | Reconhecimento de entidade nomeada-PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
 
-#### <a name="analyze"></a>[Analisar](#tab/analyze)
+#### <a name="asynchronous"></a>[Assíncronos](#tab/asynchronous)
+
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-analyze-endpoint"></a>Pontos de extremidade para envio de solicitações assíncronas para o `/analyze` Endpoint
 
 | Recurso | Tipo de solicitação | Pontos de extremidade do recurso |
 |--|--|--|
 | Enviar trabalho de análise | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze` |
 | Obter resultados e status da análise | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>` |
 
-#### <a name="text-analytics-for-health"></a>[Análise de Texto para integridade](#tab/health)
+### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>Pontos de extremidade para envio de solicitações assíncronas para o `/health` Endpoint
 
 | Recurso | Tipo de solicitação | Pontos de extremidade do recurso |
 |--|--|--|
 | Enviar Análise de Texto para trabalho de integridade  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
 | Obter resultados e status do trabalho | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Cancelar trabalho | Delete (excluir) | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Cancelar trabalho | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -267,6 +283,8 @@ Observe que, para as operações ou assíncronas `/analyze` `/health` , os resul
  
 # <a name="synchronous"></a>[Síncrono](#tab/synchronous)
 
+### <a name="example-responses-for-synchronous-operation"></a>Respostas de exemplo para a operação síncrona
+
 As respostas do ponto de extremidade síncrono irão variar dependendo do ponto de extremidade usado. Consulte os artigos a seguir para obter respostas de exemplo.
 
 + [Detecção de idioma](text-analytics-how-to-language-detection.md#step-3-view-the-results)
@@ -274,70 +292,15 @@ As respostas do ponto de extremidade síncrono irão variar dependendo do ponto 
 + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Reconhecimento de entidade](text-analytics-how-to-entity-linking.md#view-results)
 
-# <a name="analyze"></a>[Analisar](#tab/analyze)
+# <a name="asynchronous"></a>[Assíncronos](#tab/asynchronous)
+
+### <a name="example-responses-for-asynchronous-operations"></a>Respostas de exemplo para operações assíncronas
 
 Se for bem-sucedido, a solicitação GET para o `/analyze` ponto de extremidade retornará um objeto que contém as tarefas atribuídas. Por exemplo, `keyPhraseExtractionTasks`. Essas tarefas contêm o objeto de resposta do recurso de Análise de Texto apropriado. Consulte os artigos a seguir para obter mais informações.
 
 + [Extração de frases-chave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Reconhecimento de entidade](text-analytics-how-to-entity-linking.md#view-results)
-
-
-```json
-{
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
-}
-```
-
-# <a name="text-analytics-for-health"></a>[Análise de Texto para integridade](#tab/health)
-
-Consulte o artigo a seguir para obter mais informações sobre a Análise de Texto para a resposta da API assíncrona da integridade:
-
 + [Análise de Texto para integridade](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
-
 
 --- 
 

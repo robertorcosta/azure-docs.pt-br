@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ffae02a11f2857e72cf7c5d2bbc84d8ab6174e17
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d8ed429003a9da7ae93fb93f4218cd66767dcd7b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425715"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562269"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurar a anexação de aplicativo MSIX com o portal do Azure
 
@@ -31,6 +31,7 @@ Veja o que você precisa para configurar o anexo do aplicativo MSIX:
 
 - Uma implantação funcional da Área de Trabalho Virtual do Windows. Para saber como implantar a área de trabalho virtual do Windows (clássica), consulte [criar um locatário na área de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para saber como implantar a área de trabalho virtual do Windows com a integração do Azure Resource Manager, confira [criar um pool de hosts com o portal do Azure](./create-host-pools-azure-marketplace.md).
 - Um pool de hosts da área de trabalho virtual do Windows com pelo menos um host de sessão ativo.
+- Esse pool de hosts deve estar no ambiente de validação. 
 - A ferramenta de empacotamento MSIX.
 - Um aplicativo MSIX expandido em uma imagem MSIX que é carregada em um compartilhamento de arquivos.
 - Um compartilhamento de arquivos em sua implantação de área de trabalho virtual do Windows onde o pacote MSIX será armazenado.

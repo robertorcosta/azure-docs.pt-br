@@ -1,19 +1,21 @@
 ---
 title: Solucionar problemas do Aplicativo Azure insights Depurador de Instantâneos
-description: Este artigo apresenta as etapas e as informações de solução de problemas para ajudar os desenvolvedores que estão tendo problemas para habilitar ou usar Application Insights Depurador de Instantâneos.
+description: Este artigo apresenta as etapas e as informações de solução de problemas para ajudar os desenvolvedores a habilitar e usar Application Insights Depurador de Instantâneos.
 ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 49a4ab0315dad539a594a20e53eae9fd2890e551
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 5dd1f799634fac223670db5c38effbe7fc29cf6f
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504961"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560892"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
-Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas. Pode haver vários motivos diferentes para não gerar instantâneos. Você pode executar a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
+Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas.
+
+Pode haver vários motivos diferentes pelos quais os instantâneos não são gerados. Você pode começar executando a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
 
 ## <a name="use-the-snapshot-health-check"></a>Use a verificação de integridade do instantâneo
 Vários problemas comuns resultam na não exibição do Abrir Instantâneo de Depuração. Usando um Coletor de Instantâneo desatualizado, por exemplo; alcançando o limite de carregamento diário; ou talvez o instantâneo está simplesmente demorando muito para carregar. Use a Verificação de Integridade de Instantâneo para solucionar problemas comuns.
@@ -57,12 +59,34 @@ Para verificar a configuração, abra o arquivo web.config e localize a seção 
 > Se o targetFramework for 4,7 ou superior, o Windows determinará os protocolos disponíveis. No serviço Azure App, o TLS 1,2 está disponível. No entanto, se você estiver usando sua própria máquina virtual, talvez seja necessário habilitar o TLS 1,2 no sistema operacional.
 
 ## <a name="preview-versions-of-net-core"></a>Versões prévias do .NET Core
-Se o aplicativo usar uma versão de visualização do .NET Core e Depurador de Instantâneos tiver sido habilitado por meio do [painel de Application insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, depurador de instantâneos talvez não seja iniciado. Siga as instruções em [habilitar depurador de instantâneos para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) com o aplicativo *, **além** de _ para habilitar por meio do [painel Application insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Se você estiver usando uma versão de visualização do .NET Core ou seu aplicativo fizer referência Application Insights SDK, direta ou indiretamente, por meio de um assembly dependente, siga as instruções para [habilitar o depurador de instantâneos para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json).
 
+## <a name="check-the-diagnostic-services-site-extension-status-page"></a>Verificar a página de status da extensão de site dos serviços de diagnóstico
+Se Depurador de Instantâneos foi habilitado por meio do [painel de Application insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, ele foi habilitado pela extensão de site dos serviços de diagnóstico.
+
+Você pode verificar a página de status dessa extensão indo para a seguinte URL: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
+
+> [!NOTE]
+> O domínio do link da página de status irá variar dependendo da nuvem.
+Esse domínio será o mesmo que o site de gerenciamento do kudu para o serviço de aplicativo.
+
+Esta página de status mostra o estado de instalação do criador de perfil e dos agentes de Snapshot Collector. Se houver um erro inesperado, ele será exibido e mostrará como corrigi-lo.
+
+Você pode usar o site de gerenciamento do kudu para o serviço de aplicativo para obter a URL base desta página de status:
+1. Abra seu aplicativo de Serviço de Aplicativo no portal do Azure.
+2. Selecione **ferramentas avançadas** ou procure **kudu**.
+3. Selecione **Ir**.
+4. Quando você estiver no site de gerenciamento do kudu, na URL, **acrescente o seguinte `/DiagnosticServices` e pressione Enter**.
+ Ele terminará da seguinte maneira: `https://<kudu-url>/DiagnosticServices`
+
+Ele exibirá uma página de status semelhante à seguinte: ![ página de status dos serviços de diagnóstico](./media/diagnostic-services-site-extension/status-page.png)
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Atualize para a versão mais recente do pacote NuGet
+Com base em como o Depurador de Instantâneos foi habilitado, consulte as seguintes opções:
 
-Se Depurador de Instantâneos tiver sido habilitado por meio do [painel de Application insights no portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), seu aplicativo já deverá estar executando o pacote NuGet mais recente. Se Depurador de Instantâneos tiver sido habilitado incluindo o pacote NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , use o Gerenciador de pacotes NuGet do Visual Studio para verificar se você está usando a versão mais recente de Microsoft. ApplicationInsights. SnapshotCollector.
+* Se Depurador de Instantâneos tiver sido habilitado por meio do [painel de Application insights no portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), seu aplicativo já deverá estar executando o pacote NuGet mais recente.
+
+* Se Depurador de Instantâneos tiver sido habilitado incluindo o pacote NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) , use o Gerenciador de pacotes NuGet do Visual Studio para verificar se você está usando a versão mais recente de Microsoft. ApplicationInsights. SnapshotCollector.
 
 Para obter as atualizações mais recentes e as correções de bugs, [consulte as notas de versão](./snapshot-collector-release-notes.md).
 
@@ -71,12 +95,12 @@ Para obter as atualizações mais recentes e as correções de bugs, [consulte a
 Depois que um instantâneo é criado, um arquivo de minidespejo (. dmp) é criado no disco. Um processo separado do carregador cria esse arquivo de minidespejo e o carrega, com quaisquer PDBs associados, para o armazenamento do Depurador de Instantâneos do Application Insights. Após o minidespejo ser carregado com êxito, ele será excluído do disco. Os arquivos de log do processo de carregador são mantidos em disco. Em um ambiente de Serviço de Aplicativo, você pode encontrar esses logs em `D:\Home\LogFiles`. Use o site de gerenciamento do Kudu para o Serviço de Aplicativo para localizar esses arquivos de log.
 
 1. Abra seu aplicativo de Serviço de Aplicativo no portal do Azure.
-2. Clique em _ * ferramentas avançadas * * ou procure por **kudu**.
-3. Clique em **Ir**.
-4. Na caixa de listagem suspensa do **Console de Depuração** , selecione **CMD**.
-5. Clique em **Arquivos de Log**.
+2. Selecione **ferramentas avançadas** ou procure **kudu**.
+3. Selecione **Ir**.
+4. Na caixa de listagem suspensa do **Console de Depuração**, selecione **CMD**.
+5. Selecione arquivos de **log**.
 
-Você deverá ver pelo menos um arquivo com um nome que começa com `Uploader_` ou `SnapshotUploader_` e uma extensão `.log`. Clique no ícone apropriado para baixar os arquivos de log ou abri-los em um navegador.
+Você deverá ver pelo menos um arquivo com um nome que começa com `Uploader_` ou `SnapshotUploader_` e uma extensão `.log`. Selecione o ícone apropriado para baixar todos os arquivos de log ou abri-los em um navegador.
 O nome do arquivo inclui um sufixo exclusivo que identifica a instância de serviço de aplicativo. Se a instância do Serviço de Aplicativo é hospedada em mais de uma máquina, há arquivos de log separados para cada máquina. Quando o carregador detectar um novo arquivo de minidespejo, ele será registrado no arquivo de log. Aqui está um exemplo de um instantâneo e upload bem-sucedido:
 
 ```
@@ -108,9 +132,9 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 > O exemplo acima é da versão 1.2.0 do pacote do NuGet Microsoft.ApplicationInsights.SnapshotCollector. Em versões anteriores, o processo de carregador é chamado `MinidumpUploader.exe` e o log é menos detalhado.
 
 No exemplo anterior, a chave de instrumentação é `c12a605e73c44346a984e00000000000`. Esse valor deve corresponder à chave de instrumentação para seu aplicativo.
-O minidespejo é associado a um instantâneo com a ID `139e411a23934dc0b9ea08a626db16c5`. Você pode usar essa ID mais tarde para localizar a telemetria de exceção associada na análise de Application Insights.
+O minidespejo é associado a um instantâneo com a ID `139e411a23934dc0b9ea08a626db16c5`. Você pode usar essa ID posteriormente para localizar o registro de exceção associado no Application Insights Analytics.
 
-O carregador examina novos PDBs cerca de uma vez a cada 15 minutos. Aqui está um exemplo:
+O carregador examina novos PDBs cerca de uma vez a cada 15 minutos. Veja um exemplo:
 
 ```
 SnapshotUploader.exe Information: 0 : PDB rescan requested.
@@ -126,11 +150,14 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 Para aplicativos que _não_ estão hospedados no Serviço de Aplicativo, os logs de carregador estão na mesma pasta que o minidespejo: `%TEMP%\Dumps\<ikey>` (em que `<ikey>` é sua chave de instrumentação).
 
 ## <a name="troubleshooting-cloud-services"></a>Solucionando problemas dos Serviços de Nuvem
-Para funções nos Serviços de Nuvem, a pasta temporária padrão pode ser muito pequena para conter os arquivos de minidespejo, levando a instantâneos perdidos.
+Nos serviços de nuvem, a pasta temporária padrão pode ser muito pequena para conter os arquivos de minidespejo, levando a instantâneos perdidos.
+
 O espaço necessário depende do conjunto de trabalho total do seu aplicativo e o número de instantâneos simultâneos.
-O conjunto de trabalho de uma função Web do ASP.NET de 32 bits tem normalmente entre 200 MB e 500 MB.
-Permita pelo menos dois instantâneos simultâneos.
-Por exemplo, se seu aplicativo usa 1 GB do conjunto de trabalho total, você deve garantir que há pelo menos 2 GB de espaço em disco para armazenar instantâneos.
+
+O conjunto de trabalho de uma função Web do ASP.NET de 32 bits tem normalmente entre 200 MB e 500 MB. Permita pelo menos dois instantâneos simultâneos.
+
+Por exemplo, se seu aplicativo usa 1 GB de conjunto de trabalho total, você deve verificar se há pelo menos 2 GB de espaço em disco para armazenar instantâneos.
+
 Siga estas etapas para configurar a função Serviço de Nuvem com um recurso local dedicado para instantâneos.
 
 1. Adicione um novo recurso de local para seu Serviço de Nuvem ao editar o arquivo de definição (.csdef) do Serviço de Nuvem. O exemplo a seguir define um recurso chamado `SnapshotStore` com um tamanho de 5 GB.
@@ -187,7 +214,7 @@ O Snapshot Collector verifica alguns locais bem conhecidos, certificando-se de t
 - APPDATA
 - TEMP
 
-Se não for possível encontrar uma pasta adequada, o Snapshot Collector relatará um erro afirmando que _"Não foi possível localizar uma pasta de cópia de sombra adequada."_
+Se não for possível encontrar uma pasta adequada, Snapshot Collector relatará um erro dizendo _"não foi possível encontrar uma pasta de cópia de sombra adequada"._
 
 Se a cópia falhar, o Snapshot Collector relatará um erro `ShadowCopyFailed`.
 
@@ -222,24 +249,26 @@ Ou, se estiver usando appsettings.json com um aplicativo .NET Core:
 
 ## <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Usar a pesquisa do Application Insights para encontrar exceções com instantâneos
 
-Quando um instantâneo é criado, a exceção lançada é marcada com uma ID de instantâneo. A ID do instantâneo é incluída como uma propriedade personalizada quando a telemetria de exceção é relatada ao Application Insights. Usando a **Pesquisa** no Application Insights, você pode localizar toda a telemetria com a propriedade personalizada `ai.snapshot.id`.
+Quando um instantâneo é criado, a exceção lançada é marcada com uma ID de instantâneo. Essa ID de instantâneo é incluída como uma propriedade personalizada quando a exceção é relatada para Application Insights. Usando a **pesquisa** no Application insights, você pode encontrar todos os registros com a `ai.snapshot.id` propriedade personalizada.
 
 1. Navegue até o recurso do Application Insights no portal do Azure.
-2. Clique em **Pesquisar**.
+2. Selecione **Pesquisar**.
 3. Digite `ai.snapshot.id` na caixa de texto de pesquisa e pressione Enter.
 
 ![Pesquisar por telemetria com uma ID de instantâneo no portal](./media/snapshot-debugger/search-snapshot-portal.png)
 
-Se essa pesquisa não retornar resultados, então nenhum instantâneo foi relatado ao Application Insights para seu aplicativo no intervalo de tempo selecionado.
+Se essa pesquisa não retornar nenhum resultado, nenhum instantâneo foi relatado para Application Insights no intervalo de tempo selecionado.
 
-Para pesquisar uma ID de instantâneo específico dos logs do carregador, digite o ID na caixa de pesquisa. Se você não conseguir localizar telemetria para um instantâneo que você sabe que foi carregado, siga estas etapas:
+Para pesquisar uma ID de instantâneo específico dos logs do carregador, digite o ID na caixa de pesquisa. Se você não encontrar registros para um instantâneo que você sabe que foi carregado, siga estas etapas:
 
 1. Verifique que você está olhando o recurso do Application Insights à direita, verificando a chave de instrumentação.
 
 2. Usando o carimbo de data/hora do log de carregador, ajuste o filtro de intervalo de tempo da pesquisa para cobrir esse intervalo de tempo.
 
-Se você não vir uma exceção com essa ID de instantâneo, a telemetria de exceção não foi relatada ao Application Insights. Essa situação pode ocorrer se o aplicativo falhou após executar o instantâneo, mas antes de relatar a telemetria de exceção. Nesse caso, verifique os logs de Serviço de Aplicativo em `Diagnose and solve problems` para ver se houve reinicializações inesperadas ou exceções sem tratamento.
+Se você ainda não vir uma exceção com essa ID de instantâneo, o registro de exceção não foi relatado para Application Insights. Essa situação pode acontecer se o aplicativo falhar depois de ter levado o instantâneo, mas antes de reportar o registro de exceção. Nesse caso, verifique os logs de Serviço de Aplicativo em `Diagnose and solve problems` para ver se houve reinicializações inesperadas ou exceções sem tratamento.
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>Editar regras de firewall ou proxy de rede
 
-Se o aplicativo se conectar à Internet por meio de um proxy ou firewall, talvez será necessário editar as regras para permitir que o aplicativo se comunique com o serviço de Depurador de Instantâneos. Os IPs usados pelo Depurador de Instantâneos são incluídos na marca de serviço do Azure Monitor.
+Se seu aplicativo se conectar à Internet por meio de um proxy ou um firewall, talvez seja necessário atualizar as regras para se comunicar com o serviço de Depurador de Instantâneos.
+
+Os IPs usados pelo Application Insights Depurador de Instantâneos são incluídos na Azure Monitor marca de serviço. Para obter mais informações, consulte a [documentação de marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168555"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562796"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Azure Metrics Explorer
 
@@ -46,7 +46,7 @@ Clique em **Adicionar gráfico** e crie outro gráfico com uma métrica diferent
 
 ### <a name="order-or-delete-multiple-charts"></a>Ordenar ou excluir vários gráficos
 
-Para ordenar ou excluir vários gráficos, clique no símbolo de reticências ( **...** ) para abrir o menu do gráfico e escolha o item de menu apropriado de **mover para cima**, **mover para baixo**ou **excluir**.
+Para ordenar ou excluir vários gráficos, clique no símbolo de reticências ( **...** ) para abrir o menu do gráfico e escolha o item de menu apropriado de **mover para cima**, **mover para baixo** ou **excluir**.
 
 ## <a name="changing-aggregation"></a>Alterando a agregação
 
@@ -77,15 +77,15 @@ Aplique filtros aos gráficos que mostram métricas com dimensões. Por exemplo,
 
 2. Selecione qual dimensão (propriedade) você deseja filtrar
 
-   ![Captura de tela que mostra as dimensões (Propriedades) que você pode filtrar.](./media/metrics-charts/00006.png)
+   ![Captura de tela que mostra as dimensões (Propriedades) que você pode filtrar.](./media/metrics-charts/028.png)
 
 3. Selecione quais valores de dimensão você deseja incluir ao plotar o gráfico (este exemplo mostra a filtragem das transações de armazenamento bem-sucedidas):
 
-   ![Captura de tela que mostra a filtragem das transações de armazenamento bem-sucedidas.](./media/metrics-charts/00007.png)
+   ![Captura de tela que mostra a filtragem das transações de armazenamento bem-sucedidas.](./media/metrics-charts/029.png)
 
 4. Depois de selecionar os valores de filtro, clique fora do Seletor de Filtro para fechá-lo. Agora o gráfico mostra quantas transações de armazenamento falharam:
 
-   ![Captura de tela que mostra quantas transações de armazenamento falharam](./media/metrics-charts/00008.png)
+   ![Captura de tela que mostra quantas transações de armazenamento falharam](./media/metrics-charts/030.png)
 
 5. Repita as etapas 1 a 4 para aplicar vários filtros aos mesmos gráficos.
 
@@ -104,11 +104,11 @@ Divida uma métrica pela dimensão para visualizar uma comparação de diferente
 
 2. Escolha uma dimensão na qual você deseja segmentar o gráfico:
 
-   ![Captura de tela que mostra a dimensão selecionada na qual você segmenta o gráfico.](./media/metrics-charts/00010.png)
+   ![Captura de tela que mostra a dimensão selecionada na qual você segmenta o gráfico.](./media/metrics-charts/031.png)
 
    Agora o gráfico mostra várias linhas, uma para cada segmento de dimensão:
 
-   ![Captura de tela que mostra várias linhas, uma para cada segmento de dimensão.](./media/metrics-charts/00012.png)
+   ![Captura de tela que mostra várias linhas, uma para cada segmento de dimensão.](./media/metrics-charts/032.png)
 
 3. Clique fora do **Seletor de Agrupamento** para fechá-lo.
 
@@ -123,9 +123,13 @@ Por exemplo, quando o volume de solicitações bem-sucedidas cai de 99,99% para 
 
 Outro exemplo é uma flutuação na memória disponível, em que o valor tecnicamente nunca alcançará 0. Fixar o intervalo para um valor maior pode facilitar a detecção de quedas na memória disponível. 
 
-Para controlar o intervalo do eixo y, use o menu do gráfico "…" e selecione **Editar gráfico** para acessar configurações do gráfico avançadas. Modifique os valores na seção Intervalo do Eixo U ou use o botão **Automático** para reverter para os padrões.
+Para controlar o intervalo do eixo y, use o menu do gráfico "…" menu gráfico e selecione **configurações de gráfico** para acessar configurações avançadas de gráfico.
 
-![Captura de tela que realça a opção Editar gráfico.](./media/metrics-charts/00014-manually-set-granularity.png)
+![Captura de tela que realça a opção de configurações de gráfico.](./media/metrics-charts/033.png)
+
+ Modifique os valores na seção Intervalo do Eixo U ou use o botão **Automático** para reverter para os padrões.
+ 
+ ![Captura de tela que realça a seção de intervalo do eixo Y.](./media/metrics-charts/034.png)
 
 > [!WARNING]
 > Bloquear os limites do eixo y para que os gráficos que acompanham várias contagens ou somas por um período (e, portanto, usam agregações máximas, mínimas, soma e contagem) geralmente requer especificar uma granularidade de tempo fixo, em vez de contar com os padrões automáticos. Isso é necessário porque os valores em gráficos mudam quando a granularidade de tempo é modificada automaticamente pelo usuário redimensionando a janela do navegador ou passando de uma resolução de tela para outra. A alteração de granularidade de tempo resultante afeta o visual do gráfico, invalidando a seleção atual do intervalo do eixo y.
@@ -136,9 +140,9 @@ Depois de configurar os gráficos, as linhas do gráfico são automaticamente at
 
 Para alterar a cor de uma linha de gráfico, clique na barra colorida na legenda que corresponde ao gráfico. A caixa de diálogo Seletor de cores será aberta. Use o seletor de cores para configurar a cor da linha.
 
-Depois que as cores do gráfico forem configuradas, elas permanecerão dessa maneira quando você fixar o gráfico em um painel. A seção a seguir mostra como fixar um gráfico.
+![Captura de tela que mostra como alterar a cor](./media/metrics-charts/035.png)
 
-![Captura de tela que mostra como fixar um gráfico.](./media/metrics-charts/018.png)
+Depois que as cores do gráfico forem configuradas, elas permanecerão dessa maneira quando você fixar o gráfico em um painel. A seção a seguir mostra como fixar um gráfico.
 
 ## <a name="pin-charts-to-dashboards"></a>Fixar gráficos em painéis
 
@@ -146,9 +150,9 @@ Depois de configurar os gráficos, talvez você deseje adicioná-los aos painéi
 
 Para fixar um gráfico configurado em um painel:
 
-Depois de configurar o gráfico, clique no menu **Ações do Gráfico** no canto superior direito do gráfico e clique em **Fixar no painel**.
+Depois de configurar o gráfico, clique em **fixar no painel** no canto superior direito do gráfico.
 
-![imagem de métrica](./media/metrics-charts/00013.png)
+![Captura de tela que mostra como fixar no gráfico](./media/metrics-charts/036.png)
 
 ## <a name="create-alert-rules"></a>Criar regras de alerta
 
@@ -156,11 +160,11 @@ Você pode usar os critérios definidos para visualizar suas métricas como fund
 
 ### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Para criar uma nova regra de alerta, clique em **Nova regra de alerta**
 
-![Botão de nova regra de alerta realçado em vermelho](./media/metrics-charts/015.png)
+![Botão de nova regra de alerta realçado em vermelho](./media/metrics-charts/042.png)
 
 Você será levado para o painel de criação de regra de alerta com as dimensões de métrica subjacentes do gráfico preenchido previamente para facilitar ainda mais a gerar regras de alerta personalizadas.
 
-![Criar regra de alerta](./media/metrics-charts/016.png)
+![Criar regra de alerta](./media/metrics-charts/041.png)
 
 Verifique este [artigo](alerts-metric.md) para saber mais sobre como configurar alertas de métrica.
 

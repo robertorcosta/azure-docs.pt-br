@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: ff6ae6ea6812397e737deb4b97bf1cd15e022c03
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 0ca5f6a853852acbb4ef97adfce2364592bae270
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743166"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559833"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Entrar no Azure Active Directory usando o email como uma ID de logon alternativa (versão prévia)
 
@@ -36,6 +36,9 @@ Este artigo mostra como habilitar e usar email como uma ID de logon alternativa.
 
 > [!NOTE]
 > Esse recurso destina-se somente a usuários autenticados na nuvem do Azure AD.
+
+> [!NOTE]
+> Atualmente, esse recurso não tem suporte em dispositivos Windows 10 ingressados no Azure AD para locatários com autenticação na nuvem. Esse recurso não é aplicável a dispositivos ingressados no Azure AD híbrido.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Visão geral das abordagens de entrada no Azure Active Directory
 

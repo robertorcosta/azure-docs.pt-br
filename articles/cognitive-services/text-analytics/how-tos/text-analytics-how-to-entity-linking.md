@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/15/2020
 ms.author: aahi
-ms.openlocfilehash: 5b064365a6f0bd8a544f57d67cd6e4beb98bb404
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 9b90f177432de11f8281d03021b38bae647dadf2
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505232"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562524"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -99,6 +99,14 @@ A partir do `v3.1-preview.3` , a resposta JSON inclui uma `redactedText` proprie
 
 [Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
+**Operação assíncrona**
+
+A partir do `v3.1-preview.3` , você pode enviar solicitações Ner de forma assíncrona usando o `/analyze` ponto de extremidade.
+
+* Operação assíncrona- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+
+Consulte [como chamar o API de análise de texto](text-analytics-how-to-call-api.md) para obter informações sobre como enviar solicitações assíncronas.
+
 #### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 O reconhecimento de entidade nomeada v3 usa pontos de extremidade separados para solicitações de vinculação de NER e entidade. Use um formato de URL abaixo com base em sua solicitação:
@@ -117,7 +125,11 @@ O reconhecimento de entidade nomeada v3 usa pontos de extremidade separados para
 
 Defina um cabeçalho de solicitação para incluir sua chave de API de Análise de Texto. No corpo da solicitação, forneça os documentos JSON que você preparou.
 
-### <a name="example-ner-request"></a>Exemplo de solicitação NER 
+## <a name="example-requests"></a>Solicitações de exemplo
+
+#### <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-preview)
+
+### <a name="example-synchronous-ner-request"></a>Exemplo de solicitação síncrona de NER 
 
 O JSON a seguir é um exemplo de conteúdo que você pode enviar para a API. O formato da solicitação é o mesmo para as duas versões da API.
 
@@ -131,8 +143,64 @@ O JSON a seguir é um exemplo de conteúdo que você pode enviar para a API. O f
     }
   ]
 }
-
 ```
+
+### <a name="example-asynchronous-ner-request"></a>Exemplo de solicitação assíncrona de NER
+
+Se você usar o `/analyze` ponto de extremidade para a [operação assíncrona](text-analytics-how-to-call-api.md), receberá uma resposta que contém as tarefas que você enviou para a API.
+
+```json
+{
+    "displayName": "My Job",
+    "analysisInput": {
+        "documents": [
+            {
+                "id": "doc1",
+                "text": "It's incredibly sunny outside! I'm so happy"
+            },
+            {
+                "id": "doc2",
+                "text": "Pike place market is my favorite Seattle attraction."
+            }
+        ]
+    },
+    "tasks": {
+        "entityRecognitionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [{
+            "parameters": {
+                "model-version": "latest"
+            }
+        }]
+    }
+}
+```
+
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
+
+### <a name="example-synchronous-ner-request"></a>Exemplo de solicitação síncrona de NER 
+
+A versão 3,0 inclui apenas a operação síncrona. O JSON a seguir é um exemplo de conteúdo que você pode enviar para a API. O formato da solicitação é o mesmo para as duas versões da API.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "Our tour guide took us up the Space Needle during our trip to Seattle last week."
+    }
+  ]
+}
+```
+
+---
 
 ## <a name="post-the-request"></a>Postar a solicitação
 
@@ -148,11 +216,68 @@ A saída é retornada imediatamente. Você pode transmitir os resultados para um
 
 ### <a name="example-responses"></a>Respostas de exemplo
 
-A versão 3 fornece pontos de extremidade separados para NER geral, PII e vinculação de entidade. As respostas para ambas as operações estão abaixo. 
+A versão 3 fornece pontos de extremidade separados para NER geral, PII e vinculação de entidade. A versão 3,1-pareview inclui um modo de análise assíncrona. As respostas para essas operações estão abaixo. 
 
 #### <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-preview)
 
+### <a name="synchronous-example-results"></a>Resultados de exemplo síncrono
+
+Exemplo de uma resposta geral do NER:
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "text": "tour guide",
+          "category": "PersonType",
+          "offset": 4,
+          "length": 10,
+          "confidenceScore": 0.45
+        },
+        {
+          "text": "Space Needle",
+          "category": "Location",
+          "offset": 30,
+          "length": 12,
+          "confidenceScore": 0.38
+        },
+        {
+          "text": "trip",
+          "category": "Event",
+          "offset": 54,
+          "length": 4,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "Seattle",
+          "category": "Location",
+          "subcategory": "GPE",
+          "offset": 62,
+          "length": 7,
+          "confidenceScore": 0.78
+        },
+        {
+          "text": "last week",
+          "category": "DateTime",
+          "subcategory": "DateRange",
+          "offset": 70,
+          "length": 9,
+          "confidenceScore": 0.8
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
+}
+```
+
 Exemplo de uma resposta de PII:
+
 ```json
 {
   "documents": [
@@ -236,6 +361,58 @@ Exemplo de uma resposta de vinculação de entidade:
   ],
   "errors": [],
   "modelVersion": "2020-02-01"
+}
+```
+
+### <a name="example-asynchronous-result"></a>Exemplo de resultado assíncrono
+
+```json
+{
+  "displayName": "My Analyze Job",
+  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
+  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
+  "createdDateTime": "2020-11-13T04:01:13Z",
+  "expirationDateTime": "2020-11-14T04:01:13Z",
+  "status": "running",
+  "errors": [],
+  "tasks": {
+      "details": {
+          "name": "My Analyze Job",
+          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
+      },
+      "completed": 1,
+      "failed": 0,
+      "inProgress": 2,
+      "total": 3,
+      "keyPhraseExtractionTasks": [
+          {
+              "name": "My Analyze Job",
+              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
+              "results": {
+                  "inTerminalState": true,
+                  "documents": [
+                      {
+                          "id": "doc1",
+                          "keyPhrases": [
+                              "sunny outside"
+                          ],
+                          "warnings": []
+                      },
+                      {
+                          "id": "doc2",
+                          "keyPhrases": [
+                              "favorite Seattle attraction",
+                              "Pike place market"
+                          ],
+                          "warnings": []
+                      }
+                  ],
+                  "errors": [],
+                  "modelVersion": "2020-07-01"
+              }
+          }
+      ]
+  }
 }
 ```
 

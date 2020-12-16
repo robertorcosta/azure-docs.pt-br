@@ -3,12 +3,12 @@ title: Práticas recomendadas
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1eaa34e02a4c505691662e9fc29334cb823a3185
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0f19fceca0212bd0a05d7caa311403b173c19de5
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511205"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563170"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -143,7 +143,7 @@ Assim como ocorre com outras tarefas, a [tarefa de início](jobs-and-tasks.md#st
 
 ### <a name="isolated-nodes"></a>Nós isolados
 
-Considere usar o tamanho de VM isolado para cargas de trabalho com requisitos de conformidade ou regulamentações. Os tamanhos isolados com suporte no modo de configuração de máquina virtual incluem `Standard_E64i_v3` ,,,, `Standard_E80ids_v4` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` e `Standard_M128ms` . Para obter mais informações sobre tamanhos de VM isoladas, consulte [isolamento de máquina virtual no Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
+Considere o uso de tamanhos de VM isoladas para cargas de trabalho com requisitos normativos ou de conformidade. Os tamanhos isolados com suporte no modo de configuração de máquina virtual incluem `Standard_E80ids_v4` ,,,, `Standard_M128ms` `Standard_F72s_v2` `Standard_G5` `Standard_GS5` e `Standard_E64i_v3` . Para obter mais informações sobre tamanhos de VM isoladas, consulte [isolamento de máquina virtual no Azure](https://docs.microsoft.com/azure/virtual-machines/isolation).
 
 ### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Gerenciar serviços de execução longa por meio da interface de serviços do sistema operacional
 

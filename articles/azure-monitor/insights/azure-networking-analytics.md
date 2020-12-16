@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 9e2210cdbcc2916723c8c2e2ed1ef514d427c9d6
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032160"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563102"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento de rede do Azure no Azure Monitor
 
@@ -107,19 +107,31 @@ A guia "Exibir métricas detalhadas" abrirá a pasta de trabalho preenchida prev
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrando da solução de análise de gateway do Azure para Azure Monitor pastas de trabalho
 
 > [!NOTE]
-> A solução de análise de gateway Aplicativo Azure está desatualizada e a maneira recomendada para o consumo de análises é por meio de pastas de trabalho expostas por meio do Azure Monitor insights de rede para o recurso de gateway de aplicativo.
+> Azure Monitor pasta de trabalho de informações de rede é a solução recomendada para acessar a métrica e o log Analytics para os recursos do gateway de aplicativo.
 
-* Se a configuração de diagnóstico já estiver habilitada para armazenar os logs em um espaço de trabalho Log Analytics, Azure Monitor pasta de trabalho do insights de rede poderá consumir dados do mesmo local. Não há nenhuma nova configuração necessária.
+1. Verifique se [as configurações de diagnóstico estão habilitadas](#enable-azure-application-gateway-diagnostics-in-the-portal) para armazenar os logs em um espaço de trabalho log Analytics. Se já estiver configurado, Azure Monitor pasta de trabalho de informações de rede poderá consumir dados do mesmo local e nenhuma alteração adicional será necessária.
 
-* Todos os dados anteriores já estão disponíveis na pasta de trabalho do ponto em que as configurações de diagnóstico foram habilitadas. Não há nenhuma transferência de dados necessária.
+> [!NOTE]
+> Todos os dados anteriores já estão disponíveis na pasta de trabalho do ponto em que as configurações de diagnóstico foram originalmente habilitadas. Não há nenhuma transferência de dados necessária.
 
-* Não há uma alternância ativa necessária para alternar para as pastas de trabalho. Tanto a solução de análise quanto a pasta de trabalho do Network Insight podem trabalhar em paralelo.
+2. Acesse a [pasta de trabalho de informações padrão](#accessing-azure-application-gateway-analytics-via-azure-monitor-network-insights) para o recurso de gateway de aplicativo. Todas as informações existentes suportadas pela solução de análise do gateway de aplicativo já estarão presentes na pasta de trabalho. Você pode estender isso adicionando [visualizações](../platform/workbooks-overview.md#visualizations) personalizadas com base na métrica & dados de log.
 
-* Não há custos adicionais associados a pastas de trabalho do Azure Monitor. Log Analytics espaço de trabalho continuará sendo cobrado de acordo com o uso.
-
-* Para limpar a solução de análise de gateway do Azure do seu espaço de trabalho, você pode excluir a solução da página de recursos da solução.
+3. Depois que você conseguir ver todas as suas métricas e informações de log, para limpar a solução de análise de gateway do Azure do seu espaço de trabalho, você pode excluir a solução da página de recursos da solução.
 
 [![Captura de tela da opção de exclusão para aplicativo Azure solução de análise de gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
+
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Novos recursos com Azure Monitor pasta de trabalho do insights de rede
+
+> [!NOTE]
+> Não há custos adicionais associados à pasta de trabalho do insights Azure Monitor. Log Analytics espaço de trabalho continuará sendo cobrado de acordo com o uso.
+
+A pasta de trabalho de informações de rede permite que você aproveite os recursos mais recentes de Azure Monitor e Log Analytics incluindo:
+
+* Console centralizado para monitoramento e solução de problemas com dados de [métrica](../insights/network-insights-overview.md#resource-health-and-metrics) e de log.
+
+* Tela flexível para dar suporte à criação de [visualizações](../platform/workbooks-overview.md#visualizations)avançadas personalizadas.
+
+* Capacidade de consumir e [compartilhar modelos de pasta de trabalho](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) com uma comunidade maior.
 
 Para obter mais informações sobre os recursos da nova pasta de trabalho check-out de pastas de trabalho [-visão geral](../platform/workbooks-overview.md)
 

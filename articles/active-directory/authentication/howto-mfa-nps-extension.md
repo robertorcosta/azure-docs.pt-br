@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8340712e10721374bb2f0a35ac2e2e9a6abf181c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: deb05083ca45c24a58cabf9e923b706575ef093b
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743030"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562133"
 ---
 # <a name="integrate-your-existing-network-policy-server-nps-infrastructure-with-azure-ad-multi-factor-authentication"></a>Integre sua infraestrutura existente de NPS (servidor de políticas de rede) com a autenticação multifator do Azure AD
 
@@ -224,6 +224,10 @@ Para fornecer recursos de balanceamento de carga ou redundância, repita essas e
    ```
 
 1. Execute o script do PowerShell criado pelo instalador.
+
+   Talvez seja necessário primeiro habilitar o TLS 1,2 para que o PowerShell possa se conectar e baixar pacotes corretamente:
+   
+   `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
 
    > [!IMPORTANT]
    > Para clientes que usam as nuvens Azure governamental ou Azure China 21Vianet, primeiro edite os `Connect-MsolService` cmdlets no script *AzureMfaNpsExtnConfigSetup.ps1* para incluir os parâmetros de *AzureEnvironment* para a nuvem necessária. Por exemplo, especifique *-AzureEnvironment USGovernment* ou *-AzureEnvironment AzureChinaCloud*.

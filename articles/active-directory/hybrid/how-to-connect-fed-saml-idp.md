@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20088ccc79abe978eb5b3f1c98e958f6c26bcb86
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: cfe3d995cef888d2f0e973a6a6b2a06e0dd6cb54
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861792"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563204"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usar um IdP (provedor de identidade) SAML 2.0 para logon único
 
@@ -273,7 +273,7 @@ Este procedimento mostra como adicionar um único usuário ao Azure AD.
 Para obter mais informações sobre o check-out de "New-MsolUser", [/Previous-Versions/Azure/dn194096 (v = Azure. 100)](/previous-versions/azure/dn194096(v=azure.100))
 
 >[!NOTE]
->O valor de "UserPrinciplName" deve corresponder ao valor que você enviará para "IDPEmail" em sua declaração de SAML 2.0 e o valor de "ImmutableID" deve corresponder ao valor enviado na sua declaração de "NameID".
+>O valor "UserPrincipalName" deve corresponder ao valor que você enviará para "Idpemail." em sua declaração SAML 2,0 e o valor "imutávelid" deve corresponder ao valor enviado na sua declaração "NameID".
 
 ## <a name="verify-single-sign-on-with-your-saml-20-idp"></a>Verificar o logon único com seu IDP SAML 2.0
 Como administrador, antes de verificar e gerenciar o logon único (também chamado de federação de identidades), revise as informações e execute as etapas nos artigos a seguir para configurar o logon único com seu provedor de identidade baseado no SP-Lite compatível com SAML 2.0:

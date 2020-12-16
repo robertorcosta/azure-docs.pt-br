@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8cf5504e44239fed6a4a4b82d0064d49f5c5a99f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511528"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562609"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -101,7 +101,7 @@ Os hosts de sessão são máquinas virtuais que são executadas dentro de uma as
 
 ### <a name="enable-screen-capture-protection-preview"></a>Habilitar proteção de captura de tela (visualização)
 
-O recurso proteção de captura de tela impede que informações confidenciais sejam capturadas nos pontos de extremidade do cliente. Quando você habilita esse recurso, o conteúdo remoto será bloqueado automaticamente ou oculto em capturas de tela e compartilhamentos de telas. Ele também será ocultado de software mal-intencionado que pode estar capturando continuamente o conteúdo da tela.
+O recurso proteção de captura de tela impede que informações confidenciais sejam capturadas nos pontos de extremidade do cliente. Quando você habilita esse recurso, o conteúdo remoto será bloqueado automaticamente ou oculto em capturas de tela e compartilhamentos de telas. Ele também será ocultado de software mal-intencionado que pode estar capturando continuamente o conteúdo da tela. Recomendamos que você desabilite o redirecionamento da área de transferência para evitar a cópia de conteúdo remoto para pontos de extremidade ao usar esse recurso.
 
 Essa política é imposta no nível do host por meio da configuração de uma chave do registro. Para habilitar essa política, abra o PowerShell e defina a chave do registro **fEnableScreenCaptureProtection** executando este cmdlet:
 

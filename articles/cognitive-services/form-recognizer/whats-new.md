@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 03f2109a32cd8a8c2643f3c2aa74900f4edd1cee
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 3f71cef19d25a7f987af4147ae0a889280e49bd1
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852839"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563153"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -23,6 +23,8 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
 ## <a name="november-2020"></a>Novembro de 2020
 
 ### <a name="new-features"></a>Novos recursos
+
+**O formulário Recognizer v 2.1 público preview 2 já está disponível.** V 2.1-Preview. 2 foi lançado, incluindo os seguintes recursos: 
 
 - **Novo modelo de fatura predefinido** -o novo modelo de fatura predefinido permite que os clientes façam faturas em uma variedade de formatos e retornem dados estruturados para automatizar o processamento da fatura. Ele combina nossos poderosos recursos de OCR (reconhecimento óptico de caracteres) com a nota fiscal que entende os modelos de aprendizado profundo para extrair informações importantes das faturas em inglês. Ele extrai o texto, as tabelas e as informações, como cliente, fornecedor, ID da fatura, data de vencimento da fatura, total, valor devido, valor do imposto, remessa, cobrança e muito mais.
 
@@ -37,7 +39,7 @@ O serviço do reconhecedor de formulário é atualizado em uma base contínua. U
  
   > [Saiba mais sobre extração de layout](concept-layout.md)
 
-- **Atualização da biblioteca de cliente** -a versão mais recente das [bibliotecas de cliente](quickstarts/client-library.md) para .net, Python, Java e JavaScript dá suporte à API do Form Recognizer 2,1.
+- **Atualização da biblioteca de cliente** -as versões mais recentes das [bibliotecas de cliente](quickstarts/client-library.md) para .net, Python, Java e JavaScript dão suporte à API do Form Recognizer 2,1.
 - **Novo idioma com suporte: Japonês** -os novos idiomas a seguir agora têm suporte: para `AnalyzeLayout` e `AnalyzeCustomForm` : Japonês ( `ja` ). [Suporte ao idioma](language-support.md)
 - **Indicação de estilo de linha de texto (manuscrito/outro) (somente idiomas latinos)** – o reconhecedor de formulário agora gera um `appearance` objeto que classifica se cada linha de texto está no estilo manuscrito ou não, juntamente com uma pontuação de confiança. Esse recurso tem suporte apenas para idiomas latinos.
 - **Melhorias de qualidade** -melhorias de extração, incluindo melhorias de extração de dígito único.

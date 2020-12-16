@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 3017d0dec5acd3494600c42bef410ed346fead1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025935"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561215"
 ---
 # <a name="testing-for-luis-devops"></a>Teste para DevOps do LUIS
 
@@ -18,7 +18,7 @@ Os engenheiros de software que estão desenvolvendo um aplicativo de Reconhecime
 
 Em metodologias de desenvolvimento de software Agile, o teste desempenha uma função integral na criação de software de qualidade. Cada alteração significativa em um aplicativo LUIS deve ser acompanhada por testes criados para testar a nova funcionalidade que o desenvolvedor está criando no aplicativo. Esses testes são verificados em seu repositório de código-fonte junto com a `.lu` origem do seu aplicativo Luis. A implementação da alteração é concluída quando o aplicativo cumpre os testes.
 
-Os testes são uma parte crítica dos [fluxos de trabalho de CI/CD](luis-concept-devops-automation.md). Quando as alterações em um aplicativo LUIS são propostas em uma solicitação pull (PR) ou depois que as alterações são mescladas em seu Branch mestre, os fluxos de trabalho de CI devem executar os testes para verificar se as atualizações não causaram nenhuma regressão.
+Os testes são uma parte crítica dos [fluxos de trabalho de CI/CD](luis-concept-devops-automation.md). Quando as alterações em um aplicativo LUIS são propostas em uma solicitação pull (PR) ou depois que as alterações são mescladas em seu Branch principal, os fluxos de trabalho de CI devem executar os testes para verificar se as atualizações não causaram nenhuma regressão.
 
 ## <a name="how-to-do-unit-testing-and-batch-testing"></a>Como fazer testes de unidade e testes em lote
 
@@ -123,7 +123,7 @@ Você pode usar o [NLU. Pacote DevOps](https://github.com/microsoft/NLU.DevOps) 
 Você também pode usar o NLU. Pacote DevOps para executar testes em lotes na linha de comando.
 
 * Use o NLU. DevOps [comando de teste](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Test.md) para enviar testes de um arquivo de teste para um ponto de extremidade e capturar os resultados reais de previsão em um arquivo, assim como nos testes de unidade.
-* Use o NLU. [Comando DevOps Compare](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) no [modo de teste de desempenho](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) para medir o desempenho de seu aplicativo você também pode comparar o desempenho do seu aplicativo com relação a um benchmark de desempenho de linha de base, por exemplo, os resultados da confirmação mais recente para a versão mestre ou atual. No modo de teste de desempenho, o `compare` comando gera saída de teste NUnit e [resultados de teste em lotes](./luis-glossary.md#batch-test) no formato JSON.
+* Use o NLU. [Comando DevOps Compare](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md) no [modo de teste de desempenho](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#performance-test-mode) para medir o desempenho de seu aplicativo, você também pode comparar o desempenho do seu aplicativo com relação a um parâmetro de comparação de desempenho de linha de base, por exemplo, os resultados da última confirmação para a versão principal ou atual. No modo de teste de desempenho, o `compare` comando gera saída de teste NUnit e [resultados de teste em lotes](./luis-glossary.md#batch-test) no formato JSON.
 
 ## <a name="luis-non-deterministic-training-and-the-effect-on-testing"></a>LUIS treinamento não determinístico e o efeito sobre os testes
 

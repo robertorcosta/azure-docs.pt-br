@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 370dade1b74634649c9de44864a0fd9f5cac988f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025969"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97561300"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Fluxos de trabalho de integração contínua e entrega contínua para DevOps do LUIS
 
@@ -22,8 +22,8 @@ Os engenheiros de software que estão desenvolvendo um aplicativo de Reconhecime
 
 No seu sistema SCM (gerenciamento de código-fonte), configure pipelines de Build automatizados para execução nos seguintes eventos:
 
-1. **PR fluxo de trabalho** disparado quando uma [solicitação pull](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) é gerada. Este fluxo de trabalho valida o conteúdo da PR *antes que* as atualizações sejam mescladas no Branch mestre.
-1. **Fluxo de trabalho de CI/CD** disparado quando as atualizações são enviadas para o Branch mestre, por exemplo, ao mesclar as alterações de uma pr. Esse fluxo de trabalho garante a qualidade de todas as atualizações para o Branch mestre.
+1. **PR fluxo de trabalho** disparado quando uma [solicitação pull](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) é gerada. Este fluxo de trabalho valida o conteúdo da PR *antes que* as atualizações sejam mescladas no Branch principal.
+1. **Fluxo de trabalho de CI/CD** disparado quando as atualizações são enviadas para a ramificação principal, por exemplo, ao mesclar as alterações de uma pr. Esse fluxo de trabalho garante a qualidade de todas as atualizações para a ramificação principal.
 
 O **fluxo de trabalho de CI/CD** combina dois processos de desenvolvimento complementares:
 
@@ -31,7 +31,7 @@ O **fluxo de trabalho de CI/CD** combina dois processos de desenvolvimento compl
 
 * A [entrega contínua](/azure/devops/learn/what-is-continuous-delivery) (CD) leva o conceito de integração contínua para implantar automaticamente o aplicativo em um ambiente no qual você pode fazer testes mais detalhados. O CD nos permite aprender antecipadamente sobre quaisquer problemas imprevistos que surjam de nossas alterações o mais rápido possível e também para aprender sobre lacunas em nossa cobertura de teste.
 
-O objetivo da integração contínua e da entrega contínua é garantir que "o mestre seja sempre freqüentemente". Para um aplicativo LUIS, isso significa que poderíamos, se precisávamos, pegar qualquer versão do aplicativo LUIS do Branch mestre e enviá-la para produção.
+O objetivo da integração contínua e da entrega contínua é garantir que "Main seja sempre freqüentemente". Para um aplicativo LUIS, isso significa que poderíamos, se precisávamos, pegar qualquer versão do aplicativo LUIS do Branch principal e enviá-la para produção.
 
 ### <a name="tools-for-building-automation-workflows-for-luis"></a>Ferramentas para criar fluxos de trabalho de automação para LUIS
 
@@ -47,7 +47,7 @@ Use as seguintes ferramentas para criar fluxos de trabalho de automação para o
 
 ### <a name="the-pr-workflow"></a>O fluxo de trabalho de PR
 
-Conforme mencionado, você configura esse fluxo de trabalho para ser executado quando um desenvolvedor gera uma PR para propor alterações a serem mescladas de um Branch de recurso no Branch mestre. Sua finalidade é verificar a qualidade das alterações na PR antes que elas sejam mescladas ao Branch mestre.
+Conforme mencionado, você configura esse fluxo de trabalho para ser executado quando um desenvolvedor gera uma PR para propor alterações a serem mescladas de uma ramificação de recurso no Branch principal. Sua finalidade é verificar a qualidade das alterações na PR antes que elas sejam mescladas ao Branch principal.
 
 Esse fluxo de trabalho deve:
 
@@ -59,13 +59,13 @@ Esse fluxo de trabalho deve:
 
 Se houver suporte para o SCM, configure as regras de proteção de ramificação para que esse fluxo de trabalho deva ser concluído com êxito antes que a PR possa ser concluída.
 
-### <a name="the-master-branch-cicd-workflow"></a>O fluxo de trabalho de CI/CD da ramificação mestre
+### <a name="the-main-branch-cicd-workflow"></a>O fluxo de trabalho de CI/CD da ramificação principal
 
-Configure este fluxo de trabalho para ser executado depois que as atualizações na PR tiverem sido mescladas no Branch mestre. Sua finalidade é manter a barra de qualidade do seu Branch mestre alta testando as atualizações. Se as atualizações atenderem à barra de qualidade, esse fluxo de trabalho implantará a nova versão do aplicativo LUIS em um ambiente em que você possa fazer testes mais detalhados.
+Configure este fluxo de trabalho para ser executado depois que as atualizações na PR tiverem sido mescladas na ramificação principal. Sua finalidade é manter a barra de qualidade do seu Branch principal alto testando as atualizações. Se as atualizações atenderem à barra de qualidade, esse fluxo de trabalho implantará a nova versão do aplicativo LUIS em um ambiente em que você possa fazer testes mais detalhados.
 
 Esse fluxo de trabalho deve:
 
-* Crie uma nova versão em seu aplicativo LUIS primário (o aplicativo que você mantém para a ramificação mestre) usando o código-fonte atualizado.
+* Crie uma nova versão em seu aplicativo LUIS primário (o aplicativo que você mantém para a ramificação principal) usando o código-fonte atualizado.
 
 * Treine e publique a versão do aplicativo LUIS.
 
