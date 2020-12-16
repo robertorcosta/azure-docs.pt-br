@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: ae3ffb9dc387129153b684a849ba4e58274ad80c
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0018b7bafa8ff2ecd328a150df752082c85484e2
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563272"
+ms.locfileid: "97608503"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
 Use as [ações do GitHub](https://github.com/features/actions) para definir um fluxo de trabalho para compilar e implantar código automaticamente em seu aplicativo de funções do Azure. 
 
-Em ações do GitHub, um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo do Functions no GitHub. 
+Em ações do GitHub, um [fluxo de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo do Functions no GitHub. 
 
 Um fluxo de trabalho é definido por um arquivo YAML (.yml) no caminho `/.github/workflows/` no repositório. Essa definição contém as várias etapas e os parâmetros que compõem o fluxo de trabalho. 
 
@@ -40,7 +40,7 @@ Para um fluxo de trabalho Azure Functions, o arquivo tem três seções:
 
 A maneira recomendada para autenticar com Azure Functions para ações do GitHub é usando um perfil de publicação. Você também pode autenticar com uma entidade de serviço. Para saber mais, confira [este repositório de ações do GitHub](https://github.com/Azure/functions-action). 
 
-Depois de salvar a credencial de perfil de publicação como um [segredo do GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets), você usará esse segredo em seu fluxo de trabalho para autenticar com o Azure. 
+Depois de salvar a credencial de perfil de publicação como um [segredo do GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets), você usará esse segredo em seu fluxo de trabalho para autenticar com o Azure. 
 
 #### <a name="download-your-publish-profile"></a>Baixar seu perfil de publicação
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: c65ef2eb25f330f645048cdc73371d98d8c2ce91
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: c04c94ef2a73085b982fde3efefecea351b083af
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508465"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608061"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Criar pipelines preditivas usando Azure Machine Learning Studio (clássico) e Azure Data Factory
 
@@ -269,7 +269,7 @@ Recomendamos que você percorra o tutorial [Compilar seu primeiro pipeline com o
         "properties": {
           "description": "use AzureML model",
           "activities": [
-              {
+            {
               "name": "MLActivity",
               "type": "AzureMLBatchExecution",
               "description": "prediction analysis on batch input",
@@ -301,7 +301,7 @@ Recomendamos que você percorra o tutorial [Compilar seu primeiro pipeline com o
           ],
           "start": "2016-02-13T00:00:00Z",
           "end": "2016-02-14T00:00:00Z"
-          }
+        }
       }
       ```
 

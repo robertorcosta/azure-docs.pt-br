@@ -3,12 +3,12 @@ title: Pool de criação de evento do Lote do Microsoft Azure
 description: Referência para o evento de criação do pool do Lote, o qual é emitido após a criação de um pool. O conteúdo do log expõe as informações gerais do pool.
 ms.topic: reference
 ms.date: 10/08/2020
-ms.openlocfilehash: 03c656ea2698ee0e61c1ddb903fcc10df9d3044b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f8b020401443b2a9e80837599d6fd4b2a3001d27
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352381"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608996"
 ---
 # <a name="pool-create-event"></a>Evento de criação de pool
 
