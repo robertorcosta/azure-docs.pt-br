@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 30ac28ef996c42e99ebece27ec156777f0d033d2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087019"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587869"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Solucionar problemas de latência de replicação no Banco de Dados do Azure para MySQL
 
@@ -31,11 +31,14 @@ O atraso de replicação nas réplicas de leitura secundárias depende de vário
 
 Neste artigo, você aprenderá a solucionar problemas de latência de replicação no banco de dados do Azure para MySQL. Você também entenderá algumas causas comuns da maior latência de replicação em servidores de réplica.
 
+> [!NOTE]
+> Este artigo contém referências ao termo subordinado, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+
 ## <a name="replication-concepts"></a>Conceitos de replicação
 
-Quando um log binário é habilitado, o servidor de origem grava transações confirmadas no log binário. O log binário é usado para replicação. Ele é ativado por padrão para todos os servidores provisionados recentemente que dão suporte a até 16 TB de armazenamento. Em servidores de réplica, dois threads são executados em cada servidor de réplica. Um thread é o *thread de e/s* e o outro é o *thread do SQL* :
+Quando um log binário é habilitado, o servidor de origem grava transações confirmadas no log binário. O log binário é usado para replicação. Ele é ativado por padrão para todos os servidores provisionados recentemente que dão suporte a até 16 TB de armazenamento. Em servidores de réplica, dois threads são executados em cada servidor de réplica. Um thread é o *thread de e/s* e o outro é o *thread do SQL*:
 
-- O thread de e/s conecta-se ao servidor de origem e solicita logs binários atualizados. Esse thread recebe as atualizações de log binários. Essas atualizações são salvas em um servidor de réplica, em um log local chamado *log de retransmissão* .
+- O thread de e/s conecta-se ao servidor de origem e solicita logs binários atualizados. Esse thread recebe as atualizações de log binários. Essas atualizações são salvas em um servidor de réplica, em um log local chamado *log de retransmissão*.
 - O thread SQL lê o log de retransmissão e, em seguida, aplica as alterações de dados nos servidores de réplica.
 
 ## <a name="monitoring-replication-latency"></a>Monitorando latência de replicação
@@ -87,14 +90,14 @@ mysql> SHOW SLAVE STATUS;
 Veja uma saída típica:
   
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitorando latência de replicação&quot;:::
+> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitorando latência de replicação":::
 
 
 A saída contém muitas informações. Normalmente, você precisa se concentrar apenas nas linhas descritas na tabela a seguir.
 
 |Métrica|Descrição|
 |---|---|
-|Slave_IO_State| Representa o status atual do thread de e/s. Normalmente, o status é &quot;aguardando o mestre enviar evento&quot; se o servidor de origem (Mestre) estiver sincronizando. Um status como &quot;conectando-se ao mestre" indica que a réplica perdeu a conexão com o servidor de origem. Verifique se o servidor de origem está em execução ou verifique se um firewall está bloqueando a conexão.|
+|Slave_IO_State| Representa o status atual do thread de e/s. Normalmente, o status é "aguardando o mestre enviar evento" se o servidor de origem (Mestre) estiver sincronizando. Um status como "conectando-se ao mestre" indica que a réplica perdeu a conexão com o servidor de origem. Verifique se o servidor de origem está em execução ou verifique se um firewall está bloqueando a conexão.|
 |Master_Log_File| Representa o arquivo de log binário no qual o servidor de origem está gravando.|
 |Read_Master_Log_Pos| Indica onde o servidor de origem está gravando no arquivo de log binário.|
 |Relay_Master_Log_File| Representa o arquivo de log binário que o servidor de réplica está lendo do servidor de origem.|

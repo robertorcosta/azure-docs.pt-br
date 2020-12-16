@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 35f503e7214fa91962c91c35611fc9447302f9fc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f2bbc39b9c9c4770775bf49a7775ab8980a1f3b
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462809"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589892"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração e implantação contínuas para o pool SQL dedicado no Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT 
 
       ![YAML](./media/sql-data-warehouse-continuous-integration-and-deployment/3-yaml-file.png "YAML")
 
-Neste momento, você tem um ambiente simples no qual qualquer check-in em seu branch mestre do repositório de controle do código-fonte deve disparar automaticamente um build do Visual Studio bem-sucedido do seu projeto de banco de dados. Confirme se a automação está funcionando de ponta a ponta fazendo uma alteração em seu projeto de banco de dados local e fazendo check-in dessa alteração no branch mestre.
+Neste ponto, você tem um ambiente simples em que qualquer check-in em sua ramificação principal do repositório do controle do código-fonte deve disparar automaticamente uma compilação bem-sucedida do Visual Studio do seu projeto de banco de dados. Valide se a automação está funcionando de ponta a ponta fazendo uma alteração no projeto de banco de dados local e fazendo check-in dessa alteração para sua ramificação principal.
 
 ## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do Azure Synapse Analytics (ou banco de dados)
 

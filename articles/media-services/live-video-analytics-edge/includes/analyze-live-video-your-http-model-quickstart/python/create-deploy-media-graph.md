@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 99f2c690360167626566b2ea45aef172e1e832ab
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 6aeded077c20e59b3f9b3863a9956596382d3a82
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829313"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531812"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examinar e editar os arquivos de exemplo
 
@@ -16,11 +16,11 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 
 1. Vá até a pasta *src/cloud-to-device-console-app*. Aqui, você vê o arquivo *appsettings.json* e alguns outros arquivos:
 
-    * ***c2d-console-app.csproj*** – o arquivo de projeto para o Visual Studio Code.
-    * ***operations.json*** – uma lista das operações que você deseja que o programa execute.
-    * ***Program.cs*** – o código do programa de exemplo. Esse código:
+    * ***c2d-console-app.csproj** _ – o arquivo de projeto para o Visual Studio Code.
+    _ ***operations.json** _ – uma lista das operações que você deseja que o programa execute.
+    _ ***Program.cs** _ – o código do programa de exemplo. Esse código:
 
-        * Carrega as configurações do aplicativo.
+        _ Carrega as configurações do aplicativo.
         * Invoca métodos diretos expostos pelo módulo da Análise Dinâmica de Vídeo no IoT Edge. Use o módulo para analisar fluxos de vídeo ao vivo invocando seus [métodos diretos](../../../direct-methods.md).
         * Pausa para você examinar a saída do programa na janela **TERMINAL** e os eventos que foram gerados pelo módulo na janela **SAÍDA**.
         * Invoca métodos diretos para limpar recursos.
@@ -29,7 +29,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 1. Edite o arquivo *operations.json*:
     * Altere o link para a topologia do grafo:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 
     * Em `GraphInstanceSet`, edite o nome da topologia de grafo para corresponder ao valor no link anterior:
 
@@ -76,7 +76,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Configurações da Extensão":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
 1. Clique com o botão direito do mouse no dispositivo de Análise Dinâmica de Vídeo e selecione **Iniciar Monitoramento de Ponto de Extremidade de Evento Interno**. Essa etapa é necessária para monitorar os eventos do Hub IoT na janela **SAÍDA** do Visual Studio Code. 
 
    ![Começar a monitorar](../../../media/quickstarts/start-monitoring-iothub-events.png) 
@@ -91,7 +91,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
    Executing operation GraphTopologyList
    -----------------------  Request: GraphTopologyList  --------------------------------------------------
    {
-   "@apiVersion": "1.0"
+   "@apiVersion": "2.0"
    }
    ---------------  Response: GraphTopologyList - Status: 200  ---------------
    {
@@ -109,7 +109,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithHttpExtension",

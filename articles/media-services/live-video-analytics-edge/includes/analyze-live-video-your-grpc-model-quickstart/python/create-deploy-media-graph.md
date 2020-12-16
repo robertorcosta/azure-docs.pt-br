@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6741d48490cb186b986317f584a4c7b2a11b865c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8a1baa34565e9939db54b44f3d196c927b35385e
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829067"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97531940"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examinar e editar os arquivos de exemplo
 
@@ -25,7 +25,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 1. Edite o arquivo *operations.json*:
  
     * Altere o link para a topologia do grafo:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
     * Em GraphInstanceSet, edite o nome da topologia de grafo para que corresponda ao valor no link anterior:
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Em GraphTopologyDelete, edite o nome:
@@ -118,7 +118,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 1. Pesquise e habilite “Mostrar Mensagem Detalhada”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Configurações da Extensão":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Mostrar Mensagem Detalhada":::
 1. Clique com o botão direito do mouse no dispositivo de Análise Dinâmica de Vídeo e selecione **Iniciar Monitoramento de Ponto de Extremidade de Evento Interno**. Essa etapa é necessária para monitorar os eventos do Hub IoT na janela **SAÍDA** do Visual Studio Code.
 
    ![Começar a monitorar](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
@@ -132,7 +132,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
     -------------------------------Executing operation GraphTopologyList-----------------------  
     Request: GraphTopologyList  --------------------------------------------------
     {
-    "@apiVersion": "1.0"
+    "@apiVersion": "2.0"
     }
     ---------------  
     Response: GraphTopologyList - Status: 200  ---------------
@@ -151,7 +151,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
     
     ```
     {
-      "@apiVersion": "1.0",
+      "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
         "topologyName": "InferencingWithGrpcExtension",

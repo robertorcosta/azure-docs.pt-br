@@ -1,18 +1,18 @@
 ---
 title: Introdução ao Azure Purview (versão prévia)
 description: Este artigo fornece uma visão geral do Azure Purview, incluindo seus recursos e problemas que ele aborda. O Azure Purview permite que qualquer usuário registre, descubra, entenda e consuma fontes de dados.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 9ead9a564c11901775ac7c471cd53fe65b3fdef9
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 77da3406897c31e48d808541f1f9d579eb0a9cb7
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855100"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401535"
 ---
 # <a name="what-is-azure-purview"></a>O que é o Azure Purview?
 

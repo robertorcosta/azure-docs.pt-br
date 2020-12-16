@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3ed0fea4846b969c2af80aa525f7da64e7700bb5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535360"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587920"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurar Replicação de Dados no banco de dados do Azure para MariaDB
 
@@ -52,9 +52,9 @@ Examine as [limitações e os requisitos](concepts-data-in-replication.md#limita
 
 As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente, em uma VM ou em um serviço de banco de dados de nuvem para Replicação de Dados. O servidor MariaDB é a origem em Replicação de Dados.
 
-1. Examine os [requisitos do servidor mestre](concepts-data-in-replication.md#requirements) antes de continuar. 
+1. Examine os [requisitos do servidor primário](concepts-data-in-replication.md#requirements) antes de continuar. 
 
-2. Verifique se o servidor de origem permite o tráfego de entrada e de saída na porta 3306 e se o servidor de origem tem um **endereço IP público** , se o DNS está acessível publicamente ou tem um FQDN (nome de domínio totalmente qualificado). 
+2. Verifique se o servidor de origem permite o tráfego de entrada e de saída na porta 3306 e se o servidor de origem tem um **endereço IP público**, se o DNS está acessível publicamente ou tem um FQDN (nome de domínio totalmente qualificado). 
    
    Teste a conectividade com o servidor de origem tentando se conectar de uma ferramenta como a linha de comando do MySQL hospedada em outro computador ou da [Azure cloud Shell](../cloud-shell/overview.md) disponível no portal do Azure.
 
@@ -149,7 +149,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
 
    ![Sincronizar usuário](./media/howto-data-in-replication/syncuser.png)
  
-   Selecione o painel **funções administrativas** e, em seguida, na lista de **privilégios globais** , selecione **replicação escravo**. Selecione **aplicar** para criar a função de replicação.
+   Selecione o painel **funções administrativas** e, em seguida, na lista de **privilégios globais**, selecione **replicação escravo**. Selecione **aplicar** para criar a função de replicação.
 
    ![Replicação subordinada](./media/howto-data-in-replication/replicationslave.png)
 
@@ -284,7 +284,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
     
     Devido a uma limitação de replicação nativa no MariaDB, você deve definir  [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) e [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variáveis na replicação sem o cenário GTID.
 
-    Verifique os servidores subordinados `sync_master_info` e as `sync_relay_log_info` variáveis para certificar-se de que a replicação de dados está estável e defina as variáveis como `1` .
+    Verifique o servidor de réplica `sync_master_info` e as `sync_relay_log_info` variáveis para certificar-se de que a replicação de dados está estável e defina as variáveis como `1` .
     
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 

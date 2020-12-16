@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 36592151385a08d75b9b34e85bfa9d62342fc8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf8236dbbc9714c705e442bb65eb2ac3d293cc7
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80991562"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589569"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma fonte HTTP usando o Azure Data Factory
 
@@ -44,7 +44,7 @@ Você pode criar um pipeline que tenha uma atividade de cópia para mover dados 
 
 - A maneira mais fácil de criar um pipeline é usar o assistente Copiar Dados. Para uma rápida explicação da criação de um pipeline usando o assistente Copiar Dados, consulte [Tutorial: Crie um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
 
-- Você também pode usar as seguintes ferramentas para criar um pipeline: o **Visual Studio**, **Azure PowerShell**, um **modelo de Azure Resource Manager**, a **API do .net**ou a **API REST**. Para obter instruções passo a passo sobre como criar um pipeline com atividade de cópia, consulte o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Para amostras JSON que copiam dados de uma origem HTTP para o Armazenamento de Blobs do Azure, consulte [Exemplos JSON](#json-examples).
+- Você também pode usar as seguintes ferramentas para criar um pipeline: o **Visual Studio**, **Azure PowerShell**, um **modelo de Azure Resource Manager**, a **API do .net** ou a **API REST**. Para obter instruções passo a passo sobre como criar um pipeline com atividade de cópia, consulte o [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Para amostras JSON que copiam dados de uma origem HTTP para o Armazenamento de Blobs do Azure, consulte [Exemplos JSON](#json-examples).
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
@@ -68,7 +68,7 @@ Definir **authenticationType** à **básica**, **Digest**, ou **Windows**. Além
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | userName | O nome de usuário a ser usada para acessar o ponto de extremidade HTTP. | Sim |
-| password | A senha do usuário (** nome de usuário **). | Sim |
+| password | A senha do usuário (**nome de usuário**). | Sim |
 
 **Exemplo: Usando a autenticação Básica, Digest ou Windows**
 
@@ -91,7 +91,7 @@ Definir **authenticationType** à **básica**, **Digest**, ou **Windows**. Além
 
 ### <a name="using-clientcertificate-authentication"></a>Usando a autenticação ClientCertificate
 
-Para usar a autenticação básica, defina **authenticationType** como ** ClientCertificate**. Além da HTTP conector as propriedades genéricas descritas nas seções anteriores, defina as seguintes propriedades:
+Para usar a autenticação básica, defina **authenticationType** como **ClientCertificate**. Além da HTTP conector as propriedades genéricas descritas nas seções anteriores, defina as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
@@ -102,7 +102,7 @@ Para usar a autenticação básica, defina **authenticationType** como ** Client
 Se você usar **certThumbprint** para autenticação e o certificado estiver instalado no armazenamento pessoal do computador local, conceda permissões de leitura ao serviço de gateway:
 
 1. Abra o console de gerenciamento Microsoft (MMC). Adicione a **certificados** snap-in que tem como alvo **computador Local**.
-2. Expanda **certificados**  >  **pessoal**e selecione **certificados**.
+2. Expanda **certificados**  >  **pessoal** e selecione **certificados**.
 3. Clique com o botão direito do mouse no certificado do repositório pessoal e selecione **todas as tarefas**  > **gerenciar chaves privadas**.
 3. Na guia **Segurança**, adicione a conta de usuário na qual o Serviço do Host do Data Management Gateway está em execução, com acesso de leitura ao certificado.  
 
@@ -120,8 +120,8 @@ Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. E
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-            "certThumbprint": "thumbprint of certificate",
-            "gatewayName": "gateway name"
+        "certThumbprint": "thumbprint of certificate",
+        "gatewayName": "gateway name"
 
         }
     }
@@ -142,8 +142,8 @@ Esse serviço vinculado vincula seu data factory a um servidor Web HTTP local. E
         {
             "authenticationType": "ClientCertificate",
             "url": "https://en.wikipedia.org/wiki/",
-            "embeddedCertData": "Base64-encoded cert data",
-            "password": "password of cert"
+        "embeddedCertData": "Base64-encoded cert data",
+        "password": "password of cert"
         }
     }
 }
@@ -171,14 +171,14 @@ A seção **typeproperties** é diferente para cada tipo de conjunto de texto. A
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
-            "relativeUrl": "XXX/test.xml",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        },
+      "relativeUrl": "XXX/test.xml",
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",
@@ -198,7 +198,7 @@ A seção **typeproperties** é diferente para cada tipo de conjunto de texto. A
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "/XXX/test.xml",
-           "requestMethod": "Post",
+       "requestMethod": "Post",
             "requestBody": "body for POST HTTP request"
         },
         "external": true,
@@ -283,14 +283,14 @@ A definição **externa** para **verdadeiro** informa ao serviço Data Factory q
 
 ```json
 {
-    "name": "HttpSourceDataInput",
+  "name": "HttpSourceDataInput",
     "properties": {
-        "type": "Http",
+    "type": "Http",
         "linkedServiceName": "HttpLinkedService",
         "typeProperties": {
             "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)",
-            "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
-        },
+        "additionalHeaders": "Connection: keep-alive\nUser-Agent: Mozilla/5.0\n"
+    },
         "external": true,
         "availability": {
             "frequency": "Hour",

@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: fd474a32b4a517230a82615065d7815c04140045
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 7798d7e960286d4f8aa971eb2eb0b03d24bd6360
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96432961"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589450"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Firewall e Azure Policy do aplicativo Web do Azure
 
@@ -47,7 +47,7 @@ Há várias definições de Azure Policy internas para gerenciar recursos de WAF
     2.  **Exclusões**: selecione todos os recursos do escopo a serem excluídos da atribuição de política.
     3.  **Definição de política**: selecione a definição de política a ser aplicada ao escopo com exclusões. Digite "Firewall do aplicativo Web" na barra de pesquisa para escolher o Azure Policy de firewall do aplicativo Web relevante.
 
-:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Guia noções básicas na página atribuir política":::
+:::image type="content" source="../media/waf-azure-policy/policy-listing.png" alt-text="Captura de tela que mostra a guia ' definições de política ' na página ' definições disponíveis '.":::
 
 5.  Selecione a guia **parâmetros** e atualize os parâmetros de atribuição de política. Para esclarecer ainda mais o que o parâmetro faz, passe o mouse sobre o ícone de informações ao lado do nome do parâmetro para obter mais esclarecimentos.
 

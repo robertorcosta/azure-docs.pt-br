@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 3218df4601ef7a5e1b1e04c20c89eefc367b720b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7753c6c118d763163e6bc8f69f5b4eee13fe2393
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746447"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588787"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizar dados de sensor em tempo real de seu hub IoT do Azure em um aplicativo Web
 
@@ -202,10 +202,10 @@ Nesta seção, você provisiona um aplicativo Web no Serviço de Aplicativo e im
    git remote add webapp <Git clone URL>
    ```
 
-8. Para implantar o código no Serviço de Aplicativo, insira o comando a seguir na janela Comando. Se você for solicitado a fornecer credenciais, insira as credenciais de implantação no nível do usuário que você criou na etapa 5. Certifique-se de enviar por push para o branch mestre do remoto do Serviço de Aplicativo.
+8. Para implantar o código no Serviço de Aplicativo, insira o comando a seguir na janela Comando. Se você for solicitado a fornecer credenciais, insira as credenciais de implantação no nível do usuário que você criou na etapa 5. Certifique-se de enviar por push para a ramificação principal do serviço de aplicativo remoto.
 
     ```cmd
-    git push webapp master:master
+    git push webapp main:main
     ```
 
 9. O progresso da implantação será atualizado na janela Comando. Uma implantação bem-sucedida terminará com linhas semelhantes à seguinte saída:
@@ -216,7 +216,7 @@ Nesta seção, você provisiona um aplicativo Web no Serviço de Aplicativo e im
     remote: Running post deployment command(s)...
     remote: Deployment successful.
     To https://contoso-web-app-3.scm.azurewebsites.net/contoso-web-app-3.git
-    6b132dd..7cbc994  master -> master
+    6b132dd..7cbc994  main -> main
     ```
 
 10. Execute o seguinte comando para consultar o estado do seu aplicativo Web e verificar se ele está em execução:

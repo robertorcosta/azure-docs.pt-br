@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 708478f50078276245a7dfab7d185dd50d597407
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994648"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589790"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -299,8 +299,6 @@ No Linux, o aplicativo de funções deve ter seu `kind` definido como `functiona
 }
 ```
 
-
-
 <a name="premium"></a>
 
 ## <a name="deploy-on-premium-plan"></a>Implantar no plano Premium
@@ -380,7 +378,6 @@ Um aplicativo de funções em um plano Premium deve ter a `serverFarmId` proprie
     }
 }
 ```
-
 
 <a name="app-service-plan"></a>
 

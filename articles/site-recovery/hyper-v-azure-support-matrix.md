@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 7466f037f0a39b67023b9ebcc27c2e19b27f42ab
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485256"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587807"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -94,7 +94,7 @@ Rede Acelerada | Não | Não
 
 ## <a name="hyper-v-host-storage"></a>Armazenamento de host do Hyper-V
 
-**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | Sim | Sim
@@ -103,7 +103,7 @@ Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5
 
 ## <a name="hyper-v-vm-guest-storage"></a>Armazenamento de convidado da VM do Hyper-V
 
-**Storage** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
+**Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
 VMDK | NA | NA
 VHD/VHDX | Sim | Sim
@@ -131,6 +131,7 @@ Múltiplos caminhos (MPIO) | Sim | Sim
 Armazenamento com redundância local | Sim | Sim
 Armazenamento com redundância geográfica | Sim | Sim
 Armazenamento com redundância geográfica com acesso de leitura | Sim | Sim
+Armazenamento com redundância de zona | Não | Não
 Armazenamento frio | Não | Não
 Armazenamento quente| Não | Não
 Blobs de bloco | Não | Não

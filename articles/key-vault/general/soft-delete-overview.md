@@ -4,20 +4,20 @@ description: A exclusão reversível no Azure Key Vault permite que você recupe
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 09/30/2020
-ms.openlocfilehash: 184003e42a14e786cc52c4f585c6781f7b9fe0e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 12/15/2020
+ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452190"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589977"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
 > [!IMPORTANT]
-> Você deve habilitar a exclusão reversível em seus cofres de chaves imediatamente. A capacidade de recusar a exclusão reversível será preterida no final do ano, e a proteção de exclusão reversível será ativada automaticamente para todos os cofres de chaves.  Veja os detalhes completos [aqui](soft-delete-change.md)
+> Você deve habilitar a exclusão reversível em seus cofres de chaves imediatamente. A capacidade de recusar a exclusão reversível será preterida em breve. Veja os detalhes completos [aqui](soft-delete-change.md)
 
 O recurso de exclusão reversível do Key Vault permite a recuperação dos cofres excluídos e dos objetos do cofre de chaves excluídos (por exemplo, chaves, segredos, certificados), conhecidos como exclusão reversível. Especificamente, abordamos os seguintes cenários: essa proteção oferece as seguintes proteções:
 

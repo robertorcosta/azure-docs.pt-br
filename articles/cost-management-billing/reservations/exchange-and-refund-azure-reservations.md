@@ -5,14 +5,14 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 89b01205c08216b3ce1ec2d36cce48335b49eb47
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344276"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560535"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 
@@ -21,7 +21,7 @@ As Reservas do Azure fornecem flexibilidade para ajudar a atender às suas neces
 Os recursos de cancelamento e troca de autoatendimento não estão disponíveis para clientes do US Government Enterprise Agreement. Há suporte para outros tipos de assinatura do governo dos EUA, incluindo Pagamento Conforme o Uso e CSP (Provedor de Solução de Nuvem).
 
 > [!NOTE]
-> - **Você precisa ter acesso de proprietário ao Pedido de Reserva para trocar ou reembolsar uma reserva existente**. Você pode [Adicionar ou alterar os usuários que podem gerenciar uma reserva](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+> - **Você precisa ter acesso de proprietário ao Pedido de Reserva para trocar ou reembolsar uma reserva existente**. Você pode [Adicionar ou alterar os usuários que podem gerenciar uma reserva](./manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 > - Atualmente, a Microsoft não está cobrando valores de término antecipado para reembolsos de reserva. Poderemos cobrar valores para reembolsos feitos no futuro. No momento, não temos uma data para habilitar o valor.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Como trocar ou reembolsar uma reserva existente
@@ -66,7 +66,7 @@ O Azure tem as políticas de cancelamento, troca e reembolso a seguir.
 **Políticas de troca**
 
 - Você pode devolver várias reservas existentes a fim de comprar uma nova reserva do mesmo tipo. Não é permitido trocar reservas de um tipo por outro. Por exemplo, você não pode devolver uma reserva de VM para comprar uma reserva de SQL. Você pode alterar a propriedade de uma reserva, como família, série, versão, SKU, região, quantidade e prazo com uma troca.
-- Somente os proprietários de reserva podem processar uma troca. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Somente os proprietários de reserva podem processar uma troca. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 - Uma troca é processada como um reembolso seguido de uma nova compra – diferentes transações são criadas para o cancelamento e a nova compra de reserva. O valor rateado da reserva que você troca é reembolsado. O valor integral é cobrado pela nova compra. O valor proporcional da reserva é o valor residual diário proporcional da reserva que está sendo devolvida.
 - Você pode trocar ou reembolsar reservas mesmo que o Contrato Enterprise usado para comprar a reserva esteja expirado e tenha sido renovado como um novo contrato.
 - O compromisso de tempo de vida da nova reserva deve ser igual ou maior que o compromisso restante da reserva devolvida. Exemplo: para uma reserva de três anos de US$ 100 por mês trocada após o 18° pagamento, o compromisso de tempo de vida da nova reserva deve ser de US$ 1800 ou mais (com pagamento mensal ou antecipado).
@@ -79,7 +79,7 @@ O Azure tem as políticas de cancelamento, troca e reembolso a seguir.
 - O compromisso cancelado total não pode ultrapassar US$ 50.000 em uma janela ininterrupta de 12 meses para um perfil de cobrança ou registro único. Por exemplo, para uma reserva de três anos de US$ 100 por mês reembolsada no 18° mês, o compromisso cancelado é de US$ 1.800. Após o reembolso, seu novo limite disponível para reembolso será de US$ 48.200. Em 365 dias depois deste reembolso, o limite de US$ 48.200 será aumentado em US$ 1.800 e seu novo pool será de US$ 50.000. Qualquer outro cancelamento de reserva para o perfil de cobrança ou registro de EA esvaziará o mesmo pool, e a mesma lógica de reabastecimento será aplicada.
 - O Azure não processará nenhum reembolso que ultrapasse o limite de US$ 50.000 em uma janela de 12 meses para um perfil de cobrança ou registro de EA.
 - O cálculo dos reembolsos é baseado no valor mais baixo entre o preço de compra e o preço atual da reserva.
-- Somente os proprietários de pedidos de reserva podem processar um reembolso. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+- Somente os proprietários de pedidos de reserva podem processar um reembolso. [Saiba como adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#who-can-manage-a-reservation-by-default).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
