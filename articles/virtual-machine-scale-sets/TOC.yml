@@ -118,31 +118,31 @@
       items:
         - name: Propósito geral
           href: ../virtual-machines/sizes-general.md
-          maintainContext: true
           items:
             - name: Série B expansível
               href: ../virtual-machines/sizes-b-series-burstable.md
               maintainContext: true
+          maintainContext: true
         - name: Otimizado para computação
           href: ../virtual-machines/sizes-compute.md
           maintainContext: true
         - name: Otimizado para memória
           href: ../virtual-machines/sizes-memory.md
-          maintainContext: true
           items:
             - name: VCPUs restritas
               href: ../virtual-machines/constrained-vcpu.md
               maintainContext: true
+          maintainContext: true
         - name: Otimizado para armazenamento
           href: ../virtual-machines/sizes-storage.md
           maintainContext: true
         - name: GPU otimizada
           href: ../virtual-machines/sizes-gpu.md
-          maintainContext: true
           items:
             - name: Configurar drivers de GPU NVIDIA
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
+          maintainContext: true
         - name: Computação de alto desempenho
           href: ../virtual-machines/sizes-hpc.md
           maintainContext: true
@@ -165,8 +165,6 @@
     - name: Manutenção e atualizações
       href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
-    - name: Modos de orquestração
-      href: orchestration-modes.md
     - name: Armazenamento em disco
       items:
         - name: Managed Disks

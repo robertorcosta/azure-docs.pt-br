@@ -5,6 +5,8 @@
   items:
     - name: O que é o serviço de Detecção Facial?
       href: Overview.md
+    - name: Novidades
+      href: releasenotes.md
 - name: Inícios rápidos
   items:
     - name: Como usar a biblioteca de clientes ou a API REST
@@ -97,5 +99,3 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Criptografia
       href: face-encryption-of-data-at-rest.md
-    - name: Notas de versão
-      href: ReleaseNotes.md
