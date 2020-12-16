@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperfq1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4ebae7e97f9128bb9302e9076e71dd3164f0c29e
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89442115"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030953"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Início Rápido: Configurar um aplicativo para expor uma API Web
 
@@ -95,7 +95,7 @@ Para adicionar o exemplo de escopo `Employees.Write.All`, siga as etapas na seç
 
 Se você tiver adicionado com êxito os dois escopos de exemplo descritos nas seções anteriores, eles aparecerão no painel **Expor uma API** do registro de aplicativo da API Web, semelhante a esta imagem:
 
-:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Um registro de aplicativo expõe um painel de API no portal do Azure":::
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Captura de tela do painel Expor uma API mostrando dois escopos expostos.":::
 
 Conforme mostrado na imagem, a cadeia de caracteres completa de um escopo é a concatenação do **URI da ID do Aplicativo** da sua API Web e o **Nome do escopo**.
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0d030240ebe22886826b7a25bd5ca7b8f54e358
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9a0d91677770e89f3e249fc699057332cccaa323
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81001105"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347465"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Arquitetura da microcentral de atendimento
 
@@ -22,11 +22,11 @@ As soluções de microcentral de atendimento permitem que você conecte, monitor
 
 ![Análise do repositório do Azure IoT Central](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
-- Conjunto de sensores de IoT que enviam dados de telemetria para um dispositivo de gateway
-- Dispositivos de gateway que enviam telemetria e informações agregadas para o IoT Central
-- Exportação contínua de dados para manipulação pelo serviço do Azure desejado
-- Os dados podem ser estruturados no formato desejado e enviados para um serviço de armazenamento
-- Os aplicativos de negócios podem consultar dados e gerar informações que potencializam as operações de varejo
+1. Conjunto de sensores de IoT que enviam dados de telemetria para um dispositivo de gateway
+2. Dispositivos de gateway que enviam telemetria e informações agregadas para o IoT Central
+3. Exportação contínua de dados para manipulação pelo serviço do Azure desejado
+4. Os dados podem ser estruturados no formato desejado e enviados para um serviço de armazenamento
+5. Os aplicativos de negócios podem consultar dados e gerar informações que potencializam as operações de varejo
  
 Vamos dar uma olhada nos principais componentes que geralmente desempenham um papel em uma solução de microcentral de atendimento.
 
