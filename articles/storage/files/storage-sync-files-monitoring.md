@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 87d0b740ec4f7ffb8966b386c273c023f69c42d8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1cc2cd1a7c5c16b1f9d1542e3f2d14dc030bb090
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008292"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586543"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorar a Sincronização de Arquivos do Azure
 
@@ -161,7 +161,7 @@ Integridade de camadas de nuvem
   - A identificação de evento 9003 fornece distribuição de erro para um terminal do servidor. Por exemplo: contagem de erros total e ErrorCode. Um evento é registrado por código de erro.
   - A identificação de evento 9016 fornece resultados de fantasma para um volume. Por exemplo: a porcentagem de espaço livre é, o número de arquivos fantasmas na sessão e o número de arquivos com falha no fantasma.
   - A ID do evento 9029 fornece informações de sessão de conversão em fantasma para um ponto de extremidade de servidor. Por exemplo: o número de arquivos tentados na sessão, o número de arquivos em camadas na sessão e o número de arquivos já em camadas.
-  
+
 - Para monitorar a atividade de recuperação em um servidor, use a ID de evento 9005, 9006, 9009, 9059 e 9071 no log de eventos de telemetria, localizado em Visualizador de Eventos em *Applications and Services\Microsoft\FileSync\Agent*.
 
   - A ID de evento 9005 fornece confiabilidade de recall para um ponto de extremidade do servidor. Por exemplo: total de arquivos exclusivos acessados e total de arquivos exclusivos com falha de acesso.
@@ -192,7 +192,7 @@ Esta seção fornece alguns alertas de exemplo para Sincronização de Arquivos 
 
   > [!Note]  
   > Se você criar um alerta e ele estiver muito ruidosa, ajuste o valor de limite e a lógica de alerta.
-  
+
 ### <a name="how-to-create-an-alert-if-the-server-endpoint-health-shows-an-error-in-the-portal"></a>Como criar um alerta se a integridade do ponto de extremidade do servidor mostrar um erro no portal
 
 1. No **portal do Azure**, navegue até o respectivo **serviço de sincronização de armazenamento**. 
@@ -201,16 +201,16 @@ Esta seção fornece alguns alertas de exemplo para Sincronização de Arquivos 
 4. Configure a condição clicando em **Selecionar condição**.
 5. Na folha **Configurar lógica de sinal** , clique em **sincronizar sessão resultado** em nome do sinal.  
 6. Selecione a seguinte configuração de dimensão: 
-    - Nome da dimensão: **nome do ponto de extremidade do servidor**  
-    - Operador **=** 
-    - Valores de dimensão: **todos os valores atuais e futuros**  
+     - Nome da dimensão: **nome do ponto de extremidade do servidor**  
+     - Operador **=** 
+     - Valores de dimensão: **todos os valores atuais e futuros**  
 7. Navegue até a **lógica de alerta** e conclua o seguinte: 
-    - Limite definido como **estático** 
-    - Operador: **menor que** 
-    - Tipo de agregação: **máximo**  
-    - Valor do limite: **1** 
-    - Avaliado com base em: granularidade de agregação = **24 horas** | Frequência de avaliação = a **cada hora** 
-    - Clique em **concluído.** 
+     - Limite definido como **estático** 
+     - Operador: **menor que** 
+     - Tipo de agregação: **máximo**  
+     - Valor do limite: **1** 
+     - Avaliado com base em: granularidade de agregação = **24 horas** | Frequência de avaliação = a **cada hora** 
+     - Clique em **concluído.** 
 8. Clique em **selecionar grupo de ações** para adicionar um grupo de ações (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
 9. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
 10. Clique em **Criar regra de alerta**. 
@@ -254,7 +254,7 @@ Esta seção fornece alguns alertas de exemplo para Sincronização de Arquivos 
      - Tipo de agregação: **máximo**  
      - Valor do limite (em bytes): **1** 
      - Avaliado com base em: granularidade de agregação = **1 hora** | Frequência de avaliação = a **cada 30 minutos** 
-        - Observe que as métricas são enviadas para Azure Monitor a cada 15 a 20 minutos. Não defina a **frequência de avaliação** para menos de 30 minutos (irá gerar falsos alertas).
+         - Observe que as métricas são enviadas para Azure Monitor a cada 15 a 20 minutos. Não defina a **frequência de avaliação** para menos de 30 minutos (irá gerar falsos alertas).
      - Clique em **concluído.** 
 8. Clique em **selecionar grupo de ações** para adicionar um grupo de ações (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
 9. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
@@ -277,7 +277,7 @@ Esta seção fornece alguns alertas de exemplo para Sincronização de Arquivos 
      - Tipo de agregação: **total**  
      - Valor do limite (em bytes): **67108864000** 
      - Avaliado com base em: granularidade de agregação = **24 horas** | Frequência de avaliação = a **cada hora** 
-    - Clique em **concluído.** 
+     - Clique em **concluído.** 
 8. Clique em **selecionar grupo de ações** para adicionar um grupo de ações (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
 9. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
 10. Clique em **Criar regra de alerta**. 

@@ -3,15 +3,15 @@ title: Habilitar VMs VMware para recuperação de desastre usando Azure Site Rec
 description: Este artigo descreve como habilitar a replicação de VM do VMware para recuperação de desastre usando o serviço de Azure Site Recovery
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 04/01/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 74870d10348421bf726b9bdc58504a74cf4105a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1f4759bc40c4074f0dd618be8ac66ad088e848c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004204"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587733"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
@@ -94,6 +94,41 @@ Para habilitar a replicação, siga estas etapas:
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Janela habilitar replicação":::
 
 1. Selecione **Habilitar Replicação**. Você pode acompanhar o progresso do trabalho **habilitar proteção** em **configurações**  >  **trabalhos**  >  **site Recovery trabalhos**. Depois que o trabalho **finalizar proteção** for executado, a máquina virtual estará pronta para failover.
+
+## <a name="monitor-initial-replication"></a>Monitorar a replicação inicial
+
+Após a conclusão da "habilitação da replicação" do item protegido, Azure Site Recovery inicia a replicação (sinônimo à sincronização) dos dados do computador de origem para a região de destino. Durante esse período, a réplica dos discos de origem é criada. Somente após a conclusão da cópia dos discos originais, as alterações Delta são copiadas para a região de destino. O tempo necessário para copiar os discos originais depende de vários parâmetros, como:
+
+- tamanho dos discos do computador de origem
+- largura de banda disponível para transferir os dados para o Azure (você pode aproveitar o planejador de implantação para identificar a largura de banda ideal necessária)
+- processar recursos do servidor como memória, espaço livre em disco, CPU disponível para armazenar em cache & processar os dados recebidos de itens protegidos (verifique se o servidor de processo está [íntegro](vmware-physical-azure-monitor-process-server.md#monitor-proactively))
+
+Para acompanhar o progresso da replicação inicial, navegue até o cofre dos serviços de recuperação em portal do Azure-> itens replicados-> o valor da coluna "status" do item replicado do monitor. O status mostra a porcentagem de conclusão da replicação inicial. Ao passar o mouse sobre o status, o "total de dados transferidos" estaria disponível. Quando você clicar em status, uma página contextual será aberta e exibirá os seguintes parâmetros:
+
+- Última atualização em – indica a hora mais recente em que as informações de replicação de todo o computador foram atualizadas pelo serviço.
+- Porcentagem concluída-indica a porcentagem de replicação inicial concluída para a VM
+- Total de dados transferidos-quantidade de dados transferidos da VM para o Azure
+
+:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-state.png" alt-text="Estado de replicação" lightbox="media/vmware-azure-enable-replication/initial-replication-state.png":::
+
+- Progresso da sincronização (para rastrear detalhes em um nível de disco)
+    - Estado da replicação
+      - Se a replicação ainda não for iniciada, o status será atualizado como "na fila". Durante a replicação inicial, somente três discos são replicados de cada vez. Esse mecanismo é seguido para evitar a limitação no servidor de processo.
+      - Depois que a replicação é iniciada, o status é atualizado como "em andamento".
+      - Após a conclusão da replicação inicial, o status será marcado como "concluído".        
+   - Site Recovery lê o disco original, transfere dados para o Azure e captura o progresso em um nível de disco. Observe que, Site Recovery ignora a replicação do tamanho de disco não ocupado e a adiciona aos dados concluídos. Portanto, a soma dos dados transferidos em todos os discos pode não se somar ao "total de dados transferidos" no nível da VM.
+   - Ao clicar no balão de informações em um disco, você pode obter detalhes sobre quando a replicação (sinônimo de sincronização) foi disparada para o disco, dados transferidos para o Azure nos últimos 15 minutos seguidos pelo último carimbo de data/hora atualizado. Esse carimbo de data/hora indica o horário mais recente em que as informações foram recebidas pelo serviço do Azure da máquina de origem :::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="inicial-replicação-informações-balão-detalhes" lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::
+   - A integridade de cada disco é exibida
+      - Se a replicação for mais lenta do que o esperado, o status do disco se transformará em aviso
+      - Se a replicação não estiver progredindo, o status do disco se tornará crítico
+
+Se a integridade estiver em estado crítico/de aviso, verifique se a integridade da replicação do computador e do [servidor de processo](vmware-physical-azure-monitor-process-server.md) estão íntegras. 
+
+Assim que habilitar o trabalho de replicação for concluído, o progresso da replicação será 0% e o total de dados transferidos seria NA. Ao clicar, os dados em cada disco identificado seriam como "NA". Isso indica que a replicação ainda está para ser iniciada e Azure Site Recovery ainda está recebendo as estatísticas mais recentes. O progresso é atualizado em um intervalo de 30 min.
+
+> [!NOTE]
+> Certifique-se de atualizar os servidores de configuração, os servidores de processo de expansão e os agentes de mobilidade para as versões 9,36 ou superiores para garantir que o progresso preciso seja capturado e enviado aos serviços de Site Recovery.
+
 
 ## <a name="view-and-manage-vm-properties"></a>Exibir e gerenciar as propriedades da VM
 

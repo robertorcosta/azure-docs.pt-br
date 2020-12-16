@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76f4a3e5fc87420c242c693e3c48a91244641e0
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 51602e97a8424bade542eec6f88b673130fee8b5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560026"
+ms.locfileid: "97586016"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicionar um fluxo do usuário de inscrição por autoatendimento a um aplicativo (visualização)
 > [!NOTE]
@@ -70,6 +70,9 @@ Em seguida, você criará o fluxo de usuário para inscrição de autoatendiment
 7. Em **Atributos de usuário**, escolha os atributos que você deseja coletar do usuário. Para obter atributos adicionais, selecione **Mostrar mais**. Por exemplo, selecione **Mostrar mais** e, depois, escolha atributos e declarações de **País/região**, **Nome de exibição** e **Código postal**. Selecione **OK**.
 
    ![Criar uma nova página de fluxo de usuário](media/self-service-sign-up-user-flow/create-user-flow.png)
+
+> [!NOTE]
+> Você só pode coletar atributos quando um usuário se inscreve pela primeira vez. Depois que um usuário se inscreve, ele não será mais solicitado a coletar informações de atributo, mesmo se você alterar o fluxo do usuário.
 
 8. Selecione **Criar**.
 9. O novo fluxo de usuário aparece na lista **Fluxos de usuário (versão prévia)** . Se necessário, atualize a página.

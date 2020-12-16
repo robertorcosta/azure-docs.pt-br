@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2613a4fd931ad49a4f40a4221ea20e8c25f185fe
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501387"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586968"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Conectar-se ao Azure Synapse Studio usando hubs de link privado do Azure 
 
@@ -35,9 +35,9 @@ Você pode criar seu hub de link privado procurando por *hubs de link Synapse pr
 ## <a name="azure-private-links-hubs-and-azure-virtual-network"></a>Hubs de links privados do Azure e rede virtual do Azure
 Você deve conectar sua rede virtual do Azure ao recurso Synapse Private link Hub para proteger a conexão de ponta a ponta ao Synapse Studio. Para isso, você deve criar um ponto de extremidade privado de sua rede virtual para o Hub de link privado que você criou. Você pode usar o portal do Azure para o seu hub de link privado e ir para a seção ponto de extremidade particular. Selecione "+ ponto de extremidade privado" para criar um novo ponto de extremidade privado que se conecta ao seu hub de link privado.
 
-:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Criar um ponto de extremidade privado para o Hub de link privado":::
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="Captura de tela que mostra a página conexões de ponto de extremidade privado.":::
 
-Certifique-se de escolher o tipo de recurso "Microsoft. Synapse/privateLinkHubs" na guia "recurso". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="criar um ponto de extremidade privado para o Hub de link privado":::
+Certifique-se de escolher o tipo de recurso "Microsoft. Synapse/privateLinkHubs" na guia "recurso". :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="captura de tela que mostra a página ' criar um ponto de extremidade privado ' com ' tipo de recurso ' realçado.":::
 
 Na guia "configuração", selecione "privatelink.azuresynapse.net" para zonas de DNS privado ao integrar com sua rede virtual e zona DNS privada.
 

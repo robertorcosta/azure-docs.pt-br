@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 manager: ravijan
-ms.date: 09/30/2020
-ms.openlocfilehash: 86190fa307133360c411aafc070412e7d527039e
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 12/15/2020
+ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324951"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587104"
 ---
 # <a name="how-to-enable-soft-delete-and-purge-protection"></a>Como habilitar a exclusão reversível e a proteção de limpeza
 
@@ -23,7 +23,7 @@ Este artigo aborda dois recursos de recuperação do Azure Key Vault, exclusão 
 
 A exclusão reversível e a proteção de limpeza são dois recursos diferentes de recuperação do cofre de chaves.
 > [!IMPORTANT]
-> A proteção de exclusão reversível deve ser habilitada em todos os cofres de chaves. A capacidade de desabilitar a proteção de exclusão reversível será preterida em dezembro de 2020. Consulte os detalhes completos [ **aqui**.](soft-delete-change.md)
+> A ativação da exclusão reversível é essencial para garantir que seus cofres de chaves e credenciais sejam protegidos contra exclusão acidental. No entanto, ativar a exclusão reversível é considerado uma alteração significativa porque pode exigir que você altere a lógica do aplicativo ou forneça permissões adicionais para suas entidades de serviço. Antes de ativar a exclusão reversível usando as instruções abaixo, verifique se seu aplicativo é compatível com a alteração usando este documento [ **aqui**.](soft-delete-change.md)
 
 A **exclusão reversível** foi projetada para impedir a exclusão acidental do cofre de chaves e chaves, segredos e certificados armazenados no Key Vault. Pense na exclusão reversível como uma lixeira. Quando você excluir um cofre de chaves ou um objeto de cofre de chaves, ele permanecerá recuperável para um período de retenção configurável pelo usuário ou um padrão de 90 dias. Os cofres de chaves no estado de exclusão reversível também podem ser **limpos** , o que significa que eles são excluídos permanentemente. Isso permite recriar cofres de chaves e objetos do cofre de chaves com o mesmo nome. A recuperação e a exclusão de cofres de chaves e objetos exigem permissões elevadas de política de acesso. **Depois que a exclusão reversível tiver sido habilitada, ela não poderá ser desabilitada.**
 
@@ -34,7 +34,7 @@ A **proteção de limpeza** é projetada para impedir a exclusão de seu cofre d
 > [!NOTE]
 > A proteção de limpeza é projetada para que nenhuma função de administrador ou permissão possa substituir, desabilitar ou evitar a proteção de limpeza. **Quando a proteção de limpeza estiver habilitada, ela não poderá ser desabilitada nem substituída por ninguém, incluindo a Microsoft.** Isso significa que você deve recuperar um cofre de chaves excluído ou aguardar até que o período de retenção decorra antes de reutilizar o nome do cofre de chaves.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
 ## <a name="verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete"></a>Verifique se a exclusão reversível está habilitada em um cofre de chaves e habilite a exclusão reversível
 
@@ -233,7 +233,7 @@ A **proteção de limpeza** é projetada para impedir a exclusão de seu cofre d
     az keyvault secret purge --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}
     ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ## <a name="key-vault-powershell"></a>Key Vault (PowerShell)
 

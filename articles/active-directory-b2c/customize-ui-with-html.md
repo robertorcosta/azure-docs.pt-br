@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 869cf5a47831844b04e0461a95fb7d16aa4d1569
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111112"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585183"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
 
@@ -29,9 +29,7 @@ A identidade visual e a personalização da interface do usuário que o Azure Ac
 > [!TIP]
 > Se você quiser modificar apenas o logotipo de faixa, a imagem de tela de fundo e a cor da tela de fundo das suas páginas de fluxo de usuário, você poderá experimentar o recurso de [identidade visual da empresa](company-branding.md) .
 
-
 ## <a name="custom-html-and-css-overview"></a>Visão geral de HTML e CSS personalizados
-
 
 Azure AD B2C executa o código no navegador do cliente usando o [CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/). No tempo de execução, o conteúdo é carregado de uma URL que você especifica em seu fluxo de usuário ou política personalizada. Cada página na experiência do usuário carrega seu conteúdo da URL que você especificar para essa página. Depois que o conteúdo é carregado de sua URL, ele é mesclado com um fragmento de HTML inserido por Azure AD B2C e, em seguida, a página é exibida para o cliente.
 
@@ -121,7 +119,6 @@ Aqui está uma visão geral do processo:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
-
 
 ### <a name="1-create-your-html-content"></a>1. criar seu conteúdo HTML
 
@@ -223,7 +220,7 @@ Configure o armazenamento de BLOB para compartilhamento de recursos entre origen
 1. Para **cabeçalhos permitidos**, digite um asterisco (*).
 1. Para **cabeçalhos expostos**, digite um asterisco (*).
 1. Para **Idade máxima de**, insira 200.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 #### <a name="31-test-cors"></a>CORS de teste 3,1
 
@@ -235,7 +232,6 @@ Valide se você está pronto executando as seguintes etapas:
 1. Selecione **Enviar solicitação**.
     O resultado deve ser `XHR status: 200` . 
     Se você receber um erro, verifique se as Configurações do CORS estão corretas. Você também pode precisar limpar o cache do navegador ou abrir uma sessão de navegação particular pressionando Ctrl+Shift+P.
-
 
 ::: zone pivot="b2c-user-flow"
 
@@ -391,10 +387,7 @@ Para usar o exemplo:
 1. Agora, modifique a política, apontando para o arquivo HTML, conforme mencionado anteriormente.
 1. Se você vir fontes, imagens ou CSS ausentes, verifique suas referências na política de extensões e nos \* arquivos. html.
 
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como habilitar o [código JavaScript do lado do cliente](javascript-and-page-layout.md).
-
-
 

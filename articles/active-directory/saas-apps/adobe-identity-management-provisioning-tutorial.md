@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: aafdbe631426b4b0c8c762a81457369bc474f479
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: a87a08db672c459138fc1efd865332dc0f19944e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181113"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586583"
 ---
 # <a name="tutorial-configure-adobe-identity-management-for-automatic-user-provisioning"></a>Tutorial: configurar o gerenciamento de identidades do Adobe para provisionamento automático de usuário
 
@@ -57,15 +57,15 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 2. Clique em **Adicionar sincronização**.
 
-      ![Adicionar](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
+      ![Add](media/adobe-identity-management-provisioning-tutorial/add-sync.png)
 
 3. Selecione **sincronizar usuários de Microsoft Azure** e clique em **Avançar**.
 
-      ![Sincronizar](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
+      ![Captura de tela que mostra ' sincronizar usuários de Microsoft Azure Active Directory ' selecionados.](media/adobe-identity-management-provisioning-tutorial/sync-users.png)
 
 4. Copie e salve a **URL do locatário** e o **token secreto**. Esses valores serão inseridos nos campos **URL do locatário** e **token secreto** na guia provisionamento do aplicativo de gerenciamento de identidade do Adobe no portal do Azure.
 
-      ![Sincronizar](media/adobe-identity-management-provisioning-tutorial/token.png)
+      ![Sincronização](media/adobe-identity-management-provisioning-tutorial/token.png)
 
 ## <a name="step-3-add-adobe-identity-management-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o Adobe Identity Management da Galeria de aplicativos do Azure AD
 
@@ -124,7 +124,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |addresses[type eq "work"].country|String|
    |name.givenName|String|
    |name.familyName|String|
-   |urn: IETF: params: SCIM: esquemas: extensão: Adobe: 2.0: User: emailAliases|Cadeia de caracteres|
+   |urn: IETF: params: SCIM: esquemas: extensão: Adobe: 2.0: User: emailAliases|String|
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory com o gerenciamento de identidades da Adobe**.
 

@@ -9,15 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 53f5346030e3c5a247d1ad2a73b23882e83ed41a
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: eb7cba1de280793a1ca98687c71355c1ea702d4c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508111"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585217"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Adicionar atributos de usuário e personalizar a entrada do usuário no Azure Active Directory B2C
 
@@ -42,7 +43,7 @@ Neste artigo, você coleta um novo atributo durante a sua jornada de inscrição
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Selecione sua política (por exemplo, "B2C_1_SignupSignin") para abri-la.
 1. Selecione **atributos de usuário** e, em seguida, selecione o atributo de usuário (por exemplo, "cidade"). 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="provide-optional-claims-to-your-app"></a>Fornecer declarações opcionais para seu aplicativo
 
@@ -51,7 +52,7 @@ As declarações de aplicativo são valores que são retornados para o aplicativ
 1. Selecione sua política (por exemplo, "B2C_1_SignupSignin") para abri-la.
 1. Selecione **Declarações do aplicativo**.
 1. Selecione os atributos que você deseja enviar de volta para seu aplicativo (por exemplo, "cidade")..
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
  
 ## <a name="configure-user-attributes-input-type"></a>Configurar tipo de entrada de atributos de usuário
 
@@ -61,7 +62,7 @@ As declarações de aplicativo são valores que são retornados para o aplicativ
 1. Em **atributos de usuário**, selecione **cidade**.
     1. Na lista suspensa **tipo de entrada do usuário** , selecione **DropdownSingleSelect**.
     1. Na lista suspensa **opcional** , selecione **não**.
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
 
 ### <a name="provide-a-list-of-values-by-using-localized-collections"></a>Forneça uma lista de valores usando coleções localizadas
 

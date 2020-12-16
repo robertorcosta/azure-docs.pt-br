@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 02919c8e31e556ab7b5e7e04fcbde27dcf981736
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 03b7f7cd0ebff61047175c8667130a31866b7cbe
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511562"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585999"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -29,7 +29,7 @@ O serviço de gateway é hospedado em um grupo de nós de computação sem monit
 
 Como parte da manutenção contínua do serviço, atualizaremos periodicamente o hardware de computação que hospeda os gateways para garantir que forneceremos a experiência mais segura e de alto desempenho. Quando o hardware de gateway é atualizado, um novo anel dos nós de computação é criado primeiro. Esse novo anel serve o tráfego para todos os servidores do banco de dados do Azure recém-criados para MySQL e ele terá um endereço IP diferente dos anéis de gateway mais antigos na mesma região para diferenciar o tráfego. Quando o novo anel estiver totalmente funcional, o hardware de gateway mais antigo que atende aos servidores existentes será planejado para encerramento. Antes de encerrar um hardware de gateway, os clientes que executam seus servidores e se conectarem a anéis de gateway mais antigos serão notificados por email e na portal do Azure, três meses de antecedência antes do encerramento. O encerramento de gateways pode afetar a conectividade com seus servidores se 
 
-* Você codifica os endereços IP do gateway na cadeia de conexão do seu aplicativo. Não é **recomendável**. 
+* Você codifica os endereços IP do gateway na cadeia de conexão do seu aplicativo. Não é **recomendável**. Você deve usar o FQDN (nome de domínio totalmente qualificado) do servidor no formato <servername> . mysql.Database.Azure.com, na cadeia de conexão do seu aplicativo. 
 * Você não atualiza os endereços IP de gateway mais recentes no firewall do lado do cliente para permitir que o tráfego de saída seja capaz de alcançar nossos novos anéis de gateway.
 
 A tabela a seguir lista os endereços IP do gateway do banco de dados do Azure para o gateway MySQL para todas as regiões de data. As informações mais atualizadas dos endereços IP do gateway para cada região são mantidas na tabela a seguir. Na tabela abaixo, as colunas representam as seguintes:

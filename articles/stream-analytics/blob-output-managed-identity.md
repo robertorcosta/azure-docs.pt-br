@@ -5,15 +5,15 @@ author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/11/2020
-ms.openlocfilehash: f1aad2464e4979ecbf35deceaad4de70e05b3004
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.date: 12/15/2020
+ms.openlocfilehash: 62651e9ea4e1b02b276e7870163453bfa55c3909
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573656"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587563"
 ---
-# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usar identidade gerenciada (versão prévia) para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure
+# <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Usar identidade gerenciada (versão prévia) para autenticar seu trabalho de Azure Stream Analytics para o armazenamento de BLOBs do Azure
 
 A [autenticação de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) (versão prévia) para saída para o armazenamento de BLOBs do Azure fornece ao Stream Analytics trabalhos acesso direto a uma conta de armazenamento em vez de usar uma cadeia de conexão. Além da segurança aprimorada, esse recurso também permite que você grave dados em uma conta de armazenamento em uma rede virtual (VNET) no Azure.
 

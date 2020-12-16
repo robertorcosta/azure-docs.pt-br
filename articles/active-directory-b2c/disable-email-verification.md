@@ -9,15 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/10/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9d24bd65f1bd473560585ec9d594ddc77d858177
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0f70c8d501a7d56f4bc29e0f2b065760cad625e5
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111106"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97585012"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-in-azure-active-directory-b2c"></a>Desabilitar a verificação de email durante a inscrição do cliente no Azure Active Directory B2C
 
@@ -48,7 +49,7 @@ Siga estas etapas para desabilitar a verificação de email:
 1. Selecione **a página de inscrição da conta local**.
 1. Em **atributos de usuário**, selecione **endereço de email**.
 1. Na lista suspensa **requer verificação** , selecione **não**.
-1. Clique em **Salvar**. A verificação de email agora está desabilitada para este fluxo de usuário.
+1. Selecione **Salvar**. A verificação de email agora está desabilitada para este fluxo de usuário.
 
 ::: zone-end
 
