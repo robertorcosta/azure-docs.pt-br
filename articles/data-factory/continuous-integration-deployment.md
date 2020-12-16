@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 84e156074d6db837556ba4ed9febdb43bcdf3318
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902285"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591887"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -41,9 +41,9 @@ Abaixo há uma visão geral de exemplo do ciclo de vida de CI/CD em um Azure Dat
 
 1.  Um desenvolvedor [cria um branch de recurso](source-control.md#creating-feature-branches) para fazer uma alteração. Ele depura as execuções do pipeline com as alterações mais recentes. Para obter mais informações sobre como depurar uma execução de pipeline, confira [Desenvolvimento iterativo e depuração com o Azure Data Factory](iterative-development-debugging.md).
 
-1.  Depois que um desenvolvedor estiver satisfeito com as alterações, poderá criar uma solicitação de pull do branch de recurso para o branch mestre ou de colaboração para que as alterações sejam examinadas por pares.
+1.  Depois que um desenvolvedor estiver satisfeito com suas alterações, ele criará uma solicitação de pull de sua ramificação de recursos para a ramificação principal ou de colaboração para que suas alterações sejam revisadas por colegas.
 
-1.  Depois que uma solicitação de pull for aprovada e as alterações forem mescladas no branch mestre, as alterações serão publicadas no alocador de desenvolvimento.
+1.  Depois que uma solicitação de pull é aprovada e as alterações são mescladas no Branch principal, as alterações são publicadas na fábrica de desenvolvimento.
 
 1.  Quando a equipe estiver pronta para implantar as alterações em uma fábrica de teste ou UAT (teste de aceitação do usuário), a equipe vai para o Azure Pipelines versão e implanta a versão desejada da fábrica de desenvolvimento em UAT. Essa implantação ocorre como parte de uma tarefa do Azure Pipelines e usa parâmetros do modelo do Resource Manager para aplicar a configuração apropriada.
 
@@ -668,7 +668,7 @@ Se você está usando a integração do Git ao seu data factory e tem um pipelin
     - As entidades do data factory dependem umas das outras. Por exemplo, os gatilhos dependem de pipelines e os pipelines dependem de conjuntos de dados e de outros pipelines. A publicação seletiva de um subconjunto de recursos pode levar a comportamentos e erros inesperados.
     - Em raras ocasiões em que você precisa de publicação seletiva, considere usar um hotfix. Para obter mais informações, consulte [hotfix Production Environment](#hotfix-production-environment).
 
-- A equipe de Azure Data Factory não recomenda atribuir controles RBAC do Azure a entidades individuais (pipelines, conjuntos de valores, etc) em um data factory. Por exemplo, se um desenvolvedor tiver acesso a um pipeline ou a um conjunto de dados, ele deverá conseguir acessar todos os pipelines ou conjuntos de dados no data factory. Se você achar que precisa implementar muitas funções do Azure em um data factory, examine a implantação de uma segunda data factory.
+- A equipe de Azure Data Factory não recomenda atribuir controles RBAC do Azure a entidades individuais (pipelines, conjuntos de valores, etc.) em um data factory. Por exemplo, se um desenvolvedor tiver acesso a um pipeline ou a um conjunto de dados, ele deverá conseguir acessar todos os pipelines ou conjuntos de dados no data factory. Se você achar que precisa implementar muitas funções do Azure em um data factory, examine a implantação de uma segunda data factory.
 
 -   Não é possível publicar de branches particulares.
 

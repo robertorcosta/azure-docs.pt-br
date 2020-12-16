@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: b-juche
-ms.openlocfilehash: ee5e1230acd059d69648144b84a8fbfa652ef6e7
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: ceaf0209dd14c8d97088d7f8e8e6990429607089
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854046"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97591815"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de protocolo duplo (NFSv3 e SMB) para Azure NetApp Files
 
@@ -49,8 +49,8 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
     
     | Estilo de segurança    | Clientes que podem modificar permissões   | Permissões que os clientes podem usar  | Estilo de segurança efetivo resultante    | Clientes que podem acessar arquivos     |
     |-  |-  |-  |-  |-  |
-    | UNIX  | NFS   | Bits do modo NFSv3   | UNIX  | NFS e Windows   |
-    | NTFS  | Windows   | ACLs de NTFS     | NTFS  |NFS e Windows|
+    | `Unix`    | NFS   | Bits do modo NFSv3   | UNIX  | NFS e Windows   |
+    | `Ntfs`    | Windows   | ACLs de NTFS     | NTFS  |NFS e Windows|
 * Os usuários do UNIX que montam o volume de estilo de segurança NTFS usando o NFS serão autenticados como usuário `root` do Windows para UNIX `root` e `pcuser` para todos os outros usuários. Verifique se essas contas de usuário existem no seu Active Directory antes de montar o volume ao usar o NFS. 
 
 
