@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: acc19d9a04909dcf0e79c93e0c8a3fb8225ee1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1b92d1b5853d6b794ebdcf0e2052b8f15081d608
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546890"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507567"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos da CLI de Fala
 
@@ -87,7 +87,7 @@ Neste comando, você especifica os idiomas de origem (idioma **do** qual traduzi
 
 ### <a name="configuration-files-in-the-datastore"></a>Arquivos de configuração no armazenamento de dados
 
-O comportamento da CLI de Fala pode depender das configurações nos arquivos de configuração, que podem ser vistos nas chamadas da CLI de Fala por meio de um símbolo @.
+O comportamento da CLI de Fala pode depender das configurações dos arquivos de configuração, que podem ser referenciados nas chamadas da CLI de Fala usando o símbolo \@.
 A CLI de Fala salva uma nova configuração em um novo subdiretório `./spx/data` criado no diretório de trabalho atual.
 Ao buscar um valor de configuração, a CLI de Fala procura esse valor no diretório de trabalho atual, no armazenamento de dados em `./spx/data` e em outros armazenamentos de dados, incluindo um armazenamento de dados final somente leitura no binário `spx`.
 Anteriormente, você usou o armazenamento de dados para salvar seus valores `@key` e `@region`, portanto, você não precisou especificá-los com cada chamada de linha de comando.

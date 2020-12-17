@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: f1712a51fcd35c348f6177b670a7686898a0c78b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1fe1ad14dc1cc8f5ff5171ef517d23363969be4d
+ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346131"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97387778"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início Rápido: Criar, treinar e publicar sua base de dados de conhecimento do QnA Maker
 
@@ -48,7 +48,7 @@ ms.locfileid: "96346131"
     |--|--|
     |**Habilitar a extração de vários turnos de URLs, arquivos .pdf ou .docx.**|Verificado|
     |**Texto padrão com várias seções**| Selecionar uma opção|
-    |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Adicionar URL**|`https://www.microsoft.com/en-us/software-download/faq`|
     |**Bate-papo**|Selecione **Professional**|
 
 7. Na **Etapa 5**, selecione **Criar sua base de dados**.
@@ -83,7 +83,7 @@ ms.locfileid: "96346131"
     |--|--|
     |**Habilitar a extração de vários turnos de URLs, arquivos .pdf ou .docx.**|Verificado|
     |**Texto padrão com várias seções**| Selecionar uma opção|
-    |**+ Adicionar URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Adicionar Arquivo**| Baixar o manual do laptop Surface de: 'https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf ' 
     |**Bate-papo**|Selecione **Professional**|
 
 8. Na **Etapa 5**, selecione **Criar sua base de dados**.
@@ -122,9 +122,9 @@ No canto superior direito, selecione **Salvar e treinar** para salvar as ediçõ
 1. No portal do QnA Maker, selecione **Testar** para verificar se as alterações entraram em vigor.
 2. Insira um exemplo de consulta de usuário na caixa de texto.
 
-    `How many Azure services are used by a knowledge base?`
+    `I want to know the difference between 32 bit and 64 bit Windows`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Insira um exemplo de consulta de usuário na caixa de texto.":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/query-dialogue.png" alt-text="Insira um exemplo de consulta de usuário na caixa de texto.":::
 
 3. Selecione **Inspecionar** para examinar a resposta mais detalhadamente. A janela de teste é usada para testar as alterações na base de dados de conhecimento antes que ela seja publicada.
 

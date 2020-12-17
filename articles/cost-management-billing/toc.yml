@@ -188,15 +188,15 @@
               href: manage/pay-by-invoice.md
             - name: Criar assinaturas adicionais
               href: manage/create-subscription.md
-            - name: Criar assinaturas de EA – REST
+            - name: Criar assinaturas de EA programaticamente
               href: manage/programmatically-create-subscription-enterprise-agreement.md
-            - name: Criar assinaturas de MCA – REST
+            - name: Criar assinaturas de MCA programaticamente
               href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-            - name: Criar assinaturas de MPA – REST
+            - name: Criar assinaturas de MPA programaticamente
               href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
             - name: Criar assinaturas – modelo do ARM
               href: manage/create-subscription-template.md
-            - name: Criar assinaturas – versão prévia do REST
+            - name: Criar assinaturas programaticamente – versão prévia
               href: manage/programmatically-create-subscription-preview.md
             - name: Conceder acesso para criar assinaturas de EA
               href: manage/grant-access-to-create-subscription.md

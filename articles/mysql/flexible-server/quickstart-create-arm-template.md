@@ -242,7 +242,7 @@ echo "Press [ENTER] to continue ..."
 Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo do ARM, confira:
 
 > [!div class="nextstepaction"]
-> Criar e implantar seu primeiro modelo do Resource Manager[
+> [Criar e implantar seu primeiro modelo do ARM](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 Para obter um tutorial passo a passo de como criar um aplicativo com o Serviço de Aplicativo usando o MySQL, confira:
 
