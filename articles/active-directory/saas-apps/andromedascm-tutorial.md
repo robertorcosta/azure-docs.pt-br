@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d342f672f4e8a5fdf33afe0feb7c5051956e29f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e8cb939b48f8cfe311ec10c0850cfb234de04fad
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318768"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Tutorial: Integração do Azure Active Directory ao Andromeda
 
@@ -126,30 +126,30 @@ Para configurar o logon único do Azure AD com o Andromeda, execute as seguintes
 
     | Nome | Atributo de Origem|
     | ------ | -----------|
-    | função        | Função específica do aplicativo |
-    | type        | Tipo de Aplicativo |
-    | company       | CompanyName |
+    | função | Função específica do aplicativo |
+    | type | Tipo de Aplicativo |
+    | company | CompanyName |
 
     > [!NOTE]
     > Não há valores reais. Esses valores são somente para finalidade de demonstração; use as funções de sua organização.
 
-    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    1. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
-    ![Captura de tela que mostra Declarações do usuário com opções para Adicionar nova declaração e Salvar.](common/new-save-attribute.png)
+        ![Captura de tela que mostra Declarações do usuário com opções para Adicionar nova declaração e Salvar.](common/new-save-attribute.png)
 
-    ![Captura de tela que mostra Gerenciar declarações do usuário, em que pode inserir os valores descritos nesta etapa.](common/new-attribute-details.png)
+        ![Captura de tela que mostra Gerenciar declarações do usuário, em que pode inserir os valores descritos nesta etapa.](common/new-attribute-details.png)
 
-    b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
+    1. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
-    c. Deixe o **Namespace** em branco.
+    1. Deixe o **Namespace** em branco.
 
-    d. Escolha Origem como **Atributo**.
+    1. Escolha Origem como **Atributo**.
 
-    e. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
+    1. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    f. Clique em **Ok**
+    1. Clique em **Ok**
 
-    g. Clique em **Save** (Salvar).
+    1. Clique em **Save** (Salvar).
 
 8. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -159,11 +159,11 @@ Para configurar o logon único do Azure AD com o Andromeda, execute as seguintes
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
+    1. URL de logon
 
-    b. Identificador do Azure AD
+    1. Identificador do Azure AD
 
-    c. URL de logoff
+    1. URL de logoff
 
 ### <a name="configure-andromeda-single-sign-on"></a>Configurar o logon único do Andromeda
 
@@ -181,25 +181,25 @@ Para configurar o logon único do Azure AD com o Andromeda, execute as seguintes
 
     ![Configuração do Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-    a. Marque **Habilitar o SSO com SAML**.
+    1. Marque **Habilitar o SSO com SAML**.
 
-    b. Na seção **Informações sobre o Andromeda**, copie o valor **Identidade do SP** e cole-o na caixa de texto **Identificador** da seção **Configuração básica do SAML**.
+    1. Na seção **Informações sobre o Andromeda**, copie o valor **Identidade do SP** e cole-o na caixa de texto **Identificador** da seção **Configuração básica do SAML**.
 
-    c. Copie o valor **URL do Consumidor** e cole-o na caixa de texto **URL de Resposta** da seção **Configuração básica do SAML**.
+    1. Copie o valor **URL do Consumidor** e cole-o na caixa de texto **URL de Resposta** da seção **Configuração básica do SAML**.
 
-    d. Copie o valor **URL de Logon** e cole-o na caixa de texto **URL de Logon** da seção **Configuração básica do SAML**.
+    1. Copie o valor **URL de Logon** e cole-o na caixa de texto **URL de Logon** da seção **Configuração básica do SAML**.
 
-    e. Na seção **provedor de identidade SAML**, digite seu nome IDP.
+    1. Na seção **provedor de identidade SAML**, digite seu nome IDP.
 
-    f. Na caixa de texto **Ponto de extremidade do logon único**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
+    1. Na caixa de texto **Ponto de extremidade do logon único**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
-    g. Abra o **certificado codificado com Base64** baixado do portal do Azure no bloco de notas, cole-o na caixa de texto **Certificado X 509**.
-    
-    h. Mapeie os seguintes atributos com o respectivo valor para facilitar o logon SSO do Azure AD. O atributo **ID de usuário** é necessário para fazer login. Para o provisionamento, **Email**, **Company**, **UserType** e **Role** são obrigatórios. Nesta seção, definimos o mapeamento de atributos (nome e valores) correlacionados àqueles definidos no portal do Azure
+    1. Abra o **certificado codificado com Base64** baixado do portal do Azure no bloco de notas, cole-o na caixa de texto **Certificado X 509**.
 
-    ![attbmap do Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    1. Mapeie os seguintes atributos com o respectivo valor para facilitar o logon SSO do Azure AD. O atributo **ID de usuário** é necessário para fazer login. Para o provisionamento, **Email**, **Company**, **UserType** e **Role** são obrigatórios. Nesta seção, definimos o mapeamento de atributos (nome e valores) correlacionados àqueles definidos no portal do Azure
 
-    i. Clique em **Save** (Salvar).
+        ![attbmap do Andromeda](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+
+    1. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -218,7 +218,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

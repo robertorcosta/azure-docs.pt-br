@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f2ad0cb67a41c0a5c59f6428a4912bd91a00e56
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 42da33fe874b6dea43bc16009dd27b70e6c3f535
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318802"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589885"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: integrar o Amazon Business ao Azure Active Directory
 
@@ -109,19 +109,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Além do indicado acima, o aplicativo Amazon Business espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Atributos e Declarações de Usuário** na caixa de diálogo **Declarações de Grupo**, execute as seguintes etapas:
 
-    a. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
+    1. Clique na **caneta** ao lado de **Grupos retornados na declaração**.
 
-    ![Captura de tela que mostra Atributos e Declarações de Usuário com o ícone de Grupos retornados na declaração selecionado.](./media/amazon-business-tutorial/config04.png)
+        ![Captura de tela que mostra Atributos e Declarações de Usuário com o ícone de Grupos retornados na declaração selecionado.](./media/amazon-business-tutorial/config04.png)
 
-    ![Captura de tela que mostra as Declarações de grupo com os valores, conforme descrito neste procedimento.](./media/amazon-business-tutorial/config05.png)
+        ![Captura de tela que mostra as Declarações de grupo com os valores, conforme descrito neste procedimento.](./media/amazon-business-tutorial/config05.png)
 
-    b. Selecione **Todos os Grupos** na lista de opções.
+    1. Selecione **Todos os Grupos** na lista de opções.
 
-    c. Selecione **ID do Grupo** como o **Atributo de origem**.
+    1. Selecione **ID do Grupo** como o **Atributo de origem**.
 
-    d. Marque a caixa de seleção **Personalizar o nome da declaração de grupo** e insira o nome do grupo de acordo com as necessidades de sua organização.
+    1. Marque a caixa de seleção **Personalizar o nome da declaração de grupo** e insira o nome do grupo de acordo com as necessidades de sua organização.
 
-    e. Clique em **Save** (Salvar).
+    1. Clique em **Save** (Salvar).
 
 1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Assinatura SAML**, localize **XML de Metadados** e selecione **Baixar** para baixar o certificado e salvá-lo em seu computador.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: f7b7b8c7b1106bd3c0a6732867946c42df8438c1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 49cf54bda985f7d97b2db6a3ada7859aee829cff
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097270"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97359533"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilar um aplicativo Web do Node.js usando o SDK do JavaScript para gerenciar uma conta de API do SQL no Azure Cosmos DB 
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -106,9 +106,9 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
 ### <a name="create-the-model"></a>Criar o modelo
 1. Na raiz do diretório do projeto, crie um novo diretório chamado **modelos**.  
 
-2. No diretório **models** , criar um novo arquivo chamado **taskDao.js**. Esse arquivo contém o código necessário para criar o banco de dados e o contêiner. Ele também define métodos para ler, atualizar, criar e localizar as tarefas no Azure Cosmos DB. 
+2. No diretório **models**, criar um novo arquivo chamado **taskDao.js**. Esse arquivo contém o código necessário para criar o banco de dados e o contêiner. Ele também define métodos para ler, atualizar, criar e localizar as tarefas no Azure Cosmos DB. 
 
-3. Copie o código a seguir para o arquivo **taskDao.js** :
+3. Copie o código a seguir para o arquivo **taskDao.js**:
 
    ```javascript
     // @ts-check
@@ -273,7 +273,7 @@ Agora que você concluiu a instalação e a configuração iniciais, escreverá 
    module.exports = config;
    ```
 
-3. No arquivo **config.js** , atualize os valores de HOST e de AUTH_KEY usando os valores encontrados na página Chaves de sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com). 
+3. No arquivo **config.js**, atualize os valores de HOST e de AUTH_KEY usando os valores encontrados na página Chaves de sua conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com). 
 
 4. Salve e feche o arquivo **config.js** .
 
@@ -384,7 +384,7 @@ Agora vamos criar a interface do usuário para que um usuário possa interagir c
 
     Esse código instrui o mecanismo **Jade** a renderizar um HTML para nosso aplicativo e cria um **bloco** chamado **content** em que podemos fornecer o layout para nossas páginas de conteúdo. Salve e feche o arquivo **layout.jade** .
 
-3. Agora, abra o arquivo **index.jade** , o modo de exibição que será usado pelo nosso aplicativo, e substitua o conteúdo do arquivo pelo seguinte código:
+3. Agora, abra o arquivo **index.jade**, o modo de exibição que será usado pelo nosso aplicativo, e substitua o conteúdo do arquivo pelo seguinte código:
 
    ```html
    extends layout
@@ -470,7 +470,7 @@ Depois que seu aplicativo for bem-sucedido localmente, você poderá implantá-l
 3. Implante o aplicativo efetuando push para o computador remoto.
    
    ```bash
-   git push azure master
+   git push azure main
    ```
 
 4. Em poucos segundos, seu aplicativo Web será publicado e iniciado em um navegador.

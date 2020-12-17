@@ -3,20 +3,18 @@ title: Arquitetura de referência para solução de gerenciamento de resíduos c
 description: Conheça os conceitos de uma solução de gerenciamento de resíduos conectado criada com o Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 93a5d17ce5ea5ec60c67604efe5081d2b3425a84
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 94098a1a2a9ac1b4889ad165a65c8b9d50d734dd
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873685"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586798"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Arquitetura da referência de monitoramento de resíduos conectado 
-
-
 
 Uma solução de gerenciamento de resíduos conectado pode ser criada usando o **modelo de aplicativo do Azure IoT Central** como um aplicativo de IoT inicial. Este artigo fornece diretrizes de arquitetura de referência de alto nível sobre a criação de uma solução de ponta a ponta. 
 
@@ -27,8 +25,8 @@ Conceitos:
 
 1. Dispositivos e conectividade  
 1. Central da IoT 
-2. Extensibilidade e integrações
-3. Aplicativos de negócios
+1. Extensibilidade e integrações
+1. Aplicativos de negócios
 
 Vamos dar uma olhada nos principais componentes que geralmente desempenham um papel em uma solução de monitoramento de consumo de água.
 

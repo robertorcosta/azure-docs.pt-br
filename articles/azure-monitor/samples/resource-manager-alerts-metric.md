@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c05f9a326fcbe75a3348e58987d57e106094cf56
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893974"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510559"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Amostras de modelo do Resource Manager para regras de alerta de métrica no Azure Monitor
 
@@ -343,7 +343,7 @@ Salve o json abaixo como simpledynamicmetricalert.json para usar neste passo a p
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "type": "string",
             "defaultValue": "",
             "metadata": {
@@ -480,7 +480,7 @@ Salve o json abaixo como simpledynamicmetricalert.json para usar neste passo a p
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
-    "ignoreDataBefore": {
+        "ignoreDataBefore": {
             "value": ""
         },
         "timeAggregation": {
@@ -502,7 +502,7 @@ Ao usar dimensões em uma regra de alerta que contém vários critérios, as seg
 - Só é possível selecionar um valor por dimensão dentro de cada critério.
 - Não é possível usar "\*" como um valor de dimensão.
 - Quando as métricas configuradas em critérios diferentes dão suporte à mesma dimensão, um valor de dimensão configurado precisa ser definido explicitamente da mesma forma para todas essas métricas no critério relevante.
-    - No exemplo a seguir, como as métricas **Transactions** e **SuccessE2ELatency** têm uma dimensão **ApiName** , e *criterion1* especifica o valor *"GetBlob"* da dimensão **ApiName** , *criterion2* precisará também configurar um valor *"GetBlob"* para a dimensão **ApiName**.
+    - No exemplo a seguir, como as métricas **Transactions** e **SuccessE2ELatency** têm uma dimensão **ApiName**, e *criterion1* especifica o valor *"GetBlob"* da dimensão **ApiName**, *criterion2* precisará também configurar um valor *"GetBlob"* para a dimensão **ApiName**.
 
 ### <a name="template-file"></a>Arquivo de modelo
 
@@ -707,15 +707,15 @@ Ao usar dimensões em uma regra de alerta que contém vários critérios, as seg
 ## <a name="multiple-dimensions-static-threshold"></a>Múltiplas dimensões, limite estático
 Uma regra de alerta pode monitorar várias séries temporais de métrica por vez, o que resulta em menos regras de alerta para gerenciar. A amostra a seguir cria uma regra de alerta de métrica estática em métricas dimensionais.
 
-Nessa amostra, a regra de alerta monitora as combinações de valor das dimensões **ResponseType** e **ApiName** para a métrica **Transactions** :
-1. **ResponsType** – O uso do curinga "\*" significa que, para cada valor da dimensão **ResponseType** , incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
+Nessa amostra, a regra de alerta monitora as combinações de valor das dimensões **ResponseType** e **ApiName** para a métrica **Transactions**:
+1. **ResponsType** – O uso do curinga "\*" significa que, para cada valor da dimensão **ResponseType**, incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
 2. **ApiName** – Uma série temporal diferente é monitorada apenas para os valores de dimensão **GetBlob** e **PutBlob**.
 
 Por exemplo, algumas das séries temporais em potencial que são monitoradas por esta regra de alerta são:
-- Metric = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
-- Metric = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
-- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
-- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 ### <a name="template-file"></a>Arquivo de modelo
 
@@ -875,7 +875,7 @@ Por exemplo, algumas das séries temporais em potencial que são monitoradas por
                             "values": ["*"]
                         },
                         {
-                "name":"ApiName",
+                            "name":"ApiName",
                             "operator": "Include",
                             "values": ["GetBlob", "PutBlob"]    
                         }
@@ -898,15 +898,15 @@ Por exemplo, algumas das séries temporais em potencial que são monitoradas por
 Uma regra de alerta de limites dinâmicos pode criar limites sob medida para centenas de série temporais de métrica (até mesmo de diferentes tipos) de cada vez, o que resulta em menos regras de alerta para gerenciar. A amostra a seguir cria uma regra de alerta de métrica de limites dinâmicos em métricas dimensionais.
 
 
-Nessa amostra, a regra de alerta monitora as combinações de valor das dimensões **ResponseType** e **ApiName** para a métrica **Transactions** :
-1. **ResponsType** – Para cada valor da dimensão **ResponseType** , incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
+Nessa amostra, a regra de alerta monitora as combinações de valor das dimensões **ResponseType** e **ApiName** para a métrica **Transactions**:
+1. **ResponsType** – Para cada valor da dimensão **ResponseType**, incluindo valores futuros, uma série temporal diferente é monitorada individualmente.
 2. **ApiName** – Uma série temporal diferente é monitorada apenas para os valores de dimensão **GetBlob** e **PutBlob**.
 
 Por exemplo, algumas das séries temporais em potencial que são monitoradas por esta regra de alerta são:
-- Metric = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
-- Metric = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
-- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
-- Metric = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
+- Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
 >[!NOTE]
 > No momento, não há suporte para múltiplos critérios para as regras de alerta de métrica que usam limites dinâmicos.

@@ -3,23 +3,19 @@ title: Arquitetura de referência para a solução de monitoramento de qualidade
 description: Conheça os conceitos de uma solução de monitoramento de qualidade da água criada com o Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 10/23/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1c4cc7f5440aca27be085c238179cd0ab20b226a
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 229074ad97e6d066a358da19bbbd43158fe1d6fc
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874042"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97586713"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>Arquitetura da referência de monitoramento da qualidade de água 
-
-
-
 As soluções de monitoramento de qualidade da água podem ser criadas com o **modelo de aplicativo do Azure IoT Central** como um aplicativo de IoT inicial. Este artigo fornece diretrizes de arquitetura de referência de alto nível sobre a criação de uma solução de ponta a ponta. 
-
 
 ![Arquitetura de monitoramento da qualidade da água](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring-architecture1.png)
 
@@ -27,8 +23,8 @@ Conceitos:
 
 1. Dispositivos e conectividade  
 1. Central da IoT 
-2. Extensibilidade e integrações
-3. Aplicativos de negócios
+1. Extensibilidade e integrações
+1. Aplicativos de negócios
 
 Vamos dar uma olhada nos principais componentes que geralmente desempenham um papel em uma solução de monitoramento da qualidade da água.
 

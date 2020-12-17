@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa17a18de8e71b099d6ed717974486203c4379f4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 668d3cb044512220ff7afbc165c77da704a9a5d7
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180499"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107508"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Key Vault 
 
@@ -61,6 +61,20 @@ Primeiro, precisamos criar um cofre de chaves e conceder à nossa identidade ger
 1. Selecione **Examinar + criar**
 1. Escolha **Criar**
 
+### <a name="create-a-secret"></a>Criar um segredo
+
+Em seguida, adicione um segredo ao Key Vault, para que você possa recuperá-lo posteriormente usando o código em execução na sua VM. Para este tutorial, estamos usando o PowerShell, mas os mesmos conceitos se aplicam a qualquer código em execução nesta máquina virtual.
+
+1. Navegue até o Key Vault recém-criado.
+1. Selecione **Segredos** e clique em **Adicionar**.
+1. Selecione **Gerar/Importar**
+1. Na tela **Criar um segredo** de **Opções de upload** deixe **Manual** selecionado.
+1. Insira um nome e um valor para o segredo.  O valor pode ser qualquer coisa que você desejar. 
+1. Deixe a data de ativação e a data de validade em branco e deixe **Habilitado** como **Sim**. 
+1. Clique em **Criar** para criar o segredo.
+
+   ![Criar um segredo](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
+
 ## <a name="grant-access"></a>Conceder acesso
 
 A identidade gerenciada usada pela máquina virtual precisa receber acesso para ler o segredo que armazenaremos no Key Vault.
@@ -76,19 +90,6 @@ A identidade gerenciada usada pela máquina virtual precisa receber acesso para 
 1. Selecione **Adicionar**
 1. Selecione **Salvar**.
 
-## <a name="create-a-secret"></a>Criar um segredo
-
-Em seguida, adicione um segredo ao Key Vault, para que você possa recuperá-lo posteriormente usando o código em execução na sua VM. Para este tutorial, estamos usando o PowerShell, mas os mesmos conceitos se aplicam a qualquer código em execução nesta máquina virtual.
-
-1. Navegue até o Key Vault recém-criado.
-1. Selecione **Segredos** e clique em **Adicionar**.
-1. Selecione **Gerar/Importar**
-1. Na tela **Criar um segredo** de **Opções de upload** deixe **Manual** selecionado.
-1. Insira um nome e um valor para o segredo.  O valor pode ser qualquer coisa que você desejar. 
-1. Deixe a data de ativação e a data de validade em branco e deixe **Habilitado** como **Sim**. 
-1. Clique em **Criar** para criar o segredo.
-
-   ![Criar um segredo](./media/msi-tutorial-windows-vm-access-nonaad/create-secret.png)
 
 ## <a name="access-data"></a>Acessar dados  
 
