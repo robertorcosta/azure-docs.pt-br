@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: b647b5ee9dbd7a0447bbb69a47db76685daa1102
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 777fc60f76692734ea34ff3cdf8f6bc6e5e8316b
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030188"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615704"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Usando a condição de localização em uma política de acesso condicional 
 
@@ -195,6 +195,9 @@ Quando um proxy de nuvem está em vigor, uma política usada para exigir um disp
 ### <a name="api-support-and-powershell"></a>Suporte à API e PowerShell
 
 Uma versão de visualização do API do Graph para locais nomeados está disponível. para obter mais informações, consulte a [API namedLocation](/graph/api/resources/namedlocation?view=graph-rest-beta).
+
+> [!NOTE]
+> Os locais nomeados que você cria usando o PowerShell são exibidos somente em locais nomeados (versão prévia). Você não pode ver locais nomeados na exibição antiga.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

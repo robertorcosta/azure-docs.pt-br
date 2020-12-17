@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7b925a25e1e246008f393f7b15160417c3b3d7a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d047a45d678918541eb3c2d2c45e4519a34bdd57
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254847"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97608673"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando a API do .NET
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Crie um aplicativo do Azure Active Directory, crie uma entidade de serviço para
 9. Obtenha a ID do aplicativo.
 
     ```powershell
-    $azureAdApplication 
+    $azureAdApplication
     ```
     Anote a ID do aplicativo (IDaplicativo) na saída.
 
@@ -503,7 +503,7 @@ Você deve ter quatro valores após estas etapas:
     }
     ```
 
-15. No Gerenciador de Soluções, expanda o projeto (DataFactoryAPITestApp), clique com botão direito em **Referências**e clique em **Adicionar Referência**. Marque a caixa de seleção do assembly **System. Configuration**. E clique em **OK**.
+15. No Gerenciador de Soluções, expanda o projeto (DataFactoryAPITestApp), clique com botão direito em **Referências** e clique em **Adicionar Referência**. Marque a caixa de seleção do assembly **System. Configuration**. E clique em **OK**.
 16. Compile o aplicativo de console. Clique no menu **Compilar** e clique em **Solução de Compilação**.
 17. Confirme se há pelo menos um arquivo no contêiner **adftutorial** no seu armazenamento de BLOBs do Azure. Caso contrário, crie o arquivo **Emp.txt** no bloco de notas com o seguinte conteúdo e carregue-o no contêiner adftutorial.
 

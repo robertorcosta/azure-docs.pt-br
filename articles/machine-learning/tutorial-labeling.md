@@ -10,12 +10,13 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 36c5f0103908ea150cbe6eb373e25f7d741127f5
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: data4ml
+ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
+ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913255"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97347499"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagens de várias classes 
 
@@ -67,7 +68,7 @@ Os armazenamentos de dados do Azure Machine Learning são usados para armazenar 
     Campo|Descrição 
     ---|---
     Nome do armazenamento de dados | Dê um nome ao armazenamento de dados.  Aqui, usamos **labeling_tutorial**.
-    Tipo de armazenamento de dados | Selecionar o tipo de armazenamento.  Aqui, usamos **Armazenamento de Blobs do Azure** , o armazenamento preferencial para imagens.
+    Tipo de armazenamento de dados | Selecionar o tipo de armazenamento.  Aqui, usamos **Armazenamento de Blobs do Azure**, o armazenamento preferencial para imagens.
     Método de seleção de conta | Selecione **Inserir manualmente**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Tipo de autenticação | Selecione **Token SAS**.
@@ -87,7 +88,7 @@ Agora que você tem acesso aos dados que deseja rotular, crie o projeto de rotul
 
 ### <a name="project-details"></a>Detalhes do projeto
 
-1. Use a seguinte entrada no formulário **Detalhes do projeto** :
+1. Use a seguinte entrada no formulário **Detalhes do projeto**:
 
     Campo|Descrição 
     ---|---
@@ -98,13 +99,13 @@ Agora que você tem acesso aos dados que deseja rotular, crie o projeto de rotul
 
 ### <a name="select-or-create-a-dataset"></a>Selecionar ou criar um conjunto de dados
 
-1.   No formulário **Selecionar ou criar um conjunto de dados** , selecione a segunda opção, **Criar um conjunto de dados** e, em seguida, selecione o link **Do armazenamento de dados**.
+1.   No formulário **Selecionar ou criar um conjunto de dados**, selecione a segunda opção, **Criar um conjunto de dados** e, em seguida, selecione o link **Do armazenamento de dados**.
 
-1. Use a seguinte entrada para o formulário **Criar conjunto de dados por meio do armazenamento de dados** :
+1. Use a seguinte entrada para o formulário **Criar conjunto de dados por meio do armazenamento de dados**:
 
-    1. No formulário **Informações básicas** , adicione um nome; aqui usaremos **images-for-tutorial**.  Adicione uma descrição se desejar.  Em seguida, selecione **Avançar**.
-    1. No formulário **Seleção de armazenamento de dados** , use a lista suspensa para selecionar o **Armazenamento de dados criado anteriormente** , por exemplo **tutorial_images (Armazenamento de Blobs do Azure)**
-    1. Em seguida, ainda no formulário **Seleção de armazenamento de dados** , selecione **Procurar** e, em seguida, selecione **MultiClass – DogsCats**.  Selecione **Salvar** para usar **/MultiClass – DogsCats** como o caminho.
+    1. No formulário **Informações básicas**, adicione um nome; aqui usaremos **images-for-tutorial**.  Adicione uma descrição se desejar.  Em seguida, selecione **Avançar**.
+    1. No formulário **Seleção de armazenamento de dados**, use a lista suspensa para selecionar o **Armazenamento de dados criado anteriormente**, por exemplo **tutorial_images (Armazenamento de Blobs do Azure)**
+    1. Em seguida, ainda no formulário **Seleção de armazenamento de dados**, selecione **Procurar** e, em seguida, selecione **MultiClass – DogsCats**.  Selecione **Salvar** para usar **/MultiClass – DogsCats** como o caminho.
     1. Selecione **Avançar** para confirmar os detalhes e, em seguida, **Criar** para criar o conjunto de dados.
     1. Selecione o círculo ao lado do nome do conjunto de dados na lista, por exemplo **images-for-tutorial**.
 
@@ -118,19 +119,19 @@ Selecione **Avançar** para continuar.
 
 ### <a name="label-classes"></a>Classes de rótulos
 
-1. No formulário **Classes de rótulos** , digite um nome de rótulo e, em seguida, selecione **+ Adicionar rótulo** para digitar o próximo rótulo.  Para este projeto, os rótulos são **Gato** , **Cachorro** e **Incerto**.
+1. No formulário **Classes de rótulos**, digite um nome de rótulo e, em seguida, selecione **+ Adicionar rótulo** para digitar o próximo rótulo.  Para este projeto, os rótulos são **Gato**, **Cachorro** e **Incerto**.
 
 1. Selecione **Avançar** quando tiver adicionado todos os rótulos.
 
 ### <a name="labeling-instructions"></a>Instruções de rotulagem
 
-1. No formulário **Instruções de rotulagem** , você pode fornecer um link para um site que forneça instruções detalhadas para seus rotuladores.  Deixaremos em branco para este tutorial.
+1. No formulário **Instruções de rotulagem**, você pode fornecer um link para um site que forneça instruções detalhadas para seus rotuladores.  Deixaremos em branco para este tutorial.
 
 1. Você também pode adicionar uma breve descrição da tarefa diretamente no formulário.  Digite **Tutorial de rotulagem – gatos e cachorros.**
 
 1. Selecione **Avançar**.
 
-1. Na seção **Rotulagem assistida por ML** , deixe a caixa de seleção desmarcada. A rotulagem assistida por ML requer mais dados do que você usará neste tutorial.
+1. Na seção **Rotulagem assistida por ML**, deixe a caixa de seleção desmarcada. A rotulagem assistida por ML requer mais dados do que você usará neste tutorial.
 
 1. Selecione **Criar projeto**.
 

@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/15/2020
-ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 12/16/2020
+ms.openlocfilehash: c93ce9c81ada3c30128846b43041603e132abd88
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579140"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617231"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Solucionar problemas comuns no Azure Data Share 
 
@@ -67,6 +67,10 @@ O instantâneo pode falhar por vários motivos. Você pode encontrar uma mensage
 * A conexão de compartilhamento de dados com o repositório de dados de origem ou de destino está bloqueada pelo firewall.
 * O conjunto de dados compartilhado, ou de origem ou de destino, é excluído.
 
+Para a conta de armazenamento, veja a seguir as causas adicionais de falhas de instantâneo.
+
+* O arquivo está sendo atualizado na origem enquanto o instantâneo está acontecendo. Isso pode resultar em um arquivo de 0 byte no destino. O instantâneo subsequente após a atualização ser concluído na origem deve ter sucesso.
+
 Para fontes SQL, veja a seguir as causas adicionais de falhas de instantâneo. 
 
 * O script SQL de origem ou de destino para conceder a permissão de compartilhamento de dados não é executado. Ou para o banco de dados SQL do Azure ou o Azure Synapse Analytics (anteriormente Azure SQL DW), ele é executado usando a autenticação do SQL em vez de Azure Active Directory autenticação.  
@@ -75,6 +79,9 @@ Para fontes SQL, veja a seguir as causas adicionais de falhas de instantâneo.
 * O armazenamento de dados SQL de origem ou de destino está bloqueado por outros processos. O compartilhamento de dados do Azure não aplica bloqueios ao repositório de dados SQL de origem e de destino. No entanto, os bloqueios existentes no armazenamento de dados SQL de origem e de destino causarão falha de instantâneo.
 * A tabela SQL de destino é referenciada por uma restrição FOREIGN KEY. Durante o instantâneo, se existir uma tabela de destino com o mesmo nome, o compartilhamento de dados do Azure descartará a tabela e criará uma nova tabela. Se a tabela SQL de destino for referenciada por uma restrição FOREIGN KEY, a tabela não poderá ser descartada.
 * O arquivo CSV de destino é gerado, mas os dados não podem ser lidos no Excel. Isso pode acontecer quando a tabela SQL de origem contém dados com caracteres que não são do inglês. No Excel, selecione a guia "obter dados" e escolha o arquivo CSV, selecione origem do arquivo como 65001: Unicode (UTF-8) e carregar dados.
+
+## <a name="snapshot-issue-after-updating-snapshot-schedule"></a>Problema de instantâneo após atualizar o agendamento de instantâneo
+Depois que o provedor de dados atualizar o agendamento de instantâneo para o compartilhamento enviado, o consumidor de dados precisará desabilitar a agenda de instantâneo anterior e reabilitar a agenda de instantâneo atualizada para o compartilhamento recebido. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

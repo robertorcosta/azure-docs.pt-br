@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: c5f87e693d2592f830ec785f2163c232915544d1
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3ea231258f7a60ce90ec119803b5abc8b6e525fe
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561124"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97510610"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregar dados de maneira incremental do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações usando o portal do Azure
 
@@ -140,8 +140,8 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
     BEGIN
 
-        UPDATE table_store_ChangeTracking_version
-        SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
+    UPDATE table_store_ChangeTracking_version
+    SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
     WHERE [TableName] = @TableName
 
     END    
@@ -466,13 +466,12 @@ As três primeiras colunas são dados alterados do data_source_table. As duas ú
 ==================================================================
 PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ==================================================================
-1        update  10     2                     U
-6        new     50     1                     I
+1        update  10            2                                 U
+6        new     50            1                                 I
 ```
-
 
 ## <a name="next-steps"></a>Próximas etapas
 Avance para o tutorial seguinte para saber mais sobre como copiar arquivos novos e alterados somente com base na LastModifiedDate:
 
 > [!div class="nextstepaction"]
->[Copiar novos arquivos por lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+> [Copiar novos arquivos por lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

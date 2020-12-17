@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 07/06/2020
+ms.date: 12/16/2020
 ms.author: justinha
-ms.openlocfilehash: d8f2e77b7225306844cec85363a2971eaac4eebd
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 58cdd025587823f7eb702164c965ab622a7325d3
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620249"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615640"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Problemas conhecidos: alertas de configuração de rede no Azure Active Directory Domain Services
 
@@ -40,12 +40,12 @@ As regras de segurança de entrada e saída padrão a seguir são aplicadas ao g
 
 | Prioridade | Nome | Porta | Protocolo | Fonte | Destino | Ação |
 |----------|------|------|----------|--------|-------------|--------|
-| 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Qualquer | Allow |
-| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Qualquer | Allow |
 | 301      | AllowPSRemoting | 5986| TCP | AzureActiveDirectoryDomainServices | Qualquer | Allow |
+| 201      | AllowRD | 3389 | TCP | CorpNetSaw | Qualquer | Negar<sup>1</sup> |
 | 65000    | AllVnetInBound | Qualquer | Qualquer | VirtualNetwork | VirtualNetwork | Allow |
 | 65001    | AllowAzureLoadBalancerInBound | Qualquer | Qualquer | AzureLoadBalancer | Qualquer | Allow |
 | 65500    | DenyAllInBound | Qualquer | Qualquer | Qualquer | Qualquer | Negar |
+<sup>1</sup> Opcional para depuração. Permitir quando necessário para solução de problemas avançada.
 
 > [!NOTE]
 > Você também pode ter uma regra adicional que permita o tráfego de entrada se [Configurar o LDAP seguro][configure-ldaps]. Essa regra adicional é necessária para a comunicação de LDAPs correta.
