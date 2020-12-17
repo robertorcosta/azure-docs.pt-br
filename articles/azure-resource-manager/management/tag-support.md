@@ -3,12 +3,12 @@ title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: fb81ed303cf27add3a033021f017c03f4b9e9750
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005717"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656964"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/group-filter.md) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -921,7 +921,7 @@ Pule para um namespace de provedor de recursos:
 > | Departments | Não | Não |
 > | Dimensões | Não | Não |
 > | EnrollmentAccounts | Não | Não |
-> | Port | Não | Não |
+> | Exportações | Não | Não |
 > | ExternalBillingAccounts | Não | Não |
 > | ExternalBillingAccounts/alertas | Não | Não |
 > | ExternalBillingAccounts/dimensões | Não | Não |
@@ -2253,7 +2253,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | Sim | Sim |
-> | managedInstances/bancos de dados | Sim (veja a [Observação abaixo](#sqlnote)) | Yes |
+> | managedInstances/bancos de dados | Não | Não |
 > | managedInstances/bancos de dados/backupShortTermRetentionPolicies | Não | Não |
 > | managedInstances/bancos de dados/esquemas/tabelas/colunas/sensitivityLabels | Não | Não |
 > | managedInstances/bancos de dados/vulnerabilityAssessments | Não | Não |

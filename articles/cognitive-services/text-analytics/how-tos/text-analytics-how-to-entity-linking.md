@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 9b90f177432de11f8281d03021b38bae647dadf2
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 589f320f0099fdab829e9e707a86e3e77d51c21e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562524"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656284"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -34,8 +34,6 @@ O NER (reconhecimento de entidade nomeada) é a capacidade de identificar difere
 O recurso PII faz parte do NER e pode identificar e redação entidades confidenciais no texto associado a uma pessoa individual, como: número de telefone, endereço de email, endereço para correspondência, número do passaporte.
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Recursos e versões de reconhecimento de entidade nomeada
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 | Recurso                                                         | NER v 3.0 | NER v 3.1-Preview. 3 |
 |-----------------------------------------------------------------|--------|----------|
@@ -74,7 +72,7 @@ Crie uma solicitação POST. Você pode [usar o postmaster](text-analytics-how-t
 
 ### <a name="request-endpoints"></a>Pontos de extremidade de solicitação
 
-#### <a name="version-31-preview3"></a>[Versão 3,1-Preview. 3](#tab/version-3-preview)
+#### <a name="version-31-preview3"></a>[Versão 3.1-preview.3](#tab/version-3-preview)
 
 O reconhecimento de entidade nomeada `v3.1-preview.3` usa pontos de extremidade separados para Ner, PII e solicitações de vinculação de entidade. Use um formato de URL abaixo com base em sua solicitação.
 
