@@ -4,15 +4,15 @@ description: Saiba como enviar gatilhos e associações do Azure RabbitMQ no Azu
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 12/15/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: cd6c8de0d9290aab273e25403bb1cb2d8fe07e27
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 72c31d0eebc19a926805976ed637168a00fa9495
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505691"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617180"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>RabbitMQ associações para Azure Functions visão geral
 
@@ -21,7 +21,7 @@ ms.locfileid: "97505691"
 
 Azure Functions integra-se com o [RabbitMQ](https://www.rabbitmq.com/) por meio de [gatilhos e associações](./functions-triggers-bindings.md). As extensões de associação do Azure Functions RabbitMQ permitem que você envie e receba mensagens usando a API RabbitMQ com funções.
 
-| Ação | Type |
+| Ação | Tipo |
 |---------|---------|
 | Executar uma função quando uma mensagem RabbitMQ chegar à fila | [Gatilho](./functions-bindings-rabbitmq-trigger.md) |
 | Enviar mensagens RabbitMQ |[Associação de saída](./functions-bindings-rabbitmq-output.md) |
@@ -30,7 +30,7 @@ Azure Functions integra-se com o [RabbitMQ](https://www.rabbitmq.com/) por meio 
 
 Para começar a desenvolver com essa extensão, verifique se você [configurou primeiro um ponto de extremidade RabbitMQ](https://github.com/Azure/azure-functions-rabbitmq-extension/wiki/Setting-up-a-RabbitMQ-Endpoint). Para saber mais sobre o RabbitMQ, confira sua [página de introdução](https://www.rabbitmq.com/getstarted.html).
 
-### <a name="functions-2x-and-higher"></a>Funções 2.x e posteriores
+### <a name="functions-3x-and-higher"></a>Funções 3. x e superior
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
@@ -46,9 +46,9 @@ Trabalhar com o gatilho e as associações exige que você referencie o pacote a
 [Atualizar suas extensões]: ./functions-bindings-register.md
 [Extensão de ferramentas do Azure]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
-### <a name="functions-1x"></a>Funções 1.x
+### <a name="functions-1x-and-2x"></a>Funções 1. x e 2. x
 
-Não há suporte para extensões de associação RabbitMQ para o Functions 1. x. Use o Functions 2. x e superior.
+As extensões de associação RabbitMQ não têm suporte para as funções 1. x e 2. x. Use o Functions 3. x e superior.
 
 ## <a name="next-steps"></a>Próximas etapas
 

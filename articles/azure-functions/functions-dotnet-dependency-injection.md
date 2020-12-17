@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f87ed9b7455bed870cf25a6920cc6295811d94c8
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167688"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617061"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -118,8 +118,8 @@ Este exemplo usa o pacote [Microsoft.Extensions.Http](https://www.nuget.org/pack
 
 Os aplicativos do Azure Functions oferecem os mesmos tempos de vida de serviço que a [injeção de dependência do ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). Para um aplicativo do Functions, tempos de vida de serviço diferentes se comportam da seguinte maneira:
 
-- **Transitório**: Os serviços transitórios são criados após cada solicitação do serviço.
-- **Com escopo**: O tempo de vida do serviço com escopo corresponde a um tempo de vida de execução de função. Serviços com escopo são criados uma vez por execução. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
+- **Transitório**: os serviços transitórios são criados após cada resolução do serviço.
+- **Com escopo**: O tempo de vida do serviço com escopo corresponde a um tempo de vida de execução de função. Os serviços com escopo são criados uma vez por execução de função. Solicitações posteriores para esse serviço durante a execução reutilizam a instância de serviço existente.
 - **Singleton**: O tempo de vida do serviço singleton corresponde ao tempo de vida do host e é reutilizado em execuções de função nessa instância. Os serviços de vida útil singleton são recomendados para conexões e clientes, por exemplo `DocumentClient` ou instâncias `HttpClient`.
 
 Veja ou baixe um [exemplo de tempos de vida de serviço diferentes](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) no GitHub.
@@ -181,6 +181,8 @@ O arquivo de exemplo a seguir `host.json` adiciona o filtro de log.
     }
 }
 ```
+
+Para obter mais informações sobre os níveis de log, consulte [configurar níveis de log](configure-monitoring.md#configure-log-levels).
 
 ## <a name="function-app-provided-services"></a>Serviços oferecidos pelo aplicativo de funções
 

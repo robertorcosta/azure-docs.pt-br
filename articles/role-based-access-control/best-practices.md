@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 4cb3e1fe0275c676e2ce54ff9201502fc3595937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595485"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617367"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Práticas recomendadas para o RBAC do Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve algumas práticas recomendadas para usar o controle de aces
 
 Com o Azure RBAC, você pode separar as tarefas dentro de sua equipe e permitir somente a quantidade de acesso de que os usuários precisam para realizar os trabalhos deles. Em vez de apresentar todos irrestrito permissões em sua assinatura do Azure ou recursos, você pode permitir apenas determinadas ações para um escopo específico.
 
-Ao planejar sua estratégia de controle de acesso, uma melhor prática é conceder aos usuários o privilégio mínimo para realizarem seus trabalhos. Evite atribuir funções mais amplas em escopos mais amplos, mesmo que, inicialmente, isso pareça mais prático. Ao limitar as funções e os escopos, você limita quais recursos estão em risco se a entidade de segurança estiver comprometida.
+Ao planejar sua estratégia de controle de acesso, uma melhor prática é conceder aos usuários o privilégio mínimo para realizarem seus trabalhos. Evite atribuir funções mais amplas em escopos mais amplos, mesmo que, inicialmente, isso pareça mais prático. Ao criar funções personalizadas, inclua apenas as permissões que os usuários precisam. Ao limitar as funções e os escopos, você limita quais recursos estão em risco se a entidade de segurança for comprometida.
 
 O diagrama a seguir mostra um padrão sugerido para usar o RBAC do Azure.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 43002fdfbdce146b52774aa4182445bf34dd7199
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 46a5c941822dd258b420b51c710734dc3152f30f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360281"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617401"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizar o acesso a BLOBs com AzCopy e Azure Active Directory (Azure AD)
 
@@ -183,9 +183,9 @@ Substitua o `<path-to-certificate-file>` espaço reservado pelo caminho relativo
 > [!NOTE]
 > Considere usar um prompt, conforme mostrado neste exemplo. Dessa forma, sua senha não aparecerá no histórico de comandos do console. 
 
-## <a name="authorize-without-a-keyring-linux"></a>Autorizar sem um keyring (Linux)
+## <a name="authorize-without-a-secret-store"></a>Autorizar sem um repositório secreto
 
-Se o seu sistema operacional não tiver um repositório secreto, como um *keyring*, o `azcopy login` comando não funcionará. Em vez disso, você pode definir variáveis de ambiente na memória antes de executar cada operação. Esses valores desaparecem da memória depois que a operação é concluída, portanto, você precisará definir essas variáveis sempre que executar um comando azcopy.
+Se o seu sistema operacional não tiver um repositório secreto, como um *keyring* do Linux, o `azcopy login` comando não funcionará. Em vez disso, você pode definir variáveis de ambiente na memória antes de executar cada operação. 
 
 ### <a name="authorize-a-user-identity"></a>Autorizar uma identidade de usuário
 

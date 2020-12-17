@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 0c8e13449a66c5eba055c64e072db3140b0cdc1c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1b73b018432e5fb9a8af90fc141d009d1bb7b799
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606871"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617044"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -144,8 +144,8 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 | Árabe (Egito) | `ar-EG` | Masculino | `ar-EG-ShakirNeural` <sup>Novo</sup> | Geral |
 | Árabe (Arábia Saudita) | `ar-SA` | Feminino | `ar-SA-ZariyahNeural` | Geral |
 | Árabe (Arábia Saudita) | `ar-SA` | Masculino | `ar-SA-HamedNeural` <sup>Novo</sup> | Geral |
-| Búlgaro (Bulgary) | `bg-BG` | Feminino | `bg-BG-KalinaNeural` | Geral |
-| Búlgaro (Bulgary) | `bg-BG` | Masculino | `bg-BG-BorislavNeural` <sup>Novo</sup> | Geral |
+| Búlgaro (Bulgária) | `bg-BG` | Feminino | `bg-BG-KalinaNeural` | Geral |
+| Búlgaro (Bulgária) | `bg-BG` | Masculino | `bg-BG-BorislavNeural` <sup>Novo</sup> | Geral |
 | Catalão (Espanha) | `ca-ES` | Feminino | `ca-ES-AlbaNeural` | Geral |
 | Catalão (Espanha) | `ca-ES` | Feminino | `ca-ES-JoanaNeural` <sup>Novo</sup> | Geral |
 | Catalão (Espanha) | `ca-ES` | Masculino | `ca-ES-EnricNeural` <sup>Novo</sup> | Geral |
