@@ -11,12 +11,12 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2dd16f89851b9376557e544b86dc5e088891e63b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 03cd612e5a48d6f17eb28c0c1503335e33bebcdf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446978"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654092"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: Referência do PowerShell ADSyncTools
 A documentação a seguir fornece informações de referência para o módulo do PowerShell ADSyncTools.psm1 que é incluído com o Azure AD Connect.
@@ -557,7 +557,7 @@ As consultas de função o histórico de execuções do AAD Connect e exporta to
 ```
 
 $sourcePath = Read-Host-prompt "Insira o caminho do arquivo de log com o nome de arquivo" # " \<Source_Path\> " $outputPath = Read-Host-prompt "Insira o caminho do arquivo de saída com o nome de arquivo" # " \<Out_Path\> "
- 
+
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
 #### <a name="example-2"></a>EXEMPLO 2

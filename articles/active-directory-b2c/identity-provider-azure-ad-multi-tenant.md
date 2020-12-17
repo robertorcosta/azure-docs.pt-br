@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ed36948faf6fe12467128a57af634e52ee457180
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 71e3bf429c7b8d3f4f8fe205c05b0701732fdef9
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584979"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653802"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada para o Azure Active Directory multilocatário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -32,19 +32,7 @@ ms.locfileid: "97584979"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-::: zone pivot="b2c-user-flow"
-
-* [Criar um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se registrem e entrem no seu aplicativo.
-* Se não tiver feito isso ainda, [adicione um aplicativo de API da Web ao locatário do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Conclua as etapas em [Introdução às políticas personalizadas no Active Directory B2C](custom-policy-get-started.md).
-* Se não tiver feito isso ainda, [adicione um aplicativo de API da Web ao locatário do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 Este artigo mostra como habilitar a entrada para usuários usando o ponto de extremidade multilocatário para o Azure Active Directory (Azure AD). Isso permite que os usuários de vários locatários do Azure AD entrem usando Azure AD B2C, sem a necessidade de configurar um provedor de identidade para cada locatário. No entanto, os membros em qualquer desses locatários **não** será capaz de entrar. Para fazer isso, você terá que [configurar individualmente cada locatário](identity-provider-azure-ad-single-tenant.md).
 
@@ -113,7 +101,7 @@ Se quiser obter as declarações `family_name` e `given_name` do Azure Active Di
     - **Sobrenome**: *family_name*
     - **Email**: *preferred_username*
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ::: zone-end
 
@@ -265,7 +253,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário que você deseja para o provedor de identidade do Azure AD.
 1. Em **provedores de identidade social**, selecione **contoso Azure ad**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: bf53ce5ed3f9505572538533263f0d17c5dcbf45
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562558"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654822"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -63,9 +63,6 @@ Consulte a tabela abaixo para ver quais recursos podem ser usados de forma assí
 
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
-
 
 <a name="json-schema"></a>
 
@@ -116,16 +113,16 @@ O `/analyze` ponto de extremidade permite que você escolha qual dos recursos de
 
 | Elemento | Valores válidos | Necessário? | Uso |
 |---------|--------------|-----------|-------|
-|`displayName` | String | Opcional | Usado como o nome de exibição para o identificador exclusivo para o trabalho.|
+|`displayName` | Cadeia de caracteres | Opcional | Usado como o nome de exibição para o identificador exclusivo para o trabalho.|
 |`analysisInput` | Inclui o `documents` campo abaixo | Obrigatório | Contém as informações para os documentos que você deseja enviar. |
 |`documents` | Inclui os `id` `text` campos e abaixo | Obrigatório | Contém informações para cada documento que está sendo enviado e o texto bruto do documento. |
-|`id` | String | Obrigatório | As IDs que você fornece são usadas para estruturar a saída. |
+|`id` | Cadeia de caracteres | Obrigatório | As IDs que você fornece são usadas para estruturar a saída. |
 |`text` | Texto bruto não estruturado, até 125.000 caracteres. | Obrigatório | Deve estar no idioma inglês, que é o único idioma com suporte no momento. |
 |`tasks` | Inclui os seguintes recursos de Análise de Texto `entityRecognitionTasks` : `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks` . | Obrigatório | Um ou mais dos Análise de Texto recursos que você deseja usar. Observe que `entityRecognitionPiiTasks` tem um `domain` parâmetro opcional que pode ser definido como `pii` ou `phi` . Se não for especificado, o sistema padrão será `pii` . |
 |`parameters` | Inclui os `model-version` `stringIndexType` campos e abaixo | Obrigatório | Esse campo está incluído nas tarefas de recurso acima que você escolher. Eles contêm informações sobre a versão do modelo que você deseja usar e o tipo de índice. |
-|`model-version` | String | Obrigatório | Especifique qual versão do modelo está sendo chamada que você deseja usar.  |
-|`stringIndexType` | String | Obrigatório | Especifique o decodificador de texto que corresponde ao seu ambiente de programação.  Tipos com suporte são `textElement_v8` (padrão), `unicodeCodePoint` , `utf16CodeUnit` . Consulte o [artigo deslocamentos de texto](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
-|`domain` | String | Opcional | Aplica-se apenas como um parâmetro à `entityRecognitionPiiTasks` tarefa e pode ser definido como `pii` ou `phi` . O padrão é `pii` se não especificado.  |
+|`model-version` | Cadeia de caracteres | Obrigatório | Especifique qual versão do modelo está sendo chamada que você deseja usar.  |
+|`stringIndexType` | Cadeia de caracteres | Obrigatório | Especifique o decodificador de texto que corresponde ao seu ambiente de programação.  Tipos com suporte são `textElement_v8` (padrão), `unicodeCodePoint` , `utf16CodeUnit` . Consulte o [artigo deslocamentos de texto](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
+|`domain` | Cadeia de caracteres | Opcional | Aplica-se apenas como um parâmetro à `entityRecognitionPiiTasks` tarefa e pode ser definido como `pii` ou `phi` . O padrão é `pii` se não especificado.  |
 
 ```json
 {
@@ -233,7 +230,7 @@ No postmaster (ou outra ferramenta de teste de API Web), adicione o ponto de ext
 |--|--|--|
 | Enviar Análise de Texto para trabalho de integridade  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
 | Obter resultados e status do trabalho | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Cancelar trabalho | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Cancelar trabalho | Delete (excluir) | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
 
 --- 
 

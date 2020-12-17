@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6afcfe7684102b451860d9916d849842489cace
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a799242ecaae7b7152d79b7d341a9cb5cc18d7fe
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967696"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654465"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump para SAP HANA em Instâncias Grandes do Azure (HLI)
 
@@ -33,7 +33,7 @@ Este documento descreve os detalhes sobre como habilitar o serviço kdump no Azu
 
 ## <a name="supported-skus"></a>SKUs com suporte
 
-|  Tipo de instância grande do Hana   |  Fornecedor do sistema operacional   |  Versão do pacote do so   |  SKU        |
+|  Tipo de instância grande do Hana   |  Fornecedor do sistema operacional   |  Versão do pacote do so   |  SKU |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Tipo I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   Tipo I                    |  SuSE        |   SLES 12 SP4         |  S224m      |

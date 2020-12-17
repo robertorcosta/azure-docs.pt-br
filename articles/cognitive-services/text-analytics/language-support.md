@@ -8,19 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 3e74098d368b6aef3a9f12d8b1369132b29e7a0f
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: b3a633c1eff6adf2a33b4f3bfc818eb51ff5ee85
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608945"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653088"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte à linguagem API de Análise de Texto v3 
-
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
-
 
 #### <a name="sentiment-analysis"></a>[Análise de Sentimento](#tab/sentiment-analysis)
 
@@ -55,7 +52,7 @@ ms.locfileid: "97608945"
 | Inglês               |     `en`      |              2020-04-01              |                    |
 
 
-#### <a name="named-entity-recognition-ner"></a>[Reconhecimento de entidade nomeada (NER)](#tab/named-entity-recognition)
+#### <a name="named-entity-recognition-ner"></a>[NER (Reconhecimento de Entidade Nomeada)](#tab/named-entity-recognition)
 
 > [!NOTE]
 > * O NER v3 atualmente dá suporte apenas a idiomas inglês e espanhol. Se você chamar NER v3 com um idioma diferente, a API retornará os resultados de v 2.1, desde que a linguagem tenha suporte na versão 2,1.

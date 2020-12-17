@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1829c69510568b0f9a8cec7fb7d2d57be8515d3
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6e8731312ee43930e0f2abcf81228c21bebfdb1f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509981"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653717"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -238,8 +238,8 @@ Você pode editar alguns detalhes dos termos de uso, mas não pode modificar um 
 2.  Selecione os termos de uso que você deseja editar.
 3.  Clique em **editar termos**.
 4.  Para o idioma em que você deseja atualizar uma nova versão, clique em **Atualizar** na coluna ação
- 
-     ![Editar o painel termos de uso mostrando as opções nome e expandir](./media/terms-of-use/edit-terms-use.png)
+
+    ![Editar o painel termos de uso mostrando as opções nome e expandir](./media/terms-of-use/edit-terms-use.png)
 
 5.  No painel à direita, carregue o PDF para a nova versão
 6.  Também há uma opção de alternância aqui **exigir reaceitação** se você quiser exigir que os usuários aceitem essa nova versão na próxima vez que entrarem. Se você precisar que os usuários aceitem novamente, na próxima vez que tentarem acessar o recurso definido em sua política de acesso condicional, eles serão solicitados a aceitar essa nova versão. Se você não exigir que seus usuários aceitem novamente, o consentimento anterior permanecerá atualizado e somente os novos usuários que não consentirem o consentimento antes ou cujo autorização expirará verão a nova versão.

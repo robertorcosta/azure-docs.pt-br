@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81721cb52035a51cffa2667568914c780b4c397b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 1324afb38560afeb43b5be9191b6e2e7afc5c81d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588651"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654890"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instalar a alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e em um disco compartilhado para uma instância do SAP ASCS/SCS no Azure
 
@@ -66,8 +66,6 @@ ms.locfileid: "97588651"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
-
-
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
 [sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
@@ -173,7 +171,6 @@ Não existem considerações especiais quando diferentes serviços DBMS interage
 > [!IMPORTANT]
 > Se você usar SIOS para apresentar o disco compartilhado, não coloque o arquivo de paginação nos volumes espelhados do SIOS datakeeper. Você pode deixar o arquivo de página na unidade D temporária de uma máquina virtual do Azure, o que é o padrão. Se já não estiver lá, mova o arquivo da página do Windows para a unidade D da máquina virtual do Azure.  
 
-
 Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as seguintes tarefas:
 
 * Criar um nome de host virtual para a instância clusterizada do SAP ASCS/SCS.
@@ -189,7 +186,6 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as se
    > [!IMPORTANT]
    > O endereço IP que você atribui ao nome de host virtual da instância ASCS/SCS deve ser o mesmo que o endereço IP que você atribuiu a Azure Load Balancer.  
 
-
    ![Figura 1: Definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e endereço TCP/IP][sap-ha-guide-figure-3046]
 
    _Definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e endereço TCP/IP_
@@ -199,11 +195,9 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as se
    > [!IMPORTANT]
    > O endereço IP que você atribui ao nome de host virtual da instância ERS2 deve ser o segundo endereço IP que você atribuiu para Azure Load Balancer.    
 
-
    ![Figura 1A: definir a entrada DNS para o nome virtual do cluster do SAP ASCS/SCS e o endereço TCP/IP][sap-ha-guide-figure-3046-ers2]
 
    _Definir a entrada DNS para o nome virtual do cluster SAP ERS2 e o endereço TCP/IP_
-
 
 3. Para definir o endereço IP atribuído ao nome de host virtual, selecione domínio do **Gerenciador DNS**  >  .
 
@@ -219,7 +213,6 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as se
    * **Sistema Java**: **SCS** com número de instância **01**
    * **Sistema ABAP+Java**: **ASCS** com número de instância **00** e **SCS** com número de instância **01**
 
-
    > [!IMPORTANT]
    > Tenha em mente que a configuração nas regras de balanceamento de carga do balanceador de carga interno do Azure (se estiver usando a SKU básica) e os números de instância do SAP selecionados devem corresponder.
 
@@ -227,8 +220,6 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as se
 
 > [!TIP]
 > A documentação de instalação do SAP descreve como instalar o primeiro nó ASCS/SCS do cluster.
-
-
 
 ### <a name="modify-the-sap-profile-of-the-ascsscs-instance"></a><a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modificar o perfil SAP da instância do ASCS/SCS
 
@@ -295,7 +286,6 @@ Para adicionar uma porta de investigação, execute este módulo do PowerShell e
     .PARAMETER IsSAPERSClusteredInstance 
     Optional parameter.Default value is '$False'.
     If set to $True , then handle clsutered new SAP ERS2 instance.
-
 
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP', and restart the SAP cluster group 'SAP AB1', to activate the changes.

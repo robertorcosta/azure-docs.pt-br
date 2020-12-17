@@ -3,12 +3,12 @@ title: Versões de cluster com suporte no Azure Service Fabric
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 46b1a7845a0da1ede30ed450f1e673f40e450105
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 4407ddb80b00c847e14643be816bc681718dcb8b
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905376"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652204"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
@@ -64,11 +64,11 @@ A tabela a seguir lista os sistemas operacionais com suporte para as versões de
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Windows Server 1709 | 6.0 |
+| Windows Server 1709 | 6,0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 16.04 | 6,0 |
 | Linux Ubuntu 18, 4 | 7.1 |
 
 ## <a name="supported-version-names"></a>Nomes de versão com suporte
@@ -85,7 +85,7 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 | 5,5 CU1 | 5.5.216.0    | NA |
 | 5,5 CU2 | 5.5.219.0    | NA |
 | 5,5 CU3 | 5.5.227.0    | NA |
-| 5,5 CU4 | 5.5.232.0    | NA |
+| 5,5 CU4 | 5.5.232.0 | NA |
 | RTO DE 5,6 | 5.6.204.9494 | NA |
 | 5,6 CU2 | 5.6.210.9494 | NA |
 | 5,6 CU3 | 5.6.220.9494 | NA |

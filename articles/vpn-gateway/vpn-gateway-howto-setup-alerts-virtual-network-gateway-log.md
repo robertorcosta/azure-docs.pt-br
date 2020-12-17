@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: alzam
-ms.openlocfilehash: 1f10799ab32b6cb26a8b3b5b343f65b960d71357
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70cac6ef566ef52409cd9667708c2fc297e046f7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006994"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656607"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>Configurar alertas em eventos de log de recursos do gateway de VPN
 
@@ -20,8 +20,8 @@ Este artigo ajuda você a configurar alertas com base em eventos de log de recur
 
 Os seguintes logs de recursos estão disponíveis no Azure:
 
-|***Nome** _ | _*_Description_*_ |
-|---        | ---               |
+|***Nome** _ | _*_Descrição_*_ |
+|--- | --- |
 |GatewayDiagnosticLog | Contém logs de recursos para eventos de configuração do gateway, alterações principais e eventos de manutenção |
 |TunnelDiagnosticLog | Contém eventos de alteração de estado de túnel. Eventos Connect/Disconnect de túnel têm um motivo resumido para a alteração de estado, se aplicável |
 |RouteDiagnosticLog | Registra alterações em rotas estáticas e eventos BGP que ocorrem no gateway |
@@ -45,7 +45,7 @@ As etapas de exemplo a seguir criam um alerta para um evento de desconexão que 
 
    ![Detalhes para a criação de um espaço de trabalho Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Selecionar")
 
-4. Localize o gateway de VPN na **Monitor**  >  folha **configurações de diagnóstico** do monitor.
+4. Localize o gateway de VPN na   >  folha **configurações de diagnóstico** do monitor.
 
    ![Seleções para localizar o gateway de VPN nas configurações de diagnóstico](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Selecionar")
 

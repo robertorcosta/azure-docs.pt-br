@@ -13,12 +13,12 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0b6e8b165dc8663d253ebd2ed2314195341142e0
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 05c4d36f266fb526a1d0232cc32f0408e4322c80
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584986"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654380"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar assinatura para uma organização do Active Directory do Azure específica no Azure Active Directory B2C
 
@@ -34,19 +34,7 @@ Este artigo mostra como habilitar a entrada de usuários a partir de uma organiz
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-::: zone pivot="b2c-user-flow"
-
-* [Criar um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se registrem e entrem no seu aplicativo.
-* Se não tiver feito isso ainda, [adicione um aplicativo de API da Web ao locatário do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Conclua as etapas em [Introdução às políticas personalizadas no Active Directory B2C](custom-policy-get-started.md).
-* Se não tiver feito isso ainda, [adicione um aplicativo de API da Web ao locatário do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="register-an-azure-ad-app"></a>Registrar um aplicativo do Azure AD
 
@@ -113,7 +101,7 @@ Se quiser obter as declarações `family_name` e `given_name` do Azure Active Di
     - **Sobrenome**: *family_name*
     - **Email**: *preferred_username*
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ::: zone-end
 
@@ -252,7 +240,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário que você deseja para o provedor de identidade do Azure AD.
 1. Em **provedores de identidade social**, selecione **contoso Azure ad**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**

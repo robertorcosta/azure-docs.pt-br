@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e1161a8a4625c855198ea04f336d54c80271a3ef
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7779730b98630d08af046e7cb402caca1d0c2fe6
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584673"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653649"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Twitter usando o Azure Active Directory B2C
 
@@ -31,19 +31,7 @@ ms.locfileid: "97584673"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-::: zone pivot="b2c-user-flow"
-
-* [Criar um fluxo de usuário](tutorial-create-user-flows.md) para permitir que os usuários se registrem e entrem no seu aplicativo.
-* Se não tiver feito isso ainda, [adicione um aplicativo de API da Web ao locatário do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-* Conclua as etapas em [Introdução às políticas personalizadas no Active Directory B2C](custom-policy-get-started.md).
-* Se não tiver feito isso ainda, [adicione um aplicativo de API da Web ao locatário do Azure Active Directory B2C](add-web-api-application.md).
-
-::: zone-end
+[!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 ## <a name="create-an-application"></a>Criar um aplicativo
 
@@ -69,7 +57,7 @@ Para usar o Twitter como provedor de identidade no Azure AD B2C, você precisar�
 1. Insira um **Nome**. Por exemplo, *Twitter*.
 1. Para a **ID do cliente**, insira a chave de API do consumidor do aplicativo do Twitter que você criou anteriormente.
 1. Para o **segredo do cliente**, insira a chave secreta da API do consumidor que você registrou.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ::: zone-end
 
@@ -195,7 +183,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário que você deseja para o provedor de identidade do Twitter.
 1. Em **provedores de identidade social**, selecione **Twitter**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**
