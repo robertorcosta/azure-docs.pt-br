@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 96c52c46a75d6d5810dfddf91439c275d14e85f1
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: bae8f0955ef45e21d38797789bdea4f62bf5ea28
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616120"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614924"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Como: adicionar funções de aplicativo ao seu aplicativo e recebê-las no token
 
@@ -30,7 +30,10 @@ Outra abordagem é usar grupos do Azure AD e declarações de grupo, conforme mo
 
 ## <a name="declare-roles-for-an-application"></a>Declarar funções para um aplicativo
 
-Você define as funções de aplicativo usando o [portal do Azure](https://portal.azure.com). Quando um usuário entra no aplicativo, o Azure AD emite uma `roles` declaração para cada função que o usuário recebeu individualmente para o usuário e de sua associação de grupo.
+Você define as funções de aplicativo usando o [portal do Azure](https://portal.azure.com). As funções de aplicativo geralmente são definidas em um registro de aplicativo que representa um serviço, aplicativo ou API. Quando um usuário entra no aplicativo, o Azure AD emite uma `roles` declaração para cada função que o usuário ou a entidade de serviço recebeu individualmente para o usuário e da sua associação de grupo. Isso pode ser usado para implementar a autorização baseada em declarações. As funções de aplicativo podem ser atribuídas [a um usuário ou grupo de usuários](../manage-apps/add-application-portal-assign-users.md#assign-users-to-an-app). As funções de aplicativo também podem ser atribuídas à entidade de serviço para outro aplicativo ou [à entidade de serviço para uma identidade gerenciada](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
+
+> [!IMPORTANT]
+> No momento, se você adicionar uma entidade de serviço a um grupo e atribuir uma função de aplicativo a esse grupo, o Azure AD não adicionará a `roles` declaração aos tokens emitidos.
 
 Há duas maneiras de declarar funções de aplicativo usando o portal do Azure:
 
@@ -49,7 +52,7 @@ Para criar uma função de aplicativo usando a interface do usuário do portal d
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o locatário Azure Active Directory que contém o registro do aplicativo ao qual você deseja adicionar uma função de aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
-1. Em **gerenciar** , selecione **registros de aplicativo** e, em seguida, selecione o aplicativo no qual você deseja definir funções de aplicativo.
+1. Em **gerenciar**, selecione **registros de aplicativo** e, em seguida, selecione o aplicativo no qual você deseja definir funções de aplicativo.
 1. Selecionar **funções de aplicativo | Visualize** e, em seguida, selecione **criar função de aplicativo**.
 
    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-overview-pane.png" alt-text="Um painel de funções de aplicativo do registro de aplicativo no portal do Azure":::
@@ -74,8 +77,8 @@ Para adicionar funções editando o manifesto diretamente:
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o locatário Azure Active Directory que contém o registro do aplicativo ao qual você deseja adicionar uma função de aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
-1. Em **gerenciar** , selecione **registros de aplicativo** e, em seguida, selecione o aplicativo no qual você deseja definir funções de aplicativo.
-1. Novamente em **gerenciar** , selecione **manifesto**.
+1. Em **gerenciar**, selecione **registros de aplicativo** e, em seguida, selecione o aplicativo no qual você deseja definir funções de aplicativo.
+1. Novamente em **gerenciar**, selecione **manifesto**.
 1. Edite o manifesto do aplicativo localizando a `appRoles` configuração e adicionando suas funções de aplicativo. Você pode definir funções de aplicativo direcionadas `users` , `applications` ou ambas. Os trechos de código JSON a seguir mostram exemplos de ambos.
 1. Salve o manifesto.
 
@@ -134,10 +137,10 @@ Depois de adicionar funções de aplicativo em seu aplicativo, você pode atribu
 Para atribuir usuários e grupos a funções usando o portal do Azure:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Em **Azure Active Directory** , selecione **aplicativos empresariais** no menu de navegação à esquerda.
+1. Em **Azure Active Directory**, selecione **aplicativos empresariais** no menu de navegação à esquerda.
 1. Selecione **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos. Se o seu aplicativo não aparecer na lista, use os filtros na parte superior da lista **todos os aplicativos** para restringir a lista ou role para baixo na lista para localizar seu aplicativo.
 1. Selecione o aplicativo no qual deseja atribuir funções a usuários ou grupos de segurança.
-1. Em **Gerenciar** , selecione **Usuários e grupos**.
+1. Em **Gerenciar**, selecione **Usuários e grupos**.
 1. Selecione **Adicionar usuário** para abrir o painel **Adicionar atribuição** .
 1. Clique no seletor **Usuários e grupos** do painel **Adicionar Atribuição**. Uma lista de usuários e grupos de segurança é exibida. Você pode pesquisar um determinado usuário ou grupo, bem como selecionar vários usuários e grupos que aparecem na lista.
 1. Depois de selecionar usuários e grupos, selecione o botão **selecionar** para continuar.
@@ -156,7 +159,7 @@ Ao atribuir funções de aplicativo a um aplicativo, você cria *permissões de 
 Para atribuir funções de aplicativo a um aplicativo usando o portal do Azure:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Em **Azure Active Directory** , selecione **registros de aplicativo** no menu de navegação à esquerda.
+1. Em **Azure Active Directory**, selecione **registros de aplicativo** no menu de navegação à esquerda.
 1. Selecione **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos. Se o seu aplicativo não aparecer na lista, use os filtros na parte superior da lista **todos os aplicativos** para restringir a lista ou role para baixo na lista para localizar seu aplicativo.
 1. Selecione o aplicativo ao qual você deseja atribuir uma função de aplicativo.
 1. Selecione **Permissões de API** > **Adicionar uma permissão**.
@@ -169,7 +172,7 @@ As funções adicionadas recentemente devem aparecer no painel de **permissões 
 
 #### <a name="grant-admin-consent"></a>Conceder consentimento de administrador
 
-Como essas são *permissões de aplicativo* , permissões não delegadas, um administrador deve conceder consentimento para usar as funções de aplicativo atribuídas ao aplicativo.
+Como essas são *permissões de aplicativo*, permissões não delegadas, um administrador deve conceder consentimento para usar as funções de aplicativo atribuídas ao aplicativo.
 
 1. No painel **permissões de API** do registro de aplicativo, selecione **conceder consentimento de \<tenant name\> administrador para**.
 1. Selecione **Sim** quando solicitado a conceder consentimento para as permissões solicitadas.

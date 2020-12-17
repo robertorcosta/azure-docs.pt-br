@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/7/2020
-ms.openlocfilehash: 566fd2c9c31933420769f7200a0434cc53f8c2f3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.date: 12/16/2020
+ms.openlocfilehash: d45d9a29f671e66c6caba689f49e1748780545e0
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853128"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616738"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados com suporte no Azure Data Share
 
@@ -50,7 +50,7 @@ A tabela abaixo detalha combinações diferentes e escolhas que os consumidores 
 | Azure Data Explorer ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Compartilhamento por meio de uma conta de armazenamento
-O compartilhamento de dados do Azure dá suporte ao compartilhamento de arquivos, pastas e sistemas de arquivos do Azure Data Lake Gen1 e Azure Data Lake Gen2. Ele também dá suporte ao compartilhamento de BLOBs, pastas e contêineres do armazenamento de BLOBs do Azure. No momento, só há suporte para blob de blocos. Quando os sistemas de arquivos, contêineres ou pastas são compartilhados no compartilhamento baseado em instantâneo, o consumidor de dados pode optar por fazer uma cópia completa dos dados de compartilhamento ou aproveitar a capacidade de instantâneo incremental para copiar somente arquivos novos ou atualizados. O instantâneo incremental é baseado na hora da última modificação dos arquivos. Os arquivos existentes com o mesmo nome serão substituídos.
+O compartilhamento de dados do Azure dá suporte ao compartilhamento de arquivos, pastas e sistemas de arquivos do Azure Data Lake Gen1 e Azure Data Lake Gen2. Ele também dá suporte ao compartilhamento de BLOBs, pastas e contêineres do armazenamento de BLOBs do Azure. No momento, só há suporte para blob de blocos. Quando os sistemas de arquivos, contêineres ou pastas são compartilhados no compartilhamento baseado em instantâneo, o consumidor de dados pode optar por fazer uma cópia completa dos dados de compartilhamento ou aproveitar a capacidade de instantâneo incremental para copiar somente arquivos novos ou atualizados. O instantâneo incremental é baseado na hora da última modificação dos arquivos. Os arquivos existentes com o mesmo nome serão substituídos durante o instantâneo. O arquivo excluído da origem não é excluído no destino. 
 
 Veja [compartilhar e receber dados do armazenamento de BLOBs do Azure e Azure data Lake Storage](how-to-share-from-storage.md) para obter detalhes.
 

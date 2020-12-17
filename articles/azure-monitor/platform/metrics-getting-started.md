@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 3e5514c4a54083bcc6ef8187f2cd97515d2dd680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590176"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614567"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Azure Metrics Explorer
 
@@ -29,15 +29,14 @@ O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure q
 
 Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatura ou Azure Monitor exibição, abra a guia **métricas** e siga estas etapas:
 
-1. Usando o seletor de recursos, selecione o recurso para o qual você deseja ver as métricas. (O recurso será pré-selecionado se você tiver aberto as **métricas** no contexto de um recurso específico).
-
-    > ![Selecionar um recurso](./media/metrics-getting-started/resource-picker.png)
+1. Clique no botão "selecionar um escopo" para abrir o seletor de escopo de recurso. Isso permitirá que você selecione os recursos para os quais deseja ver as métricas. O recurso já deve estar preenchido se você tiver aberto o Metrics Explorer no menu do recurso. Para saber como exibir as métricas em vários recursos, [Leia este artigo](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+    > ![Selecionar um recurso](./media/metrics-getting-started/scope-picker.png)
 
 2. Para alguns recursos, você deve escolher um namespace. O namespace é apenas uma maneira de organizar as métricas para que você possa encontrá-las com facilidade. Por exemplo, as contas de armazenamento têm namespaces separados para armazenar métricas de arquivos, tabelas, blobs e filas. Muitos tipos de recursos têm apenas um namespace.
 
 3. Selecione uma métrica em uma lista de métricas disponíveis.
 
-    > ![Selecione uma métrica](./media/metrics-getting-started/metric-picker.png)
+    > ![Selecione uma métrica](./media/metrics-getting-started/metrics-dropdown.png)
 
 4. Opcionalmente, você pode [alterar a agregação de métrica](metrics-charts.md#changing-aggregation). Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
 
@@ -51,7 +50,7 @@ Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatu
 
 Por padrão, o gráfico mostra as últimas 24 horas de dados de métricas. Use o painel **seletor de tempo** para alterar o intervalo de tempo, ampliar ou reduzir seu gráfico. 
 
-![Alterar o painel de intervalo de tempo](./media/metrics-getting-started/time-picker.png)
+![Alterar o painel de intervalo de tempo](./media/metrics-getting-started/time.png)
 
 > [!TIP]
 > Use o **pincel de tempo** para investigar uma área interessante do gráfico (pico ou DIP). Coloque o ponteiro do mouse no início da área, clique e mantenha o botão esquerdo do mouse, arraste para o outro lado da área e, em seguida, solte o botão. O gráfico será ampliado naquele intervalo de tempo. 
@@ -73,6 +72,7 @@ Você pode personalizar o estilo do gráfico, o título e modificar as configura
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre os recursos avançados do Metrics Explorer](metrics-charts.md)
+* [Exibindo vários recursos no Metrics Explorer](metrics-dynamic-scope.md)
 * [Solução de problemas do Metrics Explorer](metrics-troubleshoot.md)
 * [Veja uma lista das métricas disponíveis para os serviços do Azure](metrics-supported.md)
 * [Veja exemplos de gráficos configurados](metric-chart-samples.md)

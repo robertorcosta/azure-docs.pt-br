@@ -5,15 +5,15 @@ services: batch
 author: JnHs
 ms.service: batch
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 12/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 54a789aba793d9a6b44d5fe9a1e0f42023002b5a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0a94b122f1cdd598eeac553c8cc784d2a0a5369f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026595"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614499"
 ---
 | **Recurso** | **Limite padrão** | **Limite máximo** |
 | --- | --- | --- |
@@ -24,9 +24,6 @@ ms.locfileid: "96026595"
 | Núcleos por conta do Lote | 20 – 100 | 500<sup>1</sup> |
 
 <sup>1</sup>Entre em contato com o Suporte do Azure para solicitar aumentos além deste limite.
-
-> [!IMPORTANT]
-> Estamos alterando a maneira de solicitar e gerenciar a cota dedicada.  O total de vCPUs dedicadas é o valor imposto no momento, mas, em breve, as cotas dedicadas serão impostas por série de VM. A cota de baixa prioridade continuará sendo imposta com base no limite total, e não será imposta por séries de VM.
 
 > [!NOTE]
 > Os limites padrão variam dependendo do tipo de assinatura que você usa para criar uma conta do Lote. As cotas de núcleos mostradas são para as contas do Lote no modo do Serviço de lote. [Exibir as cotas na conta do Lote](../articles/batch/batch-quota-limit.md#view-batch-quotas).

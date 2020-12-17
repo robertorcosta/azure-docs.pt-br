@@ -4,15 +4,15 @@ description: Saiba como enviar mensagens RabbitMQ de Azure Functions.
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/13/2020
+ms.date: 12/16/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 212bfcee09cd63b6ff09faaba4d99e4b4c583fe8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: febcb3d2b6990d36a686dc4fab57a6bcbc96b080
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505693"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616653"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>RabbitMQ a associação de saída para Azure Functions visão geral
 
@@ -193,8 +193,6 @@ Aqui estão os dados de associação no arquivo *function.json*:
 }
 ```
 
-Em *_\_ init_ \_ . py*, você pode gravar uma mensagem na fila passando um valor para o `set` método.
-
 ```python
 import azure.functions as func
 
@@ -271,11 +269,13 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**direction** | n/d | Deve ser definido como "out". |
 |**name** | n/d | O nome da variável que representa a fila no código de função. |
 |**queueName**|**QueueName**| Nome da fila para a qual enviar mensagens. |
-|**Nome do host**|**HostName**|(opcional se estiver usando ConnectStringSetting) <br>Nome do host da fila (ex: 10.26.45.210)|
-|**userNameSetting**|**UserNameSetting**|(opcional se estiver usando ConnectionStringSetting) <br>Nome para acessar a fila |
-|**passwordSetting**|**PasswordSetting**|(opcional se estiver usando ConnectionStringSetting) <br>Senha para acessar a fila|
+|**Nome do host**|**HostName**|(ignorado se estiver usando ConnectStringSetting) <br>Nome do host da fila (ex: 10.26.45.210)|
+|**userName**|**UserName**|(ignorado se estiver usando ConnectionStringSetting) <br>Nome da configuração do aplicativo que contém o nome de usuário para acessar a fila. Exemplo: UserNameSetting: "< UserNameFromSettings >"|
+|**password**|**Senha**|(ignorado se estiver usando ConnectionStringSetting) <br>Nome da configuração do aplicativo que contém a senha para acessar a fila. Exemplo: UserNameSetting: "< UserNameFromSettings >"|
 |**connectionStringSetting**|**ConnectionStringSetting**|O nome da configuração do aplicativo que contém a cadeia de conexão da fila de mensagens RabbitMQ. Observe que, se você especificar a cadeia de conexão diretamente e não por meio de uma configuração de aplicativo no local.settings.jsem, o gatilho não funcionará. (Por exemplo: em *function.jsem*: connectionStringSetting: "rabbitMQConnection" <br> Em *local.settings.jsem*: "rabbitMQConnection": "< ActualConnectionstring >")|
-|**port**|**Porta**|Obtém ou define a porta usada. Assume o padrão de 0.|
+|**port**|**Porta**|(ignorado se estiver usando ConnectionStringSetting) Obtém ou define a porta usada. Assume o padrão de 0.|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Uso
 
@@ -297,7 +297,7 @@ Use os seguintes tipos de parâmetro para a associação de saída:
 
 * `byte[]` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
 * `string` - Se o valor de parâmetro não for nulo quando a função sair, o Functions criará uma mensagem.
-* `POCO` -Se o valor do parâmetro não estiver formatado como um objeto C#, um erro será recebido.
+* `POCO` -Se o valor do parâmetro não estiver formatado como um objeto C#, um erro será recebido. Para obter um exemplo completo, consulte [exemplo](#example)de script C#.
 
 Ao trabalhar com funções de script C#:
 
@@ -305,11 +305,11 @@ Ao trabalhar com funções de script C#:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A mensagem RabbitMQ é enviada por uma cadeia de caracteres.
+A mensagem da fila está disponível por meio de Context. Bindings.<NAME> onde <NAME> corresponde ao nome definido em function.jsem. Se a carga for JSON, o valor será desserializado em um objeto.
 
 # <a name="python"></a>[Python](#tab/python)
 
-A mensagem RabbitMQ é enviada por uma cadeia de caracteres.
+Consulte o [exemplo](#example)de Python.
 
 # <a name="java"></a>[Java](#tab/java)
 

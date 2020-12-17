@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 724809dbce3ca1b5a36f4da0ba5c03d0f78897f5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 9d1460a8bebe75a3ee471eb304fcf642d566b5dd
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577600"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614635"
 ---
 # <a name="viewing-multiple-resources-in-metrics-explorer"></a>Exibindo vários recursos no Metrics Explorer
 
@@ -71,7 +71,7 @@ Por exemplo, abaixo está um gráfico da porcentagem de CPU em 9VMs. Dividindo p
 
 ![Captura de tela que mostra como você pode usar a divisão para ver a porcentagem de CPU por VM](./media/metrics-charts/026.png)
 
-Além da divisão, você pode usar o recurso de filtragem para exibir apenas os grupos de recursos que deseja ver.  Por exemplo, se você quiser exibir a porcentagem de CPU para VMs para um determinado grupo de recursos, poderá usar a ferramenta "Adicionar filtro" para filtrar por grupo de recursos. Neste exemplo, filtramos por TailspinToys, que remove as métricas associadas aos recursos em TailspinToysDemo. 
+Além da divisão, você pode usar o recurso de filtragem para exibir apenas os grupos de recursos que deseja ver.  Por exemplo, se você quiser exibir a porcentagem de CPU para VMs para um determinado grupo de recursos, poderá usar a ferramenta "Adicionar filtro" para filtrar por grupo de recursos. Neste exemplo, filtramos por TailspinToysDemo, que remove as métricas associadas aos recursos em TailspinToys. 
 
 ![Captura de tela que mostra como você pode filtrar por grupo de recursos](./media/metrics-charts/027.png)
 
@@ -80,7 +80,7 @@ Além da divisão, você pode usar o recurso de filtragem para exibir apenas os 
 > [!WARNING] 
 > Você deve ter a permissão de leitor de monitoramento no nível da assinatura para visualizar as métricas em vários recursos, grupos de recursos ou uma assinatura. Para fazer isso, siga as instruções neste [documento](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
-Para fixar o gráfico de vários recursos, siga as instruções [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#create-alert-rules). 
+Para fixar o gráfico de vários recursos, siga as instruções [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pin-charts-to-dashboards). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

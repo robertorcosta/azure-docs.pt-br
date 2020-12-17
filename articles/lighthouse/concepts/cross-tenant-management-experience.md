@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 11/19/2020
+ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4550921fdefdca440b6757e7a3b7a03337599d16
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: dca14781aac9db3cdd47ab4b66506f77f0b78c31
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510644"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616568"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -77,6 +77,11 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 [Gerenciamento de custos do Azure + cobrança](../../cost-management-billing/index.yml):
 
 - Do locatário de gerenciamento, os parceiros CSP podem exibir, gerenciar e analisar os custos de consumo de imposto prévio (não inclusivo de compras) para clientes que estão sob o plano do Azure. O custo será baseado em taxas de varejo e no acesso do Azure RBAC (controle de acesso baseado em função) que o parceiro tem para a assinatura do cliente.
+
+[Azure Key Vault](../../key-vault/general/index.yml):
+
+- Criar cofres de chaves em locatários do cliente
+- Usar uma identidade gerenciada para criar cofres de chaves em locatários do cliente
 
 [AKS (Serviço de Kubernetes do Azure)](../../aks/index.yml):
 

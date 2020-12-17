@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8915ae349e33390ce5bb687d7c07a21665a0258
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 34f82fc060586e2df5acefa6b0836171e558aa4a
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029397"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97615760"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -110,6 +110,7 @@ Essa configuração se aplica aos seguintes aplicativos iOS e Android:
    - Fornece suporte apenas para iOS e Android para condição de plataforma de dispositivo.
    - Um aplicativo de agente é necessário para registrar o dispositivo. O aplicativo agente pode ser o Microsoft Authenticator para iOS ou o Microsoft Authenticator ou o portal da empresa da Microsoft para dispositivos Android.
 - O acesso condicional não pode considerar o Microsoft Edge no modo InPrivate em um aplicativo cliente aprovado.
+- Usando o Azure Proxy de Aplicativo do AD para habilitar o Power BI aplicativo móvel para se conectar ao Servidor de Relatórios do Power BI local não tem suporte com políticas de acesso condicional que exigem o aplicativo Microsoft Power BI como um aplicativo cliente aprovado.
 
 Consulte o artigo [como: exigir aplicativos cliente aprovados para acesso de aplicativo de nuvem com acesso condicional](app-based-conditional-access.md) para exemplos de configuração.
 

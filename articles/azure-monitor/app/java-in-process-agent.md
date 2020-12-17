@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3cab22c2271fd5874b4b094be65c36f5b5f3a22d
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 2011d013cce43eaf471d61936d5c34c318360381
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97371876"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616636"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
@@ -139,7 +139,7 @@ Application Insights Java 3,0 captura automaticamente a telemetria enviada por e
 
 ### <a name="supported-custom-telemetry"></a>Telemetria personalizada com suporte
 
-A tabela a seguir representa os tipos de telemetria personalizados com suporte no momento que você pode habilitar para complementar o agente do Java 3,0. Para resumir, há suporte para métricas personalizadas por meio de micrometer, exceções e rastreamentos personalizados podem ser habilitados por meio de estruturas de log e qualquer tipo de telemetria personalizada tem suporte por meio do [SDK Application insights Java 2. x](#send-custom-telemetry-using-application-insights-java-2x-sdk).
+A tabela a seguir representa os tipos de telemetria personalizados com suporte no momento que você pode habilitar para complementar o agente do Java 3,0. Para resumir, há suporte para métricas personalizadas por meio de micrometer, exceções e rastreamentos personalizados podem ser habilitados por meio de estruturas de log e qualquer tipo de telemetria personalizada tem suporte por meio do [SDK Application insights Java 2. x](#send-custom-telemetry-using-the-2x-sdk).
 
 |                     | Micrometer | Log4J, logback, JUL | SDK 2. x |
 |---------------------|------------|---------------------|---------|
@@ -147,7 +147,7 @@ A tabela a seguir representa os tipos de telemetria personalizados com suporte n
 | **Métricas personalizadas**  |  Sim       |                     |  Sim    |
 | **Dependências**    |            |                     |  Sim    |
 | **Exceções**      |            |  Sim                |  Sim    |
-| **Exibições de página**      |            |                     |  Sim    |
+| **Visualizações de página**      |            |                     |  Sim    |
 | **Solicitações**        |            |                     |  Sim    |
 | **Rastreamentos**          |            |  Sim                |  Sim    |
 
@@ -188,7 +188,7 @@ Consulte as [Opções de configuração](./java-standalone-config.md#auto-collec
 
 Se você quiser anexar dimensões personalizadas a seus logs, você pode usar [Log4j 1,2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4J 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html)ou [Logback MDC](http://logback.qos.ch/manual/mdc.html)e Application insights o Java 3,0 irá capturar automaticamente essas propriedades MDC como dimensões personalizadas em seu rastreamento e telemetria de exceção.
 
-### <a name="send-custom-telemetry-using-application-insights-java-2x-sdk"></a>Enviar telemetria personalizada usando Application Insights SDK do Java 2. x
+### <a name="send-custom-telemetry-using-the-2x-sdk"></a>Enviar telemetria personalizada usando o SDK 2. x
 
 Adicione `applicationinsights-core-2.6.2.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
 
@@ -251,3 +251,80 @@ try {
     telemetryClient.trackException(e);
 }
 ```
+
+### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>Adicionar dimensões personalizadas de solicitação usando o SDK 2. x
+
+> [!NOTE]
+> Este recurso está somente no 3.0.1-BETA e posterior
+
+Adicione `applicationinsights-web-2.6.2.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+e adicione dimensões personalizadas em seu código:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getProperties().put("mydimension", "myvalue");
+```
+
+### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>Definir o user_Id de telemetria de solicitação usando o SDK 2. x
+
+> [!NOTE]
+> Este recurso está somente no 3.0.1-BETA e posterior
+
+Adicione `applicationinsights-web-2.6.2.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+e defina o `user_Id` em seu código:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getContext().getUser().setId("myuser");
+```
+
+### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>Substituir o nome da telemetria de solicitação usando o SDK 2. x
+
+> [!NOTE]
+> Este recurso está somente no 3.0.1-BETA e posterior
+
+Adicione `applicationinsights-web-2.6.2.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+e defina o nome em seu código:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.setName("myname");
+```
+
+> [!NOTE]
+> Todas as outras operações em uma `RequestTelemetry` recuperadas `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` , além das descritas acima, serão Fail Fast e lançar uma exceção para que você saiba que o comportamento é indefinido no agente 3,0.
+>
+> Se você precisar de interoperabilidade para quaisquer outros métodos em `RequestTelemetry` , informe-nos abrindo um problema https://github.com/microsoft/ApplicationInsights-Java/issues .

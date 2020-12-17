@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 2af79efa2bd1685d0e7bd621e2ddb8930425dee1
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443085"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97614890"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrar aplicativos móveis que chamam APIs da Web
 
@@ -72,16 +72,21 @@ Quando você concluir as etapas, o URI de redirecionamento será computado para 
 
 Se preferir configurar manualmente o URI de redirecionamento, você poderá fazer isso por meio do manifesto do aplicativo. Este é o formato recomendado para o manifesto:
 
-- **Ios** : `msauth.<BUNDLE_ID>://auth`
+- **Ios**: `msauth.<BUNDLE_ID>://auth`
   - Por exemplo, digite `msauth.com.yourcompany.appName://auth`
-- **Android** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Você pode gerar o hash de assinatura do Android usando a chave de versão ou a chave de depuração por meio do comando keytool.
 
 ### <a name="username-password-authentication"></a>Nome de usuário-autenticação de senha
 
 Se seu aplicativo usar apenas a autenticação de nome de usuário-senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esse fluxo faz uma viagem de ida e volta para o ponto de extremidade da plataforma Microsoft Identity versão 2,0. Seu aplicativo não será chamado de volta em nenhum URI específico.
 
-No entanto, você precisa identificar seu aplicativo como um aplicativo cliente público. Para fazer isso, inicie na seção de **autenticação** do seu aplicativo. Na subseção **Configurações avançadas** , no tipo de **cliente padrão** parágrafo, para o aplicativo pergunta **tratar como um cliente público** , selecione **Sim**.
+No entanto, você precisa identificar seu aplicativo como um aplicativo cliente público. Para fazer isso:
+
+1. Ainda no [portal do Azure](https://portal.azure.com), selecione seu aplicativo no **registros de aplicativo** e, em seguida, selecione **autenticação**.
+1. Em **Configurações avançadas**,  >  **permitir fluxos de cliente público**  >  **habilite os seguintes fluxos móveis e de área de trabalho:**, selecione **Sim**.
+
+   :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Habilitar a configuração de cliente público no painel de autenticação no portal do Azure":::
 
 ## <a name="api-permissions"></a>Permissões de API
 

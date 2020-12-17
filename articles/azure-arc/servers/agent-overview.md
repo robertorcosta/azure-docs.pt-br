@@ -3,12 +3,12 @@ title: Visão geral do agente do Connected Machine do Windows
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 12/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 531041b7d7439dd2a48fa9e06eb82796f470e9ed
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0532441e1ab0d2676e7800c9d63878f9bf3bb3dc
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563017"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616154"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -49,7 +49,7 @@ O agente do Azure Connected Machine para Windows e Linux pode ser atualizado par
 
 Há suporte oficial para as seguintes versões do sistema operacional Windows e Linux para o agente do Azure Connected Machine:
 
-- Windows Server 2012 R2 e versões posteriores (incluindo o Windows Server Core)
+- Windows Server 2008 R2, Windows Server 2012 R2 e superior (incluindo Server Core)
 - Ubuntu 16, 4 e 18, 4 LTS (x64)
 - CentOS Linux 7 (x64)
 - SLES (SUSE Linux Enterprise Server) 15 (x64)

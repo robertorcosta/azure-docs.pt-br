@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperf-fy20q4
 ms.date: 11/09/2020
-ms.openlocfilehash: 010d37baff76a046bef2da877262f6427cb3d5c9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: aa0a14d57db932ef6cfb17df84b3204d3dec9e4d
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094430"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97616993"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -428,6 +428,16 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
   1. Inicie um shell de comando, ative o ambiente Conda onde os pacotes de ml automatizados são instalados.
   2. Insira `pip freeze` e procure `tensorflow` , se encontrado, a versão listada deve ser < 1,13
   3. Se a versão listada não for uma versão com suporte, `pip uninstall tensorflow` no Shell de comando e digite y para confirmação.
+
+## <a name="model-explanations"></a>Explicações do modelo
+
+* **Dados esparsos sem suporte**: o modelo explica a explicação do painel/diminui substancialmente com um grande número de recursos, portanto, no momento, não há suporte para o formato de dados esparsos. Além disso, problemas gerais de memória surgirão com grandes conjuntos de altos e um grande número de recursos. 
+
+* **Modelos de previsão sem suporte com explicações de modelo**: interpretação, melhor explicação de modelo, não está disponível para experimentos de previsão de AutoML que recomendam os seguintes algoritmos como o melhor modelo: TCNForecaster, AutoArima, ExponentialSmoothing, Average, Naive, média sazonal e Naive sazonal. A previsão de AutoML tem modelos de regressão que dão suporte a explicações. No entanto, na explicação dashbord, a guia "importância de recurso individual" não tem suporte apenas para previsão devido à complexidade em seus pipelines de dados.
+
+* **Explicação local para o índice de dados**: o painel de explicação não oferece suporte à relação de valores de importância local para um identificador de linha do DataSet de validação original se esse conjunto de dados for maior do que 5000 pontos de dados como o Dashboard downsamples aleatoriamente. No entanto, o painel mostra os valores de recurso de conjunto de forma bruto para cada DataPoint passado para o painel na guia importância de recurso individual. Os usuários podem mapear as importâncias locais de volta para o conjunto de recursos original, por meio da correspondência dos valores de recurso de DataSet bruto. Se o tamanho do conjunto de recursos de validação for inferior a 5000 amostras, o `index` recurso no AzureML Studio corresponderá ao índice no conjunto de recursos de validação.
+
+* **Não há suporte para plotagens What-If/Ice no AML Studio**: What-If e gráficos de expectativa condicional (ICE) individuais não têm suporte no AzureML Studio na guia explicações, uma vez que a explicação carregada precisa de uma computação ativa para recalcular previsões e probabilidades de recursos de perturbed. No momento, ele tem suporte em notebooks Jupyter quando executado como um widget usando o SDK.
 
 ## <a name="deploy--serve-models"></a>Implantar e fornecer modelos
 

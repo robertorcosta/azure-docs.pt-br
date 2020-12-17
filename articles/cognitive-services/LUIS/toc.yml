@@ -195,8 +195,6 @@
           href: luis-how-to-azure-subscription.md
         - name: Configurações do aplicativo e da versão
           href: how-to-application-settings-portal.md
-        - name: Migrar para o recurso de criação
-          href: luis-migration-authoring.md
         - name: Autores e colaboradores
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md
