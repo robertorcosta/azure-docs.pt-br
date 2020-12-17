@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 568243c6fecf26510f6e9988907d1ccad103cdc2
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: c6bac44e6f7212344463665840f180732970c3d4
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618709"
+ms.locfileid: "97657151"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -259,4 +259,6 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Adicionar produtos/serviços de ITSM a Conector de Gerenciamento de Serviços de TI](./itsmc-connections.md)
+[Visão geral](./itsmc-overview.md) 
+ de conector ITSM [Adicionar produtos/serviços de ITSM a conector de gerenciamento de serviços de ti](./itsmc-connections.md) 
+ [Solucionando problemas no conector ITSM](./itsmc-resync-servicenow.md)

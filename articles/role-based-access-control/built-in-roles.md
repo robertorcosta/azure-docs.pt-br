@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 11/18/2020
+ms.date: 12/16/2020
 ms.custom: generated
-ms.openlocfilehash: e18dc7e16eb0b114bd279d53b7dcc895bd62f338
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f22b74b16594419b0eff33f0c73d6e9c3a62ac15
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002724"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655026"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -30,7 +30,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | Função interna | Descrição | ID |
 > | --- | --- | --- |
 > | **Geral** |  |  |
-> | [Colaborador](#contributor) | Concede acesso completo para gerenciar todos os recursos, mas não permite que você atribua funções no RBAC do Azure. | b24988ac-6180-42a0-ab88-20f7382dd24c |
+> | [Colaborador](#contributor) | Concede acesso completo para gerenciar todos os recursos, mas não permite que você atribua funções no RBAC do Azure, gerencie atribuições em plantas do Azure ou compartilhe galerias de imagens. | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | [Proprietário](#owner) | Concede acesso completo para gerenciar todos os recursos, incluindo a capacidade de atribuir funções no RBAC do Azure. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [Leitor](#reader) | Exibir todos os recursos, mas não permite que você faça nenhuma alteração. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | [Administrador de Acesso do Usuário](#user-access-administrator) | Permite que você gerencie o acesso do usuário aos recursos do Azure. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
@@ -165,7 +165,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Key Vault o responsável por certificados (versão prévia)](#key-vault-certificates-officer-preview) | Execute qualquer ação nos certificados de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | a4417e6f-fecd-4de8-b567-7b0420556985 |
 > | [Colaborador do Key Vault](#key-vault-contributor) | Gerencie cofres de chaves, mas não permite que você atribua funções no RBAC do Azure e não permite que você acesse segredos, chaves ou certificados. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
 > | [Key Vault de criptografia (versão prévia)](#key-vault-crypto-officer-preview) | Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-> | [Criptografia do serviço de criptografia Key Vault (visualização)](#key-vault-crypto-service-encryption-preview) | Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Key Vault usuário de criptografia do serviço de criptografia (visualização)](#key-vault-crypto-service-encryption-user-preview) | Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
 > | [Key Vault usuário de criptografia (visualização)](#key-vault-crypto-user-preview) | Executar operações criptográficas usando chaves. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 12338af0-0e69-4776-bea7-57ae8d297424 |
 > | [Leitor de Key Vault (versão prévia)](#key-vault-reader-preview) | Ler metadados de cofres de chaves e seus certificados, chaves e segredos. Não é possível ler valores confidenciais, como conteúdo secreto ou material de chave. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 21090545-7ca7-4776-b22c-e363652d74d2 |
 > | [Diretor de segredos Key Vault (versão prévia)](#key-vault-secrets-officer-preview) | Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
@@ -225,7 +225,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 
 ### <a name="contributor"></a>Colaborador
 
-Concede acesso completo para gerenciar todos os recursos, mas não permite que você atribua funções no RBAC do Azure. [Saiba mais](rbac-and-directory-admin-roles.md)
+Concede acesso completo para gerenciar todos os recursos, mas não permite que você atribua funções no RBAC do Azure, gerencie atribuições em plantas do Azure ou compartilhe galerias de imagens. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -248,7 +248,7 @@ Concede acesso completo para gerenciar todos os recursos, mas não permite que v
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC.",
+  "description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
   "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
   "permissions": [
@@ -4265,6 +4265,7 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/azureADOnlyAuthentications/* |  |
 > | /ManagedInstances/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Retornar a lista de instâncias gerenciadas ou obter as propriedades para a instância gerenciada especificada. |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/azureADOnlyAuthentications/* |  |
+> | [Microsoft. Security](resource-provider-operations.md#microsoftsecurity)/sqlVulnerabilityAssessments/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -4326,7 +4327,8 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
         "Microsoft.Support/*",
         "Microsoft.Sql/servers/azureADOnlyAuthentications/*",
         "Microsoft.Sql/managedInstances/read",
-        "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*"
+        "Microsoft.Sql/managedInstances/azureADOnlyAuthentications/*",
+        "Microsoft.Security/sqlVulnerabilityAssessments/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -6191,7 +6193,7 @@ Permite que os desenvolvedores criem e atualizem fluxos de trabalho, contas de i
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | /IntegrationServiceEnvironments/Read [Microsoft. Logic](resource-provider-operations.md#microsoftlogic) | Lê o ambiente do serviço de integração. |
-> | /IntegrationServiceEnvironments/Join/Action [Microsoft. Logic](resource-provider-operations.md#microsoftlogic) | Une o Ambiente do Serviço de Integração. |
+> | [Microsoft. Logic](resource-provider-operations.md#microsoftlogic)/integrationServiceEnvironments/*/Join/Action |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -6213,7 +6215,7 @@ Permite que os desenvolvedores criem e atualizem fluxos de trabalho, contas de i
         "Microsoft.Authorization/*/read",
         "Microsoft.Support/*",
         "Microsoft.Logic/integrationServiceEnvironments/read",
-        "Microsoft.Logic/integrationServiceEnvironments/join/action"
+        "Microsoft.Logic/integrationServiceEnvironments/*/join/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -6688,6 +6690,7 @@ Respondente do Azure Sentinel [saiba mais](../sentinel/roles.md)
 > | --- | --- |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/Read |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/Action | Verificar a autorização e a licença do usuário |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/automationRules/* |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/* |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/Incidents/* |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/Indicators/appendTags/Action | Acrescentar marcas ao indicador de inteligência contra ameaças |
@@ -6732,6 +6735,7 @@ Respondente do Azure Sentinel [saiba mais](../sentinel/roles.md)
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
+        "Microsoft.SecurityInsights/automationRules/*",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.SecurityInsights/threatIntelligence/indicators/appendTags/action",
@@ -7004,7 +7008,7 @@ Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permi
 }
 ```
 
-### <a name="key-vault-crypto-service-encryption-preview"></a>Criptografia do serviço de criptografia Key Vault (visualização)
+### <a name="key-vault-crypto-service-encryption-user-preview"></a>Key Vault usuário de criptografia do serviço de criptografia (visualização)
 
 Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
 
@@ -7041,7 +7045,7 @@ Ler metadados de chaves e executar operações de encapsulamento/desencapsulamen
       "notDataActions": []
     }
   ],
-  "roleName": "Key Vault Crypto Service Encryption (preview)",
+  "roleName": "Key Vault Crypto Service Encryption User (preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -8455,6 +8459,7 @@ Pode exibir custos e gerenciar a configuração de custo (por exemplo, orçament
 > | /Configurations/Read [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor) | Obter configurações |
 > | /Recommendations/Read [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor) | Ler recomendações |
 > | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
+> | /BillingProperty/Read [Microsoft. billing](resource-provider-operations.md#microsoftbilling) |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -8481,7 +8486,8 @@ Pode exibir custos e gerenciar a configuração de custo (por exemplo, orçament
         "Microsoft.Support/*",
         "Microsoft.Advisor/configurations/read",
         "Microsoft.Advisor/recommendations/read",
-        "Microsoft.Management/managementGroups/read"
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Billing/billingProperty/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -8510,6 +8516,7 @@ Pode exibir dados de custo e configuração (por exemplo, orçamentos, exportaç
 > | /Configurations/Read [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor) | Obter configurações |
 > | /Recommendations/Read [Microsoft. Advisor](resource-provider-operations.md#microsoftadvisor) | Ler recomendações |
 > | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
+> | /BillingProperty/Read [Microsoft. billing](resource-provider-operations.md#microsoftbilling) |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -8536,7 +8543,8 @@ Pode exibir dados de custo e configuração (por exemplo, orçamentos, exportaç
         "Microsoft.Support/*",
         "Microsoft.Advisor/configurations/read",
         "Microsoft.Advisor/recommendations/read",
-        "Microsoft.Management/managementGroups/read"
+        "Microsoft.Management/managementGroups/read",
+        "Microsoft.Billing/billingProperty/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -8603,8 +8611,8 @@ Definição de função para autorizar qualquer usuário/serviço a criar o recu
 > | /Subscriptions/operationresults/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter os resultados da operação da assinatura. |
 > | /Subscriptions/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter a lista de assinaturas. |
 > | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
-> | [Microsoft. kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | Grava connectedClusters |
-> | [Microsoft. kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Read | Ler connectedClusters |
+> | Microsoft. kubernetes/connectedClusters/Write |  |
+> | Microsoft. kubernetes/connectedClusters/Read |  |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
 > | **NotActions** |  |
 > | *nenhum* |  |

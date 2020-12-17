@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 93759cf239a2e7ef79c719c83299740ea3722130
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: aaaeb23ef24f0d8a0fa4b38139fed57cda6fa63d
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614550"
+ms.locfileid: "97657032"
 ---
 # <a name="it-service-management-connector-overview"></a>Visão geral de Conector de Gerenciamento de Serviços de TI
 
@@ -43,11 +43,13 @@ Para obter informações sobre os termos legais e a política de privacidade, co
 
 Você pode começar a usar o ITSMC concluindo as seguintes etapas:
 
-1. [Conecte produtos/serviços de ITSM com Conector de Gerenciamento de Serviços de TI.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections)
-2. [Adicione ITSMC.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#add-it-service-management-connector)
-3. [Crie uma conexão de ITSM.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-an-itsm-connection)
-4. [Use a conexão.](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#use-itsmc)
+1. [Conecte produtos/serviços de ITSM com Conector de Gerenciamento de Serviços de TI.](./itsmc-connections.md)
+1. [Adicione ITSMC.](/.itsmc-definition.md#add-it-service-management-connector)
+1. [Crie uma conexão de ITSM.](./itsmc-definition.md#create-an-itsm-connection)
+1. [Use a conexão.](./itsmc-definition.md#use-itsmc)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Adicionar produtos/serviços de ITSM a Conector de Gerenciamento de Serviços de TI](./itsmc-connections.md)
+[Adicionar produtos/serviços de ITSM a conector de gerenciamento de serviços de ti](./itsmc-connections.md) 
+ [Adicionar conector ITSM](./itsmc-definition.md) 
+ [Solucionando problemas no conector ITSM](./itsmc-resync-servicenow.md)

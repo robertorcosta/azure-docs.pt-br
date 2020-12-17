@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 81764294cc29ad74d5a77f2055f10498d69b59e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 591f01004cfba247112f702625ab05ddc0aaede3
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342901"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652918"
 ---
 # <a name="restore-a-dropped-azure-database-for-postgresql-server"></a>Restaurar um servidor removido do banco de dados do Azure para PostgreSQL
 
@@ -39,23 +39,26 @@ Para restaurar um servidor descartado do banco de dados do Azure para PostgreSQL
 
  4. Navegue até a [página de criação da API REST do servidor](/rest/api/PostgreSQL/servers/create) PostgreSQL e selecione a guia **experimentar** realçada em verde. Faça logon usando sua conta do Azure.
 
- 5. Forneça as **resourceGroupName** Propriedades resourceGroupName **, ServerName (nome** do servidor excluído), **SubscriptionId** , com base no valor JSON do atributo ResourceId capturado na etapa 3 anterior. A propriedade API-Version é preenchida previamente e pode ser deixada como está, conforme mostrado na imagem a seguir.
+ 5. Forneça as Propriedades resourceGroupName **, ServerName (nome** do servidor excluído), **SubscriptionId** , com base no valor JSON do atributo ResourceId capturado na etapa 3 anterior. A propriedade API-Version é preenchida previamente e pode ser deixada como está, conforme mostrado na imagem a seguir.
 
     ![Criar servidor usando a API REST](./media/howto-restore-dropped-server/create-server-from-rest-api-azure.png)
   
  6. Role para baixo na seção corpo da solicitação e cole o seguinte substituindo o "local do servidor removido", "submissionTimestamp" e "ResourceId". Para "restorePointInTime", especifique um valor de "submissionTimestamp" menos **15 minutos** para garantir que o comando não faça erro.
+    
     ```json
-        {
-          "location": "Dropped Server Location",  
-          "properties": 
-              {
-                  "restorePointInTime": "submissionTimestamp - 15 minutes",
-                  "createMode": "PointInTimeRestore",
-                  "sourceServerId": "resourceId"
-            }
-        }
+    {
+      "location": "Dropped Server Location",  
+      "properties": 
+      {
+        "restorePointInTime": "submissionTimestamp - 15 minutes",
+        "createMode": "PointInTimeRestore",
+        "sourceServerId": "resourceId"
+      }
+    }
     ```
+
     Por exemplo, se a hora atual for 2020-11-02T23:59:59.0000000 Z, recomendamos um mínimo de 15 minutos antes de restaurar o ponto de restauração no tempo 2020-11-02T23:44:59.0000000 Z.
+
     > [!Important]
     > Há um limite de tempo de cinco dias após o descarte do servidor. Após cinco dias, é esperado um erro, pois o arquivo de backup não pode ser encontrado.
     

@@ -11,12 +11,12 @@ ms.date: 09/22/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e272c402cac803d10d9998298ce6d3370d0e000
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7fabad618233e8866c545e1c5ccbcc8cb7508ebf
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348796"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97652089"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-attribute-mapping"></a>Mapeamento de atributo de provisionamento de nuvem Azure AD Connect
 
@@ -52,45 +52,51 @@ Além dessa propriedade, os mapeamentos de atributos também dão suporte aos se
 > Este documento descreve como usar o portal do Azure para mapear atributos.  Para obter informações sobre como usar o Graph, consulte [transformações](how-to-transformation.md)
 
 ## <a name="using-attribute-mapping"></a>Usando o mapeamento de atributos
+
 Para usar o novo recurso, siga as etapas abaixo.
-
- 1.  No portal do Azure, selecione **Azure Active Directory**.
- 2.  Selecione **Azure AD Connect**.
- 3.  Selecione **gerenciar provisionamento**.
-
-   ![Gerenciar provisionamento](media/how-to-configure/manage1.png)
- 
- 4. Em **configuração**, selecione sua configuração.
- 5. Selecione **clique para editar mapeamentos**.  Isso abrirá a tela mapeamento de atributos.
-
- ![Adicionando atributos](media/how-to-attribute-mapping/mapping6.png)
- 6.  Clique em **Adicionar atributo**.
-
- ![Tipo de mapeamento](media/how-to-attribute-mapping/mapping1.png)
- 
- 7. Selecione o **tipo de mapeamento**.  Neste exemplo, usamos a expressão.
- 8.  Insira a expressão na caixa.  Para este exemplo, estamos usando: `Replace([mail], "@contoso.com", , ,"", ,).`
- 9.  Insira o atributo de destino.  Neste exemplo, usamos ExtensionAttribute15.
- 10. Selecione quando aplicar isso e clique em **aplicar**
-   
-   ![Editar mapeamentos](media/how-to-attribute-mapping/mapping2a.png)
- 11. De volta à tela de mapeamento de atributo, você deve ver o novo mapeamento de atributo.  
- 12. Clique em **salvar esquema**.
-
- ![Salvar esquema](media/how-to-attribute-mapping/mapping3.png)
-
-## <a name="test-your-attribute-mapping"></a>Testar o mapeamento de atributo
-Para testar o mapeamento de atributo, você pode usar o [provisionamento sob demanda](how-to-on-demand-provision.md).  Na lista 
 
 1.  No portal do Azure, selecione **Azure Active Directory**.
 2.  Selecione **Azure AD Connect**.
 3.  Selecione **gerenciar provisionamento**.
+
+    ![Gerenciar provisionamento](media/how-to-configure/manage1.png)
+
+4. Em **configuração**, selecione sua configuração.
+5. Selecione **clique para editar mapeamentos**.  Isso abrirá a tela mapeamento de atributos.
+
+    ![Adicionando atributos](media/how-to-attribute-mapping/mapping6.png)
+
+6.  Clique em **Adicionar atributo**.
+
+    ![Tipo de mapeamento](media/how-to-attribute-mapping/mapping1.png)
+
+7. Selecione o **tipo de mapeamento**.  Neste exemplo, usamos a expressão.
+8.  Insira a expressão na caixa.  Para este exemplo, estamos usando: `Replace([mail], "@contoso.com", , ,"", ,).`
+9.  Insira o atributo de destino.  Neste exemplo, usamos ExtensionAttribute15.
+10. Selecione quando aplicar isso e clique em **aplicar**
+
+    ![Editar mapeamentos](media/how-to-attribute-mapping/mapping2a.png)
+
+11. De volta à tela de mapeamento de atributo, você deve ver o novo mapeamento de atributo.  
+12. Clique em **salvar esquema**.
+
+    ![Salvar esquema](media/how-to-attribute-mapping/mapping3.png)
+
+## <a name="test-your-attribute-mapping"></a>Testar o mapeamento de atributo
+
+Para testar o mapeamento de atributo, você pode usar o [provisionamento sob demanda](how-to-on-demand-provision.md).  Na lista 
+
+1. No portal do Azure, selecione **Azure Active Directory**.
+2. Selecione **Azure AD Connect**.
+3. Selecione **gerenciar provisionamento**.
 4. Em **configuração**, selecione sua configuração.
 5. Em **validar** , clique no botão **provisionar um usuário** . 
 6. Na tela de provisionamento sob demanda.  Insira o **nome distinto** de um usuário ou grupo e clique no botão **provisionar** .  
 7. Após a conclusão, você deverá ver uma tela de êxito e quatro caixas de seleção verdes indicando que ela foi provisionada com êxito.  
-  ![Sucesso para provisionamento](media/how-to-attribute-mapping/mapping4.png)
-1. Em **executar ação** , clique em **Exibir detalhes**.  À direita, você deve ver o novo atributo syncrhonized e a expressão aplicada.
+
+    ![Sucesso para provisionamento](media/how-to-attribute-mapping/mapping4.png)
+
+8. Em **executar ação** , clique em **Exibir detalhes**.  À direita, você deve ver o novo atributo syncrhonized e a expressão aplicada.
 
   ![Executar ação](media/how-to-attribute-mapping/mapping5.png)
 

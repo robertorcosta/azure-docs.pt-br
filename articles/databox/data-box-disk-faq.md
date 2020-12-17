@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: acaa0fdb1fa0e9a338f4e249622cad0115c6b58e
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516451"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654618"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Perguntas frequentes
 
@@ -100,13 +100,11 @@ Esses prazos de entrega são *estimativas*. O tempo para cada estágio do proces
 **Prazos de entrega estimados para um pedido de Disco do Data Box:**
 
 1. Ordem Disco do Data Box: alguns minutos, no portal
-2. Preparação e alocação de disco: 1-2 dias úteis
+2. Preparação e alocação de disco: até 5 dias úteis, dependendo da disponibilidade do estoque e do número de pedidos pendentes a serem processados
 3. Remessa: 2 a 3 dias úteis
-4. Cópia de dados no site do cliente: depende da natureza dos dados, do tamanho e do número de arquivos
+4. Cópia de dados no site do cliente: depende da natureza dos dados, do tamanho e do número de arquivos.
 5. Remessa de devolução: 2 a 3 dias úteis
-6. Disco de processamento em datacenter: 1-2 dias úteis
-7. Carregar dados no Azure: começa assim que o processamento é concluído e o disco está conectado. O tempo de carregamento depende da natureza dos dados, do tamanho e do número de arquivos.
-
+6. Processamento no datacenter e carregue no Azure: o carregamento de dados começa no datacenter assim que o processamento operacional é concluído e o disco está conectado. O tempo de carregamento depende da natureza dos dados, do tamanho e do número de arquivos.
 
 ## <a name="configure-and-connect"></a>Configuração e conexão
  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088658"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97657117"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Solucionar problemas do Gerenciador de Inicialização do Windows – 0xC0000225 "Status não encontrado"
  
@@ -126,7 +126,7 @@ Uma corrupção do hive de registro pode ocorrer devido a:
       `dir <BINARY WITH ".SYS" EXTENSION>  /s`
 
       Esse comando listará todas as versões do arquivo presentes no computador, fornecendo o histórico de caminho desse componente.
-      
+
       Por exemplo, **dir cng.sys** seria renomeado como **dir cng.sys /s**
 
    1. Escolha a versão mais recente do arquivo na lista (ou qualquer outra da sua preferência) e copie o arquivo para a pasta **windows\system32** usando o caminho anterior e o seguinte comando:

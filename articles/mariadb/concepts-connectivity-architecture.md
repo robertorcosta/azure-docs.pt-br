@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 6e9d0e9d78f58807a05784e1606670e3a97fd600
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 98a75cee88a7d30161fc3166bce0eaec855d347c
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97583908"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656709"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade no banco de dados do Azure para MariaDB
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MariaDB e também como o tráfego é direcionado para a instância do banco de dados do Azure para MariaDB de clientes dentro e fora do Azure.
@@ -50,7 +50,7 @@ A tabela a seguir lista os endereços IP do gateway do banco de dados do Azure p
 | Brazil South |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Canadá Central |40.85.224.249  | | |
 | Leste do Canadá | 40.86.226.166    | | |
-| Centro dos EUA | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     | | |
+| Centro dos EUA | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
 | Leste da China | 139.219.130.35    | | |
 | Leste da China 2 | 40.73.82.1  | | |
 | Norte da China | 139.219.15.17    | | |

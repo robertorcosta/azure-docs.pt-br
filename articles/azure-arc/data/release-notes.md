@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 935ba888352d2454a609a40866ef10ccf13a2dac
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605455"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97653564"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de versão – serviços de dados habilitados para o Azure Arc (versão prévia)
 
@@ -29,7 +29,7 @@ Número de versão da CLI de dados do Azure ( `azdata` ): 20.2.5. Baixe em [http
 Exiba pontos de extremidade para o SQL Instância Gerenciada e PostgreSQL hiperescala usando a CLI de dados do Azure ( `azdata` ) com `azdata arc sql endpoint list` `azdata arc postgres endpoint list` comandos e.
 
 Edite as solicitações e os limites do recurso SQL Instância Gerenciada (CPU Core e Memory) usando Azure Data Studio.
-     
+
 A hiperescala do PostgreSQL habilitado para Arc do Azure agora dá suporte à restauração pontual, além da restauração de backup completo para as versões 11 e 12 do PostgreSQL. A capacidade de restauração pontual permite que você indique uma data e hora específicas para restaurar.
 
 A Convenção de nomenclatura do pods para a hiperescala PostgreSQL habilitada para Arc do Azure foi alterada. Agora ele está no formato: ServergroupName {r, s}-_n_. Por exemplo, um grupo de servidores com três nós, um nó de coordenador e dois nós de trabalho são representados como:
@@ -127,7 +127,7 @@ Os serviços de dados habilitados para Arc do Azure são liberados para visualiz
 Para obter instruções, consulte [o que são os serviços de dados habilitados para o Azure Arc?](overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-  
+
 > **Quer apenas experimentar as novidades?**  
 > Comece rapidamente com o [Azure Arc JumpStart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) no AKs, AWS elástico kubernetes Service (EKS), Google Cloud kubernetes Engine (GKE) ou em uma VM do Azure.
 

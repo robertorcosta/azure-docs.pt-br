@@ -1,7 +1,7 @@
 ---
 title: Diagnóstico de desempenho de máquinas virtuais do Azure | Microsoft Docs
 description: Apresenta o Diagnóstico de Desempenho do Azure para Windows.
-services: virtual-machines-windows'
+services: virtual-machines-windows
 documentationcenter: ''
 author: anandhms
 manager: cshepard
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: fb0928c75b8fee567e9d0f03489794bd9f65e91e
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 70d1a52ff3326fcd3a628cc7f0f9d91edc9274e7
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109429"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655383"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho de máquinas virtuais do Azure
 
@@ -29,7 +29,7 @@ Você pode executar o diagnóstico de desempenho diretamente do portal do Azure,
 > [!NOTE]
 > Para o Windows, o diagnóstico de desempenho tem suporte atualmente em VMs que têm o SDK do .NET versão 4,5 ou uma versão posterior instalada. Para as etapas para executar o diagnóstico de desempenho em VMs clássicas, veja [extensão de VM de Diagnóstico de Desempenho do Azure](performance-diagnostics-vm-extension.md).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 ### <a name="windows"></a>Windows
 
@@ -191,7 +191,7 @@ Há várias maneiras de compartilhar o relatório de diagnóstico com a Microsof
 Quando você abre um tíquete de suporte com a Microsoft, é importante compartilhar o relatório de diagnóstico de desempenho. Se você tiver optado por compartilhar essas informações com a Microsoft enquanto executa o diagnóstico (marcando a caixa de seleção "**Concordo compartilhar informações de diagnóstico com a Microsoft**"), a Microsoft poderá acessar o relatório da sua conta de armazenamento usando um link SAS para o arquivo zip de saída por até 30 dias da data de execução. Somente o relatório mais recente estará disponível para o engenheiro de suporte.
 
 **Opção 2:** gerar uma assinatura de acesso compartilhado para o arquivo compactado de relatório de diagnóstico  
-Você pode compartilhar um link para o arquivo compactado de relatórios usando Assinaturas de Acesso Compartilhado. Para fazer isso, siga estas etapas:
+Você pode compartilhar um link para o arquivo compactado de relatórios usando Assinaturas de Acesso Compartilhado. Para fazer isso, execute estas etapas:
 
 1. No portal do Azure, navegue até a conta de armazenamento na qual os dados de diagnóstico são armazenados.
 1. Selecione **Blobs** na seção **Serviço Blob**.

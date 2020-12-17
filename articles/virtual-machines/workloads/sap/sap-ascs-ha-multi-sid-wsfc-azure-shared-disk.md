@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43abdd1db2e8e24033332f99c583e30efbf64a00
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4dfbffcaedb6c544a34e347633d5adc173fab33e
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957394"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97655978"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Alta disponibilidade da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado do Azure
 
@@ -236,9 +236,9 @@ Execute este comando em um dos nós de cluster. Você precisará ajustar os valo
 
 4. Registre o disco no cluster.  
    ```powershell
-    # Add the disk to cluster 
+     # Add the disk to cluster 
     Get-ClusterAvailableDisk -All | Add-ClusterDisk
-    # Example output     
+    # Example output 
     # Name           State  OwnerGroup        ResourceType 
     # ----           -----  ----------        ------------ 
     # Cluster Disk 2 Online Available Storage Physical Disk
@@ -260,7 +260,7 @@ Execute este comando em um dos nós de cluster. Você precisará ajustar os valo
  
    _Definir a entrada DNS para o nome virtual e o endereço IP do cluster ERS2 do SAP_
 
-3. Para definir o endereço IP atribuído ao nome de host virtual, selecione domínio do **Gerenciador DNS**  >  **Domain**.
+3. Para definir o endereço IP atribuído ao nome de host virtual, selecione domínio do **Gerenciador DNS**  >  .
 
    ![Novo nome virtual e endereço IP para a configuração de cluster do SAP ASCS/SCS e do ERS2][sap-ha-guide-figure-6011]
 
@@ -346,7 +346,7 @@ Para adicionar uma porta de investigação, execute este módulo do PowerShell e
     
     .EXAMPLE 
     # Set probe port to 62000, on SAP cluster resource 'SAP AB1 IP'. SAP cluster group 'SAP AB1' IS NOT restarted, therefore changes are NOT active.
-    # To activate the changes you need to manualy restart 'SAP AB1' cluster group.
+    # To activate the changes you need to manually restart 'SAP AB1' cluster group.
     Set-AzureLoadBalancerHealthCheckProbePortOnSAPClusterIPResource -SAPSID AB1 -ProbePort 62000 -RestartSAPClusterGroup $False
     
     .EXAMPLE 
@@ -362,7 +362,7 @@ Para adicionar uma porta de investigação, execute este módulo do PowerShell e
             [ValidateNotNullOrEmpty()]  
             [ValidateLength(3,3)]      
             [string]$SAPSID,
-                  
+
             [Parameter(Mandatory=$True)]
             [ValidateNotNullOrEmpty()]        
             [int] $ProbePort,

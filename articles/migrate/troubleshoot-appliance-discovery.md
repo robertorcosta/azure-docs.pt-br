@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 90abe6bf680f6a186b970631dcd0a42d6d36bf94
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 647e07fe32beedbd54ca6c5bb95c1de9564df2fd
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511579"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654006"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -203,58 +203,56 @@ As migrações para Azure dão suporte à descoberta de aplicativos, funções e
 
 Erros típicos de descoberta de aplicativo são resumidos na tabela. 
 
-**Erro** | **Causa** | **Ação**
---- | --- | ---
-9000: não é possível detectar o status da ferramenta VMware.     |   As ferramentas do VMWare podem não estar instaladas ou corrompidas.    |   Verifique se as ferramentas do VMware estão instaladas e em execução na VM.
-9001: as ferramentas do VMware não estão instaladas.     |   As ferramentas do VMWare podem não estar instaladas ou corrompidas.    |   Verifique se as ferramentas do VMware estão instaladas e em execução na VM.
-9002: as ferramentas do VMware não estão em execução.   |   As ferramentas do VMWare podem não estar instaladas ou corrompidas.    |   Verifique se as ferramentas do VMware estão instaladas e em execução na VM.
-9003: não há suporte para o tipo de sistema operacional para descoberta de VM convidada.    |   O sistema operacional em execução no servidor não é o Windows nem o Linux.    |   Os tipos de sistema operacional com suporte são somente Windows e Linux. Se o servidor for, de fato, Windows ou Linux, verifique o tipo de sistema operacional especificado em vCenter Server.
-9004: a VM não está em execução.     |   A VM está desligada.  |   Verifique se a VM está ligada.
-9005: não há suporte para o tipo de sistema operacional para descoberta de VM convidada.    |   Tipo de sistema operacional sem suporte para descoberta de VM convidada.     |   Os tipos de sistema operacional com suporte são somente Windows e Linux.
-9006: a URL para baixar o arquivo de metadados do convidado está vazia.     |   Isso pode acontecer se o agente de descoberta não estiver funcionando conforme o esperado.    |   O problema deve resolver automaticamente In24 horas. Se o problema persistir, contate o Suporte da Microsoft.
-9007: o processo que executa a tarefa de descoberta na VM convidada não foi encontrado.   |   Isso pode acontecer se o agente de descoberta não estiver funcionando corretamente.   |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
-9008: o status do processo da VM convidada não pode ser recuperado.   |   O problema pode ocorrer devido a um erro interno.   |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
-9009: o UAC do Windows impediu a execução da tarefa de descoberta no servidor.  |   As configurações de UAC (controle de conta de usuário) do Windows no servidor são restritivas e impedem a descoberta de aplicativos instalados.  |   Em configurações de ' controle de conta de usuário ' no servidor, defina a configuração do UAC como em um dos dois níveis inferiores.
-9010: a VM está desligada.     |   A VM está desligada.  |   Verifique se a VM está ligada.
-9011: arquivo de metadados descoberto não encontrado no sistema de arquivos da VM convidada.    |   O problema pode ocorrer devido a um erro interno.   |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
-9012: o arquivo de metadados descoberto está vazio.     |   O problema pode ocorrer devido a um erro interno.   |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
-9013: um novo perfil temporário é criado para cada logon.    |   Um novo perfil temporário é criado para cada logon na VM do VMware.    |   Contate a Suporte da Microsoft para obter uma resolução.
-9014: não é possível recuperar metadados do sistema de arquivos da VM convidada.     |   Sem conectividade com o host ESXi    |   Verifique se o dispositivo pode se conectar à porta 443 no host ESXi que executa a VM
-9015: a função de operações de convidado não está habilitada na conta de usuário do vCenter   |   A função de operações de convidado não está habilitada na conta de usuário do vCenter.   |   Verifique se a função de operações de convidado está habilitada na conta de usuário do vCenter.
-9016: não é possível descobrir porque o agente de operações de convidado está desatualizado.   |   As ferramentas do VMware não estão instaladas corretamente ou não estão atualizadas.    |   Verifique se as ferramentas do VMware estão corretamente instaladas e atualizadas.
-9017: o arquivo com metadados descobertos não foi encontrado na VM.  |   O problema pode ocorrer devido a um erro interno.   |   Contate a Suporte da Microsoft para obter uma resolução.
-9018: o PowerShell não está instalado nas VMs convidadas.  |   O PowerShell não está disponível na VM convidada.    |   Instale o PowerShell na VM convidada.
-9019: não é possível descobrir devido a falhas de operação da VM convidada.     |   Falha na operação de convidado do VMware na VM.    |   Verifique se as credenciais da VM são válidas e se o nome de usuário fornecido nas credenciais da VM convidada está no formato UPN.
-9020: a permissão de criação de arquivo foi negada.    |   A função associada ao usuário ou à política de grupo é restringir o usuário de criar o arquivo na pasta    |   Verifique se o usuário convidado fornecido tem permissão de criação para o arquivo na pasta. Consulte **notificações** na avaliação do servidor para o nome da pasta.
-9021: não é possível criar o arquivo no caminho temporário do sistema.     |   A ferramenta VMware relata o caminho temporário do sistema em vez do caminho temporário dos usuários.    |   Atualize sua versão da ferramenta VMware acima 10287 (formato de cliente do NGC/VI).
-9022: o acesso ao objeto WMI foi negado.    |   A função associada ao usuário ou à política de grupo é restringir o acesso do usuário ao objeto WMI.  |   Entre em contato com o Suporte da Microsoft.
-9023: não é possível executar o PowerShell, pois o valor da variável de ambiente SystemRoot está vazio.    |   O valor da variável de ambiente SystemRoot está vazio para a VM convidada.     |   Contate a Suporte da Microsoft para obter uma resolução.
-9024: não é possível descobrir porque o valor da variável de ambiente TEMP está vazio.    |   O valor da variável de ambiente TEMP está vazio para a VM convidada.   |   Entre em contato com o Suporte da Microsoft.
-9025: o PowerShell está corrompido nas VMs convidadas.  |   O PowerShell está corrompido na VM convidada.    |   Reinstale o PowerShell na VM convidada e verifique se o PowerShell pode ser executado na VM convidada.
-9026: não é possível executar operações de convidado na VM.  |   O estado da VM não permite que operações de convidado sejam executadas na VM.   |   Contate a Suporte da Microsoft para obter uma resolução.
-9027: o agente de operações de convidado não está em execução na VM.   |   Falha ao contatar o agente de operações convidadas em execução na máquina virtual.    |   Contate a Suporte da Microsoft para obter uma resolução.
-9028: o arquivo não pode ser criado devido a armazenamento em disco insuficiente na VM.     |   Não há espaço suficiente no disco.   |   Verifique se há espaço suficiente disponível no armazenamento em disco da VM.
-9029: nenhum acesso ao PowerShell na credencial de VM convidada fornecida.   |   O acesso ao PowerShell não está disponível para o usuário.     |   Verifique se o usuário adicionado ao dispositivo pode acessar o PowerShell na VM convidada.
-9030: não é possível coletar metadados descobertos, pois o host ESXi está desconectado.     |   O host ESXi está em um estado desconectado.   |   Verifique se o host ESXi que executa a VM está conectado.
-9031: não é possível coletar metadados descobertos, pois o host ESXi não está respondendo.   |   O host remoto está em estado inválido.    |   Verifique se o host ESXi que executa a VM está em execução e conectado.
-9032: não é possível descobrir devido a um erro interno.   |   O problema pode ocorrer devido a um erro interno.   |   Contate a Suporte da Microsoft para obter uma resolução.
-9033: não é possível descobrir, pois o nome de usuário da VM contém caracteres inválidos.     |   Caracteres inválidos foram detectados no nome de usuário.   |   Forneça novamente a credencial de VM, garantindo que não há caracteres inválidos.
-9034: o nome de usuário fornecido não está no formato UPN.    |   O nome de usuário não está no formato UPN.  |   Verifique se o nome de usuário está no formato de nome UPN.
-9035: não é possível descobrir porque o modo de linguagem do PowerShell não está definido como ' idioma completo '.  |   O modo de linguagem do PowerShell na VM convidada não está definido como idioma completo.   |   Verifique se o modo de linguagem do PowerShell está definido como ' idioma completo '.
-9037: a coleta de dados foi pausada temporariamente, pois o tempo de resposta da VM é muito alto.    |   A VM descoberta está demorando muito para responder     |   Nenhuma ação é necessária. Uma nova tentativa será tentada em 24 horas para a descoberta de aplicativos e 3 horas para análise de dependência (sem agente).
-10000: não há suporte para o tipo de sistema operacional.   |   O sistema operacional em execução no servidor não é o Windows nem o Linux.    |   Os tipos de sistema operacional com suporte são somente Windows e Linux.
-10001: o script para a descoberta do servidor não foi encontrado no dispositivo.    |   A descoberta não está funcionando conforme o esperado.   |   Contate a Suporte da Microsoft para obter uma resolução.
-10002: a tarefa de descoberta não foi concluída no tempo.     |   O agente de descoberta não está funcionando conforme o esperado.     |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.
-10003: o processo que executa a tarefa de descoberta foi encerrado com um erro.    |   Processo que executa a tarefa de descoberta foi encerrado com um erro.  |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft.
-10004: credencial não fornecida para o tipo de sistema operacional convidado.  |   As credenciais para acessar computadores desse tipo de sistema operacional não foram fornecidas no dispositivo de migrações para Azure.    |   Adicionar credenciais para computadores no dispositivo
-10005: as credenciais fornecidas não são válidas.   |   As credenciais fornecidas para o dispositivo acessar o servidor estão incorretas.  |   Atualize as credenciais fornecidas no dispositivo e verifique se o servidor está acessível usando as credenciais.
-10006: tipo de SO convidado sem suporte pelo repositório de credenciais.  |   O sistema operacional em execução no servidor não é o Windows nem o Linux.    |   Os tipos de sistema operacional com suporte são somente Windows e Linux.
-10007: não é possível processar os metadados descobertos.    |   Erro ao tentar desserializar o JSON.    |   Contate a Suporte da Microsoft para obter uma resolução.
-10008: não é possível criar um arquivo no servidor.    |  O problema pode ocorrer devido a um erro interno.    |   Contate a Suporte da Microsoft para obter uma resolução.
-10009: não é possível gravar metadados descobertos em um arquivo no servidor.  |   O problema pode ocorrer devido a um erro interno.   |   Contate a Suporte da Microsoft para obter uma resolução.
-
-
-
+| **Erro** | **Causa** | **Ação** |
+|--|--|--|
+| 9000: não é possível detectar o status da ferramenta VMware. | As ferramentas do VMWare podem não estar instaladas ou corrompidas. | Verifique se as ferramentas do VMware estão instaladas e em execução na VM. |
+| 9001: as ferramentas do VMware não estão instaladas. | As ferramentas do VMWare podem não estar instaladas ou corrompidas. | Verifique se as ferramentas do VMware estão instaladas e em execução na VM. |
+| 9002: as ferramentas do VMware não estão em execução. | As ferramentas do VMWare podem não estar instaladas ou corrompidas. | Verifique se as ferramentas do VMware estão instaladas e em execução na VM. |
+| 9003: não há suporte para o tipo de sistema operacional para descoberta de VM convidada. | O sistema operacional em execução no servidor não é o Windows nem o Linux. | Os tipos de sistema operacional com suporte são somente Windows e Linux. Se o servidor for, de fato, Windows ou Linux, verifique o tipo de sistema operacional especificado em vCenter Server. |
+| 9004: a VM não está em execução. | A VM está desligada. | Verifique se a VM está ligada. |
+| 9005: não há suporte para o tipo de sistema operacional para descoberta de VM convidada. | Tipo de sistema operacional sem suporte para descoberta de VM convidada. | Os tipos de sistema operacional com suporte são somente Windows e Linux. |
+| 9006: a URL para baixar o arquivo de metadados do convidado está vazia. | Isso pode acontecer se o agente de descoberta não estiver funcionando conforme o esperado. | O problema deve resolver automaticamente In24 horas. Se o problema persistir, contate o Suporte da Microsoft. |
+| 9007: o processo que executa a tarefa de descoberta na VM convidada não foi encontrado. | Isso pode acontecer se o agente de descoberta não estiver funcionando corretamente. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft. |
+| 9008: o status do processo da VM convidada não pode ser recuperado. | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft. |
+| 9009: o UAC do Windows impediu a execução da tarefa de descoberta no servidor. | As configurações de UAC (controle de conta de usuário) do Windows no servidor são restritivas e impedem a descoberta de aplicativos instalados. | Em configurações de ' controle de conta de usuário ' no servidor, defina a configuração do UAC como em um dos dois níveis inferiores. |
+| 9010: a VM está desligada. | A VM está desligada. | Verifique se a VM está ligada. |
+| 9011: arquivo de metadados descoberto não encontrado no sistema de arquivos da VM convidada. | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft. |
+| 9012: o arquivo de metadados descoberto está vazio. | O problema pode ocorrer devido a um erro interno. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft. |
+| 9013: um novo perfil temporário é criado para cada logon. | Um novo perfil temporário é criado para cada logon na VM do VMware. | Contate a Suporte da Microsoft para obter uma resolução. |
+| 9014: não é possível recuperar metadados do sistema de arquivos da VM convidada. | Sem conectividade com o host ESXi | Verifique se o dispositivo pode se conectar à porta 443 no host ESXi que executa a VM |
+| 9015: a função de operações de convidado não está habilitada na conta de usuário do vCenter | A função de operações de convidado não está habilitada na conta de usuário do vCenter. | Verifique se a função de operações de convidado está habilitada na conta de usuário do vCenter. |
+| 9016: não é possível descobrir porque o agente de operações de convidado está desatualizado. | As ferramentas do VMware não estão instaladas corretamente ou não estão atualizadas. | Verifique se as ferramentas do VMware estão corretamente instaladas e atualizadas. |
+| 9017: o arquivo com metadados descobertos não foi encontrado na VM. | O problema pode ocorrer devido a um erro interno. | Contate a Suporte da Microsoft para obter uma resolução. |
+| 9018: o PowerShell não está instalado nas VMs convidadas. | O PowerShell não está disponível na VM convidada. | Instale o PowerShell na VM convidada. |
+| 9019: não é possível descobrir devido a falhas de operação da VM convidada. | Falha na operação de convidado do VMware na VM. | Verifique se as credenciais da VM são válidas e se o nome de usuário fornecido nas credenciais da VM convidada está no formato UPN. |
+| 9020: a permissão de criação de arquivo foi negada. | A função associada ao usuário ou à política de grupo é restringir o usuário de criar o arquivo na pasta | Verifique se o usuário convidado fornecido tem permissão de criação para o arquivo na pasta. Consulte **notificações** na avaliação do servidor para o nome da pasta. |
+| 9021: não é possível criar o arquivo no caminho temporário do sistema. | A ferramenta VMware relata o caminho temporário do sistema em vez do caminho temporário dos usuários. | Atualize sua versão da ferramenta VMware acima 10287 (formato de cliente do NGC/VI). |
+| 9022: o acesso ao objeto WMI foi negado. | A função associada ao usuário ou à política de grupo é restringir o acesso do usuário ao objeto WMI. | Entre em contato com o Suporte da Microsoft. |
+| 9023: não é possível executar o PowerShell, pois o valor da variável de ambiente SystemRoot está vazio. | O valor da variável de ambiente SystemRoot está vazio para a VM convidada. | Contate a Suporte da Microsoft para obter uma resolução. |
+| 9024: não é possível descobrir porque o valor da variável de ambiente TEMP está vazio. | O valor da variável de ambiente TEMP está vazio para a VM convidada. | Entre em contato com o Suporte da Microsoft. |
+| 9025: o PowerShell está corrompido nas VMs convidadas. | O PowerShell está corrompido na VM convidada. | Reinstale o PowerShell na VM convidada e verifique se o PowerShell pode ser executado na VM convidada. |
+| 9026: não é possível executar operações de convidado na VM. | O estado da VM não permite que operações de convidado sejam executadas na VM. | Contate a Suporte da Microsoft para obter uma resolução. |
+| 9027: o agente de operações de convidado não está em execução na VM. | Falha ao contatar o agente de operações convidadas em execução na máquina virtual. | Contate a Suporte da Microsoft para obter uma resolução. |
+| 9028: o arquivo não pode ser criado devido a armazenamento em disco insuficiente na VM. | Não há espaço suficiente no disco. | Verifique se há espaço suficiente disponível no armazenamento em disco da VM. |
+| 9029: nenhum acesso ao PowerShell na credencial de VM convidada fornecida. | O acesso ao PowerShell não está disponível para o usuário. | Verifique se o usuário adicionado ao dispositivo pode acessar o PowerShell na VM convidada. |
+| 9030: não é possível coletar metadados descobertos, pois o host ESXi está desconectado. | O host ESXi está em um estado desconectado. | Verifique se o host ESXi que executa a VM está conectado. |
+| 9031: não é possível coletar metadados descobertos, pois o host ESXi não está respondendo. | O host remoto está em estado inválido. | Verifique se o host ESXi que executa a VM está em execução e conectado. |
+| 9032: não é possível descobrir devido a um erro interno. | O problema pode ocorrer devido a um erro interno. | Contate a Suporte da Microsoft para obter uma resolução. |
+| 9033: não é possível descobrir, pois o nome de usuário da VM contém caracteres inválidos. | Caracteres inválidos foram detectados no nome de usuário. | Forneça novamente a credencial de VM, garantindo que não há caracteres inválidos. |
+| 9034: o nome de usuário fornecido não está no formato UPN. | O nome de usuário não está no formato UPN. | Verifique se o nome de usuário está no formato de nome UPN. |
+| 9035: não é possível descobrir porque o modo de linguagem do PowerShell não está definido como ' idioma completo '. | O modo de linguagem do PowerShell na VM convidada não está definido como idioma completo. | Verifique se o modo de linguagem do PowerShell está definido como ' idioma completo '. |
+| 9037: a coleta de dados foi pausada temporariamente, pois o tempo de resposta da VM é muito alto. | A VM descoberta está demorando muito para responder | Nenhuma ação é necessária. Uma nova tentativa será tentada em 24 horas para a descoberta de aplicativos e 3 horas para análise de dependência (sem agente). |
+| 10000: não há suporte para o tipo de sistema operacional. | O sistema operacional em execução no servidor não é o Windows nem o Linux. | Os tipos de sistema operacional com suporte são somente Windows e Linux. |
+| 10001: o script para a descoberta do servidor não foi encontrado no dispositivo. | A descoberta não está funcionando conforme o esperado. | Contate a Suporte da Microsoft para obter uma resolução. |
+| 10002: a tarefa de descoberta não foi concluída no tempo. | O agente de descoberta não está funcionando conforme o esperado. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft. |
+| 10003: o processo que executa a tarefa de descoberta foi encerrado com um erro. | Processo que executa a tarefa de descoberta foi encerrado com um erro. | O problema deve ser resolvido automaticamente em 24 horas. Se o problema ainda persistir, entre em contato com Suporte da Microsoft. |
+| 10004: credencial não fornecida para o tipo de sistema operacional convidado. | As credenciais para acessar computadores desse tipo de sistema operacional não foram fornecidas no dispositivo de migrações para Azure. | Adicionar credenciais para computadores no dispositivo |
+| 10005: as credenciais fornecidas não são válidas. | As credenciais fornecidas para o dispositivo acessar o servidor estão incorretas. | Atualize as credenciais fornecidas no dispositivo e verifique se o servidor está acessível usando as credenciais. |
+| 10006: tipo de SO convidado sem suporte pelo repositório de credenciais. | O sistema operacional em execução no servidor não é o Windows nem o Linux. | Os tipos de sistema operacional com suporte são somente Windows e Linux. |
+| 10007: não é possível processar os metadados descobertos. | Erro ao tentar desserializar o JSON. | Contate a Suporte da Microsoft para obter uma resolução. |
+| 10008: não é possível criar um arquivo no servidor. | O problema pode ocorrer devido a um erro interno. | Contate a Suporte da Microsoft para obter uma resolução. |
+| 10009: não é possível gravar metadados descobertos em um arquivo no servidor. | O problema pode ocorrer devido a um erro interno. | Contate a Suporte da Microsoft para obter uma resolução. |
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Configure um dispositivo para [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md).
