@@ -3,12 +3,12 @@ title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 12/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: dca14781aac9db3cdd47ab4b66506f77f0b78c31
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 111e5310f1dac01053eebc6592d7b56105358c41
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616568"
+ms.locfileid: "97630081"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -99,7 +99,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 - Exibir detalhes do log de atividades para assinaturas delegadas
 - Log Analytics: consultar dados de espaços de trabalho remotos em vários locatários
 - Criar alertas em locatários do cliente que disparam a automação, como runbooks de automação do Azure ou Azure Functions, no gerenciamento de locatário por meio de WebHooks
-- Criar configurações de diagnóstico em locatários do cliente para enviar logs de recursos para espaços de trabalho no locatário de gerenciamento
+- Criar [configurações de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) em locatários do cliente para enviar logs de recursos para espaços de trabalho no locatário de gerenciamento
 - Para cargas de trabalho do SAP, [monitore as métricas de soluções SAP com uma exibição agregada entre locatários do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Rede do Azure](../../networking/networking-overview.md):

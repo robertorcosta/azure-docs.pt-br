@@ -1,5 +1,5 @@
 ---
-title: A exclusão reversível será habilitada em todos os Azure Key Vaults | Microsoft Docs
+title: Habilitar a exclusão reversível em todos os cofres de chave do Azure | Microsoft Docs
 description: Use este documento para adotar a exclusão reversível em todos os cofres de chaves.
 services: key-vault
 author: ShaneBala-keyvault
@@ -7,19 +7,19 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sudbalas
-ms.openlocfilehash: 0e811cc219002c034afb968be760ce2c249b08f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e512cccdbfdc56500fa7c69372ca38f59d3195c2
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825254"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97590079"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A exclusão reversível será habilitada em todos os cofres de chaves
 
 > [!WARNING]
-> **Alteração da Falha**: A capacidade de recusar a exclusão reversível será preterida no final do ano e a proteção de exclusão reversível será ativada automaticamente para todos os cofres de chaves.  Os usuários e administradores do Azure Key Vault devem habilitar a exclusão reversível nos seus cofres de chaves imediatamente.
+> **Alteração da Falha**: A capacidade de recusar a exclusão reversível será preterida em breve. Os usuários e administradores do Azure Key Vault devem habilitar a exclusão reversível nos seus cofres de chaves imediatamente.
 >
 > Para o HSM Gerenciado, a exclusão reversível é habilitada por padrão e não pode ser desabilitada.
 
@@ -29,9 +29,18 @@ Quando um segredo for excluído de um cofre de chaves sem proteção de exclusã
 
 Para obter detalhes completos sobre a funcionalidade de exclusão reversível, confira [Visão geral da exclusão reversível do Azure Key Vault](soft-delete-overview.md).
 
-## <a name="how-do-i-respond-to-breaking-changes"></a>Como fazer para responder às alterações da falha
+## <a name="can-my-application-work-with-soft-delete-enabled"></a>Meu aplicativo poderá funcionar com a exclusão reversível habilitada?
 
-Um objeto do cofre de chaves não pode ser criado com o mesmo nome que um objeto do cofre de chaves no estado de exclusão reversível.  Por exemplo, se você excluir uma chave chamada `test key` no cofre de chaves A, não será possível criar uma chave chamada `test key` no cofre de chaves A até que o objeto `test key` com exclusão reversível seja limpo.
+> [!Important] 
+> **Examine atentamente as informações a seguir antes de ativar a exclusão reversível em seus cofres de chaves**
+
+Os nomes dos cofres de chave são globalmente exclusivos. Os nomes de segredos armazenados em um cofre de chaves também são exclusivos. Você não poderá reutilizar o nome de um cofre de chaves ou um objeto do cofre de chaves que exista no estado de exclusão reversível. 
+
+**Exemplo #1** Se seu aplicativo cria programaticamente um cofre de chaves chamado “Cofre A” e, posteriormente, exclui o “Cofre A”. O cofre de chaves será movido para o estado de exclusão reversível. Seu aplicativo não poderá recriar outro cofre de chaves chamado “Cofre A” até que o cofre de chaves seja limpo do estado de exclusão reversível. 
+
+**Exemplo #2** Se o aplicativo criar uma chave chamada `test key` no cofre de chaves A e posteriormente excluir a chave do cofre A, ele não poderá criar uma nova chave chamada `test key` no cofre de chaves A até que o objeto `test key` seja limpo do estado de exclusão reversível. 
+
+Isso poderá resultar em erros de conflito se você tentar excluir um objeto do cofre de chaves e recriá-lo com o mesmo nome sem limpá-lo primeiro do estado de exclusão reversível. Isso pode fazer com que os seus aplicativos ou automação falhem. Consulte sua equipe de desenvolvimento antes de fazer as alterações necessárias no aplicativo e na administração abaixo. 
 
 ### <a name="application-changes"></a>Mudanças do aplicativo
 
@@ -59,13 +68,14 @@ Se a sua organização estiver sujeita a requisitos de conformidade legal e não
 2. Pesquise "Azure Policy".
 3. Selecione "Definições".
 4. Em Categoria, selecione "Key Vault" no filtro.
-5. Selecione a política "Os objetos do Key Vault devem ser recuperáveis".
+5. Selecione a política "O cofre de chaves deve estar com a exclusão reversível habilitada".
 6. Clique em "Atribuir".
 7. Defina o escopo da sua assinatura.
-8. Selecione "Examinar + Criar".
-9. Pode levar até 24 horas para que uma verificação completa do seu ambiente seja concluída.
-10. Na Folha Azure Policy, clique em "Conformidade".
-11. Selecione a política que você aplicou.
+8. Defina o efeito da política como "Auditoria".
+9. Selecione "Examinar + Criar".
+10. Pode levar até 24 horas para que uma verificação completa do seu ambiente seja concluída.
+11. Na Folha Azure Policy, clique em "Conformidade".
+12. Selecione a política que você aplicou.
 
 Agora, você conseguirá filtrar e ver quais cofres de chaves têm a exclusão reversível habilitada (recursos em conformidade) e quais deles não têm a exclusão reversível habilitada (recursos sem conformidade).
 
@@ -106,15 +116,11 @@ Siga as etapas acima na seção intitulada "Procedimento para auditar os seus co
 
 ### <a name="what-action-do-i-need-to-take"></a>Quais ações preciso realizar?
 
-Verifique se você não precisa fazer alterações na lógica do aplicativo. Depois de confirmar isso, ative a exclusão reversível em todos os cofres de chaves. Isso garantirá que você não será afetado por uma alteração da falha quando a exclusão reversível estiver ativada para todos os cofres de chaves no final do ano.
+Verifique se você não precisa fazer alterações na lógica do aplicativo. Depois de confirmar isso, ative a exclusão reversível em todos os cofres de chaves.
 
 ### <a name="by-when-do-i-need-to-take-action"></a>Quando preciso executar ações?
 
-A exclusão reversível será ativada para todos os cofres de chaves no final do ano. Para garantir que os seus aplicativos não sejam afetados, ative a exclusão reversível nos seus cofres de chaves assim que possível.
-
-## <a name="what-will-happen-if-i-dont-take-any-action"></a>O que acontecerá se eu não realizar nenhuma ação?
-
-Se você não executar nenhuma ação, a exclusão reversível será ativada automaticamente para todos os cofres de chaves no final do ano. Isso poderá resultar em erros de conflito se você tentar excluir um objeto do cofre de chaves e recriá-lo com o mesmo nome sem limpá-lo primeiro do estado de exclusão reversível. Isso pode fazer com que os seus aplicativos ou automação falhem.
+Para garantir que os seus aplicativos não sejam afetados, ative a exclusão reversível nos seus cofres de chaves assim que possível.
 
 ## <a name="next-steps"></a>Próximas etapas
 

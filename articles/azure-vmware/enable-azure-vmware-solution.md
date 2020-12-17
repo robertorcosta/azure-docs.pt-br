@@ -3,12 +3,12 @@ title: Como habilitar o recurso de solução do Azure VMware
 description: Saiba como enviar uma solicitação de suporte para habilitar o recurso de solução do Azure VMware. Você também pode solicitar mais hosts em sua nuvem privada da solução Azure VMware existente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8bcb61c07a3f0310754cd50931f4576e836deffb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 6d614dffc4ab3127e1e6740b1a8773e5fd7c23ff
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346530"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630880"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como habilitar o recurso da solução Azure VMware
 Saiba como enviar uma solicitação de suporte para habilitar o recurso de [solução do Azure VMware](introduction.md) . Você também pode solicitar mais hosts em sua nuvem privada da solução Azure VMware existente.
@@ -61,7 +61,7 @@ Antes de criar o recurso de solução do Azure VMware, você precisará enviar u
 
 ## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Habilitar a solução Azure VMware para clientes CSP 
 
-Os CSPs devem usar [o Microsoft Partner Center](https://partner.microsoft.com) para habilitar a solução Azure VMware para seus clientes. Este artigo usa o [plano do Azure CSP](/partner-center/azure-plan-lp.md) como um exemplo para ilustrar o procedimento de compra para parceiros.
+Os CSPs devem usar [o Microsoft Partner Center](https://partner.microsoft.com) para habilitar a solução Azure VMware para seus clientes. Este artigo usa o [plano do Azure CSP](/partner-center/azure-plan-lp) como um exemplo para ilustrar o procedimento de compra para parceiros.
 
    >[!IMPORTANT] 
    >O serviço de solução do Azure VMware não fornece uma exigência de multilocação. Não há suporte para parceiros de hospedagem que exigem isso. 
@@ -76,9 +76,9 @@ Os CSPs devem usar [o Microsoft Partner Center](https://partner.microsoft.com) p
 
 1. Selecione **plano do Azure** e, em seguida, selecione **Adicionar ao carrinho**. 
 
-1. Examine e conclua a configuração geral da assinatura do plano do Azure para seu cliente. Para obter mais informações, consulte a [documentação do Microsoft Partner Center](/partner-center/azure-plan-manage.md).
+1. Examine e conclua a configuração geral da assinatura do plano do Azure para seu cliente. Para obter mais informações, consulte a [documentação do Microsoft Partner Center](/partner-center/azure-plan-manage).
 
-Depois de configurar o plano do Azure e as permissões necessárias do [RBAC do Azure](/partner-center/azure-plan-manage.md) estiverem em vigor para a assinatura, você entrará em contato com a Microsoft para habilitar a cota de uma assinatura do plano do Azure. Acesse portal do Azure do [Microsoft Partner Center usando o](https://partner.microsoft.com) procedimento **admin em nome do** (Aobo).
+Depois de configurar o plano do Azure e as permissões necessárias do [RBAC do Azure](/partner-center/azure-plan-manage) estiverem em vigor para a assinatura, você entrará em contato com a Microsoft para habilitar a cota de uma assinatura do plano do Azure. Acesse portal do Azure do [Microsoft Partner Center usando o](https://partner.microsoft.com) procedimento **admin em nome do** (Aobo).
 
 1. Entre no [Partner Center](https://partner.microsoft.com).
 

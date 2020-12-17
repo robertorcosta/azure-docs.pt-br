@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 1bc108f76ac35b13474de18d473f5728dbad9d23
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a153f832fdfc075cdde03241f7dae19faa2334ce
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560009"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631339"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Como Benefício Híbrido do Azure se aplica a máquinas virtuais Linux
 
-Benefício Híbrido do Azure é um benefício de licenciamento que ajuda a reduzir significativamente os custos de execução de suas VMs (máquinas virtuais) Red Hat Enterprise Linux (RHEL) e SUSE Linux Enterprise Server (SLES) na nuvem. Com esse benefício, você paga apenas pelos custos de infraestrutura da sua VM, pois sua assinatura RHEL ou SLES cobre a taxa de software. O benefício é aplicável a todas as imagens de PAYG (pré-pago) do RHEL e SLES Marketplace.
+Benefício Híbrido do Azure é um benefício de licenciamento que ajuda a reduzir significativamente os custos de execução de suas VMs (máquinas virtuais) Red Hat Enterprise Linux (RHEL) e SUSE Linux Enterprise Server (SLES) na nuvem. Com esse benefício, você paga apenas pelos custos de infraestrutura da sua VM, pois sua assinatura RHEL ou SLES cobre a taxa de software. O benefício está disponível para todas as imagens RHEL e SLES Marketplace PAYG (pré-pago).
 
 O Benefício Híbrido do Azure para VMs do Linux agora está disponível publicamente.
 
@@ -29,7 +29,7 @@ Por meio do Benefício Híbrido do Azure, você pode migrar seus servidores RHEL
 
 :::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Benefício Híbrido do Azure visualização de custos em VMs do Linux.":::
 
-Depois de habilitar o benefício em uma VM RHEL ou SLES, você não será mais cobrado pela taxa de software adicional normalmente incorrida em uma VM PAYG. Em vez disso, sua VM começará a acumular um encargo de BYOS, que inclui apenas a taxa de hardware de computação e nenhuma taxa de software.
+Depois de habilitar o benefício na VM RHEL ou SLES, você não será mais cobrado pela taxa de software adicional normalmente incorrida em uma VM PAYG. Em vez disso, sua VM começará a acumular um encargo de BYOS, que inclui apenas a taxa de hardware de computação e nenhuma taxa de software.
 
 Você também pode optar por converter uma VM que teve o benefício habilitado nele de volta para um modelo de cobrança PAYG.
 
@@ -53,7 +53,7 @@ Para começar a usar o benefício do Red Hat:
 1. Habilite uma ou mais de suas assinaturas RHEL qualificadas para uso no Azure usando a [interface do cliente do Red Hat Cloud Access](https://access.redhat.com/management/cloud).
 
    As assinaturas do Azure que você fornecer durante o processo de habilitação de acesso à nuvem do Red Hat terão permissão para usar o recurso Benefício Híbrido do Azure.
-1. Aplique Benefício Híbrido do Azure a qualquer uma das suas VMs PAYG do RHEL existentes e a novas VMs RHEL que você implantar de imagens do Azure Marketplace PAYG.
+1. Aplique Benefício Híbrido do Azure a qualquer uma das suas VMs PAYG do RHEL existentes e a novas VMs RHEL que você implantar de imagens do Azure Marketplace PAYG. Você pode usar portal do Azure ou CLI do Azure para habilitar o benefício.
 1. Siga [as próximas etapas](https://access.redhat.com/articles/5419341) recomendadas para configurar fontes de atualização para suas VMs RHEL e para obter diretrizes de conformidade de assinatura do RHEL.
 
 
@@ -62,8 +62,33 @@ Para começar a usar o benefício do Red Hat:
 Para começar a usar o benefício do SUSE:
 
 1. Registre-se no programa de nuvem pública SUSE.
-1. Aplique o benefício às suas VMs existentes por meio do CLI do Azure.
+1. Aplique o benefício às suas VMs recém-criadas ou existentes por meio do portal do Azure ou CLI do Azure.
 1. Registre suas VMs que estão recebendo o benefício com uma fonte separada de atualizações.
+
+## <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Habilitar e desabilitar o benefício no portal do Azure
+
+Você pode habilitar o benefício em VMs existentes visitando a opção de **configuração** à esquerda e seguindo as etapas ali. Você pode habilitar o benefício em novas VMs durante a experiência de criação da VM.
+
+### <a name="azure-portal-example-to-enable-the-benefit-for-an-existing-vm"></a>Portal do Azure exemplo para habilitar o benefício para uma VM existente:
+1. Visite [portal do Microsoft Azure](https://portal.azure.com/)
+1. Vá para a página ' criar uma máquina virtual ' no Portal.
+ ![AHB ao criar a VM](./media/azure-hybrid-benefit/create-vm-ahb.png)
+1. Clique na caixa de seleção para habilitar a conversão de AHB e usar licenças de acesso à nuvem.
+ ![Caixa de seleção AHB ao criar VM](./media/azure-hybrid-benefit/create-vm-ahb-checkbox.png)
+1. Criar uma máquina virtual seguindo o próximo conjunto de instruções
+1. Verifique a folha de **configuração** e você verá a opção habilitada. 
+![Folha de configuração do AHB após a criação](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+### <a name="azure-portal-example-to-enable-the-benefit-during-creation-of-vm"></a>Portal do Azure exemplo para habilitar o benefício durante a criação da VM:
+1. Visite [portal do Microsoft Azure](https://portal.azure.com/)
+1. Abra a página da máquina virtual na qual você deseja aplicar a conversão.
+1. Vá para a opção de **configuração** à esquerda. Você verá a seção licenciamento. Para habilitar a conversão de AHB, marque o botão de opção ' Sim ' e marque a caixa de seleção de confirmação.
+![Folha de configuração do AHB após a criação](./media/azure-hybrid-benefit/create-configuration-blade.png)
+
+
+>[!NOTE]
+> Se você tiver criado um **instantâneo personalizado** ou uma **imagem compartilhada (SIG)** de uma imagem RHEL ou SLES PAYG Marketplace, você só poderá usar CLI do Azure para habilitar benefício híbrido do Azure. Essa é uma limitação conhecida e, no momento, não há nenhum cronograma para fornecer esse recurso no portal do Azure também.
+
 
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Habilitar e desabilitar o benefício no CLI do Azure
@@ -158,7 +183,7 @@ R: não, você não pode. A tentativa de inserir um tipo de licença que corresp
 
 R: pode levar algum tempo para que o registro da assinatura do Red Hat Cloud Access se propague do Red Hat para o Azure. Se você ainda vir o erro após um dia útil, entre em contato com o suporte da Microsoft.
 
-*P: implantei uma VM usando uma BYOS RHEL "imagem dourada". Posso converter a cobrança nessas imagens de BYOS para PAYG?*
+*P: implantei uma VM usando o RHEL BYOS "imagem dourada". Posso converter a cobrança nessas imagens de BYOS para PAYG?*
 
 R: não, você não pode. Benefício Híbrido do Azure dá suporte à conversão somente em imagens pagas conforme o uso.
 
@@ -184,7 +209,7 @@ R: não, você não pode. Atualmente, as instâncias reservadas não estão no e
 
 *P: posso usar Benefício Híbrido do Azure em uma máquina virtual implantada para SQL Server em imagens RHEL?*
 
-R: não, você não pode. Não há nenhum plano para dar suporte a esses.
+R: não, você não pode. Não há nenhum plano para dar suporte a essas máquinas virtuais.
  
 
 ## <a name="common-problems"></a>Problemas comuns

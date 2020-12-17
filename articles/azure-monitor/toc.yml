@@ -546,6 +546,8 @@
           items:
             - name: Conector de Gerenciamento do Serviço de TI
               href: platform/itsmc-overview.md
+            - name: Definição do Conector de Gerenciamento de Serviços de TI
+              href: platform/itsmc-definition.md
             - name: Conexões de Gerenciamento do Serviço de TI
               href: platform/itsmc-connections.md
             - name: Criar aplicativo Web do Service Manager

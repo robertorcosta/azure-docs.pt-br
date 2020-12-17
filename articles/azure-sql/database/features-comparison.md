@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 11/10/2020
-ms.openlocfilehash: b40f618b65af6fd7a6d283431aaf63c2cc1dcd1a
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c30cecf0b480a1765f04ee48a0fd66f4ddd52708
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368453"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630319"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparação de recursos: banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -64,6 +64,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Transações distribuídas - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Não - veja [transações elásticas](elastic-transactions-overview.md) |  Não-consulte [diferenças de servidor vinculado](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Tente consolidar bancos de dados de várias instâncias de SQL Server distribuídas em uma Instância Gerenciada SQL durante a migração. |
 | [Gatilhos DML](/sql/relational-databases/triggers/create-dml-triggers) | Maioria - veja Instruções individuais |  Sim |
 | [DMVs](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | A maioria – consulte DMVs individuais |  Sim – consulte [Diferenças do T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [Consulta elástica](elastic-query-overview.md) (em visualização pública) | Sim, com o tipo RDBMS necessário. | Sim, com o tipo RDBMS necessário. |
 | [Notificações de eventos](/sql/relational-databases/service-broker/event-notifications) | Não - veja [Alertas](alerts-insights-configure-portal.md) | Não |
 | [Expressões](/sql/t-sql/language-elements/expressions-transact-sql) |Sim | Sim |
 | [Eventos estendidos (XEvent)](/sql/relational-databases/extended-events/extended-events) | Alguns - veja [Eventos estendidos no Banco de Dados SQL](xevent-db-diff-from-svr.md) | Sim-consulte [diferenças de eventos estendidos](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |

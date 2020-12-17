@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: c015561e66d77e6df352e601bf1a67da5996d4d5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 5d81e37ab547d12e33cfacb9725d9bdb22666142
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915228"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97628643"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -78,6 +78,19 @@ android.content.Context appContext = this.getApplicationContext(); // From withi
 CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential).get();
 DeviceManage deviceManager = await callClient.getDeviceManager().get();
 ```
+Para definir um nome de exibição para o chamador, use este método alternativo:
+
+```java
+String userToken = '<user token>';
+CallClient callClient = new CallClient();
+CommunicationUserCredential tokenCredential = new CommunicationUserCredential(userToken);
+android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
+CallAgentOptions callAgentOptions = new CallAgentOptions();
+callAgentOptions.setDisplayName("Alice Bob");
+CallAgent callAgent = await callClient.createCallAgent((appContext, tokenCredential, callAgentOptions).get();
+DeviceManage deviceManager = await callClient.getDeviceManager().get();
+```
+
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Fazer uma chamada de saída e ingressar em uma chamada de grupo
 
@@ -145,6 +158,49 @@ JoinCallOptions joinCallOptions = new JoinCallOptions();
 
 call = callAgent.join(context, groupCallContext, joinCallOptions);
 ```
+
+### <a name="accept-a-call"></a>Aceitar uma chamada
+Para aceitar uma chamada, chame o método ' Accept ' em um objeto de chamada.
+
+```java
+Context appContext = this.getApplicationContext();
+Call incomingCall = retrieveIncomingCall();
+incomingCall.accept(context).get();
+```
+
+Para aceitar uma chamada com câmera de vídeo em:
+
+```java
+Context appContext = this.getApplicationContext();
+Call incomingCall = retrieveIncomingCall();
+AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
+VideoDeviceInfo desiredCamera = callClient.getDeviceManager().get().getCameraList().get(0);
+acceptCallOptions.setVideoOptions(new VideoOptions(new LocalVideoStream(desiredCamera, appContext)));
+incomingCall.accept(context, acceptCallOptions).get();
+```
+
+A chamada de entrada pode ser obtida com a assinatura do `CallsUpdated` evento no `callAgent` objeto e o loop pelas chamadas adicionadas:
+
+```java
+// Assuming "callAgent" is an instance property obtained by calling the 'createCallAgent' method on CallClient instance 
+public Call retrieveIncomingCall() {
+    Call incomingCall;
+    callAgent.addOnCallsUpdatedListener(new CallsUpdatedListener() {
+        void onCallsUpdated(CallsUpdatedEvent callsUpdatedEvent) {
+            // Look for incoming call
+            List<Call> calls = callsUpdatedEvent.getAddedCalls();
+            for (Call call : calls) {
+                if (call.getState() == CallState.Incoming) {
+                    incomingCall = call;
+                    break;
+                }
+            }
+        }
+    });
+    return incomingCall;
+}
+```
+
 
 ## <a name="push-notifications"></a>Notificações por push
 

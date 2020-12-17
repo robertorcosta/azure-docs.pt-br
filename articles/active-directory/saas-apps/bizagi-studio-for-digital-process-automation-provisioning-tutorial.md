@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: 141dd37dff8403825df713de8f7176d4dd9d20f8
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008037"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632019"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Tutorial: configurar o BizAgi Studio para a automação de processos digitais para o provisionamento automático de usuário
 
@@ -117,7 +117,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
     ![Captura de tela das opções de email de notificação.](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o BizAgi Studio para automação de processo digital**.
 
@@ -132,7 +132,14 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |name.familyName|String|
    |name.formatted|String|
    |phoneNumbers[type eq "mobile"].value|String|
+
+   Atributos de extensão personalizados podem ser adicionados navegando para **Mostrar opções avançadas > editar lista de atributos para BizAgi**. Os atributos de extensão personalizados devem ser prefixados com **urn: IETF: params: SCIM: esquemas: extensão: BizAgi: 2.0: UserProperties:**. Por exemplo, se o atributo de extensão personalizado for **IdentificationNumber**, o atributo deverá ser adicionado como **urn: IETF: params: SCIM: esquemas: extensão: BizAgi: 2.0: UserProperties: IdentificationNumber**. Para confirmar eventuais alterações, selecione **Salvar**.
    
+    ![Editar lista de atributos.](media/bizagi-studio-for-digital-process-automation-provisioning-tutorial/edit.png)  
+
+   Mais informações sobre como adicionar atributos personalizados podem ser encontradas em [Personalizar atributos de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+
+
 10. Para configurar filtros de escopo, consulte o [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Para habilitar o serviço de provisionamento do Azure AD para o BizAgi Studio para a automação de processo digital, na seção **configurações** , altere o **status de provisionamento** para **ativado**.

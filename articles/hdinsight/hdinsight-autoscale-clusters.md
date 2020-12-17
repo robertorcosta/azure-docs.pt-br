@@ -1,30 +1,29 @@
 ---
-title: Dimensionamento automático de clusters do Azure HDInsight
-description: Use o recurso de autoescala do Azure HDInsight para dimensionar automaticamente Apache Hadoop clusters.
+title: Dimensionar automaticamente os clusters do Azure HDInsight
+description: Use o recurso de dimensionamento automático para dimensionar automaticamente os clusters do Azure HDInsight com base em métricas de desempenho ou agendamento.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: contperf-fy21q1
-ms.date: 09/14/2020
-ms.openlocfilehash: 09e4412128a3b13abfa91bf0c128372b30b3e686
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.date: 12/14/2020
+ms.openlocfilehash: 2b23b4256e79723ce0b5edafd59186dc345eb791
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033129"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629248"
 ---
-# <a name="autoscale-azure-hdinsight-clusters"></a>Dimensionamento automático de clusters do Azure HDInsight
+# <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
-O recurso de dimensionamento automático gratuito do Azure HDInsight pode aumentar ou diminuir automaticamente o número de nós de trabalho no cluster com base nos critérios definidos anteriormente. Você define um número mínimo e máximo de nós durante a criação do cluster, estabelece os critérios de dimensionamento usando uma agenda de dia útil ou métricas de desempenho específicas, e a plataforma HDInsight faz o resto.
+O recurso de dimensionamento automático gratuito do Azure HDInsight pode aumentar ou diminuir automaticamente o número de nós de trabalho no cluster com base nos critérios definidos anteriormente. O recurso de dimensionamento automático funciona dimensionando o número de nós dentro dos limites predefinidos com base em métricas de desempenho ou em uma agenda de operações de expansão e redução.
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-O recurso de dimensionamento automático usa dois tipos de condições para disparar eventos de dimensionamento: limites para várias métricas de desempenho de cluster (chamadas *de dimensionamento baseado em carga*) e gatilhos baseados em tempo (chamados *de dimensionamento baseado em agenda*). O dimensionamento baseado em carga altera o número de nós no cluster, dentro de um intervalo definido, para garantir o uso ideal da CPU e minimizar o custo de execução. O dimensionamento baseado em agendamento altera o número de nós no cluster com base nas operações que você associa a datas e horários específicos.
+O recurso de dimensionamento automático usa dois tipos de condições para disparar eventos de dimensionamento: limites para várias métricas de desempenho de cluster (chamadas *de dimensionamento baseado em carga*) e gatilhos baseados em tempo (chamados *de dimensionamento baseado em agenda*). O dimensionamento baseado em carga altera o número de nós no cluster, dentro de um intervalo definido, para garantir o uso ideal da CPU e minimizar o custo de execução. O dimensionamento baseado em agendamento altera o número de nós no cluster com base em uma agenda de operações de escala vertical e redução.
 
 O vídeo a seguir fornece uma visão geral dos desafios que o dimensionamento automático resolve e como ele pode ajudá-lo a controlar os custos com o HDInsight.
-
 
 > [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
 
@@ -133,7 +132,7 @@ Para obter mais informações sobre a criação de clusters HDInsight usando o p
 
 #### <a name="load-based-autoscaling"></a>Dimensionamento automático baseado em carga
 
-Você pode criar um cluster HDInsight com o dimensionamento automático baseado em carga um modelo de Azure Resource Manager, adicionando um `autoscale` nó à `computeProfile`  >  `workernode` seção com as propriedades `minInstanceCount` e `maxInstanceCount` conforme mostrado no trecho de JSON abaixo. Para obter um modelo completo do Resource Manager, consulte [modelo de início rápido: implantar cluster Spark com dimensionamento automático baseado em loadhabilitado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
+Você pode criar um cluster HDInsight com o dimensionamento automático baseado em carga um modelo de Azure Resource Manager, adicionando um `autoscale` nó à `computeProfile`  >  `workernode` seção com as propriedades `minInstanceCount` e `maxInstanceCount` conforme mostrado no trecho de JSON abaixo. Para obter um modelo completo do Resource Manager, consulte [modelo de início rápido: implantar cluster Spark com dimensionamento automático baseado em carga habilitado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -225,7 +224,7 @@ O status do cluster listado no portal do Azure pode ajudá-lo a monitorar as ati
 
 Todas as mensagens de status do cluster que você pode ver são explicadas na lista abaixo.
 
-| Status do cluster | Descrição |
+| Status do cluster | Description |
 |---|---|
 | Executando | O cluster está funcionando normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
 | Atualizar  | A configuração de autoescala do cluster está sendo atualizada.  |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: d3492685efbf70b69e5bafba919d38a4f06fb666
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 0b6a9d081d2b81124b0cae15e81e4b233f7824bb
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387463"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97629333"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços da Central de Segurança do Azure
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudar você a acompanhar o ritmo veloz da evolução dos riscos cibernéticos.
@@ -103,7 +103,7 @@ Use uma das seguintes maneiras para habilitar o Azure Defender na sua assinatura
 |API REST|[API de Preços](/rest/api/securitycenter/pricings)|
 |CLI do Azure|[az security pricing](/cli/azure/security/pricing)|
 |PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[Preços de pacotes](https://github.com/Azure/Azure-Security-Center/tree/master/Pricing%20%26%20Settings/Azure%20Policy%20definitions/Bundle%20Pricings)|
+|Azure Policy|[Preços de pacotes](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
 |||
 
 ### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>Posso habilitar o Azure Defender para servidores em um subconjunto de servidores em minha assinatura?

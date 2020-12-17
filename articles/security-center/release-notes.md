@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 12/15/2020
 ms.author: memildin
-ms.openlocfilehash: 3272212a857f24916acce7da5a4ee31561ec0c5a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 484a8c7c230863f230719ddaf4e98a6248512bcc
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922928"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560246"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -39,6 +39,7 @@ As atualizações de dezembro incluem:
 - [O suporte do Azure Defender para SQL para o pool de SQL dedicado do Azure Synapse Analytics está em disponibilidade geral](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
 - [Os administradores globais já podem conceder a si mesmos permissões no nível dos locatários](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Dois novos planos do Azure Defender: Azure Defender para DNS e Azure Defender para Resource Manager (em versão prévia)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
+- [Nova página de alertas de segurança no portal do Azure (versão prévia)](#new-security-alerts-page-in-the-azure-portal-preview)
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>O Azure Defender para SQL Servers em computadores está em disponibilidade geral
 
@@ -95,6 +96,24 @@ Essas novas proteções aprimoram muito sua resiliência contra ataques de atore
     - [Responder aos alertas do Azure Defender para DNS](defender-for-dns-usage.md)
     - [Lista de alertas fornecidos pelo Azure Defender para DNS](alerts-reference.md#alerts-dns)
 
+
+### <a name="new-security-alerts-page-in-the-azure-portal-preview"></a>Nova página de alertas de segurança no portal do Azure (versão prévia)
+
+A página de alertas de segurança da Central de Segurança do Azure foi reprojetada para oferecer:
+
+- **Experiência de triagem aprimorada para alertas** –ajudando a reduzir os alertas exaustivos e concentrar-se nas ameaças mais relevantes com mais facilidade, a lista inclui filtros personalizáveis e opções de agrupamento
+- **Mais informações na lista de alertas** – como táticas MITRE ATT&ACK
+- **Botão para criar alertas de exemplo** – para avaliar os recursos do Azure Defender e testar sua configuração de alertas (para integração do SIEM, notificações por email e automação de fluxo de trabalho), você pode criar alertas de exemplo em todos os planos do Azure Defender
+- **Alinhamento com a experiência de incidentes do Azure Sentinel** – para clientes que usam os dois produtos, a troca entre eles agora é uma experiência mais simples, além de ser fácil aprender um do outro
+- **Melhores desempenho** para listas grandes de alertas
+- **Navegação por teclado** na lista de alertas
+- **Alertas do Azure Resource Graph** – você pode consultar alertas no Azure Resource Graph, a API semelhante ao Kusto para todos os seus recursos. Isso também será útil se você estiver criando os próprios painéis de alertas. [Saiba mais sobre Azure Resource Graph](../governance/resource-graph/index.yml).
+
+Para acessar a nova experiência, use o link "Experimente agora" da faixa na parte superior da página de alertas de segurança.
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Faixa com o link para a nova experiência de versão prévia de alertas":::
+
+Para criar alertas de exemplo na nova experiência de alertas, consulte [Gerar alertas de exemplo do Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
 
 ## <a name="november-2020"></a>Novembro de 2020
 
@@ -514,7 +533,7 @@ Páginas relacionadas:
 
 ### <a name="prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources"></a>Impedir configurações incorretas de segurança impondo recomendações durante a criação de recursos
 
-Configurações incorretas de segurança são uma das principais causas de incidentes de segurança. Agora, a Central de Segurança pode ajudar a *impedir* configurações incorretas de novos recursos, com relação a recomendações específicas. 
+Configurações incorretas de segurança são uma das principais causas de incidentes de segurança. Agora a Central de Segurança pode ajudar a *impedir* configurações incorretas de novos recursos, com relação a recomendações específicas. 
 
 Esse recurso pode ajudar a manter suas cargas de trabalho seguras e estabilizar sua classificação de segurança.
 

@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: ea8300447b9aa596e8678038982771263a4c76f6
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 382adb36712fbf4bee83044c8b2d096223eb6269
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358768"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630030"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Baixar BLOBs do armazenamento de BLOBs do Azure usando AzCopy v10
 
@@ -143,7 +143,7 @@ Em seguida, use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a `--lis
 
 #### <a name="download-a-blob-snapshot"></a>Baixar um instantâneo de blob
 
-Você pode baixar um [instantâneo de blob](/azure/storage/blobs/snapshots-overview.md) referenciando o valor **DateTime** de um instantâneo de BLOB. 
+Você pode baixar um [instantâneo de blob](/azure/storage/blobs/snapshots-overview) referenciando o valor **DateTime** de um instantâneo de BLOB. 
 
 |    |     |
 |--------|-----------|

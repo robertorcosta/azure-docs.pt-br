@@ -95,8 +95,6 @@
       href: user-overview.md
     - name: Atributos de perfil do usuário
       href: user-profile-attributes.md
-    - name: Sessões de SSO
-      href: session-overview.md
     - name: Proteção de Identidade e Acesso Condicional
       href: conditional-access-identity-protection-overview.md
 - name: Guias de instruções
@@ -155,6 +153,8 @@
           href: identity-provider-wechat.md
         - name: Weibo
           href: identity-provider-weibo.md
+        - name: Token do provedor de identidade de passagem
+          href: idp-pass-through-user-flow.md
     - name: Personalização de experiência do usuário
       items:
         - name: Configurar a entrada do usuário
@@ -174,6 +174,24 @@
         - name: Habilitar MFA
           href: multi-factor-authentication.md
           displayName: multi-factor auth
+        - name: Configurar a entrada direta
+          href: direct-signin.md
+    - name: Gerenciamento de tokens e sessões
+      items:
+        - name: Configurar o comportamento da sessão
+          href: session-behavior.md
+        - name: Configurar tokens
+          href: configure-tokens.md
+    - name: Definir atributos personalizados
+      href: user-flow-custom-attributes.md
+    - name: Proteção de Identidade e Acesso Condicional
+      items:
+        - name: Configurar a Proteção de Identidade e o Acesso Condicional
+          href: conditional-access-identity-protection-setup.md
+        - name: Adicionar Acesso Condicional
+          href: conditional-access-user-flow.md
+    - name: Configurar restrição de idade
+      href: basic-age-gating.md
     - name: Fluxo de usuário
       items:
         - name: Criar um fluxo
@@ -184,40 +202,23 @@
               href: configure-ropc.md
             - name: Configurar redefinição de senha de autoatendimento
               href: user-flow-self-service-password-reset.md
-        - name: Adicionar Acesso Condicional
-          href: conditional-access-user-flow.md
-        - name: Gerenciamento de tokens e sessões
-          items:
-            - name: Configurar tokens
-              href: configure-tokens.md
-            - name: Configurar o comportamento da sessão
-              href: session-behavior.md
-        - name: Configurar restrição de idade
-          href: basic-age-gating.md
-        - name: Definir atributos personalizados
-          href: user-flow-custom-attributes.md
         - name: Conectores de API (versão prévia)
           items:
             - name: Visão geral
               href: api-connectors-overview.md
             - name: Adicionar um conector de API
               href: add-api-connector.md
-        - name: Passagem de token IdP externo
-          href: idp-pass-through-user-flow.md
-    - name: Proteção de Identidade e Acesso Condicional
-      href: conditional-access-identity-protection-setup.md
     - name: Política personalizada
       items:
+        - name: Visão geral da política personalizada
+          href: custom-policy-trust-frameworks.md
+        - name: Introdução às políticas personalizadas
+          href: custom-policy-get-started.md
         - name: Criar uma política
           items:
-            - name: Introdução às políticas personalizadas
-              href: custom-policy-get-started.md
             - name: Credenciais da senha de proprietário do recurso
               href: ropc-custom.md
               displayName: ropc
-            - name: Habilitar a opção mantenha-me conectado
-              href: custom-policy-keep-me-signed-in.md
-              displayName: kmsi
             - name: Alteração de senha
               href: custom-policy-password-change.md
             - name: Conexão e entrada com telefone
@@ -230,18 +231,6 @@
             - name: SendGrid
               href: custom-email-sendgrid.md
           displayName: verification
-        - name: Gerenciamento de tokens e sessões
-          items:
-            - name: Personalizar tokens
-              href: configure-tokens-custom-policy.md
-            - name: Configurar o comportamento da sessão
-              href: session-behavior-custom-policy.md
-        - name: Passagem de token IdP externo
-          href: idp-pass-through-custom.md
-        - name: Experiência adaptável
-          items:
-            - name: Configurar a entrada direta
-              href: direct-signin.md
         - name: Adicionar sua própria lógica de negócios
           items:
             - name: Integrar API REST
@@ -254,8 +243,6 @@
               displayName: rest claims exchange
             - name: Proteger API REST
               href: secure-rest-api.md
-        - name: Definir atributos personalizados
-          href: custom-policy-custom-attributes.md
         - name: Solução de problemas
           items:
             - name: Coletar logs usando o Application Insights
@@ -268,8 +255,6 @@
           href: analytics-with-application-insights.md
         - name: Referência
           items:
-            - name: Definição da estrutura confiável
-              href: custom-policy-trust-frameworks.md
             - name: TrustFrameworkPolicy
               href: trustframeworkpolicy.md
             - name: BuildingBlocks
@@ -315,11 +300,9 @@
             - name: ClaimsProviders
               href: claimsproviders.md
               items:
-                - name: TechnicalProfiles
+                - name: Perfis Técnicos
                   href: technicalprofiles.md
                   items:
-                    - name: Sobre perfis técnicos
-                      href: technical-profiles-overview.md
                     - name: Sobre perfis técnicos de validação
                       href: validation-technical-profile.md
                     - name: Application Insights
@@ -370,6 +353,8 @@
               href: relyingparty.md
             - name: Resolvedores de declarações
               href: claim-resolver-overview.md
+    - name: Ponto de extremidade UserInfo
+      href: userinfo-endpoint.md
     - name: Integração de parceiros
       items:
         - name: Galeria de parceiros do Azure AD B2C

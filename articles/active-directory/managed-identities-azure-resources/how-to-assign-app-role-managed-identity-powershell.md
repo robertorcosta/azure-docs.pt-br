@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8890eb76e3f9521aa5070789f969ffeb8f3e4ec6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 409ba7a954830bb2370ce83989b9e8b08b742fe7
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/17/2020
-ms.locfileid: "97618711"
+ms.locfileid: "97631169"
 ---
 # <a name="assign-a-managed-identity-access-to-an-application-role-using-powershell"></a>Atribuir um acesso de identidade gerenciada a uma função de aplicativo usando o PowerShell
 
@@ -35,10 +35,10 @@ Neste artigo, você aprende a atribuir uma identidade gerenciada a uma função 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#managed-identity-types)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para executar os scripts de exemplo, você tem duas opções:
-    - Use o [Azure Cloud Shell](../../cloud-shell/overview.md), que você pode abrir usando o botão **Experimentar** no canto superior direito dos blocos de código.
+    - Use o [Azure cloud Shell](../../cloud-shell/overview.md), que você pode abrir usando o botão **experimentar** no canto superior direito dos blocos de código.
     - Execute os scripts localmente instalando a versão mais recente do [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
-## <a name="use-azure-ad-to-assign-a-managed-identity-access-to-another-applications-app-role"></a>Usar o Azure AD para atribuir um acesso de identidade gerenciada à função de aplicativo de outro aplicativo
+## <a name="assign-a-managed-identity-access-to-another-applications-app-role"></a>Atribuir um acesso de identidade gerenciada à função de aplicativo de outro aplicativo
 
 1. Habilite a identidade gerenciada em um recurso do Azure, [como uma VM do Azure](qs-configure-powershell-windows-vm.md).
 
@@ -86,14 +86,53 @@ Neste artigo, você aprende a atribuir uma identidade gerenciada a uma função 
 
 1. Atribua a função de aplicativo à identidade gerenciada. Você precisará das seguintes informações para atribuir a função de aplicativo:
     * `managedIdentityObjectId`: a ID de objeto da entidade de serviço da identidade gerenciada, que você encontrou na etapa 2.
-    * `serverApplicationObjectId`: a ID de objeto da entidade de serviço do aplicativo de servidor, que você encontrou na etapa 4.
+    * `serverServicePrincipalObjectId`: a ID de objeto da entidade de serviço do aplicativo de servidor, que você encontrou na etapa 4.
     * `appRoleId`: a ID da função de aplicativo exposta pelo aplicativo de servidor, que você gerou na etapa 5-no exemplo, a ID da função de aplicativo é `0566419e-bb95-4d9d-a4f8-ed9a0f147fa6` .
    
    Execute o seguinte script do PowerShell para adicionar a atribuição de função:
 
     ```powershell
-    New-AzureADServiceAppRoleAssignment -ObjectId $managedIdentityObjectId -Id $appRoleId -PrincipalId $managedIdentityObjectId -ResourceId $serverApplicationObjectId
+    New-AzureADServiceAppRoleAssignment -ObjectId $managedIdentityObjectId -Id $appRoleId -PrincipalId $managedIdentityObjectId -ResourceId $serverServicePrincipalObjectId
     ```
+
+## <a name="complete-script"></a>Script completo
+
+Este script de exemplo mostra como atribuir uma identidade gerenciada do aplicativo Web do Azure a uma função de aplicativo.
+
+```powershell
+# Install the module. (You need admin on the machine.)
+# Install-Module AzureAD
+
+# Your tenant ID (in the Azure portal, under Azure Active Directory > Overview).
+$tenantID = '<tenant-id>'
+
+# The name of your web app, which has a managed identity that should be assigned to the server app's app role.
+$webAppName = '<web-app-name>'
+$resourceGroupName = '<resource-group-name-containing-web-app>'
+
+# The name of the server app that exposes the app role.
+$serverApplicationName = '<server-application-name>' # For example, MyApi
+
+# The name of the app role that the managed identity should be assigned to.
+$appRoleName = '<app-role-name>' # For example, MyApi.Read.All
+
+# Look up the web app's managed identity's object ID.
+$managedIdentityObjectId = (Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $webAppName).identity.principalid
+
+Connect-AzureAD -TenantId $tenantID
+
+# Look up the details about the server app's service principal and app role.
+$serverServicePrincipal = (Get-AzureADServicePrincipal -Filter "DisplayName eq '$serverApplicationName'")
+$serverServicePrincipalObjectId = $serverServicePrincipal.ObjectId
+$appRoleId = ($serverServicePrincipal.AppRoles | Where-Object {$_.Value -eq $appRoleName }).Id
+
+# Assign the managed identity access to the app role.
+New-AzureADServiceAppRoleAssignment `
+    -ObjectId $managedIdentityObjectId `
+    -Id $appRoleId `
+    -PrincipalId $managedIdentityObjectId `
+    -ResourceId $serverServicePrincipalObjectId
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

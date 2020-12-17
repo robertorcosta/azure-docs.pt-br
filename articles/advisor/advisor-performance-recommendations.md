@@ -3,12 +3,12 @@ title: Melhorar o desempenho de aplicativos do Azure com o Advisor
 description: Use as recomendações de desempenho no Azure Advisor para melhorar a velocidade e a capacidade de resposta de seus aplicativos críticos para os negócios.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 55f5ac6784bf613170fd10060799ab5ad1290a62
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 59de7ee14a3af2f8740d63a3cae19571469afd7f
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183338"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630336"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure usando o Azure Advisor
 
@@ -175,6 +175,11 @@ Determinamos que suas VMs estão localizadas em uma região diferente ou longe d
 Identificamos os recursos nessa assinatura que usam versões desatualizadas do SDK de Leitura Avançada. Usar a versão mais recente do SDK de Leitura Avançada fornece segurança atualizada, desempenho e um conjunto expandido de recursos para personalizar e aprimorar a experiência de integração.
 Saiba mais sobre o [SDK do leitor de imersão](../cognitive-services/immersive-reader/index.yml).
 
+## <a name="improve-vm-performance-by-changing-the-maximum-session-limit"></a>Melhorar o desempenho da VM alterando o limite máximo da sessão
+
+O Advisor detecta que você tem um pool de hosts que tem profundidade primeiro definido como o algoritmo de balanceamento de carga e que o limite máximo de sessão do pool de hosts é maior ou igual a 99999. O balanceamento de carga em profundidade usa o limite máximo de sessão para determinar o número máximo de usuários que podem ter sessões simultâneas em um único host de sessão. Se o limite máximo de sessão for muito alto, todas as sessões de usuário serão direcionadas para o mesmo host de sessão e isso causará problemas de desempenho e confiabilidade. Portanto, ao definir um pool de hosts para ter o primeiro balanceamento de carga, você deve definir um limite de sessão máximo apropriado de acordo com a configuração de sua implantação e capacidade de suas VMs. 
+
+Para saber mais sobre o balanceamento de carga na área de trabalho virtual do Windows, consulte [Configurar o método de balanceamento de carga de área de trabalho virtual do Windows](/virtual-desktop/troubleshoot-set-up-overview.md).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 

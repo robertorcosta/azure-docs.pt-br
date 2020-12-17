@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 570281e31c70b2f5f85a858f9dd424f93ee86029
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 75f06ae11d308028431202c22338ff4a589acf28
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460064"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97592289"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault ao Link Privado do Azure
 
@@ -53,7 +53,7 @@ Após configurar os conceitos básicos do cofre de chaves, selecione a guia Rede
 1. Selecione o botão de opção do Ponto de Extremidade Privado na guia Rede.
 1. Clique no botão “+ Adicionar” para adicionar um ponto de extremidade privado.
 
-    ![Imagem](../media/private-link-service-1.png)
+    ![Captura de tela que mostra a guia “Rede” na página “Criar cofre de chaves”.](../media/private-link-service-1.png)
  
 1. No campo “Localização” da Folha do Ponto de Extremidade Privado, selecione a região na qual sua rede virtual está localizada. 
 1. No campo “Nome”, crie um nome descritivo que permitirá identificar esse ponto de extremidade privado. 
@@ -61,7 +61,7 @@ Após configurar os conceitos básicos do cofre de chaves, selecione a guia Rede
 1. Deixe a opção "integrar-se ao DNS de zona privada" inalterada.  
 1. Selecione "Ok".
 
-    ![Imagem](../media/private-link-service-8.png)
+    ![Captura de tela que mostra a página “Criar ponto de extremidade privado” com as configurações selecionadas.](../media/private-link-service-8.png)
  
 Agora você poderá ver o ponto de extremidade privado configurado. Agora você tem a opção de excluir e editar esse ponto de extremidade privado. Selecione o botão “Examinar + Criar” e crie o cofre de chaves. Levará entre 5 e 10 minutos para a implantação ser concluída. 
 
@@ -76,12 +76,13 @@ Se você já tem um cofre de chaves, pode criar uma conexão de link privado seg
 1. Selecione a guia Conexões de ponto de extremidade privado na parte superior da página
 1. Selecione o botão “+ Ponto de Extremidade Privado” na parte superior da página.
 
-    ![Imagem](../media/private-link-service-3.png) ![Imagem](../media/private-link-service-4.png)
+    ![Captura de tela que mostra o botão “+ Ponto de Extremidade Privado” na página “Rede”.](../media/private-link-service-3.png)
+    ![Captura de tela que mostra a guia “Noções básicas” na página “Criar um ponto de extremidade privado (versão prévia)”.](../media/private-link-service-4.png)
 
 Você pode optar por criar um ponto de extremidade privado para qualquer recurso do Azure ao usar esta folha. Você pode usar os menus suspensos para selecionar um tipo de recurso e selecionar um recurso em seu diretório ou pode se conectar a qualquer recurso do Azure usando uma ID do recurso. Deixe a opção "integrar-se ao DNS de zona privada" inalterada.  
 
-![Image](../media/private-link-service-3.png)
-![Image](../media/private-link-service-4.png)
+![Captura de tela que mostra a adição de um ponto de extremidade privado usando a folha atual.](../media/private-link-service-3.png)
+![Captura de tela que mostra um exemplo da página “Criar um ponto de extremidade privado (versão prévia)”.](../media/private-link-service-4.png)
 
 Quando você cria um ponto de extremidade privado, a conexão deve ser aprovada. Se o recurso para o qual você está criando um ponto de extremidade privado estiver em seu diretório, você poderá aprovar a solicitação de conexão desde que tenha permissões suficientes; se você estiver se conectando a um recurso do Azure em outro diretório, deverá aguardar até que o proprietário desse recurso aprove sua solicitação de conexão.
 

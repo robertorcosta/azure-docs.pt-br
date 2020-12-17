@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: cf8b6670817132c8c0c0a09194b9aca4bbc8073c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923404"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97632053"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com e sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
 > [!IMPORTANT]
 > Essa versão preliminar está na versão prévia pública, e é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho em produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Com a [visualização dos aplicativos lógicos do Azure](logic-apps-overview-preview.md), você pode criar soluções de automação e integração entre aplicativos, dados, serviços de nuvem e sistemas criando e executando aplicativos lógicos que incluem [fluxos de trabalho com e *sem* *stateful*](logic-apps-overview-preview.md#stateful-stateless) estado no Visual Studio Code usando a extensão de aplicativos lógicos do Azure (versão prévia). Usando esse novo tipo de aplicativo lógico, você pode criar vários fluxos de trabalho que são alimentados pelo tempo de execução da visualização dos aplicativos lógicos do Azure reprojetados, que fornece portabilidade, melhor desempenho e flexibilidade para implantação e execução em vários ambientes de hospedagem, não apenas no Azure, mas também em contêineres do Docker. Para saber mais sobre o novo tipo de aplicativo lógico, consulte [visão geral para visualização de aplicativos lógicos do Azure](logic-apps-overview-preview.md).
+Com a [visualização dos aplicativos lógicos do Azure](logic-apps-overview-preview.md), você pode criar soluções de automação e integração entre aplicativos, dados, serviços de nuvem e sistemas criando e executando aplicativos lógicos que incluem [fluxos de trabalho com e *sem*](logic-apps-overview-preview.md#stateful-stateless) estado no Visual Studio Code usando a extensão de aplicativos lógicos do Azure (versão prévia). Usando esse novo tipo de aplicativo lógico, você pode criar vários fluxos de trabalho que são alimentados pelo tempo de execução da visualização dos aplicativos lógicos do Azure reprojetados, que fornece portabilidade, melhor desempenho e flexibilidade para implantação e execução em vários ambientes de hospedagem, não apenas no Azure, mas também em contêineres do Docker. Para saber mais sobre o novo tipo de aplicativo lógico, consulte [visão geral para visualização de aplicativos lógicos do Azure](logic-apps-overview-preview.md).
 
 ![Captura de tela que mostra Visual Studio Code, projeto de aplicativo lógico e fluxo de trabalho.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
@@ -114,7 +114,7 @@ Quando você tentar abrir mais tarde o designer de um fluxo de trabalho em seu a
 
     1. No Visual Studio Code, na barra de ferramentas à esquerda, selecione **extensões**.
 
-    1. Na caixa de pesquisa extensões, digite `azure logic apps preview` . Na lista de resultados, selecione **instalação de aplicativos lógicos do Azure (versão prévia)** **>** **Install**.
+    1. Na caixa de pesquisa extensões, digite `azure logic apps preview` . Na lista de resultados, selecione **instalação de aplicativos lógicos do Azure (versão prévia)** **>** .
 
        Após a conclusão da instalação, a extensão de visualização aparecerá na lista **extensões: instaladas** .
 
@@ -164,7 +164,7 @@ Todos os aplicativos lógicos que você criou com a extensão de **aplicativos l
 
    1. No menu **arquivo** , acesse **preferências** **>** **configurações**.
 
-   1. Na guia **usuário** , vá para extensões de **recursos** **>** **Extensions**.
+   1. Na guia **usuário** , vá para extensões de **recursos** **>** .
 
    1. Confirme se a **seleção automática de atualizações** e **atualização automática** está selecionada.
 
@@ -598,7 +598,7 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
 
    ![Captura de tela que mostra a página Visão geral do fluxo de trabalho com o status de execução e o histórico](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | Status da execução | Descrição |
+   | Status da execução | Description |
    |------------|-------------|
    | **Anulado** | A execução foi interrompida ou não foi concluída devido a problemas externos, por exemplo, uma interrupção do sistema ou uma assinatura do Azure enlapsada. |
    | **Cancelar** | A execução foi disparada e iniciada, mas recebeu uma solicitação de cancelamento. |
@@ -769,7 +769,7 @@ Você pode publicar seu aplicativo lógico como um novo recurso, que cria automa
 
       1. Selecione um recurso de Application Insights existente ou **crie um novo recurso de Application insights**.
 
-      1. Na [portal do Azure](htpps://portal.azure.com), vá para o recurso de Application insights.
+      1. Na [portal do Azure](https://portal.azure.com), vá para o recurso de Application insights.
 
       1. No menu de recursos, selecione **visão geral**. Localize e copie o valor da **chave de instrumentação** .
 
@@ -818,7 +818,7 @@ Você pode publicar seu aplicativo lógico como um novo recurso, que cria automa
          | Crítico | Logs que descrevem uma Falha irrecuperável em seu aplicativo lógico. |
          | Depurar | Logs que você pode usar para investigação durante o desenvolvimento, por exemplo, chamadas HTTP de entrada e saída. |
          | Erro | Logs que indicam uma falha na execução do fluxo de trabalho, mas não uma falha geral em seu aplicativo lógico. |
-         | Informações | Logs que acompanham a atividade geral em seu aplicativo lógico ou fluxo de trabalho, por exemplo: <p><p>-Quando um gatilho, uma ação ou uma execução é iniciada e termina. <br>-Quando o aplicativo lógico é iniciado ou encerrado. |
+         | Informações do | Logs que acompanham a atividade geral em seu aplicativo lógico ou fluxo de trabalho, por exemplo: <p><p>-Quando um gatilho, uma ação ou uma execução é iniciada e termina. <br>-Quando o aplicativo lógico é iniciado ou encerrado. |
          | Trace | Logs que contêm as mensagens mais detalhadas, por exemplo, solicitações de armazenamento ou atividade do Dispatcher, além de todas as mensagens relacionadas à atividade de execução do fluxo de trabalho. |
          | Aviso | Logs que realçam um estado anormal em seu aplicativo lógico, mas não impedem sua execução. |
          |||
@@ -978,7 +978,7 @@ Por meio do portal do Azure, você pode adicionar fluxos de trabalho em branco a
 
    ![Captura de tela que mostra o painel "fluxos de trabalho" do aplicativo lógico selecionado e a barra de ferramentas com o comando "Adicionar" selecionado.](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
 
-1. No **novo painel fluxo de trabalho** , forneça um nome para o fluxo de trabalho. Selecione a opção com **estado** ou **sem monitoração de estado** **>** **Create**.
+1. No **novo painel fluxo de trabalho** , forneça um nome para o fluxo de trabalho. Selecione a opção com **estado** ou **sem monitoração de estado** **>** .
 
    Depois que o Azure implantar o novo fluxo de trabalho, que aparece no painel **fluxos de trabalho** , selecione esse fluxo de trabalho para que você possa gerenciar e executar outras tarefas, como abrir o designer ou a exibição de código.
 

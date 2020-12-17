@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 5b05891500ae5fd66e5ec2381066ccd1d26aa7ec
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 73211790557665ddb4cc4d28322a1ff14bc4c76a
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578052"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630710"
 ---
 # <a name="advanced-entry-script-authoring"></a>Criação de scripts de entrada avançados
 
@@ -40,55 +40,14 @@ Atualmente, esses tipos têm suporte:
 * `pyspark`
 * Objeto Python padrão
 
-Para usar a geração de esquema, inclua a versão 1.1.0 ou superior do pacote de código-fonte aberto `inference-schema` no arquivo de dependências. Para obter mais informações sobre este pacote, consulte [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . Para gerar o consumo automatizado do serviço Web do Swagger, a função de execução de script de Pontuação () deve ter a forma de API de:
-* Um primeiro parâmetro do tipo "StandardPythonParameterType", entradas nomeadas, aninhadas contendo PandasDataframeParameterTypes.
-* Um segundo parâmetro opcional do tipo "StandardPythonParameterType", chamado GlobalParameter, que não está aninhado.
-* Retornar um dicionário do tipo "StandardPythonParameterType", que talvez esteja aninhado contendo PandasDataFrameParameterTypes.
+Para usar a geração de esquema, inclua a versão 1.1.0 ou superior do pacote de código-fonte aberto `inference-schema` no arquivo de dependências. Para obter mais informações sobre este pacote, consulte [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . Para gerar a conformidade do Swagger para o consumo de serviço Web automatizado, a função de script Run () de Pontuação deve ter uma forma de API de:
+* Um primeiro parâmetro do tipo "StandardPythonParameterType", chamado **entradas** e aninhado.
+* Um segundo parâmetro opcional do tipo "StandardPythonParameterType", nomeado **globalparameters**.
+* Retornar um dicionário do tipo "StandardPythonParameterType" chamado **Results** e nested.
+
 Defina os formatos de exemplo de entrada e saída `input_sample` nas `output_sample` variáveis e, que representam os formatos de solicitação e resposta para o serviço Web. Use esses exemplos nos decoradores da função de entrada e saída na `run()` função. O exemplo a seguir scikit-Learn usa a geração de esquema.
 
 
-
-```python
-#Example: scikit-learn and Swagger
-import json
-import numpy as np
-import os
-from sklearn.externals import joblib
-from sklearn.linear_model import Ridge
-
-from inference_schema.schema_decorators import input_schema, output_schema
-from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
-
-
-def init():
-    global model
-    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
-    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
-    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
-    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
-
-    # If your model were stored in the same directory as your score.py, you could also use the following:
-    # model_path = os.path.abspath(os.path.join(os.path.dirname(__file_), 'sklearn_mnist_model.pkl')
-
-    # Deserialize the model file back into a sklearn model
-    model = joblib.load(model_path)
-
-
-input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
-output_sample = np.array([3726.995])
-
-
-@input_schema('data', NumpyParameterType(input_sample))
-@output_schema(NumpyParameterType(output_sample))
-def run(data):
-    try:
-        result = model.predict(data)
-        # You can return any data type, as long as it is JSON serializable.
-        return result.tolist()
-    except Exception as e:
-        error = str(e)
-        return error
-```
 
 ## <a name="power-bi-compatible-endpoint"></a>Power BI ponto de extremidade compatível 
 
@@ -116,25 +75,34 @@ def init():
     # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
-# providing 3 sample inputs for schema generation
-numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
-pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
-standard_sample_input = StandardPythonParameterType(0.0)
 
-# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
-sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+    # providing 3 sample inputs for schema generation
+    numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+    pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+    standard_sample_input = StandardPythonParameterType(0.0)
+
+    # This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+    sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
                                             'input2': pandas_sample_input, 
                                             'input3': standard_sample_input})
 
-sample_global_parameters = StandardPythonParameterType(1.0) #this is optional
-sample_output = StandardPythonParameterType([1.0, 1.0])
+    sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
+    sample_output = StandardPythonParameterType([1.0, 1.0])
+    outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
 
-@input_schema('inputs', sample_input)
-@input_schema('global_parameters', sample_global_parameters) #this is optional
-@output_schema(sample_output)
-def run(inputs, global_parameters):
+    @input_schema('Inputs', sample_input) 
+    # 'Inputs' is case sensitive
+    
+    @input_schema('GlobalParameters', sample_global_parameters) 
+    # this is optional, 'GlobalParameters' is case sensitive
+
+    @output_schema(outputs)
+
+def run(Inputs, GlobalParameters): 
+    # the parameters here have to match those in decorator, both 'Inputs' and 
+    # 'GlobalParameters' here are case sensitive
     try:
-        data = inputs['input1']
+        data = Inputs['input1']
         # data will be convert to target format
         assert isinstance(data, np.ndarray)
         result = model.predict(data)
@@ -154,30 +122,34 @@ Aqui está um exemplo de um `score.py` que aceita dados binários:
 ```python
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+from PIL import Image
+import json
 
 
 def init():
     print("This is init()")
-
+    
 
 @rawhttp
 def run(request):
     print("This is run()")
-    print("Request: [{0}]".format(request))
+    
     if request.method == 'GET':
         # For this example, just return the URL for GETs.
         respBody = str.encode(request.full_path)
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
-        reqBody = request.get_data(False)
+        file_bytes = request.files["image"]
+        image = Image.open(file_bytes).convert('RGB')
         # For a real-world solution, you would load the data from reqBody
         # and send it to the model. Then return the response.
 
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
+        # For demonstration purposes, this example just returns the size of the image as the response..
+        return AMLResponse(json.dumps(image.size), 200)
     else:
         return AMLResponse("bad request", 500)
 ```
+
 
 > [!IMPORTANT]
 > A classe `AMLRequest` está no namespace `azureml.contrib`. As entidades neste namespace são alteradas com frequência enquanto trabalhamos para melhorar o serviço. Qualquer coisa neste namespace deve ser considerada uma versão prévia que não tem suporte total da Microsoft.
@@ -192,10 +164,13 @@ A `AMLRequest` classe só permite que você acesse os dados brutos postados no s
 
 ```python
 import requests
-# Load image data
-data = open('example.jpg', 'rb').read()
-# Post raw data to scoring URI
-res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+
+uri = service.scoring_uri
+image_path = 'test.jpg'
+files = {'image': open(image_path, 'rb').read()}
+response = requests.post(url, files=files)
+
+print(response.json)
 ```
 
 <a id="cors"></a>
@@ -211,6 +186,7 @@ O exemplo a seguir define o `Access-Control-Allow-Origin` cabeçalho para a resp
 ```python
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")
