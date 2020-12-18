@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2020
-ms.openlocfilehash: 9c453219638b9586d4ad2cc2a89311b1f2bdeefe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8b9a79ee32d7a81fee64e40b85272877b7d87589
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450089"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674191"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -32,7 +32,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="windows-agents"></a>Agentes do Windows
 
-| | Agente de Azure Monitor (versão prévia) | Diagnóstico<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
+| | Agente do Azure Monitor (versão prévia) | Diagnósticos<br>extensão (WAD) | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|
 | **Ambientes com suporte** | Azure<br>Outra nuvem (arco do Azure)<br>Local (Azure ARC)  | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | 
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
@@ -42,7 +42,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
-| | Agente de Azure Monitor (versão prévia) | Diagnóstico<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
+| | Agente do Azure Monitor (versão prévia) | Diagnósticos<br>extensão (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dependência<br>agente |
 |:---|:---|:---|:---|:---|:---|
 | **Ambientes com suporte** | Azure<br>Outra nuvem (arco do Azure)<br>Local (arco ARC) | Azure | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local | Azure<br>Outra nuvem<br>Local |
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
@@ -51,7 +51,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 | **Serviços e**<br>**Features**<br>**porta** | Log Analytics<br>Metrics Explorer | | Metrics Explorer | Azure Monitor para VMs<br>Log Analytics<br>Automação do Azure<br>Central de Segurança do Azure<br>Azure Sentinel | Azure Monitor para VMs<br>Mapa do Serviço |
 
 
-## <a name="azure-monitor-agent-preview"></a>Agente de Azure Monitor (versão prévia)
+## <a name="azure-monitor-agent-preview"></a>Agente do Azure Monitor (versão prévia)
 O [agente de Azure monitor](azure-monitor-agent-overview.md) está atualmente em visualização e substituirá o agente de log Analytics e o agente Telegraf para máquinas virtuais Windows e Linux. Ele pode enviar dados para os logs de Azure Monitor e Azure Monitor métricas e usa [as regras de coleta de dados (DCR)](data-collection-rule-overview.md) , que fornecem um método mais escalonável de configurar a coleta e os destinos de dados para cada agente.
 
 Use o agente de Azure Monitor se você precisar:
@@ -148,7 +148,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(incluindo várias sessões) e pro<br>(Somente cenários de servidor)  | X | X | X | X |
+| Windows 10 Enterprise<br>(incluindo várias sessões) e pro<br>(Somente cenários de servidor)  | X | X | X | X |
 | Windows 8 Enterprise e Pro<br>(Somente cenários de servidor)  |   | X | X |   |
 | Windows 7 SP1<br>(Somente cenários de servidor)                 |   | X | X |   |
 
@@ -169,6 +169,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Debian 8                                                 |   | X | X | X |
 | Debian 7                                                 |   |   |   | X |
 | OpenSUSE 13.1+                                           |   |   |   | X |
+| Oracle Linux 8                                           |   | X |   |   |
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           |   | X |   |   |
 | Oracle Linux 6.4+                                        |   | X |   | X |

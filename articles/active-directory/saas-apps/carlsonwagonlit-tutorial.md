@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c27139e2dca37c1ff8d963e1e8cdb5de682d39d
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 86c2d9585abd546acb3efb22256d3f3b70bfb972
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302939"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Tutorial: integração do Azure Active Directory ao Carlson Wagonlit Travel
 
@@ -63,7 +63,7 @@ Para configurar a integração do Carlson Wagonlit Travel ao Azure AD, você pre
 
 4. Na caixa de pesquisa, digite **Carlson Wagonlit Travel**, selecione **Carlson Wagonlit Travel** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Carlson Wagonlit Travel na lista de resultados](common/search-new-app.png)
+    ![Carlson Wagonlit Travel na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -138,7 +138,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
 

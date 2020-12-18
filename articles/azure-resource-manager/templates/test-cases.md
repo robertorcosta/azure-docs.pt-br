@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: ff9ad659e15a88725e4c3905ab6c623fda7610fd
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 451323058ad743d6e26fc8bcea27d1b44c76f543
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600897"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674035"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Casos de teste padrão para o kit de ferramentas de teste do modelo ARM
 
@@ -693,4 +693,5 @@ O exemplo a seguir **falha** porque ele usa uma função [list *](template-funct
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como executar o kit de ferramentas de teste, consulte [usar o kit de ferramentas do ARM template](test-toolkit.md).
+- Para saber mais sobre como executar o kit de ferramentas de teste, consulte [usar o kit de ferramentas do ARM template](test-toolkit.md).
+- Para um módulo Microsoft Learn que abrange o uso do kit de ferramentas de teste, consulte [Visualizar alterações e validar recursos do Azure usando o What-If e o ARM template Test Toolkit](/learn/modules/arm-template-test/).

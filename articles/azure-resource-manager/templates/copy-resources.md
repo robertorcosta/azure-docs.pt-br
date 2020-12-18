@@ -2,13 +2,13 @@
 title: Implantar várias instâncias de recursos
 description: Use a operação de cópia e as matrizes em um modelo de Azure Resource Manager (modelo ARM) para implantar o tipo de recurso muitas vezes.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 47f3d693b84347973889a6003360d7113c427f4d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.date: 12/17/2020
+ms.openlocfilehash: 7a894ee6a31a43dd8da3d84d88276824c6bbc9f7
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905903"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672824"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteração de recurso em modelos ARM
 
@@ -85,7 +85,7 @@ O exemplo a seguir cria o número de contas de armazenamento especificadas no `s
 }
 ```
 
-Observe que o nome de cada recurso inclui a função `copyIndex()`, que retorna a iteração atual no loop. `copyIndex()` é baseado em zero. Assim, o seguinte exemplo:
+Observe que o nome de cada recurso inclui a função `copyIndex()`, que retorna a iteração atual no loop. `copyIndex()`é baseado em zero. Assim, o seguinte exemplo:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -292,10 +292,9 @@ Os exemplos a seguir mostram cenários comuns para criar mais de uma instância 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para percorrer um tutorial, consulte [tutorial: criar várias instâncias de recurso com modelos ARM](template-tutorial-create-multiple-instances.md).
+* Para um módulo Microsoft Learn que aborda a cópia de recursos, consulte [gerenciar implantações de nuvem complexas usando recursos avançados de modelo ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
 * Para outros usos do elemento copiar, consulte:
   * [Iteração de propriedade em modelos ARM](copy-properties.md)
   * [Iteração variável em modelos ARM](copy-variables.md)
   * [Iteração de saída em modelos ARM](copy-outputs.md)
 * Para obter informações sobre como usar a cópia com modelos aninhados, consulte [usando copiar](linked-templates.md#using-copy).
-* Se você quiser saber mais sobre as seções de um modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
-* Para saber como implantar seu modelo, consulte [implantar recursos com modelos ARM e Azure PowerShell](deploy-powershell.md).

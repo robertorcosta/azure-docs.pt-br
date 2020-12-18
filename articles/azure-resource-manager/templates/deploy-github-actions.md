@@ -4,12 +4,12 @@ description: Descreve como implantar modelos de Azure Resource Manager (modelos 
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: f8c669393d38d7af2af4f63f251740d8ad72edf7
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 4c1f59e9a18e7359ae543b0311baea0c2a4ab8d6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607296"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674325"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implantar modelos de ARM usando ações do GitHub
 
@@ -151,10 +151,13 @@ Como o fluxo de trabalho está configurado para ser acionado pelo arquivo de flu
 1. Selecione o fluxo de trabalho para abri-lo.
 1. Selecione **executar o ARM implantar** no menu para verificar a implantação.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando o grupo de recursos e o repositório não forem mais necessários, limpe os recursos implantados excluindo o grupo de recursos e seu repositório GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Criar seu primeiro modelo de ARM](./template-tutorial-create-first-template.md)
+
+> [!div class="nextstepaction"]
+> [Módulo Learn: automatizar a implantação de modelos ARM usando ações do GitHub](/learn/modules/deploy-templates-command-line-github-actions/)

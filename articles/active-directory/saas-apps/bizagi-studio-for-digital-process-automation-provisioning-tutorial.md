@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: Zhchia
-ms.openlocfilehash: b739cd50c4d4477d3622350a9a9c96b600794c7d
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4eaac716d06b102a07872059af28da4986889caa
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632019"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673428"
 ---
 # <a name="tutorial-configure-bizagi-studio-for-digital-process-automation-for-automatic-user-provisioning"></a>Tutorial: configurar o BizAgi Studio para a automação de processos digitais para o provisionamento automático de usuário
 
@@ -139,6 +139,8 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
    Mais informações sobre como adicionar atributos personalizados podem ser encontradas em [Personalizar atributos de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
+> [!NOTE]
+> Somente as propriedades básicas de tipo têm suporte (por exemplo, Cadeia de caracteres, inteiro, booliano, DateTime, etc.). As propriedades vinculadas a tabelas paramétricas ou vários tipos ainda não são suportadas.
 
 10. Para configurar filtros de escopo, consulte o [tutorial de filtro de escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

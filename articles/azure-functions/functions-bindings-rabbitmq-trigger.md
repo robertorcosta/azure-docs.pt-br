@@ -4,15 +4,15 @@ description: Saiba como executar uma função do Azure quando uma mensagem Rabbi
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 1db27db97cdc1746b3392bd386ee6539980cd6d6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 5930219486de8704c777496bcaf293411c5fb7b1
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630727"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673980"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>RabbitMQ do gatilho para Azure Functions visão geral
 
@@ -32,7 +32,7 @@ O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) q
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] BasicDeliverEventArgs args,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] BasicDeliverEventArgs args,
     ILogger logger
     )
 {
@@ -50,7 +50,7 @@ public class TestClass
 
 [FunctionName("RabbitMQTriggerCSharp")]
 public static void RabbitMQTrigger_BasicDeliverEventArgs(
-    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnection")] TestClass pocObj,
+    [RabbitMQTrigger("queue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass pocObj,
     ILogger logger
     )
 {
@@ -74,7 +74,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -105,7 +105,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -134,7 +134,7 @@ Uma associação RabbitMQ é definida em *function.jsem* que *Type* está defini
             "type": "rabbitMQTrigger",
             "direction": "in",
             "queueName": "queue",
-            "connectionStringSetting": "rabbitMQConnection"
+            "connectionStringSetting": "rabbitMQConnectionAppSetting"
         }
     ]
 }
@@ -155,7 +155,7 @@ A função Java a seguir usa a `@RabbitMQTrigger` Anotação dos [tipos RabbitMQ
 ```java
 @FunctionName("RabbitMQTriggerExample")
 public void run(
-    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnection", queueName = "queue") String input,
+    @RabbitMQTrigger(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "queue") String input,
     final ExecutionContext context)
 {
     context.getLogger().info("Java HTTP trigger processed a request." + input);
@@ -180,7 +180,7 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 }
 ```
 
-Para ver um exemplo completo, confira o exemplo de C#.
+Para obter um exemplo completo, consulte C# [example](#example).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
@@ -278,9 +278,9 @@ Esta seção descreve as definições de configuração global disponíveis para
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |prefetchCount|30|Obtém ou define o número de mensagens que o receptor de mensagens pode solicitar e é armazenado em cache.|
-|queueName|N/D| Nome da fila da qual receber mensagens. |
-|connectionString|N/D|O nome da configuração do aplicativo que contém a cadeia de conexão da fila de mensagens RabbitMQ. Observe que, se você especificar a cadeia de conexão diretamente e não por meio de uma configuração de aplicativo no local.settings.jsem, o gatilho não funcionará.|
-|porta|0|(ignorado se estiver usando connectionString) O número máximo de sessões que podem ser manipuladas simultaneamente por instância dimensionada.|
+|queueName|N/D| Nome da fila da qual receber mensagens.|
+|connectionString|N/D|A cadeia de conexão da fila de mensagens RabbitMQ. Observe que a cadeia de conexão é especificada diretamente aqui e não por meio de uma configuração de aplicativo.|
+|porta|0|(ignorado se estiver usando ConnectionStringSetting) Obtém ou define a porta usada. Assume o padrão de 0.|
 
 ## <a name="local-testing"></a>Teste local
 

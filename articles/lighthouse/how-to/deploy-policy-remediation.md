@@ -1,14 +1,14 @@
 ---
 title: Implantar uma política que possa ser corrigida
 description: Para implantar políticas que usam uma tarefa de correção por meio do Azure Lighthouse, você precisará criar uma identidade gerenciada no locatário do cliente.
-ms.date: 08/12/2020
+ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 998576d06d470c525a551463861f7a25d4ab9d8f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eb473fe2f589cf719e3944c887d46e75e9e7fdbf
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010088"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97670484"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Implantar uma política que pode ser corrigida em uma assinatura delegada
 
@@ -41,7 +41,7 @@ O exemplo a seguir mostra um **principalId** que terá a função de Administrad
 
 ## <a name="deploy-policies-that-can-be-remediated"></a>Implantar políticas que possam ser corrigidas
 
-Depois de criar o usuário com as permissões necessárias, conforme descrito acima, o usuário pode implantar políticas que usam tarefas de correção no locatário do cliente.
+Depois de criar o usuário com as permissões necessárias, conforme descrito acima, esse usuário pode implantar políticas que usam tarefas de correção em assinaturas de cliente delegadas.
 
 Por exemplo, digamos que você queria habilitar o diagnóstico em Azure Key Vault recursos no locatário do cliente, conforme ilustrado neste [exemplo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). Um usuário no locatário de gerenciamento com as permissões apropriadas (conforme descrito acima) implantaria um [modelo do Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) para habilitar esse cenário.
 

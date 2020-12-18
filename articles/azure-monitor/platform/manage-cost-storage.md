@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/22/2020
+ms.date: 12/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 99375abbf8e9749712b878ea35c9bc034bedbc5e
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: a3a4c7a51f0d75b67465a83a2fbbf3ae8a141c4c
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616137"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97671158"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -78,7 +78,7 @@ Os encargos do Log Analytics são adicionadas à sua fatura do Azure. É possív
 
 ## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Exibição do uso de Log Analytics em sua fatura do Azure 
 
-O Azure fornece um grande controle da funcionalidade útil no hub [Gerenciamento de Custos do Azure + Cobrança](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json). Por exemplo, a funcionalidade de "Análise de custo" permite que você exiba seus gastos dos recursos do Azure. Primeiro, adicione um filtro por "Tipo de recurso" (para microsoft.operationalinsights/workspace para o Log Analytics e microsoft.operationalinsights/workspace para clusters do Log Analytics), o que permitirá que você acompanhe seus gastos do Log Analytics. Depois, em "Agrupar por", selecione "Categoria do medidor" ou "Medidor".  Observe que outros serviços, como a Central de Segurança do Azure e o Azure Sentinel, também cobram seu uso em relação aos recursos do workspace do Log Analytics. Para ver o mapeamento para o Nome do serviço, você pode selecionar a Exibição de tabela em vez de um gráfico. 
+O Azure fornece um grande controle da funcionalidade útil no hub [Gerenciamento de Custos do Azure + Cobrança](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json). Por exemplo, a funcionalidade de "Análise de custo" permite que você exiba seus gastos dos recursos do Azure. Primeiro, adicione um filtro por "tipo de recurso" (para Microsoft. operationalinsights/espaço de trabalho para Log Analytics e Microsoft. operationalinsights/cluster para clusters Log Analytics) permitirá que você acompanhe seus Log Analytics gastos. Depois, em "Agrupar por", selecione "Categoria do medidor" ou "Medidor".  Observe que outros serviços, como a Central de Segurança do Azure e o Azure Sentinel, também cobram seu uso em relação aos recursos do workspace do Log Analytics. Para ver o mapeamento para o Nome do serviço, você pode selecionar a Exibição de tabela em vez de um gráfico. 
 
 É possível obter uma compreensão maior do seu uso [baixando seu uso do portal do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Na planilha baixada, você pode ver o uso por recurso do Azure (por exemplo, workspace do Log Analytics) por dia. Nessa planilha do Excel, o uso de seus workspaces do Log Analytics pode ser encontrado ao, primeiro, filtrar a coluna "Categoria do Medidor" para mostrar o "Log Analytics", "Insight e Análise" (usado por alguns dos tipos de preço herdados) e "Azure Monitor" (usado por tipos de preço de Reserva de Capacidade) e, em seguida, adicionar um filtro na coluna "ID da Instância", que será "contém workspace" ou "contém cluster" (este último inclui o uso de cluster do Log Analytics). O uso é mostrado na coluna "Quantidade Consumida", e a unidade de cada entrada é mostrada na coluna "Unidade de Medida".  Há mais detalhes disponíveis para ajudar você a [entender sua fatura do Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
@@ -150,7 +150,7 @@ A retenção também pode ser [definida por meio do Azure Resource Manager](../s
 
 Os espaços de trabalho com retenção de 30 dias podem realmente reter dados por 31 dias. Se for imperativo que os dados sejam mantidos por apenas 30 dias, use a Azure Resource Manager para definir a retenção para 30 dias e com o `immediatePurgeDataOn30Days` parâmetro.  
 
-Dois tipos de dados-- `Usage` e `AzureActivity` --são retidos por um mínimo de 90 dias por padrão, e não há nenhum encargo para essa retenção de 90 dias. Caso a retenção do workspace seja aumentada para mais de 90 dias, a retenção desses tipos de dados também será aumentada.  Também não são cobrados encargos de ingestão de dados para esses tipos de dados. 
+Dois tipos de dados — `Usage` e `AzureActivity` — são retidos por um mínimo de 90 dias por padrão, e não há nenhum custo para esse período de retenção. Caso a retenção do workspace seja aumentada para mais de 90 dias, a retenção desses tipos de dados também será aumentada.  Também não são cobrados encargos de ingestão de dados para esses tipos de dados. 
 
 Os tipos de dados dos recursos do Application Insights baseados em workspace (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` e `AppTraces`) também são retidos por 90 dias por padrão, e não há nenhum custo para esse período de retenção. Essa retenção pode ser ajustada usando a funcionalidade de retenção por tipo de dados. 
 
@@ -216,7 +216,7 @@ Tão logo o limite diário seja alcançado, a coleta de tipos de dados faturáve
 > O limite diário não pode parar a coleta de dados exatamente com o nível de Cap especificado e alguns dados em excesso são esperados, especialmente se o espaço de trabalho estiver recebendo grandes volumes de dados. Veja [abaixo](#view-the-effect-of-the-daily-cap) uma consulta que é útil para estudar o comportamento de limite diário. 
 
 > [!WARNING]
-> O limite diário não interrompe a coleta de dados do Azure Sentinal ou da central de segurança do Azure, exceto para espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
+> O limite diário não interrompe a coleta de tipos de dados incluídos na [concessão diária por nó da central de segurança do Azure](#log-analytics-and-security-center) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update e UpdateSummary), exceto para espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados a definir
 
@@ -266,7 +266,7 @@ Para começar, aqui estão as configurações recomendadas para o alerta consult
 - Nome da regra de alerta: Limite diário de dados atingido
 - Gravidade: Aviso (Sev 1)
 
-Quando o alerta é definido e o limite é alcançado, um alerta é disparado e executa a resposta definida no Grupo de Ações. Ele pode notificar a equipe por email e mensagens de texto, ou automatizar ações usando webhooks, runbooks de Automação ou [integrando com uma solução ITSM externa](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#create-itsm-work-items-from-azure-alerts). 
+Quando o alerta é definido e o limite é alcançado, um alerta é disparado e executa a resposta definida no Grupo de Ações. Ele pode notificar a equipe por email e mensagens de texto, ou automatizar ações usando webhooks, runbooks de Automação ou [integrando com uma solução ITSM externa](itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Solução de problemas por uso acima do esperado
 

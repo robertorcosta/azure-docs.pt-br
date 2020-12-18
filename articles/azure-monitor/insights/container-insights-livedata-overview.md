@@ -2,23 +2,20 @@
 title: Exibir dados dinâmicos (versão prévia) com Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve a exibição em tempo real de logs de kubernetes, eventos e métricas de Pod sem usar kubectl em Azure Monitor para contêineres.
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3bfc9aa0f0238d99d9336abe592fa721459f4220
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346787"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672861"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como exibir logs de kubernetes, eventos e métricas de pod em tempo real
 
 Azure Monitor para contêineres inclui o recurso de dados dinâmicos (versão prévia), que é um recurso de diagnóstico avançado que permite o acesso direto aos logs de contêiner do AKS (serviço kubernetes do Azure) (stdout/stderr), eventos e métricas Pod. Ele expõe acesso direto a `kubectl logs -c` , `kubectl get` eventos e `kubectl top pods` . Um painel de console mostra os logs, eventos e métricas gerados pelo mecanismo de contêiner para auxiliar ainda mais na solução de problemas em tempo real.
 
 Este artigo fornece uma visão geral detalhada e ajuda você a entender como usar esse recurso.
-
->[!NOTE]
->Os clusters AKS habilitados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não têm suporte com esse recurso. Esse recurso depende diretamente do acesso à API kubernetes por meio de um servidor proxy do seu navegador. Habilitar a segurança de rede para bloquear a API do kubernetes desse proxy bloqueará esse tráfego.
 
 Para obter ajuda sobre como configurar ou solucionar problemas do recurso de dados dinâmicos (versão prévia), examine nosso [Guia de instalação](container-insights-livedata-setup.md). Esse recurso acessa diretamente a API do kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
@@ -107,7 +104,7 @@ Após a autenticação bem-sucedida, o painel de console dados dinâmicos (vers�
 ## <a name="using-live-data-views"></a>Usando exibições de dados dinâmicos
 As seções a seguir descrevem a funcionalidade que você pode usar nas diferentes exibições de dados ao vivo.
 
-### <a name="search"></a>Search
+### <a name="search"></a>Pesquisar
 O recurso de dados dinâmicos (versão prévia) inclui a funcionalidade de pesquisa. No campo de **pesquisa** , você pode filtrar os resultados digitando uma palavra-chave ou termo e quaisquer resultados correspondentes são realçados para permitir uma revisão rápida. Ao exibir eventos, você pode limitar os resultados usando o **filtro** Pill encontrado à direita da barra de pesquisa. Dependendo do recurso que você selecionou, o Pill lista um pod, um namespace ou um cluster do qual escolher.
 
 ![Exemplo de filtro do painel do console de dados dinâmicos](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)

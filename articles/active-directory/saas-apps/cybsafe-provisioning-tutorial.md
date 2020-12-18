@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 92329a3fa04d3cc685ba5068e9e5ae9932d1eb4d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96178918"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673368"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>Tutorial: configurar o CybSafe para o provisionamento automático de usuário
 
@@ -38,7 +38,7 @@ Este tutorial descreve as etapas que você precisa executar tanto no CybSafe qua
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global). 
 * Uma conta de administrador do [CybSafe](https://app.cybsafe.com/login) com uma assinatura do Enterprise.
 
@@ -135,15 +135,15 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 13. Para habilitar o serviço de provisionamento do Azure AD para o CybSafe, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
-    ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
+      ![Status do provisionamento ativado](common/provisioning-toggle-on.png)
 
 14. Defina os usuários e/ou grupos que você deseja provisionar para o CybSafe escolhendo os valores desejados no **escopo** na seção **configurações** .
 
-    ![Escopo de provisionamento](common/provisioning-scope.png)
+      ![Escopo de provisionamento](common/provisioning-scope.png)
 
 15. Quando estiver pronto para provisionar, clique em **Salvar**.
 
-    ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
+      ![Salvando a configuração de provisionamento](common/provisioning-configuration-save.png)
 
 Essa operação começa o ciclo de sincronização inicial de todos os usuários e grupos definidos no **Escopo** na seção **Configurações**. O ciclo inicial leva mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Azure AD esteja em execução. 
 

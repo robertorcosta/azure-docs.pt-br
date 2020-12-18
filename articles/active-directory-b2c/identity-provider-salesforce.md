@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0d8b90e18865afeb5cb0c171d21c89d7c6e932f0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 69c2bd96c7aa3bb3328784bb3b5027ade4902c43
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654278"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97669220"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Salesforce usando Azure Active Directory B2C
 
@@ -39,7 +39,9 @@ ms.locfileid: "97654278"
 
 Para usar uma conta do Salesforce no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no Gerenciador de **aplicativos** do Salesforce. Para obter mais informações, consulte [definir configurações básicas do aplicativo conectado](https://help.salesforce.com/articleView?id=connected_app_create_basics.htm)e [habilitar as configurações do OAuth para integração de API](https://help.salesforce.com/articleView?id=connected_app_create_api_integration.htm)
 
-1. Na **instalação**, insira **aplicativos** na caixa **localização rápida** e selecione Gerenciador de **aplicativos**.
+1. [Entre no Salesforce](https://login.salesforce.com/).
+1. No menu, selecione **instalação**.
+1.  Expanda **aplicativos** e, em seguida, selecione **Gerenciador de aplicativos**.
 1. Selecione **novo aplicativo conectado**.
 1. Sob as **informações básicas**, digite:
     1. **Nome do aplicativo conectado** -o nome do aplicativo conectado é exibido no Gerenciador de aplicativos e no bloco do inicializador de aplicativo. O nome deve ser exclusivo em sua organização. 
@@ -80,7 +82,7 @@ Para usar uma conta do Salesforce no Azure Active Directory B2C (Azure AD B2C), 
     - **Sobrenome**: *family_name*
     - **Email**: *preferred_username*
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -209,7 +211,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário que você deseja para o provedor de identidade do Salesforce.
 1. Em **provedores de identidade social**, selecione **Salesforce**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**

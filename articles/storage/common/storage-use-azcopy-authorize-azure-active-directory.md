@@ -4,15 +4,15 @@ description: Você pode fornecer credenciais de autorização para operações d
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 12/17/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 46a5c941822dd258b420b51c710734dc3152f30f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 99e06a36c2afa66f2874c14990d50c6287623efd
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617401"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672484"
 ---
 # <a name="authorize-access-to-blobs-with-azcopy-and-azure-active-directory-azure-ad"></a>Autorizar o acesso a BLOBs com AzCopy e Azure Active Directory (Azure AD)
 
@@ -185,7 +185,9 @@ Substitua o `<path-to-certificate-file>` espaço reservado pelo caminho relativo
 
 ## <a name="authorize-without-a-secret-store"></a>Autorizar sem um repositório secreto
 
-Se o seu sistema operacional não tiver um repositório secreto, como um *keyring* do Linux, o `azcopy login` comando não funcionará. Em vez disso, você pode definir variáveis de ambiente na memória antes de executar cada operação. 
+O `azcopy login` comando recupera um token OAuth e, em seguida, coloca esse token em um repositório secreto em seu sistema. Se o seu sistema operacional não tiver um repositório secreto, como um *keyring* do Linux, o `azcopy login` comando não funcionará porque não há lugar para posicionar o token. 
+
+Em vez de usar o `azcopy login` comando, você pode definir variáveis de ambiente na memória. Em seguida, execute qualquer comando AzCopy. AzCopy recuperará o token de autenticação necessário para concluir a operação. Após a conclusão da operação, o token desaparece da memória. 
 
 ### <a name="authorize-a-user-identity"></a>Autorizar uma identidade de usuário
 
@@ -248,8 +250,6 @@ Substitua o `<resource-id>` espaço reservado pela ID de recurso da identidade g
 Depois de definir essas variáveis, você pode executar qualquer comando azcopy (por exemplo: `azcopy list https://contoso.blob.core.windows.net` ).
 
 ### <a name="authorize-a-service-principal"></a>Autorizar uma entidade de serviço
-
-Antes de executar um script, você precisa entrar interativamente pelo menos uma vez para que possa fornecer AzCopy com as credenciais de sua entidade de serviço.  Essas credenciais são armazenadas em um arquivo seguro e criptografado para que o script não precise fornecer essas informações confidenciais.
 
 Você pode entrar em sua conta usando um segredo do cliente ou usando a senha de um certificado associado ao registro do aplicativo da sua entidade de serviço.
 

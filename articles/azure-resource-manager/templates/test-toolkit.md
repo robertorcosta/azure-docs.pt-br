@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 29ebe2f0ec4d4c39154272bbbdf4d0c9ede9fd95
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e5ad0b6dca7718166517b52148fbc6dd49f38869
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928181"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97674005"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Usar o kit de ferramentas de teste do modelo ARM
 
@@ -282,4 +282,5 @@ O exemplo a seguir mostra como executar os testes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os testes padrão, consulte [casos de teste padrão para o kit de ferramentas de teste do modelo ARM](test-cases.md).
+- Para saber mais sobre os testes padrão, consulte [casos de teste padrão para o kit de ferramentas de teste do modelo ARM](test-cases.md).
+- Para um módulo Microsoft Learn que abrange o uso do kit de ferramentas de teste, consulte [Visualizar alterações e validar recursos do Azure usando o What-If e o ARM template Test Toolkit](/learn/modules/arm-template-test/).
