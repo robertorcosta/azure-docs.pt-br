@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: b132368982e0013bfe6f3ffd52e7aacb7b1274eb
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e822a2be200f701d65ab2080804d252f99589680
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96003083"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680790"
 ---
-# <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: criar ordem de exportação para Azure Data Box (versão prévia)
+# <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: criar ordem de exportação para Azure Data Box
 
 Azure Data Box é uma solução híbrida que permite mover dados para fora do Azure para seu local. Este tutorial descreve como criar uma ordem de exportação para Azure Data Box. O principal motivo para criar uma ordem de exportação é para a recuperação de desastres, caso o armazenamento local seja comprometido e um backup precise ser restaurado.
 
@@ -27,8 +27,6 @@ Neste tutorial, você aprenderá a:
 > * Ordenar um Data Box para exportação
 > * Acompanhar a ordem de exportação
 > * Cancelar a ordem de exportação
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -125,7 +123,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     ![Tela de segurança do assistente para Pedidos de importação do Data Box](media/data-box-deploy-export-ordered/data-box-export-security-01.png)
 
-10. Se você quiser usar sua própria chave gerenciada pelo cliente para proteger a chave de acesso de desbloqueio para o novo recurso, expanda **tipo de criptografia**.
+10. Se você quiser usar a própria chave gerenciada pelo cliente para proteger a chave de acesso de desbloqueio para o novo recurso, expanda **Tipo de criptografia**.
 
     A configuração de uma chave gerenciada pelo cliente para seu Azure Data Box é opcional. Por padrão, o Data Box usa uma chave gerenciada da Microsoft para proteger a chave de acesso de desbloqueio.
 
@@ -133,65 +131,65 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     Se você não quiser usar uma chave gerenciada pelo cliente, pule para a etapa 16.
 
-    ![Tela de segurança mostrando configurações de tipo de criptografia](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
+    ![Tela de segurança mostrando as configurações Tipo de criptografia](./media/data-box-deploy-export-ordered/customer-managed-key-01.png)
 
-11. Selecione **chave gerenciada pelo cliente** como o tipo de chave. Em seguida, selecione **selecionar um cofre de chaves e uma chave**.
+11. Selecione **Chave gerenciada pelo cliente** como o tipo de chave. Em seguida, selecione **Selecionar um cofre de chaves e uma chave**.
    
     ![Tela de segurança, configurações para uma chave gerenciada pelo cliente](./media/data-box-deploy-export-ordered/customer-managed-key-02.png)
 
 12. Na tela **selecionar chave de Azure Key Vault** , a assinatura é preenchida automaticamente.
 
-    - Para o **Key Vault**, você pode selecionar um cofre de chaves existente na lista suspensa.
+    - Para **Cofre de chaves**, você pode selecionar um cofre de chaves existente na lista suspensa.
 
-      ![Selecionar chave na tela de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
+      ![Tela Selecionar chave do Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-03.png)
 
-    - Você também pode selecionar **criar novo** para criar um novo cofre de chaves. Na tela **criar cofre de chaves** , insira o grupo de recursos e o nome do cofre de chaves. Verifique se a **exclusão reversível** e a **proteção de limpeza** estão habilitadas. Aceite todos os outros padrões e selecione **revisar + criar**.
+    - Você também pode selecionar **Criar** para criar um cofre de chaves. Na tela **Criar cofre de chaves**, insira o grupo de recursos e um nome do cofre de chaves. Verifique se as opções **Exclusão temporária** e **Proteção contra limpeza** estão habilitadas. Aceite todos os outros padrões e selecione **Examinar + Criar**.
 
-      ![Criar novas configurações de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
+      ![Configurações para Criar um Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-04.png)
 
-      Examine as informações do cofre de chaves e selecione **criar**. Aguarde alguns minutos para que a criação do cofre de chaves seja concluída.
+      Examine as informações do seu cofre de chaves e selecione **Criar**. Aguarde alguns minutos até que a criação do cofre de chaves seja concluída.
 
-      ![Tela nova revisão de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
+      ![Tela de revisão Novo Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-05.png)
 
 13. Na tela **selecionar chave de Azure Key Vault** , você pode selecionar uma chave existente no cofre de chaves.
 
-    ![Selecionar chave existente de Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
+    ![Selecionar chave existente do Azure Key Vault](./media/data-box-deploy-export-ordered/customer-managed-key-06.png)
 
-    Se você quiser criar uma nova chave, selecione **criar nova**. Você deve usar uma chave RSA. O tamanho pode ser 2048 ou maior. Insira um nome para a nova chave, aceite os outros padrões e selecione **criar**.
+    Se você desejar criar uma chave, selecione **Criar**. Você precisa usar uma chave RSA. O tamanho pode ser 2048 ou maior. Insira um nome para a nova chave, aceite os outros padrões e selecione **Criar**.
 
-      ![Criar uma nova opção de chave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
+      ![Opção Criar uma chave](./media/data-box-deploy-export-ordered/customer-managed-key-07.png)
 
       Você será notificado quando a chave tiver sido criada no cofre de chaves.
 
-14. Selecione a **versão** da chave a ser usada e escolha **selecionar**.
+14. Selecione a **Versão** da chave a ser usada e, em seguida, escolha **Selecionar**.
 
-      ![Nova chave criada no cofre de chaves](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
+      ![Chave criada no cofre de chaves](./media/data-box-deploy-export-ordered/customer-managed-key-08.png)
 
-    Se você quiser criar uma nova versão de chave, selecione **criar nova**.
+    Se você desejar criar uma versão da chave, selecione **Criar**.
 
-    ![Abrir uma caixa de diálogo para criar uma nova versão de chave](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
+    ![Abrir uma caixa de diálogo para criar uma versão de chave](./media/data-box-deploy-export-ordered/customer-managed-key-08-a.png)
 
     Na tela **criar nova chave** , escolha configurações para a nova versão de chave e selecione **criar**.
 
     ![Criar uma nova versão da chave](./media/data-box-deploy-export-ordered/customer-managed-key-08-b.png)
 
-    As configurações de **tipo de criptografia** na tela **segurança** mostram o cofre de chaves e a chave.
+    As configurações **Tipo de criptografia** na tela **Segurança** mostram seu cofre de chaves e sua chave.
 
-    ![Chave e Key Vault para uma chave gerenciada pelo cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
+    ![Chave e cofre de chaves para uma chave gerenciada pelo cliente](./media/data-box-deploy-export-ordered/customer-managed-key-09.png)
 
-15. Selecione uma identidade de usuário que você usará para gerenciar o acesso a esse recurso. Escolha **selecionar uma identidade de usuário**. No painel à direita, selecione a assinatura e a identidade gerenciada a ser usada. Em seguida, escolha **Selecionar**.
+15. Selecione uma identidade de usuário que você usará para gerenciar o acesso a esse recurso. Escolha **Selecionar uma identidade de usuário**. No painel à direita, selecione a assinatura e a identidade gerenciada a ser usada. Em seguida, escolha **Selecionar**.
 
-    Uma identidade gerenciada atribuída pelo usuário é um recurso autônomo do Azure que pode ser usado para gerenciar vários recursos. Para obter mais informações, consulte [tipos de identidade gerenciados](/azure/active-directory/managed-identities-azure-resources/overview).  
+    Uma identidade gerenciada atribuída pelo usuário é um recurso do Azure autônomo que pode ser usado para gerenciar vários recursos. Para obter mais informações, confira [Tipos de identidade gerenciada](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    Se você precisar criar uma nova identidade gerenciada, siga as orientações em [criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    Se você precisar criar uma identidade gerenciada, siga as diretrizes em [Criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Selecionar uma identidade de usuário](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 
-    A identidade do usuário é mostrada em configurações de **tipo de criptografia** .
+    A identidade de usuário é mostrada nas configurações **Tipo de criptografia**.
 
     Você pode recolher as configurações de **tipo de criptografia** agora.
 
-    ![Uma identidade de usuário selecionada mostrada nas configurações de tipo de criptografia](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
+    ![Uma identidade de usuário selecionada mostrada nas configurações Tipo de criptografia](./media/data-box-deploy-export-ordered/customer-managed-key-11.png)
 
 16. Se você quiser habilitar a criptografia dupla baseada em software, expanda **criptografia dupla (para ambientes de alta segurança)** e selecione **habilitar criptografia dupla para o pedido**. 
 
@@ -332,7 +330,7 @@ Alguns pontos importantes em relação aos arquivos XML:
 
 A tabela a seguir mostra exemplos de caminhos de blob válidos:
 
-   | Seletor | Caminho do Blob | Description |
+   | Seletor | Caminho do Blob | Descrição |
    | --- | --- | --- |
    | Começa com |/ |Exporta todos os blobs na conta de armazenamento |
    | Começa com |/$root/ |Exporta todos os blobs no contêiner raiz |

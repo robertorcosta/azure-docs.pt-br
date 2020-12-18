@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9377a21415c22e7b68d850ca1a95f931e62fe573
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c9b624a1efc72bebec8547e8ecf9f3bf9fc99863
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499723"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680648"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de Key Vault para Linux
 
@@ -96,7 +96,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 | certificateStoreName | Ele é ignorado no Linux | string |
 | linkOnRenewal | false | booleano |
 | certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
-| requiredInitialSync | true | booleano |
+| requireInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | Matriz de cadeia de caracteres
 | msiEndpoint | http://169.254.169.254/metadata/identity | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |

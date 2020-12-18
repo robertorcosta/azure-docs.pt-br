@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 631aaf3c6a99e093f6ed59089f7ce99803f3f054
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6eff662ac0140e7a64cc3bab28856178708cb9b2
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446616"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400668"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor no Azure Synapse Analytics
 
 Uma consulta do pool de SQL sem servidor lê arquivos diretamente no Armazenamento do Azure. As permissões para acessar os arquivos no armazenamento do Azure são controladas em dois níveis:
 - **Nível de armazenamento** – o usuário deve ter permissão para acessar os arquivos de armazenamento subjacentes. O administrador de armazenamento deve permitir que a entidade de segurança do Azure AD leia/grave arquivos ou gere uma chave SAS que será usada para acessar o armazenamento.
-- **Nível de serviço do SQL** – o usuário deve ter a permissão `SELECT` para ler dados de [tabela externa](develop-tables-external-tables.md) ou a permissão `ADMINISTER BULK ADMIN` para executar `OPENROWSET`, bem como permissão para usar as credenciais necessárias para acessar o armazenamento.
+- **Nível de serviço do SQL** – o usuário deve ter concedido uma permissão para ler dados usando a [tabela externa](develop-tables-external-tables.md) ou para executar a função `OPENROWSET`. Leia mais sobre [as permissões obrigatórias nesta seção](develop-storage-files-overview.md#permissions).
 
 Este artigo descreve os tipos de credenciais que você pode usar e como a pesquisa de credenciais é aplicada para usuários do SQL e do Azure AD.
 
@@ -84,7 +84,7 @@ Você pode usar as seguintes combinações de autorização e tipos de Armazenam
 | Tipo de autorização  | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Com suporte\*      | Não compatível   | Com suporte\*     |
-| [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Com suporte        | Suportado     |
+| [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Suportado        | Suportado     |
 | [Identidade do Usuário](?tabs=user-identity#supported-storage-authorization-types)    | Suportado\*      | Suportado\*        | Suportado\*     |
 
 \* O token SAS e a Identidade do Azure AD podem ser usados para acessar um armazenamento que não está protegido pelo firewall.

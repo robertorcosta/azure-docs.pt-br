@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 12/02/2020
-ms.openlocfilehash: 360f0ce60a35bc96c6dd8e46d636f07124d01255
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d1e4ffa525c5628d0b6c9a3ca67f3e069c44e823
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511909"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679196"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
@@ -156,7 +156,7 @@ O módulo executar script Python contém o código Python de exemplo que você p
     1. Agrupe o script e outros recursos personalizados em um arquivo zip.
     1. Carregue o arquivo zip como um **conjunto** de um arquivo para o estúdio. 
     1. Arraste o módulo DataSet da lista *DataSets* no painel do módulo à esquerda na página criação do designer. 
-    1. Conecte o módulo DataSet à porta do **pacote de script** do módulo **Executar script R** .
+    1. Conecte o módulo DataSet à porta do **pacote de script** do módulo **Executar script Python** .
     
     Qualquer arquivo contido no arquivo compactado carregado pode ser usado durante a execução do pipeline. Se o arquivo incluir uma estrutura de diretório, a estrutura será preservada.
  

@@ -6,22 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 859eb6abd138f0660407618bba4550daf9158ab9
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: e84f39fa5b9245d1874e60d651156e99c0885040
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854998"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678914"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use a interface do usuário da Web local para administrar seu Data Box e Data Box Heavy
 
 Este artigo descreve algumas das tarefas de configuração e gerenciamento executadas em dispositivos Data Box e Data Box Heavy. Você pode gerenciar os dispositivos Data Box e Data Box Heavy por meio da interface do usuário do portal do Azure e da interface do usuário da Web local do dispositivo. Este artigo se concentra nas tarefas executadas usando a interface do usuário da Web local.
 
 A interface do usuário da Web local para o Data Box e para Data Box Heavy é usada para a configuração inicial do dispositivo. Você também pode usar a interface do usuário da Web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, exibir logs de cópia, apagar dados locais do dispositivo e gerar um pacote de suporte para Suporte da Microsoft. Em um dispositivo Data Box Heavy com dois nós independentes, você pode acessar duas interfaces do site locais separadas correspondentes a cada nó do dispositivo.
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## <a name="generate-support-package"></a>Gerar pacote de suporte
 

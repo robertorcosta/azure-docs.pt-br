@@ -10,13 +10,13 @@ ms.author: weetok
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: cc95913b0ab815449a1cd56c0c9127410a64b600
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 12/17/2020
+ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591887"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680303"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -28,7 +28,7 @@ Integração contínua é a prática de testar cada alteração feita em sua bas
 
 No Azure Data Factory, CI/CD (integração e entrega contínuas) significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. O Azure Data Factory utiliza [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para armazenar a configuração de suas várias entidades do ADF (pipelines, conjuntos de dados, fluxos e assim por diante). Há dois métodos sugeridos para promover um data factory para outro ambiente:
 
--    Implantação automatizada usando a integração do Data Factory com o [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
+-    Implantação automatizada usando a integração do Data Factory com o [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 -    Carregue manualmente um modelo do Resource Manager usando a integração da UX do Data Factory ao Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -115,7 +115,7 @@ A seguir há um guia para configurar uma versão do Azure Pipelines que automati
 
 1.  Salve o pipeline de lançamento.
 
-1. Para disparar uma versão, selecione **Criar versão**. Para automatizar a criação de versões, confira [Gatilhos de versão do Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Para disparar uma versão, selecione **Criar versão**. Para automatizar a criação de versões, confira [Gatilhos de versão do Azure DevOps](/azure/devops/pipelines/release/triggers)
 
    ![Selecionar Criar versão](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -207,6 +207,12 @@ Se o seu alocador de desenvolvimento tiver um repositório do git associado, voc
 
 * Você usa CI/CD automatizadas e deseja alterar algumas propriedades durante a implantação do Resource Manager, mas as propriedades não são parametrizadas por padrão.
 * Seu alocador é tão grande que o modelo padrão do Resource Manager é inválido porque ele tem mais do que os parâmetros máximos permitidos (256).
+
+    Para lidar com o limite 256 do parâmetro personalizado, há três opções:    
+  
+    * Use o arquivo de parâmetro personalizado e remova as propriedades que não precisam de parametrização, ou seja, propriedades que podem manter um valor padrão e, portanto, diminuir a contagem de parâmetros.
+    * Refatorar lógica no fluxo de os para reduzir parâmetros, por exemplo, todos os parâmetros de pipeline têm o mesmo valor, você pode usar apenas parâmetros globais em vez disso.
+    * Divida um data factory em vários fluxos de dados.
 
 Para substituir o modelo de parametrização padrão, vá para o Hub de gerenciamento e selecione **modelo de parametrização** na seção controle do código-fonte. Selecione **Editar modelo** para abrir o editor de código de modelo de parametrização. 
 
@@ -639,7 +645,7 @@ Consulte o vídeo abaixo um tutorial em vídeo detalhado sobre como corrigir seu
 
 ## <a name="exposure-control-and-feature-flags"></a>Controle de exposição e sinalizadores de recurso
 
-Ao trabalhar em uma equipe, há instâncias em que você pode mesclar alterações, mas não quer que elas sejam executadas em ambientes elevados, como PROD e QA. Para lidar com esse cenário, a equipe do ADF recomenda [o conceito de DevOps de uso de sinalizadores de recursos](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops). No ADF, você pode combinar [parâmetros globais](author-global-parameters.md) e a [atividade If Condition](control-flow-if-condition-activity.md) para ocultar conjuntos de lógica com base nesses sinalizadores de ambiente.
+Ao trabalhar em uma equipe, há instâncias em que você pode mesclar alterações, mas não quer que elas sejam executadas em ambientes elevados, como PROD e QA. Para lidar com esse cenário, a equipe do ADF recomenda [o conceito de DevOps de uso de sinalizadores de recursos](/azure/devops/migrate/phase-features-with-feature-flags). No ADF, você pode combinar [parâmetros globais](author-global-parameters.md) e a [atividade If Condition](control-flow-if-condition-activity.md) para ocultar conjuntos de lógica com base nesses sinalizadores de ambiente.
 
 Para saber como configurar um sinalizador de recurso, consulte o tutorial de vídeo abaixo:
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: ccc545b15f16879582c671b082cab40f6b11aa08
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e58cbef74aa9b6f58207abf780fd63176d5edd7d
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778964"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680927"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizar o acesso a dados de BLOB e de fila com identidades gerenciadas para recursos do Azure
 
@@ -171,3 +171,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 - [Gerenciar direitos de acesso aos dados de armazenamento com o RBAC do Azure](./storage-auth-aad-rbac-portal.md).
 - [Use o Azure AD com aplicativos de armazenamento](storage-auth-aad-app.md).
 - [Executar comandos do PowerShell com as credenciais do Azure AD para acessar dados de BLOB](../blobs/authorize-data-operations-powershell.md)
+- [Tutorial: acessar o armazenamento do serviço de aplicativo usando as idents gerenciadas](/azure/app-service/scenario-secure-app-access-storage)

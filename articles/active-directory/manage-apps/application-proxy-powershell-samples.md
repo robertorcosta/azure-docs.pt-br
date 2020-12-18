@@ -24,7 +24,7 @@ ms.locfileid: "96858358"
 A tabela a seguir inclui links para exemplos de scripts do PowerShell para o Proxy de Aplicativo do Azure AD. Esses exemplos exigem o [Módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2) ou a [Versão prévia do módulo do PowerShell do AzureAD v2 para o Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), salvo indicação em contrário.
 
 
-Para obter mais informações sobre os cmdlets usados nesses exemplos, confira [Gerenciamento de aplicativos do Proxy de Aplicativo[ e ](/powershell/module/azuread/#application_proxy_connector_management)Gerenciamento de conectores do Proxy de Aplicativo](/powershell/module/azuread/#application_proxy_application_management).
+Para obter mais informações sobre os cmdlets usados nesses exemplos, confira [Gerenciamento de aplicativos do Proxy de Aplicativo](/powershell/module/azuread/#application_proxy_application_management) e [Gerenciamento de conectores do Proxy de Aplicativo](/powershell/module/azuread/#application_proxy_connector_management).
 
 | Link | Descrição |
 |---|---|

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 94c926c555a4bc96ac3c6fbe773650e16554bcf2
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: d04fa25b9c953d151fc16d11f304c48b7046ab76
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315695"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680399"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurar a coleta de dados para o agente de Azure Monitor (versão prévia)
 
@@ -35,6 +35,9 @@ Por exemplo, considere um ambiente com um conjunto de máquinas virtuais que exe
 
 Você pode usar o portal do Azure para criar uma regra de coleta de dados e associar máquinas virtuais em sua assinatura a essa regra. O agente de Azure Monitor será instalado automaticamente e uma identidade gerenciada criada para qualquer máquina virtual que ainda não tiver sido instalada.
 
+> [!IMPORTANT]
+> Atualmente, há um problema conhecido em que, se a regra de coleta de dados criar uma identidade gerenciada em uma máquina virtual que já tenha uma identidade gerenciada atribuída pelo usuário, a identidade atribuída pelo usuário será desabilitada.
+
 No menu **Azure monitor** na portal do Azure, selecione regras de **coleta de dados** na seção **configurações** . Clique em **Adicionar** para adicionar uma nova regra de coleta de dados e atribuição.
 
 [![Regras de coleta de dados](media/azure-monitor-agent/data-collection-rules.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
@@ -52,7 +55,7 @@ Na guia **coletar e entregar** , clique em **Adicionar fonte de dados** para adi
 [![Fonte de dados básica](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-Para especificar outros logs e contadores de desempenho, selecione **personalizado**. Em seguida, você pode especificar um [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) para quaisquer valores específicos a serem coletados. Consulte o [exemplo DCR](data-collection-rule-overview.md#sample-data-collection-rule) para obter exemplos.
+Para especificar outros logs e contadores de desempenho das [fontes de dados com suporte no momento](azure-monitor-agent-overview.md#data-sources-and-destinations) ou para filtrar eventos usando consultas XPath, selecione **personalizado**. Em seguida, você pode especificar um [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) para quaisquer valores específicos a serem coletados. Consulte o [exemplo DCR](data-collection-rule-overview.md#sample-data-collection-rule) para obter exemplos.
 
 [![Fonte de dados personalizada](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 

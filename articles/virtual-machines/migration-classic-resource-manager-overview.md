@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 219fe2d9d8ac46ba3dbeebe6aaae9dddc0883aa0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e7d013775861f290d532e0d7c132896ebeff8ae8
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500403"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97680204"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager no Linux
 
@@ -22,7 +22,7 @@ ms.locfileid: "96500403"
 
 
 
-Este artigo descreve como migrar recursos de infra-estrutura como serviço (IaaS) dos modelos de implantação do Classic para o Resource Manager e detalha como conectar recursos dos dois modelos de implantação que coexistem na sua assinatura usando gateways de site a site de rede virtual. Você pode ler mais sobre [Azure Resource Manager recursos e benefícios](../azure-resource-manager/management/overview.md). 
+Este artigo fornece uma visão geral sobre a ferramenta de migração com suporte da plataforma, como migrar recursos do ASM (Service Manager do Azure), também conhecido como modelos de implantação clássicos para o Gerenciador de recursos (ARM), e detalhes sobre como conectar recursos de dois modelos de implantação que coexistem em sua assinatura usando gateways site a site da rede virtual. Você pode ler mais sobre [Azure Resource Manager recursos e benefícios](../azure-resource-manager/management/overview.md). 
 
 ## <a name="goal-for-migration"></a>Meta de migração
 O Gerenciador de Recursos possibilita implantar aplicativos complexos por meio de modelos, configurar máquinas virtuais usando extensões de VM e incorporar o gerenciamento de acesso e a marcação. O Azure Resource Manager inclui implantação paralela e escalonável para máquinas virtuais em conjuntos de disponibilidade. O novo modelo também oferece gerenciamento de ciclo de vida de computação, rede e armazenamento de maneira independente. Por fim, há um enfoque para habilitar a segurança por padrão com a imposição de máquinas virtuais em uma rede virtual.
@@ -37,7 +37,7 @@ Há suporte para quase todos os recursos do modelo de implantação clássica re
 * Contas de Armazenamento
 * Redes Virtuais
 * Gateways VPN
-* Express Route Gateways _(na mesma assinatura como Rede Virtual somente)_
+* [Gateways de rota expressa](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(na mesma assinatura que apenas na rede virtual)_
 * Grupos de segurança de rede
 * Tabelas de Rotas
 * IPs Reservados

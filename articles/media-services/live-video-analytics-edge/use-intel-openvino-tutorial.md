@@ -4,12 +4,12 @@ description: Neste tutorial, você usará um servidor de modelo de IA fornecido 
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: a15984917b854a9f3e2dbc80dd0775989c80bf81
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 82906111e64bd278d4371d1c3497fefc4510bbbd
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483671"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97401195"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Analisar vídeos ao vivo usando o OpenVINO™ Model Server – Extensão de IA da Intel 
 
@@ -45,9 +45,9 @@ Neste guia de início rápido, você usará a Análise Dinâmica de Vídeo no Io
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="Visão geral":::
 
-O diagrama mostra como os sinais fluem neste guia de início rápido. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de filtro de taxa de quadros](media-graph-concept.md#frame-rate-filter-processor). Esse processador limita a taxa de quadros do fluxo de vídeo que alcança o nó do [processador de extensão HTTP](media-graph-concept.md#http-extension-processor). 
+O diagrama mostra como os sinais fluem neste guia de início rápido. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de extensão HTTP](media-graph-concept.md#http-extension-processor). 
 
-O nó de extensão HTTP desempenha a função de um proxy. Ele converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo do Edge que executa modelos de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo do Edge é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó de processador de extensão HTTP reúne os resultados da detecção e publica eventos no nó do [coletor do Hub IoT](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [Hub do IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+O nó de extensão HTTP desempenha a função de um proxy. Ele amostra os quadros de vídeo de entrada definidos por você, campo `samplingOptions`, e também converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo do Edge que executa modelos de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo do Edge é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó de processador de extensão HTTP reúne os resultados da detecção e publica eventos no nó do [coletor do Hub IoT](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [Hub do IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
 
 Neste tutorial, você irá:
 
