@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 589f320f0099fdab829e9e707a86e3e77d51c21e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0b57629f5c21d933fc898258263199b5fc713fdb
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656284"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683353"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -52,7 +52,7 @@ Reconhecimento de entidade nomeada v 3.1-Preview. 3 inclui os recursos de detec�
 * Um `domain=phi` parâmetro opcional para detectar informações de integridade confidencial ( `PHI` ).
 * [Operação assíncrona](text-analytics-how-to-call-api.md) usando o `/analyze` ponto de extremidade.
 
-Para obter mais informações, consulte o artigo [categorias de entidade](../named-entity-types.md) e a seção pontos de [extremidade de solicitação](#request-endpoints) abaixo. 
+Para obter mais informações, consulte o artigo [categorias de entidade](../named-entity-types.md) e a seção pontos de [extremidade de solicitação](#request-endpoints) abaixo. Para obter mais informações sobre pontuações de confiança, consulte a [análise de texto a nota de transparência](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="sending-a-rest-api-request"></a>Como enviar uma solicitação da API REST
 

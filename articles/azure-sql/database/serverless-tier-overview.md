@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 12/8/2020
-ms.openlocfilehash: bd8f5a28b709a45e99e846fb4e242f774aca80c5
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902503"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97687395"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -138,7 +138,7 @@ A retomada automática será ativada se qualquer uma das seguintes condições f
 |Transparent Data Encryption|Estado de exibição ou status da Transparent Data Encryption|
 |Avaliação de vulnerabilidade|Verificações ad hoc e verificações periódicas, se habilitadas|
 |Consultar o armazenamento de dados (desempenho)|Modificar ou exibir configurações do repositório de consultas|
-|Recomendações de desempenho|Exibindo ou aplicando recomendações de desempenho|
+|Recomendações do desempenho|Exibindo ou aplicando recomendações de desempenho|
 |Ajuste automático|Aplicação e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como uma cópia.<br>Exportar para um arquivo BACPAC.|
 |Sincronização de dados SQL|Sincronização entre bancos de dados membro e hub que são executados em um cronograma configurável ou são executados manualmente|
@@ -180,7 +180,7 @@ Criar um novo banco de dados ou mover um banco de dados existente para uma camad
 
 Os exemplos seguintes criam um novo banco de dados na camada de computação sem servidor.
 
-#### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+#### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Confira [Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure](single-database-create-quickstart.md).
 
@@ -196,7 +196,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
-  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+  -e GeneralPurpose -f Gen5 --min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
 ```
 
 

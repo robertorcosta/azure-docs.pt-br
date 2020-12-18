@@ -9,12 +9,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 11/23/2020
 ms.author: apimpm
-ms.openlocfilehash: 70be2000d3b01e55cd52d161072c3249870310b9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: e38dcf1e12629405ae5f28a987ba20557037ee67
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122572"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683453"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 
@@ -451,7 +451,7 @@ A `validate-jwt` política impõe a existência e a validade de um JWT (token We
 ```xml
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
     <issuer-signing-keys>
-        <key certficate-id="my-rsa-cert" />  <!-- signing key specified as certificate ID, enclosed in double-quotes -->
+        <key certificate-id="my-rsa-cert" />  <!-- signing key specified as certificate ID, enclosed in double-quotes -->
     </issuer-signing-keys>
     <audiences>
         <audience>@(context.Request.OriginalUrl.Host)</audience>  <!-- audience is set to API Management host name -->
@@ -552,9 +552,9 @@ Este exemplo mostra como usar a política [validar JWT](api-management-access-re
 | require-expiration-time         | Booliano. Especifica se uma declaração de expiração é necessária no token.                                                                                                                                                                                                                                                                                                                                                                               | Não                                                                               | true                                                                              |
 | require-scheme                  | O nome do esquema de token, por exemplo, "portador". Quando esse atributo for definido, a política garantirá que o esquema especificado esteja presente no valor do cabeçalho de Autorização.                                                                                                                                                                                                                                                                                    | Não                                                                               | N/D                                                                               |
 | require-signed-tokens           | Booliano. Especifica se é necessário que um determinado token seja assinado.                                                                                                                                                                                                                                                                                                                                                                                           | Não                                                                               | true                                                                              |
-| separator                       | Cadeia. Especifica um separador (por exemplo, ",") a ser usado para extrair um conjunto de valores de uma declaração com valores múltiplos.                                                                                                                                                                                                                                                                                                                                          | Não                                                                               | N/D                                                                               |
+| separator                       | Cadeia de caracteres. Especifica um separador (por exemplo, ",") a ser usado para extrair um conjunto de valores de uma declaração com valores múltiplos.                                                                                                                                                                                                                                                                                                                                          | Não                                                                               | N/D                                                                               |
 | url                             | URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. A resposta deve ser de acordo com as especificações definidas na URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. Para o Azure Active Directory, use a seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`. | Sim                                                                              | N/D                                                                               |
-| saída-token-variável-nome      | Cadeia. Nome da variável de contexto que receberá o valor de token como um objeto do tipo [`Jwt`](api-management-policy-expressions.md) após a validação de token bem-sucedida                                                                                                                                                                                                                                                                                     | Não                                                                               | N/D                                                                               |
+| saída-token-variável-nome      | Cadeia de caracteres. Nome da variável de contexto que receberá o valor de token como um objeto do tipo [`Jwt`](api-management-policy-expressions.md) após a validação de token bem-sucedida                                                                                                                                                                                                                                                                                     | Não                                                                               | N/D                                                                               |
 
 ### <a name="usage"></a>Uso
 

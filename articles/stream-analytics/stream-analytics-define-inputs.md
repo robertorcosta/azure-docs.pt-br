@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d2fb2ac40dfbe6e48fef5c98e21896575b298a94
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127562"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683455"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmitir dados como entrada no Stream Analytics
 
@@ -31,7 +31,7 @@ O Stream Analytics oferece suporte à compactação em todas as fontes de entrad
 
 ## <a name="create-edit-or-test-inputs"></a>Criar, editar ou testar entradas
 
-Você pode usar o [Portal do Azure](stream-analytics-quick-create-portal.md), o [Visual Studio](stream-analytics-quick-create-vs.md) e o [Visual Studio Code](quick-create-visual-studio-code.md) para adicionar e exibir ou editar entradas existentes no trabalho de streaming. Além disso, você pode testar conexões de entrada e [consultas de teste](stream-analytics-manage-job.md#test-your-query) de dados de exemplo no portal do Azure, no [Visual Studio](stream-analytics-vs-tools-local-run.md) e no [Visual Studio Code](visual-studio-code-local-run.md). Ao gravar uma consulta, você lista a entrada na cláusula FROM. Você pode obter a lista de entradas disponíveis na página **Consulta** no portal. Se você quiser usar várias entradas, poderá usar `JOIN` para associá-las ou codificar várias consultas `SELECT`.
+Você pode usar o [Portal do Azure](stream-analytics-quick-create-portal.md), o [Visual Studio](stream-analytics-quick-create-vs.md) e o [Visual Studio Code](quick-create-visual-studio-code.md) para adicionar e exibir ou editar entradas existentes no trabalho de streaming. Além disso, você pode testar conexões de entrada e consultas de teste de dados de exemplo no portal do Azure, no [Visual Studio](stream-analytics-vs-tools-local-run.md) e no [Visual Studio Code](visual-studio-code-local-run.md). Ao gravar uma consulta, você lista a entrada na cláusula FROM. Você pode obter a lista de entradas disponíveis na página **Consulta** no portal. Se você quiser usar várias entradas, poderá usar `JOIN` para associá-las ou codificar várias consultas `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Transmitir dados dos Hubs de Eventos

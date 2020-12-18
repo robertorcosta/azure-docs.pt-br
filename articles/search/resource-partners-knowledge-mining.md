@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 78e705812609fc6feef3d162b7716871f579a5cd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: bb1c29f292cc099eaa7a84094f6f4a2674ae02aa
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675797"
+ms.locfileid: "97682730"
 ---
 # <a name="partner-solutions"></a>Soluções de parceiros
 
@@ -23,4 +23,4 @@ Obtenha ajuda especializada de parceiros da Microsoft que criam soluções de po
 |---------|-------------|----------------------|
 | ![OrangeNXT](media/resource-partners/orangenxt-beldmerk-boven-160px.png "Logotipo da empresa") | O [**OrangeNXT**](https://orangenxt.com/) oferece experiência em consolidação de dados, modelagem de dados e criação de habilidades que incluem lógica personalizada desenvolvida para casos de uso específicos.<br/><br/>o [**DigitalNXT Search**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/) é uma solução OrangeNXT que combina ia, reconhecimento óptico de caracteres (OCR) e processamento de linguagem natural no Azure pesquisa cognitiva pipeline para ajudá-lo a extrair resultados da pesquisa de várias fontes de dados estruturadas e não estruturadas. A pesquisa integral para **digitalNXT** é uma capacitação personalizada avançada para interpretar e correlacionar os dados selecionados.<br/><br/>| [Página do produto](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)|
 
-Examine os estudos de caso do [ **digitalNXT**](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/problems-causes-solutions/) para uma análise mais detalhada de soluções específicas.
+<!-- Review [**digitalNXT** case studies](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/problems-causes-solutions/) for a closer look at specific solutions. -->

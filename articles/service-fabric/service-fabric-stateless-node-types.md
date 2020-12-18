@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 6259de345b534bfb51ef6ba1a9c3895800546caf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605489"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683197"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implantar um cluster de Service Fabric do Azure com tipos de nó somente sem estado (versão prévia)
 Service Fabric tipos de nó vêm com pressuposição inerente que, em algum momento, os serviços com estado podem ser colocados em nós. Os tipos de nó sem monitoração de estado relaxar essa suposição para um tipo de nó, permitindo que o tipo de nó use outros recursos, como operações de expansão mais rápidas, suporte para atualizações automáticas do so na durabilidade de bronze e dimensionamento para mais de 100 nós em um único conjunto de dimensionamento de máquinas virtuais.
@@ -44,7 +44,7 @@ Para definir um ou mais tipos de nó como sem estado em um recurso de cluster, d
         },
         "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
         "isPrimary": true,
-        "isStateles": false,
+        "isStateless": false,
         "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
@@ -71,9 +71,9 @@ Para definir um ou mais tipos de nó como sem estado em um recurso de cluster, d
 ## <a name="configuring-virtual-machine-scale-set-for-stateless-node-types"></a>Configurando conjunto de dimensionamento de máquinas virtuais para tipos de nó sem estado
 Para habilitar tipos de nó sem monitoração de estado, você deve configurar o recurso de conjunto de dimensionamento de máquinas virtuais subjacente da seguinte maneira:
 
-* A propriedade Value  **singlePlacementGroup** , que deve ser definida como true/false, dependendo do requisito de dimensionamento para mais de 100 VMS.
-* O **upgrademode** do conjunto de dimensionamento que deve ser definido como sem interrupção.
-* O modo de atualização sem interrupção requer a extensão de integridade do aplicativo ou investigações de integridade configuradas. Configure a investigação de integridade com a configuração padrão para tipos de nó sem monitoração de estado, conforme sugerido abaixo. Depois que os aplicativos são implantados no NodeType, as portas de extensão de integridade/investigação de integridade podem ser alteradas para monitorar a integridade do aplicativo.
+* A propriedade Value  **singlePlacementGroup** , que deve ser definida como **false** se você precisar dimensionar para mais de 100 VMS.
+* O conjunto de dimensionamento **upgradePolicy** qual **modo** deve ser definido como **sem interrupção**.
+* O modo de atualização sem interrupção requer a extensão de integridade do aplicativo ou investigações de integridade configuradas. Configure a investigação de integridade com a configuração padrão para tipos de nó sem monitoração de estado, conforme sugerido abaixo. Depois que os aplicativos são implantados no tipo de nó, as portas de extensão de integridade/investigação de integridade podem ser alteradas para monitorar a integridade do aplicativo.
 
 ```json
 {

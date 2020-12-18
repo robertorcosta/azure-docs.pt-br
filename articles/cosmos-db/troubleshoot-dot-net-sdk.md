@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 68d9a64e388d24f2067f47282945b9561d807535
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545919"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683106"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e solucionar problemas ao usar o SDK . NET para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,6 +54,13 @@ Verifique a [seção de problemas do GitHub](https://github.com/Azure/azure-cosm
 ### <a name="check-the-portal-metrics"></a>Verificar as métricas do portal
 Verificar as [métricas do portal](./monitor-cosmos-db.md) ajudará a determinar se é um problema do lado do cliente ou se há um problema com o serviço. Por exemplo, se as métricas contiverem uma alta taxa de solicitações limitadas por taxa (código de status HTTP 429), o que significa que a solicitação está sendo limitada e, em seguida, verifique a seção [taxa de solicitação muito grande](troubleshoot-request-rate-too-large.md) . 
 
+## <a name="retry-logic"></a>Lógica de repetição <a id="retry-logics"></a>
+Cosmos DB SDK em qualquer falha de e/s tentará repetir a operação com falha se tentar novamente no SDK for viável. Ter uma nova tentativa em vigor para qualquer falha é uma boa prática, mas o tratamento e a repetição de falhas de gravação é necessário. É recomendável usar o SDK mais recente, pois a lógica de repetição está sendo continuamente aprimorada.
+
+1. As falhas de leitura e consulta de e/s serão repetidas pelo SDK sem identificando-las ao usuário final.
+2. As gravações (criar, Upsert, substituir, excluir) são "não" idempotentes e, portanto, o SDK nem sempre pode repetir as operações de gravação com falha. É necessário que a lógica do aplicativo do usuário manipule a falha e tente novamente.
+3. A [disponibilidade do SDK de solução de problemas](troubleshoot-sdk-availability.md) explica as repetições para contas de Cosmos DB de várias regiões.
+
 ## <a name="common-error-status-codes"></a>Códigos de status de erro comuns <a id="error-codes"></a>
 
 | Código de status | Descrição | 
@@ -64,7 +71,7 @@ Verificar as [métricas do portal](./monitor-cosmos-db.md) ajudará a determinar
 | 408 | [Tempo limite da solicitação expirado](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Falha de conflito é quando a ID fornecida para um recurso em uma operação de gravação foi realizada por um recurso existente. Use outra ID para o recurso para resolver esse problema, pois a ID deve ser exclusiva dentro de todos os documentos com o mesmo valor de chave de partição. |
 | 410 | Exceções desexistentes (falha transitória que não deve violar o SLA) |
-| 412 | A falha de pré-condição é onde a operação especificou uma eTag que é diferente da versão disponível no servidor. Erro de simultaneidade otimista. Repita a solicitação depois de ler a versão mais recente do recurso e atualizar o eTag na solicitação.
+| 412 | A falha de pré-condição é onde a operação especificou uma eTag que é diferente da versão disponível no servidor. É um erro de simultaneidade otimista. Repita a solicitação depois de ler a versão mais recente do recurso e atualizar o eTag na solicitação.
 | 413 | [Entidade de solicitação muito grande](concepts-limits.md#per-item-limits) |
 | 429 | [Número excessivo de solicitações](troubleshoot-request-rate-too-large.md) |
 | 449 | Erro transitório que ocorre apenas em operações de gravação e é seguro tentar novamente |
