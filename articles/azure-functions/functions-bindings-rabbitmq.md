@@ -4,22 +4,22 @@ description: Saiba como enviar gatilhos e associações do Azure RabbitMQ no Azu
 author: cachai2
 ms.assetid: ''
 ms.topic: reference
-ms.date: 12/15/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: ebf094ddfec19dac98238adf7d55af785b3df122
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: a38015d9f7560930d77d5d50ac70dca5bcdde6a6
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629622"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97672501"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>RabbitMQ associações para Azure Functions visão geral
 
 > [!NOTE]
 > As associações RabbitMQ só têm suporte total no **Windows Premium e planos dedicados** . Não há suporte para consumo e para Linux no momento.
 
-Azure Functions integra-se com o [RabbitMQ](https://www.rabbitmq.com/) por meio de [gatilhos e associações](./functions-triggers-bindings.md). As extensões de associação do Azure Functions RabbitMQ permitem que você envie e receba mensagens usando a API RabbitMQ com funções.
+Azure Functions integra-se com o [RabbitMQ](https://www.rabbitmq.com/) por meio de [gatilhos e associações](./functions-triggers-bindings.md). A extensão Azure Functions RabbitMQ permite que você envie e receba mensagens usando a API RabbitMQ com funções.
 
 | Ação | Tipo |
 |---------|---------|
