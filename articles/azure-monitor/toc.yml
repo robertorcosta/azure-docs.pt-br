@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novidades
       href: whats-new.md
-- name: Inícios rápidos
+- name: Início rápido
   items:
     - name: Monitorar os recursos do Azure
       href: learn/quick-monitor-azure-resource.md
@@ -546,10 +546,10 @@
           items:
             - name: Conector de Gerenciamento do Serviço de TI
               href: platform/itsmc-overview.md
-            - name: Definição do Conector de Gerenciamento de Serviços de TI
-              href: platform/itsmc-definition.md
             - name: Conexões de Gerenciamento do Serviço de TI
               href: platform/itsmc-connections.md
+            - name: Definição do Conector de Gerenciamento de Serviços de TI
+              href: platform/itsmc-definition.md
             - name: Criar aplicativo Web do Service Manager
               href: platform/itsmc-service-manager-script.md
             - name: Solução de problemas no Conector ITSM

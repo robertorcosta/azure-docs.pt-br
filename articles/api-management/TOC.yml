@@ -8,7 +8,7 @@
       href: api-management-features.md
     - name: Gerenciar os microsserviços implantados no AKS
       href: api-management-kubernetes.md
-- name: Inícios rápidos
+- name: Início rápido
   expanded: true
   items:
     - name: Criar uma instância – CLI
@@ -110,6 +110,8 @@
       items:
         - name: Métrica de capacidade
           href: api-management-capacity.md
+        - name: Planejar e gerenciar custos
+          href: plan-manage-costs.md
         - name: Atualizar e dimensionar
           href: upgrade-and-scale.md
         - name: Configurar dimensionamento automático
