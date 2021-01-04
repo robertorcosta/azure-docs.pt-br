@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: e6afa26c65f097683a5b471dc34621cca38c01e6
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377354"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97679089"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>Tutorial: Publicar várias versões da sua API 
 
@@ -111,4 +111,4 @@ Neste tutorial, você aprendeu a:
 Prosseguir para o próximo tutorial:
 
 > [!div class="nextstepaction"]
-> [Personalizar o estilo das páginas do Portal do desenvolvedor](api-management-customize-styles.md)
+> [Personalizar o estilo das páginas do Portal do desenvolvedor](api-management-howto-developer-portal-customize.md)

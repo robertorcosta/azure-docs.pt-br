@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 0264baf6a8ff107c4a3aa811b9e8639352dca782
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 349a77d2f2cd5e1c492de63919d84efb436a51a3
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301814"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Integração do Active Directory do Azure ao Autotask Endpoint Backup
 
@@ -63,7 +63,7 @@ Para configurar a integração do Autotask Endpoint Backup ao Azure AD, você pr
 
 4. Na caixa de pesquisa, digite **Autotask Endpoint Backup**, selecione **Autotask Endpoint Backup** no painel de resultados e clique no botão **Add** para adicionar o aplicativo.
 
-     ![Autotask Endpoint Backup na lista de resultados](common/search-new-app.png)
+    ![Autotask Endpoint Backup na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 

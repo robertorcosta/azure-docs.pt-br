@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 89ad5c2b973a74bc9fa0f6ca2f59f92a26b666e7
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 2b15389ae35a63c71ac4cb9e167e578e7e1e690e
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891447"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695779"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes sobre o autogerenciamento do Azure para VMs
 
 Este artigo fornece respostas para algumas das perguntas mais comuns sobre o [autogerenciamento do Azure para máquinas virtuais](automanage-virtual-machines.md).
 
-Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azure no [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou postar para [@AzureSupport no Twitter](https://twitter.com/AzureSupport). Você também pode enviar uma solicitação de suporte do Azure. Para enviar uma solicitação de suporte, na [página de suporte do Azure](https://azure.microsoft.com/support/options/), selecione **obter suporte** .
+Se o problema do Azure não for resolvido neste artigo, visite os fóruns do Azure no [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Você pode postar seu problema nesses fóruns ou postar para [@AzureSupport no Twitter](https://twitter.com/AzureSupport). Você também pode enviar uma solicitação de suporte do Azure. Para enviar uma solicitação de suporte, na [página de suporte do Azure](https://azure.microsoft.com/support/options/), selecione **obter suporte**.
 
 
 ## <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
@@ -43,7 +43,7 @@ Se você estiver usando uma nova conta de autogerenciamento ao habilitar o, deve
 
 **Quais regiões têm suporte?**
 
-As VMs nas seguintes regiões têm suporte: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central.
+As VMs nas seguintes regiões têm suporte: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central, leste do Japão.
 
 
 **Quais recursos o Azure autogerenci automatiza?**
@@ -105,7 +105,7 @@ Não, o autogerenci não irá reconfigurá-lo. Começaremos a monitorar os recur
 
 **Por que minha VM tem um status de falha no portal de autogerenciamento?**
 
-Se você vir o status como *com falha* , poderá solucionar problemas de implantação por meio do grupo de recursos em que sua VM está localizada. Vá para **grupos de recursos** , selecione o grupo de recursos, clique em **implantações** e veja o status com *falha* , junto com os detalhes do erro.
+Se você vir o status como *com falha*, poderá solucionar problemas de implantação por meio do grupo de recursos em que sua VM está localizada. Vá para **grupos de recursos**, selecione o grupo de recursos, clique em **implantações** e veja o status com *falha* , junto com os detalhes do erro.
 
 **Como posso obter suporte para a solução de problemas para autogerenciamento?**
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: a7e71f1c146b0e99ffa20cc74546e35e3ff8a5a6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bd7d05225ef0583c8d56804fb2164cfc73ad4a6a
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309098"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673264"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Azure Active Directory ao Adobe Sign
 
@@ -63,7 +63,7 @@ Para configurar a integração do Adobe Sign ao Azure AD, você precisa adiciona
 
 4. Na caixa de pesquisa, digite **Adobe Sign**, selecione **Adobe Sign** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Adobe Sign na lista de resultados](common/search-new-app.png)
+    ![Adobe Sign na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -129,12 +129,12 @@ Para configurar o logon único do Azure AD com o Adobe Sign, realize as etapas a
     a. A equipe de suporte do [ Adobe Sign Client ](https://helpx.adobe.com/in/contact/support.html) envia um token gerado aleatoriamente. Para o seu domínio, o token será como o seguinte: **adobe-sign-verification = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
     b. Publique o token de verificação em um registro de texto DNS e notifique a [ equipe de suporte do Adobe Sign Client ](https://helpx.adobe.com/in/contact/support.html).
-    
+
     > [!NOTE]
     > Isso pode levar alguns dias ou mais. Observe que os atrasos de propagação de DNS significam que um valor publicado no DNS pode não estar visível por uma hora ou mais. Seu administrador de TI deve ter conhecimento sobre como publicar esse token em um registro de texto DNS.
-    
+
     c. Quando você notifica a [ equipe de suporte do Adobe Sign Client ](https://helpx.adobe.com/in/contact/support.html) por meio do ticket de suporte, depois que o token é publicado, ele valida o domínio e o adiciona à sua conta.
-    
+
     d. Geralmente, aqui está como publicar o token em um registro DNS:
 
     * Entre na sua conta de domínio
@@ -146,25 +146,25 @@ Para configurar o logon único do Azure AD com o Adobe Sign, realize as etapas a
 1. Em uma janela diferente do navegador da Web, entre no site da empresa Adobe Sign como administrador.
 
 1. No menu SAML, selecione **Configurações da conta** > **Configurações SAML**.
-   
+
     ![Captura de tela da página Configurações de SAML do Adobe Sign](./media/adobe-echosign-tutorial/ic789520.png "Conta")
 
 1. Na seção **Configuração do SAML**, execute as seguintes etapas:
-  
-   ![Captura de tela que realça as configurações de SAML, incluindo SAML obrigatório.](./media/adobe-echosign-tutorial/ic789521.png "Configurações do SAML")
-   
+
+    ![Captura de tela que realça as configurações de SAML, incluindo SAML obrigatório.](./media/adobe-echosign-tutorial/ic789521.png "Configurações do SAML")
+
    ![Captura de tela das configurações do SAML](./media/adobe-echosign-tutorial/ic789522.png "Configurações do SAML")
 
    a. Em **Modo SAML**, selecione **SAML Obrigatório**.
-   
+
    b. Selecione **Permitir Administradores da Conta Echosign para efetuar login usando suas Credenciais Echosign**.
-   
+
    c. Em **Criação de usuário**, selecione **Adicionar automaticamente usuários autenticados por SAML**.
 
    d. Cole o **Identificador do Azure AD** que você copiou do portal do Azure na caixa de texto **Identidade da entidade do IDP**.
-    
+
    e. Cole a **URL de logon**, copiada do portal do Azure, na caixa de texto **URL de logon do IDP**.
-   
+
    f. Cole a **URL de logoff**, copiada do portal do Azure, na caixa de texto **URL de logoff do IDP**.
 
    g. Abra o arquivo **Certificate (Base64)** baixado no Bloco de Notas. Copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado IdP**.
@@ -188,7 +188,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
     a. No campo **Nome**, insira **BrendaFernandes**.
-  
+
     b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
@@ -232,15 +232,15 @@ Para permitir que os usuários do Azure AD entrem no Adobe Sign, eles devem ser 
 1. Faça login no **site da empresa do Adobe Sign** como administrador.
 
 2. No menu no topo, selecione **Conta**. Em seguida, no painel esquerdo, selecione **Usuários e grupos** > **Crie um novo usuário**.
-   
+
     ![Captura de tela do site da empresa Adobe Sign, com Conta, Usuários e Grupos e Criar usuário realçados](./media/adobe-echosign-tutorial/ic789524.png "Conta")
-   
+
 3. Na seção **Criar Novo Usuário** , realize as seguintes etapas:
-   
+
     ![Captura de tela da seção Criar usuário](./media/adobe-echosign-tutorial/ic789525.png "Criar Usuário")
-   
+
     a. Digite **Endereço de e-mail**, **Nome** e **Sobrenome** de uma conta válida do AD do Azure que você deseja provisionar nas caixas de texto relacionadas.
-   
+
     b. Selecione **Criar usuário**.
 
 >[!NOTE]

@@ -3,12 +3,12 @@ title: Configurar o Azure Red Hat OpenShift v3. x com Azure Monitor para contêi
 description: Este artigo descreve como configurar o monitoramento de um cluster kubernetes com Azure Monitor hospedado no Azure Red Hat OpenShift versão 3 e superior.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 2cd39c13ce7d67b2bfcfaca0a6f627e19d289783
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5141ef3a96d39f16a2a9f005dd580b952046e7bf
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186908"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695665"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurar o Azure Red Hat OpenShift v3 com Azure Monitor para contêineres
 
@@ -153,7 +153,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 5. A etapa a seguir implanta o cluster com monitoramento habilitado usando o CLI do Azure.
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json
     ```
 
     A saída é semelhante ao seguinte:
@@ -235,7 +235,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 6. Para implantar com o CLI do Azure, execute os seguintes comandos:
 
     ```azurecli
-    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
+    az deployment group create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json
     ```
 
     A saída é semelhante ao seguinte:
