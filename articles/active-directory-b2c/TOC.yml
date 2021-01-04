@@ -9,7 +9,7 @@
       href: technical-overview.md
     - name: O que há de novo no Docs?
       href: whats-new-docs.md
-- name: Inícios rápidos
+- name: Início rápido
   expanded: true
   items:
     - name: Configurar entrada - ASP.NET
@@ -155,6 +155,8 @@
           href: identity-provider-github.md
         - name: Google
           href: identity-provider-google.md
+        - name: ID.me
+          href: identity-provider-id-me.md
         - name: LinkedIn
           href: identity-provider-linkedin.md
         - name: Conta da Microsoft
@@ -163,6 +165,8 @@
           href: identity-provider-qq.md
         - name: Salesforce
           href: identity-provider-salesforce.md
+        - name: Salesforce (SAML)
+          href: identity-provider-salesforce-saml.md
         - name: Twitter
           href: identity-provider-twitter.md
         - name: WeChat
@@ -196,6 +200,7 @@
       items:
         - name: Configurar o comportamento da sessão
           href: session-behavior.md
+          displayName: 'SSO, KMSI, Keep me signed in'
         - name: Configurar tokens
           href: configure-tokens.md
     - name: Definir atributos personalizados

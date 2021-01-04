@@ -1,15 +1,15 @@
 ---
 title: Guia de Início Rápido – Executar o primeiro trabalho do Lote com a CLI do Azure
-description: Aprenda rapidamente a criar uma conta do Lote e a executar um trabalho do Lote com a CLI do Azure.
+description: Este guia de início rápido mostra como criar uma conta do Lote e a executar um trabalho em lotes com a CLI do Azure.
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: eb5bb4a627ff26250519651f5e6d47ddd6f5a776
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 297af47b6280381646e654eaededfe8b71a5d874
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562280"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106675"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido: Executar o primeiro trabalho em Lote com a CLI do Azure
 

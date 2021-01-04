@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 774c17af88e45e25cf1e8edc0df60ab55fe53e0e
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95974316"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509454"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
@@ -347,21 +347,23 @@ private async Task DisplayMessageAsync(string message)
 Agora, você precisa registrar seu aplicativo:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-1. Selecione **Azure Active Directory** > **Registros de aplicativo**.
-1. Selecione **Novo registro**. Insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, *Aplicativo-UWP-chamando-MSGraph*.
-1. Em **Tipos de conta compatíveis**, selecione **Contas em qualquer diretório organizacional e contas pessoais Microsoft (por exemplo, Skype, Xbox)** . Em seguida, selecione **Registrar** para continuar.
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo, por exemplo, `UWP-App-calling-MSGraph`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+1. Em **Tipos de conta com suporte**, escolha **Contas em qualquer diretório organizacional (Qualquer diretório do Azure Active Directory – Multilocatário) e contas Microsoft pessoais (por exemplo, Skype, Xbox)** . 
+1. Selecione **Registrar**.
 1. Na página de visão geral, localize o valor da **ID do Aplicativo (cliente)** e copie-o. Volte para o Visual Studio, abra *MainPage.xaml.cs* e substitua o valor de `ClientId` por esse valor.
 
 Configurar a autenticação para o aplicativo:
 
-1. De volta ao [portal do Azure](https://portal.azure.com), em **Gerenciar**, selecione **Autenticação**.
-1. Na seção **URIs de Redirecionamento** | **URIs de redirecionamento sugeridos para clientes públicos (dispositivo móvel, desktop)** , marque https://login.microsoftonline.com/common/oauth2/nativeclient.
-1. Clique em **Salvar**.
+1. De volta ao [portal do Azure](https://portal.azure.com), em **Gerenciar**, selecione **Autenticação** > **Adicionar uma plataforma** e escolha **Aplicativos móveis e da área de trabalho**.
+1. Na seção **URIs de Redirecionamento**, verifique **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. Selecione **Configurar**.
 
 Configurar permissões da API para seu aplicativo:
 
-1. Em **Gerenciar**, selecione **Permissões de API**.
-1. Selecione **Adicionar uma permissão** e verifique se você escolheu **APIs da Microsoft**.
+1. Em **Gerenciar**, selecione **Permissões de API** > **Adicionar uma permissão**.
 1. Selecione **Microsoft Graph**.
 1. Selecione **Permissões delegadas**, pesquise por *User.Read* e verifique se **User.Read** está selecionado.
 1. Se tiver feito alterações, selecione **Adicionar permissões** para salvá-las.

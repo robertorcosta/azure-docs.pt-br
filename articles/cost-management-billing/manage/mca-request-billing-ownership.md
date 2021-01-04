@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/09/2020
 ms.author: banders
-ms.openlocfilehash: 8c3ab3f4f9bc56e9651a98e5c011cad65f21fd9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca55773b2deb74ea0647ed33df4040065762f94a
+ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348970"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96938470"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Obter propriedade de cobrança das assinaturas do Azure de outras contas
 
@@ -22,6 +22,14 @@ Talvez você queira assumir a propriedade das assinaturas do Azure se o propriet
 Este artigo aplica-se a uma conta de cobrança para um Contrato de Cliente da Microsoft. [Verifique se você tem acesso a um Contrato de Cliente da Microsoft](#check-for-access).
 
 Para solicitar a propriedade de cobrança, você deve ser o **proprietário da seção da fatura** ou **colaborador da seção da fatura**. Para saber mais, confira [tarefas de funções da seção da fatura](understand-mca-roles.md#invoice-section-roles-and-tasks).
+
+A pessoa de quem você está solicitando a propriedade da cobrança precisa ter uma das seguintes funções:
+
+- Para um Contrato Enterprise de Cliente da Microsoft, o usuário é um Proprietário de Cobrança.
+- Para um Contrato Enterprise, o usuário precisa ser um Proprietário da Conta.
+- Para uma conta de cobrança do Programa Microsoft Online Services, o usuário precisa ser um Administrador da Conta.
+
+Para obter mais informações, confira [exibir suas contas de cobrança no portal do Azure](view-all-accounts.md).
 
 ## <a name="request-billing-ownership"></a>Solicitar propriedade de cobrança
 
@@ -42,7 +50,7 @@ Para solicitar a propriedade de cobrança, você deve ser o **proprietário da s
 1. Selecione uma seção da fatura na lista. Depois de assumir a propriedade das assinaturas, elas o uso delas será atribuído para essa seção na fatura do perfil de cobrança.
 1. Selecione **Solicitações de transferência** no lado inferior esquerdo e, em seguida, selecione **Adicionar uma nova solicitação**.  
     [![Captura de tela que mostra a seleção de solicitações de transferência](./media/mca-request-billing-ownership/mca-select-transfer-requests.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests.png#lightbox)
-1. Insira o endereço de email do usuário do qual você está solicitando propriedade de cobrança. O usuário precisa ser um Administrador da Conta em uma conta de cobrança do Programa de Serviço Online da Microsoft ou um proprietário da conta em um Contrato Enterprise. Para obter mais informações, confira [exibir suas contas de cobrança no portal do Azure](view-all-accounts.md). Selecione **Enviar solicitação de transferência**.  
+1. Insira o endereço de email do usuário do qual você está solicitando propriedade de cobrança. Selecione **Enviar solicitação de transferência**.  
     [![Captura de tela que mostra o envio de uma solicitação de transferência](./media/mca-request-billing-ownership/mca-send-transfer-requests.png)](./media/mca-request-billing-ownership/mca-send-transfer-requests.png#lightbox)
 1. O usuário recebe um email com instruções para revisar sua solicitação de transferência.  
     ![Captura de tela que mostra o email de análise da solicitação de transferência](./media/mca-request-billing-ownership/mca-review-transfer-request-email.png)
@@ -68,6 +76,7 @@ Para solicitar a propriedade de cobrança, você deve ser o **proprietário da s
 1. Selecione a seção da fatura na lista para a qual a solicitação de transferência foi enviada.
 1. Selecione **Solicitações de transferência** no lado inferior esquerdo. A página Solicitações de transferência exibe as seguintes informações:  
     [![Captura de tela que mostra uma lista de solicitações de transferência](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png)](./media/mca-request-billing-ownership/mca-select-transfer-requests-for-status.png#lightbox)
+
    |Coluna|Definição|
    |---------|---------|
    |Data da solicitação|A data em que a solicitação de transferência foi enviada|

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f621d11553101c2c0bcfce804b26c218ae58670c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: f47ee36c0e7806afc10f8f0907825378c2d24410
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576461"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505538"
 ---
 # <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
 
@@ -69,7 +69,7 @@ A tabela a seguir representa o conjunto de navegadores e versões com suporte di
 
 *Observe há suporte para a versão mais recente do Chrome, além das duas versões anteriores.<br/>
 
-**Observe que há suporte para as versões posteriores à 13.1 do Safari. Ainda não há suporte para vídeo de saída para o Safari no macOS, mas há suporte no iOS. Só há suporte para o compartilhamento de tela de saída no iOS desktop.
+**Observe que há suporte para as versões posteriores à 13.1 do Safari. Ainda não há suporte para vídeo de saída para o Safari no macOS, mas há suporte no iOS. Só há suporte para o compartilhamento de tela de saída no iOS desktop. Atualmente, não estão disponíveis chamadas individuais e em grupo no Safari.
 
 ## <a name="calling-client---browser-security-model"></a>Cliente chamador – modelo de segurança do navegador
 
@@ -90,6 +90,15 @@ Por exemplo, esse iframe permite o acesso à câmera e ao microfone:
 ```html
 <iframe allow="camera *; microphone *">
 ```
+
+## <a name="calling-client-library-streaming-support"></a>Como chamar o suporte de streaming da biblioteca de clientes
+A biblioteca de clientes de chamada dos Serviços de Comunicação dá suporte às seguintes configurações de streaming:
+
+|           |Web | Android/iOS|
+|-----------|----|------------|
+|Nº de fluxos de saída que podem ser enviados simultaneamente |1 vídeo + 1 compartilhamento de tela | 1 vídeo + 1 compartilhamento de tela|
+|Nº de fluxos de entrada que podem ser renderizados simultaneamente |1 vídeo + 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

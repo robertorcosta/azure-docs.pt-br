@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Treinamento do modelo de machine learning usando AutoML'
-description: Tutorial sobre como treinar um modelo de machine learning no Azure Synapse usando o AutoML.
+title: 'Tutorial: Treinar um modelo usando o ML automatizado'
+description: Tutorial sobre como treinar um modelo de machine learning sem código no Azure Synapse usando o Apache Spark e o ML automatizado.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,21 +9,21 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 8dd99b60a548e3c392bbe468ddde484081e6eb8b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4967d5305b4b438f3baa6fca078d7b3169612590
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463386"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97093393"
 ---
-# <a name="tutorial-code-free-machine-learning-model-training-in-azure-synapse-with-automl-preview"></a>Tutorial: Treinamento de modelo de machine learning sem código no Azure Synapse com o AutoML (versão prévia)
+# <a name="tutorial-train-a-machine-learning-model-code-free-in-azure-synapse-with-apache-spark-and-automated-ml"></a>Tutorial: Treinar um modelo de machine learning sem código no Azure Synapse com o Apache Spark e o ML automatizado
 
-Saiba como enriquecer facilmente seus dados em tabelas do Spark com novos modelos de machine learning que você treinar usando o [AutoML no Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  Um usuário no Synapse pode simplesmente selecionar uma tabela do Spark no workspace do Azure Synapse para ser usada como um conjunto de dados de treinamento para criar modelos de machine learning em uma experiência de código livre.
+Saiba como enriquecer facilmente seus dados em tabelas do Spark com novos modelos de machine learning que você treinar usando o [ML automatizado no Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml).  Um usuário no Azure Synapse pode simplesmente selecionar uma tabela do Spark no workspace do Azure Synapse para ser usada como um conjunto de dados de treinamento para criar modelos de machine learning em uma experiência sem código.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> - Treinar modelos de machine learning usando uma experiência sem código no estúdio do Azure Synapse que usa ML automatizado no Azure ML. O tipo de modelo que você treina depende do problema que está tentando resolver.
+> - Treinar modelos de machine learning usando uma experiência sem código no Azure Synapse Studio que usa ML automatizado no Azure Machine Learning. O tipo de modelo que você treina depende do problema que está tentando resolver.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
 
@@ -52,24 +52,24 @@ Você precisará de uma tabela do Spark para este tutorial. O notebook a seguir 
 1. Depois que a execução do notebook for concluída, uma tabela do Spark será criada no banco de dados do Spark padrão. Acesse o Hub de Dados e localize a tabela com o nome `nyc_taxi`.
 ![Tabela do Spark](media/tutorial-automl-wizard/tutorial-automl-wizard-00c.png)
 
-## <a name="launch-automl-wizard-to-train-a-model"></a>Iniciar o assistente do AutoML para treinar um modelo
+## <a name="launch-automated-ml-wizard-to-train-a-model"></a>Iniciar o assistente de ML automatizado para treinar um modelo
 
 Clique com o botão direito do mouse na tabela do Spark criada na etapa anterior. Selecione "Machine Learning -> Enriquecer com o novo modelo" para abrir o assistente.
-![Iniciar o assistente do AutoML](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+![Iniciar o assistente de ML automatizado](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
-Um painel de configuração será exibido e você deverá fornecer detalhes de configuração para a criação de um experimento AutoML executado no Azure Machine Learning. Essa execução treinará vários modelos e o melhor modelo de uma execução bem-sucedida será colocado no Registro de modelo do Azure ML:
+Um painel de configuração será exibido e você deverá fornecer detalhes de configuração para a criação de um experimento de ML automatizado executado no Azure Machine Learning. Essa execução treinará vários modelos e o melhor modelo de uma execução bem-sucedida será colocado no Registro de modelo do Azure Machine Learning:
 
 ![Etapa 1 de Configurar a execução](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00a.png)
 
-- **Workspace do Azure ML**: E necessário um Workspace do Azure ML para a criação de uma execução de experimento de AutoML. Você também precisa vincular seu workspace do Azure Synapse ao Workspace do Azure ML usando um [serviço vinculado](quickstart-integrate-azure-machine-learning.md). Depois de ter todos os pré-requisitos, você poderá especificar o Workspace do Azure ML que deseja usar para essa execução de AutoML.
+- **Workspace do Azure Machine Learning**: é necessário um Workspace do Azure Machine Learning para a criação de uma execução de experimento de ML automatizado. Você também precisa vincular seu workspace do Azure Synapse ao Workspace do Azure Machine Learning usando um [serviço vinculado](quickstart-integrate-azure-machine-learning.md). Depois de ter todos os pré-requisitos, você poderá especificar o Workspace do Azure Machine Learning que deseja usar para essa execução de ML automatizado.
 
-- **Nome do experimento**: especifique o nome do experimento. Quando você envia uma execução de AutoML, você pode fornecer um nome de experimento. As informações da execução são armazenadas nesse experimento no Workspace do Azure ML. Essa experiência criará um experimento por padrão e gerará um nome proposto, mas você também poderá fornecer um nome de um experimento existente.
+- **Nome do experimento**: especifique o nome do experimento. Quando você envia uma execução de ML automatizado, você pode fornecer um nome de experimento. As informações da execução são armazenadas nesse experimento no Workspace do Azure Machine Learning. Essa experiência criará um experimento por padrão e gerará um nome proposto, mas você também poderá fornecer um nome de um experimento existente.
 
-- **Melhor modelo**: especifique o nome do melhor modelo com base na execução de AutoML. O melhor modelo receberá esse nome e será salvo no Registro de modelo do Azure ML automaticamente após essa execução. Uma execução do AutoML criará muitos modelos de machine learning. Com base na métrica primária que você selecionará em uma etapa posterior, esses modelos podem ser comparados e o melhor modelo pode ser selecionado.
+- **Melhor modelo**: especifique o nome do melhor modelo com base na execução de ML automatizado. O melhor modelo receberá esse nome e será salvo no Registro de modelo do Azure Machine Learning automaticamente após essa execução. Uma execução de ML automatizado criará muitos modelos de machine learning. Com base na métrica primária que você selecionará em uma etapa posterior, esses modelos podem ser comparados e o melhor modelo pode ser selecionado.
 
 - **Coluna de destino**: isso é o que o modelo é treinado para prever. Escolha a coluna que você deseja prever.
 
-- **Pool do Spark**: o Pool do Spark que você deseja usar para a execução do experimento de AutoML. Os cálculos serão executados no pool que você especificar.
+- **Pool do Spark**: o Pool do Spark que você deseja usar para a execução de experimento de ML automatizado. Os cálculos serão executados no pool que você especificar.
 
 - **Detalhes de configuração do Spark**: além do Pool do Spark, você também tem a opção de fornecer detalhes de configuração de sessão.
 
@@ -89,39 +89,39 @@ Clique em "Continuar" para configurar as definições adicionais.
 
 Se você selecionar o tipo *Classificação* ou *Regressão*, as configurações adicionais serão:
 
-- **Métrica principal**: a métrica usada para medir o desempenho do modelo. Essa é a métrica que será usada para comparar modelos diferentes criados na execução de AutoML e determinar qual modelo teve melhor desempenho.
+- **Métrica principal**: a métrica usada para medir o desempenho do modelo. Essa é a métrica que será usada para comparar modelos diferentes criados na execução de ML automatizado e determinar qual modelo teve melhor desempenho.
 
 - **Tempo do trabalho de treinamento (horas)** : o período máximo de tempo, em horas, para que um experimento execute e treine modelos. Observe que você também pode fornecer valores menores que 1. Por exemplo, `0.5`.
 
 - **Máximo de iterações simultâneas**: representa o número máximo de iterações que seriam executadas em paralelo.
 
-- **Compatibilidade de modelo de ONNX**: se habilitada, os modelos treinados pelo AutoML serão convertidos no formato ONNX. Isso será particularmente relevante se você quiser usar o modelo para pontuação em pools de SQL do Azure Synapse.
+- **Compatibilidade de modelo de ONNX**: se habilitado, os modelos treinados pelo ML automatizado serão convertidos no formato ONNX. Isso será particularmente relevante se você quiser usar o modelo para pontuação em pools de SQL do Azure Synapse.
 
 Todas essas configurações têm um valor padrão que você pode personalizar.
 ![configurações adicionais](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
 
-> Observe que se você selecionar "Previsão de série temporal", haverá mais configurações necessárias. A previsão também não dá suporte à compatibilidade de modelo ONNX.
+> Observe que, se você selecionar "Previsão de série temporal", haverá mais configurações necessárias. A previsão também não dá suporte à compatibilidade de modelo ONNX.
 
-Depois que todas as configurações necessárias forem concluídas, você poderá iniciar a execução de AutoML.
+Depois que todas as configurações necessárias forem concluídas, você poderá iniciar a execução de ML automatizado.
 
-Há duas maneiras de iniciar uma execução de AutoML no Azure Synapse. Para obter uma experiência sem código, você pode optar por **Criar execução** diretamente. Se você preferir o código, poderá selecionar **Abrir no notebook**, que permite ver o código que cria a execução e executar o notebook.
+Há duas maneiras de iniciar uma execução de ML automatizado no Azure Synapse. Para obter uma experiência sem código, você pode optar por **Criar a execução** diretamente. Se você preferir o código, poderá selecionar **Abrir no notebook**, que permite ver o código que cria a execução e executar o notebook.
 
 ### <a name="create-run-directly"></a>Criar Execução diretamente
 
-Clique em "Iniciar Execução" para iniciar a execução de AutoML diretamente. Haverá uma notificação que indica que a execução de AutoML está sendo iniciada.
+Clique em "Iniciar Execução" para iniciar a execução de ML automatizado diretamente. Haverá uma notificação que indica que a execução de ML automatizado está sendo iniciada.
 
-Depois que a execução de AutoML for iniciada com êxito, você verá outra notificação com êxito. Você também pode clicar no botão de notificação para verificar o estado do envio de execução.
-O Azure ML clicando no link na notificação de êxito.
+Depois que a execução de ML automatizado for iniciada com êxito, você verá outra notificação com êxito. Você também pode clicar no botão de notificação para verificar o estado do envio de execução.
+O Azure Machine Learning clicando no link na notificação de êxito.
 ![Notificações de êxito](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00d.png)
 
 ### <a name="create-run-with-notebook"></a>Criar execução com notebook
 
 Selecione *Abrir no Notebook* para gerar um notebook. Clique em *Executar tudo* para executar o notebook.
-Isso também dá a oportunidade de adicionar configurações adicionais à sua execução de AutoML.
+Isso também dá a oportunidade de adicionar configurações adicionais à sua execução de ML automatizado.
 
 ![Abrir Notebook](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
 
-Depois que a execução do notebook tiver sido enviada com êxito, haverá um link para a execução do experimento no Workspace do Azure ML na saída do notebook. Você pode clicar no link para monitorar sua execução de AutoML no Azure ML.
+Depois que a execução do notebook tiver sido enviada com êxito, haverá um link para a execução do experimento no Workspace do Azure Machine Learning na saída do notebook. Você pode clicar no link para monitorar sua execução de ML automatizado no Azure Machine Learning.
 ![Executar tudo do notebook](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00f.png)
 
 ## <a name="next-steps"></a>Próximas etapas

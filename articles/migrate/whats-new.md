@@ -1,22 +1,25 @@
 ---
 title: Novidades nas Migrações para Azure
 description: Conheça as novidades e as atualizações recentes no serviço Migrações para Azure.
-author: bsiva
-ms.author: bsiva
-ms.manager: abhemraj
 ms.topic: overview
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: e39b8f7ee7b76a1955e02a7140524f812be086b5
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 7ff9d9c6624016d4b1ea94072d52de1c42d73913
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752440"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400464"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades nas Migrações para Azure
 
 As [Migrações para Azure](migrate-services-overview.md) ajudam a descobrir, avaliar e migrar servidores, aplicativos e dados para a nuvem do Microsoft Azure. Este artigo resume novas versões e novos recursos nas Migrações para Azure.
+## <a name="update-december-2020"></a>Atualização (dezembro de 2020)
+- As Migrações para Azure já instalam automaticamente o agente de VM do Azure nas VMs do VMware durante a migração delas para o Azure usando o método sem agente de migração do VMware.
+- A migração de VMs do VMware para máquinas virtuais do Azure com discos criptografados usando a SSE (criptografia do lado do servidor) com CMK (chaves gerenciadas pelo cliente) e usando a Migração de Servidor das Migrações para Azure (replicação sem agente) já está disponível por meio do portal do Azure.
 
 ## <a name="update-september-2020"></a>Atualização (setembro de 2020)
 - Agora há suporte para a migração de servidores para as Zonas de Disponibilidade.
@@ -25,7 +28,7 @@ As [Migrações para Azure](migrate-services-overview.md) ajudam a descobrir, av
 - A análise de dependência (sem agente) agora pode ser executada simultaneamente em mil VMs.
 - A análise de dependência (sem agente) agora pode ser habilitada ou desabilitada em escala por meio de scripts do PowerShell. [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Visualize as conexões de rede no Power BI usando os dados coletados usando a análise de dependência (sem agente) [Saiba mais.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
-- Agora há suporte para a migração de VMs VMware com tamanho de disco de dados de até 32 TB usando o Migrações para Azure: Método de migração VMware sem agente de migração de servidor. 
+- Agora há suporte para a migração de VMs VMware com tamanho de disco de dados de até 32 TB usando o Migrações para Azure: Método de migração VMware sem agente de migração de servidor.
 
 ## <a name="update-august-2020"></a>Atualização (agosto de 2020)
 

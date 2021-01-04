@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: aa0a001f9c35202939eeb4a7752803b998a3acf7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e85e433e1b1b31470fc8d7dee24353fd719b64e2
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562008"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97031174"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Início Rápido: Proteger uma API Web ASP.NET Core com a plataforma de identidade da Microsoft
 
@@ -38,12 +38,10 @@ Neste guia de início rápido, você baixará um exemplo de código da API Web A
 > 1. Entre no [portal do Azure](https://portal.azure.com).
 > 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 > 1. Pesquise **Azure Active Directory** e selecione-o.
-> 1. Em **Gerenciar**, selecione **Registros de aplicativo** e **Novo registro**.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
 > 1. Insira um **Nome** para seu aplicativo, por exemplo, `AspNetCoreWebApi-Quickstart`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
 > 1. Selecione **Registrar**.
-> 1. Em **Gerenciar**, selecione **Expor uma API**
-> 1. Selecione **Adicionar um escopo** e **Salvar e continuar** para aceitar o **URI da ID do Aplicativo** padrão.
-> 1. No painel **Adicionar um escopo**, insira os seguintes valores:
+> 1. Em **Gerenciar**, selecione **Expor uma API** > **Adicionar um escopo**. Aceite o **URI da ID do Aplicativo** padrão selecionando **Salvar e continuar** e insira os seguintes detalhes:
 >    - **Nome do escopo**: `access_as_user`
 >    - **Quem pode consentir?** : **Administradores e usuários**
 >    - **Nome de exibição de consentimento do administrador**: `Access AspNetCoreWebApi-Quickstart`

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1e289d094bba8d4336b83a7970e281247e9f4131
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8e3f0435d9856d2b602a4f2b6f604aee05e040ba
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007283"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97505198"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao armazenamento de Blobs do Azure
 
@@ -57,7 +57,7 @@ O Armazenamento do Azure dá suporte a três tipos de blobs:
 
 - Os **blobs de blocos** armazenam dados de texto e binários. Blobs de bloco são compostos de blocos de dados que podem ser gerenciados individualmente. Os blobs de blocos armazenam até cerca de 4,75 TiB de dados. Blobs de blocos maiores estão disponíveis em versão prévia, com até cerca de 190,7 TiB
 - **Blobs de acréscimo** são compostos de blocos, como blobs de blocos, mas são otimizados para operações de acréscimo. Blobs de acréscimo são ideais para cenários como o registro de dados das máquinas virtuais.
-- **Blobs de Páginas** armazenam arquivos de acesso aleatório de até 8 TB. Os blobs de página armazenam arquivos de VHD (disco rígido virtual) e servem como discos para máquinas virtuais do Azure. Para saber mais sobre blobs de páginas, confira [Visão geral dos blobs de páginas do Azure](storage-blob-pageblob-overview.md)
+- Os **blobs de páginas** armazenam arquivos de acesso aleatório de até 8 TiB. Os blobs de página armazenam arquivos de VHD (disco rígido virtual) e servem como discos para máquinas virtuais do Azure. Para saber mais sobre blobs de páginas, confira [Visão geral dos blobs de páginas do Azure](storage-blob-pageblob-overview.md)
 
 Para obter mais informações sobre os diferentes tipos de blobs, confira [Compreendendo os Blobs de Blocos, Blobs de Acréscimo e Blobs de Página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

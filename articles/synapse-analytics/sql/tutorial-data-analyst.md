@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b2d4953b3a42c5d66fca4a67b4a6d0f13700a35
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d37597f8667c461e8d61f8214483f57eb702c2a0
+ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459131"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97007544"
 ---
 # <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>Tutorial: Explorar e analisar data lakes com o pool de SQL sem servidor
 
@@ -38,8 +38,8 @@ SELECT TOP 100 * FROM
 
 O [conjunto de dados de táxi de NYC (Nova York)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) inclui:
 
-- Datas e horas de início e término de corrida.
-- Localizações de início e término de corrida. 
+- Datas e horas da retirada e entrega.
+- Localizações da retirada e entrega. 
 - Distâncias das viagens.
 - Tarifas discriminadas.
 - Tipos de taxa.

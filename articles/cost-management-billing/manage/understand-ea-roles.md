@@ -1,24 +1,24 @@
 ---
-title: Noções básicas das funções de administrador do Enterprise no Azure
+title: Noções básicas sobre as funções de administrador do EA (Contratos Enterprise) no Azure
 description: Aprenda sobre as funções de administrador corporativo no Azure. Você pode atribuir cinco funções administrativas distintas.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 12/10/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: e8420f68fba40ddb61d06770f9f5bc2fafe5616a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409188"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560518"
 ---
-# <a name="managing-azure-enterprise-roles"></a>Gerenciando funções do Azure Enterprise
+# <a name="managing-azure-enterprise-agreement-roles"></a>Como gerenciar funções do Contrato Enterprise do Azure
 
-Para ajudar a gerenciar o uso e o gasto de sua organização, os clientes do Azure com um Contrato Enterprise (EA) podem atribuir cinco funções administrativas distintas:
+Para ajudar a gerenciar o uso e os gastos da sua organização, os clientes do Azure com um Contrato Enterprise podem atribuir cinco funções administrativas distintas:
 
 - Administrador corporativo
 - Administrador corporativo (somente leitura)<sup>1</sup>
@@ -82,6 +82,8 @@ Os usuários com essa função têm o nível mais alto de acesso. Eles podem:
 - Gerenciar contatos de notificação.
 - Exibir o uso em todas as contas.
 - Exibir encargos não cobrados em todas as contas.
+- Ver e gerenciar todos os pedidos de reserva e as reservas que se aplicam ao Contrato Enterprise.
+  - O administrador corporativo (somente leitura) pode ver os pedidos de reserva e as reservas. Eles não podem gerenciá-los.
 
 Você pode ter vários administradores corporativos em um Registro Enterprise. Você pode permitir acesso somente leitura a administradores corporativos. Todos eles herdam a função de administrador do departamento.
 

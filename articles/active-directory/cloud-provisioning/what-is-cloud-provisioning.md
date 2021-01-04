@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 12/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9433945ffe1181b62ee193baf1c2dd0b89ec14c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0acef468aa53e456cd6fb416fe45558aee064699
+ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856799"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97355810"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>O que é o provisionamento em nuvem do Azure AD Connect?
 O provisionamento em nuvem do Azure AD Connect é um novo agente da Microsoft projetado para atender e atingir suas metas de identidade híbrida para a sincronização de usuários, grupos e contatos com o Azure AD.  Ele pode ser usado junto com a sincronização do Azure AD Connect e oferece os seguintes benefícios:
@@ -72,6 +72,7 @@ A tabela a seguir fornece uma comparação entre o Azure AD Connect e o provisio
 | Suporte ao Azure AD Domain Services|● | |
 | [Write-back híbrido do Exchange](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Suporte para mais de 50 mil objetos por domínio do AD |● | |
+| Referências entre domínios|● | |
 
 ## <a name="next-steps"></a>Próximas etapas 
 

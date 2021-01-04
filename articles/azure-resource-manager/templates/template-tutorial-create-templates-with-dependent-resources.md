@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a43fa12e72484e97b828648cd7d610f5cf15ea4e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d1e5848e568f42fb8a77c65c775962f27a5a03df
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931581"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588029"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutorial: Criar modelos do ARM com recursos dependentes
 
@@ -46,7 +46,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste tutorial é chamado [Implantar uma VM Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
-1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
+1. No Visual Studio Code, escolha **Arquivo** > **Abrir Arquivo**.
 2. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
@@ -54,18 +54,18 @@ Modelos de Início Rápido do Azure é um repositório de modelos do ARM. Em vez
     ```
 
 3. Escolha **Abrir** para abrir o arquivo.
-4. Selecione **Arquivo**>**Salvar como** para salvar uma cópia do arquivo no computador local com o nome **azuredeploy.json**.
+4. Selecione **Arquivo** > **Salvar como** para salvar uma cópia do arquivo no computador local com o nome _azuredeploy.json_.
 
 ## <a name="explore-the-template"></a>Explorar o modelo
 
 Ao explorar o modelo nesta seção, tente responder a essas perguntas:
 
 * Quantos recursos do Azure estão definidos nesse modelo?
-* Um dos recursos é uma conta de armazenamento do Azure.  A definição se parece com a usada no último tutorial?
+* Um dos recursos é uma conta de armazenamento do Azure. A definição se parece com a usada no último tutorial?
 * Você consegue encontrar as referências de modelo para os recursos definidos neste modelo?
 * Você consegue encontrar as dependências dos recursos?
 
-1. No Visual Studio Code, recolha os elementos até ver apenas os elementos de primeiro nível e os elementos de segundo nível dentro dos **recursos**:
+1. No Visual Studio Code, recolha os elementos até ver apenas os elementos de primeiro nível e os elementos de segundo nível dentro dos `resources`:
 
     ![Modelos do ARM no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
@@ -78,7 +78,7 @@ Ao explorar o modelo nesta seção, tente responder a essas perguntas:
    * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
    * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
-     É útil examinar a referência do modelo antes de personalizar um modelo.
+     É útil examinar a referência do modelo antes de personalizá-lo.
 
 1. Expanda o primeiro recurso. Trata-se de uma conta de armazenamento. Compare a definição de recurso com a [referência de modelo](/azure/templates/Microsoft.Storage/storageAccounts).
 
@@ -96,7 +96,7 @@ Ao explorar o modelo nesta seção, tente responder a essas perguntas:
 
     ![Elemento dependsOn da rede virtual dos modelos do ARM no Visual Studio Code](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-virtual-network-definition.png)
 
-    O elemento dependsOn permite definir um recurso como dependente de um ou mais recursos. O recurso depende de um outro recurso:
+    O elemento `dependsOn` permite definir um recurso como dependente de um ou mais recursos. O recurso depende de um outro recurso:
 
     * `Microsoft.Network/networkSecurityGroups`
 
@@ -124,7 +124,7 @@ Ao especificar as dependências, o Gerenciador de Recursos implanta a solução 
 
     ![Carregar arquivo do Cloud Shell no portal do Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior. Selecione o arquivo que você salvou anteriormente. Após carregar o arquivo, você pode usar o comando **ls** e o comando **cat** para verificar se o arquivo foi carregado com êxito.
+1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior. Selecione o arquivo que você salvou anteriormente. Depois de carregar o arquivo, use os comandos `ls` e `cat` para verificar se o arquivo foi carregado com êxito.
 
 1. Execute o script do PowerShell a seguir para implantar o modelo.
 

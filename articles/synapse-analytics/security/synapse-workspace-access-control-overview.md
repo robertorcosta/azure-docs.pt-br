@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 36c4ce34d6b0c4df119d5531cda725605cfd0bc1
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 256fec97819cde0f6f62d59b34416c92e1edfd20
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523709"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109599"
 ---
 # <a name="synapse-access-control"></a>Controle de acesso do Azure Synapse 
 
@@ -34,14 +34,14 @@ O controle de acesso pode ser simplificado com o uso de grupos de segurança ali
 
 ## <a name="access-control-elements"></a>Elementos de controle de acesso
 
-### <a name="creating-and-managing-synapse-resources"></a>Como criar e gerenciar recursos do Azure Synapse
+### <a name="creating-and-managing-synapse-compute-resources"></a>Criar e gerenciar recursos de computação do Azure Synapse
 
 As funções do Azure são usadas para controlar o gerenciamento de: 
 - Pools de SQL dedicados, 
 - Pools do Apache Spark e 
 - Runtimes de integração. 
 
-Para criar esses recursos, você precisa ser proprietário ou colaborador do Azure no grupo de recursos.  Para gerenciá-los, você precisa ser um proprietário ou colaborador do Azure no grupo de recursos ou nos recursos individuais. 
+Para *criar* esses recursos, você precisa ser Proprietário ou Colaborador do Azure no grupo de recursos.  Para *gerenciá-los* depois de criados, você precisa ser um Proprietário ou Colaborador do Azure no grupo de recursos ou nos recursos individuais. 
 
 ### <a name="developing-and-executing-code-in-synapse"></a>Como desenvolver e executar código no Azure Synapse 
 
@@ -82,7 +82,7 @@ Confira [Como configurar o Controle de Acesso do Azure Synapse](./how-to-set-up-
 
  ### <a name="accessing-system-managed-data-in-storage"></a>Como acessar dados gerenciados pelo sistema no armazenamento
 
-Os pools de SQL sem servidor e as tabelas do Apache Spark armazenam os dados deles em um contêiner do ADLS Gen2 associado ao workspace.  Os usuários e o MSI do workspace precisam receber acesso de Colaborador de Dados do Blob de Armazenamento a esse contêiner de armazenamento do ADLS Gen2.  
+Pools de SQL sem servidor e tabelas do Apache Spark armazenam os dados deles em um contêiner ADLS Gen2 associado ao workspace. As bibliotecas do Apache Spark instaladas pelo usuário também são gerenciadas na mesma conta de armazenamento.  Para habilitar esses casos de uso, os usuários e o MSI do workspace precisam receber acesso de **Colaborador de Dados do Blob de Armazenamento** a esse contêiner de armazenamento do ADLS Gen2 do workspace.  
 
 ## <a name="using-security-groups-as-a-best-practice"></a>Como usar grupos de segurança como uma melhor prática
 

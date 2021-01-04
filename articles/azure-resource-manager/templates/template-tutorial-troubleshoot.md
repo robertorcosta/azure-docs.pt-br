@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7a44edc7cd09709f14415fa0a92e63558001d46d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 31c4e6383b5eaea2bb66dc1baafa0fbff4918a7c
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928521"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97589110"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Tutorial: Solucionar problemas de implantações do modelo do ARM
 
@@ -43,7 +43,7 @@ Para concluir este artigo, você precisa do seguinte:
 
 Abra um modelo chamado [Criar uma conta de armazenamento Standard](https://azure.microsoft.com/resources/templates/101-storage-account-create/) em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/) e configure dois problemas de modelo.
 
-1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
+1. No Visual Studio Code, escolha **Arquivo** > **Abrir Arquivo**.
 2. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
@@ -51,16 +51,16 @@ Abra um modelo chamado [Criar uma conta de armazenamento Standard](https://azure
     ```
 
 3. Escolha **Abrir** para abrir o arquivo.
-4. Altere a linha **apiVersion** para a seguinte linha:
+4. Altere a linha `apiVersion` para a seguinte linha:
 
     ```json
     "apiVersion1": "2018-07-02",
     ```
 
-    - **apiVersion1** é o nome de elemento inválido. Esse é um erro de validação.
-    - A versão da API deverá ser "2018-07-01".  Esse é um erro de implantação.
+    - `apiVersion1` é um nome de elemento inválido. Esse é um erro de validação.
+    - A versão da API deverá ser `"2018-07-01"`.  Esse é um erro de implantação.
 
-5. Escolha **Arquivo**>**Salvar como** para salvar o arquivo como **azuredeploy.json** em seu computador local.
+5. Escolha **Arquivo** > **Salvar como** para salvar o arquivo como _azuredeploy.json_ em seu computador local.
 
 ## <a name="troubleshoot-the-validation-error"></a>Solucionar o erro de validação
 
@@ -68,13 +68,13 @@ Consulte a seção [Implantar o modelo](template-tutorial-create-multiple-instan
 
 Você deverá receber um erro do shell semelhante a:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:29:24 PM - Error: Code=InvalidRequestContent; Message=The request content was invalid and could not be deserialized: 'Could not find member 'apiVersion1' on object of type 'TemplateResource'. Path 'properties.template.resources[0].apiVersion1', line 36, position 24.'.
 ```
 
-A mensagem de erro indica que o problema ocorre na **apiVersion1**.
+A mensagem de erro indica que o problema ocorre na `apiVersion1`.
 
-Use o Visual Studio Code para corrigir o problema alterando **apiVersion1** para **apiVersion** e, em seguida, salve o modelo.
+Use o Visual Studio Code para corrigir o problema alterando `apiVersion1` para `apiVersion` e, em seguida, salve o modelo.
 
 ## <a name="troubleshoot-the-deployment-error"></a>Solucionar o erro de implantação
 
@@ -82,7 +82,7 @@ Consulte a seção [Implantar o modelo](template-tutorial-create-multiple-instan
 
 Você deverá receber um erro do shell semelhante a:
 
-```
+```azurepowershell
 New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageAccounts 'storeqii7x2rce77dc' failed with message '{
   "error": {
     "code": "NoRegisteredProviderFound",

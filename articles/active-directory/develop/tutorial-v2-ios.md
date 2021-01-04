@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: aff89d49dec9bafedb3c9a5a76abdeb803740a12
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: f04a8aa96b51ac9330e4302c3afcc48f7d305b39
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95746720"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97507703"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Tutorial: Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -71,16 +71,17 @@ Se quiser baixar uma versão completa do aplicativo criado neste tutorial, você
 
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
-1. Vá para o [Portal do Azure](https://aka.ms/MobileAppReg)
-2. Abra a folha Registros de aplicativo e selecione **+Novo registro**.
-3. Insira um **Nome** para seu aplicativo e, em seguida, sem definir um URI de Redirecionamento.
-4. Selecione **Contas em qualquer diretório organizacional (Qualquer diretório do Azure AD – Multilocatário) e contas pessoais Microsoft (por exemplo, Skype, Xbox)** em **Tipos de contas com suporte**
-5. Escolha **Registrar**
-6. Na seção **Gerenciar** do painel exibido, selecione **Autenticação**.
-
-7. Selecione **Experimentar a nova experiência** próximo à parte superior da tela para abrir a nova experiência de registro de aplicativo e selecione **+ Novo registro** >  **+ Adicionar uma plataforma** > **iOS/macOS**.
-    - Insira a ID do Pacote do seu projeto. Se você baixou o código, ele é `com.microsoft.identitysample.MSALiOS`. Se estiver criando seu próprio projeto, selecione seu projeto no Xcode e abra a guia **Geral**. O identificador do pacote será exibido na seção **Identidade**.
-8. Selecione `Configure` e salve a **Configuração da MSAL** exibida na página **Configuração da MSAL** para que você possa inseri-la quando configurar o aplicativo mais tarde. Selecione **Concluído**.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+1. Selecione **Contas em qualquer diretório organizacional (Qualquer diretório do Azure AD – Multilocatário) e contas pessoais Microsoft (por exemplo, Skype, Xbox)** em **Tipos de contas com suporte**.
+1. Selecione **Registrar**.
+1. Em **Gerenciar**, selecione **Autenticação** > **Adicionar uma plataforma** > **iOS/macOS**.
+1. Insira a ID do Pacote do seu projeto. Se você baixou o código, ele é `com.microsoft.identitysample.MSALiOS`. Se estiver criando seu próprio projeto, selecione seu projeto no Xcode e abra a guia **Geral**. O identificador do pacote será exibido na seção **Identidade**.
+1. Selecione **Configurar** e salve a **Configuração da MSAL** exibida na página **Configuração da MSAL**, de modo que você possa inseri-la quando configurar o aplicativo mais tarde. 
+1. Selecione **Concluído**.
 
 ## <a name="add-msal"></a>Adicionar MSAL
 
@@ -520,7 +521,7 @@ O snippet de código a seguir obtém um token pela primeira vez criando um objet
 
 1. Cria `MSALInteractiveTokenParameters` com escopos.
 2. Chama `acquireToken()` com os parâmetros criados.
-3. Trata os erros. Para obter mais detalhes, confira o [Guia de tratamento de erro da MSAL para iOS e macOS](msal-handling-exceptions.md).
+3. Trata os erros. Para obter mais detalhes, confira o [Guia de tratamento de erro da MSAL para iOS e macOS](msal-error-handling-ios.md).
 4. Trata o caso de sucesso.
 
 Adicione o código a seguir à classe `ViewController` .

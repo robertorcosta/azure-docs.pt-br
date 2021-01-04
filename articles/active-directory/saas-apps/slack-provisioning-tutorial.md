@@ -174,7 +174,7 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
   
   * As pontuações permitidas são pontos, sublinhados, hifens, apóstrofos, colchetes (por exemplo, **( [ { } ] )**) e separadores (por exemplo, **, /;**).
   
-  * A propriedade displayName não pode ter um caractere '@'. Se um '@' for incluído, você poderá encontrar um evento ignorado nos logs de provisionamento com a descrição "AttributeValidationFailed".
+  * A propriedade displayName não pode ter um caractere '\@'. Se um '\@' for incluído, você poderá encontrar um evento ignorado nos logs de provisionamento com a descrição "AttributeValidationFailed".
 
   * Apenas atualiza se essas duas configurações estiverem configuradas no local de trabalho / organização do Slack - **A sincronização de perfil está ativada** e **Os usuários não podem alterar seu nome de exibição**.
 

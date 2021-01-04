@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d105ad4c2aff03dae52b340037e4c193bf82ca1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 92fdef48556a3306ee5e3f10e07ff609a8fc4be4
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608428"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656216"
 ---
 # <a name="azure-cosmos-db-emulator---release-notes-and-download-information"></a>Emulador do Azure Cosmos DB – Notas sobre a versão e informações de download
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Este artigo mostra as notas sobre a versão do Emulador do Azure Cosmos DB com u
 | | |
 |---------|---------|
 |**Download do MSI**|[Centro de Download da Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Introdução**|[Desenvolvimento local com o Emulador do Azure Cosmos](local-emulator.md)|
+|**Introdução**|[Desenvolvimento local com o Emulador do Azure Cosmos DB](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
 
@@ -83,7 +83,7 @@ Esta versão adiciona duas novas opções de inicialização do emulador Cosmos:
 
 ### <a name="246"></a>2.4.6
 
-- Esta versão fornece paridade com os recursos do serviço Azure Cosmos disponíveis desde julho de 2019, com as exceções indicadas em [Desenvolvimento local com o Emulador do Azure Cosmos](local-emulator.md). Ela também corrige vários bugs relacionados ao desligamento do emulador quando invocada pela linha de comando e substituições de endereço IP interno para clientes do SDK que usam a conectividade de modo direto.
+- Esta versão fornece paridade com os recursos do serviço Azure Cosmos disponíveis desde julho de 2019, com as exceções indicadas em [Desenvolvimento local com o Emulador do Azure Cosmos DB](local-emulator.md). Ela também corrige vários bugs relacionados ao desligamento do emulador quando invocada pela linha de comando e substituições de endereço IP interno para clientes do SDK que usam a conectividade de modo direto.
 
 ### <a name="243"></a>2.4.3
 

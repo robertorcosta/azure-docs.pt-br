@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5f19b55a955b8e3e1500cf14fa221b46808ac857
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698284"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97511834"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando o Portal do Azure
 
@@ -40,6 +40,10 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram.png" alt-text="Recursos do Standard Load Balancer criados para o guia de início rápido." border="false":::
+
+*Figura: recursos criados no guia de início rápido.*
 
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
 
@@ -124,7 +128,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
 
 1. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myLoadBalancer** na lista de recursos.
 
-2. Em **Configurações**, selecione **Regras de balanceamento de carga** e, em seguida, **Adicionar**.
+2. Em **Configurações**, selecione **Regras de balanceamento de carga** e **Adicionar**.
 
 3. Use estes valores para configurar a regra de balanceamento de carga:
     
@@ -140,7 +144,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Investigação de integridade | Selecione **myHealthProbe**. |
     | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15** minutos. |
     | Redefinição de TCP | Selecione **Habilitado**. |
-    | SNAT (conversão de endereços de rede de origem) de saída | Selecione **(Recomendado) Usar regras de saída para fornecer acesso à Internet aos membros do pool de back-ends**. |
+    | SNAT (conversão de endereços de rede de origem) de saída | Selecione **(Recomendado) Usar regras de saída para fornecer acesso à Internet aos membros do pool de back-ends.** |
 
 4. Deixe o restante dos padrões e selecione **OK**.
 
@@ -321,6 +325,10 @@ Confira mais informações sobre conexões de saída em [Conexões de saída no 
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/resources-diagram-basic.png" alt-text="Recursos do balanceador de carga básico criados no guia de início rápido." border="false":::
+
+*Figura: recursos criados no guia de início rápido.*
 
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
 
@@ -576,7 +584,7 @@ As VMs criadas nas etapas anteriores devem ser adicionadas ao pool de back-end d
 
 ## <a name="install-iis"></a>Instalar o IIS
 
-1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, na lista de recursos, selecione **myVM1** localizada no grupo de recursos **CreateStdLBQS-rg**.
+1. Selecione **Todos os serviços** no menu à esquerda, **Todos os recursos** e, na lista de recursos, selecione **myVM1** localizada no grupo de recursos **CreatePubLBQS-rg**.
 
 2. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
 

@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 4b19ae1b584a2d300e4144e79ef76245c71035cf
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 6a6baa14d7521f4a85350af7b08b5fcbe82ddf6b
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126065"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033809"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Quando você executa o exemplo para se conectar ao IoT Central, ele usa o DPS (S
 
 O método `main`:
 
-* Cria um objeto `client` e define a ID do modelo `dtmi:com:example:Thermostat;1` antes de abrir a conexão.
+* Cria um objeto `client` e define a ID do modelo `dtmi:com:example:Thermostat;1` antes de abrir a conexão. O IoT Central usa a ID do modelo para identificar ou gerar o modelo de dispositivo para este dispositivo. Para saber mais, confira [Associar um dispositivo a um modelo de dispositivo automaticamente](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Cria um manipulador de comando.
 * Inicia um loop para enviar a telemetria de temperatura a cada 10 segundos.
 * Envia a propriedade `maxTempSinceLastReboot` ao IoT Central. O IoT Central ignora a propriedade `serialNumber` porque ela não faz parte do modelo de dispositivo.
@@ -83,7 +83,7 @@ async function main() {
 }
 ```
 
-A função `provisionDevice` mostra como o dispositivo usa o DPS para se registrar no IoT Central e se conectar a ele. O conteúdo inclui a ID do modelo:
+A função `provisionDevice` mostra como o dispositivo usa o DPS para se registrar no IoT Central e se conectar a ele. O conteúdo inclui a ID do modelo que o IoT Central usa para [associar o dispositivo a um modelo de dispositivo](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template):
 
 ```javascript
 async function provisionDevice(payload) {

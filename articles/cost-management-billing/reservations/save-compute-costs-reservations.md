@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/18/2020
+ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: 0ef3f833d1bac4f26f49ace2b366cdfcf5ef3e35
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352976"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97560484"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
@@ -58,13 +58,14 @@ Para obter mais informações, confira [Comprar uma reserva](prepare-buy-reser
 
 A reserva é cobrada no método de pagamento associado à assinatura. O custo de reserva é deduzido do saldo do seu compromisso monetário, se disponível. Quando o saldo do compromisso monetário não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura. 
 
-## <a name="permissions-to-view-and-manage-reservations"></a>Permissões para exibir e gerenciar reservas 
+## <a name="who-can-manage-a-reservation-by-default"></a>Quem pode gerenciar uma reserva por padrão
 
-O usuário que compra uma reserva e o administrador da conta ou da assinatura usado para cobrar a reserva obtêm a função Proprietário no pedido da reserva e na reserva.
+Por padrão, os seguintes usuários podem ver e gerenciar reservas:
 
-Você pode delegar o gerenciamento de uma reserva adicionando pessoas às funções na reserva. Atribua as funções no portal do Azure ou usando APIs e o PowerShell. 
+- A pessoa que compra uma reserva e o administrador da conta da assinatura para cobrança usada para comprar a reserva são adicionadas ao pedido de reserva.
+- Administradores de cobrança do Contrato Enterprise e do Contrato de Cliente da Microsoft.
 
-Para obter mais informações, confira [Adicionar ou alterar os usuários que podem gerenciar uma reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+Para permitir que outras pessoas gerenciem reservas, confira [Gerenciar reservas para recursos do Azure](manage-reserved-vm-instance.md).
 
 ## <a name="get-reservation-details-and-utilization-after-purchase"></a>Obter detalhes e a utilização da reserva após a compra
 

@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Pausar e retomar a computação no pool de SQL dedicado (antigo SQL DW) por meio do portal do Azure'
-description: Use o portal do Azure para pausar a computação para o pool de SQL para economizar custos. Retomar computação quando você estiver pronto para usar o Data Warehouse.
+title: 'Início Rápido: Pausar e retomar a computação no pool de SQL dedicado por meio do portal do Azure'
+description: Use o portal do Azure para pausar a computação para o pool de SQL dedicado para economizar custos. Retomar computação quando você estiver pronto para usar o Data Warehouse.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 88f6782a0f81b94977b37bd8f87bf26a0d4c8a72
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7d258243dae06461d21e9b5f0346e419f034eea9
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457687"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109637"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-via-the-azure-portal"></a>Início rápido: Pausar e retomar a computação no pool de SQL dedicado (antigo SQL DW) por meio do portal do Azure
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Início Rápido: Pausar e retomar a computação no pool de SQL dedicado por meio do portal do Azure
 
-Você pode usar o portal do Azure para pausar e retomar os recursos de computação do pool de SQL dedicado (antigo SQL DW). Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Você pode usar o portal do Azure para pausar e retomar os recursos de computação do pool de SQL dedicado. Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -40,9 +40,8 @@ Para reduzir custos, você pode pausar e retomar os recursos de computação sob
 Siga estas etapas para pausar um pool de SQL dedicado:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Clique em **Pool de SQL dedicado (antigo SQL DW)** na página de navegação à esquerda do portal do Azure.
-2. Selecione **mySampleDataWarehouse** na página **Pool de SQL dedicado (antigo SQL DW)** para abrir o pool de SQL. 
-3. Na página **mySampleDataWarehouse**, observe se **Status** indica **Online**.
+2. Navegue até você é a página **Pool de SQL dedicado** para abrir o pool de SQL. 
+3. Verifique se **Status** é **Online**.
 
     ![Computação on-line](././media/pause-and-resume-compute-portal/compute-online.png)
 
@@ -62,8 +61,7 @@ Siga estas etapas para pausar um pool de SQL dedicado:
 
 Siga estas etapas para retomar um pool de SQL dedicado.
 
-1. Clique em **Pool de SQL dedicado (antigo SQL DW)** na página esquerda do portal do Azure.
-2. Selecione **mySampleDataWarehouse** na página **Pool de SQL dedicado (antigo SQL DW)** para abrir a página do pool de SQL. 
+1. Navegue até você é a página **Pool de SQL dedicado** para abrir o pool de SQL.
 3. Na página **mySampleDataWarehouse**, observe se **Status** indica **Pausado**.
 
     ![Computação offline](././media/pause-and-resume-compute-portal/compute-offline.png)

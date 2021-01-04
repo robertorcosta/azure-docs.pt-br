@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: d732d2fd8b97ca61222accc21c9930ed8c5c5d3a
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 7c0efbae3576a5b57433fe70885fd97aae5e87e3
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993883"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97107933"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph usando a identidade de aplicativo do console
 
@@ -49,17 +49,17 @@ Este guia de início rápido exige o [.NET Core 3.1](https://www.microsoft.com/n
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
-> 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-> 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores pesquisando **Registros de aplicativo** na barra de pesquisa do portal do Azure.
-> 1. Selecione **Novo registro**.
-> 1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo.
-> 1. Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `Daemon-console`, e selecione **Registrar** para criar o aplicativo.
-> 1. Após o registro, selecione o menu **Certificados e segredos**.
-> 1. Em **Segredos do cliente**, selecione **+ Novo segredo do cliente**. Dê a ele um nome e selecione **Adicionar**. Copie o segredo em um local seguro. Você precisará dele para usá-lo no código, e ele não será exibido novamente no portal.
-> 1. Agora, selecione o menu **Permissões de API**, selecione o botão **+ Adicionar uma permissão** e selecione **Microsoft Graph**.
+> 1. Entre no [portal do Azure](https://portal.azure.com).
+> 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+> 1. Pesquise **Azure Active Directory** e selecione-o.
+> 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+> 1. Insira um **Nome** para seu aplicativo, por exemplo, `Daemon-console`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+> 1. Selecione **Registrar** para criar o aplicativo.
+> 1. Em **Gerenciar**, selecione **Certificados e Segredos**.
+> 1. Em **Segredos do cliente**, selecione **Novo segredo do cliente**, insira um nome e selecione **Adicionar**. Registre o valor secreto em uma localização segura para uso em uma etapa posterior.
+> 1. Em **Gerenciar**, selecione **Permissões de API** > **Adicionar uma permissão**. Selecione **Microsoft Graph**.
 > 1. Selecione **Permissões de aplicativo**.
-> 1. No nó **Usuário**, selecione **User.Read.All** e selecione **Adicionar permissões**
+> 1. No nó **Usuário**, selecione **User.Read.All** e selecione **Adicionar permissões**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Baixar e configurar seu aplicativo de início rápido
@@ -121,7 +121,7 @@ Se você tentar executar o aplicativo neste ponto, receberá o erro *HTTP 403 �
 ##### <a name="global-tenant-administrator"></a>Administrator de locatário global
 
 > [!div renderon="docs"]
-> Se você for um administrador de locatários global, no portal do Azure, navegue até **Aplicativos empresariais** > clique no seu registro de aplicativo > escolha **"Permissões"** na seção Segurança do painel de navegação esquerdo. Clique no botão grande rotulado **Conceder consentimento do administrador para {Nome do Locatário}** (em que {Nome do Locatário} é o nome do seu diretório).
+> Se você for um administrador de locatários global, no portal do Azure, navegue até **Aplicativos empresariais** > Selecione seu registro de aplicativo > escolha **"Permissões"** na seção Segurança do painel de navegação esquerdo. Selecione o botão grande rotulado **Conceder consentimento do administrador para {Nome do Locatário}** (em que {Nome do Locatário} é o nome do seu diretório).
 
 > [!div renderon="portal" class="sxs-lookup"]
 > Se você for um administrador global, acesse a página **Permissões de API**, selecione **Dar consentimento de administrador para Insira_o_nome_do_locatário_aqui**

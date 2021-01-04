@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: peshultz
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7752bc3f768aec7a3e98fb1813c4194f81fb9dfb
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6cc6e6a9739b8b06ab3c48dd3fd75f19de8d0787
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917623"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106267"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Executar scripts do Python por meio de Azure Data Factory usando o Lote do Azure
 
@@ -148,12 +148,23 @@ Caso os avisos ou erros sejam produzidos pela execução do seu script, você po
 1. Clique na tarefa que tinha um código de saída de falha.
 1. Veja `stdout.txt` e `stderr.txt` para investigar e diagnosticar o problema.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Embora você não seja cobrado pelos trabalhos e pelas tarefas, será cobrado pelos nós de computação. Portanto, recomendamos que você aloque os pools conforme a necessidade. Quando você excluir o pool, todas as saídas de tarefa nos nós são excluídas. No entanto, os arquivos de entrada e saída permanecerão na conta de armazenamento. Quando não for mais necessário, você também poderá excluir a conta do Lote e a conta de armazenamento.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você explorou um exemplo que ensina como executar scripts do Python como parte de um pipeline por meio do Azure Data Factory usando o Lote do Azure.
+Neste tutorial, você aprendeu a:
+
+> [!div class="checklist"]
+> * Autenticar com as contas do Lote e do Armazenamento
+> * Desenvolver e executar um script em Python
+> * Criar um conjunto de nós de computação para executar um aplicativo
+> * Agendar suas cargas de trabalho do Python
+> * Monitorar seu pipeline de análise
+> * Acessar seus arquivos de log
 
 Para saber mais sobre o Azure Data Factory, confira:
 
 > [!div class="nextstepaction"]
 > [Visão geral do Azure Data Factory](../data-factory/introduction.md)
-

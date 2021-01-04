@@ -1,6 +1,6 @@
 ---
-title: Recursos com suporte disponíveis na Central de Segurança do Azure | Microsoft Docs
-description: Este documento fornece uma lista dos serviços que têm suporte da Central de Segurança do Azure.
+title: Recursos da Central de Segurança do Azure de acordo com o sistema operacional, tipo de computador e nuvem
+description: Saiba quais recursos da Central de Segurança do Azure estão disponíveis de acordo com o sistema operacional, tipo e implantação na nuvem.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2020
+ms.date: 12/17/2020
 ms.author: memildin
-ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: b3671a57b8371c47b1690b4bf6be008d695d1ca0
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445244"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97654737"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -99,10 +99,45 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | McAfee v10+ | Família de servidores Linux  | Não | Sim * *\** _ |
 | Sophos V9 e posterior| Família de servidores Linux  | Não | Sim _*\**_  |
 
- _ *\** * O estado de cobertura e os dados de suporte estão disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
+ _*\**_ O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
 
 > [!NOTE]
 > A detecção do SCEP (System Center Endpoint Protection) em uma máquina virtual do Windows Server 2008 R2 exige a instalação do SCEP após o PowerShell (v3.0 ou mais recente).
+
+
+
+## <a name="feature-support-in-government-clouds"></a>Suporte a recursos em nuvens governamentais
+
+| Serviço/Recurso | Gov dos EUA | Governo da China |
+|------|:----:|:----:|
+|[Acesso à VM Just-In-Time](security-center-just-in-time.md) (1)|✔|✔|
+|[Monitoramento de Integridade do arquivo](security-center-file-integrity-monitoring.md) (1)|✔|-|
+|[Controles de aplicativos adaptáveis](security-center-adaptive-application.md) (1)|✔|✔|
+|[Proteção de rede adaptável](security-center-adaptive-network-hardening.md) (1)|-|-|
+|[Proteção de host do Docker](harden-docker-hosts.md) (1)|✔|✔|
+|[Avaliação de vulnerabilidades integrada para computadores](deploy-vulnerability-assessment-vm.md) (1)|-|-|
+|[Microsoft Defender para Ponto de extremidade](harden-docker-hosts.md) (1)|✔|-|
+|[Conectar à conta da AWS](quickstart-onboard-aws.md) (1)|-|-|
+|[Conectar contas GCP](quickstart-onboard-gcp.md) (1)|-|-|
+|[Exportação contínua](continuous-export.md)|✔|✔|
+|[Automação do fluxo de trabalho](workflow-automation.md)|✔|✔|
+|[Regras de isenção de recomendação](exempt-resource.md)|-|-|
+|[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|
+|[Notificações por email para alertas de segurança](security-center-provide-security-contact-details.md)|✔|✔|
+|[Inventário de ativos](asset-inventory.md)|-|-|
+|[Azure Defender for Serviço de Aplicativo](defender-for-app-service-introduction.md)|-|-|
+|[Azure Defender para Armazenamento](defender-for-storage-introduction.md)|✔|-|
+|[Azure Defender para SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
+|[Azure Defender para Key Vault](defender-for-key-vault-introduction.md)|-|-|
+|[Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
+|[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
+|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)|✔ (2)|-|
+|||
+
+(1) Requer _ *Azure Defender para servidores**
+
+(2) Parcial
 
 
 ## <a name="next-steps"></a>Próximas etapas
