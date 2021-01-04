@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 1fb5396fae4676d85f67e98bb333cd58324d5a4e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6e3dbb968d0dff8d8227518fe53d257bfc1fae4b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357562"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607959"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Início Rápido: Usar o GitHub Actions para conectar-se ao MySQL do Azure
 
 **APLICA-SE A**: :::image type="icon" source="./media/applies-to/yes.png" border="false":::Banco de Dados do Azure para PostgreSQL – Servidor Único :::image type="icon" source="./media/applies-to/yes.png" border="false":::Banco de Dados do Azure para PostgreSQL – Servidor Flexível
 
-Comece a usar o [GitHub Actions](https://docs.github.com/en/actions) usando um fluxo de trabalho para implantar atualizações de banco de dados no [Banco de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql/).
+Comece a usar o [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) usando um fluxo de trabalho para implantar atualizações de banco de dados no [Banco de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql/).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
