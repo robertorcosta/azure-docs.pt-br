@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5e3473a9afefe73fe7b07d3efda1f53675264fc8
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 9f69f89f565b2d98e408b06e300ff781c13680ef
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874620"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693668"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>Como instalar um controlador de entrada do gateway de aplicativo (AGIC) usando um novo gateway de aplicativo
 
@@ -92,7 +92,7 @@ Esta etapa adicionará os seguintes componentes à sua assinatura:
     az group create -n $resourceGroupName -l $location
 
     # modify the template as needed
-    az group deployment create \
+    az deployment group create \
             -g $resourceGroupName \
             -n $deploymentName \
             --template-file template.json \
@@ -101,7 +101,7 @@ Esta etapa adicionará os seguintes componentes à sua assinatura:
 
 1. Após a conclusão da implantação, baixe a saída da implantação em um arquivo chamado `deployment-outputs.json` .
     ```azurecli
-    az group deployment show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
+    az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
 ## <a name="set-up-application-gateway-ingress-controller"></a>Configurar o controlador de entrada do gateway de aplicativo
@@ -109,7 +109,7 @@ Esta etapa adicionará os seguintes componentes à sua assinatura:
 Com as instruções na seção anterior, criamos e configuramos um novo cluster AKS e um gateway de aplicativo. Agora estamos prontos para implantar um aplicativo de exemplo e um controlador de entrada para nossa nova infraestrutura kubernetes.
 
 ### <a name="setup-kubernetes-credentials"></a>Configurar credenciais do kubernetes
-Para as etapas a seguir, precisamos do comando Setup [kubectl](https://kubectl.docs.kubernetes.io/) , que usaremos para se conectar ao nosso novo cluster kubernetes. [Cloud Shell](https://shell.azure.com/) O Cloud Shell `kubectl` já foi instalado. Usaremos `az` a CLI para obter credenciais para kubernetes.
+Para as etapas a seguir, precisamos do comando Setup [kubectl](https://kubectl.docs.kubernetes.io/) , que usaremos para se conectar ao nosso novo cluster kubernetes. [](https://shell.azure.com/) O Cloud Shell `kubectl` já foi instalado. Usaremos `az` a CLI para obter credenciais para kubernetes.
 
 Obtenha credenciais para o AKS implantado recentemente ([Leia mais](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)):
 ```azurecli

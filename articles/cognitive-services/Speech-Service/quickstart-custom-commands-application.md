@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.custom: references_regions
+ms.openlocfilehash: c5f8be87e7ee95e1deff12cce09204b5fe8a0bb7
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329144"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694185"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz usando comandos personalizados
 
@@ -27,12 +28,12 @@ Neste momento, os comandos personalizados dão suporte a assinaturas de fala cri
 * Oeste dos EUA 2
 * Leste dos EUA
 * Leste dos EUA 2
+* Centro-Oeste dos EUA
 * Norte da Europa
 * Europa Ocidental
-* Centro-Oeste dos EUA
-* Índia Central
 * Leste da Ásia
 * Sudeste Asiático
+* Índia Central
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -115,7 +116,7 @@ Antes de poder acessar esse aplicativo de fora do Speech Studio, você precisa p
 
 Selecione  **publicar** na parte superior do painel direito. Quando a publicação for concluída, uma nova janela será exibida. Anote a **ID do aplicativo** e o valor da chave de **recurso de fala** a partir dela. Você precisará desses dois valores para poder acessar o aplicativo de fora do Speech Studio.
 
-Como alternativa, você também pode obter esses valores selecionando **configurações**  >  seção**geral** .
+Como alternativa, você também pode obter esses valores selecionando **configurações**  >  seção **geral** .
 
 ### <a name="access-application-from-client"></a>Acessar aplicativo do cliente
 

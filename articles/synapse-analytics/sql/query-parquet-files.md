@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20bfbaeea48711a680877e4d5d8f618e84eb12d7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462581"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694687"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar arquivos parquet usando o pool SQL sem servidor no Azure Synapse Analytics
 
@@ -38,9 +38,9 @@ from openrowset(
 Verifique se você pode acessar esse arquivo. Se o arquivo estiver protegido com a chave SAS ou identidade personalizada do Azure, você precisará configurar a [credencial no nível do servidor para o logon do SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
-> Verifique se você está usando um agrupamento de banco de dados UTF-8 (por exemplo `Latin1_General_100_CI_AS_SC_UTF8` ) porque os valores de cadeia de caracteres em arquivos PARQUET são codificados usando a codificação UTF-8.
+> Verifique se você está usando um agrupamento de banco de dados UTF-8 (por exemplo `Latin1_General_100_BIN2_UTF8` ) porque os valores de cadeia de caracteres em arquivos PARQUET são codificados usando a codificação UTF-8.
 > Uma incompatibilidade entre a codificação de texto no arquivo PARQUET e o agrupamento pode causar erros de conversão inesperados.
-> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`
 
 ### <a name="data-source-usage"></a>Uso da fonte de dados
 
@@ -74,10 +74,10 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> Certifique-se de que você está explicilty especificando algum agrupamento UTF-8 (por exemplo `Latin1_General_100_CI_AS_SC_UTF8` ) para todas as colunas de cadeia de caracteres na `WITH` cláusula ou defina algum agrupamento UTF-8 no nível do banco de dados.
+> Certifique-se de que você está explicilty especificando algum agrupamento UTF-8 (por exemplo `Latin1_General_100_BIN2_UTF8` ) para todas as colunas de cadeia de caracteres na `WITH` cláusula ou defina algum agrupamento UTF-8 no nível do banco de dados.
 > A incompatibilidade entre a codificação de texto no agrupamento de coluna de arquivo e cadeia de caracteres pode causar erros de conversão inesperados.
-> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
-> Você pode definir facilmente o agrupamento nos tipos de coluna usando a seguinte definição: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
+> Você pode alterar facilmente o agrupamento padrão do banco de dados atual usando a seguinte instrução T-SQL: `alter database current collate Latin1_General_100_BIN2_UTF8`
+> Você pode definir facilmente o agrupamento nos tipos de coluna usando a seguinte definição: `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
 
 Nas seções a seguir, você pode ver como consultar vários tipos de arquivos PARQUET.
 
