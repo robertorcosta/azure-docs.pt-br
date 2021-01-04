@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/25/2020
-ms.openlocfilehash: 3668d4e5164ad731058f944feaef66029c2ed2a9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: f4536beae18a50d3e1d42fc1593cf826c94418f8
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126054"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033811"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Quando você executa o exemplo para se conectar ao IoT Central, ele usa o DPS (S
 
 Em *Program.cs*, o método `main` chama `SetupDeviceClientAsync` para:
 
-* Use a ID do modelo `dtmi:com:example:Thermostat;1` quando ela provisionar o dispositivo com o DPS.
+* Use a ID do modelo `dtmi:com:example:Thermostat;1` quando ela provisionar o dispositivo com o DPS. O IoT Central usa a ID do modelo para identificar ou gerar o modelo de dispositivo para este dispositivo. Para saber mais, confira [Associar um dispositivo a um modelo de dispositivo automaticamente](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Crie uma instância de **DeviceClient** para se conectar ao IoT Central.
 
 ```csharp
@@ -202,7 +202,7 @@ Para executar o aplicativo de exemplo:
 
 1. No Visual Studio, navegue até **Projeto > Propriedades do Termostato > Depurar**. Em seguida, adicione as seguintes variáveis de ambiente ao projeto:
 
-    | Name | Valor |
+    | Nome | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |

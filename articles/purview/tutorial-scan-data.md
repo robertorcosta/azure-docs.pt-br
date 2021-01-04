@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 802b7d2ca5d96bf385c4b8f0ee0cdaa3db181a1c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: feda969a5818402f4a5f2dadc80c70c324ad7492
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922566"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97559957"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Tutorial: Examinar dados com o Azure Purview (versão prévia)
 
@@ -146,10 +146,11 @@ Depois que a configuração do catálogo for concluída, execute os scripts a se
 
    Quando você executar o comando, uma janela pop-up poderá ser exibida para que você entre usando suas credenciais do Azure Active Directory.
 
-1. Use o comando a seguir para executar o kit de início. Substitua os espaços reservados `CatalogName`, `TenantID`, `SubscriptionID`, `newresourcegroupname` e `CatalogResourceGroupName`. Para `newresourcegroupname`, use um nome exclusivo para o grupo de recursos que conterá o acervo de dados.
 
-> [!IMPORTANT]
-> O **newresourcegroupname** usa apenas números e letras minúsculas e precisa ter menos de 17 caracteres. **Não são permitidos caracteres especiais nem letras maiúsculas.** Essa restrição vem das regras de nomenclatura da conta de armazenamento.
+1. Use o comando a seguir para executar o kit de início. Substitua os espaços reservados `CatalogName`, `TenantID`, `SubscriptionID`, `NewResourceGroupName` e `CatalogResourceGroupName`. Em `NewResourceGroupName`, use um nome exclusivo (somente com caracteres alfanuméricos minúsculos) para o grupo de recursos que conterá o acervo de dados.
+
+   > [!IMPORTANT]
+   > O **newresourcegroupname** usa apenas números e letras minúsculas e precisa ter menos de 17 caracteres. **Não são permitidos caracteres especiais nem letras maiúsculas.** Essa restrição vem das regras de nomenclatura da conta de armazenamento.
 
    ```powershell
    .\RunStarterKit.ps1 -CatalogName <CatalogName> -TenantId <TenantID>`

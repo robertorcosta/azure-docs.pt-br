@@ -165,6 +165,8 @@
       href: concept-model-management-and-deployment.md
     - name: Portabilidade do modelo (ONNX)
       href: concept-onnx.md
+    - name: Integrações de software livre
+      href: concept-open-source.md
     - name: Pipelines de Machine Learning
       href: concept-ml-pipelines.md
     - name: Segurança
@@ -370,6 +372,8 @@
           href: how-to-train-pytorch.md
         - name: Treinar com uma imagem personalizada do Docker
           href: how-to-train-with-custom-image.md
+        - name: Migrar dos Avaliadores para o ScriptRunConfig
+          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: Acompanhar e monitorar o treinamento
           items:
             - name: 'Iniciar, monitorar ou cancelar execuções'
@@ -513,8 +517,6 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Implantar pipelines de ML (Python)
           href: how-to-deploy-pipelines.md
-        - name: Agendar um pipeline (Python)
-          href: how-to-schedule-pipelines.md
         - name: Disparar um pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (arrastar e soltar)

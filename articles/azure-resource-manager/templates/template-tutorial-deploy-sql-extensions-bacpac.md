@@ -5,16 +5,16 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b798e5ceb72ece3989fb81014555f2bc0fea5926
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 2d50903f464c03157ee393787af6ddfdad975aed
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931394"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588015"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutorial: Importar arquivos BACPAC do SQL com modelos do ARM
 
-Saiba como usar extensões do Banco de Dados SQL do Azure para importar um arquivo BACPAC com modelos do ARM (modelos do Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato.
+Saiba como usar extensões do Banco de Dados SQL do Azure para importar um arquivo [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) com modelos do ARM (modelos do Azure Resource Manager). Artefatos de implantação são quaisquer arquivos, além dos arquivos de modelo principais, necessários para concluir uma implantação. O arquivo BACPAC é um artefato.
 
 Neste tutorial, você criará um modelo para implantar um [servidor SQL lógico](../../azure-sql/database/logical-servers.md) e um banco de dados individual e importar um arquivo BACPAC. Para obter informações sobre como implantar extensões de máquina virtual do Azure usando modelos do ARM, confira o [Tutorial: Implantar extensões de máquina virtual com modelos do ARM](./template-tutorial-deploy-vm-extensions.md).
 
@@ -55,7 +55,7 @@ O arquivo BACPAC deve ser armazenado em uma conta de Armazenamento do Azure ante
 * Carregue o arquivo BACPAC para o contêiner.
 * Exiba a chave da conta de armazenamento e a URL do blob.
 
-1. Selecione **Experimente** para abrir o Cloud Shell. Em seguida, cole o seguinte script do PowerShell na janela de shell.
+1. Selecione **Experimente** para abrir o shell. Em seguida, cole o seguinte script do PowerShell na janela de shell.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -120,7 +120,7 @@ O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubuserco
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-1. Adicione mais dois parâmetros ao final da seção **parâmetros** para definir a chave da conta de armazenamento e a URL do BACPAC.
+1. Adicione mais dois parâmetros ao final da seção `parameters` para definir a chave da conta de armazenamento e a URL do BACPAC.
 
     ```json
         "storageAccountKey": {
@@ -137,7 +137,7 @@ O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubuserco
         }
     ```
 
-    Adicione uma vírgula após **adminPassword**. Para formatar o arquivo JSON do Visual Studio Code, selecione Shift + Alt + F.
+    Adicione uma vírgula após a chave de fechamento `adminPassword` da propriedade (`}`). Para formatar o arquivo JSON do Visual Studio Code, selecione Shift + Alt + F.
 
     Para obter esses dois valores, consulte [Preparar um arquivo BACPAC](#prepare-a-bacpac-file).
 
@@ -196,11 +196,11 @@ O modelo usado neste tutorial é armazenado no [GitHub](https://raw.githubuserco
 
         Para entender a definição de recurso, confira a [referência de extensão de Banco de Dados SQL](/azure/templates/microsoft.sql/servers/databases/extensions). Abaixo estão alguns elementos importantes:
 
-        * **dependsOn**: o recurso de extensão precisa ser criado depois da criação do banco de dados.
-        * **storageKeyType**: Especifique o tipo da chave de armazenamento a ser usada. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Use `StorageAccessKey` neste tutorial.
-        * **storageKey**: Especifique a chave para a conta de armazenamento em que o arquivo BACPAC está armazenado. Se o tipo de chave de armazenamento for `SharedAccessKey`, ela deverá ser precedida por um "?".
-        * **storageUri**: Especifique a URL do arquivo BACPAC armazenado em uma conta de armazenamento.
-        * **administratorLoginPassword**: a senha do administrador do SQL. Use a senha gerada. Consulte [Pré-requisitos](#prerequisites).
+        * `dependsOn`: o recurso de extensão precisa ser criado depois da criação do banco de dados.
+        * `storageKeyType`: Especifique o tipo da chave de armazenamento a ser usada. O valor pode ser `StorageAccessKey` ou `SharedAccessKey`. Use `StorageAccessKey` neste tutorial.
+        * `storageKey`: Especifique a chave para a conta de armazenamento em que o arquivo BACPAC está armazenado. Se o tipo de chave de armazenamento for `SharedAccessKey`, ela deverá ser precedida por um "?".
+        * `storageUri`: Especifique a URL do arquivo BACPAC armazenado em uma conta de armazenamento.
+        * `administratorLoginPassword`: a senha do administrador do SQL. Use a senha gerada. Consulte [Pré-requisitos](#prerequisites).
 
 O modelo concluído se parece com:
 

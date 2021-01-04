@@ -1,15 +1,15 @@
 ---
-title: Renderizar uma cena na nuvem
+title: Tutorial – Renderizar uma cena na nuvem
 description: 'Tutorial: como renderizar uma cena do Autodesk 3ds Max com Arnold usando o Serviço de Renderização do Lote e a CLI do Azure'
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 579a5446cb199bb73f98e2e1cbb0948f062470a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e0858e838ba73862ef7f15040915c5f5cd3c751b
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542381"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106335"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Renderizar uma cena com o Lote do Azure 
 
@@ -346,7 +346,7 @@ Neste tutorial, você aprendeu a:
 > * Dimensionar o pool e renderizar uma cena com vários quadros
 > * Baixar a saída renderizada
 
-Para saber mais sobre a renderização em escala de nuvem, consulte as opções do Serviço de Renderização do Lote. 
+Para saber mais sobre a renderização de escala de nuvem, confira a documentação de renderização do Lote.
 
 > [!div class="nextstepaction"]
 > [Serviço de Renderização em Lotes](batch-rendering-service.md)

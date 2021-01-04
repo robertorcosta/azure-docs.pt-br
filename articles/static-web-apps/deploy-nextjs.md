@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
-ms.openlocfilehash: 6f96b74726684d37795c94be74e48611b4145402
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a22d06137c3ec17851280605ac85c94ef8b342cd
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350204"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97563068"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implantar sites Next.js estáticos renderizados na versão prévia dos Aplicativos Web Estáticos do Azure
 
@@ -125,7 +125,7 @@ O serviço Aplicativos Web Estáticos do Azure implanta seu aplicativo de um rep
 1. Envie por push suas alterações para o GitHub.
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## <a name="deploy-your-static-website"></a>Implantar seu site estático
@@ -155,7 +155,7 @@ A nova conta do serviço Aplicativos Web Estáticos precisa acessar o repositór
 1. Clique no botão **Entrar com o GitHub**
 1. Selecione a **Organização** sob a qual você criou o repositório para o seu projeto Next.js, que pode ser seu nome de usuário do GitHub.
 1. Encontre e selecione o nome do repositório que você criou anteriormente.
-1. Escolha **mestre** como branch, na lista suspensa *Branch*.
+1. Escolha **principal** como o branch na lista suspensa *Branch*.
 
    :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Conectar o GitHub":::
 
@@ -189,7 +189,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 Quando você criou o aplicativo, o serviço Aplicativos Web Estáticos do Azure criou um arquivo de fluxo de trabalho do GitHub Actions em seu repositório. Você precisa colocar esse arquivo em seu repositório local para que seu histórico de git seja sincronizado.
 
-Retorne ao terminal e execute o comando `git pull origin master`.
+Retorne ao terminal e execute o comando `git pull origin main`.
 
 ## <a name="configure-dynamic-routes"></a>Configurar rotas dinâmicas
 

@@ -3,12 +3,12 @@ title: Entrar na versão prévia do Azure Notebooks
 description: Entre rapidamente na versão prévia do Azure Notebooks e defina uma ID de usuário, que oferece a capacidade de acessar os projetos salvos e compartilhar notebooks com outras pessoas.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 8a2d9836cd005ab11106c569929a6776d605da50
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 168da5d4d36cd4cfadb4ef120ddfabbd261cafaf
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830410"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97109446"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Início Rápido: Entrar e definir uma ID de usuário da versão prévia do Azure Notebooks
 
@@ -59,4 +59,4 @@ Para sair, selecione seu nome de usuário no canto superior direito da página, 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Criar e compartilhar um notebook](quickstart-create-share-jupyter-notebook.md)
+> [Início Rápido: Exportar um projeto do Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

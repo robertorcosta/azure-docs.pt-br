@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 3182da0d04d61d5bad4ce3e41f213ecc3be7ecaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
+ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444452"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97503787"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar sua assinatura do Azure
 
@@ -30,6 +30,17 @@ Embora não seja necessário, a Microsoft *recomenda* que você execute as segui
 
 Se você cancelar um plano de Suporte do Azure pago, o restante do período de assinatura será cobrado de você. Para obter mais informações, consulte [Planos de suporte do Azure](https://azure.microsoft.com/support/plans/).
 
+## <a name="who-can-cancel-a-subscription"></a>Quem pode cancelar uma assinatura?
+
+A tabela abaixo descreve a permissão necessária para cancelar uma assinatura.
+
+|Tipo de assinatura     |Quem pode cancelar  |
+|---------|---------|
+|Assinaturas criadas quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve em uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), uma [conta com taxas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como [assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrador da conta e proprietários da assinatura  |
+|[Contrato Enterprise da Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/) e [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Proprietário da conta e proprietários da assinatura       |
+|[Plano do Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) e [Plano do Azure para DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Proprietários da assinatura      |
+
+
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Cancelar assinatura no portal do Azure
 
 1. Selecione sua assinatura na [página Assinaturas no Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
@@ -41,15 +52,13 @@ Se você cancelar um plano de Suporte do Azure pago, o restante do período de a
 > [!NOTE]
 > Os parceiros poderão suspender ou cancelar uma assinatura se for solicitado por um cliente ou em casos de não pagamento ou fraude. Para obter mais informações, confira [Suspender ou cancelar uma assinatura](/partner-center/create-a-new-subscription#suspend-or-cancel-a-subscription).
 
-## <a name="who-can-cancel-a-subscription"></a>Quem pode cancelar uma assinatura?
+## <a name="cancel-a-support-plan"></a>Cancelar um plano de suporte
 
-A tabela abaixo descreve a permissão necessária para cancelar uma assinatura.
+Se você comprar seu plano de suporte por meio do site do Azure, do portal do Azure ou se tiver um nos termos de um Contrato de Cliente da Microsoft, poderá cancelá-lo. Caso tenha comprado seu plano de suporte por meio de um representante ou um parceiro da Microsoft, entre em contato com eles para obter assistência. 
 
-|Tipo de assinatura     |Quem pode cancelar  |
-|---------|---------|
-|Assinaturas criadas quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve em uma [conta gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/), uma [conta com taxas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/) ou como [assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Administrador da conta e proprietários da assinatura  |
-|[Contrato Enterprise da Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/) e [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Proprietário da conta e proprietários da assinatura       |
-|[Plano do Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) e [Plano do Azure para DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Proprietários da assinatura      |
+1. No portal do Azure, procure **Gerenciamento de Custos e Cobrança**.
+1. Em **Cobrança**, selecione **Encargos recorrentes**.
+1. No lado direito do item de linha do plano de suporte, selecione as reticências ( **...** ) e a opção **Desativar a renovação automática**.
 
 ## <a name="what-happens-after-subscription-cancellation"></a>O que acontece após o cancelamento da assinatura?
 

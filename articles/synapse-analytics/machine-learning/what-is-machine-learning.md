@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 20f095a058434c36373c30ed2a633db12643814d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 906d3d28aabf8f6ecd6e04c38b4519937fa95c2b
+ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448274"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97092152"
 ---
 # <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Funcionalidades do Machine Learning no Azure Synapse Analytics
 
@@ -62,9 +62,9 @@ Os modelos de machine learning podem ser treinados com a ajuda de vários algori
 
 Além do MLlib, bibliotecas populares, como [Scikit Learn](https://scikit-learn.org/stable/), também podem ser usadas para desenvolver modelos. Confira [Gerenciar bibliotecas para Apache Spark no Azure Synapse Analytics](../spark/apache-spark-azure-portal-add-libraries.md) para obter detalhes sobre como instalar bibliotecas em pools do Synapse Spark.
 
-#### <a name="train-models-with-azure-machine-learning-automl"></a>Treinar modelos com Azure Machine Learning AutoML
+#### <a name="train-models-with-azure-machine-learning-automated-ml"></a>Treinar modelos com o ML automatizado do Azure Machine Learning
 
-Outro modo de treinar modelos de machine learning, que não requer muita familiaridade com machine learning, é usar o AutoML. O [AutoML](/azure/machine-learning/concept-automated-ml) é um recurso que treina automaticamente um conjunto de modelos de machine learning e permite que o usuário selecione o melhor modelo com base em métricas específicas. Graças a uma integração direta ao Azure Machine Learning usando os Notebooks do Azure Synapse, os usuários podem facilmente aproveitar o AutoML no Synapse com autenticação de passagem do Azure Active Directory.  Isso significa que você só precisa apontar para seu Workspace do Azure Machine Learning e não precisa inserir nenhuma credencial. Aqui está um [tutorial do AutoML](../spark/apache-spark-azure-machine-learning-tutorial.md) que descreve como treinar modelos usando o Azure Machine Learning AutoML em Pools do Spark do Azure Synapse.
+Outro modo de treinar modelos de machine learning, que não requer muita familiaridade com machine learning, é usar o ML automatizado. O [ML automatizado](/azure/machine-learning/concept-automated-ml) é um recurso que treina automaticamente um conjunto de modelos de machine learning e permite que o usuário selecione o melhor modelo com base em métricas específicas. Graças a uma integração direta ao Azure Machine Learning usando os Notebooks do Azure Synapse, os usuários podem facilmente aproveitar o ML automatizado no Azure Synapse com autenticação de passagem do Azure Active Directory.  Isso significa que você só precisa apontar para seu Workspace do Azure Machine Learning e não precisa inserir nenhuma credencial. Aqui está um [tutorial do ML automatizado](../spark/apache-spark-azure-machine-learning-tutorial.md) que descreve como treinar modelos usando o ML automatizado do Azure Machine Learning em Pools do Spark do Azure Synapse.
 
 ### <a name="model-deployment-and-scoring"></a>Implantação de modelo e pontuação
 

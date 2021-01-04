@@ -3,25 +3,25 @@ title: 'Início Rápido: Usar o Armazenamento do Azure v11 para .NET para gerenc
 description: Neste início rápido, você aprenderá como usar a biblioteca de clientes do Armazenamento do Azure para o .NET criar uma fila e adicionar mensagens a ela. Em seguida, você aprenderá como ler e processar mensagens da fila.
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: dineshm
 ms.date: 07/24/2020
+ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.topic: quickstart
-ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f7368025993c91490d808ef0ae5f5f66233fe666
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 23703dc507aa909aea4711289a4d7d5c5e6a170e
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345611"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588192"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Início Rápido: Usar o SDK do Armazenamento do Azure v11 para .NET para gerenciar uma fila
 
-Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento do Azure versão 11 para o .NET para criar uma fila e adicionar mensagens a ela. Em seguida, você aprenderá como ler e processar mensagens da fila.
+Neste início rápido, você aprenderá como usar a biblioteca de clientes do Armazenamento do Azure v11 para o .NET para criar uma fila e adicionar mensagens a ela. Em seguida, você aprenderá como ler e processar mensagens da fila.
 
 > [!NOTE]
-> Este guia de início rápido usa uma versão herdada da biblioteca de clientes do Armazenamento de Filas do Azure. Para começar a usar a última versão, confira [Guia de Início Rápido: Biblioteca de clientes do armazenamento de Filas do Azure v12 para .NET](storage-quickstart-queues-dotnet.md).
+> Este guia de início rápido usa uma versão herdada da biblioteca de clientes do Armazenamento de Filas do Azure. Para começar a usar a última versão, confira [Guia de Início Rápido: Biblioteca de clientes do Armazenamento de Filas do Azure v12 para .NET](storage-quickstart-queues-dotnet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,13 +50,13 @@ Para obter informações sobre como escolher entre o .NET Core e o .NET Framewor
 
 O aplicativo de exemplo usado neste guia de início rápido é um aplicativo de console básico. Você pode explorar o aplicativo de exemplo no [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Use o [git](https://git-scm.com/) para baixar uma cópia do aplicativo para seu ambiente de desenvolvimento.
+Use o [Git](https://git-scm.com/) para baixar uma cópia do aplicativo em seu ambiente de desenvolvimento.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-Este comando clona o repositório para sua pasta do git local. Para abrir a solução do Visual Studio, procure a pasta *storage-queues-dotnet-quickstart* , abra-a e clique duas vezes em *storage-queues-dotnet-quickstart.sln*.
+Este comando clona o repositório para sua pasta local do Git. Para abrir a solução do Visual Studio, procure a pasta `storage-queues-dotnet-quickstart`, abra-a e clique duas vezes em `storage-queues-dotnet-quickstart.sln`.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -98,7 +98,7 @@ O aplicativo de exemplo cria uma fila e adiciona uma mensagem a ela. Primeiro, o
 
 ### <a name="windows"></a>Windows
 
-Se estiver usando o Visual Studio como seu editor, você pode pressionar **F5** para executar.
+Se estiver usando o Visual Studio como seu editor, você pode pressionar `F5` para executar.
 
 Caso contrário, navegue até seu diretório de aplicativo e execute o aplicativo com o comando `dotnet run`.
 
@@ -148,7 +148,7 @@ Em seguida, vamos percorrer o código de exemplo para que você possa entender c
 
 ### <a name="try-parsing-the-connection-string"></a>Tentar analisar a cadeia de conexão
 
-Primeiro, o exemplo verificar se a variável de ambiente contém uma cadeia de conexão que pode ser analisada para criar um objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) apontando para a conta de armazenamento. Para verificar se a cadeia de conexão é válida, o exemplo usa o método [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Se **TryParse** for bem-sucedido, ele inicializará a variável *storageAccount* e retornará **true**.
+Primeiro, o exemplo verifica se a variável de ambiente contém uma cadeia de conexão que pode ser analisada para criar um objeto [`CloudStorageAccount`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) apontando para a conta de armazenamento. Para verificar se a cadeia de conexão é válida, o exemplo usa o método [`TryParse`](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Se `TryParse` for bem-sucedido, ele inicializará a variável `storageAccount` e retornará `true`.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -204,7 +204,7 @@ Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToStrin
 Console.WriteLine();
 ```
 
-Para adicionar uma mensagem que não expira, use `Timespan.FromSeconds(-1)` na chamada para [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+Para adicionar uma mensagem que não expira, use `Timespan.FromSeconds(-1)` na chamada para [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 ```csharp
 await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
@@ -262,25 +262,25 @@ if (queue != null)
 
 ## <a name="resources-for-developing-net-applications-with-queues"></a>Recursos para desenvolvimento de aplicativos .NET com filas
 
-Confira estes recursos adicionais para o desenvolvimento em .NET com as Filas do Azure:
+Confira estes recursos adicionais para o desenvolvimento em .NET com o Armazenamento de Filas do Azure:
 
 ### <a name="binaries-and-source-code"></a>Binários e código-fonte
 
 - Baixar o pacote NuGet para a versão mais recente da [biblioteca de clientes do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage)
-  - [Comum](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+  - [Comum](https://www.nuget.org/packages/microsoft.azure.storage.common/)
   - [Filas](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Exiba o [código-fonte da biblioteca de clientes .NET](https://github.com/Azure/azure-storage-net) no GitHub.
 
-### <a name="client-library-reference-and-samples"></a>Exemplos e referência da biblioteca de clientes
+### <a name="azure-storage-client-library-reference-and-samples"></a>Exemplos e referência da biblioteca de cliente do Armazenamento do Azure
 
-- Confira a [referência da API .NET](/dotnet/api/overview/azure/storage) para saber mais sobre a biblioteca de clientes .NET.
-- Explore [Exemplos de armazenamento da fila](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) gravados usando a biblioteca de clientes de .NET.
+- Confira a [Referência de bibliotecas de cliente do Armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage) para obter mais informações sobre as bibliotecas de clientes do .NET.
+- Explore os [Exemplos do Armazenamento de Filas](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) escritos com a biblioteca de clientes do .NET.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste início rápido, você aprendeu como adicionar mensagens a uma fila, espiar mensagens de uma fila e remover da fila e processar mensagens usando o .NET.
 
 > [!div class="nextstepaction"]
-> [Comunicar-se entre aplicativos com o armazenamento de Filas do Azure](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Comunicar-se entre aplicativos com o Armazenamento de Filas do Azure](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - Para saber mais sobre o núcleo do .NET, confira [Introdução ao .NET em 10 minutos](https://www.microsoft.com/net/learn/get-started/).

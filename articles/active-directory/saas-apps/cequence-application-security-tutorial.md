@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: integração do SSO (logon único) do Azure Active Directory com o Cequence Application Security | Microsoft Docs'
-description: Saiba como configurar um logon único entre o Azure Active Directory e o Cequence Application Security.
+title: 'Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Cequence Application Security Platform   Microsoft Docs'
+description: Saiba como configurar um logon único entre o Azure Active Directory e o Cequence Application Security Platform.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/03/2020
+ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: c8d3147f6b327b0aa835418516417f2f54ba17dc
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: af1c2fc3c7dcafe538f87527e04d1c3a78ab1a28
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96179938"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97607857"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cequence-application-security"></a>Tutorial: integração do SSO (logon único) do Azure Active Directory com o Cequence Application Security
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cequence-application-security-platform"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Cequence Application Security Platform
 
-Neste tutorial, você aprenderá a integrar o Cequence Application Security ao Azure AD (Azure Active Directory). Quando você integrar o Cequence Application Security ao Azure AD, será possível:
+Neste tutorial, você aprenderá a integrar o Cequence Application Security Platform ao Azure AD (Azure Active Directory). Quando você integrar o Cequence Application Security Platform ao Azure AD, será possível:
 
-* Controlar quem tem acesso ao Cequence Application Security no Azure AD.
-* Permitir que usuários sejam conectados de modo automático ao Cequence Application Security usando contas do Azure AD.
+* Controlar quem tem acesso ao Cequence Application Security Platform no Azure AD.
+* Permitir que usuários sejam conectados de modo automático ao Cequence Application Security Platform usando contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -31,47 +31,47 @@ Neste tutorial, você aprenderá a integrar o Cequence Application Security ao A
 Para começar, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do Cequence Application Security.
+* Assinatura habilitada para SSO (logon único) do Cequence Application Security Platform.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Cequence Application Security é compatível com SSO iniciado por **SP**
+* O Cequence Application Security Platform é compatível com SSO iniciado por **SP**
 
-* O Cequence Application Security é compatível com o provisionamento de usuário do **Just-In-Time**
+* O Cequence Application Security Platform é compatível com o provisionamento de usuário **Just-In-Time**
 
 
-## <a name="adding-cequence-application-security-from-the-gallery"></a>Como adicionar o Cequence Application Security da galeria
+## <a name="adding-cequence-application-security-platform-from-the-gallery"></a>Como adicionar o Cequence Application Security Platform por meio da galeria
 
-Para configurar a integração do Cequence Application Security com o Azure AD, será necessário adicionar à sua lista de aplicativos SaaS gerenciados o Cequence Application Security da galeria.
+Para configurar a integração do Cequence Application Security Platform ao Azure AD, será necessário adicionar à sua lista de aplicativos SaaS gerenciados o Cequence Application Security Platform por meio da galeria.
 
 1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria**, digite **Cequence Application Security** na caixa de pesquisa.
-1. Selecione **Cequence Application Security** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Na seção **Adicionar por meio da galeria**, digite **Cequence Application Security Platform** na caixa de pesquisa.
+1. Selecione **Cequence Application Security Platform** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-sso-for-cequence-application-security"></a>Configurar e testar o SSO do Azure AD para o Cequence Application Security
+## <a name="configure-and-test-azure-ad-sso-for-cequence-application-security-platform"></a>Configurar e testar o SSO do Azure AD para o Cequence Application Security Platform
 
-Configure e teste o SSO do Azure AD usando o Cequence Application Security com um usuário de teste chamado **B.Simon**. É necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário correspondente no Cequence Application Security para que o SSO funcione.
+Configure e teste o SSO do Azure AD usando o Cequence Application Security Platform com um usuário de teste chamado **B.Fernandes**. É necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário correspondente no Cequence Application Security Platform para que o SSO funcione.
 
-Execute as seguintes etapas para configurar e testar o SSO do Azure AD com o Cequence Application Security:
+Execute as seguintes etapas para configurar e testar o SSO do Azure AD com o Cequence Application Security Platform:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
     1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
-1. **[Configurar o SSO do Cequence Application Security](#configure-cequence-application-security-sso)** – para definir as configurações de logon único no lado do aplicativo.
-    1. **[Criar um usuário de teste do Cequence Application Security](#create-cequence-application-security-test-user)** – para ter um equivalente de B. Simon no Cequence Application Security que esteja vinculado à representação de usuário do Azure AD.
+1. **[Configurar o SSO do Cequence Application Security Platform](#configure-cequence-application-security-platform-sso)** – para definir as configurações de logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do Cequence Application Security Platform](#create-cequence-application-security-platform-test-user)** – para ter um equivalente de B. Fernandes no Cequence Application Security Platform que esteja vinculado à representação de usuário do Azure AD.
 1. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No portal do Azure, na página de integração de aplicativos do **Cequence Application Security**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **Cequence Application Security Platform**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
 1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
@@ -79,18 +79,18 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<CUSTOMERNAME>.s.cequence.cloud`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<CUSTOMERNAME>.s.cequence.cloud`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<CUSTOMERNAME>.s.cequence.cloud:443/saml/metadata`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte ao Cliente do Cequence Application Security](mailto:support@cequence.ai) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte ao Cliente do Cequence Application Security Platform](mailto:support@cequence.ai) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. O aplicativo Cequence Application Security espera que as declarações SAML estejam em um formato específico. Isso requer que você adicione um mapeamento de atributos personalizado à configuração de atributos de tokens SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+1. O aplicativo Cequence Application Security Platform espera que as declarações SAML estejam em um formato específico. Isso requer que você adicione um mapeamento de atributos personalizado à configuração de atributos de tokens SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
     ![image](common/default-attributes.png)
 
-1. Além do indicado acima, o aplicativo Cequence Application Security espera que mais alguns atributos sejam passados novamente na resposta SAML. Esses atributos serão mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
+1. Além do indicado acima, o aplicativo Cequence Application Security Platform espera que mais alguns atributos sejam passados novamente na resposta SAML. Esses atributos serão mostrados abaixo. Esses atributos também são pré-populados, mas você pode examiná-los de acordo com seus requisitos.
     
     | Nome |  Atributo de Origem|
     | --------------- | --------- |
@@ -113,35 +113,37 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que B.Simon use o logon único do Azure, concedendo acesso ao Cequence Application Security.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure, concedendo-lhe acesso ao Cequence Application Security Platform.
 
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
-1. Na lista de aplicativos, selecione **Cequence Application Security**.
+1. Na lista de aplicativos, selecione **Cequence Application Security Platform**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
 1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-cequence-application-security-sso"></a>Configurar o SSO do Cequence Application Security
+## <a name="configure-cequence-application-security-platform-sso"></a>Configurar o SSO do Cequence Application Security Platform
 
-Para configurar um logon único no lado do **Cequence Application Security**, será necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Cequence Application Security](mailto:support@cequence.ai). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar um logon único no lado do **Cequence Application Security Platform**, será necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Cequence Application Security Platform](mailto:support@cequence.ai). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
-### <a name="create-cequence-application-security-test-user"></a>Criar um usuário de teste do Cequence Application Security
+### <a name="create-cequence-application-security-platform-test-user"></a>Criar um usuário de teste do Cequence Application Security Platform
 
-Nesta seção, uma usuária chamada Britta Simon será criada no Cequence Application Security. O Cequence Application Security é compatível com o provisionamento de usuário do just-in-time, que é habilitado por padrão. Não há itens de ação para você nesta seção. Um usuário será criado após a autenticação, caso ele ainda não exista no Cequence Application Security.
+Nesta seção, uma usuária chamada Brenda Fernandes será criada no Cequence Application Security Platform. O Cequence Application Security Platform é compatível com o provisionamento de usuários Just-In-Time, que é habilitado por padrão. Não há itens de ação para você nesta seção. Um usuário será criado após a autenticação, caso ele ainda não exista no Cequence Application Security Platform.
 
 ## <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-1. Clique em **Testar este aplicativo** no portal do Azure. Você será redirecionado para a URL de Entrada do Cequence Application Security, onde poderá iniciar o fluxo de logon. 
+1. Clique em **Testar este aplicativo** no portal do Azure. Você será redirecionado para a URL de Entrada do Cequence Application Security Platform, local em que poderá iniciar o fluxo de logon. 
 
-2. Acesse a URL de Entrada do Cequence Application Security diretamente e inicie o fluxo de logon desse local.
+2. Acesse a URL de Entrada do Cequence Application Security Platform diretamente e inicie o fluxo de logon nesse local.
 
-3. Use o Painel de Acesso da Microsoft. Ao clicar no bloco Cequence Application Security do Painel de Acesso, você será redirecionado para a URL de Entrada do Cequence Application Security. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+3. Use o Painel de Acesso da Microsoft. Ao clicar no bloco Cequence Application Security Platform do Painel de Acesso, você será redirecionado para a URL de Entrada do Cequence Application Security Platform. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Após configurar o Cequence Application Security, será possível impor o controle de sessão, que protegerá contra a exfiltração e a infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Após configurar o Cequence Application Security Platform, será possível impor o controle de sessão, que protegerá contra a exfiltração e a infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+

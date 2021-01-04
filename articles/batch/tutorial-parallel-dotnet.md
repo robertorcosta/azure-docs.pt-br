@@ -1,16 +1,16 @@
 ---
-title: Executar uma carga de trabalho paralela usando a API do .NET
+title: Tutorial – Executar uma carga de trabalho paralela usando a API do .NET
 description: 'Tutorial: transcodificar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente .NET do Lote'
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 396d0f6a2ef9a8c24fc92b641c889ef9e1a7df49
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a990a5480a8a6462bb6ef9f84070b78768628fd0
+ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578290"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97106522"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -332,6 +332,3 @@ Para obter mais exemplos de como usar a API do .NET para agendar e processar car
 
 > [!div class="nextstepaction"]
 > [Exemplos em C# do Lote](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-Definir a variável de instância LowPriorityNodeCount=0 e o DedicatedNodeCount=5 corrigiu o problema e permitiu que o trabalho fosse concluído.

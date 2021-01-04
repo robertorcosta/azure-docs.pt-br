@@ -8,19 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/04/2020
+ms.date: 12/10/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 5d0b2df551c73e8c9b24d80280bbc993d9b361b7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.custom: contperf-fy21q2
+ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928459"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97587546"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory
 
 O Azure AD (Active Directory) tem um serviço de Proxy de Aplicativo que permite que os usuários acessem aplicativos locais ao entrar com sua conta do Azure AD. Esse tutorial prepara seu ambiente para uso com o Proxy de Aplicativo. Depois que seu ambiente estiver pronto, você usará o portal do Azure para adicionar um aplicativo local ao seu locatário do Azure AD.
+
+Os conectores são uma parte fundamental do Proxy de Aplicativo. Para saber mais sobre conectores, confira [Noções básicas sobre conectores do Proxy de Aplicativo do Azure AD](application-proxy-connectors.md).
 
 Este tutorial:
 
@@ -31,7 +34,7 @@ Este tutorial:
 > * Adiciona um aplicativo local ao locatário do Azure AD
 > * Verifica se um usuário de teste pode fazer logon no aplicativo usando uma conta do Azure AD
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para adicionar um aplicativo local ao Azure AD, você precisará:
 
@@ -74,7 +77,7 @@ O servidor do conector Windows precisa ter o TLS 1.2 habilitado antes de instala
 Para habilitar o TLS 1.2:
 
 1. Defina as seguintes chaves do registro:
-    
+
    ```
    Windows Registry Editor Version 5.00
 
@@ -191,7 +194,7 @@ Agora que você preparou seu ambiente e instalou um conector, está pronto para 
 1. Entre como administrador no [Portal do Azure](https://portal.azure.com/).
 2. No painel de navegação à esquerda, escolha **Azure Active Directory**.
 3. Escolha **Aplicativos empresariais** e, em seguida, **Novos aplicativos**.
-4. Na seção **Criar seu aplicativo**, selecione **Configurar o Proxy de Aplicativo para acesso remoto seguro a um aplicativo local**.
+4. Selecione o botão **Adicionar um aplicativo local** exibido aproximadamente na metade da página na seção **Aplicativos locais**. Como alternativa, você pode escolher **Criar seu aplicativo** na parte superior da página e selecionar **Configurar o Proxy de Aplicativo para acesso remoto seguro a um aplicativo local**.
 5. Na seção **Adicionar seu próprio aplicativo local**, forneça as seguintes informações sobre o aplicativo:
 
     | Campo | Descrição |
@@ -242,7 +245,7 @@ Para testar o logon no aplicativo:
 
 Para solucionar problemas, confira [Solucionar problemas e mensagens de erro do Proxy do Aplicativo](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando não forem mais necessários, exclua todos os recursos criados neste tutorial.
 

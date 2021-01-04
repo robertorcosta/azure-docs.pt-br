@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/24/2020
-ms.openlocfilehash: 6ad2a405fc8abf2e7df2a896d5c5363b9618dda2
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 16cba46d9c0f6a933965366d82eb8e21c4ab1ca6
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96126055"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97033814"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +69,7 @@ Quando você executa o exemplo para se conectar ao IoT Central, ele usa o DPS (S
 
 A função `main` primeiro chama `CreateAndConfigureDeviceClientHandleForPnP` para:
 
-* Defina a ID do modelo `dtmi:com:example:Thermostat;1`.
+* Defina a ID do modelo `dtmi:com:example:Thermostat;1`. O IoT Central usa a ID do modelo para identificar ou gerar o modelo de dispositivo para este dispositivo. Para saber mais, confira [Associar um dispositivo a um modelo de dispositivo automaticamente](../articles/iot-central/core/concepts-get-connected.md#associate-a-device-with-a-device-template).
 * Use o DPS para provisionar e registrar o dispositivo.
 * Cria um manipulador de comando para o comando `getMaxMinReport`.
 * Cria um manipulador de atualização de propriedade para a propriedade `targetTemperature` gravável.

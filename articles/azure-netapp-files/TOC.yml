@@ -8,7 +8,7 @@
       href: whats-new.md
     - name: Hierarquia de armazenamento do Azure NetApp Files
       href: azure-netapp-files-understand-storage-hierarchy.md
-- name: Inícios rápidos
+- name: Início rápido
   expanded: true
   items:
     - name: Configurar o Azure NetApp Files e criar um volume do NFS
@@ -59,6 +59,8 @@
               href: solutions-windows-virtual-desktop.md
     - name: Perguntas frequentes sobre o Azure NetApp Files
       href: azure-netapp-files-faqs.md
+    - name: O que é a Ferramenta Instantânea Consistente do Aplicativo Azure?
+      href: azacsnap-introduction.md
 - name: Guias de instruções
   items:
     - name: Registro no Azure NetApp Files
@@ -131,6 +133,32 @@
       href: /rest/api/netapp/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.netapp/allversions
+    - name: AzAcSnap (Ferramenta Instantânea Consistente do Aplicativo Azure)
+      items:
+        - name: Introdução à AzAcSnap
+          href: azacsnap-get-started.md
+        - name: Instalar a AzAcSnap
+          href: azacsnap-installation.md
+        - name: Recuperação de desastre usando a AzAcSnap
+          href: azacsnap-disaster-recovery.md
+        - name: Dicas e truques para usar a AzAcSnap
+          href: azacsnap-tips.md
+        - name: Solucionar problemas da AzAcSnap
+          href: azacsnap-troubleshoot.md
+        - name: Referência de comandos da AzAcSnap
+          items:
+            - name: Configurar a AzAcSnap
+              href: azacsnap-cmd-ref-configure.md
+            - name: Testar a AzAcSnap
+              href: azacsnap-cmd-ref-test.md
+            - name: Fazer backup usando a AzAcSnap
+              href: azacsnap-cmd-ref-backup.md
+            - name: Obter detalhes usando a AzAcSnap
+              href: azacsnap-cmd-ref-details.md
+            - name: Excluir usando a AzAcSnap
+              href: azacsnap-cmd-ref-delete.md
+            - name: Restaurar usando a AzAcSnap
+              href: azacsnap-cmd-ref-restore.md
 - name: Recursos
   items:
     - name: Preços

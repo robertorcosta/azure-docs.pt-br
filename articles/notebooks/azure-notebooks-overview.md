@@ -1,22 +1,22 @@
 ---
 title: Visão geral da versão prévia do Azure Notebooks
-description: Execute Jupyter notebooks na nuvem usando o serviço gratuito de versão prévia do Azure Notebooks, em que não é necessária nenhuma instalação ou configuração.
+description: Execute Jupyter Notebooks na nuvem usando o serviço gratuito de versão prévia do Azure Notebooks, em que não é necessária nenhuma instalação nem configuração.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: d59faaf85a1fdbad776e954e974bafa300f93d85
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 7e622bdef785085384395bb0c8ac3efba2b2053a
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845128"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400243"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Visão geral da versão prévia do Azure Notebooks
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os notebooks do Jupyter na nuvem sem instalação. O [Jupyter](https://jupyter.org/) (anteriormente conhecido como IPython) é um projeto de software livre que permite que você combine com facilidade um texto de Markdown, um código executável, dados persistentes, gráficos e visualizações em uma só tela compartilhável chamada de *notebook* (imagem cedida pela jupyter.org):
+O Azure Notebooks é um serviço hospedado gratuito para desenvolver e executar os Jupyter Notebooks na nuvem sem instalação. O [Jupyter](https://jupyter.org/) (anteriormente conhecido como IPython) é um projeto de software livre que permite que você combine com facilidade um texto de Markdown, um código executável, dados persistentes, gráficos e visualizações em uma só tela compartilhável chamada de *notebook* (imagem cedida pela jupyter.org):
 
-[![Exemplos de Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exemplos de Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a essa poderosa combinação de código, gráficos e texto explicativo, o Jupyter popularizou muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformações, simulações numéricas, modelagens estatísticas e o desenvolvimento de modelos de aprendizado de máquina.
 
@@ -49,7 +49,7 @@ Em resumo, o Azure Notebooks ajuda a realizar seu trabalho com mais eficiência 
 
 O Azure Notebooks é um serviço gratuito, mas cada projeto é limitado a 4 GB de memória e 1 GB de dados para evitar abusos. Os usuários legítimos que excedem esses limites devem resolver um desafio Captcha para continuar a execução de notebooks.
 
-Para liberar todos os limites, entre no Azure Notebooks com uma conta usando o Azure Active Directory (como uma conta corporativa). Se essa conta estiver associada a uma assinatura do Azure, você poderá conectar quaisquer instâncias da Máquina Virtual de Ciência de Dados do Azure dentro dessa assinatura. Para obter mais informações, consulte [Gerenciar e configurar projetos – nível de computação](configure-manage-azure-notebooks-projects.md#compute-tier).
+Para liberar todos os limites, entre no Azure Notebooks com uma conta usando o Azure Active Directory (como uma conta corporativa). Se essa conta estiver associada a uma assinatura do Azure, você poderá conectar quaisquer instâncias da Máquina Virtual de Ciência de Dados do Azure dentro dessa assinatura. 
 
 Servidores de notebook com certeza existem por no máximo 8 horas. Na maioria dos casos, o contêiner não está sujeito a esse limite e continuará sendo executado após esse prazo, mas as sessões de longa duração ocasionalmente poderão ser desligadas para estabilidade do sistema.
 
@@ -65,7 +65,7 @@ Para cada notebook, selecione o kernel (ou seja, o ambiente de runtime) usado pa
 
 O Azure Notebooks também inclui pacotes extras, além de distribuições de base. Os kernels do Python, por exemplo, incluem as bibliotecas numpy, pandas, scikit-saber, matplotlib e bokeh.
 
-Também é possível personalizar um projeto para criar um ambiente para todos os notebooks do projeto. Para saber mais, confira [Início Rápido: Criar um projeto com um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md).
+Também é possível personalizar um projeto para criar um ambiente para todos os notebooks do projeto.
 
 Além das distribuições de base, o Azure Notebooks vem pré-instalado com muitos pacotes extras que são úteis para os cientistas de dados. Também é possível instalar seus próprios pacotes usando o processo típico para cada linguagem.
 
@@ -73,8 +73,8 @@ Além das distribuições de base, o Azure Notebooks vem pré-instalado com muit
 
 O Azure Notebooks é pré-configurado com as seguintes extensões de Jupyter:
 
-- [RISE](https://github.com/damianavila/RISE): uma extensão de apresentação de slides do Jupyter (também conhecida como live_reveal). Para obter mais informações, confira [Executar uma apresentação de slides do notebook](present-jupyter-notebooks-slideshow.md).
-- [JupyterLab](https://github.com/jupyterlab/jupyterlab): um ambiente computacional completo para trabalhar com notebooks Jupyter.
+- [RISE](https://github.com/damianavila/RISE): uma extensão de apresentação de slides do Jupyter (também conhecida como live_reveal).
+- [JupyterLab](https://github.com/jupyterlab/jupyterlab): um ambiente computacional completo para trabalhar com Jupyter Notebooks.
 - [Altair](https://github.com/ellisonbg/altair): uma biblioteca de visualização de estatística declarativa para Python.
 - [BQPlot](https://github.com/bloomberg/bqplot): uma estrutura de plotagem interativa para notebooks Jupyter.
 - [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): widgets HTML interativos para notebooks Jupyter.
@@ -89,26 +89,7 @@ Para discutir suas dúvidas sobre o Azure Notebooks, registre um problema sobre 
 
 ## <a name="next-steps"></a>Próximas etapas  
 
-- [Explorar notebooks de exemplo](azure-notebooks-samples.md)
-
 - Inícios Rápidos:
 
-  - [Criar e compartilhar um notebook](quickstart-create-share-jupyter-notebook.md)
-  - [Clonar um notebook](quickstart-clone-jupyter-notebook.md)
-  - [Migrar um notebook local do Jupyter](quickstart-migrate-local-jupyter-notebook.md)
-  - [Usar um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md)
   - [Entrar e definir uma ID de usuário](quickstart-sign-in-azure-notebooks.md)
-
-- Tutoriais:
-
-  - [Criar e executar um notebook](tutorial-create-run-jupyter-notebook.md  )
-
-- Artigos de instrução:
-  
-  - [Criar e clonar projetos](create-clone-jupyter-notebooks.md)
-  - [Configurar e gerenciar dispositivos](configure-manage-azure-notebooks-projects.md)
-  - [Instalar pacotes em um notebook](install-packages-jupyter-notebook.md)
-  - [Exibir uma apresentação de slides](present-jupyter-notebooks-slideshow.md)
-  - [Trabalhar com arquivos de dados](work-with-project-data-files.md)
-  - [Acessar recursos de dados](access-data-resources-jupyter-notebooks.md)
-  - [Usar o Azure Machine Learning](../machine-learning/samples-notebooks.md)
+  - [Exportar um Jupyter Notebook](quickstart-export-jupyter-notebook-project.md)

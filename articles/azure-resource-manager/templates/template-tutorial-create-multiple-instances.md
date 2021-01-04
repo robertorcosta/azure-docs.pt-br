@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 94509ba209e95eb9199ddd760529d47eb48bda10
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: fc1401959adb97f8c4caf6d413a212d9f3b62801
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930790"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97588107"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-arm-templates"></a>Tutorial: Criar vários instâncias de recurso com os modelos do ARM
 
@@ -38,15 +38,16 @@ Para concluir este artigo, você precisa do seguinte:
 
 [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/) é um repositório de modelos do ARM. Em vez de criar um modelo do zero, você pode encontrar um exemplo de modelo e personalizá-lo. O modelo usado neste início rápido é chamado [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/). O modelo define um recurso da conta de Armazenamento do Azure.
 
-1. No Visual Studio Code, escolha **Arquivo**>**Abrir Arquivo**.
-2. Em **Nome do arquivo**, cole a seguinte URL:
+1. No Visual Studio Code, escolha **Arquivo** > **Abrir Arquivo**.
+1. Em **Nome do arquivo**, cole a seguinte URL:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. Escolha **Abrir** para abrir o arquivo.
-4. Há um recurso 'Microsoft.Storage/storageAccounts' definido no modelo. Comparar o modelo para a [referência de modelo](/azure/templates/Microsoft.Storage/storageAccounts). É útil ter algumas noções básicas do modelo antes de personalizá-lo.
-5. Escolha **Arquivo**>**Salvar como** para salvar o arquivo como **azuredeploy.json** em seu computador local.
+
+1. Escolha **Abrir** para abrir o arquivo.
+1. Há um recurso `Microsoft.Storage/storageAccounts` definido no modelo. Comparar o modelo para a [referência de modelo](/azure/templates/Microsoft.Storage/storageAccounts). É útil ter algumas noções básicas do modelo antes de personalizá-lo.
+1. Escolha **Arquivo** > **Salvar como** para salvar o arquivo como _azuredeploy.json_ em seu computador local.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
@@ -56,10 +57,10 @@ No Visual Studio Code, faça as quatro alterações a seguir:
 
 ![O Azure Resource Manager cria várias instâncias](./media/template-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. Adicione um elemento `copy` à definição de recurso de conta de armazenamento. No elemento de cópia, você especifica o número de iterações e uma variável para esse loop. O valor da contagem deve ser um número inteiro positivo e não pode exceder 800.
-2. A função `copyIndex()` retorna a iteração atual no loop. Você pode usar o índice como o prefixo do nome. `copyIndex()`é baseado em zero. Para deslocar o valor do índice, você pode passar um valor na função copyIndex(). Por exemplo, *copyIndex(1)* .
-3. Exclua o elemento **variables**, porque ele não é mais usado.
-4. Exclua o elemento **outputs**. Ele não é mais necessário.
+1. Adicione um elemento `copy` à definição de recurso de conta de armazenamento. No elemento `copy`, você especifica o número de iterações e uma variável para esse loop. O valor da contagem deve ser um número inteiro positivo e não pode exceder 800.
+2. A função `copyIndex()` retorna a iteração atual no loop. Você pode usar o índice como o prefixo do nome. `copyIndex()`é baseado em zero. Para deslocar o valor do índice, você pode passar um valor na função `copyIndex()`. Por exemplo, `copyIndex(1)`.
+3. Exclua o elemento `variables`, pois ele não será mais usado.
+4. Exclua o elemento `outputs`. Ele não é mais necessário.
 
 O modelo concluído se parece com:
 
@@ -109,17 +110,17 @@ O modelo concluído se parece com:
 }
 ```
 
-Para saber mais sobre como criar várias instâncias, confira [Implantar várias instâncias de um recurso ou propriedade em modelos do ARM](./copy-resources.md)
+Para obter mais informações de como criar várias instâncias, confira [Iteração de recursos em modelos do ARM](./copy-resources.md)
 
 ## <a name="deploy-the-template"></a>Implantar o modelo
 
 1. Entrar no [Azure Cloud Shell](https://shell.azure.com)
 
-1. Escolha seu ambiente preferencial selecionando **PowerShell** ou **Bash** (para a CLI) no canto superior esquerdo.  Ao alternar, é necessário reiniciar o shell.
+1. Escolha seu ambiente preferencial selecionando **PowerShell** ou **Bash** (para a CLI) no canto superior esquerdo. Ao alternar, é necessário reiniciar o shell.
 
     ![Carregar arquivo do Cloud Shell no portal do Azure](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior. Selecione o arquivo que você salvou na seção anterior. Após carregar o arquivo, você pode usar o comando **ls** e o comando **cat** para verificar se o arquivo foi carregado com êxito.
+1. Escolha **Carregar/fazer o download dos arquivos** e, em seguida, escolha **Carregar**. Consulte a captura de tela anterior. Selecione o arquivo que você salvou na seção anterior. Depois de carregar o arquivo, use os comandos `ls` e `cat` para verificar se o arquivo foi carregado com êxito.
 
 1. No Cloud Shell, execute os comandos a seguir. Selecione a guia para mostrar o código do PowerShell ou o código da CLI.
 
@@ -148,9 +149,9 @@ Para saber mais sobre como criar várias instâncias, confira [Implantar várias
 
     ---
 
-Para listar todas as três contas de armazenamento, omita o parâmetro --name:
+Após uma implantação de modelo bem-sucedida, você pode exibir as três contas de armazenamento criadas no grupo de recursos especificado. Compare os nomes de conta de armazenamento com a definição de nome no modelo.
 
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+# <a name="cli"></a>[CLI](#tab/azure-cli)
 
 ```azurecli
 echo "Enter a project name that is used to generate resource group name:" &&
@@ -172,8 +173,6 @@ Write-Host "Press [ENTER] to continue ..."
 
 ---
 
-Compare os nomes de conta de armazenamento com a definição de nome no modelo.
-
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implantados excluindo o grupo de recursos.
@@ -185,7 +184,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a criar várias instâncias da conta de armazenamento.  No próximo tutorial, você desenvolverá um modelo com vários recursos e vários tipos de recursos. Alguns dos recursos têm recursos dependentes.
+Neste tutorial, você aprendeu a criar várias instâncias da conta de armazenamento. No próximo tutorial, você desenvolverá um modelo com vários recursos e vários tipos de recursos. Alguns dos recursos têm recursos dependentes.
 
 > [!div class="nextstepaction"]
 > [Criar recursos dependentes](./template-tutorial-create-templates-with-dependent-resources.md)

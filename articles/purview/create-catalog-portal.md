@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Criar uma conta do Azure Purview no portal do Azure (versão prévia)'
 description: Este guia de início rápido descreve como criar uma conta do Azure Purview e configurar permissões para começar a usá-la.
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: c9e0b155a4cf34373bb6d851241dc62ddd661045
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3119152e4a7d0dc799dfe273722101c95c11c0c9
+ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602335"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97400379"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Início Rápido: Criar uma conta do Azure Purview no portal do Azure
 
@@ -30,6 +30,10 @@ Neste início rápido, você criará uma conta do Azure Purview.
 * Sua conta precisa ter permissão para criar recursos na assinatura
 
 * Se o **Azure Policy** estiver impedindo todos os aplicativos de criarem uma **Conta de armazenamento** e um **namespace do EventHub**, será necessário criar uma exceção de política usando a marca, que poderá ser inserida durante o processo de criação de uma conta do Purview. O principal motivo é que, para cada conta do Purview criada, ele precisa criar um grupo de recursos gerenciados e, dentro desse grupo de recursos, uma conta de armazenamento e um namespace do EventHub.
+
+    > [!important]
+    > Você não precisará seguir esta etapa se não tiver o Azure Policy ou se um Azure Policy existente não estiver bloqueando a criação da **conta de armazenamento** e do **namespace do Hub de Eventos**.
+
     1. Navegue até o portal do Azure e pesquise **Policy**
     1. Siga [Criar uma definição de política personalizada](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) ou modificar a política existente para adicionar duas exceções com o operador `not` e marca `resourceBypass`:
 
@@ -151,7 +155,7 @@ Se, ao clicar em Adicionar, você vê duas opções exibidas como marcadas (desa
 
 1. Selecione **Adicionar atribuição de função**.
 
-1. Para o tipo de função em **Função de Curador de Dados do Purview** ou **Função de Administrador de Fonte de Dados do Purview** dependendo de qual entidade de serviço será usada (confira [Permissões de Catálogo](catalog-permissions.md) para obter detalhes).
+1. Para o tipo de Função em **Função Curador de Dados do Purview** ou **Função Administrador de Fonte de Dados do Purview**, dependendo da finalidade de uso da entidade de segurança (confira [Permissões de catálogo](catalog-permissions.md) e [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) para obter detalhes).
 
 1. Em **Atribuir acesso a**, deixe o padrão, **Usuário, grupo ou entidade de serviço**.
 

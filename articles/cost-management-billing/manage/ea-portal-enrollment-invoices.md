@@ -3,18 +3,18 @@ title: Faturas do Registro Enterprise do Azure
 description: Este artigo explica como gerenciar e usar sua fatura do Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/23/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.custom: contperfq1
-ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.custom: contperf-fy21q1
+ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
+ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410939"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97030715"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas do Registro Enterprise do Azure
 
@@ -39,18 +39,14 @@ Para exibir o uso detalhado de contas específicas, baixe o relatório de detalh
 Para exibir os relatórios e os grafos de resumo de uso:
 
 1. Entre no Azure Enterprise Portal.
-
 1. Selecione uma condição de Pagamento antecipado.
-
-   Para alterar o intervalo de datas do **Resumo de Uso** , você pode alternar de **M** (mensal) para **C** (personalizado) no canto superior direito da página e, em seguida, inserir as datas de início e término personalizadas.
-
+   Para alterar o intervalo de datas do **Resumo de Uso**, você pode alternar de **M** (mensal) para **C** (personalizado) no canto superior direito da página e, em seguida, inserir as datas de início e término personalizadas.  
    ![Criar e exibir o resumo de uso e baixar relatórios no modo de exibição personalizado](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. Para exibir detalhes adicionais, selecione um período ou mês no gráfico.
-
    - O gráfico mostra o uso mês a mês com um detalhamento do uso utilizado, os encargos adicionais de serviço, os encargos cobrados separadamente e os encargos do Azure Marketplace.
    - Para o mês selecionado, use os campos abaixo do gráfico para filtrar por departamentos, contas e assinaturas.
    - Você pode alternar entre **Cobrar por Serviços** e **Cobrar por Hierarquia**.
-   - Veja os detalhes de **Serviço do Azure** , dos **Encargos Cobrados Separadamente** e do **Azure Marketplace** expandindo as seções pertinentes.
+   - Veja os detalhes de **Serviço do Azure**, dos **Encargos Cobrados Separadamente** e do **Azure Marketplace** expandindo as seções pertinentes.
 
 Assista a este vídeo para ver como exibir o uso:
 
@@ -72,7 +68,7 @@ Para baixar relatórios:
 3. Selecione **Baixar** ao lado do relatório do mês.
 
    > [!NOTE]
-   > Pode haver uma latência de até cinco dias entre a data em que o uso ocorreu e o momento em que ele é mostrado nos relatórios.
+   > Pode haver uma latência de até 72 horas entre a data em que o uso ocorreu e o momento em que ele é mostrado nos relatórios.
    >
    > Os usuários que baixarem arquivos CSV com o Safari para Excel poderão encontrar erros de formatação. Para evitar erros, abra o arquivo usando um editor de texto.
 
@@ -142,20 +138,20 @@ O intervalo de cobrança depende de como você opta por fazer suas compras do pa
 
 A data em que você recebe a fatura excedente depende da data de início e da configuração do registro:
 
-- **Registros diretos com uma data de início anterior a 1º de maio de 2018** :
+- **Registros diretos com uma data de início anterior a 1º de maio de 2018**:
   - Se você estiver em um EA (Contrato Enterprise) direto, o ciclo de cobrança será anual para os serviços do Azure, exceto serviços do Azure Marketplace. Seu ciclo de cobrança é baseado na data de aniversário: a data em que seu contrato se tornou efetivo.
   - Se você ultrapassar 150% do seu limite do pagamento antecipado do Azure EA, será automaticamente convertido em um período de cobrança trimestral com base na sua data de aniversário. Você também receberá uma fatura de excedente do serviço do Azure.
   - Se você não ultrapassar 150% do seu limite do pagamento antecipado do Azure, seu registro permanecerá em um período de cobrança anual. A fatura de excedente será recebida no final do ano do pagamento antecipado.
 
-- **Registros diretos com uma data de início posterior a 1º de maio de 2018** :
+- **Registros diretos com uma data de início posterior a 1º de maio de 2018**:
   - As faturas de consumo e cobranças do Azure cobradas separadamente estão em um ciclo de cobrança mensal.
   - Os custos não cobertos pelo seu pagamento antecipado do Azure são devidos como um pagamento de excedente.  
 
-- **Registros indiretos com um registro iniciado antes de 1º de maio de 2018** :
+- **Registros indiretos com um registro iniciado antes de 1º de maio de 2018**:
 
   Se você for um cliente indireto de EA (Contrato Enterprise) com uma data de início antes de 1º de maio de 2018, estará configurado em um ciclo de cobrança trimestral. O CP (parceiro de canal) fatura você diretamente.  
 
-- **Registros indiretos com uma data de início posterior a 1º de maio de 2018** :
+- **Registros indiretos com uma data de início posterior a 1º de maio de 2018**:
 
   Você está em um ciclo de cobrança mensal.  
 
@@ -169,15 +165,15 @@ No caso de excedente, você é cobrado pelo uso ou pelas reservas que excedem o 
 
 Para cada item na fatura, você verá:
 
-- **Valor ampliado** : o total de cobranças
-- **Uso do pagamento antecipado** : o valor do pagamento antecipado usado para cobrir os custos
-- **Valor líquido** : os custos que excedem o pagamento antecipado
+- **Valor ampliado**: o total de cobranças
+- **Uso do pagamento antecipado**: o valor do pagamento antecipado usado para cobrir os custos
+- **Valor líquido**: os custos que excedem o pagamento antecipado
 
 Os tributos incidentes são calculados somente sobre o valor líquido que excede o pagamento antecipado.
 
 O faturamento excedente é automatizado. O cronograma das notificações e das faturas depende da data de término do seu período de cobrança.
 
-- A notificação de excedente geralmente é enviada sete dias após a data de término da cobrança.
+- A notificação de excedente normalmente é enviada sete dias após a data de término da cobrança.
 - As faturas de excedentes são enviadas de sete a nove dias após a notificação.
 - Você pode examinar as cobranças e atualizar os números de OC gerados pelo sistema durante os sete dias entre a notificação de excedente e o faturamento.
 
@@ -300,7 +296,7 @@ O Pagamento Antecipado do Azure é um valor pago antecipadamente pelos serviços
 
 ### <a name="charges-billed-separately"></a>Cobranças arrecadadas separadamente
 
-Alguns produtos e serviços fornecidos por fontes de terceiros não consomem o pagamento antecipado do Azure. Ao invés disso, esses itens são cobrados separadamente como parte da fatura excedente do ciclo de cobrança padrão.
+Alguns produtos e serviços fornecidos por fontes de terceiros não consomem o Pagamento Antecipado do Azure. Ao invés disso, esses itens são cobrados separadamente como parte da fatura excedente do ciclo de cobrança padrão.
 
 Combinamos todas as cobranças do Azure e do Azure Marketplace em uma fatura que se alinha com o ciclo de cobrança do registro. A fatura combinada não se aplica aos clientes na Austrália, no Japão ou em Singapura.
 

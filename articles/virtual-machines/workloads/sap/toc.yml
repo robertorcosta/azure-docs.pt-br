@@ -72,6 +72,8 @@
       items:
         - name: Controle do HANA em Instâncias Grandes do Azure por meio do portal do Azure
           href: hana-li-portal.md
+        - name: Gerenciar Instâncias de BareMetal por meio do portal do Azure
+          href: baremetal-infrastructure-portal.md
         - name: Configuração de HA com o STONITH
           href: ha-setup-with-stonith.md
         - name: Backup do sistema operacional para SKUs do tipo II

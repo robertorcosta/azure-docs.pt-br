@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8979e315f188a5c21cce206c24f195f72096d438
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: b338b8ee93fb24cff54968630d4ff00deca0b64b
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516509"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97606718"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introdução ao Azure Defender para Armazenamento
 
@@ -20,7 +20,6 @@ ms.locfileid: "97516509"
 O **Azure Defender para Armazenamento** é uma camada nativa do Azure de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar suas contas de armazenamento. Ele utiliza funcionalidades avançadas da IA de segurança e [Inteligência contra Ameaças da Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684) para fornecer recomendações e alertas de segurança contextuais.
 
 Os alertas de segurança são acionados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados à Central de Segurança do Azure e são enviados por email para administradores de assinatura, com detalhes da atividade suspeita e recomendações sobre como investigar e corrigir as ameaças.
-
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -31,6 +30,17 @@ Os alertas de segurança são acionados quando ocorrem anomalias na atividade. E
 |Tipos de armazenamento protegidos:|[Armazenamento de Blobs](https://azure.microsoft.com/services/storage/blobs/)<br>[Arquivos do Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos|
 |||
+
+
+## <a name="what-are-the-benefits-of-azure-defender-for-storage"></a>Quais são os benefícios do Azure Defender para Armazenamento?
+
+O Azure Defender para Armazenamento oferece:
+
+- **Segurança nativa do Azure** – com a habilitação de um clique, o Defender para Armazenamento protege os dados armazenados no blob do Azure, nos Arquivos do Azure e nos Data Lakes. Como um serviço nativo do Azure, o Defender para Armazenamento proporciona segurança centralizada em todos os ativos de dados gerenciados pelo Azure e é integrado a outros serviços de segurança do Azure, como o Azure Sentinel.
+- **Pacote de detecção avançada** – Da plataforma de inteligência contra ameaças da Microsoft, as detecções no Defender para Armazenamento abrangem as principais ameaças de armazenamento, como acesso anônimo, credenciais comprometidas, engenharia social, abuso de privilégio e conteúdo mal-intencionado.
+- **Resposta em escala** – As ferramentas de automação da Central de Segurança facilitam a prevenção e a resposta a ameaças identificadas. Saiba mais em [Automatizar respostas para os gatilhos da Central de Segurança](workflow-automation.md).
+
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Visão geral de alto nível dos recursos do Azure Defender para Armazenamento":::
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-storage-provide"></a>Quais tipos de alertas são fornecidos pelo Azure Defender para Armazenamento?

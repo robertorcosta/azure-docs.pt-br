@@ -9,7 +9,7 @@
       maintainContext: true
     - name: Usar o Barramento de Serviço com o JMS (Serviço de Mensagens Java) 2.0 (versão prévia)
       href: how-to-use-java-message-service-20.md
-- name: Inícios rápidos
+- name: Início rápido
   items:
     - name: Filas do Barramento de Serviço
       items:
@@ -96,6 +96,22 @@
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
     - name: Otimizar desempenho
       href: service-bus-performance-improvements.md
+    - name: Federação
+      items:
+        - name: Replicação de mensagem e federação entre regiões
+          href: service-bus-federation-overview.md
+        - name: Tarefas e aplicativos de replicação de mensagens
+          href: service-bus-federation-replicator-functions.md
+        - name: Padrões de tarefa de replicação de mensagem
+          href: service-bus-federation-patterns.md
+        - name: Tarefas de replicação configuradas
+          href: service-bus-federation-configuration.md
+        - name: Replicar eventos entre entidades de Barramento de Serviço
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy'
+        - name: Replicar mensagens aos Hubs de Eventos
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub'
+        - name: Adquirir mensagens de Hubs de Eventos
+          href: 'https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus'
     - name: Recuperação de desastres geográficos e replicação geográfica
       href: service-bus-geo-dr.md
     - name: Mensagens assíncronas e de alta disponibilidade

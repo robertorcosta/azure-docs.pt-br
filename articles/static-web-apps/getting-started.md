@@ -1,20 +1,20 @@
 ---
-title: 'Início Rápido: Como criar seu primeiro aplicativo Web estático com os Aplicativos Web Estáticos do Azure'
-description: Saiba como criar um site dos Aplicativos Web Estáticos do Azure.
+title: 'Início Rápido: Como criar seu primeiro site estático com os Aplicativos Web Estáticos do Azure'
+description: Saiba como implantar um site estático nos Aplicativos Web Estáticos do Azure.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: a78f74b4aadd26af141ed84ca99a092693f56af5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: eb2356451c349f894c9ca74b1359f6a02d0e002a
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369555"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97562507"
 ---
-# <a name="quickstart-building-your-first-static-web-app"></a>Início Rápido: Como criar seu primeiro aplicativo Web estático
+# <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Início Rápido: Como criar seu primeiro site estático com os Aplicativos Web Estáticos do Azure
 
 Os Aplicativos Web Estáticos do Azure publicam um site em um ambiente de produção por meio da criação de aplicativos por meio de um repositório GitHub. Neste guia de início rápido, você implantará um aplicativo Web nos Aplicativos Web Estáticos do Azure usando a extensão do Visual Studio Code.
 
@@ -52,7 +52,7 @@ Em seguida, abra o Visual Studio Code e acesse **Arquivo > Abrir Pasta** para ab
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Criar Aplicativo Web Estático":::
 
-1. Selecione o branch **mestre** e clique em **ENTER**.
+1. Selecione o branch **main** e pressione **Enter**.
 
     :::image type="content" source="media/getting-started/extension-branch.png" alt-text="Nome do branch":::
 

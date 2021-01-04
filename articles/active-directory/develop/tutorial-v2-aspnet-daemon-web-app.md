@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 031ee9a6d945d923279fd3025c32212c3ead98ed
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95406592"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509420"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Criar um daemon multilocatário que usa a plataforma de identidade da Microsoft
 
@@ -65,7 +65,7 @@ Ou [baixe o exemplo em um arquivo zip](https://github.com/Azure-Samples/ms-ident
 
 Este exemplo tem um projeto. Para registrar o aplicativo com seu locatário do Azure AD, você pode:
 
-- Seguir as etapas em [Registrar o exemplo com seu locatário do Azure Active Directory](#register-your-application) e [Configurar o exemplo para usar o locatário do Azure AD](#choose-the-azure-ad-tenant).
+- Seguir as etapas em [Registrar o exemplo com seu locatário do Azure Active Directory](#register-the-client-app-dotnet-web-daemon-v2) e [Configurar o exemplo para usar o locatário do Azure AD](#choose-the-azure-ad-tenant).
 - Usar scripts do PowerShell que:
   - Crie *automaticamente* os aplicativos do Azure AD e objetos relacionados (senhas, permissões, dependências) para você.
   - Modifiquem os arquivos de configuração dos projetos do Visual Studio.
@@ -93,40 +93,34 @@ Se você não quiser usar a automação, use as etapas nas seções a seguir.
 
 ### <a name="choose-the-azure-ad-tenant"></a>Escolher o locatário do Azure AD
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. Se sua conta estiver em mais de um locatário do Azure AD, selecione seu perfil no menu na parte superior da página e, em seguida, selecione **Alternar diretório**.
-1. Altere a sessão do portal para o locatário do Azure AD desejado.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
+
 
 ### <a name="register-the-client-app-dotnet-web-daemon-v2"></a>Registrar o aplicativo cliente (dotnet-web-daemon-v2)
 
-1. Vá até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
-1. Selecione **Novo registro**.
-1. Quando a página **Registrar um aplicativo** for exibida, insira as informações de registro do aplicativo:
-   - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo. Por exemplo, digite **dotnet-web-daemon-v2**.
-   - Na seção **Tipos de conta com suporte**, escolha **Contas em qualquer diretório organizacional**.
-   - Na seção **URI de redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira os seguintes URIs de redirecionamento:
-       - **https://localhost:44316/**
-       - **https://localhost:44316/Account/GrantPermissions**
+1. Pesquise **Azure Active Directory** e selecione-o.
+1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
+1. Insira um **Nome** para seu aplicativo, por exemplo, `dotnet-web-daemon-v2`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
+1. Na seção **Tipos de conta com suporte**, escolha **Contas em qualquer diretório organizacional**.
+1. Na seção **URI de Redirecionamento (opcional)** , selecione **Web** na caixa de combinação e insira `https://localhost:44316/` e `https://localhost:44316/Account/GrantPermissions` como URIs de Redirecionamento.
 
-     Se houver mais de dois URIs de redirecionamento, você precisará adicioná-los por meio da guia **Autenticação** posteriormente, depois que o aplicativo tiver sido criado com êxito.
+    Se houver mais de dois URIs de redirecionamento, você precisará adicioná-los por meio da guia **Autenticação** posteriormente, depois que o aplicativo tiver sido criado com êxito.
 1. Selecione **Registrar** para criar o aplicativo.
-1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Você precisará dele para definir o arquivo de configuração do Visual Studio para este projeto.
-1. Na lista de páginas para o aplicativo, selecione **Autenticação**. Em seguida:
-   - Na seção **Configurações avançadas**, defina **URL de Logoff** como **https://localhost:44316/Account/EndSession** .
-   - Na seção **Configurações avançadas** > **Concessão implícita**, selecione **Tokens de acesso** e **Tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário e chamar uma API.
+1. Na página **Visão geral** do aplicativo, localize o valor de **ID do Aplicativo (cliente)** e registre-o para uso posterior. Você precisará dele para definir o arquivo de configuração do Visual Studio para este projeto.
+1. Em **Gerenciar**, selecione **Autenticação**.
+1. Defina **URL de Logoff** como `https://localhost:44316/Account/EndSession`.
+1. Na seção **Concessão implícita**, selecione **Tokens de acesso** e **Tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário e chamar uma API.
 1. Clique em **Salvar**.
-1. Na página **Certificados e segredos**, na seção **Segredos do cliente**, selecione **Novo segredo do cliente**. Em seguida:
-
-   1. Insira uma descrição de chave (por exemplo, **segredo do aplicativo**),
-   1. Selecione uma duração de chave de **Em 1 ano**, **Em 2 anos** ou **Nunca Expira**.
-   1. Selecione o botão **Adicionar**.
-   1. Quando o valor da chave for exibido, copie e salve-o em um local seguro. Você precisará dessa chave posteriormente para configurar o projeto no Visual Studio. Ele não será exibido novamente nem poderá ser recuperado por outros meios.
-1. Na lista de páginas do aplicativo, selecione **Permissões da API**. Em seguida:
-   1. Selecione o botão **Adicionar uma permissão**.
-   1. Verifique se a guia **APIs da Microsoft** está selecionada.
-   1. Na seção **APIs da Microsoft frequentemente utilizadas**, selecione **Microsoft Graph**.
-   1. Na seção **Permissões do aplicativo**, verifique se as permissões corretas estão selecionadas: **User.Read.All**.
-   1. Selecione o botão **Adicionar permissões**.
+1. Em **Gerenciar**, selecione **Certificados e Segredos**.
+1. Na seção **Segredos do Cliente**, escolha **Novo Segredo do Cliente**. 
+1. Insira uma descrição de chave (por exemplo, **segredo do aplicativo**).
+1. Selecione uma duração de chave de **Em 1 ano**, **Em 2 anos** ou **Nunca Expira**.
+1. Selecione **Adicionar**. Registre o valor da chave em uma localização segura. Você precisará dessa chave posteriormente para configurar o projeto no Visual Studio.
+1. Em **Gerenciar**, selecione **Permissões de API** > **Adicionar uma permissão**.
+1. Na seção **APIs da Microsoft frequentemente utilizadas**, selecione **Microsoft Graph**.
+1. Na seção **Permissões do aplicativo**, verifique se as permissões corretas estão selecionadas: **User.Read.All**.
+1. Escolha **Adicionar permissões**.
 
 ## <a name="configure-the-sample-to-use-your-azure-ad-tenant"></a>Configurar o exemplo para usar seu locatário do Azure AD
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c476fe2af1fb4bddff4799609b164aab14f57b00
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5aab11b31756ee8430e8ae4d54a2b3de5ea2e136
+ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187384"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97612700"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>A WAN Virtual do Azure está em GA?
 
@@ -277,3 +277,7 @@ Consulte [WANs virtuais Básicas e Standard](../articles/virtual-wan/virtual-wan
 ### <a name="does-virtual-wan-store-customer-data"></a>A WAN virtual armazena dados do cliente? 
 
 Não. A WAN virtual não armazena nenhum dado do cliente.
+
+### <a name="are-there-any-managed-service-providers-that-can-manage-virtual-wan-for-users-as-a-service"></a>Há Provedores de Serviço Gerenciado que podem gerenciar a WAN Virtual para usuários como um serviço? 
+
+Sim. Para obter uma lista de soluções de MSP (provedor de serviços gerenciados) habilitadas através do Azure Marketplace, confira [Ofertas do Azure Marketplace de parceiros MSP de Rede do Azure](../articles/networking/networking-partners-msp.md#msp).

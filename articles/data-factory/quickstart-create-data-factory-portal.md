@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 9d3c3dc3b9a83973e41bf5d7dd204316508c2cb4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 76a490ed28f940620db7835c4cec145740f48503
+ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96013387"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97509012"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início Rápido: Criar um data factory usando a interface do usuário do Azure Data Factory 
 
@@ -45,42 +45,42 @@ Assistir a este vídeo o ajuda a entender a interface do usuário do Data Factor
 1. Selecione **Integração** e escolha **Data Factory**. 
    
    ![Seleção de Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. Na página **Novo data factory**, insira **ADFTutorialDataFactory** no campo **Nome**. 
+1. Na página **Criar Data Factory**, na guia **Informações Básicas**, selecione sua **Assinatura** do Azure na qual deseja criar o data factory.
+1. Em **Grupo de Recursos**, use uma das seguintes etapas:
+
+    a. Selecione um grupo de recursos existente na lista suspensa.
+
+    b. Escolha **Criar** e insira o nome de um grupo de recursos.
+    
+    Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md). 
+
+1. Em **Região**, selecione a localização para o data factory.
+
+   A lista mostra somente os locais aos quais o Data Factory dá suporte e em que os metadados do Azure Data Factory serão armazenados. Os armazenamentos de dados associados (como o Armazenamento do Azure e o Banco de Dados SQL do Azure) e os serviços de computação (como o Azure HDInsight) usados pelo Data Factory podem ser executados em outras regiões.
  
+1. Em **Nome**, insira **ADFTutorialDataFactory**.
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você visualizar o seguinte erro, altere o nome de data factory (por exemplo, **&lt;yourname&gt;ADFTutorialDataFactory**) e tente criar novamente. Para ver as regras de nomenclatura para artefatos do Data Factory consulte o artigo [Data Factory - regras de nomenclatura](naming-rules.md).
   
    ![Erro quando um nome não está disponível](./media/doc-common-process/name-not-available-error.png)
-1. Para **Assinatura**, selecione a assinatura do Azure na qual você deseja criar o data factory. 
-1. Para o **Grupo de Recursos**, use uma das seguintes etapas:
-     
-   - Selecione **Usar existente** e selecione um grupo de recursos existente na lista. 
-   - Selecione **Criar novo** e insira o nome de um grupo de recursos.   
-         
-   Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md).  
+
 1. Para **Versão**, selecione **V2**.
-1. Em **Local**, selecione uma localização para o data factory.
 
-   A lista mostra somente os locais aos quais o Data Factory dá suporte e em que os metadados do Azure Data Factory serão armazenados. Os armazenamentos de dados associados (como o Armazenamento do Azure e o Banco de Dados SQL do Azure) e os serviços de computação (como o Azure HDInsight) usados pelo Data Factory podem ser executados em outras regiões.
+1. Selecione **Avançar: Configuração do Git** e marque a caixa de seleção **Configurar o Git mais tarde**.
 
-1. Selecione **Avançar: Configuração do Git** e, em seguida, selecione **Configurar o Git depois**.
+1. Selecione **Examinar + criar** e escolha **Criar** depois que a validação for aprovada. Após a conclusão da criação, selecione **Ir para o recurso** para navegar até a página do **Data Factory**. 
 
-1. Selecione **Criar**. Após a conclusão da criação, selecione **Ir para o recurso** para navegar até a página do **Data Factory**. 
-
-1. Clique no bloco **Criar e Monitorar** para iniciar o aplicativo de interface do usuário (IU) do Azure Data Factory em uma guia separada.
+1. Selecione o bloco **Criar e Monitorar** para iniciar o aplicativo de interface do usuário do Azure Data Factory em uma guia separada do navegador.
    
    ![Página inicial do Data Factory, com o bloco “Criar e Monitorar"](./media/doc-common-process/data-factory-home-page.png)
    
    > [!NOTE]
    > Se você vir que o navegador da Web está preso em "Autorizando", desmarque a caixa de seleção **Bloquear cookies de terceiros e dados do site**. Ou a mantenha selecionada, crie uma exceção para **login.microsoftonline.com** e tente abrir o aplicativo novamente.
    
-1. Na página **Introdução**, acesse a guia **Autor** no painel esquerdo. 
-
-    ![Página “Introdução”](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-a-linked-service"></a>Criar um serviço vinculado
 Neste procedimento, você criará um serviço vinculado para vincular sua Conta de Armazenamento do Azure ao Data Factory. O serviço vinculado tem as informações de conexão que o serviço do Data Factory usa no runtime para se conectar a ele.
 
-1. Abra a [guia Gerenciar](./author-management-hub.md) no painel esquerdo.
+1. Na página da interface do usuário do Azure Data Factory, abra a guia [**Gerenciar**](./author-management-hub.md) no painel esquerdo.
 
 1. Na página Serviços vinculados, selecione **+Novo** para criar um serviço vinculado.
 
@@ -109,10 +109,13 @@ O conjunto de dados de entrada representa os dados de origem na pasta de entrada
 Esse conjunto de dados de saída representa os dados que são copiados para o destino. Na definição de conjunto de dados de saída, especifique o contêiner de blob (**adftutorial**), a pasta (**saída**) e o arquivo para o qual os dados são copiados. Cada execução de um pipeline tem uma ID exclusiva associada a ele. Você pode acessar essa ID, usando a variável do sistema **RunId**. O nome do arquivo de saída é avaliado dinamicamente com base na ID de execução do pipeline.   
 
 Nas configurações de serviço vinculado, você especificou a conta de Armazenamento do Azure que contém os dados de origem. Nas configurações do conjunto de dados de origem, especifique onde exatamente os dados de origem residem (contêiner de blob, pasta e arquivo). Nas configurações de conjunto de dados do coletor, especifique para onde os dados são copiados (contêiner de blob, pasta e arquivo). 
- 
+
+1. Selecione a guia **Criar** no painel esquerdo.
+
 1. Selecione o botão **+** (mais) adição e, em seguida, selecione **Conjunto de Dados**.
 
    ![Menu para criar um conjunto de dados](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+
 1. Na página **Novo Conjunto de Dados**, selecione **Armazenamento de Blobs do Azure** e, em seguida, selecione **Concluir**. 
 
 1. Na página **Selecionar Formato**, escolha o tipo de formato dos dados e, em seguida, selecione **Continuar**. Nesse caso, selecione **Binário** ao copiar arquivos no estado em que se encontram sem analisar o conteúdo.
@@ -163,7 +166,7 @@ Neste procedimento, você criará e validará um pipeline com uma atividade Copi
 
 1. Alterne para a guia **Coletor** nas configurações da atividade de cópia e selecione **OutputDataset** para o **Conjunto de dados do coletor**.
 
-1. Clique em **Validar** na barra de ferramentas do pipeline sobre a tela para validar as configurações de pipeline. Confirme se esse pipeline foi validado com êxito. Para fechar a saída de validação, selecione o botão **>>** (seta para a direita). 
+1. Clique em **Validar** na barra de ferramentas do pipeline sobre a tela para validar as configurações de pipeline. Confirme se esse pipeline foi validado com êxito. Para fechar a saída de validação, selecione o botão Validação no canto superior direito. 
 
    ![Validar um pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
 
@@ -185,7 +188,7 @@ Nesta procedimento, você implanta entidades (serviços vinculados, conjuntos de
 
     ![Publicar tudo](./media/quickstart-create-data-factory-portal/publish-all.png)
 
-1. Para disparar o pipeline manualmente, selecione **Adicionar Gatilho** na barra de ferramentas do pipeline e, em seguida, selecione **Disparar Agora**. Na página **Execução de pipeline**, selecione **Concluir**.
+1. Para disparar o pipeline manualmente, selecione **Adicionar Gatilho** na barra de ferramentas do pipeline e, em seguida, selecione **Disparar Agora**. Na página **Execução de pipeline**, selecione **OK**.
 
 ## <a name="monitor-the-pipeline"></a>Monitorar o Pipeline
 
