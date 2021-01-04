@@ -2,19 +2,21 @@
 title: Recursos filho em modelos
 description: Descreve como definir o nome e o tipo de recursos filho em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 3a69829e674925982c618807f49433a033d8c5f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/21/2020
+ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80743839"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97721936"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos filho
 
-Recursos filho são recursos que existem somente dentro do contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines/extensions) não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/2019-03-01/virtualmachines). O recurso de extensão é um filho da máquina virtual.
+Recursos filho são recursos que existem somente dentro do contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/virtualmachines/extensions) não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/virtualmachines). O recurso de extensão é um filho da máquina virtual.
 
-Em um modelo do Resource Manager, você pode especificar o recurso filho dentro do recurso pai ou fora do recurso pai. O exemplo a seguir mostra o recurso filho incluído na propriedade Resources do recurso pai.
+Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. O tipo de recurso para o recurso filho inclui o tipo de recurso para o recurso pai. Por exemplo, **Microsoft. Web/sites/config** e **Microsoft. Web/sites/Extensions** são recursos filho do **Microsoft. Web/sites**. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai.
+
+Em um modelo de Azure Resource Manager (modelo ARM), você pode especificar o recurso filho dentro do recurso pai ou fora do recurso pai. O exemplo a seguir mostra o recurso filho incluído na propriedade Resources do recurso pai.
 
 ```json
 "resources": [
@@ -26,6 +28,8 @@ Em um modelo do Resource Manager, você pode especificar o recurso filho dentro 
   }
 ]
 ```
+
+Os recursos filho só podem ser definidos em cinco níveis de profundidade.
 
 O exemplo a seguir mostra o recurso filho fora do recurso pai. Você pode usar essa abordagem se o recurso pai não estiver implantado no mesmo modelo ou se quiser usar [copiar](copy-resources.md) para criar mais de um recurso filho.
 
@@ -132,6 +136,6 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede que são definidas no 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](template-syntax.md).
+* Para saber mais sobre a criação de modelos do ARM, consulte Criando [modelos](template-syntax.md).
 
 * Para saber mais sobre o formato do nome do recurso ao referenciar o recurso, consulte a [função de referência](template-functions-resource.md#reference).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 9b5b20de1b86eae72de54b3f2c1cf37074fba144
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: b5b6a697e6a5cae064a6a48419246dc12e8d048c
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095161"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695824"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. 
@@ -132,6 +132,18 @@ Os emails serão enviados dos endereços de email a seguir. Certifique-se de que
 Envie o email aos membros da função de assinatura. O email será enviado somente aos membros do **usuário do Azure AD** da função. O email não será enviado aos grupos ou às entidades de serviço do Azure AD.
 
 Um email de notificação é enviado somente para o endereço de *email principal* .
+
+Se você não estiver recebendo notificações em seu *email primário*, poderá tentar as seguintes etapas:
+
+1. Em portal do Azure vá para *Active Directory*.
+2. Clique em todos os usuários (no painel esquerdo), você verá a lista de usuários (no painel direito).
+3. Selecione o usuário para o qual você deseja examinar as informações de *email primário* .
+
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Exemplo de como examinar o perfil do usuário."border="true":::
+
+4. Em perfil do usuário em informações de contato, se a guia "email" estiver em branco, clique no botão *Editar* na parte superior e adicione seu *email principal* e pressione o botão *salvar* na parte superior.
+
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Exemplo de como adicionar email primário."border="true":::
 
 É possível ter um número limitado de ações de email em um grupo de ações. Confira o artigo [informações de limitação da taxa](./alerts-rate-limiting.md).
 

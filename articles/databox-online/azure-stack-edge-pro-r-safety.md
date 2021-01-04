@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac3f2cc1c68ea552b2858d932217a28055fee0fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466015"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709428"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Instruções de segurança do Azure Stack Edge pro R
 
@@ -86,6 +86,7 @@ Os seguintes ícones de risco devem ser observados ao configurar e executar o di
   * Isolado de campos eletromagnéticos fortes produzidos por dispositivos elétricos.
   * Fornecido com saídas com aterramento adequado.
   * Fornecido com espaço adequado para acessar os cabos de fonte de alimentação, porque eles funcionam como a principal desconexão de energia do produto.
+* Os cabos Ethernet não são fornecidos com o produto. Para reduzir a interferência eletromagnética, é recomendável que o cabo de STP (par trançado) Cat 6 blindado seja usado.
 * Configurar o equipamento em uma área de trabalho que permite a circulação de ar adequada em todo o equipamento; Verifique se as tampas frontal e traseira estão completamente removidas enquanto o dispositivo está em execução.
 * Instale o equipamento na área controlada por temperatura sem contaminants de conduta e permita a circulação de ar adequada em todo o equipamento.
 * Mantenha o equipamento longe de fontes de ambientes líquidos e Humid excessivamente.
@@ -115,6 +116,11 @@ Os seguintes ícones de risco devem ser observados ao configurar e executar o di
   * O dispositivo caiu e o invólucro está danificado.
   * Você acha que o dispositivo precisa de reparos.
 * Desconecte permanentemente a unidade antes de movê-la ou se achar que ela foi danificada de alguma forma.
+* Para evitar a alta perda atual, quando um único caso de trânsito tem mais de uma fonte de alimentação ininterrupta (UPS), é recomendável que cada UPS esteja conectado a um circuito de ramificação independente. No entanto, no caso de uma PDU (unidade de distribuição de energia) ou outro dispositivo ser usado quando o aterramento de cada UPS se basear em um único condutor de aterramento da PDU, o terminal de aterramento no exterior de cada UPS também deverá ser usado com um condutor de edifício de construção complementar.
+
+  > [!NOTE]
+  > Se for usada uma PDU que já tenha um condutor de aterramento complementar, não será necessário usar o terminal de aterramento adicional no no-break.
+
 * Forneça uma fonte de alimentação adequada com proteção contra sobrecarga elétrica para atender às seguintes especificações de energia:
 
   * Tensão: 100 a 240 volts AC
@@ -157,7 +163,7 @@ O dispositivo foi projetado para operar nos seguintes ambientes:
 |:--- |:--- |
 |Especificações de temperatura | <ul><li>Temperatura de armazenamento: – 33 &deg; c – 63 &deg; c (– 28 &deg; f-145 &deg; f) </li><li>Operação contínua: 5 &deg; c – 43 &deg; c (41 &deg; F – 110 &deg; F)</li><li>Gradiente de temperatura máximo (operacional e armazenamento): 20 &deg; C/h (68 &deg; F/h)</li></ul> |
 |Especificações de umidade relativas | <ul><li>Armazenamento: 5% a 95% RH com 33 &deg; C (91 &deg; F) orvalho de ponto máximo. A atmosfera deve ser sem condensação em todos os momentos.</li><li>Operação: 5% a 85% de umidade relativa com 29 &deg; C (84,2 &deg; F) orvalho máximo de pontos de extremidade</li></ul> |
-| Especificações máximas de altitude | <ul><li>Operacional (sem UPS): 15.000 pés (4.572 metros)</li><li>Operacional (com UPS): 6,561 pés (2.000 metros)</li><li>Armazenamento: 40.000 pés (12.192 metros)</li></ul> |
+| Especificações máximas de altitude | <ul><li>Operacional (sem UPS): 15.000 pés (4.572 metros)</li><li>Operacional (com UPS): 10.000 pés (3.048 metros)</li><li>Armazenamento: 40.000 pés (12.192 metros)</li></ul> |
 
 <!--|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li></= 1% of annual operating hours: –5&deg;C to 55&deg;C at 5% to 90% RH with 29&deg;C dew point. |

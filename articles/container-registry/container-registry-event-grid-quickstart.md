@@ -4,12 +4,12 @@ description: Neste início rápido, você habilita os eventos da Grade de Evento
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074209"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97694388"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início rápido: enviar eventos do registro de contêiner privado para a grade de eventos
 
@@ -23,11 +23,11 @@ Após concluir as etapas neste artigo, os eventos enviados do registro de contê
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash** . Se você estiver usando um shell diferente, como PowerShell ou Prompt de Comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variáveis apropriadamente. Este artigo usa variáveis para minimizar a quantidade de edição de comando necessária.
+- Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash**. Se você estiver usando um shell diferente, como PowerShell ou Prompt de Comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variáveis apropriadamente. Este artigo usa variáveis para minimizar a quantidade de edição de comando necessária.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O seguinte comando [az group create][az-group-create] cria um grupo de recursos nomeado *myResourceGroup* na região *eastus* . Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
+Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O seguinte comando [az group create][az-group-create] cria um grupo de recursos nomeado *myResourceGroup* na região *eastus*. Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -78,7 +78,7 @@ Para implantar o aplicativo de exemplo, defina `SITE_NAME` como um nome exclusiv
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -206,7 +206,7 @@ Parabéns! Se você visualizar os eventos `ImagePushed` e `ImageDeleted`, isso s
 
 Após concluir os recursos criados neste início rápido, você poderá excluí-los com o seguinte comando da CLI do Azure. Quando você excluir um grupo de recursos, todos os recursos nele contidos serão permanentemente excluídos.
 
-**AVISO** : Essa operação é irreversível. Antes de executar o comando, certifique-se de que nenhum dos recursos contidos no grupo será mais necessário.
+**AVISO**: Essa operação é irreversível. Antes de executar o comando, certifique-se de que nenhum dos recursos contidos no grupo será mais necessário.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

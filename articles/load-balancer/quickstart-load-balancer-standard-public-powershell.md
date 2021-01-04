@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: e1da9237f7dd4b4b0b5ae3b0cb3a2990ece76f55
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 3599f098aa73b7433e2e5af0047c694634e2f933
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562014"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630523"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando o Azure PowerShell
 
@@ -169,14 +169,14 @@ Crie um grupo de segurança de rede para definir conexões de entrada para sua r
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/24'
+    AddressPrefix = '10.1.1.0/24'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
@@ -185,7 +185,7 @@ $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -550,14 +550,14 @@ Crie um grupo de segurança de rede para definir conexões de entrada para sua r
 ## Create backend subnet config ##
 $subnet = @{
     Name = 'myBackendSubnet'
-    AddressPrefix = '10.0.0.0/24'
+    AddressPrefix = '10.1.0.0/24'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
 ## Create Azure Bastion subnet. ##
 $bastsubnet = @{
     Name = 'AzureBastionSubnet' 
-    AddressPrefix = '10.0.1.0/24'
+    AddressPrefix = '10.1.1.0/24'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
@@ -566,7 +566,7 @@ $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'CreatePubLBQS-rg'
     Location = 'eastus'
-    AddressPrefix = '10.0.0.0/16'
+    AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
@@ -792,7 +792,7 @@ Remove-AzResourceGroup -Name 'CreatePubLBQS-rg'
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido
+Neste início rápido:
 
 * Você criou um balanceador de carga público Standard ou Básico
 * Anexou máquinas virtuais. 

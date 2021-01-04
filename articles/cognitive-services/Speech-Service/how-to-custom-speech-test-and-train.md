@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: a5457dc94082f089d3adf02c9614d05d2c5db244
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483998"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709292"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -47,8 +47,10 @@ Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser 
 | Tipo de dados | Usado para teste | Quantidade recomendada | Usado para treinamento | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
 | [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/D |
-| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Sim | 1 a 1.000 horas de áudio |
+| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Sim | 1-20 horas de áudio |
 | [Texto relacionado](#related-text-data-for-training) | Não | N/A | Sim | 1-200 MB de texto relacionado |
+
+Ao treinar um novo modelo, comece com o [texto relacionado](#related-text-data-for-training). Esses dados já melhorarão o reconhecimento de termos e frases especiais.
 
 Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo. zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
@@ -117,7 +119,7 @@ Os arquivos de áudio podem ter silêncio no início e no final da gravação. S
 > [!NOTE]
 > Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Você só pode testar a partir de um *único* conjunto de um, certifique-se de mantê-lo dentro do tamanho apropriado do arquivo. Além disso, cada arquivo de treinamento não pode exceder 60 segundos, caso contrário, ocorrerá um erro.
 
-Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente 10 a 1.000 horas de áudio. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
+Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente de 10 a 20 horas de áudio. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
 
   Por exemplo:
 ```
@@ -135,6 +137,8 @@ Depois de coletar os arquivos de áudio e as transcrições correspondentes, emp
 
 > [!div class="mx-imgBorder"]
 > ![Selecionar áudio no portal de fala](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
+
+Consulte [configurar sua conta do Azure](custom-speech-overview.md#set-up-your-azure-account) para obter uma lista de regiões recomendadas para suas assinaturas de serviço de fala. A configuração das assinaturas de fala em uma dessas regiões reduzirá o tempo necessário para treinar o modelo.
 
 ## <a name="related-text-data-for-training"></a>Dados de texto relacionados para treinamento
 

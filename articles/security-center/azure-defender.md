@@ -7,14 +7,16 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8bf3959651048a7a568df1d94aa07aa206663d50
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: d9c8df4fe296bcd40f26847233fcd49bcab573c0
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750978"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709433"
 ---
 # <a name="introduction-to-azure-defender"></a>Introdução ao Azure Defender
+
+[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 Os recursos da Central de Segurança do Azure abrangem os dois pilares mais amplos da segurança na nuvem:
 

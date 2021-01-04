@@ -1,18 +1,18 @@
 ---
 title: Melhores práticas de implantação
 description: Este artigo fornece as práticas recomendadas para a implantação do Azure alcance. O Azure Purview permite que qualquer usuário registre, descubra, entenda e consuma fontes de dados.
-author: hophanms
-ms.author: hophan
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 1b2841f69ebe91dac748a4b2e24dc0c33756b1da
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400685"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695863"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Práticas recomendadas de implantação do Azure alcance
 
@@ -52,7 +52,7 @@ A abordagem geral é dividir esses objetivos abrangentes em várias categorias e
 |Categoria|Goal|
 |---------|---------|
 |Descoberta|Os usuários administradores devem ser capazes de verificar fontes de dados do Azure e não Azure (incluindo fontes locais) para reunir informações sobre os ativos de dados automaticamente.|
-|classificação|A plataforma deve classificar automaticamente os dados com base em uma amostragem dos dados e permitir a substituição manual usando classificações personalizadas.|
+|Classificação|A plataforma deve classificar automaticamente os dados com base em uma amostragem dos dados e permitir a substituição manual usando classificações personalizadas.|
 |Consumo|Os usuários empresariais devem ser capazes de encontrar informações sobre cada ativo para os metadados corporativos e técnicos.|
 |Linhagem|Cada ativo deve mostrar uma exibição gráfica dos conjuntos de valores subjacentes para que os usuários compreendam as fontes originais e quais alterações foram feitas.|
 |Colaboração|A plataforma deve permitir que os usuários colaborem fornecendo informações adicionais sobre cada ativo de dados.|
@@ -90,7 +90,7 @@ Algumas das principais partes interessadas que você talvez queira incluir:
 |**Proprietário de domínio/empresa**|Uma pessoa de negócios que influencia o uso de ferramentas e tem controle de orçamento|
 |**Analista de Dados**|Capaz de estruturar um problema de negócios e analisar dados para ajudar os líderes a tomar decisões de negócios|
 |**Arquiteto de dados**|Crie bancos de dados para aplicativos de linha de negócios de missão crítica, juntamente com o design e a implementação da segurança do dado|
-|**Engenheiro de dados**|Operar e manter a pilha de dados, extrair dados de fontes diferentes, integrar e preparar dados, configurar pipelines de dados|
+|**Engenheiro de Dados**|Operar e manter a pilha de dados, extrair dados de fontes diferentes, integrar e preparar dados, configurar pipelines de dados|
 |**Cientista de Dados**|Crie modelos analíticos e configure os produtos de dados a serem acessados por APIs|
 |**Administrador do BD**|Possui, rastreia e resolve incidentes e solicitações relacionados ao banco de dados dentro de SLAs (contratos de nível de serviço); Pode configurar pipelines de dados|
 |**DevOps**|Desenvolvimento e implementação de aplicativos de linha de negócios; pode incluir a gravação de scripts e recursos de orquestração|
@@ -110,7 +110,7 @@ Esses cenários podem ser gravados de várias maneiras, mas você deve incluir p
 
 Os cenários devem ser específicos, acionáveis e executáveis com resultados mensuráveis. Alguns cenários de exemplo que você pode usar:
 
-|Cenário|Detalhe|Persona|
+|Cenário|Detalhes|Persona|
 |---------|---------|---------|
 |Catalogar ativos críticos para os negócios|Preciso ter informações sobre cada conjunto de dados para ter uma boa compreensão do que ele é. Esse cenário inclui dados de metadados comerciais e técnicos sobre o conjunto de dados no catálogo. As fontes de dados incluem Azure Data Lake Storage Gen2, Azure Synapse DW e/ou Power BI. Esse cenário também inclui recursos locais, como SQL Server.|Analista de negócios, cientista de dados, engenheiro de dados|
 |Descubra ativos críticos para os negócios|Preciso ter um mecanismo de pesquisa que possa Pesquisar todos os metadados no catálogo. Eu deveria ser capaz de Pesquisar usando o termo técnico, termo comercial com pesquisa simples ou complexa usando curinga.|Analista de negócios, cientista de dados, engenheiro de dados, administrador de dados|
@@ -165,7 +165,7 @@ Nesta fase, alcance deve ser criado e configurado para um conjunto muito pequeno
 
 ### <a name="tasks-to-complete"></a>Tarefas a concluir
 
-|Tarefa|Detalhe|Duração|
+|Tarefa|Detalhes|Duração|
 |---------|---------|---------|
 |Reúna & concorde com os requisitos|Discussão com todos os participantes para reunir um conjunto completo de requisitos. As pessoas diferentes devem participar para concordar sobre um subconjunto de requisitos a serem concluídos para cada fase do projeto.|1 semana|
 |Configurar o kit do iniciante|Acesse [alcance início rápido](create-catalog-portal.md) e configure o [Kit do iniciante do alcance](tutorial-scan-data.md) para demonstrar alcance para todos os participantes.|1 dia|
@@ -192,7 +192,7 @@ Depois que você tiver os requisitos acordados e as unidades de negócios partic
 
 ### <a name="tasks-to-complete"></a>Tarefas a concluir
 
-|Tarefa|Detalhe|Duração|
+|Tarefa|Detalhes|Duração|
 |---------|---------|---------|
 |[Examinar o Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)|Comece a carregar suas fontes de banco de dados e verifique-as para preencher os principais ativos|2 dias|
 |[Criar classificações e regras personalizadas](create-a-custom-classification-and-classification-rule.md)|Depois que seus ativos são verificados, os usuários podem perceber que há casos de uso adicionais para mais classificação ao lado das classificações padrão de alcance.|2-4 semanas|
@@ -217,7 +217,7 @@ Depois que a fase MVP tiver passado, é hora de planejar a etapa de pré-produç
 
 ### <a name="tasks-to-complete"></a>Tarefas a concluir
 
-|Tarefa|Detalhe|Duração|
+|Tarefa|Detalhes|Duração|
 |---------|---------|---------|
 |Refinar a digitalização usando o conjunto de regras de verificação|Sua organização terá muitas fontes de dados para pré-produção. É importante definir previamente os critérios de chave para verificação para que as classificações e a extensão do arquivo possam ser aplicadas consistentemente no quadro.|1-2 dias|
 |Avaliar a disponibilidade da região para verificação|Dependendo da região das fontes de dados e dos requisitos organizacionais de conformidade e segurança, talvez você queira considerar quais regiões devem estar disponíveis para verificação.|1 dia|
@@ -243,7 +243,7 @@ As fases acima devem ser seguidas para criar um controle de informações eficaz
 
 ### <a name="tasks-to-complete"></a>Tarefas a concluir
 
-|Tarefa|Detalhe|Duração|
+|Tarefa|Detalhes|Duração|
 |---------|---------|---------|
 |Verificar fontes de dados de produção com o firewall habilitado|Se isso for opcional quando o firewall estiver em vigor, mas for importante explorar as opções para proteger sua infraestrutura.|1-5 dias|
 |Habilitar link privado|Se for opcional, quando o link privado for usado. Caso contrário, você pode ignorá-lo, pois ele é um critério de que deve ter quando privado estiver habilitado.|1-5 dias|

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 11/16/2020
-ms.openlocfilehash: ff85ed669fb7c3ac43e322eb747c537a30801920
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 12/21/2020
+ms.openlocfilehash: 83bca8a2a81823cd0a8bda1633599292460ddd30
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701425"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724320"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>O que é o Machine Learning responsável? (versão prévia)
 
@@ -62,10 +62,7 @@ Quando os dados são usados para análise, é importante que os dados permaneça
 
 Em cenários tradicionais, os dados brutos são armazenados em arquivos e bancos de dados. Quando os usuários analisam dados, eles normalmente usam os dados brutos. Essa é uma preocupação, pois pode infringir a privacidade de um indivíduo. A privacidade diferencial tenta lidar com esse problema adicionando “ruído” ou aleatoriedade aos dados, de modo que os usuários não possam identificar pontos de dados individuais.
 
-É difícil implementar sistemas com privacidade diferencial. O [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) é um projeto de software livre que contém diferentes componentes para a criação de sistemas privados diferenciais globais. Para saber mais sobre a privacidade diferencial e o projeto WhiteNoise, consulte o artigo [preservar a privacidade de dados usando a privacidade diferencial e WhiteNoise](./concept-differential-privacy.md).
-
-> [!NOTE]
-> Observe que estamos renomeando o kit de ferramentas e vamos introduzir o novo nome nas próximas semanas. 
+É difícil implementar sistemas com privacidade diferencial. O [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core) é um projeto de software livre que contém diferentes componentes para a criação de sistemas privados globais de forma diferencial. Para saber mais sobre a privacidade diferencial e o projeto SmartNoise, consulte o artigo [preservar a privacidade de dados usando a privacidade diferencial e o SmartNoise](./concept-differential-privacy.md) .
 
 ## <a name="work-on-encrypted-data-with-homomorphic-encryption"></a>Trabalhar em dados criptografados com criptografia homomórficas
 

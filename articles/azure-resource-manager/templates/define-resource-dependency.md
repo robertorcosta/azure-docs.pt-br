@@ -1,107 +1,89 @@
 ---
 title: Definir ordem de implantação para recursos
-description: Descreve como definir um recurso como dependente de outro recurso durante a implantação para garantir que os recursos sejam implantados na ordem correta.
+description: Descreve como definir um recurso como dependente de outro recurso durante a implantação. As dependências garantem que os recursos sejam implantados na ordem correta.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 933764f1930bd6c9e21d4ccffbde1bb93bbc9613
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.date: 12/21/2020
+ms.openlocfilehash: a96dca0ab30d0baee2688427d78867ea128e673a
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672807"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722004"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definir a ordem de implantação de recursos em modelos ARM
 
-Ao implantar um recurso, talvez seja necessário ter certeza de que existem outros recursos antes de implantá-los. Por exemplo, você precisa de um SQL Server lógico antes de implantar um banco de dados. Você define essa relação marcando um recurso como dependente do outro. Defina uma dependência com o elemento **dependsOn** ou usando a função **reference**.
+Ao implantar recursos, talvez seja necessário verificar se existem alguns recursos antes de outros recursos. Por exemplo, você precisa de um SQL Server lógico antes de implantar um banco de dados. Você estabelece essa relação marcando um recurso como dependente do outro recurso. Use o elemento **depending** para definir uma dependência explícita. Use as funções de **referência** ou de **lista** para definir uma dependência implícita.
 
 O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente. Você só precisa definir as dependências para recursos que são implantados no mesmo modelo.
 
 ## <a name="dependson"></a>dependsOn
 
-No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor é uma matriz JSON de cadeias de caracteres, cada uma delas é um nome de recurso. A matriz pode incluir recursos que são [implantados condicionalmente](conditional-resource-deployment.md). Quando um recurso condicional não é implantado, Azure Resource Manager o remove automaticamente das dependências necessárias.
+No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor é uma matriz JSON de cadeias de caracteres, cada uma delas é um nome de recurso ou ID. A matriz pode incluir recursos que são [implantados condicionalmente](conditional-resource-deployment.md). Quando um recurso condicional não é implantado, Azure Resource Manager o remove automaticamente das dependências necessárias.
 
-O exemplo a seguir mostra um conjunto de escala de máquina virtual que depende de um balanceador de carga, de uma rede virtual e de um loop que cria várias contas de armazenamento. Esses outros recursos não são mostrados no exemplo a seguir, mas precisam ser existe em outro lugar no modelo.
+O exemplo a seguir mostra uma interface de rede que depende de uma rede virtual, grupo de segurança de rede e endereço IP público. Para obter o modelo completo, consulte [o modelo de início rápido para uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
 
 ```json
 {
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "apiVersion": "2016-03-30",
-  "name": "[variables('namingInfix')]",
-  "location": "[variables('location')]",
-  "tags": {
-    "displayName": "VMScaleSet"
-  },
-  "dependsOn": [
-    "[variables('loadBalancerName')]",
-    "[variables('virtualNetworkName')]",
-    "storageLoop",
-  ],
-  ...
+    "type": "Microsoft.Network/networkInterfaces",
+    "apiVersion": "2020-06-01",
+    "name": "[variables('networkInterfaceName')]",
+    "location": "[parameters('location')]",
+    "dependsOn": [
+      "[resourceId('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
+      "[resourceId('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
+      "[resourceId('Microsoft.Network/publicIpAddresses/', variables('publicIpAddressName'))]"
+    ],
+    ...
 }
 ```
 
-No exemplo anterior, uma dependência foi incluída nos recursos criados por meio de um loop de cópia chamado **storageLoop**. Por exemplo, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](copy-resources.md)
-
-Ao definir dependências, você pode incluir o namespace do provedor de recurso e o tipo de recurso para evitar ambiguidade. Por exemplo, para esclarecer um balanceador de carga e uma rede virtual que possam ter os mesmos nomes que outros recursos, use o seguinte formato:
-
-```json
-"dependsOn": [
-  "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
-  "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
-]
-```
-
-Embora você talvez queira usar o dependsOn para mapear as relações entre os seus recursos, é importante entender por que você está fazendo isso. Por exemplo, para documentar a maneira como os recursos são interconectados, dependsOn não é a abordagem certa. Não é possível consultar os recursos que foram definidos no elemento dependsOn após a implantação. Usando o dependsOn, potencialmente afetar o tempo de implantação porque o Resource Manager - Gerenciador de recursos não implantar em paralelos dois recursos que têm uma dependência.
+Embora você talvez queira usar o dependsOn para mapear as relações entre os seus recursos, é importante entender por que você está fazendo isso. Por exemplo, para documentar a maneira como os recursos são interconectados, dependsOn não é a abordagem certa. Não é possível consultar os recursos que foram definidos no elemento dependsOn após a implantação. A definição de dependências desnecessárias reduz o tempo de implantação porque o Gerenciador de recursos não pode implantar esses recursos em paralelo.
 
 ## <a name="child-resources"></a>Recursos filho
 
-A propriedade resources permite especificar os recursos filho relacionados ao recurso que está sendo definido. Os recursos filho só podem ser definidos em cinco níveis de profundidade. É importante observar que uma dependência de implantação implícita não é criada entre um recurso filho e o recurso pai. Se precisar que o recurso filho seja implantado após o recurso pai, você deve declarar explicitamente essa dependência com a propriedade dependsOn.
-
-Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai. O nome do tipo de recurso de filho inclui o nome do tipo de recurso pai, assim como **Microsoft.Web/sites/config** e **Microsoft.Web/sites/extensions** são ambos recursos filho do **Microsoft.Web/sites**.
+Uma dependência de implantação implícita não é criada automaticamente entre um [recurso filho](child-resource-name-type.md) e o recurso pai. Se você precisar implantar o recurso filho após o recurso pai, defina a propriedade dependy.
 
 O exemplo a seguir mostra um SQL Server e um banco de dados lógicos. Observe que uma dependência explícita é definida entre o banco de dados e o servidor, embora o banco de dados seja um filho do servidor.
 
 ```json
 "resources": [
   {
-    "name": "[variables('sqlserverName')]",
-    "apiVersion": "2014-04-01-preview",
     "type": "Microsoft.Sql/servers",
-    "location": "[resourceGroup().location]",
-    "tags": {
-      "displayName": "SqlServer"
-    },
+    "apiVersion": "2020-02-02-preview",
+    "name": "[parameters('serverName')]",
+    "location": "[parameters('location')]",
     "properties": {
       "administratorLogin": "[parameters('administratorLogin')]",
       "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
     },
     "resources": [
       {
-        "name": "[parameters('databaseName')]",
-        "apiVersion": "2014-04-01-preview",
         "type": "databases",
-        "location": "[resourceGroup().location]",
+        "apiVersion": "2020-08-01-preview",
+        "name": "[parameters('sqlDBName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+          },
         "dependsOn": [
-          "[variables('sqlserverName')]"
-        ],
-        "tags": {
-          "displayName": "Database"
-        },
-        "properties": {
-          "edition": "[parameters('edition')]",
-          "collation": "[parameters('collation')]",
-          "maxSizeBytes": "[parameters('maxSizeBytes')]",
-          "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
-        }
+          "[resourceId('Microsoft.Sql/servers', concat(parameters('serverName')))]"
+        ]
       }
     ]
   }
 ]
 ```
 
+Para o modelo completo, consulte [modelo de início rápido para o banco de dados SQL do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-sql-database/azuredeploy.json).
+
 ## <a name="reference-and-list-functions"></a>funções de referência e lista
 
-A [função de referência](template-functions-resource.md#reference) permite que uma expressão derive seu valor de outro nome JSON e de pares de valor ou de recursos de runtime. O [lista * funções](template-functions-resource.md#list) retornar valores para um recurso de uma operação de lista.  Expressões de referência e lista implicitamente declarar que um recurso depende de outro, quando o recurso referenciado é implantado no mesmo modelo e referenciado por seu nome (não a ID de recurso). Se você passar a ID de recurso para as funções de referência ou lista, não será criada uma referência implícita.
+A [função de referência](template-functions-resource.md#reference) permite que uma expressão derive seu valor de outro nome JSON e de pares de valor ou de recursos de runtime. O [lista * funções](template-functions-resource.md#list) retornar valores para um recurso de uma operação de lista.
+
+Expressões de lista e referência implicitamente declaram que um recurso depende de outro. Sempre que possível, use uma referência implícita para evitar adicionar uma dependência desnecessária.
+
+Para impor uma dependência implícita, consulte o recurso por nome, não ID do recurso. Se você passar a ID de recurso para as funções de referência ou lista, não será criada uma referência implícita.
 
 O formato geral da função de referência é:
 
@@ -132,13 +114,95 @@ No exemplo a seguir, um ponto de extremidade CDN depende explicitamente do perfi
     }
 ```
 
-Você pode usar esse elemento ou o elemento dependsOn para especificar dependências, mas não é necessário usar ambos para o mesmo recurso dependente. Sempre que possível, use uma referência implícita para evitar adicionar uma dependência desnecessária.
-
 Para saber mais, consulte [Função de referência](template-functions-resource.md#reference).
+
+## <a name="depend-on-resources-in-a-loop"></a>Depender dos recursos em um loop
+
+Para implantar recursos que dependem de recursos em um [loop de cópia](copy-resources.md), você tem duas opções. Você pode definir uma dependência em recursos individuais no loop ou em todo o loop.
+
+> [!NOTE]
+> Para a maioria dos cenários, você deve definir a dependência em recursos individuais dentro do loop de cópia. Só dependa do loop inteiro quando precisar que todos os recursos no loop existam antes de criar o próximo recurso. Definir a dependência em todo o loop faz com que o grafo de dependências se expanda significativamente, especialmente se esses recursos de loops dependerem de outros recursos. As dependências expandidas dificultam a conclusão eficiente da implantação.
+
+O exemplo a seguir mostra como implantar várias máquinas virtuais. O modelo cria o mesmo número de interfaces de rede. Cada máquina virtual depende de uma interface de rede, em vez de todo o loop.
+
+```json
+{
+  "type": "Microsoft.Network/networkInterfaces",
+  "apiVersion": "2020-05-01",
+  "name": "[concat(variables('nicPrefix'),'-',copyIndex())]",
+  "location": "[parameters('location')]",
+  "copy": {
+    "name": "nicCopy",
+    "count": "[parameters('vmCount')]"
+  },
+  ...
+},
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "apiVersion": "2020-06-01",
+  "name": "[concat(variables('vmPrefix'),copyIndex())]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]"
+  ],
+  "copy": {
+    "name": "vmCopy",
+    "count": "[parameters('vmCount')]"
+  },
+  "properties": {
+    "networkProfile": {
+      "networkInterfaces": [
+        {
+          "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicPrefix'),'-',copyIndex()))]",
+          "properties": {
+            "primary": "true"
+          }
+        }
+      ]
+    },
+    ...
+  }
+}
+```
+
+O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. Observe que o elemento Copy tem o nome definido como `storagecopy` e o elemento dependy da máquina virtual também é definido como `storagecopy` .
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-04-01",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      },
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2015-06-15",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
+      "dependsOn": ["storagecopy"],
+      ...
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="circular-dependencies"></a>Dependências circulares
 
-O Resource Manager identifica dependências circulares durante a validação do modelo. Se você receber um erro indicando que existe uma dependência circular, avalie o modelo para ver se qualquer dependência não é necessários e pode ser removida. Se remover dependências não funcionar, você pode evitar dependências circulares ao mover algumas operações de implantação em recursos filho que são implantados após os recursos que possuem a dependência circular. Por exemplo, suponha que você estiver implantando duas máquinas virtuais, mas você deve definir propriedades em cada um deles que se referem a outro. Você pode implantá-los na seguinte ordem:
+O Resource Manager identifica dependências circulares durante a validação do modelo. Se você receber um erro para uma dependência circular, avalie o modelo para ver se alguma dependência pode ser removida. Se a remoção de dependências não funcionar, você poderá evitar dependências circulares movendo algumas operações de implantação para recursos filho. Implante os recursos filho após os recursos que têm a dependência circular. Por exemplo, suponha que você estiver implantando duas máquinas virtuais, mas você deve definir propriedades em cada um deles que se referem a outro. Você pode implantá-los na seguinte ordem:
 
 1. vm1
 2. vm2

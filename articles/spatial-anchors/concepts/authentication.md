@@ -9,12 +9,12 @@ ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0166a3b6031f9e1d364a37db99be5bc5a65267df
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 01065f9ac26599d26d6e2a6979eae1e559a82854
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95484603"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722956"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para Âncoras Espaciais do Azure
 
@@ -101,7 +101,7 @@ Para aplicativos direcionados Azure Active Directory usuários, recomendamos que
     1.  Selecione **provedor de recursos de realidade misturada** na guia **APIs que minha organização usa** .
     2.  Selecione **Permissões delegadas**.
     3.  Selecione **mixedreality. Signe** em **mixedreality**.
-    4.  Selecione **Adicionar Permissões**.
+    4.  Escolha **Adicionar permissões**.
 3.  Selecione **conceder consentimento do administrador**.
 
 2. Conceda ao seu aplicativo ou usuários acesso ao seu recurso:
@@ -110,7 +110,7 @@ Para aplicativos direcionados Azure Active Directory usuários, recomendamos que
    3.    Selecione **Adicionar atribuição de função**.
    1.    [Selecione uma função](#azure-role-based-access-control).
    2.    Na caixa **selecionar** , insira os nomes dos usuários, grupos e/ou aplicativos aos quais você deseja atribuir acesso.
-   3.    Selecione **Salvar**.
+   3.    Clique em **Salvar**.
 
 **Em seu código**
 1.    Certifique-se de usar a ID do aplicativo e o URI de redirecionamento do seu próprio aplicativo do Azure AD para os parâmetros **ID do cliente** e **RedirectUri** em MSAL.
@@ -188,12 +188,12 @@ O token de acesso do AD do Azure é recuperado por meio do [MSAL](../../active-d
               > [!NOTE]
               > No painel **Adicionar atribuição de função** , em **atribuir acesso a**, selecione **usuário, grupo ou entidade de serviço do Azure ad**.
 
-        6.    Selecione **Salvar**.
+        6.    Clique em **Salvar**.
 
 **Em seu código**
 
 >[!NOTE]
-> Você pode usar o exemplo de serviço disponível no GitHub.
+> Você pode usar o [exemplo de serviço](https://github.com/Azure/azure-spatial-anchors-samples/tree/master/Sharing/SharingServiceSample) que está disponível como parte das [âncoras espaciais de exemplo de aplicativos](https://github.com/Azure/azure-spatial-anchors-samples).
 
 1.    Certifique-se de usar a ID do aplicativo, o segredo do aplicativo e o URI de redirecionamento do seu próprio aplicativo do Azure AD como a **ID do cliente**, o **segredo** e os parâmetros **RedirectUri** em MSAL.
 2.    Defina a ID de locatário para sua própria ID de locatário do Azure AD no parâmetro **Authority** em MSAL.

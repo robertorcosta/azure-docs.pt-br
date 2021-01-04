@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e5d360933cbeb611046aede6164ec2e2fa497664
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 7ed7c3a586f5671191e3c517b5925cab888caefb
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347788"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724299"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
@@ -22,7 +22,7 @@ Depois que os documentos são carregados, as frases presentes em documentos para
 
 ## <a name="pairing-and-alignment-process"></a>Processo de emparelhamento e alinhamento
 
-O Custom Translator aprende traduções de sentenças uma sentença de cada vez. Ele lê uma sentença da fonte e, em seguida, a tradução desta frase do alvo. Em seguida, alinha palavras e frases nessas duas frases entre si. Este processo permite criar um mapa das palavras e frases em uma frase para as palavras e frases equivalentes na tradução desta frase. O alinhamento tenta garantir que o sistema treine em sentenças que são traduções uma da outra.
+O Custom Translator aprende traduções de sentenças uma sentença de cada vez. Ele lê uma frase do texto de origem e, em seguida, a tradução desta sentença do texto de destino. Em seguida, alinha palavras e frases nessas duas frases entre si. Esse processo permite que ele crie um mapa das palavras e frases em uma frase para as palavras e frases equivalentes na tradução de sua frase. O alinhamento tenta garantir que o sistema treine em sentenças que são traduções uma da outra.
 
 ## <a name="pre-aligned-documents"></a>Documentos previamente alinhados
 
@@ -39,7 +39,7 @@ Para que um treinamento tenha sucesso, a tabela a seguir mostra o número mínim
 | Treinamento   | 10.000                                     | Nenhum limite superior                 |
 | Ajuste     | 500                                      | 2\.500       |
 | Testes    | 500                                      | 2\.500  |
-| Dicionário | 0                                          | Nenhum limite superior                 |
+| Dictionary | 0                                          | Nenhum limite superior                 |
 
 > [!NOTE]
 > - O treinamento não será iniciado e falhará se a contagem mínima de sentenças 10.000 para treinamento não for atendida. 
