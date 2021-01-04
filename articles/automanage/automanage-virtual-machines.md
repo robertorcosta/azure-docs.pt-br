@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ffbf3fa3e2d404b7bc5888ef01707cbd816600b3
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182845"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97695788"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
 
@@ -52,7 +52,7 @@ Você deve ter a função de **colaborador** no grupo de recursos que contém su
 > [!NOTE]
 > Se você quiser usar o autogerenci em uma VM que esteja conectada a um espaço de trabalho em uma assinatura diferente, deverá ter as permissões descritas acima em cada assinatura.
 
-Também é importante observar que o autogerenci só dá suporte a VMs do Windows localizadas nas seguintes regiões: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central.
+Também é importante observar que o autogerenci só dá suporte a VMs do Windows localizadas nas seguintes regiões: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central, leste do Japão.
 
 ## <a name="participating-services"></a>Serviços participantes
 

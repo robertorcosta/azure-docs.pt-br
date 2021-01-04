@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 90942e4deebdc65fe26ce94f04a15fe2b8c0684c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 960b3c29f97c43e1247018a60f6c6310c7cf02de
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512062"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724656"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -46,7 +46,7 @@ Para confirmar se o compartilhamento está sendo limitado, você pode acessar e 
 ### <a name="solution"></a>Solução
 
 - Se você estiver usando um compartilhamento de arquivos padrão, habilite [grandes compartilhamentos de arquivos](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) em sua conta de armazenamento. Compartilhamentos de arquivos grandes dão suporte a até 10.000 IOPS por compartilhamento.
-- Se você estiver usando um compartilhamento de arquivos premium, aumente o tamanho do compartilhamento de arquivos provisionado para aumentar o limite de IOPS. Para saber mais, consulte a seção "compreendendo o provisionamento para compartilhamentos de arquivos Premium" no [Guia de planejamento de arquivos do Azure](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- Se você estiver usando um compartilhamento de arquivos premium, aumente o tamanho do compartilhamento de arquivos provisionado para aumentar o limite de IOPS. Para saber mais, confira [noções básicas sobre provisionamento para compartilhamentos de arquivos Premium](./understanding-billing.md#provisioned-billing).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Causa 2: metadados ou carga de trabalho pesada de namespace
 
@@ -160,7 +160,7 @@ As cargas de trabalho que dependem da criação de um grande número de arquivos
 
 ### <a name="workaround"></a>Solução alternativa
 
-- nenhuma.
+- Nenhum.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Desempenho lento do Windows 8.1 ou do servidor 2012 R2
 

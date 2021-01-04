@@ -1,18 +1,18 @@
 ---
 title: Registrar e verificar Azure Data Lake Storage (ADLS) Gen1
 description: Este tutorial descreve como verificar dados de Azure Data Lake Storage Gen1 para o Azure alcance.
-author: kchandra
-ms.author: kchandra
+author: shsandeep123
+ms.author: sandeepshah
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: ee0b9238deb7805113f0cbfa28d0b60a114820a9
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: a831681f892de9f6aae50fa9a2fcf71e883fe6ba
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551806"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693708"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Registrar e verificar Azure Data Lake Storage Gen1
 
@@ -34,7 +34,7 @@ A fonte de dados Azure Data Lake Storage Gen1 dá suporte à seguinte funcionali
 - Antes de registrar as fontes de dados, crie uma conta do Azure alcance. Para obter mais informações sobre como criar uma conta do alcance, consulte [início rápido: criar uma conta do Azure alcance](create-catalog-portal.md).
 - Você precisa ser um administrador de fonte de dados do Azure alcance
 
-## <a name="setting-up-authentication-for-a-scan"></a>Configurando a autenticação para uma verificação
+## <a name="setting-up-authentication-for-a-scan"></a>Configurar a autenticação para uma verificação
 
 Os seguintes métodos de autenticação têm suporte para Azure Data Lake Storage Gen1:
 
@@ -69,7 +69,7 @@ Você pode adicionar o MSI do catálogo à assinatura, ao grupo de recursos ou a
 
 5. Se o cofre de chaves ainda não estiver conectado ao alcance, você precisará [criar uma nova conexão de Key Vault](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 
-6. Por fim, [crie uma nova credencial](manage-credentials.md#create-a-new-credential) usando a entidade de serviço para configurar sua verificação
+6. Por fim, [crie uma credencial](manage-credentials.md#create-a-new-credential) usando a entidade de serviço para configurar a verificação
 > [!Note]
 > Depois de adicionar o MSI do catálogo na fonte de dados, aguarde até 15 minutos para que as permissões se propaguem antes de configurar uma verificação.
 
@@ -89,7 +89,7 @@ Para usar uma entidade de serviço, você deve primeiro criar uma das seguintes 
 
 5. Insira um nome para o **aplicativo** (o nome da entidade de serviço).
 
-6. Selecione **contas somente neste diretório organizacional**.
+6. Escolha **Somente contas neste diretório organizacional**.
 
 7. Para **URI de redirecionamento** , selecione **Web** e insira qualquer URL desejada; Ele não precisa ser real nem funcionar.
 
@@ -127,15 +127,15 @@ Para registrar uma nova conta de ADLS Gen1 no catálogo de dados, faça o seguin
 
 Na tela registrar fontes (Azure Data Lake Storage Gen1), faça o seguinte:
 
-1. Insira um **nome** no qual a fonte de dados será listada no catálogo.
+1. Insira um **Nome** com a qual a fonte de dados será listada no Catálogo.
 2. Escolha sua assinatura para filtrar as contas de armazenamento
 3. Selecione uma conta de armazenamento
-4. Selecionar uma coleção ou criar uma nova (opcional)
-5. Concluir para registrar a fonte de dados.
+4. Selecionar ou criar uma coleção (opcional)
+5. Conclua a etapa para registrar a fonte de dados.
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Procurar o catálogo de dados do Azure alcance](how-to-browse-catalog.md)
-- [Pesquisar no catálogo de dados do Azure alcance](how-to-search-catalog.md)
+- [Navegar pelo Catálogo de Dados do Azure Purview](how-to-browse-catalog.md)
+- [Pesquisar no Catálogo de Dados do Azure Purview](how-to-search-catalog.md)
