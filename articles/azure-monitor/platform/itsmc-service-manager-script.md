@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 4babd015b05527cb03d2747b1c9b9a34941634ab
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d620df0b55b024cd5d7c25ea17d9b09c5c5da8ff
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656998"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722871"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicativo Web Service Manager usando o script automatizado
 
-Use o script a seguir a fim de criar o aplicativo Web para sua instância do Service Manager. Mais informações sobre a conexão do Service Manager estão aqui: [Aplicativo Web Service Manager](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Use o script a seguir a fim de criar o aplicativo Web para sua instância do Service Manager. Mais informações sobre a conexão do Service Manager estão aqui: [Aplicativo Web Service Manager](./itsmc-connections-scsm.md)
 
 Execute o script fornecendo os seguintes detalhes necessários:
 
@@ -29,9 +29,6 @@ Execute o script fornecendo os seguintes detalhes necessários:
 O script criará um aplicativo Web usando o nome especificado (junto com algumas cadeias de caracteres adicionais para torná-la exclusiva). Ele gera a **URL do aplicativo Web**, a **ID do cliente** e o **segredo do cliente**.
 
 Salve os valores. Você precisará deles quando criar uma conexão com o Conector de Gerenciamento de Serviços de TI.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *lista de permissões*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -321,5 +318,5 @@ if(!$err)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-[Configure a conexão híbrida](./itsmc-connections.md#configure-the-hybrid-connection).
+[Configure a conexão híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
 

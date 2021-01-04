@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 8fabf8169270c3162604b6535a6cf2fb07cd9a9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: dc19b95e891235ac35c703adef50a23a9f70fbdb
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422137"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706789"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -72,12 +72,14 @@ O recurso de réplica de leitura usa a replicação física do PostgreSQL, e nã
 
 Saiba como [criar uma réplica de leitura no portal do Azure](howto-read-replicas-portal.md).
 
+Se o servidor PostgreSQL de origem estiver criptografado com chaves gerenciadas pelo cliente, consulte a [documentação](concepts-data-encryption-postgresql.md) para obter considerações adicionais.
+
 ## <a name="connect-to-a-replica"></a>Conectar-se a uma réplica
 Quando você cria uma réplica, ela não herda as regras de firewall ou o ponto de extremidade de serviço VNet do servidor primário. Essas regras precisam ser configuradas independentemente da réplica.
 
 A réplica herda a conta de administrador do servidor primário. Todas as contas de usuário no servidor primário são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário que estão disponíveis no servidor primário.
 
-Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para PostgreSQL. Para um servidor chamado **minha réplica** com o nome de usuário admin **myadmin** , você pode se conectar à réplica usando psql:
+Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, assim como faria em um servidor regular do Banco de Dados do Azure para PostgreSQL. Para um servidor chamado **minha réplica** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando psql:
 
 ```bash
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -162,12 +164,12 @@ Uma réplica é criada usando as mesmas configurações de computação e armaze
 
 As regras de firewall, as regras de rede virtual e as configurações de parâmetros não são herdadas do servidor primário para a réplica quando a réplica é criada ou posteriormente.
 
-### <a name="scaling"></a>Scaling
+### <a name="scaling"></a>Dimensionamento
 Dimensionamento de vCores ou entre Uso Geral e com otimização de memória:
 * O PostgreSQL requer que a `max_connections` configuração em um servidor secundário seja [maior ou igual à configuração no primário](https://www.postgresql.org/docs/current/hot-standby.html), caso contrário, o secundário não será iniciado.
 * No banco de dados do Azure para PostgreSQL, o máximo permitido de conexões para cada servidor é corrigido para o SKU de computação, já que as conexões ocupam memória. Você pode saber mais sobre o [mapeamento entre max_connections e SKUs de computação](concepts-limits.md).
-* **Escalar verticalmente** : primeiro escalar verticalmente a computação de uma réplica e, em seguida, escalar verticalmente o primário. Essa ordem impedirá que erros violem o `max_connections` requisito.
-* **Reduzir verticalmente** : primeiro reduza horizontalmente a computação do primário e reduza a réplica. Se você tentar dimensionar a réplica abaixo do primário, haverá um erro, pois isso viola o `max_connections` requisito.
+* **Escalar verticalmente**: primeiro escalar verticalmente a computação de uma réplica e, em seguida, escalar verticalmente o primário. Essa ordem impedirá que erros violem o `max_connections` requisito.
+* **Reduzir verticalmente**: primeiro reduza horizontalmente a computação do primário e reduza a réplica. Se você tentar dimensionar a réplica abaixo do primário, haverá um erro, pois isso viola o `max_connections` requisito.
 
 Armazenamento em escala:
 * Todas as réplicas têm o aumento automático de armazenamento habilitado para evitar problemas de replicação de uma réplica de armazenamento completo. Essa configuração não pode ser desabilitada.

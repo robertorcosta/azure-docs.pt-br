@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 234834af4fcf4ad809f548d171a4c1c406d85895
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9ad761f289805d15d316fc6f528a0049adb36b30
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016685"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722310"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rede para conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -381,6 +381,140 @@ az vmss show \
   ]
 ]
 ```
+
+## <a name="make-networking-updates-to-specific-instances"></a>Fazer atualizações de rede em instâncias específicas
+
+Você pode fazer atualizações de rede para instâncias específicas do conjunto de dimensionamento de máquinas virtuais. 
+
+Você pode `PUT` na instância para atualizar a configuração de rede. Isso pode ser usado para fazer coisas como adicionar ou remover NICs (placas de interface de rede) ou remover uma instância de um pool de back-end.
+
+```
+PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+```
+
+O exemplo a seguir mostra como adicionar uma segunda configuração de IP à sua NIC.
+
+1. `GET` os detalhes de uma instância específica do conjunto de dimensionamento de máquinas virtuais.
+    
+    ``` 
+    GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *O seguinte foi simplificado para mostrar apenas os parâmetros de rede deste exemplo.*
+
+    ```json
+    {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
+ 
+2. `PUT` na instância, atualizando para adicionar a configuração de IP adicional. Isso é semelhante para adicionar outros `networkInterfaceConfiguration` .
+
+    
+    ```
+    PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *O seguinte foi simplificado para mostrar apenas os parâmetros de rede deste exemplo.*
+
+    ```json
+      {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  },
+                  {
+                    "name": "my-second-config",
+                    "properties": {
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
 
 
 

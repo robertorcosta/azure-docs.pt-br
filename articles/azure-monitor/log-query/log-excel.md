@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: d903d1bb16ba3576d0092979f1cc6b82fac1c0be
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 6fa181a35c46ed16e4e8c1884e66c54984c418ca
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507431"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703442"
 ---
 # <a name="integrate-log-analytics-and-excel"></a>Integre o Log Analytics e o Excel
 
-Você pode integrar Azure Monitor Log Analytics e o Microsoft Excel usando a consulta M e a API Log Analytics.  Essa integração permite que você envie registros 500.000 para o Excel.
+Você pode integrar Azure Monitor Log Analytics e o Microsoft Excel usando a consulta M e a API Log Analytics. Essa integração permite que você envie até 500.000 registros para o Excel, contanto que o volume total dos resultados não exceda 61MiB.
 
 > [!NOTE]
 > Como o Excel é um aplicativo cliente local, as limitações de hardware local e software afetam o desempenho e a capacidade de processar grandes conjuntos de dados.
@@ -80,11 +80,11 @@ in AnalyticsQuery
 Para importar a consulta. 
 
 1. Abra o Microsoft Excel. 
-1. Na faixa de faixas, vá para o menu **dados** . Selecione **obter dados**. De **outras fontes** , selecione **consulta em branco** :
+1. Na faixa de faixas, vá para o menu **dados** . Selecione **obter dados**. De **outras fontes**, selecione **consulta em branco**:
  
    :::image type="content" source="media/log-excel/excel-import-blank-query.png" alt-text="Opção importar de em branco no Excel" border="true":::
 
-1. Na janela Power Query, selecione **Editor avançado** :
+1. Na janela Power Query, selecione **Editor avançado**:
 
    :::image type="content" source="media/log-excel/advanced-editor.png" alt-text="Editor de consultas avançadas do Excel" border="true":::
 
@@ -97,6 +97,9 @@ Para importar a consulta.
  
 
    :::image type="content" source="media/log-excel/excel-query-result.png" alt-text="Resultados da consulta no Excel" border="true":::
+
+> [!Note]
+> Se o número de registros for menor que o esperado, o volume dos resultados poderá exceder o limite de 61MiB. Tente usar `project` `project-away` o ou em sua consulta para limitar as colunas para aquela que você precisa.
 
 ##  <a name="refreshing--data"></a>Atualizando dados
 

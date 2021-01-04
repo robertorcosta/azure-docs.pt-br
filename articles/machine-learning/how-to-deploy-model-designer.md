@@ -10,17 +10,19 @@ author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.custom: how-to, deploy, studio, designer
+ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554675"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722616"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Use o Studio para implantar modelos treinados no designer
 
-Neste artigo, você aprenderá a implantar um modelo treinado do designer como um ponto de extremidade em tempo real no Azure Machine Learning Studio.
+Neste artigo, você aprenderá a implantar um modelo de designer como um ponto de extremidade em tempo real no Azure Machine Learning Studio.
+
+Depois de registrado ou baixado, você pode usar modelos treinados de designer, assim como qualquer outro modelo. Modelos exportados podem ser implantados em casos de uso, como Internet das coisas (IoT) e implantações locais.
 
 A implantação no estúdio consiste nas seguintes etapas:
 
@@ -61,7 +63,6 @@ Após a conclusão do pipeline de treinamento, registre o modelo treinado em seu
 Depois de registrar seu modelo, você pode encontrá-lo na página de ativos de **modelos** no estúdio.
     
 ![Captura de tela do modelo registrado na página de ativos de modelos](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## <a name="download-the-entry-script-file-and-conda-dependencies-file"></a>Baixar o arquivo de script de entrada e o arquivo de dependências Conda
 

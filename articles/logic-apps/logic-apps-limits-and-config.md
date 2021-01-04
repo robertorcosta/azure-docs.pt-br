@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: 16002d7acf97832f743410a203e2f76e99646c0c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673351"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707462"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -412,7 +412,9 @@ Esta seção lista os endereços IP de entrada para o serviço de Aplicativos L�
 
 > [!TIP]
 > Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, em vez de especificar os endereços IP dos Aplicativos Lógicos de entrada para cada região.
-> Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível.
+> Para conectores gerenciados, você pode opcionalmente usar a marca de serviço **AzureConnectors** , em vez de especificar prefixos de endereço IP do conector gerenciado de entrada para cada região.
+> Essas marcas funcionam nas regiões em que o serviço de aplicativos lógicos está disponível.
+
 
 <a name="multi-tenant-inbound"></a>
 
@@ -476,7 +478,7 @@ Esta seção lista os endereços IP de saída para o serviço de Aplicativos Ló
 
 > [!TIP]
 > Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicApps**, em vez de especificar os endereços IP dos Aplicativos Lógicos de saída para cada região.
-> Para conectores gerenciados, você pode opcionalmente usar a marca de serviço **AzureConnectors** , em vez de especificar prefixos de endereço IP do conector gerenciado de saída para cada região. Essas marcas funcionam nas regiões em que o serviço de aplicativos lógicos está disponível. 
+> Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível. 
 
 <a name="multi-tenant-outbound"></a>
 

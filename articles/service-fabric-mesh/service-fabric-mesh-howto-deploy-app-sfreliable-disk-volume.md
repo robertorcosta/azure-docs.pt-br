@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 79ac8e7868b04a63637e24d6dde651b218ce6a46
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 86822c5a9cef84ff4b51bc94b6b2dd3dbdee91bf
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489183"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702002"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte o volume baseado em Disco Confiável do Microsoft Azure Service Fabric altamente disponível em um aplicativo de Malha do Service Fabric 
 O método comum de persistir o estado com aplicativos de contêiner é usar o armazenamento remoto, como o armazenamento de arquivos do Azure ou banco de dados como o Azure Cosmos DB. Isso resulta em significativa leitura e gravação de latência de rede e o armazenamento remoto.
@@ -60,7 +60,7 @@ az mesh deployment create --resource-group myResourceGroup --template-uri https:
 Você também pode ver o estado da implantação com o comando
 
 ```azurecli-interactive
-az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
+az deployment group show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
 Observe o nome do recurso de gateway que tem o recurso de tipo como `Microsoft.ServiceFabricMesh/gateways`. Isso será usado na obtenção do endereço IP público do aplicativo.

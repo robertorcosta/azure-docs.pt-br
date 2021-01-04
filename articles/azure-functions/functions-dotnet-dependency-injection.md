@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: b2bf406dcab626b3ac08caf1a21ffea9332d3ca2
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672637"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706925"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -30,7 +30,7 @@ Antes de poder usar a injeção de dependência, você precisa instalar os segui
 
 - Pacote [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) versão 1.0.28 ou posterior
 
-- [Microsoft. extensões. DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (atualmente, somente a versão 3. x e versões anteriores têm suporte)
+- [Microsoft. Extensions. DependencyInjection](https://www.nuget.org/packages/Microsoft.Extensions.DependencyInjection/) (atualmente, somente a versão 3. x e versões anteriores têm suporte)
 
 ## <a name="register-services"></a>Serviços de registro
 

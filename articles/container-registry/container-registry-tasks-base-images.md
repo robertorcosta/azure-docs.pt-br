@@ -3,12 +3,12 @@ title: Atualizações da imagem de base-tarefas
 description: Saiba mais sobre imagens base para imagens de contêiner de aplicativo e sobre como uma atualização de imagem de base pode disparar uma tarefa de registro de contêiner do Azure.
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: 74e5fb81e3ef6f75b5ee2872ee44b99aae096fd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df33096830cd7b34a288c38c105aff3610315337
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009816"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707479"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Sobre as atualizações de imagem base para tarefas ACR
 
@@ -57,7 +57,7 @@ O tempo entre o momento em que uma imagem base é atualizada e quando a tarefa d
 * **Habilitado por padrão** – quando você cria uma tarefa ACR com o comando [AZ ACR Task Create][az-acr-task-create] , por padrão, a tarefa é *habilitada* para o gatilho por uma atualização de imagem de base. Isto é, a propriedade `base-image-trigger-enabled` é definida como True. Se desejar desabilitar esse comportamento da tarefa, atualize a propriedade para False. Por exemplo, execute o seguinte comando [az acr task update][az-acr-task-update]:
 
   ```azurecli
-  az acr task update --myregistry --name mytask --base-image-trigger-enabled False
+  az acr task update --registry myregistry --name mytask --base-image-trigger-enabled False
   ```
 
 * **Gatilho para rastrear dependências** – para habilitar uma tarefa ACR para determinar e controlar as dependências de uma imagem de contêiner – que incluem sua imagem base--você deve primeiro disparar a tarefa para criar a imagem **pelo menos uma vez**. Por exemplo, disparar a tarefa manualmente usando o comando [az acr task run][az-acr-task-run].

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e2c71e028225c22ab0355ff4cda77dacadf94095
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512038"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705397"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -268,8 +268,10 @@ O portal do Azure criar janela permite que você crie um recurso de QnA Maker ge
 
 > [!div class="mx-imgBorder"]
 > ![Captura de tela da listagem de recursos de portal do Azure QnA Maker gerenciada (versão prévia)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+
 > [!TIP]
 > Crie um novo grupo de recursos ao criar um recurso de QnA Maker. Isso permite que você veja todos os recursos associados ao recurso QnA Maker gerenciado (versão prévia) ao pesquisar por grupo de recursos.
+
 > [!TIP]
 > Use uma Convenção de nomenclatura para indicar os tipos de preço dentro do nome do recurso ou do grupo de recursos. Quando você recebe erros da criação de uma nova base de dados de conhecimento ou da adição de novos documentos, o limite de Pesquisa Cognitiva tipo de preço é um problema comum.
 

@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: e5f0fe76b599874afe8d64c293f3d914da5dd243
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810056"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705159"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no Registro de Contêiner do Azure
 
@@ -59,6 +59,8 @@ Usando o recurso de replicação geográfica do Registro de Contêiner do Azure,
 * Gerencie uma única configuração de implantações de imagem, pois todas as regiões usam a mesma URL de imagem: `contoso.azurecr.io/public/products/web:1.2`
 * Enviar por push para um único registro, enquanto o ACR gerencia a replicação geográfica. O ACR só Replica camadas exclusivas, reduzindo a transferência de dados entre regiões. 
 * Configure [WebHooks](container-registry-webhook.md) regionais para notificá-lo de eventos em réplicas específicas.
+
+O registro de contêiner do Azure também dá suporte a [zonas de disponibilidade](zone-redundancy.md) para criar um registro de contêiner do Azure resiliente e de alta disponibilidade em uma região do Azure. A combinação de zonas de disponibilidade para redundância em uma região e replicação geográfica em várias regiões aumenta a confiabilidade e o desempenho de um registro.
 
 ## <a name="configure-geo-replication"></a>Configurar a replicação geográfica
 

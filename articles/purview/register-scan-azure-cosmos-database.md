@@ -1,18 +1,18 @@
 ---
 title: Como verificar o banco de dados Cosmos do Azure (API do SQL)
 description: Este guia de instruções descreve os detalhes de como verificar o banco de dados Cosmos do Azure (API do SQL).
-author: viseshag
-ms.author: viseshag
+author: djpmsft
+ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
-ms.openlocfilehash: e1d2035b787380d9b93943b92fbe81c09fc6a527
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1aaeed1973ebd15af312b722ab61938aa4271947
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551600"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696253"
 ---
 # <a name="register-and-scan-azure-cosmos-database-sql-api"></a>Registrar e verificar o banco de dados Cosmos do Azure (API do SQL)
 
@@ -27,7 +27,7 @@ O banco de dados Cosmos do Azure (API do SQL) dá suporte a verificações compl
 - Antes de registrar as fontes de dados, crie uma conta do Azure alcance. Para obter mais informações sobre como criar uma conta do alcance, consulte [início rápido: criar uma conta do Azure alcance](create-catalog-portal.md).
 - Você precisa ser um administrador de fonte de dados do Azure alcance
 
-## <a name="setting-up-authentication-for-a-scan"></a>Configurando a autenticação para uma verificação
+## <a name="setting-up-authentication-for-a-scan"></a>Configurar a autenticação para uma verificação
 
 Há apenas uma maneira de configurar a autenticação para o banco de dados Cosmos do Azure (API do SQL):
 
@@ -38,41 +38,41 @@ Há apenas uma maneira de configurar a autenticação para o banco de dados Cosm
 Quando o método de autenticação selecionado é **chave de conta**, você precisa obter sua chave de acesso e armazenar no cofre de chaves:
 
 1. Navegue até sua conta de Cosmos DB no portal do Azure 
-1. Selecionar **Settings**  >  **chaves** de configurações 
+1. Selecionar   >  **chaves** de configurações 
 1. Copie sua *chave* e salve-a em algum lugar para as próximas etapas
 1. Navegue até o Key Vault
-1. Selecione **configurações > segredos**
+1. Selecione **Configurações > Segredos**
 1. Selecione **+ gerar/importar** e insira o **nome** e o **valor** como a *chave* de sua conta de armazenamento
-1. Selecione **criar** para concluir
-1. Se o cofre de chaves ainda não estiver conectado ao alcance, você precisará [criar uma nova conexão de Key Vault](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Selecione **Criar** para terminar
+1. Se o cofre de chaves ainda não estiver conectado ao Purview, [crie uma conexão do cofre de chaves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Por fim, [crie uma nova credencial](manage-credentials.md#create-a-new-credential) usando a chave para configurar sua verificação
 
 ## <a name="register-an-azure-cosmos-database-sql-api-account"></a>Registrar uma conta do banco de dados Cosmos do Azure (API do SQL)
 
 Para registrar uma nova conta do banco de dados Cosmos do Azure (API do SQL) em seu catálogo de data, faça o seguinte:
 
-1. Navegue até sua conta do alcance
-1. Selecionar **fontes** no painel de navegação esquerdo
+1. Acesse sua conta do Purview
+1. Selecionar **Fontes** no painel de navegação à esquerda
 1. Escolha **Registrar**
 1. Em **registrar fontes**, selecione **Azure Cosmos dB (API do SQL)**
 1. Selecione **Continuar**
 
-:::image type="content" source="media/register-scan-azure-cosmos-database/register-new-data-source.png" alt-text="registrar nova fonte de dados" border="true":::
+:::image type="content" source="media/register-scan-azure-cosmos-database/register-new-data-source.png" alt-text="registrar uma nova fonte de dados" border="true":::
 
 Na tela **registrar fontes (Azure Cosmos dB (API do SQL)** , faça o seguinte:
 
-1. Insira um **nome** no qual a fonte de dados será listada no catálogo.
-1. Escolha como você deseja apontar para a conta de armazenamento desejada:
+1. Insira um **Nome** com a qual a fonte de dados será listada no Catálogo.
+1. Escolha como deseja apontá-la para a conta de armazenamento desejada:
    1. Selecione **da assinatura do Azure**, selecione a assinatura apropriada na caixa suspensa **assinatura do Azure** e a conta cosmosDB apropriada na caixa suspensa nome da **conta do cosmos DB** .
    1. Ou, você pode selecionar **inserir manualmente** e inserir um ponto de extremidade de serviço (URL).
-1. **Concluir** para registrar a fonte de dados.
+1. **Conclua** a etapa para registrar a fonte de dados.
 
-:::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="opções de registrar fontes" border="true":::
+:::image type="content" source="media/register-scan-azure-cosmos-database/register-sources.png" alt-text="opções de registro de fontes" border="true":::
 
 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Procurar o catálogo de dados do Azure alcance](how-to-browse-catalog.md)
-- [Pesquisar no catálogo de dados do Azure alcance](how-to-search-catalog.md)
+- [Navegar pelo Catálogo de Dados do Azure Purview](how-to-browse-catalog.md)
+- [Pesquisar no Catálogo de Dados do Azure Purview](how-to-search-catalog.md)

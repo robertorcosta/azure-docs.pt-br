@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5a5242cb9448b3d11e0921b2272cf00bef8f6c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116896"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722259"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como restringir seu aplicativo do Azure AD a um conjunto de usuários em um locatário do Azure AD
 
@@ -56,7 +56,7 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
     1. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione o item de **Azure Active Directory** do resultado.
 
 1. No painel de **Azure Active Directory** , selecione **aplicativos empresariais** no **Azure Active Directory** menu de navegação à esquerda.
-1. Selecione **todos os aplicativos** para exibir uma lista de todos os seus aplicativos.
+1. Marque **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos.
 
      Se não vir o aplicativo desejado na lista, use os diferentes filtros na parte superior da lista **Todos os aplicativos** para restringir a lista ou percorra a lista para localizar o aplicativo.
 
@@ -65,7 +65,7 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 1. Localize a configuração **Atribuição de usuário obrigatória?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários no locatário devem primeiro ser atribuídos a esse aplicativo ou não poderão entrar neste aplicativo.
 1. Escolha **Salvar** para salvar essa alteração da configuração.
 
-### <a name="app-registration"></a>Registro do aplicativo
+### <a name="app-registration"></a>Registro de aplicativo
 
 1. Vá para a [**portal do Azure**](https://portal.azure.com/).
 1. Na barra superior, selecione a conta conectada. 
@@ -82,7 +82,7 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 
 Após configurar seu aplicativo para habilitar a atribuição de usuários, prossiga e atribua usuários e grupos ao aplicativo.
 
-1. Selecione o painel **usuários e grupos** no menu de navegação esquerdo do aplicativo.
+1. Selecione o painel **usuários e grupos** no menu de navegação esquerdo do aplicativo empresarial.
 1. Na parte superior da lista **Usuários e grupos**, escolha o botão **Adicionar usuário** para abrir o painel **Adicionar Atribuição**.
 1. Clique no seletor **Usuários** do painel **Adicionar Atribuição**. 
 

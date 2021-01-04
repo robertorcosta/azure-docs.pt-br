@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8c321eae9451715077aa50d163b62b51ec88ce1a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ce79fe88b33659241a226af7bbb7a966ede41abb
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95496878"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696158"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relações de âncora e descoberta de formas em âncoras espaciais do Azure
 
@@ -64,7 +64,7 @@ Você pode conectar âncoras espaciais em várias sessões. Usando esse método,
 
 Para conectar âncoras em várias sessões:
 
-1. O aplicativo cria algumas âncoras em um CloudSpatialAnchorSession.
+1. O aplicativo cria algumas âncoras (âncoras A e B) em um CloudSpatialAnchorSession.
 2. Em um momento diferente, o aplicativo localiza uma dessas âncoras (por exemplo, Anchor A) usando um novo CloudSpatialAnchorSession.
 3. Passe para um novo local. A plataforma subjacente de realidade misturada ou aumento da realidade acompanha o movimento.
 4. Crie a âncora C usando o mesmo CloudSpatialAnchorSession. As âncoras A, B e C agora estão conectadas. O serviço de âncoras espaciais mantém essa relação.

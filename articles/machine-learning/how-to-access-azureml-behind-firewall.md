@@ -11,16 +11,19 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8560acd9c5a11004c5144441d395863c8b85edba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0fa3492555b2870ae7b95abec08bbd3280cdc985
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461409"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705057"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usar o espaço de trabalho por trás de um firewall para Azure Machine Learning
 
-Neste artigo, saiba como configurar o Firewall do Azure para controlar o acesso ao seu espaço de trabalho do Azure Machine Learning e à Internet pública. Para saber mais sobre como proteger Azure Machine Learning, consulte [segurança da empresa para Azure Machine Learning](concept-enterprise-security.md)
+Neste artigo, saiba como configurar o Firewall do Azure para controlar o acesso ao seu espaço de trabalho do Azure Machine Learning e à Internet pública. Para saber mais sobre como proteger Azure Machine Learning, consulte [segurança corporativa para Azure Machine Learning](concept-enterprise-security.md).
+
+> [!WARNING]
+> O acesso ao armazenamento de dados por trás de um firewall só tem suporte em experiências de código First. Não há suporte para o uso do [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) para acessar dados por trás de um firewall. Para trabalhar com o armazenamento de dados em uma rede privada com o estúdio, primeiro você deve [Configurar uma rede virtual](../virtual-network/quick-create-portal.md) e [conceder ao estúdio acesso aos dados armazenados dentro de uma rede virtual](how-to-enable-studio-virtual-network.md).
 
 ## <a name="azure-firewall"></a>Firewall do Azure
 
@@ -143,7 +146,7 @@ Os hosts nesta seção são de propriedade da Microsoft e fornecem os serviços 
 | **Obrigatório para** | **Público do Azure** | **Azure Governamental** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Conta de Armazenamento do Azure | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
-| Cofre de Chave do Azure | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
+| Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
 | Registro de Contêiner do Azure | azurecr.io | azurecr.us | azurecr.cn |
 | Registro de Contêiner da Microsoft | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 

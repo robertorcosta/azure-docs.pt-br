@@ -7,19 +7,20 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f9881a4517f77587cecb2dcd04befaddb523965b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e812b7872dd4d41d9a6cb87d75403524106c5981
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647640"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706857"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Reiniciar o banco de dados do Azure para PostgreSQL-servidor único usando o CLI do Azure
 Este tópico descreve como você pode reiniciar um servidor do Banco de Dados do Azure para PostgreSQL. Você talvez precise reiniciar o servidor por razões de manutenção, o que causa uma breve interrupção, conforme o servidor executa a operação.
 
 A reinicialização do servidor será bloqueada se o serviço estiver ocupado. Por exemplo, o serviço pode estar processando uma operação solicitada anteriormente como o dimensionamento vCores.
  
-O tempo necessário para concluir uma reinicialização depende do processo de recuperação do PostgreSQL. Para diminuir o tempo de reinicialização, é recomendável que você minimize a quantidade de atividade que ocorre no servidor antes da reinicialização.
+> [!NOTE] 
+> O tempo necessário para concluir uma reinicialização depende do processo de recuperação do PostgreSQL. Para diminuir o tempo de reinicialização, é recomendável que você minimize a quantidade de atividade que ocorre no servidor antes da reinicialização. Talvez você também queira aumentar a frequência do ponto de verificação. Você também pode ajustar os valores de parâmetro relacionados ao ponto de verificação, incluindo `max_wal_size` . Também é recomendável executar `CHECKPOINT` o comando antes de reiniciar o servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de instruções:
@@ -27,7 +28,7 @@ Para concluir este guia de instruções:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Este artigo requer a versão 2,0 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
+- Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="restart-the-server"></a>Reiniciar o servidor
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: db24fa4721e2e502c5098b415c4cf06da80f697d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 504d3a834760605149c93c0beea84bbe1b59e263
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96175671"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707547"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Início rápido: criar uma função Java no Azure da linha de comando
 
@@ -146,7 +146,7 @@ O arquétipo também gera um teste de unidade para sua função. Ao alterar sua 
     </pre>
     
     > [!NOTE]  
-    > Se HttpExample não aparece conforme mostrado abaixo, é provável que você tenha iniciado o host de fora da pasta raiz do projeto. Nesse caso, use **Ctrl**+**C** para parar o host, navegue até a pasta raiz do projeto e execute o comando anterior novamente.
+    > Se HttpExample não aparece conforme mostrado acima, é provável que você tenha iniciado o host fora da pasta raiz do projeto. Nesse caso, use **Ctrl**+**C** para parar o host, navegue até a pasta raiz do projeto e execute o comando anterior novamente.
 
 1. Copie a URL da função `HttpExample` dessa saída para um navegador e acrescente a cadeia de caracteres de consulta `?name=<YOUR_NAME>`, fazendo com que a URL completa seja `http://localhost:7071/api/HttpExample?name=Functions`. O navegador deve exibir uma mensagem como `Hello Functions`:
 

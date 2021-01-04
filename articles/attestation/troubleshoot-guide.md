@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 72d7a40c38f3629a70260f223074b456dff9ce38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182828"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704309"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guia de solução de problemas de atestado Microsoft Azure
 
@@ -261,7 +261,7 @@ Consulte exemplos de [política](./policy-examples.md) de atestado e [como criar
 
 Não é possível instalar os módulos AZ ou AZ. atestation no PowerShell
 
-### <a name="error"></a>Erro do
+### <a name="error"></a>Erro
 
 Aviso: não é possível resolver a origem https://www.powershellgallery.com/api/v2 do pacote ' ' PackageManagement\Install-Package: nenhuma correspondência foi encontrada para os critérios de pesquisa especificados e o nome do módulo
 
@@ -279,8 +279,8 @@ Para continuar a interagir com a Galeria do PowerShell, execute o comando a segu
 
 Usuário atribuído com as funções apropriadas. Mas enfrentando problemas de autorização ao gerenciar políticas de atestado por meio do PowerShell.
 
-### <a name="error"></a>Erro do
-O cliente com a ID de objeto <object Id>  não tem autorização para executar a ação Microsoft. Authorization/RoleAssignments/write acima do escopo '/ <subscriptionId> resourcegroups/secure_enclave_poc/Providers/Microsoft.Authorization/RoleAssignments/ <role assignmentId> ' ou o escopo é inválido. Se o acesso foi concedido recentemente, atualize suas credenciais
+### <a name="error"></a>Erro
+O cliente com a ID de objeto de ID de objeto &lt; &gt;  não tem autorização para executar a ação Microsoft. Authorization/RoleAssignments/Write sobre o escopo ' subscrições/ &lt; SubscriptionId &gt; resourcegroups/secure_enclave_poc/Providers/Microsoft.Authorization/RoleAssignments/ &lt; atribuição &gt; de função ' ou o escopo é inválido. Se o acesso foi concedido recentemente, atualize suas credenciais
 
 ### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 

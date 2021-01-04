@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 647e07fe32beedbd54ca6c5bb95c1de9564df2fd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 810ea58c5d88dec53463b9a2b04750169c70e137
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654006"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704020"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -42,12 +42,6 @@ Isso pode acontecer se a máquina do dispositivo estiver atrás de um proxy.
 - Se você estiver usando um proxy de firewall baseado em URL para controlar a conectividade de saída, adicione [essas URLs](migrate-appliance.md#url-access) a uma lista de permissões.
 - Se você estiver usando um proxy de interceptação para se conectar à Internet, importe o certificado de proxy para a VM do dispositivo usando [estas etapas](./migrate-appliance.md).
 
-
-## <a name="clicking-on-login-button-opens-a-new-tab-with-no-device-code"></a>Clicar no botão ' login ' abre uma nova guia sem código de dispositivo
-
-Se, depois de clicar em ' login no Gerenciador de configuração do dispositivo, uma nova guia for aberta sem código, volte para a guia Gerenciador de configurações do dispositivo e você poderá encontrar o código do dispositivo em negrito no botão ' login ', conforme mostrado na captura de tela abaixo. Copie o código e cole-o na guia logon para autenticar com o Azure.
-
-![Código do dispositivo](./media/troubleshoot-appliance-discovery/code.png)
 
 ## <a name="cant-sign-into-azure-from-the-appliance-web-app"></a>Não é possível entrar no Azure por meio do aplicativo Web do dispositivo
 
@@ -105,7 +99,7 @@ Erro 60028: "não foi possível iniciar a descoberta devido a um erro. A operaç
 - Se houver um erro de validação, examine as diretrizes de correção para corrigir os erros e tente a opção **salvar e iniciar descoberta** novamente.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>Erro 60025: falha na operação do Azure AD 
-Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Realize uma destas ações:
+Erro 60025: "falha em uma operação do Azure AD. O erro ocorreu ao criar ou atualizar o aplicativo do Azure AD "ocorre quando a conta de usuário do Azure usada para iniciar a descoberta é diferente da conta usada para registrar o dispositivo. Realize um dos seguintes procedimentos:
 
 - Verifique se a conta de usuário que está iniciando a descoberta é a mesma usada para registrar o dispositivo.
 - Forneça Azure Active Directory permissões de acesso do aplicativo à conta de usuário para a qual a operação de descoberta está falhando.

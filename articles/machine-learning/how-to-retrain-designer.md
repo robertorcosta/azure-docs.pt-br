@@ -1,7 +1,7 @@
 ---
-title: Treinar novamente modelos usando o designer de Azure Machine Learning
+title: Usar parâmetros de pipeline para treinar novamente modelos no designer
 titleSuffix: Azure Machine Learning
-description: Saiba como readaptar os modelos de aprendizado de máquina com pipelines publicados no designer de Azure Machine Learning.
+description: Readaptação de modelos com pipelines publicados e parâmetros de pipeline no designer de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d754674fe3aa65fa9fd8540b05083979ce96aff8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6efb0f095f8a157f723a3b7c0c2b229546ebb36b
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437109"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708459"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Readaptação de modelos com o Azure Machine Learning designer
+# <a name="use-pipeline-parameters-to-retrain-models-in-the-designer"></a>Usar parâmetros de pipeline para treinar novamente modelos no designer
 
 
-Neste artigo de instruções, você aprenderá a usar o designer do Azure Machine Learning para readaptar um modelo de machine learning. Você usará pipelines publicados para automatizar seu fluxo de trabalho e definir parâmetros para treinar seu modelo para novos dados. 
+Neste artigo de instruções, você aprende a usar Azure Machine Learning designer para treinar novamente um modelo de aprendizado de máquina usando parâmetros de pipeline. Você usará pipelines publicados para automatizar seu fluxo de trabalho e definir parâmetros para treinar seu modelo para novos dados. Os parâmetros de pipeline permitem que você reutilize os pipelines existentes para trabalhos diferentes.  
 
 Neste artigo, você aprenderá como:
 

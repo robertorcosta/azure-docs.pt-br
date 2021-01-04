@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: dd667202a329148e498d0e25ee15110de5d7448a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 6aea427848afd39b9b9ca166856470a2f9b88694
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573401"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705091"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Usar identidade gerenciada para autenticar seu trabalho de Azure Stream Analytics para Power BI (versão prévia)
 
@@ -100,7 +100,7 @@ Azure Resource Manager permite automatizar totalmente a implantação de seu tra
     Implante o trabalho acima para o grupo de recursos de **exemplo** usando o comando a seguir CLI do Azure:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Depois que o trabalho for criado, use Azure Resource Manager para recuperar a definição completa do trabalho.

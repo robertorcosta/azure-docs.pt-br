@@ -7,20 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 12/18/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b97b223ac180df7f8eb07ad8eaab66847f50776
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 50d5d73e71b8129f061ec49b363a0ebb13d22bdf
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422987"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704649"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemplo: Adicionar sinônimos para o Azure Pesquisa Cognitiva em C #
 
 Os sinônimos expandem uma consulta correspondendo os termos considerados semanticamente equivalentes com o termo de entrada. Por exemplo, você pode querer que "carro" corresponda aos documentos contendo os termos "automóvel" ou "veículo". 
 
-No Azure Pesquisa Cognitiva, os sinônimos são definidos em um *mapa de sinônimos* , por meio de *regras de mapeamento* que associam termos equivalentes. Este exemplo aborda as etapas essenciais para adicionar e usar sinônimos com um índice existente.
+No Azure Pesquisa Cognitiva, os sinônimos são definidos em um *mapa de sinônimos*, por meio de *regras de mapeamento* que associam termos equivalentes. Este exemplo aborda as etapas essenciais para adicionar e usar sinônimos com um índice existente.
 
 Neste exemplo, você aprenderá a:
 
@@ -94,6 +94,8 @@ static void Main(string[] args)
 
 Em `RunQueriesWithNonExistentTermsInIndex`, emitimos as consultas de pesquisa com "cinco estrelas", "Internet" e "economia E hotel".
 
+As consultas de frase, como "cinco estrelas", devem ser colocadas entre aspas e também podem precisar de caracteres de escape, dependendo do cliente.
+
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = searchClient.Search<Hotel>("\"five star\"", searchOptions);
@@ -146,7 +148,7 @@ Depois que as consultas "Before" são executadas, o código de exemplo permite s
 
 Depois do mapa de sinônimos ser carregado e o índice ser atualizado para usar o mapa de sinônimos, a segunda chamada `RunQueriesWithNonExistentTermsInIndex` gera o seguinte:
 
-```
+```dos
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]

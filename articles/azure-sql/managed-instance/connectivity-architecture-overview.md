@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: e67376e2ef79f9711f54ce54d0d91623593ca8ea
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853281"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722395"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade de uma Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -311,12 +311,13 @@ Se a rede virtual incluir um DNS personalizado, o servidor DNS personalizado dev
 
 O **tls 1,2 é imposto em conexões de saída**: em Janeiro 2020 Microsoft imposto TLS 1,2 para tráfego dentro de serviço em todos os serviços do Azure. Para o Azure SQL Instância Gerenciada, isso resultou no TLS 1,2 sendo imposto em conexões de saída usadas para replicação e conexões de servidor vinculado a SQL Server. Se você estiver usando versões do SQL Server mais antigas do que 2016 com o SQL Instância Gerenciada, verifique se [as atualizações específicas do TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) foram aplicadas.
 
-Atualmente, não há suporte para os seguintes recursos de rede virtual com o SQL Instância Gerenciada:
+Atualmente, *não há suporte para* os seguintes recursos de rede virtual com o SQL instância gerenciada:
 
 - **Emparelhamento da Microsoft**: habilitar o [emparelhamento da Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) em circuitos de ExpressRoute emparelhados direta ou transitivamente com uma rede virtual em que o SQL instância gerenciada reside afeta o fluxo de tráfego entre os componentes do SQL instância gerenciada dentro da rede virtual e dos serviços dos quais depende, causando problemas de disponibilidade. As implantações do SQL Instância Gerenciada na rede virtual com o emparelhamento da Microsoft já habilitado devem falhar.
 - **Emparelhamento de rede virtual global**: a conectividade de [emparelhamento de rede virtual](../../virtual-network/virtual-network-peering-overview.md) entre regiões do Azure não funciona para instâncias gerenciadas do SQL colocadas em sub-redes criadas antes de 9/22/2020.
 - **AzurePlatformDNS**: usar a [marca de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma renderizaria o SQL instância gerenciada não disponível. Embora o SQL Instância Gerenciada dê suporte ao DNS definido pelo cliente para a resolução DNS dentro do mecanismo, há uma dependência no DNS da plataforma para operações de plataforma.
 - **Gateway NAT**: usar o [NAT da rede virtual do Azure](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico renderizaria o SQL instância gerenciada indisponível. No momento, o serviço SQL Instância Gerenciada está limitado ao uso do balanceador de carga básico que não fornece a coexistência de fluxos de entrada e saída com NAT de rede virtual.
+- **IPv6 para rede virtual do Azure**: espera-se que a implantação de SQL instância gerenciada em [redes virtuais IPv4/IPv6 de pilha dupla](../../virtual-network/ipv6-overview.md) falhe. Associar o grupo de segurança de rede (NSG) ou a tabela de rotas (UDR) que contém prefixos de endereço IPv6 à sub-rede do SQL Instância Gerenciada ou adicionar prefixos de endereço IPv6 a NSG ou UDR que já está associado à sub-rede da instância gerenciada, renderizaria o SQL Instância Gerenciada indisponível. Espera-se que as implantações do SQL Instância Gerenciada em uma sub-rede com NSG e UDR que já tenham prefixos IPv6 falhem.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 62651e9ea4e1b02b276e7870163453bfa55c3909
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2e55b1f18648ce6970b81b943cd8a6a0fc3e7e81
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587563"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97705125"
 ---
 # <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Usar identidade gerenciada (versão prévia) para autenticar seu trabalho de Azure Stream Analytics para o armazenamento de BLOBs do Azure
 
@@ -98,7 +98,7 @@ O uso de Azure Resource Manager permite automatizar totalmente a implantação d
     O trabalho acima pode ser implantado para o grupo de recursos de **exemplo** usando o comando a seguir CLI do Azure:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. Depois que o trabalho for criado, você poderá usar Azure Resource Manager para recuperar a definição completa do trabalho.

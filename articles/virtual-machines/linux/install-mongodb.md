@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 49a0e48977393aeab7ff93b79e28acc55a87b51a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e3bc8ed2745e06096e05f17319a8f7896f87f80f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016175"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97702031"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB em uma VM Linux
 
@@ -125,10 +125,10 @@ Para criar esse ambiente, você precisa da última [Azure CLI](/cli/azure/instal
 az group create --name myResourceGroup --location eastus
 ```
 
-Em seguida, implante o modelo do MongoDB com [az group deployment create](/cli/azure/group/deployment). Mediante solicitação, insira seus próprios valores exclusivos para *newStorageAccountName*, *dnsNameForPublicIP* e nome de usuário e senha de administrador:
+Em seguida, implante o modelo do MongoDB com a [criação do grupo de implantação AZ](/cli/azure/deployment/group). Mediante solicitação, insira seus próprios valores exclusivos para *newStorageAccountName*, *dnsNameForPublicIP* e nome de usuário e senha de administrador:
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
@@ -176,10 +176,10 @@ Para criar esse ambiente, você precisa da última [Azure CLI](/cli/azure/instal
 az group create --name myResourceGroup --location eastus
 ```
 
-Em seguida, implante o modelo do MongoDB com [az group deployment create](/cli/azure/group/deployment). Defina seus próprios nomes e tamanhos de recurso quando necessário, como para *mongoAdminUsername*, *sizeOfDataDiskInGB* e *configNodeVmSize*:
+Em seguida, implante o modelo do MongoDB com a [criação do grupo de implantação AZ](/cli/azure/deployment/group). Defina seus próprios nomes e tamanhos de recurso quando necessário, como para *mongoAdminUsername*, *sizeOfDataDiskInGB* e *configNodeVmSize*:
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
   --parameters '{"adminUsername": {"value": "azureuser"},
     "adminPassword": {"value": "P@ssw0rd!"},
     "mongoAdminUsername": {"value": "mongoadmin"},
@@ -198,10 +198,10 @@ az group deployment create --resource-group myResourceGroup \
   --no-wait
 ```
 
-Essa implantação pode demorar mais de uma hora para implantar e configurar todas as instâncias da VM. O sinalizador `--no-wait` é usado no final do comando anterior para retornar o controle ao prompt de comando após a implantação de modelo ter sido aceita pela plataforma do Azure. Você pode exibir o status de implantação com [az group deployment show](/cli/azure/group/deployment). O exemplo a seguir exibe o status da implantação do *myMongoDBCluster* no grupo de recursos *myResourceGroup*:
+Essa implantação pode demorar mais de uma hora para implantar e configurar todas as instâncias da VM. O sinalizador `--no-wait` é usado no final do comando anterior para retornar o controle ao prompt de comando após a implantação de modelo ter sido aceita pela plataforma do Azure. Em seguida, você pode exibir o status da implantação com [AZ Deployment Group show](/cli/azure/deployment/group). O exemplo a seguir exibe o status da implantação do *myMongoDBCluster* no grupo de recursos *myResourceGroup*:
 
 ```azurecli
-az group deployment show \
+az deployment group show \
     --resource-group myResourceGroup \
     --name myMongoDBCluster \
     --query [properties.provisioningState] \

@@ -3,25 +3,37 @@ title: Visão geral da recuperação de Azure Key Vault | Microsoft Docs
 description: Key Vault recursos de recuperação são projetados para impedir a exclusão acidental ou mal-intencionada do cofre de chaves e segredos, chaves e certificados armazenados no cofre de chaves.
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-manager: ravijan
-ms.date: 12/15/2020
-ms.openlocfilehash: 485da2230de80150c9a5d13b262d1857c8c172fc
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.topic: how-to
+ms.author: mbaldwin
+author: msmbaldwin
+manager: rkarlin
+ms.date: 09/30/2020
+ms.openlocfilehash: 258d100276b20ea2437ebffb1473492a247657e8
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587104"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704207"
 ---
-# <a name="how-to-enable-soft-delete-and-purge-protection"></a>Como habilitar a exclusão reversível e a proteção de limpeza
+# <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gerenciamento de recuperação do Azure Key Vault com exclusão reversível e proteção de limpeza
 
 Este artigo aborda dois recursos de recuperação do Azure Key Vault, exclusão reversível e proteção de limpeza. Este documento fornece uma visão geral desses recursos e mostra como gerenciá-los por meio do portal do Azure, CLI do Azure e Azure PowerShell.
 
+Para obter mais informações sobre Key Vault, consulte
+- [Visão geral de Key Vault](overview.md)
+- [Visão geral de chaves, segredos e certificados de Azure Key Vault](about-keys-secrets-certificates.md)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/dotnet)
+* [Módulo do PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [CLI do Azure](/cli/azure/install-azure-cli)
+* Um Key Vault – crie um usando o [portal do Azure](../general/quick-create-portal.md), a [CLI do Azure](../general/quick-create-cli.md) ou o [Azure PowerShell](../general/quick-create-powershell.md)
+
 ## <a name="what-are-soft-delete-and-purge-protection"></a>O que é exclusão reversível e limpar a proteção
 
-A exclusão reversível e a proteção de limpeza são dois recursos diferentes de recuperação do cofre de chaves.
+A [exclusão reversível](soft-delete-overview.md) e a proteção de limpeza são dois recursos diferentes de recuperação do cofre de chaves.
+
 > [!IMPORTANT]
 > A ativação da exclusão reversível é essencial para garantir que seus cofres de chaves e credenciais sejam protegidos contra exclusão acidental. No entanto, ativar a exclusão reversível é considerado uma alteração significativa porque pode exigir que você altere a lógica do aplicativo ou forneça permissões adicionais para suas entidades de serviço. Antes de ativar a exclusão reversível usando as instruções abaixo, verifique se seu aplicativo é compatível com a alteração usando este documento [ **aqui**.](soft-delete-change.md)
 
@@ -33,6 +45,8 @@ A **proteção de limpeza** é projetada para impedir a exclusão de seu cofre d
 
 > [!NOTE]
 > A proteção de limpeza é projetada para que nenhuma função de administrador ou permissão possa substituir, desabilitar ou evitar a proteção de limpeza. **Quando a proteção de limpeza estiver habilitada, ela não poderá ser desabilitada nem substituída por ninguém, incluindo a Microsoft.** Isso significa que você deve recuperar um cofre de chaves excluído ou aguardar até que o período de retenção decorra antes de reutilizar o nome do cofre de chaves.
+
+Para obter mais informações sobre a exclusão reversível, consulte [visão geral da exclusão de Azure Key Vault reversível](soft-delete-overview.md)
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
@@ -370,3 +384,14 @@ A **proteção de limpeza** é projetada para impedir a exclusão de seu cofre d
   ```powershell
   Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
+---
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Azure Key Vault cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault)
+- [Comandos de CLI do Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
+- [Backup do Azure Key Vault](backup.md)
+- [Como habilitar o registro em log do Key Vault](howto-logging.md)
+- [Proteger o acesso a um cofre de chaves](secure-your-key-vault.md)
+- [Guia do desenvolvedor do Azure Key Vault](developers-guide.md)
+- [Práticas recomendadas para usar um cofre de chaves](best-practices.md)

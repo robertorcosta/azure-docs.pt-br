@@ -1,18 +1,18 @@
 ---
 title: Registrar e verificar um locatário Power BI (versão prévia)
 description: Saiba como usar o portal de alcance do Azure para registrar e verificar um locatário Power BI.
-author: viseshag
-ms.author: viseshag
+author: chanuengg
+ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3813d58d894d87051b1bcf8b512c848d527a52bb
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615841"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696238"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrar e verificar um locatário Power BI (versão prévia)
 
@@ -72,8 +72,6 @@ Agora que você recebeu as permissões de catálogo para se conectar à API de a
 
 Primeiro, adicione um sinalizador de recurso especial à URL do alcance 
 
-1. Adicione a seguinte cadeia de caracteres ao final do URI da sua instância do alcance: `?feature.ext.catalog={"pbi":"true"}` . Isso habilita a opção de registro Power BI em seu catálogo.
-
 1. Selecione o ícone **centro de gerenciamento** .
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/management-center.png" alt-text="Ícone do centro de gerenciamento.":::
@@ -112,6 +110,5 @@ Primeiro, adicione um sinalizador de recurso especial à URL do alcance
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como usar os cmdlets do PowerShell para registrar e verificar um locatário Power BI, consulte:
-  
-- [Usar o PowerShell para registrar e verificar Power BI](powershell-register-scan-power-bi.md)
+- [Navegar pelo Catálogo de Dados do Azure Purview](how-to-browse-catalog.md)
+- [Pesquisar no Catálogo de Dados do Azure Purview](how-to-search-catalog.md)

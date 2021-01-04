@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2019
+ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7de97fd775853f64803ab62ac397e754d065e4df
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 353c349ebe348addac60c5f9f7b1bf0fbb1fc425
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509318"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97703306"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimento do administrador na plataforma Microsoft Identity
 
@@ -46,14 +46,13 @@ https://graph.microsoft.com/mail.send
 
 | Parâmetro | Condição | Descrição |
 | ---: | ---: | :---: |
-| `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido no GUID ou formato de nome amigável, OU referenciado de maneira genérica com `organizations`, como visto no exemplo. Não use ' Common ', pois as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
+| `tenant` | Necessária | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido no GUID ou formato de nome amigável, OU referenciado de maneira genérica com `organizations`, como visto no exemplo. Não use ' Common ', pois as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
 | `client_id` | Obrigatório | A **ID do Aplicativo (cliente)** que a experiência [Portal do Microsoft Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribui ao seu aplicativo. |
 | `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
-| `state` | Recomendadas | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-|`scope` | Obrigatório | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Pode ser estático (usando/.default) ou escopos dinâmicos. Isso pode incluir os escopos OIDC ( `openid` , `profile` , `email` ). |
+| `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+|`scope` | Necessária | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Isso pode ser estático (usando `/.default` ) ou escopos dinâmicos. Isso pode incluir os escopos OIDC ( `openid` , `profile` , `email` ). |
 
-
-Neste ponto, o Azure AD requer um administrador de locatários para entrar e concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no `scope` parâmetro.  Se você usou um valor estático ( `/.default` ), ele funcionará como o ponto de extremidade de consentimento do administrador v 1.0 e solicitará o consentimento para todos os escopos encontrados nas permissões necessárias para o aplicativo.
+Neste ponto, o Azure AD requer um administrador de locatários para entrar e concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no `scope` parâmetro.  Se você usou um valor estático ( `/.default` ), ele funcionará como o ponto de extremidade de consentimento do administrador v 1.0 e solicitará consentimento para todos os escopos encontrados nas permissões necessárias (usuário e aplicativo). Para solicitar permissões de aplicativo, você deve usar o `/.default` valor. Se você não quiser que os administradores vejam uma determinada permissão na tela de consentimento do administrador o tempo todo ao usar `/.default` , a prática recomendada é não colocar a permissão na seção permissões necessárias. Em vez disso, você pode usar o consentimento dinâmico para adicionar as permissões que deseja que estejam na tela de consentimento em tempo de execução, em vez de usar `/.default` .
 
 ### <a name="successful-response"></a>Resposta bem-sucedida
 

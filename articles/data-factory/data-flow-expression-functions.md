@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/01/2020
-ms.openlocfilehash: 875b84613bede922b01b1043f2d6dab9aedbc2e8
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.date: 12/18/2020
+ms.openlocfilehash: f715a51367a82f190d394ecb8e10dea24ca70e97
+ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436922"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97706908"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -1890,6 +1890,28 @@ Seleciona um valor de coluna de acordo com sua posição relativa (com base em 1
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
+
+## <a name="cached-lookup-functions"></a>Funções de pesquisa em cache
+As funções a seguir só estão disponíveis ao usar uma pesquisa armazenada em cache quando você incluiu um coletor armazenado em cache.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Pesquisa a primeira linha do coletor armazenado em cache usando as chaves especificadas que correspondem às chaves do coletor armazenado em cache.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+Pesquisa todas as linhas correspondentes do coletor armazenado em cache usando as chaves especificadas que correspondem às chaves do coletor armazenado em cache.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+Retorna a primeira linha dos resultados do coletor de cache * ``cacheSink#output()``  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+Retorna o conjunto de linhas de saída inteiro dos resultados do coletor de cache * ``cacheSink#outputs()``
+___
 
 ## <a name="window-functions"></a>Funções da janela
 As funções a seguir só estão disponíveis em transformações de janela.

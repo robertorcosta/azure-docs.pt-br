@@ -1,14 +1,14 @@
 ---
 title: O que há de novo no agente de servidores habilitados para Arc do Azure
-description: Este artigo tem notas de versão para o agente de servidores habilitados para o Azure Arc. Para muitos dos problemas resumidos, há links para detalhes adicionais.
+description: Este artigo tem notas de versão para o agente de servidores habilitados para o Azure Arc. Para muitos dos problemas resumidos, há links para mais detalhes.
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: 3a01113d0d6416fb050f5c66191d5c420b7ac137
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.date: 12/21/2020
+ms.openlocfilehash: 4b7fd97d5b7e1cddc1d78e0d24205890e74c45c1
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505640"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97722514"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>O que há de novo no agente de servidores habilitados para Arc do Azure
 
@@ -20,6 +20,8 @@ O agente de máquina conectado de servidores habilitados para Arc do Azure receb
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
+Versão: 1,3
+
 ### <a name="new-feature"></a>New recurso
 
 Adicionado suporte para o Windows Server 2008 R2
@@ -30,11 +32,15 @@ Problema resolvido impedindo que a extensão de script personalizado no Linux se
 
 ## <a name="november-2020"></a>Novembro de 2020
 
+Versão: 1,2
+
 ### <a name="fixed"></a>Fixo
 
 Problema resolvido em que a configuração de proxy pode ser perdida após a atualização em distribuições baseadas em RPM.
 
 ## <a name="october-2020"></a>Outubro de 2020
+
+Versão 1.1
 
 ### <a name="fixed"></a>Fixo
 
@@ -61,7 +67,7 @@ Versão: 1,0 (disponibilidade geral)
 - `azcmagent show --json`Opção adicionada para saída de estado do agente no formato facilmente analisável.
 - Foi adicionado um sinalizador na `azcmagent show` saída para indicar se o servidor está em uma máquina virtual hospedada no Azure.
 - `azcmagent disconnect --force-local-only`Opção adicionada para permitir a redefinição do estado do agente local quando o serviço do Azure não pode ser acessado.
-- `azcmagent connect --cloud`Opção adicionada para dar suporte a nuvens adicionais. Nesta versão, somente o serviço do Azure é suportado pelo Service no momento da versão do agente.
+- `azcmagent connect --cloud`Opção adicionada para dar suporte a outras nuvens. Nesta versão, somente o serviço do Azure é suportado pelo Service no momento da versão do agente.
 - O agente foi localizado em idiomas com suporte do Azure.
 
 ### <a name="fixed"></a>Fixo

@@ -6,12 +6,12 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.openlocfilehash: ef0c8d53d885f11acdcf578db155de3d7848887e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: dcb5a3c664386e65e676f5559c47236126fefe87
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360060"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704921"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Implantar em hosts dedicados usando o CLI do Azure
  
@@ -263,10 +263,10 @@ az group export --name myDHResourceGroup > myDHResourceGroup.json
 
 Esse comando cria o arquivo `myDHResourceGroup.json` no diretório de trabalho atual. Quando você cria um ambiente com base neste modelo, será solicitado que você informe todos os nomes de recursos. Você pode popular esses nomes em seu arquivo de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando `az group export`. Edite seu modelo JSON para especificar os nomes dos recursos, ou crie um arquivo parameters.json que especifica os nomes dos recursos.
  
-Para criar um ambiente usando seu modelo, use [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create).
+Para criar um ambiente a partir de seu modelo, use [AZ Deployment Group Create](/cli/azure/deployment/group#az_deployment_group_create).
 
 ```azurecli-interactive
-az group deployment create \ 
+az deployment group create \ 
     --resource-group myNewResourceGroup \ 
     --template-file myDHResourceGroup.json 
 ```

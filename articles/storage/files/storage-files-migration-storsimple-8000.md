@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: daa7c657a47414b01197bed3644caefeda98af1c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512164"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723971"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
 
@@ -133,11 +133,11 @@ Esta seção discute considerações sobre a implantação de diferentes tipos d
 
 Provavelmente, você precisará implantar várias contas de armazenamento do Azure. Cada um deles manterá um número menor de compartilhamentos de arquivos do Azure, de acordo com seu plano de implantação, concluído na seção anterior deste artigo. Vá para o portal do Azure para [implantar suas contas de armazenamento planejadas](../common/storage-account-create.md#create-a-storage-account). Considere obedecer às configurações básicas a seguir para qualquer nova conta de armazenamento.
 
-#### <a name="subscription"></a>Subscription
+#### <a name="subscription"></a>Assinatura
 
 Você pode usar a mesma assinatura usada para sua implantação do StorSimple ou outra. A única limitação é que sua assinatura deve estar no mesmo locatário Azure Active Directory que a assinatura do StorSimple. Considere mover a assinatura do StorSimple para o locatário correto antes de iniciar uma migração. Você só pode mover a assinatura inteira. Os recursos individuais do StorSimple não podem ser movidos para um locatário ou assinatura diferente.
 
-#### <a name="resource-group"></a>Resource group
+#### <a name="resource-group"></a>Grupo de recursos
 
 Os grupos de recursos estão ajudando com a organização de recursos e permissões de gerenciamento de administração. Saiba mais sobre [grupos de recursos no Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
@@ -160,7 +160,7 @@ Você tem a opção de escolher o armazenamento Premium (SSD) para compartilhame
 
 Ainda não tem certeza?
 
-* Escolha armazenamento Premium se você precisar do [desempenho de um compartilhamento de arquivos premium do Azure](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+* Escolha armazenamento Premium se você precisar do [desempenho de um compartilhamento de arquivos premium do Azure](understanding-billing.md#provisioned-billing).
 * Escolha o armazenamento padrão para cargas de trabalho de servidor de arquivos de uso geral, que inclui dados dinâmicos e dados de arquivo. Escolha também armazenamento padrão se a única carga de trabalho no compartilhamento na nuvem for Sincronização de Arquivos do Azure.
 
 #### <a name="account-kind"></a>Tipo de conta

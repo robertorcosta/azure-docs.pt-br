@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: ce04053d7b624bddf8c0d3a6476f26c3462af2c2
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 88dd82ee7e004a3613d6d9892b0e853406f4caf4
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652017"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97696139"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 
@@ -316,7 +316,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
     **CLI do Azure**
 
     ```cli
-    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
+    az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
     A implantação pode levar alguns minutos para ser concluída. Quando ela for concluída, você verá uma mensagem semelhante que inclui o resultado:
