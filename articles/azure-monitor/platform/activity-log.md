@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 00e264cea34c7c3e7223b47217ecf5a59b76ba41
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6eae805b6edce4c414d26f1b79d52ac33f8f2d9d
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592459"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97709105"
 ---
 # <a name="azure-activity-log"></a>Log de Atividades do Azure
 O log de atividades é um [log de plataforma](platform-logs-overview.md) no Azure que fornece insights sobre eventos no nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
@@ -67,14 +67,14 @@ Por exemplo, para exibir uma contagem de registros de log de atividades para cad
 
 ```kusto
 AzureActivity
-| summarize count() by Category
+| summarize count() by CategoryValue
 ```
 
 Para recuperar todos os registros na categoria administrativa, use a consulta a seguir.
 
 ```kusto
 AzureActivity
-| where Category == "Administrative"
+| where CategoryValue == "Administrative"
 ```
 
 
@@ -278,6 +278,7 @@ As colunas na tabela a seguir foram preteridas no esquema atualizado. Eles ainda
 |:---|:---|
 | ActivityStatus    | ActivityStatusValue    |
 | ActivitySubstatus | ActivitySubstatusValue |
+| Categoria          | Categoriavalue          |
 | OperationName     | OperationNamevalue     |
 | ResourceProvider  | ResourceProviderValue  |
 

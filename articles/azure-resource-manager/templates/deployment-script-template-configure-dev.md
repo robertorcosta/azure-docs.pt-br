@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: 4a7f21410bb97db0a7974870efb812c9954ac241
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503549"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734174"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configurar o ambiente de desenvolvimento para scripts de implantação em modelos
 
@@ -155,7 +155,10 @@ O modelo ARM a seguir cria uma instância de contêiner e um compartilhamento de
 ```
 O valor padrão para o caminho de montagem é **deploymentScript**.  Esse é o caminho na instância de contêiner onde ele é montado no compartilhamento de arquivos.
 
-A imagem de contêiner padrão especificada no modelo é **MCR.Microsoft.com/azuredeploymentscripts-PowerShell:az4.3 "**.  Para obter uma lista de versões de Azure PowerShell com suporte e versões de CLI do Azure, consulte [Azure PowerShell ou CLI do Azure](./deployment-script-template.md#prerequisites).
+A imagem de contêiner padrão especificada no modelo é **MCR.Microsoft.com/azuredeploymentscripts-PowerShell:az4.3 "**.   Consulte uma lista de [versões de Azure PowerShell com suporte](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões de CLI do Azure com suporte](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+
+  >[!IMPORTANT]
+  > O script de implantação usa as imagens da CLI disponíveis do Registro de Contêiner da Microsoft (MCR). A certificação de uma imagem da CLI para o script de implantação leva cerca de um mês. Não use as versões da CLI que foram lançadas dentro de 30 dias. Para localizar as datas de lançamento das imagens, consulte as [notas de versão da CLI do Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se for usada uma versão sem suporte, a mensagem de erro listará as versões com suporte.
 
 O modelo suspende a instância de contêiner de 1800 segundos. Você tem 30 minutos antes de a instância do contêiner entrar no estado do terminal e a sessão terminar.
 
@@ -200,7 +203,7 @@ Você também pode carregar o arquivo usando o portal do Azure e CLI do Azure.
 1. Selecione **conectar** e, em seguida, selecione **conectar**. Se você não conseguir se conectar à instância de contêiner, reinicie o grupo de contêineres e tente novamente.
 1. No painel de console, execute os seguintes comandos:
 
-    ```
+    ```console
     cd deploymentScript
     ls
     pwsh ./hello.ps1 "John Dole"
@@ -209,6 +212,14 @@ Você também pode carregar o arquivo usando o portal do Azure e CLI do Azure.
     A saída é **Hello John giros**.
 
     ![teste de instância de contêiner de script de implantação](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
+
+1. Se você usar a imagem de contêiner AZ CLI, execute este código:
+
+   ```console
+   cd /mnt/azscripts/azscriptinput
+   ls
+   ./userscript.sh
+   ```
 
 ## <a name="use-docker"></a>Usar o Docker
 

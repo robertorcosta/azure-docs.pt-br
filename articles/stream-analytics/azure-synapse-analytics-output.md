@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 63d03559b2a30020ed2e8bd1cd030855b8fb20b7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 65752321f94bfa1403839889ead284d46b5f7191
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445098"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740055"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Saída do Azure Synapse Analytics de Azure Stream Analytics
 
@@ -39,9 +39,5 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Usar identidades gerenciadas para acessar o banco de dados SQL do Azure ou o Azure Synapse Analytics de um trabalho Azure Stream Analytics (versão prévia)](sql-database-output-managed-identity.md)
 * [Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando a CLI do Azure](quick-create-azure-cli.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
-* [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)

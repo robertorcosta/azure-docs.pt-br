@@ -3,17 +3,17 @@ title: Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 description: Saiba como atualizar um cluster do AKS (serviço kubernetes do Azure) para obter os recursos e as atualizações de segurança mais recentes.
 services: container-service
 ms.topic: article
-ms.date: 11/17/2020
-ms.openlocfilehash: c5de1a02a077ccb5f46b685572c6c43f5951b224
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.date: 12/17/2020
+ms.openlocfilehash: 947d669d436308a550bce31f04c7b1a2b8a8485a
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751488"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734345"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Serviço de Kubernetes do Azure (AKS)
 
-Como parte do ciclo de vida de um cluster do AKS, muitas vezes você precisará atualizar para a versão mais recente do Kubernetes. É importante aplicar as versões mais recentes de segurança do Kubernetes ou atualizar para obter os recursos mais recentes. Este artigo mostra como atualizar os componentes mestres ou um único pool de nós padrão em um cluster AKS.
+Parte do ciclo de vida do cluster AKS envolve a execução de atualizações periódicas para a versão mais recente do kubernetes. É importante que você aplique as últimas versões de segurança ou atualize para obter os recursos mais recentes. Este artigo mostra como atualizar os componentes mestres ou um único pool de nós padrão em um cluster AKS.
 
 Para clusters AKS que usam vários pools de nó ou nós do Windows Server, consulte [atualizar um pool de nós em AKs][nodepool-upgrade].
 
@@ -22,31 +22,30 @@ Para clusters AKS que usam vários pools de nó ou nós do Windows Server, consu
 Este artigo requer que você esteja executando o CLI do Azure versão 2.0.65 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 > [!WARNING]
-> Uma atualização do cluster AKS dispara um Cordon e dreno de seus nós. Se você tiver uma cota de computação baixa disponível, a atualização poderá falhar. Consulte [aumentar cotas](../azure-portal/supportability/resource-manager-core-quotas-request.md) para obter mais informações.
+> Uma atualização do cluster AKS dispara um Cordon e dreno de seus nós. Se você tiver uma cota de computação baixa disponível, a atualização poderá falhar. Para obter mais informações, consulte [aumentar cotas](../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verificação de atualizações disponíveis do cluster do AKS
 
-Para verificar quais versões do Kubernetes estão disponíveis para seu cluster, use o comando [az aks get-upgrades][az-aks-get-upgrades]. O exemplo abaixo verifica atualizações disponíveis para o cluster nomeado *myAKSCluster* em um grupo de recursos nomeado *myResourceGroup*:
+Para verificar quais versões do Kubernetes estão disponíveis para seu cluster, use o comando [az aks get-upgrades][az-aks-get-upgrades]. O exemplo a seguir verifica se há atualizações disponíveis para *myAKSCluster* no *MyResource*:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 > [!NOTE]
-> Quando você atualiza um cluster AKS com suporte, as versões secundárias do kubernetes não podem ser ignoradas. Por exemplo, as atualizações entre *1.12. x*  ->  *1.13. x* ou *1.13. x*  ->  *1.14.* x são permitidas, no entanto *1.12. x*  ->  *1.14. x* não é.
->
-> Para atualizar, de *1.12. x*  ->  *1.14.* x, primeiro atualize de *1.12. x*  ->  *1.13. x* e, em seguida, atualize de *1.13. x*  ->  *1.14. x*.
->
-> Ignorar várias versões só pode ser feito ao atualizar de uma versão sem suporte de volta para uma versão com suporte. Por exemplo, atualizar de um *1,10. x* sem suporte > um *1.15. x* com suporte pode ser concluído.
+> Quando você atualiza um cluster AKS com suporte, as versões secundárias do kubernetes não podem ser ignoradas. Todas as atualizações devem ser executadas sequencialmente pelo número de versão principal. Por exemplo, as atualizações entre *1.14. x*  ->  *1.15. x* ou *1.15. x*  ->  *1.16.* x são permitidas, no entanto, *1.14. x*  ->  *1.16. x* não é permitido. 
+> > Ignorar várias versões só pode ser feito ao atualizar de uma _versão sem suporte_ de volta para uma _versão com suporte_. Por exemplo, uma atualização de um *1,10. x* sem suporte > um *1.15. x* com suporte pode ser concluído.
 
-A saída de exemplo a seguir mostra que o cluster pode ser atualizado para as versões *1.13.9* e *1.13.10*:
+A saída de exemplo a seguir mostra que o cluster pode ser atualizado para as versões *1.19.1* e *1.19.3*:
 
 ```console
-Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
--------  ----------------  ---------------  -----------------  ---------------
-default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
+Name     ResourceGroup    MasterVersion    Upgrades
+-------  ---------------  ---------------  --------------
+default  myResourceGroup  1.18.10          1.19.1, 1.19.3
 ```
-Se nenhuma atualização estiver disponível, você receberá:
+
+Se nenhuma atualização estiver disponível, você receberá a mensagem:
+
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
@@ -58,23 +57,13 @@ ERROR: Table output unavailable. Use the --query option to specify an appropriat
 >
 > Se estiver usando o Azure CNI, valide se há IPs disponíveis na sub-rede também para [atender aos requisitos de IP do Azure CNI](configure-azure-cni.md).
 
-Por padrão, o AKS configura atualizações para surtos com um nó adicional. Um valor padrão de um para a configuração de surto máximo permite que o AKS Minimize a interrupção da carga de trabalho criando um nó adicional antes de Cordon/dreno de aplicativos existentes para substituir um nó com versão mais antiga. O valor máximo de surto pode ser personalizado por pool de nós para permitir uma compensação entre a velocidade de atualização e a interrupção da atualização. Ao aumentar o valor máximo de surtos de tensão, o processo de atualização é concluído mais rapidamente, mas a definição de um valor grande para o surto máximo pode causar interrupções durante o processo de atualização. 
+Por padrão, o AKS configura atualizações para surtos com um nó adicional. Um valor padrão de um para as configurações de surto máximo permitirá que o AKS Minimize a interrupção da carga de trabalho criando um nó adicional antes de Cordon/dreno de aplicativos existentes para substituir um nó com controle de versão mais antigo. O valor máximo de surto pode ser personalizado por pool de nós para permitir uma compensação entre a velocidade de atualização e a interrupção da atualização. Ao aumentar o valor máximo de surtos de tensão, o processo de atualização é concluído mais rapidamente, mas a definição de um valor grande para o surto máximo pode causar interrupções durante o processo de atualização. 
 
 Por exemplo, um valor máximo de surto de 100% fornece o processo de atualização mais rápido possível (duplicando a contagem de nós), mas também faz com que todos os nós no pool de nós sejam drenados simultaneamente. Talvez você queira usar um valor mais alto, como este para os ambientes de teste. Para pools de nós de produção, recomendamos uma configuração de max_surge de 33%.
 
 AKS aceita ambos os valores inteiros e um valor percentual para pico máximo. Um inteiro, como "5", indica cinco nós adicionais para fazer um surto. Um valor de "50%" indica um valor de surto da metade da contagem de nós atual no pool. Os valores de porcentagem máxima de surtos podem ser um mínimo de 1% e um máximo de 100%. Um valor percentual é arredondado para a contagem de nós mais próxima. Se o valor máximo de surto for menor que a contagem de nós atual no momento da atualização, a contagem de nós atual será usada para o valor máximo de surtos de tensão.
 
 Durante uma atualização, o valor máximo de surto pode ser um mínimo de 1 e um valor máximo igual ao número de nós no pool de nós. Você pode definir valores maiores, mas o número máximo de nós usados para picos máximos não será maior do que o número de nós no pool no momento da atualização.
-
-Até a CLI versão 2.16.0 +, você precisará da extensão da CLI do *AKs-Preview* para usar o aumento máximo. Use o comando [AZ Extension Add][az-extension-add] e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 > [!Important]
 > A configuração de surto máximo em um pool de nós é permanente.  Atualizações de kubernetes subsequentes ou atualizações de versão de nó usarão essa configuração. Você pode alterar o valor máximo de surtos para seus pools de nós a qualquer momento. Para pools de nós de produção, recomendamos uma configuração de pico máximo de 33%.
@@ -93,7 +82,12 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster AKS
 
-Com uma lista de versões disponíveis para o cluster do AKS, use o comando [az aks upgrade][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó de buffer (ou quantos nós forem configurados em [pico máximo](#customize-node-surge-upgrade)) ao cluster que executa a versão de kubernetes especificada. Em seguida, ele irá [Cordon e drenar][kubernetes-drain] um dos nós antigos para minimizar a interrupção na execução de aplicativos (se você estiver usando o surto máximo, ele será [cordondo e drenado][kubernetes-drain] como muitos nós ao mesmo tempo que o número de nós de buffer especificados). Quando o nó antigo estiver totalmente descarregada, a imagem será recriada para receber a nova versão e ele se tornará o nó de buffer para o seguinte nó a ser atualizado. Esse processo se repete até que todos os nós no cluster tenham sido atualizados. No final do processo, o último nó de buffer será excluído, mantendo a contagem de nós do agente existente e o saldo da zona.
+Com uma lista de versões disponíveis para o cluster do AKS, use o comando [az aks upgrade][az-aks-upgrade] para atualizar. Durante o processo de atualização, o AKS irá: 
+- Adicione um novo nó de buffer (ou quantos nós forem configurados em [pico máximo](#customize-node-surge-upgrade)) ao cluster que executa a versão de kubernetes especificada. 
+- [Cordon e dissipe][kubernetes-drain] um dos nós antigos para minimizar a interrupção na execução de aplicativos (se você estiver usando o surto máximo, ele será [cordondo e esgotado][kubernetes-drain] como muitos nós ao mesmo tempo que o número de nós de buffer especificados). 
+- Quando o nó antigo estiver totalmente descarregada, a imagem será recriada para receber a nova versão e ele se tornará o nó de buffer para o seguinte nó a ser atualizado. 
+- Esse processo se repete até que todos os nós no cluster tenham sido atualizados. 
+- No final do processo, o último nó de buffer será excluído, mantendo a contagem de nós do agente existente e o saldo da zona.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -118,18 +112,20 @@ A saída de exemplo a seguir mostra que o cluster agora executa *1.13.10*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
-------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------
+myAKSCluster  eastus      myResourceGroup  1.18.10              Succeeded            myakscluster-dns-379cbbb9.hcp.eastus.azmk8s.io
 ```
 
-## <a name="set-auto-upgrade-channel-preview"></a>Definir canal de atualização automática (versão prévia)
+## <a name="set-auto-upgrade-channel"></a>Definir canal de atualização automática
 
 Além de atualizar manualmente um cluster, você pode definir um canal de atualização automática em seu cluster. Os seguintes canais de atualização estão disponíveis:
 
-* *nenhum*, que desabilita atualizações automáticas e mantém o cluster em sua versão atual do kubernetes. Esse é o padrão e será usado se nenhuma opção for especificada.
-* *patch*, que atualizará automaticamente o cluster para a versão de patch mais recente com suporte quando estiver disponível enquanto mantém a versão secundária a mesma. Por exemplo, se um cluster estiver executando a versão *1.17.7* e as versões *1.17.9*, *1.18.4*, *1.18.6* e *1.19.1* estiverem disponíveis, o cluster será atualizado para *1.17.9*.
-* *estável*, que atualizará automaticamente o cluster para a versão de patch mais recente com suporte na versão secundária *N-1*, em que *N* é a versão secundária mais recente com suporte. Por exemplo, se um cluster estiver executando a versão *1.17.7* e as versões *1.17.9*, *1.18.4*, *1.18.6* e *1.19.1* estiverem disponíveis, o cluster será atualizado para *1.18.6*.
-* *rápido*, que atualizará automaticamente o cluster para a versão mais recente do patch com suporte na versão secundária mais recente com suporte. Nos casos em que o cluster está em uma versão de kubernetes que está em uma versão secundária *n-2* em que *n* é a versão secundária mais recente com suporte, o cluster primeiro atualiza para a versão de patch mais recente com suporte em *n-1* versão secundária. Por exemplo, se um cluster estiver executando a versão *1.17.7* e as versões *1.17.9*, *1.18.4*, *1.18.6* e *1.19.1* estiverem disponíveis, o cluster primeiro será atualizado para *1.18.6* e, em seguida, será atualizado para *1.19.1*.
+|Canal| Ação | Exemplo
+|---|---|---|
+| `none`| desabilita atualizações automáticas e mantém o cluster em sua versão atual do kubernetes| Configuração padrão se deixado inalterada|
+| `patch`| atualize automaticamente o cluster para a versão de patch mais recente com suporte quando ele estiver disponível enquanto mantém a versão secundária a mesma.| Por exemplo, se um cluster estiver executando a versão *1.17.7* e as versões *1.17.9*, *1.18.4*, *1.18.6* e *1.19.1* estiverem disponíveis, o cluster será atualizado para *1.17.9*|
+| `stable`| atualize automaticamente o cluster para a versão de patch mais recente com suporte na versão secundária *n-1*, em que *N* é a versão secundária mais recente com suporte.| Por exemplo, se um cluster estiver executando a versão *1.17.7* e as versões *1.17.9*, *1.18.4*, *1.18.6* e *1.19.1* estiverem disponíveis, o cluster será atualizado para *1.18.6*.
+| `rapid`| atualize automaticamente o cluster para a versão mais recente do patch com suporte na versão secundária mais recente com suporte.| Nos casos em que o cluster está em uma versão de kubernetes que está em uma versão secundária *n-2* em que *n* é a versão secundária mais recente com suporte, o cluster primeiro atualiza para a versão de patch mais recente com suporte em *n-1* versão secundária. Por exemplo, se um cluster estiver executando a versão *1.17.7* e as versões *1.17.9*, *1.18.4*, *1.18.6* e *1.19.1* estiverem disponíveis, o cluster primeiro será atualizado para *1.18.6* e, em seguida, será atualizado para *1.19.1*.
 
 > [!NOTE]
 > Atualização automática de cluster atualiza somente para versões GA do kubernetes e não será atualizada para versões de visualização.
@@ -156,16 +152,6 @@ Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft. C
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
-```
-
-Use o comando [AZ Extension Add][az-extension-add] para instalar a extensão *AKs-Preview* e, em seguida, verifique se há atualizações disponíveis usando o comando [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
 ```
 
 Para definir o canal de atualização automática ao criar um cluster, use o parâmetro de *canal de atualização automática* , semelhante ao exemplo a seguir.

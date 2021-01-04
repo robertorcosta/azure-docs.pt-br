@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d702959be70716f0c2bc85920bdb7aa3e061aff1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332773"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733904"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -56,13 +56,47 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 1. O SQL também oferece algumas diretrizes para trabalhar com programas antivírus. Consulte [Este artigo](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) para obter detalhes.
 
+## <a name="faulty-instance-in-a-vm-with-multiple-sql-server-instances"></a>Instância com falha em uma VM com várias instâncias de SQL Server
+
+Você poderá restaurar para uma VM do SQL somente se todas as instâncias do SQL em execução na VM forem relatadas como íntegras. Se uma ou mais instâncias forem "defeituosas", a VM não aparecerá como um destino de restauração. Portanto, isso pode ser um possível motivo pelo qual uma VM de várias instâncias pode não aparecer na lista suspensa "servidor" durante a operação de restauração.
+
+Você pode validar a "prontidão de backup" de todas as instâncias do SQL na VM, em **Configurar backup**:
+
+![Validar preparação do backup](./media/backup-sql-server-azure-troubleshoot/backup-readiness.png)
+
+Se você quiser disparar uma restauração nas instâncias do SQL íntegras, execute as seguintes etapas:
+
+1. Entre na VM do SQL e vá para `C:\Program Files\Azure Workload Backup\bin` .
+1. Crie um arquivo JSON chamado `ExtensionSettingsOverrides.json` (se ainda não estiver presente). Se esse arquivo já estiver presente na VM, continue a usá-lo.
+1. Adicione o seguinte conteúdo ao arquivo JSON e salve o arquivo:
+
+    ```json
+    {
+                  "<ExistingKey1>":"<ExistingValue1>",
+                    …………………………………………………… ,
+              "whitelistedInstancesForInquiry": "FaultyInstance_1,FaultyInstance_2"
+            }
+            
+            Sample content:        
+            { 
+              "whitelistedInstancesForInquiry": "CRPPA,CRPPB "
+            }
+
+    ```
+
+1. Dispare a operação de **redescoberta de bancos** de servidores no servidor afetado do portal do Azure (o mesmo local em que a prontidão de backup pode ser vista). A VM começará a aparecer como destino para operações de restauração.
+
+    ![Redescobrir bancos de todos](./media/backup-sql-server-azure-troubleshoot/rediscover-dbs.png)
+
+1. Remova a entrada *whitelistedInstancesForInquiry* do ExtensionSettingsOverrides.jsno arquivo depois que a operação de restauração for concluída.
+
 ## <a name="error-messages"></a>Mensagens de erro
 
 ### <a name="backup-type-unsupported"></a>Tipo de backup sem suporte
 
-| Gravidade | Descrição | Possíveis causas | Ação recomendada |
+| Severidade | Descrição | Possíveis causas | Ação recomendada |
 |---|---|---|---|
-| Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. O backup diferencial de backup e de log de transações não é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modificar as configurações do banco de dados SP todos os tipos de backup na política têm suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
+| Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. O backup diferencial de backup e de log de transações não é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modifique as configurações do banco de dados para que todos os tipos de backup na política tenham suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -216,7 +250,7 @@ Agora, organize-os no seguinte formato:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -245,7 +279,7 @@ O conteúdo do arquivo deve estar neste formato:
 ]
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```json
 [

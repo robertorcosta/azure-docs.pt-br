@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: a2cc0840b7ba4b26cf9f5b1219fc189230870774
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591981"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739851"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de Azure Machine Learning
 
@@ -47,8 +47,7 @@ Se os dados de saída do módulo estiverem em um formato tabular, você deverá 
  - O conjunto de registros de **arquivo** registra a pasta de saída do módulo como um conjunto de um arquivo. A pasta de saída contém um arquivo de dados e metadados que o designer usa internamente. Selecione esta opção se você quiser continuar a usar o conjunto de entrada registrado no designer. 
 
  - **DataSet tabular** registra apenas o arquivo de dados de saída do módulo como um DataSet tabular. Esse formato é facilmente consumido por outras ferramentas, por exemplo, no Machine Learning automatizado ou no SDK do Python. Selecione esta opção se você planeja usar o conjunto de DataSet registrado fora do designer.  
-
-
+ 
 
 ### <a name="use-a-dataset"></a>Usar um conjunto de dados
 
@@ -62,6 +61,14 @@ Se você registrar um conjunto de registros de arquivo, o tipo de porta de saíd
 > [!NOTE]
 > O designer dá suporte ao [controle de versão do conjunto](how-to-version-track-datasets.md)de os. Especifique a versão do conjunto de módulos no painel de propriedades do módulo DataSet.
 
+### <a name="limitations"></a>Limitações 
+
+- No momento, você só pode visualizar o conjunto de tabelas tabular no designer. Se você registrar um conjunto de registros de arquivo fora do designer, não será possível visualizá-lo na tela do designer.
+- Seu conjunto de armazenamento é armazenado na rede virtual (VNet). Se você quiser Visualizar, precisará habilitar a identidade gerenciada do espaço de trabalho do repositório de armazenamento.
+    1. Vá para o repositório de armazenamento relacionado e clique em **Atualizar credenciais** 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Atualizar credenciais":::
+    1. Selecione **Sim** para habilitar a identidade gerenciada do espaço de trabalho.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Habilitar identidade gerenciada do espaço de trabalho":::
 
 ## <a name="import-data-using-the-import-data-module"></a>Importar dados usando o módulo Importar Dados
 

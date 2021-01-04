@@ -1,50 +1,71 @@
 ---
-title: Habilitar Azure Monitor para VMs integridade de convidado (versão prévia)
+title: Habilitar a integridade de convidado do Azure Monitor para VMs (versão prévia)
 description: Descreve como habilitar Azure Monitor para VMs integridade de convidado em sua assinatura e como carregar VMs.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 20d38e5caee67ca8bb13877d3162401fa245dc2d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.custom: references_regions
+ms.openlocfilehash: 78ce082c6e90cfc9c67ddcfa00926d292b9ed7ea
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444771"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740463"
 ---
-# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Habilitar Azure Monitor para VMs integridade de convidado (versão prévia)
+# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Habilitar a integridade de convidado do Azure Monitor para VMs (versão prévia)
 Azure Monitor para VMs integridade de convidado permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como habilitar esse recurso em sua assinatura e como habilitar o monitoramento de convidado para cada máquina virtual.
 
 ## <a name="current-limitations"></a>Limitações atuais
 Azure Monitor para VMs integridade de convidado tem as seguintes limitações na visualização pública:
 
 - No momento, somente as máquinas virtuais do Azure têm suporte. No momento, não há suporte para o arco do Azure para servidores.
-- A máquina virtual deve executar um dos seguintes sistemas operacionais: 
+
+
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+A máquina virtual deve executar um dos seguintes sistemas operacionais: 
+
   - Ubuntu 16, 4 LTS, Ubuntu 18, 4 LTS
   - Windows Server 2012 ou posterior
-- A máquina virtual deve estar localizada em uma das seguintes regiões:
-  - Leste da Austrália
-  - Australia Southeast
-  - Índia Central
-  - Centro dos EUA
-  - Leste dos EUA
-  - Leste dos EUA 2
-  - Leste dos EUA 2 EUAP
-  - Centro-Oeste da Alemanha
-  - Japan East
-  - Centro-Norte dos EUA
-  - Norte da Europa
-  - Centro-Sul dos Estados Unidos
-  - Sudeste Asiático
-  - Sul do Reino Unido
-  - Europa Ocidental
-  - Oeste dos EUA
-  - Oeste dos EUA 2
-- Log Analytics espaço de trabalho deve estar localizado em uma das seguintes regiões:
-  - Leste dos EUA
-  - Leste dos EUA 2 EUAP
-  - Região de Europa Ocidental
+
+## <a name="supported-regions"></a>Regiões com suporte
+
+A máquina virtual deve estar localizada em uma das seguintes regiões:
+
+- Austrália Central
+- Leste da Austrália
+- Sudeste da Austrália
+- Índia Central
+- Centro dos EUA
+- Leste da Ásia
+- Leste dos EUA
+- Leste dos EUA 2
+- Leste dos EUA 2 EUAP
+- Centro-Oeste da Alemanha
+- Leste do Japão
+- Centro-Norte dos EUA
+- Norte da Europa
+- Centro-Sul dos Estados Unidos
+- Sudeste Asiático
+- Sul do Reino Unido
+- Centro-Oeste dos EUA
+- Europa Ocidental
+- Oeste dos EUA
+- Oeste dos EUA 2
+
+
+Log Analytics espaço de trabalho deve estar localizado em uma das seguintes regiões:
+
+- Centro dos EUA
+- Leste dos EUA
+- Leste dos EUA 2
+- Leste dos EUA 2 EUAP
+- Norte da Europa
+- Sudeste Asiático
+- Sul do Reino Unido
+- Região de Europa Ocidental
+- Oeste dos EUA 2
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,9 +73,8 @@ Azure Monitor para VMs integridade de convidado tem as seguintes limitações na
 - O usuário executando etapas de integração deve ter um nível de colaborador mínimo acesso à assinatura em que a máquina virtual e a regra de coleta de dados estão localizadas.
 - Os provedores de recursos do Azure necessários devem ser registrados conforme descrito na seção a seguir.
 
-
 ## <a name="register-required-azure-resource-providers"></a>Registrar os provedores de recursos do Azure necessários
-Os provedores de recursos do Azure a seguir precisam ser registrados para sua assinatura para habilitar Azure Monitor para VMs integridade de convidado. 
+Os provedores de recursos do Azure a seguir serão registrados para sua assinatura para habilitar Azure Monitor para VMs integridade de convidado. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.insights

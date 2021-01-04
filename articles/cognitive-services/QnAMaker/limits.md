@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380888"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708933"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -39,7 +39,7 @@ Os nomes de arquivo não podem incluir os seguintes caracteres:
 
 ### <a name="maximum-file-size"></a>Tamanho máximo do arquivo
 
-|Formato|Tamanho máximo do arquivo (MB)|
+|Formatar|Tamanho máximo do arquivo (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -82,10 +82,10 @@ O comprimento e os caracteres aceitáveis para o nome e o valor dos metadados s�
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo da Base de Dados de Conhecimento
 Limites gerais sobre o conteúdo na base de dados de conhecimento:
-* Comprimento do texto de resposta: 25.000
-* Comprimento do texto da pergunta: 1.000
-* Comprimento do texto da chave de metadados: 100
-* Comprimento do texto do valor de metadados: 500
+* Tamanho do texto de resposta: 25.000 caracteres
+* Tamanho do texto da pergunta: 1.000 caracteres
+* Comprimento do texto da chave de metadados: 100 caracteres
+* Comprimento do texto do valor de metadados: 500 caracteres
 * Caracteres com suporte para nome de metadados: alfabetos, dígitos e `_`
 * Caracteres com suporte para valor de metadados: todos exceto `:` e `|`
 * Tamanho do nome do arquivo: 200

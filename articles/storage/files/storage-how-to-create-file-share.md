@@ -1,5 +1,5 @@
 ---
-title: Criar um compartilhamento de arquivos do Azure
+title: Criar um compartilhamento de arquivo do Azure
 titleSuffix: Azure Files
 description: Como criar um compartilhamento de arquivos do Azure usando o portal do Azure, o PowerShell ou o CLI do Azure.
 author: roygara
@@ -9,14 +9,14 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 4df4c3d91c30dfd63de9073d8435f6f96c6ecd95
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626819"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724792"
 ---
-# <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+# <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 Para criar um compartilhamento de arquivos do Azure, você precisa responder a três perguntas sobre como você irá usá-lo:
 
 - **Quais são os requisitos de desempenho para o compartilhamento de arquivos do Azure?**  
@@ -38,13 +38,13 @@ Para obter mais informações sobre essas três opções, consulte [planejando u
 - Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-Os compartilhamentos de arquivo do Azure são implantados em *contas de armazenamento* , que são objetos de nível superior que representam um pool de armazenamento compartilhado. Esse pool de armazenamento pode ser usado para implantar vários compartilhamentos de arquivos. 
+Os compartilhamentos de arquivo do Azure são implantados em *contas de armazenamento*, que são objetos de nível superior que representam um pool de armazenamento compartilhado. Esse pool de armazenamento pode ser usado para implantar vários compartilhamentos de arquivos. 
 
 O Azure dá suporte a vários tipos de contas de armazenamento para diferentes cenários de armazenamento que os clientes podem ter, mas há dois tipos principais de contas de armazenamento para arquivos do Azure. O tipo de conta de armazenamento que você precisa criar depende se você deseja criar um compartilhamento de arquivos padrão ou um compartilhamento de arquivos Premium: 
 
 - **Contas de armazenamento GPv2 (uso geral versão 2)** : as contas de armazenamento GPv2 permitem que você implante compartilhamentos de arquivo do Azure em hardware padrão/baseado em HD (disco rígido). Além de armazenar compartilhamentos de arquivo do Azure, as contas de armazenamento GPv2 podem armazenar outros recursos de armazenamento, como contêineres de blob, filas ou tabelas. Os compartilhamentos de arquivos podem ser implantados nas camadas otimizadas para transação (padrão), quente ou fria.
 
-- **Contas de armazenamento FileStorage** : as contas de armazenamento FileStorage permitem que você implante compartilhamentos de arquivo do Azure em hardware premium/baseado em SSD (disco de estado sólido). As contas FileStorage só podem ser usadas para armazenar compartilhamentos de arquivo do Azure; nenhum outro recurso de armazenamento (contêineres de blob, filas, tabelas etc.) pode ser implantado em uma conta FileStorage.
+- **Contas de armazenamento FileStorage**: as contas de armazenamento FileStorage permitem que você implante compartilhamentos de arquivo do Azure em hardware premium/baseado em SSD (disco de estado sólido). As contas FileStorage só podem ser usadas para armazenar compartilhamentos de arquivo do Azure; nenhum outro recurso de armazenamento (contêineres de blob, filas, tabelas etc.) pode ser implantado em uma conta FileStorage.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Para criar uma conta de armazenamento por meio do portal do Azure, selecione **+ criar um recurso** no painel. Na janela de pesquisa resultante do Azure Marketplace, procure **conta de armazenamento** e selecione o resultado da pesquisa resultante. Isso levará a uma página de visão geral para contas de armazenamento; Selecione **criar** para continuar com o assistente de criação de conta de armazenamento.
@@ -61,12 +61,12 @@ Para criar uma conta de armazenamento do FileStorage, verifique se o botão de o
 ![Uma captura de tela do botão de opção de desempenho com Premium selecionado e tipo de conta com FileStorage selecionado](media/storage-how-to-create-file-share/create-storage-account-2.png)
 
 Os outros campos básicos são independentes da escolha da conta de armazenamento:
-- **Assinatura** : a assinatura da conta de armazenamento a ser implantada. 
-- **Grupo de recursos** : o grupo de recursos para a conta de armazenamento a ser implantada. Você pode criar um novo grupo de recursos ou usar um grupo de recursos existente. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente.
-- **Nome da conta de armazenamento** : o nome do recurso da conta de armazenamento a ser criado. Esse nome deve ser globalmente exclusivo, mas, caso contrário, pode ser qualquer nome desejado. O nome da conta de armazenamento será usado como o nome do servidor quando você montar um compartilhamento de arquivos do Azure via SMB.
-- **Local** : a região da conta de armazenamento a ser implantada. Isso pode ser a região associada ao grupo de recursos ou qualquer outra região disponível.
-- **Replicação** : embora isso seja rotulado como replicação, esse campo significa, na verdade, **redundância** ; Este é o nível de redundância desejado: redundância local (LRS), redundância de zona (ZRS), redundância geográfica (GRS) e redundância de zona geográfica. Essa lista suspensa também contém a redundância geográfica com acesso de leitura (RA-GRS) e a redundância de zona geográfica com acesso de leitura (RA-GZRS), que não se aplica aos compartilhamentos de arquivos do Azure; qualquer compartilhamento de arquivos criado em uma conta de armazenamento com esses selecionados será, na verdade, com redundância geográfica ou com redundância de zona geográfica, respectivamente. Dependendo de sua região ou tipo de conta de armazenamento selecionado, algumas opções de redundância podem não ser permitidas.
-- **Camada de acesso ao blob** : esse campo não se aplica aos arquivos do Azure, portanto, você pode escolher um dos botões de opção. 
+- **Assinatura**: a assinatura da conta de armazenamento a ser implantada. 
+- **Grupo de recursos**: o grupo de recursos para a conta de armazenamento a ser implantada. Você pode criar um novo grupo de recursos ou usar um grupo de recursos existente. Um grupo de recursos é um contêiner lógico para agrupar seus serviços do Azure. Quando você cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou usar um grupo de recursos existente.
+- **Nome da conta de armazenamento**: o nome do recurso da conta de armazenamento a ser criado. Esse nome deve ser globalmente exclusivo, mas, caso contrário, pode ser qualquer nome desejado. O nome da conta de armazenamento será usado como o nome do servidor quando você montar um compartilhamento de arquivos do Azure via SMB.
+- **Local**: a região da conta de armazenamento a ser implantada. Isso pode ser a região associada ao grupo de recursos ou qualquer outra região disponível.
+- **Replicação**: embora isso seja rotulado como replicação, esse campo significa, na verdade, **redundância**; Este é o nível de redundância desejado: redundância local (LRS), redundância de zona (ZRS), redundância geográfica (GRS) e redundância de zona geográfica. Essa lista suspensa também contém a redundância geográfica com acesso de leitura (RA-GRS) e a redundância de zona geográfica com acesso de leitura (RA-GZRS), que não se aplica aos compartilhamentos de arquivos do Azure; qualquer compartilhamento de arquivos criado em uma conta de armazenamento com esses selecionados será, na verdade, com redundância geográfica ou com redundância de zona geográfica, respectivamente. Dependendo de sua região ou tipo de conta de armazenamento selecionado, algumas opções de redundância podem não ser permitidas.
+- **Camada de acesso ao blob**: esse campo não se aplica aos arquivos do Azure, portanto, você pode escolher um dos botões de opção. 
 
 > [!Important]  
 > A seleção da camada de acesso ao BLOB não afeta a camada do compartilhamento de arquivos.
@@ -77,8 +77,8 @@ A seção rede permite que você configure as opções de rede. Essas configura�
 #### <a name="the-advanced-blade"></a>A folha avançado
 A seção avançado contém várias configurações importantes para compartilhamentos de arquivos do Azure:
 
-- **Transferência segura necessária** : Este campo indica se a conta de armazenamento requer criptografia em trânsito para comunicação com a conta de armazenamento. É recomendável que isso seja deixado habilitado. no entanto, se você precisar de suporte a SMB 2,1, você deve desabilitar isso. Recomendamos se você desabilitar a criptografia para restringir o acesso de sua conta de armazenamento a uma rede virtual com pontos de extremidade de serviço e/ou pontos de extremidade privados.
-- **Compartilhamentos de arquivos grandes** : esse campo habilita a conta de armazenamento para compartilhamentos de arquivos que abrangem até 100 Tib. Habilitar esse recurso limitará sua conta de armazenamento somente a opções de armazenamento com redundância local e com redundância de zona. Depois que uma conta de armazenamento GPv2 tiver sido habilitada para grandes compartilhamentos de arquivos, você não poderá desabilitar o recurso de compartilhamento de arquivo grande. Contas de armazenamento de armazenamento de arquivo (contas de armazenamento para compartilhamentos de arquivos Premium) não têm essa opção, pois todos os compartilhamentos de arquivos Premium podem ser escalados verticalmente para 100 TiB. 
+- **Transferência segura necessária**: Este campo indica se a conta de armazenamento requer criptografia em trânsito para comunicação com a conta de armazenamento. É recomendável que isso seja deixado habilitado. no entanto, se você precisar de suporte a SMB 2,1, você deve desabilitar isso. Recomendamos se você desabilitar a criptografia para restringir o acesso de sua conta de armazenamento a uma rede virtual com pontos de extremidade de serviço e/ou pontos de extremidade privados.
+- **Compartilhamentos de arquivos grandes**: esse campo habilita a conta de armazenamento para compartilhamentos de arquivos que abrangem até 100 Tib. Habilitar esse recurso limitará sua conta de armazenamento somente a opções de armazenamento com redundância local e com redundância de zona. Depois que uma conta de armazenamento GPv2 tiver sido habilitada para grandes compartilhamentos de arquivos, você não poderá desabilitar o recurso de compartilhamento de arquivo grande. Contas de armazenamento de armazenamento de arquivo (contas de armazenamento para compartilhamentos de arquivos Premium) não têm essa opção, pois todos os compartilhamentos de arquivos Premium podem ser escalados verticalmente para 100 TiB. 
 
 ![Uma captura de tela das configurações avançadas importantes que se aplicam aos arquivos do Azure](media/storage-how-to-create-file-share/create-storage-account-3.png)
 
@@ -172,7 +172,7 @@ A propriedade **quota** significa algo ligeiramente diferente entre compartilham
 
 - Para compartilhamentos de arquivos padrão, ele é um limite superior do compartilhamento de arquivos do Azure, além do qual os usuários finais não podem ir. O objetivo principal da cota de um compartilhamento de arquivos padrão é o orçamentário: "não quero que esse compartilhamento de arquivos cresça além desse ponto". Se uma cota não for especificada, o compartilhamento de arquivos padrão poderá abranger até 100 TiB (ou 5 TiB se a propriedade compartilhamentos de arquivos grandes não estiver definida para uma conta de armazenamento).
 
-- Para compartilhamentos de arquivos premium, a cota é sobrecarregada para significar o **tamanho provisionado**. O tamanho provisionado é o valor para o qual você será cobrado, independentemente do uso real. Ao provisionar um compartilhamento de arquivos premium, você deve considerar dois fatores: 1) o crescimento futuro do compartilhamento de uma perspectiva de utilização de espaço e 2) o IOPS necessário para sua carga de trabalho. Cada GiB provisionada lhe dá direito a IOPS reservada e de intermitência adicional. Para obter mais informações sobre como planejar um compartilhamento de arquivos premium, consulte [Provisionando compartilhamentos de arquivos Premium](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
+- Para compartilhamentos de arquivos premium, a cota é sobrecarregada para significar o **tamanho provisionado**. O tamanho provisionado é o valor para o qual você será cobrado, independentemente do uso real. Ao provisionar um compartilhamento de arquivos premium, você deve considerar dois fatores: 1) o crescimento futuro do compartilhamento de uma perspectiva de utilização de espaço e 2) o IOPS necessário para sua carga de trabalho. Cada GiB provisionada lhe dá direito a IOPS reservada e de intermitência adicional. Para obter mais informações sobre como planejar um compartilhamento de arquivos premium, consulte [Provisionando compartilhamentos de arquivos Premium](understanding-billing.md#provisioned-billing).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Se você acabou de criar sua conta de armazenamento, poderá navegar até ela na tela de implantação selecionando **ir para o recurso**. Se você já tiver criado a conta de armazenamento, poderá navegar para ela por meio do grupo de recursos que a contém. Uma vez na conta de armazenamento, selecione o bloco rotulado **compartilhamentos de arquivos** (você também pode navegar até **compartilhamentos de arquivos** por meio do Sumário da conta de armazenamento).
@@ -183,9 +183,9 @@ Na listagem compartilhamento de arquivos, você deve ver os compartilhamentos de
 
 A folha novo compartilhamento de arquivos deve aparecer na tela. Preencha os campos na folha novo compartilhamento de arquivos para criar um compartilhamento de arquivos:
 
-- **Nome** : o nome do compartilhamento de arquivos a ser criado.
-- **Cota** : a cota do compartilhamento de arquivos para compartilhamentos de arquivos padrão; o tamanho provisionado do compartilhamento de arquivos para compartilhamentos de arquivos premium.
-- **Camadas** : a camada selecionada para um compartilhamento de arquivos. Esse campo só está disponível em uma **conta de armazenamento de uso geral (GPv2)**. Você pode escolher transação otimizada, quente ou fria. A camada do compartilhamento pode ser alterada a qualquer momento. É recomendável escolher a camada mais alta possível durante uma migração, para minimizar as despesas de transação e, em seguida, alternar para uma camada inferior, se desejado, depois que a migração for concluída.
+- **Nome**: o nome do compartilhamento de arquivos a ser criado.
+- **Cota**: a cota do compartilhamento de arquivos para compartilhamentos de arquivos padrão; o tamanho provisionado do compartilhamento de arquivos para compartilhamentos de arquivos premium.
+- **Camadas**: a camada selecionada para um compartilhamento de arquivos. Esse campo só está disponível em uma **conta de armazenamento de uso geral (GPv2)**. Você pode escolher transação otimizada, quente ou fria. A camada do compartilhamento pode ser alterada a qualquer momento. É recomendável escolher a camada mais alta possível durante uma migração, para minimizar as despesas de transação e, em seguida, alternar para uma camada inferior, se desejado, depois que a migração for concluída.
 
 Selecione **criar** para concluir a criação do novo compartilhamento. Observe que se sua conta de armazenamento estiver em uma rede virtual, você não poderá criar com êxito um compartilhamento de arquivos do Azure, a menos que o cliente também esteja na rede virtual. Você também pode contornar essa limitação pontual usando o `New-AzRmStorageShare` cmdlet Azure PowerShell.
 

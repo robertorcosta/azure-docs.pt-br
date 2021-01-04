@@ -1,7 +1,7 @@
 ---
-title: Solucionar problemas de implantação de serviço Web remoto
+title: Solucionando problemas de implantação de modelo remoto
 titleSuffix: Azure Machine Learning
-description: Saiba como solucionar problemas, resolver e solucionar os erros comuns de implantação do Docker com o serviço kubernetes do Azure e as instâncias de contêiner do Azure.
+description: Saiba como solucionar problemas, resolver e solucionar alguns erros comuns de implantação do Docker com o serviço kubernetes do Azure e as instâncias de contêiner do Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 92cd70e864ae0490ce3f9e7435d9518241f93c8e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 4224e301d6410fc97da1f98cd0dd9577c6341cd3
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031497"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740616"
 ---
-# <a name="troubleshoot-model-deployment"></a>Solucionar problemas de implantação de modelo
+# <a name="troubleshooting-remote-model-deployment"></a>Solucionando problemas de implantação de modelo remoto 
 
-Saiba como solucionar problemas e resolver, ou contornar, erros comuns de implantação do Docker remoto com ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando o Azure Machine Learning.
+Saiba como solucionar problemas e resolver, ou contornar, erros comuns que você pode encontrar ao implantar um modelo em ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando o Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -177,6 +177,16 @@ Para obter mais informações sobre como definir `autoscale_target_utilization`,
 Um código de status 504 indica que a solicitação atingiu o tempo limite. O tempo limite padrão é 1 minuto.
 
 Você pode aumentar o tempo limite ou tentar acelerar o serviço, modificando o score.py para remover as chamadas desnecessárias. Se essas ações não corrigirem o problema, use as informações neste artigo para depurar o arquivo score.py. O código pode estar em um estado sem resposta ou um loop infinito.
+
+## <a name="other-error-messages"></a>Outras mensagens de erro
+
+Execute estas ações para os seguintes erros:
+
+|Erro  | Resolução  |
+|---------|---------|
+|Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |
+|Falha de FPGA     |  Não será possível implantar modelos em FPGAs até que você tenha solicitado e recebido aprovação para cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai       |
 
 ## <a name="advanced-debugging"></a>Depuração avançada
 

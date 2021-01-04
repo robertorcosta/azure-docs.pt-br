@@ -5,14 +5,14 @@ services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: radwiv
-ms.openlocfilehash: c6aa2b63344ef629d55f5a4efb66e4ee0e55975e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: caa9a0869d7d4bca58b91a0c682177e1408f8300
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661028"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97733783"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Configurar a captura de pacotes para gateways de VPN
 
@@ -31,6 +31,7 @@ Os exemplos a seguir de JSON e um esquema JSON fornecem explicações de cada pr
 - Você não pode executar várias capturas de pacote de todo o gateway ao mesmo tempo.
 - Você não pode executar várias capturas de pacote em uma única conexão ao mesmo tempo. Você pode executar várias capturas de pacote em diferentes conexões ao mesmo tempo.
 - Um máximo de cinco capturas de pacote pode ser executado em paralelo por gateway. Essas capturas de pacote podem ser uma combinação de capturas de pacotes em todo o gateway e capturas de pacotes por conexão.
+- A unidade para MaxPacketBufferSize é bytes e MaxFileSize é megabytes
 
 ### <a name="example-json"></a>JSON de exemplo
 ```JSON-interactive

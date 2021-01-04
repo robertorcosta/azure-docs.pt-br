@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c75fcd1fd20e41df5018fcaa07fe83051d7e5f1a
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010921"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740361"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como cancelar o registro de um dispositivo do Provisionamento de Dispositivos no Hub IoT
 
@@ -26,7 +26,7 @@ O registro no serviço de provisionamento de dispositivos permite que um disposi
 
 ## <a name="disallow-devices-by-using-an-individual-enrollment-entry"></a>Não permitir dispositivos usando uma entrada de registro individual
 
-Os registros individuais se aplicam a um único dispositivo e podem usar certificados X.509 ou tokens SAS (em um TPM real ou virtual) como o mecanismo de atestado. (Os dispositivos que usam tokens SAS como seu mecanismo de atestado podem ser provisionados apenas por meio de um registro individual.) Para não permitir um dispositivo que tenha um registro individual, você pode desabilitar ou excluir sua entrada de registro. 
+Os registros individuais se aplicam a um único dispositivo e podem usar certificados X. 509, chaves de endosso do TPM (em um TPM real ou virtual) ou tokens SAS como o mecanismo de atestado. Para não permitir um dispositivo que tenha um registro individual, você pode desabilitar ou excluir sua entrada de registro. 
 
 Para desautorizar temporariamente o dispositivo desabilitando sua entrada de registro: 
 

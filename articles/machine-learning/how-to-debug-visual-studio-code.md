@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: a9d20732c3ae08718c400faff44137000e98fffd
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: e572f1f6a9452ccab9deddb62a5e219a81df5d47
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629401"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739987"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuração interativa com Visual Studio Code
 
@@ -536,4 +536,10 @@ docker stop debug
 
 Agora que você configurou o VS Code remoto, é possível usar uma instância de computação como computação remota do VS Code para depurar interativamente seu código. 
 
-[Tutorial: Treinar seu primeiro modelo de ML](tutorial-1st-experiment-sdk-train.md) mostra como usar uma instância de computação com um notebook integrado.
+Saiba mais sobre solução de problemas:
+
+* [Implantação de modelo local](how-to-troubleshoot-deployment-local.md)
+* [Implantação de modelo remoto](how-to-troubleshoot-deployment.md)
+* [Pipelines do aprendizado de máquina](how-to-debug-pipelines.md)
+* [ParallelRunStep](how-to-debug-parallel-run-step.md)
+

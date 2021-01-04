@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 4436289d544de057acef132117346ac53c20b5a7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 76218003a40c02def3dc62ea8480022d9647938d
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576479"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97723330"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados no Azure Stream Analytics 
 
@@ -72,7 +72,7 @@ Use as etapas a seguir para configurar sua conta de armazenamento para ativos de
 
    ![Configurações de conta de armazenamento de dados particulares](./media/data-protection/storage-account-create.png)
 
-1. Para autenticar com a identidade gerenciada (versão prévia), selecione **identidade gerenciada** no menu suspenso modo de autenticação. Se você escolher identidade gerenciada, precisará adicionar seu trabalho de Stream Analytics à lista de controle de acesso da conta de armazenamento. Se você não der acesso ao trabalho, o trabalho não poderá executar nenhuma operação. Para obter mais informações sobre como conceder acesso, consulte [usar o RBAC do Azure para atribuir um acesso de identidade gerenciada a outro recurso](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
+1. Para autenticar com a identidade gerenciada (versão prévia), selecione **identidade gerenciada** no menu suspenso modo de autenticação. Se você escolher identidade gerenciada, precisará adicionar seu trabalho de Stream Analytics à lista de controle de acesso da conta de armazenamento com a função de *colaborador de dados de blob de armazenamento* . Se você não der acesso ao trabalho, o trabalho não poderá executar nenhuma operação. Para obter mais informações sobre como conceder acesso, consulte [usar o RBAC do Azure para atribuir um acesso de identidade gerenciada a outro recurso](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md#use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource).
 
    :::image type="content" source="media/data-protection/storage-account-create-msi.png" alt-text="Configurações de conta de armazenamento de dados particulares com autenticação de identidade gerenciada":::
 

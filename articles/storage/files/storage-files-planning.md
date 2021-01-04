@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 98cc72f85499481ba3841ce82fe307740d5e9fab
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: e1b29d901630156471bbb9cb8b939bb4bb29c836
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842692"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724214"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -114,56 +114,6 @@ Para obter mais informações, consulte [proteção avançada contra ameaças pa
 
 ## <a name="storage-tiers"></a>Camadas de armazenamento
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-### <a name="understanding-provisioning-for-premium-file-shares"></a>Noções básicas sobre provisionamento para compartilhamentos de arquivos Premium
-Os compartilhamentos de arquivos Premium são provisionados com base em uma taxa de GiB/IOPS/transferência fixa. Todos os tamanhos de compartilhamentos são oferecidos com a linha de base/taxa de transferência mínima e podem disparar. Para cada GiB provisionado, o compartilhamento será emitido mínimo de IOPS/taxa de transferência e uma taxa de transferência de IOPS e 0,1 MiB/s até os limites máximos por compartilhamento. O provisionamento mínimo permitido é de 100 GiB com IOPS/taxa de transferência mínima. 
-
-Todos os compartilhamentos Premium são oferecidos com intermitência livre em uma base de melhor esforço. Todos os tamanhos de compartilhamentos podem aumentar até 4.000 IOPS ou até três IOPS por GiB provisionado, o que fornecer um IOPS maior de intermitência para o compartilhamento. Todos os compartilhamentos dão suporte à intermitência por uma duração máxima de 60 minutos a um limite de pico de intermitência. Os novos compartilhamentos começam com o crédito de intermitência completa com base na capacidade provisionada.
-
-Os compartilhamentos devem ser provisionados em incrementos de 1 GiB. O tamanho mínimo é 100 GiB, o próximo tamanho é 101 GiB e assim por diante.
-
-> [!TIP]
-> IOPS de linha de base = 400 + 1 * GiB provisionado. (Até um máximo de 100.000 IOPS).
->
-> Limite de intermitência = MAX (4.000, 3 * IOPS de linha de base). (qualquer limite é maior, até um máximo de 100.000 IOPS).
->
-> taxa de egresso = 60 MiB/s + 0, 6 * provisionamento GiB
->
-> taxa de entrada = 40 MiB/s + 0, 4 * provisionamento GiB
-
-O tamanho do compartilhamento provisionado é especificado por cota de compartilhamento. A cota de compartilhamento pode ser aumentada a qualquer momento, mas só pode ser reduzida após 24 horas desde o último aumento. Depois de aguardar 24 horas sem um aumento de cota, você pode diminuir a cota de compartilhamento quantas vezes desejar, até aumentá-la novamente. As alterações de escala de taxa de transferência/IOPS entrarão em vigor em alguns minutos após a alteração do tamanho.
-
-É possível diminuir o tamanho do compartilhamento provisionado abaixo do GiB usado. Se você fizer isso, não perderá dados, mas ainda será cobrado pelo tamanho usado e receberá o desempenho (IOPS de linha de base, taxa de transferência e IOPS de intermitência) do compartilhamento provisionado, não o tamanho usado.
-
-A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de compartilhamento provisionados:
-
-|Capacidade (GiB) | IOPS de linha de base | IOPS de intermitência | Saída (MiB/s) | Entrada (MiB/s) |
-|---------|---------|---------|---------|---------|
-|100         | 500     | Até 4 mil     | 66   | 44   |
-|500         | 900     | Até 4 mil  | 90   | 60   |
-|1\.024       | 1.424   | Até 4 mil   | 122   | 81   |
-|5.120       | 5.520   | Até 15.360  | 368   | 245   |
-|10.240      | 10.640  | Até 30.720  | 675   | 450   |
-|33.792      | 34.192  | Até 100.000 | 2.088 | 1.392   |
-|51.200      | 51.600  | Até 100.000 | 3.132 | 2.088   |
-|102.400     | 100.000 | Até 100.000 | 6.204 | 4.136   |
-
-É importante observar que o desempenho de compartilhamentos de arquivos efetivo está sujeito a limites de rede de computador, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Por exemplo, com base no teste interno com 8 tamanhos de e/s de leitura/gravação de KiB, uma única máquina virtual do Windows sem o SMB com Fibre Channel habilitado, *Standard F16s_v2*, conectada ao compartilhamento de arquivos Premium por SMB poderia alcançar IOPS de leitura de 20 mil e IOPS de gravação de 15.000. Com tamanhos de e/s de leitura/gravação de MiB 512, a mesma VM pode atingir a saída de 1,1 GiB/s e a taxa de transferência de entrada de 370 MiB/s. O mesmo cliente pode alcançar um desempenho de até \~ três vezes se o SMB multicanal estiver habilitado nos compartilhamentos Premium. Para obter a escala de desempenho máxima, [habilite o SMB multicanal](storage-files-enable-smb-multichannel.md) e espalhe a carga entre várias VMS. Consulte o guia de desempenho e solução de [problemas](storage-troubleshooting-files-performance.md) do [SMB Multichannel](storage-files-smb-multichannel-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.
-
-#### <a name="bursting"></a>Bursting
-Se sua carga de trabalho precisar de desempenho extra para atender à demanda de pico, seu compartilhamento poderá usar créditos de intermitência para ir acima do limite de IOPS de linha de base de compartilhamento para oferecer o desempenho de compartilhamento necessário para atender à demanda. Os compartilhamentos de arquivos Premium podem estourar seu IOPS de até 4.000 ou até um fator de três, o que for um valor mais alto. A intermitência é automatizada e opera com base em um sistema de crédito. A intermitência funciona em uma base de melhor esforço e o limite de intermitência não é uma garantia. os compartilhamentos de arquivos podem *aumentar até* o limite por uma duração máxima de 60 minutos.
-
-Os créditos se acumulam em um Bucket de intermitência sempre que o tráfego para o compartilhamento de arquivos está abaixo do IOPS de linha de base. Por exemplo, um compartilhamento de GiB 100 tem 500 IOPS de linha de base. Se o tráfego real no compartilhamento era de 100 IOPS para um intervalo específico de 1 segundo, o IOPS de 400 não utilizado será creditado em um Bucket de intermitência. Da mesma forma, um compartilhamento de 1 TiB ocioso, acumula crédito intermitente em 1.424 IOPS. Esses créditos serão então usados mais tarde, quando as operações excederem o IOPS de linha de base.
-
-Sempre que um compartilhamento exceder o IOPS de linha de base e tiver créditos em um Bucket de intermitência, ele será intermitente na taxa máxima de intermitência de pico permitida. Os compartilhamentos podem continuar a intermitência, desde que os créditos permaneçam, até a duração máxima de 60 minutos, mas isso se baseia no número de créditos de intermitência acumulados. Cada e/s além do IOPS de linha de base consome um crédito e quando todos os créditos são consumidos, o compartilhamento retornaria para o IOPS de linha de base.
-
-Os créditos de compartilhamento têm três Estados:
-
-- A acumulação, quando o compartilhamento de arquivos está usando menos do que o IOPS de linha de base.
-- Recusando, quando o compartilhamento de arquivos está usando mais do que o IOPS de linha de base e no modo de intermitência.
-- Constante, quando o compartilhamento de arquivos está usando exatamente o IOPS de linha de base, não há créditos acumulados ou usados.
-
-Novos compartilhamentos de arquivos começam com o número total de créditos em seu Bucket de intermitência. Os créditos de intermitência não serão acumulados se o IOPS de compartilhamento cair abaixo do IOPS de linha de base devido à limitação pelo servidor.
 
 ### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Habilitar compartilhamentos de arquivo padrão para abranger até 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]

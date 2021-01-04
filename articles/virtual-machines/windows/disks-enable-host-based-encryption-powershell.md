@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 626246f34cbd037db60bd13fd120f0ba133f8924
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 87b032b3a8382f632c1db56d2724b267c2db6727
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488265"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734412"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Usar o módulo Azure PowerShell para habilitar a criptografia de ponta a ponta usando criptografia no host
 
@@ -35,7 +35,7 @@ Você também pode encontrar os tamanhos de VM programaticamente. Para saber com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com as suas IDs de assinatura para habilitar o recurso para suas assinaturas.
+Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com suas IDs de assinatura para obter o recurso habilitado para suas assinaturas.
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Criar um Azure Key Vault e DiskEncryptionSet
 

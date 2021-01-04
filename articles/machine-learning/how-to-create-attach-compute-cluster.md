@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 0bbf70016dc9b93120b3158e8954c336095ea211
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d1cbb8efe0882f48a345d44a650eb711a44d570
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832680"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739178"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de computação do Azure Machine Learning
 
@@ -177,7 +177,7 @@ No estúdio, escolha **baixa prioridade** ao criar uma VM.
 
 * Criar um novo cluster de computação gerenciado com identidade gerenciada
 
-  * Identidade gerenciada atribuída pelo usuário
+  * Identidade gerenciada atribuída ao usuário
 
     ```azurecli
     az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
@@ -190,7 +190,7 @@ No estúdio, escolha **baixa prioridade** ao criar uma VM.
     ```
 * Adicione uma identidade gerenciada a um cluster existente:
 
-    * Identidade gerenciada atribuída pelo usuário
+    * Identidade gerenciada atribuída ao usuário
         ```azurecli
         az ml computetarget amlcompute identity assign --name cpu-cluster '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
         ```
@@ -211,6 +211,14 @@ Consulte [Configurar a identidade gerenciada no estúdio](how-to-create-attach-c
 ### <a name="managed-identity-usage"></a>Uso de identidade gerenciada
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Há uma chance de que alguns usuários que criaram seu espaço de trabalho Azure Machine Learning do portal do Azure antes da versão GA não possam criar AmlCompute nesse espaço de trabalho. Você pode gerar uma solicitação de suporte em relação ao serviço ou criar um novo espaço de trabalho por meio do portal ou do SDK para desbloquear-se imediatamente.
+
+Se o cluster de computação Azure Machine Learning aparecer preso no redimensionamento (0-> 0) para o estado do nó, isso pode ser causado por bloqueios de recursos do Azure.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
