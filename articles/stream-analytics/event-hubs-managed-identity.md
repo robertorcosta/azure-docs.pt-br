@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 11/30/2020
-ms.openlocfilehash: c65833e5bf581c6326bf9362c7e5fc00a985d301
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 01/04/2021
+ms.openlocfilehash: ca27df7188c5edd1da94fc41707f6c25eb4034bf
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354936"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895131"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>Usar identidades gerenciadas para acessar o Hub de eventos de um trabalho de Azure Stream Analytics (versão prévia)
 
@@ -20,6 +20,9 @@ O Azure Stream Analytics dá suporte à autenticação de identidade gerenciada 
 Uma identidade gerenciada é um aplicativo gerenciado registrado no Azure Active Directory que representa um determinado trabalho do Stream Analytics. O aplicativo gerenciado é usado para autenticar para um recurso de destino, incluindo hubs de eventos que estão atrás de um firewall ou rede virtual (VNet). Para obter mais informações sobre como ignorar firewalls, consulte [permitir acesso aos namespaces dos hubs de eventos do Azure por meio de pontos de extremidade privados](../event-hubs/private-link-service.md#trusted-microsoft-services).
 
 Este artigo mostra como habilitar a identidade gerenciada para uma entrada ou saída de hubs de eventos de um trabalho de Stream Analytics por meio do portal do Azure.Antes de habilitar a identidade gerenciada, você deve primeiro ter um Stream Analytics trabalho e recurso do hub de eventos.
+
+### <a name="limitation"></a>Limitação
+Durante a visualização, a entrada de amostragem dos hubs de eventos em portal do Azure não funcionará ao usar o modo de autenticação de identidade gerenciada.
 
 ## <a name="create-a-managedidentity"></a>Criar uma identidade gerenciada  
 

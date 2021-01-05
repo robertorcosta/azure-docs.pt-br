@@ -13,7 +13,7 @@
       items:
         - name: Usar o portal da Web
           href: getting-started-build-a-classifier.md
-        - name: Usar o SDK da Visão Personalizada
+        - name: Usar o SDK da Visão Personalizada ou a API REST
           href: quickstarts/image-classification.md
     - name: Criar um detector de objeto
       items:

@@ -71,6 +71,8 @@
           href: storage-files-smb-multichannel-performance.md
         - name: Escalabilidade e metas de desempenho
           href: storage-files-scale-targets.md
+    - name: Noções básicas sobre cobrança
+      href: understanding-billing.md
     - name: Impedir exclusões acidentais de dados
       href: storage-files-prevent-file-share-deletion.md
     - name: Fazer backup de compartilhamentos de arquivos
@@ -85,20 +87,16 @@
       href: storage-files-faq.md
 - name: Guias de instruções
   items:
-    - name: Criar
+    - name: Implantar
       items:
         - name: Criar um compartilhamento de arquivos SMB
           href: storage-how-to-create-file-share.md
+        - name: Implantar a Sincronização de Arquivos do Azure
+          href: storage-sync-files-deployment-guide.md
         - name: Criar um compartilhamento de arquivo premium
           href: storage-how-to-create-premium-fileshare.md
         - name: Criar um compartilhamento NFS
           href: storage-files-how-to-create-nfs-shares.md
-    - name: Implantar
-      items:
-        - name: Implantar os Arquivos do Azure
-          href: storage-files-deployment-guide.md
-        - name: Implantar a Sincronização de Arquivos do Azure
-          href: storage-sync-files-deployment-guide.md
         - name: FCI do SQL Server com compartilhamentos de arquivos Premium
           href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Montar

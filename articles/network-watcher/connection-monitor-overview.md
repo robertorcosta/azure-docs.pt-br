@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c5c3f8dedad47a819ce3648a0b81ffa3e65a1a1e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544880"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898004"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoramento de conectividade de rede com o monitor de conexão
 
@@ -271,7 +271,7 @@ Nos monitores de conexão que foram criados antes da experiência do monitor de 
 
 Ao usar as métricas, defina o tipo de recurso como Microsoft. Network/networkWatchers/connectionMonitors
 
-| Métrica | Nome de exibição | Unidade | Tipo de agregação | Descrição | Dimensões |
+| Metric | Nome para exibição | Unit | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | Porcentagem de investigações com falha | Porcentagem | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
 | AverageRoundtripMs | Média Tempo de ida e volta (ms) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 5e4aaea5b565e126f633b04215bbc3a24faf2cde
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 075f113975e5f340493fe33584d8072190be77c8
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753596"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896474"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração do VMware
 
@@ -33,7 +33,7 @@ Use essas comparações selecionadas para ajudá-lo a decidir qual método usar.
 **Compatibilidade Site Recovery** | Compatíveis. | Você não poderá replicar com a migração de servidor de migrações para Azure se tiver configurado a replicação para um computador usando Site Recovery.
 **Disco de destino** | Discos gerenciados | Discos gerenciados
 **Limites de disco** | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 32 TB<br/><br/> Máximo de discos: 60 | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Máximo de discos: 63
-**Discos de passagem** | Sem suporte | Com suporte
+**Discos de passagem** | Sem suporte | Suportado
 **Inicialização UEFI** | Com suporte. | Com suporte.
 
 ## <a name="compare-deployment-steps"></a>Comparar etapas de implantação
@@ -43,11 +43,11 @@ Depois de revisar as limitações, entender as etapas envolvidas na implantaçã
 **Tarefa** | **Detalhes** |**Sem agente** | **Baseado em agente**
 --- | --- | --- | ---
 **Implantar o dispositivo das Migrações para Azure** | Um dispositivo leve executado em uma VM VMware.<br/><br/> O dispositivo é usado para descobrir e avaliar computadores e migrar computadores usando a migração sem agente. | Obrigatórios.<br/><br/> Se você já configurou o dispositivo para avaliação, poderá usar o mesmo dispositivo para a migração sem agente. | Não necessário.<br/><br/> Se você tiver configurado um dispositivo para avaliação, poderá deixá-lo em vigor ou removê-lo se terminar a avaliação.
-**Usar a ferramenta de avaliação do servidor** | Avaliar computadores com a ferramenta migrações para Azure: Server Assessment. | Você pode avaliar as máquinas antes de migrá-las, mas não é necessário. | A avaliação é opcional | A avaliação é opcional.
+**Usar a ferramenta de avaliação do servidor** | Avaliar computadores com a ferramenta migrações para Azure: Server Assessment. | Você pode avaliar as máquinas antes de migrá-las, mas não é necessário. | A avaliação é opcional.
 **Usar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | Obrigatório | Obrigatório
 **Preparar o VMware para migração** | Defina as configurações em servidores VMware e VMs. | Obrigatório | Obrigatório
-**Instalar o serviço de mobilidade em VMs** | O serviço de mobilidade é executado em cada VM que você deseja replicar | Não é necessária | Obrigatório
-**Implantar o dispositivo de replicação** | O [dispositivo de replicação](migrate-replication-appliance.md) é usado para a migração baseada em agente. Ele se conecta entre o serviço de mobilidade em execução em VMs e a migração de servidor. | Não é necessária | Obrigatório
+**Instalar o serviço de mobilidade em VMs** | O serviço de mobilidade é executado em cada VM que você deseja replicar | Não obrigatório | Necessária
+**Implantar o dispositivo de replicação** | O [dispositivo de replicação](migrate-replication-appliance.md) é usado para a migração baseada em agente. Ele se conecta entre o serviço de mobilidade em execução em VMs e a migração de servidor. | Não obrigatório | Necessária
 **Replicar VMs**. Habilite a replicação da VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Obrigatório | Obrigatório
 **Execute um teste de migração** | Executar uma migração de teste para verificar se tudo está funcionando conforme o esperado. | Obrigatório | Obrigatório
 **Executar uma migração completa** | Migre as VMs. | Obrigatório | Obrigatório

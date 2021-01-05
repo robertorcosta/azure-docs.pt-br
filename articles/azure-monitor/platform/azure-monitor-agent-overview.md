@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 57b350c7772d42e5dbd89c1d03c89f905a26398b
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95315576"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895522"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente de Azure Monitor (versão prévia)
 O agente de Azure Monitor (AMA) coleta dados de monitoramento do sistema operacional convidado de máquinas virtuais e as entrega ao Azure Monitor. Este artigo fornece uma visão geral do agente de Azure Monitor, incluindo como instalá-lo e como configurar a coleta de dados.
@@ -54,7 +54,7 @@ As seguintes limitações se aplicam durante a visualização pública do agente
 
 - O agente de Azure Monitor não oferece suporte a soluções e informações como Azure Monitor para VMs e a central de segurança do Azure. O único cenário com suporte no momento é coletar dados usando as regras de coleta de dados que você configura. 
 - As regras de coleta de dados devem ser criadas na mesma região que qualquer Log Analytics espaço de trabalho usado como destino.
-- Atualmente, as máquinas virtuais do Azure e os servidores habilitados para Arc do Azure têm suporte. Atualmente, não há suporte para conjuntos de dimensionamento de máquinas virtuais, serviço kubernetes do Azure e outros tipos de recursos de computação.
+- Atualmente, há suporte para máquinas virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais e servidores habilitados para Arc do Azure. O serviço kubernetes do Azure e outros tipos de recursos de computação não têm suporte no momento.
 - A máquina virtual deve ter acesso aos seguintes pontos de extremidade HTTPS:
   - *.ods.opinsights.azure.com
   - *. ingest.monitor.azure.com
@@ -76,7 +76,7 @@ A tabela a seguir lista os tipos de dados que você pode coletar atualmente com 
 
 O agente de Azure Monitor envia dados para Azure Monitor métricas ou um espaço de trabalho Log Analytics que oferece suporte a logs de Azure Monitor.
 
-| fonte de dados | Destinos | Descrição |
+| Fonte de dados | Destinos | Descrição |
 |:---|:---|:---|
 | Desempenho        | Métricas do Azure Monitor<br>Espaço de trabalho do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
 | Log de eventos do Windows | Espaço de trabalho do Log Analytics | Informações enviadas ao sistema de registro de evento do Windows. |

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: c17ade2af751b80e612aa104a9af1a22c4325413
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: ff3e8916a6634c564aa98b21b7e8d7c89fa1b17e
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695737"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897171"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager
 
@@ -150,7 +150,7 @@ Você pode encontrar o modelo de implantação clássico e representações do R
 
 | Representação do clássico | Representação do Gerenciador de Recursos | Observações |
 | --- | --- | --- |
-| Nome do serviço de nuvem |Nome DNS |Durante a migração, um novo grupo de recursos é criado para cada serviço de nuvem com o padrão de nomenclatura `<cloudservicename>-migrated`. Esse grupo de recursos contém todos os seus recursos. O nome do serviço de nuvem torna-se um nome DNS associado ao endereço IP público. |
+| Nome do serviço de nuvem (nome do serviço hospedado) |Nome DNS |Durante a migração, um novo grupo de recursos é criado para cada serviço de nuvem com o padrão de nomenclatura `<cloudservicename>-migrated`. Esse grupo de recursos contém todos os seus recursos. O nome do serviço de nuvem torna-se um nome DNS associado ao endereço IP público. |
 | Máquina virtual |Máquina virtual |As propriedades específicas da VM são migradas sem alterações. Determinadas informações de osProfile, como nome do computador, não foram armazenadas no modelo de implantação clássica e permanecem vazias após a migração. |
 | Recursos de disco anexados à VM |Discos implícitos anexados à VM |Os discos não são modelados como recursos de nível superior no modelo de implantação do Gerenciador de Recursos. Eles são migrados como discos implícitos na VM. No momento, há suporte apenas aos discos anexados a uma VM. Agora, VMs do Gerenciador de Recursos podem usar contas de armazenamento no modelo de implantação clássico, o que permite que os discos sejam migrados facilmente sem quaisquer atualizações. |
 | Extensões de VM |Extensões de VM |Todas as extensões de recurso, exceto as extensões XML, são migradas do modelo de implantação clássica. |

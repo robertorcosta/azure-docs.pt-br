@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7ce0807fa4cd068cfdd09ac9f78c5415da7e6437
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145745"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895335"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -29,6 +29,12 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+##  <a name="december-2020"></a>Dezembro de 2020? 
+
+### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>Video Indexer implantados no Oeste da Suíça e Norte da Suíça
+
+Agora você pode criar uma conta paga Video Indexer nas regiões Oeste da Suíça e Norte da Suíça.
 
 ## <a name="october-2020"></a>Outubro de 2020
 
@@ -142,7 +148,7 @@ Nas próximas semanas, iremos alterá-la e retornar o Video Indexer URL do [site
    
     As URLs regionais não têm suporte e serão bloqueadas nas próximas semanas.
 
-## <a name="january-2020"></a>Janeiro de 2020
+## <a name="january-2020"></a>janeiro de 2020
  
 ### <a name="custom-language-support-for-additional-languages"></a>Suporte a idiomas personalizados para idiomas adicionais
 

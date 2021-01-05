@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 413a93a145ae063a3aab4066ed62365e154d744a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b1ff10290e0059295f14b55e90ed05e9690c9f5c
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454102"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97896553"
 ---
 # <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Use portal do Azure para gerenciar compartilhamentos em seu Azure Stack Edge pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este artigo descreve como gerenciar compartilhamentos no Azure Stack Edge pro. Você pode gerenciar o Azure Stack Edge pro via portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar, excluir, atualizar compartilhamentos ou sincronizar a chave de armazenamento para a conta de armazenamento associada aos compartilhamentos.
+Este artigo descreve como gerenciar compartilhamentos no Azure Stack Edge pro. Você pode gerenciar o Azure Stack Edge pro via portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar, excluir, atualizar compartilhamentos ou sincronizar a chave de armazenamento para a conta de armazenamento associada aos compartilhamentos. Este artigo aplica-se a Azure Stack Edge pro GPU, Azure Stack borda pro R e Azure Stack dispositivos mini R do Edge.
 
 ## <a name="about-shares"></a>Sobre compartilhamentos
 
@@ -33,7 +33,7 @@ Para transferir dados para o Azure, você precisa criar compartilhamentos em seu
 
 Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **Gateway > compartilhamentos**. Selecione **+ Adicionar compartilhamento** na barra de comandos.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **Gateway de armazenamento em nuvem > compartilhamentos**. Selecione **+ Adicionar compartilhamento** na barra de comandos.
 
     ![Selecionar Adicionar compartilhamento](media/azure-stack-edge-j-series-manage-shares/add-share-1.png)
 
@@ -63,7 +63,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
 ## <a name="add-a-local-share"></a>Adicionar um compartilhamento local
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **Gateway > compartilhamentos**. Selecione **+ Adicionar compartilhamento** na barra de comandos.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **Gateway de armazenamento em nuvem > compartilhamentos**. Selecione **+ Adicionar compartilhamento** na barra de comandos.
 
     ![Selecione Adicionar compartilhamento 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
@@ -99,7 +99,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 Se você criou um compartilhamento antes de configurar a computação no dispositivo Azure Stack Edge pro, será necessário montar o compartilhamento. Siga as etapas a seguir para montar um compartilhamento.
 
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **Gateway > compartilhamentos**. Na lista de compartilhamentos, selecione o compartilhamento que você deseja montar. A coluna **Usados para computação** mostrará o status como **Desabilitado** para o compartilhamento selecionado.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **Gateway de armazenamento em nuvem > compartilhamentos**. Na lista de compartilhamentos, selecione o compartilhamento que você deseja montar. A coluna **Usados para computação** mostrará o status como **Desabilitado** para o compartilhamento selecionado.
 
     ![Selecionar compartilhamento](media/azure-stack-edge-j-series-manage-shares/mount-share-1.png)
 
@@ -123,11 +123,11 @@ Se você criou um compartilhamento antes de configurar a computação no disposi
 
 Execute as etapas a seguir no portal do Azure para desmontar um compartilhamento.
 
-1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **Gateway > compartilhamentos**.
+1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **Gateway de armazenamento em nuvem > compartilhamentos**. Na lista de compartilhamentos, selecione o compartilhamento que você deseja desmontar. Você deseja certificar-se de que o compartilhamento que você desmontar não é usado por todos os módulos. Se o compartilhamento for usado por um módulo, então você verá problemas com o módulo correspondente.
 
     ![Selecionar compartilhamento 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
-2. Na lista de compartilhamentos, selecione o compartilhamento que você deseja desmontar. Você deseja certificar-se de que o compartilhamento que você desmontar não é usado por todos os módulos. Se o compartilhamento for usado por um módulo, então você verá problemas com o módulo correspondente. Selecione **desmontar**.
+2.  Selecione **desmontar**.
 
     ![Selecione desmontar](media/azure-stack-edge-j-series-manage-shares/unmount-share-2.png)
 

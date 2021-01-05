@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 97b52159684eca9be59ccc711f6d2f19b5eb8d49
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b61ce696c28a2c72a2cd3d0eb2d2fde0022dbb01
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906107"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897732"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)
 
@@ -134,7 +134,7 @@ Crie um diretório em seu sistema Windows ou Linux e, em seguida, monte um cont�
 
    ![Recurso cliente para sistema de arquivos de rede](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Monte um contêiner usando o comando [Mount](/windows-server/administration/windows-commands/mount) .
+2. Abra uma janela de **prompt de comando** (cmd.exe). Em seguida, monte um contêiner usando o comando [Mount](/windows-server/administration/windows-commands/mount) .
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -162,6 +162,6 @@ Crie um diretório em seu sistema Windows ou Linux e, em seguida, monte um cont�
 |`Access denied by server while mounting`|Verifique se o cliente está sendo executado em uma sub-rede com suporte. Consulte os [locais de rede com suporte](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verifique se o contêiner que você está montando foi criado após verificar se o recurso foi registrado. Consulte [etapa 2: verificar se o recurso está registrado](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando mount e os parâmetros diretamente no terminal. Se você copiar e colar qualquer parte deste comando no terminal de outro aplicativo, os caracteres ocultos nas informações coladas poderão causar esse erro.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md)

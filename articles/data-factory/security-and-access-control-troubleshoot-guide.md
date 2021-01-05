@@ -5,15 +5,15 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 51cb1a1a8151748fc9c6cd4c81da967424b52868
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: fac4f3029d783e9257d00466ddb9fc9741b0f5a2
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505147"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895641"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Solucionar problemas Azure Data Factory segurança e controle de acesso
 
@@ -151,6 +151,16 @@ Para resolver o problema, vá para o [link privado do Azure para Azure data Fact
 Tente habilitar o acesso à rede pública na interface do usuário, conforme mostrado na seguinte captura de tela:
 
 ![Captura de tela do controle "habilitado" para "permitir acesso à rede pública" no painel de rede.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="pipeline-runtime-varies-when-basing-on-different-ir"></a>O tempo de execução do pipeline varia quando baseia-se em um IR diferente
+
+#### <a name="symptoms"></a>Sintomas
+
+Simplesmente alternar a lista suspensa serviço vinculado no conjunto de um executa as mesmas atividades de pipeline, mas tem tempos de execução drasticamente diferentes. Quando o conjunto de informações é baseado na Integration Runtime de rede virtual gerenciada, demora mais de 2 minutos para concluir a execução, mas leva aproximadamente 20 segundos para ser concluído quando baseado no Integration Runtime padrão.
+
+#### <a name="cause"></a>Causa
+
+Verificando os detalhes das execuções de pipeline, você pode ver que o pipeline lento está em execução no IR (rede virtual) da VNet gerenciada enquanto o normal está em execução no Azure IR. Por design, o IR para VNet gerenciada leva tempo de fila maior do que Azure IR, pois não estamos reservando um nó de computação por data factory, portanto, há um aquecimento de cerca de 2 minutos para que cada atividade de cópia seja iniciada e ela ocorre principalmente na junção VNet, em vez de Azure IR.
 
 ## <a name="next-steps"></a>Próximas etapas
 
