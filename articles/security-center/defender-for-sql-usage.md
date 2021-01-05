@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2020
+ms.date: 12/23/2020
 ms.author: memildin
-ms.openlocfilehash: 07a94685fb3655aa5aa21a8658b9d975c764daff
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 3899b00038f3c12add4dbf49a7f05e07141d8606
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512270"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755847"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure defender para SQL Servers em computadores 
 
@@ -33,7 +33,7 @@ Você receberá alertas quando ocorrerem atividades suspeitas no banco de dados 
 |Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|O **Azure defender para SQL Servers em computadores** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
 |Versões do SQL protegidas:|SQL Server do Azure (todas as versões cobertas pelo suporte da Microsoft)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China Gov, outros Gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Configurar o Azure defender para SQL Servers em computadores
@@ -108,7 +108,7 @@ Você pode exibir os resultados da avaliação de vulnerabilidade diretamente da
     Em cada exibição, as verificações de segurança são classificadas por **severidade**. Clique em uma verificação de segurança específica para ver um painel de detalhes com uma **Descrição**, como **corrigi** -lo e outras informações relacionadas, como **impacto** ou **benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Alertas do Azure defender para SQL
-Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar máquinas do SQL. Esses eventos podem disparar alertas mostrados na [seção alertas para o banco de dados SQL e o Azure Synapse Analytics da página de referência de alertas](alerts-reference.md#alerts-sql-db-and-warehouse).
+Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar máquinas do SQL. Esses eventos podem disparar alertas mostrados na [página de referência de alertas](alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-and-investigate-security-alerts"></a>Explorar e investigar alertas de segurança
 
@@ -126,9 +126,8 @@ Os alertas do Azure defender para SQL estão disponíveis na página de alertas 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter material relacionado, consulte o seguinte artigo:
+Para ver materiais relacionados, confira o seguinte artigo:
 
 - [Alertas de segurança para o banco de dados SQL e o Azure Synapse Analytics](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Configurar notificações por email para alertas de segurança](security-center-provide-security-contact-details.md)
 - [Saiba mais sobre o Azure Sentinel](../sentinel/index.yml)
-- [Pacote de segurança de dados da central de segurança do Azure](../azure-sql/database/azure-defender-for-sql.md)

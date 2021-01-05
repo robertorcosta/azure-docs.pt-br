@@ -7,17 +7,17 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: a38015d9f7560930d77d5d50ac70dca5bcdde6a6
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 2a480f25821f5022295b18ca24abfd2c0fb8a50c
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672501"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746517"
 ---
 # <a name="rabbitmq-bindings-for-azure-functions-overview"></a>RabbitMQ associações para Azure Functions visão geral
 
 > [!NOTE]
-> As associações RabbitMQ só têm suporte total no **Windows Premium e planos dedicados** . Não há suporte para consumo e para Linux no momento.
+> As associações RabbitMQ têm suporte total apenas em planos **Premium e dedicado** . Não há suporte para consumo.
 
 Azure Functions integra-se com o [RabbitMQ](https://www.rabbitmq.com/) por meio de [gatilhos e associações](./functions-triggers-bindings.md). A extensão Azure Functions RabbitMQ permite que você envie e receba mensagens usando a API RabbitMQ com funções.
 
@@ -34,7 +34,7 @@ Para começar a desenvolver com essa extensão, verifique se você [configurou p
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
-| Idioma                                        | Adicionar por...                                   | Comentários 
+| Linguagem                                        | Adicionar por...                                   | Comentários
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalando o [pacote NuGet], versão 4. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | A [extensão de ferramentas do Azure] é recomendada para uso com Visual Studio Code. |

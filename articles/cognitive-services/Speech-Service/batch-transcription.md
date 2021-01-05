@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426cf78f6b87acf1d8c7551b0b0a6172a30167b1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 68a129f38e9a94a7e381d11ffa3c3d02791b025b
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621088"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755762"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como usar a transcrição do lote
 
-A transcrição do lote é um conjunto de operações da API REST que permite transcrever uma grande quantidade de áudio no armazenamento. Você pode apontar para arquivos de áudio usando um URI típico ou um URI de SAS (assinatura de acesso compartilhado) e receber os resultados de transcrição de forma assíncrona. Com a API v 3.0, você pode transcrever um ou mais arquivos de áudio ou processar um contêiner de armazenamento inteiro.
+A transcrição do lote é um conjunto de operações da API REST que permite transcrever uma grande quantidade de áudio no armazenamento. Você pode apontar para arquivos de áudio usando um URI típico ou um URI de [SAS (assinatura de acesso compartilhado)](../../storage/common/storage-sas-overview.md) e receber os resultados de transcrição de forma assíncrona. Com a API v 3.0, você pode transcrever um ou mais arquivos de áudio ou processar um contêiner de armazenamento inteiro.
 
 Você pode usar as APIs REST de transcrição do lote para chamar os seguintes métodos:
 
@@ -66,7 +66,7 @@ Para criar uma transcrição final ordenada, use os carimbos de data/hora gerado
 
 ### <a name="configuration"></a>Configuração
 
-Os parâmetros de configuração são fornecidos como JSON.
+Os parâmetros de configuração são fornecidos como JSON. 
 
 **Transcrever um ou mais arquivos individuais.** Se você tiver mais de um arquivo para transcrever, é recomendável enviar vários arquivos em uma solicitação. O exemplo a seguir está usando três arquivos:
 
@@ -85,7 +85,7 @@ Os parâmetros de configuração são fornecidos como JSON.
 }
 ```
 
-**Processando um contêiner de armazenamento inteiro:**
+**Processando um contêiner de armazenamento inteiro.** As [SAS](../../storage/common/storage-sas-overview.md) do contêiner devem conter `r` (leitura) e `l` as permissões (lista):
 
 ```json
 {
@@ -177,7 +177,7 @@ Use essas propriedades opcionais para configurar a transcrição:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      URL opcional com [SAS ad hoc de serviço](../../storage/common/storage-sas-overview.md) para um contêiner gravável no Azure. O resultado é armazenado nesse contêiner. **Não** há suporte para SAS com política de acesso armazenada. Quando não especificado, a Microsoft armazena os resultados em um contêiner de armazenamento gerenciado pela Microsoft. Quando a transcrição for excluída chamando a [transcrição de exclusão](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), os dados de resultado também serão excluídos.
+      URL opcional com [SAS ad hoc](../../storage/common/storage-sas-overview.md) para um contêiner gravável no Azure. O resultado é armazenado nesse contêiner. **Não** há suporte para SAS com política de acesso armazenada. Quando não especificado, a Microsoft armazena os resultados em um contêiner de armazenamento gerenciado pela Microsoft. Quando a transcrição for excluída chamando a [transcrição de exclusão](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), os dados de resultado também serão excluídos.
 :::row-end:::
 
 ### <a name="storage"></a>Armazenamento

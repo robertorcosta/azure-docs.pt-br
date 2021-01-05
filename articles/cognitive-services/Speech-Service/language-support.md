@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 1b73b018432e5fb9a8af90fc141d009d1bb7b799
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617044"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97762955"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Idioma                           | Localidade (BCP-47) | Personalizações                                   |
+| Linguagem                           | Localidade (BCP-47) | Personalizações                                   |
 |------------------------------------|--------|--------------------------------------------------|
 | Árabe (Bahrein), padrão moderno  | `ar-BH` | Modelo de linguagem                                   |
 | Árabe (Egito)                     | `ar-EG` | Modelo de linguagem                                   |
@@ -138,7 +138,12 @@ A conversão de texto em fala neural é um novo tipo de sintetização de fala a
 
 Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz de maneira mais natural e participativa para converter textos digitais, como livros eletrônicos, em audiolivros e aprimorar sistemas de navegação veiculares. Com a prosódia natural semelhante à humana e a articulação clara das palavras, as vozes neurais reduzem significativamente a fadiga de escuta quando os usuários interagem com sistemas de inteligência artificial.
 
-| Idioma | Localidade | Gênero | Nome da voz | Suporte de estilo |
+> [!NOTE]
+> As vozes neurais são criadas a partir de exemplos que usam uma taxa de amostragem de 24 kHz.
+> Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
+
+
+| Linguagem | Localidade | Gênero | Nome da voz | Suporte de estilo |
 |---|---|---|---|---|
 | Árabe (Egito) | `ar-EG` | Feminino | `ar-EG-SalmaNeural` | Geral |
 | Árabe (Egito) | `ar-EG` | Masculino | `ar-EG-ShakirNeural` <sup>Novo</sup> | Geral |
@@ -259,7 +264,7 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 
 As vozes neurais a seguir estão em visualização pública. 
 
-| Idioma                         | Localidade  | Gênero | Nome da voz                             | Suporte de estilo |
+| Linguagem                         | Localidade  | Gênero | Nome da voz                             | Suporte de estilo |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaohanNeural` | Geral, vários estilos disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaomoNeural` | Geral, vários estilos e execução de função disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -294,7 +299,12 @@ Para saber como você pode configurar e ajustar as vozes neurais, como estilos d
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-| Idioma | Localidade (BCP-47) | Gênero | Nome da voz |
+> [!NOTE]
+> Com duas exceções, as vozes padrão são criadas a partir de exemplos que usam uma taxa de amostra de 16 kHz.
+> **As vozes en-US-AriaRUS** e **en-US-GuyRUS** também são criadas a partir de exemplos que usam uma taxa de amostra de 24 kHz.
+> Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
+
+| Linguagem | Localidade (BCP-47) | Gênero | Nome da voz |
 |--|--|--|--|
 | Árabe (árabe) | `ar-EG` | Feminino | `ar-EG-Hoda`|
 | Árabe (Arábia Saudita) | `ar-SA` | Masculino | `ar-SA-Naayf`|
@@ -325,7 +335,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades
 | Inglês (Reino Unido) | `en-GB` | Feminino | `en-GB-Susan`|
 | Inglês (Estados Unidos) | `en-US` | Masculino | `en-US-BenjaminRUS`|
 | Inglês (Estados Unidos) | `en-US` | Masculino | `en-US-GuyRUS`|
-| Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-JessaRUS`|
+| Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-AriaRUS`|
 | Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-ZiraRUS`|
 | Finlandês (Finlândia) | `fi-FI` | Feminino | `fi-FI-HeidiRUS`|
 | Francês (Canadá) | `fr-CA` | Feminino | `fr-CA-Caroline`|
@@ -471,7 +481,7 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 
 Veja na tabela a seguir os idiomas com suporte para as várias APIs de Reconhecimento do Locutor. Confira a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o Reconhecimento do Locutor.
 
-| Idioma | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
+| Linguagem | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
 |----|----|----|----|----|
 |Inglês (EUA)  |  en-US  |  sim  |  sim  |  sim |
 |Chinês (mandarim, simplificado) | zh-CN     |     n/d |     sim |     sim|

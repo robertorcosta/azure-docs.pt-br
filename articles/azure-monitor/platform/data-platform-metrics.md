@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: f64a91e3b285c265296c361366a10443eda18201
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b7af6b489aeb919fd1db0e45ddba58a21b1c3633
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489397"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760123"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Visão geral das métricas de Azure Monitor
 Azure Monitor métricas é um recurso de Azure Monitor que coleta dados numéricos de [recursos monitorados](../monitor-reference.md) em um banco de dados de série temporal. Métricas são valores numéricos que são coletados em intervalos regulares e descrevem algum aspecto de um sistema em um determinado momento. As métricas no Azure Monitor são leves e capazes de dar suporte a cenários quase em tempo real, tornando-os particularmente úteis para alertas e detecção rápida de problemas. Você pode analisá-los interativamente com o Metrics Explorer, ser notificado proativamente com um alerta quando um valor ultrapassar um limite ou visualizá-los em uma pasta de trabalho ou painel.
@@ -56,7 +56,7 @@ Há três fontes fundamentais de métricas coletadas pelo Azure Monitor. Após e
 ## <a name="metrics-explorer"></a>Metrics Explorer
 Use o [Metrics Explorer](metrics-charts.md) para analisar interativamente os dados no banco de dados de métricas e ver o gráfico de várias métricas ao longo do tempo. É possível fixar os gráficos em um painel para exibi-los com outras visualizações. Também é possível recuperar métricas usando a [API REST de monitoramento do Azure](rest-api-walkthrough.md).
 
-![Metrics Explorer](media/data-platform/metrics-explorer.png)
+![Metrics Explorer](media/data-platform-metrics/metrics-explorer.png)
 
 - Consulte [introdução ao Azure monitor métricas Explorer](metrics-getting-started.md) para começar a usar o Metrics Explorer.
 
@@ -73,7 +73,7 @@ Os dados coletados pelas Métricas do Azure Monitor são armazenados em um banco
 ## <a name="multi-dimensional-metrics"></a>Métricas multidimensionais
 Um dos desafios dos dados de métrica é que eles geralmente têm informações limitadas para fornecer contexto para valores coletados. O Azure Monitor resolve esse desafio com métricas multidimensionais. Dimensões de uma métrica são pares nome-valor que contêm dados adicionais para descrever o valor da métrica. Por exemplo, uma métrica _Espaço em disco disponível_ pode ter uma dimensão chamada _Unidade_ com valores _C:_ , _D:_ , que permitiria a exibição do espaço em disco disponível em todas as unidades ou para cada unidade individualmente.
 
-O exemplo abaixo ilustra dois conjuntos de dados de uma métrica hipotética chamada _Taxa de Transferência de Rede_. O primeiro conjunto de dados não tem nenhuma dimensão. O segundo conjunto de dados mostra os valores com duas dimensões, _Endereço IP_ e _Direção_ :
+O exemplo abaixo ilustra dois conjuntos de dados de uma métrica hipotética chamada _Taxa de Transferência de Rede_. O primeiro conjunto de dados não tem nenhuma dimensão. O segundo conjunto de dados mostra os valores com duas dimensões, _Endereço IP_ e _Direção_:
 
 ### <a name="network-throughput"></a>Taxa de Transferência de Rede
 

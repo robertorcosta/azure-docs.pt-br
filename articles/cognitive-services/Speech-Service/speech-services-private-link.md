@@ -1,69 +1,87 @@
 ---
-title: Usando os serviços de fala com pontos de extremidade privados
+title: Como usar pontos de extremidade privados com o serviço de fala
 titleSuffix: Azure Cognitive Services
-description: HowTo sobre o uso de serviços de fala com pontos de extremidade privados fornecidos pelo link privado do Azure
+description: Saiba como usar o serviço de fala com pontos de extremidade privados fornecidos pelo link privado do Azure
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: 01a0171ed2b660fbabebf4276a74f8a3ea631bde
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: f905582615b16780fae179ba6a21bd4343bd47f3
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516534"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97755796"
 ---
-# <a name="using-speech-services-with-private-endpoints-provided-by-azure-private-link"></a>Usando os serviços de fala com pontos de extremidade privados fornecidos pelo link privado do Azure
+# <a name="use-speech-service-through-a-private-endpoint"></a>Usar o serviço de fala por meio de um ponto de extremidade privado
 
-O [link privado do Azure](../../private-link/private-link-overview.md) permite que você se conecte a vários serviços de PaaS no Azure por meio de um [ponto de extremidade privado](../../private-link/private-endpoint-overview.md). Um ponto de extremidade privado é um endereço IP privado em uma [rede virtual](../../virtual-network/virtual-networks-overview.md) e sub-rede específica.
+O [link privado do Azure](../../private-link/private-link-overview.md) permite que você se conecte a serviços no Azure usando um [ponto de extremidade privado](../../private-link/private-endpoint-overview.md).
+Um ponto de extremidade privado é um endereço IP privado acessível somente dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md) específica e uma sub-rede.
 
-Este artigo explica como configurar e usar pontos de extremidade privados e de vínculo privado com os serviços de fala cognitiva do Azure. 
+Este artigo explica como configurar e usar pontos de extremidade privados e de vínculo privado com os serviços de fala cognitiva do Azure.
 
 > [!NOTE]
-> Este artigo explica as especificidades de configuração e uso do link privado com os serviços de fala cognitiva do Azure. Antes de continuar, familiarize-se com o artigo geral sobre como [usar redes virtuais com serviços cognitivas](../cognitive-services-virtual-networks.md).
+> Este artigo explica as especificidades de configuração e uso do link privado com os serviços de fala cognitiva do Azure. Antes de continuar, examine como [usar redes virtuais com serviços cognitivas](../cognitive-services-virtual-networks.md).
 
-Habilitar um recurso de fala para os cenários de ponto de extremidade particular requer a execução das seguintes tarefas:
-- [Criar nome de domínio personalizado do recurso de fala](#create-custom-domain-name)
-- [Criar e configurar pontos de extremidade particulares](#enabling-private-endpoints)
-- [Ajustar aplicativos e soluções existentes](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
+Execute as seguintes tarefas para usar um serviço de fala por meio de um ponto de extremidade privado:
 
-Se você decidir posteriormente remover todos os pontos de extremidade privados, mas continuar a usar o recurso, as ações necessárias serão descritas nesta [seção](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
+1. [Criar nome de domínio personalizado do recurso de fala](#create-a-custom-domain-name)
+2. [Criar e configurar pontos de extremidade particulares](#enable-private-endpoints)
+3. [Ajustar aplicativos e soluções existentes](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled)
 
-## <a name="create-custom-domain-name"></a>Criar nome de domínio personalizado
+Para remover pontos de extremidade privados posteriormente, mas ainda usar o recurso de fala, você executará as tarefas encontradas nesta [seção](#use-speech-resource-with-custom-domain-name-without-private-endpoints).
 
-Os pontos de extremidade privados exigem o uso de [nomes de subdomínio personalizados de serviços cognitivas](../cognitive-services-custom-subdomains.md). Use as instruções abaixo para criar um para seu recurso de fala.
+## <a name="create-a-custom-domain-name"></a>Criar um nome de domínio personalizado
 
-> [!WARNING]
-> Um recurso de fala com o nome de domínio personalizado habilitado usa uma maneira diferente de interagir com os serviços de fala. É mais provável que você precise ajustar o código do aplicativo para os cenários de ponto de extremidade [privado habilitados](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) e [ **não** de ponto de extremidade privado](#using-speech-resource-with-custom-domain-name-without-private-endpoints) .
+Os pontos de extremidade privados exigem um [nome de subdomínio personalizado dos serviços cognitivas](../cognitive-services-custom-subdomains.md). Siga as instruções abaixo para criar um para seu recurso de fala.
+
+> [!CAUTION]
+> Um recurso de fala com o nome de domínio personalizado habilitado usa uma maneira diferente de interagir com o serviço de fala.
+> Você provavelmente deve ajustar o código do aplicativo para o [ponto de extremidade privado habilitado](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) e não para cenários de [  ponto de extremidade privada habilitados](#use-speech-resource-with-custom-domain-name-without-private-endpoints) .
 >
-> A operação de habilitar o nome de domínio personalizado [**não é reversível**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). A única maneira de voltar para o [nome regional](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) é criar um novo recurso de fala. 
+> Quando você habilita um nome de domínio personalizado, a operação [**não é reversível**](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). A única maneira de voltar para o [nome regional](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) é criar um novo recurso de fala.
 >
-> Especialmente em casos em que o recurso de fala tem muitos modelos personalizados e projetos associados criados por meio do [Speech Studio](https://speech.microsoft.com/) , é **altamente** recomendável tentar a configuração com um recurso de teste e, em seguida, modificar apenas o usado na produção.
+> Se o seu recurso de fala tiver muitos modelos personalizados e projetos associados criados por meio do [Speech Studio](https://speech.microsoft.com/) , é **altamente** recomendável tentar a configuração com um recurso de teste antes de modificar o recurso usado na produção.
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-- Vá para [portal do Azure](https://portal.azure.com/) e entre em sua conta do Azure
-- Selecionar o recurso de fala necessário
-- Selecionar *rede* (grupo de *Gerenciamento de recursos* ) 
-- Na guia *firewalls e redes virtuais* (padrão), clique no botão **gerar nome de domínio personalizado**
-- Um novo painel será exibido com instruções para criar um subdomínio personalizado exclusivo para seu recurso
-> [!WARNING]
-> Depois de criar um nome de domínio personalizado, ele **não poderá** ser alterado. Veja mais informações no aviso acima.
-- Depois que a operação for concluída, talvez você queira selecionar *chaves e ponto de extremidade* (grupo de *Gerenciamento de recursos* ) e verificar o nome do novo ponto de extremidade do recurso no formato de <p />`{your custom name}.cognitiveservices.azure.com`
+Para criar um nome de domínio personalizado usando portal do Azure, siga estas etapas:
+
+1. Acesse [portal do Azure](https://portal.azure.com/) e entre em sua conta do Azure.
+1. Selecione o recurso de fala necessário.
+1. No grupo **Gerenciamento de recursos** no painel de navegação esquerdo, clique em **rede**.
+1. Na guia **firewalls e redes virtuais** , clique em **gerar nome de domínio personalizado**. Um novo painel direito é exibido com instruções para criar um subdomínio personalizado exclusivo para seu recurso.
+1. No painel gerar nome de domínio personalizado, insira uma parte do nome de domínio personalizado. Seu domínio personalizado completo terá a seguinte aparência: `https://{your custom name}.cognitiveservices.azure.com` . 
+    **Depois de criar um nome de domínio personalizado, ele _não pode_ ser alterado! Leia novamente o alerta de cuidado acima.** Depois de inserir seu nome de domínio personalizado, clique em **salvar**.
+1. Após a conclusão da operação, no grupo **Gerenciamento de recursos** , clique em **chaves e ponto de extremidade**. Confirme se o novo nome do ponto de extremidade do recurso é iniciado dessa forma:
+
+    `https://{your custom name}.cognitiveservices.azure.com`
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Esta seção requer a execução local do PowerShell versão 7. x ou posterior com o módulo Azure PowerShell versão 5.1.0 ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisar instalá-lo ou atualizá-lo, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
+Para criar um nome de domínio personalizado usando o PowerShell, confirme se o computador tem o PowerShell versão 7. x ou posterior com o módulo Azure PowerShell versão 5.1.0 ou posterior. para ver as versões dessas ferramentas, siga estas etapas:
+
+1. Em uma janela do PowerShell, digite:
+
+    `$PSVersionTable`
+
+    Confirme se o valor de PSVersion é maior que 7. x. Para atualizar o PowerShell, siga as instruções em [Instalando várias versões do PowerShell](/powershell/scripting/install/installing-powershell) para atualizar.
+
+1. Em uma janela do PowerShell, digite:
+
+    `Get-Module -ListAvailable Az`
+
+    Se nada aparecer ou se Azure PowerShell versão do módulo for inferior a 5.1.0, siga as instruções em [instalar Azure PowerShell módulo](/powershell/azure/install-Az-ps) para atualizar.
 
 Antes de continuar, execute `Connect-AzAccount` para criar uma conexão com o Azure.
 
-## <a name="verify-custom-domain-name-availability"></a>Verificar a disponibilidade do nome de domínio personalizado
+## <a name="verify-custom-domain-name-is-available"></a>Verifique se o nome de domínio personalizado está disponível
 
-Você precisa verificar se o domínio personalizado que deseja usar é gratuito. Usaremos o método [verificar disponibilidade do domínio](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) da API REST de serviços cognitivas. Consulte os comentários no bloco de código abaixo explicando as etapas.
+Você precisa verificar se o domínio personalizado que deseja usar está disponível. Siga estas etapas para confirmar se o domínio está disponível usando a operação [verificar disponibilidade de domínio](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) na API REST dos serviços cognitivas.
 
 > [!TIP]
 > O código a seguir **não** funcionará no Azure cloud Shell.
@@ -72,18 +90,16 @@ Você precisa verificar se o domínio personalizado que deseja usar é gratuito.
 $subId = "Your Azure subscription Id"
 $subdomainName = "custom domain name"
 
-# Select the Azure subscription containing Speech resource
-# If your Azure account has only one active subscription
-# you can skip this step
+# Select the Azure subscription that contains Speech resource.
+# You can skip this step if your Azure account has only one active subscription.
 Set-AzContext -SubscriptionId $subId
 
-# Preparing OAuth token which is used in request
-# to Cognitive Services REST API
+# Prepare OAuth token to use in request to Cognitive Services REST API.
 $Context = Get-AzContext
 $AccessToken = (Get-AzAccessToken -TenantId $Context.Tenant.Id).Token
 $token = ConvertTo-SecureString -String $AccessToken -AsPlainText -Force
 
-# Preparing and executing the request to Cognitive Services REST API
+# Prepare and send the request to Cognitive Services REST API.
 $uri = "https://management.azure.com/subscriptions/" + $subId + `
     "/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18"
 $body = @{
@@ -94,40 +110,40 @@ $jsonBody = $body | ConvertTo-Json
 Invoke-RestMethod -Method Post -Uri $uri -ContentType "application/json" -Authentication Bearer `
     -Token $token -Body $jsonBody | Format-List
 ```
-Se o nome desejado estiver disponível, você receberá uma resposta como esta:
+Se o nome desejado estiver disponível, você verá uma resposta como esta:
 ```azurepowershell
 isSubdomainAvailable : True
 reason               :
 type                 :
 subdomainName        : my-custom-name
 ```
-Se o nome já estiver em uso, você receberá a seguinte resposta:
+Se o nome já estiver em uso, você verá a seguinte resposta:
 ```azurepowershell
 isSubdomainAvailable : False
 reason               : Sub domain name 'my-custom-name' is already used. Please pick a different name.
 type                 :
 subdomainName        : my-custom-name
 ```
-## <a name="enabling-custom-domain-name"></a>Habilitando o nome de domínio personalizado
+## <a name="create-your-custom-domain-name"></a>Criar seu nome de domínio personalizado
 
-Para habilitar o nome de domínio personalizado para o recurso de fala selecionado, usamos o cmdlet [set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) . Consulte os comentários no bloco de código abaixo explicando as etapas.
+Para habilitar o nome de domínio personalizado para o recurso de fala selecionado, usamos o cmdlet [set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) .
 
-> [!WARNING]
-> Após a execução bem-sucedida do código a seguir, você criará um nome de domínio personalizado para seu recurso de fala. Esse nome **não pode** ser alterado. Veja mais informações no aviso acima.
+> [!CAUTION]
+> Depois que o código abaixo for executado com êxito, você criará um nome de domínio personalizado para seu recurso de fala.
+> Esse nome **não pode** ser alterado. Veja mais informações no alerta de **cuidado** acima.
 
 ```azurepowershell
 $resourceGroup = "Resource group name where Speech resource is located"
 $speechResourceName = "Your Speech resource name"
 $subdomainName = "custom domain name"
 
-# Select the Azure subscription containing Speech resource
-# If your Azure account has only one active subscription
-# you can skip this step
+# Select the Azure subscription that contains Speech resource.
+# You can skip this step if your Azure account has only one active subscription.
 $subId = "Your Azure subscription Id"
 Set-AzContext -SubscriptionId $subId
 
-# Set the custom domain name to the selected resource
-# WARNING! THIS IS NOT REVERSIBLE!
+# Set the custom domain name to the selected resource.
+# CAUTION: THIS CANNOT BE CHANGED OR UNDONE!
 Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
     -Name $speechResourceName -CustomSubdomainName $subdomainName
 ```
@@ -138,11 +154,11 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 - Esta seção requer a versão mais recente do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 
-## <a name="verify-custom-domain-name-availability"></a>Verificar a disponibilidade do nome de domínio personalizado
+## <a name="verify-the-custom-domain-name-is-available"></a>Verifique se o nome de domínio personalizado está disponível
 
-Você precisa verificar se o domínio personalizado que deseja usar é gratuito. Usaremos o método [verificar disponibilidade do domínio](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) da API REST de serviços cognitivas. 
+Você precisa verificar se o domínio personalizado que deseja usar é gratuito. Usaremos o método [verificar disponibilidade do domínio](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) da API REST de serviços cognitivas.
 
-Copie o bloco de código abaixo, insira o nome de domínio personalizado e salve-o no arquivo `subdomain.json` .
+Copie o bloco de código abaixo, insira seu nome de domínio personalizado preferencial e salve-o no arquivo `subdomain.json` .
 
 ```json
 {
@@ -156,7 +172,7 @@ Copie o arquivo para a pasta atual ou carregue-o no Azure Cloud Shell e execute 
 ```azurecli-interactive
 az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.CognitiveServices/checkDomainAvailability?api-version=2017-04-18" --body @subdomain.json
 ```
-Se o nome desejado estiver disponível, você receberá uma resposta como esta:
+Se o nome desejado estiver disponível, você verá uma resposta como esta:
 ```azurecli
 {
   "isSubdomainAvailable": true,
@@ -166,7 +182,7 @@ Se o nome desejado estiver disponível, você receberá uma resposta como esta:
 }
 ```
 
-Se o nome já estiver em uso, você receberá a seguinte resposta:
+Se o nome já estiver em uso, você verá a seguinte resposta:
 ```azurecli
 {
   "isSubdomainAvailable": false,
@@ -175,7 +191,7 @@ Se o nome já estiver em uso, você receberá a seguinte resposta:
   "type": null
 }
 ```
-## <a name="enabling-custom-domain-name"></a>Habilitando o nome de domínio personalizado
+## <a name="enable-custom-domain-name"></a>Habilitar nome de domínio personalizado
 
 Para habilitar o nome de domínio personalizado para o recurso de fala selecionado, usamos o comando [AZ cognitivaservices Account Update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) .
 
@@ -184,15 +200,17 @@ Selecione a assinatura do Azure que contém o recurso de fala. Se sua conta do A
 az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 Defina o nome de domínio personalizado para o recurso selecionado. Substitua os valores de parâmetro de exemplo pelos reais e execute o comando a seguir.
-> [!WARNING]
-> Após a execução bem-sucedida do comando abaixo, você criará um nome de domínio personalizado para seu recurso de fala. Esse nome **não pode** ser alterado. Veja mais informações no aviso acima.
+
+> [!CAUTION]
+> Após a execução bem-sucedida do comando abaixo, você criará um nome de domínio personalizado para seu recurso de fala. Esse nome **não pode** ser alterado. Veja mais informações no alerta de cuidado acima.
+
 ```azurecli
 az cognitiveservices account update --name my-speech-resource-name --resource-group my-resource-group-name --custom-domain my-custom-name
 ```
 
 **_
 
-## <a name="enabling-private-endpoints"></a>Habilitando pontos de extremidade privados
+## <a name="enable-private-endpoints"></a>Habilitar pontos de extremidade privados
 
 Habilite o ponto de extremidade privado usando portal do Azure, Azure PowerShell ou CLI do Azure.
 
@@ -218,7 +236,7 @@ Familiarize-se com os princípios gerais do [DNS para pontos de extremidade priv
 
 Usaremos `my-private-link-speech.cognitiveservices.azure.com` como um exemplo de nome DNS de recurso de fala para esta seção.
 
-Faça logon em uma máquina virtual localizada na rede virtual à qual você anexou seu ponto de extremidade privado. Abra o prompt de comando do Windows ou o Shell do bash, execute o comando ' nslookup ' e verifique se ele resolve com êxito o nome de domínio personalizado do recurso:
+Faça logon em uma máquina virtual localizada na rede virtual à qual você anexou seu ponto de extremidade privado. Abra o prompt de comando do Windows ou o Shell do bash, execute `nslookup` e confirme que ele resolve com êxito seu nome de domínio personalizado do recurso:
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -233,11 +251,11 @@ Verifique se o endereço IP resolvido corresponde ao endereço de seu ponto de e
 
 #### <a name="optional-check-dns-resolution-from-other-networks"></a>(Verificação opcional). Resolução de DNS de outras redes
 
-Essa verificação será necessária se você planeja usar seu recurso de fala habilitado para ponto de extremidade privado no modo "híbrido", que é você habilitou *todas as redes* ou redes selecionadas e a opção acesso de *pontos de extremidades privados* na seção *rede* do seu recurso. Se você planeja acessar o recurso usando apenas o ponto de extremidade privado, você pode ignorar esta seção.
+Essa verificação será necessária se você planeja usar o recurso de fala habilitado para o ponto de extremidade privado no modo "híbrido", no qual você habilitou *todas as redes* ou redes selecionadas e a opção acesso de *pontos de extremidades privados* na seção *rede* do recurso. Se você planeja acessar o recurso usando apenas um ponto de extremidade privado, você pode ignorar esta seção.
 
-Usaremos `my-private-link-speech.cognitiveservices.azure.com` como um exemplo de nome DNS de recurso de fala para esta seção.
+Usamos `my-private-link-speech.cognitiveservices.azure.com` como um exemplo de nome DNS de recurso de fala para esta seção.
 
-Em qualquer computador conectado a uma rede a partir da qual você permite acesso ao recurso Abra o prompt de comando do Windows ou o shell bash, execute o comando ' nslookup ' e verifique se ele resolve com êxito o nome de domínio personalizado do recurso:
+Em qualquer computador conectado a uma rede a partir da qual você permite acesso ao recurso, abra o prompt de comando do Windows ou o shell bash, execute o `nslookup` comando e confirme que ele resolve com êxito o nome de domínio personalizado do recurso:
 ```dos
 C:\>nslookup my-private-link-speech.cognitiveservices.azure.com
 Server:  UnKnown
@@ -251,18 +269,18 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
           westeurope.prod.vnet.cog.trafficmanager.net
 ```
 
-Observe que o endereço IP foi resolvido aponta para um ponto de extremidade de proxy VNet, que é usado para expedir o tráfego de rede para o recurso de serviços cognitivas habilitados para ponto de extremidade privado. Esse comportamento será diferente para um recurso com o nome de domínio personalizado habilitado, mas *sem* pontos de extremidade privados configurados. Consulte [esta seção](#dns-configuration).
+Observe que o endereço IP resolvido aponta para um ponto de extremidade de proxy de rede virtual, que expede o tráfego de rede para o ponto de extremidade privado para o recurso de serviços cognitivas. O comportamento será diferente para um recurso com um nome de domínio personalizado, mas *sem* pontos de extremidade privados. Consulte [esta seção](#dns-configuration) para obter detalhes.
 
-## <a name="adjusting-existing-applications-and-solutions"></a>Ajustando aplicativos e soluções existentes 
+## <a name="adjust-existing-applications-and-solutions"></a>Ajustar aplicativos e soluções existentes
 
-Um recurso de fala com um domínio personalizado habilitado usa uma maneira diferente de interagir com os serviços de fala. Isso é verdadeiro para um recurso de fala habilitado para domínio personalizado com e [sem](#using-speech-resource-with-custom-domain-name-without-private-endpoints) pontos [de](#using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) extremidade privados. A seção atual fornece as informações necessárias para ambos os casos.
+Um recurso de fala com um domínio personalizado habilitado usa uma maneira diferente de interagir com os serviços de fala. Isso é verdadeiro para um recurso de fala habilitado para domínio personalizado com e [sem](#use-speech-resource-with-custom-domain-name-without-private-endpoints) pontos [de](#use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled) extremidade privados. A seção atual fornece as informações necessárias para ambos os casos.
 
-### <a name="using-speech-resource-with-custom-domain-name-and-private-endpoint-enabled"></a>Usando o recurso de fala com o nome de domínio personalizado e o ponto de extremidade privado habilitado
+### <a name="use-speech-resource-with-custom-domain-name-and-private-endpoint-enabled"></a>Usar o recurso de fala com o nome de domínio personalizado e o ponto de extremidade privado habilitado
 
 Um recurso de fala com nome de domínio personalizado e ponto de extremidade privado habilitado usa uma maneira diferente de interagir com os serviços de fala. Esta seção explica como usar esse recurso com a API REST dos serviços de fala e o [SDK de fala](speech-sdk.md).
 
 > [!NOTE]
-> Observe que um recurso de fala sem pontos de extremidade privados, mas com o **nome de domínio personalizado** habilitado também tem uma maneira especial de interagir com os serviços de fala, mas dessa maneira é diferente do cenário de um recurso de fala habilitado para ponto de extremidade privado. Se você tiver esse recurso (digamos, você tinha um recurso com pontos de extremidade privados, mas decidiu removê-los), certifique-se de se familiarizar com a [seção correspondente](#using-speech-resource-with-custom-domain-name-without-private-endpoints).
+> Observe que um recurso de fala sem pontos de extremidade privados, mas com o **nome de domínio personalizado** habilitado também tem uma maneira especial de interagir com os serviços de fala, mas dessa maneira é diferente do cenário de um recurso de fala habilitado para ponto de extremidade privado. Se você tiver esse recurso (digamos, você tinha um recurso com pontos de extremidade privados, mas decidiu removê-los), certifique-se de se familiarizar com a [seção correspondente](#use-speech-resource-with-custom-domain-name-without-private-endpoints).
 
 #### <a name="speech-resource-with-custom-domain-name-and-private-endpoint-usage-with-rest-api"></a>Recurso de fala com nome de domínio personalizado e ponto de extremidade privado. Uso com a API REST
 
@@ -330,11 +348,11 @@ Usaremos Europa Ocidental como uma região do Azure de exemplo e `my-private-lin
 
 Para obter a lista das vozes com suporte na região, é necessário realizar as duas operações a seguir:
 
-- Obter token de autorização via
+- Obter token de autorização:
 ```http
 https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
 ```
-- Usando o token obtido, obtenha a lista de vozes via
+- Usando o token, obtenha a lista de vozes:
 ```http
 https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
 ```
@@ -413,7 +431,7 @@ Para aplicar o princípio descrito na seção anterior ao código do aplicativo,
 - Determinar a URL do ponto de extremidade que seu aplicativo está usando
 - Modifique a URL do ponto de extremidade conforme descrito na seção anterior e crie sua `SpeechConfig` instância de classe usando essa URL modificada explicitamente
 
-###### <a name="determining-application-endpoint-url"></a>Determinando URL do ponto de extremidade do aplicativo
+###### <a name="determine-application-endpoint-url"></a>Determinar a URL do ponto de extremidade do aplicativo
 
 - [Habilitar o registro em log para seu aplicativo](how-to-use-logging.md) e executá-lo para gerar o log
 - Na pesquisa do arquivo de log para `SPEECH-ConnectionUrl` . A cadeia de caracteres conterá `value` um parâmetro que, por sua vez, conterá a URL completa que seu aplicativo estava usando
@@ -426,7 +444,7 @@ Portanto, a URL usada pelo aplicativo neste exemplo é:
 ```
 wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 ```
-###### <a name="creating-speechconfig-instance-using-full-endpoint-url"></a>Criando a `SpeechConfig` instância usando a URL completa do ponto de extremidade
+###### <a name="create-speechconfig-instance-using-full-endpoint-url"></a>Criar `SpeechConfig` instância usando URL de ponto de extremidade completo
 
 Modifique o ponto de extremidade que você determinou na seção anterior, conforme descrito em [princípio geral](#general-principle) acima.
 
@@ -464,7 +482,7 @@ SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithE
 
 Após essa modificação, seu aplicativo deve funcionar com os recursos de fala habilitados para privado. Estamos trabalhando em um suporte mais contínuo do cenário de ponto de extremidade privado.
 
-### <a name="using-speech-resource-with-custom-domain-name-without-private-endpoints"></a>Usando o recurso de fala com o nome de domínio personalizado sem pontos de extremidade privados
+### <a name="use-speech-resource-with-custom-domain-name-without-private-endpoints"></a>Usar o recurso de fala com o nome de domínio personalizado sem pontos de extremidade privados
 
 Neste artigo, vimos várias vezes, que habilitar o domínio personalizado para um recurso de fala é **irreversível** , e esse recurso usará uma maneira diferente de se comunicar com os serviços de fala comparando-os com os "usuais" (ou seja, que estão usando [nomes de ponto de extremidade regionais](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)).
 
@@ -529,7 +547,7 @@ Para habilitar seu aplicativo para o cenário de recurso de fala com nome de dom
 - Solicitar token de autorização por meio da API REST de serviços cognitivas
 - Instanciar a `SpeechConfig` classe usando o método "do token de autorização"/"com o token de autorização" 
 
-###### <a name="requesting-authorization-token"></a>Solicitando token de autorização
+###### <a name="request-authorization-token"></a>Solicitar token de autorização
 
 Consulte [Este artigo](../authentication.md#authenticate-with-an-authentication-token) sobre como obter o token por meio da API REST dos serviços cognitivas. 
 
@@ -540,7 +558,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
 > [!TIP]
 > Você pode encontrar essa URL na seção *chaves e ponto de extremidade* (grupo de *Gerenciamento de recursos* ) do seu recurso de fala no portal do Azure.
 
-###### <a name="creating-speechconfig-instance-using-authorization-token"></a>Criando `SpeechConfig` instância usando o token de autorização
+###### <a name="create-speechconfig-instance-using-authorization-token"></a>Criar `SpeechConfig` instância usando o token de autorização
 
 Você precisa instanciar `SpeechConfig` a classe usando o token de autorização obtido na seção anterior. Suponha que tenhamos as seguintes variáveis definidas:
 

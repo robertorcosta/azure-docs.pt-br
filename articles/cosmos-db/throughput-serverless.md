@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/25/2020
-ms.openlocfilehash: 1943aae3a2b01490dca687bcdea99d76da238d51
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 12/23/2020
+ms.openlocfilehash: a6f8b79ecc8dcac71dc8f5d1be2bb58a0288a307
+ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187248"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97760241"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Como escolher entre taxa de transferência provisionada e sem servidor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -25,8 +25,8 @@ Azure Cosmos DB está disponível em dois modos de capacidade diferentes: [taxa 
 | Critérios | Taxa de transferência provisionada | Sem servidor |
 | --- | --- | --- |
 | Status | Disponível para o público geral | Em versão prévia |
-| Mais indicado para | Cargas de trabalho de missão crítica que exigem desempenho previsível | Cargas de trabalho não críticas de pequeno a médio porte com tráfego leve e intermitente |
-| Como isso funciona | Para cada um de seus contêineres, você provisiona uma quantidade de produtividade expressa em [unidades de solicitação](request-units.md) por segundo. A cada segundo, essa quantidade de unidades de solicitação está disponível para suas operações de banco de dados. A taxa de transferência provisionada pode ser atualizada manualmente ou ajustada automaticamente com o [dimensionamento automático](provision-throughput-autoscale.md). | Você executa as operações de banco de dados em seus contêineres sem precisar provisionar nenhuma capacidade. |
+| Mais indicado para | Cargas de trabalho de missão crítica que exigem desempenho previsível | Cargas de trabalho de pequeno a médio porte com tráfego leve e intermitente que é difícil de prever |
+| Como ele funciona | Para cada um de seus contêineres, você provisiona uma quantidade de produtividade expressa em [unidades de solicitação](request-units.md) por segundo. A cada segundo, essa quantidade de unidades de solicitação está disponível para suas operações de banco de dados. A taxa de transferência provisionada pode ser atualizada manualmente ou ajustada automaticamente com o [dimensionamento automático](provision-throughput-autoscale.md). | Você executa as operações de banco de dados em seus contêineres sem precisar provisionar nenhuma capacidade. |
 | Distribuição geográfica | Disponível (número ilimitado de regiões do Azure) | Não disponível (as contas sem servidor só podem ser executadas em uma região do Azure) |
 | Armazenamento máximo por contêiner | Ilimitado | 50 GB |
 | Desempenho | 99,99% a 99,999% de disponibilidade coberta pelo SLA<br>Latência de 10 ms de < para leituras de ponto e gravações cobertas pelo SLA<br>99,99% de produtividade garantida coberta pelo SLA | 99,9% a 99,99% de disponibilidade coberta pelo SLA<br>< latência de 10 ms para leituras de ponto e < 30 ms para gravações cobertas pelo SLO<br>95% de intermitência cobertas pelo SLO |

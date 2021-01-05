@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 4979902853602073e6230ef7387d6c6596fe77da
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: d08cb2761a8d8010c455ff959d6c247e8b64ef20
+ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325904"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97746568"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Visão geral da migração: SQL Server para SQL Server em VMs do Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -24,7 +24,7 @@ Saiba mais sobre as diferentes estratégias de migração para migrar seus SQL S
 
 Você pode migrar SQL Server em execução no local ou em:
 
-- SQL Server em Máquinas Virtuais  
+- SQL Server em máquinas virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)
@@ -77,7 +77,7 @@ A tabela a seguir detalha o método disponível para a estratégia de migração
 | --- | --- | --- | --- | --- |
 | [Migrações para Azure](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Limite de armazenamento da VM do Azure](../../../index.yml) |  SQL Server existente a ser movido no estado em que se encontra em uma instância de SQL Server em uma VM do Azure. Pode dimensionar as cargas de trabalho de migração de até 35.000 VMs. <br /><br /> Os servidores de origem permanecem online e atendem às solicitações durante a sincronização de dados do servidor, minimizando o tempo de inatividade. <br /><br /> **Script de & de automação**: [scripts de Azure site Recovery](../../../migrate/how-to-migrate-at-scale.md) e [exemplo de migração e planejamento em escala para o Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
-## <a name="migrate"></a>Migrações  
+## <a name="migrate"></a>Migrar  
 
 Devido à facilidade de instalação, a abordagem de migração recomendada é pegar um [backup](/sql/t-sql/statements/backup-transact-sql) de SQL Server nativo localmente e, em seguida, copiar o arquivo para o Azure. Esse método dá suporte a bancos de dados maiores (>1 TB) para todas as versões do SQL Server a partir de 2008 e backups de bancos de dados maiores (>1 TB). No entanto, para bancos de dados que começam no SQL Server 2014, que são menores que 1 TB e que têm boa conectividade com o Azure, [SQL Server Backup para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) é a melhor abordagem. 
 
@@ -127,6 +127,20 @@ Esses serviços incluem:
 
 Ao se preparar para migrar SQL Server bancos de dados para SQL Server em VMs do Azure, certifique-se de considerar as versões do SQL Server que têm suporte. Para obter uma lista de versões de SQL Server com suporte atuais em VMs do Azure, consulte [SQL Server em VMs do Azure](../../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
+## <a name="migration-assets"></a>Ativos de migração 
+
+Para obter assistência adicional, consulte os recursos a seguir que foram desenvolvidos para projetos de migração do mundo real.
+
+|Ativo  |Descrição  |
+|---------|---------|
+|[Modelo e ferramenta de avaliação de carga de trabalho de dados](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| Essa ferramenta dá sugestão das plataformas de destino de "melhor ajuste", da preparação para a nuvem e do nível de correção de aplicativo/banco de dados para uma determinada carga de trabalho. Ela oferece um cálculo simples, com um único clique, e oferece a geração de relatórios que ajudam a acelerar avaliações de grandes volumes fornecendo um processo de decisão de plataforma de destino uniforme e automatizado.|
+|[Automação de coleta de dados de Perfmon usando logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Uma ferramenta que coleta dados de execução para entender o desempenho de linha de base que auxilia na recomendação de destino de migração. Essa ferramenta que usa logman.exe para criar o comando que irá criar, iniciar, parar e excluir contadores de desempenho definidos em um SQL Server remoto.|
+|[Implantação de SQL Server no Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|Este white paper de diretrizes ajuda a revisar várias opções para mover suas cargas de trabalho de SQL Server para o Azure, incluindo comparação de recursos, alta disponibilidade e considerações de backup/armazenamento. |
+|[SQL Server local para a máquina virtual do Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|Este white paper descreve as etapas para fazer backup e restaurar bancos de dados do SQL Server local para SQL Server na máquina virtual do Azure usando scripts de exemplo.|
+|[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|Este white paper descreve as etapas para configurar várias máquinas virtuais do Azure em um SQL Server Always On configuração de grupo de disponibilidade.|
+|[Máquinas virtuais do Azure com suporte a SSD Ultra por região](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|Esses scripts do PowerShell fornecem uma opção programática para recuperar a lista de regiões que dão suporte a máquinas virtuais do Azure com suporte a ultra SSDs.|
+
+Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é patrocinado pela equipe de engenharia do Grupo de Dados do Azure. A principal responsabilidade do programa Data SQL Ninja é desbloquear e acelerar as oportunidades complexas e diversas de migração da plataforma de dados para a plataforma de Dados do Azure da Microsoft. Se você acredita que sua organização tem interesse em participar do programa Data SQL Ninja, entre em contato com sua equipe de contas e peça que eles enviem uma indicação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
