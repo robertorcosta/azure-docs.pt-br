@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 99ed7d3ad81202ab6fe67bf52888bbdbf0b28d2a
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387081"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861872"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -52,7 +52,7 @@ Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia de
 ![Diagrama ilustrando o fluxo de perfil técnico](./media/technical-profiles/technical-profile-flow.png)
 
 1. **Gerenciamento de sessão de logon único (SSO)** – restaura o estado de sessão do perfil técnico, usando o [Gerenciamento de sessão de SSO](custom-policy-reference-sso.md).
-1. **Transformação de declarações de entrada** -antes que o perfil técnico seja iniciado, Azure ad B2C executa a entrada [transformação de declarações]. (claimstransformations.md).
+1. **Transformação de declarações de entrada** -antes que o perfil técnico seja iniciado, Azure ad B2C executa a [transformação de declarações](claimstransformations.md)de entrada.
 1. **Declarações de entrada** -as declarações são coletadas do recipiente de declarações que são usadas para o perfil técnico.
 1. **Execução do perfil técnico** – o perfil técnico troca as declarações pela entidade configurada. Por exemplo:
     - Redirecione o usuário para o provedor de identidade para concluir a conexão. Após conectar-se, o usuário retornará e prosseguirá com a execução do perfil técnico.
@@ -120,7 +120,7 @@ O **protocolo** especifica o protocolo a ser usado para a comunicação com a ou
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Name | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis:,,,, `OAuth1` `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` ou `None` . |
+| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis:,,,, `OAuth1` `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` ou `None` . |
 | Manipulador | Não | Quando o nome do protocolo for definido como `Proprietary`, especifique o nome totalmente qualificado do assembly usado pelo Azure AD B2C para determinar o manipulador de protocolo. |
 
 ## <a name="metadata"></a>Metadados

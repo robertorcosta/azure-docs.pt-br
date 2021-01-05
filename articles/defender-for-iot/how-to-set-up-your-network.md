@@ -4,15 +4,15 @@ description: Saiba mais sobre a arquitetura da solução, a preparação da rede
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3e9380f067b091c4473b8c29bda3d31bb93cbc6d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b5cb7d0e421657b84c365d8dca536191cafd4e72
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837909"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861975"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre a configuração de rede do Azure defender para IoT
 
@@ -54,7 +54,7 @@ Registrar informações do site, como:
 
 - Estação de trabalho de configuração.
 
-- Certificados SSL (opcional).
+- Certificados SSL (opcional, mas recomendado).
 
 - Autenticação SMTP (opcional). Para usar o servidor SMTP com autenticação, prepare as credenciais necessárias para o servidor.
 
@@ -569,7 +569,7 @@ Uma visão geral do diagrama de rede industrial permitirá que você defina o lo
     > [!NOTE]
     > O dispositivo defender para IoT deve ser conectado a uma opção de nível inferior que vê o tráfego entre as portas no comutador.  
 
-2. Forneça o número aproximado de dispositivos nas redes (opcional).
+2. Forneça o número aproximado de dispositivos de rede que serão monitorados. Você precisará dessas informações ao integrar sua assinatura ao Azure defender para o portal de IoT. Durante o processo de integração, você será solicitado a inserir o número de dispositivos em incrementos de 1000.
 
 3. Forneça uma lista de sub-redes para as redes de produção e uma descrição (opcional). 
 
