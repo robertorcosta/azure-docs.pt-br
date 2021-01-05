@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 89ef196cb5a124b8b1100871c408400f3fceef5c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 04ba9777fe9e8470e6f02c83f3996d098023e05e
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465949"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763448"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Implantar VMs em seu dispositivo Azure Stack Edge pro GPU via portal do Azure
 
@@ -122,8 +122,8 @@ Siga estas etapas para criar uma VM depois de criar uma imagem de VM.
     |Parâmetro |Descrição  |
     |---------|---------|
     |Nome da máquina virtual     |         |
-    |Image     | Selecione entre as imagens de VM disponíveis no dispositivo.        |
-    |Tamanho     | Escolha entre os [tamanhos de VM com suporte](azure-stack-edge-gpu-deploy-virtual-machine-templates.md#supported-vm-sizes).        |
+    |Imagem     | Selecione entre as imagens de VM disponíveis no dispositivo.        |
+    |Tamanho     | Escolha entre os [tamanhos de VM com suporte](azure-stack-edge-gpu-virtual-machine-sizes.md).        |
     |Nome de Usuário     | Use o nome de usuário padrão *azureuser*.        |
     |Tipo de autenticação    | Escolha uma chave pública SSH ou uma senha definida pelo usuário.       |
     |Senha     | Insira uma senha para entrar na máquina virtual. A senha deve ter pelo menos 12 caracteres e atender aos requisitos de [complexidade](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)definidos.        |
@@ -184,7 +184,7 @@ Siga estas etapas para criar uma VM depois de criar uma imagem de VM.
 
     ![Adicionar VM 11](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-details-1.png)
 
-## <a name="connect-to-a-vm"></a>Como conectar-se a uma VM
+## <a name="connect-to-a-vm"></a>Conectar-se a uma VM
 
 Dependendo se você criou uma VM do Windows ou do Linux, as etapas para conectar podem ser diferentes. Você não pode se conectar às VMs implantadas em seu dispositivo por meio do portal do Azure. Você precisa executar as etapas a seguir para se conectar à VM Linux ou Windows.
 

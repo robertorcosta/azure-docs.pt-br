@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: c18ee43eefe9c6cf9cba7f4e8f6c3fd3f55bba5a
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: e6dc4656e33b55a2cc695874376baf1cd816a838
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368691"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796288"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -69,6 +69,7 @@ Limitações:
 
 - Com um Instância Gerenciada do SQL, você pode fazer backup de um banco de dados de instância em um backup com até 32 faixas, o que é suficiente para bancos de dados de até 4 TB se a compactação de backup for usada.
 - Não é possível executar `BACKUP DATABASE ... WITH COPY_ONLY` em um banco de dados que esteja criptografado com TDE (Transparent Data Encryption) gerenciado por serviços. O TDE gerenciado por serviço força os backups a serem criptografados com uma chave TDE interna. A chave não pode ser exportada, portanto, não é possível restaurar o backup. Use backups automáticos e uma restauração pontual ou use [ TDE (BYOK) gerenciado pelo cliente](../database/transparent-data-encryption-tde-overview.md#customer-managed-transparent-data-encryption---bring-your-own-key) em vez disso. Você também pode desabilitar a criptografia no banco de dados.
+- Backups nativos feitos em um Instância Gerenciada não podem ser restaurados para um SQL Server. Isso ocorre porque Instância Gerenciada tem uma versão de banco de dados interna maior em comparação com qualquer versão do SQL Server.
 - O tamanho máximo de distribuição de backup usando o `BACKUP` comando no SQL instância gerenciada é 195 GB, que é o tamanho máximo do blob. Aumente o número de faixas no comando de backup para reduzir o tamanho da faixa individual e permaneça dentro desse limite.
 
     > [!TIP]

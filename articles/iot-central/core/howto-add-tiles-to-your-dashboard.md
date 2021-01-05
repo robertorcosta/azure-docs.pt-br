@@ -3,15 +3,15 @@ title: Configurar para o painel de IoT Central do Azure | Microsoft Docs
 description: Como um construtor, saiba como configurar o painel de aplicativo padrão do Azure IoT Central com blocos.
 author: TheJasonAndrew
 ms.author: v-anjaso
-ms.date: 11/06/2020
+ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 73c78f514f974b97eb178177f12dc4ceff7ede63
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491963"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797002"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar o painel de aplicativo
 
@@ -22,15 +22,15 @@ O **painel** é a primeira página que você vê quando se conecta a um aplicati
 
 ## <a name="add-tiles"></a>Adicionar blocos
 
-A captura de tela a seguir mostra o painel em um aplicativo criado a partir do modelo de **aplicativo personalizado** . Para personalizar o painel atual, selecione **Editar** , para adicionar um painel pessoal ou compartilhado personalizado, selecione **novo** :
+A captura de tela a seguir mostra o painel em um aplicativo criado a partir do modelo de **aplicativo personalizado** . Para personalizar o painel atual, selecione **Editar**, para adicionar um painel pessoal ou compartilhado personalizado, selecione **novo**:
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Painel para aplicativos com base no modelo de aplicativo personalizado":::
 
-Depois de selecionar **Editar** ou **novo** , o painel estará no modo de *edição* . Você pode usar as ferramentas no painel **Editar painel** para adicionar blocos ao painel e personalizar e remover blocos no próprio Dashboard. Por exemplo, para adicionar um bloco de **telemetria** para mostrar a temperatura atual relatada por um ou mais dispositivos:
+Depois de selecionar **Editar** ou **novo**, o painel estará no modo de *edição* . Você pode usar as ferramentas no painel **Editar painel** para adicionar blocos ao painel e personalizar e remover blocos no próprio Dashboard. Por exemplo, para adicionar um bloco de **telemetria** para mostrar a temperatura atual relatada por um ou mais dispositivos:
 
 1. Selecione um **grupo de dispositivos** e, em seguida, escolha seus dispositivos no menu suspenso **dispositivos** para mostrar no bloco. Agora você verá a telemetria, as propriedades e os comandos disponíveis dos dispositivos.
 
-1. Se necessário, use a lista suspensa para selecionar um valor de telemetria para mostrar no bloco. Você pode adicionar mais itens ao bloco outro selecionando **+ telemetria** , **+ Propriedade** ou **+ propriedade de nuvem**.
+1. Se necessário, use a lista suspensa para selecionar um valor de telemetria para mostrar no bloco. Você pode adicionar mais itens ao bloco outro selecionando **+ telemetria**, **+ Propriedade** ou **+ propriedade de nuvem**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adicionar um bloco de telemetria de temperatura ao painel":::
 

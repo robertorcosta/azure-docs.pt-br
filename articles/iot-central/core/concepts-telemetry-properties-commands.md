@@ -3,17 +3,17 @@ title: Telemetria, propriedade e cargas de comando no Azure IoT Central | Micros
 description: Os modelos de dispositivo IoT Central do Azure permitem que você especifique a telemetria, as propriedades e os comandos de um dispositivo que devem ser implementados. Entenda o formato dos dados que um dispositivo pode trocar com IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 5b1bbce68be19c2dbb08f7d69611b719b450a370
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121756"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795336"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetria, propriedade e payloads de comando
 
@@ -721,8 +721,8 @@ IoT Central espera uma resposta do dispositivo para atualizações de propriedad
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de alteração de propriedade foi concluída com êxito. |
 | `'ac': 202`  or `'ac': 201` | Pendente | A operação de alteração de propriedade está pendente ou em andamento |
-| `'ac': 4xx` | Erro do | A alteração de propriedade solicitada não era válida ou teve um erro |
-| `'ac': 5xx` | Erro do | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
+| `'ac': 4xx` | Erro | A alteração de propriedade solicitada não era válida ou teve um erro |
+| `'ac': 5xx` | Erro | O dispositivo apresentou um erro inesperado ao processar a alteração solicitada. |
 
 `av` é o número de versão enviado ao dispositivo.
 

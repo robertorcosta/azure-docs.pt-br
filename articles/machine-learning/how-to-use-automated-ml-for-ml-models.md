@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: nibaccam
 author: aniththa
 ms.reviewer: nibaccam
-ms.date: 07/10/2020
+ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 7cd704dad3d0ede55e4df4d9e222ff83fd7ae350
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4539936007de0b45ab33dbd391baacc8f7d2ce2a
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919634"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796050"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 
@@ -91,7 +91,7 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
         Selecione **Avançar**.
 1. Selecione seu conjunto de dados recém-criado assim que ele aparecer. Você também pode exibir uma versão prévia do conjunto de dados e das estatísticas de amostra. 
 
-1. No formulário **Configurar execução**, insira um nome exclusivo para o experimento.
+1. No formulário **configurar execução** , selecione **criar novo** e insira **tutorial-automl-implantar** para o nome do experimento.
 
 1. Selecione uma coluna de destino, a qual representa a coluna na qual você gostaria de fazer previsões.
 
@@ -153,7 +153,7 @@ A tabela a seguir resume as personalizações disponíveis no momento por meio d
 
 Coluna| Personalização
 ---|---
-Incluso | Especifica quais colunas incluir para treinamento.
+Incluído | Especifica quais colunas incluir para treinamento.
 Tipo de recurso| Altere o tipo de valor da coluna selecionada.
 Imputar com| Selecione o valor com o qual imputar valores ausentes em seus dados.
 
@@ -164,7 +164,7 @@ Imputar com| Selecione o valor com o qual imputar valores ausentes em seus dados
 Selecione **Concluir**, para executar o experimento. O processo de preparação do experimento pode levar até 10 minutos. Os trabalhos de treinamento podem levar mais 2 a 3 minutos para que cada pipeline termine a execução.
 
 > [!NOTE]
-> Os algoritmos Automated ML empregam uma randomização inerente que pode causar uma pequena variação em uma pontuação de métricas final de modelos recomendados, como precisão. O ML automatizado também realiza operações em dados como o Train-Test Split, a divisão de treinamento ou a validação cruzada quando necessário. Portanto, se você executar um experimento com as mesmas definições de configuração e métrica primária várias vezes, provavelmente verá variação em cada experimento a pontuação de métricas finais devido a esses fatores. 
+> Os algoritmos Automated ML empregam uma aleatoriedade inerente que pode causar uma pequena variação em uma pontuação de métrica final do modelo recomendado, como a precisão. O ML automatizado também realiza operações em dados como o Train-Test Split, a divisão de treinamento ou a validação cruzada quando necessário. Portanto, se você executar um experimento com as mesmas definições de configuração e métrica primária várias vezes, provavelmente verá variação em cada experimento a pontuação de métricas finais devido a esses fatores. 
 
 ### <a name="view-experiment-details"></a>Exibir detalhes do experimento
 
@@ -172,7 +172,7 @@ A tela **Executar detalhes** é aberta na guia **Detalhes**. Essa tela mostra um
 
 A guia **Modelos** contém uma lista dos modelos criados ordenados pela pontuação da métrica. Por padrão, o modelo com a pontuação mais alta de acordo com a métrica escolhida é exibido no início da lista. Como o trabalho de treinamento testa mais modelos, eles são adicionados à lista. Use isso para obter uma comparação rápida das métricas dos modelos produzidos até agora.
 
-[![Painel de detalhes da execução](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
+![Detalhe da execução](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### <a name="view-training-run-details"></a>Exibir detalhes da execução do treinamento
 
@@ -216,10 +216,10 @@ O ML automatizado ajuda a implantar o modelo sem escrever códigos:
 1. Selecione **Implantar**. A implantação pode levar cerca de 20 minutos para ser concluída.
     Depois que a implantação for iniciada, a guia **Resumo do modelo** será exibida. Consulte o progresso da implantação na seção **Status de implantação**. 
 
-Agora você tem um serviço Web operacional para gerar previsões. Você pode testar as previsões por meio de consultas ao serviço de [Suporte ao Azure Machine Learning interno do Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
+Agora você tem um serviço Web operacional para gerar previsões. Você pode testar as previsões por meio de consultas ao serviço de [Suporte ao Azure Machine Learning interno do Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Saiba como consumir um serviço Web](./how-to-consume-web-service.md).
+* [Saiba como consumir um serviço Web](how-to-consume-web-service.md).
 * [Entender os resultados de machine learning automatizado](how-to-understand-automated-ml.md).
 * [Saiba mais sobre o machine learning automatizado](concept-automated-ml.md) e o Azure Machine Learning.

@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: eec53570c542ceb60c937072135fcb70b59e80a6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: e3bf77406df302c4ba83cb7a8f1a30fba9f6339e
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631033"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795930"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Treine os modelos PyTorch em escala com Azure Machine Learning
 
@@ -206,7 +206,7 @@ Para obter mais informações sobre como configurar trabalhos com o ScriptRunCon
 O [objeto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fornece a interface para o histórico de execução enquanto o trabalho está em execução e após sua conclusão.
 
 ```Python
-run = Experiment(ws, name='pytorch-birds').submit(src)
+run = Experiment(ws, name='Tutorial-pytorch-birds').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
@@ -314,6 +314,10 @@ src = ScriptRunConfig(source_directory=project_folder,
 Se você preferir usar o back-end gloo para treinamento distribuído, especifique `communication_backend='Gloo'` em vez disso. O back-end gloo é recomendado para treinamento de CPU distribuído.
 
 Para obter um tutorial completo sobre como executar PyTorch distribuídas no Azure ML, consulte [Distributed PyTorch with DistributedDataParallel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/pytorch/distributed-pytorch-with-nccl-gloo).
+
+### <a name="troubleshooting"></a>Solução de problemas
+
+* O **Horovod foi desligado**: na maioria dos casos, se você encontrar "AbortedError: Horovod foi desligado", houve uma exceção subjacente em um dos processos que fizeram com que o Horovod fosse desligado. Cada classificação no trabalho da MPI obtém seu próprio arquivo de log dedicado no Azure Machine Learning. Esses logs são nomeados `70_driver_logs`. No caso de treinamento distribuído, os nomes de log têm o sufixo `_rank` para facilitar a diferenciação dos logs. Para localizar o erro exato que fez com que o Horovod fosse desligado, percorra todos os arquivos de log e procure `Traceback` no final dos arquivos de driver_log. Um desses arquivos fornecerá a exceção subjacente real. 
 
 ## <a name="export-to-onnx"></a>Exportar para ONNX
 

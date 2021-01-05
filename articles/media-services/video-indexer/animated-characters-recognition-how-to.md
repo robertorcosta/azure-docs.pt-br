@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 9effac182acdea6fcb41ed26faf6c2f6535a5cbf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 1ee179efbe936c742f1eb51b998c10f9349c14fb
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906158"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763380"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Usar a detecção de caracteres animados (versão prévia) com o portal e a API 
 
@@ -26,9 +26,7 @@ Este artigo demonstra como usar a detecção de caracteres animados com o portal
 
 ## <a name="use-the-animated-character-detection-with-portal"></a>Usar a detecção de caracteres animados com o portal 
 
-Esta seção descreve as etapas que você precisa seguir para começar a usar o modelo de detecção de caracteres animados. 
-
-Uma vez que, nas contas de avaliação, a integração de Visão Personalizada é gerenciada pelo Video Indexer, você pode começar a criar e usar o modelo de caracteres animados e ignorar a seção a seguir ("conectar sua conta de Visão Personalizada").
+Nas contas de avaliação, a integração de Visão Personalizada é gerenciada pelo Video Indexer, você pode começar a criar e usar o modelo de caracteres animados. Se estiver usando a conta de avaliação, você poderá ignorar a seção a seguir ("conectar sua conta de Visão Personalizada").
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Conectar sua conta do Visão Personalizada (somente contas pagas)
 
@@ -37,20 +35,23 @@ Se você possui uma conta paga Video Indexer, você precisa conectar uma conta d
 > [!NOTE]
 > Ambas as contas precisam estar na mesma região. Atualmente, não há suporte para a integração do Visão Personalizada na região do Japão.
 
+Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). 
+
+Observe que o treinamento do modelo deve ser feito somente via Video Indexer, e não por meio do site Visão Personalizada. 
+
 #### <a name="connect-a-custom-vision-account-with-api"></a>Conectar uma conta de Visão Personalizada com a API 
 
 Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer ou para alterar a conta de Visão Personalizada que está atualmente conectada ao Video Indexer:
 
 1. Navegue até [www.customvision.ai](https://www.customvision.ai) e faça logon.
-1. Copie as seguintes chaves: 
+1. Copie as chaves para os recursos de treinamento e previsão:
 
-    * Chave de treinamento (para o recurso de treinamento)
-    * Chave de previsão (para o recurso de previsão)
-    * Ponto de extremidade 
-    * ID do recurso de previsão
-    
     > [!NOTE]
     > Para fornecer todas as chaves, você precisa ter dois recursos separados no Visão Personalizada, um para treinamento e outro para previsão.
+1. Forneça outras informações:
+
+    * Ponto de extremidade 
+    * ID do recurso de previsão
 1. Navegue e entre no [Video indexer](https://vi.microsoft.com/).
 1. Clique no ponto de interrogação no canto superior direito da página e escolha referência de **API**.
 1. Certifique-se de que você está inscrito no gerenciamento de API clicando na guia **produtos** . Se você tiver uma API conectada, poderá continuar na próxima etapa, caso contrário, assinar. 
@@ -63,7 +64,7 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
 1. Para verificar sua conexão, navegue até o portal do [Video indexer](https://vi.microsoft.com/)):
 1. Clique no botão **personalização do modelo de conteúdo** no canto superior direito.
 1. Vá para a guia **caracteres animados** .
-1. Depois de clicar em gerenciar modelos no Visão Personalizada "* *, você será transferido para a conta de Visão Personalizada que você acabou de conectar.
+1. Depois de clicar em gerenciar modelos no Visão Personalizada, você será transferido para a conta de Visão Personalizada que você acabou de conectar.
 
 > [!NOTE]
 > Atualmente, somente os modelos criados por meio de Video Indexer têm suporte. Os modelos criados por meio do Visão Personalizada não estarão disponíveis. Além disso, a prática recomendada é editar modelos criados por meio de Video Indexer somente por meio da plataforma Video Indexer, já que as alterações feitas por meio de Visão Personalizada podem causar resultados não intencionais.
@@ -71,9 +72,10 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
 ### <a name="create-an-animated-characters-model"></a>Criar um modelo de caracteres animados
 
 1. Navegue até o site do [Video Indexer](https://vi.microsoft.com/) e entre.
-1. Clique no botão personalização do modelo de conteúdo no canto superior direito da página.
+1. Para personalizar um modelo em sua conta, selecione o botão **personalização do modelo de conteúdo** à esquerda da página.
 
-    ![Captura de tela que mostra a página "Video Indexer" com o botão "personalização do modelo de conteúdo" selecionado no canto superior direito.](./media/animated-characters-recognition/content-model-customization.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/content-model-customization/content-model-customization.png" alt-text="Personalizar o modelo de conteúdo no Video Indexer":::
 1. Vá para a guia **caracteres animados** na seção personalização do modelo.
 1. Clique em **Adicionar modelo**.
 1. Nomeie-o como modelo e clique em Enter para salvar o nome.
@@ -83,7 +85,9 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
 
 ### <a name="index-a-video-with-an-animated-model"></a>Indexar um vídeo com um modelo animado
 
-1. Clique no botão **carregar** no menu superior.
+Para o treinamento inicial, carregue pelo menos dois vídeos. Cada um deve ser preferencialmente mais de 15 minutos, antes de esperar um bom modelo de reconhecimento. Se você tiver episódios mais curtos, recomendamos carregar pelo menos 30 minutos de conteúdo de vídeo antes do treinamento. Isso permitirá que você mescle grupos que pertencem ao mesmo caractere de cenas e planos de fundo diferentes e, portanto, aumente a chance de detectar o caractere nos episódios a seguir que você indexar. Para treinar um modelo em vários vídeos (episódios), você precisa indexá-los com o mesmo modelo de animação. 
+
+1. Clique no botão **carregar** .
 1. Escolha um vídeo para carregar (de um arquivo ou de uma URL).
 1. Clique em **Opções avançadas**.
 1. Em **pessoas/caracteres animados** , escolha **modelos de animação**.
@@ -91,27 +95,39 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
 1. Clique em carregar.
 1. Depois que o vídeo for indexado, você verá os caracteres detectados na seção **caracteres animados** no painel **insights** .
 
-> [!NOTE] 
-> Antes de marcar e treinar o modelo, todos os caracteres animados serão nomeados "desconhecido #X". Depois de treinar o modelo, eles também serão reconhecidos.
+Antes de marcar e treinar o modelo, todos os caracteres animados serão nomeados "desconhecido #X". Depois de treinar o modelo, eles também serão reconhecidos.
 
 ### <a name="customize-the-animated-characters-models"></a>Personalizar os modelos de caracteres animados
 
-1. Marque e treine o modelo.
+1. Nomeie os caracteres em Video Indexer.
 
-    1. Marcar o caractere detectado editando seu nome. Depois que um caractere é treinado no modelo, ele será reconhecido no próximo vídeo indexado com esse modelo. 
-    1. Para marcar um caractere animado em seu vídeo, vá para a guia **insights** e clique no botão **Editar** no canto superior direito da janela.
-    1. No painel **insights** , clique em qualquer um dos caracteres animados detectados e altere seus nomes de "desconhecido #X" (ou o nome que foi atribuído anteriormente ao caractere).
-    1. Depois de digitar o novo nome, clique no ícone de verificação ao lado do novo nome. Isso salva o novo nome no modelo em Video Indexer.
-    1. Depois de concluir a edição de todos os nomes desejados, você precisará treinar o modelo.
+    1. Após o modelo ter criado o grupo de caracteres, é recomendável examinar esses grupos em Visão Personalizada. 
+    1. Para marcar um caractere animado em seu vídeo, vá para a guia **insights**   e clique no botão **Editar**   no canto superior direito da janela. 
+    1. No painel **insights**   , clique em qualquer um dos caracteres animados detectados e altere seus nomes de "desconhecido #X" para um nome temporário (ou o nome que foi atribuído anteriormente ao caractere). 
+    1. Depois de digitar o novo nome, clique no ícone de verificação ao lado do novo nome. Isso salva o novo nome no modelo em Video Indexer. 
+1. Somente contas pagas: examine os grupos em Visão Personalizada 
 
-        Abra a página personalização e clique na guia **caracteres animados** e, em seguida, clique no botão **treinar** para treinar seu modelo.
-         
-        Se você tiver uma conta paga, poderá clicar no link **gerenciar modelos no Customer Vision** (como mostrado abaixo). Em seguida, você será encaminhado para a página do modelo em **visão personalizada**.
- 
-        ![Personalização do modelo de conteúdo](./media/animated-characters-recognition/content-model-customization-tab.png)
+    > [!NOTE]
+    > Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). É importante observar que o treinamento do modelo deve ser feito somente por meio de Video Indexer (conforme descrito nesta topid), e não por meio do site Visão Personalizada. 
 
-     1. Uma vez treinado, qualquer vídeo que será indexado ou reindexado com esse modelo reconhecerá os caracteres treinados. 
-    Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md).
+    1. Vá para a página **modelos personalizados** em video indexer e escolha a guia **caracteres animados** . 
+    1. Clique no botão Editar para o modelo no qual você está trabalhando para gerenciá-lo no Visão Personalizada. 
+    1. Examine cada grupo de caracteres: 
+
+        * Se o grupo contiver imagens não relacionadas, é recomendável excluí-las no site Visão Personalizada. 
+        * Se houver imagens que pertencem a um caractere diferente, altere a marca nessas imagens específicas clicando na imagem, adicionando a marca à direita e excluindo a marca errada. 
+        * Se o grupo não estiver correto, o que significa que ele contém imagens ou imagens que não são caracteres de vários caracteres, você poderá excluir no site Visão Personalizada ou no insights Video Indexer. 
+        * Às vezes, o algoritmo de agrupamento irá dividir os caracteres em grupos diferentes. Portanto, é recomendável dar a todos os grupos que pertencem ao mesmo caractere o mesmo nome (no Video Indexer insights), o que fará com que todos esses grupos apareçam como on no site Visão Personalizada. 
+    1. Depois que o grupo for refinado, verifique se o nome inicial com o qual você marcou reflete o caractere no grupo. 
+1. Treinar o modelo 
+
+    1. Depois de concluir a edição de todos os nomes desejados, você precisará treinar o modelo. 
+    1. Depois que um caractere é treinado no modelo, ele será reconhecido no próximo vídeo indexado com esse modelo. 
+    1. Abra a página personalização e clique na guia **caracteres animados**   e, em seguida, clique no botão **treinar** para treinar seu modelo. Para manter a conexão entre vídeo 
+    
+O indexador e o modelo não treinam o modelo no site Visão Personalizada (contas pagas têm acesso ao site Visão Personalizada), somente no Video Indexer. Uma vez treinado, qualquer vídeo que será indexado ou reindexado com esse modelo reconhecerá os caracteres treinados. 
+
+## <a name="delete-an-animated-character-and-the-model"></a>Excluir um caractere animado e o modelo
 
 1. Excluir um caractere animado.
 
@@ -120,7 +136,6 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
 
     > [!NOTE]
     > Isso excluirá o insight deste vídeo, mas não afetará o modelo.
-
 1. Excluir um modelo.
 
     1. Clique no botão **personalização do modelo de conteúdo** no menu superior e vá para a guia **caracteres animados** .

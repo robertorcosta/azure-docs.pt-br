@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: cfbbc1d218f590241fab804e389acd689c009dac
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 2be77a47c4b111dd2f25a8fc9ca35690d1b2d80c
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754004"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796747"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matriz de suporte para avaliação do servidor físico 
 
@@ -67,7 +67,7 @@ A tabela a seguir resume os requisitos de porta para avaliação.
 **Dispositivo** | **Conexão**
 --- | ---
 **Dispositivo** | Conexões de entrada na porta TCP 3389, para permitir conexões de área de trabalho remota para o dispositivo.<br/><br/> Conexões de entrada na porta 44368, para acessar remotamente o aplicativo de gerenciamento de dispositivo usando a URL: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Conexões de saída nas portas 443 (HTTPS), para enviar metadados de descoberta e desempenho para migrações para Azure.
-**Servidores físicos** | **Windows:** Conexão de entrada na porta WinRM 5985 (HTTP) para efetuar pull de metadados de configuração e desempenho de servidores Windows. <br/><br/> **Linux:**  Conexões de entrada na porta 22 (TCP) para efetuar pull de metadados de configuração e desempenho de servidores Linux. |
+**Servidores físicos** | **Windows:** Conexão de entrada na porta WinRM 5985 (HTTP) ou 5986 (HTTPS) para efetuar pull de metadados de configuração e desempenho de servidores Windows. <br/><br/> **Linux:**  Conexões de entrada na porta 22 (TCP) para efetuar pull de metadados de configuração e desempenho de servidores Linux. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisitos da análise de dependência baseada em agente
 

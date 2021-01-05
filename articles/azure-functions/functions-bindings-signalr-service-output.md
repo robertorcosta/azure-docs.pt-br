@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 8bb07e650c99f18cfecbc7b7674e0ca0e5a01dae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 159df4c228f74bb605c745e899d99bfff2aa511b
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998899"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763278"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Associação de saída do serviço signalr para Azure Functions
 
@@ -734,7 +734,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**direction**| n/d | Deve ser definido como `in`.|
 |**name**| n/d | Nome da variável usada no código de função para o objeto de informações de conexão. |
 |**hubName**|**HubName**| Esse valor deve ser definido como o nome do hub SignalR para o qual as informações de conexão são geradas.|
-|**ID**|**ID**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
+|**ID**|**UserId**| Opcional: o valor da declaração do identificador de usuário a ser definida no token de chave de acesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da configuração do aplicativo que contém a cadeia de conexão do SignalR Service (o padrão é "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR
@@ -753,4 +753,5 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Manipular mensagens do serviço de sinalização (Associação de gatilho)](./functions-bindings-signalr-service-trigger.md)
 - [Retornar a URL do ponto de extremidade de serviço e o token de acesso (Associação de entrada)](./functions-bindings-signalr-service-input.md)

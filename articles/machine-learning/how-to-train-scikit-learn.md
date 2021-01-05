@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4758e937a0ed105bf136acf7e78f2d44c84e74fb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: e80f33e6c36e1525eff954376d17c8a8b76204cb
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536047"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796016"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Treine os modelos scikit-Aprenda em escala com Azure Machine Learning
 
@@ -132,7 +132,7 @@ src = ScriptRunConfig(source_directory='.',
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'train-iris').submit(src)
+run = Experiment(ws,'Tutorial-TrainIRIS').submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
@@ -142,13 +142,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>O que acontece durante execução de execução
 À medida que a execução é executada, ela passa pelos seguintes estágios:
 
-- **Preparando** : uma imagem do Docker é criada de acordo com o ambiente definido. A imagem é carregada no registro de contêiner do espaço de trabalho e armazenada em cache para execuções posteriores. Os logs também são transmitidos para o histórico de execução e podem ser exibidos para monitorar o progresso. Se um ambiente organizado for especificado, a imagem armazenada em cache que faz o backup desse ambiente organizado será usada.
+- **Preparando**: uma imagem do Docker é criada de acordo com o ambiente definido. A imagem é carregada no registro de contêiner do espaço de trabalho e armazenada em cache para execuções posteriores. Os logs também são transmitidos para o histórico de execução e podem ser exibidos para monitorar o progresso. Se um ambiente organizado for especificado, a imagem armazenada em cache que faz o backup desse ambiente organizado será usada.
 
-- **Dimensionamento** : o cluster tentará escalar verticalmente se o cluster de ia do lote exigir mais nós para executar a execução do que está disponível no momento.
+- **Dimensionamento**: o cluster tentará escalar verticalmente se o cluster de ia do lote exigir mais nós para executar a execução do que está disponível no momento.
 
-- **Em execução** : todos os scripts na pasta de script são carregados para o destino de computação, os armazenamentos de dados são montados ou copiados e o `script` é executado. As saídas de stdout e a pasta **./logs** são transmitidas para o histórico de execução e podem ser usadas para monitorar a execução.
+- **Em execução**: todos os scripts na pasta de script são carregados para o destino de computação, os armazenamentos de dados são montados ou copiados e o `script` é executado. As saídas de stdout e a pasta **./logs** são transmitidas para o histórico de execução e podem ser usadas para monitorar a execução.
 
-- **Pós-processamento** : a pasta **./Outputs** da execução é copiada para o histórico de execuções.
+- **Pós-processamento**: a pasta **./Outputs** da execução é copiada para o histórico de execuções.
 
 ## <a name="save-and-register-the-model"></a>Salvar e registrar o modelo
 

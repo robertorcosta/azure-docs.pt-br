@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 334e0c745257354d9548a6f9c8cee4d43fa8da6d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4ebb16186e613affdb886a8819240d47f944c42f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744736"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763533"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -45,6 +45,9 @@ O processo de atualização funciona da seguinte maneira:
 
 O orquestrador de atualização do sistema operacional do conjunto de dimensionamento verifica a integridade geral do conjunto de dimensionamento antes de atualizar cada lote. Ao atualizar um lote, pode haver outras atividades manutenção planejada ou não planejada simultânea acontecendo que podem afetar a integridade de suas instâncias de conjunto de dimensionamento. Nesses casos, se há mais de 20% das instâncias do conjunto de dimensionamento que se tornam não íntegras, a atualização do conjunto de dimensionamento é interrompida no final do lote atual.
 
+> [!NOTE]
+>A atualização automática do sistema operacional não atualiza o SKU da imagem de referência no conjunto de dimensionamento. Para alterar a SKU (como Ubuntu 16, 4-LTS para 18, 4-LTS), você deve atualizar o [modelo do conjunto de dimensionamento](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) diretamente com a SKU da imagem desejada. O Publicador de imagens e a oferta não podem ser alterados para um conjunto de dimensionamento existente.  
+
 ## <a name="supported-os-images"></a>Imagens do sistema operacional com suporte
 No momento, há suporte apenas determinadas imagens de plataforma do sistema operacional. Imagens personalizadas [têm suporte](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) se o conjunto de dimensionamento usar imagens personalizadas por meio da [Galeria de imagens compartilhadas](shared-image-galleries.md).
 
@@ -54,21 +57,20 @@ Atualmente, há suporte para as seguintes SKUs de plataforma (e mais são adicio
 |-------------------------|---------------|--------------------|
 | Canônico               | UbuntuServer  | 16.04-LTS          |
 | Canônico               | UbuntuServer  | 18.04-LTS          |
-| Rogue Wave (OpenLogic)  | CentOS        | 7,5                |
-| CoreOS                  | CoreOS        | Estável             |
-| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-datacenter-Smalldisk |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
-| Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-com-containers-smalldisk |
+| OpenLogic               | CentOS        | 7,5                |
+| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
+| MicrosoftWindowsServer  | WindowsServer | 2019-datacenter-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
+| MicrosoftWindowsServer  | WindowsServer | Datacenter-Core-1903-com-containers-smalldisk |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar a atualização automática de imagem do sistema operacional
 
-- A propriedade *version* da imagem deve ser definida como *mais recente* .
+- A propriedade *version* da imagem deve ser definida como *mais recente*.
 - Use as investigações de integridade do aplicativo ou a [extensão de Integridade do Aplicativo](virtual-machine-scale-sets-health-extension.md) para conjuntos de dimensionamento que não sejam do Service Fabric.
 - Use a API de computação versão 2018-10-01 ou superior.
 - Verifique se os recursos externos especificados no modelo de conjunto de dimensionamento estão disponíveis e atualizados. Exemplos incluem o URI SAS para conteúdo de inicialização nas propriedades de extensão da VM, o conteúdo na conta de armazenamento, a referência a segredos no modelo e outros.

@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 610049ec14243abb296aef431eb37533c6169817
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95978345"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97797053"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -259,6 +259,8 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Se você estiver usando a nuvem do Azure governamental, use o valor `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` para o parâmetro **servicePrincipalName** no cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
 >
 
+Se você quiser fazer backup seletivo de alguns discos e excluir outros, conforme mencionado nesses [cenários](selective-disk-backup-restore.md#scenarios), poderá configurar a proteção e fazer backup somente dos discos relevantes, conforme documentado [aqui](selective-disk-backup-restore.md#enable-backup-with-powershell).
+
 ## <a name="monitoring-a-backup-job"></a>Monitoramento de um trabalho de backup
 
 Você pode monitorar operações de longa duração, como trabalhos de backup, sem usar o Portal do Azure. Para obter o status de um trabalho em andamento, use o cmdlet [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) . Esse cmdlet obtém os trabalhos de backup para um cofre específico, o qual está especificado no contexto de cofre. O exemplo a seguir obtém o status de um trabalho em andamento como uma matriz e armazena o status na variável $joblist.
@@ -338,6 +340,10 @@ $bkpPol.AzureBackupRGName="Contosto_"
 $bkpPol.AzureBackupRGNameSuffix="ForVMs"
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
+
+### <a name="exclude-disks-for-a-protected-vm"></a>Excluir discos de uma VM protegida
+
+O backup de VM do Azure fornece um recurso para excluir seletivamente ou incluir discos que são úteis nesses [cenários](selective-disk-backup-restore.md#scenarios). Se a máquina virtual já estiver protegida pelo backup de VM do Azure e se for feito o backup de todos os discos, você poderá modificar a proteção para incluir ou excluir seletivamente os discos, conforme mencionado [aqui](selective-disk-backup-restore.md#modify-protection-for-already-backed-up-vms-with-powershell).
 
 ### <a name="trigger-a-backup"></a>Disparar um backup
 
@@ -511,6 +517,13 @@ Depois que o trabalho de restauração for concluído, use o cmdlet [Get-AzRecov
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
 $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $targetVault.ID
 ```
+
+#### <a name="restore-selective-disks"></a>Restaurar discos seletivos
+
+Um usuário pode restaurar seletivamente alguns discos em vez do conjunto de backup completo. Forneça os LUNs de disco necessários como parâmetro para restaurá-los somente em vez de todo o conjunto, conforme documentado [aqui](selective-disk-backup-restore.md#restore-selective-disks-with-powershell).
+
+> [!IMPORTANT]
+> Uma delas tem que fazer backup de discos seletivamente para restaurar discos seletivamente. Mais detalhes são fornecidos [aqui](selective-disk-backup-restore.md#selective-disk-restore).
 
 Depois de restaurar os discos, vá para a próxima seção para criar a VM.
 

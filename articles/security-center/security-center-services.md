@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/17/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: b3671a57b8371c47b1690b4bf6be008d695d1ca0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f5d6d6255b48192a5943159599531fac18ebeb26
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654737"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796985"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -111,7 +111,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | Serviço/Recurso | Gov dos EUA | Governo da China |
 |------|:----:|:----:|
 |[Acesso à VM Just-In-Time](security-center-just-in-time.md) (1)|✔|✔|
-|[Monitoramento de Integridade do arquivo](security-center-file-integrity-monitoring.md) (1)|✔|-|
+|[Monitoramento de Integridade do arquivo](security-center-file-integrity-monitoring.md) (1)|✔|✔|
 |[Controles de aplicativos adaptáveis](security-center-adaptive-application.md) (1)|✔|✔|
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md) (1)|-|-|
 |[Proteção de host do Docker](harden-docker-hosts.md) (1)|✔|✔|
@@ -119,19 +119,19 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Microsoft Defender para Ponto de extremidade](harden-docker-hosts.md) (1)|✔|-|
 |[Conectar à conta da AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Conectar contas GCP](quickstart-onboard-gcp.md) (1)|-|-|
-|[Exportação contínua](continuous-export.md)|✔|✔|
+|[Exportação contínua](continuous-export.md)|✔|✔ (2)|
 |[Automação do fluxo de trabalho](workflow-automation.md)|✔|✔|
 |[Regras de isenção de recomendação](exempt-resource.md)|-|-|
 |[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|
 |[Notificações por email para alertas de segurança](security-center-provide-security-contact-details.md)|✔|✔|
-|[Inventário de ativos](asset-inventory.md)|-|-|
+|[Inventário de ativos](asset-inventory.md)|✔|✔|
 |[Azure Defender for Serviço de Aplicativo](defender-for-app-service-introduction.md)|-|-|
-|[Azure Defender para Armazenamento](defender-for-storage-introduction.md)|✔|-|
+|[Azure Defender para Armazenamento](defender-for-storage-introduction.md)|✔ (2)|-|
 |[Azure Defender para SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
 |[Azure Defender para Key Vault](defender-for-key-vault-introduction.md)|-|-|
 |[Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
-|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔ (2)|✔|
 |[Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)|✔ (2)|-|
 |||
 

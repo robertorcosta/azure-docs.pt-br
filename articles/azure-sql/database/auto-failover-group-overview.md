@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 11/16/2020
-ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.date: 12/26/2020
+ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
+ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988537"
+ms.lasthandoff: 12/27/2020
+ms.locfileid: "97792493"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Além disso, os grupos de failover automático fornecem pontos de extremidade de
 
 Quando você estiver usando grupos de failover automático com a política de failover automático, qualquer interrupção que afete os bancos de dados em um servidor ou instância gerenciada resultará em failover automático. Você pode gerenciar o grupo de failover automático usando:
 
-- [Azure portal](geo-distributed-application-configure-tutorial.md)
+- [Portal do Azure](geo-distributed-application-configure-tutorial.md)
 - [CLI do Azure: grupo de failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: grupo de failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: grupo de failover](/rest/api/sql/failovergroups).
@@ -229,7 +229,7 @@ Se seu aplicativo usar o SQL Instância Gerenciada como a camada de dados, siga 
 
 ### <a name="creating-the-secondary-instance"></a>Criando a instância secundária
 
-Para garantir a conectividade não interrompida com o Instância Gerenciada do SQL primário após o failover, as instâncias primária e secundária devem estar na mesma zona DNS. Ele garantirá que o mesmo certificado de vários domínios (SAN) possa ser usado para autenticar as conexões do cliente com uma das duas instâncias no grupo de failover. Quando seu aplicativo estiver pronto para implantação de produção, crie um SQL Instância Gerenciada secundário em uma região diferente e verifique se ele compartilha a zona DNS com o Instância Gerenciada SQL primário. Você pode fazer isso especificando o parâmetro opcional `DNS Zone Partner` usando o portal do Azure, o PowerShell ou a API REST.
+Para garantir a conectividade não interrompida com o Instância Gerenciada do SQL primário após o failover, as instâncias primária e secundária devem estar na mesma zona DNS. Ele garantirá que o mesmo certificado de vários domínios (SAN) possa ser usado para autenticar as conexões do cliente com uma das duas instâncias no grupo de failover. Quando seu aplicativo estiver pronto para implantação de produção, crie um SQL Instância Gerenciada secundário em uma região diferente e verifique se ele compartilha a zona DNS com o Instância Gerenciada SQL primário. Você pode fazer isso especificando o parâmetro opcional durante a criação. Se você estiver usando o PowerShell ou a API REST, o nome do parâmetro opcional será `DNS Zone Partner` e o nome do campo opcional correspondente no portal do Azure será o instância gerenciada primário.
 
 > [!IMPORTANT]
 > A primeira instância gerenciada criada na sub-rede determina a zona DNS para todas as instâncias subsequentes na mesma sub-rede. Isso significa que duas instâncias da mesma sub-rede não podem pertencer a diferentes zonas DNS.

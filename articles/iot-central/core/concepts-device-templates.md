@@ -3,17 +3,17 @@ title: O que são modelos de dispositivo no Azure IoT Central | Microsoft Docs
 description: Os modelos de dispositivo IoT Central do Azure permitem especificar o comportamento dos dispositivos conectados ao seu aplicativo. Um modelo de dispositivo especifica a telemetria, as propriedades e os comandos que o dispositivo deve implementar. Um modelo de dispositivo também define a interface do usuário para o dispositivo em IoT Central, como os formulários e painéis usados por um operador.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/05/2020
+ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 1a352849cb5bb8563a7e09500f081139a24e97ea
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 04c2330ffee396f5fc30b85640e992df77c08263
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750689"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795421"
 ---
 # <a name="what-are-device-templates"></a>O que são modelos de dispositivo?
 

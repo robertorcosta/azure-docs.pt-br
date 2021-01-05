@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 5e1f8a099256040e14db1cdab288551a228512cd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: ee1c59c71834ab9d80f1ed66a002e211bdcacbbf
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655366"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796492"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -94,7 +94,7 @@ Conceda acesso a um usuário, grupo ou aplicativo para executar operações espe
 
 Você pode ver a lista completa de operações de cofre e segredo aqui: [referência de operação de Key Vault](/rest/api/keyvault/#vault-operations)
 
-<a id="key-vault-access-policies"></a> As políticas de acesso ao Key Vault concedem separadamente as permissões a chaves, segredos e certificados.  As permissões de acesso para chaves, segredos e certificados estão no nível do cofre. 
+<a id="key-vault-access-policies"></a> Key Vault políticas de acesso concedem permissões separadamente a chaves, segredos e certificados.  As permissões de acesso para chaves, segredos e certificados estão no nível do cofre. 
 
 Para obter mais informações sobre como usar as políticas de acesso do cofre de chaves, consulte [atribuir uma política de acesso Key Vault](assign-access-policy-portal.md)
 

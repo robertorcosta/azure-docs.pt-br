@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/25/2020
 ms.author: memildin
-ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791878"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97795965"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança na Central de Segurança do Azure 
 Este tópico explica como exibir e entender as recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure.
@@ -42,7 +42,11 @@ A central de segurança analisa o estado de segurança de seus recursos para ide
 
 1. No menu da central de segurança, abra a página **recomendações** para ver as recomendações aplicáveis ao seu ambiente. As recomendações são agrupadas em controles de segurança.
 
-      ![Recomendações agrupadas por controle de segurança](./media/security-center-recommendations/view-recommendations.png)
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recomendações agrupadas por controle de segurança" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+
+1. Para encontrar recomendações específicas para o tipo de recurso, gravidade, ambiente ou outros critérios que são importantes para você, use os filtros opcionais acima da lista de recomendações.
+
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filtros para refinar a lista de recomendações da central de segurança do Azure":::
 
 1. Expanda um controle e selecione uma recomendação específica para exibir a página de detalhes de recomendação.
 
@@ -60,7 +64,7 @@ A central de segurança analisa o estado de segurança de seus recursos para ide
         - **Recursos não íntegros** – recursos que ainda são afetados pelo problema identificado.
         - **Recursos não aplicáveis** – recursos para os quais a recomendação não pode dar uma resposta definitiva. A guia não aplicável também inclui os motivos para cada recurso. 
 
-            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Página de detalhes de recomendação.":::
+            :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Recursos não aplicáveis com motivos.":::
     1. Botões de ação para corrigir a recomendação ou disparar um aplicativo lógico.
 
 ## <a name="preview-recommendations"></a>Recomendações de visualização
@@ -71,7 +75,7 @@ Elas ainda deverão ser corrigidas sempre que possível, para que, quando o per�
 
 Um exemplo de recomendação de versão prévia:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Página de detalhes de recomendação.":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com o sinalizador de versão prévia":::
  
 ## <a name="next-steps"></a>Próximas etapas
 

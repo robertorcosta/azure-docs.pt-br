@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 048f2585d8e9ac1b10293083bda0900e7ce468bb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6bf0da8716233178889d47ec3d57e9b29bc2658f
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447594"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763210"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Conectar-se a Azure Resource Manager em seu dispositivo do Azure Stack Edge pro
 
@@ -34,7 +34,7 @@ Azure Resource Manager fornece uma camada de gerenciamento consistente para cham
 
 A tabela a seguir resume os vários pontos de extremidade expostos em seu dispositivo, os protocolos com suporte e as portas para acessar esses pontos de extremidade. Ao longo do artigo, você encontrará referências a esses pontos de extremidade.
 
-| # | Ponto de extremidade | Protocolos com suporte | Porta usada | Usada para |
+| # | Ponto de extremidade | Protocolos com suporte | Porta usada | Usado para |
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | HTTPS | 443 | Para se conectar ao Azure Resource Manager para automação |
 | 2. | Serviço de token de segurança | HTTPS | 443 | Para autenticar por meio de tokens de acesso e de atualização |
@@ -102,7 +102,7 @@ Para uso somente de teste e desenvolvimento, você pode usar o Windows PowerShel
     |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Armazenamento de blob|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Armazenamento de Blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 Para obter mais informações sobre certificados, acesse como [gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md).
@@ -460,4 +460,4 @@ Você passou para o ambiente desejado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar VMs no dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Implantar VMs no dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 119f1eaa838b404a3dbdc22f692f559816810dde
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 55221fa529688fbae1698a094ea31f6a3f765100
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578681"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796237"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treinar e implantar um modelo da CLI
 
@@ -307,10 +307,10 @@ Para obter mais informações sobre arquivos de configuração de execução, co
 Para iniciar uma execução de treinamento no destino de computação `cpu-cluster`, use o seguinte comando:
 
 ```azurecli-interactive
-az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
+az ml run submit-script -c mnist -e tutorial-cli --source-directory scripts -t runoutput.json
 ```
 
-Este comando especifica um nome para o experimento (`myexperiment`). O experimento armazena informações sobre essa execução no workspace.
+Este comando especifica um nome para o experimento (`tutorial-cli`). O experimento armazena informações sobre essa execução no workspace.
 
 O parâmetro `-c mnist` especifica o arquivo `.azureml/mnist.runconfig`.
 
@@ -327,7 +327,7 @@ Esse texto é registrado no script de treinamento e exibe a precisão do modelo.
 
 Se você inspecionar o script de treinamento, verá que ele também usa o valor alfa ao armazenar o modelo treinado para `outputs/sklearn_mnist_model.pkl`.
 
-O modelo foi salvo no diretório `./outputs` no destino de computação em que foi treinado. Nesse caso, a instância de Computação do Azure Machine Learning na nuvem do Azure. O processo de treinamento carrega automaticamente o conteúdo do diretório `./outputs` do destino de computação em que o treinamento ocorre em seu workspace do Azure Machine Learning. Ele é armazenado como parte do experimento (`myexperiment` neste exemplo).
+O modelo foi salvo no diretório `./outputs` no destino de computação em que foi treinado. Nesse caso, a instância de Computação do Azure Machine Learning na nuvem do Azure. O processo de treinamento carrega automaticamente o conteúdo do diretório `./outputs` do destino de computação em que o treinamento ocorre em seu workspace do Azure Machine Learning. Ele é armazenado como parte do experimento (`tutorial-cli` neste exemplo).
 
 ## <a name="register-the-model"></a>Registre o modelo
 
@@ -345,13 +345,13 @@ A saída desse comando é semelhante ao JSON a seguir:
 {
   "createdTime": "2019-09-19T15:25:32.411572+00:00",
   "description": "",
-  "experimentName": "myexperiment",
+  "experimentName": "tutorial-cli",
   "framework": "Custom",
   "frameworkVersion": null,
   "id": "mymodel:1",
   "name": "mymodel",
   "properties": "",
-  "runId": "myexperiment_1568906070_5874522d",
+  "runId": "tutorial-cli_1568906070_5874522d",
   "tags": "",
   "version": 1
 }

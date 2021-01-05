@@ -4,12 +4,12 @@ description: Descreve como particionar filas e tópicos do Barramento de Serviç
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8fd845ba24fd96ad6de566a7f55b25bd7129074d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 9c500a69f853b11437a0dcaa48213fe3a84da53b
+ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930425"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97796628"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -20,7 +20,7 @@ O Barramento de Serviço do Azure emprega vários agentes de mensagens para proc
  
 Não é possível alterar a opção de particionamento em uma fila ou um tópico existente; você pode definir a opção apenas quando cria a entidade.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 Cada fila ou tópico particionado consiste em várias partições. Cada partição é armazenada em um repositório de mensagens diferente e manipulada por um agente de mensagens diferente. Quando uma mensagem é enviada a uma fila ou tópico particionado, o barramento de serviço atribui a mensagem a uma das partições. A seleção é feita aleatoriamente pelo Barramento de Serviço ou por uma chave de partição que pode ser especificada pelo remetente.
 
@@ -29,8 +29,9 @@ Quando um cliente deseja receber uma mensagem de uma fila particionada ou de uma
 A operação de inspeção em uma entidade não particionada sempre retorna a mensagem mais antiga, mas não em uma entidade particionada. Em vez disso, ele retorna a mensagem mais antiga em uma das partições cujo agente de mensagem respondeu primeiro. Não há nenhuma garantia de que a mensagem retornada é a mais antiga em todas as partições. 
 
 Não há custo adicional ao enviar ou receber uma mensagem de uma fila ou um tópico particionado.
->[!NOTE]
-> A operação Peek retorna a mensagem mais antiga do partição com base em seu SequenceNumber. Para entidades particionadas, o número de sequência é emitido em relação à partição. Para obter mais informações, consulte [sequenciamento de mensagens e carimbos de data/hora](../service-bus-messaging/message-sequencing.md).
+
+> [!NOTE]
+> A operação Peek retorna a mensagem mais antiga da partição com base em seu número de sequência. Para entidades particionadas, o número da sequência é emitido com relação à partição. Para obter mais informações, consulte [sequenciamento de mensagens e carimbos de data/hora](../service-bus-messaging/message-sequencing.md).
 
 ## <a name="enable-partitioning"></a>Habilitar particionamento
 
