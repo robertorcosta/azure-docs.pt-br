@@ -9,14 +9,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 08/24/2020
+ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305756"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97725013"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning a paridade de nuvem do soberanas
 
@@ -92,7 +92,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Rotulagem assistida de ML (classificação de imagem e detecção de objeto)           | Visualização pública       | YES                | YES         |
 | **ML responsável** |   | | |
 | Explicabilidade na interface do usuário                                                       | Visualização pública       | Não                 | Não          |
-| WhiteNoise Toolkit de privacidade diferencial                                    | SOS                  | Não                 | Não          |
+| SmartNoise Toolkit de privacidade diferencial                                    | SOS                  | Não                 | Não          |
 | marcas personalizadas no Azure Machine Learning para implementar folhas de os              | GA                   | Não                 | Não          |
 | Integração do AzureML de imparcialidade                                               | Visualização pública       | Não                 | Não          |
 | SDK de interpretação                                                      | GA                   | YES                | YES         |
@@ -104,7 +104,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | **Inferência** |   | | |
 | Inferência do lote                                                          | GA                   | YES                | YES         |
 | Data Box Edge com FPGA                                                    | Visualização pública       | Não                 | Não          |
-| **Outros** |   | | |
+| **Outras** |   | | |
 | Conjunto de Dados em Aberto no Azure                                                              | Visualização pública       | YES                | YES         |
 | Pesquisa Cognitiva personalizado                                                    | Visualização pública       | YES                | YES         |
 | Muitos modelos                                                                | Visualização pública       | Não                 | Não          |
@@ -205,7 +205,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Rotulagem assistida de ML (classificação de imagem e detecção de objeto)           | Visualização pública   | YES       | N/D        |
 | **ML responsável** |    | | |
 | Explicabilidade na interface do usuário                                                       | Visualização pública   | Não        | N/D        |
-| WhiteNoise Toolkit de privacidade diferencial                                    | SOS              | Não        | N/D        |
+| SmartNoise Toolkit de privacidade diferencial                                    | SOS              | Não        | N/D        |
 | marcas personalizadas no Azure Machine Learning para implementar folhas de os              | GA               | Não        | N/D        |
 | Integração do AzureML de imparcialidade                                               | Visualização pública   | Não        | N/D        |
 | SDK de interpretação                                                      | GA               | YES       | N/D        |
@@ -217,7 +217,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | **Inferência** |   | | |
 | Inferência do lote                                                          | GA               | YES       | N/D        |
 | Data Box Edge com FPGA                                                    | Visualização pública   | Não        | N/D        |
-| **Outros** |    | | |
+| **Outras** |    | | |
 | Conjunto de Dados em Aberto no Azure                                                              | Visualização pública   | YES       | N/D        |
 | Pesquisa Cognitiva personalizado                                                    | Visualização pública   | YES       | N/D        |
 | Muitos modelos                                                                | Visualização pública   | Não        | N/D        |
