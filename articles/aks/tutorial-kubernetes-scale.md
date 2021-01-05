@@ -4,13 +4,13 @@ description: Neste tutorial do AKS (Serviço de Kubernetes do Azure), você apre
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e700934a965f836456458cb33dc46125bef4ab72
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc
+ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747002"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825681"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -45,7 +45,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Para alterar manualmente o número de pods na implantação *azure-vote-front* , use o comando [kubectl scale][kubectl-scale]. O exemplo a seguir aumenta o número de pods de front-end *5* :
+Para alterar manualmente o número de pods na implantação *azure-vote-front*, use o comando [kubectl scale][kubectl-scale]. O exemplo a seguir aumenta o número de pods de front-end *5*:
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -74,7 +74,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Se o cluster AKs for menor que *1.10* , o Servidor de Métricas não será instalado automaticamente. Os manifestos de instalação do servidor de métricas estão disponíveis como um ativo `components.yaml` em versões do servidor de métricas, o que significa que você pode instalá-los por meio de uma URL. Para saber mais sobre essas definições de YAML, confira a seção [Implantação][metrics-server-github] do Leiame.
+> Se o cluster AKs for menor que *1.10*, o Servidor de Métricas não será instalado automaticamente. Os manifestos de instalação do servidor de métricas estão disponíveis como um ativo `components.yaml` em versões do servidor de métricas, o que significa que você pode instalá-los por meio de uma URL. Para saber mais sobre essas definições de YAML, confira a seção [Implantação][metrics-server-github] do Leiame.
 > 
 > Exemplo de instalação:
 > ```console
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-O exemplo a seguir usa o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implantação *azure-vote-front* . Se a utilização média da CPU entre todos os pods exceder 50% do seu uso solicitado, o dimensionamento automático aumentará os pods até um máximo de *10* instâncias. Um mínimo de *3* instâncias então é definido para a implantação:
+O exemplo a seguir usa o comando [kubectl autoscale][kubectl-autoscale] para dimensionar automaticamente o número de pods na implantação *azure-vote-front*. Se a utilização média da CPU entre todos os pods exceder 50% do seu uso solicitado, o dimensionamento automático aumentará os pods até um máximo de *10* instâncias. Um mínimo de *3* instâncias então é definido para a implantação:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -150,7 +150,7 @@ Após alguns minutos, com carga mínima no aplicativo Azure Vote, o número de r
 
 Se você criou o cluster Kubernetes usando os comandos no tutorial anterior, ele tem dois nós. Você pode ajustar o número de nós manualmente se planejar ter mais ou menos cargas de trabalho de contêiner no cluster.
 
-O exemplo a seguir aumenta o número de nós para três no cluster Kubernetes chamado *myAKSCluster* . Esse comando leva alguns minutos para ser concluído.
+O exemplo a seguir aumenta o número de nós para três no cluster Kubernetes chamado *myAKSCluster*. Esse comando leva alguns minutos para ser concluído.
 
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3

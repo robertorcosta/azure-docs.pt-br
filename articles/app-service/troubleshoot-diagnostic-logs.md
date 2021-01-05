@@ -4,13 +4,13 @@ description: Saiba como habilitar o log de diagnóstico e adicionar instrumenta�
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
-ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
-ms.openlocfilehash: 99a3c9a9c26eebe8dfdf11baf718fd13f7539607
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 875254071d0ea252508242b83102fb8ca8b44e53
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025269"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825380"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -62,7 +62,7 @@ Selecione o **nível** ou o nível de detalhes para o log. A tabela a seguir mos
 
 | Nível | Categorias incluídas |
 |-|-|
-|**Desabilitado** | Nenhum |
+|**Desabilitada** | Nenhum |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
 |**Informações** | Informações, Aviso, Erro, Crítico|
@@ -185,7 +185,7 @@ Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), voc
 
 A tabela a seguir mostra os tipos de log e as descrições com suporte: 
 
-| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Description |
+| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Descrição |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | Sim | Sim | Sim | Saída padrão e erro padrão |
 | AppServiceHTTPLogs | Sim | Sim | Sim | Sim | Logs do Web Server |

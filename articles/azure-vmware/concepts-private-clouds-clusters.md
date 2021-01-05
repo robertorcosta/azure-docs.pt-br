@@ -3,12 +3,12 @@ title: Conceitos-nuvens e clusters privados
 description: Saiba mais sobre os principais recursos de data centers definidos pelo software da solução Azure VMware e clusters vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7f8508abed3446c58a683454bc49ec7dbb49d051
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967373"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825096"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceitos de nuvem privada e de cluster da solução Azure VMware
 
@@ -48,18 +48,8 @@ Os hosts usados para criar ou dimensionar clusters vêm de um pool isolado de ho
 
 ## <a name="vmware-software-versions"></a>Versões de software VMware
 
-As versões de software atuais do software VMware usado em clusters de nuvem privada da solução Azure VMware são:
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
-| Software              |    Versão   |
-| :---                  |     :---:    |
-| VCSA/vSphere/ESXi |    6,7 U3    | 
-| ESXi                  |    6,7 U3    | 
-| vSAN                  |    6,7 U3    |
-| NSX-T                 |      2.5     |
-
-Para qualquer novo cluster em uma nuvem privada, a versão do software corresponde ao que está em execução. Para qualquer nova nuvem privada em uma assinatura, a versão mais recente da pilha de software é instalada.
-
-Você pode encontrar as políticas e os processos de atualização gerais para o software da plataforma de solução do Azure VMware descrito em [atualizações de nuvem privada e upgrades](concepts-upgrades.md).
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Manutenção do host e gerenciamento do ciclo de vida
 

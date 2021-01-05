@@ -3,15 +3,15 @@ title: Guia de referência de funções em expressões
 description: Guia de referência de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: a4646263eeb93a33a03e32107b46bb6dc104ce06
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 5c03d9b64f957f6ef8450197477f185dc8d15b2d
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326294"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825852"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -1678,7 +1678,7 @@ decodeUriComponent('<value>')
 Esse exemplo substitui os caracteres de escape nesta cadeia de caracteres por versões decodificadas:
 
 ```
-decodeUriComponent('http%3A%2F%2Fcontoso.com')
+decodeUriComponent('https%3A%2F%2Fcontoso.com')
 ```
 
 E retorna este resultado: `"https://contoso.com"`
@@ -1753,7 +1753,7 @@ Esse exemplo cria uma versão codificada para URI para esta cadeia de caracteres
 encodeUriComponent('https://contoso.com')
 ```
 
-E retorna este resultado: `"http%3A%2F%2Fcontoso.com"`
+E retorna este resultado: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
@@ -3925,7 +3925,7 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres cujos caracteres você deseja |
 | <*startIndex*> | Sim | Integer | Um número positivo igual ou superior a 0 que você deseja usar como a posição inicial ou o valor do índice |
-| <*length*> | No | Integer | Um número positivo de caracteres que você deseja na subcadeia de caracteres |
+| <*length*> | Não | Integer | Um número positivo de caracteres que você deseja na subcadeia de caracteres |
 |||||
 
 > [!NOTE]
@@ -4174,7 +4174,7 @@ Este exemplo cria uma matriz do valor de chave "feedUrl" em uma saída de dados 
 triggerFormDataMultiValues('feedUrl')
 ```
 
-E retorna esta matriz como um resultado de exemplo: `["http://feeds.reuters.com/reuters/topNews"]`
+E retorna esta matriz como um resultado de exemplo: `["https://feeds.a.dj.com/rss/RSSMarketsMain.xml"]`
 
 <a name="triggerFormDataValue"></a>
 
@@ -4205,7 +4205,7 @@ Este exemplo cria uma cadeia de caracteres do valor de chave "feedUrl" em uma sa
 triggerFormDataValue('feedUrl')
 ```
 
-E retorna esta cadeia de caracteres como um resultado de exemplo: `"http://feeds.reuters.com/reuters/topNews"`
+E retorna esta cadeia de caracteres como um resultado de exemplo: `"https://feeds.a.dj.com/rss/RSSMarketsMain.xml"`
 
 <a name="triggerMultipartBody"></a>
 
@@ -4336,7 +4336,7 @@ Esse exemplo cria uma versão codificada para URI para esta cadeia de caracteres
 uriComponent('https://contoso.com')
 ```
 
-E retorna este resultado: `"http%3A%2F%2Fcontoso.com"`
+E retorna este resultado: `"https%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
@@ -4363,7 +4363,7 @@ uriComponentToBinary('<value>')
 Esse exemplo cria a versão binária para esta cadeia de caracteres codificada para URI:
 
 ```
-uriComponentToBinary('http%3A%2F%2Fcontoso.com')
+uriComponentToBinary('https%3A%2F%2Fcontoso.com')
 ```
 
 E retorna este resultado:
@@ -4398,7 +4398,7 @@ uriComponentToString('<value>')
 Esse exemplo cria a versão de cadeia de caracteres decodificada para esta cadeia de caracteres codificada para URI:
 
 ```
-uriComponentToString('http%3A%2F%2Fcontoso.com')
+uriComponentToString('https%3A%2F%2Fcontoso.com')
 ```
 
 E retorna este resultado: `"https://contoso.com"`
@@ -4458,7 +4458,7 @@ uriPath('<uri>')
 Esse exemplo localiza o valor `path` para este URI:
 
 ```
-uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPath('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E retorna este resultado: `"/catalog/shownew.htm"`
@@ -4488,7 +4488,7 @@ uriPathAndQuery('<uri>')
 Esse exemplo localiza os valores `path` e `query` para este URI:
 
 ```
-uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriPathAndQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E retorna este resultado: `"/catalog/shownew.htm?date=today"`
@@ -4518,7 +4518,7 @@ uriPort('<uri>')
 Esse exemplo retorna o valor `port` deste URI:
 
 ```
-uriPort('http://www.localhost:8080')
+uriPort('https://www.localhost:8080')
 ```
 
 E retorna este resultado: `8080`
@@ -4548,7 +4548,7 @@ uriQuery('<uri>')
 Esse exemplo retorna o valor `query` deste URI:
 
 ```
-uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriQuery('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E retorna este resultado: `"?date=today"`
@@ -4578,7 +4578,7 @@ uriScheme('<uri>')
 Esse exemplo retorna o valor `scheme` deste URI:
 
 ```
-uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
+uriScheme('https://www.contoso.com/catalog/shownew.htm?date=today')
 ```
 
 E retorna este resultado: `"http"`
@@ -4918,16 +4918,16 @@ Aqui está o resultado: `30`
 
 *Exemplo 8*
 
-Neste exemplo, suponha que você tenha essa cadeia de caracteres XML, que inclui o namespace do documento XML, `xmlns="http://contoso.com"` :
+Neste exemplo, suponha que você tenha essa cadeia de caracteres XML, que inclui o namespace do documento XML, `xmlns="https://contoso.com"` :
 
 ```xml
-<?xml version="1.0"?><file xmlns="http://contoso.com"><location>Paris</location></file>
+<?xml version="1.0"?><file xmlns="https://contoso.com"><location>Paris</location></file>
 ```
 
-Essas expressões usam a expressão XPath `/*[name()="file"]/*[name()="location"]` ou `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` , para localizar nós que correspondam ao `<location></location>` nó. Estes exemplos mostram a sintaxe que você usa no designer de aplicativo lógico ou no editor de expressão:
+Essas expressões usam a expressão XPath `/*[name()="file"]/*[name()="location"]` ou `/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]` , para localizar nós que correspondam ao `<location></location>` nó. Estes exemplos mostram a sintaxe que você usa no designer de aplicativo lógico ou no editor de expressão:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="https://contoso.com"]/*[local-name()="location"]')`
 
 Veja o nó de resultado correspondente ao nó `<location></location>`: 
 
