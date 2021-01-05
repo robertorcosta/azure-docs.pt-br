@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 7bbac0d8593d47c3162a8ea43e928343a88f2de4
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 34efef4a01b58cc26fd1567336184837a703ade2
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861447"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97837671"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gerenciar o console de gerenciamento local
 
@@ -298,26 +298,6 @@ Para redefinir sua senha:
 
 > [!NOTE]
 > O sensor está vinculado à assinatura à qual ele foi conectado originalmente. Você pode recuperar a senha somente usando a mesma assinatura à qual ela está anexada.
-
-## <a name="update-the-software-version"></a>Atualizar a versão do software
-
-O procedimento a seguir descreve como atualizar a versão do software do console de gerenciamento local. O processo de atualização leva cerca de 30 minutos.
-
-1. Vá para o [Portal do Azure](https://portal.azure.com/).
-
-1. Vá para defender para IoT.
-
-1. Vá para a página **atualizações** .
-
-1. Selecione uma versão na seção console de gerenciamento local.
-
-1. Selecione **Baixar** e salve o arquivo.
-
-1. Faça logon no console de gerenciamento local e selecione **configurações do sistema** no menu lateral.
-
-1. No painel **atualização de versão** , selecione **Atualizar**.
-
-1. Selecione o arquivo que você baixou da página de **atualizações** do defender for IOT.
 
 ## <a name="see-also"></a>Consulte também
 
