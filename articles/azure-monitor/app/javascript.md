@@ -4,12 +4,12 @@ description: Obter a exibição de página e contagens de sessão, dados de clie
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0588a3eac4ced6cec1e7aea431c6555bbe8bff0a
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 6678c662c4646a8181b1617ccddf9b8718c957bf
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559872"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858545"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -132,7 +132,7 @@ appInsights.trackPageView();
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Enviando telemetria para o portal do Azure
 
-Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Elas incluem:
+Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Estão incluídos:
 
 - **Exceções não capturadas** em seu aplicativo, incluindo informações sobre
     - Rastreamento de pilha
@@ -339,7 +339,7 @@ Alterações recentes na versão do SDK v2:
 - Para permitir melhores assinaturas de API, algumas das chamadas à API, como trackPageView e trackexception, foram atualizadas. Não há suporte para a execução no Internet Explorer 8 e em versões anteriores do navegador.
 - O envelope de telemetria tem alterações de estrutura e nome de campo devido a atualizações de esquema de dados.
 - Movido `context.operation` para `context.telemetryTrace` . Alguns campos também foram alterados ( `operation.id`  -->  `telemetryTrace.traceID` ).
-  - Para atualizar manualmente a ID de Pageview atual (por exemplo, em aplicativos de SPA), use `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()` .
+  - Para atualizar manualmente a ID de Pageview atual (por exemplo, em aplicativos de SPA), use `appInsights.properties.context.telemetryTrace.traceID = Microsoft.ApplicationInsights.Telemetry.Util.generateW3CId()` .
     > [!NOTE]
     > Para manter a ID de rastreamento exclusiva, onde você usou anteriormente `Util.newId()` , agora use `Util.generateW3CId()` . Os dois, finalmente, acabam sendo a ID da operação.
 

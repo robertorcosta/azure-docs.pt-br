@@ -2,20 +2,22 @@
 title: Unidades de instância BareMetal no Azure
 description: Saiba como identificar e interagir com as unidades de instância do BareMetal por meio do portal do Azure.
 ms.topic: how-to
-ms.date: 12/31/2020
-ms.openlocfilehash: 927baa79519781ef74920b17bc9fcd858f0f6c6f
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829098"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861031"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gerenciar Instâncias de BareMetal por meio do portal do Azure
  
 Este artigo mostra como o [portal do Azure](https://portal.azure.com/) exibe [instâncias BareMetal](baremetal-overview-architecture.md). Este artigo também mostra as atividades que você pode fazer no portal do Azure com suas unidades de instância BareMetal implantadas. 
  
 ## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
-Um provedor de recursos do Azure para instâncias BareMetal fornece visibilidade das instâncias no portal do Azure, atualmente em visualização pública. Por padrão, a assinatura do Azure usada para implantações de instância BareMetal registra o provedor de recursos *BareMetalInfrastructure* . Se você não vir suas unidades de instância de BareMetal implantadas, deverá registrar o provedor de recursos com sua assinatura. Há duas maneiras de registrar o provedor de recursos de instância de BareMetal:
+Um provedor de recursos do Azure para instâncias BareMetal fornece visibilidade das instâncias no portal do Azure, atualmente em visualização pública. Por padrão, a assinatura do Azure usada para implantações de instância BareMetal registra o provedor de recursos *BareMetalInfrastructure* . Se você não vir suas unidades de instância de BareMetal implantadas, deverá registrar o provedor de recursos com sua assinatura. 
+
+Há duas maneiras de registrar o provedor de recursos de instância de BareMetal:
  
 * [CLI do Azure](#azure-cli)
  
@@ -85,15 +87,15 @@ Os atributos na imagem não parecem muito diferentes dos atributos da VM (máqui
 À direita, você verá o nome da unidade, o sistema operacional (SO), o endereço IP e a SKU que mostra o número de threads de CPU e memória. Você também verá o estado de energia e a versão de hardware (revisão do carimbo de instância BareMetal). O estado de energia indica se a unidade de hardware está ligada ou desativada. Os detalhes do sistema operacional, no entanto, não indicam se ele está ativo e em execução.
  
 As possíveis revisões de hardware são:
+
+* Revisão 3 (Rev. 3)
+
+* Revisão 4 (Rev. 4)
  
-* Revisão 3
- 
-* Revisão 4
- 
-* Revisão 4,2
+* Revisão 4,2 (Rev 4,2)
  
 >[!NOTE]
->A revisão 4,2 é a mais recente estrutura de BareMetal da marca usando a arquitetura de revisão 4. Ele tem melhorias significativas na latência de rede entre as VMs do Azure e as unidades de instância BareMetal implantadas na revisão 4 carimbos ou linhas. Para obter mais informações sobre as diferentes revisões, consulte [infraestrutura do BareMetal no Azure](baremetal-overview-architecture.md).
+>A Rev 4,2 é a mais recente estrutura de BareMetal de marca que usa a arquitetura Rev 4 existente. A Rev 4 fornece mais proximidade com os hosts da VM (máquina virtual) do Azure. Ele tem melhorias significativas na latência de rede entre as VMs do Azure e as unidades de instância BareMetal implantadas em carimbos de Rev 4 ou linhas. Você pode acessar e gerenciar suas instâncias do BareMetal por meio do portal do Azure. Para obter mais informações, consulte [infraestrutura do BareMetal no Azure](baremetal-overview-architecture.md).
  
 Além disso, no lado direito, você encontrará o nome [do grupo de posicionamento de proximidade do Azure](../../../virtual-machines/linux/co-location.md) , que é criado automaticamente para cada unidade de instância de BareMetal implantada. Referencie o grupo de posicionamento de proximidade ao implantar as VMs do Azure que hospedam a camada de aplicativo. Ao usar o grupo de posicionamento de proximidade associado à unidade de instância BareMetal, você garante que as VMs do Azure sejam implantadas perto da unidade de instância BareMetal.
  

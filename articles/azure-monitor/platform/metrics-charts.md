@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: be3d3f11e90c17bd8c4792418500da651039e480
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a80eaecc02fa3c8c6618341c02e22241f0dc7faf
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562796"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845037"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Recursos avançados do Azure Metrics Explorer
 
@@ -22,6 +22,35 @@ ms.locfileid: "97562796"
 ## <a name="metrics-in-azure"></a>Métricas no Azure
 
 [Métricas no Azure Monitor](data-platform-metrics.md) são a série de valores medidos e as contagens coletadas e armazenadas ao longo do tempo. Há métricas padrão (ou da “plataforma”) e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de uso e integridade dos recursos do Azure. Enquanto as métricas personalizadas são enviadas ao Azure por seus aplicativos usando a [api Application insights para métricas e eventos personalizados](../app/api-custom-events-metrics.md),  [extensão WAD (Windows diagnóstico do Azure)](./diagnostics-extension-overview.md)ou por [Azure monitor API REST](./metrics-store-custom-rest-api.md).
+
+## <a name="resource-scope-picker"></a>Seletor de escopo de recurso
+O seletor de escopo de recurso permite que você exiba métricas em recursos únicos e múltiplos. Veja abaixo instruções sobre como usar o seletor de escopo de recurso. 
+
+### <a name="selecting-a-single-resource"></a>Selecionando um único recurso
+Selecione **Métricas** no menu do **Azure Monitor** ou na seção **Monitoramento** do menu de um recurso. Clique no botão "selecionar um escopo" para abrir o seletor de escopo, que permitirá selecionar os recursos para os quais você deseja ver as métricas. Isso já deve estar preenchido se você abrir o Metrics Explorer no menu de um recurso. 
+
+![Captura de tela do seletor de escopo do recurso](./media/metrics-charts/scope-picker.png)
+
+Para determinados recursos, você só pode exibir as métricas de um único recurso por vez. Esses recursos estão na seção "todos os tipos de recurso" no menu suspenso tipos de recursos.
+
+![Captura de tela de recurso único](./media/metrics-charts/single-resource-scope.png)
+
+Depois de clicar no recurso desejado, você verá todas as assinaturas e grupos de recursos que contêm esse recurso.
+
+![Captura de tela dos recursos disponíveis](./media/metrics-charts/available-single-resource.png)
+
+> [!TIP]
+> Se você quiser exibir as métricas de vários recursos ao mesmo tempo ou as métricas em uma assinatura ou grupo de recursos, clique no botão de voto.
+
+Quando estiver satisfeito com sua seleção, clique em "aplicar".
+
+### <a name="viewing-metrics-across-multiple-resources"></a>Exibindo métricas em vários recursos
+Alguns tipos de recursos habilitaram a capacidade de consultar métricas em vários recursos, desde que estejam dentro da mesma assinatura e local. Esses tipos de recursos podem ser encontrados na parte superior da lista suspensa "tipos de recurso". Para obter mais detalhes sobre como exibir as métricas em vários recursos, exiba [este documento](metrics-dynamic-scope.md#selecting-multiple-resources).
+
+![Captura de tela de tipos de recurso cruzado](./media/metrics-charts/multi-resource-scope.png)
+
+Para tipos compatíveis com vários recursos, você também pode consultar métricas em uma assinatura ou em vários grupos de recursos. Para saber como fazer isso, veja [Este artigo](metrics-dynamic-scope.md#selecting-a-resource-group-or-subscription)
+
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Criar exibições com várias métricas e gráficos
 
@@ -61,11 +90,25 @@ Por exemplo, suponha que o gráfico esteja mostrando a métrica de **tempo de re
 
 Há cinco tipos de agregação de estatísticas básicos disponíveis no Metrics Explorer: **soma**, **contagem**, **mín**., **máx**. e **média**. A agregação **sum** às vezes é referida como agregação **total** . Para muitas métricas, Metrics Explorer ocultará as agregações que são totalmente irrelevantes e não podem ser usadas.
 
-- **Sum** – a soma de todos os valores capturados sobre o intervalo de agregação
-- **Contagem** – o número de medições capturadas no intervalo de agregação. Observe que **Count** será igual a **sum** , no caso em que a métrica é sempre capturada com o valor de 1. Isso é comum quando a métrica acompanha a contagem de eventos distintos e cada medida representa um evento (ou seja, o código dispara um registro de métrica sempre que uma nova solicitação chega)
-- **Média** – a média dos valores de métrica capturados no intervalo de agregação
-- **Min** – o menor valor capturado sobre o intervalo de agregação
-- **Max** – o maior valor capturado sobre o intervalo de agregação
+**Sum** – a soma de todos os valores capturados sobre o intervalo de agregação
+
+![Captura de tela da soma da solicitação](./media/metrics-charts/request-sum.png)
+
+**Contagem** – o número de medições capturadas no intervalo de agregação. Observe que **Count** será igual a **sum** , no caso em que a métrica é sempre capturada com o valor de 1. Isso é comum quando a métrica acompanha a contagem de eventos distintos e cada medida representa um evento (ou seja, o código dispara um registro de métrica sempre que uma nova solicitação chega)
+
+![Captura de tela da contagem de solicitações](./media/metrics-charts/request-count.png)
+
+**Média** – a média dos valores de métrica capturados no intervalo de agregação
+
+![Captura de tela da solicitação média](./media/metrics-charts/request-avg.png)
+
+**Min** – o menor valor capturado sobre o intervalo de agregação
+
+![Captura de tela da solicitação mínima](./media/metrics-charts/request-min.png)
+
+**Max** – o maior valor capturado sobre o intervalo de agregação
+
+![Captura de tela da solicitação máxima](./media/metrics-charts/request-max.png)
 
 ## <a name="apply-filters-to-charts"></a>Aplicar filtros a gráficos
 

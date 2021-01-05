@@ -6,14 +6,14 @@ services: application-gateway
 author: surajmb
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 01/02/2021
 ms.author: victorh
-ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: aadd4904ff218613c0dd24daff784ad5b8b90fbb
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397545"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854903"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurar Serviço de Aplicativo com Gateway de Aplicativo
 
@@ -36,9 +36,9 @@ Neste artigo, você aprenderá como:
 
 1. No portal do Azure, selecione o gateway de aplicativo.
 
-2. Em **pools de back-end** , selecione o pool de back-end.
+2. Em **pools de back-end**, selecione o pool de back-end.
 
-4. Em **tipo de destino** , selecione **serviços de aplicativos**.
+4. Em **tipo de destino**, selecione **serviços de aplicativos**.
 
 5. Em **destino** , selecione seu serviço de aplicativo.
 
@@ -46,15 +46,15 @@ Neste artigo, você aprenderá como:
    
    > [!NOTE]
    > A lista suspensa popula apenas os serviços de aplicativo que estão na mesma assinatura que o seu gateway de aplicativo. Se você quiser usar um serviço de aplicativo que esteja em uma assinatura diferente daquela em que o gateway de aplicativo está, em vez de escolher **serviços de aplicativos** na lista suspensa **destinos** , escolha **endereço IP ou** opção de nome de host e insira o nome do host (exemplo. azurewebsites.net) do serviço de aplicativo.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="edit-http-settings-for-app-service"></a>Editar configurações de HTTP para o serviço de aplicativo
 
-1. Em **configurações de http** , selecione a configuração http existente.
+1. Em **configurações de http**, selecione a configuração http existente.
 
-2. Em **substituir por um novo nome de host** , selecione **Sim**.
-3. Em **substituição do nome do host** , selecione **escolher nome do host do destino de back-end**.
-4. Selecione **Salvar**.
+2. Em **substituir por um novo nome de host**, selecione **Sim**.
+3. Em **substituição do nome do host**, selecione **escolher nome do host do destino de back-end**.
+4. Clique em **Salvar**.
 
    :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Escolha o nome do host nas configurações de http de back-end":::
 

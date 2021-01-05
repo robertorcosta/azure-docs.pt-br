@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 5645a2e0449a1929421f9444bf645f08ad0525e9
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 10fa47a8f613218b1331259040be77df867ade95
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296804"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854835"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -42,10 +42,10 @@ O Microsoft defender for Endpoint é uma solução de segurança de ponto de ext
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado da versão:                  | GA (em disponibilidade geral)                                                                                                                                                                                                                                                                                      |
 | Preço:                        | Requer [Azure Defender para Servidores](security-center-pricing.md)                                                                                                                                                                                                                                             |
-| Plataformas compatíveis:            | ![Sim](./media/icons/yes-icon.png) Máquinas do Azure executando o Windows<br>![Sim](./media/icons/yes-icon.png) Computadores do Arc do Azure executando o Windows|
-| Versões do Windows com suporte:  | O defender for Endpoint é integrado ao Windows 10 1703 (e mais recente) e ao Windows Server 2019.<br>A central de segurança dá suporte à detecção no Windows Server 2016, 2012 R2 e 2008 R2 SP1.<br>O monitoramento do ponto de extremidade do servidor usando essa integração foi desabilitado para clientes do Office 365 GCC. |
-| Funções e permissões necessárias: | Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura** ou colaborador da **assinatura**                         |
-| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens globais do Azure<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China Gov, outros Gov                                                        |
+| Plataformas compatíveis:            | Máquinas do Azure executando o Windows<br>Computadores do Arc do Azure executando o Windows|
+| Versões do Windows com suporte:  |  • A central de segurança dá suporte à detecção no Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • O monitoramento do ponto de extremidade do servidor usando essa integração foi desabilitado para clientes do Office 365 GCC<br> • Não há suporte para Windows Server 2019, Windows 10 1703 (e mais recente) ou Linux|
+| Funções e permissões necessárias: | Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura** ou colaborador da **assinatura**|
+| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens globais do Azure                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 

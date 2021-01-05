@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: b4acd431656eb008702f62dc1ecf12bda62dae17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176060700f50a6ce6e8cb5cf622ee4c922e5a952
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051076"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845354"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Suporte a idiomas e regiões para a API do reconhecedor de tinta
 
@@ -41,8 +41,8 @@ Este artigo explica quais idiomas têm suporte para a API do reconhecedor de tin
 | Holandês (Países Baixos)                        |     `nl-NL`     |
 | Inglês (Austrália)                        |     `en-AU`     |
 | Inglês (Canadá)                           |     `en-CA`     |
-| Inglês (Reino Unido)                   |     `en-GB`     |
 | Inglês (Índia)                            |     `en-IN`     |
+| Inglês (Reino Unido)                   |     `en-GB`     |
 | Inglês (Estados Unidos)                    |     `en-US`     |
 | Finlandês                                    |     `fi-FI`     |
 | Francês (França)                            |     `fr-FR`     |
@@ -50,7 +50,7 @@ Este artigo explica quais idiomas têm suporte para a API do reconhecedor de tin
 | Alemão (Suíça)                      |     `de-CH`     |
 | Alemão (Alemanha)                           |     `de-DE`     |
 | Grego                                      |     `el-GR`     |
-| Híndi                                      |     `hi-IN`     |
+| Hindi                                      |     `hi-IN`     |
 | Indonésio                                 |     `id-ID`     |
 | Irlandês                                      |     `ga-IE`     |
 | Italiano (Itália)                            |     `it-IT`     |
@@ -67,23 +67,23 @@ Este artigo explica quais idiomas têm suporte para a API do reconhecedor de tin
 | Polonês                                     |     `pl-PL`     |
 | Português (Brasil)                        |     `pt-BR`     |
 | Português (Portugal)                      |     `pt-PT`     |
-| Romanche                                    |     `rm-CH`     |
 | Romeno                                   |     `ro-RO`     |
+| Romanche                                    |     `rm-CH`     |
 | Russo                                    |     `ru-RU`     |
 | Gaélico escocês                            |     `gd-GB`     |
-| Soto setentrional                           |    `nso-ZA`     |
 | Sérvio (Cirílico, Bósnia e Herzegovina) |  `sr-Cyrl-BA`   |
 | Sérvio (cirílico, Montenegro)             |  `sr-Cyrl-ME`   |
 | Sérvio (Cirílico, Sérvia)                 |  `sr-Cyrl-RS`   |
 | Sérvio (latino, Bósnia e Herzegovina)    |  `sr-Latn-BA`   |
 | Sérvio (latino, Montenegro)                |  `sr-Latn-ME`   |
 | Sérvio (Latino, Sérvia)                    |  `sr-Latn-RS`   |
+| Soto setentrional                           |    `nso-ZA`     |
 | Setswana (África do Sul)                    |     `tn-ZA`     |
 | Eslovaco                                     |     `sk-SK`     |
 | Esloveno                                  |     `sl-SI`     |
 | Espanhol (Argentina)                        |     `es-AR`     |
-| Espanhol (Espanha)                            |     `es-ES`     |
 | Espanhol (México)                           |     `es-MX`     |
+| Espanhol (Espanha)                            |     `es-ES`     |
 | Sueco (Suécia)                           |     `sv-SE`     |
 | Turco                                    |     `tr-TR`     |
 | Galês                                      |     `cy-GB`     |
@@ -91,7 +91,7 @@ Este artigo explica quais idiomas têm suporte para a API do reconhecedor de tin
 | Xhosa                                      |     `xh-ZA`     |
 | Zulu                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [O que é a API de Reconhecimento de Tinta Digital?](overview.md)
 * [Enviando traços de tinta digital para a API do reconhecedor de tinta](concepts/send-ink-data.md)

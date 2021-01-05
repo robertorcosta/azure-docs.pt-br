@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: aef332e54fa650e1abbebe671560238d7eb318de
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f2d55d1fcc92abdc629581d6e4d277ec0294dce0
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492039"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858681"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Solucionar problemas de arquivos do Azure no Windows (SMB)
 
@@ -26,7 +26,7 @@ Este artigo lista os problemas comuns relacionados aos Arquivos do Microsoft Azu
 
 Quando você tenta montar um compartilhamento de arquivos, pode receber o erro a seguir:
 
-- Ocorreu um erro de sistema 5. O acesso foi negado.
+- Ocorreu um erro de sistema 5. Acesso negado.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação não criptografado
 
@@ -406,6 +406,8 @@ O cmdlet executa essas verificações abaixo em sequência e fornece diretrizes 
 5. CheckSidHasAadUser: Verifique se o usuário conectado do AD está sincronizado com o Azure AD. Se você quiser procurar se um usuário específico do AD está sincronizado com o Azure AD, você pode especificar o-UserName e-Domain nos parâmetros de entrada. 
 6. CheckGetKerberosTicket: tentativa de obter um tíquete Kerberos para conectar-se à conta de armazenamento. Se não houver um token Kerberos válido, execute o cmdlet klist Get CIFS/Storage-Account-Name. File. Core. Windows. net e examine o código de erro para raiz, causando a falha de recuperação do tíquete.
 7. CheckStorageAccountDomainJoined: Verifique se a autenticação do AD foi habilitada e se as propriedades do AD da conta estão preenchidas. Caso contrário, consulte a instrução [aqui](./storage-files-identity-ad-ds-enable.md) para habilitar a autenticação de AD DS nos arquivos do Azure. 
+8. CheckUserRbacAssignment: Verifique se o usuário do AD tem a atribuição de função RBAC apropriada para fornecer a permissão de nível de compartilhamento para acessar os arquivos do Azure. Caso contrário, consulte a instrução [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions) para configurar a permissão de nível de compartilhamento. (Com suporte em AzFilesHybrid v 0.2.3 + versão)
+9. CheckUserFileAccess: Verifique se o usuário do AD tem a permissão de diretório/arquivo apropriada (ACLs do Windows) para acessar os arquivos do Azure. Caso contrário, consulte a instrução [aqui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions) para configurar a permissão de nível de diretório/arquivo. (Com suporte em AzFilesHybrid v 0.2.3 + versão)
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Não é possível configurar permissões de nível de diretório/arquivo (ACLs do Windows) com o explorador de arquivos do Windows
 

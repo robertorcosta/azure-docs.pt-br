@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492203"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845474"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recebimento
 
@@ -62,7 +62,7 @@ A API de recebimento também retorna as seguintes informações:
 Para experimentar o serviço de recebimento do reconhecedor de formulário, vá para a ferramenta de interface do usuário de exemplo online:
 
 > [!div class="nextstepaction"]
-> [Experimente modelos predefinidos](https://fott-preview.azurewebsites.net/)
+> [Experimentar modelos predefinidos](https://fott-preview.azurewebsites.net/)
 
 ## <a name="input-requirements"></a>Requisitos de entrada
 
@@ -95,7 +95,7 @@ A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/
 
 A segunda etapa é chamar a operação [obter resultado de recebimento de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de confirmação de análise. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Type | Valores possíveis |
+|Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada. |
 | |  | em execução: a operação de análise está em andamento. |
@@ -456,12 +456,11 @@ A saída de recebimento também é útil para o livro geral-mantendo para uso pe
 
 Os recibos contêm dados úteis que você pode usar para analisar o comportamento do consumidor e as tendências de compra.
 
-A API de recebimento também alimenta o [recurso de processamento de recibo AIBuilder](/ai-builder/prebuilt-receipt-processing).
+A API de recebimento também alimenta o [recurso de processamento de recibo do ia Builder](/ai-builder/prebuilt-receipt-processing).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Preencha um guia de [início rápido da biblioteca de cliente do reconhecedor de formulário](quickstarts/client-library.md) para começar a gravar um aplicativo de processamento de recibo com o reconhecedor de formulário no idioma de sua escolha.
-- Ou siga o guia de [início rápido do Python da API de recebimento](./quickstarts/python-receipts.md) para reconhecer recibos usando a API REST.
+- Conclua um [início rápido do reconhecedor de formulário](quickstarts/client-library.md) para começar a gravar um aplicativo de processamento de recibo com o reconhecedor de formulário no idioma de sua escolha.
 
 ## <a name="see-also"></a>Confira também
 

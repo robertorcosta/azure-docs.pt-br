@@ -3,12 +3,12 @@ title: Centro de backup-perguntas frequentes
 description: Este artigo responde às perguntas frequentes sobre o centro de backup
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: c5b23a32b60f651cd3ff91819155d83a7465491a
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5befa39411c22253bfccc689d8b5c5967a8cd759
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173825"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858613"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Centro de backup-perguntas frequentes
 
@@ -34,7 +34,9 @@ Não. O centro de backup vem pronto para uso. No entanto, para exibir [relatóri
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>Preciso ter permissões especiais para usar o centro de backup?
 
-O centro de backup, como tal, não precisa de nenhuma nova permissão. Contanto que você tenha o nível certo de acesso do RBAC do Azure para os recursos que você está gerenciando, você pode usar o centro de backup para esses recursos. Por exemplo, para exibir informações sobre seus backups, você precisará de acesso de **leitor** aos seus cofres. Para configurar o backup e executar outras ações relacionadas ao backup, você precisará de funções de **operador de backup** ou colaborador de **backup** . Saiba mais sobre as [funções do Azure para o backup do Azure](./backup-rbac-rs-vault.md).
+O centro de backup, como tal, não precisa de nenhuma nova permissão. Contanto que você tenha o nível certo de acesso do RBAC do Azure para os recursos que você está gerenciando, você pode usar o centro de backup para esses recursos. Por exemplo, para exibir informações sobre seus backups, você precisará de acesso de **leitor** aos seus cofres. Para configurar o backup e executar outras ações relacionadas ao backup, você precisará de funções de **operador de backup** ou colaborador de **backup** . Saiba mais sobre as [funções do Azure para o backup do Azure](./backup-rbac-rs-vault.md). 
+
+Se você estiver usando [relatórios de backup](./configure-reports.md) no centro de backup, precisará de acesso aos espaços de trabalho do log Analytics aos quais seus cofres estão enviando dados para exibir relatórios para esses cofres.
 
 ## <a name="pricing"></a>Preços
 

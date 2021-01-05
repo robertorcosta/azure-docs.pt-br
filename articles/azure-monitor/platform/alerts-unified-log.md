@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: 9f8004b41e8048dfc97fb61bb67a634963c0c575
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317547"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857419"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 
@@ -62,7 +62,7 @@ O intervalo de tempo é definido na definição da condição da regra. Em espa�
 
 Assim como no log Analytics, o intervalo de tempo limita os dados de consulta ao intervalo especificado. Mesmo que o comando **atrás** seja usado na consulta, o intervalo de tempo será aplicado.
 
-Por exemplo, uma consulta examina 60 minutos, quando o intervalo de tempo é de 60 minutos, mesmo se o texto contiver **atrás (1D)**. O intervalo de tempo e a filtragem de tempo de consulta precisam corresponder. No caso de exemplo, alterar o **Period**  /  **intervalo de tempo de consulta de substituição** de período para um dia funcionaria como esperado.
+Por exemplo, uma consulta examina 60 minutos, quando o intervalo de tempo é de 60 minutos, mesmo se o texto contiver **atrás (1D)**. O intervalo de tempo e a filtragem de tempo de consulta precisam corresponder. No caso de exemplo, alterar o   /  **intervalo de tempo de consulta de substituição** de período para um dia funcionaria como esperado.
 
 ### <a name="measure"></a>Medida
 
@@ -120,6 +120,8 @@ Em espaços de trabalho e Application Insights, há suporte apenas em tipo de me
 ### <a name="split-by-alert-dimensions"></a>Dividir por dimensões de alerta
 
 Divida os alertas por número ou colunas de cadeia de caracteres em alertas separados agrupando em combinações exclusivas. Ao criar alertas centrados em recursos em escala (assinatura ou escopo do grupo de recursos), você pode dividir pela coluna ID de recurso do Azure. A divisão na coluna ID de recurso do Azure alterará o destino do alerta para o recurso especificado.
+
+A divisão pela coluna ID de recurso do Azure é recomendada quando você deseja monitorar a mesma condição em vários recursos do Azure. Por exemplo, monitorar todas as máquinas virtuais para uso da CPU acima de 80%. Você também pode optar por não dividir quando quiser uma condição em vários recursos no escopo, como o monitoramento de que pelo menos cinco computadores no escopo do grupo de recursos têm o uso da CPU acima de 80%.
 
 Em espaços de trabalho e Application Insights, há suporte apenas em tipo de medida de **medida métrica** . O campo é chamado de **agregação em**. Ele é limitado a três colunas. Ter mais de três grupos por colunas na consulta pode levar a resultados inesperados. Em todos os outros tipos de recursos, ele é configurado na seção **dividir por dimensões** da condição (limitada a seis divisões).
 
@@ -182,7 +184,7 @@ Em espaços de trabalho e Application Insights, ele é chamado de **suprimir ale
 
 Consulte este exemplo de avaliação de alerta:
 
-| Hora    | Avaliação da condição de log | Resultado 
+| Hora    | Avaliação da condição de log | Result 
 | ------- | ----------| ----------| ------- 
 | 00:05 | FALSE | O alerta não é acionado. Nenhuma ação chamada.
 | 00:10 | TRUE  | O alerta é acionado e os grupos de ação chamados. Novo estado de alerta ativo.

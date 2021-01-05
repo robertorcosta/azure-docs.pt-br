@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/03/2020
-ms.openlocfilehash: 69b2713e928707479945df0bb242ac2fbc001c32
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.date: 12/23/2020
+ms.openlocfilehash: 3f5a6171ba81b858d649f381ed316be0637a2571
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600652"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858647"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -245,6 +245,18 @@ derive(each(match(type=='string'), $$ = 'string'),
     each(match(type=='timestamp'), $$ = 'timestamp'),
     each(match(type=='boolean'), $$ = 'boolean'),
     each(match(type=='double'), $$ = 'double')) ~> DerivedColumn1
+```
+
+### <a name="fill-down"></a>Preencher
+Aqui está como implementar o problema comum de "preenchimento" com conjuntos de dados quando você deseja substituir valores nulos pelo valor do valor não nulo anterior na sequência. Observe que essa operação pode ter implicações de desempenho negativas, pois você deve criar uma janela sintética em todo o conjunto de dados com um valor de categoria "fictício". Além disso, você deve classificar por um valor para criar a sequência de dados apropriada para localizar o valor não nulo anterior. Este trecho de código abaixo cria a categoria sintética como "fictícia" e classifica por uma chave substituta. Você pode remover a chave substituta e usar sua própria chave de classificação específica de dados. Este trecho de código pressupõe que você já adicionou uma transformação de origem chamada ```source1```
+
+```
+source1 derive(dummy = 1) ~> DerivedColumn
+DerivedColumn keyGenerate(output(sk as long),
+    startAt: 1L) ~> SurrogateKey
+SurrogateKey window(over(dummy),
+    asc(sk, true),
+    Rating2 = coalesce(Rating, last(Rating, true()))) ~> Window1
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

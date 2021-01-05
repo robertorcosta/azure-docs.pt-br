@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 7b872340c50c800ebe4d4d6c7ca56b3b327bf162
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: seodec18,references_regions
+ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95972633"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854852"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões com suporte do serviço de fala
 
@@ -44,6 +44,8 @@ O serviço de fala está disponível nessas regiões para **reconhecimento de fa
 
 Se você usar o [SDK de fala](speech-sdk.md), as regiões serão especificadas pelo **identificador de região** (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` ). Verifique se a região corresponde à região da sua assinatura.
 
+Se você planeja treinar um modelo personalizado com dados de áudio, use uma das [regiões com hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento mais rápido. Você pode usar a [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) para copiar o modelo totalmente treinado para outra região posteriormente.
+
 ### <a name="intent-recognition"></a>Reconhecimento de intenção
 
 As regiões disponíveis para **reconhecimento de intenção** por meio do SDK de Fala são os seguintes:
@@ -61,23 +63,27 @@ As regiões disponíveis para **reconhecimento de intenção** por meio do SDK d
 | América do Norte | Centro-Oeste dos EUA  | `westcentralus`      |
 | América do Norte | Oeste dos EUA          | `westus`             |
 | América do Norte | Oeste dos EUA 2        | `westus2`            |
-| América do Sul | Brazil South     | `brazilsouth`        |
+| América do Sul | Sul do Brasil     | `brazilsouth`        |
 
 Este é um subconjunto das regiões de publicação compatíveis com o [LUIS (Serviço Inteligente de Reconhecimento Vocal)](../luis/luis-reference-regions.md).
 
 ### <a name="voice-assistants"></a>Assistentes de voz
 
-O [SDK de fala](speech-sdk.md) dá suporte a recursos do **Assistente de voz** nessas regiões:
+O [SDK de fala](speech-sdk.md) dá suporte a recursos do **Assistente de voz** por meio de [fala de linha direta](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) nessas regiões:
 
-| Região         | Identificador de região |
-| -------------- | -------------------- |
-| Oeste dos EUA        | `westus`             |
-| Oeste dos EUA 2      | `westus2`            |
-| Leste dos EUA        | `eastus`             |
-| Leste dos EUA 2      | `eastus2`            |
-| Europa Ocidental    | `westeurope`         |
-| Norte da Europa   | `northeurope`        |
-| Sudeste Asiático | `southeastasia`      |
+| Região global | Região           | Identificador de região    |
+| ------------- | ---------------- | -------------------- |
+| América do Norte | Oeste dos EUA          | `westus`             |
+| América do Norte | Oeste dos EUA 2        | `westus2`            |
+| América do Norte | Leste dos EUA          | `eastus`             |
+| América do Norte | Leste dos EUA 2        | `eastus2`            |
+| América do Norte | Centro-Oeste dos EUA  | `westcentralus`      |
+| América do Norte | Centro-Sul dos Estados Unidos | `southcentralus`     |
+| Europa        | Europa Ocidental      | `westeurope`         |
+| Europa        | Norte da Europa     | `northeurope`        |
+| Ásia          | Leste da Ásia        | `eastasia`           |
+| Ásia          | Sudeste Asiático   | `southeastasia`      |
+| Índia         | Índia Central    | `centralindia`       |
 
 ### <a name="speaker-recognition"></a>Reconhecimento do Locutor
 

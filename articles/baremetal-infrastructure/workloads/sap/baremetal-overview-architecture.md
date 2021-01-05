@@ -1,15 +1,15 @@
 ---
 title: Visão geral da visualização da infraestrutura do BareMetal no Azure
-description: Visão geral de como implantar a infraestrutura do BareMetal no Azure.
+description: Visão geral da infraestrutura do BareMetal no Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 12/31/2020
-ms.openlocfilehash: db974d9260344d1f6050235bb2a9fbaa0420659b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.date: 1/4/2021
+ms.openlocfilehash: eb4dc129719dc410f7101598e3d72e68f17809c1
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97829101"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97860981"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>O que é a visualização de infraestrutura do BareMetal no Azure?
 
@@ -25,7 +25,7 @@ A infraestrutura BareMetal para cargas de trabalho especializadas e de uso geral
 - Centro-Sul dos Estados Unidos
 
 >[!NOTE]
->**Rev 4,2** é a mais recente estrutura de BareMetal da marca que usa a arquitetura Rev 4 existente.  A Rev 4 fornece mais proximidade com os hosts da VM (máquina virtual) do Azure e reduz a latência entre as máquinas virtuais do Azure e as unidades de instância BareMetal. Você pode acessar e gerenciar suas instâncias do BareMetal por meio do portal do Azure. 
+>A **Rev 4,2** é a mais recente estrutura de BareMetal de marca que usa a arquitetura Rev 4 existente.  A Rev 4 fornece mais proximidade com os hosts da VM (máquina virtual) do Azure. Ele tem melhorias significativas na latência de rede entre as VMs do Azure e as unidades de instância BareMetal implantadas em carimbos de Rev 4 ou linhas.  Você pode acessar e gerenciar suas instâncias do BareMetal por meio do portal do Azure. 
 
 ## <a name="support"></a>Suporte
 A infraestrutura BareMetal é compatível com ISO 27001, ISO 27017, SOC 1 e SOC 2.  Ele também usa um modelo BYOL (traga sua própria licença): sistema operacional, carga de trabalho especializada e aplicativos de terceiros.  
@@ -35,13 +35,13 @@ Assim que você receber acesso à raiz e controle total, assumirá a responsabil
 - Licenciamento, segurança e suporte para so e software de terceiros
 
 A Microsoft é responsável por:
-- Fornecendo hardware certificado para cargas de trabalho especializadas 
+- Fornecendo o hardware para cargas de trabalho especializadas 
 - Provisionando o sistema operacional
 
 :::image type="content" source="media/baremetal-support-model.png" alt-text="Modelo de suporte de infraestrutura do BareMetal" border="false":::
 
 ## <a name="compute"></a>Computação
-A infraestrutura do BareMetal oferece vários SKUs certificados para cargas de trabalho especializadas. Os SKUs disponíveis variam desde o sistema menor de dois soquetes até o sistema de 24 soquetes. Use os SKUs certificados específicos da carga de trabalho para sua carga de trabalho especializada.
+A infraestrutura do BareMetal oferece várias SKUs para cargas de trabalho especializadas. Os SKUs disponíveis variam desde o sistema menor de dois soquetes até o sistema de 24 soquetes. Use os SKUs específicos da carga de trabalho para sua carga de trabalho especializada.
 
 O selo da instância BareMetal em si combina os seguintes componentes:
 
@@ -72,10 +72,10 @@ As versões disponíveis do sistema operacional Linux são:
    - SLES 15 SP1
 
 ## <a name="storage"></a>Armazenamento
-Instâncias de BareMetal com base em tipo de SKU específico vêm com armazenamento NFS predefinido com base em um tipo de carga de trabalho específico. Ao provisionar o BareMetal, você pode provisionar armazenamento adicional com base em seu crescimento estimado enviando uma solicitação de suporte. Todo o armazenamento é fornecido com um disco flash na revisão 4,2 com suporte para NFSv3 e NFSv4. A revisão mais recente 4,5 NVMe SSD estará disponível. Para obter mais informações sobre o dimensionamento de armazenamento, consulte a seção [tipo de carga de trabalho BareMetal](../../../virtual-machines/workloads/sap/get-started.md) .
+Instâncias de BareMetal com base em tipo de SKU específico vêm com armazenamento NFS predefinido para o tipo de carga de trabalho específico. Ao provisionar o BareMetal, você pode provisionar mais armazenamento com base em seu crescimento estimado enviando uma solicitação de suporte. Todo o armazenamento é fornecido com um disco flash na revisão 4,2 com suporte para NFSv3 e NFSv4. A revisão mais recente 4,5 NVMe SSD estará disponível. Para obter mais informações sobre o dimensionamento de armazenamento, consulte a seção [tipo de carga de trabalho BareMetal](../../../virtual-machines/workloads/sap/get-started.md) .
 
 >[!NOTE]
->O armazenamento usado para BareMetal atende aos requisitos de segurança do FIPS 140-2 oferecendo criptografia em repouso por padrão. Os dados são armazenados com segurança nos discos.
+>O armazenamento usado para BareMetal atende [padrão FIPS (FIPS)](/microsoft-365/compliance/offering-fips-140-2) os requisitos de publicação 140-2 que oferecem criptografia em repouso por padrão. Os dados são armazenados com segurança nos discos.
 
 ## <a name="networking"></a>Rede
 A arquitetura dos serviços de rede do Azure é um componente fundamental para uma implantação bem-sucedida de cargas de trabalho especializadas em instâncias do BareMetal. É provável que nem todos os sistemas de ti estejam localizados no Azure já. O Azure oferece tecnologia de rede para que o Azure pareça uma data center virtual para suas implantações de software local. A funcionalidade de rede do Azure necessária para instâncias de BareMetal é:
@@ -91,10 +91,10 @@ As instâncias de BareMetal são provisionadas no intervalo de endereços IP do 
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" alt-text="Diagrama de infraestrutura BareMetal do Azure" lightbox="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" border="false":::
 
 A arquitetura mostrada é dividida em três seções:
-- **À esquerda:** Mostra a infraestrutura local do cliente que executa aplicativos diferentes, conectando-se por meio do parceiro ou roteador do Edge de borda, como Equinix. Para obter mais informações, consulte [provedores e locais de conectividade: Azure ExpressRoute](../../../expressroute/expressroute-locations.md).
-- **Centro:** Mostra o [ExpressRoute](../../../expressroute/expressroute-introduction.md) provisionado usando sua assinatura do Azure oferecendo conectividade com a rede do Azure Edge.
-- **À direita:** Mostra o IaaS do Azure e, nesse caso, o uso de VMs para hospedar seus aplicativos, que são provisionados em sua rede virtual do Azure.
-- **Parte inferior:** Mostra o uso do gateway de ExpressRoute habilitado com o [Expressroute FastPath](../../../expressroute/about-fastpath.md) para conectividade BareMetal que oferece baixa latência.   
+- **À esquerda:** mostra a infraestrutura local do cliente que executa diferentes aplicativos, conectando-se por meio do parceiro ou roteador de borda locais como Equinix. Para obter mais informações, consulte [provedores e locais de conectividade: Azure ExpressRoute](../../../expressroute/expressroute-locations.md).
+- **Center:** mostra o [ExpressRoute](../../../expressroute/expressroute-introduction.md) provisionado usando sua assinatura do Azure oferecendo conectividade com a rede do Azure Edge.
+- **Direita:** mostra o IaaS do Azure e, nesse caso, o uso de VMs para hospedar seus aplicativos, que são provisionados em sua rede virtual do Azure.
+- **Inferior:** mostra o uso do gateway de expressroute habilitado com o [expressroute FastPath](../../../expressroute/about-fastpath.md) para conectividade BareMetal que oferece baixa latência.   
    >[!TIP]
    >Para dar suporte a isso, o gateway de ExpressRoute deve ser UltraPerformance.  Para obter mais informações, consulte [sobre gateways de rede virtual do ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 79f442c5ab7db92e69f5396f3f9205212bdf4d4d
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d6b916ce03c6850f78217f1aac0b63048a6aff3b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399240"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858494"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -353,6 +353,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Considerações sobre a conta de armazenamento**: 
 
 - Local: a conta de armazenamento usada deve estar na mesma região que o NSG.
+- Nível de desempenho: atualmente, há suporte apenas para contas de armazenamento de camada Standard.
 - Rotação de chaves de autogerenciamento: se você alterar/girar as chaves de acesso para sua conta de armazenamento, os logs de fluxo do NSG deixarão de funcionar. Para corrigir esse problema, você deve desabilitar e, em seguida, reabilitar os logs de fluxo do NSG.
 
 **Custos de log de fluxo**: o log de fluxo de NSG é cobrado no volume de logs produzidos. Um alto volume de tráfego pode resultar em um volume grande de log de fluxo e nos custos associados. Os preços do log de fluxo de NSG não incluem os custos de armazenamento subjacentes. Usar o recurso de política de retenção com log de fluxo NSG significa incorrer em custos de armazenamento separados por longos períodos de tempo. Se você não precisa do recurso de política de retenção, é recomendável que você defina esse valor como 0. Para obter mais informações, consulte [preços do observador de rede](https://azure.microsoft.com/pricing/details/network-watcher/) e preços do [armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter detalhes adicionais.
@@ -374,7 +375,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra de NSG. Em cenários em que vários NSGs são utilizados, recomendamos habilitar os logs de fluxo do NSG em todos os NSGs aplicados à sub-rede do recurso ou à interface de rede para garantir que todo o tráfego seja registrado. Para obter mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em grupos de segurança de rede. 
 
 Alguns cenários comuns:
-1. **Vários NSG em uma NIC**: caso vários NSGs sejam anexados a uma NIC, o registro em log de fluxo deve ser habilitado em todos eles
+1. **Várias NICs em uma VM**: caso várias NICs estejam conectadas a uma máquina virtual, o log de fluxo deve ser habilitado em todas elas
 1. **Ter NSG no nível de NIC e de sub-rede**: no caso de NSG ser configurado na NIC, bem como no nível de sub-rede, o registro em log de fluxo deve ser habilitado em ambos os NSGs. 
 
 **Provisionamento de armazenamento**: o armazenamento deve ser provisionado em sintonia com o volume de log de fluxo esperado.

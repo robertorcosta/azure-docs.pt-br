@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 9827e93f793ef47a835aa0a5fb2005e2830a0824
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3312eed71865508e5e83d37c7ced8cf220f13ca9
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655707"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835101"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar dados de Microsoft Cloud App Security 
 
@@ -48,7 +48,7 @@ Se Cloud App Security for implantado e ingerir seus dados, os dados de alerta po
 
 1. Clique em **Aplicar Alterações**.
 
-1. Você pode selecionar se deseja que os alertas do Azure defender da central de segurança do Azure gerem incidentes automaticamente no Azure Sentinel. Em **criar incidentes**, selecione **habilitado** para ativar a regra de análise padrão que cria automaticamente incidentes de alertas. Em seguida, você pode editar essa regra em **análise**, na guia  **regras ativas** .
+1. Você pode selecionar se deseja que os alertas do Cloud App Security gerem automaticamente incidentes no Azure Sentinel. Em **criar incidentes – recomendado!**, selecione **habilitado** para ativar a regra de análise padrão que cria automaticamente incidentes de alertas. Em seguida, você pode editar essa regra em **análise**, na guia  **regras ativas** .
 
 1. Para usar o esquema relevante no Log Analytics para alertas de Cloud App Security, digite `SecurityAlert` na janela de consulta. Para o esquema de logs de Cloud Discovery, digite `McasShadowItReporting` .
 

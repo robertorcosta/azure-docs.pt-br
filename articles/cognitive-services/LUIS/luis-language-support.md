@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 1da43d0ef208d61ced6c8ca8dbc7603e0ef51155
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96021564"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845458"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -28,14 +28,14 @@ Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um 
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| Idioma |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Linguagem |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
-| Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Árabe (visualização-árabe moderno padrão) |`ar-AR`|-|-|-|-|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Holandês |`nl-NL` |✔|-|-|✔|
-| Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
+| Inglês (Estados Unidos) |`en-US` | ✔ | ✔  |✔|✔|
 | Francês (Canadá) |`fr-CA` |-|-|-|✔|
+| Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
 | Alemão |`de-DE` |✔| ✔ |✔ |✔|
 | Guzerate | `gu-IN`|-|-|-|-|
 | Hindi | `hi-IN`|-|✔|-|-|
@@ -44,8 +44,8 @@ O LUIS compreende declarações nos seguintes idiomas:
 | Coreano |`ko-KR` |✔|-|-|Somente frase principal|
 | Marati | `mr-IN`|-|-|-|-|
 | Português (Brasil) |`pt-BR` |✔| ✔ |✔ |nem todas as subculturas|
-| Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
 | Espanhol (México)|`es-MX` |-|-|✔|✔|
+| Espanhol (Espanha) |`es-ES` |✔| ✔ |✔|✔|
 | Tâmil | `ta-IN`|-|-|-|-|
 | Télugo | `te-IN`|-|-|-|-|
 | Turco | `tr-TR` |✔|✔|-|Sentimento, somente|
@@ -82,7 +82,7 @@ Os idiomas híbridos combinam palavras de duas culturas, como inglês e chinês.
 ## <a name="tokenization"></a>Geração de tokens
 Para executar o aprendizado de máquina, o LUIS divide uma declaração em [tokens](luis-glossary.md#token) com base na cultura.
 
-|Idioma|  cada espaço ou caractere especial | nível do caractere|palavras compostas
+|Linguagem|  cada espaço ou caractere especial | nível do caractere|palavras compostas
 |--|:--:|:--:|:--:|
 |Árabe|✔|||
 |Chinês||✔||

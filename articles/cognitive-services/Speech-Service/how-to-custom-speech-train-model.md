@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 130cd643856b38471eac6d6869cdc1ed8b0bcd2e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499145"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857368"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Treinar e implantar um modelo de Fala Personalizada
 
@@ -67,7 +67,7 @@ Depois que o ponto de extremidade for implantado, o nome do ponto de extremidade
 
 ## <a name="view-logging-data"></a>Exibir dados de log
 
-Os dados de log estão disponíveis para download em detalhes do **ponto de extremidade**  >  **Details**.
+Os dados de log estarão disponíveis para exportação se você for para a página do ponto de extremidade em **implantações**.
 > [!NOTE]
 >Os dados de registro em log estão disponíveis por 30 dias no armazenamento de propriedade da Microsoft. Ela será removida posteriormente. Se uma conta de armazenamento de Propriedade do cliente estiver vinculada à assinatura de serviços cognitivas, os dados de log não serão excluídos automaticamente.
 

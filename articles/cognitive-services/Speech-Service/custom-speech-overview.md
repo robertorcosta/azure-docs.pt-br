@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: be01309fee3454fbd4be78130f9826b493e7bf7a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 51f9ad4fea1c139cee5974ecd81645c9a904feb4
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033758"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854886"
 ---
 # <a name="what-is-custom-speech"></a>O que é a Fala Personalizada?
 
@@ -43,6 +43,23 @@ Este diagrama realça as partes que compõem o [portal de fala personalizada](ht
 ## <a name="set-up-your-azure-account"></a>Configurar sua conta do Azure
 
 Você precisa ter uma assinatura do serviço de fala e conta do Azure antes de poder usar o [portal de fala personalizada](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Se você não tiver uma conta e uma assinatura, [experimente o serviço de Fala gratuitamente](overview.md#try-the-speech-service-for-free).
+
+Se você planeja treinar um modelo personalizado com dados de áudio, escolha uma das seguintes regiões que têm hardware dedicado disponível para treinamento. Isso reduzirá o tempo necessário para treinar um modelo.
+
+* Leste da Austrália
+* Canadá Central
+* Índia Central
+* Leste dos EUA
+* Leste dos EUA 2
+* Centro-Norte dos EUA
+* Norte da Europa
+* Centro-Sul dos Estados Unidos
+* Sudeste Asiático
+* Sul do Reino Unido
+* Governo dos EUA do Arizona
+* Gov. dos EUA – Virgínia
+* Europa Ocidental
+* Oeste dos EUA 2
 
 > [!NOTE]
 > Certifique-se de criar uma assinatura padrão (S0). Não há suporte para assinaturas gratuitas (F0).

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: b3a633c1eff6adf2a33b4f3bfc818eb51ff5ee85
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653088"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844962"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte à linguagem API de Análise de Texto v3 
 
@@ -61,9 +61,9 @@ ms.locfileid: "97653088"
 | Linguagem               | Código de idioma | suporte a v 2.1 | suporte v3 | Iniciando com a versão do modelo V3: |       Observações        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Árabe                |     `ar`      |     ✓      |            |                                 |                    |
-| Tcheco                 |     `cs`      |     ✓      |            |                                 |                    |
 | Chinês simplificado     |   `zh-hans`   |     ✓      |            |                                 | `zh` também é aceito |
 | Chinês tradicional   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Tcheco                 |     `cs`      |     ✓      |            |                                 |                    |
 | Dinamarquês                |     `da`      |     ✓      |            |                                 |                    |
 | Holandês                 |     `nl`      |     ✓      |            |                                 |                    |
 | Inglês                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
@@ -77,8 +77,8 @@ ms.locfileid: "97653088"
 | Coreano                |     `ko`      |     ✓      |            |                                 |                    |
 | Norueguês (Bokmål)   |     `no`      |     ✓      |            |                                 | `nb` também é aceito |
 | Polonês                |     `pl`      |     ✓      |            |                                 |                    |
-| Português (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` também é aceito |
 | Português (Brasil)   |    `pt-BR`    |     ✓      |            |                                 |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` também é aceito |
 | Russo              |     `ru`      |     ✓      |            |                                 |                    |
 | Espanhol               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Sueco               |     `sv`      |     ✓      |            |                                 |                    |
@@ -101,8 +101,8 @@ ms.locfileid: "97653088"
 | Coreano                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Norueguês (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` também é aceito |
 | Polonês                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` também é aceito |
 | Português (Brasil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
+| Português (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` também é aceito |
 | Russo               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Espanhol               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Sueco               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -120,7 +120,7 @@ O API de Análise de Texto pode detectar uma ampla gama de linguagens, variantes
 
 Se você tiver um conteúdo expresso em um idioma usado com menos frequência, experimente a Detecção de Idioma para ver se ela retorna um código. A resposta para idiomas que não pode ser detectada é `unknown`.
 
-| Idioma | Código de idioma | suporte v3 | Disponível a partir da versão do modelo V3: |
+| Linguagem | Código de idioma | suporte v3 | Disponível a partir da versão do modelo V3: |
 |:-|:-:|:-:|:-:|
 | Africâner | `af` | ✓ |  |
 | Albanês | `sq` | ✓ |  |
@@ -217,6 +217,6 @@ Se você tiver um conteúdo expresso em um idioma usado com menos frequência, e
 
 ---
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [O que é o API de Análise de Texto?](overview.md)   

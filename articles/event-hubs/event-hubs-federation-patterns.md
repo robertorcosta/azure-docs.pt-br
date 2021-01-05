@@ -3,12 +3,12 @@ title: Padrões de tarefa de replicação de evento – hubs de eventos do Azure
 description: Este artigo fornece diretrizes detalhadas para a implementação de padrões de tarefa de replicação de eventos específicos
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 7702b1987faabfce8d97e7b5c9b18766df72caad
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 494de442b636d535fa1ed6fdeeeda28db9783952
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803979"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861366"
 ---
 # <a name="event-replication-tasks-patterns"></a>Padrões de tarefas de replicação de eventos
 
@@ -20,7 +20,7 @@ Neste artigo, detalharemos as diretrizes de implementação para vários dos pad
 
 O padrão de replicação copia eventos de um hub de eventos para o próximo ou de um hub de eventos para outro destino, como uma fila do barramento de serviço. Os eventos são encaminhados sem fazer modificações no conteúdo do evento.
 
-A implementação desse padrão é coberta pela replicação de [eventos entre os hubs de eventos](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) e a [replicação de eventos entre os hubs de eventos e os exemplos de barramento de serviço](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) .
+A implementação desse padrão é coberta pela replicação de [eventos entre os hubs de eventos](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy) e a replicação de eventos entre os exemplos de [hubs de eventos e do barramento de serviço](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus) e a [utilização Apache Kafka MirrorMaker com](event-hubs-kafka-mirror-maker-tutorial.md) o tutorial de hubs de eventos para o caso específico de replicar dados de um Apache Kafka Broker para os hubs de eventos.
 
 ### <a name="streams-and-order-preservation"></a>Fluxos e preservação de pedidos
 

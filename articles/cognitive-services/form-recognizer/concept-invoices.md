@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 9a3a6bd6489baea90ed4143b42a09e7d697bbc50
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602437"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845571"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura predefinido do reconhecedor de formulário
 
@@ -34,7 +34,7 @@ Para experimentar o serviço de fatura do reconhecedor de formulário, vá para 
 > [!div class="nextstepaction"]
 > [Experimentar modelos predefinidos](https://fott-preview.azurewebsites.net/)
 
-Você precisará de uma assinatura do Azure ([crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um [formulário Recognzier](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ponto de extremidade de recurso e chave para experimentar o serviço de fatura do reconhecedor de formulário. 
+Você precisará de uma assinatura do Azure ([crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um ponto de extremidade de [recurso do reconhecedor de formulário](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e uma chave para experimentar o serviço de fatura do reconhecedor de formulário. 
 
 ![Exemplo de fatura analisada](./media/analyze-invoice.png)
 
@@ -55,7 +55,7 @@ A operação [analisar fatura](https://westcentralus.dev.cognitive.microsoft.com
 
 A segunda etapa é chamar a operação [obter resultado da fatura de obtenção](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/5ed8c9acb78c40a2533aee83) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de fatura. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Type | Valores possíveis |
+|Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada.<br /><br />em execução: a operação de análise está em andamento.<br /><br />falha: falha na operação de análise.<br /><br />êxito: a operação de análise foi bem-sucedida.|
 
@@ -74,7 +74,7 @@ A saída JSON tem três partes:
 
 O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir estão os campos extraídos de uma nota fiscal na resposta de saída JSON (a saída abaixo usa este [exemplo de fatura](./media/sample-invoice.jpg))  
 
-|Nome| Type | Descrição | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente sendo faturado | Microsoft Corp |  |
 | CustomerId | string | ID de referência para o cliente | CID-12345 |  |
@@ -107,8 +107,8 @@ O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Experimente suas próprias faturas e exemplos na [interface do usuário de exemplo do reconhecedor de formulário](https://fott-preview.azurewebsites.net/).
-- Preencha um guia de [início rápido da biblioteca de cliente do reconhecedor de formulário](quickstarts/client-library.md) para começar a gravar um aplicativo de processamento de faturas com o reconhecedor de formulário no idioma de sua escolha.
-- Ou então, siga o início rápido [extrair dados da nota fiscal](./quickstarts/python-invoices.md) para implementar a extração de dados da nota fiscal usando o Python e a API REST.
+- Conclua um [início rápido do reconhecedor de formulário](quickstarts/client-library.md) para começar a gravar um aplicativo de processamento de faturas com o reconhecedor de formulário no idioma de sua escolha.
+
 ## <a name="see-also"></a>Confira também
 
 * [O que é o Reconhecimento de Formulários?](./overview.md)

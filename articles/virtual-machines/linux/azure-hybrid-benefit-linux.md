@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a153f832fdfc075cdde03241f7dae19faa2334ce
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ba7081c877f3c3adae6e678280592c9445a95d1b
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631339"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858800"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Como Benefício Híbrido do Azure se aplica a máquinas virtuais Linux
 
@@ -172,7 +172,7 @@ Para obter mais informações sobre conformidade de assinatura do Red Hat, atual
 
 ### <a name="suse"></a>SUSE
 
-Para usar Benefício Híbrido do Azure para suas VMs SLES, você deve primeiro ser registrado com o [programa de nuvem pública SuSE](https://www.suse.com/media/guide/suse_public_cloud_service_provider_program_overview.pdf). Depois de adquirir assinaturas SUSE, você deve registrar suas VMs que usam essas assinaturas em sua própria fonte de atualizações. Use o centro do cliente SUSE, o servidor da ferramenta de gerenciamento de assinatura ou o Gerenciador do SUSE para esse registro.
+Para usar Benefício Híbrido do Azure para suas VMs SLES e obter informações sobre como migrar do SLES PAYG para o BYOS ou migrar do SLES BYOS para o PAYG, consulte [SuSE Linux Enterprise e benefício híbrido do Azure](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 *P: posso usar um tipo de licença `RHEL_BYOS` com uma imagem SLES ou vice-versa?*
@@ -210,6 +210,10 @@ R: não, você não pode. Atualmente, as instâncias reservadas não estão no e
 *P: posso usar Benefício Híbrido do Azure em uma máquina virtual implantada para SQL Server em imagens RHEL?*
 
 R: não, você não pode. Não há nenhum plano para dar suporte a essas máquinas virtuais.
+
+*P: posso usar Benefício Híbrido do Azure na minha assinatura do RHEL virtual Data Center?*
+
+R: não, você não pode. O VDC não tem suporte no Azure, incluindo AHB.  
  
 
 ## <a name="common-problems"></a>Problemas comuns

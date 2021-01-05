@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: 4f513da4e7883cd273098039c9c4a4645d849f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515837"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861408"
 ---
 # <a name="azure-for-network-engineers"></a>Azure para engenheiros de rede
 Como engenheiro de rede convencional, você lida com ativos físicos, como roteadores, comutadores, cabos, firewalls para criar infraestrutura. Em uma camada lógica, você configurou a LAN virtual (VLAN), o Spanning Tree Protocol (STP), protocolos de roteamento (RIP, OSPF, BGP). Você gerenciou sua rede usando as ferramentas de gerenciamento e a CLI. A rede na nuvem é diferente onde os pontos de extremidade de rede são lógicos e o uso de protocolos de roteamento é mínimo. Você trabalhará com Azure Resource Manager API, CLI do Azure e PowerShell para configurar e gerenciar ativos no Azure. Você iniciará sua jornada de rede na nuvem compreendendo os locatários básicos da rede do Azure. 
@@ -67,7 +67,7 @@ Quando você tem entradas concorrentes em uma tabela de roteamento, o Azure sele
 
 ## <a name="security"></a>Segurança
 
-Você pode filtrar o tráfego de rede de e para recursos em uma rede virtual usando grupos de segurança de rede. Você também cascata usar soluções de virtualização de rede (NVA), como firewall do Azure ou firewalls de outros fornecedores. Você pode controlar como o Azure direciona o tráfego de sub-redes. Você também pode limitar quem pode trabalhar com recursos em redes virtuais na sua organização.
+Você pode filtrar o tráfego de rede de e para recursos em uma rede virtual usando grupos de segurança de rede. Você também pode usar NVA (soluções de virtualização de rede), como firewall do Azure ou firewalls de outros fornecedores. Você pode controlar como o Azure direciona o tráfego de sub-redes. Você também pode limitar quem pode trabalhar com recursos em redes virtuais na sua organização.
 
 Um NSG (grupo de segurança de rede) contém uma lista de regras de ACL (Lista de Controle de Acesso) que permitem ou negam o tráfego de rede para sub-redes, NICs ou ambos. Os NSGs podem ser associados a sub-redes ou NICs individuais conectadas a uma sub-rede. Quando um NSG é associado a uma sub-rede, as regras de ACL se aplicam a todas as VMs na sub-rede. Além disso, o tráfego para uma NIC individual pode ser restringido associando um NSG diretamente a uma NIC.
 

@@ -2,13 +2,13 @@
 title: Funções de modelo – recursos
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 166e9104a9d791ac6d82ed0e8e2d3659efd2ae0d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/04/2021
+ms.openlocfilehash: f16e8e06bf5deb2b66af7758f2944fe256cfa268
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919997"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861422"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recurso para modelos do ARM
 
@@ -175,7 +175,7 @@ As definições de política internas são recursos de nível de locatário. Par
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list`. Alguns usos comuns são `listKeys` , `listKeyValue` e `listSecrets` .
+A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso compatível com uma operação de lista. O nome da operação deve começar com `list` e pode ter um sufixo. Alguns usos comuns são `list` ,, `listKeys` `listKeyValue` e `listSecrets` .
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -516,7 +516,7 @@ output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2'
 
 A saída dos exemplos anteriores retorna três matrizes.
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | com suporte | matriz | ["1"] |
 | notSupportedRegion | matriz | [] |
@@ -1344,7 +1344,7 @@ output nestedResourceOutput string = resourceId('Microsoft.SQL/servers/databases
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

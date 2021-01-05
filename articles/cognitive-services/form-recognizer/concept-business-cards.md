@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 76e19c36f0fa4096966c5dd23d2384b6b30f2271
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498853"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845609"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartão de visita
 
@@ -62,7 +62,7 @@ O [cartão de visita de análise](https://westcentralus.dev.cognitive.microsoft.
 
 A segunda etapa é chamar a operação [obter resultado do cartão de negócios Get Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de cartão de negócios. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Type | Valores possíveis |
+|Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada.<br /><br />em execução: a operação de análise está em andamento.<br /><br />falha: falha na operação de análise.<br /><br />êxito: a operação de análise foi bem-sucedida.|
 
@@ -374,7 +374,7 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResult
 }
 ```
 
-Siga o início rápido [extrair dados do cartão de visita](./QuickStarts/python-business-cards.md) para implementar a extração de dados de cartão de visita usando o Python e a API REST.
+Siga o guia de início rápido do [início](./QuickStarts/client-library.md) rápido para implementar a extração de dados de cartão de visita usando Python e a API REST.
 
 ## <a name="customer-scenarios"></a>Cenários de clientes  
 
@@ -385,11 +385,11 @@ Os dados extraídos com a API do cartão de negócios podem ser usados para exec
 * Mantenha o controle dos leads de vendas.  
 * Extraia informações de contato em massa de imagens de cartões de visita existentes. 
 
-A API do cartão de negócios também alimenta o [recurso de processamento do cartão de visita do AIBuilder](/ai-builder/prebuilt-business-card).
+A API do cartão de negócios também alimenta o [recurso de processamento do cartão de negócios do ia Builder](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Siga o [início rápido da API de cartões de visita do Python](./quickstarts/python-business-cards.md) para começar a reconhecer os cartões de visita.
+- Siga o guia de [início rápido](./quickstarts/client-library.md) para começar a reconhecer os cartões de visita.
 
 ## <a name="see-also"></a>Confira também
 

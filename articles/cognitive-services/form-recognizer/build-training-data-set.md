@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 513d98ae274c668197b066c742119055248f37f9
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911708"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845599"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Criar um conjunto de dados de treinamento para um modelo personalizado
 
@@ -72,11 +72,8 @@ Se você adicionar o conteúdo a seguir ao corpo da solicitação, a API será t
 
 Agora que você aprendeu como criar um conjunto de dados de treinamento, siga um guia de início rápido para treinar um modelo de reconhecedor de formulário personalizado e comece a usá-lo em seus formulários.
 
-* [Treinar um modelo e extrair dados de formulário usando a biblioteca de cliente](./quickstarts/client-library.md)
-* [Treinar um modelo e extrair dados de formulário usando a ondulação](./quickstarts/curl-train-extract.md)
-* [Treinar um modelo e extrair dados de formulário usando a API REST e o Python](./quickstarts/python-train-extract.md)
+* [Treinar um modelo e extrair dados de formulário usando a biblioteca de cliente ou a API REST](./quickstarts/client-library.md)
 * [Treine com rótulos usando a ferramenta de rotulagem de exemplo](./quickstarts/label-tool.md)
-* [Treinar com rótulos usando a API REST e o Python](./quickstarts/python-labeled-data.md)
 
 ## <a name="see-also"></a>Confira também
 

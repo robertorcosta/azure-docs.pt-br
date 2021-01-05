@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 11/24/2020
-ms.openlocfilehash: cc06f12317f5e30721452e07bd4dc5f50dfdb7ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 12/18/2020
+ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022353"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858563"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -169,7 +169,7 @@ Você pode ler no banco de dados SQL do Azure usando uma tabela ou uma consulta 
 
 ### <a name="azure-synapse-analytics-sources"></a>Fontes do Azure Synapse Analytics
 
-Ao usar o Azure Synapse Analytics, uma configuração chamada **habilitar preparo** existe nas opções de origem. Isso permite que o ADF leia do Synapse usando ```Polybase``` , o que melhora muito o desempenho de leitura. Habilitar ```Polybase``` requer que você especifique um armazenamento de BLOBs do Azure ou Azure data Lake Storage local de preparo de Gen2 nas configurações de atividade do fluxo de dados.
+Ao usar o Azure Synapse Analytics, uma configuração chamada **habilitar preparo** existe nas opções de origem. Isso permite que o ADF leia do Synapse usando ```Staging``` , o que melhora muito o desempenho de leitura. Habilitar ```Staging``` requer que você especifique um armazenamento de BLOBs do Azure ou Azure data Lake Storage local de preparo de Gen2 nas configurações de atividade do fluxo de dados.
 
 ![Habilitar preparo](media/data-flow/enable-staging.png "Habilitar preparo")
 
@@ -216,9 +216,9 @@ Agende um redimensionamento do Banco de Dados SQL do Azure e do DW da origem e d
 
 ### <a name="azure-synapse-analytics-sinks"></a>Coletores do Azure Synapse Analytics
 
-Ao gravar no Azure Synapse Analytics, verifique se **habilitar preparo** está definido como true. Isso permite que o ADF grave usando o [polybase](/sql/relational-databases/polybase/polybase-guide) , que carrega efetivamente os dados em massa. Você precisará fazer referência a um Azure Data Lake Storage Gen2 ou conta de armazenamento de BLOBs do Azure para preparo dos dados ao usar o polybase.
+Ao gravar no Azure Synapse Analytics, verifique se **habilitar preparo** está definido como true. Isso permite que o ADF grave usando o [comando SQL Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) que efetivamente carrega os dados em massa. Você precisará fazer referência a um Azure Data Lake Storage Gen2 ou conta de armazenamento de BLOBs do Azure para preparo dos dados ao usar o preparo.
 
-Além do polybase, as mesmas práticas recomendadas se aplicam ao Azure Synapse Analytics como banco de dados SQL do Azure.
+Além de preparo, as mesmas práticas recomendadas se aplicam ao Azure Synapse Analytics como banco de dados SQL do Azure.
 
 ### <a name="file-based-sinks"></a>Coletores baseados em arquivo 
 
@@ -309,6 +309,14 @@ Executar trabalhos sequencialmente provavelmente levará o tempo mais longo para
 ### <a name="overloading-a-single-data-flow"></a>Sobrecarregando um fluxo de dados único
 
 Se você colocar toda a lógica dentro de um fluxo de dados único, o ADF executará todo o trabalho em uma única instância do Spark. Embora isso possa parecer uma maneira de reduzir os custos, ele combina fluxos lógicos diferentes e pode ser difícil de monitorar e depurar. Se um componente falhar, todas as outras partes do trabalho falharão também. A equipe de Azure Data Factory recomenda organizar os fluxos de dados por fluxos independentes de lógica de negócios. Se o fluxo de dados ficar muito grande, dividi-lo em componentes separados tornará o monitoramento e a depuração mais fáceis. Embora não haja nenhum limite rígido no número de transformações em um fluxo de dados, ter muitos torna o trabalho complexo.
+
+### <a name="execute-sinks-in-parallel"></a>Executar coletores em paralelo
+
+O comportamento padrão dos coletores de fluxo de dados é executar cada coletor sequencialmente, de maneira serial, e falhar no fluxo de dados quando um erro for encontrado no coletor. Além disso, todos os coletores são padronizados para o mesmo grupo, a menos que você vá para as propriedades de fluxo de dados e defina prioridades diferentes para os coletores.
+
+Os fluxos de dados permitem agrupar coletores em grupos da guia Propriedades de fluxo de dados no designer de interface do usuário. Você pode definir a ordem de execução de seus coletores, bem como agrupar coletores usando o mesmo número de grupo. Para ajudar a gerenciar grupos, você pode pedir que o ADF execute coletores no mesmo grupo, para ser executado em paralelo.
+
+Na atividade pipeline, executar fluxo de dados na seção "Propriedades do coletor" é uma opção para ativar o carregamento paralelo do coletor. Quando você habilita "executar em paralelo", está instruindo a gravação de fluxos de dados a coletores conectados ao mesmo tempo em vez de de maneira sequencial. Para utilizar a opção Parallel, os coletores devem ser agrupados e conectados ao mesmo fluxo por meio de uma nova ramificação ou divisão condicional.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,14 +4,14 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 11/25/2020
+ms.date: 01/03/2021
 ms.subservice: alerts
-ms.openlocfilehash: fc54d2ba3ca4e7a150a1602c671b99f58197bc44
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
+ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657287"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97857334"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica do Azure Monitor 
 
@@ -265,6 +265,23 @@ Por exemplo:
 -   Regra de alerta de métrica que monitora várias dimensões – quando uma nova combinação de valor de dimensão é adicionada
 -   Regra de alerta de métrica que monitora vários recursos – quando um novo recurso é adicionado ao escopo
 -   Regra de alerta de métrica que monitora uma métrica que não é emitida continuamente (métrica esparsa) – quando a métrica é emitida após um período de mais de 24 horas em que ela não foi emitida
+
+## <a name="the-dynamic-thresholds-borders-dont-seem-to-fit-the-data"></a>As bordas de limites dinâmicos não parecem se ajustar aos dados
+
+Se o comportamento de uma métrica foi alterado recentemente, as alterações não serão necessariamente refletidas nas bordas de limite dinâmico (limites superiores e inferiores) imediatamente, pois elas são calculadas com base nos dados de métrica dos últimos 10 dias. Ao exibir as bordas de limite dinâmico para uma determinada métrica, certifique-se de examinar a tendência da métrica na última semana e não apenas por horas ou dias recentes.
+
+## <a name="why-is-weekly-seasonality-not-detected-by-dynamic-thresholds"></a>Por que a sazonalidade semanal não é detectada por limites dinâmicos?
+
+Para identificar sazonalidade semanalmente, o modelo de limites dinâmicos requer pelo menos três semanas de dados históricos. Quando dados históricos suficientes estiverem disponíveis, qualquer sazonalidade semanal que exista nos dados da métrica será identificada e o modelo será ajustado de acordo. 
+
+## <a name="dynamic-thresholds-shows-a-negative-lower-bound-for-a-metric-even-though-the-metric-always-has-positive-values"></a>Os limites dinâmicos mostram um limite inferior negativo para uma métrica, embora a métrica sempre tenha valores positivos
+
+Quando uma métrica exibe a flutuação grande, os limites dinâmicos criarão um modelo mais amplo em torno dos valores de métrica, o que pode fazer com que a borda inferior esteja abaixo de zero. Especificamente, isso pode acontecer nos seguintes casos:
+1. A sensibilidade está definida como baixa 
+2. Os valores medianos estão próximos de zero
+3. A métrica exibe um comportamento irregular com alta variação (há picos ou DIPs nos dados)
+
+Quando o limite inferior tem um valor negativo, isso significa que é plausível que a métrica alcance um valor zero, dado o comportamento irregular da métrica. Você pode considerar a escolha de uma maior sensibilidade ou uma *granularidade de agregação maior (período)* para tornar o modelo menos sensível, ou usando a opção *ignorar dados antes* de excluir um irregulaity recente dos dados históricos usados para criar o modelo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

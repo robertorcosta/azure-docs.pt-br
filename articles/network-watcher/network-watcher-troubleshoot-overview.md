@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: f27cb217b60c23f3cf89f48effb933837269000e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 5342c4505bd300d1287acba246ca59610f2697bd
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94960318"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858630"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
@@ -54,11 +54,11 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | PlannedMaintenance |  A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento. | Não |
 | VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
-| PlatformInActive | Há um problema com a plataforma. | No|
-| ServiceNotRunning | O serviço subjacente não está em execução. | No|
-| NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| No|
-| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Yes|
-| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Yes |
+| PlatformInActive | Há um problema com a plataforma. | Não|
+| ServiceNotRunning | O serviço subjacente não está em execução. | Não|
+| NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| Não|
+| ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Sim|
+| GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Sim |
 
 ### <a name="connection"></a>Conexão
 
@@ -68,15 +68,15 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | No |
-| ConnectionEntityNotFound | A configuração da conexão está ausente | No |
-| ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |No|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Yes |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Yes|
-| Autenticação | Incompatibilidade de chave pré-compartilhada | Yes|
-| PeerReachability | O gateway correspondente não está acessível. | Yes|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Yes|
-| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Yes|
+| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
+| ConnectionEntityNotFound | A configuração da conexão está ausente | Não |
+| ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não|
+| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Sim |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
+| Autenticação | Incompatibilidade de chave pré-compartilhada | Sim|
+| PeerReachability | O gateway correspondente não está acessível. | Sim|
+| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
+| WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 
@@ -207,6 +207,9 @@ Elapsed Time            330 sec
 |         6    ikeext               ike_sa_management_c3162  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 |        12    ikeext               ike_sa_management_c3307  7857a320-42ee-6e90-d5d9-3f414e3ea2d3|
 ```
+
+## <a name="considerations"></a>Considerações 
+* Bug da CLI: se você estiver usando CLI do Azure para executar o comando, o gateway de VPN e a conta de armazenamento precisarão estar no mesmo grupo de recursos. Os clientes com os recursos em grupos de recursos diferentes podem usar o PowerShell ou o portal do Azure em vez disso.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
