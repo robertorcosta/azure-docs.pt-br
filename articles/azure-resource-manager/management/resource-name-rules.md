@@ -2,13 +2,13 @@
 title: Restrições de nomenclatura de recursos
 description: Mostra as regras e restrições de nomenclatura de recursos do Azure.
 ms.topic: conceptual
-ms.date: 12/04/2020
-ms.openlocfilehash: a6aac03277a11cf671f5a618bc85ff987cfdc2dd
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.date: 12/29/2020
+ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608309"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814373"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -170,7 +170,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | galleries | grupo de recursos | 1-80 | Caracteres alfanuméricos e pontos.<br><br>Comece e termine com caractere alfanumérico. |
 > | galleries / applications | gallery | 1-80 | Caracteres alfanuméricos, hifens e pontos.<br><br>Comece e termine com caractere alfanumérico. |
 > | galleries / applications/versions | aplicativo | Inteiro de 32 bits | Números e pontos. |
-> | galleries/images | gallery | 1-80 | Caracteres alfanuméricos, hifens e pontos.<br><br>Comece e termine com caractere alfanumérico. |
+> | galleries/images | gallery | 1-80 | Alfanuméricos, sublinhados, hifens e pontos.<br><br>Comece e termine com caractere alfanumérico. |
 > | galleries/images/versions | image | Inteiro de 32 bits | Números e pontos. |
 > | images | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
 > | snapshots | grupo de recursos | 1-80 | Caracteres alfanuméricos, sublinhados, pontos e hifens.<br><br>Comece com caractere alfanumérico. Termine com caractere alfanumérico ou sublinhado. |
@@ -537,7 +537,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | clusters | grupo de recursos | 4–63 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
-> | workspaces | grupo de recursos | 4–63 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
+> | workspaces | global | 4–63 | Caracteres alfanuméricos e hifens.<br><br>Comece e termine com caractere alfanumérico. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 

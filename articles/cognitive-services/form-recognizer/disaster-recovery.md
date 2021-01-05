@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 168dcf994d00ba1cb2070665ada5a55cf86cfa4a
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 747ceb0106f437f9e2442c2b8c68c0b73a9107a6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359805"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808242"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Fazer backup e recuperar seus modelos de reconhecedor de formulário
 
-Ao criar um recurso de reconhecimento de formulário no portal do Azure, você especifica uma região. A partir de então, o recurso e todas as suas operações permanecem associados a essa região de servidor do Azure específica. É raro, mas não impossível, encontrar um problema de rede que atinge toda uma região. Se sua solução precisa estar sempre disponível, você deve criá-la para fazer failover em outra região ou dividir a carga de trabalho entre duas ou mais regiões. Ambas as abordagens exigem pelo menos dois recursos de reconhecedor de formulário em regiões diferentes e a capacidade de sincronizar [modelos personalizados](./quickstarts/curl-train-extract.md) entre regiões.
+Ao criar um recurso de reconhecimento de formulário no portal do Azure, você especifica uma região. A partir de então, o recurso e todas as suas operações permanecem associados a essa região de servidor do Azure específica. É raro, mas não impossível, encontrar um problema de rede que atinge toda uma região. Se sua solução precisa estar sempre disponível, você deve criá-la para fazer failover em outra região ou dividir a carga de trabalho entre duas ou mais regiões. Ambas as abordagens exigem pelo menos dois recursos de reconhecedor de formulário em regiões diferentes e a capacidade de sincronizar modelos personalizados entre regiões.
 
 A API de cópia habilita esse cenário permitindo que você copie modelos personalizados de uma conta de reconhecedor de formulário ou para outros, que podem existir em qualquer região geográfica com suporte. Este guia mostra como usar a API REST de cópia com ondulação. Você também pode usar um serviço de solicitação HTTP como o postmaster para emitir as solicitações.
 

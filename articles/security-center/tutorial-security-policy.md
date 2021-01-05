@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 76695d4d8dbc3e3a6b04b89b8f34e41b83a92963
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 88af554faab9479a402dd393b0a7eed0835ce59e
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965180"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814339"
 ---
-# <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
+# <a name="manage-security-policies"></a>Gerenciar políticas de segurança
 
 Este artigo explica como as políticas de segurança são configuradas e como exibi-las na Central de Segurança. 
 
@@ -121,7 +121,7 @@ Para obter mais informações sobre recomendações, consulte [Gerenciando recom
 
    ![desabilitar política](./media/tutorial-security-policy/disable-policy.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    > [!NOTE]
    > As alterações de política de desabilitação podem levar até 12 horas para entrar em vigor.

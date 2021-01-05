@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: e2f5528fde977520dc0aa0215a480a40ef8f1e7d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6c628d93c112a770c85a10d0eff958614a7cf4cb
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94989608"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814152"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Início rápido: criar e configurar a proteção contra DDoS do Azure Standard usando o CLI do Azure
 
@@ -107,7 +107,7 @@ az network ddos-protection show \
 
 Verifique se o comando retorna os detalhes corretos do seu plano de proteção contra DDoS.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você pode manter seus recursos para o próximo tutorial. Se não for mais necessário, exclua o grupo de recursos _MyResource_ Group. Ao excluir o grupo de recursos, você também exclui o plano de proteção contra DDoS e todos os seus recursos relacionados. 
 
@@ -134,4 +134,4 @@ Se você quiser excluir um plano de proteção contra DDoS, deverá primeiro dis
 Para saber como exibir e configurar a telemetria para seu plano de proteção contra DDoS, continue com os tutoriais.
 
 > [!div class="nextstepaction"]
-> [Exibir e configurar a telemetria da Proteção contra DDoS](telemetry-monitoring-alerting.md)
+> [Exibir e configurar a telemetria da Proteção contra DDoS](telemetry.md)

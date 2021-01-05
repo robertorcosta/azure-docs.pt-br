@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 834672274ade1f8551e86e7c636c4625368d997c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f0f64d910d03e42008c5fe6fef28a5b9c0917abd
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652187"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814458"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Otimizar Azure Data Lake Storage Gen2 para desempenho
 
@@ -21,11 +21,11 @@ O Azure Data Lake Storage Gen2 dá suporte a alta taxa de transferência para mo
 
 ![Desempenho do Data Lake Storage Gen2](./media/data-lake-storage-performance-tuning-guidance/throughput.png)
 
-O Data Lake Storage Gen2 pode ser dimensionado para fornecer a taxa de transferência necessária para qualquer cenário de análise. Por padrão, uma conta do Data Lake Storage Gen2 fornece automaticamente taxa de transferência suficiente para atender às necessidades de uma ampla gama de casos de uso. Para os casos em que os clientes atingem o limite padrão, a conta do Data Lake Storage Gen2 pode ser configurada para fornecer mais taxa de transferência entrando em contato com o [Suporte do Azure](https://azure.microsoft.com/support/faq/).
+Data Lake Storage Gen2 pode dimensionar para fornecer a taxa de transferência necessária para todos os cenários de análise. Por padrão, uma conta de Data Lake Storage Gen2 fornece taxa de transferência suficiente em sua configuração padrão para atender às necessidades de uma categoria ampla de casos de uso. Para os casos em que os clientes atingem o limite padrão, a conta do Data Lake Storage Gen2 pode ser configurada para fornecer mais taxa de transferência entrando em contato com o [Suporte do Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="data-ingestion"></a>Ingestão de dados
 
-Ao ingerir dados de um sistema de origem para o Data Lake Storage Gen2, é importante considerar que o hardware de origem, o hardware de rede de origem e a conectividade de rede com o Data Lake Storage Gen2 podem ser o gargalo.  
+Ao ingerir dados de um sistema de origem para Data Lake Storage Gen2, é importante considerar que o hardware de origem, o hardware de rede de origem ou a conectividade de rede para Data Lake Storage Gen2 pode ser o afunilamento.  
 
 ![Diagrama que mostra os fatores a serem considerados ao ingerir dados de um sistema de origem para Data Lake Storage Gen2.](./media/data-lake-storage-performance-tuning-guidance/bottleneck.png)
 
@@ -37,7 +37,7 @@ Se você estiver usando computadores locais ou VMs no Azure, você deverá selec
 
 ### <a name="network-connectivity-to-data-lake-storage-gen2"></a>Conectividade de rede com o Data Lake Storage Gen2
 
-A conectividade de rede entre os dados de origem e o Data Lake Storage Gen2 às vezes pode ser o gargalo. Quando os dados de origem forem locais, considere o uso de uma conexão dedicada com o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se os dados de origem estiverem no Azure, o desempenho será melhor quando os dados estiverem na mesma região do Azure que a conta do Data Lake Storage Gen2.
+A conectividade de rede entre os dados de origem e o Data Lake Storage Gen2 às vezes pode ser o gargalo. Quando os dados de origem estiverem no local, considere usar um link dedicado com o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se os dados de origem estiverem no Azure, o desempenho será melhor quando os dados estiverem na mesma região do Azure que a conta do Data Lake Storage Gen2.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configurar ferramentas de ingestão de dados para paralelização máxima
 
@@ -138,5 +138,5 @@ Além das diretrizes gerais acima, cada aplicativo tem diferentes parâmetros di
 | [MapReduce no HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm no HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Número de processos de trabalho</li><li>Número de instâncias de spout executor</li><li>Número de instâncias de bolt executor </li><li>Número de tarefas de spout</li><li>Número de tarefas de bolt</li></ul>|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Visão geral do Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

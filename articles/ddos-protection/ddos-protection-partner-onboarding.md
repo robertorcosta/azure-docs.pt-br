@@ -8,12 +8,12 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 4cc0fd970f9adc26f5fdb024f501dcb0edf77bde
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 962f6bcf7747a82749e7ccab95de34f7834a8372
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992413"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814203"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Parceria com a proteção contra DDoS do Azure Standard
 Este artigo descreve as oportunidades de parceria habilitadas pelo padrão de proteção contra DDoS do Azure. Este artigo foi projetado para ajudar gerentes de produto e funções de desenvolvimento de negócios a entender os caminhos de investimento e fornecer informações sobre as propostas de valor de parceria.
@@ -40,8 +40,8 @@ Para cada aplicativo protegido, a proteção contra DDoS do Azure Standard ajust
 A proteção contra DDoS do Azure identifica e atenua ataques de DDoS sem nenhuma intervenção do usuário.
 
 - Se o recurso protegido estiver na assinatura coberta pela central de segurança do Azure, a proteção contra DDoS Standard enviará automaticamente um alerta para a central de segurança sempre que um ataque de DDoS for detectado e atenuado em relação ao aplicativo protegido.
-- Como alternativa, para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics) na métrica sob ataque de DDoS ou não.
-- Além disso, você pode optar por criar alertas para as outras métricas de DDoS e [Configurar a análise de ataques](telemetry-monitoring-alerting.md) para entender a escala do ataque, o tráfego que está sendo descartado, os vetores de ataque, os principais colaboradores e outros detalhes.
+- Como alternativa, para ser notificado quando houver uma mitigação ativa para um IP público protegido, você pode [configurar um alerta](alerts.md) na métrica sob ataque de DDoS ou não.
+- Além disso, você pode optar por criar alertas para outras métricas de DDoS e [Configurar a telemetria de ataque](telemetry.md) para entender a escala do ataque, o tráfego que está sendo eliminado, vetores de ataque, principais colaboradores e outros detalhes.
 
 ![Métricas de DDoS](./media/ddos-protection-partner-onboarding/ddos-metrics.png)
 
@@ -71,7 +71,7 @@ As etapas a seguir são necessárias para que os parceiros configurem a integra�
 3. Habilite a proteção contra DDoS do Azure Standard na rede virtual do serviço que tem pontos de extremidade públicos usando o plano de proteção contra DDoS criado na primeira etapa. Para obter instruções STPE, consulte [habilitar o plano de proteção padrão DDoS](manage-ddos-protection.md#enable-ddos-protection-for-an-existing-virtual-network)
    > [!IMPORTANT] 
    > Depois que a proteção contra DDoS do Azure Standard estiver habilitada em uma rede virtual, todos os IPs públicos dentro dessa rede virtual serão protegidos automaticamente. A origem desses IPs públicos pode estar no Azure (assinatura do cliente) ou fora do Azure. 
-4. Opcionalmente, integre a telemetria padrão da proteção contra DDoS do Azure e a análise de ataques no painel voltado para o cliente específico do aplicativo. Para obter mais informações sobre como usar a telemetria, consulte [Exibir e configurar a telemetria de proteção contra DDoS](telemetry-monitoring-alerting.md). 
+4. Opcionalmente, integre a telemetria padrão da proteção contra DDoS do Azure e a análise de ataques no painel voltado para o cliente específico do aplicativo. Para obter mais informações sobre como usar a telemetria, consulte [Exibir e configurar a telemetria de proteção contra DDoS](telemetry.md). 
 
 ### <a name="onboarding-guides-and-technical-documentation"></a>Guias de integração e documentação técnica
 

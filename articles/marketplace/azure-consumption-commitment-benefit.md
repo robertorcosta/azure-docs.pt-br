@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: aeee13152364c31d82f674df784a27114035a041
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d8cb5179583dd23ea2bd4baf5ebe7d84b0ae9cbf
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028539"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814424"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Benefício do compromisso de consumo do Azure
 
@@ -31,7 +31,7 @@ Para aproveitar esse benefício, basta comprar uma oferta de qualificação no A
 
 ## <a name="determine-if-your-organization-has-an-azure-consumption-commitment-maccctc"></a>Determinar se sua organização tem um compromisso de consumo do Azure (MACC/CtC)
 
-Se você não tiver certeza se sua organização tem um contrato qualificado, entre na experiência do Marketplace dentro do [portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) em um locatário associado à sua organização. Se você vir a opção de **benefício do Azure elegível** dentro do filtro de preços, terá um compromisso de consumo do Azure qualificado. A qualificação de compras do Azure Marketplace contribuirá para o compromisso de consumo do Azure da sua organização, se adquirido diretamente por meio do Azure Marketplace.
+Se você não tiver certeza se sua organização tem um contrato qualificado, entre na experiência do Marketplace dentro do [portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) em um locatário associado à sua organização. Se você vir a opção de selecionar o **benefício do Azure qualificado apenas** como uma opção de filtro, terá um compromisso de consumo do Azure qualificado. A qualificação de compras do Azure Marketplace contribuirá para o compromisso de consumo do Azure da sua organização, se adquirido diretamente por meio do Azure Marketplace.
 
 [![Opção de menu elegível do benefício do Azure.](media/azure-benefit/azure-benefit-eligible.png)](media/azure-benefit/azure-benefit-eligible.png#lightbox)
 

@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: c6bac44e6f7212344463665840f180732970c3d4
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1f7a493c071e86114afd7d4a9e08e204bbab509d
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657151"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809472"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -32,10 +32,9 @@ Antes de criar uma conexão, você precisa adicionar ITSMC.
 
    ![Captura de tela que mostra o botão criar no Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
-3. Na seção **espaço de trabalho do OMS** , selecione o espaço de trabalho log Analytics do Azure onde você deseja instalar o ITSMC.
+3. Na seção **espaço de trabalho da la** , selecione o espaço de trabalho log Analytics do Azure onde você deseja instalar o ITSMC.
    >[!NOTE]
    >
-   > * Como parte da transição contínua do Microsoft Operations Management Suite (OMS) para Azure Monitor, os espaços de trabalho do OMS agora são chamados de *espaços de trabalho log Analytics*.
    > * O ITSMC pode ser instalado somente em espaços de trabalho Log Analytics nas seguintes regiões: leste dos EUA, oeste dos EUA 2, Sul EUA Central, Oeste EUA Central, US Gov Arizona, US Gov-Virgínia, Canadá central, Europa Ocidental, sul do Reino Unido, Sudeste Asiático, leste do Japão, Índia central e sudeste da Austrália.
 
 4. Na seção **log Analytics espaço de trabalho** , selecione o grupo de recursos no qual você deseja criar o recurso ITSMC:
@@ -56,10 +55,10 @@ Para criar uma conexão, você precisará preparar sua ferramenta de ITSM para p
 
 Com base no produto de ITSM ao qual você está se conectando, selecione um dos links a seguir para obter instruções:
 
-- [System Center Service Manager](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](./itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](./itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](./itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [ServiceNow](./itsmc-connections-servicenow.md)
+- [System Center Service Manager](./itsmc-connections-scsm.md)
+- [Cherwell](./itsmc-connections-cherwell.md)
+- [Provance](./itsmc-connections-provance.md)
 
 Depois de ter preparado suas ferramentas de ITSM, conclua estas etapas para criar uma conexão:
 
@@ -70,10 +69,14 @@ Depois de ter preparado suas ferramentas de ITSM, conclua estas etapas para cria
 1. Em **fontes de dados do espaço de trabalho** no painel esquerdo, selecione **conexões de ITSM**:
 
    ![Captura de tela que mostra o item de menu de conexões de ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
-   Esta página exibe a lista de conexões.
 1. Selecione **Adicionar conexão**.
 
-4. Especifique as configurações de conexão, conforme descrito em [Configurando a conexão ITSMC com seus produtos/serviços de ITSM](./itsmc-connections.md).
+1. Especifique as configurações de conexão conforme descrito de acordo com os produtos/serviços de ITSM:
+
+    - [ServiceNow](./itsmc-connections-servicenow.md)
+    - [System Center Service Manager](./itsmc-connections-scsm.md)
+    - [Cherwell](./itsmc-connections-cherwell.md)
+    - [Provance](./itsmc-connections-provance.md)
 
    > [!NOTE]
    >
@@ -83,13 +86,7 @@ Depois de ter preparado suas ferramentas de ITSM, conclua estas etapas para cria
 
 ## <a name="use-itsmc"></a>Usar ITSMC
 
-   Você pode usar o ITSMC para criar itens de trabalho de alertas do Azure, alertas de Log Analytics e Log Analytics registros de log.
-
-## <a name="template-definitions"></a>Definições de modelo
-
-   Há tipos de item de trabalho que podem usar modelos que são definidos pela ferramenta ITSM.
-Usando modelos, você pode definir campos que serão preenchidos automaticamente de acordo com os valores fixos que são definidos como parte do grupo de ações. Você define modelos na ferramenta ITSM.
-Você pode definir em qual modelo você gostaria de usar como parte da definição do grupo de ações.
+   Você pode usar o ITSMC para criar alertas de alertas Azure Monitor na ferramenta de ITSM.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Criar itens de trabalho de ITSM desde alertas do Azure
 
@@ -100,7 +97,13 @@ Os grupos de ação fornecem uma maneira modular e reutilizável para disparar a
 > [!NOTE]
 > Depois de criar a conexão de ITSM, você precisa aguardar 30 minutos para que o processo de sincronização seja concluído.
 
-Use o procedimento a seguir para criar itens de trabalho:
+### <a name="template-definitions"></a>Definições de modelo
+
+   Há tipos de item de trabalho que podem usar modelos que são definidos pela ferramenta ITSM.
+Usando modelos, você pode definir campos que serão preenchidos automaticamente de acordo com os valores fixos que são definidos como parte do grupo de ações. Você define modelos na ferramenta ITSM.
+Você pode definir qual modelo deseja usar como parte da definição do grupo de ações.
+
+Use o procedimento a seguir para criar grupos de ações:
 
 1. No portal do Azure, selecione  **alertas**.
 2. No menu na parte superior da tela, selecione **Gerenciar ações**:
@@ -115,13 +118,16 @@ Use o procedimento a seguir para criar itens de trabalho:
 
 4. Na lista notificação, selecione **Avançar: ações**.
 5. Na lista ações, selecione **ITSM** na lista **tipo de ação** . Forneça um **nome** para a ação. Selecione o botão de caneta que representa **detalhes de edição**.
+
+    ![Captura de tela que mostra a definição do grupo de ações.](media/itsmc-definition/action-group-pen.png)
+
 6. Na lista **assinatura** , selecione a assinatura na qual seu espaço de trabalho do log Analytics está localizado. Na lista **conexão** , selecione o nome do conector de ITSM. Ele será seguido pelo nome do seu espaço de trabalho. Por exemplo, MyITSMConnector (MyWorkspace).
 
 7. Selecione um tipo de **item de trabalho** .
 
 8. Se você quiser preencher os campos prontos para uso com valores fixos, selecione **usar modelo personalizado**. Caso contrário, escolha um [modelo](#template-definitions) existente na lista de **modelos** e insira os valores fixos nos campos de modelo.
 
-9. Se você selecionar **criar itens de trabalho individuais para cada item de configuração**, cada item de configuração terá seu próprio item de trabalho. Haverá um item de trabalho por item de configuração. Ele será atualizado de acordo com os alertas que serão criados.
+9. Se você selecionar **criar itens de trabalho individuais para cada item de configuração**, cada item de configuração terá seu próprio item de trabalho. Ou seja, haverá um item de trabalho por item de configuração.
 
     * Em um caso que você selecionar no menu suspenso "incidente" ou "alerta" do item de trabalho: se você desmarcar a caixa de seleção **criar itens de trabalho individuais para cada item de configuração** , cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
 
@@ -141,124 +147,6 @@ Quando você cria ou edita uma regra de alerta do Azure, use um grupo de ações
 >
 >- O campo Descrição curta na definição de regra de alerta é limitado a 40 caracteres quando você o envia usando a ação de ITSM.
 
-## <a name="additional-information"></a>Informações adicionais
-
-### <a name="data-synced-from-your-itsm-product"></a>Dados sincronizados de seu produto de ITSM
-
-Incidentes e solicitações de alteração são sincronizados de seu produto ITSM para seu espaço de trabalho Log Analytics, com base na configuração da conexão.
-
-Esta seção mostra alguns exemplos de dados coletados pelo ITSMC.
-
-Os campos em **ServiceDesk_CL** variam de acordo com o tipo de item de trabalho que você importa para o log Analytics. Aqui está uma lista de campos para dois tipos de item de trabalho:
-
-**Item de trabalho:** **Incidentes**  
-ServiceDeskWorkItemType_s="Incident"
-
-**Fields**
-
-- ServiceDeskConnectionName
-- ID da Central de Serviços
-- Estado
-- Urgência
-- Impacto
-- Prioridade
-- Escalonamento
-- Criado por
-- Resolvido por
-- Fechado por
-- Fonte
-- Atribuído a
-- Categoria
-- Title
-- Descrição
-- Data de criação
-- Data de fechamento
-- Data de resolução
-- Data da última modificação
-- Computador
-
-**Item de trabalho:** **Solicitações de Alteração**
-
-ServiceDeskWorkItemType_s="ChangeRequest"
-
-**Fields**
-- ServiceDeskConnectionName
-- ID da Central de Serviços
-- Criado por
-- Fechado por
-- Fonte
-- Atribuído a
-- Title
-- Type
-- Categoria
-- Estado
-- Escalonamento
-- Status do conflito
-- Urgência
-- Prioridade
-- Risco
-- Impacto
-- Atribuído a
-- Data de criação
-- Data de fechamento
-- Data da última modificação
-- Data de solicitação
-- Data de início prevista
-- Data de término prevista
-- Data de início do trabalho
-- Data de término do trabalho
-- Descrição
-- Computador
-
-## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída de um incidente do ServiceNow
-
-| Campo Log Analytics | Campo do ServiceNow |
-|:--- |:--- |
-| ServiceDeskId_s| Número |
-| IncidentState_s | Estado |
-| Urgency_s |Urgência |
-| Impact_s |Impacto|
-| Priority_s | Prioridade |
-| CreatedBy_s | Aberto por |
-| ResolvedBy_s | Resolvido por|
-| ClosedBy_s  | Fechado por |
-| Source_s| Tipo de contato |
-| AssignedTo_s | Atribuído a  |
-| Category_s | Categoria |
-| Title_s|  Descrição breve |
-| Description_s|  Observações |
-| CreatedDate_t|  Aberto |
-| ClosedDate_t| closed|
-| ResolvedDate_t|Resolvido|
-| Computador  | Item de configuração |
-
-## <a name="output-data-for-a-servicenow-change-request"></a>Dados de saída para uma solicitação de alteração do ServiceNow
-
-| Log Analytics | Campo do ServiceNow |
-|:--- |:--- |
-| ServiceDeskId_s| Número |
-| CreatedBy_s | Solicitado por |
-| ClosedBy_s | Fechado por |
-| AssignedTo_s | Atribuído a  |
-| Title_s|  Descrição breve |
-| Type_s|  Type |
-| Category_s|  Categoria |
-| CRState_s|  Estado|
-| Urgency_s|  Urgência |
-| Priority_s| Prioridade|
-| Risk_s| Risco|
-| Impact_s| Impacto|
-| RequestedDate_t  | Solicitado por data |
-| ClosedDate_t | Data de fechamento |
-| PlannedStartDate_t  | Data de início planejada |
-| PlannedEndDate_t  | Data de término planejada |
-| WorkStartDate_t  | Data de início real |
-| WorkEndDate_t | Data de término real|
-| Description_s | Descrição |
-| Computador  | Item de Configuração |
-
 ## <a name="next-steps"></a>Próximas etapas
 
-[Visão geral](./itsmc-overview.md) 
- de conector ITSM [Adicionar produtos/serviços de ITSM a conector de gerenciamento de serviços de ti](./itsmc-connections.md) 
- [Solucionando problemas no conector ITSM](./itsmc-resync-servicenow.md)
+* [Solução de problemas no Conector ITSM](./itsmc-resync-servicenow.md)

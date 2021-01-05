@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1c1a5a96742d380ce42c0aea8c77a199083df47f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492243"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814492"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança do Azure para a proteção contra DDoS do Azure Standard
 
@@ -38,7 +38,7 @@ Essa linha de base de segurança aplica diretrizes do [benchmark de segurança d
 
 Habilite as configurações de diagnóstico do log de atividades do Azure e envie os logs para um Log Analytics espaço de trabalho, Hub de eventos do Azure ou conta de armazenamento do Azure para arquivamento. Os logs de atividade fornecem informações sobre as operações que foram realizadas no cache do Azure para instâncias Redis no nível do plano de controle. Usando os dados do log de atividades do Azure, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) executada no nível do plano de controle para suas instâncias de proteção contra DDoS do Azure.
 
-- [Como configurar alertas para métricas de proteção contra DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Exibir e configurar o log de diagnóstico de DDoS](../../ddos-protection/diagnostic-logging.md)
 
 - [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -60,7 +60,7 @@ Habilite as configurações de diagnóstico do log de atividades do Azure e envi
 
 **Diretrizes**: habilitar as configurações de diagnóstico do log de atividades do Azure e enviar os logs para um espaço de trabalho log Analytics. Execute consultas em Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitas outras informações com base nos dados do log de atividades que podem ter sido coletados para cofres dos serviços de recuperação.
 
-- [Informações sobre como acessar telemetria, logs e análise de ataque para o serviço Standard de proteção contra DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Informações sobre como acessar telemetria, logs e análise de ataque para o serviço Standard de proteção contra DDoS](../../ddos-protection/telemetry.md)
 
 - [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../../azure-monitor/platform/activity-log.md)
 
@@ -76,7 +76,7 @@ Habilite as configurações de diagnóstico do log de atividades do Azure e envi
 
 Integre um espaço de trabalho Log Analytics ao Azure Sentinel, pois ele fornece uma solução de disparar (resposta automatizada de orquestração de segurança). Assim os guias estratégicos (soluções automatizadas) podem ser criados e usados para corrigir problemas de segurança. Além disso, você pode criar alertas de log personalizados em seu espaço de trabalho do Log Analytics usando Azure Monitor.
 
-- [Como configurar alertas para métricas de DDoS](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [Como configurar alertas para métricas de DDoS](../../ddos-protection/alerts.md)
 
 - [Como integrar o Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
@@ -142,7 +142,7 @@ Além disso, para ajudá-lo a controlar as contas administrativas dedicadas, voc
 
 - [Como registrar seu aplicativo cliente (entidade de serviço) com o Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-- [Informações da API de proteção contra DDos do Azure](/rest/api/virtual-network/)
+- [Informações da API de proteção contra DDoS do Azure](/rest/api/virtual-network/)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -166,7 +166,7 @@ Além disso, para ajudá-lo a controlar as contas administrativas dedicadas, voc
 
 - [Implantar uma estação de trabalho segura e gerenciada pelo Azure](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-- [Planejando uma implantação da autenticação multifator do Azure AD baseada em nuvem](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -524,7 +524,7 @@ Teste suas suposições sobre como seus serviços responderão a um ataque geran
 
 Selecione qualquer uma das métricas de proteção contra DDoS disponíveis para alertá-lo quando houver uma mitigação ativa durante um ataque, usando a configuração de alerta Azure Monitor. Quando as condições são atendidas, o endereço especificado recebe um email de alerta
 
-- [Configurar alertas para métricas de proteção contra DDoS](../../ddos-protection/telemetry-monitoring-alerting.md#configure-alerts-for-ddos-protection-metrics)
+- [Configurar alertas para métricas de proteção contra DDoS](../../ddos-protection/alerts.md)
 
 - [Como configurar a exportação contínua](../../security-center/continuous-export.md)
 
