@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2020
+ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aae822665702300064e82e80d74b5c2256423ea1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94957275"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827216"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP
 Os aplicativos SAP baseados na arquitetura SAP NetWeaver ou SAP S/4HANA são sensíveis à latência de rede entre a camada de aplicativo SAP e a camada de banco de dados SAP. Essa sensibilidade é o resultado da maior parte da lógica de negócios em execução na camada de aplicativo. Como a camada de aplicativo SAP executa a lógica de negócios, ela emite consultas para a camada de banco de dados em uma alta frequência, a uma taxa de milhares ou dezenas de milhares por segundo. Na maioria dos casos, a natureza dessas consultas é simples. Geralmente, eles podem ser executados na camada de banco de dados em 500 microssegundos ou menos.
@@ -42,6 +42,8 @@ Para oferecer a possibilidade de otimizar a latência de rede, o Azure oferece [
 > - Somente quando necessário
 > - Somente na granularidade de um único sistema SAP e não em um cenário de sistema inteiro ou em uma estrutura SAP completa
 > - Em uma maneira de manter os diferentes tipos de VM e o número de VMs em um grupo de posicionamento de proximidade para um mínimo
+
+Suponha que, se você implantar VMs especificando Zonas de Disponibilidade e selecionar o mesmo Zonas de Disponibilidade, a latência de rede entre essas VMs deverá ser suficiente para operar sistemas SAP NetWeaver e S/4HANA com o desempenho e a taxa de transferência satisfatórios. Essa suposição é independente do fato de uma determinada zona ser criada fora de um datacenter ou de vários data centers. O único motivo para usar grupos de posicionamento de proximidade em implantações zonais é o caso em que você deseja alocar VMs implantadas do conjunto de disponibilidade do Azure junto com VMs implantadas de zona.
 
 
 ## <a name="what-are-proximity-placement-groups"></a>O que são grupos de posicionamento de proximidade? 

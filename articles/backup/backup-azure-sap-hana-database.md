@@ -3,12 +3,12 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o Backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682835"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831628"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -91,6 +91,9 @@ Também é possível usar os seguintes FQDNs para permitir o acesso aos serviço
 
 Quando você faz backup de um banco de dados SAP HANA em execução em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento ao Backup do Azure e dados ao Armazenamento do Azure. A extensão de backup também usa o Azure AD para autenticação. Roteie o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. Use a lista de IPs e FQDNs mencionados acima para permitir o acesso aos serviços necessários. Não há suporte para os servidores proxy autenticados.
 
+> [!NOTE]
+> Não há suporte para proxy de nível de serviço. Ou seja, o tráfego pelo proxy de apenas alguns serviços ou selecionados (serviços de backup do Azure) não tem suporte. Todo o tráfego ou dados pode ser roteado por proxy ou não.
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>Descobrir os bancos de dados
@@ -169,10 +172,10 @@ Especifique as configurações de política da seguinte maneira:
     ![Política de backup diferencial](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Os backups incrementais agora têm suporte na visualização pública. Você pode escolher uma diferencial ou uma incremental como um backup diário, mas não ambos.
-1. Em **política de backup incremental**, selecione **habilitar** para abrir os controles de frequência e retenção.
+    > Os backups incrementais agora têm suporte na visualização pública. Você pode escolher um diferencial ou um incremental como um backup diário, mas não ambos.
+1. Em **Política de Backup Incremental**, selecione **Habilitar** para abrir os controles de retenção e frequência.
     * No máximo, você pode disparar um backup incremental por dia.
-    * Os backups incrementais podem ser retidos por um máximo de 180 dias. Se você precisar de retenção mais longa, deverá usar os backups completos.
+    * Backups incrementais podem ser retidos por até 180 dias. Se você precisar de retenção mais longa, deverá usar os backups completos.
 
     ![Política de backup incremental](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 

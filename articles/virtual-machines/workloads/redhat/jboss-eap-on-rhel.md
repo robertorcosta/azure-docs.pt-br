@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
-ms.openlocfilehash: bab84b12c871c621b5a317ba8b47f9b18c91bff3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bd6ff46807c22309679ba7e8518685bb05cc77e2
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500182"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830710"
 ---
 # <a name="deploy-enterprise-java-applications-to-azure-with-jboss-eap-on-red-hat-enterprise-linux"></a>Implantar aplicativos Java empresariais no Azure com o EAP do JBoss no Red Hat Enterprise Linux
 
@@ -152,7 +152,7 @@ Para obter detalhes sobre os preços da VM PAYG, confira os [preços do Red Hat 
 Para usar o BYOS para o RHEL OS, você precisa ter uma assinatura do Red Hat válida com direitos para usar o RHEL OS no Azure. Cumpra os seguintes pré-requisitos antes de implantar o sistema operacional do RHEL com o modelo BYOS:
 
 1. Verifique se você tem os direitos do sistema operacional do RHEL e do JBoss EAP anexados à assinatura do Red Hat.
-2. Autorize sua ID da assinatura do Azure para usar imagens do RHEL BYOS. Siga a [documentação do Red Hat Subscription Management](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs) para concluir o processo, que inclui estas etapas:
+2. Autorize sua ID da assinatura do Azure para usar imagens do RHEL BYOS. Siga a [documentação do Red Hat Subscription Management](https://access.redhat.com/documentation/red_hat_subscription_management/1/) para concluir o processo, que inclui estas etapas:
 
    1. Habilitar o Microsoft Azure como um provedor no Painel do Red Hat Cloud Access.
 
@@ -160,7 +160,7 @@ Para usar o BYOS para o RHEL OS, você precisa ter uma assinatura do Red Hat vá
 
    1. Habilitar novos produtos para o Cloud Access no Microsoft Azure.
     
-   1. Ativar as Imagens Gold do Red Hat para a assinatura do Azure. Para obter mais informações, confira as [Imagens Gold do Red Hat no Microsoft Azure](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
+   1. Ativar as Imagens Gold do Red Hat para a assinatura do Azure. Para obter mais informações, confira as [Imagens Gold do Red Hat no Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
 
    1. Aguarde até que as Imagens Gold do Red Hat estejam disponíveis na assinatura do Azure. Essas imagens normalmente são disponibilizadas em até três horas após o envio.
     
@@ -212,7 +212,7 @@ Você pode implantar o modelo das seguintes maneiras:
   ```
 
   ```
-  az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
+  az deployment group create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
   Para obter detalhes sobre como instalar e configurar a CLI do Azure, confira [Instalar a CLI](/cli/azure/install-azure-cli).

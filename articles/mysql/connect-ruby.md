@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 20e51100eba595f9261be24e0e3675aa565479cd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 4eba3fabee50e0011d5a63297c726a9647dd84c0
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535547"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831526"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Início Rápido: Usar Ruby para conectar e consultar dados no Banco de Dados do Azure para MySQL
 
@@ -72,7 +72,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 ## <a name="connect-and-create-a-table"></a>Conectar-se e criar uma tabela
 Use o código a seguir para se conectar e criar uma tabela usando a instrução SQL **CREATE TABLE**, seguida por instruções SQL **INSERT INTO** para adicionar linhas à tabela.
 
-O código usa uma classe [mysql2::client](https://www.rubydoc.info/gems/mysql2) para se conectar ao servidor MySQL. Em seguida, ele chama o método ```query()``` para executar os comandos DROP, CREATE TABLE e INSERT INTO. Por fim, chame o ```close()``` para fechar a conexão antes de encerrar.
+O código usa uma classe mysql2::client para se conectar ao servidor MySQL. Em seguida, ele chama o método ```query()``` para executar os comandos DROP, CREATE TABLE e INSERT INTO. Por fim, chame o ```close()``` para fechar a conexão antes de encerrar.
 
 Substitua as cadeias de caracteres `host`, `database`, `username` e `password` pelos seus próprios valores.
 ```ruby
@@ -117,7 +117,7 @@ end
 ## <a name="read-data"></a>Ler dados
 Use o código a seguir para conectar-se e ler os dados usando uma instrução SQL **SELECT**.
 
-O código usa uma classe [mysql2::client](https://www.rubydoc.info/gems/mysql2) para se conectar ao Banco de Dados do Azure para MySQL usando o ```new()```método. Em seguida, ele chama o método ```query()``` para executar os comandos SELECT. Em seguida, ele chama o método ```close()``` para fechar a conexão antes de encerrar.
+O código usa uma classe mysql2::client para se conectar ao Banco de Dados do Azure para MySQL usando o ```new()```método. Em seguida, ele chama o método ```query()``` para executar os comandos SELECT. Em seguida, ele chama o método ```close()``` para fechar a conexão antes de encerrar.
 
 Substitua as cadeias de caracteres `host`, `database`, `username` e `password` pelos seus próprios valores.
 
@@ -156,7 +156,7 @@ end
 ## <a name="update-data"></a>Atualizar dados
 Use o código a seguir para conectar-se e atualizar os dados usando uma instrução SQL **UPDATE**.
 
-O código usa um método .new() de classe [mysql2::client](https://www.rubydoc.info/gems/mysql2) para se conectar ao banco de dados do Azure para MySQL. Em seguida, ele chama o método ```query()``` para executar os comandos UPDATE. Em seguida, ele chama o método ```close()``` para fechar a conexão antes de encerrar.
+O código usa um método .new() de classe [mysql2::client](https://rubygems.org/gems/mysql2-client-general_log) para se conectar ao banco de dados do Azure para MySQL. Em seguida, ele chama o método ```query()``` para executar os comandos UPDATE. Em seguida, ele chama o método ```close()``` para fechar a conexão antes de encerrar.
 
 Substitua as cadeias de caracteres `host`, `database`, `username` e `password` pelos seus próprios valores.
 
@@ -241,5 +241,5 @@ az group delete \
 > [Migre seu banco de dados usando Exportar e Importar](./concepts-migrate-import-export.md) <br/>
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o cliente MySQL2](https://www.rubydoc.info/gems/mysql2) <br/>
+> [Saiba mais sobre o cliente MySQL2](https://rubygems.org/gems/mysql2-client-general_log) <br/>
 

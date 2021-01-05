@@ -4,12 +4,12 @@ description: Aprenda a solucionar problemas comuns ao usar o Serviço de Kuberne
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d157dd6b3347c8fbfd8712fa20d52cedb425f47f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 02ff1581bafe62a092be87d16df51c7ca8c020b4
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751471"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830931"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -439,7 +439,7 @@ Nas versões do Kubernetes **mais antigas que a 1.15.0**, você pode receber um 
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Por que as atualizações para o kubernetes 1,16 falham ao usar rótulos de nó com um prefixo kubernetes.io
 
-A partir do kubernetes [1,16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) , [apenas um subconjunto definido de rótulos com o prefixo kubernetes.Io](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) pode ser aplicado pelo kubelet aos nós. AKS não pode remover rótulos ativos em seu nome sem consentimento, pois isso pode causar tempo de inatividade para cargas de trabalho impactadas.
+A partir do kubernetes [1,16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) , [apenas um subconjunto definido de rótulos com o prefixo kubernetes.Io](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) pode ser aplicado pelo kubelet aos nós. AKS não pode remover rótulos ativos em seu nome sem consentimento, pois isso pode causar tempo de inatividade para cargas de trabalho impactadas.
 
 Como resultado, para atenuar esse problema, você pode:
 

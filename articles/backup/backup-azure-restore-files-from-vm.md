@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d34fc48e5d16275d0225a1cef4b5fa63f0b66d6
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511647"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831662"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -118,6 +118,7 @@ O script também exige componentes Python e bash para executar e se conectar com
 | --------------- | ---- |
 | bash | 4 e acima |
 | python | 2.6.6 e acima  |
+| .NET | 4.6.2 e acima |
 | TLS | 1.2 deve ser compatível  |
 
 ## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>Etapa 4: requisitos de acesso para executar o script com êxito

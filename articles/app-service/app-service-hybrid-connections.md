@@ -6,13 +6,13 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.custom: seodec18, fasttrack-edit, devx-track-azurecli
-ms.openlocfilehash: c7900341cfcda52dafcb269b833f5ad8dd0f55b7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: seodec18, fasttrack-edit
+ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
+ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739758"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97825971"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Conexões Híbridas do Serviço de Aplicativo do Azure
 
@@ -56,15 +56,15 @@ Coisas que você não pode fazer com conexões híbridas incluem:
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Adicionar e criar Conexões Híbridas em seu aplicativo ##
 
-Para criar uma Conexão Híbrida, acesse o [Portal do Azure][portal] e selecione seu aplicativo. Selecione **rede**  >  **configurar seus pontos de extremidade de conexão híbrida** . Aqui você pode ver as conexões híbridas que são configuradas para seu aplicativo.  
+Para criar uma Conexão Híbrida, acesse o [Portal do Azure][portal] e selecione seu aplicativo. Selecione **rede**  >  **configurar seus pontos de extremidade de conexão híbrida**. Aqui você pode ver as conexões híbridas que são configuradas para seu aplicativo.  
 
 ![Captura de tela da lista de Conexões Híbridas][2]
 
-Para adicionar uma nova conexão híbrida, selecione **[+] Adicionar conexão híbrida** .  Você verá uma lista das conexões híbridas que você já criou. Para adicionar uma ou mais delas ao seu aplicativo, selecione as que você deseja e selecione **Adicionar Conexão Híbrida selecionada** .  
+Para adicionar uma nova conexão híbrida, selecione **[+] Adicionar conexão híbrida**.  Você verá uma lista das conexões híbridas que você já criou. Para adicionar uma ou mais delas ao seu aplicativo, selecione as que você deseja e selecione **Adicionar Conexão Híbrida selecionada**.  
 
 ![Captura de tela do portal de Conexões Híbridas][3]
 
-Se desejar criar uma nova Conexão Híbrida, clique em **Criar nova conexão híbrida** . Especifique: 
+Se desejar criar uma nova Conexão Híbrida, clique em **Criar nova conexão híbrida**. Especifique: 
 
 - Nome da Conexão híbrida.
 - Nome do host do ponto de extremidade.
@@ -75,7 +75,7 @@ Se desejar criar uma nova Conexão Híbrida, clique em **Criar nova conexão hí
 
 Cada Conexão Híbrida está associada a um namespace do Barramento de Serviço e cada namespace do Barramento de Serviço está em uma região do Azure. É importante tentar usar um namespace do Barramento de Serviço na mesma região do seu aplicativo para evitar a latência de rede induzida.
 
-Se você desejar remover sua Conexão Híbrida do seu aplicativo, clique com o botão direito do mouse nele e selecione **Desconectar** .  
+Se você desejar remover sua Conexão Híbrida do seu aplicativo, clique com o botão direito do mouse nele e selecione **Desconectar**.  
 
 Depois que uma Conexão Híbrida é adicionada ao seu aplicativo, basta clicar nela para ver seus detalhes. 
 
@@ -97,7 +97,7 @@ As conexões híbridas do serviço de aplicativos estão disponíveis apenas nos
 | Basic | 5 por plano |
 | Standard | 25 por plano |
 | PremiumV2 | 200 por aplicativo |
-| Isolada | 200 por aplicativo |
+| Isolado | 200 por aplicativo |
 
 A UI do plano de serviço do aplicativo mostra quantas conexões híbridas estão sendo usadas e por quais aplicativos.  
 
@@ -113,7 +113,7 @@ Além de haver um requisito de SKU do plano de serviço de aplicativo, há um cu
 
 ## <a name="hybrid-connection-manager"></a>Gerenciador de Conexão Híbrida ##
 
-O recurso Conexões Híbridas exige um agente de retransmissão na rede que hospeda o seu ponto de extremidade de Conexão Híbrida. Esse agente de retransmissão é chamado de HCM (Gerenciador de Conexão Híbrida). Parabaixar o HCM, no seu aplicativo no [portal do Azure][portal], selecione **Rede** > **Configurar seus pontos de extremidade de Conexões Híbridas** .  
+O recurso Conexões Híbridas exige um agente de retransmissão na rede que hospeda o seu ponto de extremidade de Conexão Híbrida. Esse agente de retransmissão é chamado de HCM (Gerenciador de Conexão Híbrida). Parabaixar o HCM, no seu aplicativo no [portal do Azure][portal], selecione **Rede** > **Configurar seus pontos de extremidade de Conexões Híbridas**.  
 
 Essa ferramenta é executada no Windows Server 2012 e versões posteriores. O HCM é executado como um serviço e conecta-se de saída para retransmissão do Azure na porta 443.  
 
@@ -126,7 +126,7 @@ Ao iniciar a interface do usuário do HCM, a primeira coisa que você vê é uma
 Para adicionar uma ou mais Conexões Híbridas a seu HCM:
 
 1. Inicie a interface do usuário do HCM.
-2. Selecione **Configurar outra Conexão Híbrida** .
+2. Selecione **Configurar outra Conexão Híbrida**.
 ![Captura de tela de Configurar novas Conexões Híbridas][8]
 
 1. Entre com sua conta do Azure para colocar seu Conexões Híbridas disponível com suas assinaturas. A HCM não continua a usar sua conta do Azure além disso. 
@@ -134,7 +134,7 @@ Para adicionar uma ou mais Conexões Híbridas a seu HCM:
 1. Selecione as Conexões Híbridas que você deseja que o HCM retransmita.
 ![Captura de tela de Conexões Híbridas][9]
 
-1. Clique em **Salvar** .
+1. Clique em **Salvar**.
 
 Agora você pode ver as Conexões Híbridas adicionadas. Você também pode selecionar a Conexão híbrida configurada para ver os detalhes.
 
@@ -201,7 +201,7 @@ Qualquer pessoa com `Reader` acesso à retransmissão poderá _Ver_ a conexão h
 
 ## <a name="troubleshooting"></a>Solução de problemas ##
 
-O status “Conectado” significa que pelo menos um HCM está configurado com essa Conexão Híbrida e é capaz de alcançar o Azure. Se o status da sua Conexão Híbrida não indica **Conectado** , sua Conexão Híbrida não está configurada em nenhum HCM com acesso ao Azure.
+O status “Conectado” significa que pelo menos um HCM está configurado com essa Conexão Híbrida e é capaz de alcançar o Azure. Se o status da sua Conexão Híbrida não indica **Conectado**, sua Conexão Híbrida não está configurada em nenhum HCM com acesso ao Azure.
 
 O principal motivo pelo qual os clientes não podem se conectar ao ponto de extremidade é porque o ponto de extremidade foi especificado usando um endereço IP em vez de um nome DNS. Se seu aplicativo não puder acessar o ponto de extremidade desejado e você tiver usado um endereço IP, mude e passe a usar um nome DNS válido no host em que o HCM está em execução. Verifique também se o nome DNS resolve corretamente no host onde o HCM está em execução. Confirme se há conectividade entre o host onde a HCM está em execução no ponto de extremidade de Conexão Híbrida.  
 

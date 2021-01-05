@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar a exibição em tempo real de 
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 45ed931f734e874e81af837fff5c4a326349cb21
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530175"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97830778"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 
@@ -19,7 +19,7 @@ Esse recurso dá suporte aos seguintes métodos para controlar o acesso aos logs
 
 - AKS sem autorização do RBAC do Kubernetes habilitada
 - AKS habilitado com autorização do RBAC do Kubernetes
-    - AKS configurado com a ClusterMonitoringUser de associação de função de cluster **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
+    - AKS configurado com a ClusterMonitoringUser de associação de função de cluster **[](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
 - AKS habilitado com logon único baseado em SAML do Azure Active Directory (AD)
 
 Essas instruções exigem o acesso administrativo ao cluster kubernetes e, se configurarem para usar o Azure Active Directory (AD) para autenticação de usuário, acesso administrativo ao Azure AD.
@@ -48,7 +48,7 @@ O portal do Azure solicita que você valide suas credenciais de logon para um cl
 
 Para eliminar a necessidade de aplicar alterações de configuração adicionais para permitir que a associação de função de usuário kubernetes **clusterUser** o acesso ao recurso de dados dinâmicos (versão prévia) depois de habilitar a autorização de [RBAC de kubernetes](#configure-kubernetes-rbac-authorization) , AKs adicionou uma nova associação de função de cluster kubernetes chamada **clusterMonitoringUser**. Essa associação de função de cluster tem todas as permissões necessárias prontas para acessar a API kubernetes e os pontos de extremidade para utilizar o recurso de dados dinâmicos (versão prévia).
 
-Para utilizar o recurso de dados dinâmicos (versão prévia) com esse novo usuário, você precisa ser um membro da função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) no recurso de cluster AKs. Azure Monitor para contêineres, quando habilitado, é configurado para autenticar usando esse usuário por padrão. Se a associação de função clusterMonitoringUser não existir em um cluster, o **clusterUser** será usado para autenticação em vez disso.
+Para utilizar o recurso de dados dinâmicos (versão prévia) com esse novo usuário, você precisa ser um membro da função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou [usuário de cluster do serviço kubernetes do Azure](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) no recurso de cluster AKs. Azure Monitor para contêineres, quando habilitado, é configurado para autenticar usando o clusterMonitoringUser por padrão. Se a associação de função clusterMonitoringUser não existir em um cluster, o **clusterUser** será usado para autenticação em vez disso. O colaborador fornece acesso ao clusterMonitoringUser (se existir) e o usuário do cluster do serviço Kuberenetes do Azure fornece acesso ao clusterUser. Qualquer uma dessas duas funções fornece acesso suficiente para usar esse recurso.
 
 AKS liberou essa nova associação de função em janeiro de 2020, portanto, os clusters criados antes de janeiro de 2020 não o têm. Se você tiver um cluster que foi criado antes de janeiro de 2020, o novo **clusterMonitoringUser** poderá ser adicionado a um cluster existente executando uma operação Put no cluster ou executando qualquer outra operação no cluster que executa uma operação Put no cluster, como atualizar a versão do cluster.
 

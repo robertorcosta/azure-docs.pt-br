@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2020
 ms.author: mlottner
-ms.openlocfilehash: 7f7575697706363c082a4e6374b3df7a49e65cdf
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548844"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832362"
 ---
 # <a name="defender-for-iot-event-aggregation"></a>Agregação de evento do defender para IoT
 
@@ -97,6 +97,6 @@ Para continuar a introdução à implantação do defender para IoT, use os segu
 
 - Entender os [métodos de autenticação do agente de segurança](concept-security-agent-authentication-methods.md)
 - Selecionar e implantar um [agente de segurança](how-to-deploy-agent.md)
-- Examine os pré-requisitos do defender for IoT [Service](service-prerequisites.md)
+- Examinar os pré-requisitos do [sistema](quickstart-system-prerequisites.md) do defender para IOT
 - Saiba como [habilitar o defender para o serviço de IOT em seu hub IOT](quickstart-onboard-iot-hub.md)
 - Saiba mais sobre o serviço do [defender for IOT FAQ](resources-frequently-asked-questions.md)

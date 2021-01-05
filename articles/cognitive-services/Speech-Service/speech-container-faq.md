@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a657f43ef2d889cad1608d34e9235b1d5e7cb576
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 85534d1f64b273e42a2ea063e67286ee7bb4a90a
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95894143"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827148"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de fala
 
@@ -169,7 +169,7 @@ StatusCode: InvalidArgument,
 Details: Voice does not match.
 ```
 
-**Resposta 2:** Você precisa fornecer o nome de voz correto na solicitação, que diferencia maiúsculas de minúsculas. Consulte o mapeamento de nome de serviço completo. Você precisa usar `en-US-JessaRUS` o, como `en-US-JessaNeural` não está disponível no momento na versão de contêiner de conversão de texto em fala.
+**Resposta 2:** Você precisa fornecer o nome de voz correto na solicitação, que diferencia maiúsculas de minúsculas. Consulte o mapeamento de nome de serviço completo.
 
 **Erro 3:**
 
@@ -292,7 +292,7 @@ Você pode ajudar a preencher as seguintes métricas de teste, incluindo quais f
 
 | Ponto de extremidade                                                | Teste funcional                                                   | . | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Yes      |
+| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Sim      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivas ponto de extremidade do WebSocket v1 do ditado        | Sim | Não       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | O ponto de extremidade do WebSocket interativo de serviços cognitivas local v1  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | O ponto de extremidade do WebSocket v1 da conversa local de serviços cognitivas |     |          |
@@ -309,6 +309,8 @@ A solução alternativa é alternar para o uso do reconhecimento contínuo em se
 Para seu código, defina o ponto de extremidade como `host:port` /Speech/Recognition/Interactive/cognitiveservices/v1
 
 Para os vários modos, consulte modos de fala-Veja abaixo:
+
+## <a name="speech-modes---interactive-conversation-dictation"></a>Modos de fala – interativo, conversa, ditado
 
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
@@ -401,11 +403,11 @@ Quantas solicitações simultâneas serão um identificador de 4 núcleos e 4 GB
 |----------------|---------------------|---------------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
-# <a name="custom-speech-to-text"></a>[Fala Personalizada para texto](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Conversão de fala em texto personalizada](#tab/cstt)
 
 | Contêiner             | Mínimo             | Recomendado         |
 |-----------------------|---------------------|---------------------|
-| Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
+| Conversão de fala em texto personalizada | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 
 # <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
@@ -559,6 +561,8 @@ auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
 
 **Resposta:** Há três pontos de extremidade no contêiner de fala para usos diferentes, eles são definidos como modos de fala – Veja abaixo:
 
+## <a name="speech-modes"></a>Modos de fala
+
 [!INCLUDE [speech-modes](includes/speech-modes.md)]
 
 Eles são para finalidades diferentes e são usados de forma diferente.
@@ -571,7 +575,7 @@ Eles são para finalidades diferentes e são usados de forma diferente.
 Em C# para habilitar o ditado, invoque a `SpeechConfig.EnableDictation()` função.
 
 ### <a name="fromendpoint-apis"></a>`FromEndpoint` API
-| Idioma | Detalhes da API |
+| Linguagem | Detalhes da API |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -592,7 +596,7 @@ Em C# para habilitar o ditado, invoque a `SpeechConfig.EnableDictation()` funç�
 
 ### <a name="fromhost-apis"></a>`FromHost` API
 
-| Idioma | Detalhes da API |
+| Linguagem | Detalhes da API |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |

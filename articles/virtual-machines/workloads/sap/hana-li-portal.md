@@ -13,20 +13,20 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2020
+ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36f6638614d5c0b55b2adc202e8f8d6f9450aaf3
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
+ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674405"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97827505"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controle do HANA em Instâncias Grandes do Azure por meio do portal do Azure
 
 >[!NOTE]
->Para Rev 4,2, siga as instruções em [gerenciar instâncias de BareMetal por meio do tópico portal do Azure](baremetal-infrastructure-portal.md) .
+>Para Rev 4,2, siga as instruções em [gerenciar instâncias de BareMetal por meio do tópico portal do Azure](../../../baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal.md) .
 
 Este documento aborda a maneira como as [instâncias grandes do Hana](./hana-overview-architecture.md) são apresentadas em [portal do Azure](https://portal.azure.com) e quais atividades podem ser conduzidas por meio de portal do Azure com unidades de instância grande do Hana que são implantadas para você. A visibilidade do HANA em instâncias grandes no portal do Azure é fornecida por meio de um provedor de recursos do Azure para instâncias grandes do HANA, que atualmente está em visualização pública
 

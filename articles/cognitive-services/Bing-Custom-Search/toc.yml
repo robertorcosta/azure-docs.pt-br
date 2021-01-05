@@ -8,7 +8,7 @@
     - name: Comparar as APIs de Pesquisa do Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar uma instância de pesquisa personalizada
@@ -75,7 +75,7 @@
     - name: SDKs
       items:
         - name: .NET
-          href: /dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
+          href: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme?view=azure-dotnet
         - name: Java - Pesquisa Personalizada
           href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
         - name: Java - Pesquisa de Imagem Personalizada

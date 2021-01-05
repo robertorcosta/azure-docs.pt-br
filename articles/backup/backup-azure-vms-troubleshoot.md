@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: cb25d9263648fbd92bc075751c1a8e627d03bd44
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
+ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325206"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97831543"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -74,6 +74,16 @@ Mensagem de erro: Falha ao congelar um ou mais pontos de montagem da VM para tir
 * Execute uma verificação de consistência do sistema de arquivos nesses dispositivos usando o comando **fsck**.
 * Monte os dispositivos novamente e tente novamente a operação de backup.</ol>
 
+Se não for possível desmontar os dispositivos, você poderá atualizar a configuração de backup da VM para ignorar determinados pontos de montagem. Por exemplo, se o ponto de montagem '/mnt/Resource ' não puder ser desmontado e causar falhas de backup da VM, você poderá atualizar os arquivos de configuração de backup da VM com a ```MountsToSkip``` propriedade da seguinte maneira.
+
+```bash
+cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
+fsfreeze: True
+MountsToSkip = /mnt/resource
+SafeFreezeWaitInSeconds=600
+```
+
+
 ### <a name="extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error"></a>Falha na instalação/operação de ExtensionSnapshotFailedCOM/ExtensionInstallationFailedCOM/ExtensionInstallationFailedMDTC-Extension devido a um erro COM+
 
 Código de erro: ExtensionSnapshotFailedCOM <br/>
@@ -104,11 +114,11 @@ Mensagem de erro: A operação de captura instantânea falhou porque os gravador
 
 Esse erro ocorre porque os gravadores VSS estavam em um estado inadequado. As extensões de backup do Azure interagem com os gravadores VSS para tirar instantâneos dos discos. Para resolver esse problema, siga estas etapas:
 
-Etapa 1: reiniciar gravadores VSS que estão em um estado inadequado.
+Etapa 1: Reinicie os gravadores VSS que estão em um estado inválido.
 
 * Em um prompt de comandos com privilégios elevados, execute ```vssadmin list writers```.
-* A saída contém todos os gravadores VSS e seus estados. Para cada gravador VSS com um estado que não é **[1] estável**, reinicie o serviço do gravador VSS respectivo.
-* Para reiniciar o serviço, execute os seguintes comandos em um prompt de comando com privilégios elevados:
+* A saída contém todos os gravadores VSS e seus estados. Para cada gravador VSS com um estado que não seja **[1] Estável**, reinicie o serviço do gravador VSS respectivo.
+* Para reiniciar o serviço, execute os seguintes comandos em um prompt de comando com privilégios elevados: 
 
  ```net stop serviceName``` <br>
  ```net start serviceName```
@@ -142,14 +152,14 @@ Esse erro ocorre porque o serviço VSS estava em um estado inadequado. As extens
 
 Reinicie o serviço VSS (cópia de sombra de volume).
 
-* Navegue até Services. msc e reinicie o ' serviço de cópias de sombra de volume '.<br>
+* Navegue até Services.msc e reinicie o "Serviço de cópia de sombra de volume".<br>
 (ou)<br>
 * Execute os seguintes comandos em um prompt de comandos com privilégios elevados:
 
  ```net stop VSS``` <br>
  ```net start VSS```
 
-Se o problema ainda persistir, reinicie a VM no tempo de inatividade agendado.
+Se o problema persistir, reinicie a VM no tempo de inatividade agendado.
 
 ### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable-falha na criação da VM porque o tamanho da VM selecionado não está disponível
 
@@ -283,7 +293,7 @@ Erro de código: VmNotInDesirableState <br/> Mensagem de erro:  A VM não está 
 * Se a VM estiver em um estado transitório entre **Execução** e **Desligada**, aguarde a alteração do estado para mudar. Em seguida, dispare o trabalho de backup.
 * Se a VM for uma VM do Linux e usar o módulo de kernel do Linux com Segurança Aprimorada, exclua o caminho do Agente para Linux do Azure **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
 
-* O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito necessário e o agente de VM. Em seguida, reinicie a operação. | Leia mais sobre a [instalação do agente de VM e como validar a instalação do agente de VM](#vm-agent).
+* O agente de VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito necessário e o agente de VM. Em seguida, reinicie a operação. | Leia mais sobre [a instalação do agente de VM e como validar a instalação do agente de VM](#vm-agent).
 
 ### <a name="extensionsnapshotfailednosecurenetwork---the-snapshot-operation-failed-because-of-failure-to-create-a-secure-network-communication-channel"></a>ExtensionSnapshotFailedNoSecureNetwork-falha na operação de instantâneo devido à falha ao criar um canal de comunicação de rede segura
 
