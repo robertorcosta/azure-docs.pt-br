@@ -25,7 +25,7 @@
           href: tutorial-python-virtual-machine.md
     - name: Serviço de aplicativo do Azure
       items:
-        - name: Use o Azure Key Vault com um aplicativo Web no .NET
+        - name: Usar o Azure Key Vault com um Aplicativo Web no .NET
           href: tutorial-net-create-vault-azure-web-app.md
     - name: Serviço de Kubernetes do Azure
       items:
@@ -86,7 +86,7 @@
       href: overview-vnet-service-endpoints.md
 - name: Guias de instruções
   items:
-    - name: Authenticate
+    - name: Autenticar e autorizar
       items:
         - name: Autenticar-se no Key Vault
           href: authentication.md
@@ -104,10 +104,6 @@
           href: rbac-migration.md
         - name: Solucionar problemas de acesso
           href: troubleshooting-access-issues.md
-    - name: Habilitar a exclusão reversível e a proteção contra limpeza
-      href: key-vault-recovery.md
-    - name: Habilitar o registro em log
-      href: howto-logging.md
     - name: Desenvolver
       items:
         - name: Guia do desenvolvedor do Cofre da Chave do Azure
@@ -118,21 +114,31 @@
           href: vs-key-vault-add-connected-service.md
     - name: Monitorar e controlar
       items:
-        - name: Configurar monitoramento e alertas para o Azure Key Vault
+        - name: Notificações da Grade de Eventos
+          items:
+            - name: Receber notificações por meio de Aplicativos Lógicos
+              href: event-grid-logicapps.md
+            - name: Receber notificações por meio da Automação do Azure
+              href: event-grid-tutorial.md
+        - name: Habilitar o registro em log
+          href: howto-logging.md
+        - name: Configurar monitoramento e alertas para o Azure Key Vault com o Azure Monitor
           href: alert.md
+        - name: Gerenciamento de recuperação com exclusão reversível e proteção contra limpeza
+          href: key-vault-recovery.md
         - name: Integrar o Azure Key Vault ao Azure Policy
           href: azure-policy.md
-        - name: Receber notificações pela Grade de Eventos do Azure e pelos Aplicativos Lógicos
-          href: event-grid-logicapps.md
-        - name: Receber notificações por meio da Grade de Eventos do Azure e da Automação do Azure
-          href: event-grid-tutorial.md
         - name: Fazer backup de objetos individuais do Key Vault
           href: backup.md
     - name: Seguro
       items:
-        - name: Integrar ao serviço de Link Privado do Azure
-          href: private-link-service.md
-        - name: Acessar o Key Vault por trás de um firewall – Azure Key Vault
+        - name: Link Privado do Azure
+          items:
+            - name: Integrar ao serviço de Link Privado do Azure
+              href: private-link-service.md
+            - name: Diagnosticar problemas de configuração de Links Privados
+              href: private-link-diagnostics.md
+        - name: Acessar um cofre de chaves por trás de um firewall
           href: access-behind-firewall.md
     - name: Mover o Key Vault
       items:
@@ -142,10 +148,6 @@
           href: move-subscription.md
         - name: Mover o Key Vault para outra região
           href: move-region.md
-    - name: Rede
-      items:
-        - name: Diagnosticar problemas de configuração de Links Privados
-          href: private-link-diagnostics.md
 - name: Referência
   items:
     - name: Novidades

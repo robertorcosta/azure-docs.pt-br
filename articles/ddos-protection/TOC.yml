@@ -15,9 +15,11 @@
 - name: Tutoriais
   items:
     - name: Exibir e configurar a telemetria da Proteção contra DDoS
-      href: telemetry-monitoring-alerting.md
-    - name: Configurar relatórios de mitigação de ataque de DDoS e logs de fluxo
-      href: reports-and-flow-logs.md
+      href: telemetry.md
+    - name: Exibir e configurar o log de diagnóstico de DDoS
+      href: diagnostic-logging.md
+    - name: Exibir e configurar os alertas da proteção contra DDoS
+      href: alerts.md
 - name: Conceitos
   items:
     - name: Tipos de ataques

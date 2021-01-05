@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: erhopf
-ms.openlocfilehash: 818ea89822b67c9bca99a4b8934a08d9b384f8b6
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 3814f52034922c7814b1d45822ca1e9d5f248825
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736435"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97844987"
 ---
 # <a name="language-support-for-form-recognizer"></a>Suporte a idiomas para o Reconhecimento de Formulários
 
@@ -24,12 +24,12 @@ Esta tabela lista os idiomas humanos compatíveis com o serviço Reconhecimento 
 
 |Linguagem| Código de idioma | Reconhecimento de Formulários v2.0 | Versão prévia do Reconhecimento de Formulários v2.1|
 |:-----|:----:|:-----:|:---:|
-|Inglês (impresso e manuscrito) | `en` | ✔ | ✔|
 |Chinês (Simplificado) | `zh-Hans`| | ✔ |
-|Japonês | `ja` |  | ✔|
 |Holandês | `nl` | | ✔ |
+|Inglês (impresso e manuscrito) | `en` | ✔ | ✔|
 |Francês | `fr` | | ✔ |
 |Alemão | `de` | | ✔ |
 |Italiano | `it` | | ✔ |
+|Japonês | `ja` |  | ✔|
 |Português | `pt` | | ✔ |
 |Espanhol | `es` | | ✔ |
