@@ -4,21 +4,21 @@ description: Saiba mais sobre o Azure defender para arquitetura de IoT e fluxo d
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: rkarlin
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/08/2020
-ms.author: rkarlin
-ms.openlocfilehash: a8697094a3366e3b82ca65f1b962101243b22f84
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 12/02/2020
+ms.author: shhazam
+ms.openlocfilehash: 3b5a586b5db4fb15a32090e601bac5610ece1427
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548912"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832549"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitetura do Azure defender para IoT
 
@@ -42,8 +42,7 @@ O Azure defender para IoT inclui os seguintes componentes:
 - VM ou dispositivo de sensor do Azure defender para IoT
 - Console de gerenciamento local para gerenciamento de sites locais
 
-
-![Defender para arquitetura de IoT](./media/architecture/defender-iot-security-architecture.png)
+:::image type="content" source="./media/architecture/defender-iot-security-architecture-v3.png" alt-text="A arquitetura do defender para IoT.":::
 
 ### <a name="azure-defender-for-iot-sensors"></a>Sensores do Azure defender para IoT
 
@@ -72,8 +71,7 @@ O mecanismo de detecção de malware industrial identifica comportamentos que in
 O mecanismo de detecção de anomalias detecta comportamentos e comunicações M2M (máquina a máquina) incomuns. Ao modelar redes ICS como sequências determinísticas de Estados e transições, a plataforma requer um período de aprendizado mais curto do que abordagens matemáticas genéricas ou análises originalmente desenvolvidas para ela em vez de OT. Ele também detecta anomalias mais rapidamente, com um mínimo de falsos positivos. Os alertas do mecanismo de detecção de anomalias incluem tentativas de entrada de SMB excessivas e alertas de verificação de PLC detectados.
 
 #### <a name="operational-incident-detection"></a>Detecção de incidente operacional
-A detecção de incidentes operacionais detecta problemas operacionais, como conectividade intermitente que pode indicar sinais de falha de equipamentos antecipados. Por exemplo, a suspeita de dispositivo ser desconectada (sem resposta) e o comando Siemens S7 Stop PLC recebe alertas.
-
+A detecção de incidentes operacionais detecta problemas operacionais, como conectividade intermitente que pode indicar sinais de falha de equipamentos antecipados. Por exemplo, o dispositivo é considerado como desconectado (sem resposta) e o comando Siemens S7 Stop PLC recebeu alertas.
 
 ### <a name="management-consoles"></a>Consoles de gerenciamento
 O gerenciamento do Azure defender para IoT em ambientes híbridos é realizado por meio de dois portais de gerenciamento: 
@@ -82,9 +80,9 @@ O gerenciamento do Azure defender para IoT em ambientes híbridos é realizado p
 - O portal do Azure
 
 #### <a name="sensor-console"></a>Console do sensor
-As detecções de sensor são exibidas no console do sensor, onde podem ser exibidas, investigadas e analisadas em um mapa de rede, inventário de ativos e em uma ampla gama de relatórios, por exemplo, relatórios de avaliação de risco, Data Mining consultas e vetores de ataque. Você também pode usar o console do para exibir e lidar com ameaças detectadas por mecanismos de sensor, encaminhar informações para sistemas de terceiros, gerenciar usuários e muito mais.
+As detecções de sensor são exibidas no console do sensor, onde podem ser exibidas, investigadas e analisadas em um mapa de rede, inventário de ativos e em uma ampla gama de relatórios, por exemplo, relatórios de avaliação de risco, Data Mining consultas e vetores de ataque. Você também pode usar o console do para exibir e lidar com ameaças detectadas por mecanismos de sensor, encaminhar informações para sistemas de parceiros, gerenciar usuários e muito mais.
 
-![Console do sensor do defender para IoT](./media/architecture/sensor-console.png)
+:::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Console do sensor do defender para IoT":::
 
 #### <a name="on-premises-management-console"></a>Console de gerenciamento local
 O console de gerenciamento local permite que os operadores da SOC (central de operações de segurança) gerenciem e analisem alertas agregados de vários sensores em um único painel e fornece uma visão geral da integridade das redes de OT.
@@ -93,11 +91,26 @@ Essa arquitetura fornece uma exibição unificada abrangente da rede em um níve
 
 Além de multilocação, monitoramento, análise de dados e controle remoto de sensor centralizado, o console de gerenciamento fornece ferramentas adicionais de manutenção do sistema (como exclusão de alertas) e recursos de relatório totalmente personalizados para cada um dos dispositivos remotos. Essa arquitetura escalonável dá suporte ao gerenciamento local em nível de site, nível de zona e gerenciamento global no SOC.
 
-O console de gerenciamento pode ser implantado para configuração de alta disponibilidade, que fornece um console de backup que recebe periodicamente backups de todos os arquivos de configuração necessários para a recuperação. Se o console mestre falhar, os dispositivos de gerenciamento de site local realizarão failover automaticamente para sincronizar com o console de backup a fim de manter a disponibilidade sem interrupção.
+O console de gerenciamento pode ser implantado para configuração de alta disponibilidade, que fornece um console de backup que recebe periodicamente backups de todos os arquivos de configuração necessários para a recuperação. Se o console primário falhar, os dispositivos de gerenciamento de site local realizarão failover automaticamente para sincronizar com o console de backup a fim de manter a disponibilidade sem interrupção.
+
+Totalmente integrado aos seus fluxos de trabalho do SOC e execução de livros, ele permite uma priorização fácil de atividades de mitigação e correlação entre sites de ameaças.
+
+- Holística – reduza a complexidade com uma única plataforma unificada para gerenciamento de ativos, risco e gestão de vulnerabilidades, bem como monitoramento de ameaças com resposta a incidentes.
+
+- Agregação e correlação – exibem, agregam e analisam dados e alertas coletados de todos os sites.
+
+- Controlar todos os sensores – configure e monitore todos os sensores de um único local.
+
+   :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Gerencie todos os seus alertas e informações.":::
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-O portal do defender para IoT no Azure é usado para ajudá-lo a: ·   Compre dispositivos de solução ·   Instalar e atualizar software ·   Sensores integrados ao Azure ·   Atualizar pacotes de inteligência contra ameaças
+O portal do defender para IoT no Azure é usado para ajudá-lo:
+
+- Comprar dispositivos de solução
+- Instalar e atualizar software
+- Sensores integrados ao Azure
+- Atualizar pacotes de inteligência contra ameaças
 
 ## <a name="embedded-security-agent-built-in-mode"></a>Agente de segurança inserido: modo interno
 
@@ -105,7 +118,7 @@ No modo **interno** , o defender para IOT é habilitado quando você opta por at
 
 ## <a name="embedded-security-agent-enhanced-mode"></a>Agente de segurança inserido: modo avançado
 
-No modo **avançado** , depois de ativar a opção de **segurança** em seu hub IOT e instalar o defender para agentes de dispositivo IOT em seus dispositivos, os agentes coletam, agregam e analisam eventos de segurança brutos de seus dispositivos. Os eventos de segurança brutos podem incluir conexões IP, criação de processo, logons de usuário e outras informações relevantes de segurança. Agentes de dispositivo do defender para IoT também manipulam a agregação de eventos para ajudar a evitar alta taxa de transferência de rede. Os agentes são altamente personalizáveis, permitindo que você os use para tarefas específicas, como enviar apenas informações importantes no SLA mais rápido ou para agregar informações de segurança extensivas e contexto em segmentos maiores, evitando custos de serviço mais altos.
+No modo **avançado** , depois de ativar a opção de **segurança** em seu hub IOT e instalar o defender para agentes de dispositivo IOT em seus dispositivos, os agentes coletam, agregam e analisam eventos de segurança brutos de seus dispositivos. Os eventos de segurança brutos podem incluir conexões IP, criação de processo, logons de usuário e outras informações relevantes de segurança. Agentes de dispositivo do defender para IoT também gerencia a agregação de eventos para ajudar a evitar alta taxa de transferência de rede. Os agentes são altamente personalizáveis, permitindo que você os use para tarefas específicas, como enviar apenas informações importantes no SLA mais rápido ou para agregar informações de segurança extensivas e contexto em segmentos maiores, evitando custos de serviço mais altos.
 
 Os agentes de dispositivo e outros aplicativos usam o **SDK de mensagens de segurança do Azure Send** para enviar informações de segurança para o Hub IOT do Azure. O Hub IoT obtém essas informações e as encaminha para o serviço defender para IoT.
 
@@ -117,13 +130,8 @@ Usando o pipeline de análise, o defender para IoT combina todos os fluxos de in
 
 Os alertas e recomendações do defender for IoT (saída de pipeline de análise) são gravados no espaço de trabalho Log Analytics de cada cliente. Incluir os eventos brutos no espaço de trabalho, bem como os alertas e as recomendações, permite investigações e consultas aprofundadas usando os detalhes exatos das atividades suspeitas detectadas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Consulte também
 
-Neste artigo, você aprendeu sobre a arquitetura básica e o fluxo de trabalho da solução defender para IoT. Para saber mais sobre os pré-requisitos, como começar e habilitar sua solução de segurança no Hub IoT, consulte os seguintes artigos:
+[FAQ do defender for IoT](resources-frequently-asked-questions.md)
 
-- [Pré-requisitos do serviço](service-prerequisites.md)
-- [Guia de Introdução](getting-started.md)
-- [Configurar sua solução](quickstart-configure-your-solution.md)
-- [Habilitar a segurança no Hub IoT](quickstart-onboard-iot-hub.md)
-- [FAQ do defender for IoT](resources-frequently-asked-questions.md)
-- [Alertas de segurança do defender para IoT](concept-security-alerts.md)
+[Pré-requisitos do sistema](quickstart-system-prerequisites.md)

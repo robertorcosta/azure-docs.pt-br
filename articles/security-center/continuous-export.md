@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: bdca5a753a49c26587db27892b54c2cb88910c83
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862455"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832702"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente os dados da Central de Segurança
 
@@ -24,6 +24,7 @@ A **exportação contínua** permite que você personalize totalmente *o que* se
 - Todos os alertas de severidade alta são enviados para um hub de eventos do Azure
 - Todas as conclusões de severidade médias ou mais altas das verificações de avaliação de vulnerabilidade de seus SQL Servers são enviadas para um espaço de trabalho específico do Log Analytics
 - Recomendações específicas são entregues a um hub de eventos ou Log Analytics espaço de trabalho sempre que são geradas 
+- A pontuação segura de uma assinatura é enviada para um espaço de trabalho Log Analytics sempre que a pontuação de um controle é alterada por 0, 1 ou mais 
 
 Este artigo descreve como configurar a exportação contínua para Log Analytics espaços de trabalho ou hubs de eventos do Azure.
 
@@ -41,18 +42,28 @@ Este artigo descreve como configurar a exportação contínua para Log Analytics
 |Estado da versão:|GA (em disponibilidade geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **proprietário** no grupo de recursos</li><li>Permissões de gravação para o recurso de destino</li><li>Se você estiver usando as Azure Policy políticas ' DeployIfNotExist ' descritas abaixo, também precisará de permissões para atribuir políticas</li></ul>|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, outros gov<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, outros governos<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos)|
 |||
 
 
+## <a name="what-data-types-can-be-exported"></a>Quais tipos de dados podem ser exportados?
 
+A exportação contínua pode exportar os seguintes tipos de dados sempre que eles forem alterados:
 
+- Alertas de segurança
+- Recomendações de segurança 
+- Conclusões de segurança que podem ser consideradas como recomendações "sub", como descobertas de scanners de avaliação de vulnerabilidade ou atualizações específicas do sistema. Você pode optar por incluí-las com suas recomendações "pai", como "as atualizações do sistema devem ser instaladas em seus computadores".
+- Pontuação segura (por assinatura ou por controle)
+- Dados de conformidade regulatória
+
+> [!NOTE]
+> A exportação de dados de conformidade regulatória e de Pontuação segura é um recurso de visualização e não está disponível em nuvens governamentais. 
 
 ## <a name="set-up-a-continuous-export"></a>Configurar uma exportação contínua 
 
 Você pode configurar a exportação contínua nas páginas da central de segurança no portal do Azure, por meio da API REST da central de segurança ou em escala usando os modelos de Azure Policy fornecidos. Selecione a guia apropriada abaixo para obter detalhes de cada um.
 
-### <a name="use-the-azure-portal"></a>[**Use o Portal do Azure**](#tab/azure-portal)
+### <a name="use-the-azure-portal"></a>[**Usar o portal do Azure**](#tab/azure-portal)
 
 ### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Configurar a exportação contínua das páginas da central de segurança no portal do Azure
 
@@ -67,12 +78,12 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
     Aqui você vê as opções de exportação. Há uma guia para cada destino de exportação disponível. 
 
 1. Selecione o tipo de dados que você deseja exportar e escolha um dos filtros em cada tipo (por exemplo, exportar somente alertas de severidade alta).
-1. Opcionalmente, se sua seleção incluir uma dessas quatro recomendações, você poderá incluir as descobertas de avaliação de vulnerabilidade junto com elas:
+1. Opcionalmente, se sua seleção incluir uma dessas recomendações, você poderá incluir as descobertas de avaliação de vulnerabilidade junto com elas:
     - As descobertas de avaliação de vulnerabilidade em seus bancos de dados SQL devem ser corrigidas
     - As descobertas de avaliação de vulnerabilidade em seus SQL Servers em computadores devem ser corrigidas (visualização)
     - As vulnerabilidades nas imagens do Registro de Contêiner do Azure devem ser corrigidas (da plataforma Qualys)
     - As vulnerabilidades nas suas máquinas virtuais devem ser corrigidas
-    - As atualizações do sistema devem ser instaladas em suas máquinas
+    - As atualizações do sistema devem ser instaladas em seus computadores
 
     Para incluir as conclusões com essas recomendações, habilite a opção **incluir conclusões de segurança** .
 
@@ -216,6 +227,9 @@ Não. A exportação contínua foi criada para streaming de **eventos**:
 
 - Os **alertas** recebidos antes de habilitar a exportação não serão exportados.
 - As **recomendações** são enviadas sempre que o estado de conformidade de um recurso é alterado. Por exemplo, quando um recurso muda de íntegro para não íntegro. Portanto, assim como os alertas, as recomendações para recursos que não mudaram de estado desde que você habilitou a exportação não serão exportadas.
+- A **Pontuação segura (versão prévia)** por controle de segurança ou assinatura é enviada quando a pontuação de um controle de segurança é alterada por 0, 1 ou mais. 
+- O **status de conformidade regulatória (versão prévia)** é enviado quando o status da conformidade do recurso é alterado.
+
 
 
 ### <a name="why-are-recommendations-sent-at-different-intervals"></a>Por que as recomendações são enviadas em intervalos diferentes?

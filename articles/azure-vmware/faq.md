@@ -2,24 +2,23 @@
 title: Perguntas frequentes
 description: Fornece respostas para algumas das perguntas mais comuns sobre a solução do Azure VMware.
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.author: dikamath
-ms.openlocfilehash: 3033df2021a8d1780caf9b0b7cd4dbe8de2a6050
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/22/2020
+ms.openlocfilehash: 941708003558dda601aa43459bc83133788687fd
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861401"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97835186"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
-Este artigo responde às perguntas frequentes sobre a solução do Azure VMware.
+Neste artigo, responderemos a perguntas frequentes sobre a solução do Azure VMware.
 
 ## <a name="general"></a>Geral
 
 #### <a name="what-is-azure-vmware-solution"></a>O que é a Solução VMware no Azure?
 
-À medida que as empresas buscam estratégias de modernização de ti para melhorar a agilidade dos negócios, reduzir custos e acelerar a inovação, as plataformas de nuvem híbrida surgiram como habilitadores-chave da transformação digital dos clientes. A solução Azure VMware combina o software Software-Defined Data Center (SDDC) do VMware com Microsoft Azure ecossistema global de serviço de nuvem. A solução VMware do Azure é gerenciada para atender aos requisitos de desempenho, disponibilidade, segurança e conformidade.
+À medida que as empresas buscam estratégias de modernização de ti para melhorar a agilidade dos negócios, reduzir custos e acelerar a inovação, as plataformas de nuvem híbrida surgiram como habilitadores-chave da transformação digital dos clientes. A solução Azure VMware combina o software Software-Defined Data Center (SDDC) do VMware com o ecossistema de serviço de nuvem global do Azure da Microsoft. A solução Azure VMware é gerenciada para atender aos requisitos de desempenho, disponibilidade, segurança e conformidade.
 
 ## <a name="azure-vmware-solution-service"></a>Serviço de solução VMware do Azure
 
@@ -59,13 +58,11 @@ As atualizações feitas no próprio serviço seguem o processo de gerenciamento
 
 Com a nova Solução VMware no Azure, a Microsoft e a VMware têm uma parceria de provedor de serviços de nuvem. A nova solução é totalmente projetada, criada e suportada pela Microsoft e endossada pela VMware. Em termos de arquitetura, as soluções são consistentes, com a pilha de tecnologia do VMware em execução em uma infraestrutura dedicada do Azure.
 
-
-
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>As VMs de solução do Azure VMware podem ser gerenciadas pelo VMRC?
-Sim, desde que o sistema no qual ele está instalado possa acessar a nuvem privada vCenter e esteja usando o DNS público para resolver nomes de host ESXi.
+Sim. Desde que o sistema no qual ele está instalado possa acessar a nuvem privada vCenter e esteja usando o DNS público para resolver nomes de host ESXi.
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Há instruções especiais para instalar e usar o VMRC com VMs de solução do Azure VMware?
-Não. Use as [instruções fornecidas pelo VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) para atender aos pré-requisitos de VM especificados nessas instruções. 
+Não. Para atender aos pré-requisitos da VM, siga as [instruções fornecidas pelo VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html). 
 
 #### <a name="is-vmware-hcx-supported-on-vpns"></a>O VMware HCX tem suporte em VPNs?
 Não, devido aos requisitos de largura de banda e latência.
@@ -77,13 +74,13 @@ A bastiões do Azure é o serviço recomendado para se conectar à caixa de salt
 Não. Azure Load Balancer interno – dá suporte apenas a VMs IaaS do Azure. Azure Load Balancer não dá suporte a pools de back-end baseados em IP; somente VMs do Azure ou objetos do conjunto de dimensionamento de máquinas virtuais nas quais as VMs de solução do Azure VMware não são objetos do Azure.
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>Um gateway de ExpressRoute existente pode ser usado para se conectar à solução do Azure VMware?
-Sim, você pode usar um gateway de ExpressRoute existente para se conectar à solução do Azure VMware, desde que não exceda o limite de quatro circuitos de ExpressRoute por rede virtual.  No entanto, para acessar a Solução VMware no Azure do local por meio do ExpressRoute, você precisa ter o Alcance Global do ExpressRoute, pois o gateway do ExpressRoute não fornece roteamento transitivo entre os circuitos conectados.
+Sim. Use um gateway de ExpressRoute existente para se conectar à solução do Azure VMware, desde que ela não exceda o limite de quatro circuitos de ExpressRoute por rede virtual. Para acessar a solução do Azure VMware do local por meio do ExpressRoute, você deve ter o ExpressRoute Alcance Global, pois o gateway de ExpressRoute não fornece roteamento transitivo entre seus circuitos conectados.
 
 ## <a name="compute-network-storage-and-backup"></a>Computação, rede, armazenamento e backup
 
 #### <a name="is-there-more-than-one-type-of-host-available"></a>Existe mais de um tipo de host disponível?
 
-Existe apenas um tipo de host disponível.
+Há apenas um tipo de host disponível.
 
 #### <a name="what-are-the-cpu-specifications-in-each-type-of-host"></a>Quais são as especificações de CPU em cada tipo de host?
 
@@ -105,9 +102,9 @@ Cada host ESXi na solução VMware do Azure é configurado com NICs de 4 25 Gbps
 
 Sim, todos os dados vSAN são criptografados por padrão usando chaves armazenadas em Azure Key Vault.
 
-#### <a name="you-document-that-commvault-veritas-and-veeam-have-extended-their-backup-solutions-to-work-with-azure-vmware-solution-what-about-other-independent-software-vendors-isvs-backup-solutions"></a>Você documenta que a CommVault, a VERITAS e a Veeam ampliaram suas soluções de backup para trabalhar com a solução Azure VMware. E quanto a outras soluções de backup de ISVs (fornecedores independentes de software)?
+####  <a name="what-independent-software-vendors-isvs-backup-solutions-work-with-azure-vmware-solution"></a>Quais soluções de backup dos ISVs (fornecedores independentes de software) funcionam com a solução VMware do Azure?
 
-Até o que sabemos, qualquer solução de backup que usa o VMware VADP com o modo de transporte HotAdd deve funcionar imediatamente na solução Azure VMware.
+CommVault, Veritas e Veeam ampliaram suas soluções de backup para trabalhar com a solução Azure VMware.  No entanto, qualquer solução de backup que usa o VMware VADP com o modo de transporte HotAdd funcionaria imediatamente na solução Azure VMware.
 
 #### <a name="what-about-support-for-isv-backup-solutions"></a>E quanto ao suporte para soluções de backup de ISV?
 
@@ -127,7 +124,7 @@ Não.
 
 Não, clusters e hosts de nuvem privada são dedicados e apagados com segurança antes e depois do uso.
 
-#### <a name="what-are-the-minimum-and-the-maximum-number-of-hosts-per-cluster"></a>Qual é o número mínimo e máximo de hosts por cluster?
+#### <a name="what-are-the-minimum-and-maximum-number-of-hosts-per-cluster"></a>Quais são os números mínimo e máximo de hosts por cluster?
 
 Os clusters podem ser dimensionados entre 3 e 16 hosts ESXi. Os clusters de avaliação são limitados a três hosts.
 
@@ -147,7 +144,8 @@ Não. Os hosts ESXi de alto nível são reservados para uso em clusters de produ
 
 #### <a name="what-versions-of-vmware-software-is-used-in-private-clouds"></a>Quais versões do software VMware são usadas em nuvens privadas?
 
-Nuvens privadas usam vSphere 6,7 U3, vSAN 6,7 U3, VMware HCX e NSX-T 2,5.  Para obter mais informações, consulte [os requisitos de versão do software VMware](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html).
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+
 
 #### <a name="do-private-clouds-use-vmware-nsx"></a>As nuvens privadas usam o VMware NSX?
 
@@ -188,11 +186,11 @@ No portal do Azure, habilite a conectividade com a Internet para uma nuvem priva
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>Preciso restringir o acesso da Internet a VMs em redes lógicas em uma nuvem privada?
 
-Não. O tráfego de rede de entrada da Internet diretamente para nuvens privadas não é permitido por padrão.  No entanto, você pode expor as VMs da solução Azure VMware à Internet por meio da opção [IP público](public-ip-usage.md) em seu portal do Azure para a nuvem privada da solução Azure VMware.
+Não. O tráfego de rede de entrada da Internet diretamente para nuvens privadas não é permitido por padrão.  No entanto, você pode expor as VMs da solução Azure VMware à Internet por meio da opção [IP público](public-ip-usage.md) em seu portal do Azure para sua nuvem privada da solução Azure VMware.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Preciso restringir o acesso à Internet das VMs em redes lógicas?
 
-Sim. Você precisará usar o NSX-T Manager para criar um firewall que restringe o acesso da VM à Internet.
+Sim. Você precisará usar o Gerenciador de NSX-T para criar um firewall para restringir o acesso de VM à Internet.
 
 
 #### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>A solução do Azure VMware pode usar gateways de ExpressRoute hospedados da WAN virtual do Azure?
@@ -201,6 +199,9 @@ Sim.
 #### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>A conectividade de trânsito pode ser estabelecida entre a solução local e a VMware do Azure por meio da WAN virtual por meio do ExpressRoute Alcance Global?
 A WAN virtual do Azure não fornece roteamento transitivo entre dois circuitos de ExpressRoute conectados e um gateway de ExpressRoute de WAN não virtual. O uso do ExpressRoute Alcance Global permite a conectividade entre a solução local e a VMware do Azure, mas passa pela rede global da Microsoft em vez do hub de WAN virtual.
 
+#### <a name="could-i-use-hcx-through-public-internet-communications-as-a-workaround-for-the-non-supportability-of-hcx-when-using-vpn-s2s-with-vwan-for-on-premises-communications"></a>Eu poderia usar o HCX por meio de comunicações de Internet pública como uma solução alternativa para a não-suporte do HCX ao usar a VPN S2S com vWAN para comunicações locais?
+
+Atualmente, o único método com suporte para HCX é por meio do ExpressRoute.
 
 ## <a name="accounts-and-privileges"></a>Contas e privilégios
 
@@ -294,11 +295,11 @@ Antes de criar o recurso de solução do Azure VMware, você enviará um tíquet
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
-   Para conhecer outras maneiras de registrar o provedor de recursos, confira [Provedores e tipos de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md). 
+   Para obter mais maneiras de registrar o provedor de recursos, consulte [tipos e provedores de recursos do Azure](../azure-resource-manager/management/resource-providers-and-types.md). 
 
 #### <a name="are-reserved-instances-available-for-purchasing-through-the-cloud-solution-provider-csp-program"></a>As instâncias reservadas estão disponíveis para a compra por meio do programa CSP (provedor de soluções na nuvem)?
 
-Sim. O CSP pode comprar instâncias reservadas para seus clientes. Consulte o artigo [salvar custos com uma instância reservada](reserved-instance.md) para obter mais informações. 
+Sim. O CSP pode comprar instâncias reservadas para seus clientes. Para obter mais informações, consulte [Economize custos com uma instância reservada](reserved-instance.md). 
 
 #### <a name="does-azure-vmware-solution-offer-multi-tenancy-for-hosting-csp-partners"></a>A solução Azure VMware oferece multilocação para hospedar parceiros CSP?
 

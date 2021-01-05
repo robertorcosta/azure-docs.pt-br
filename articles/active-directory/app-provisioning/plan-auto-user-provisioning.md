@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/17/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: e741bd6c87ea32b0d92b1dd53112a1bed3e4cd38
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 689276d44a175f3c314b0fcf681fd6a995b8dde2
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174910"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832617"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planejar uma implantação de provisionamento do usuário automática
 
@@ -26,7 +26,7 @@ O provisionamento automático de usuário do Azure Active Directory (AD do Azure
 
 Consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../app-provisioning/user-provisioning.md) para entender melhor a funcionalidade.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 O provisionamento de usuário cria uma base para o controle de identidade contínuo e aprimora a qualidade dos processos de negócios que dependem de dados de identidade autoritativa.
 
@@ -42,7 +42,7 @@ Os principais benefícios de habilitar o provisionamento automático de usuário
 
 * **Reduza o custo**. O provisionamento automático de usuário reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário, scripts e logs de auditoria desenvolvidos de fato personalizado.
 
-### <a name="licensing"></a>Licenciamento
+### <a name="licensing"></a>Licenças
 
 O Azure AD fornece integração de autoatendimento de qualquer aplicativo usando modelos fornecidos no menu da Galeria de aplicativos. Para obter uma lista completa dos requisitos de licença, consulte a [página de licenciamento do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -69,9 +69,9 @@ Este artigo usa os seguintes termos:
 | Recursos| Link e descrição |
 | - | - |
 | Webinars sob demanda| [Gerenciar seus aplicativos empresariais com o Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Saiba como o Azure AD pode ajudá-lo a obter o SSO para seus aplicativos SaaS corporativos e as práticas recomendadas para controlar o acesso. |
-| Vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| vídeos| [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) <br> [Como implantar o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/pKzyts6kfrw) <br> [Integrando o Salesforce ao Azure AD: como automatizar o provisionamento de usuários](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Cursos online| SkillUp online:  [Gerenciando identidades](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Saiba como integrar o Azure AD com muitos aplicativos SaaS e proteger o acesso do usuário a esses aplicativos. |
-| Manuais| [Autenticação moderna com Azure Active Directory para aplicativos Web (referência do desenvolvedor) 1ª edição](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Este é um guia autoritativo e aprofundado para a criação de soluções de autenticação Active Directory para esses novos ambientes. |
+| Livros| [Autenticação moderna com Azure Active Directory para aplicativos Web (referência do desenvolvedor) 1ª edição](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Este é um guia autoritativo e aprofundado para a criação de soluções de autenticação Active Directory para esses novos ambientes. |
 | Tutoriais| Consulte a [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure ad](../saas-apps/tutorial-list.md). |
 | Perguntas frequentes| [Perguntas](../app-provisioning/user-provisioning.md) frequentes sobre o provisionamento automatizado de usuários |
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 75a9d1267a8824801e3c24fc25c687f29a808187
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c2b440413599ce07112231af17daa0bc14817b76
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96339924"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832770"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
 
@@ -53,7 +53,7 @@ Use as etapas a seguir para implantar um módulo de segurança do defender para 
 
 1. Selecione **Internet das coisas**, em seguida, procure **defender para IOT** e selecione-o.
 
-   ![Selecionar defender para IoT](media/howto/edge-onboarding-8.png)
+   :::image type="content" source="media/howto/edge-onboarding-8.png" alt-text="Selecionar defender para IoT":::
 
 1. Clique em **criar** para configurar a implantação.
 
@@ -107,7 +107,7 @@ Conclua cada etapa para concluir a implantação do IoT Edge para o defender par
     
    Para obter mais informações sobre como configurar o agente, consulte [Configurar agentes de segurança](./how-to-agent-configuration.md).
 
-1. Selecione **Atualização**.
+1. Selecione **Atualizar**.
 
 #### <a name="step-2-runtime-settings"></a>Etapa 2: configurações de tempo de execução
 
@@ -139,7 +139,7 @@ Conclua cada etapa para concluir a implantação do IoT Edge para o defender par
     }
     ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Selecione **Avançar**.
 

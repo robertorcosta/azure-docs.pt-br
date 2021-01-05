@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 209760b51e0f3ab931fa43ef88406f15c75ac079
+ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835655"
+ms.lasthandoff: 12/31/2020
+ms.locfileid: "97832532"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planejar uma implantação do Azure Active Directory meus aplicativos
 
@@ -74,8 +74,8 @@ A tabela a seguir descreve os principais casos de uso para uma implantação de 
 
 | Área| Descrição |
 | - | - |
-| Access| Meu Portal de aplicativos é acessível de dispositivos corporativos e pessoais na rede corporativa. |
-|Access | Meu Portal de aplicativos é acessível de dispositivos corporativos fora da rede corporativa. |
+| Acesso| Meu Portal de aplicativos é acessível de dispositivos corporativos e pessoais na rede corporativa. |
+|Acesso | Meu Portal de aplicativos é acessível de dispositivos corporativos fora da rede corporativa. |
 | Auditoria| Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias. |
 | Governança| O ciclo de vida das atribuições de usuário para aplicativos e grupos conectados ao Azure AD é definido e monitorado. |
 | Segurança| O acesso aos recursos é controlado por meio de atribuições de usuário e de grupo. Somente usuários autorizados podem gerenciar o acesso a recursos. |
