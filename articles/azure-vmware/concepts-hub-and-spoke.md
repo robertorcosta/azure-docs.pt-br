@@ -3,12 +3,12 @@ title: Conceito – integrar uma implantação de solução do Azure VMware em u
 description: Saiba como integrar uma implantação de solução do Azure VMware em uma arquitetura de Hub e spoke no Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 788ef9886e0d102a549e84cd01c658e9e4131c63
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0d511c8d6a96ffb6fa666bcb7c989764f398bdc9
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967441"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901378"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrar a solução do Azure VMware em uma arquitetura de Hub e spoke
 
@@ -128,7 +128,7 @@ Como prática recomendada de segurança, implante [Microsoft Azure](../bastion/i
 
 Para a resolução de DNS do Azure, há duas opções disponíveis:
 
--   Use os controladores de domínio Azure Active Directory (AD do Azure) implantados no Hub (descrito em [considerações de identidade](#identity-considerations)) como servidores de nomes.
+-   Use os controladores de domínio implantados no Hub (descrito em [considerações de identidade](#identity-considerations)) como servidores de nomes.
 
 -   Implantar e configurar uma zona privada de DNS do Azure.
 
@@ -136,7 +136,7 @@ A melhor abordagem é combinar ambos para fornecer resolução de nomes confiáv
 
 Como recomendação de design geral, use a infraestrutura de DNS do Azure existente (nesse caso, o DNS Active Directory integrado) implantado em pelo menos duas VMs do Azure implantadas na rede virtual do Hub e configuradas nas redes virtuais do spoke para usar esses servidores DNS do Azure nas configurações de DNS.
 
-Você pode usar o Azure DNS privado, onde a zona do Azure DNS privado vincula à rede virtual.  Os servidores DNS são usados como resolvedores híbridos com encaminhamento condicional para a solução local ou Azure VMware que executa o DNS, aproveitando a infraestrutura de DNS privado do Azure do cliente. 
+Você pode usar o Azure DNS privado, onde a zona do Azure DNS privado vincula à rede virtual.  Os servidores DNS são usados como resolvedores híbridos com encaminhamento condicional para a solução local ou Azure VMware executando o DNS usando a infraestrutura de DNS privado do Azure do cliente. 
 
 Para gerenciar automaticamente o ciclo de vida dos registros DNS para as VMs implantadas nas redes virtuais spoke, habilite o registro automático. Quando habilitado, o número máximo de zonas DNS privadas é apenas uma. Se desabilitado, o número máximo será 1000.
 
@@ -144,7 +144,7 @@ Os servidores de solução local e do Azure VMware podem ser configurados com en
 
 ## <a name="identity-considerations"></a>Considerações sobre identidade
 
-Para fins de identidade, a melhor abordagem é implantar pelo menos um controlador de domínio do AD no Hub. Use duas sub-redes de serviço compartilhado no modo distribuído por zona ou um conjunto de disponibilidade de VM. Consulte [centro de arquitetura do Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) para estender seu domínio do AD local para o Azure.
+Para fins de identidade, a melhor abordagem é implantar pelo menos um controlador de domínio no Hub. Use duas sub-redes de serviço compartilhado no modo distribuído por zona ou um conjunto de disponibilidade de VM. Para obter mais informações sobre como estender seu domínio local Active Directory (AD) para o Azure, consulte [centro de arquitetura do Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 Além disso, implante outro controlador de domínio no lado da solução do Azure VMware para atuar como identidade e origem do DNS no ambiente vSphere.
 

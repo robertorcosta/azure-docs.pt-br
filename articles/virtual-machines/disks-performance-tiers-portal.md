@@ -4,16 +4,16 @@ description: Saiba como alterar as camadas de desempenho para discos gerenciados
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 01/05/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a868d5d236cf4c5a8d29f15490909c2f1a53546f
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 625fb1e3dd0b433da6b60f995aa6b380c23ec9ce
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "96016552"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901004"
 ---
 # <a name="change-your-performance-tier-using-the-azure-portal"></a>Alterar o nível de desempenho usando o portal do Azure
 
@@ -47,7 +47,7 @@ As etapas a seguir descrevem como alterar o nível de desempenho de um disco exi
 1. Desaloque a VM ou desanexe o disco.
 1. Selecione seu disco
 1. Selecione **tamanho + desempenho**.
-1. Na lista suspensa **nível de desempenho** , selecione uma camada que seja diferente da linha de base atual do disco.
+1. Na lista suspensa **nível de desempenho** , selecione uma camada diferente da camada de desempenho atual do disco.
 1. Selecione **Redimensionar**.
 
 :::image type="content" source="media/disks-performance-tiers-portal/change-tier-existing-disk.png" alt-text="Captura de tela da folha tamanho + desempenho, nível de desempenho realçado." lightbox="media/disks-performance-tiers-portal/performance-tier-settings.png":::

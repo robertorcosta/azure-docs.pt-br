@@ -4,12 +4,12 @@ description: Saiba mais sobre o esquema JSON que é enviado para uma URL de webh
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 026613c3f5710137fb110153b34f9ed74bbf8a7b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a73ab12d1729acba132aeffd4104ca7846ecb9e8
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522780"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901429"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Este artigo mostra a aparência do conteúdo para o HTTP POST para um webhook.
@@ -27,6 +27,19 @@ Opcionalmente, o webhook pode usar a autorização baseada em token para autenti
 
 ## <a name="payload-schema"></a>Esquema de conteúdo
 O conteúdo JSON contida na operação POST difere com base no campo de data.context.activityLog.eventSource do conteúdo.
+
+> [!NOTE]
+> Atualmente, a descrição que faz parte do evento do log de atividades é copiada para a propriedade **"Descrição do alerta"** disparada.
+>
+> Para alinhar a carga do log de atividades com outros tipos de alertas, a partir de 1º de abril de 2021, a propriedade de alerta disparada **"Descrição"** conterá a descrição da regra de alerta.
+>
+> Em preparação para essa alteração, criamos uma nova propriedade **"Descrição do evento do log de atividades"** para o alerta do log de atividades acionado. Essa nova propriedade será preenchida com a propriedade **"Description"** que já está disponível para uso. Isso significa que o novo campo **"Descrição do evento do log de atividades"** conterá a descrição que faz parte do evento do log de atividades.
+>
+> Examine suas regras de alerta, regras de ação, WebHooks, aplicativo lógico ou quaisquer outras configurações em que você possa estar usando a propriedade **"Descrição"** do alerta acionado e substitua-a pela propriedade **"Descrição do evento do log de atividades"** .
+>
+> Se sua condição (em suas regras de ação, WebHooks, aplicativo lógico ou qualquer outra configuração) for baseada na propriedade **"Descrição"** para alertas do log de atividades, talvez seja necessário modificá-la para que ela se baseie na propriedade **"Descrição do evento do log de atividades"** .
+>
+> Para preencher a nova propriedade **"Descrição"** , você pode adicionar uma descrição na definição de regra de alerta.
 
 ### <a name="common"></a>Comum
 
@@ -281,7 +294,7 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 | operationId |Geralmente um GUID compartilhado entre os eventos correspondentes a uma única operação. |
 | operationName |Nome da operação. |
 | properties |Propriedades do evento. |
-| status |Cadeia. Status da operação. Os valores comuns incluem: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido. |
+| status |Cadeia de caracteres. Status da operação. Os valores comuns incluem: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido. |
 | subStatus |Geralmente inclui o código de status HTTP da chamada REST correspondente. Também pode incluir outras cadeias de caracteres que descrevam um substatus. Os valores de substatus comuns incluem: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro Interno do Servidor (Código de Status HTTP: 500), Serviço Indisponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504). |
 
 Para obter detalhes de esquema específico em todos os outros alertas do log de atividades, veja [Visão geral do log de atividades do Azure](./platform-logs-overview.md).

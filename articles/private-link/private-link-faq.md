@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544200"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901531"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o link privado do Azure
 
@@ -43,8 +43,8 @@ Sim. Você pode ter vários pontos de extremidade privados na mesma VNet ou sub-
 ### <a name="do-i-require-a-dedicated-subnet-for-private-endpoints"></a>Eu preciso de uma sub-rede dedicada para pontos de extremidade privados? 
 Não. Você não precisa de uma sub-rede dedicada para pontos de extremidade privados. Você pode escolher um IP de ponto de extremidade privado de qualquer sub-rede da VNet na qual seu serviço está implantado.  
  
-### <a name="can-private-endpoint-connect-to-private-link-service-across-azure-active-directory-tenants"></a>O ponto de extremidade privado pode conectar-se ao serviço de vínculo privado entre Azure Active Directory locatários? 
-Sim. Pontos de extremidade privados podem se conectar a serviços de vínculo privado ou a PaaS do Azure entre locatários do AD.  
+### <a name="can-a-private-endpoint-connect-to-private-link-services-across-azure-active-directory-tenants"></a>Um ponto de extremidade privado pode se conectar aos serviços de vínculo privado entre Azure Active Directory locatários? 
+Sim. Pontos de extremidade privados podem se conectar a serviços de vínculo privado ou a um PaaS do Azure entre Azure Active Directory locatários. Pontos de extremidade privados que se conectam entre locatários exigem uma aprovação de solicitação manual. 
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>O ponto de extremidade privado pode se conectar aos recursos de PaaS do Azure nas regiões do Azure?
 Sim. Pontos de extremidade privados podem se conectar aos recursos de PaaS do Azure nas regiões do Azure.

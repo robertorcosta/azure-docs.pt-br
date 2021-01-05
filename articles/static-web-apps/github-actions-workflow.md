@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 3518935991409d87917582558a34ad7c54841e23
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 5e6188ca2e8e0972e86bed578144a29a96570876
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173663"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901191"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Fluxos de trabalho do GitHub Actions para Aplicativos Web Estáticos do Azure – Visualização
 
@@ -63,7 +63,7 @@ jobs:
         ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
         app_location: '/' # App source code path
         api_location: 'api' # Api source code path - optional
-        app_artifact_location: 'dist' # Built app content directory - optional
+        output_location: 'dist' # Built app content directory - optional
         ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -132,7 +132,7 @@ with:
     ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
     app_location: '/' # App source code path
     api_location: 'api' # Api source code path - optional
-    app_artifact_location: 'dist' # Built app content directory - optional
+    output_location: 'dist' # Built app content directory - optional
     ###### End of Repository/Build Configurations ######
 ```
 
@@ -140,7 +140,7 @@ with:
 |---|---|---|
 | `app_location` | Local do código do aplicativo.<br><br>Por exemplo, digite `/` se o código-fonte do aplicativo estiver na raiz do repositório ou `/app` se o código do aplicativo estiver em um diretório chamado `app`. | Sim |
 | `api_location` | Local do seu código de Azure Functions.<br><br>Por exemplo, digite `/api` se o código do aplicativo estiver em uma pasta chamada `api`. Se nenhum aplicativo Azure Functions for detectado na pasta, a compilação não falhará; o fluxo de trabalho pressupõe que você não deseja uma API. | Não |
-| `app_artifact_location` | Local do diretório de saída de compilação relativo ao `app_location`.<br><br>Por exemplo, se o código-fonte do aplicativo estiver localizado em `/app`, e o script de compilação gerar arquivos para a pasta `/app/build`, defina `build` como o valor `app_artifact_location`. | Não |
+| `output_location` | Local do diretório de saída de compilação relativo ao `app_location`.<br><br>Por exemplo, se o código-fonte do aplicativo estiver localizado em `/app`, e o script de compilação gerar arquivos para a pasta `/app/build`, defina `build` como o valor `output_location`. | Não |
 
 Os valores `repo_token`, `action` e `azure_static_web_apps_api_token` são definidos para você pelos Aplicativos Web Estáticos do Azure e não devem ser alterados manualmente.
 
@@ -163,7 +163,7 @@ Você pode personalizar o fluxo de trabalho para procurar o [routes.json](routes
 |---------------------|-------------|
 | `routes_location` | Define o local do diretório onde o arquivo _routes.json_ é encontrado. Esse local é relativo à raiz do repositório. |
 
- Ser explícito sobre o local do seu arquivo _routes.json_ é particularmente importante se a etapa de compilação da estrutura de front-end não mover esse arquivo para o `app_artifact_location` por padrão.
+ Ser explícito sobre o local do seu arquivo _routes.json_ é particularmente importante se a etapa de compilação da estrutura de front-end não mover esse arquivo para o `output_location` por padrão.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
@@ -189,7 +189,7 @@ jobs:
           ###### Repository/Build Configurations
           app_location: "/"
           api_location: "api"
-          app_artifact_location: "public"
+          output_location: "public"
           ###### End of Repository/Build Configurations ######
         env: # Add environment variables here
           HUGO_VERSION: 0.58.0

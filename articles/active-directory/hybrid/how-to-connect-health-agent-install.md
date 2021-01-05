@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b680c275b92340cc7efba187769cb17602b08b45
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 365c9a990f16e9077450ae15f6677ab716fc45ba
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973279"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900443"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do agente do Azure AD Connect Health
 
@@ -284,6 +284,17 @@ Depois de instalar o arquivo de *setup.exe* de agente apropriado, você pode reg
 
 ```
 
+> [!NOTE]
+> Para se registrar em nuvens soberanas, use as seguintes linhas de comando:
+>
+> ```powershell
+> Register-AzureADConnectHealthADFSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
+> Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
+> ```
+>
+
+
 Esses comandos são aceitos `Credential` como um parâmetro para concluir o registro de forma não interativa ou para concluir o registro em um computador que executa o Server Core. Tenha em mente que:
 * Você pode capturar `Credential` em uma variável do PowerShell que é passada como um parâmetro.
 * Você pode fornecer qualquer identidade do Azure AD que tenha permissões para registrar os agentes e que *não tenha a* autenticação multifator habilitada.
@@ -340,7 +351,7 @@ Você pode especificar manualmente um servidor proxy. Em cada um dos servidores 
 Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 ```
 
-Aqui está um exemplo: 
+Veja um exemplo: 
 
 `Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443`
 
@@ -379,7 +390,7 @@ Test-AzureADConnectHealthConnectivity -Role ADFS
 O parâmetro de função usa os seguintes valores:
 
 * ADFS
-* Sincronizar
+* Sincronização
 * ADICIONA
 
 > [!NOTE]

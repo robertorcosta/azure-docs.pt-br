@@ -2,13 +2,13 @@
 title: Criar uma especificação de modelo com modelos vinculados
 description: Saiba como criar uma especificação de modelo com modelos vinculados.
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 038fb3e6bbb6086535b83a69de7a3fe49a8e60bb
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.date: 01/05/2021
+ms.openlocfilehash: e5725ece165f5716480afbcb4ef9098274c09993
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518882"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900630"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: criar uma especificação de modelo com modelos vinculados (visualização)
 
@@ -19,7 +19,7 @@ Saiba como criar uma [especificação de modelo](template-specs.md) com um model
 Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> As especificações de modelo estão atualmente em versão prévia. Para usá-lo com Azure PowerShell, você deve instalar a [versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para usá-lo com CLI do Azure, use a [versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
+> As especificações de modelo estão atualmente em versão prévia. Para usá-lo com o Azure PowerShell, você precisa instalar a [versão 5.0.0 ou posterior](/powershell/azure/install-az-ps). Para usá-lo com a CLI do Azure, use a [versão 2.14.2 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Criar modelos vinculados
 
@@ -191,7 +191,7 @@ az ts create \
   --version "1.0.0.0" \
   --resource-group templateSpecRG \
   --location "westus2" \
-  --template-file "c:\Templates\linkedTS\azuredeploy.json"
+  --template-file "<path-to-main-template>"
 ```
 
 ---
@@ -237,7 +237,7 @@ az group create \
   --name webRG \
   --location westus2
 
-id = $(az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
+id = $(az ts show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
 
 az deployment group create \
   --resource-group webRG \

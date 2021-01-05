@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 55692122461ef1b22b43b0def43e826ac7aeae30
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e3a665e3615c9ff3a68cf13eeaef5e8f41632f6a
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813778"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97900353"
 ---
 # <a name="test-through-simulations"></a>Fazer testes por meio de simulações
 
@@ -42,9 +42,9 @@ Fizemos uma parceria com o [BreakingPoint Cloud](https://www.ixiacom.com/product
     |---------      |---------                                          |
     |Endereço IP de destino           | Insira um endereço IP público que você deseja testar.                     |
     |Número da porta   | Inserir _443_.                       |
-    |Perfil de DDoS | Selecione **TCP SYN Flood**.|
-    |Tamanho do teste       | Selecione **200 PPS, 100 Mbps e 8 IPS de origem.**                                  |
-    |Duração do teste | Selecione **10 minutos**.|
+    |Perfil de DDoS | Os valores possíveis **incluem inundação de DNS**, **inundação de NTPv2**, **inundação de SSDP**, **inundação de TCP SYN**, **inundação de 64B** de UDP, **inundação** de UDP 128B, **inundação** de UDP 256B, **UDP 512B inundação**, **UDP 1024B** inundação, UDP **1514B Flood**, UDP **fragmentação UDP** **memcached**.|
+    |Tamanho do teste       | Os valores possíveis incluem **100 mil PPS, 50 Mbps e 4 IPS de origem**, **200 PPS, 100 Mbps e 8 IPS de origem**, **400 mil PPS, 200 Mbps e 16 IPS de origem**, **800K PPS, 400 Mbps e 32 IPS de origem**.                                  |
+    |Duração do teste | Os valores possíveis incluem **10 minutos**, **15** minutos, **20 minutos**, **25 minutos**, **30 minutos**.|
 
 Agora deve aparecer assim:
 

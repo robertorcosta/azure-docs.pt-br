@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 17b0564b4b73f5a5032343dcb78669cbf4cabd5a
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 057f965c67c25d486771a4c037e13153a7f2cf66
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516152"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901140"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usar Azure Machine Learning com o pacote Fairlearn Open-Source para avaliar a imparcialidade dos modelos de ML (versão prévia)
 
@@ -46,7 +46,7 @@ As versões posteriores do Fairlearn também devem funcionar no código de exemp
 
 O exemplo a seguir mostra como usar o pacote de imparcialidade. Vamos carregar informações de imparcialidade de modelo no Azure Machine Learning e ver o painel de avaliação de imparcialidade no Azure Machine Learning Studio.
 
-1. Treine um modelo de exemplo em um notebook Jupyter. 
+1. Treine um modelo de exemplo no Jupyter Notebook. 
 
     Para o conjunto de um, usamos o conjunto de censo adulto conhecido, que buscamos de OpenML. Vamos fingir que temos um problema de decisão de empréstimo com o rótulo indicando se um indivíduo pagou um empréstimo anterior. Treinaremos um modelo para prever se indivíduos anteriormente não vistos indenizarm um empréstimo. Esse modelo pode ser usado para tomar decisões de empréstimo.
 
