@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 6abdb3cc6981a4fbdd52b88a75457c37709597f5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 42b9958678c76c1d0eed67cc9d97361c84f1dea9
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020782"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821155"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Usar o cluster HDInsight Spark para analisar dados no Data Lake Storage Gen1
 
@@ -73,7 +73,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
 3. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
 
-    ![Criar um novo bloco de anotações do Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Criar um novo bloco de anotações do Jupyter")
+    ![Criar um novo Jupyter Notebook](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "Criar um novo Jupyter Notebook")
 
 4. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos obrigatórios para este cenário. Para fazer isso, cole o snippet de código a seguir em uma célula vazia e pressione **SHIFT + ENTER**.
 
@@ -83,7 +83,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
 
     Toda vez que você executar um trabalho no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito. Depois que o trabalho for concluído, isso será alterado para um círculo vazio.
 
-     ![Status de um trabalho do bloco de anotações do Jupyter](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status de um trabalho do bloco de anotações do Jupyter")
+     ![Status de um trabalho de Jupyter Notebook](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Status de um trabalho de Jupyter Notebook")
 
 5. Carregue os dados de exemplo em uma tabela temporária usando o arquivo **HVAC.csv** copiado para a conta do Data Lake Storage Gen1. Você pode acessar os dados na conta do Repositório Data Lake Storage usando o seguinte padrão de URL.
 
@@ -124,7 +124,7 @@ Se você criou um cluster HDInsight com o Data Lake Store como armazenamento adi
       hvacdf.registerTempTable("hvac")
       ```
 
-6. Como está usando um kernel PySpark, agora você pode executar diretamente uma consulta SQL na tabela temporária **hvac** que acabou de criar usando a mágica de `%%sql`. Para obter mais informações sobre a mágica `%%sql`, bem como sobre outras magias disponíveis com o kernel do PySpark, consulte [Kernels disponíveis em notebooks Jupyter com clusters do Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+6. Como está usando um kernel PySpark, agora você pode executar diretamente uma consulta SQL na tabela temporária **hvac** que acabou de criar usando a mágica de `%%sql`. Para obter mais informações sobre a `%%sql` mágica, bem como outras mágicas disponíveis com o kernel PySpark, confira [kernels disponíveis em notebooks Jupyter com Apache Spark clusters HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     ```sql
     %%sql

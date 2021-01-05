@@ -5,17 +5,18 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/16/2020
+ms.date: 12/30/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c9dd39ffa68d8261f5c5d301d4c351c52b3f27c1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 922ec6c4b579a657e7ee5e872148f8126ce175e2
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654585"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822277"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solucionar problemas do Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo explora métodos comuns de solução de problemas para atividades de controle externo no Azure Data Factory.
@@ -498,7 +499,7 @@ A tabela a seguir se aplica ao Lote do Azure.
 
 - **Mensagem**: `There are duplicate files in the resource folder.`
 
-- **Causa**: Vários arquivos com o mesmo nome estão em subpastas diferentes de folderPath.
+- **Causa**: vários arquivos com o mesmo nome estão em subpastas diferentes de FolderPath.
 
 - **Recomendação**: Estrutura de pastas nivelam atividades personalizadas em folderPath. Se você precisar preservar a estrutura de pastas, compacte os arquivos e extraia-os no Lote do Azure usando um comando unzip.
    
@@ -545,7 +546,6 @@ A tabela a seguir se aplica ao Lote do Azure.
 - **Causa**: Ocorreu um erro interno ao tentar ler a entidade de serviço ou instanciar a autenticação MSI.
 
 - **Recomendação**: Considere fornecer uma entidade de serviço que tenha permissões para criar um cluster HDInsight na assinatura fornecida e tente novamente. Verifique se [Gerenciar Identidades está configurado corretamente](../hdinsight/hdinsight-managed-identities.md).
-
 
 ### <a name="error-code-2300"></a>Código de erro: 2300
 
@@ -952,6 +952,16 @@ A tabela a seguir se aplica ao Lote do Azure.
 
 - **Recomendação**: Forneça uma conta de Armazenamento de Blobs do Azure como um armazenamento adicional para o serviço vinculado sob demanda do HDInsight.
 
+### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>Erro de SSL quando o serviço vinculado do ADF está usando o cluster do HDInsight ESP
+
+- **Mensagem**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+
+- **Causa**: o problema provavelmente está relacionado ao repositório de confiança do sistema.
+
+- **Resolução**: você pode navegar até o caminho **Microsoft Integration RUNTIME\4.0\SHARED\ODBC Drivers\Microsoft Hive ODBC Driver\lib** e abrir DriverConfiguration64.exe para alterar a configuração.
+
+    ![Desmarque usar repositório de confiança do sistema](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+
 ## <a name="web-activity"></a>Atividade da Web
 
 ### <a name="error-code-2128"></a>Código de erro: 2128
@@ -1015,7 +1025,7 @@ Quando você observa que a atividade está sendo executada muito mais do que as 
 
 **Mensagem de erro:**`The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
-**Causa:** A carga para cada execução de atividade inclui a configuração da atividade, os conjuntos de os DataSets e as configurações de serviços vinculados, se houver, e uma pequena parte das propriedades do sistema geradas por tipo de atividade. O limite desse tamanho de carga é 896KB conforme mencionado na seção [limites de data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
+**Causa:** A carga para cada execução de atividade incluirá a configuração da atividade, os conjuntos de (s) associados e as configurações de serviço vinculado (s), se houver, e uma pequena parte das propriedades do sistema geradas por tipo de atividade. O limite desse tamanho de carga é 896 KB, conforme mencionado na seção [Data Factory limites](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) .
 
 **Recomendação:** Você atingiu esse limite provavelmente porque você passa um ou mais valores de parâmetro grandes de saída de atividade upstream ou externa, especialmente se você passar dados reais entre atividades no fluxo de controle. Verifique se você pode reduzir o tamanho dos valores de parâmetro grandes ou ajuste a lógica do pipeline para evitar passar esses valores entre as atividades e tratá-lo dentro da atividade.
 

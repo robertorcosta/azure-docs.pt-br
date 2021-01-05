@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/09/2020
+ms.date: 12/30/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: a7a81a742922d45be965c7f73e3cb910d0ef989a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e6591762ed6a7e2b462a209730276f3198d86ae8
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109276"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821461"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solucionar problemas de conectores do Azure Data Factory
 
@@ -24,7 +24,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
   
 ## <a name="azure-blob-storage"></a>Armazenamento do Blobs do Azure
 
-### <a name="error-code--azurebloboperationfailed"></a>Código de erro:  AzureBlobOperationFailed
+### <a name="error-code-azurebloboperationfailed"></a>Código de erro: AzureBlobOperationFailed
 
 - **Mensagem**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
 
@@ -33,24 +33,9 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Recomendação**:  Verifique os detalhes do erro. Consulte o documento de ajuda de blob: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Contate a equipe de armazenamento se precisar de ajuda.
 
 
-### <a name="error-code--azureblobservicenotreturnexpecteddatalength"></a>Código de erro:  AzureBlobServiceNotReturnExpectedDataLength
-
-- **Mensagem**: `Error occurred when trying to fetch the blob '%name;'. This could be a transient issue and you may rerun the job. If it fails again continuously, contact customer support.`
-
-
-### <a name="error-code--azureblobnotsupportmultiplefilesintosingleblob"></a>Código de erro:  AzureBlobNotSupportMultipleFilesIntoSingleBlob
-
-- **Mensagem**: `Transferring multiple files into a single Blob is not supported. Currently only single file source is supported.`
-
-
-### <a name="error-code--azurestorageoperationfailedconcurrentwrite"></a>Código de erro:  AzureStorageOperationFailedConcurrentWrite
-
-- **Mensagem**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
-
-
 ### <a name="invalid-property-during-copy-activity"></a>Propriedade inválida durante a atividade de cópia
 
-- **Mensagem**:  `Copy activity <Activity Name> has an invalid "source" property. The source type is not compatible with the dataset <Dataset Name> and its linked service <Linked Service Name>. Please verify your input against.`
+- **Mensagem**: `Copy activity <Activity Name> has an invalid "source" property. The source type is not compatible with the dataset <Dataset Name> and its linked service <Linked Service Name>. Please verify your input against.`
 
 - **Causa**: o tipo definido no conjunto de texto é inconsistente com o tipo de origem/coletor definido na atividade de cópia.
 
@@ -79,7 +64,6 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Causa**: Há duas causas possíveis:
 
     - Se você usar **Inserir** como comportamento de gravação, esse erro significa que os dados de origem têm linhas/objetos com a mesma ID.
-
     - Se você usar **Upsert** como comportamento de gravação e definir outra chave exclusiva para o contêiner, esse erro significa que os dados de origem têm linhas/objetos com IDs diferentes, mas o mesmo valor para a chave exclusiva definida.
 
 - **Resolução:** 
@@ -100,9 +84,8 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Resolução:** Existem duas soluções:
 
-    1. **Aumentar o contêiner de RU** para o maior valor no Cosmos DB para melhorar desempenho da atividade de cópia, embora resulte em mais custos no Cosmos DB. 
-
-    2. Diminuir o **writeBatchSize** para um valor menor (como 1000) e definir **parallelCopies** como um valor menor, como 1. Isso tornará o desempenho de execução de cópia pior do que o atual, mas não resultará em custo maior no Cosmos DB.
+    - **Aumentar o contêiner de RU** para o maior valor no Cosmos DB para melhorar desempenho da atividade de cópia, embora resulte em mais custos no Cosmos DB. 
+    - Diminuir o **writeBatchSize** para um valor menor (como 1000) e definir **parallelCopies** como um valor menor, como 1. Isso tornará o desempenho de execução de cópia pior do que o atual, mas não resultará em custo maior no Cosmos DB.
 
 ### <a name="column-missing-in-column-mapping"></a>Coluna ausente no mapeamento de coluna
 
@@ -130,70 +113,15 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Resolução:** Na cadeia de conexão do MongoDB, adicione a opção “**uuidRepresentation=standard**”. Para obter mais informações, consulte [cadeia de conexão do MongoDB](connector-mongodb.md#linked-service-properties).
             
+## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB (API do SQL)
 
-## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
+### <a name="error-code--cosmosdbsqlapioperationfailed"></a>Código de erro: CosmosDbSqlApiOperationFailed
 
-### <a name="error-code--adlsgen2operationfailed"></a>Código de erro:  AdlsGen2OperationFailed
+- **Mensagem**: `CosmosDbSqlApi operation Failed. ErrorMessage: %msg;.`
 
-- **Mensagem**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+- **Causa**: problema de falha na operação de CosmosDbSqlApi.
 
-- **Causa**: O ADLS Gen2 gera o erro indicando que a operação falhou.
-
-- **Recomendação**:  Verifique a mensagem de erro detalhada lançada pelo ADLS Gen2. Se ele for causado por uma falha transitória, tente novamente. Se precisar de ajuda adicional, entre em contato com o suporte do Armazenamento do Microsoft Azure e forneça a ID da solicitação na mensagem de erro.
-
-- **Causa**: Quando a mensagem de erro contém “Proibido”, a entidade de serviço ou a identidade gerenciada usada pode não ter permissão suficiente para acessar o ADLS Gen2.
-
-- **Recomendação**:  Consulte o documento de ajuda: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
-
-- **Causa**: Quando a mensagem de erro contém “InternalServerError”, o erro é retornado pelo ADLS Gen2.
-
-- **Recomendação**:  Pode ser causado por uma falha transitória, tente novamente. Se o problema persistir, entre em contato com o suporte do Armazenamento do Microsoft Azure e forneça a ID da solicitação na mensagem de erro.
-
-
-### <a name="error-code--adlsgen2invalidurl"></a>Código de erro:  AdlsGen2InvalidUrl
-
-- **Mensagem**: `Invalid url '%url;' provided, expecting http[s]://<accountname>.dfs.core.windows.net.`
-
-
-### <a name="error-code--adlsgen2invalidfolderpath"></a>Código de erro:  AdlsGen2InvalidFolderPath
-
-- **Mensagem**: `The folder path is not specified. Cannot locate the file '%name;' under the ADLS Gen2 account directly. Please specify the folder path instead.`
-
-
-### <a name="error-code--adlsgen2operationfailedconcurrentwrite"></a>Código de erro:  AdlsGen2OperationFailedConcurrentWrite
-
-- **Mensagem**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
-
-
-### <a name="error-code-adlsgen2timeouterror"></a>Código de erro: AdlsGen2TimeoutError
-
-- **Mensagem**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
-
-
-### <a name="request-to-adls-gen2-account-met-timeout-error"></a>Solicitação para ADLS Gen2 erro de tempo limite atingido na conta
-
-- **Mensagem**: código de erro = `UserErrorFailedBlobFSOperation` , mensagem de erro = `BlobFS operation failed for: A task was canceled` .
-
-- **Causa**: o problema é causado pelo erro de tempo limite do coletor de ADLS Gen2, que ocorre principalmente na máquina ir hospedada internamente.
-
-- **Recomendação**: 
-
-    1. Coloque sua máquina IR auto-hospedada e direcione a conta ADLS Gen2 na mesma região, se possível. Isso pode evitar um erro de tempo limite aleatório e ter um melhor desempenho.
-
-    1. Verifique se há alguma configuração de rede especial, como o ExpressRoute, e certifique-se de que a rede tenha largura de banda suficiente. É recomendável reduzir a configuração de trabalhos simultâneos de IR hospedados automaticamente quando a largura de banda geral é baixa, por meio do qual pode evitar a competição de recursos de rede em vários trabalhos simultâneos.
-
-    1. Use tamanho de bloco menor para cópia não binária para atenuar esse erro de tempo limite se o tamanho do arquivo for moderado ou pequeno. Consulte o [bloco put do armazenamento de BLOBs](https://docs.microsoft.com/rest/api/storageservices/put-block).
-
-       Para especificar o tamanho do bloco personalizado, você pode editar a propriedade no editor. JSON:
-    ```
-    "sink": {
-        "type": "DelimitedTextSink",
-        "storeSettings": {
-            "type": "AzureBlobFSWriteSettings",
-            "blockSizeInMB": 8
-        }
-    }
-    ```
+- **Recomendação**:  Verifique os detalhes do erro. Consulte o [documento de ajuda do CosmosDb](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). Entre em contato com a equipe do CosmosDb se precisar de ajuda.
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
@@ -203,7 +131,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Sintomas**: a atividade de cópia falha com o seguinte erro: 
 
     ```
-    Message: Failure happened on 'Sink' side. ErrorCode=UserErrorFailedFileOperation,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Upload file failed at path STAGING/PLANT/INDIARENEWABLE/LiveData/2020/01/14\\20200114-0701-oem_gibtvl_mannur_data_10min.csv.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=System.Net.WebException,Message=The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.,Source=System,''Type=System.Security.Authentication.AuthenticationException,Message=The remote certificate is invalid according to the validation procedure.,Source=System,'.
+    Message: ErrorCode = `UserErrorFailedFileOperation`, Error Message = `The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`.
     ```
 
 - **Causa**: falha na validação do certificado durante o HANDSHAKE de TLS.
@@ -238,7 +166,62 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Causa**: Quando o Servidor de Token de Serviço (STS) pertencente ao Azure Active Directory não está indisponível, ou seja, muito ocupado para lidar com solicitações, ele retorna um erro HTTP 503. 
 
 - **Resolução:** Execute a atividade de cópia novamente após alguns minutos.
+
+
+## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
+
+### <a name="error-code-adlsgen2operationfailed"></a>Código de erro: ADLSGen2OperationFailed
+
+- **Mensagem**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
+
+- **Causa**: O ADLS Gen2 gera o erro indicando que a operação falhou.
+
+- **Recomendação**:  Verifique a mensagem de erro detalhada lançada pelo ADLS Gen2. Se ele for causado por uma falha transitória, tente novamente. Se precisar de ajuda adicional, entre em contato com o suporte do Armazenamento do Microsoft Azure e forneça a ID da solicitação na mensagem de erro.
+
+- **Causa**: Quando a mensagem de erro contém “Proibido”, a entidade de serviço ou a identidade gerenciada usada pode não ter permissão suficiente para acessar o ADLS Gen2.
+
+- **Recomendação**:  Consulte o documento de ajuda: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
+
+- **Causa**: Quando a mensagem de erro contém “InternalServerError”, o erro é retornado pelo ADLS Gen2.
+
+- **Recomendação**:  Pode ser causado por uma falha transitória, tente novamente. Se o problema persistir, entre em contato com o suporte do Armazenamento do Microsoft Azure e forneça a ID da solicitação na mensagem de erro.
+
+### <a name="request-to-adls-gen2-account-met-timeout-error"></a>Solicitação para ADLS Gen2 erro de tempo limite atingido na conta
+
+- **Mensagem**: código de erro = `UserErrorFailedBlobFSOperation` , mensagem de erro = `BlobFS operation failed for: A task was canceled` .
+
+- **Causa**: o problema é causado pelo erro de tempo limite do coletor de ADLS Gen2, que ocorre principalmente na máquina ir hospedada internamente.
+
+- **Recomendação**: 
+
+    - Coloque sua máquina IR auto-hospedada e direcione a conta ADLS Gen2 na mesma região, se possível. Isso pode evitar um erro de tempo limite aleatório e ter um melhor desempenho.
+
+    - Verifique se há alguma configuração de rede especial, como o ExpressRoute, e certifique-se de que a rede tenha largura de banda suficiente. É recomendável reduzir a configuração de trabalhos simultâneos de IR hospedados automaticamente quando a largura de banda geral é baixa, por meio do qual pode evitar a competição de recursos de rede em vários trabalhos simultâneos.
+
+    - Use tamanho de bloco menor para cópia não binária para atenuar esse erro de tempo limite se o tamanho do arquivo for moderado ou pequeno. Consulte o [bloco put do armazenamento de BLOBs](https://docs.microsoft.com/rest/api/storageservices/put-block).
+
+       Para especificar o tamanho do bloco personalizado, você pode editar a propriedade no editor. JSON:
+        ```
+        "sink": {
+            "type": "DelimitedTextSink",
+            "storeSettings": {
+                "type": "AzureBlobFSWriteSettings",
+                "blockSizeInMB": 8
+            }
+        }
+        ```
+
                   
+## <a name="azure-file-storage"></a>Armazenamento de Arquivos do Azure
+
+### <a name="error-code--azurefileoperationfailed"></a>Código de erro: AzureFileOperationFailed
+
+- **Mensagem**: `Azure File operation Failed. Path: %path;. ErrorMessage: %msg;.`
+
+- **Causa**: problema de impacto na operação do armazenamento de arquivos do Azure.
+
+- **Recomendação**:  Verifique os detalhes do erro. Consulte o documento de ajuda de arquivo do Azure: https://docs.microsoft.com/rest/api/storageservices/file-service-error-codes . Entre em contato com a equipe de armazenamento se precisar de ajuda.
+
 
 ## <a name="azure-synapse-analyticsazure-sql-databasesql-server"></a>Azure Synapse Analytics/banco de dados SQL do Azure/SQL Server
 
@@ -246,13 +229,29 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Mensagem**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
 
+- **Causa**: SQL do Azure: se a mensagem de erro contiver "SqlErrorNumber = 47073", isso significa que o acesso à rede pública é negado na configuração de conectividade.
+
+- **Recomendação**: no firewall do SQL do Azure, defina a opção "negar acesso à rede pública" como "não". Saiba mais em https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access .
+
+- **Causa**: SQL do Azure: se a mensagem de erro contiver código de erro SQL, como "SqlErrorNumber = [ErrorCode]", consulte o guia de solução de problemas do SQL do Azure.
+
+- **Recomendação**: Saiba mais em https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues .
+
+- **Causa**: Verifique se a porta 1433 está na lista de permissões do firewall.
+
+- **Recomendação**: siga com este documento de referência: https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by- .
+
 - **Causa**: Se a mensagem de erro contiver “SqlException”, o Banco de Dados SQL lançará o erro indicando que uma operação específica falhou.
 
 - **Recomendação**: Pesquise por código de erro do SQL neste documento de referência para obter mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Se precisar de mais ajuda, entre em contato com o suporte do SQL do Azure.
 
+- **Causa**: se esse for um problema transitório (por exemplo, conexão de rede inestável), adicione a política de repetição na atividade para mitigar.
+
+- **Recomendação**: siga este documento de referência: https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy .
+
 - **Causa**: Se a mensagem de erro contiver "Cliente com endereço IP '...' não tem permissão para acessar o servidor", e você estiver tentando se conectar ao Banco de Dados SQL do Azure, geralmente o erro é causado por problema do firewall do Banco de Dados SQL do Azure.
 
-- **Recomendação**: em configuração lógica do firewall do SQL Server, habilite a opção "permitir que os serviços e recursos do Azure acessem este servidor". Documento de referência: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
+- **Recomendação**:  Na configuração do firewall do Azure SQL Server, habilite a opção "Permitir que os serviços e recursos do Azure acessem este servidor". Documento de referência: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
 
 ### <a name="error-code--sqloperationfailed"></a>Código de erro:  SqlOperationFailed
@@ -272,7 +271,6 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Causa**: Se a mensagem de erro contiver "InvalidOperationException", geralmente ela é causada por dados de entrada inválidos.
 
 - **Recomendação**:  Para identificar em qual linha está o problema, habilite o recurso de tolerância a falhas na atividade de cópia, que pode redirecionar as linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Documento de referência: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
-
 
 
 ### <a name="error-code--sqlunauthorizedaccess"></a>Código de erro:  SqlUnauthorizedAccess
@@ -342,11 +340,6 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Recomendação**:  Verifique a coluna na consulta, “estrutura” no conjunto de dados e “mapeamentos” na atividade.
 
 
-### <a name="error-code--sqlcolumnnamemismatchbycasesensitive"></a>Código de erro:  SqlColumnNameMismatchByCaseSensitive
-
-- **Mensagem**: `Column '%column;' in DataSet '%dataSetName;' cannot be found in physical SQL Database. Column matching is case-sensitive. Column '%columnInTable;' appears similar. Check the DataSet(s) configuration to proceed further.`
-
-
 ### <a name="error-code--sqlbatchwritetimeout"></a>Código de erro:  SqlBatchWriteTimeout
 
 - **Mensagem**: `Timeouts in SQL write operation.`
@@ -385,11 +378,6 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Causa**: A conexão SQL é fechada pelo Banco de Dados SQL quando a execução simultânea alta e o servidor terminarem a conexão.
 
 - **Recomendação**:  O servidor remoto encerrou a conexão SQL. Repetir. Se o problema for reproduzido, entre em contato com o suporte do SQL do Azure.
-
-
-### <a name="error-code--sqlcreatetablefailedunsupportedtype"></a>Código de erro:  SqlCreateTableFailedUnsupportedType
-
-- **Mensagem**: `Type '%type;' in source side cannot be mapped to a type that supported by sink side(column name:'%name;') in autocreate table.`
 
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Mensagem de erro: Falha na conversão de uma cadeia de caracteres em um uniqueidentifier
@@ -454,9 +442,9 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
     - Time -> 12 bytes
     - Tinyint -> 1 byte
 
-- **Resolução:** Reduza a largura da coluna para que seja menor que 1 MB
-
-- Ou use a abordagem bulk insert desabilitando o Polybase
+- **Resolução**: 
+    - Reduza a largura da coluna para menos de 1 MB.
+    - Ou use a abordagem bulk insert desabilitando o PolyBase.
 
 
 ### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>Mensagem de erro: A condição especificada usando cabeçalhos condicionais HTTP não foi atendida
@@ -478,15 +466,15 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: a causa raiz do problema é disparada principalmente pelo afunilamento do lado do Azure SQL. Veja a seguir algumas causas possíveis:
 
-    1. A camada de banco de BD do Azure não é alta o suficiente.
+    - A camada de banco de BD do Azure não é alta o suficiente.
 
-    1. O uso de DTU de BD do Azure está próximo de 100%. Você pode [monitorar o desempenho](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) e considerar a atualização da camada de BD.
+    - O uso de DTU de BD do Azure está próximo de 100%. Você pode [monitorar o desempenho](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) e considerar a atualização da camada de BD.
 
-    1. Os índices não estão definidos corretamente. Remova todos os índices antes de carregar os dados e recrie-os após a conclusão da carga.
+    - Os índices não estão definidos corretamente. Remova todos os índices antes de carregar os dados e recrie-os após a conclusão da carga.
 
-    1. WriteBatchSize não é grande o suficiente para ajustar o tamanho da linha do esquema. Tente aumentar a propriedade para o problema.
+    - WriteBatchSize não é grande o suficiente para ajustar o tamanho da linha do esquema. Tente aumentar a propriedade para o problema.
 
-    1. Em vez da inserção em massa, o procedimento armazenado está sendo usado, o que deve ter um desempenho pior. 
+    - Em vez da inserção em massa, o procedimento armazenado está sendo usado, o que deve ter um desempenho pior. 
 
 - **Resolução**: consulte o TSG para obter o [desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
 
@@ -509,19 +497,44 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Resolução**: mude para uma conta do SQL mais privilegiada.
 
 
-### <a name="string-or-binary-data-would-be-truncated"></a>A cadeia de caracteres ou os dados binários seriam truncados
+### <a name="error-message-string-or-binary-data-would-be-truncated"></a>Mensagem de erro: dados de cadeia de caracteres ou binários seriam truncados
 
 - **Sintomas**: ocorreu um erro ao copiar dados para a tabela local/SQL Server do Azure: 
 
 - **Causa**: a definição do esquema de tabela do CX SQL tem uma ou mais colunas com menos comprimento que a expectativa.
 
-- **Resolução**: tente as etapas a seguir para corrigir o problema:
+- **Resolução**: tente seguir as etapas para corrigir o problema:
 
-    1. Aplique a [tolerância a falhas](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance), especialmente "redirectIncompatibleRowSettings" para solucionar quais linhas têm o problema.
+    1. Aplique a [tolerância a falhas](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)do coletor SQL, especialmente "redirectIncompatibleRowSettings", para solucionar quais linhas têm o problema.
 
-    1. Verifique novamente os dados redirecionados com o comprimento da coluna do esquema de tabela SQL para ver quais colunas precisam ser atualizadas.
+        > [!NOTE]
+        > Observe que a tolerância a falhas pode introduzir tempo de execução adicional, o que pode levar a um custo mais alto.
 
-    1. Atualize o esquema da tabela adequadamente.
+    2. Verifique novamente os dados redirecionados com o comprimento da coluna do esquema de tabela SQL para ver quais colunas precisam ser atualizadas.
+
+    3. Atualize o esquema da tabela adequadamente.
+
+
+## <a name="azure-table-storage"></a>Armazenamento de Tabelas do Azure
+
+### <a name="error-code--azuretableduplicatecolumnsfromsource"></a>Código de erro: AzureTableDuplicateColumnsFromSource
+
+- **Mensagem**: `Duplicate columns with same name '%name;' are detected from source. This is NOT supported by Azure Table Storage sink`
+
+- **Causa**: pode ser comum para consulta SQL com junção ou arquivos CSV não estruturados
+
+- **Recomendação**: Verifique as colunas de origem e corrija-as adequadamente.
+
+
+## <a name="db2"></a>DB2
+
+### <a name="error-code--db2driverrunfailed"></a>Código de erro: DB2DriverRunFailed
+
+- **Mensagem**: `Error thrown from driver. Sql code: '%code;'`
+
+- **Causa**: se a mensagem de erro contiver "SQLSTATE = 51002 SQLCODE =-805", consulte a dica neste documento: https://docs.microsoft.com/azure/data-factory/connector-db2#linked-service-properties
+
+- **Recomendação**: tente definir "nullid" na propriedade "packagecollection"
 
 
 ## <a name="delimited-text-format"></a>Formato de texto delimitado
@@ -537,7 +550,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 ### <a name="error-code--delimitedtextmorecolumnsthandefined"></a>Código de erro:  DelimitedTextMoreColumnsThanDefined
 
-- **Mensagem**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %columnCount;.`
+- **Mensagem**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %expectedColumnCount;.`
 
 - **Causa**: a contagem de colunas da linha problemática é maior que a contagem de colunas da primeira linha. Pode ser causado por problemas de dados ou configurações incorretas de caractere delimitador de coluna/caractere de cotação.
 
@@ -550,22 +563,6 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Causa**: Se sua origem for uma pasta, é possível que os arquivos na pasta especificada tenham um esquema diferente.
 
 - **Recomendação**:  Verifique se os arquivos na pasta especificada têm esquema idêntico.
-
-
-### <a name="error-code--delimitedtextincorrectrowdelimiter"></a>Código de erro:  DelimitedTextIncorrectRowDelimiter
-
-- **Mensagem**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
-
-
-### <a name="error-code--delimitedtexttoolargecolumncount"></a>Código de erro:  DelimitedTextTooLargeColumnCount
-
-- **Mensagem**: `Column count reaches limitation when deserializing csv file. Maximum size is '%size;'. Check the column delimiter and row delimiter provided. (Column delimiter: '%columnDelimiter;', Row delimiter: '%rowDelimiter;')`
-
-
-### <a name="error-code--delimitedtextinvalidsettings"></a>Código de erro:  DelimitedTextInvalidSettings
-
-- **Mensagem**: `%settingIssues;`
-
 
 
 ## <a name="dynamics-365common-data-servicedynamics-crm"></a>Dynamics 365/Common Data Service/Dynamics CRM
@@ -583,9 +580,45 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Sintomas**: algumas das colunas ficam ausentes ao importar o esquema ou a visualização de dados. Mensagem de erro: `The valid structure information (column name and type) are required for Dynamics source.`
 
-- **Causa**: esse problema é basicamente por design, pois o ADF não é capaz de mostrar colunas que não têm valor nos primeiros 10 registros. Certifique-se de que as colunas que você adicionou estão com o formato correto. 
+- **Causa**: esse problema é basicamente por design, pois o ADF não é capaz de mostrar colunas que não têm valor nos primeiros 10 registros. Verifique se as colunas que você adicionou estão com o formato correto. 
 
 - **Recomendação**: adicione manualmente as colunas na guia mapeamento.
+
+
+### <a name="error-code--dynamicsmissingtargetformultitargetlookupfield"></a>Código de erro: DynamicsMissingTargetForMultiTargetLookupField
+
+- **Mensagem**: `Cannot find the target column for multi-target lookup field: '%fieldName;'.`
+
+- **Causa**: a coluna de destino não existe no mapeamento de origem ou de coluna.
+
+- **Recomendação**: 1. Verifique se a origem contém a coluna de destino. 2. Adicione a coluna de destino no mapeamento de coluna. Verifique se a coluna do coletor está no padrão de "{fieldName} @EntityReference ".
+
+
+### <a name="error-code--dynamicsinvalidtargetformultitargetlookupfield"></a>Código de erro: DynamicsInvalidTargetForMultiTargetLookupField
+
+- **Mensagem**: `The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;"`
+
+- **Causa**: um nome de entidade incorreto é fornecido como uma entidade de destino de um campo de pesquisa de vários destinos.
+
+- **Recomendação**: forneça um nome de entidade válido para o campo de pesquisa de vários destinos.
+
+
+### <a name="error-code--dynamicsinvalidtypeformultitargetlookupfield"></a>Código de erro: DynamicsInvalidTypeForMultiTargetLookupField
+
+- **Mensagem**: `The provided target type is not a valid string. Field: '%fieldName;'.`
+
+- **Causa**: o valor na coluna de destino não é uma cadeia de caracteres
+
+- **Recomendação**: forneça uma cadeia de caracteres válida na coluna de destino de pesquisa de vários destinos.
+
+
+### <a name="error-code--dynamicsfailedtorequetserver"></a>Código de erro: DynamicsFailedToRequetServer
+
+- **Mensagem**: `The dynamics server or the network is experiencing issues. Check network connectivity or check dynamics server log for more details.`
+
+- **Causa**: o servidor dinâmico está inestável ou inacessível ou a rede está enfrentando problemas.
+
+- **Recomendação**: Verifique a conectividade de rede ou verifique o log do servidor do Dynamics para obter mais detalhes. Contate o suporte do Dynamics para obter mais ajuda.
 
 
 ## <a name="excel-format"></a>Formato do Excel
@@ -594,73 +627,45 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Sintomas**:
 
-    1. Quando você cria o conjunto de dados do Excel e importa o esquema de conexão/armazenamento, visualização de planilhas, lista ou atualização de pastas de trabalho, você pode atingir um erro de tempo limite se o arquivo do Excel for grande em tamanho.
+    - Quando você cria o conjunto de dados do Excel e importa o esquema de conexões/armazenamento, visualização de data, lista ou atualização de planilhas, você pode atingir um erro de tempo limite se o arquivo do Excel for grande em tamanho.
 
-    1. Quando você usa a atividade de cópia para copiar dados de um arquivo grande do Excel (>= 100 MB) para outro armazenamento de dados, você pode enfrentar um problema de desempenho ou OOM lento.
+    - Quando você usa a atividade de cópia para copiar dados de um arquivo grande do Excel (>= 100 MB) para outro armazenamento de dados, você pode enfrentar um problema de desempenho ou OOM lento.
 
 - **Causa**: 
 
-    1. Para operações como importação de esquema, visualização de dados e listagem de planilhas no conjunto de dados do Excel, o tempo limite é 100s e estático. Para grandes arquivos do Excel, essas operações podem não ser concluídas dentro do valor de tempo limite.
+    - Para operações como importação de esquema, visualização de dados e listagem de planilhas no conjunto do dados do Excel, o tempo limite é de 100 s e estáticos. Para grandes arquivos do Excel, essas operações podem não ser concluídas dentro do valor de tempo limite.
 
-    2. A atividade de cópia do ADF lê o arquivo inteiro do Excel na memória e, em seguida, localiza a planilha e as células especificadas para ler os dados. Esse comportamento ocorre devido ao uso do ADF do SDK subjacente.
+    - A atividade de cópia do ADF lê o arquivo inteiro do Excel na memória e, em seguida, localiza a planilha e as células especificadas para ler os dados. Esse comportamento ocorre devido ao uso do ADF do SDK subjacente.
 
 - **Resolução**: 
 
-    1. Para importar o esquema, você pode gerar um arquivo de exemplo menor, que é um subconjunto do arquivo original, e escolher "importar esquema do arquivo de exemplo" em vez de "importar esquema da conexão/armazenamento".
+    - Para importar o esquema, você pode gerar um arquivo de exemplo menor, que é um subconjunto do arquivo original, e escolher "importar esquema do arquivo de exemplo" em vez de "importar esquema da conexão/armazenamento".
 
-    2. Para a planilha de listagem, no menu suspenso da planilha, você pode clicar em "Editar" e inserir o nome/índice da planilha em vez disso.
+    - Para a planilha de listagem, no menu suspenso da planilha, você pode clicar em "Editar" e inserir o nome/índice da planilha em vez disso.
 
-    3. Para copiar arquivos grandes do Excel (>100MB) em outro repositório, você pode usar a origem do Excel de fluxo de dados que usa streaming de esporte e executar melhor.
+    - Para copiar um arquivo grande do Excel (>100 MB) em outro repositório, você pode usar a origem do Excel de fluxo de dados que utiliza streaming de esporte e desempenho melhor.
+    
 
+## <a name="ftp"></a>FTP
 
-## <a name="hdinsight"></a>HDInsight
+### <a name="error-code--ftpfailedtoconnecttoftpserver"></a>Código de erro: FtpFailedToConnectToFtpServer
 
-### <a name="ssl-error-when-adf-linked-service-using-hdinsight-esp-cluster"></a>Erro de SSL quando o serviço vinculado do ADF está usando o cluster do HDInsight ESP
+- **Mensagem**: `Failed to connect to FTP server. Please make sure the provided server informantion is correct, and try again.`
 
-- **Mensagem**: `Failed to connect to HDInsight cluster: 'ERROR [HY000] [Microsoft][DriverSupport] (1100) SSL certificate verification failed because the certificate is missing or incorrect.`
+- **Causa**: o tipo de serviço vinculado incorreto pode ser usado para o servidor FTP, como usar o serviço vinculado SFTP para se conectar a um servidor FTP.
 
-- **Causa**: o problema provavelmente está relacionado ao repositório de confiança do sistema.
-
-- **Resolução**: você pode navegar até o caminho **Microsoft Integration RUNTIME\4.0\SHARED\ODBC Drivers\Microsoft Hive ODBC Driver\lib** e abrir DriverConfiguration64.exe para alterar a configuração.
-
-    ![Desmarque usar repositório de confiança do sistema](./media/connector-troubleshoot-guide/system-trust-store-setting.png)
+- **Recomendação**: Verifique a porta do servidor de destino. Por padrão, o FTP usa a porta 21.
 
 
-## <a name="json-format"></a>Formato JSON
+## <a name="http"></a>Http
 
-### <a name="error-code--jsoninvalidarraypathdefinition"></a>Código de erro:  JsonInvalidArrayPathDefinition
+### <a name="error-code--httpfilefailedtoread"></a>Código de erro: HttpFileFailedToRead
 
-- **Mensagem**: `Error occurred when deserializing source JSON data. Check whether the JsonPath in JsonNodeReference and JsonPathDefintion is valid.`
+- **Mensagem**: `Failed to read data from http server. Check the error from http server：%message;`
 
+- **Causa**: esse erro ocorre quando Azure data Factory se comunica com o servidor http, mas a operação de solicitação HTTP falha.
 
-### <a name="error-code--jsonemptyjobjectdata"></a>Código de erro:  JsonEmptyJObjectData
-
-- **Mensagem**: `The specified row delimiter %rowDelimiter; is incorrect. Cannot detect a row after parse %size; MB data.`
-
-
-### <a name="error-code--jsonnullvalueinpathdefinition"></a>Código de erro:  JsonNullValueInPathDefinition
-
-- **Mensagem**: `Null JSONPath detected in JsonPathDefinition.`
-
-
-### <a name="error-code--jsonunsupportedhierarchicalcomplexvalue"></a>Código de erro:  JsonUnsupportedHierarchicalComplexValue
-
-- **Mensagem**: `The retrieved type of data %data; with value %value; is not supported yet. Please either remove the targeted column '%name;' or enable skip incompatible row to skip the issue rows.`
-
-
-### <a name="error-code--jsonconflictpartitiondiscoveryschema"></a>Código de erro:  JsonConflictPartitionDiscoverySchema
-
-- **Mensagem**: `Conflicting partition column names detected.'%schema;', '%partitionDiscoverySchema;'`
-
-
-### <a name="error-code--jsoninvaliddataformat"></a>Código de erro:  JsonInvalidDataFormat
-
-- **Mensagem**: `Error occurred when deserializing source JSON file '%fileName;'. Check if the data is in valid JSON object format.`
-
-
-### <a name="error-code--jsoninvaliddatamixedarrayandobject"></a>Código de erro:  JsonInvalidDataMixedArrayAndObject
-
-- **Mensagem**: `Error occurred when deserializing source JSON file '%fileName;'. The JSON format doesn't allow mixed arrays and objects.`
+- **Recomendação**: Verifique o código de status HTTP \ mensagem na mensagem de erro e corrija o problema do servidor remoto.
 
 
 ## <a name="oracle"></a>Oracle
@@ -676,6 +681,41 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
     Execute `select dump(<column name>)` para verificar se o valor no Oracle está no intervalo do ADF. 
 
     Se você quiser saber a sequência de bytes no resultado, verifique https://stackoverflow.com/questions/13568193/how-are-dates-stored-in-oracle .
+
+
+## <a name="orc-format"></a>Formato Orc
+
+### <a name="error-code--orcjavainvocationexception"></a>Código de erro: OrcJavaInvocationException
+
+- **Mensagem**: `An error occurred when invoking java, message: %javaException;.`
+
+- **Causa**: Quando a mensagem de erro contém “java.lang.OutOfMemory”, “Java heap space” e “doubleCapacity”, geralmente é um problema de gerenciamento de memória na versão antiga do runtime de integração.
+
+- **Recomendação**: se você estiver usando Integration Runtime de hospedagem interna, sugira atualizar para a versão mais recente.
+
+- **Causa**: Quando a mensagem de erro contém “java.lang.OutOfMemory'” o runtime de integração não tem recursos suficientes para processar os arquivos.
+
+- **Recomendação**:  Limite as execuções simultâneas no runtime de integração. Para runtime de integração auto-hospedada, escale verticalmente para um computador avançado com memória igual ou maior que 8 GB.
+
+- **Causa**: Quando a mensagem de erro contém “NullPointerReference”, é possível que seja um erro transitório.
+
+- **Recomendação**: tente novamente. Se o problema persistir, entre em contato com o suporte.
+
+- **Causa**: quando a mensagem de erro contém ' BufferOverflowException ', é possível que seja um erro transitório.
+
+- **Recomendação**: tente novamente. Se o problema persistir, entre em contato com o suporte.
+
+- **Causa**: quando a mensagem de erro contém "Java. lang. ClassCastException:org. Apache. Hadoop. Hive. serde2. IO. HiveCharWritable não pode ser convertido em org. Apache. Hadoop. IO. Text", esse é o problema de conversão de tipo dentro do tempo de execução do Java. Normalmente, isso é causado por dados de origem que não podem ser bem manipulados em tempo de execução Java.
+
+- **Recomendação**: esse é um problema de dados. Tente usar a cadeia de caracteres em vez de char/varchar em dados de formato Orc.
+
+### <a name="error-code--orcdatetimeexceedlimit"></a>Código de erro: OrcDateTimeExceedLimit
+
+- **Mensagem**: `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
+
+- **Causa**: se o valor de DateTime for ' 0001-01-01 00:00:00 ', ele poderá ser causado pela diferença entre o calendário juliano e o calendário gregoriano. https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates.
+
+- **Recomendação**: Verifique o valor de tiques e evite usar o valor de datetime ' 0001-01-01 00:00:00 '.
 
 
 ## <a name="parquet-format"></a>Formato Parquet
@@ -828,14 +868,22 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Resolução**: 
 
-    1. Verifique se há espaços em branco no nome da coluna do coletor.
+    - Verifique se há espaços em branco no nome da coluna do coletor.
 
-    1. Verifique se a primeira linha com espaços em branco é usada como nome da coluna.
+    - Verifique se a primeira linha com espaços em branco é usada como nome da coluna.
 
-    1. Verifique se o tipo Originaltype tem suporte ou não. Tente evitar esses símbolos especiais `,;{}()\n\t=` . 
+    - Verifique se o tipo Originaltype tem suporte ou não. Tente evitar esses símbolos especiais `,;{}()\n\t=` . 
 
 
 ## <a name="rest"></a>REST
+
+### <a name="error-code--restsinkcallfailed"></a>Código de erro: RestSinkCallFailed
+
+- **Mensagem**: `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
+
+- **Causa**: esse erro ocorre quando Azure data Factory se comunicam com o ponto de extremidade REST sobre o protocolo http e a operação de solicitação falha.
+
+- **Recomendação**: Verifique o código de status HTTP \ mensagem na mensagem de erro e corrija o problema do servidor remoto.
 
 ### <a name="unexpected-network-response-from-rest-connector"></a>Resposta de rede inesperada do conector REST
 
@@ -861,75 +909,76 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 ## <a name="sftp"></a>SFTP
 
-### <a name="invalid-sftp-credential-provided-for-sshpublickey-authentication-type"></a>Credencial SFTP inválida fornecida para o tipo de autenticação ' SSHPublicKey '
+#### <a name="error-code--sftpoperationfail"></a>Código de erro: SftpOperationFail
 
-- **Sintomas**: a autenticação de chave pública SSH está sendo usada enquanto uma CREDENCIAl SFTP inválida é fornecida para o tipo de autenticação ' SshPublicKey '.
+- **Mensagem**: `Failed to '%operation;'. Check detailed error from SFTP.`
 
-- **Causa**: esse erro pode ser causado por três motivos possíveis:
+- **Causa**: problema de falha na operação SFTP.
 
-    1. O conteúdo da chave privada é buscado do AKV/SDK, mas não está codificado corretamente.
-
-    1. Formato de conteúdo de chave incorreto escolhido.
-
-    1. Conteúdo de chave privada ou credencial inválida.
-
-- **Resolução**: 
-
-    1. Para a **causa 1**:
-
-       Se o conteúdo da chave privada for de AKV e o arquivo de chave original puder funcionar se o cliente carregá-lo diretamente no serviço vinculado do SFTP
-
-       Consulte https://docs.microsoft.com/azure/data-factory/connector-sftp#using-ssh-public-key-authentication o conteúdo de PrivateKey é um conteúdo de chave privada SSH codificado em base64.
-
-       Codifique **todo o conteúdo do arquivo de chave privada original** com codificação Base64 e armazene a cadeia de caracteres codificada em akv. O arquivo de chave privada original é aquele que pode funcionar no serviço vinculado do SFTP se você clicar em carregar do arquivo.
-
-       Aqui estão alguns exemplos usados para gerar a cadeia de caracteres:
-
-       - Usar código C#:
-       ```
-       byte[] keyContentBytes = File.ReadAllBytes(Private Key Path);
-       string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
-       ```
-
-       - Use o código Python:
-       ```
-       import base64
-       rfd = open(r'{Private Key Path}', 'rb')
-       keyContent = rfd.read()
-       rfd.close()
-       print base64.b64encode(Key Content)
-       ```
-
-       - Usar ferramenta de conversão de Base64 de terceiros
-
-         Ferramentas como https://www.base64encode.org/ são recomendadas.
-
-    1. Para a **causa 2**:
-
-       Se a chave privada SSH de formato PKCS # 8 estiver sendo usada
-
-       PKCS # 8 Format chave privada SSH (começar com "-----começar a chave privada CRIPTOGRAFAda-----") não tem suporte no momento para acessar o servidor SFTP no ADF. 
-
-       Execute os comandos abaixo para converter a chave para o formato de chave SSH tradicional (comece com "-----iniciar a chave privada RSA-----"):
-
-       ```
-       openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
-       chmod 600 traditional_format_key_file
-       ssh-keygen -f traditional_format_key_file -p
-       ```
-    1. Para a **causa 3**:
-
-       Verifique novamente com ferramentas como WinSCP para ver se o arquivo de chave ou a senha está correta.
+- **Recomendação**: Verifique o erro detalhado de SFTP.
 
 
-### <a name="incorrect-linked-service-type-is-used"></a>O tipo de serviço vinculado incorreto é usado
+### <a name="error-code--sftprenameoperationfail"></a>Código de erro: SftpRenameOperationFail
 
-- **Sintomas**: o servidor FTP/SFTP não pode ser acessado.
+- **Mensagem**: `Failed to rename the temp file. Your SFTP server doesn't support renaming temp file, please set "useTempFileRename" as false in copy sink to disable uploading to temp file.`
 
-- **Causa**: o tipo de serviço vinculado incorreto é usado para o servidor FTP ou SFTP, como usar o serviço vinculado de FTP para se conectar a um servidor SFTP ou vice-versa.
+- **Causa**: seu servidor SFTP não dá suporte à renomeação do arquivo temporário.
 
-- **Resolução**: Verifique a porta do servidor de destino. Por padrão, o FTP usa a porta 21 e o SFTP usa a porta 22.
+- **Recomendação**: Defina "useTempFileRename" como falso no coletor de cópia para desabilitar o carregamento para o arquivo temporário.
 
+
+### <a name="error-code--sftpinvalidsftpcredential"></a>Código de erro: SftpInvalidSftpCredential
+
+- **Mensagem**: `Invalid Sftp credential provided for '%type;' authentication type.`
+
+- **Causa**: o conteúdo da chave privada é buscado do akv/SDK, mas ele não está codificado corretamente.
+
+- **Recomendação**:  
+
+    Se o conteúdo da chave privada for de AKV e o arquivo de chave original puder funcionar se o cliente carregá-lo diretamente no serviço vinculado do SFTP
+
+    Consulte https://docs.microsoft.com/azure/data-factory/connector-sftp#using-ssh-public-key-authentication o conteúdo de PrivateKey é um conteúdo de chave privada SSH codificado em base64.
+
+    Codifique **todo o conteúdo do arquivo de chave privada original** com codificação Base64 e armazene a cadeia de caracteres codificada em akv. O arquivo de chave privada original é aquele que pode funcionar no serviço vinculado do SFTP se você clicar em carregar do arquivo.
+
+    Aqui estão alguns exemplos usados para gerar a cadeia de caracteres:
+
+    - Usar código C#:
+    ```
+    byte[] keyContentBytes = File.ReadAllBytes(Private Key Path);
+    string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
+    ```
+
+    - Use o código Python:
+    ```
+    import base64
+    rfd = open(r'{Private Key Path}', 'rb')
+    keyContent = rfd.read()
+    rfd.close()
+    print base64.b64encode(Key Content)
+    ```
+
+    - Usar ferramenta de conversão de Base64 de terceiros
+
+        Ferramentas como https://www.base64encode.org/ são recomendadas.
+
+- **Causa**: o formato de conteúdo de chave incorreto é escolhido
+
+- **Recomendação**:  
+
+    PKCS # 8 Format chave privada SSH (começar com "-----começar a chave privada CRIPTOGRAFAda-----") não tem suporte no momento para acessar o servidor SFTP no ADF. 
+
+    Execute os comandos abaixo para converter a chave para o formato de chave SSH tradicional (comece com "-----iniciar a chave privada RSA-----"):
+
+    ```
+    openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+    chmod 600 traditional_format_key_file
+    ssh-keygen -f traditional_format_key_file -p
+    ```
+
+- **Causa**: conteúdo de chave privada ou credencial inválida
+
+- **Recomendação**: Verifique novamente com ferramentas como WinSCP para ver se o arquivo de chave ou a senha está correta.
 
 ### <a name="sftp-copy-activity-failed"></a>Falha na atividade de cópia de SFTP
 
@@ -940,13 +989,17 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Resolução**: Verifique novamente como o conjunto de acordo está configurado mapeando a coluna do conjunto de banco de de destino para confirmar se há uma coluna "AccMngr".
 
 
-### <a name="sftp-server-connection-throttling"></a>Limitação de conexão do servidor SFTP
+### <a name="error-code--sftpfailedtoconnecttosftpserver"></a>Código de erro: SftpFailedToConnectToSftpServer
 
-- **Sintomas**: a resposta do servidor não contém a identificação do protocolo SSH e falhou ao copiar.
+- **Mensagem**: `Failed to connect to Sftp server '%server;'.`
 
-- **Causa**: o ADF criará várias conexões para baixar do servidor SFTP em paralelo e, às vezes, atingirá a limitação do servidor SFTP. Praticamente, um servidor diferente retornará um erro diferente quando a limitação de acesso for atingida.
+- **Causa**: se a mensagem de erro contiver ' a operação de leitura de soquete atingiu o tempo limite após 30000 milissegundos ', uma causa possível é que o tipo de serviço vinculado incorreto é usado para o servidor SFTP, como usar o serviço vinculado de FTP para se conectar a um servidor SFTP.
 
-- **Resolução**: 
+- **Recomendação**: Verifique a porta do servidor de destino. Por padrão, o SFTP usa a porta 22.
+
+- **Causa**: se a mensagem de erro contiver ' resposta do servidor não contém a identificação do protocolo SSH ', uma causa possível é que o servidor SFTP limitou a conexão. O ADF criará várias conexões para baixar do servidor SFTP em paralelo e, às vezes, irá atingir a limitação do servidor SFTP. Praticamente, um servidor diferente retornará um erro diferente quando a limitação de acesso for atingida.
+
+- **Recomendação**:  
 
     Especifique a conexão simultânea máxima do conjunto de conjuntos SFTP como 1 e execute a cópia novamente. Se for bem-sucedido, poderemos ter certeza de que a limitação é a causa.
 
@@ -958,13 +1011,53 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
     - Se você estiver usando o IR de hospedagem interna, adicione o IP do computador que instalou o SHIR à lista de permissões.
 
 
-### <a name="error-code-sftprenameoperationfail"></a>Código de erro: SftpRenameOperationFail
+## <a name="sharepoint-online-list"></a>Lista do SharePoint Online
 
-- **Sintomas**: o pipeline não pôde copiar dados do blob para SFTP com o seguinte erro: `Operation on target Copy_5xe failed: Failure happened on 'Sink' side. ErrorCode=SftpRenameOperationFail,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException` .
+### <a name="error-code--sharepointonlineauthfailed"></a>Código de erro: SharePointOnlineAuthFailed
 
-- **Causa**: a opção useTempFileRename foi definida como true ao copiar os dados. Isso permite que o processo use arquivos temporários. O erro será disparado se um ou mais arquivos temporários forem excluídos antes de os dados completos serem copiados.
+- **Mensagem**: `The access token generated failed, status code: %code;, error message: %message;.`
 
-- **Resolução**: defina a opção de UseTempFileName como false.
+- **Causa**: a ID e a chave da entidade de serviço podem não ser definidas corretamente.
+
+- **Recomendação**: Verifique o aplicativo registrado (ID da entidade de serviço) e a chave se ele está definido corretamente.
+
+
+## <a name="xml-format"></a>Formato XML
+
+### <a name="error-code--xmlsinknotsupported"></a>Código de erro: XmlSinkNotSupported
+
+- **Mensagem**: `Write data in xml format is not supported yet, please choose a different format!`
+
+- **Causa**: usou um conjunto de um DataSet XML como um conjunto de coleta em sua atividade de cópia
+
+- **Recomendação**: Use um conjunto de um DataSet em formato diferente como coletor de cópia.
+
+
+### <a name="error-code--xmlattributecolumnnameconflict"></a>Código de erro: XmlAttributeColumnNameConflict
+
+- **Mensagem**: `Column names %attrNames;' for attributes of element '%element;' conflict with that for corresponding child elements, and the attribute prefix used is '%prefix;'.`
+
+- **Causa**: usou um prefixo de atributo, que causou o conflito.
+
+- **Recomendação**: defina um valor diferente da propriedade "attributePrefix".
+
+
+### <a name="error-code--xmlvaluecolumnnameconflict"></a>Código de erro: XmlValueColumnNameConflict
+
+- **Mensagem**: `Column name for the value of element '%element;' is '%columnName;' and it conflicts with the child element having the same name.`
+
+- **Causa**: usado um dos nomes de elemento filho como o nome da coluna para o valor do elemento.
+
+- **Recomendação**: defina um valor diferente da propriedade "valueColumn".
+
+
+### <a name="error-code--xmlinvalid"></a>Código de erro: xmlinvalid
+
+- **Mensagem**: `Input XML file '%file;' is invalid with parsing error '%error;'.`
+
+- **Causa**: o arquivo XML de entrada não está bem formado.
+
+- **Recomendação**: corrija o arquivo XML para torná-lo bem formado.
 
 
 ## <a name="general-copy-activity-error"></a>Erro geral de atividade de cópia
@@ -987,24 +1080,23 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Recomendação**:  Verifique o conjunto de dados do coletor e corrija o caminho sem o valor de curinga.
 
 
-### <a name="error-code--mappinginvalidpropertywithemptyvalue"></a>Código de erro:  MappingInvalidPropertyWithEmptyValue
+### <a name="fips-issue"></a>Problema de FIPS
 
-- **Mensagem**: `One or more '%sourceOrSink;' in copy activity mapping doesn't point to any data. Choose one of the three properties 'name', 'path' and 'ordinal' to reference columns/fields.`
+- **Sintomas**: a atividade de cópia falha na máquina Integration Runtime autohospedada habilitada para FIPS com a mensagem de erro `This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms.` . Isso pode acontecer ao copiar dados com conectores como blob do Azure, SFTP, etc.
 
+- **Causa**: FIPS (Federal Information Processing Standards) define um determinado conjunto de algoritmos de criptografia que podem ser usados. Quando o modo FIPS está habilitado no computador, algumas classes criptográficas das quais a atividade de cópia depende são bloqueadas em alguns cenários.
 
-### <a name="error-code--mappinginvalidpropertywithnamepathandordinal"></a>Código de erro:  MappingInvalidPropertyWithNamePathAndOrdinal
+- **Resolução**: você pode saber mais sobre a situação atual do modo FIPS no Windows deste [artigo](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037)e avaliar se é possível desabilitar o FIPS no computador de Integration Runtime hospedado internamente.
 
-- **Mensagem**: `Mixed properties are used to reference '%sourceOrSink;' columns/fields in copy activity mapping. Please only choose one of the three properties 'name', 'path' and 'ordinal'. The problematic mapping setting is 'name': '%name;', 'path': '%path;','ordinal': '%ordinal;'.`
+    Por outro lado, se você quiser permitir que Azure Data Factory ignore o FIPS e que a atividade seja executada com êxito, você poderá seguir estas etapas:
 
+    1. Abra a pasta na qual o Integration Runtime auto-hospedado está instalado, geralmente em `C:\Program Files\Microsoft Integration Runtime\<IR version>\Shared` .
 
-### <a name="error-code--mappingduplicatedordinal"></a>Código de erro:  MappingDuplicatedOrdinal
+    2. Abra "diawp.exe.config", adicione `<enforceFIPSPolicy enabled="false"/>` na `<runtime>` seção como a seguinte.
 
-- **Mensagem**: `Copy activity 'mappings' has duplicated ordinal value "%Ordinal;". Fix the setting in 'mappings'.`
+        ![Desabilitar FIPS](./media/connector-troubleshoot-guide/disable-fips-policy.png)
 
-
-### <a name="error-code--mappinginvalidordinalforsinkcolumn"></a>Código de erro:  MappingInvalidOrdinalForSinkColumn
-
-- **Mensagem**: `Invalid 'ordinal' property for sink column under 'mappings' property. Ordinal: %Ordinal;.`
+    3. Reinicie o computador de Integration Runtime auto-hospedado.
 
 
 ## <a name="next-steps"></a>Próximas etapas

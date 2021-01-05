@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 421993ac4aaba551b6fcbd002783d44559ce377d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7a2044e9bb0110eda666d12e29a715547381e2be
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995328"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822328"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depurar Apache Spark aplicativos em um cluster HDInsight com Azure Toolkit for IntelliJ por meio de SSH
 
@@ -65,13 +65,13 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 
 1. Selecione **Concluir**. Pode levar alguns minutos antes que o projeto fique disponível. Observe o canto inferior direito do progresso.
 
-1. Expanda seu projeto e navegue até **src** o exemplo src  >  **Main**  >  **escalar**  >  **sample**. Clique duas vezes em **SparkCore_WasbIOTest**.
+1. Expanda seu projeto e navegue até o exemplo src  >  **Main**  >  **escalar**  >  . Clique duas vezes em **SparkCore_WasbIOTest**.
 
 ## <a name="perform-local-run"></a>Realizar execução local
 
 1. No script de **SparkCore_WasbIOTest** , clique com o botão direito do mouse no editor de scripts e selecione a opção **Executar ' SparkCore_WasbIOTest '** para executar a execução local.
 
-1. Quando a execução local for concluída, você poderá ver o arquivo de saída salvo em seu padrão de **dados** do explorador de projeto atual  >  **__default__**.
+1. Quando a execução local for concluída, você poderá ver o arquivo de saída salvo em seu padrão de **dados** do explorador de projeto atual  >  ****.
 
     ![Resultado da execução local do projeto do IntelliJ](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/spark-local-run-result.png)
 
@@ -178,8 +178,8 @@ Este artigo fornece orientações passo a passo sobre como usar as ferramentas d
 * [Use o Azure Toolkit for IntelliJ para depurar aplicativos Apache Spark remotamente por meio de VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use as ferramentas do HDInsight no Azure Toolkit for Eclipse para criar aplicativos do Apache Spark](./apache-spark-eclipse-tool-plugin.md)
 * [Use os blocos de anotações do Apache Zeppelin com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o notebook Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Usar pacotes externos com blocos de notas Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels disponíveis para Jupyter Notebook no cluster Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Usar pacotes externos com notebooks Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gerenciar recursos

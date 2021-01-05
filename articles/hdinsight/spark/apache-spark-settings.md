@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: c2e2daf6d8c9afa6ffef03b088ec9a7dc144cf47
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: f74307cc7f074788ac12712b3722dc0ad7fa71b6
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504926"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821138"
 ---
 # <a name="configure-apache-spark-settings"></a>Definir configurações do Apache Spark
 
@@ -130,7 +130,7 @@ Os clusters Spark no HDInsight incluem um número de componentes por padrão. Ca
 |Núcleo do Spark|Spark Core, Spark SQL, APIs de streaming do Spark, GraphX e Apache Spark MLlib.|
 |Anaconda|Um Gerenciador de pacotes do Python.|
 |Apache Livy|A API REST do Apache Spark, usada para enviar trabalhos remotos para um cluster HDInsight Spark.|
-|Notebooks Jupyter e Apache Zeppelin|Interface do usuário interativa baseada em navegador para interagir com o cluster Spark.|
+|Notebooks Jupyter e notebooks Apache Zeppelin|Interface do usuário interativa baseada em navegador para interagir com o cluster Spark.|
 |Driver ODBC|Conecta clusters Spark no HDInsight a ferramentas de business intelligence (BI), como Microsoft Power BI e tableau.|
 
 Para aplicativos em execução no Jupyter Notebook, use o `%%configure` comando para fazer alterações de configuração no próprio bloco de anotações. Essas alterações de configuração serão aplicadas aos trabalhos Spark executados da sua instância do bloco de notas. Faça essas alterações no início do aplicativo antes de executar sua primeira célula de código. A configuração alterada é aplicada à sessão Livy, quando ela é criada.

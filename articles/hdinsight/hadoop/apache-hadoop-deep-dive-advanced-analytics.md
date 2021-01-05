@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13dd960cc7c900882acbcb9b17a5b8a1f32f956c
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504342"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821495"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo – Análise avançada
 
@@ -42,9 +42,9 @@ Além de selecionar os algoritmos mais adequados, você precisa considerar se pr
 * Não supervisionado-o algoritmo não requer dados de treinamento
 * Reforço – o algoritmo usa os agentes do software para determinar o comportamento ideal em um contexto específico (geralmente usado em robótica)
 
-| Categoria de algoritmo| Uso | Tipo de aprendizado | Algoritmos |
+| Categoria de algoritmo| Use | Tipo de aprendizado | Algoritmos |
 | --- | --- | --- | -- |
-| classificação | Classificar pessoas ou coisas em grupos | Supervisionado | Árvores de decisão, Regressão logística, redes neurais |
+| Classificação | Classificar pessoas ou coisas em grupos | Supervisionado | Árvores de decisão, Regressão logística, redes neurais |
 | Clustering | Dividir um conjunto de exemplos em grupos homogêneos | Não supervisionado | Modelo de cluster K-means |
 | Detecção de padrões | Identificar associações frequentes nos dados | Não supervisionado | Regras da associação |
 | Regressão | Prever resultados numéricos | Supervisionado | Regressão linear, redes neurais |
@@ -91,7 +91,7 @@ Há três tarefas-chave nesse cenário de análise avançada:
 
 1. Criar um cluster de Azure HDInsight Hadoop com uma distribuição do Apache Spark 2.1.0.
 2. Executar um script personalizado para instalar o Kit de Ferramentas Cognitivas da Microsoft em todos os nós de um cluster do Azure HDInsight Spark.
-3. Carregue um Jupyter Notebook pré-compilado no cluster do HDInsight Spark para ver como aplicar um modelo de aprendizado profundo treinado do Microsoft Cognitive Toolkit a arquivos em uma Conta de Armazenamento de Blobs do Azure usando a API Python Spark (PySpark).
+3. Carregue um Jupyter Notebook pré-criado para o seu cluster HDInsight Spark para aplicar um modelo de aprendizado profundo Microsoft Cognitive Toolkit treinado a arquivos em uma conta de armazenamento de BLOBs do Azure usando a API do Python do Spark (PySpark).
 
 Este exemplo usa o conjunto de imagens CIFAR-10 compilado e distribuído por Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. O conjunto de dados CIFAR-10 contém 60.000 imagens coloridas 32x32 que pertencem a 10 classes mutuamente exclusivas:
 

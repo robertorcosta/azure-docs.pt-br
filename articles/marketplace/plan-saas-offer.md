@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5f7278a688147842b7dbfab79a20afea2b4a9288
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 5b39ccc365575853a4a74a471023989f34ebc577
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621596"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821478"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planejar uma oferta de SaaS para o Marketplace comercial
 
@@ -250,7 +250,7 @@ O exemplo a seguir mostra uma divisão de exemplo de custos e pagamentos para de
 | A Microsoft paga para você 80% do seu custo de licença<br>`*` Para aplicativos SaaS qualificados, a Microsoft paga 90% do seu custo de licença| US $80,00 por mês<br>``*`` US $90,00 por mês |
 |||
 
-**`*` Redução da taxa de serviço do Marketplace** – para determinadas ofertas de SaaS que você publicou no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida para o mês. Para obter detalhes sobre a qualificação de venda de IP, consulte [requisitos para o status de venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). A taxa reduzida de serviço do Marketplace também se aplica ao IP do Azure para venda de VMs incentivadoss, aplicativos gerenciados e qualquer outra oferta de IaaS pagamente qualificada disponibilizada por meio do Marketplace comercial.
+**`*` Redução da taxa de serviço do Marketplace** – para determinadas ofertas de SaaS que você publicou no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida. Depois que a qualificação for atendida, a taxa de serviço reduzida será concedida a todas as transações efetivas no primeiro dia do mês seguinte e continuará a ser aplicada até que o status de incentivados de covenda de IP do Azure seja perdido. Para obter detalhes sobre a qualificação de venda de IP, consulte [requisitos para o status de venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). A taxa reduzida de serviço do Marketplace também se aplica ao IP do Azure para venda de VMs incentivadoss, aplicativos gerenciados e qualquer outra oferta de IaaS pagamente qualificada disponibilizada por meio do Marketplace comercial.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de vendas adicionais
 

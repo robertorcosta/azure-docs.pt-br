@@ -1,6 +1,6 @@
 ---
 title: Apache Spark & Apache Kafka com Cosmos DB-Azure HDInsight
-description: Saiba como usar o Streaming Estruturado do Apache Spark para ler dados do Apache Kafka e, em seguida, armazená-los no Azure Cosmos DB. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
+description: Saiba como usar o Streaming Estruturado do Apache Spark para ler dados do Apache Kafka e, em seguida, armazená-los no Azure Cosmos DB. Neste exemplo, você transmite dados usando um Jupyter Notebook do Spark no HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: 387eb4f4c73b2103a7461c0d06c4d0e0562ec9db
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0f07cf563a3b1ce9d105fc5ca5c4f2869b13d2da
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842457"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821767"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Use o Streaming Estruturado do Apache Spark com o Apache Kafka e o Azure Cosmos DB
 
@@ -97,7 +97,7 @@ resourceGroupName='myresourcegroup'
 name='mycosmosaccount'
 
 # WARNING: If you change the databaseName or collectionName
-#          then you must update the values in the Jupyter notebook
+#          then you must update the values in the Jupyter Notebook
 databaseName='kafkadata'
 collectionName='kafkacollection'
 
@@ -134,7 +134,7 @@ O código para o exemplo descrito neste documento está disponível em [https://
 
 Use as etapas a seguir para carregar os blocos de anotações do projeto para o Spark no cluster HDInsight:
 
-1. No navegador da Web, conecte-se ao bloco de anotações do Jupyter em seu cluster Spark. Na URL a seguir, substitua `CLUSTERNAME` pelo nome do cluster __Spark__:
+1. No navegador da Web, conecte-se ao Jupyter Notebook em seu cluster Spark. Na URL a seguir, substitua `CLUSTERNAME` pelo nome do cluster __Spark__:
 
     ```http
     https://CLUSTERNAME.azurehdinsight.net/jupyter

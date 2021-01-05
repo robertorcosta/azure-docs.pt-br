@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 817b8976f5d014d990945816c2df1c7e8ed729fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 366c77ff94773163b71845b1ccbc6072c503734a
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084878"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822294"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
     ![Servidor de histórico do Spark localizar ID do aplicativo Spark](./media/apache-spark-job-debugging/find-application-id1.png)
 
-    Para aplicativos que são iniciados do notebook Jupyter, o status é sempre **EM EXECUÇÃO** até que você saia do notebook.
+    Para esses aplicativos que são iniciados a partir dos Notebooks Jupyter, o status é sempre **em execução** até que você saia do notebook.
 
 3. Na exibição de aplicativo, você pode fazer drill down para descobrir os contêineres associados ao aplicativo e os logs (stdout/stderr). Você também pode iniciar a interface do usuário do Spark clicando no link correspondente para a **URL de Rastreamento**, conforme mostrado abaixo.
 
@@ -50,7 +50,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Na interface do usuário do Spark, é possível fazer drill down em trabalhos do Spark que são gerados pelo aplicativo iniciado anteriormente.
 
-1. Para iniciar a interface do usuário do Spark, na exibição do aplicativo, selecione o link em relação à **URL de rastreamento**, conforme mostrado na captura de tela acima. Você pode ver todos os trabalhos do Spark que são iniciados pelo aplicativo em execução no notebook do Jupyter.
+1. Para iniciar a interface do usuário do Spark, na exibição do aplicativo, selecione o link em relação à **URL de rastreamento**, conforme mostrado na captura de tela acima. Você pode ver todos os trabalhos do Spark que são iniciados pelo aplicativo em execução no Jupyter Notebook.
 
     ![Guia trabalhos do servidor de histórico do Spark](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 
@@ -104,7 +104,7 @@ Quando um trabalho é concluído, as informações sobre ele são mantidas no Se
 
     ![Aplicativos concluídos do servidor de histórico do Spark](./media/apache-spark-job-debugging/view-completed-applications.png "Iniciar Server2 do histórico do Spark")
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
 * [Depure as tarefas do Spark do Apache usando o Extended History Server estendido](apache-azure-spark-history-server.md)

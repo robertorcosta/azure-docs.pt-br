@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6407f7c3b1e8570cdc6b36dceec79fba58689c7
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230408"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822175"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use o Apache Spark MLlib para criar um aplicativo de aprendizado de máquina e analisar um conjunto de dados
 
@@ -32,7 +32,7 @@ O MLlib é uma biblioteca principal do Spark que fornece muitos utilitários út
 
 *Classificação*, uma tarefa popular de aprendizado de máquina, é o processo de classificação de dados de entrada em categorias. É o trabalho de um algoritmo de classificação descobrir como atribuir "rótulos" aos dados de entrada que você fornecer. Por exemplo, você pode considerar um algoritmo de aprendizado de máquina que aceita informações de ações como entrada. Em seguida, divide o estoque em duas categorias: ações que você deve vender e ações que devem ser mantidas.
 
-Regressão logística é o algoritmo usado para classificação. A API de regressão logística do Spark é útil para *classificação binária*ou para classificação de dados de entrada em um dos dois grupos. Para obter mais informações sobre a regressão logística, consulte [Wikipédia](https://en.wikipedia.org/wiki/Logistic_regression).
+Regressão logística é o algoritmo usado para classificação. A API de regressão logística do Spark é útil para *classificação binária* ou para classificação de dados de entrada em um dos dois grupos. Para obter mais informações sobre a regressão logística, consulte [Wikipédia](https://en.wikipedia.org/wiki/Logistic_regression).
 
 Em resumo, o processo de regressão logística produz uma *função logística*. Use a função para prever a probabilidade de um vetor de entrada pertencer a um grupo ou outro.  
 
@@ -44,7 +44,7 @@ Nas etapas a seguir, você desenvolverá um modelo para ver o que é necessário
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Crie um aplicativo de aprendizado de máquina Apache Spark MLlib
 
-1. Crie um bloco de notas do Jupyter usando o kernel PySpark. Para obter instruções, confira [Criar um arquivo de notebook do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
+1. Crie um Jupyter Notebook usando o kernel do PySpark. Para obter as instruções, confira [Criar um arquivo do Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Importe os tipos obrigatórios necessários para este aplicativo. Copie e cole o código a seguir em uma célula vazia e pressione **Shift + Enter**.
 
@@ -121,7 +121,7 @@ Use o contexto do Spark para efetuar pull dos dados brutos CSV na memória como 
     df.registerTempTable('CountResults')
     ```
 
-    As quatro colunas de interesse no dataframe são **ID**, **nome**, **resultados**e **violações**.
+    As quatro colunas de interesse no dataframe são **ID**, **nome**, **resultados** e **violações**.
 
 4. Execute o código a seguir para obter uma pequena amostra dos dados:
 
@@ -174,7 +174,7 @@ Vamos começar a ter uma ideia do que o nosso conjunto de dados contém.
     SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
-    A mágica do `%%sql` seguido pelo `-o countResultsdf` assegura que a saída da consulta seja mantida localmente no servidor Jupyter (normalmente o nó principal do cluster). A saída é mantida como uma estrutura de dados [Pandas](https://pandas.pydata.org/) com o nome especificado **countResultsdf**. Para obter mais informações sobre a mágica `%%sql` e outras magias disponíveis com o kernel do PySpark, consulte [Kernels disponíveis em notebooks Jupyter com clusters do Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    A mágica do `%%sql` seguido pelo `-o countResultsdf` assegura que a saída da consulta seja mantida localmente no servidor Jupyter (normalmente o nó principal do cluster). A saída é mantida como uma estrutura de dados [Pandas](https://pandas.pydata.org/) com o nome especificado **countResultsdf**. Para obter mais informações sobre a `%%sql` mágica e outras mágicas disponíveis com o kernel PySpark, confira [kernels disponíveis em notebooks Jupyter com Apache Spark clusters HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     A saída é:
 
@@ -349,7 +349,7 @@ Agora você pode construir uma visualização final para ajudar a justificar os 
     plt.axis('equal')
     ```
 
-    A seguinte saída deve ser exibida:
+    Você deve ver o seguinte resultado:
 
     ![Saída do aplicativo Spark Machine Learning – porcentagens do gráfico de pizza de inspeções de alimentos com falha.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Saída de resultado do Machine Learning do Spark")
 

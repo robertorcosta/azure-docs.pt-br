@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4cfcc860e40415403952efeda13bac513a2c6347
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022244"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97822141"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Spark usando o Azure HDInsight
 
@@ -25,7 +25,7 @@ Os valores de configuração do Spark podem ser ajustados ajudam a evitar uma ex
 
 1. Faça logon no Ambari `https://CLUSTERNAME.azurehdidnsight.net` com suas credenciais de cluster. A tela inicial exibe um painel de visão geral. Há pequenas diferenças superficiais entre o HDInsight 3,6 e o 4,0.
 
-1. Navegue até **Spark2**  >  **configurações** do Spark2.
+1. Navegue até   >  **configurações** do Spark2.
 
     ![Selecione a guia Configurações](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
@@ -75,9 +75,9 @@ Os valores de configuração do Spark podem ser ajustados ajudam a evitar uma ex
 
 Essas alterações valem para todo o cluster, mas podem ser substituídas quando você enviar o trabalho do Spark.
 
-## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Como fazer para configurar um aplicativo Apache Spark usando um Jupyter Notebook nos clusters?
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Como fazer configurar um aplicativo de Apache Spark usando um Jupyter Notebook em clusters?
 
-Na primeira célula do bloco de anotações do Jupyter, após a diretiva **%%configure**, especifique as configurações do Spark em um formato JSON válido. Altere os valores reais conforme necessário:
+Na primeira célula do Jupyter Notebook, após a diretiva **%% Configure** , especifique as configurações do Spark no formato JSON válido. Altere os valores reais conforme necessário:
 
 ![Adicionar uma configuração](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 

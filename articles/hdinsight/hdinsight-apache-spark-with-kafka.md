@@ -1,6 +1,6 @@
 ---
 title: Streaming do Apache Spark com Apache Kafka – Azure HDInsight
-description: Saiba como usar o Apache Spark para transmitir dados dentro ou fora do Apache Kafka usando o DStreams. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight.
+description: Saiba como usar o Apache Spark para transmitir dados dentro ou fora do Apache Kafka usando o DStreams. Neste exemplo, você transmite dados usando um Jupyter Notebook do Spark no HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: e2f4bbe6157e1affa4975f6dcee2ad0f1d98a71b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88a62b2d1ebee3bf933729ab82bc9e37a3db066b
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086085"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821172"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Exemplo de streaming do Apache Spark (DStream) com o Apache Kafka no HDInsight
 
@@ -53,7 +53,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
     |Propriedade |Valor |
     |---|---|
-    |Resource group|Crie um grupo ou selecione um existente.|
+    |Grupo de recursos|Crie um grupo ou selecione um existente.|
     |Location|Escolha um local geograficamente perto de você.|
     |Nome do cluster de base|Esse valor é usado como o nome de base dos clusters Spark e Kafka. Por exemplo, a inserção de **hdistreaming** cria um cluster Spark chamado __spark-hdistreaming__ e um cluster Kafka chamado **kafka-hdistreaming**.|
     |Nome de usuário de logon do cluster|O nome do usuário administrador dos clusters Spark e Kafka.|
