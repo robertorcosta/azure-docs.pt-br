@@ -3,12 +3,12 @@ title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azu
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 4fa4a9643976ba513b025706cacec26b2a50afb5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 38d138b43441016e06fca5003bc09c940cb23efe
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498312"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883309"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
@@ -108,7 +108,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
     Exemplos:
     
     * **Nome do módulo de IOT Edge**: lvaEdge
-    * **URI da imagem**: MCR.Microsoft.com/Media/Live-Video-Analytics:1.0    
+    * **URI da imagem**: MCR.Microsoft.com/Media/Live-Video-Analytics:2.0    
     
     ![Captura de tela mostra a guia Configurações do módulo.](./media/deploy-iot-edge-device/add.png)
     

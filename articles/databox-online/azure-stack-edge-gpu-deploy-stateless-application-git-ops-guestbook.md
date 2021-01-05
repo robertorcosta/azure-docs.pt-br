@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 82b786f3c90a7ef482ccbcd6e66fb9abfc4eea5f
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561929"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882952"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implantar um aplicativo sem monitoração de estado do PHP com Redis em um cluster kubernetes habilitado para Arc na GPU pro Azure Stack Edge
 
@@ -27,13 +27,15 @@ A implantação é feita usando GitOps no cluster do kubernetes habilitado para 
 
 Este procedimento destina-se a aqueles que revisaram as [cargas de trabalho do kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e estão familiarizados com os conceitos do [que é o Azure Arc habilitado kubernetes (versão prévia)](../azure-arc/kubernetes/overview.md).
 
+> [!NOTE]
+> Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de implantar o aplicativo sem estado, verifique se você concluiu os seguintes pré-requisitos no seu dispositivo e o cliente que será usado para acessar o dispositivo:
 
 > [!NOTE]
-> Este artigo contém referências ao termo subordinado, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+> Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ### <a name="for-device"></a>Para dispositivo
 
@@ -108,7 +110,6 @@ Siga estas etapas para configurar o recurso Arc do Azure para implantar uma conf
 1. A implantação leva alguns minutos. Quando a implantação for concluída, o **estado do operador** será exibido como **instalado**.
 
     ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure em um estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
-
 
 ## <a name="verify-deployment"></a>Verificar a implantação
 

@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de Configuração de Convidado do Azure Policy para Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: d01f4fff28debc3fabcfb32b32b02c5029ce7323
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755966"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881779"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -138,9 +138,32 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
+Se o recurso tiver propriedades obrigatórias, elas também deverão ser retornadas `Get-TargetResource` em paralelo com a `reasons` classe. Se `reasons` não estiver incluído, o serviço incluirá um comportamento "capturar tudo" que compara a entrada de valores para `Get-TargetResource` e os valores retornados por e `Get-TargetResource` fornece uma comparação detalhada como `reasons` .
+
 ### <a name="configuration-requirements"></a>Requisitos de configuração
 
 O nome da configuração personalizada deve ser o mesmo em todos os lugares. O nome do arquivo. zip para o pacote de conteúdo, o nome da configuração no arquivo MOF e o nome da atribuição de convidado no modelo de Azure Resource Manager (modelo ARM), deve ser o mesmo.
+
+### <a name="policy-requirements"></a>Requisitos de política
+
+A seção de definição de política `metadata` deve incluir duas propriedades para o serviço de configuração de convidado para automatizar o provisionamento e a emissão de relatórios de atribuições de configuração de convidado. A `category` propriedade deve ser definida como "configuração de convidado" e uma seção chamada `Guest Configuration` deve conter informações sobre a atribuição de configuração de convidado. O `New-GuestConfigurationPolicy` cmdlet cria esse texto automaticamente.
+Consulte as instruções detalhadas nesta página.
+
+O exemplo a seguir demonstra a `metadata` seção.
+
+```json
+    "metadata": {
+      "category": "Guest Configuration",
+      "guestConfiguration": {
+        "name": "test",
+        "version": "1.0.0",
+        "contentType": "Custom",
+        "contentUri": "CUSTOM-URI-HERE",
+        "contentHash": "CUSTOM-HASH-VALUE-HERE",
+        "configurationParameter": {}
+      }
+    },
+```
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Processo de scaffolding em um projeto de Configuração de Convidado
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: bfe8af8c30bbc2bc66c363fbd85f6764a48c28a1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 666b3c609224c1665c150718b2b89c4bac72577e
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488061"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882221"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -42,18 +42,13 @@ Em uma implantação do RDS, a função Web da Área de Trabalho Remota e a fun�
 ## <a name="requirements"></a>Requisitos
 
 - Tanto o ponto de extremidade da Web da Área de Trabalho Remota quanto o ponto de extremidade do Gateway de Área de Trabalho Remota devem estar localizados no mesmo computador e com uma raiz comum. A Web da Área de Trabalho Remota e o Gateway de Área de Trabalho Remota serão publicados como um único aplicativo com o Proxy de Aplicativo para que você possa ter uma experiência de logon único entre os dois aplicativos.
-
-- Você já deverá ter [implantado o RDS](/windows-server/remote/remote-desktop-services/rds-in-azure) e [habilitado o Proxy de Aplicativo](application-proxy-add-on-premises-application.md).
-
+- Você já deverá ter [implantado o RDS](/windows-server/remote/remote-desktop-services/rds-in-azure) e [habilitado o Proxy de Aplicativo](application-proxy-add-on-premises-application.md). Verifique se você satisfez os pré-requisitos para habilitar o proxy de aplicativo, como a instalação do conector, a abertura de portas e URLS necessárias e a habilitação do TLS 1,2 no servidor.
 - Os usuários finais devem usar um navegador compatível para se conectar à Web da área de trabalho remota ou ao cliente da Web da área de trabalho remota. Para obter mais detalhes, consulte [suporte para configurações de cliente](#support-for-other-client-configurations).
-
 - Ao publicar na Web do RD, é recomendável usar o mesmo FQDN interno e externo. Se os FQDNs interno e externo forem diferentes, você deverá desabilitar a Tradução do Cabeçalho de Solicitação para evitar que o cliente receba links inválidos.
-
 - Se você estiver usando a Web da área de trabalho remota no Internet Explorer, será necessário habilitar o complemento ActiveX do RDS.
-
 - Se você estiver usando o cliente Web da área de trabalho remota, será necessário usar o conector de proxy de aplicativo [versão 1.5.1975 ou posterior](./application-proxy-release-version-history.md).
-
 - Para o fluxo de pré-autenticação do Azure AD, os usuários podem se conectar somente aos recursos publicados neles no painel **RemoteApp e áreas de trabalho** . Os usuários não podem se conectar a uma área de trabalho usando o painel **conectar-se a um PC remoto** .
+- Se você estiver usando o Windows Server 2019, talvez seja necessário desabilitar o protocolo HTTP2. Para obter mais informações, consulte [tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implantar o cenário conjunto de RDS e Proxy de Aplicativo
 

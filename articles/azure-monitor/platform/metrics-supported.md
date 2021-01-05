@@ -4,15 +4,15 @@ description: Lista de métricas disponíveis para cada tipo de recurso com o Azu
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 12/09/2020
+ms.date: 01/04/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 04f6cdae8a7601f94251516cf5c3c1fab07994a6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 54ef00d32cea26a41581fc0bbd89d2be34919c02
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929099"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883020"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 
@@ -59,7 +59,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |CleanerCurrentPrice|Sim|Memória: Preço atual do limpador|Contagem|Média|Preço atual da memória, $/byte/tempo, normalizado em 1000.|ServerResourceType|
 |CleanerMemoryNonshrinkable|Sim|Memória: Memória do limpador não reduzível|Bytes|Média|Quantidade de memória, em bytes, não sujeita a eliminação pelo limpador na tela de fundo.|ServerResourceType|
@@ -112,19 +112,19 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BackendDuration|Sim|Duração de Solicitações de Back-end|Milissegundos|Média|Duração de solicitações de back-end em milissegundos|Local, Nome do host|
-|Capacity|Sim|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Local|
+|Capacity|Sim|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Localização|
 |Duração|Sim|Duração total de solicitações de gateway|Milissegundos|Média|Duração total de solicitações de gateway em milissegundos|Local, Nome do host|
-|EventHubDroppedEvents|Sim|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Local|
-|EventHubRejectedEvents|Sim|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Local|
-|EventHubSuccessfulEvents|Sim|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Local|
-|EventHubThrottledEvents|Sim|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Local|
-|EventHubTimedoutEvents|Sim|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Local|
-|EventHubTotalBytesSent|Sim|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Local|
-|EventHubTotalEvents|Sim|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Local|
-|EventHubTotalFailedEvents|Sim|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Local|
+|EventHubDroppedEvents|Sim|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Localização|
+|EventHubRejectedEvents|Sim|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Localização|
+|EventHubSuccessfulEvents|Sim|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Localização|
+|EventHubThrottledEvents|Sim|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Localização|
+|EventHubTimedoutEvents|Sim|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Localização|
+|EventHubTotalBytesSent|Sim|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Localização|
+|EventHubTotalEvents|Sim|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Localização|
+|EventHubTotalFailedEvents|Sim|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Localização|
 |FailedRequests|Sim|Solicitações de Gateway com Falha (Preterido)|Contagem|Total|Número de falhas em solicitações de gateway-use a métrica de solicitação de várias dimensões com a dimensão GatewayResponseCodeCategory em vez disso|Local, Nome do host|
 |Conectividade|Sim|Status de conectividade de rede de recursos (versão prévia)|Contagem|Média|Status de conectividade de rede de tipos de recursos dependentes do serviço de gerenciamento de API|Local, ResourceType|
 |OtherRequests|Sim|Outras Solicitações de Gateway (Preterido)|Contagem|Total|Número de outras solicitações de gateway – use a métrica de solicitação de várias dimensões com a dimensão GatewayResponseCodeCategory em vez disso|Local, Nome do host|
@@ -136,7 +136,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |HttpIncomingRequestCount|Sim|HttpIncomingRequestCount|Contagem|Contagem|Número total de solicitações HTTP de entrada.|StatusCode, autenticação|
 |HttpIncomingRequestDuration|Sim|HttpIncomingRequestDuration|Contagem|Média|Latência em uma solicitação HTTP.|StatusCode, autenticação|
@@ -145,7 +145,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |JVM. GC. Live. Data. Size|Sim|JVM. GC. Live. Data. Size|Bytes|Média|Tamanho do pool de memória de geração antiga após um GC completo|Implantação, AppName, Pod|
 |JVM. GC. Max. Data. Size|Sim|JVM. GC. Max. Data. Size|Bytes|Média|Tamanho máximo do pool de memória de geração antiga|Implantação, AppName, Pod|
@@ -177,7 +177,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |TotalJob|Sim|Total de trabalhos|Contagem|Total|O número total de trabalhos|Runbook, Status|
 |TotalUpdateDeploymentMachineRuns|Sim|Total de Execuções de Computador da Implantação de Atualização|Contagem|Total|O computador de implantação de atualização de software total é executado em uma execução de implantação de atualização de software|SoftwareUpdateConfigurationName, status, Computadordedestino, SoftwareUpdateConfigurationRunId|
@@ -186,7 +186,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |CoreCount|Não|Contagem de núcleos dedicados|Contagem|Total|Número total de núcleos dedicados na conta do lote|Sem dimensões|
 |CreatingNodeCount|Não|Criação de contagem de nós|Contagem|Total|Número de nós sendo criados|Sem dimensões|
@@ -223,7 +223,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Núcleos Ativos|Sim|Núcleos Ativos|Contagem|Média|Número de núcleos ativos|Cenário, ClusterName|
 |Nós Ativos|Sim|Nós Ativos|Contagem|Média|Número de nós em execução|Cenário, ClusterName|
@@ -244,7 +244,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftblockchainblockchainmembers"></a>Microsoft.Blockchain/blockchainMembers
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BroadcastProcessedCount|Sim|BroadcastProcessedCountDisplayName|Contagem|Média|O número de transações processadas.|Nó, canal, tipo, status|
 |ConnectionAccepted|Sim|Conexões Aceitas|Contagem|Total|Conexões Aceitas|Nó|
@@ -272,7 +272,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |allcachehits|Sim|Acertos de cache (baseado em instância)|Contagem|Total||Fragmentoid, porta, primário|
 |allcachemisses|Sim|Erros de cache (baseado em instância)|Contagem|Total||Fragmentoid, porta, primário|
@@ -474,14 +474,14 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft. CDN/cdnwebapplicationfirewallpolicies
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |WebApplicationFirewallRequestCount|Sim|Contagem de solicitações do Firewall de Aplicativo Web|Contagem|Total|O número de solicitações de cliente processadas pelo Firewall do Aplicativo Web|PolicyName, RuleName, Action|
 
 
 ## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disk Read Bytes/Sec|Não|Leitura de disco|BytesPerSecond|Média|Média de bytes lidos do disco durante o período de monitoramento.|RoleInstanceId|
 |Operações de leitura de disco/Seg|Sim|Operações de leitura de disco/Seg|CountPerSecond|Média|IOPS de leitura de disco.|RoleInstanceId|
@@ -494,7 +494,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disk Read Bytes/Sec|Não|Leitura de disco|BytesPerSecond|Média|Média de bytes lidos do disco durante o período de monitoramento.|Sem dimensões|
 |Operações de leitura de disco/Seg|Sim|Operações de leitura de disco/Seg|CountPerSecond|Média|IOPS de leitura de disco.|Sem dimensões|
@@ -507,7 +507,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftclassicstoragestorageaccounts"></a>Microsoft.ClassicStorage/storageAccounts
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|GeoType, ApiName, Authentication|
 |Saída|Sim|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|GeoType, ApiName, Authentication|
@@ -520,7 +520,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftclassicstoragestorageaccountsblobservices"></a>Microsoft.ClassicStorage/storageAccounts/blobServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|GeoType, ApiName, Authentication|
 |BlobCapacity|Não|Capacidade do Blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType, camada|
@@ -536,7 +536,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftclassicstoragestorageaccountsfileservices"></a>Microsoft.ClassicStorage/storageAccounts/fileServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|Geotipo, ApiName, autenticação, FileShare|
 |Saída|Sim|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação, FileShare|
@@ -554,7 +554,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftclassicstoragestorageaccountsqueueservices"></a>Microsoft.ClassicStorage/storageAccounts/queueServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|GeoType, ApiName, Authentication|
 |Saída|Sim|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|GeoType, ApiName, Authentication|
@@ -569,7 +569,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftclassicstoragestorageaccountstableservices"></a>Microsoft.ClassicStorage/storageAccounts/tableServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|GeoType, ApiName, Authentication|
 |Saída|Sim|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Esse número inclui a saída de um cliente externo no Armazenamento do Azure, bem como a saída no Azure. Como resultado, esse número não reflete a saída faturável.|GeoType, ApiName, Authentication|
@@ -584,7 +584,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BlockedCalls|Sim|Chamadas Bloqueadas|Contagem|Total|Número de chamadas que excederam a taxa ou o limite de cota.|ApiName, OperationName, região|
 |CharactersTrained|Sim|Caracteres Treinados|Contagem|Total|Número total de caracteres treinados.|ApiName, OperationName, região|
@@ -592,7 +592,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |ClientErrors|Sim|Erros do Cliente|Contagem|Total|Número de chamadas com erro do lado do cliente (código de resposta HTTP 4xx).|ApiName, OperationName, região|
 |DataIn|Sim|Entrada de Dados|Bytes|Total|Tamanho dos dados de entrada em bytes.|ApiName, OperationName, região|
 |DataOut|Sim|Saída de dados|Bytes|Total|Tamanho dos dados de saída em bytes.|ApiName, OperationName, região|
-|Latency|Sim|Latency|MilliSeconds|Média|Latência em milissegundos.|ApiName, OperationName, região|
+|Latência|Sim|Latency|MilliSeconds|Média|Latência em milissegundos.|ApiName, OperationName, região|
 |ProcessedImages|Sim|Imagens processadas|Contagem|Total|Número de transações para processamento de imagem.|ApiName, FeatureName, UsageChannel, região|
 |ServerErrors|Sim|Erros do Servidor|Contagem|Total|Número de chamadas com erro interno do serviço (código de resposta HTTP 5xx).|ApiName, OperationName, região|
 |SpeechSessionDuration|Sim|Duração da Sessão de Fala|Segundos|Total|Duração total da sessão de fala em segundos.|ApiName, OperationName, região|
@@ -605,7 +605,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcomputecloudservices"></a>Microsoft. Compute/cloudservices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Bytes de leitura de disco|Sim|Bytes de leitura de disco|Bytes|Total|Bytes lidos do disco durante o período de monitoramento|RoleInstanceId|
 |Operações de leitura de disco/Seg|Sim|Operações de leitura de disco/Seg|CountPerSecond|Média|IOPS de leitura de disco|RoleInstanceId|
@@ -616,10 +616,10 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
-|Créditos de CPU Consumidos|Sim|Créditos de CPU Consumidos|Contagem|Média|Número total de créditos consumido pela Máquina Virtual|Sem dimensões|
-|Créditos de CPU Restantes|Sim|Créditos de CPU Restantes|Contagem|Média|Número total de créditos disponíveis para intermitência|Sem dimensões|
+|Créditos de CPU Consumidos|Sim|Créditos de CPU Consumidos|Contagem|Média|Número total de créditos consumidos pela máquina virtual. Disponível somente em [VMs expansíveis da série B](../../virtual-machines/sizes-b-series-burstable.md). Consulte |Sem dimensões|
+|Créditos de CPU Restantes|Sim|Créditos de CPU Restantes|Contagem|Média|Número total de créditos disponíveis para intermitência. Disponível somente em [VMs expansíveis da série B](../../virtual-machines/sizes-b-series-burstable.md).|Sem dimensões|
 |Porcentagem consumida da largura de banda do disco|Sim|Porcentagem consumida da largura de banda do disco|Porcentagem|Média|Porcentagem de largura de banda de disco de dados consumida por minuto|LUN|
 |Percentual de IOPS consumido de disco de dados|Sim|Percentual de IOPS consumido de disco de dados|Porcentagem|Média|Porcentagem de e/SS de disco de dados consumidas por minuto|LUN|
 |Profundidade da Fila de Disco de Dados|Sim|Profundidade da Fila de Disco de Dados (Versão prévia)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Tamanho da Fila)|LUN|
@@ -669,10 +669,10 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
-|Créditos de CPU Consumidos|Sim|Créditos de CPU Consumidos|Contagem|Média|Número total de créditos consumido pela Máquina Virtual|Sem dimensões|
-|Créditos de CPU Restantes|Sim|Créditos de CPU Restantes|Contagem|Média|Número total de créditos disponíveis para intermitência|Sem dimensões|
+|Créditos de CPU Consumidos|Sim|Créditos de CPU Consumidos|Contagem|Média|Número total de créditos consumidos pela máquina virtual. Disponível somente em [VMs expansíveis da série B](../../virtual-machines/sizes-b-series-burstable.md).|Sem dimensões|
+|Créditos de CPU Restantes|Sim|Créditos de CPU Restantes|Contagem|Média|Número total de créditos disponíveis para intermitência. Disponível somente em [VMs expansíveis da série B](../../virtual-machines/sizes-b-series-burstable.md).|Sem dimensões|
 |Profundidade da Fila de Disco de Dados|Sim|Profundidade da Fila de Disco de Dados (Versão prévia)|Contagem|Média|Profundidade da Fila do Disco de Dados (ou Tamanho da Fila)|LUN, VMName|
 |Bytes de Leitura do Disco de Dados/s|Sim|Bytes de Leitura do Disco de Dados/s (Visualização)|CountPerSecond|Média|Bytes/s lidos de um único disco durante o período de monitoramento|LUN, VMName|
 |Operações de Leitura do Disco de Dados/s|Sim|Operações de Leitura do Disco de Dados/s (Visualização)|CountPerSecond|Média|Ler IOPS de um único disco durante o período de monitoramento|LUN, VMName|
@@ -714,7 +714,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Créditos de CPU Consumidos|Sim|Créditos de CPU Consumidos|Contagem|Média|Número total de créditos consumido pela Máquina Virtual|Sem dimensões|
 |Créditos de CPU Restantes|Sim|Créditos de CPU Restantes|Contagem|Média|Número total de créditos disponíveis para intermitência|Sem dimensões|
@@ -759,7 +759,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |CpuUsage|Sim|Uso da CPU|Contagem|Média|Uso de CPU em todos os núcleos em milicores.|containerName|
 |MemoryUsage|Sim|Uso de Memória|Bytes|Média|Uso de memória total em bytes.|containerName|
@@ -769,7 +769,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AgentPoolCPUTime|Sim|AgentPool tempo de CPU|Segundos|Total|AgentPool tempo de CPU em segundos|Sem dimensões|
 |RunDuration|Sim|Duração da Execução|Milissegundos|Total|Duração da execução em milissegundos|Sem dimensões|
@@ -781,7 +781,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |kube_node_status_allocatable_cpu_cores|Não|Número total de núcleos de cpu disponíveis em um cluster gerenciado|Contagem|Média|Número total de núcleos de cpu disponíveis em um cluster gerenciado|Sem dimensões|
 |kube_node_status_allocatable_memory_bytes|Não|Número total de memória disponível em um cluster gerenciado|Bytes|Média|Número total de memória disponível em um cluster gerenciado|Sem dimensões|
@@ -792,7 +792,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft. CustomProviders/resourceproviders
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |FailedRequests|Sim|Solicitações com falha|Contagem|Total|Obtém os logs disponíveis para provedores de recursos personalizados|HttpMethod, CallPath, StatusCode|
 |SuccessfullRequests|Sim|Solicitações bem sucedidas|Contagem|Total|Solicitações bem-sucedidas feitas pelo provedor personalizado|HttpMethod, CallPath, StatusCode|
@@ -800,7 +800,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdataboxedgedataboxedgedevices"></a>Microsoft.DataBoxEdge/dataBoxEdgeDevices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AvailableCapacity|Sim|Capacidade Disponível|Bytes|Média|A capacidade disponível em bytes durante o período de relatório.|Sem dimensões|
 |BytesUploadedToCloud|Sim|Bytes Carregados na Nuvem (Dispositivo)|Bytes|Média|O número total de bytes que são carregados no Azure de um dispositivo durante o período de relatório.|Sem dimensões|
@@ -818,7 +818,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |FailedRuns|Sim|Execuções com falha|Contagem|Total||pipelinename, ActivityName|
 |SuccessfulRuns|Sim|Execuções com êxito|Contagem|Total||pipelinename, ActivityName|
@@ -826,7 +826,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActivityCancelledRuns|Sim|Métricas de execuções de atividades canceladas|Contagem|Total||ActivityType, PipelineName, FailureType, Nome|
 |ActivityFailedRuns|Sim|Métricas de execução de atividades com falha|Contagem|Total||ActivityType, PipelineName, FailureType, Nome|
@@ -850,7 +850,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |DataRead|Sim|Leitura de dados|Bytes|Total|Quantidade total de dados lidos na conta.|Sem dimensões|
 |DataWritten|Sim|Dados gravados|Bytes|Total|Quantidade total de dados gravados na conta.|Sem dimensões|
@@ -861,7 +861,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |active_connections|Sim|Conexões ativas|Contagem|Média|Conexões ativas|Sem dimensões|
 |backup_storage_used|Sim|Armazenamento de Backup usado|Bytes|Média|Armazenamento de Backup usado|Sem dimensões|
@@ -882,7 +882,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |active_connections|Sim|Conexões ativas|Contagem|Média|Conexões ativas|Sem dimensões|
 |backup_storage_used|Sim|Armazenamento de Backup usado|Bytes|Média|Armazenamento de Backup usado|Sem dimensões|
@@ -903,7 +903,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdbforpostgresqlflexibleservers"></a>Microsoft.DBforPostgreSQL/flexibleServers
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |active_connections|Sim|Conexões ativas|Contagem|Média|Conexões ativas|Sem dimensões|
 |backup_storage_used|Sim|Backup do Microsoft Azure|Bytes|Média|Backup do Microsoft Azure|Sem dimensões|
@@ -930,7 +930,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |active_connections|Sim|Conexões ativas|Contagem|Média|Conexões ativas|Sem dimensões|
 |backup_storage_used|Sim|Backup do Microsoft Azure|Bytes|Média|Backup do Microsoft Azure|Sem dimensões|
@@ -952,7 +952,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft.DBforPostgreSQL/serversv2
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |active_connections|Sim|Conexões ativas|Contagem|Média|Conexões ativas|Sem dimensões|
 |cpu_percent|Sim|Porcentagem de CPU|Porcentagem|Média|Porcentagem de CPU|Sem dimensões|
@@ -966,7 +966,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |c2d.commands.egress.abandon.success|Sim|Mensagens C2D abandonadas|Contagem|Total|Número de mensagens da nuvem para o dispositivo abandonadas pelo dispositivo|Sem dimensões|
 |c2d.commands.egress.complete.success|Sim|Entregas de mensagem C2D concluídas|Contagem|Total|Número de entregas de mensagem da nuvem para o dispositivo concluídas com êxito pelo dispositivo|Sem dimensões|
@@ -1040,7 +1040,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AttestationAttempts|Sim|Tentativas de atestado|Contagem|Total|Número de tentativas de atestado do dispositivo|ProvisioningServiceName, Status, Protocol|
 |DeviceAssignments|Sim|Dispositivos atribuídos|Contagem|Total|Número de dispositivos atribuídos a um hub IoT|ProvisioningServiceName, IotHubName|
@@ -1049,7 +1049,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Addregion|Sim|Região adicionada|Contagem|Contagem|Região adicionada|Região|
 |AutoscaleMaxThroughput|Não|Taxa de transferência máxima de dimensionamento automático|Contagem|Máximo|Taxa de transferência máxima de dimensionamento automático|DatabaseName, CollectionName|
@@ -1120,7 +1120,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |DeadLetteredCount|Sim|Eventos de mensagens mortas|Contagem|Total|Total de eventos de mensagens mortas correspondentes a essa assinatura de evento|Tópico, EventSubscriptionName, DomainEventSubscriptionName, DeadLetterReason|
 |DeliveryAttemptFailCount|Não|Eventos com falha de entrega|Contagem|Total|Total de eventos não entregues a essa assinatura de evento|Tópico, EventSubscriptionName, DomainEventSubscriptionName, erro, ErrorType|
@@ -1135,7 +1135,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |DeadLetteredCount|Sim|Eventos de mensagens mortas|Contagem|Total|Total de eventos de mensagens mortas correspondentes a essa assinatura de evento|DeadLetterReason|
 |DeliveryAttemptFailCount|Não|Eventos com falha de entrega|Contagem|Total|Total de eventos não entregues a essa assinatura de evento|Error, ErrorType|
@@ -1147,7 +1147,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofteventgridextensiontopics"></a>Microsoft.EventGrid/extensionTopics
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |PublishFailCount|Sim|Publicar Eventos com Falha|Contagem|Total|Total de eventos com falha ao publicar neste tópico|ErrorType, Error|
 |PublishSuccessCount|Sim|Eventos publicados|Contagem|Total|Total de eventos publicados neste tópico|Sem dimensões|
@@ -1157,7 +1157,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft. EventGrid/systemTopics
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |DeadLetteredCount|Sim|Eventos de mensagens mortas|Contagem|Total|Total de eventos de mensagens mortas correspondentes a essa assinatura de evento|DeadLetterReason, EventSubscriptionName|
 |DeliveryAttemptFailCount|Não|Eventos com falha de entrega|Contagem|Total|Total de eventos não entregues a essa assinatura de evento|Erro, ErrorType, EventSubscriptionName|
@@ -1173,7 +1173,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |DeadLetteredCount|Sim|Eventos de mensagens mortas|Contagem|Total|Total de eventos de mensagens mortas correspondentes a essa assinatura de evento|DeadLetterReason, EventSubscriptionName|
 |DeliveryAttemptFailCount|Não|Eventos com falha de entrega|Contagem|Total|Total de eventos não entregues a essa assinatura de evento|Erro, ErrorType, EventSubscriptionName|
@@ -1189,16 +1189,16 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofteventhubclusters"></a>Microsoft.EventHub/clusters
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActiveConnections|Não|ActiveConnections|Contagem|Média|Total de Conexões Ativas para o Microsoft.EventHub.|Sem dimensões|
-|AvailableMemory|Não|Memória disponível|Porcentagem|Máximo|Memória disponível para o cluster do hub de eventos como uma porcentagem da memória total.|Role|
+|AvailableMemory|Não|Memória disponível|Porcentagem|Máximo|Memória disponível para o cluster do hub de eventos como uma porcentagem da memória total.|Função|
 |CaptureBacklog|Não|Lista de Pendências de Captura.|Contagem|Total|Lista de Pendências de Captura para o Microsoft.EventHub.|Sem dimensões|
 |CapturedBytes|Não|Bytes Capturados.|Bytes|Total|Bytes Capturados para o Microsoft.EventHub.|Sem dimensões|
 |CapturedMessages|Não|Mensagens Capturadas.|Contagem|Total|Mensagens Capturadas para o Microsoft.EventHub.|Sem dimensões|
 |ConnectionsClosed|Não|Conexões Fechadas.|Contagem|Média|Conexões Fechadas para o Microsoft.EventHub.|Sem dimensões|
 |ConnectionsOpened|Não|Conexões Abertas.|Contagem|Média|Conexões Abertas para o Microsoft.EventHub.|Sem dimensões|
-|CPU|Não|CPU|Porcentagem|Máximo|Utilização da CPU para o Cluster do Hub de Eventos como um percentual|Role|
+|CPU|Não|CPU|Porcentagem|Máximo|Utilização da CPU para o Cluster do Hub de Eventos como um percentual|Função|
 |IncomingBytes|Sim|Bytes de Entrada.|Bytes|Total|Bytes de Entrada para o Microsoft.EventHub.|Sem dimensões|
 |IncomingMessages|Sim|Mensagens de entrada|Contagem|Total|Mensagens de Entrada para o Microsoft.EventHub.|Sem dimensões|
 |IncomingRequests|Sim|Solicitações de entrada|Contagem|Total|Solicitações de Entrada para o Microsoft.EventHub.|Sem dimensões|
@@ -1206,7 +1206,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |OutgoingMessages|Sim|Mensagens de saída|Contagem|Total|Mensagens de Saída para o Microsoft.EventHub.|Sem dimensões|
 |QuotaExceededErrors|Não|Cota de Erros Excedida.|Contagem|Total|Cota de Erros Excedida para o Microsoft.EventHub.|Sem dimensões|
 |ServerErrors|Não|Erros do Servidor.|Contagem|Total|Erros do Servidor para o Microsoft.EventHub.|Sem dimensões|
-|Tamanho|Não|Tamanho|Bytes|Média|Tamanho de um EventHub em Bytes.|Role|
+|Tamanho|Não|Tamanho|Bytes|Média|Tamanho de um EventHub em Bytes.|Função|
 |SuccessfulRequests|Não|Solicitações bem sucedidas|Contagem|Total|Solicitações Bem-sucedidas para Microsoft.EventHub.|Sem dimensões|
 |ThrottledRequests|Não|Solicitações Limitadas.|Contagem|Total|Solicitações Limitadas para o Microsoft.EventHub.|Sem dimensões|
 |UserErrors|Não|Erros de Usuário.|Contagem|Total|Erros de Usuário para o Microsoft.EventHub.|Sem dimensões|
@@ -1214,7 +1214,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActiveConnections|Não|ActiveConnections|Contagem|Média|Total de Conexões Ativas para o Microsoft.EventHub.|Sem dimensões|
 |CaptureBacklog|Não|Lista de Pendências de Captura.|Contagem|Total|Lista de Pendências de Captura para o Microsoft.EventHub.|EntityName|
@@ -1254,7 +1254,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |CategorizedGatewayRequests|Sim|Solicitações de gateway categorizadas|Contagem|Total|Número de solicitações de gateway por categorias (1xx/2xx/3xx/4xx/5xx)|HttpStatus|
 |GatewayRequests|Sim|Solicitações de gateway|Contagem|Total|Número de solicitações de gateway|HttpStatus|
@@ -1263,7 +1263,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |MetricThreshold|Sim|Limite da Métrica|Contagem|Média|O limite do dimensionamento automático configurado quando o dimensionamento automático foi executado.|MetricTriggerRule|
 |ObservedCapacity|Sim|Capacidade Observada|Contagem|Média|A capacidade relatada para o dimensionamento automático quando ele foi executado.|Sem dimensões|
@@ -1273,7 +1273,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |availabilityResults/availabilityPercentage|Sim|Disponibilidade|Porcentagem|Média|Percentual de testes de disponibilidade concluídos com êxito|availabilityResult/nome, availabilityResult/local|
 |availabilityResults/count|Não|Testes de disponibilidade|Contagem|Contagem|Contagem de testes de disponibilidade|availabilityResult/name, availabilityResult/location, availabilityResult/success|
@@ -1309,7 +1309,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftiotcentraliotapps"></a>Microsoft. IoTCentral/IoTApps
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |C2D. Property. Read. Failure|Sim|Falha nas leituras de Propriedade do dispositivo de IoT Central|Contagem|Total|A contagem de todas as leituras de propriedade com falha iniciadas a partir de IoT Central|Sem dimensões|
 |C2D. Property. Read. Success|Sim|Leituras de propriedade de dispositivo bem-sucedidas de IoT Central|Contagem|Total|A contagem de todas as leituras de propriedade bem-sucedidas iniciadas a partir de IoT Central|Sem dimensões|
@@ -1324,7 +1324,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade geral do cofre|Porcentagem|Média|Disponibilidade de solicitações do cofre|ActivityType, ActivityName, StatusCode, StatusCodeClass|
 |SaturationShoebox|Não|Saturação do cofre geral|Porcentagem|Média|Capacidade do cofre usada|Activitytable, ActivityName, transactionType|
@@ -1335,7 +1335,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BatchBlobCount|Sim|Contagem de BLOBs do lote|Contagem|Média|Número de fontes de dados em um lote agregado para ingestão.|Banco de dados|
 |BatchDuration|Sim|Duração do lote|Segundos|Média|A duração da fase de agregação no fluxo de ingestão.|Banco de dados|
@@ -1380,7 +1380,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft.Logic/integrationServiceEnvironments
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActionLatency|Sim|Latência da ação |Segundos|Média|Latência das ações de fluxo de trabalho concluídas.|Sem dimensões|
 |ActionsCompleted|Sim|Ações concluídas |Contagem|Total|Número de ações de fluxo de trabalho concluídas.|Sem dimensões|
@@ -1418,7 +1418,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActionLatency|Sim|Latência da ação |Segundos|Média|Latência das ações de fluxo de trabalho concluídas.|Sem dimensões|
 |ActionsCompleted|Sim|Ações concluídas |Contagem|Total|Número de ações de fluxo de trabalho concluídas.|Sem dimensões|
@@ -1458,7 +1458,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Núcleos Ativos|Sim|Núcleos Ativos|Contagem|Média|Número de núcleos ativos|Cenário, ClusterName|
 |Nós Ativos|Sim|Nós Ativos|Contagem|Média|Número de nós active. Esses são os nós que estão executando ativamente um trabalho.|Cenário, ClusterName|
@@ -1498,7 +1498,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftmapsaccounts"></a>Microsoft.Maps/accounts
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|Disponibilidade das APIs|ApiCategory, ApiName|
 |Uso|Não|Uso|Contagem|Contagem|Contagem de chamadas à API|ApiCategory, ApiName, ResultType, ResponseCode|
@@ -1506,7 +1506,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AssetCount|Sim|Contagem de ativos|Contagem|Média|Quantos ativos já foram criados na conta de serviço de mídia atual|Sem dimensões|
 |AssetQuota|Sim|Cota de ativos|Contagem|Média|Quantos ativos são permitidos para a conta de serviço de mídia atual|Sem dimensões|
@@ -1521,7 +1521,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftmediamediaservicesstreamingendpoints"></a>Microsoft.Media/mediaservices/streamingEndpoints
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Saída|Sim|Saída|Bytes|Total|A quantidade de dados de egresso, em bytes.|OutputFormat|
 |Requests|Sim|Requests|Contagem|Total|Solicitações para um ponto de extremidade de streaming.|OutputFormat, HttpStatusCode, ErrorCode|
@@ -1530,7 +1530,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |VolumePoolAllocatedSize|Sim|Tamanho alocado do pool|Bytes|Média|Tamanho provisionado deste pool|Sem dimensões|
 |VolumePoolAllocatedUsed|Sim|Pool alocado para o tamanho do volume|Bytes|Média|Tamanho usado alocado do pool|Sem dimensões|
@@ -1540,7 +1540,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/volumes
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AverageReadLatency|Sim|Latência média de leitura|MilliSeconds|Média|Latência média de leitura em milissegundos por operação|Sem dimensões|
 |AverageWriteLatency|Sim|Latência média de gravação|MilliSeconds|Média|Latência média de gravação em milissegundos por operação|Sem dimensões|
@@ -1565,7 +1565,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ApplicationGatewayTotalTime|Não|Tempo Total do Gateway de Aplicativo|MilliSeconds|Média|Tempo médio que leva para que uma solicitação seja processada e sua resposta seja enviada. Isso é calculado como a média do intervalo desde o momento em que o gateway de aplicativo recebe o primeiro byte de uma solicitação HTTP até o momento em que a operação de envio de resposta é concluída. É importante observar que isso geralmente inclui o tempo de processamento do gateway de aplicativo, o tempo que os pacotes de solicitação e resposta estão viajando pela rede e o tempo que o servidor back-end levou para responder.|Ouvinte|
 |AvgRequestCountPerHealthyHost|Não|Solicitações por minuto por Host Íntegro|Contagem|Média|Contagem média de solicitações por minuto por host de back-end íntegro em um pool|BackendSettingsPool|
@@ -1597,7 +1597,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkazurefirewalls"></a>Microsoft.Network/azurefirewalls
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ApplicationRuleHit|Sim|Contagem de ocorrências de regras de aplicativo|Contagem|Total|Número de vezes que as regras de aplicativo foram atingidas|Status, motivo, protocolo|
 |DataProcessed|Sim|Dados processados|Bytes|Total|Quantidade total de dados processados por esse firewall|Sem dimensões|
@@ -1609,7 +1609,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/connections
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BitsInPerSecond|Sim|BitsInPerSecond|BitsPerSecond|Média|Bits de entrada no Azure por segundo|Sem dimensões|
 |BitsOutPerSecond|Sim|BitsOutPerSecond|BitsPerSecond|Média|Bits de saída no Azure por segundo|Sem dimensões|
@@ -1617,7 +1617,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |QueryVolume|Sim|Volume de consulta|Contagem|Total|Número de consultas atendidas para uma zona DNS|Sem dimensões|
 |RecordSetCapacityUtilization|Não|Utilização de capacidade de Conjuntos de Registros|Porcentagem|Máximo|Porcentagem de capacidade de Conjuntos de Registros utilizada por uma zona DNS|Sem dimensões|
@@ -1626,7 +1626,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ArpAvailability|Sim|Disponibilidade de ARP|Porcentagem|Média|Disponibilidade ARP de MSEE para todos os pares.|PeeringType, par|
 |BgpAvailability|Sim|Disponibilidade de BGP|Porcentagem|Média|Disponibilidade de BGP de MSEE para todos os pares.|PeeringType, par|
@@ -1640,7 +1640,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft.Network/expressRouteCircuits/peerings
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BitsInPerSecond|Sim|BitsInPerSecond|BitsPerSecond|Média|Bits de entrada no Azure por segundo|Sem dimensões|
 |BitsOutPerSecond|Sim|BitsOutPerSecond|BitsPerSecond|Média|Bits de saída no Azure por segundo|Sem dimensões|
@@ -1648,7 +1648,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkexpressroutegateways"></a>Microsoft.Network/expressRouteGateways
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ErGatewayConnectionBitsInPerSecond|Não|BitsInPerSecond|BitsPerSecond|Média|Bits de entrada no Azure por segundo|ConnectionName|
 |ErGatewayConnectionBitsOutPerSecond|Não|BitsOutPerSecond|BitsPerSecond|Média|Bits de saída no Azure por segundo|ConnectionName|
@@ -1656,7 +1656,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkexpressrouteports"></a>Microsoft.Network/expressRoutePorts
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AdminState|Sim|AdminState|Contagem|Média|Estado do administrador da porta|Link|
 |LineProtocol|Sim|LineProtocol|Contagem|Média|Status do protocolo de linha da porta|Link|
@@ -1668,7 +1668,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BackendHealthPercentage|Sim|Percentual de integridade do back-end|Porcentagem|Média|O percentual de investigações de integridade bem-sucedidas do proxy HTTP/S aos back-ends|Backend, BackendPool|
 |BackendRequestCount|Sim|Contagem de solicitações de back-end|Contagem|Total|O número de solicitações enviadas do proxy HTTP/S aos back-ends|HttpStatus, HttpStatusGroup, Backend|
@@ -1683,7 +1683,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AllocatedSnatPorts|Não|Portas SNAT alocadas|Contagem|Média|Número total de portas SNAT alocadas no período|FrontendIPAddress, BackendIPAddress, ProtocolType, |
 |ByteCount|Sim|Contagem de Bytes|Bytes|Total|Número total de Bytes transmitidos no período|FrontendIPAddress, FrontendPort, Direction|
@@ -1697,7 +1697,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BytesReceivedRate|Sim|Bytes Recebidos|Bytes|Total|Número de bytes recebidos pela Interface de Rede|Sem dimensões|
 |BytesSentRate|Sim|Bytes Enviados|Bytes|Total|Número de bytes enviados pela Interface de Rede|Sem dimensões|
@@ -1707,7 +1707,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworknetworkwatchersconnectionmonitors"></a>Microsoft.Network/networkWatchers/connectionMonitors
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AverageRoundtripMs|Sim|Média Tempo de ida e volta (ms)|MilliSeconds|Média|Tempo ida e volta de rede médio (ms) para investigações de monitoramento de conectividade enviadas entre a origem e o destino|Sem dimensões|
 |ChecksFailedPercent|Sim|Porcentagem de Verificações com Falha (Versão prévia)|Porcentagem|Média|% de verificações de monitoramento de conectividade com falha|SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, Destinationname, DestinationResourceId, DestinationType, DestinationPort, TestGroupName, TestConfigurationName, SourceIP, DestinationIP, SourceSubnet, DestinationSubnet|
@@ -1717,7 +1717,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ByteCount|Sim|Contagem de Bytes|Bytes|Total|Número total de Bytes transmitidos no período|Port, Direction|
 |BytesDroppedDDoS|Sim|DDoS de bytes de entrada removidos|BytesPerSecond|Máximo|DDoS de bytes de entrada removidos|Sem dimensões|
@@ -1749,7 +1749,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ProbeAgentCurrentEndpointStateByProfileResourceId|Sim|Status do Ponto de Extremidade por Ponto de Extremidade|Contagem|Máximo|1 se o status de investigação de um ponto de extremidade for “Habilitado”; caso contrário, 0.|EndpointName|
 |QpsByEndpoint|Sim|Consultas pelo Ponto de Extremidade Retornado|Contagem|Total|Número de vezes que um ponto de extremidade do Gerenciador de Tráfego foi retornado no período determinado|EndpointName|
@@ -1757,7 +1757,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AverageBandwidth|Sim|Largura de banda de S2S do gateway|BytesPerSecond|Média|Largura de banda média site a site de um gateway em bytes por segundo|Sem dimensões|
 |P2SBandwidth|Sim|Largura de banda de P2S do gateway|BytesPerSecond|Média|Largura de banda média ponto a site de um gateway em bytes por segundo|Sem dimensões|
@@ -1773,7 +1773,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |PingMeshAverageRoundtripMs|Sim|Tempo de ida e volta para Pings em uma VM|MilliSeconds|Média|Tempo de ida e volta para pings enviados para uma VM de destino|SourceCustomerAddress, DestinationCustomerAddress|
 |PingMeshProbesFailedPercent|Sim|Pings com Falha em uma VM|Porcentagem|Média|Porcentagem do número de pings com falha para o total de pings enviados de uma VM de destino|SourceCustomerAddress, DestinationCustomerAddress|
@@ -1781,7 +1781,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |incoming|Sim|Mensagens de entrada|Contagem|Total|A contagem de todas as chamadas de API enviadas com sucesso. |Sem dimensões|
 |incoming.all.failedrequests|Sim|Todas as solicitações com falha recebidas|Contagem|Total|Total de solicitações com falha recebidas para um hub de notificação|Sem dimensões|
@@ -1849,7 +1849,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Average_% Available Memory|Sim|% de Memória Disponível|Contagem|Média|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% Available Swap Space|Sim|% de Espaço de Permuta Disponível|Contagem|Média|Average_% Available Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1913,12 +1913,12 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Average_Virtual Shared Memory|Sim|Memória Virtual Compartilhada|Contagem|Média|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Evento|Sim|Evento|Contagem|Média|Evento|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 |Pulsação|Sim|Pulsação|Contagem|Total|Pulsação|Computador, OSType, Versão, SourceComputerId|
-|Atualizar|Sim|Atualizar|Contagem|Média|Atualizar|Computer, Product, Classification, UpdateState, Optional, Approved|
+|Atualização|Sim|Atualizar|Contagem|Média|Atualização|Computer, Product, Classification, UpdateState, Optional, Approved|
 
 
 ## <a name="microsoftpeeringpeerings"></a>Microsoft. emparelhamento/emparelhamentos
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |EgressTrafficRate|Sim|Taxa de tráfego de saída|BitsPerSecond|Média|Taxa de tráfego de saída em bits por segundo|ConnectionID, SessionIp, TrafficClass|
 |IngressTrafficRate|Sim|Taxa de tráfego de entrada|BitsPerSecond|Média|Taxa de tráfego de entrada em bits por segundo|ConnectionID, SessionIp, TrafficClass|
@@ -1926,14 +1926,14 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. emparelhamento/peeringServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |PrefixLatency|Sim|Latência de prefixo|Milissegundos|Média|Latência de prefixo mediana|Prefixoname|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |memory_metric|Sim|Memória|Bytes|Média|Memória. Intervalo de 0 a 3 GB para A1, 0 a 5 GB para A2, 0 a 10 GB para A3, 0 a 25 GB para A4, 0 a 50 GB para A5 e 0 a 100 GB para A6|Sem dimensões|
 |memory_thrashing_metric|Sim|Sobrecarga de Memória (Conjuntos de dados)|Porcentagem|Média|Sobrecarga de memória média.|Sem dimensões|
@@ -1944,7 +1944,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActiveConnections|Não|ActiveConnections|Contagem|Total|Total de ActiveConnections para o Microsoft.Relay.|EntityName|
 |ActiveListeners|Não|ActiveListeners|Contagem|Total|Total de ActiveListeners para o Microsoft.Relay.|EntityName|
@@ -1963,7 +1963,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |SearchLatency|Sim|Latência de pesquisa|Segundos|Média|Latência média de pesquisa do serviço de pesquisa|Sem dimensões|
 |SearchQueriesPerSecond|Sim|Consultas de pesquisa por segundo|CountPerSecond|Média|Consultas de pesquisa por segundo para o serviço de pesquisa|Sem dimensões|
@@ -1972,7 +1972,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActiveConnections|Não|ActiveConnections|Contagem|Total|Conexões Totalmente Ativas para o Microsoft.ServiceBus.|Sem dimensões|
 |ActiveMessages|Não|Contagem de mensagens em uma fila/tópico.|Contagem|Média|Contagem de mensagens em uma fila/tópico.|EntityName|
@@ -1997,7 +1997,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActualCpu|Não|ActualCpu|Contagem|Média|Uso real da CPU em núcleos de mili|ApplicationName, ServiceName, CodePackageName, ServiceId|
 |ActualMemory|Não|ActualMemory|Bytes|Média|Uso real da memória em MB|ApplicationName, ServiceName, CodePackageName, ServiceId|
@@ -2014,7 +2014,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ConnectionCount|Sim|Contagem de conexão|Contagem|Máximo|A quantidade de conexões do usuário.|Ponto de extremidade|
 |InboundTraffic|Sim|Tráfego de entrada|Bytes|Total|O tráfego de entrada do serviço|Sem dimensões|
@@ -2026,7 +2026,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |avg_cpu_percent|Sim|Percentual médio de CPU|Porcentagem|Média|Percentual médio de CPU|Sem dimensões|
 |io_bytes_read|Sim|Bytes de E/S lidos|Bytes|Média|Bytes de E/S lidos|Sem dimensões|
@@ -2039,7 +2039,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |active_queries|Sim|Consultas ativas|Contagem|Total|Consultas ativas em todos os grupos de carga de trabalho. Aplica-se somente a data warehouses.|Sem dimensões|
 |allocated_data_storage|Sim|Espaço alocado de dados|Bytes|Média|Armazenamento de dados alocado. Não aplicável a data warehouses.|Sem dimensões|
@@ -2092,7 +2092,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |allocated_data_storage|Sim|Espaço alocado de dados|Bytes|Média|Espaço alocado de dados|Sem dimensões|
 |allocated_data_storage_percent|Sim|Porcentagem do espaço de dados alocado|Porcentagem|Máximo|Porcentagem do espaço de dados alocado|Sem dimensões|
@@ -2130,7 +2130,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|GeoType, ApiName, Authentication|
 |Saída|Sim|Saída|Bytes|Total|A quantidade de dados de saída. Esse número inclui saída para cliente externo do armazenamento do Azure, bem como saída no Azure. Como resultado, esse número não reflete a saída faturável.|GeoType, ApiName, Authentication|
@@ -2143,7 +2143,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|GeoType, ApiName, Authentication|
 |BlobCapacity|Não|Capacidade do Blob|Bytes|Média|A quantidade de armazenamento utilizada pelo serviço Blob da conta de armazenamento em bytes.|BlobType, camada|
@@ -2160,7 +2160,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|Geotipo, ApiName, autenticação, FileShare|
 |Saída|Sim|Saída|Bytes|Total|A quantidade de dados de saída. Esse número inclui saída para cliente externo do armazenamento do Azure, bem como saída no Azure. Como resultado, esse número não reflete a saída faturável.|Geotipo, ApiName, autenticação, FileShare|
@@ -2179,7 +2179,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|GeoType, ApiName, Authentication|
 |Saída|Sim|Saída|Bytes|Total|A quantidade de dados de saída. Esse número inclui saída para cliente externo do armazenamento do Azure, bem como saída no Azure. Como resultado, esse número não reflete a saída faturável.|GeoType, ApiName, Authentication|
@@ -2194,7 +2194,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Disponibilidade|Sim|Disponibilidade|Porcentagem|Média|O percentual de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada considerando o valor de TotalBillableRequests e dividindo-o pelo número de solicitações aplicáveis, incluindo as que produziram erros inesperados. Todos os erros inesperados resultam na redução da disponibilidade para o serviço de armazenamento ou a operação de API especificada.|GeoType, ApiName, Authentication|
 |Saída|Sim|Saída|Bytes|Total|A quantidade de dados de saída. Esse número inclui saída para cliente externo do armazenamento do Azure, bem como saída no Azure. Como resultado, esse número não reflete a saída faturável.|GeoType, ApiName, Authentication|
@@ -2209,7 +2209,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ServerSyncSessionResult|Sim|Resultado da Sessão de Sincronização|Contagem|Média|Métrica que registra um valor de 1 cada vez que o ponto de extremidade do servidor conclui com êxito uma sessão de sincronização com o ponto de extremidade de nuvem|SyncGroupName, ServerEndpointName, SyncDirection|
 |StorageSyncBatchTransferredFileBytes|Sim|Bytes sincronizados|Bytes|Total|Tamanho total do arquivo transferido para sessões de sincronização|SyncGroupName, ServerEndpointName, SyncDirection|
@@ -2224,7 +2224,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstoragesyncstoragesyncservicesregisteredservers"></a>microsoft.storagesync/storageSyncServices/registeredServers
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ServerHeartbeat|Sim|Status Online do Servidor|Contagem|Máximo|Métrica que registra um valor de 1 cada vez que o servidor resigtered registra com êxito uma pulsação com o ponto de extremidade de nuvem|ServerResourceId, servername|
 |ServerRecallIOTotalSizeBytes|Sim|Recall da camada de nuvem|Bytes|Total|Tamanho total dos dados recuperados pelo servidor|ServerResourceId, servername|
@@ -2232,7 +2232,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstoragesyncstoragesyncservicessyncgroups"></a>microsoft.storagesync/storageSyncServices/syncGroups
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |SyncGroupBatchTransferredFileBytes|Sim|Bytes sincronizados|Bytes|Total|Tamanho total do arquivo transferido para sessões de sincronização|SyncGroupName, ServerEndpointName, SyncDirection|
 |SyncGroupSyncSessionAppliedFilesCount|Sim|Arquivos Sincronizados|Contagem|Total|Contagem de arquivos sincronizados|SyncGroupName, ServerEndpointName, SyncDirection|
@@ -2241,7 +2241,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstoragesyncstoragesyncservicessyncgroupsserverendpoints"></a>microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ServerEndpointBatchTransferredFileBytes|Sim|Bytes sincronizados|Bytes|Total|Tamanho total do arquivo transferido para sessões de sincronização|ServerEndpointName, SyncDirection|
 |ServerEndpointSyncSessionAppliedFilesCount|Sim|Arquivos Sincronizados|Contagem|Total|Contagem de arquivos sincronizados|ServerEndpointName, SyncDirection|
@@ -2250,7 +2250,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AMLCalloutFailedRequests|Sim|Solicitações de função com falha|Contagem|Total|Solicitações de função com falha|LogicalName, PartitionID|
 |AMLCalloutInputEvents|Sim|Eventos de função|Contagem|Total|Eventos de função|LogicalName, PartitionID|
@@ -2272,7 +2272,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BuiltinSqlPoolDataProcessedBytes|Não|Dados processados (bytes)|Bytes|Total|Quantidade de dados processados por consultas|Sem dimensões|
 |BuiltinSqlPoolLoginAttempts|Não|Tentativas de logon|Contagem|Total|Contagem de tentativas de logon que êxito na ou com falha|Result|
@@ -2284,7 +2284,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. Synapse/Workspaces/bigDataPools
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BigDataPoolAllocatedCores|Não|vCores alocada|Contagem|Máximo|VCores alocada para um pool de Apache Spark|Emissor da|
 |BigDataPoolAllocatedMemory|Não|Memória alocada (GB)|Contagem|Máximo|Memória alocada para o pool do Spark Apach (GB)|Emissor da|
@@ -2294,7 +2294,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft. Synapse/espaços de trabalho/sqlpools
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActiveQueries|Não|Consultas ativas|Contagem|Total|As consultas ativas. Usar essa métrica não filtrada e a divisão exibe todas as consultas ativas em execução no sistema|IsUserDefined|
 |AdaptiveCacheHitPercent|Não|Percentual de impacto de cache adaptável|Porcentagem|Máximo|Mede o quão bem as cargas de trabalho estão utilizando o cache adaptável. Use essa métrica com a métrica percentual de impacto de cache para determinar se deve ser dimensionada para capacidade adicional ou executar novamente as cargas de trabalho para hidratar o cache|Sem dimensões|
@@ -2319,7 +2319,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |IngressReceivedBytes|Sim|Bytes de entrada recebidos|Bytes|Total|Contagem de bytes lidos de todas as fontes de evento|Sem dimensões|
 |IngressReceivedInvalidMessages|Sim|Mensagens de entrada inválidas recebidas|Contagem|Total|Contagem de mensagens inválidas lidas de todos os Hubs de Eventos ou origens de evento do Hub IoT|Sem dimensões|
@@ -2334,7 +2334,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |IngressReceivedBytes|Sim|Bytes de entrada recebidos|Bytes|Total|Contagem de bytes lidos da fonte de evento|Sem dimensões|
 |IngressReceivedInvalidMessages|Sim|Mensagens de entrada inválidas recebidas|Contagem|Total|Contagem de mensagens inválidas lidas na origem do evento|Sem dimensões|
@@ -2349,7 +2349,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftvmwarecloudsimplevirtualmachines"></a>Microsoft.VMwareCloudSimple/virtualMachines
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |Bytes de leitura de disco|Sim|Bytes de leitura de disco|Bytes|Total|Taxa de transferência total do disco devido a operações de leitura no período de exemplo.|Sem dimensões|
 |Operações de leitura de disco/Seg|Sim|Operações de leitura de disco/Seg|CountPerSecond|Média|O número médio de operações de leitura de e/s no período de exemplo anterior. Observe que essas operações podem ser de tamanho variável.|Sem dimensões|
@@ -2374,7 +2374,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |ActiveRequests|Sim|Solicitações ativas (preteridas)|Contagem|Total|Solicitações ativas|Instância|
 |AverageResponseTime|Sim|Tempo médio de resposta (preterido)|Segundos|Média|O tempo médio necessário para o front-end atender às solicitações, em segundos.|Instância|
@@ -2402,7 +2402,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |CpuPercentage|Sim|Percentual de CPU|Porcentagem|Média|A média de CPU usada em todas as instâncias do pool de trabalho.|Instância|
 |MemoryPercentage|Sim|Porcentagem de Memória|Porcentagem|Média|A média de memória usada em todas as instâncias do pool de trabalho.|Instância|
@@ -2413,7 +2413,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BytesReceived|Sim|Entrada de Dados|Bytes|Total|A média de largura de banda de entrada usada em todas as instâncias do plano.|Instância|
 |BytesSent|Sim|Saída de dados|Bytes|Total|A média de largura de banda de saída usada em todas as instâncias do plano.|Instância|
@@ -2439,7 +2439,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AppConnections|Sim|conexões|Contagem|Média|O número de soquetes associados existentes na área restrita (w3wp.exe e seus processos filho). Um soquete associado é criado chamando APIs bind()/connect() e permanece até que seja fechado com CloseHandle()/closesocket().|Instância|
 |AverageMemoryWorkingSet|Sim|Conjunto de trabalho de memória média|Bytes|Média|A quantidade média de memória usada pelo aplicativo em megabytes (MiB).|Instância|
@@ -2483,7 +2483,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
-|Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
+|Metric|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unit|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |AppConnections|Sim|conexões|Contagem|Média|O número de soquetes associados existentes na área restrita (w3wp.exe e seus processos filho). Um soquete associado é criado chamando APIs bind()/connect() e permanece até que seja fechado com CloseHandle()/closesocket().|Instância|
 |AverageMemoryWorkingSet|Sim|Conjunto de trabalho de memória média|Bytes|Média|A quantidade média de memória usada pelo aplicativo em megabytes (MiB).|Instância|

@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0144c57549e374404d3dde0fe997ba41adc8606b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c06988bf9c3558f5ef82862bdbcd821dc42ca28a
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967577"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97880980"
 ---
 #  <a name="what-is-sap-hana-on-azure-large-instances"></a>O que é SAP HANA no Azure (Instâncias Grandes)?
 
@@ -35,12 +35,14 @@ O isolamento do cliente dentro do carimbo de infraestrutura é executado em loca
 
 Essas unidades de servidor bare-metal têm suporte para executar apenas o SAP HANA. A camada de aplicativo do SAP ou a camada de middleware de carga de trabalho executa em máquinas virtuais. Os carimbos de infraestrutura que executam o SAP HANA em unidades do Azure (Instâncias Grandes) são conectados aos backbones de serviços de rede do Azure. Dessa maneira, é fornecida uma conectividade de baixa latência entre as unidades do SAP HANA do Azure (Instâncias Grandes) e as máquinas virtuais.
 
-A partir de julho de 2019, diferenciamos entre duas revisões diferentes de carimbos de instância grande do HANA e localização de implantações:
+A partir de janeiro de 2021, diferenciamos entre duas revisões diferentes de carimbos de instância grande do HANA e localização de implantações:
 
 - "Revisão 3" (Rev. 3): os carimbos que foram disponibilizados para que o cliente seja implantado antes de julho de 2019
 - "Revisão 4" (Rev 4): novo design de carimbo que é implantado em proximidade com hosts de VM do Azure e que até o momento são lançados nas regiões do Azure de:
     -  Oeste dos EUA 2 
-    -  Leste dos EUA 
+    -  Leste dos EUA
+    -  Leste dos EUA 2 (em duas Zonas de Disponibilidade)
+    -  EUA Central do Sul (entre dois Zonas de Disponibilidade)
     -  Europa Ocidental
     -  Norte da Europa
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979956"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881502"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -183,7 +183,6 @@ Se for a primeira vez que você exibir o histórico de alterações após sua in
     ```
 
 - **Falha ao registrar o provedor de recursos Microsoft. ChangeAnalysis**. Essa mensagem significa que algo falhou imediatamente porque a interface do usuário enviou a solicitação para registrar o provedor de recursos e não está relacionada ao problema de permissão. É provável que possa ser um problema de conectividade de Internet temporário. Tente atualizar a página e verificar sua conexão com a Internet. Se o erro persistir, contate changeanalysishelp@microsoft.com
-- **Falha ao consultar o provedor de recursos Microsoft. ChangeAnalysis** com a mensagem *não há suporte para a assinatura do Azure Lighthouse, as alterações só estão disponíveis no locatário inicial da assinatura*. Há uma limitação no momento para que o provedor de recursos de análise de alterações seja registrado por meio da assinatura do Azure Lighthouse para usuários que não estão no locatário inicial. Esperamos que essa limitação seja abordada em um futuro próximo. Se esse for um problema de bloqueio para você, há uma solução alternativa que envolve a criação de uma entidade de serviço e a atribuição explícita da função para permitir o acesso.  Entre em contato changeanalysishelp@microsoft.com para saber mais sobre isso.
 
 - **Isso está demorando mais do que o esperado**. Essa mensagem significa que o registro está demorando mais do que 2 minutos. Isso é incomum, mas não significa necessariamente que algo deu errado. Você pode ir para **assinaturas | Provedor de recursos** para verificar o status de registro do provedor de recursos **Microsoft. ChangeAnalysis** . Você pode tentar usar a interface do usuário para cancelar o registro, registrar novamente ou atualizar para ver se ele ajuda. Se o problema persistir, entre em contato com o changeanalysishelp@microsoft.com suporte.
     ![Solucionar problemas de registro de RP demorando muito](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
@@ -191,6 +190,10 @@ Se for a primeira vez que você exibir o histórico de alterações após sua in
 ![Captura de tela da ferramenta diagnosticar e resolver problemas para uma máquina virtual com ferramentas de solução de problemas selecionadas.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
 ![Captura de tela do bloco da ferramenta analisar alterações recentes de solução de problemas para uma máquina virtual.](./media/change-analysis/analyze-recent-changes.png)
+
+### <a name="azure-lighthouse-subscription-is-not-supported"></a>Não há suporte para a assinatura do Azure Lighthouse
+
+- **Falha ao consultar o provedor de recursos Microsoft. ChangeAnalysis** com a mensagem *não há suporte para a assinatura do Azure Lighthouse, as alterações só estão disponíveis no locatário inicial da assinatura*. Há uma limitação no momento para que o provedor de recursos de análise de alterações seja registrado por meio da assinatura do Azure Lighthouse para usuários que não estão no locatário inicial. Esperamos que essa limitação seja abordada em um futuro próximo. Se esse for um problema de bloqueio para você, há uma solução alternativa que envolve a criação de uma entidade de serviço e a atribuição explícita da função para permitir o acesso.  Entre em contato changeanalysishelp@microsoft.com para saber mais sobre isso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

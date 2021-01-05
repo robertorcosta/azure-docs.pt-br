@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/21/2020
+ms.date: 01/04/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e842e4d2a4dbd118840498587696df085b07700
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: d56ed0cdae9046cb7d76f7d74545309ee6292ecd
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722888"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883088"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -83,6 +83,8 @@ Nesta seção, você encontrará documentos sobre a integração do Microsoft Po
 
 ## <a name="change-log"></a>Log de Alterações
 
+- 01/04/2021: adicionar novas regiões do Azure com suporte do HLI em [o que é SAP Hana no Azure (instâncias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- 12/29/2020: Adicionar recomendações de arquitetura para regiões específicas do Azure em [configurações de carga de trabalho do SAP com zonas de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
 - 12/21/2020: adicionar novas certificações a SKUs de instâncias grandes HANA em [SKUs disponíveis para o HLI](./hana-available-skus.md)
 - 12/12/2020: ponteiro adicionado à nota SAP esclarecendo detalhes sobre o suporte do Oracle Enterprise Linux pela SAP ao [que há suporte para o software SAP para implantações do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
 - 11/26/2020: adaptar [SAP Hana configurações de armazenamento de máquina virtual do](./hana-vm-operations-storage.md) Azure e [tipos de armazenamento do Azure para carga de trabalho SAP](./planning-guide-storage.md) para [SLAs de VM](https://azure.microsoft.com/support/legal/sla/virtual-machines) única alterados

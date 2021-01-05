@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/20/2018
+ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: 0a69df8a20c4e1502de151c38c60b54667c2d4dc
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814475"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883105"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Solucionar problemas de conectividade SMTP de saída no Azure
 
@@ -76,10 +76,6 @@ Para assinaturas dos seguintes tipos que foram criados após 15 de novembro de 2
 Se você quiser ser capaz de enviar emails de VMs do Azure diretamente para provedores de email externos (sem usar uma retransmissão SMTP autenticada), poderá fazer uma solicitação abrindo um caso de suporte usando o seguinte tipo de problema: a  >  conectividade de **rede virtual** técnica  >    >  **não pode enviar email (SMTP/porta 25)**. Certifique-se de adicionar detalhes sobre por que sua implantação tem que enviar email diretamente aos provedores de email em vez de usar uma retransmissão autenticada. As solicitações serão revisadas e aprovadas a critério da Microsoft. As solicitações serão concedidas somente após a conclusão de verificações de antifraude adicionais. 
 
 Depois que uma assinatura é isenta e as VMs são interrompidas e reiniciadas no portal do Azure, todas as VMs nessa assinatura são isentas no futuro. A isenção se aplica somente à assinatura solicitada e somente ao tráfego de VM que é roteado diretamente para a Internet.
-
-## <a name="restrictions-and-limitations"></a>Restrições e limitações
-
-O tráfego da porta 25 de roteamento por meio dos serviços de PaaS do Azure, como o [Firewall do Azure](https://azure.microsoft.com/services/azure-firewall/)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

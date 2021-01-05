@@ -3,12 +3,12 @@ title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 34aaaa60ed9d757cc1a63ffaebb2225900cff61f
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3023991c76d94dc8aa87cfe950c18ab5d6a07ba9
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966676"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883054"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -28,15 +28,15 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 
 |Tabela de gráfico de recursos |Pode `join` ? |Descrição |
 |---|---|
-|Recursos |Yes |A tabela padrão se nenhuma tabela for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
-|ResourceContainers |Yes |Inclui os tipos de recursos e dados da assinatura (em versão prévia -- `Microsoft.Resources/subscriptions`) e do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
-|AdvisorResources |No |Inclui recursos _relacionados_ ao `Microsoft.Advisor`. |
-|AlertsManagementResources |No |Inclui recursos _relacionados_ ao `Microsoft.AlertsManagement`. |
-|GuestConfigurationResources |No |Inclui recursos _relacionados_ ao `Microsoft.GuestConfiguration`. |
-|MaintenanceResources |No |Inclui recursos _relacionados_ ao `Microsoft.Maintenance`. |
-|PolicyResources |No |Inclui recursos _relacionados_ ao `Microsoft.PolicyInsights`. (**Visualização**)|
-|SecurityResources |No |Inclui recursos _relacionados_ ao `Microsoft.Security`. |
-|ServiceHealthResources |No |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
+|Recursos |Sim |A tabela padrão se nenhuma tabela for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
+|ResourceContainers |Sim |Inclui os tipos de recursos e dados da assinatura (em versão prévia -- `Microsoft.Resources/subscriptions`) e do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|AdvisorResources |Não |Inclui recursos _relacionados_ ao `Microsoft.Advisor`. |
+|AlertsManagementResources |Não |Inclui recursos _relacionados_ ao `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Não |Inclui recursos _relacionados_ ao `Microsoft.GuestConfiguration`. |
+|MaintenanceResources |Não |Inclui recursos _relacionados_ ao `Microsoft.Maintenance`. |
+|PolicyResources |Não |Inclui recursos _relacionados_ ao `Microsoft.PolicyInsights`. (**Visualização**)|
+|SecurityResources |Não |Inclui recursos _relacionados_ ao `Microsoft.Security`. |
+|ServiceHealthResources |Não |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
 
 Para obter uma lista completa, incluindo os tipos de recursos, veja a Referência de [: tabelas e tipos de recursos com suporte](../reference/supported-tables-resources.md).
 
@@ -123,7 +123,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 |KQL |Consulta de exemplo do Resource Graph |Observações |
 |---|---|---|
 |[contagem](/azure/kusto/query/countoperator) |[Contar cofres de chaves](../samples/starter.md#count-keyvaults) | |
-|[distinct](/azure/kusto/query/distinctoperator) |[Mostrar valores distintos para um alias específico](../samples/starter.md#distinct-alias-values) | |
+|[distinct](/azure/kusto/query/distinctoperator) |[Mostrar recursos que contêm o armazenamento](../samples/starter.md#show-storage) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contagem de máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de união com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Há um limite de 3 `join` em uma única consulta. Estratégias de união personalizadas, como união difundida, não são permitidas. Para as tabelas que podem ser usadas `join` , consulte [tabelas de gráfico de recursos](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `take` . Não funciona com [Skip](./work-with-data.md#skipping-records). |

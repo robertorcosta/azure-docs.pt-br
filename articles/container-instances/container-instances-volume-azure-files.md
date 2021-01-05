@@ -4,12 +4,12 @@ description: Saiba como montar um volume de Arquivos do Azure para persistir o e
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 5ca619ac3ae93ee238d019b64ecccc975b7c8e3b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: afebdcdc9d9c5852d7fe66ed06ac457c1dbb0afb
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746864"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881796"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar um compartilhamento de arquivos do Azure em Instâncias de Contêiner do Azure
 
@@ -20,6 +20,9 @@ Por padrão, as Instâncias de Contêiner do Azure não têm estado. Se o contê
 >
 > A montagem de um compartilhamento de arquivos do Azure em uma instância de contêiner é semelhante a uma [montagem de ligação](https://docs.docker.com/storage/bind-mounts/)do Docker. Lembre-se de que se você montar um compartilhamento em um diretório de contêiner no qual os arquivos ou diretórios existem, esses arquivos ou diretórios serão obscurecidos pela montagem e não estarão acessíveis enquanto o contêiner for executado.
 >
+
+> [!IMPORTANT]
+> Se você estiver implantando grupos de contêineres em uma rede virtual do Azure, deverá adicionar um [ponto de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) à sua conta de armazenamento do Azure.
 
 ## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 
@@ -235,7 +238,7 @@ az deployment group create --resource-group myResourceGroup --template-file depl
 
 Para montar vários volumes em uma instância de contêiner, você deve implantar usando um [modelo de Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), um arquivo YAML ou outro método programático. Para usar um modelo ou arquivo YAML, forneça os detalhes do compartilhamento e defina os volumes preenchendo a `volumes` matriz na `properties` seção do arquivo. 
 
-Por exemplo, se você tiver criado dois compartilhamentos de arquivos do Azure denominados *share1* e *share2* na conta de armazenamento *myStorageAccount* , a `volumes` matriz em um modelo do Resource Manager será semelhante ao seguinte:
+Por exemplo, se você tiver criado dois compartilhamentos de arquivos do Azure denominados *share1* e *share2* na conta de armazenamento *myStorageAccount*, a `volumes` matriz em um modelo do Resource Manager será semelhante ao seguinte:
 
 ```JSON
 "volumes": [{
@@ -256,7 +259,7 @@ Por exemplo, se você tiver criado dois compartilhamentos de arquivos do Azure d
 }]
 ```
 
-Em seguida, para cada contêiner do grupo de contêineres no qual você deseja montar os volumes, popule a matriz `volumeMounts` na seção `properties` da definição de contêiner. Por exemplo, isso monta os dois volumes, *myvolume1* e *myvolume2* , definidos anteriormente:
+Em seguida, para cada contêiner do grupo de contêineres no qual você deseja montar os volumes, popule a matriz `volumeMounts` na seção `properties` da definição de contêiner. Por exemplo, isso monta os dois volumes, *myvolume1* e *myvolume2*, definidos anteriormente:
 
 ```JSON
 "volumeMounts": [{

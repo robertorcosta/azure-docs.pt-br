@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: c7e859b05450b95cf9c75421599dd9c54a639cdc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 6163f059581c2699d0b2780545c3ad5ec80f2907
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606832"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882408"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -256,7 +256,7 @@ Veja a documentação de referência para as operações de [exemplos de dicion�
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
 | Polonês      | `pl`          |
-| Português (Brasil)     | `pt-br`          |
+| Português (Brasil)     | `pt`          |
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
 | Sérvio (latino)      | `sr-Latn`          |
@@ -352,7 +352,7 @@ A tradução de fala está disponível usando o tradutor com o serviço de fala 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A conversão de fala em texto é usada para a tradução de fala para texto ou para tradução de fala para fala quando usada em conjunto com a síntese de fala.
 
-| Idioma    |
+| Linguagem    |
 |:----------- |
 |Árabe|
 |Cantonês (tradicional)|
@@ -387,7 +387,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 Converter texto em fala. A conversão de texto em fala é usada para adicionar saída audível de resultados de tradução ou para tradução de fala a fala quando usada com a fala em texto. 
 
-| Idioma |
+| Linguagem |
 |:-|
 | Árabe |
 | Búlgaro |

@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018912"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882204"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters do Service Fabric no Azure
 Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Um computador ou VM que faz parte de um cluster é chamado de nó de cluster. Os clusters podem ser dimensionados para milhares de nós. Se você adiciona novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e instâncias entre o número aumentado de nós. O desempenho geral do aplicativo é melhorado e a contenção para o acesso à memória é reduzida. Se os nós no cluster não estiverem sendo usados com eficiência, você poderá diminuir o número de nós no cluster. O Service Fabric redistribui novamente as réplicas de partição e instâncias entre o número reduzido de nós, para fazer melhor uso do hardware em cada nó.
@@ -80,7 +80,7 @@ Grupos de segurança de rede (NSGs) controlam o tráfego de entrada e de saída 
 
 Para saber mais, confira o artigo sobre os [Grupos de segurança](../virtual-network/network-security-groups-overview.md)
 
-## <a name="scaling"></a>Scaling
+## <a name="scaling"></a>Dimensionamento
 
 As demandas de aplicativos alteram ao longo do tempo. Talvez seja necessário aumentar os recursos de cluster para atender ao aumento do tráfego ou de carga de trabalho do aplicativo ou diminuir os recursos de cluster quando houver queda de demanda. Após criar um cluster do Service Fabric, será possível dimensionar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós). É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster. Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
 
@@ -94,16 +94,17 @@ Para saber mais, leia [Upgrade de clusters](service-fabric-cluster-upgrade.md).
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 É possível criar clusters em máquinas virtuais que executem estes sistemas operacionais:
 
-| Sistema operacional | Versão de Service Fabric mais antiga com suporte |
-| --- | --- |
-| Windows Server 2012 R2 | Todas as versões |
-| Windows Server 2016 | Todas as versões |
-| Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4 |
-| Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
-| Linux Ubuntu 18, 4 | 7.1 |
+| Sistema operacional | Versão de Service Fabric mais antiga com suporte | Última versão de Service Fabric com suporte |
+| --- | --- | --- | 
+| Windows Server 2019 | 6.4.654.9590 | N/D |
+| Windows Server 2016 | Todas as versões | N/D |
+| 20H2 do Windows Server | 7.2.445.9590 | N/D |
+| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
+| Windows Server 1803 | 6.4 | 7.2.445.9590 |
+| Windows Server 1709 | 6.0 | 7.2.445.9590 |
+| Windows Server 2012 | Todas as versões | N/D | 
+| Linux Ubuntu 16.04 | 6.0 | N/D |
+| Linux Ubuntu 18, 4 | 7.1 | N/D |
 
 Para obter informações adicionais, consulte [versões de cluster com suporte no Azure](./service-fabric-versions.md#supported-operating-systems)
 

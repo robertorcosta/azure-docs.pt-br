@@ -3,12 +3,12 @@ title: Solução de problemas comuns
 description: Saiba como solucionar problemas com a criação de definições de política, o SDK e o complemento para kubernetes.
 ms.date: 12/01/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f3667988d527100507d308887338278e1200d454
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: b88d00575adb571c59b562d25067c4a1716fb50f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510991"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882969"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Solucionar erros usando Azure Policy
 
@@ -36,7 +36,7 @@ Um alias incorreto ou não existente é usado em uma definição de política.
 
 #### <a name="resolution"></a>Resolução
 
-Primeiro, valide se a propriedade do Gerenciador de recursos tem um alias. Use a [extensão Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md), o [grafo de recursos do Azure](../../resource-graph/samples/starter.md#distinct-alias-values)ou o SDK para pesquisar aliases disponíveis. Se o alias de uma propriedade do Gerenciador de recursos não existir, crie um tíquete de suporte.
+Primeiro, valide se a propriedade do Gerenciador de recursos tem um alias. Use a [extensão Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md) ou SDK para pesquisar aliases disponíveis. Se o alias de uma propriedade do Gerenciador de recursos não existir, crie um tíquete de suporte.
 
 ### <a name="scenario-evaluation-details-not-up-to-date"></a>Cenário: detalhes de avaliação não atualizados
 

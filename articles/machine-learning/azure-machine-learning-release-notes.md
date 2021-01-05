@@ -9,17 +9,29 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: b11b0b46e57247d09e576795079e20c679e519d5
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: 695702c04e2eeb74ee27b7d4276a3be94d9d1cf7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760105"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881813"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
+## <a name="2020-12-31"></a>2020-12-31
+### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de dezembro)
++ **Novos recursos**
+  + Pesquisa de nome de arquivo de usuário. Agora, os usuários podem pesquisar todos os arquivos salvos em um espaço de trabalho.
+  + Redução do suporte lado a lado por célula do notebook. Em uma célula de notebook, os usuários agora podem ter a opção de exibir a redução renderizada e a sintaxe de redução lado a lado.
+  + Barra de status da célula. A barra de status indica em qual estado uma célula de código se encontra, se uma execução de célula foi bem-sucedida e quanto tempo levou para ser executada. 
+   
++ **Correções de bugs e melhorias**
+  + Tempos de carregamento de página aprimorados
+  + desempenho aprimorado 
+  + Velocidade aprimorada e confiabilidade do kernel
+  
 ## <a name="2020-12-07"></a>2020-12-07
 
 ### <a name="azure-machine-learning-sdk-for-python-v1190"></a>Azure Machine Learning SDK para Python v 1.19.0
@@ -83,7 +95,19 @@ Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obte
     + Preterido o uso de Nccl e gloo como um tipo válido de entrada para classes estimadas em favor de usar PyTorchConfiguration com ScriptRunConfig. 
     + Foi preterido o uso de MPI como um tipo válido de entrada para classes estimadas em favor de usar MpiConfiguration com ScriptRunConfig.
 
+## <a name="2020-11-30"></a>2020-11-30
+### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de novembro)
++ **Novos recursos**
+   + Terminal nativo. Agora, os usuários terão acesso a um terminal integrado, bem como a uma operação git por meio do [terminal integrado.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+  + Duplicar pasta 
+  + Lista suspensa de custos para computação 
+  + Pylance de computação offline 
 
++ **Correções de bugs e melhorias**
+  + Tempos de carregamento de página aprimorados
+  + desempenho aprimorado 
+  + Velocidade aprimorada e confiabilidade do kernel
+  + Carregamento de arquivo grande. Agora você pode carregar o arquivo >95MB
 
 ## <a name="2020-11-09"></a>2020-11-09
 

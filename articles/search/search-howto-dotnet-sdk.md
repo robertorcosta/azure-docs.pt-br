@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ceead297ea726e256d806c08c22810b39296793
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 15a878eb863b71a4519e75def2598f013152dfb7
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917164"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881626"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Como usar Azure.Search.Documents em um aplicativo .NET em C#
 
@@ -31,7 +31,7 @@ Assim como nas versões anteriores, você pode usar essa biblioteca para:
 + Carregar e gerenciar documentos de pesquisa em um índice
 + Execute consultas, tudo sem precisar lidar com os detalhes de HTTP e JSON
 
-A biblioteca é distribuída como um único [Azure.Search.Docpacote NuGet do ument](https://www.nuget.org/packages/Azure.Search.Documents/), que inclui todas as APIs usadas para acesso programático a um serviço de pesquisa.
+A biblioteca é distribuída como um único [Azure.Search.Docpacote NuGet do uments](https://www.nuget.org/packages/Azure.Search.Documents/), que inclui todas as APIs usadas para acesso programático a um serviço de pesquisa.
 
 A biblioteca de cliente define classes como `SearchIndex`, `SearchField` e `SearchDocument`, e operações como `SearchIndexClient.CreateIndex` e `SearchClient.Search` nas classes `SearchIndexClient` e `SearchClient`. Essas classes são organizadas nos namespaces a seguir:
 
@@ -56,7 +56,7 @@ Se você estiver usando a versão anterior do SDK do .NET e quiser atualizar par
 
 + Baixe o [pacoteAzure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents) usando **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **gerenciar pacotes NuGet para solução** no Visual Studio. Procure o nome do pacote `Azure.Search.Documents` .
 
-O SDK do Azure para .NET está em conformidade com o [.NET Standard 2,0](/dotnet/standard/net-standard#net-implementation-support), o que significa .NET Framework 4.6.1 e o .net Core 2,0 como requisitos mínimos.
+O SDK do Azure para .NET está em conformidade com o [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), que significa .NET Framework 4.6.1 e .NET Core 2.0 como requisitos mínimos.
 
 ## <a name="example-application"></a>Aplicativo de exemplo
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266035"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881154"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como fazer: Exigir políticas de proteção de aplicativo e um aplicativo cliente aprovado para acesso ao aplicativo em nuvem com acesso condicional
 
@@ -60,8 +60,8 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
    1. Selecione **aplicativos móveis e clientes de área de trabalho** e desmarque tudo o mais.
 1. Em **Controles de acesso** > **Conceder**, selecione as seguintes opções:
    - **Exigir um aplicativo cliente aprovado**
-   - **Exigir uma política de proteção do aplicativo (versão preliminar)**
-   - **Exigir todos os controles selecionados**
+   - **Requer política de proteção do aplicativo**
+   - **Exigir um dos controles selecionados**
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.
 
@@ -111,8 +111,8 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
    1. Selecione **navegador** e desmarque tudo o mais.
 1. Em **Controles de acesso** > **Conceder**, selecione as seguintes opções:
    - **Exigir um aplicativo cliente aprovado**
-   - **Exigir uma política de proteção do aplicativo (versão preliminar)**
-   - **Exigir todos os controles selecionados**
+   - **Requer política de proteção do aplicativo**
+   - **Exigir um dos controles selecionados**
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.
 
@@ -144,7 +144,7 @@ As organizações devem concluir as seguintes três etapas para exigir o uso de 
    1. Selecione **aplicativos móveis e clientes de área de trabalho** e desmarque tudo o mais.
 1. Em **Controles de acesso** > **Conceder**, selecione as seguintes opções:
    - **Exigir um aplicativo cliente aprovado**
-   - **Exigir uma política de proteção do aplicativo (versão preliminar)**
+   - **Requer política de proteção do aplicativo**
    - **Exigir um dos controles selecionados**
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.

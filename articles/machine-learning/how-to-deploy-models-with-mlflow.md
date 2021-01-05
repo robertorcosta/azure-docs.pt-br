@@ -11,27 +11,27 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1159a6cfda6b877f04573c85fa437ce3bff81af1
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: b905b050752e2a6b7acd11e82420c0b0203dfcd1
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97761640"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882187"
 ---
 # <a name="deploy-mlflow-models-with-azure-machine-learning-preview"></a>Implantar modelos MLflow com Azure Machine Learning (versão prévia)
 
-Neste artigo, saiba como implantar o modelo MLflow como um serviço Web Azure Machine Learning, para que você possa aproveitar e aplicar os recursos de detecção de descompasso de dados e gerenciamento de modelos Azure Machine Learning para seus modelos de produção.
+Neste artigo, saiba como implantar o modelo [MLflow](https://www.mlflow.org) como um serviço Web Azure Machine Learning, para que você possa aproveitar e aplicar os recursos de detecção de descompasso de dados e gerenciamento de modelos Azure Machine Learning para seus modelos de produção.
 
 O Azure Machine Learning oferece configurações de implantação para:
 * ACI (instância de contêiner do Azure) que é uma opção adequada para uma implantação rápida de desenvolvimento/teste.
 * AKS (serviço kubernetes do Azure), recomendado para implantações de produção escalonáveis.
 
-O [MLflow](https://www.mlflow.org) é uma biblioteca de open-source para gerenciar o ciclo de vida dos experimentos de aprendizado de máquina. Sua integração com o Azure Machine Learning permite que você estenda esse gerenciamento além da fase de treinamento do modelo para a fase de implantação do seu modelo de produção.
+O MLflow é uma biblioteca de open-source para gerenciar o ciclo de vida dos experimentos de aprendizado de máquina. Sua integração com o Azure Machine Learning permite que você estenda esse gerenciamento além da fase de treinamento do modelo para a fase de implantação do seu modelo de produção.
 
 >[!NOTE]
 > Como uma biblioteca de software livre, o MLflow muda com frequência. Dessa forma, a funcionalidade disponibilizada por meio da integração de Azure Machine Learning e MLflow deve ser considerada uma versão prévia e não tem suporte total da Microsoft.
 
-O diagrama a seguir demonstra que, com a API de implantação do MLflow, você pode implantar seu modelo de MLflow existente como um serviço Web Azure Machine Learning, apesar de suas estruturas--PyTorch, Tensorflow, scikit-learn, ONNX, etc., e gerenciar seus modelos de produção em seu espaço de trabalho.
+O diagrama a seguir demonstra que, com a API de implantação do MLflow e Azure Machine Learning, você pode implantar modelos criados com estruturas populares, como PyTorch, Tensorflow, scikit-learn, etc., como Azure Machine Learning serviços Web e gerenciá-los em seu espaço de trabalho. 
 
 ![ implantar modelos mlflow com o Azure Machine Learning](./media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
@@ -40,9 +40,11 @@ O diagrama a seguir demonstra que, com a API de implantação do MLflow, você p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Configure o URI de acompanhamento de MLflow para se conectar Azure Machine Learning](how-to-use-mlflow.md).
+* Um modelo de aprendizado de máquina. Se você não tiver um modelo treinado, encontre o exemplo de notebook que melhor se adapta ao seu cenário de computação neste [repositório](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) e siga suas instruções. 
+* [Configure o URI de acompanhamento de MLflow para se conectar Azure Machine Learning](how-to-use-mlflow.md#track-local-runs).
 * Instale o pacote `azureml-mlflow`. 
     * Esse pacote automaticamente traz a `azureml-core` [Azure Machine Learning SDK do Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), que fornece a conectividade para MLflow acessar seu espaço de trabalho.
+* Veja quais [permissões de acesso você precisa para executar suas operações MLflow com seu espaço de trabalho](how-to-assign-roles.md#mlflow-operations). 
 
 ## <a name="deploy-to-aci"></a>Implantar no ACI
 
@@ -134,13 +136,13 @@ webservice.wait_for_deployment()
 
 A implantação do serviço pode levar vários minutos.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não planeja usar seu serviço Web implantado, use `service.delete()` para excluí-lo do bloco de anotações.  Para obter mais informações, consulte a documentação de [WebService. Delete ()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
 
 ## <a name="example-notebooks"></a>Blocos de anotações de exemplo
 
-O [MLflow com notebooks do Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/track-and-monitor-experiments/using-mlflow) demonstra e amplia os conceitos apresentados neste artigo.
+O [MLflow com blocos de anotações Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) demonstram e se expandem sobre os conceitos apresentados neste artigo.
 
 > [!NOTE]
 > Um repositório controlado pela comunidade de exemplos que usam o mlflow pode ser encontrado em https://github.com/Azure/azureml-examples .
@@ -150,3 +152,4 @@ O [MLflow com notebooks do Azure Machine Learning](https://github.com/Azure/Mach
 * [Gerenciar os modelos](concept-model-management-and-deployment.md).
 * Monitore os modelos de produção para [descompasso de dados](./how-to-enable-data-collection.md).
 * [Acompanhe as execuções de Azure Databricks com MLflow](how-to-use-mlflow-azure-databricks.md).
+

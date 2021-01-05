@@ -8,12 +8,12 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 340455450cd6a18adfd8d0843fee423f82f10a45
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 153ffd699b22a6379758bf66b896a2b37a19fdf3
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858392"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883275"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitar a autenticação de Azure Active Directory Domain Services nos arquivos do Azure
 
@@ -22,7 +22,8 @@ ms.locfileid: "97858392"
 Se você for novo nos compartilhamentos de arquivos do Azure, é recomendável ler nosso [Guia de planejamento](storage-files-planning.md) antes de ler a série de artigos a seguir.
 
 > [!NOTE]
-> Os arquivos do Azure dão suporte à autenticação Kerberos com o Azure AD DS com a criptografia RC4-HMAC e AES 256. Os arquivos do Azure dão suporte à autenticação para o Azure AD DS com sincronização completa com o Azure AD. Se você tiver habilitado a sincronização com escopo no Azure AD DS que apenas sincronizar um conjunto limitado de identidades do Azure AD, não haverá suporte para autenticação e autorização.
+> Os arquivos do Azure dão suporte à autenticação Kerberos com o Azure AD DS somente com RC4-HMAC. A criptografia Kerberos AES ainda não tem suporte.
+> Os arquivos do Azure dão suporte à autenticação para o Azure AD DS com sincronização completa com o Azure AD. Se você tiver habilitado a sincronização com escopo no Azure AD DS que apenas sincronizar um conjunto limitado de identidades do Azure AD, não haverá suporte para autenticação e autorização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -88,7 +89,7 @@ Para habilitar a autenticação de AD DS do Azure sobre SMB com o [portal do Azu
 1. Na portal do Azure, vá para sua conta de armazenamento existente ou [crie uma conta de armazenamento](../common/storage-account-create.md).
 1. Na seção **Configurações**, selecione **Configuração**.
 1. Em **acesso baseado em identidade para compartilhamentos de arquivos** , alterne a alternância para o **serviço de domínio Azure Active Directory (AAD DS)** para **habilitado**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 A imagem a seguir mostra como habilitar a autenticação de AD DS do Azure sobre SMB para sua conta de armazenamento.
 
