@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c9f9cc53c62ed19fa5fbd1e78c840a8a34b6fb84
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3c880d570cfa6e1b1388e59557836a3070d7cdc7
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97824642"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862541"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -29,7 +29,7 @@ As APIs do plano de controle são APIs [ARM](../azure-resource-manager/managemen
 A versão mais atual da API do plano de controle é _**2020-12-01**_.
 
 Para usar as APIs do plano de controle:
-* Você pode chamar as APIs diretamente referenciando o Swagger mais recente na [pasta Swagger do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Esse repositório também inclui uma pasta de exemplos que mostram o uso.
+* Você pode chamar as APIs diretamente referenciando a pasta Swagger mais recente no [repositório Swagger do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). Essa pasta também inclui uma pasta de exemplos que mostram o uso.
 * Atualmente, você pode acessar SDKs para APIs de controle no...
   - [**.Net (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([referência [gerada automaticamente]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([origem](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
   - [**Java**](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([referência [gerada automaticamente]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31))
@@ -51,7 +51,7 @@ A versão mais atual da API do plano de dados é _**2020-10-31**_.
 
 Para usar as APIs do plano de dados:
 * Você pode chamar as APIs diretamente, por...
-   - referenciando o Swagger mais recente na [pasta Swagger do plano de dados](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Esse repositório também inclui uma pasta de exemplos que mostram o uso. 
+   - referenciando a pasta Swagger mais recente no [repositório Swagger do plano de dados](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). Essa pasta também inclui uma pasta de exemplos que mostram o uso. 
    - exibindo a [documentação de referência da API](/rest/api/azure-digitaltwins/).
 * Você pode usar o **SDK do .net (C#)**. Para usar o SDK do .NET...
    - Você pode exibir e adicionar o pacote do NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 

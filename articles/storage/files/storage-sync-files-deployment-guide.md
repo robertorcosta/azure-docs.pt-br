@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d39f26d86792214c1ef0300bc39404bf6581826f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2af8db1a6e8c774f1004b380c8aaaa06ba61d8c3
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629471"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862348"
 ---
 # <a name="deploy-azure-file-sync"></a>Implantar a Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -110,11 +110,11 @@ Para cada servidor que você pretende usar com a Sincronização de Arquivos do 
 > Você pode ignorar esta etapa se estiver implantando Sincronização de Arquivos do Azure no Windows Server Core.
 
 1. Abra o Gerenciador de Servidor.
-2. Clique em **Servidor Local** :  
+2. Clique em **Servidor Local**:  
     !["Servidor Local" no lado esquerdo da interface do usuário do Gerenciador do Servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
-3. No subpainel **Propriedades** , selecione o link de **Configuração de Segurança Reforçada do IE**.  
+3. No subpainel **Propriedades**, selecione o link de **Configuração de Segurança Reforçada do IE**.  
     ![O painel "Configuração de Segurança Reforçada do IE" na interface do usuário do Gerenciador do Servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-2.PNG)
-4. Na caixa de diálogo **configuração de segurança reforçada do Internet Explorer** , selecione **desativado** para **Administradores** e **usuários** :  
+4. Na caixa de diálogo **configuração de segurança reforçada do Internet Explorer** , selecione **desativado** para **Administradores** e **usuários**:  
     ![A janela pop-up Configuração de Segurança Reforçada do Internet Explorer com "Desativado" selecionado](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -157,10 +157,10 @@ Para implantar um serviço de sincronização de armazenamento, vá para o [port
 
 No novo painel que será aberta, insira as seguintes informações:
 
-- **Nome** : um nome exclusivo (por região) para o serviço de sincronização de armazenamento.
-- **Assinatura** : A assinatura na qual você quer criar o Serviço de Sincronização de Armazenamento. Dependendo da estratégia de configuração da sua empresa, você pode ter acesso a uma ou mais assinaturas. Uma Assinatura do Azure é o contêiner mais básico de cobrança para cada serviço de nuvem (como Arquivos do Azure).
-- **Grupo de recursos** : um grupo de recursos é um grupo lógico de recursos do Azure, como uma conta de armazenamento ou um Serviço de Sincronização de Armazenamento. Você pode criar um novo grupo de recursos ou usar um grupo de recursos existente para Sincronização de Arquivos do Azure. (É recomendável usar grupos de recursos como contêineres para isolar recursos logicamente para sua organização, como agrupamento de recursos ou recursos de RH para um projeto específico.)
-- **Local** : a região na qual você deseja implantar sincronização de arquivos do Azure. Somente regiões com suporte estão disponíveis nesta lista.
+- **Nome**: um nome exclusivo (por região) para o serviço de sincronização de armazenamento.
+- **Assinatura**: A assinatura na qual você quer criar o Serviço de Sincronização de Armazenamento. Dependendo da estratégia de configuração da sua empresa, você pode ter acesso a uma ou mais assinaturas. Uma Assinatura do Azure é o contêiner mais básico de cobrança para cada serviço de nuvem (como Arquivos do Azure).
+- **Grupo de recursos**: um grupo de recursos é um grupo lógico de recursos do Azure, como uma conta de armazenamento ou um Serviço de Sincronização de Armazenamento. Você pode criar um novo grupo de recursos ou usar um grupo de recursos existente para Sincronização de Arquivos do Azure. (É recomendável usar grupos de recursos como contêineres para isolar recursos logicamente para sua organização, como agrupamento de recursos ou recursos de RH para um projeto específico.)
+- **Local**: a região na qual você deseja implantar sincronização de arquivos do Azure. Somente regiões com suporte estão disponíveis nesta lista.
 
 Quando terminar, selecione **Criar** para implantar o Serviço De Sincronização De Armazenamento.
 
@@ -295,9 +295,9 @@ Depois de entrar, você deverá fornecer as seguintes informações:
 
 ![Uma captura de tela da interface do usuário de Registro do Servidor](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
-- **Assinatura do Azure** : a assinatura que contém o Serviço de Sincronização de Armazenamento (consulte [Implantar o Serviço de Sincronização de Armazenamento](#deploy-the-storage-sync-service)). 
-- **Grupo de recursos** : o grupo de recursos que contém o Serviço de Sincronização de Armazenamento.
-- **Serviço de Sincronização de Armazenamento** : o nome do Serviço de Sincronização de Armazenamento com o qual você deseja registrar.
+- **Assinatura do Azure**: a assinatura que contém o Serviço de Sincronização de Armazenamento (consulte [Implantar o Serviço de Sincronização de Armazenamento](#deploy-the-storage-sync-service)). 
+- **Grupo de recursos**: o grupo de recursos que contém o Serviço de Sincronização de Armazenamento.
+- **Serviço de Sincronização de Armazenamento**: o nome do Serviço de Sincronização de Armazenamento com o qual você deseja registrar.
 
 Depois de selecionar as informações apropriadas nos menus suspensos, clique em **Registrar** para concluir o registro do servidor. Como parte do processo de registro, você será solicitado a realizar uma entrada adicional.
 
@@ -322,16 +322,16 @@ Um ponto de extremidade de nuvem é um ponteiro para um compartilhamento de arqu
 O administrador que cria o ponto de extremidade de nuvem deve ser membro do **proprietário** da função de gerenciamento da conta de armazenamento que contém o compartilhamento de arquivos do Azure ao qual o ponto de extremidade de nuvem está apontando. Isso pode ser configurado no **controle de acesso (iam)** no portal do Azure para a conta de armazenamento.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Para criar um grupo de sincronização, na [portal do Azure](https://portal.azure.com/), vá para o serviço de sincronização de armazenamento e, em seguida, selecione **+ grupo de sincronização** :
+Para criar um grupo de sincronização, na [portal do Azure](https://portal.azure.com/), vá para o serviço de sincronização de armazenamento e, em seguida, selecione **+ grupo de sincronização**:
 
 ![Criar um novo Grupo de Sincronização no Portal do Azure](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
 No painel que abrir, insira as informações a seguir para criar um Grupo de Sincronização com um ponto de extremidade de nuvem:
 
-- **Nome do grupo de sincronização** : o nome do grupo de sincronização a ser criado. Esse nome deve ser exclusivo dentro do Serviço de Sincronização de Armazenamento, mas pode ser qualquer nome lógico para você.
-- **Assinatura** : a assinatura na qual você implantou o Serviço de Sincronização de Armazenamento em [Implantar o Serviço de Sincronização de Armazenamento](#deploy-the-storage-sync-service).
-- **Conta de armazenamento** : se você selecionar **Selecionar conta de armazenamento** , outro painel aparece no qual você pode selecionar a conta de armazenamento que tenha o compartilhamento de arquivos do Azure que você deseja fazer a sincronização.
-- **Compartilhamento de Arquivo do Azure** : o nome do Compartilhamento de Arquivo do Azure com o qual você deseja sincronizar.
+- **Nome do grupo de sincronização**: o nome do grupo de sincronização a ser criado. Esse nome deve ser exclusivo dentro do Serviço de Sincronização de Armazenamento, mas pode ser qualquer nome lógico para você.
+- **Assinatura**: a assinatura na qual você implantou o Serviço de Sincronização de Armazenamento em [Implantar o Serviço de Sincronização de Armazenamento](#deploy-the-storage-sync-service).
+- **Conta de armazenamento**: se você selecionar **Selecionar conta de armazenamento**, outro painel aparece no qual você pode selecionar a conta de armazenamento que tenha o compartilhamento de arquivos do Azure que você deseja fazer a sincronização.
+- **Compartilhamento de Arquivo do Azure**: o nome do Compartilhamento de Arquivo do Azure com o qual você deseja sincronizar.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Para criar o grupo de sincronização, execute o PowerShell a seguir. Lembre-se de substituir `<my-sync-group>` com o nome desejado do grupo de sincronização.
@@ -414,11 +414,11 @@ Para adicionar um ponto de extremidade do servidor, vá até o grupo de sincroni
 
 No painel **Adicionar ponto de extremidade do servidor** , insira as informações a seguir para criar um ponto de extremidade do servidor:
 
-- **Servidor registrado** : o nome do servidor ou cluster em que você deseja criar o ponto de extremidade do servidor.
-- **Caminho** : o caminho do Windows Server a ser sincronizado como parte do grupo de sincronização.
-- **Nuvem em camadas** : uma opção para habilitar ou desabilitar a nuvem camadas. Com nuvem em camadas, arquivos raramente usados ou acessados de nuvem podem ter várias camada para arquivos do Azure.
-- **Espaço livre no volume** : a quantidade de espaço livre a ser reservada no volume no qual o ponto de extremidade do servidor está localizado. Por exemplo, se o espaço livre do volume estiver definido como 50% em um volume com um único ponto de extremidade do servidor, aproximadamente metade da quantidade de dados será disposta em camadas para os Arquivos do Azure. Independentemente de as camadas na nuvem estarem habilitadas, o Compartilhamento de Arquivos do Azure sempre terá uma cópia completa dos dados no Grupo de Sincronização.
-- **Modo de download inicial** : essa é uma seleção opcional, começando com o Agent versão 11, que pode ser útil quando há arquivos no compartilhamento de arquivos do Azure, mas não no servidor. Essa situação pode existir, por exemplo, se você criar um ponto de extremidade do servidor para adicionar outro servidor de filial a um grupo de sincronização ou quando você recuperar um servidor com falha de desastre. Se a disposição em camadas da nuvem estiver habilitada, o padrão será apenas recuperar o namespace, nenhum conteúdo de arquivo inicialmente. Isso é útil se você acredita que, em vez disso, as solicitações de acesso do usuário devem decidir qual conteúdo de arquivo é rechamado para o servidor. Se a disposição em camadas da nuvem estiver desabilitada, o padrão é que o namespace será baixado primeiro e, em seguida, os arquivos serão rechamados com base no carimbo de data/hora da última modificação até que a capacidade local tenha sido atingida. No entanto, você pode alterar o modo de download inicial somente para namespace. Um terceiro modo só poderá ser usado se a disposição em camadas da nuvem estiver desabilitada para este ponto de extremidade do servidor. Esse modo evita a rechamada do namespace primeiro. Os arquivos só serão exibidos no servidor local se tiverem a oportunidade de baixar totalmente. Esse modo será útil se, por exemplo, um aplicativo exigir que os arquivos completos estejam presentes e não puder tolerar arquivos em camadas no namespace.
+- **Servidor registrado**: o nome do servidor ou cluster em que você deseja criar o ponto de extremidade do servidor.
+- **Caminho**: o caminho do Windows Server a ser sincronizado como parte do grupo de sincronização.
+- **Nuvem em camadas**: uma opção para habilitar ou desabilitar a nuvem camadas. Com nuvem em camadas, arquivos raramente usados ou acessados de nuvem podem ter várias camada para arquivos do Azure.
+- **Espaço livre no volume**: a quantidade de espaço livre a ser reservada no volume no qual o ponto de extremidade do servidor está localizado. Por exemplo, se o espaço livre do volume estiver definido como 50% em um volume com um único ponto de extremidade do servidor, aproximadamente metade da quantidade de dados será disposta em camadas para os Arquivos do Azure. Independentemente de as camadas na nuvem estarem habilitadas, o Compartilhamento de Arquivos do Azure sempre terá uma cópia completa dos dados no Grupo de Sincronização.
+- **Modo de download inicial**: essa é uma seleção opcional, começando com o Agent versão 11, que pode ser útil quando há arquivos no compartilhamento de arquivos do Azure, mas não no servidor. Essa situação pode existir, por exemplo, se você criar um ponto de extremidade do servidor para adicionar outro servidor de filial a um grupo de sincronização ou quando você recuperar um servidor com falha de desastre. Se a disposição em camadas da nuvem estiver habilitada, o padrão será apenas recuperar o namespace, nenhum conteúdo de arquivo inicialmente. Isso é útil se você acredita que, em vez disso, as solicitações de acesso do usuário devem decidir qual conteúdo de arquivo é rechamado para o servidor. Se a disposição em camadas da nuvem estiver desabilitada, o padrão é que o namespace será baixado primeiro e, em seguida, os arquivos serão rechamados com base no carimbo de data/hora da última modificação até que a capacidade local tenha sido atingida. No entanto, você pode alterar o modo de download inicial somente para namespace. Um terceiro modo só poderá ser usado se a disposição em camadas da nuvem estiver desabilitada para este ponto de extremidade do servidor. Esse modo evita a rechamada do namespace primeiro. Os arquivos só serão exibidos no servidor local se tiverem a oportunidade de baixar totalmente. Esse modo será útil se, por exemplo, um aplicativo exigir que os arquivos completos estejam presentes e não puder tolerar arquivos em camadas no namespace.
 
 Para adicionar o ponto de extremidade do servidor, selecione **criar**. Os arquivos agora serão mantidos em sincronia entre o Compartilhamento de Arquivos do Azure e o Windows Server. 
 

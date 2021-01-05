@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, contêiner
-ms.openlocfilehash: b89d02107365872471f1dd5a7df07902b08f2031
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: a9eae2e547b347c88f8e745742ed34194c37a3b2
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006892"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862484"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar contêineres de Docker do OCR de leitura (versão prévia) 
 
@@ -50,9 +50,9 @@ Se você estiver usando contêineres de leitura 2,0 hoje, consulte o [Guia de mi
 
 Você deve atender aos seguintes pré-requisitos antes de usar os contêineres:
 
-|Obrigatório|Finalidade|
+|Necessária|Finalidade|
 |--|--|
-|Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
 |Pesquisa Visual Computacional recurso |Para usar o contêiner, você precisará ter:<br><br>Um recurso de **Pesquisa Visual computacional** do Azure e a chave de API associada do URI do ponto de extremidade. Ambos os valores estão disponíveis nas páginas visão geral e chaves para o recurso e são necessários para iniciar o contêiner.<br><br>**{Api_key}**: uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}**: o ponto de extremidade conforme fornecido na página **visão geral**|
 
@@ -92,7 +92,7 @@ As imagens de contêiner para leitura estão disponíveis.
 | Contêiner | Registro de contêiner/repositório/nome da imagem |
 |-----------|------------|
 | Leia 2,0-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Leia 3,2-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1` |
+| 3\.2-preview da Leitura | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1` |
 
 Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner.
 
@@ -389,10 +389,6 @@ Os contêineres de serviços cognitivas enviam informações de cobrança para o
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre essas opções, consulte [Configurar contêineres](./computer-vision-resource-container-config.md).
-
-<!--blogs/samples/video course -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumo
 

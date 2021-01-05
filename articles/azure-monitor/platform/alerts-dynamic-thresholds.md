@@ -4,13 +4,13 @@ description: Criar alertas com limites dinâmicos baseados em aprendizado de má
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 02/16/2020
-ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/04/2021
+ms.openlocfilehash: 92fafc9357ca08cd31c9ba7badbf7f6433f44f86
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012332"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862579"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métrica com limites dinâmicos no Azure Monitor
 
@@ -39,7 +39,7 @@ Os Limites Dinâmicos aprendem continuamente os dados da série de métrica e te
 Os limites são selecionados de modo que um desvio deles indique uma anomalia no comportamento da métrica.
 
 > [!NOTE]
-> A detecção de padrão sazonal é definida como um intervalo de hora, dia ou semana. Isso significa que outros padrões como padrão bihora ou semiweekly podem não ser detectados.
+> Os limites dinâmicos podem detectar sazonalidade por horas, diariamente ou por padrões semanais. Outros padrões, como sazonalidade de bi ou quinzenal, podem não ser detectados. Para detectar sazonalidade semanais, pelo menos três semanas de dados históricos são necessárias. 
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>O que a configuração de 'Sensibilidade' em Limites Dinâmicos significa?
 

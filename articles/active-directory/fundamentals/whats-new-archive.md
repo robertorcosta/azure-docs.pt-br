@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e1ae369560fcf8357e6016e1f7e2e438edd8c9
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: e90adcb5312df6e1dfe6d4b58407edeb924a8809
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803214"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862447"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar as Novidades no Azure Active Directory?
 
@@ -141,7 +141,7 @@ O serviço de provisionamento do Azure AD opera em um momento cíclico. O servi�
 **Categoria de serviço:** outro  
 **Funcionalidade do produto:** Gerenciamento de direitos
  
-Uma nova permissão delegada EntitlementManagement. Read. All agora está disponível para uso com a API de gerenciamento de direitos no Microsoft Graph beta. Para saber mais sobre as APIs disponíveis, consulte [trabalhando com a API de gerenciamento de direitos do Azure ad](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+Uma nova permissão delegada EntitlementManagement. Read. All agora está disponível para uso com a API de gerenciamento de direitos no Microsoft Graph beta. Para saber mais sobre as APIs disponíveis, consulte [trabalhando com a API de gerenciamento de direitos do Azure ad](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -339,7 +339,7 @@ Para listar seu aplicativo na Galeria de aplicativos do Azure AD, leia os detalh
 **Categoria de serviço:** Acesso condicional  
 **Funcionalidade do produto:** segurança e proteção da identidade
 
-O [modo somente de relatório para acesso condicional do Azure ad](../conditional-access/concept-conditional-access-report-only.md) permite avaliar o resultado de uma política sem impor controles de acesso. Você pode testar políticas somente de relatório em sua organização e entender seu impacto antes de habilitá-las, tornando a implantação mais segura e fácil. Nos últimos meses, vimos uma adoção forte do modo somente de relatório – em 26M, os usuários já estão no escopo de uma política somente de relatório. Com o comunicado hoje, as novas políticas de acesso condicional do Azure AD serão criadas no modo somente de relatório por padrão. Isso significa que você pode monitorar o impacto de suas políticas desde o momento em que elas são criadas. E para aqueles que usam as APIs do MS Graph, você também pode [gerenciar políticas somente de relatório de forma programática](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta) . 
+O [modo somente de relatório para acesso condicional do Azure ad](../conditional-access/concept-conditional-access-report-only.md) permite avaliar o resultado de uma política sem impor controles de acesso. Você pode testar políticas somente de relatório em sua organização e entender seu impacto antes de habilitá-las, tornando a implantação mais segura e fácil. Nos últimos meses, vimos uma adoção forte do modo somente de relatório – em 26M, os usuários já estão no escopo de uma política somente de relatório. Com o comunicado hoje, as novas políticas de acesso condicional do Azure AD serão criadas no modo somente de relatório por padrão. Isso significa que você pode monitorar o impacto de suas políticas desde o momento em que elas são criadas. E para aqueles que usam as APIs do MS Graph, você também pode [gerenciar políticas somente de relatório de forma programática](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true) . 
 
 ---
 
@@ -406,7 +406,7 @@ Agora você pode automatizar a criação, a atualização e a exclusão de conta
 * [Juno Journey](../saas-apps/juno-journey-provisioning-tutorial.md)
 * [MediusFlow](../saas-apps/mediusflow-provisioning-tutorial.md)
 * [New Relic por Organização](../saas-apps/new-relic-by-organization-provisioning-tutorial.md)
-* [Console da Infraestrutura de Nuvem da Oracle](../saas-apps/oracle-cloud-infratstructure-console-provisioning-tutorial.md)
+* [Console da Infraestrutura de Nuvem da Oracle](../saas-apps/oracle-cloud-infrastructure-console-provisioning-tutorial.md)
 
 Para obter mais informações para proteger melhor sua organização com o provisionamento automatizado de contas de usuário, consulte [Automatizar o provisionamento de usuário para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
 
@@ -546,7 +546,7 @@ Estamos expandindo o recurso de convite B2B para permitir que contas internas ex
 
 **Funcionalidade do produto:** segurança e proteção da identidade
 
-O [modo somente de relatório para acesso condicional do Azure ad](../conditional-access/concept-conditional-access-report-only.md) permite avaliar o resultado de uma política sem impor controles de acesso. Você pode testar políticas somente de relatório em sua organização e entender seu impacto antes de habilitá-las, tornando a implantação mais segura e fácil. Nos últimos meses, vimos uma adoção forte do modo somente de relatório, com 26M usuários já no escopo de uma política somente de relatório. Com este anúncio, as novas políticas de acesso condicional do Azure AD serão criadas no modo somente de relatório por padrão. Isso significa que você pode monitorar o impacto de suas políticas desde o momento em que elas são criadas. E para aqueles que usam as APIs do MS Graph, você também pode [gerenciar políticas somente de relatório programaticamente](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta). 
+O [modo somente de relatório para acesso condicional do Azure ad](../conditional-access/concept-conditional-access-report-only.md) permite avaliar o resultado de uma política sem impor controles de acesso. Você pode testar políticas somente de relatório em sua organização e entender seu impacto antes de habilitá-las, tornando a implantação mais segura e fácil. Nos últimos meses, vimos uma adoção forte do modo somente de relatório, com 26M usuários já no escopo de uma política somente de relatório. Com este anúncio, as novas políticas de acesso condicional do Azure AD serão criadas no modo somente de relatório por padrão. Isso significa que você pode monitorar o impacto de suas políticas desde o momento em que elas são criadas. E para aqueles que usam as APIs do MS Graph, você também pode [gerenciar políticas somente de relatório programaticamente](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true). 
 
 ---
 
@@ -598,7 +598,7 @@ Para obter mais informações sobre os aplicativos, consulte [integração de ap
 
 **Funcionalidade do produto:** experiência de desenvolvedor
 
-A consulta Delta para oAuth2PermissionGrant está disponível para visualização pública! Agora você pode controlar as alterações sem precisar sondar continuamente Microsoft Graph. [Saiba mais.](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta)
+A consulta Delta para oAuth2PermissionGrant está disponível para visualização pública! Agora você pode controlar as alterações sem precisar sondar continuamente Microsoft Graph. [Saiba mais.](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta&preserve-view=true)
 
 ---
 
@@ -632,7 +632,7 @@ A consulta Delta para aplicativos está geralmente disponível! Agora você pode
 
 **Categoria de serviço:** MS Graph
 
-**Funcionalidade do produto:** A consulta Delta de experiência do desenvolvedor para unidades administrativas está disponível para visualização pública! Agora você pode controlar as alterações sem precisar sondar continuamente Microsoft Graph. [Saiba mais.](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta)
+**Funcionalidade do produto:** A consulta Delta de experiência do desenvolvedor para unidades administrativas está disponível para visualização pública! Agora você pode controlar as alterações sem precisar sondar continuamente Microsoft Graph. [Saiba mais.](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta&preserve-view=true)
 
 ---
 
@@ -650,7 +650,7 @@ Essas APIs são uma ferramenta importante para gerenciar os métodos de autentic
 - Redefinir a senha de um usuário
 - Ligar e desligar o SMS-Sign-in
 
-Para obter mais informações, consulte [visão geral da API dos métodos de autenticação do Azure ad](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Para obter mais informações, consulte [visão geral da API dos métodos de autenticação do Azure ad](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -1424,7 +1424,7 @@ Para obter mais informações sobre como usar definições de função específi
 
 **Tipo:** Plano para alteração **Categoria de serviço:** Identity Protection **Capacidade do produto:** Segurança de identidade e proteção
 
-Em resposta aos comentários do desenvolvedor, os assinantes P2 do Azure AD Premium podem agora executar consultas complexas nos dados de detecção de risco do Azure AD Identity Protection ao usar nova API riskDetection do Microsoft Graph. A versão beta da API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) deixará de retornar dados por volta de **10 de janeiro de 2020**. Se sua organização estiver usando a API identityRiskEvent, você deverá fazer a transição para a nova API riskDetection.
+Em resposta aos comentários do desenvolvedor, os assinantes P2 do Azure AD Premium podem agora executar consultas complexas nos dados de detecção de risco do Azure AD Identity Protection ao usar nova API riskDetection do Microsoft Graph. A versão beta da API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) deixará de retornar dados por volta de **10 de janeiro de 2020**. Se sua organização estiver usando a API identityRiskEvent, você deverá fazer a transição para a nova API riskDetection.
 
 Para obter mais informações sobre a nova API riskDetection, consulte a [documentação de referência da API de detecção de risco](/graph/api/resources/riskdetection).
 
@@ -2144,7 +2144,7 @@ Para obter mais informações sobre essas atualizações, consulte [Filtrar log 
 
 Temos o prazer de anunciar que a nova API riskDetections para Microsoft Graph está em visualização pública. Você pode usar essa nova API para exibir uma lista dos usuários relacionados à proteção de identidade e as detecções de risco de entrada da sua organização. Você também pode usar essa API para consultar com mais eficiência suas detecções de risco, incluindo detalhes sobre o tipo de detecção, status, nível e muito mais.
 
-Para obter mais informações, consulte [Documentação de referência da API de detecção de risco](/graph/api/resources/riskdetection?view=graph-rest-beta).
+Para obter mais informações, consulte [Documentação de referência da API de detecção de risco](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -2292,7 +2292,7 @@ Para obter mais informações, consulte [Plataforma de identidade da Microsoft](
 
 Temos o prazer de anunciar que agora você pode usar a API de Usuários suspeitos para recuperar o histórico de riscos dos usuários, ignorar usuários suspeitos e confirmar os usuários como comprometidos. Essa alteração ajuda a atualizar com mais eficiência o status de risco de seus usuários e a entender seu histórico de riscos.
 
-Para obter mais informações, consulte [Documentação de referência da API de Usuário Suspeitos](/graph/api/resources/riskyuser?view=graph-rest-beta).
+Para obter mais informações, consulte [Documentação de referência da API de Usuário Suspeitos](/graph/api/resources/riskyuser?view=graph-rest-beta&preserve-view=true).
 
 ---
 

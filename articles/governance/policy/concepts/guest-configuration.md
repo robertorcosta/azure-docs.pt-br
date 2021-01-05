@@ -1,14 +1,14 @@
 ---
 title: Aprenda a auditar o conteúdo de máquinas virtuais
-description: Saiba como o Azure Policy usa o agente de Configuração de Convidado para auditar as configurações dentro de máquinas virtuais.
+description: Saiba como Azure Policy usa o cliente de configuração de convidado para auditar as configurações nas máquinas virtuais.
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7d7aa14038c834747240d17441c61d000ac6bb74
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 58fe1c630de4abfb2fe04ddedb45b360cfebd423
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347873"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862326"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -58,7 +58,7 @@ O cliente de Configuração Convidado verifica o novo conteúdo a cada 5 minutos
 
 ## <a name="supported-client-types"></a>Tipos de clientes com suporte
 
-As definições de política de configuração de convidado são inclusivas de novas versões. As versões mais antigas dos sistemas operacionais disponíveis no Azure Marketplace serão excluídas se o agente de configuração do convidado não for compatível. A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imagens do Azure:
+As definições de política de configuração de convidado são inclusivas de novas versões. As versões mais antigas dos sistemas operacionais disponíveis no Azure Marketplace serão excluídas se o cliente de configuração de convidado não for compatível. A tabela a seguir mostra uma lista de sistemas operacionais compatíveis em imagens do Azure:
 
 |Publicador|Nome|Versões|
 |-|-|-|
