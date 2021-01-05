@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 12/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895716"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803911"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Executar uma restauração pontual em dados de blob de blocos
 
@@ -23,7 +23,7 @@ Você pode usar a restauração pontual para restaurar um ou mais conjuntos de b
 Para saber mais sobre a restauração pontual, consulte [restauração pontual para BLOBs de blocos](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> A restauração pontual dá suporte a operações de restauração somente em blobs de blocos. Não é possível restaurar operações em contêineres. Se você excluir um contêiner da conta de armazenamento chamando a operação [excluir contêiner](/rest/api/storageservices/delete-container) , esse contêiner não poderá ser restaurado com uma operação de restauração. Em vez de excluir um contêiner, exclua BLOBs individuais se você quiser restaurá-los.
+> A restauração pontual dá suporte a operações de restauração somente em blobs de blocos. Não é possível restaurar operações em contêineres. Se você excluir um contêiner da conta de armazenamento chamando a operação [excluir contêiner](/rest/api/storageservices/delete-container) , esse contêiner não poderá ser restaurado com uma operação de restauração. Em vez de excluir um contêiner inteiro, exclua BLOBs individuais se você quiser restaurá-los mais tarde.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Habilitar e configurar a restauração pontual
 
@@ -44,7 +44,7 @@ Para configurar a restauração pontual com o portal do Azure, siga estas etapas
 1. Em **configurações**, escolha **proteção de dados**.
 1. Selecione **ativar a restauração pontual** . Quando você seleciona essa opção, a exclusão reversível para BLOBs, controle de versão e feed de alteração também são habilitadas.
 1. Defina o ponto de restauração máximo para a restauração pontual, em dias. Esse número deve ser pelo menos um dia menor que o período de retenção especificado para exclusão reversível do blob.
-1. Salve suas alterações.
+1. Salve as alterações.
 
 A imagem a seguir mostra uma conta de armazenamento configurada para a restauração pontual com um ponto de restauração de sete dias atrás e um período de retenção para exclusão reversível de blob de 14 dias.
 
@@ -107,6 +107,8 @@ Somente os blobs de blocos são restaurados. Blobs de páginas e blobs de acrés
 > Ao executar uma operação de restauração, o armazenamento do Azure bloqueia operações de dados nos BLOBs nos intervalos que estão sendo restaurados durante a operação. As operações de leitura, gravação e exclusão são bloqueadas no local principal. Por esse motivo, as operações como os contêineres de listagem no portal do Azure podem não ser executadas conforme o esperado enquanto a operação de restauração está em andamento.
 >
 > As operações de leitura do local secundário podem continuar durante a operação de restauração se a conta de armazenamento for replicada geograficamente.
+>
+> O tempo necessário para restaurar um conjunto de dados é baseado no número de operações de gravação e exclusão feitas durante o período de restauração. Por exemplo, uma conta com 1 milhão objetos com 3.000 objetos adicionados por dia e 1.000 objetos excluídos por dia exigirá aproximadamente duas horas para restaurar para um ponto de 30 dias no passado. Um período de retenção e uma restauração mais de 90 dias no passado não seriam recomendados para uma conta com essa taxa de alteração.
 
 ### <a name="restore-all-containers-in-the-account"></a>Restaurar todos os contêineres na conta
 

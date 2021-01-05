@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 90831c0e8d5ab73f65dc801319a357d59799cbc6
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522321"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97807545"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Solucionar problemas de conectividade do ponto de extremidade privado do Azure
 
@@ -100,8 +100,24 @@ Examine essas etapas para verificar se todas as configurações usuais estão co
     
        ![Regras de saída do NSG](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
+1. A máquina virtual de origem deve ter a rota para o IP do ponto de extremidade privado próximo salto como InterfaceEndpoints nas rotas efetivas da NIC. 
+
+    a. Se você não conseguir ver a rota do ponto de extremidade privado na VM de origem, verifique se 
+     - A VM de origem e o ponto de extremidade privado pertencem à mesma VNET. Em caso afirmativo, você precisará entrar em contato com o suporte. 
+     - A VM de origem e o ponto de extremidade privado fazem parte de VNETs diferentes e, em seguida, verificam a conectividade de IP entre o VNETS. Se houver conectividade IP e ainda não for possível ver a rota, envolva o suporte. 
+
 1. Se a conexão tiver resultados validados, o problema de conectividade poderá estar relacionado a outros aspectos, como segredos, tokens e senhas na camada de aplicativo.
-   - Nesse caso, examine a configuração do recurso de link privado associado ao ponto de extremidade privado. Para obter mais informações, consulte o [Guia de solução de problemas do link privado do Azure](troubleshoot-private-link-connectivity.md).
+   - Nesse caso, examine a configuração do recurso de link privado associado ao ponto de extremidade privado. Para obter mais informações, consulte o [Guia de solução de problemas do link privado do Azure](troubleshoot-private-link-connectivity.md)
+   
+1. É sempre bom restringir antes de gerar o tíquete de suporte. 
+
+    a. Se a fonte for local conectando-se ao ponto de extremidade privado no Azure com problemas, tente se conectar 
+      - Para outra máquina virtual local e verifique se você tem conectividade IP com a rede virtual do local. 
+      - De uma máquina virtual na rede virtual para o ponto de extremidade privado.
+      
+    b. Se a origem for Azure e o ponto de extremidade privado estiver em uma rede virtual diferente, tente se conectar 
+      - Para o ponto de extremidade privado de uma fonte diferente. Fazendo isso, você pode isolar qualquer problema específico da máquina virtual. 
+      - Para qualquer máquina virtual que faz parte da mesma rede virtual do ponto de extremidade privado.  
 
 1. Entre em contato com a equipe de [suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se seu problema ainda não estiver resolvido e um problema de conectividade ainda existir.
 

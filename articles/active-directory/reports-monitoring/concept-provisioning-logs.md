@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/07/2020
+ms.date: 12/28/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2408db2d91740350405f11e2a1250ab9b3a4fe31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181196"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803520"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -44,6 +44,7 @@ Este tópico fornece uma visão geral do relatório de provisionamento.
 ### <a name="who-can-access-the-data"></a>Quem pode acessar os dados?
 * Os proprietários do aplicativo podem exibir os logs dos aplicativos que eles possuem
 * Usuários das funções administrador de segurança, leitor de segurança, leitor de relatórios, administrador de aplicativos e administrador de aplicativos de nuvem
+* Usuários em uma função personalizada com a [permissão provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
 * Administradores globais
 
 
@@ -56,12 +57,12 @@ Seu locatário deve ter uma licença de Azure AD Premium associada a ele para ve
 Os logs de provisionamento fornecem respostas para as seguintes perguntas:
 
 * Quais grupos foram criados com êxito no ServiceNow?
-* Quais funções foram importadas do Amazon Web Services?
+* Quais usuários foram removidos com êxito da Adobe?
 * Quais usuários não foram criados com êxito no DropBox?
 
 Você pode acessar os logs de provisionamento selecionando **logs de provisionamento** na seção **monitoramento** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registros de provisionamento sejam exibidos no Portal.
 
-![Logs de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisionando logs")
+![Provisionando logs](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisionando logs")
 
 
 Um log de provisionamento tem uma exibição de lista padrão que mostra:
@@ -119,7 +120,7 @@ Ao selecionar um período de tempo personalizado, você pode configurar uma data
 
 O filtro **Status** permite que você selecione:
 
-- Todos
+- Tudo
 - Sucesso
 - Falha
 - Ignorado
@@ -129,7 +130,7 @@ O filtro **Status** permite que você selecione:
 O filtro de **ação** permite filtrar o:
 
 - Criar 
-- Atualizar
+- Atualização
 - Excluir
 - Desabilitar
 - Outro
@@ -176,7 +177,7 @@ Os detalhes são agrupados com base nas seguintes categorias:
 - Resumo
 
 
-![Detalhes de provisionamento](./media/concept-provisioning-logs/provisioning-tabs.png "Guias")
+![Detalhes de provisionamento](./media/concept-provisioning-logs/provisioning-tabs.png "Tabulações")
 
 
 
@@ -219,7 +220,9 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 
 - Você pode ver eventos ignorados para usuários que não estão no escopo. Isso é esperado, especialmente quando o escopo de sincronização é definido como todos os usuários e grupos. Nosso serviço avaliará todos os objetos no locatário, mesmo aqueles que estão fora do escopo. 
 
-- Os logs de provisionamento não estão disponíveis no momento na nuvem governamental. Se não for possível acessar os logs de provisionamento, use os logs de auditoria como uma solução alternativa temporária.  
+- Os logs de provisionamento não estão disponíveis no momento na nuvem governamental. Se não for possível acessar os logs de provisionamento, use os logs de auditoria como uma solução alternativa temporária. 
+
+- Os logs de provisionamento não mostram importações de função (aplica-se a AWS, SalesForce e ZenDesk). Os logs para importações de função podem ser encontrados nos logs de auditoria. 
 
 ## <a name="error-codes"></a>Códigos de erro
 

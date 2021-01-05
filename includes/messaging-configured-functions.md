@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 5070d1dc19995b635ebff6b98fec07e2b7d9fc70
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9cc19548f0b969421974afe3e274fc5334590cb0
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97663570"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805598"
 ---
 O Azure Functions permite a criação de tarefas de replicação somente de configuração que proenxutom em um ponto de entrada predefinido. Os [exemplos de replicação baseada em configuração para Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) ilustram como aproveitar os [auxiliares pré-criados](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) em seu próprio código ou evitar manipular completamente o código e apenas usar a configuração.
 
@@ -218,9 +218,9 @@ A tabela a seguir fornece os valores corretos para combinações de origens e de
 
 ### <a name="retry-policy"></a>Política de Repetição
 
-Consulte a [documentação do Azure Functions em repetições](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) para configurar a política de repetição. As configurações de política escolhidas em todos os projetos neste repositório configuram uma estratégia de retirada exponencial com intervalos de repetição de 5 segundos a 5 minutos com tentativas infinitas para evitar a perda de dados.
+Consulte a [documentação do Azure Functions em repetições](/azure/azure-functions/functions-bindings-error-pages) para configurar a política de repetição. As configurações de política escolhidas em todos os projetos neste repositório configuram uma estratégia de retirada exponencial com intervalos de repetição de 5 segundos a 5 minutos com tentativas infinitas para evitar a perda de dados.
 
-Para o barramento de serviço, examine a seção ["usando o suporte de repetição na parte superior da resiliência do gatilho"](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) para entender a interação de gatilhos e a contagem máxima de entrega definida para a fila.
+Para o barramento de serviço, examine a seção ["usando o suporte de repetição na parte superior da resiliência do gatilho"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) para entender a interação de gatilhos e a contagem máxima de entrega definida para a fila.
 
 ### <a name="build-deploy-and-configure"></a>Criar, implantar e configurar
 

@@ -4,12 +4,12 @@ description: Este artigo fornece uma visão geral da Federação de vários site
 ms.topic: article
 ms.date: 12/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 02057d505308902d780e20e095bc248d1eaa1a74
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7deb6fe04241225f1f97a204cc62b4aefad9f440
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657324"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97804030"
 ---
 # <a name="multi-site-and-multi-region-federation"></a>Federação de vários sites e várias regiões
 
@@ -148,9 +148,9 @@ A implementação dos padrões acima requer um ambiente de execução escalonáv
 
 Para aplicativos de replicação com estado que precisam considerar relações entre eventos, criar eventos compostos, enriquecer eventos ou reduzir eventos, criar agregações de dados e transformar cargas de evento, [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) é a melhor opção de implementação.
 
-No Azure Stream Analytics, você [cria trabalhos](../stream-analytics/stream-analytics-quick-create-portal.md) que integram [entradas](../stream-analytics/stream-analytics-add-inputs.md) e [saídas](../stream-analytics/stream-analytics-define-outputs.md) e integram os dados das entradas por meio de [consultas](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) que produzem um resultado que é disponibilizado nas saídas.
+No Azure Stream Analytics, você [cria trabalhos](../stream-analytics/stream-analytics-quick-create-portal.md) que integram [entradas](../stream-analytics/stream-analytics-add-inputs.md) e [saídas](../stream-analytics/stream-analytics-define-outputs.md) e integram os dados das entradas por meio de [consultas](/stream-analytics-query/stream-analytics-query-language-reference) que produzem um resultado que é disponibilizado nas saídas.
 
-As consultas são baseadas na [linguagem de consulta SQL](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md) e podem ser usadas para filtrar, classificar, agregar e unir dados de streaming com facilidade em um período de tempo. Você também pode estender essa linguagem SQL com [](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) as [UDFs (funções definidas pelo usuário) do JavaScript e do C#](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md). Você pode ajustar com facilidade as opções de ordenação de eventos e a duração das janelas de tempo ao executar operações de agregação por meio de simples configurações e/ou constructos de linguagem.
+As consultas são baseadas na [linguagem de consulta SQL](/stream-analytics-query/stream-analytics-query-language-reference) e podem ser usadas para filtrar, classificar, agregar e unir dados de streaming com facilidade em um período de tempo. Você também pode estender essa linguagem SQL com [](../stream-analytics/stream-analytics-javascript-user-defined-functions.md) as [UDFs (funções definidas pelo usuário) do JavaScript e do C#](../stream-analytics/stream-analytics-edge-csharp-udf-methods.md). Você pode ajustar com facilidade as opções de ordenação de eventos e a duração das janelas de tempo ao executar operações de agregação por meio de simples configurações e/ou constructos de linguagem.
 
 Cada trabalho tem uma ou várias saídas para os dados transformados, e você pode controlar o que acontece em resposta às informações analisadas. Por exemplo, você pode:
 

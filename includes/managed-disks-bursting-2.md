@@ -1,6 +1,6 @@
 ---
-title: arquivo de inclusão
-description: arquivo de inclusão
+title: incluir arquivo
+description: incluir arquivo
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: cc0dd5e76227c0814659b74afc2ac46c8ca4de73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51cd242eb26709464aa502938cd04807aea721
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102435"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805650"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os cenários a seguir podem se beneficiar muito da intermitência:
@@ -47,7 +47,7 @@ Os exemplos a seguir mostram como a intermitência funciona com várias combina�
     - MB/s provisionados: 25
     - Máximo de MB/s de intermitência: 170 
 - 2 discos de dados P10 
-    - MB/s provisionados: 25
+    - MB/s provisionados: 100
     - Máximo de MB/s de intermitência: 170
 
  Quando a VM for inicializada, ela recuperará os dados do disco do sistema operacional. Como o disco do sistema operacional faz parte de uma VM que está sendo iniciada, o disco do sistema operacional estará cheio de créditos de intermitência. Esses créditos permitirão que o disco do so estoure sua inicialização em 170 MB/s segundo, conforme mostrado abaixo:

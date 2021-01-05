@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: thvankra
-ms.openlocfilehash: f5f2cb5ac8c354df38310cdcb47b98e1da5b6cfa
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: c969e4fac3ae30088cfe47a7b0edff22c578cb8b
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97521809"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802347"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Solucionar problemas comuns no Azure Cosmos DB API do Cassandra
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -28,7 +28,7 @@ Este artigo descreve os erros comuns e as soluções para aplicativos que consom
 | Com sobrecarregamentoexception (Java) | O número total de unidades de solicitação consumidas é maior do que as unidades de solicitação provisionadas na tabela ou no espaço de keyspace. Portanto, as solicitações são limitadas. | Considere dimensionar a taxa de transferência atribuída a um keyspace ou uma tabela do portal do Azure (consulte [aqui](manage-scale-cassandra.md) para operações de dimensionamento no API do Cassandra) ou você pode implementar uma política de repetição. Para Java, consulte amostras de repetição para [Driver v3. x](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) e [Driver v4. x](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4). Consulte também [extensões do Cassandra do Azure Cosmos para Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) |
 | Sobreloadedexception (Java) mesmo com taxa de transferência suficiente | O sistema parece estar limitando as solicitações, apesar da taxa de transferência suficiente ser provisionada para o volume de solicitação e/ou o custo da unidade de solicitação consumida  | API do Cassandra implementa um orçamento de taxa de transferência do sistema para operações de nível de esquema (CREATE TABLE, ALTER TABLE, DROP TABLE). Esse orçamento deve ser suficiente para operações de esquema em um sistema de produção. No entanto, se você tiver um grande número de operações de nível de esquema, é possível que você esteja excedendo esse limite. Como esse orçamento não é controlado pelo usuário, você precisará considerar reduzir o número de operações de esquema que estão sendo executadas. Se a execução dessa ação não resolver o problema, ou não for viável para sua carga de trabalho, [crie uma solicitação de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md).|
 | ClosedConnectionException (Java) | Após um período de tempo ocioso após as conexões bem-sucedidas, o aplicativo não consegue se conectar| Esse erro pode ser devido ao tempo limite de ociosidade dos balanceadores do Azure, que é de 4 minutos. Defina a configuração Keep Alive no driver (veja abaixo) e aumente as configurações Keep-Alive no sistema operacional ou [ajuste o tempo limite de ociosidade no Azure Load Balancer](../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). |
-| Outros erros de conectividade intermitente (Java) | A conexão cai ou expira inesperadamente | Os drivers do Apache Cassandra para Java fornecem duas políticas de reconexão nativas: `ExponentialReconnectionPolicy` e `ConstantReconnectionPolicy` . O padrão é `ExponentialReconnectionPolicy`. No entanto, para Azure Cosmos DB API do Cassandra, é recomendável ter `ConstantReconnectionPolicy` um atraso de 2 segundos. Consulte a [documentação do driver](https://docs.datastax.com/developer/java-driver/4.9/manual/core/reconnection/)  para o driver Java v4. x e [Veja aqui](https://docs.datastax.com/developer/java-driver/3.7/manual/reconnection/) as diretrizes do Java 3. x (consulte também os exemplos abaixo).|
+| Outros erros de conectividade intermitente (Java) | A conexão cai ou expira inesperadamente | Os drivers do Apache Cassandra para Java fornecem duas políticas de reconexão nativas: `ExponentialReconnectionPolicy` e `ConstantReconnectionPolicy` . O padrão é `ExponentialReconnectionPolicy`. No entanto, para Azure Cosmos DB API do Cassandra, é recomendável ter `ConstantReconnectionPolicy` um atraso de 2 segundos. Consulte a [documentação do driver](https://docs.datastax.com/en/developer/java-driver/4.9/manual/core/reconnection/)  para o driver Java v4. x e [Veja aqui](https://docs.datastax.com/en/developer/java-driver/3.7/manual/reconnection/) as diretrizes do Java 3. x (consulte também os exemplos abaixo).|
 
 Se o seu erro não estiver listado acima, e você estiver recebendo um erro ao executar uma [operação com suporte no API do Cassandra](cassandra-support.md), em que o erro *não está presente ao usar o Apache Cassandra nativo*, [crie uma solicitação de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bc6b7553d240de05404d24f828a5f7db14772f93
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 279a00a6146d756e6a518dbf86b88f471d170b3a
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657332"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97805592"
 ---
 ## <a name="what-is-a-replication-task"></a>O que é uma tarefa de replicação?
 
@@ -22,11 +22,11 @@ A maioria das tarefas de replicação encaminhará eventos inalterados e, no má
 
 As tarefas de replicação geralmente são sem estado, o que significa que elas não compartilham o estado ou outros efeitos colaterais em execuções sequenciais ou paralelas de uma tarefa. Isso também é verdadeiro para envio em lote e encadeamento, que pode ser implementado na parte superior do estado existente de um fluxo. 
 
-Isso torna as tarefas de replicação diferentes das tarefas de agregação, que geralmente são monitoradas, e são o domínio de estruturas e serviços de análise, como [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction.md).
+Isso torna as tarefas de replicação diferentes das tarefas de agregação, que geralmente são monitoradas, e são o domínio de estruturas e serviços de análise, como [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
 
 ## <a name="replication-applications-and-tasks-in-azure-functions"></a>Aplicativos e tarefas de replicação no Azure Functions
 
-No Azure Functions, uma tarefa de replicação é implementada usando um [gatilho](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md) que adquire uma ou mais mensagens de entrada de uma fonte configurada e uma [Associação de saída](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings.md#binding-direction) que encaminha as mensagens copiadas da origem para um destino configurado. 
+No Azure Functions, uma tarefa de replicação é implementada usando um [gatilho](/azure/azure-functions/functions-triggers-bindings) que adquire uma ou mais mensagens de entrada de uma fonte configurada e uma [Associação de saída](/azure/azure-functions/functions-triggers-bindings#binding-direction) que encaminha as mensagens copiadas da origem para um destino configurado. 
 
 | Gatilho  | Saída |
 |----------|--------|
@@ -57,17 +57,17 @@ Para tarefas de replicação simples que copiam mensagens entre hubs de eventos 
 
 ### <a name="retry-policy"></a>Política de Repetição
 
-Para evitar a perda de dados durante o evento de disponibilidade em qualquer um dos lados de uma função de replicação, você precisa configurar a política de repetição para ser robusta. Consulte a [documentação do Azure Functions em repetições](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md) para configurar a política de repetição. 
+Para evitar a perda de dados durante o evento de disponibilidade em qualquer um dos lados de uma função de replicação, você precisa configurar a política de repetição para ser robusta. Consulte a [documentação do Azure Functions em repetições](/azure/azure-functions/functions-bindings-error-pages) para configurar a política de repetição. 
 
 As configurações de política escolhidas para os projetos de exemplo no [repositório de exemplo](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) configuram uma estratégia de retirada exponencial com intervalos de repetição de 5 segundos a 15 minutos com tentativas infinitas para evitar a perda de dados. 
 
-Para o barramento de serviço, examine a seção ["usando o suporte de repetição na parte superior da resiliência do gatilho"](https://docs.microsoft.com/azure/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) para entender a interação de gatilhos e a contagem máxima de entrega definida para a fila.
+Para o barramento de serviço, examine a seção ["usando o suporte de repetição na parte superior da resiliência do gatilho"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) para entender a interação de gatilhos e a contagem máxima de entrega definida para a fila.
 
 ### <a name="setting-up-a-replication-application-host"></a>Configurando um host de aplicativo de replicação
 
 Um aplicativo de replicação é um host de execução para uma ou mais tarefas de replicação. 
 
-É um aplicativo Azure Functions configurado para ser executado no plano de consumo ou (recomendado) em um plano Azure Functions Premium. Todos os aplicativos de replicação devem ser executados sob uma [identidade gerenciada atribuída pelo usuário ou pelo sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity.md). 
+É um aplicativo Azure Functions configurado para ser executado no plano de consumo ou (recomendado) em um plano Azure Functions Premium. Todos os aplicativos de replicação devem ser executados sob uma [identidade gerenciada atribuída pelo usuário ou pelo sistema](/azure/app-service/overview-managed-identity). 
 
 Os modelos do ARM (Azure Resource Manager vinculados) criam e configuram um aplicativo de replicação com:
 
@@ -137,7 +137,7 @@ Para obter informações de diagnóstico imediatos, você pode trabalhar com a f
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Implantações de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies.md)
-* [Diagnóstico de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-diagnostics.md)
-* [Opções de rede Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options.md)
-* [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview.md)
+* [Implantações de Azure Functions](/azure/azure-functions/functions-deployment-technologies)
+* [Diagnóstico de Azure Functions](/azure/azure-functions/functions-diagnostics)
+* [Opções de rede Azure Functions](/azure/azure-functions/functions-networking-options)
+* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)

@@ -9,12 +9,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: f559c87a5c3285bf966f9389d623b2262e93cbca
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: bf357dcc9c4790632a1131278edc41c13ac810b1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425806"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802602"
 ---
 # <a name="client-application-registration"></a>Registro de aplicativo cliente
 No tutorial anterior, você implantou e configurou sua API do Azure para FHIR. Agora que você tem a configuração da API do Azure para FHIR, vamos registrar um aplicativo cliente público. Você pode ler todo o guia de instruções passo a passo para [registrar um aplicativo cliente público](register-public-azure-ad-client-app.md) para obter mais detalhes ou solução de problemas, mas nós apresentamos as principais etapas para este tutorial abaixo.
@@ -22,7 +22,7 @@ No tutorial anterior, você implantou e configurou sua API do Azure para FHIR. A
 1. Navegue para o Azure Active Directory
 1. Selecione **Registro de Aplicativo** --> **Novo Registro**
 1. Nomeie seu aplicativo
-1. Selecione **Cliente público/nativo (móvel e área de trabalho)** e defina o URI de redirecionamento como https://www.getpostman.com/oauth2/callback.
+1. Selecione **Cliente público/nativo (móvel e área de trabalho)** e defina o URI de redirecionamento como `https://www.getpostman.com/oauth2/callback`.
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Captura de tela do painel Registrar um aplicativo e um exemplo de nome de aplicativo e URL de redirecionamento.":::
 
@@ -36,7 +36,7 @@ Depois que o aplicativo cliente for registrado, copie a ID do Aplicativo (client
 
 Se você [escreveu seu aplicativo Web](tutorial-web-app-write-web-app.md) para se conectar à API do Azure para FHIR, também precisa definir as opções de autenticação corretas. 
 
-1. No menu à esquerda, em **Gerenciar** , selecione **Autenticação**. 
+1. No menu à esquerda, em **Gerenciar**, selecione **Autenticação**. 
 
 1. Para adicionar uma nova configuração de plataforma, selecione **Web**.
 
@@ -51,7 +51,7 @@ Se você [escreveu seu aplicativo Web](tutorial-web-app-write-web-app.md) para s
 Agora que você configurou a autenticação correta, defina as permissões de API:
 
 1. Selecione **Permissões de API** e clique em **Adicionar uma permissão**.
-1. Em **APIs que a minha organização usa** , procure as APIs de Serviços de Saúde do Azure.
+1. Em **APIs que a minha organização usa**, procure as APIs de Serviços de Saúde do Azure.
 1. Selecione **user_impersonation** e clique em **Adicionar permissões**.
 
 :::image type="content" source="media/tutorial-web-app/api-permissions.png" alt-text="Captura de tela da folha Adicionar permissões de API, com as etapas para adicionar permissões de API realçadas.":::

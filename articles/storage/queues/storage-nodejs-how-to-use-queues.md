@@ -4,17 +4,17 @@ description: Aprenda a usar o armazenamento de filas do Azure para criar e exclu
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 08/31/2020
+ms.date: 12/21/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: ebae3c8850947f3b6cbde6f2ebd8bfbd45b2fbb4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12ae05e10cdf0fa9a5f0725acaa1784eedc3612c
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592170"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803673"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Como usar o armazenamento de filas do Azure de Node.js
 
@@ -350,4 +350,4 @@ Para limpar todas as mensagens de uma fila sem excluí-las, chame `clearMessages
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
 - Visite o [blog da equipe de armazenamento do Azure](https://techcommunity.Microsoft.com/t5/Azure-storage/bg-p/azurestorageblog) para saber o que há de novo
-- Visite o repositório [biblioteca de cliente do armazenamento do Azure para JavaScript](https://github.com/Azure/Azure-SDK-for-js/tree/master/SDK/storage#Azure-storage-client-library-for-JavaScript) no github
+- Visite o repositório [biblioteca de cliente do armazenamento do Azure para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#Azure-storage-client-library-for-JavaScript) no github

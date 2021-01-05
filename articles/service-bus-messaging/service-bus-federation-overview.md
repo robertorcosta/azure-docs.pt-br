@@ -3,14 +3,14 @@ title: Replicação de mensagens e Federação entre regiões-barramento de serv
 description: Este artigo fornece uma visão geral da replicação de eventos e da Federação entre regiões com o barramento de serviço do Azure.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 32d8c9112eeb2f71e7f2c8dcd6f8f73da2dc1ca9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d5153820feab8b7901356838ec435d992aa82116
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657333"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803265"
 ---
-# <a name="message-replication-and-cross-region-federation"></a>Replicação de mensagens e Federação entre regiões
+# <a name="message-replication-and-cross-region-federation"></a>Replicação de mensagem e federação entre regiões
 
 Em namespaces, o barramento de serviço do Azure dá suporte à [criação de topologias de filas encadeadas e assinaturas de tópico usando o encaminhamento](service-bus-auto-forwarding.md) automático para permitir a implementação de vários padrões de roteamento. Por exemplo, você pode fornecer aos parceiros as filas dedicadas às quais eles têm permissões de envio ou recebimento e que podem ser temporariamente suspensos, se necessário, e conectá-los com flexibilidade a outras entidades que são privadas para o aplicativo. Você também pode criar topologias de roteamento de várias etapas complexas ou pode criar filas de estilo de caixa de correio, que esgotam as assinaturas de tópicos do tipo fila e permitem mais capacidade de armazenamento por assinante. 
 
@@ -150,7 +150,7 @@ Azure Functions pode ser executado em uma [identidade gerenciada do Azure](../ac
 
 Além disso, o Azure Functions permite que as tarefas de replicação sejam integradas diretamente às redes virtuais do Azure e aos [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para todos os serviços de mensagens do Azure e estão prontamente integradas ao [Azure monitor](../azure-monitor/overview.md).
 
-O mais importante é que Azure Functions tem gatilhos pré-criados e escaláveis e associações de saída para [hubs de eventos do Azure](../azure-functions/functions-bindings-service-bus.md), [Hub IOT do](../azure-functions/functions-bindings-event-iot.md)Azure, [barramento de serviço do Azure](../azure-functions/functions-bindings-service-bus.md), [grade de eventos](../azure-functions/functions-bindings-event-grid.md)do Azure e armazenamento de [filas do Azure](/azure-functions/functions-bindings-storage-queue.md), extensões personalizadas para [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)e [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). A maioria dos gatilhos se adaptará dinamicamente às necessidades de taxa de transferência, dimensionando o número de instâncias em execução simultaneamente com base em métricas documentadas. 
+O mais importante é que Azure Functions tem gatilhos pré-criados e escaláveis e associações de saída para [hubs de eventos do Azure](../azure-functions/functions-bindings-service-bus.md), [Hub IOT do](../azure-functions/functions-bindings-event-iot.md)Azure, [barramento de serviço do Azure](../azure-functions/functions-bindings-service-bus.md), [grade de eventos](../azure-functions/functions-bindings-event-grid.md)do Azure e armazenamento de [filas do Azure](/azure/azure-functions/functions-bindings-storage-queue), extensões personalizadas para [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)e [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). A maioria dos gatilhos se adaptará dinamicamente às necessidades de taxa de transferência, dimensionando o número de instâncias em execução simultaneamente com base em métricas documentadas. 
 
 Com o plano de consumo de Azure Functions, os gatilhos pré-criados podem até mesmo reduzir para zero, enquanto nenhuma mensagem está disponível para replicação, o que significa que você não incorrerá nenhum custo para manter a configuração pronta para escalar o backup. A principal desvantagem de usar o plano de consumo é que a latência das tarefas de replicação "Ativando" desse Estado é significativamente maior do que com os planos de hospedagem em que a infraestrutura é mantida em execução.  
 
@@ -165,6 +165,6 @@ Em seguida, talvez você queira ler como configurar um aplicativo replicador com
 - [Aplicativos de replicação no Azure Functions](service-bus-federation-replicator-functions.md)
 - [Replicando eventos entre entidades do barramento de serviço](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopy)
 - [Eventos de roteamento para hubs de eventos do Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub)
-- [Adquirir eventos dos hubs de eventos do Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubsCopyToServiceBus)
+- [Adquirir eventos dos hubs de eventos do Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
 
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif 

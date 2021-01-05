@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: d73bfd19a4135d09e9e19fcbcfedd50dbc1f7067
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 86d7b1a6d361ebbc0d8419d184f9a11d390a37f1
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632544"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803180"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Dicas e truques para usar Aplicativo Azure ferramenta de instantâneo consistente (versão prévia)
 
@@ -132,7 +132,7 @@ Um instantâneo do volume de armazenamento pode ser restaurado para um novo volu
 
 Um instantâneo pode ser copiado de volta para a área de dados SAP HANA, mas SAP HANA não deve estar em execução quando uma cópia é feita ( `cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T113043.1586971Z/*` ).
 
-Para a instância grande do Azure, você pode entrar em contato com a equipe de operações da Microsoft abrindo uma solicitação de serviço para restaurar um instantâneo desejado dos instantâneos disponíveis existentes. Você pode abrir uma solicitação de serviço do portal do Azure: <https://portal.azure.com.>
+Para a instância grande do Azure, você pode entrar em contato com a equipe de operações da Microsoft abrindo uma solicitação de serviço para restaurar um instantâneo desejado dos instantâneos disponíveis existentes. Você pode abrir uma solicitação de serviço do portal do Azure: <https://portal.azure.com>
 
 Se você decidir executar o failover de recuperação de desastre, o `azacsnap -c restore --restore revertvolume` comando no site de Dr disponibilizará automaticamente os instantâneos de volume mais recentes ( `/hana/data` e `/hana/logbackups` ) para permitir uma recuperação SAP Hana. Use esse comando com cuidado, pois ele interrompe a replicação entre os sites de produção e de DR.
 
@@ -249,7 +249,7 @@ Um instantâneo de ' inicialização ' pode ser recuperado da seguinte maneira:
 
 1. O cliente precisará desligar o servidor.
 1. Depois que o servidor for desligado, o cliente precisará abrir uma solicitação de serviço que contenha a ID da máquina e o instantâneo a ser restaurado.
-    > Os clientes podem abrir uma solicitação de serviço do portal do Azure: <https://portal.azure.com.>
+    > Os clientes podem abrir uma solicitação de serviço do portal do Azure: <https://portal.azure.com>
 1. A Microsoft irá restaurar o LUN do sistema operacional usando a ID de máquina e o instantâneo especificados e, em seguida, inicializar o servidor.
 1. O cliente precisará confirmar se o servidor está inicializado e íntegro.
 

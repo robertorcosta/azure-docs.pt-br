@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 16659eafccd4c15e37ef8a6d16a3765d0afdbc3e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ae279c117172f116641c7c908b9fc53f26ceaa90
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960636"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802296"
 ---
 # <a name="linux-support"></a>Suporte para Linux
 
@@ -21,11 +21,11 @@ Você pode acessar os recursos da área de trabalho virtual do Windows de seus d
 
 Os parceiros a seguir aprovaram clientes de área de trabalho virtual do Windows para dispositivos Linux.
 
-|Parceiro|Documentação do parceiro|Suporte a parceiros|
+|Partner (parceiro)|Documentação do parceiro|Suporte a parceiros|
 |:------|:--------------------|:--------------|
 |![Logotipo do IGEL](./media/partners/igel.png)|[Documentação do cliente do IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Suporte do IGEL](https://www.igel.com/support/)|
 |![Logotipo do NComputing](./media/partners/ncomputing.png)|[Documentação do cliente do NComputing](https://www.ncomputing.com/microsoft)|[Suporte do NComputing](https://www.ncomputing.com/support/support-options)|
-|![Logotipo do Stratodesk](./media/partners/stratodesk.png)|[Documentação do cliente do Stratodesk](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Suporte do Stratodesk](https://www.stratodesk.com/support-3/)|
+|![Logotipo do Stratodesk](./media/partners/stratodesk.png)|[Documentação do cliente do Stratodesk](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Suporte do Stratodesk](https://www.stratodesk.com/support/)|
 
 ## <a name="next-steps"></a>Próximas etapas
 

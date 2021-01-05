@@ -10,12 +10,13 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 3c5a04bd14bdcbf250908db78c622b963f191d91
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+adobe-target: true
+ms.openlocfilehash: b54df350e3f59720a92d7c1e74e28d9fcafddf94
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333062"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802466"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo do Azure
 
@@ -78,11 +79,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Na opção **Assinatura** , selecione o `Subscription` apropriado inserindo a impressão do número no início da linha.
-1. Quando confrontado com a opção **Aplicativo Web** , aceite a opção padrão `<create>` pressionando Enter ou selecione um aplicativo existente.
-1. Quando confrontado com a opção **SO** , selecione **Windows** inserindo `3`.
-1. Quando confrontado com a opção **Tipo de preço** , selecione **B2** inserindo `2`.
-1. Use a versão do Java padrão, **Java 8** , pressionando Enter.
+1. Na opção **Assinatura**, selecione o `Subscription` apropriado inserindo a impressão do número no início da linha.
+1. Quando confrontado com a opção **Aplicativo Web**, aceite a opção padrão `<create>` pressionando Enter ou selecione um aplicativo existente.
+1. Quando confrontado com a opção **SO**, selecione **Windows** inserindo `3`.
+1. Quando confrontado com a opção **Tipo de preço**, selecione **B2** inserindo `2`.
+1. Use a versão do Java padrão, **Java 8**, pressionando Enter.
 1. Por fim, pressione Enter no último prompt para confirmar suas seleções.
 
     A saída resumida será semelhante ao snippet mostrado abaixo.
@@ -110,12 +111,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Na opção **Assinatura** , selecione o `Subscription` apropriado inserindo a impressão do número no início da linha.
-1. Quando confrontado com a opção **Aplicativo Web** , aceite a opção padrão `<create>` pressionando Enter ou selecione um aplicativo existente.
-1. Quando confrontado com a opção **SO** , selecione **Windows** inserindo `3`.
-1. Quando confrontado com a opção **Tipo de preço** , selecione **B2** inserindo `2`.
-1. Use a versão do Java padrão, **Java 8** , pressionando Enter.
-1. Use o contêiner da Web padrão, **Tomcat 8.5** , pressionando Enter.
+1. Na opção **Assinatura**, selecione o `Subscription` apropriado inserindo a impressão do número no início da linha.
+1. Quando confrontado com a opção **Aplicativo Web**, aceite a opção padrão `<create>` pressionando Enter ou selecione um aplicativo existente.
+1. Quando confrontado com a opção **SO**, selecione **Windows** inserindo `3`.
+1. Quando confrontado com a opção **Tipo de preço**, selecione **B2** inserindo `2`.
+1. Use a versão do Java padrão, **Java 8**, pressionando Enter.
+1. Use o contêiner da Web padrão, **Tomcat 8.5**, pressionando Enter.
 1. Por fim, pressione Enter no último prompt para confirmar suas seleções.
 
     A saída resumida será semelhante ao snippet mostrado abaixo.
@@ -148,11 +149,11 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 ### <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. Na opção **Assinatura** , selecione o `Subscription` apropriado inserindo a impressão do número no início da linha.
-1. Quando confrontado com a opção **Aplicativo Web** , aceite a opção padrão `<create>` pressionando Enter ou selecione um aplicativo existente.
-1. Quando confrontado com a opção **SO** , selecione **Linux** pressionando Enter.
-1. Quando confrontado com a opção **Tipo de preço** , selecione **B2** inserindo `2`.
-1. Use a versão do Java padrão, **Java 8** , pressionando Enter.
+1. Na opção **Assinatura**, selecione o `Subscription` apropriado inserindo a impressão do número no início da linha.
+1. Quando confrontado com a opção **Aplicativo Web**, aceite a opção padrão `<create>` pressionando Enter ou selecione um aplicativo existente.
+1. Quando confrontado com a opção **SO**, selecione **Linux** pressionando Enter.
+1. Quando confrontado com a opção **Tipo de preço**, selecione **B2** inserindo `2`.
+1. Use a versão do Java padrão, **Java 8**, pressionando Enter.
 1. Por fim, pressione Enter no último prompt para confirmar suas seleções.
 
     ```
@@ -177,12 +178,12 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 ### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. Na opção **Assinatura** , selecione o `Subscription` apropriado inserindo a impressão do número no início da linha.
-1. Quando confrontado com a opção **Aplicativo Web** , aceite a opção padrão `<create>` pressionando Enter ou selecione um aplicativo existente.
-1. Quando confrontado com a opção **SO** , selecione **Linux** pressionando Enter.
-1. Quando confrontado com a opção **Tipo de preço** , selecione **B2** inserindo `2`.
-1. Use a versão do Java padrão, **Java 8** , pressionando Enter.
-1. Use o contêiner da Web padrão, **Tomcat 8.5** , pressionando Enter.
+1. Na opção **Assinatura**, selecione o `Subscription` apropriado inserindo a impressão do número no início da linha.
+1. Quando confrontado com a opção **Aplicativo Web**, aceite a opção padrão `<create>` pressionando Enter ou selecione um aplicativo existente.
+1. Quando confrontado com a opção **SO**, selecione **Linux** pressionando Enter.
+1. Quando confrontado com a opção **Tipo de preço**, selecione **B2** inserindo `2`.
+1. Use a versão do Java padrão, **Java 8**, pressionando Enter.
+1. Use o contêiner da Web padrão, **Tomcat 8.5**, pressionando Enter.
 1. Por fim, pressione Enter no último prompt para confirmar suas seleções.
 
     ```
@@ -217,7 +218,7 @@ Propriedade | Obrigatório | Descrição | Versão
 `<subscriptionId>` | false | Especifique a ID de assinatura. | 0.1.0+
 `<resourceGroup>` | true | Grupo de recursos do Azure para seu aplicativo Web. | 0.1.0+
 `<appName>` | true | O nome do seu aplicativo Web. | 0.1.0+
-`<region>` | true | Especifica a região onde seu aplicativo Web será hospedado; o valor padrão é **westeurope**. Todas as regiões válidas na seção [Regiões com suporte](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
+`<region>` | true | Especifica a região onde seu aplicativo Web será hospedado; o valor padrão é **westeurope**. Todas as regiões válidas na seção [Regiões com suporte](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md). | 0.1.0+
 `<pricingTier>` | false | O tipo de preço do seu aplicativo Web. O valor padrão é **P1V2** para a carga de trabalho de produção, enquanto **B2** é o mínimo recomendado para o ambiente de desenvolvimento/teste do Java. [Saiba mais](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | A configuração do ambiente de runtime. Você pode ver os detalhes [aqui](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | true | A configuração de implantação. Você pode ver os detalhes [aqui](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
