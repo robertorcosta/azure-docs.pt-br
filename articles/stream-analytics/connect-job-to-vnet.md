@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 01/04/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: a2d26689a3036f05d7c8e7f417fbbb447402aedc
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: f140384ee2c78b38982c99dab5912bc451584a42
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762853"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898140"
 ---
 # <a name="connect-stream-analytics-jobs-to-resources-in-an-azure-virtual-network-vnet"></a>Conectar Stream Analytics trabalhos a recursos em uma VNet (rede virtual) do Azure
 
@@ -41,7 +41,7 @@ Seus trabalhos podem se conectar aos seguintes serviços do Azure usando essa t�
 1. [Armazenamento de BLOBs ou Azure data Lake Storage Gen2](https://docs.microsoft.com/azure/stream-analytics/blob-output-managed-identity) -pode ser a conta de armazenamento do seu trabalho, transmitir entrada ou saída.
 2. [Hubs de eventos do Azure](https://docs.microsoft.com/azure/stream-analytics/event-hubs-managed-identity) – pode ser a entrada ou saída de streaming de seu trabalho.
 
-Se os trabalhos precisarem se conectar a outros tipos de entrada ou saída, a única opção é usar pontos de extremidade privados em clusters Stream Analytics.
+Se os trabalhos precisarem se conectar a outros tipos de entrada ou de saída, você poderá gravar de Stream Analytics para a saída dos hubs de eventos primeiro e, em seguida, para qualquer destino de sua escolha usando Azure Functions. Se você quiser gravar diretamente de Stream Analytics em outros tipos de saída protegidos em uma VNet ou em um firewall, a única opção será usar pontos de extremidade privados em clusters Stream Analytics.
 
 ## <a name="next-steps"></a>Próximas etapas
 

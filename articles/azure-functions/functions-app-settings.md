@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505879"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898718"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -49,7 +49,7 @@ Por padrão, os [proxies do Functions](functions-proxies.md) usam um atalho para
 |Chave|Valor|Descrição|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com uma URL de back-end apontando para uma função no aplicativo de função local não serão enviadas diretamente para a função. Em vez disso, as solicitações são direcionadas de volta para o front-end HTTP para o aplicativo de funções.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Este é o valor padrão. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Chamadas com uma URL de back-end apontando para uma função no aplicativo de funções local são encaminhadas diretamente para a função. Esse é o valor padrão. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -186,6 +186,14 @@ Especifica o número máximo de processos de trabalho de idioma, com um valor pa
 |---|------------|
 |\_contagem de \_ processos de trabalho do Functions \_|2|
 
+## <a name="python_threadpool_thread_count"></a>\_contagem de \_ threads de THREADPOOL do Python \_
+
+Especifica o número máximo de threads que um trabalho do Python Language usaria para executar invocações de função, com um valor padrão de `1` para a versão do Python `3.8` e abaixo. Para a versão do Python `3.9` e superior, o valor é definido como `None` . Observe que essa configuração não garante o número de threads que seriam definidos durante as execuções. A configuração permite que o Python expanda o número de threads para o valor especificado. A configuração se aplica somente a aplicativos do Python functions. Além disso, a configuração se aplica à invocação de funções síncronas e não a corrotinas.
+
+|Chave|Valor de exemplo|Valor máximo|
+|---|------------|---------|
+|\_contagem de \_ threads de THREADPOOL do Python \_|2|32|
+
 
 ## <a name="functions_worker_runtime"></a>FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO
 
@@ -277,7 +285,7 @@ Os valores válidos são `1` ou uma URL que resolve para o local de um arquivo d
 
 Permite que você defina o fuso horário para seu aplicativo de funções. 
 
-|Chave|SO|Valor de exemplo|
+|Chave|Sistema operacional|Valor de exemplo|
 |---|--|------------|
 |\_fuso horário do site \_|Windows|Hora oficial do leste|
 |\_fuso horário do site \_|Linux|América/New_York|
