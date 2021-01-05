@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018113"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97724690"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitoramento e alertas para Azure Key Vault
 
@@ -40,7 +40,7 @@ Depois de começar a usar o Key Vault para armazenar seus segredos de produção
 
 **Saturação do cofre** – o número de solicitações por segundo que um cofre de chaves pode atender é baseado no tipo de operação que está sendo executada. Algumas operações de cofre têm um limite menor de solicitações por segundo. Essa métrica agrega o uso total de seu cofre de chaves em todos os tipos de operação para surgir com um valor percentual que indica o uso atual do cofre de chaves. Para obter uma lista completa dos limites de serviço do cofre de chaves, consulte o documento a seguir. [Limites de serviços do Azure Key Vault](service-limits.md)
 
-**Latência da API de serviço** – essa métrica mostra a latência média de uma chamada para o cofre de chaves. Embora o cofre de chaves possa estar dentro dos limites de serviço, uma alta utilização do cofre de chaves pode introduzir latência que faz com que os aplicativos falhem. 
+**Latência da API de serviço** – essa métrica mostra a latência média de chamadas para o Key Vault, medida no serviço. Ele não inclui o tempo consumido pelo cliente ou pela rede entre o cliente e o serviço.
 
 **Total de acertos da API** -essa métrica mostra todas as chamadas feitas ao cofre de chaves. Isso ajudará a identificar quais aplicativos estão chamando o cofre de chaves. 
 

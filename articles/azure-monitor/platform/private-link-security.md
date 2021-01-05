@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: a85619b4947808ba1c13df3c1543102eea7273fd
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: e8d0dcae81944d5799841c22093585b942934b79
+ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853911"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97732097"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor
 
@@ -215,9 +215,9 @@ Essa restrição de acesso se aplica apenas aos dados no recurso Application Ins
 
 ## <a name="use-apis-and-command-line"></a>Usar APIs e linha de comando
 
-Você pode automatizar o processo descrito anteriormente usando modelos do Azure Resource Manager e interfaces de linha de comando.
+Você pode automatizar o processo descrito anteriormente usando modelos de Azure Resource Manager, REST e interfaces de linha de comando.
 
-Para criar e gerenciar escopos de link privado, use [az monitor private-link-scope](/cli/azure/monitor/private-link-scope?view=azure-cli-latest). Com esse comando, você pode criar escopos, associar workpaces do Log Analytics e componentes do Application Insights e adicionar/remover/aprovar pontos de extremidade privados.
+Para criar e gerenciar escopos de link privado, use a [API REST](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) ou [CLI do Azure (AZ monitor privado-link-Scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 Para gerenciar o acesso à rede, use os sinalizadores `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` nos [Workspaces do Log Analytics](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou [Componentes do Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 

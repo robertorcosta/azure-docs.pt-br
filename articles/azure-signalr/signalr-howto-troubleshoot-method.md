@@ -1,17 +1,17 @@
 ---
 title: Prática de solução de problemas para o serviço de sinalizador do Azure
 description: Saiba como solucionar problemas de conectividade e entrega de mensagens
-author: YanJin
+author: yjin81
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
-ms.openlocfilehash: 413bb88deac96c1ca12e8a9d25fc9cd16edf4616
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2e22777b747ae24c3e643cbd43bfdb0604d453a2
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183950"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707649"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>Como solucionar problemas de conectividade e entrega de mensagens
 
@@ -28,6 +28,8 @@ Primeiro, você precisa verificar a portal do Azure qual [servicemode](./concept
 * Para o `Classic` modo, consulte [solução de problemas do modo clássico](#classic_mode_tsg)
 
 <a name="default_mode_tsg"></a>
+
+[Está tendo problemas ou comentários sobre a solução de problemas? Informe-nos.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="default-mode-troubleshooting"></a>Solução de problemas do modo padrão
 
@@ -73,6 +75,7 @@ Os s de *conexão do servidor* podem ser descartados devido à instabilidade da 
 
 Exiba o rastreamento de rede do lado do servidor para descobrir o código de status e detalhes do erro por que a *conexão do servidor* cai ou foi rejeitada pelo *serviço* e procure a causa raiz no guia de [solução de problemas](./signalr-howto-troubleshoot-guide.md).
 
+[Está tendo problemas ou comentários sobre a solução de problemas? Informe-nos.](https://aka.ms/asrs/survey/troubleshooting)
 
 ### <a name="how-to-add-logs"></a>Como adicionar logs
 
@@ -166,6 +169,8 @@ Você também pode [habilitar os logs de diagnóstico](./signalr-howto-diagnosti
 
 <a name="serverless_mode_tsg"></a>
 
+[Está tendo problemas ou comentários sobre a solução de problemas? Informe-nos.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="serverless-mode-troubleshooting"></a>Solução de problemas do modo sem servidor
 
 Quando o **ASRS** está no modo sem *servidor* , somente **ASP.NET Core signalr** dá suporte ao `Serverless` modo e o **signalr ASP.net** **não dá** suporte a esse modo.
@@ -174,11 +179,15 @@ Para diagnosticar problemas de conectividade no `Serverless` modo, a maneira mai
 
 <a name="classic_mode_tsg"></a>
 
+[Está tendo problemas ou comentários sobre a solução de problemas? Informe-nos.](https://aka.ms/asrs/survey/troubleshooting)
+
 ## <a name="classic-mode-troubleshooting"></a>Solução de problemas do modo clássico
 
 `Classic` o modo está obsoleto e não é incentivado a usar. Quando nesse modo, o serviço de Signalr do Azure usa as *conexões do servidor* conectado para determinar se o serviço atual está no `default` modo ou no `serverless` modo. Isso pode levar a alguns problemas de conectividade de cliente intermediários porque, quando há uma queda repentina de toda a *conexão de servidor* conectada, por exemplo, devido à instabilidade da rede, o Signaler do Azure acredita que agora ele está alternado para `serverless` o modo e os clientes conectados durante esse período nunca serão roteados para o servidor de aplicativos hospedado. Habilite [os logs do lado do serviço](#add_logs_server) e verifique se há clientes registrados como `ServerlessModeEntered` se você tiver o servidor de aplicativos hospedado, mas alguns clientes nunca alcançarão o lado do servidor de aplicativos. Se houver, [anule essas conexões de cliente](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md#API) e permita que os clientes reiniciem pode ajudar.
 
 Problemas `classic` de conectividade do modo de solução de problemas e de entrega de mensagens são semelhantes à solução de problemas do [modo padrão](#default_mode_tsg).
+
+[Está tendo problemas ou comentários sobre a solução de problemas? Informe-nos.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="service-health"></a>Integridade do serviço
 
@@ -188,13 +197,15 @@ Você pode verificar a integridade da API de integridade do serviço.
 
 * Código de status de resposta:
   * 200: íntegro.
-  * 503: seu serviço não está íntegro. Você pode:
+  * 503: seu serviço não está íntegro. Você poderá:
     * Aguarde alguns minutos para a recuperação automática.
     * Verifique se o endereço IP é o mesmo que o IP do Portal.
     * Ou reinicie a instância.
     * Se todas as opções acima não funcionarem, entre em contato conosco adicionando nova solicitação de suporte no portal do Azure.
 
 Mais sobre a [recuperação de desastres](./signalr-concept-disaster-recovery.md).
+
+[Está tendo problemas ou comentários sobre a solução de problemas? Informe-nos.](https://aka.ms/asrs/survey/troubleshooting)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 4425fdf488665ad555c73c59682041cb23a9ca66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3fca8e74112b90b3cac70adaa955bbf242999705
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447320"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739579"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerenciar espaços de trabalho do Azure Machine Learning 
 
@@ -31,6 +31,8 @@ Conforme suas necessidades mudam ou os requisitos para aumentar a automação, v
 ## <a name="limitations"></a>Limitações
 
 [!INCLUDE [register-namespace](../../includes/machine-learning-register-namespace.md)]
+
+Por padrão, a criação de um espaço de trabalho também cria um ACR (registro de contêiner do Azure).  Como o ACR atualmente não dá suporte a caracteres Unicode em nomes de grupos de recursos, use um grupo de recursos que não contenha esses caracteres.
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 
@@ -132,8 +134,8 @@ Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a auten
    Campo|Descrição 
    ---|---
    Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do workspace não diferencia maiúsculas de minúsculas.
-   Subscription |Selecione a assinatura do Azure que você deseja usar.
-   Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
+   Assinatura |Selecione a assinatura do Azure que você deseja usar.
+   Grupo de recursos | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
    Região | Selecione a região do Azure mais próxima aos usuários e aos recursos de dados para criar seu espaço de trabalho.
    | Conta de armazenamento | A conta de armazenamento padrão para o espaço de trabalho. Por padrão, um novo é criado. |
    | Key Vault | O Azure Key Vault usado pelo espaço de trabalho. Por padrão, um novo é criado. |
@@ -154,6 +156,8 @@ Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a auten
  1. Para exibir o novo workspace, selecione **Ir para o recurso**.
  
 ---
+
+
 
 ### <a name="networking"></a>Rede  
 
@@ -368,6 +372,16 @@ Na [portal do Azure](https://portal.azure.com/), selecione **excluir**  na parte
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## <a name="troubleshooting"></a>Solução de problemas
+
+* **Navegadores com suporte no Azure Machine Learning Studio**: Recomendamos que você use o navegador mais atualizado que é compatível com seu sistema operacional. Há suporte para os seguintes navegadores:
+  * Microsoft Edge (o novo Microsoft Edge, versão mais recente. Não é herdado do Microsoft Edge)
+  * Safari (última versão, apenas Mac)
+  * Chrome (última versão)
+  * Firefox (última versão)
+
+* **Portal do Azure**: 
+  * Se você ir diretamente para seu espaço de trabalho de um link de compartilhamento do SDK ou do portal do Azure, não será possível exibir a página de **visão geral** padrão que tem informações de assinatura na extensão. Nesse cenário, você também não pode alternar para outro espaço de trabalho. Para exibir outro espaço de trabalho, vá diretamente para [Azure Machine Learning Studio](https://ml.azure.com) e pesquise o nome do espaço de trabalho.
+  * Todos os ativos (conjuntos de valores, testes, computações e assim por diante) estão disponíveis apenas no [Azure Machine Learning Studio](https://ml.azure.com). Eles *não* estão disponíveis na portal do Azure.
 
 ### <a name="resource-provider-errors"></a>Erros do provedor de recursos
 

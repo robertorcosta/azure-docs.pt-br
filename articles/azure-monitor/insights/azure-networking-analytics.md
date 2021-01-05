@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: c304354f378708c43c25ef8b92b7b80b37ac03af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 19370eee9d9fa524de9beeaa85a15521580bd8e6
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563102"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707683"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento de rede do Azure no Azure Monitor
 
@@ -104,6 +104,21 @@ A guia "Exibir métricas detalhadas" abrirá a pasta de trabalho preenchida prev
 
 [![Captura de tela da pasta de trabalho do gateway de aplicativo](media/azure-networking-analytics/azure-appgw-workbook.png)](media/azure-networking-analytics/application-gateway-workbook.png#lightbox)
 
+### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Novos recursos com Azure Monitor pasta de trabalho do insights de rede
+
+> [!NOTE]
+> Não há custos adicionais associados à pasta de trabalho do insights Azure Monitor. Log Analytics espaço de trabalho continuará sendo cobrado de acordo com o uso.
+
+A pasta de trabalho de informações de rede permite que você aproveite os recursos mais recentes de Azure Monitor e Log Analytics incluindo:
+
+* Console centralizado para monitoramento e solução de problemas com dados de [métrica](../insights/network-insights-overview.md#resource-health-and-metrics) e de log.
+
+* Tela flexível para dar suporte à criação de [visualizações](../platform/workbooks-overview.md#visualizations)avançadas personalizadas.
+
+* Capacidade de consumir e [compartilhar modelos de pasta de trabalho](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) com uma comunidade maior.
+
+Para obter mais informações sobre os recursos da nova pasta de trabalho check-out de pastas de trabalho [-visão geral](../platform/workbooks-overview.md)
+
 ## <a name="migrating-from-azure-gateway-analytics-solution-to-azure-monitor-workbooks"></a>Migrando da solução de análise de gateway do Azure para Azure Monitor pastas de trabalho
 
 > [!NOTE]
@@ -119,21 +134,6 @@ A guia "Exibir métricas detalhadas" abrirá a pasta de trabalho preenchida prev
 3. Depois que você conseguir ver todas as suas métricas e informações de log, para limpar a solução de análise de gateway do Azure do seu espaço de trabalho, você pode excluir a solução da página de recursos da solução.
 
 [![Captura de tela da opção de exclusão para aplicativo Azure solução de análise de gateway.](media/azure-networking-analytics/azure-appgw-analytics-delete.png)](media/azure-networking-analytics/application-gateway-analytics-delete.png#lightbox)
-
-### <a name="new-capabilities-with-azure-monitor-network-insights-workbook"></a>Novos recursos com Azure Monitor pasta de trabalho do insights de rede
-
-> [!NOTE]
-> Não há custos adicionais associados à pasta de trabalho do insights Azure Monitor. Log Analytics espaço de trabalho continuará sendo cobrado de acordo com o uso.
-
-A pasta de trabalho de informações de rede permite que você aproveite os recursos mais recentes de Azure Monitor e Log Analytics incluindo:
-
-* Console centralizado para monitoramento e solução de problemas com dados de [métrica](../insights/network-insights-overview.md#resource-health-and-metrics) e de log.
-
-* Tela flexível para dar suporte à criação de [visualizações](../platform/workbooks-overview.md#visualizations)avançadas personalizadas.
-
-* Capacidade de consumir e [compartilhar modelos de pasta de trabalho](../platform/workbooks-overview.md#workbooks-versus-workbook-templates) com uma comunidade maior.
-
-Para obter mais informações sobre os recursos da nova pasta de trabalho check-out de pastas de trabalho [-visão geral](../platform/workbooks-overview.md)
 
 ## <a name="azure-network-security-group-analytics-solution-in-azure-monitor"></a>Solução de análise de Grupo de Segurança de Rede do Azure no Azure Monitor
 

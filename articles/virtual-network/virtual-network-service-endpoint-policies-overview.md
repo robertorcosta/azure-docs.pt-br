@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 14ecb30af11bf750c90e45c3fb6b443d861a1445
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400748"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739290"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas de ponto de extremidade de serviço de rede virtual para o Armazenamento do Azure
 
@@ -122,7 +122,7 @@ As redes virtuais e as contas de armazenamento do Azure podem estar na mesma ass
 - Redes virtuais devem estar na mesma região que a política de ponto de extremidade de serviço.
 - Só será possível aplicar política de ponto de extremidade de serviço em uma sub-rede se os pontos de extremidade de serviço estiverem configurados para os serviços do Azure listados na política.
 - Você não pode usar políticas de ponto de extremidade de serviço para o tráfego da sua rede local para serviços do Azure.
-- Atualmente, os serviços gerenciados do Azure não dão suporte a políticas de ponto de extremidade. Isso inclui serviços gerenciados implantados nas sub-redes compartilhadas (por exemplo, *Azure HDInsight, lote do Azure, Azure ADDS, gateway de aplicativo Azure, gateway de VPN do Azure, firewall do Azure*) ou em sub-redes dedicadas (por exemplo *, ambiente do serviço de aplicativo do Azure, cache Redis do Azure, gerenciamento de API do Azure, mi SQL do Azure, serviços gerenciados clássicos*).
+- Atualmente, os serviços gerenciados do Azure não dão suporte a políticas de ponto de extremidade. Isso inclui serviços gerenciados implantados nas sub-redes compartilhadas (por exemplo, *lote do Azure, Azure ADDS, gateway de aplicativo Azure, gateway de VPN do Azure, firewall do Azure*) ou em sub-redes dedicadas (por exemplo *, ambiente do serviço de aplicativo do Azure, cache Redis do Azure, gerenciamento de API do Azure, mi SQL do Azure, serviços gerenciados clássicos*).
 
  > [!WARNING]
  > Serviços do Azure implantados em sua rede virtual, como Azure HDInsight, acessam outros serviços do Azure, como Armazenamento do Azure, para requisitos de infraestrutura. Restringir a política de ponto de extremidade a recursos específicos pode interromper o acesso a esses recursos de infraestrutura para serviços do Azure implantados em sua rede virtual.

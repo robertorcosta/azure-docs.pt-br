@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 12/16/2020
 ms.custom: generated
-ms.openlocfilehash: c9638ce3509ba181e9f716b3bb427128e50c80ac
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9318ea9d811f2fd490ed6e796b9719c5c482d513
+ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652884"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97707632"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
@@ -4651,13 +4651,13 @@ Serviço do Azure: [Power bi Embedded](/azure/power-bi-embedded/)
 > | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.PowerBIDedicated/register/action | Registra o provedor de recursos dedicado do Power BI. |
-> | Microsoft.PowerBIDedicated/capacities/read | Recuperar as informações da Capacidade Dedicada especificada do Power BI. |
-> | Microsoft.PowerBIDedicated/capacities/write | Criar ou atualizar a capacidade dedicada especificada do Power BI. |
-> | Microsoft.PowerBIDedicated/capacities/delete | Excluir a capacidade dedicada do Power BI. |
+> | Microsoft.PowerBIDedicated/capacities/read | Recupera as informações da capacidade de Power BI especificada. |
+> | Microsoft.PowerBIDedicated/capacities/write | Cria ou atualiza a capacidade de Power BI especificada. |
+> | Microsoft.PowerBIDedicated/capacities/delete | Exclui a capacidade de Power BI. |
 > | Microsoft.PowerBIDedicated/capacities/suspend/action | Suspende a Capacidade. |
 > | Microsoft.PowerBIDedicated/capacities/resume/action | Retoma a Capacidade. |
 > | Microsoft.PowerBIDedicated/capacities/skus/read | Recuperar informações de SKU disponíveis para a Capacidade |
-> | Microsoft. PowerBIDedicated/Locations/checkNameAvailability/Action | Verificar se o nome da capacidade dedicada do Power BI é válido e não está em uso. |
+> | Microsoft. PowerBIDedicated/Locations/checkNameAvailability/Action | Verifica se o nome da capacidade de Power BI fornecido é válido e não está em uso. |
 > | Microsoft.PowerBIDedicated/locations/operationresults/read | Recuperar as informações do resultado da operação especificada. |
 > | Microsoft.PowerBIDedicated/locations/operationstatuses/read | Recuperar as informações do status da operação especificada. |
 > | Microsoft.PowerBIDedicated/operations/read | Recuperar as informações das operações |
@@ -7066,7 +7066,7 @@ Serviço do Azure: [DevOps do Azure](/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Exclui o Projeto |
 > | Microsoft.VisualStudio/Project/Read | Lê o Projeto |
 
-## <a name="migrate"></a>Migrações
+## <a name="migrate"></a>Migrar
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 

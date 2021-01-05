@@ -1,25 +1,25 @@
 ---
-title: Depurar & solucionar problemas de pipelines de ML
+title: Solução de problemas de pipelines de ML
 titleSuffix: Azure Machine Learning
-description: Depure seus pipelines de Azure Machine Learning no Python. Aprenda armadilhas e dicas comuns para ajudar a depurar seus scripts antes e durante a execução remota.
+description: Como solucionar problemas ao obter erros ao executar um pipeline do Machine Learning. Armadilhas e dicas comuns para ajudar a depurar seus scripts antes e durante a execução remota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: lobrien
 ms.author: laobri
 ms.date: 10/22/2020
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: a150a0745911a70fc71db6b9c05fe6610cd960bf
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9baf305ab72354c150cb06e594ed8909f2fa1dda
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033248"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739307"
 ---
-# <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
+# <a name="troubleshooting-machine-learning-pipelines"></a>Solucionando problemas de pipelines do Machine Learning
 
-Neste artigo, você aprenderá a depurar e solucionar problemas de [pipelines do Machine Learning](concept-ml-pipelines.md) no [SDK Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) e no [Designer de Azure Machine Learning](./concept-designer.md). 
+Neste artigo, você aprenderá a solucionar problemas ao obter erros ao executar um [pipeline do Machine Learning](concept-ml-pipelines.md) no [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) e no designer de [Azure Machine Learning](./concept-designer.md). 
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
@@ -34,112 +34,19 @@ A tabela a seguir contém problemas comuns durante o desenvolvimento de pipeline
 | O pipeline está sendo executado desnecessariamente | Para garantir que as etapas sejam executadas somente quando seus dados ou scripts subjacentes forem alterados, desassocie os diretórios de código-fonte para cada etapa. Se você usar o mesmo diretório de origem para várias etapas, poderá ocorrer uma reexecutação desnecessária. Use o `source_directory` parâmetro em um objeto Step de pipeline para apontar para seu diretório isolado para essa etapa e verifique se você não está usando o mesmo `source_directory` caminho para várias etapas. |
 | Etapa reduzindo as épocas de treinamento ou outro comportamento de looping | Tente alternar qualquer gravação de arquivo, incluindo registro em log, de `as_mount()` para `as_upload()` . O modo de **montagem** usa um sistema de arquivos virtualizado remoto e carrega todo o arquivo cada vez que é anexado. |
 
-## <a name="troubleshooting-parallelrunstep"></a>Solução `ParallelRunStep` 
+### <a name="authentication-errors"></a>Erros de autenticação
 
-O script para um `ParallelRunStep` *deve conter* duas funções:
-- `init()`: Use essa função para qualquer preparação dispendiosa ou comum para inferência posterior. Por exemplo, use-a para carregar o modelo em um objeto global. Essa função será chamada apenas uma vez no início do processo.
--  `run(mini_batch)`: A função será executada para cada instância de `mini_batch`.
-    -  `mini_batch`: `ParallelRunStep` invocará o método run e transmitirá uma lista ou o `DataFrame` Pandas como um argumento para o método. Cada entrada em min_batch será um caminho de arquivo se a entrada for um `FileDataset` ou um `DataFrame` Pandas se a entrada for um `TabularDataset`.
-    -  `response`: o método run() deve retornar um `DataFrame` Pandas ou uma matriz. Para append_row output_action, esses elementos retornados são acrescentados ao arquivo de saída comum. Para summary_only, o conteúdo dos elementos é ignorado. Para todas as ações de saída, cada elemento de saída retornado indica uma execução bem-sucedida do elemento de entrada no minilote de entrada. Verifique se dados suficientes foram incluídos no resultado da execução para mapear a entrada para o resultado da saída da execução. A saída de execução será gravada no arquivo de saída e não haverá garantia de que esteja em ordem; você deverá usar uma chave na saída para mapeá-la para a entrada.
+Se executar uma operação de gerenciamento em um destino de computação de um trabalho remoto, você receberá um dos seguintes erros: 
 
-```python
-%%writefile digit_identification.py
-# Snippets from a sample script.
-# Refer to the accompanying digit_identification.py
-# (https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)
-# for the implementation script.
-
-import os
-import numpy as np
-import tensorflow as tf
-from PIL import Image
-from azureml.core import Model
-
-
-def init():
-    global g_tf_sess
-
-    # Pull down the model from the workspace
-    model_path = Model.get_model_path("mnist")
-
-    # Construct a graph to execute
-    tf.reset_default_graph()
-    saver = tf.train.import_meta_graph(os.path.join(model_path, 'mnist-tf.model.meta'))
-    g_tf_sess = tf.Session()
-    saver.restore(g_tf_sess, os.path.join(model_path, 'mnist-tf.model'))
-
-
-def run(mini_batch):
-    print(f'run method start: {__file__}, run({mini_batch})')
-    resultList = []
-    in_tensor = g_tf_sess.graph.get_tensor_by_name("network/X:0")
-    output = g_tf_sess.graph.get_tensor_by_name("network/output/MatMul:0")
-
-    for image in mini_batch:
-        # Prepare each image
-        data = Image.open(image)
-        np_im = np.array(data).reshape((1, 784))
-        # Perform inference
-        inference_result = output.eval(feed_dict={in_tensor: np_im}, session=g_tf_sess)
-        # Find the best probability, and add it to the result list
-        best_result = np.argmax(inference_result)
-        resultList.append("{}: {}".format(os.path.basename(image), best_result))
-
-    return resultList
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
 ```
 
-Se você tiver outro arquivo ou pasta no mesmo diretório que o script de inferência, poderá consultá-lo localizando o diretório de trabalho atual.
-
-```python
-script_dir = os.path.realpath(os.path.join(__file__, '..',))
-file_path = os.path.join(script_dir, "<file_name>")
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
 ```
 
-### <a name="parameters-for-parallelrunconfig"></a>Parâmetros para ParallelRunConfig
-
-`ParallelRunConfig` é a principal configuração para a instância `ParallelRunStep` no pipeline do Azure Machine Learning. Use-a para encapsular o script e configurar os parâmetros necessários, incluindo todas as seguintes entradas:
-- `entry_script`: Um script de usuário como um caminho de arquivo local que será executado em paralelo em vários nós. Se `source_directory` estiver presente, use um caminho relativo. Caso contrário, use qualquer caminho que seja acessível no computador.
-- `mini_batch_size`: O tamanho do minilote passado para uma única chamada de `run()`. (opcional; o valor padrão são arquivos `10` para `FileDataset` e `1MB` para `TabularDataset`.)
-    - Para `FileDataset`, é o número de arquivos com um valor mínimo de `1`. Você pode combinar vários arquivos em um minilote.
-    - Para `TabularDataset`, é o tamanho dos dados. Os valores de exemplo são `1024`, `1024KB`, `10MB` e `1GB`. O valor recomendado é `1MB`. O minilote de `TabularDataset` nunca ultrapassará os limites do arquivo. Por exemplo, se você tiver arquivos .csv com vários tamanhos, o menor arquivo será de 100 KB, e o maior será de 10 MB. Se você definir `mini_batch_size = 1MB`, os arquivos com um tamanho menor que 1 MB serão tratados como um minilote. Arquivos com um tamanho maior que 1 MB serão divididos em vários minilotes.
-- `error_threshold`: O número de falhas de registro para `TabularDataset` e falhas de arquivo para `FileDataset` que devem ser ignorados durante o processamento. Se a contagem de erros de toda a entrada ficar acima desse valor, o trabalho será anulado. O limite de erro é para toda a entrada, não para um minilote individual enviado ao método `run()`. O intervalo é `[-1, int.max]`. A parte `-1` indica que é para ignorar todas as falhas durante o processamento.
-- `output_action`: Um dos seguintes valores indica como a saída será organizada:
-    - `summary_only`: O script de usuário armazenará a saída. `ParallelRunStep` usará a saída somente para o cálculo do limite de erro.
-    - `append_row`: para todas as entradas, somente um arquivo será criado na pasta de saída para acrescentar todas as saídas separadas por linha.
-- `append_row_file_name`: para personalizar o nome do arquivo de saída para append_row output_action (opcional; o valor padrão é `parallel_run_step.txt`).
-- `source_directory`: Caminhos para pastas que contêm todos os arquivos a serem executados no destino de computação (opcional).
-- `compute_target`: Apenas `AmlCompute` tem suporte.
-- `node_count`: O número de nós de computação a serem usados para executar o script do usuário.
-- `process_count_per_node`: O número de processos por nó. A melhor prática é definir como o número de GPU ou CPU que um nó tem (opcional; o valor padrão é `1`).
-- `environment`: A definição de ambiente Python. Você pode configurá-lo para usar um ambiente Python existente ou para configurar um ambiente temporário. A definição também é responsável por configurar as dependências de aplicativo necessárias (opcional).
-- `logging_level`: Detalhamento do log. Os valores no detalhamento crescente são: `WARNING`, `INFO` e `DEBUG`. (opcional; o valor padrão é `INFO`)
-- `run_invocation_timeout`: O tempo limite de invocação do método `run()` em segundos. (opcional; o valor padrão é `60`)
-- `run_max_try`: contagem máxima de tentativas de `run()` para um minilote. Um `run()` falhará se uma exceção for gerada ou nada será retornado quando `run_invocation_timeout` for atingido (opcional; o valor padrão é `3`). 
-
-Especifique `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` e `run_max_try` como `PipelineParameter`, de modo que, ao reenviar uma execução de pipeline, você possa ajustar os valores de parâmetro. Neste exemplo, você usa `PipelineParameter` para `mini_batch_size` e `Process_count_per_node` e vai alterar esses valores ao reenviar uma execução posteriormente. 
-
-### <a name="parameters-for-creating-the-parallelrunstep"></a>Parâmetros para criar o ParallelRunStep
-
-Crie o ParallelRunStep usando o script, a configuração do ambiente e os parâmetros. Especifique o destino de computação que você já anexou ao seu workspace como o destino de execução do seu script de inferência. Use `ParallelRunStep` para criar a etapa do pipeline de inferência de lote, que usa todos os seguintes parâmetros:
-- `name`: O nome da etapa, com as seguintes restrições de nomenclatura: unique, 3-32 characters e regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$.
-- `parallel_run_config`: Um objeto `ParallelRunConfig`, conforme definido anteriormente.
-- `inputs`: um ou mais conjuntos de dados do Azure Machine Learning de tipo único a serem particionados para processamento paralelo.
-- `side_inputs`: um ou mais dados de referência ou conjuntos de dados usados como entradas laterais sem a necessidade de partição.
-- `output`: Um objeto `PipelineData` que corresponde ao diretório de saída.
-- `arguments`: uma lista de argumentos passados para o script do usuário. Use unknown_args para recuperá-los em seu script de entrada (opcional).
-- `allow_reuse`: Se a etapa deve reutilizar os resultados anteriores quando executada com as mesmas configurações/entradas. Se esse parâmetro for `False`, uma nova execução sempre será gerada para essa etapa durante a execução do pipeline. (opcional; o valor padrão é `True`.)
-
-```python
-from azureml.pipeline.steps import ParallelRunStep
-
-parallelrun_step = ParallelRunStep(
-    name="predict-digits-mnist",
-    parallel_run_config=parallel_run_config,
-    inputs=[input_mnist_ds_consumption],
-    output=output_dir,
-    allow_reuse=True
-)
-```
+Por exemplo, você receberá um erro se tentar criar ou anexar um destino de computação de um Pipeline de ML que é enviado para execução remota.
 
 ## <a name="debugging-techniques"></a>Técnicas de depuração
 
@@ -176,11 +83,11 @@ O teste de scripts localmente é uma ótima maneira de depurar fragmentos de có
 
 A tabela a seguir fornece informações para opções de depuração diferentes para pipelines. Não é uma lista completa, já que existem outras opções, além das Azure Machine Learning, Python e OpenCensus mostradas aqui.
 
-| Biblioteca                    | Type   | Exemplo                                                          | Destination                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
+| Biblioteca                    | Type   | Exemplo                                                          | Destino                                  | Recursos                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SDK do Azure Machine Learning | Métrica | `run.log(name, val)`                                             | Interface do usuário do portal do Azure Machine Learning             | [Como acompanhar experimentos](how-to-track-experiments.md)<br>[classe azureml. Core. Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
-| Impressão/log do Python    | Log    | `print(val)`<br>`logging.info(message)`                          | Logs de driver, designer de Azure Machine Learning | [Como acompanhar experimentos](how-to-track-experiments.md)<br><br>[Registro em log do Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| OpenCensus Python          | Log    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Rastreamentos de Application Insights                | [Depurar pipelines no Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[Exportadores OpenCensus Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Guia de registro em log do Python](https://docs.python.org/3/howto/logging-cookbook.html) |
+| SDK do Azure Machine Learning | Metric | `run.log(name, val)`                                             | Interface do usuário do portal do Azure Machine Learning             | [Como acompanhar experimentos](how-to-track-experiments.md)<br>[classe azureml. Core. Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py)                                                                                                                                                 |
+| Impressão/log do Python    | Registro    | `print(val)`<br>`logging.info(message)`                          | Logs de driver, designer de Azure Machine Learning | [Como acompanhar experimentos](how-to-track-experiments.md)<br><br>[Registro em log do Python](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| OpenCensus Python          | Registro    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Rastreamentos de Application Insights                | [Depurar pipelines no Application Insights](./how-to-log-pipelines-application-insights.md)<br><br>[Exportadores OpenCensus Azure Monitor](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Guia de registro em log do Python](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Exemplo de opções de log
 
@@ -230,7 +137,7 @@ Ao enviar uma execução de pipeline e permanecer na página de criação, você
 1. No painel direito do módulo, vá para a guia  **saídas + logs** .
 1. Expanda o painel direito e selecione o **70_driver_log.txt** para exibir o arquivo no navegador. Você também pode baixar logs localmente.
 
-    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)? View = Azure-ml-py&preserve-View = true)? exibição = Azure-ml-py&preserve-View = true)
+    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Obter logs de execuções de pipeline
 
@@ -255,6 +162,8 @@ Para obter mais informações sobre como usar a biblioteca do OpenCensus Python 
 Em alguns casos, talvez seja necessário depurar interativamente o código Python usado em seu pipeline de ML. Usando Visual Studio Code (VS Code) e debugpy, você pode anexar ao código conforme ele é executado no ambiente de treinamento. Para obter mais informações, visite a [depuração interativa no guia vs Code](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
 
 ## <a name="next-steps"></a>Próximas etapas
+
+* [Como depurar e solucionar problemas de ParallelRunStep](how-to-debug-parallel-run-step.md)
 
 * Para obter um tutorial completo usando o `ParallelRunStep` , consulte [tutorial: criar um pipeline de Azure Machine Learning para Pontuação de lote](tutorial-pipeline-batch-scoring-classification.md).
 
