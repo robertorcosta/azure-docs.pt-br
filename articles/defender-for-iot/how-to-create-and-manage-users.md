@@ -4,15 +4,15 @@ description: Crie e gerencie usuários de sensores e o console de gerenciamento 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c3a9e1c7e96d0392e1f94b71549f612738622dea
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837939"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955053"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre os usuários do console do defender para IoT
 
@@ -20,7 +20,7 @@ Este artigo descreve como criar e gerenciar usuários de sensores e o console de
 
 Os recursos também estão disponíveis para acompanhar a atividade do usuário e habilitar a entrada Active Directory.
 
-Por padrão, cada sensor e o console de gerenciamento local são instalados com um *CyberX e* um usuário de suporte. Esses usuários têm acesso a ferramentas avançadas para solução de problemas e configuração. Os usuários administradores devem entrar com essas credenciais de usuário, criar um usuário administrador e, em seguida, criar usuários adicionais para analistas de segurança e usuários somente leitura.
+Por padrão, cada sensor e o console de gerenciamento local são instalados com um *CyberX e* um usuário de suporte. Esses usuários têm acesso a ferramentas avançadas para solução de problemas e configuração. Os usuários administradores devem entrar com essas credenciais de usuário, criar um usuário administrador e, em seguida, criar usuários extras para analistas de segurança e usuários somente leitura.
 
 ## <a name="role-based-permissions"></a>Permissões baseadas em função
 As seguintes funções de usuário estão disponíveis:
@@ -89,8 +89,8 @@ Esta seção descreve como definir usuários. Os usuários de CyberX, suporte e 
 Para definir um usuário:
 
 1. No painel esquerdo do sensor ou do console de gerenciamento local, selecione **usuários**.
-2. Na janela **usuários** , selecione **criar usuário**.
-3. No painel **criar usuário** , defina os seguintes parâmetros:
+1. Na janela **usuários** , selecione **criar usuário**.
+1. No painel **criar usuário** , defina os seguintes parâmetros:
 
    - **Nome de usuário**: Insira um nome de usuário.
    - **Email**: Insira o endereço de email do usuário.
@@ -122,7 +122,7 @@ Para acessar o comando:
 
 1. Entre na CLI para o sensor ou console de gerenciamento local usando o defender para credenciais administrativas de IoT.
 
-2. Digite `sudo nano /var/cyberx/properties/authentication`.
+1. Digite `sudo nano /var/cyberx/properties/authentication`.
 
 ```azurecli-interactive
     infinity_session_expiration = true
@@ -138,7 +138,6 @@ Para acessar o comando:
 Para desabilitar o recurso, altere `infinity_session_expiration = true` para `infinity_session_expiration = false` .
 
 Para atualizar os períodos de contagem de saída, ajuste o `= <number>` valor para o tempo necessário.
-
 
 ## <a name="track-user-activity"></a>Acompanhar a atividade do usuário 
 
@@ -171,11 +170,11 @@ Para configurar Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Exiba as configurações do sistema Active Directory.":::
 
-2. No painel **configurações do sistema** , selecione **Active Directory**.
+1. No painel **configurações do sistema** , selecione **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edite suas configurações de Active Directory.":::
 
-3. Na caixa de diálogo **Editar configuração de Active Directory** , selecione **Active Directory a integração habilitada**  >  . A caixa de diálogo **Editar configuração de Active Directory** expande e agora você pode inserir os parâmetros para configurar Active Directory.
+1. Na caixa de diálogo **Editar configuração de Active Directory** , selecione **Active Directory a integração habilitada**  >  . A caixa de diálogo **Editar configuração de Active Directory** expande e agora você pode inserir os parâmetros para configurar Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Insira os parâmetros a serem configurados Active Directory.":::
 
@@ -184,9 +183,9 @@ Para configurar Active Directory:
     > - Para todos os parâmetros de Active Directory, use somente minúsculas. Use minúsculas mesmo quando as configurações em Active Directory usarem maiúsculas.
     > - Você não pode configurar LDAP e LDAPs para o mesmo domínio. No entanto, você pode usar ambos para domínios diferentes ao mesmo tempo.
 
-4. Defina os parâmetros do servidor Active Directory, da seguinte maneira:
+1. Defina os parâmetros do servidor Active Directory, da seguinte maneira:
 
-   | Parâmetro de servidor | Descrição |
+   | Parâmetro de servidor | Description |
    |--|--|
    | FQDN do controlador de domínio | Defina o nome de domínio totalmente qualificado (FQDN) exatamente como ele aparece no servidor LDAP. Por exemplo, insira `host1.subdomain.domain.com`. |
    | Porta do controlador de domínio | Defina a porta na qual o LDAP está configurado. |
@@ -194,11 +193,81 @@ Para configurar Active Directory:
    | Grupos do Active Directory | Insira os nomes de grupo que são definidos em sua configuração de Active Directory no servidor LDAP. |
    | Domínios confiáveis | Para adicionar um domínio confiável, adicione o nome de domínio e o tipo de conexão de um domínio confiável. <br />Você pode configurar domínios confiáveis somente para usuários que foram definidos em usuários. |
 
-5. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
-6. Para adicionar um servidor confiável, selecione **Adicionar servidor** e configurar outro servidor.
+1. Para adicionar um servidor confiável, selecione **Adicionar servidor** e configurar outro servidor.
 
-## <a name="see-also"></a>Consulte também
+## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Redefinindo a senha de um usuário para o sensor ou o console de gerenciamento local
+
+### <a name="cyberx-or-support-user"></a>CyberX ou usuário de suporte
+
+Somente o **CyberX** e o usuário de **suporte** têm acesso ao recurso de **recuperação de senha** . Se o **CyberX** ou o usuário de **suporte** esqueceu sua senha, ele poderá redefini-la por meio da opção de **recuperação de senha** na página de entrada do defender for IOT.
+
+Para redefinir a senha para um usuário CyberX ou de suporte:
+
+1. Na tela de entrada do defender para IoT, selecione  **recuperação de senha**. A tela **recuperação de senha** é aberta.
+
+1. Selecione **CyberX** ou **suporte** e copie o identificador exclusivo.
+
+1. Navegue até a portal do Azure e selecione **sites e sensores**.  
+
+1. Selecione o ícone **filtro de assinatura** :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  na barra de ferramentas superior e selecione a assinatura à qual seu sensor está conectado.
+
+1. Selecione a guia **recuperar senha do console de gerenciamento local** .
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Selecione o botão recuperar gerenciamento local para baixar o arquivo de recuperação.":::
+
+1. Insira o identificador exclusivo que você recebeu na tela de **recuperação de senha** e selecione **recuperar**. O `password_recovery.zip` arquivo é baixado.
+
+    > [!NOTE]
+    > Não altere o arquivo de recuperação de senha. É um arquivo assinado e não funcionará se você violar.
+
+1. Na tela **recuperação de senha** , selecione **carregar**. **A janela carregar arquivo de recuperação de senha** será aberta.
+
+   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Carregue seu arquivo de recuperação para obter uma nova senha.":::
+
+1. Selecione **procurar** para localizar o `password_recovery.zip` arquivo ou arraste o `password_recovery.zip` para a janela.
+
+    > [!NOTE]
+    > Uma mensagem de erro pode aparecer indicando que o arquivo é inválido. Para corrigir essa mensagem de erro, verifique se você selecionou a assinatura correta antes de baixar `password_recovery.zip` e baixá-la novamente.  
+
+1. Selecione **Avançar** e seu usuário, e a senha gerada pelo sistema para o console de gerenciamento será exibida.
+
+### <a name="administrator-security-analyst-and-read-only-user"></a>Administrador, analista de segurança e usuário somente leitura
+
+Os analistas de segurança e somente leitura não podem redefinir sua própria senha e precisam entrar em contato com um usuário com as funções administrador, suporte ou CyberX para redefinir a senha. Um usuário administrador deve contatar o **CyberX** ou o usuário de **suporte** para redefinir sua senha.
+
+Para redefinir a senha de um usuário no sensor:
+
+1. Um usuário de administrador, suporte ou função CyberX deve entrar no sensor.
+
+1. Selecione **usuários** no painel esquerdo.
+
+   :::image type="content" source="media/password-recovery-images/sensor-page.png" alt-text="Selecione a opção usuário no painel do lado esquerdo.":::
+
+1. Localize o usuário e selecione **Editar** no menu suspenso **ações** .
+
+   :::image type="content" source="media/password-recovery-images/edit.png" alt-text="Selecione Editar no menu suspenso ações.":::
+
+1. Insira a nova senha nos campos **nova senha** e **confirmar nova senha** .
+
+1. Selecione **Atualizar**.
+
+Para redefinir a senha de um usuário no console de gerenciamento local:
+
+1. Um usuário de administrador, suporte ou função CyberX deve entrar no sensor.
+
+1. Selecione **usuários** no painel esquerdo.
+
+   :::image type="content" source="media/password-recovery-images/console-page.png" alt-text="No painel esquerdo, selecione a opção do usuário.":::
+
+1. Localize o usuário e selecione o ícone Editar :::image type="icon" source="media/password-recovery-images/edit-icon.png" border="false"::: .
+
+1. Insira a nova senha nos campos **nova senha** e **confirmar nova senha** .
+
+1. Selecione **Atualizar**.
+
+## <a name="see-also"></a>Veja também
 
 [Ativar e configurar seu sensor](how-to-activate-and-set-up-your-sensor.md) 
  [Ativar e configurar seu console](how-to-activate-and-set-up-your-on-premises-management-console.md) 

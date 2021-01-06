@@ -3,12 +3,12 @@ title: Perguntas frequentes - Hubs de Eventos | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os Hubs de Eventos do Azure e suas respostas.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: c756d0bccd9b2ad303bd97d3bfb7aed8b0b82b09
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96002776"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955409"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -153,7 +153,7 @@ Para obter instruções passo a passo e mais informações sobre como configurar
 ## <a name="partitions"></a>Partições
 
 ### <a name="how-many-partitions-do-i-need"></a>De quantas partições preciso?
-O número de partições é especificado na criação e deve estar entre 1 e 32. A contagem de partições não é mutável, portanto você deve considerar a escala de longo prazo ao definir a contagem de partições. As partições são um mecanismo de organização de dados relacionados ao paralelismo de downstream necessário no consumo de aplicativos. O número de partições em um hub de eventos está diretamente relacionado ao número de leitores simultâneos que você espera ter. Para obter mais informações sobre partições, confira [Partições](event-hubs-features.md#partitions).
+O número de partições é especificado na criação do Hub de Eventos e precisa estar entre 1 e 32. A contagem de partições não pode ser alterada em todas as camadas, exceto na [camada dedicada](event-hubs-dedicated-overview.md), portanto, você deve considerar a escala de longo prazo ao definir a contagem de partições. As partições são um mecanismo de organização de dados relacionados ao paralelismo de downstream necessário no consumo de aplicativos. O número de partições em um hub de eventos está diretamente relacionado ao número de leitores simultâneos que você espera ter. Para obter mais informações sobre partições, confira [Partições](event-hubs-features.md#partitions).
 
 Talvez você queira defini-la como o maior valor possível, que é 32, no momento da criação. Lembre-se de que ter mais de uma partição resultará em eventos enviados a várias partições sem reter a ordem, a menos que você configure que os remetentes enviem somente para uma única partição fora das 32, deixando as 31 restantes de partições redundantes. No primeiro caso, você terá que ler eventos em todas as partições 32. No último caso, não há nenhum custo adicional óbvio gerado pela configuração extra que você precisa fazer no host do processador de eventos.
 

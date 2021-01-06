@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 878fa181ff09d547ef6594a238e9c1d883cc89b7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c98b47507a7543002f00aae82370f5ea0043510d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460484"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954270"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Painel de clientes na análise de Marketplace comercial
 
@@ -144,12 +144,12 @@ _**Tabela 1: dicionário de termos de dados**_
 
 | Nome da coluna | Nome do atributo | Definição |
 | ------------ | ------------- | ------------- |
-| ID da assinatura do Marketplace | ID da assinatura do Marketplace | O identificador exclusivo associado à assinatura do Azure que o cliente usou para comprar sua oferta do Marketplace comercial. Anteriormente, a identificação era o GUID da assinatura do Azure. |
+| ID da assinatura do Marketplace | ID da assinatura do Marketplace | O identificador exclusivo associado à assinatura do Azure que o cliente usou para comprar sua oferta do Marketplace comercial. Para ofertas de infraestrutura, esse é o GUID de assinatura do Azure do cliente. Para ofertas de SaaS, isso é mostrado como zeros, pois as compras de SaaS não exigem uma assinatura do Azure. |
 | DateAcquired | Data da aquisição | A primeira data em que o cliente comprou qualquer oferta que você publicou. |
 | DateLost | Data da perda | A última data em que o cliente cancelou o último de todas as ofertas adquiridas anteriormente. |
 | Nome do Provedor | Nome do Provedor | O nome do provedor envolvido na relação entre a Microsoft e o cliente. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP. |
 | Email do provedor | Email do provedor | O endereço de email do provedor envolvido na relação entre a Microsoft e o cliente. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP. |
-| Nome | Nome do cliente | O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na assinatura do Azure de um cliente. |
+| FirstName | Nome do cliente | O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na assinatura do Azure de um cliente. |
 | LastName | Sobrenome do cliente | O último nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na assinatura do Azure de um cliente. |
 | Email | Email do cliente | O endereço de email fornecido pelo cliente final. O email pode ser diferente do endereço de email na assinatura do Azure de um cliente. |
 | Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura do Azure de um cliente. |

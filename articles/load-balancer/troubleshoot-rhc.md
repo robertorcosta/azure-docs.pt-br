@@ -11,16 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3acaaba86c9a546a0bd45b5386287908168d50d0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696312"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955613"
 ---
-# <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Solucionar problemas de disponibilidade do Resource Health, frontend e back-end 
+# <a name="troubleshoot-resource-health-and-inbound-availability-issues"></a>Solucionar problemas de integridade de recursos e de disponibilidade de entrada 
 
 Este artigo é um guia para investigar problemas que afetam a disponibilidade do seu IP de front-end do balanceador de carga e dos recursos de backend. 
+
+A verificação de Resource Health (RHC) para o Load Balancer é usada para determinar a integridade do balanceador de carga. Ele analisa a métrica de disponibilidade do caminho de dados em um intervalo de **2 minutos** para determinar se os pontos de extremidade de balanceamento de carga, as combinações de IP de front-end e portas de front-end com regras de balanceamento de carga, estão disponíveis.
+
+A tabela abaixo descreve a lógica RHC usada para determinar o estado de integridade do balanceador de carga.
+
+| Status de integridade de recurso | Description |
+| --- | --- |
+| Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
+| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. 
+| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. |
+| Unknown | O status de integridade do recurso para o recurso de Load Balancer padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do caminho de dados dos últimos 10 minutos. Esse estado deve ser transitório e reflete o status correto assim que os dados são recebidos. |
+
 
 ## <a name="about-the-metrics-well-use"></a>Sobre as métricas que usaremos
 As duas métricas a serem usadas são o *status de investigação de integridade* e disponibilidade do caminho de *dados* e é importante entender seu significado para derivar informações corretas. 

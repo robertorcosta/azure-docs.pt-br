@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 051a7f506d351a17764e38c760ffba06d224cc38
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e8d00055d9a4d7355ccd8a33c8a9b811b852f5c8
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422562"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955273"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Criar controlador de dados de arco do Azure usando ferramentas de kubernetes
 
@@ -38,11 +38,9 @@ Se você instalou o controlador de dados Arc do Azure no passado, no mesmo clust
 ```console
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
-kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete postgresql-11s.arcdata.microsoft.com 
-kubectl delete postgresql-12s.arcdata.microsoft.com
-kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
-kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
+kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete crd postgresql-11s.arcdata.microsoft.com 
+kubectl delete crd postgresql-12s.arcdata.microsoft.com
 ```
 
 ## <a name="overview"></a>Visão geral
@@ -59,7 +57,7 @@ A criação do controlador de dados de arco do Azure tem as seguintes etapas de 
 Execute o comando a seguir para criar as definições de recursos personalizados.  **[Requer permissões de administrador de cluster kubernetes]**
 
 ```console
-kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
+kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
 ```
 
 ## <a name="create-a-namespace-in-which-the-data-controller-will-be-created"></a>Criar um namespace no qual o controlador de dados será criado
@@ -79,7 +77,7 @@ O serviço bootstrapper trata as solicitações de entrada para criar, editar e 
 Execute o comando a seguir para criar um serviço de bootstrapper, uma conta de serviço para o serviço bootstrapper e uma função e Associação de função para a conta de serviço de bootstrapper.
 
 ```console
-kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/bootstrapper.yaml
+kubectl create --namespace arc -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/bootstrapper.yaml
 ```
 
 Verifique se o Pod do bootstrapper está em execução usando o comando a seguir.  Talvez seja necessário executá-lo algumas vezes até que o status seja alterado para `Running` .
@@ -102,7 +100,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-oct-2020  <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-dec-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -150,7 +148,7 @@ echo '<your string to encode here>' | base64
 # echo 'example' | base64
 ```
 
-Depois de codificar o nome de usuário e a senha, você pode criar um arquivo com base no [arquivo de modelo](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/controller-login-secret.yaml) e substituir os valores de nome de usuário e senha pelos seus próprios.
+Depois de codificar o nome de usuário e a senha, você pode criar um arquivo com base no [arquivo de modelo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/controller-login-secret.yaml) e substituir os valores de nome de usuário e senha pelos seus próprios.
 
 Em seguida, execute o comando a seguir para criar o segredo.
 
@@ -165,26 +163,26 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 
 Agora você está pronto para criar o próprio controlador de dados.
 
-Primeiro, crie uma cópia do [arquivo de modelo](https://raw.githubusercontent.com/microsoft/azure_arc/master/arc_data_services/deploy/yaml/data-controller.yaml) localmente no seu computador para que você possa modificar algumas das configurações.
+Primeiro, crie uma cópia do [arquivo de modelo](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/data-controller.yaml) localmente no seu computador para que você possa modificar algumas das configurações.
 
 Edite o seguinte, conforme necessário:
 
 **Necessário**
-- **local** : altere esta para o local do Azure onde os _metadados_ sobre o controlador de dados serão armazenados.  Você pode ver a lista de locais do Azure disponíveis no artigo [visão geral do controlador de dados de criação](create-data-controller.md) .
-- **resourcegroup** : o grupo de recursos do Azure no qual você deseja criar o recurso de controlador de dados do azure no Azure Resource Manager.  Normalmente, esse grupo de recursos já deve existir, mas não é necessário até o momento em que você carregar os dados no Azure.
-- **assinatura** : o GUID da assinatura do Azure para a assinatura na qual você deseja criar os recursos do Azure.
+- **local**: altere esta para o local do Azure onde os _metadados_ sobre o controlador de dados serão armazenados.  Você pode ver a lista de locais do Azure disponíveis no artigo [visão geral do controlador de dados de criação](create-data-controller.md) .
+- **resourcegroup**: o grupo de recursos do Azure no qual você deseja criar o recurso de controlador de dados do azure no Azure Resource Manager.  Normalmente, esse grupo de recursos já deve existir, mas não é necessário até o momento em que você carregar os dados no Azure.
+- **assinatura**: o GUID da assinatura do Azure para a assinatura na qual você deseja criar os recursos do Azure.
 
 **RECOMENDADO PARA REVISAR E POSSIVELMENTE ALTERAR OS PADRÕES**
-- **armazenamento.. className** : a classe de armazenamento a ser usada para os dados do controlador de dados e os arquivos de log.  Se não tiver certeza das classes de armazenamento disponíveis no cluster kubernetes, você poderá executar o seguinte comando: `kubectl get storageclass` .  O padrão é o pressuposto de que `default` há uma classe de armazenamento que existe e que é nomeada `default` não que haja uma classe de armazenamento que _seja_ o padrão.  Observação: há duas configurações de className a serem definidas para a classe de armazenamento desejada – uma para os dados e outra para os logs.
-- **ServiceType** : altere o tipo de serviço para `NodePort` se você não estiver usando um balanceador de carga.  Observação: há duas configurações do serviceType que precisam ser alteradas.
+- **armazenamento.. className**: a classe de armazenamento a ser usada para os dados do controlador de dados e os arquivos de log.  Se não tiver certeza das classes de armazenamento disponíveis no cluster kubernetes, você poderá executar o seguinte comando: `kubectl get storageclass` .  O padrão é o pressuposto de que `default` há uma classe de armazenamento que existe e que é nomeada `default` não que haja uma classe de armazenamento que _seja_ o padrão.  Observação: há duas configurações de className a serem definidas para a classe de armazenamento desejada – uma para os dados e outra para os logs.
+- **ServiceType**: altere o tipo de serviço para `NodePort` se você não estiver usando um balanceador de carga.  Observação: há duas configurações do serviceType que precisam ser alteradas.
 
 **ADICIONAL**
-- **nome** : o nome padrão do controlador de dados é `arc` , mas você pode alterá-lo, se desejar.
-- **DisplayName** : Defina como o mesmo valor que o atributo Name na parte superior do arquivo.
-- **registro** : o registro de contêiner da Microsoft é o padrão.  Se você estiver extraindo as imagens do registro de contêiner da Microsoft e [enviando-as por push para um registro de contêiner privado](offline-deployment.md), insira o endereço IP ou o nome DNS do registro aqui.
-- **dockerRegistry** : o segredo de pull de imagem a ser usado para efetuar pull das imagens de um registro de contêiner privado, se necessário.
-- **Repository** : o repositório padrão no registro de contêiner da Microsoft é `arcdata` .  Se você estiver usando um registro de contêiner privado, insira o caminho da pasta/repositório que contém as imagens de contêiner de serviços de dados habilitados do Azure arr.
-- **imageTag** : a marca de versão mais recente atual é padronizada no modelo, mas você pode alterá-la se quiser usar uma versão mais antiga.
+- **nome**: o nome padrão do controlador de dados é `arc` , mas você pode alterá-lo, se desejar.
+- **DisplayName**: Defina como o mesmo valor que o atributo Name na parte superior do arquivo.
+- **registro**: o registro de contêiner da Microsoft é o padrão.  Se você estiver extraindo as imagens do registro de contêiner da Microsoft e [enviando-as por push para um registro de contêiner privado](offline-deployment.md), insira o endereço IP ou o nome DNS do registro aqui.
+- **dockerRegistry**: o segredo de pull de imagem a ser usado para efetuar pull das imagens de um registro de contêiner privado, se necessário.
+- **Repository**: o repositório padrão no registro de contêiner da Microsoft é `arcdata` .  Se você estiver usando um registro de contêiner privado, insira o caminho da pasta/repositório que contém as imagens de contêiner de serviços de dados habilitados do Azure arr.
+- **imageTag**: a marca de versão mais recente atual é padronizada no modelo, mas você pode alterá-la se quiser usar uma versão mais antiga.
 
 Exemplo de um arquivo de YAML do controlador de dados concluído:
 ```yaml
@@ -200,7 +198,7 @@ spec:
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-oct-2020 
+    imageTag: public-preview-dec-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

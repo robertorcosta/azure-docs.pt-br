@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10d8a94be53780f732112c012600a7fb840642b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 18e504579c750caf452ef74844c4a388ec96448a
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180635"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954478"
 ---
 # <a name="what-is-risk"></a>O que é risco?
 
@@ -41,7 +41,7 @@ Um risco de usuário representa a probabilidade de que uma determinada identidad
 
 Esses riscos são calculados offline usando fontes de inteligência contra ameaças internas e externas da Microsoft, incluindo pesquisadores de segurança, profissionais de imposição de leis, equipes de segurança da Microsoft e outras fontes confiáveis.
 
-| Detecção de riscos | Descrição |
+| Detecção de riscos | Description |
 | --- | --- |
 | Credenciais vazadas | Esse tipo de detecção de risco indica que as credenciais válidas do usuário foram vazadas. Quando criminosos cibernéticos comprometem senhas válidas de usuários legítimos, geralmente compartilham essas credenciais. Normalmente, esse compartilhamento é feito postando-se publicamente na Web escura, colando sites ou negociando e vendendo as credenciais no mercado preto. Quando o serviço de credenciais vazadas da Microsoft adquire credenciais de usuário da Web escura, colar sites ou outras fontes, eles são verificados em relação às credenciais válidas atuais dos usuários do Azure AD para encontrar correspondências válidas. Para obter mais informações sobre credenciais vazadas, consulte [perguntas comuns](#common-questions). |
 | Inteligência contra ameaças do Azure AD | Esse tipo de detecção de risco indica a atividade do usuário que é incomum para o usuário determinado ou é consistente com padrões de ataque conhecidos com base nas fontes de inteligência contra ameaças internas e externas da Microsoft. |
@@ -52,7 +52,7 @@ Um risco de entrada representa a probabilidade de que uma determinada solicitaç
 
 Esses riscos podem ser calculados em tempo real ou calculados offline usando fontes de inteligência contra ameaças internas e externas da Microsoft, incluindo pesquisadores de segurança, profissionais de imposição de leis, equipes de segurança da Microsoft e outras fontes confiáveis.
 
-| Detecção de riscos | Tipo de detecção | Descrição |
+| Detecção de riscos | Tipo de detecção | Description |
 | --- | --- | --- |
 | Endereço IP anônimo | Tempo real | Esse tipo de detecção de risco indica entradas de um endereço IP anônimo (por exemplo, navegador Tor ou VPN anônima). Normalmente, esses endereços IP são usados por atores que desejam ocultar sua telemetria de logon (endereço IP, localização, dispositivo etc.) para, potencialmente, más intenções. |
 | Viagem atípica | Offline | Esse tipo de detecção de risco identifica duas entradas provenientes de locais geograficamente distantes, em que pelo menos um dos locais também pode ser atípicos para o usuário, dado o comportamento passado. Entre muitos outros fatores, esse algoritmo de aprendizado de máquina leva em consideração o tempo entre as duas entradas e o tempo que seria necessário para o usuário ir do primeiro até o segundo local, indicando que um usuário diferente está usando as mesmas credenciais. <br><br> Esse algoritmo ignora “falsos positivos” óbvios que contribuem para condições impossíveis de viagem, como VPNs e locais regularmente usados por outros usuários na organização. O sistema tem um período de aprendizado inicial do anterior de 14 dias ou 10 logons, durante o qual ele aprende o comportamento de entrada de um novo usuário. |
@@ -63,10 +63,13 @@ Esses riscos podem ser calculados em tempo real ou calculados offline usando fon
 | Regras de manipulação de caixa de entrada suspeita | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Essa detecção analisa o ambiente e dispara alertas quando regras suspeitas que excluem ou movem mensagens ou pastas são definidas na caixa de entrada de um usuário. Essa detecção pode indicar que a conta do usuário está comprometida, que as mensagens estão sendo intencionalmente ocultas e que a caixa de correio está sendo usada para distribuir spam ou malware na sua organização. |
 | Pulverização de senha | Offline | Um ataque de irrigação de senha é onde vários nomes de usuários são atacados usando senhas comuns em uma maneira de força bruta unificada para obter acesso não autorizado. Essa detecção de risco é disparada quando um ataque de irrigação de senha é executado. |
 | Viagem impossível | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Essa detecção identifica duas atividades do usuário (é uma única ou várias sessões) provenientes de locais geograficamente distantes em um período de tempo menor que o tempo que teria levado para o usuário viajar do primeiro local para o segundo, indicando que um usuário diferente está usando as mesmas credenciais. |
+| Novo país | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). Essa detecção considera os locais de atividades anteriores para determinar os locais novos e pouco frequentes. O mecanismo de detecção de anomalias armazena informações sobre locais anteriores usados por usuários na organização. |
+| Atividade de endereço IP anônimo | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). Essa detecção identifica que os usuários estavam ativos com base em um endereço IP que foi identificado como um endereço IP de proxy anônimo. |
+| Encaminhamento suspeito da caixa de entrada | Offline | Essa detecção é descoberta pelo [Microsoft Cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). Essa detecção procura regras de encaminhamento de email suspeito, por exemplo, se um usuário criou uma regra de caixa de entrada que encaminha uma cópia de todos os emails para um endereço externo. |
 
 ### <a name="other-risk-detections"></a>Outras detecções de risco
 
-| Detecção de riscos | Tipo de detecção | Descrição |
+| Detecção de riscos | Tipo de detecção | Description |
 | --- | --- | --- |
 | Risco adicional detectado | Em tempo real ou offline | Essa detecção indica que uma das detecções Premium acima foi detectada. Como as detecções Premium são visíveis apenas para clientes Azure AD Premium P2, elas são intituladas "risco adicional detectado" para clientes sem licenças Azure AD Premium P2. |
 

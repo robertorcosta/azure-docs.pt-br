@@ -4,16 +4,16 @@ description: Saiba como montar um volume de Arquivos do Azure para persistir o e
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: afebdcdc9d9c5852d7fe66ed06ac457c1dbb0afb
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d52ad8ad02735c98b29a83d8ca69cdea8c6af7d8
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881796"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954967"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montar um compartilhamento de arquivos do Azure em Instâncias de Contêiner do Azure
 
-Por padrão, as Instâncias de Contêiner do Azure não têm estado. Se o contêiner falhar ou parar, todas as informações de estado serão perdidas. Para persistir o estado além do tempo de vida do contêiner, é necessário montar um volume em um repositório externo. Conforme mostrado neste artigo, as instâncias de contêiner do Azure podem montar um compartilhamento de arquivos do Azure criado com [os arquivos do Azure](../storage/files/storage-files-introduction.md). Os arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados hospedados no armazenamento do Azure que são acessíveis por meio do protocolo SMB (servidor padrão do setor). Usar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure fornece recursos de compartilhamento de arquivos semelhantes ao uso de um compartilhamento de arquivos do Azure com máquinas virtuais do Azure.
+Por padrão, as Instâncias de Contêiner do Azure não têm estado. Se o contêiner for reiniciado, falhar ou parar, todo o seu estado será perdido. Para persistir o estado além do tempo de vida do contêiner, é necessário montar um volume em um repositório externo. Conforme mostrado neste artigo, as instâncias de contêiner do Azure podem montar um compartilhamento de arquivos do Azure criado com [os arquivos do Azure](../storage/files/storage-files-introduction.md). Os arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados hospedados no armazenamento do Azure que são acessíveis por meio do protocolo SMB (servidor padrão do setor). Usar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure fornece recursos de compartilhamento de arquivos semelhantes ao uso de um compartilhamento de arquivos do Azure com máquinas virtuais do Azure.
 
 > [!NOTE]
 > Montar um Compartilhamento de Arquivos do Azure está atualmente restrito a contêineres do Linux. Encontre as diferenças da plataforma atual na [visão geral](container-instances-overview.md#linux-and-windows-containers).

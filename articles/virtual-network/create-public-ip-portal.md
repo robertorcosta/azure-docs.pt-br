@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: add763b713b93604e089d7aec586876fecd2887c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd35d3288591a01c14e306960601eef6dea7e761
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895631"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954134"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Início rápido: criar um endereço IP público usando o portal do Azure
 
@@ -36,6 +36,7 @@ Use as etapas a seguir para criar um endereço IP público com redundância de z
     | ---                     | ---                         |
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Standard**         |
+    | Camada (se mostrado *)                  | Selecionar **regional**         |
     | Name                    | Insira *myStandardZRPublicIP*          |
     | Atribuição de endereço IP   | Observe que isso será bloqueado como "estático"                                        |
     | Tempo limite de ociosidade (minutos)  | Deixe o valor em 4        |
@@ -46,6 +47,8 @@ Use as etapas a seguir para criar um endereço IP público com redundância de z
     | Zona de disponibilidade       | Selecione **com redundância de zona** ou selecione uma zona específica (veja a observação abaixo) |
 
 Observe que essas são apenas seleções válidas em regiões com [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  (Você também pode selecionar uma zona específica nessas regiões, embora ela não seja resiliente a falhas zonais.)
+
+\* = Camada relacionada à funcionalidade de [Load Balancer entre regiões](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) , atualmente em visualização.
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-create-public-ip-basic)
 

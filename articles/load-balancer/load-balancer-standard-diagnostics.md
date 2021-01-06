@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9c322620e1d66182937be41bb02d48fd1469f459
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: da4c5f7891b518f4e6393f3fb4e153d464f4f2a2
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697553"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955528"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
 
@@ -231,7 +231,14 @@ O gráfico permite que os clientes resolvam problemas da implantação sozinhos 
 
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Status de integridade de recurso
 
-O status de integridade para os recursos do Load Balancer Standard é exposto por meio do **Recursos de integridade** existente em **Monitor > Integridade do Serviço**.
+O status de integridade para os recursos do Load Balancer Standard é exposto por meio do **Recursos de integridade** existente em **Monitor > Integridade do Serviço**. Ela é avaliada a cada **dois minutos** medindo a disponibilidade do caminho de dados que determina se os pontos de extremidade de balanceamento de carga de front-end estão disponíveis.
+
+| Status de integridade de recurso | Description |
+| --- | --- |
+| Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
+| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de solução de problemas do RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.
+| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. [Siga o guia de solução de problemas do RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se há eventos iniciados pelo usuário que afetam sua disponibilidade. |
+| Unknown | O status de integridade do recurso para o recurso de Load Balancer padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do caminho de dados dos últimos 10 minutos. Esse estado deve ser transitório e reflete o status correto assim que os dados são recebidos. |
 
 Para exibir a integridade dos seus recursos do Load Balancer Standard:
 1. Selecione **monitorar**  >  **integridade do serviço**.
@@ -254,12 +261,6 @@ Para exibir a integridade dos seus recursos do Load Balancer Standard:
  
 A descrição do status de integridade do recurso genérico está disponível na [documentação do RHC](../service-health/resource-health-overview.md). Para obter status específicos para os Azure Load Balancer estão listados na tabela abaixo: 
 
-| Status de integridade de recurso | Description |
-| --- | --- |
-| Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
-| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do caminho de dado relatou menos de 90%, mas maior que 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de disponibilidade do caminho de dados de solução de problemas] para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.
-| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. [Siga o guia de disponibilidade do caminho de dados de solução de problemas] para determinar se há eventos iniciados pelo usuário que afetam sua disponibilidade. |
-| Desconhecido | O status de integridade do recurso para o recurso de Load Balancer padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do caminho de dados dos últimos 10 minutos. Esse Estado deve ser transitório e refletirá o status correto assim que os dados forem recebidos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 60aab2c77a5ccf59e129b21deab34daf756b2e23
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 054d18337e50a367cf1f6f004f4e1d1652c7751e
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827420"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97954389"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizado no Python
 
@@ -463,20 +463,22 @@ Para obter informações gerais sobre como as explicações de modelo e a import
 
 * **`import numpy` falha no Windows**: alguns ambientes do Windows veem um erro ao carregar o numpy com a versão mais recente do Python 3.6.8. Se você vir esse problema, tente com a versão 3.6.7 do Python.
 
-* **`import numpy` falha**: Verifique a versão do TensorFlow no ambiente Conda do ml automatizado. As versões com suporte são < 1,13. Desinstale o TensorFlow do ambiente se a versão for >= 1,13. Você pode verificar a versão do TensorFlow e desinstalar da seguinte maneira-
+* **`import numpy` falha**: Verifique a versão do TensorFlow no ambiente Conda do ml automatizado. As versões com suporte são < 1,13. Desinstale o TensorFlow do ambiente se a versão for >= 1,13. Você pode verificar a versão do TensorFlow e desinstalar da seguinte maneira:
   1. Inicie um shell de comando, ative o ambiente Conda onde os pacotes de ml automatizados são instalados.
   2. Insira `pip freeze` e procure `tensorflow` , se encontrado, a versão listada deve ser < 1,13
   3. Se a versão listada não for uma versão com suporte, `pip uninstall tensorflow` no Shell de comando e digite y para confirmação.
   
- * **A execução falha `jwt.exceptions.DecodeError` com**: mensagem de erro exata: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` . 
- 
-    Considere atualizar para a versão mais recente do SDK do AutoML: `pip install -U azureml-sdk[automl]` . 
-    
-    Se isso não for viável, verifique a versão do PyJWT. As versões com suporte são < 2.0.0. Desinstale o PyJWT do ambiente se a versão for >= 2.0.0. Você pode verificar a versão do PyJWT, desinstalar e instalar a versão correta da seguinte maneira:
+ * **A execução falha `jwt.exceptions.DecodeError` com**: mensagem de erro exata: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()` .
+
+    Para versões <= 1.17.0 do SDK, a instalação pode resultar em uma versão sem suporte do PyJWT. Verifique a versão do PyJWT no ambiente Conda do ml automatizado. As versões com suporte são < 2.0.0. Você pode verificar a versão do PyJWT da seguinte maneira:
     1. Inicie um shell de comando, ative o ambiente Conda onde os pacotes de ml automatizados são instalados.
     2. Insira `pip freeze` e procure `PyJWT` , se encontrado, a versão listada deve ser < 2.0.0
-    3. Se a versão listada não for uma versão com suporte, `pip uninstall PyJWT` no Shell de comando e digite y para confirmação.
-    4. Instale o usando o `pip install 'PyJWT<2.0.0'` .
+
+    Se a versão listada não for uma versão com suporte:
+    1. Considere atualizar para a versão mais recente do SDK do AutoML: `pip install -U azureml-sdk[automl]` .
+    2. Se isso não for viável, desinstale o PyJWT do ambiente e instale a versão correta da seguinte maneira:
+        - `pip uninstall PyJWT` no Shell de comando e digite `y` para confirmação.
+        - Instale o usando o `pip install 'PyJWT<2.0.0'` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

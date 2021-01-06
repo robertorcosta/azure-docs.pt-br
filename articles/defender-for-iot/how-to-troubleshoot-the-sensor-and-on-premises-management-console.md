@@ -4,15 +4,15 @@ description: Solucione problemas do seu sensor e do console de gerenciamento loc
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: a57db4f88de4a3b32b4fb315fb331500f955d501
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837872"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955426"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Solucionar problemas do sensor e do console de gerenciamento local
 
@@ -28,22 +28,33 @@ Este artigo descreve as ferramentas básicas de solução de problemas para o se
 
 ### <a name="investigate-password-failure-at-initial-sign-in"></a>Investigar falha de senha na entrada inicial
 
-Quando estiver entrando em um sensor de seta pré-configurada pela primeira vez, você precisará executar a seguinte recuperação de senha:
+Ao entrar em um sensor de seta pré-configurada pela primeira vez, você precisará executar a recuperação de senha.
 
-1. Na tela de entrada do defender para IoT, selecione a opção **recuperação de senha** . 
+Para recuperar sua senha:
 
-   A tela **recuperação de senha** é aberta. Lá, você será solicitado a selecionar o usuário e a assinatura e receberá um identificador exclusivo.
+1. Na tela de entrada do defender para IoT, selecione  **recuperação de senha**. A tela **recuperação de senha** é aberta.
 
-1. Vá para a página de **sensores e sites** do defender para IOT e selecione a guia **recuperar minha senha** .
+1. Selecione **CyberX** ou **suporte** e copie o identificador exclusivo.
+
+1. Navegue até a portal do Azure e selecione **sites e sensores**.  
+
+1. Selecione a guia **recuperar senha do console de gerenciamento local** .
+
+   :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Selecione o botão recuperar gerenciamento local para baixar o arquivo de recuperação.":::
 
 1. Insira o identificador exclusivo que você recebeu na tela de **recuperação de senha** e selecione **recuperar**. O `password_recovery.zip` arquivo é baixado.
 
-   > [!NOTE]
-   > Não altere o arquivo de ativação. É um arquivo assinado e não funcionará se você violar.
+    > [!NOTE]
+    > Não altere o arquivo de recuperação de senha. É um arquivo assinado e não funcionará se você violar.
 
-1. Na tela **recuperação de senha** , carregue o `password_recovery.zip` arquivo e selecione **Avançar**.
+1. Na tela **recuperação de senha** , selecione **carregar**. **A janela carregar arquivo de recuperação de senha** será aberta.
 
-Em seguida, você recebe a senha gerada pelo sistema para o console de gerenciamento. 
+1. Selecione **procurar** para localizar o `password_recovery.zip` arquivo ou arraste o `password_recovery.zip` para a janela.
+
+1. Selecione **Avançar** e seu usuário, e a senha gerada pelo sistema para o console de gerenciamento será exibida.
+
+    > [!NOTE]
+    > Quando você entra em um sensor ou em um console de gerenciamento local pela primeira vez, ele será vinculado à assinatura à qual você o conectou. Se você precisar redefinir a senha para o CyberX ou o usuário de suporte, precisará selecionar essa assinatura. Para obter mais informações sobre como recuperar uma senha de usuário de CyberX ou de suporte, consulte [redefinindo a senha de um usuário para o sensor ou o console de gerenciamento local](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
 
 ### <a name="investigate-a-lack-of-traffic"></a>Investigue a falta de tráfego
 
@@ -65,35 +76,35 @@ Para verificar o desempenho do sistema:
 
    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Captura de tela de um painel de exemplo."::: 
 
-2. No menu lateral, selecione **dispositivos**.
+1. No menu lateral, selecione **dispositivos**.
 
-3. Na janela **dispositivos** , verifique se os dispositivos estão sendo descobertos.
+1. Na janela **dispositivos** , verifique se os dispositivos estão sendo descobertos.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/discovered-devices.png" alt-text="Certifique-se de que os dispositivos sejam descobertos.":::
 
-4. No menu lateral, selecione **mineração de dados**.
+1. No menu lateral, selecione **mineração de dados**.
 
-5. Na janela **mineração de dados** , selecione **tudo** e gere um relatório.
+1. Na janela **mineração de dados** , selecione **tudo** e gere um relatório.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Gere um novo relatório usando Data Mining.":::
 
-6. Verifique se o relatório contém dados.
+1. Verifique se o relatório contém dados.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/new-report-generated.png" alt-text="Verifique se o relatório contém dados.":::
 
-7. No menu lateral, selecione **tendências & estatísticas**.
+1. No menu lateral, selecione **tendências & estatísticas**.
 
-8. Na janela **tendências & estatísticas** , selecione **Adicionar widget**.
+1. Na janela **tendências & estatísticas** , selecione **Adicionar widget**.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/add-widget.png" alt-text="Adicione um widget selecionando-o.":::
 
-9. Adicione um widget e verifique se ele mostra os dados.
+1. Adicione um widget e verifique se ele mostra os dados.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/widget-data.png" alt-text="Verifique se o widget está mostrando os dados.":::
 
-10. No menu lateral, selecione **alertas**. A janela **alertas** é exibida.
+1. No menu lateral, selecione **alertas**. A janela **alertas** é exibida.
 
-11. Verifique se os alertas foram criados.
+1. Verifique se os alertas foram criados.
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Verifique se os alertas foram criados.":::
 
@@ -154,9 +165,9 @@ Para corrigir a configuração:
 
 1. Clique com o botão direito do mouse no ícone de nuvem no mapa do dispositivo e selecione **Exportar endereços IP**. Copie os intervalos públicos que são privados e adicione-os à lista de sub-redes. Para obter mais informações, consulte [Configurar sub-redes](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
-2. Gere um novo relatório de mineração de dados para conexões com a Internet.
+1. Gere um novo relatório de mineração de dados para conexões com a Internet.
 
-3. No relatório de mineração de dados, selecione :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: para inserir o modo de administrador e excluir os endereços IP de seus dispositivos ICS.
+1. No relatório de mineração de dados, selecione :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: para inserir o modo de administrador e excluir os endereços IP de seus dispositivos ICS.
 
 ### <a name="tweak-the-sensors-quality-of-service"></a>Ajustar a qualidade de serviço do sensor
 
@@ -179,7 +190,7 @@ Para ajustar a qualidade do serviço:
    > [!NOTE]
    > Para um dispositivo físico, use a interface EM1.
 
-2. Para limpar a limitação de interface, digite `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` .
+1. Para limpar a limitação de interface, digite `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c` .
 
 ## <a name="on-premises-management-console-troubleshooting-tools"></a>Ferramentas de solução de problemas do console de gerenciamento local
 
@@ -203,7 +214,7 @@ Para ajustar a qualidade do serviço:
 
 1. Entre como um usuário do defender para IoT. 
 
-2. Verifique os valores padrão:
+1. Verifique os valores padrão:
 
    ```bash
    grep \"notifications\" /var/cyberx/properties/management.properties
@@ -216,20 +227,20 @@ Para ajustar a qualidade do serviço:
    notifications.max_time_to_report=10 (seconds)
    ```
 
-3. Edite as configurações padrão:
+1. Edite as configurações padrão:
 
    ```bash
    sudo nano /var/cyberx/properties/management.properties
    ```
 
-4. Edite as configurações das seguintes linhas:
+1. Edite as configurações das seguintes linhas:
 
    ```bash
    notifications.max_number_to_report=50
    notifications.max_time_to_report=10 (seconds)
    ```
 
-5. Salve as alterações. Nenhuma reinicialização é necessária.
+1. Salve as alterações. Nenhuma reinicialização é necessária.
 
 ## <a name="export-information-for-troubleshooting"></a>Exportar informações para solução de problemas
 
@@ -239,15 +250,15 @@ Para exportar logs:
 
 1. No painel esquerdo, selecione **configurações do sistema**.
 
-2. Selecione **Exportar logs**.
+1. Selecione **Exportar logs**.
 
     :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Exporte um log para o suporte do sistema.":::
 
-3. Na caixa **nome do arquivo** , digite o nome do arquivo que você deseja usar para a exportação de log. O padrão é a data atual.
+1. Na caixa **nome do arquivo** , digite o nome do arquivo que você deseja usar para a exportação de log. O padrão é a data atual.
 
-4. Para definir quais dados você deseja exportar, selecione as categorias de dados:  
+1. Para definir quais dados você deseja exportar, selecione as categorias de dados:  
 
-    | Exportar categoria | Descrição |
+    | Exportar categoria | Description |
     |--|--|
     | **Logs do sistema operacional** | Selecione esta opção para obter informações sobre o estado do sistema operacional. |
     | **Logs de instalação/atualização** | Selecione esta opção para investigação dos parâmetros de configuração de instalação e atualização. |
@@ -264,18 +275,18 @@ Para exportar logs:
     | **Logs de banco de dados** | Selecione esta opção para exportar logs do banco de dados do sistema. A investigação de logs do sistema ajuda a identificar problemas do sistema. |
     | **Configuration** | Selecione esta opção para exportar informações sobre todos os parâmetros configuráveis para certificar-se de que tudo foi configurado corretamente. |
 
-5. Para selecionar todas as opções, selecione **selecionar tudo** ao lado de **escolher categorias**.
+1. Para selecionar todas as opções, selecione **selecionar tudo** ao lado de **escolher categorias**.
 
-6. Selecione **Exportar logs**.
+1. Selecione **Exportar logs**.
 
 Os logs exportados são adicionados à lista de **logs arquivados** . Envie a OTP para a equipe de suporte em uma mensagem separada e média dos logs exportados. A equipe de suporte poderá extrair logs exportados somente usando a OTP exclusiva que é usada para criptografar os logs.
 
 A lista de logs arquivados pode conter até cinco itens. Se o número de itens na lista ultrapassar esse número, o item mais antigo será excluído.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Exibir alertas](how-to-view-alerts.md)
 
-- [Configurar o monitoramento de MIB SNMP](how-to-set-up-snmp-mib-monitoring.md)
+- [Configurar o monitoramento de MIB do SNMP](how-to-set-up-snmp-mib-monitoring.md)
 
 - [Entender os eventos de desconexão do sensor](how-to-manage-sensors-from-the-on-premises-management-console.md#understand-sensor-disconnection-events)

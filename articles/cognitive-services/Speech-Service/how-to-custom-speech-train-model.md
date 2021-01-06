@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 5a912790b4a7a86c44576b98ce7e95f44b810c9e
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: a7227195c767d90141a9b6cd95f784c239a31fd5
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857368"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955188"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Treinar e implantar um modelo de Fala Personalizada
 
@@ -48,6 +48,11 @@ A tabela de **treinamento** exibe uma nova entrada que corresponde ao novo model
 
 Veja [como](how-to-custom-speech-evaluate-data.md) avaliar e melhorar a precisão do modelo de fala personalizada. Se você optar por testar a precisão, é importante selecionar um conjunto de um banco de uma diferente do que você usou com seu modelo para obter uma noção realista do desempenho do modelo.
 
+> [!NOTE]
+> Os modelos de base e os modelos personalizados podem ser usados apenas até uma determinada data (consulte [ciclo de vida do modelo](custom-speech-overview.md#model-lifecycle)). O Speech Studio mostra essa data na coluna de **expiração** para cada modelo e ponto de extremidade. Após essa solicitação de data a um ponto de extremidade ou à transcrição do lote pode falhar ou retornar ao modelo base.
+>
+> Retreine seu modelo usando o modelo base mais recente para se beneficiar de melhorias de precisão e para evitar que seu modelo expire.
+
 ## <a name="deploy-a-custom-model"></a>Implantar um modelo personalizado
 
 Depois de carregar e inspecionar dados, avaliar a precisão e treinar um modelo personalizado, você pode implantar um ponto de extremidade personalizado para usar com seus aplicativos, ferramentas e produtos. 
@@ -63,7 +68,7 @@ Em seguida, selecione **Adicionar ponto de extremidade** e insira um **nome** e 
 
 Em seguida, selecione **Criar**. Essa ação retorna para a página de **implantação** . A tabela agora inclui uma entrada que corresponde ao seu ponto de extremidade personalizado. O status do ponto de extremidade mostra seu estado atual. Pode levar até 30 minutos para criar uma instância de um novo ponto de extremidade usando seus modelos personalizados. Quando o status da implantação for alterado para **concluído**, o ponto de extremidade estará pronto para uso.
 
-Depois que o ponto de extremidade for implantado, o nome do ponto de extremidade aparecerá como um link. Selecione o link para ver informações específicas para seu ponto de extremidade, como a chave do ponto de extremidade, a URL do ponto de extremidade e o código de exemplo.
+Depois que o ponto de extremidade for implantado, o nome do ponto de extremidade aparecerá como um link. Selecione o link para ver informações específicas para seu ponto de extremidade, como a chave do ponto de extremidade, a URL do ponto de extremidade e o código de exemplo. Anote a data de validade e atualize o modelo do ponto de extremidade antes dessa data para garantir o serviço ininterrupto.
 
 ## <a name="view-logging-data"></a>Exibir dados de log
 

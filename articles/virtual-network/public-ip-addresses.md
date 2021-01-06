@@ -1,5 +1,5 @@
 ---
-title: Endereços IP públicos no Azure
+title: Endereços IP no AzureEndereços IP no Azure
 titlesuffix: Azure Virtual Network
 description: Saiba mais sobre endereços IP públicos no Azure.
 services: virtual-network
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: ef79844cf2f90ce97ea30a1948a441f909255f98
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e46cf78c76e873bcb78af4942f42a5c4be45391
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169926"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955579"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -55,6 +55,7 @@ Endereços IP públicos de SKU padrão:
 - Seguro por padrão e fechado para tráfego de entrada. Permitir listar o tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
 - Atribuído a interfaces de rede, balanceadores de carga públicos padrão ou gateways de aplicativo. Para obter mais informações sobre o balanceador de carga padrão, consulte [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Pode ser com redundância de zona (desdivulgada de todas as 3 zonas) ou zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **IPs com redundância de zona só podem ser criados em [regiões em que três zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-region) estão ativas.** Os IPs criados antes de as zonas serem ativas não terão redundância de zona.
+- Pode ser usado como IPs de front-end anycast para [balanceadores de carga entre regiões](https://docs.microsoft.com/azure/load-balancer/cross-region-overview) (funcionalidade de visualização).
  
 > [!NOTE]
 > A comunicação de entrada com o recurso de SKU Standard falha até que você crie e associe um [grupo de segurança de rede](security-overview.md#network-security-groups) e permita explicitamente o tráfego de entrada desejado.
@@ -62,7 +63,7 @@ Endereços IP públicos de SKU padrão:
 > [!NOTE]
 > Somente endereços IP públicos com SKU básico estão disponíveis ao usar o [serviço de metadados de instância IMDS](../virtual-machines/windows/instance-metadata-service.md). Não há suporte para o SKU Standard.
 
-### <a name="basic"></a>Básico
+### <a name="basic"></a>Basic
 
 Todos os endereços IP públicos criados antes da introdução dos SKUs são endereços IP públicos do SKU Básico. 
 
