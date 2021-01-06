@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 58dacc9e65da6502d083446cb7202c222cb7e795
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 1b43a1ceb1f9e098e4932b405553ae8f33e27262
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034030"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937341"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com Azure Machine Learning
 
@@ -29,7 +29,7 @@ O Azure usa limites e cotas para evitar estouros de orçamento devido a fraudes 
 > + A solicitação aumenta a cota.
 > + O ponto de extremidade privado e as cotas de DNS.
 
-Juntamente com o gerenciamento de cotas, você pode aprender a [planejar e gerenciar custos para Azure Machine Learning](concept-plan-manage-cost.md).
+Juntamente com o gerenciamento de cotas, você pode aprender a [planejar e gerenciar custos para Azure Machine Learning](concept-plan-manage-cost.md) ou saber mais sobre os [limites de serviço em Azure Machine Learning](resource-limits-quotas-capacity.md).
 
 ## <a name="special-considerations"></a>Considerações especiais
 
@@ -53,7 +53,9 @@ Nesta seção, você aprenderá sobre os limites de cota padrão e máximo para 
 + Armazenamento do Azure
 
 > [!IMPORTANT]
-> Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte [assinatura do Azure e limites de serviço, cotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md) para todos os Azure.
+> Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte  [limites de serviço em Azure Machine Learning](resource-limits-quotas-capacity.md).
+
+
 
 ### <a name="azure-machine-learning-assets"></a>Ativos de Azure Machine Learning
 Os seguintes limites de ativos se aplicam a cada espaço de trabalho. 
@@ -210,3 +212,4 @@ Para solicitar uma concessão para esses cenários, use as seguintes etapas:
 ## <a name="next-steps"></a>Próximas etapas
 
 + [Planejar e gerenciar custos para Azure Machine Learning](concept-plan-manage-cost.md)
++ [Limites de serviço no Azure Machine Learning](resource-limits-quotas-capacity.md)
