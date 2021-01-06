@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: b9fc465b5e5f132264fd36e004fa3ee7623b87a5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c94218248f1122cdb60ab8124bc9d9365fe8947b
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854981"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931731"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 
@@ -51,7 +51,7 @@ A extensão de tarefa durável implementa um algoritmo de retirada exponencial a
 O atraso máximo de sondagem é configurável por meio da `maxQueuePollingInterval` propriedade no [host.jsno arquivo](../functions-host-json.md#durabletask). Definir essa propriedade com um valor mais alto pode resultar em latências de processamento de mensagens mais altas. As latências mais altas seriam esperadas somente após períodos de inatividade. Definir essa propriedade com um valor mais baixo pode resultar em custos de armazenamento mais altos devido a maiores transações de armazenamento.
 
 > [!NOTE]
-> Durante a execução nos planos de consumo Azure Functions e Premium, o [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sondará cada controle e a fila de itens de trabalho uma vez a cada 10 segundos. Essa sondagem adicional é necessária para determinar quando ativar instâncias do aplicativo de funções e tomar decisões de escala. No momento da gravação, esse intervalo de 10 segundos é constante e não pode ser configurado.
+> Durante a execução nos planos de consumo Azure Functions e Premium, o [controlador de escala de Azure Functions](../event-driven-scaling.md) sondará cada controle e a fila de itens de trabalho uma vez a cada 10 segundos. Essa sondagem adicional é necessária para determinar quando ativar instâncias do aplicativo de funções e tomar decisões de escala. No momento da gravação, esse intervalo de 10 segundos é constante e não pode ser configurado.
 
 ### <a name="orchestration-start-delays"></a>Atrasos de início da orquestração
 As instâncias de orquestrações são iniciadas colocando uma `ExecutionStarted` mensagem em uma das filas de controle do hub de tarefas. Em determinadas condições, você pode observar atrasos de vários segundos entre quando uma orquestração está agendada para ser executada e quando ela realmente começa a ser executada. Durante esse intervalo de tempo, a instância de orquestração permanece no `Pending` estado. Há duas causas potenciais desse atraso:
@@ -138,7 +138,7 @@ De modo geral, as funções de orquestrador devem ser leves e não devem precisa
 
 ## <a name="auto-scale"></a>Dimensionamento automático
 
-Assim como todos os Azure Functions em execução nos planos de consumo e Premium elásticos, Durable Functions dá suporte ao dimensionamento automático por meio do [controlador de escala de Azure Functions](../functions-scale.md#runtime-scaling). O Controlador de Escala monitora a latência de todas as filas periodicamente emitindo comandos de _inspeção_. Com base nas latências das mensagens inspecionadas, o controlador de escala irá decidir se deseja adicionar ou remover VMs.
+Assim como todos os Azure Functions em execução nos planos de consumo e Premium elásticos, Durable Functions dá suporte ao dimensionamento automático por meio do [controlador de escala de Azure Functions](../event-driven-scaling.md#runtime-scaling). O Controlador de Escala monitora a latência de todas as filas periodicamente emitindo comandos de _inspeção_. Com base nas latências das mensagens inspecionadas, o controlador de escala irá decidir se deseja adicionar ou remover VMs.
 
 Se o controlador de escala determina que as latências de mensagem de fila de controle são muito altas, ele irá adicionar instâncias de VM até que a latência de mensagem diminua em um nível aceitável ou atinja a contagem de partições de fila do controle. Da mesma forma, o controlador de escala continuamente adiciona instâncias de VM se as latências de fila de item de trabalho são alta, independentemente da contagem de partição.
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e90adcb5312df6e1dfe6d4b58407edeb924a8809
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 6e561a0e05cf1a0870d85369867caba6c4d6bf12
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862447"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932411"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar as Novidades no Azure Active Directory?
 
@@ -3733,7 +3733,7 @@ Para obter mais informações sobre como listar seu aplicativo na galeria de apl
 
 **Tipo:** Novo recurso **Categoria de serviço:** Outros **Capacidade do produto:** Diretório
 
-Nova orientação passo-a-passo sobre como implantar o Azure Active Directory (Azure AD), incluindo redefinição de senha self-service (SSPR), logon único (SSO), acesso condicional (CA), proxy de aplicativo, provisionamento de usuário, Serviços de Federação do Active Directory (ADFS) para autenticação de passagem (PTA) e ADFS para sincronização de hash de senha (PHS).
+Novas orientações passo a passo sobre como implantar o Azure Active Directory (AD do Azure), incluindo redefinição de senha por autoatendimento (SSPR), logon único (SSO), acesso condicional, proxy de aplicativo, provisionamento de usuário, Serviços de Federação do Active Directory (AD FS) (ADFS) para autenticação de passagem (PTA) e ADFS para sincronização de hash de senha (PHS).
 
 Para visualizar os guias de implantação, acesse o repositório [Guias de Implantação de Identidade](./active-directory-deployment-plans.md) no GitHub. Para fornecer feedback sobre os guias de implantação, use o [formulário de Feedback do Plano de Implantação](https://aka.ms/deploymentplanfeedback). Se você tiver alguma dúvida sobre os guias de implantação, entre em contato conosco em [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 

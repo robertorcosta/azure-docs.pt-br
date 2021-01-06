@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2157a1cb96475209762e829c549d628f2c35fd91
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 49a350b77958901aae5e54e82d856e4f3772702e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425705"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97930779"
 ---
 # <a name="set-up-a-file-share-for-msix-app-attach-preview"></a>Configurar um compartilhamento de arquivos para anexação do aplicativo MSIX (versão prévia)
 
@@ -33,7 +33,7 @@ A tabela a seguir fornece um exemplo de quantos recursos uma única imagem MSIX 
 |----------------------|--------------|
 | IOPs de estado estável    | 1 IOPs       |
 | Entrada de inicialização do computador | 10 IOPs      |
-| Latency              | 400 MS       |
+| Latência              | 400 MS       |
 
 Os requisitos podem variar muito dependendo de quantos aplicativos MSIXdos são armazenados na imagem do MSIX. Para imagens MSIX maiores, você precisará alocar mais largura de banda.
 
@@ -64,6 +64,12 @@ Aqui estão algumas outras coisas que recomendamos que você faça para otimizar
 O processo de instalação do compartilhamento de arquivos de anexação do aplicativo MSIX é basicamente o mesmo que [o processo de instalação para compartilhamentos de arquivos de perfil FSLogix](create-host-pools-user-profile.md). No entanto, você precisará atribuir permissões diferentes aos usuários. A anexação de aplicativo MSIX requer permissões somente leitura para acessar o compartilhamento de arquivos.
 
 Se você estiver armazenando seus aplicativos MSIX em arquivos do Azure, em seguida, para os hosts de sua sessão, você precisará atribuir todas as VMs de host de sessão, o RBAC (controle de acesso baseado em função) da conta de armazenamento e as permissões do sistema de arquivos de nova tecnologia (NTFS) no compartilhamento.
+
+| Objeto do Azure                      | Função necessária                                     | Função de função                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| Host de sessão (objetos de computador VM)| Colaborador de Compartilhamento SMB de Dados do Arquivo de Armazenamento          | Ler e executar, ler, listar conteúdo da pasta  |
+| Administradores no compartilhamento de arquivos              | Colaborador com Privilégios Elevados do Compartilhamento SMB de Dados do Arquivo de Armazenamento | Controle total                                  |
+| Usuários no compartilhamento de arquivos               | Colaborador de Compartilhamento SMB de Dados do Arquivo de Armazenamento          | Ler e executar, ler, listar conteúdo da pasta  |
 
 Para atribuir permissões de VMs de host de sessão para a conta de armazenamento e o compartilhamento de arquivos:
 

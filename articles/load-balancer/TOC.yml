@@ -93,6 +93,8 @@
       href: manage.md
     - name: conjuntos de escala de máquina virtual
       items:
+        - name: Atualizar ou excluir um Azure Load Balancer existente usado pelo Conjunto de Dimensionamento de Máquinas Virtuais
+          href: update-load-balancer-with-vm-scale-set.md
         - name: Usar com um Azure Load Balancer existente – Portal
           href: configure-vm-scale-set-portal.md
         - name: Usar com um Azure Load Balancer existente – PowerShell

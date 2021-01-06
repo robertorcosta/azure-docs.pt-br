@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08a4f4a31893fc93789d019ea87dff390552f6a
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: fd04d24e0e46b053381858be037a009b1987f8e9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743853"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97932513"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. criar um plano de segurança para acesso externo 
 
@@ -175,7 +175,7 @@ O Azure AD P2 e o Microsoft 365 E5 têm o conjunto completo de ferramentas de se
 | Gerenciamento de direitos| **Adicionar usuário por atribuição ou acesso de autoatendimento**| **Pacotes de acesso**| **Pacotes de acesso**|  |
 | Grupo do Office 365| | Acesso a site (s) (e conteúdo associado) incluído no grupo| Acesso a equipes (e conteúdo associado) incluído com o grupo|  |
 | Rótulos de confidencialidade| | **Classificar e restringir o acesso manualmente e automaticamente**| **Classificar e restringir o acesso manualmente e automaticamente**| **Classificar e restringir o acesso manualmente e automaticamente** |
-| Grupos de segurança do Azure AD| **Políticas de CA para acesso não incluído em pacotes do Access**| | |  |
+| Grupos de segurança do Azure AD| **Políticas de acesso condicional para acesso não incluídas em pacotes do Access**| | |  |
 
 
 ### <a name="entitlement-management"></a>Gerenciamento de direitos 
@@ -195,7 +195,7 @@ Você pode obter um controle robusto com o Azure AD P1 e o Microsoft 365 E3
 | Colaboração B2B do Azure AD| **Convidar por email, OTP, autoatendimento**| Federação B2B direta| **Análise periódica por parceiro**| Remover conta<br>Restringir entrada |
 | Grupos do Microsoft ou Office 365| | | | Expiração ou exclusão do grupo.<br>Remoção do grupo. |
 | Grupos de segurança| | **Adicionar usuários externos a grupos de segurança (org, Team, Project, etc.)**| |  |
-| Políticas de acesso condicional| | **Políticas de AC de entrada para usuários externos**| |  |
+| Políticas de acesso condicional| | **Políticas de acesso condicional de entrada para usuários externos**| |  |
 
 
  ### <a name="access-to-resources"></a>Acesso aos recursos.
@@ -204,7 +204,7 @@ Você pode obter um controle robusto com o Azure AD P1 e o Microsoft 365 E3
 | - |-|-|-|-|
 | Grupos do Microsoft ou Office 365| | **Acesso a sites incluídos com grupo (e conteúdo associado)**|**Acesso às equipes incluídas no grupo de Microsoft 365 (e conteúdo associado)**|  |
 | Rótulos de confidencialidade| | Classificar e restringir o acesso manualmente| Classifique e restrinja o acesso manualmente.| Classificar manualmente para restringir e criptografar |
-| Políticas de Acesso Condicional| Políticas de CA para controle de acesso| | |  |
+| Políticas de Acesso Condicional| Políticas de acesso condicional para controle de acesso| | |  |
 | Métodos adicionais| | Restrinja o acesso ao site do SharePoint de maneira granular com grupos de segurança.<br>Não permitir compartilhamento direto.| **Restringir convites externos de dentro de equipes**|  |
 
 

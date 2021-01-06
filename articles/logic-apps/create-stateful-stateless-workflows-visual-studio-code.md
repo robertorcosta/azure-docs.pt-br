@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: a74244cc45e1a3d2116f98ac73290d184f4affc0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: be8d00d795c19399d494db21578e9a7ba8dd9711
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632053"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934009"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com e sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
@@ -598,7 +598,7 @@ Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão d
 
    ![Captura de tela que mostra a página Visão geral do fluxo de trabalho com o status de execução e o histórico](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   | Status da execução | Description |
+   | Status da execução | Descrição |
    |------------|-------------|
    | **Anulado** | A execução foi interrompida ou não foi concluída devido a problemas externos, por exemplo, uma interrupção do sistema ou uma assinatura do Azure enlapsada. |
    | **Cancelar** | A execução foi disparada e iniciada, mas recebeu uma solicitação de cancelamento. |
@@ -742,7 +742,7 @@ Você pode publicar seu aplicativo lógico como um novo recurso, que cria automa
 
       ![Captura de tela que mostra o painel "Azure: aplicativos lógicos (visualização)" e um prompt para fornecer um nome para o novo aplicativo lógico a ser criado.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Selecione um plano de hospedagem para seu novo aplicativo lógico, ou para o [**plano do serviço de aplicativo**](../azure-functions/functions-scale.md#app-service-plan) ou [**Premium**](../azure-functions/functions-scale.md#premium-plan). Este exemplo seleciona o **plano do serviço de aplicativo**.
+   1. Selecione um plano de hospedagem para seu novo aplicativo lógico, ou para o [**plano do serviço de aplicativo**](../azure-functions/dedicated-plan.md) ou [**Premium**](../azure-functions/functions-premium-plan.md). Este exemplo seleciona o **plano do serviço de aplicativo**.
 
       ![Captura de tela que mostra o painel "Azure: aplicativos lógicos (visualização)" e um prompt para selecionar "plano do serviço de aplicativo" ou "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
@@ -818,7 +818,7 @@ Você pode publicar seu aplicativo lógico como um novo recurso, que cria automa
          | Crítico | Logs que descrevem uma Falha irrecuperável em seu aplicativo lógico. |
          | Depurar | Logs que você pode usar para investigação durante o desenvolvimento, por exemplo, chamadas HTTP de entrada e saída. |
          | Erro | Logs que indicam uma falha na execução do fluxo de trabalho, mas não uma falha geral em seu aplicativo lógico. |
-         | Informações do | Logs que acompanham a atividade geral em seu aplicativo lógico ou fluxo de trabalho, por exemplo: <p><p>-Quando um gatilho, uma ação ou uma execução é iniciada e termina. <br>-Quando o aplicativo lógico é iniciado ou encerrado. |
+         | Informações | Logs que acompanham a atividade geral em seu aplicativo lógico ou fluxo de trabalho, por exemplo: <p><p>-Quando um gatilho, uma ação ou uma execução é iniciada e termina. <br>-Quando o aplicativo lógico é iniciado ou encerrado. |
          | Trace | Logs que contêm as mensagens mais detalhadas, por exemplo, solicitações de armazenamento ou atividade do Dispatcher, além de todas as mensagens relacionadas à atividade de execução do fluxo de trabalho. |
          | Aviso | Logs que realçam um estado anormal em seu aplicativo lógico, mas não impedem sua execução. |
          |||

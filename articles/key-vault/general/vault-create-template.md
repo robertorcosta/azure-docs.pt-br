@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1ab382ec10d932b94961c73b7d7ac9082125a88c
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704513"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933924"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Como criar um cofre de chaves do Azure e uma política de acesso do cofre usando um modelo do Resource Manager
 
@@ -186,7 +186,7 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-
 az deployment group create --resource-group ExampleGroup --template-file key-vault-template.json
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você planeja continuar com os tutoriais e guias de início rápido subsequentes, poderá deixar esses recursos em vigor. Quando você não precisar mais dos recursos, exclua o grupo de recursos. Se você excluir o grupo, o cofre de chaves e os recursos relacionados também serão excluídos. Para excluir o grupo de recursos usando o CLI do Azure ou Azure PowerShell, conclua estas etapas:
 
@@ -213,10 +213,10 @@ Write-Host "Press [ENTER] to continue..."
 
 - Leia uma [visão geral do Azure Key Vault](../general/overview.md).
 - Saiba mais sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Examine [Azure Key Vault práticas recomendadas](../general/best-practices.md).
+- Examinar a [visão geral da segurança do Azure Key Vault](security-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Proteger o acesso a um cofre de chaves](secure-your-key-vault.md)
 - [Autenticar em um cofre de chaves](authentication.md)
-- [Guia do desenvolvedor de Azure Key Vault](developers-guide.md)
+- [Guia do desenvolvedor do Cofre da Chave do Azure](developers-guide.md)
