@@ -4,12 +4,12 @@ description: Saiba mais sobre o esquema JSON que é enviado para uma URL de webh
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: a73ab12d1729acba132aeffd4104ca7846ecb9e8
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b48f094b460a2871b502c72b39b849ed68b9c085
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901429"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916619"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Este artigo mostra a aparência do conteúdo para o HTTP POST para um webhook.
@@ -40,6 +40,7 @@ O conteúdo JSON contida na operação POST difere com base no campo de data.con
 > Se sua condição (em suas regras de ação, WebHooks, aplicativo lógico ou qualquer outra configuração) for baseada na propriedade **"Descrição"** para alertas do log de atividades, talvez seja necessário modificá-la para que ela se baseie na propriedade **"Descrição do evento do log de atividades"** .
 >
 > Para preencher a nova propriedade **"Descrição"** , você pode adicionar uma descrição na definição de regra de alerta.
+> ![Alertas do log de atividades acionados](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### <a name="common"></a>Comum
 

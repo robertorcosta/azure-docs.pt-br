@@ -8,12 +8,12 @@ ms.date: 12/04/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 288d1740c1c4c67dd8756de5fc0652966ae89488
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e914bcece9a30270d12d5c2cc09d3fd1014783c6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620967"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916500"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de compartilhamento de arquivos do Azure
 
@@ -24,18 +24,18 @@ Os arquivos do Azure oferecem dois protocolos para conectar e montar seus compar
 |Recurso  |NFS (visualização)  |SMB  |
 |---------|---------|---------|
 |Protocolos de acesso     |NFS 4,1         |SMB 2,1, SMB 3,0         |
-|SO com suporte     |Kernel do Linux versão 4.3 +         |Windows 2008 R2 +, kernel do Linux versão 4.11 +         |
+|Sistema operacional recomendado     |Kernel do Linux versão 4.3 +         |Windows 2008 R2 +, kernel do Linux versão 4.11 +         |
 |[Camadas disponíveis](storage-files-planning.md#storage-tiers)     |Armazenamento Premium         |Armazenamento Premium, otimizado para transação, quente, frio         |
 |[Redundância](storage-files-planning.md#redundancy)     |LRS, ZRS         |LRS, ZRS, GRS         |
 |Autenticação     |Somente autenticação baseada em host        |Autenticação baseada em identidade, autenticação baseada no usuário         |
 |Permissões     |Permissões de estilo UNIX         |Permissões de estilo NTFS         |
 |Semântica do sistema de arquivos     |Compatível com POSIX         |Não compatível com POSIX         |
 |Diferenciar maiúsculas de minúsculas     |Diferencia maiúsculas de minúsculas         |Não diferencia maiúsculas de minúsculas         |
-|Suporte a links físicos     |Com suporte         |Sem suporte         |
-|Suporte a links simbólicos     |Com suporte         |Sem suporte         |
-|Excluindo ou modificando arquivos abertos     |Com suporte         |Sem suporte         |
-|Bloqueio     |Advisory do intervalo de bytes do Gerenciador de bloqueio de rede         |Com suporte         |
-|Listagem segura de IP público | Sem suporte | Com suporte|
+|Suporte a links físicos     |Suportado         |Sem suporte         |
+|Suporte a links simbólicos     |Suportado         |Sem suporte         |
+|Excluindo ou modificando arquivos abertos     |Suportado         |Sem suporte         |
+|Bloqueio     |Advisory do intervalo de bytes do Gerenciador de bloqueio de rede         |Suportado         |
+|Listagem segura de IP público | Sem suporte | Suportado|
 |Interoperabilidade de protocolo| Sem suporte | Filerest|
 
 ## <a name="nfs-shares-preview"></a>Compartilhamentos NFS (visualização)
