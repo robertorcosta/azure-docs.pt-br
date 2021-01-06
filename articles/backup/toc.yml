@@ -75,7 +75,7 @@
         - name: Perguntas frequentes – cofres dos Serviços de Recuperação
           href: backup-azure-backup-faq.md
         - name: Perguntas frequentes – Centro de Backup
-          href: backup-center-faq.md
+          href: backup-center-faq.yml
         - name: Perguntas frequentes – backup de VM do Azure
           href: backup-azure-vm-backup-faq.md
         - name: Perguntas frequentes – agente do MARS
