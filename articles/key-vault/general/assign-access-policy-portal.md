@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9277d100eb6744adfc20fbba9f96b822654e64a3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 910b8dae10036cc2e396be13495fd28363dc971d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287708"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934553"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Atribuir uma política de acesso de Key Vault usando o portal do Azure
 
@@ -29,15 +29,15 @@ Para obter mais informações sobre como criar grupos em Azure Active Directory 
 
 1.  Na [portal do Azure](https://portal.azure.com), navegue até o recurso Key Vault. 
 
-1.  Em **configurações** , selecione **políticas de acesso** e, em seguida, selecione **Adicionar política de acesso** :
+1.  Em **configurações**, selecione **políticas de acesso** e, em seguida, selecione **Adicionar política de acesso**:
 
     ![Selecionar políticas de acesso, selecionando Adicionar atribuição de função](../media/authentication/assign-policy-portal-01.png)
 
-1.  Selecione as permissões desejadas em **permissões de certificado** , permissões de **chave** e permissões de **segredo**. Você também pode selecionar um modelo que contém combinações de permissões comuns:
+1.  Selecione as permissões desejadas em **permissões de certificado**, permissões de **chave** e permissões de **segredo**. Você também pode selecionar um modelo que contém combinações de permissões comuns:
 
     ![Especificando permissões de política de acesso](../media/authentication/assign-policy-portal-02.png)
 
-1. Em **selecionar entidade de segurança** , escolha o link **nenhum selecionado** para abrir o painel seleção **principal** . Insira o nome do aplicativo ou da entidade de serviço no campo de pesquisa, selecione o resultado apropriado e escolha **selecionar**.
+1. Em **selecionar entidade de segurança**, escolha o link **nenhum selecionado** para abrir o painel seleção **principal** . Insira o nome do aplicativo ou da entidade de serviço no campo de pesquisa, selecione o resultado apropriado e escolha **selecionar**.
 
     ![Selecionando a entidade de serviço para a política de acesso](../media/authentication/assign-policy-portal-03.png)
 
@@ -54,7 +54,6 @@ Para obter mais informações sobre como criar grupos em Azure Active Directory 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Segurança do Azure Key Vault: Gerenciamento de identidades e acesso](overview-security.md#identity-and-access-management)
+- [Segurança do Azure Key Vault: Gerenciamento de identidades e acesso](security-overview.md#identity-management)
 - [Proteja seu cofre de chaves](secure-your-key-vault.md).
 - [Guia do desenvolvedor do Azure Key Vault](developers-guide.md)
-- [Melhores práticas do Azure Key Vault](best-practices.md)

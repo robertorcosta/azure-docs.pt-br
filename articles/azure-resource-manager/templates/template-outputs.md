@@ -3,12 +3,12 @@ title: Saídas em modelos
 description: Descreve como definir valores de saída em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6a375dfbc767bcbbfd8ec6b7f8cb9e942e275582
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353520"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934723"
 ---
 # <a name="outputs-in-arm-templates"></a>Saídas em modelos ARM
 
@@ -47,7 +47,7 @@ Para obter um exemplo simples de saída condicional, consulte [modelo de saída 
 
 ## <a name="dynamic-number-of-outputs"></a>Número dinâmico de saídas
 
-Em alguns cenários, você não sabe o número de instâncias de um valor que precisa retornar ao criar o modelo. Você pode retornar um número variável de valores usando o elemento **Copy** .
+Em alguns cenários, você não sabe o número de instâncias de um valor que precisa retornar ao criar o modelo. Você pode retornar um número variável de valores usando o `copy` elemento.
 
 ```json
 "outputs": {
@@ -61,7 +61,7 @@ Em alguns cenários, você não sabe o número de instâncias de um valor que pr
 }
 ```
 
-Para obter mais informações, consulte [iteração de saída em modelos de Azure Resource Manager](copy-outputs.md).
+Para obter mais informações, consulte [Iteration de saída em modelos ARM](copy-outputs.md).
 
 ## <a name="linked-templates"></a>Modelos vinculados
 

@@ -3,12 +3,12 @@ title: Práticas recomendadas
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5c3521a3b5fe0dd9c2d1534f6e2a6864647f5da3
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 7e2a49c8307af89fb3898f5f2513fb493d0f5d90
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694179"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934281"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -24,6 +24,9 @@ Os [pools](nodes-and-pools.md#pools) são os recursos de computação para execu
 ### <a name="pool-configuration-and-naming"></a>Configuração e nomenclatura de pool
 
 - **Modo de alocação de pool** Ao criar uma conta do Lote, você pode escolher entre dois modos de alocação de pool: **Serviço de lote** ou **assinatura de usuário**. Na maioria dos casos, você deve usar o modo de serviço de Lote padrão, no qual os pools são alocados em segundo plano em assinaturas gerenciadas no Lote. No modo de assinatura alternativo do usuário, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As contas de assinatura de usuário são usadas principalmente para habilitar um subconjunto de cenários importante, mas pequeno. Você pode ler mais sobre o modo de assinatura do usuário em [Configuração adicional para o modo de assinatura do usuário](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+
+- **' cloudServiceConfiguration ' ou ' virtualMachineConfiguration '.**
+    ' virtualMachineConfiguration ' deve ser usado. Todos os recursos do lote têm suporte nos pools ' virtualMachineConfiguration '. Nem todos os recursos têm suporte para pools ' cloudServiceConfiguration ' e nenhuma nova funcionalidade está sendo planejada.
 
 - **Considere o tempo de execução de trabalho e tarefa ao determinar o mapeamento do trabalho para o pool.**
     Se você tiver trabalhos compostos principalmente de tarefas de execução curta, e as contagens de tarefas totais esperadas forem pequenas, para que o tempo de execução esperado geral do trabalho não seja longo, não aloque um novo pool para cada trabalho. O tempo de alocação dos nós reduzirá o tempo de execução do trabalho.

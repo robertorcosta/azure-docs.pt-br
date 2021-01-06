@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 7ff3daded48612fd308396420dca65cd81d9fafc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724690"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934587"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitoramento e alertas para Azure Key Vault
 
@@ -25,8 +25,8 @@ ms.locfileid: "97724690"
 Depois de começar a usar o Key Vault para armazenar seus segredos de produção, é importante monitorar a integridade do cofre de chaves para garantir que o serviço funcione conforme o esperado. Conforme você começar a dimensionar o serviço, o número de solicitações enviadas para o cofre de chaves aumentará. Isso tem o potencial de aumentar a latência de suas solicitações e, em casos extremos, fazer com que suas solicitações sejam limitadas, o que afetará o desempenho de seu serviço. Você também precisará ser alertado se o cofre de chaves estiver enviando um número incomum de códigos de erro, para que você possa ser notificado rapidamente sobre qualquer política de acesso ou problemas de configuração de firewall. Este documento abordará os seguintes tópicos:
 
 + Métricas de Key Vault básicas para monitorar
-+ Como configurar métricas e criar um painel 
-+ Como criar alertas em limites especificados 
++ Como configurar métricas e criar um painel
++ Como criar alertas em limites especificados
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>Métricas de Key Vault básicas para monitorar
 

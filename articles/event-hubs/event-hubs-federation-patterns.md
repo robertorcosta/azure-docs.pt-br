@@ -3,12 +3,12 @@ title: Padrões de tarefa de replicação de evento – hubs de eventos do Azure
 description: Este artigo fornece diretrizes detalhadas para a implementação de padrões de tarefa de replicação de eventos específicos
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: 494de442b636d535fa1ed6fdeeeda28db9783952
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 438964c228f060dede93abf582c9504b698db8b0
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861366"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934604"
 ---
 # <a name="event-replication-tasks-patterns"></a>Padrões de tarefas de replicação de eventos
 

@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422528"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936780"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
 
@@ -76,7 +76,7 @@ $TriggerMetadata.sys
 
 | Propriedade   | Descrição                                     | Type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | Quando, em UTC, a função foi disparada        | Datetime |
+| UtcNow     | Quando, em UTC, a função foi disparada        | DateTime |
 | MethodName | O nome da função que foi disparada     | string   |
 | RandGuid   | um GUID exclusivo para esta execução da função | string   |
 
@@ -227,7 +227,7 @@ MyQueue                        myData
 
 Há suporte para caracteres curinga (*) no `Get-OutputBinding` .
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Log
 
 O registro em log nas funções do PowerShell funciona como log normal do PowerShell. Você pode usar os cmdlets de log para gravar em cada fluxo de saída. Cada cmdlet é mapeado para um nível de log usado pelas funções.
 
@@ -418,7 +418,7 @@ Use as etapas a seguir para alterar a versão do PowerShell usada pelo seu aplic
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o aplicativo de funções.
 
-1. Em **configurações** , escolha **configuração**. Na guia **configurações gerais** , localize a **versão do PowerShell**. 
+1. Em **configurações**, escolha **configuração**. Na guia **configurações gerais** , localize a **versão do PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Escolha a versão do PowerShell usada pelo aplicativo de funções"::: 
 
@@ -525,7 +525,7 @@ Vários módulos são geralmente usados pelo operador de linguagem do PowerShell
 A lista atual de módulos é a seguinte:
 
 * [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo usado para trabalhar com arquivos mortos, como `.zip` , `.nupkg` e outros.
-* **ThreadJob** : uma implementação baseada em thread das APIs de trabalho do PowerShell.
+* **ThreadJob**: uma implementação baseada em thread das APIs de trabalho do PowerShell.
 
 Por padrão, o Functions usa a versão mais recente desses módulos. Para usar uma versão de módulo específica, coloque essa versão específica na `Modules` pasta do seu aplicativo de funções.
 
@@ -649,11 +649,11 @@ Ao trabalhar com as funções do PowerShell, esteja ciente das considerações n
 
 ### <a name="cold-start"></a>Inicialização a frio
 
-Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](functions-scale.md#consumption-plan), inícios frios são uma realidade. *Início frio* refere-se ao período de tempo que leva para seu aplicativo de funções iniciar a execução para processar uma solicitação. A inicialização a frio acontece com mais frequência no plano de consumo porque seu aplicativo de funções é desligado durante períodos de inatividade.
+Ao desenvolver Azure Functions no [modelo de hospedagem sem servidor](consumption-plan.md), inícios frios são uma realidade. *Início frio* refere-se ao período de tempo que leva para seu aplicativo de funções iniciar a execução para processar uma solicitação. A inicialização a frio acontece com mais frequência no plano de consumo porque seu aplicativo de funções é desligado durante períodos de inatividade.
 
 ### <a name="bundle-modules-instead-of-using-install-module"></a>Agrupar módulos em vez de usar `Install-Module`
 
-O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes de publicar para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) definido como *Always on* ou em um [plano Premium](functions-scale.md#premium-plan).
+O script é executado em cada invocação. Evite usar `Install-Module` em seu script. Em vez disso, use `Save-Module` antes de publicar para que sua função não precise perder tempo baixando o módulo. Se a frio for iniciada, afetando suas funções, considere implantar seu aplicativo de funções em um [plano do serviço de aplicativo](dedicated-plan.md) definido como *Always on* ou em um [plano Premium](functions-premium-plan.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

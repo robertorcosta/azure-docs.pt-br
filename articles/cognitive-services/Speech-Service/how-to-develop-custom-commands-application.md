@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
-ms.openlocfilehash: b3e9c1e8ad23ea0ebf540eddbd6d4a03b8a72fe2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835067"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935811"
 ---
 # <a name="develop-custom-commands-applications"></a>Desenvolver aplicativos de comandos personalizados
 
@@ -178,7 +178,7 @@ Comece editando o `TurnOn` comando existente para ativar e desativar vários dis
    1. Selecione **Atualizar**.
 
        > [!div class="mx-imgBorder"]
-       > ![Captura de tela mostrando onde criar uma resposta de parâmetro necessária.](media/custom-commands/add-required-on-off-parameter-response.png)
+       > ![Captura de tela que mostra a seção ' Adicionar resposta para um parâmetro obrigatório ' com a guia ' editor simples ' selecionada.](media/custom-commands/add-required-on-off-parameter-response.png)
    
    1. Configure as propriedades do parâmetro usando a tabela a seguir. Para obter informações sobre todas as propriedades de configuração de um comando, consulte [definições e conceitos de comandos personalizados](./custom-commands-references.md).
       
@@ -187,7 +187,7 @@ Comece editando o `TurnOn` comando existente para ativar e desativar vários dis
        | ------------------ | ----------------| ---------------------------------------------------------------------|
        | **Nome**               | `OnOff`           | Um nome descritivo para o parâmetro                                                                           |
        | **É global**          | Não selecionado       | Caixa de seleção que indica se um valor para esse parâmetro é aplicado globalmente a todos os comandos no aplicativo.|
-       | **Necessária**           | Selecionado         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de o comando ser concluído. |
+       | **Necessária**           | Selecionada         | Caixa de seleção que indica se um valor para esse parâmetro é necessário antes de o comando ser concluído. |
        | **Resposta para o parâmetro obrigatório**      |**Editor simples** > `On or Off?`      | Um prompt solicitando o valor desse parâmetro quando ele não for conhecido. |
        | **Tipo**               | **Cadeia de caracteres**          | Tipo de parâmetro, como número, Cadeia de caracteres, data/hora ou geografia.   |
        | **Configuration**      | **Aceitar valores de entrada predefinidos de um catálogo interno** | Para cadeias de caracteres, essa configuração limita as entradas a um conjunto de valores possíveis. |
@@ -210,14 +210,14 @@ Comece editando o `TurnOn` comando existente para ativar e desativar vários dis
     | ------------------ | --------------------- |
     | **Nome**               | `SubjectDevice`         |
     | **É global**          | Não selecionado             |
-    | **Necessária**           | Selecionado               |
+    | **Necessária**           | Selecionada               |
     | **Resposta para o parâmetro obrigatório**     | **Editor simples** > `Which device do you want to control?`    | 
     | **Tipo**               | **Cadeia de caracteres**                |          |
     | **Configuration**      | **Aceitar valores de entrada predefinidos de um catálogo interno** | 
     | **Valores de entrada predefinidos** | `tv`, `fan`               |
     | **Aliases** ( `tv` )      | `television`, `telly`     |
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 #### <a name="modify-example-sentences"></a>Modificar sentenças de exemplo
 
@@ -239,7 +239,7 @@ turn something {OnOff}
 turn something
 ```
 
-Clique em **Salvar**.
+Selecione **Salvar**.
 
 > [!TIP]
 > No editor de sentenças de exemplo, use chaves para fazer referência aos parâmetros. Por exemplo, `turn {OnOff} the {SubjectDevice}`.
@@ -258,7 +258,7 @@ Modifique a regra de conclusão existente `ConfirmationResponse` .
     ```
     Ok, turning the {SubjectDevice} {OnOff}
     ```
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Experimente as alterações selecionando o ícone de **treinamento** na parte superior do painel à direita. 
 
@@ -282,7 +282,7 @@ Adicione um `Temperature` parâmetro. Use a seguinte configuração:
 | Configuração      | Valor sugerido     |
 | ------------------ | ----------------|
 | **Nome**               | `Temperature`           |
-| **Necessária**           | Selecionado         |
+| **Necessária**           | Selecionada         |
 | **Resposta para o parâmetro obrigatório**      | **Editor simples** > `What temperature would you like?`
 | **Tipo**               | `Number`          |
 
@@ -310,7 +310,7 @@ Adicione um parâmetro chamado `DateTime` . Use a configuração a seguir.
    | Configuração                           | Valor sugerido                     | 
    | --------------------------------- | ----------------------------------------|
    | **Nome**                              | `DateTime`                               |
-   | **Necessária**                          | Selecionado                                 |
+   | **Necessária**                          | Selecionada                                 |
    | **Resposta para o parâmetro obrigatório**   | **Editor simples** > `For what time?`            | 
    | **Tipo**                              | **DateTime**                                |
    | **Padrões de data**                     | Se a data estiver ausente, use hoje mesmo.            |
@@ -627,7 +627,7 @@ Outra maneira de personalizar as respostas de comandos personalizados é selecio
 1. Em seu aplicativo de comandos personalizados, no painel à esquerda, selecione **configurações**.
 1. No painel central, selecione **voz personalizada**.
 1. Na tabela, selecione uma voz personalizada ou voz pública.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 > [!div class="mx-imgBorder"]
 > ![Captura de tela mostrando frases e parâmetros de exemplo.](media/custom-commands/select-custom-voice.png)

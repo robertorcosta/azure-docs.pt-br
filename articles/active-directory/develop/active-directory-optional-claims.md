@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/04/2021
+ms.date: 1/05/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6f95b4eca8dbaf6cfaa7546fddada7577a1541b3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4674fe41a0e3d63ef0cadc6ad55eca02fc69618e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916245"
+ms.locfileid: "97935896"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -94,7 +94,7 @@ Alguns dos aprimoramentos do formato de token v2 estão disponíveis para aplica
 
 | Declaração JWT     | Nome                            | Descrição | Observações |
 |---------------|---------------------------------|-------------|-------|
-|`aud`          | Público | Sempre presente em JWTs, mas nos tokens de acesso v1, ele pode ser emitido de várias formas, o que pode ser difícil de codificar ao executar a validação de token.  Use as [Propriedades adicionais para essa declaração](#additional-properties-of-optional-claims) para garantir que ela seja sempre definida como um GUID em tokens de acesso v1. | somente tokens de acesso JWT v1|
+|`aud`          | Público | Sempre presente em JWTs, mas nos tokens de acesso v1, ele pode ser emitido de várias maneiras: qualquer URI de appID, com ou sem uma barra à direita, bem como a ID do cliente do recurso. Essa aleatoriedade pode ser difícil de codificar ao executar a validação de token.  Use as [Propriedades adicionais para essa declaração](#additional-properties-of-optional-claims) para garantir que ela seja sempre definida como a ID do cliente do recurso em tokens de acesso v1. | somente tokens de acesso JWT v1|
 |`preferred_username` | Nome de usuário preferencial        | Fornece a declaração de nome de usuário preferencial dentro de tokens v1. Isso torna mais fácil para os aplicativos fornecer dicas de nome de usuário e mostrar nomes de exibição legíveis, independentemente de seu tipo de token.  É recomendável que você use essa declaração opcional em vez de usar, por exemplo, `upn` ou `unique_name` . | tokens de ID v1 e tokens de acesso |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de declarações opcionais
@@ -108,8 +108,8 @@ Algumas declarações opcionais podem ser configuradas para alterar o modo como 
 | `upn`          |                          | Pode ser usada para respostas SAML e JWT e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o UPN de convidado conforme armazenado no locatário do recurso. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |
 |                | `include_externally_authenticated_upn_without_hash` | Igual ao que é indicado acima, exceto que as marcas de hash (`#`) são substituídas por sublinhados (`_`), por exemplo `foo_hometenant.com_EXT_@resourcetenant.com`|
-| `aud`          |                          | Nos tokens de acesso v1, isso é usado para alterar o formato da `aud` declaração.  Isso não tem nenhum efeito nos tokens v2 ou tokens de ID, em que a `aud` declaração é sempre a ID do cliente. Use isso para garantir que sua API possa executar a validação de público com mais facilidade. Assim como todas as declarações opcionais que afetam o token de acesso, o recurso na solicitação deve definir essa declaração opcional, já que os recursos possuem o token de acesso.|
-|                | `use_guid`               | Emite a ID do cliente do recurso (API) no formato GUID como a `aud` declaração em vez de um URI ou GUID AppID. Portanto, se a ID do cliente de um recurso for `bb0a297b-6a42-4a55-ac40-09a501456577` , qualquer aplicativo que solicite um token de acesso para esse recurso receberá um token de acesso com `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` .|
+| `aud`          |                          | Nos tokens de acesso v1, isso é usado para alterar o formato da `aud` declaração.  Isso não tem efeito nos tokens v2 ou nos tokens de ID da versão, em que a `aud` declaração é sempre a ID do cliente. Use essa configuração para garantir que sua API possa executar a validação de público com mais facilidade. Assim como todas as declarações opcionais que afetam o token de acesso, o recurso na solicitação deve definir essa declaração opcional, já que os recursos possuem o token de acesso.|
+|                | `use_guid`               | Emite a ID do cliente do recurso (API) no formato GUID como a `aud` declaração sempre em vez de ser dependente do tempo de execução. Por exemplo, se um recurso definir esse sinalizador, e a ID do cliente for `bb0a297b-6a42-4a55-ac40-09a501456577` , qualquer aplicativo que solicite um token de acesso para esse recurso receberá um token de acesso com `aud` : `bb0a297b-6a42-4a55-ac40-09a501456577` . </br></br> Sem esse conjunto de declarações, uma API pode obter tokens com uma `aud` declaração de `api://MyApi.com` , `api://MyApi.com/` `api://myapi.com/AdditionalRegisteredField` ou qualquer outro valor definido como um URI de ID de aplicativo para essa API, bem como a ID do cliente do recurso. |
 
 #### <a name="additional-properties-example"></a>Exemplo de propriedades adicionais
 

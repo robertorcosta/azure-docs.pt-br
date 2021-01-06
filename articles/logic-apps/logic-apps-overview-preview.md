@@ -1,24 +1,24 @@
 ---
-title: Visão geral para visualização de aplicativos lógicos do Azure
+title: Visão geral da versão prévia dos Aplicativos Lógicos do Azure
 description: A visualização dos aplicativos lógicos do Azure é uma solução de nuvem para a criação de fluxos de trabalho com estado e sem estado automatizados que integram aplicativos, dados, serviços e sistemas com o mínimo de código para cenários de nível empresarial.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 0c4d0416c107c9ceb4cd0dbdf80761ab9b52d56c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924153"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936117"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: visualização de aplicativos lógicos do Azure
 
 > [!IMPORTANT]
 > Essa versão preliminar está na versão prévia pública, e é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho em produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Com a visualização dos aplicativos lógicos do Azure, você pode criar soluções de automação e integração entre aplicativos, dados, serviços de nuvem e sistemas criando e executando aplicativos lógicos que incluem [fluxos de trabalho com e *sem* *stateful*](#stateful-stateless) estado usando o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Com esse novo tipo de aplicativo lógico, você pode criar vários fluxos de trabalho que são alimentados pelo tempo de execução da visualização dos aplicativos lógicos do Azure reprojetados, que fornece portabilidade, melhor desempenho e flexibilidade para implantação e execução em vários ambientes de hospedagem, não apenas no Azure, mas também em contêineres do Docker.
+Com a visualização dos aplicativos lógicos do Azure, você pode criar soluções de automação e integração entre aplicativos, dados, serviços de nuvem e sistemas criando e executando aplicativos lógicos que incluem [fluxos de trabalho com e *sem*](#stateful-stateless) estado usando o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Com esse novo tipo de aplicativo lógico, você pode criar vários fluxos de trabalho que são alimentados pelo tempo de execução da visualização dos aplicativos lógicos do Azure reprojetados, que fornece portabilidade, melhor desempenho e flexibilidade para implantação e execução em vários ambientes de hospedagem, não apenas no Azure, mas também em contêineres do Docker.
 
 Como isso é possível? O tempo de execução reprojetado usa o [modelo de extensibilidade Azure Functions](../azure-functions/functions-bindings-register.md) e é hospedado como uma extensão no tempo de execução de Azure functions. Essa arquitetura significa que você pode executar o novo tipo de aplicativo lógico em qualquer lugar que Azure Functions é executado. Você pode hospedar o tempo de execução reprojetado em praticamente qualquer topologia de rede e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária exigida pelos seus fluxos de trabalho. Para obter mais informações, consulte [Introduction to Azure Functions](../azure-functions/functions-overview.md) and [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md).
 
@@ -148,7 +148,7 @@ A visualização dos aplicativos lógicos do Azure inclui muitos recursos atuais
 
 Ao criar o novo tipo de aplicativo lógico no portal do Azure ou implantar do Visual Studio Code, você deve escolher um plano de hospedagem, o [serviço de aplicativo ou Premium](../azure-functions/functions-scale.md), para que seu aplicativo lógico seja usado. Este plano determina o modelo de preços que se aplica à execução do aplicativo lógico. Se você selecionar o plano do serviço de aplicativo, também deverá escolher um [tipo de preço](../app-service/overview-hosting-plans.md).
 
-Fluxos de trabalho com *estado* usam [armazenamento externo](../azure-functions/functions-scale.md#storage-account-requirements), portanto, o [preço do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) se aplica às transações de armazenamento que o tempo de execução de visualização do aplicativo lógico do Azure executa. Por exemplo, as filas são usadas para agendamento, enquanto tabelas e BLOBs são usados para armazenar Estados de fluxo de trabalho.
+Fluxos de trabalho com *estado* usam [armazenamento externo](../azure-functions/storage-considerations.md#storage-account-requirements), portanto, o [preço do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) se aplica às transações de armazenamento que o tempo de execução de visualização do aplicativo lógico do Azure executa. Por exemplo, as filas são usadas para agendamento, enquanto tabelas e BLOBs são usados para armazenar Estados de fluxo de trabalho.
 
 > [!NOTE]
 > Durante a visualização pública, a execução de aplicativos lógicos no serviço de aplicativo não incorre em encargos *adicionais* na parte superior do plano selecionado.

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 01f23abe3ef06bc43a3f7043f48b75f684a4478e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5af1c656699a7c60ad4f93beb43b603bdc6e3be7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913463"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935097"
 ---
 # <a name="use-net-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o .NET para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
@@ -37,11 +37,12 @@ Para obter mais informações sobre como instalar pacotes NuGet, consulte [insta
 Em seguida, adicione essas instruções using à parte superior do seu arquivo de código.
 
 ```csharp
+using Azure;
 using Azure.Storage.Files.DataLake;
 using Azure.Storage.Files.DataLake.Models;
 using Azure.Storage;
 using System.IO;
-using Azure;
+
 ```
 
 ## <a name="connect-to-the-account"></a>Conectar à conta
@@ -54,19 +55,7 @@ Essa é a maneira mais fácil de se conectar a uma conta.
 
 Este exemplo cria uma instância de [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) usando uma chave de conta.
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
-    string accountName, string accountKey)
-{
-    StorageSharedKeyCredential sharedKeyCredential =
-        new StorageSharedKeyCredential(accountName, accountKey);
-
-    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
-
-    dataLakeServiceClient = new DataLakeServiceClient
-        (new Uri(dfsUri), sharedKeyCredential);
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
 
 ### <a name="connect-by-using-azure-active-directory-ad"></a>Conectar usando o Azure Active Directory (AD)
 
@@ -74,20 +63,7 @@ Você pode usar a [biblioteca de cliente de identidade do Azure para .net](https
 
 Este exemplo cria uma instância de [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) usando uma ID do cliente, um segredo do cliente e uma ID de locatário.  Para obter esses valores, consulte [adquirir um token do Azure ad para autorizar solicitações de um aplicativo cliente](../common/storage-auth-aad-app.md).
 
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
-    string accountName, string clientID, string clientSecret, string tenantID)
-{
-
-    TokenCredential credential = new ClientSecretCredential(
-        tenantID, clientID, clientSecret, new TokenCredentialOptions());
-
-    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
-
-    dataLakeServiceClient = new DataLakeServiceClient(new Uri(dfsUri), credential);
-}
-
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithAAD":::
 
 > [!NOTE]
 > Para obter mais exemplos, consulte a documentação da [biblioteca de clientes do Azure Identity para .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) .
@@ -98,13 +74,7 @@ Um contêiner atua como um sistema de arquivos para seus arquivos. Você pode cr
 
 Este exemplo cria um contêiner chamado `my-file-system` . 
 
-```cs
-public async Task<DataLakeFileSystemClient> CreateFileSystem
-    (DataLakeServiceClient serviceClient)
-{
-        return await serviceClient.CreateFileSystemAsync("my-file-system");
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateContainer":::
 
 ## <a name="create-a-directory"></a>Criar um diretório
 
@@ -112,19 +82,7 @@ Crie uma referência de diretório chamando o método [DataLakeFileSystemClient.
 
 Este exemplo adiciona um diretório chamado `my-directory` a um contêiner e, em seguida, adiciona um subdiretório chamado `my-subdirectory` . 
 
-```cs
-public async Task<DataLakeDirectoryClient> CreateDirectory
-    (DataLakeServiceClient serviceClient, string fileSystemName)
-{
-    DataLakeFileSystemClient fileSystemClient =
-        serviceClient.GetFileSystemClient(fileSystemName);
-
-    DataLakeDirectoryClient directoryClient =
-        await fileSystemClient.CreateDirectoryAsync("my-directory");
-
-    return await directoryClient.CreateSubDirectoryAsync("my-subdirectory");
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateDirectory":::
 
 ## <a name="rename-or-move-a-directory"></a>Renomear ou mover um diretório
 
@@ -132,29 +90,11 @@ Renomeie ou mova um diretório chamando o método [DataLakeDirectoryClient. Rena
 
 Este exemplo renomeia um subdiretório para o nome `my-subdirectory-renamed` .
 
-```cs
-public async Task<DataLakeDirectoryClient> 
-    RenameDirectory(DataLakeFileSystemClient fileSystemClient)
-{
-    DataLakeDirectoryClient directoryClient =
-        fileSystemClient.GetDirectoryClient("my-directory/my-subdirectory");
-
-    return await directoryClient.RenameAsync("my-directory/my-subdirectory-renamed");
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RenameDirectory":::
 
 Este exemplo move um diretório chamado `my-subdirectory-renamed` para um subdiretório de um diretório chamado `my-directory-2` . 
 
-```cs
-public async Task<DataLakeDirectoryClient> MoveDirectory
-    (DataLakeFileSystemClient fileSystemClient)
-{
-    DataLakeDirectoryClient directoryClient =
-            fileSystemClient.GetDirectoryClient("my-directory/my-subdirectory-renamed");
-
-    return await directoryClient.RenameAsync("my-directory-2/my-subdirectory-renamed");                
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_MoveDirectory":::
 
 ## <a name="delete-a-directory"></a>Excluir um diretório
 
@@ -162,41 +102,15 @@ Exclua um diretório chamando o método [DataLakeDirectoryClient. Delete](/dotne
 
 Este exemplo exclui um diretório chamado `my-directory`.  
 
-```cs
-public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient)
-{
-    DataLakeDirectoryClient directoryClient =
-        fileSystemClient.GetDirectoryClient("my-directory");
-
-    directoryClient.Delete();
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DeleteDirectory":::
 
 ## <a name="upload-a-file-to-a-directory"></a>Carregar um arquivo em um diretório
 
 Primeiro, crie uma referência de arquivo no diretório de destino criando uma instância da classe [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) . Carregue um arquivo chamando o método [DataLakeFileClient. AppendAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) . Certifique-se de concluir o carregamento chamando o método [DataLakeFileClient. FlushAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync) .
 
-Este exemplo carrega um arquivo de texto em um diretório chamado `my-directory` .    
-
-```cs
-public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
-{
-    DataLakeDirectoryClient directoryClient =
-        fileSystemClient.GetDirectoryClient("my-directory");
-
-    DataLakeFileClient fileClient = await directoryClient.CreateFileAsync("uploaded-file.txt");
-
-    FileStream fileStream = 
-        File.OpenRead("C:\\file-to-upload.txt");
-
-    long fileSize = fileStream.Length;
-
-    await fileClient.AppendAsync(fileStream, offset: 0);
-
-    await fileClient.FlushAsync(position: fileSize);
-
-}
-```
+Este exemplo carrega um arquivo de texto em um diretório chamado `my-directory` . 
+   
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_UploadFile":::
 
 > [!TIP]
 > Se o tamanho do arquivo for grande, seu código terá que fazer várias chamadas para o [DataLakeFileClient. AppendAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync). Considere usar o método [DataLakeFileClient. UploadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) em vez disso. Dessa forma, você pode carregar o arquivo inteiro em uma única chamada. 
@@ -207,22 +121,7 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 
 Use o método [DataLakeFileClient. UploadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) para carregar arquivos grandes sem precisar fazer várias chamadas para o método [DataLakeFileClient. AppendAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) .
 
-```cs
-public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
-{
-    DataLakeDirectoryClient directoryClient =
-        fileSystemClient.GetDirectoryClient("my-directory");
-
-    DataLakeFileClient fileClient = directoryClient.GetFileClient("uploaded-file.txt");
-
-    FileStream fileStream =
-        File.OpenRead("C:\\file-to-upload.txt");
-
-    await fileClient.UploadAsync(fileStream);
-
-}
-
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_UploadFileBulk":::
 
 ## <a name="download-from-a-directory"></a>Baixar de um diretório 
 
@@ -230,38 +129,7 @@ Primeiro, crie uma instância de [DataLakeFileClient](/dotnet/api/azure.storage.
 
 Este exemplo usa um [BinaryReader](/dotnet/api/system.io.binaryreader) e um [FileStream](/dotnet/api/system.io.filestream) para salvar bytes em um arquivo. 
 
-```cs
-public async Task DownloadFile(DataLakeFileSystemClient fileSystemClient)
-{
-    DataLakeDirectoryClient directoryClient =
-        fileSystemClient.GetDirectoryClient("my-directory");
-
-    DataLakeFileClient fileClient = 
-        directoryClient.GetFileClient("my-image.png");
-
-    Response<FileDownloadInfo> downloadResponse = await fileClient.ReadAsync();
-
-    BinaryReader reader = new BinaryReader(downloadResponse.Value.Content);
-
-    FileStream fileStream = 
-        File.OpenWrite("C:\\my-image-downloaded.png");
-
-    int bufferSize = 4096;
-
-    byte[] buffer = new byte[bufferSize];
-
-    int count;
-
-    while ((count = reader.Read(buffer, 0, buffer.Length)) != 0)
-    {
-        fileStream.Write(buffer, 0, count);
-    }
-
-    await fileStream.FlushAsync();
-
-    fileStream.Close();
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_DownloadBinaryFromDirectory":::
 
 ## <a name="list-directory-contents"></a>Listar conteúdo do diretório
 
@@ -269,30 +137,7 @@ Liste o conteúdo do diretório chamando o método [FileSystemClient. GetPathsAs
 
 Este exemplo, imprime os nomes de cada arquivo localizado em um diretório chamado `my-directory` .
 
-```cs
-public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient)
-{
-    IAsyncEnumerator<PathItem> enumerator = 
-        fileSystemClient.GetPathsAsync("my-directory").GetAsyncEnumerator();
-
-    await enumerator.MoveNextAsync();
-
-    PathItem item = enumerator.Current;
-
-    while (item != null)
-    {
-        Console.WriteLine(item.Name);
-
-        if (!await enumerator.MoveNextAsync())
-        {
-            break;
-        }
-                
-        item = enumerator.Current;
-    }
-
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_ListFilesInDirectory":::
 
 ## <a name="manage-access-control-lists-acls"></a>Gerenciar listas de controle de acesso (ACLs)
 
@@ -310,30 +155,7 @@ Obtenha a ACL (lista de controle de acesso) de um diretório chamando o método 
 
 Este exemplo obtém e define a ACL de um diretório chamado `my-directory` . A cadeia de caracteres `user::rwx,group::r-x,other::rw-` fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros permissões de leitura e gravação.
 
-```cs
-public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
-{
-    DataLakeDirectoryClient directoryClient =
-        fileSystemClient.GetDirectoryClient("my-directory");
-
-    PathAccessControl directoryAccessControl =
-        await directoryClient.GetAccessControlAsync();
-
-    foreach (var item in directoryAccessControl.AccessControlList)
-    {
-        Console.WriteLine(item.ToString());
-    }
-
-
-    IList<PathAccessControlItem> accessControlList
-        = PathAccessControlExtensions.ParseAccessControlList
-        ("user::rwx,group::r-x,other::rw-");
-
-    directoryClient.SetAccessControlList(accessControlList);
-
-}
-
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_ACLDirectory":::
 
 Você também pode obter e definir a ACL do diretório raiz de um contêiner. Para obter o diretório raiz, passe uma cadeia de caracteres vazia ( `""` ) para o método [DataLakeFileSystemClient. GetDirectoryClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdirectoryclient) .
 
@@ -346,30 +168,7 @@ Obtenha a ACL (lista de controle de acesso) de um arquivo chamando o método [Da
 
 Este exemplo obtém e define a ACL de um arquivo chamado `my-file.txt` . A cadeia de caracteres `user::rwx,group::r-x,other::rw-` fornece as permissões de leitura, gravação e execução do usuário proprietário, fornece ao grupo proprietário somente permissões de leitura e execução e concede a todos os outros permissões de leitura e gravação.
 
-```cs
-public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
-{
-    DataLakeDirectoryClient directoryClient =
-        fileSystemClient.GetDirectoryClient("my-directory");
-
-    DataLakeFileClient fileClient = 
-        directoryClient.GetFileClient("hello.txt");
-
-    PathAccessControl FileAccessControl =
-        await fileClient.GetAccessControlAsync();
-
-    foreach (var item in FileAccessControl.AccessControlList)
-    {
-        Console.WriteLine(item.ToString());
-    }
-
-    IList<PathAccessControlItem> accessControlList
-        = PathAccessControlExtensions.ParseAccessControlList
-        ("user::rwx,group::r-x,other::rw-");
-
-    fileClient.SetAccessControlList(accessControlList);
-}
-```
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/ACL_DataLake.cs" id="Snippet_FileACL":::
 
 ### <a name="set-an-acl-recursively"></a>Definir uma ACL recursivamente
 

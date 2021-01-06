@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 647009854ef5a0c0811fc303914f724272f1a3f5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486650"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936474"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implantação da plataforma SAP BusinessObjects BI para Linux no Azure
 
@@ -37,7 +37,7 @@ Neste exemplo, a versão do produto e o layout do sistema de arquivos são usado
 - Banco de dados do Azure para MySQL (versão: 8.0.15)
 - Conector da API do MySQL C-libmysqlclient (versão: 6.1.11)
 
-| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Grupo  | Armazenamento                    |
+| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Agrupar  | Armazenamento                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | O sistema de arquivos para instalação da instância do SAP BOBI, aplicativo Web Tomcat padrão e drivers de banco de dados (se necessário) | Diretrizes de dimensionamento do SAP | bl1adm | sapsys | Disco Premium gerenciado-SSD |
 | /usr/sap/frsinput  | O diretório de montagem é para os arquivos compartilhados em todos os hosts BOBI que serão usados como diretório de repositório do arquivo de entrada  | Necessidade comercial         | bl1adm | sapsys | Azure NetApp Files         |
@@ -317,8 +317,9 @@ Por padrão, o servidor criado é protegido com um firewall e não é acessível
 
    # auditbl1 is the database name of Audit database. You can provide the name you want for CMS database.
    CREATE SCHEMA `auditbl1` DEFAULT CHARACTER SET utf8;
-
-4. Create user account to connect to schema
+   ```
+   
+4. Criar conta de usuário para se conectar ao esquema
 
    ```sql
    # Create a user that can connect from any host, use the '%' wildcard as a host part
@@ -585,7 +586,7 @@ A implementação dessa solução varia de acordo com a natureza da configuraç�
 
 Alta disponibilidade refere-se a um conjunto de tecnologias que podem minimizar as interrupções de ti, fornecendo continuidade de negócios de aplicativos/serviços por meio de componentes redundantes, tolerantes a falhas ou protegidos por failover dentro do mesmo data center. Em nosso caso, os data centers estão dentro de uma região do Azure. O artigo [arquitetura e cenários de alta disponibilidade para o SAP](sap-high-availability-architecture-scenarios.md) fornece uma visão inicial de diferentes técnicas de alta disponibilidade e recomendações oferecidas no Azure para aplicativos SAP, que complementam as instruções nesta seção.
 
-Com base no resultado de dimensionamento da plataforma SAP BOBI, você precisa projetar o cenário e determinar a distribuição de componentes de BI em sub-redes e máquinas virtuais do Azure. O nível de redundância na arquitetura distribuída depende do RTO (objetivo de tempo de recuperação) necessário e do RPO (objetivo de ponto de recuperação). A SAP BOBI Platform inclui diferentes camadas e componentes em cada camada deve ser projetado para obter redundância. Assim, se um componente falhar, haverá pouca ou nenhuma interrupção no aplicativo SAP BOBI. Por exemplo:
+Com base no resultado de dimensionamento da plataforma SAP BOBI, você precisa projetar o cenário e determinar a distribuição de componentes de BI em sub-redes e máquinas virtuais do Azure. O nível de redundância na arquitetura distribuída depende do RTO (objetivo de tempo de recuperação) necessário e do RPO (objetivo de ponto de recuperação). A SAP BOBI Platform inclui diferentes camadas e componentes em cada camada deve ser projetado para obter redundância. Assim, se um componente falhar, haverá pouca ou nenhuma interrupção no aplicativo SAP BOBI. Por exemplo,
 
 - Servidores de aplicativos redundantes, como servidores de aplicativos de BI e servidor Web
 - Componentes exclusivos como banco de dados CMS, servidor de repositório de arquivos, Load Balancer

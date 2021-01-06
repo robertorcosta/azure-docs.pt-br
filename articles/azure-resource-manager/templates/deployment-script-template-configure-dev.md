@@ -1,26 +1,26 @@
 ---
 title: Configurar o ambiente de desenvolvimento para scripts de implantação em modelos | Microsoft Docs
-description: Configure o ambiente de desenvolvimento para scripts de implantação em modelos de Azure Resource Manager.
+description: Configure o ambiente de desenvolvimento para scripts de implantação em modelos de Azure Resource Manager (modelos ARM).
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
-ms.openlocfilehash: d12ec5e3fef45429741fff1665f435d68e6c83f6
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 13dc072e31f0d27768de8d9a62ea942d55460713
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734174"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936389"
 ---
-# <a name="configure-development-environment-for-deployment-scripts-in-templates"></a>Configurar o ambiente de desenvolvimento para scripts de implantação em modelos
+# <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>Configurar o ambiente de desenvolvimento para scripts de implantação em modelos ARM
 
 Saiba como criar um ambiente de desenvolvimento para desenvolver e testar scripts de implantação com uma imagem de script de implantação. Você pode criar a [instância de contêiner do Azure](../../container-instances/container-instances-overview.md) ou usar o [Docker](https://docs.docker.com/get-docker/). Ambos são abordados neste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver um script de implantação, poderá criar um arquivo de **hello.ps1** com o seguinte conteúdo:
+Se você não tiver um script de implantação, poderá criar um arquivo de _hello.ps1_ com o seguinte conteúdo:
 
 ```powershell
 param([string] $name)
@@ -39,11 +39,11 @@ Para criar seus scripts em seu computador, é necessário que você crie uma con
 
 ### <a name="create-an-azure-container-instance"></a>Criar uma instância de contêiner do Azure
 
-O modelo ARM a seguir cria uma instância de contêiner e um compartilhamento de arquivos e, em seguida, monta o compartilhamento de arquivos para a imagem de contêiner.
+O modelo de Azure Resource Manager a seguir (modelo ARM) cria uma instância de contêiner e um compartilhamento de arquivos e, em seguida, monta o compartilhamento de arquivos para a imagem de contêiner.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "projectName": {
@@ -153,12 +153,13 @@ O modelo ARM a seguir cria uma instância de contêiner e um compartilhamento de
   ]
 }
 ```
-O valor padrão para o caminho de montagem é **deploymentScript**.  Esse é o caminho na instância de contêiner onde ele é montado no compartilhamento de arquivos.
 
-A imagem de contêiner padrão especificada no modelo é **MCR.Microsoft.com/azuredeploymentscripts-PowerShell:az4.3 "**.   Consulte uma lista de [versões de Azure PowerShell com suporte](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões de CLI do Azure com suporte](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+O valor padrão para o caminho de montagem é `deploymentScript` . Esse é o caminho na instância de contêiner onde ele é montado no compartilhamento de arquivos.
+
+A imagem de contêiner padrão especificada no modelo é `mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3` . Consulte uma lista de [versões de Azure PowerShell com suporte](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Consulte uma lista de [versões de CLI do Azure com suporte](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   >[!IMPORTANT]
-  > O script de implantação usa as imagens da CLI disponíveis do Registro de Contêiner da Microsoft (MCR). A certificação de uma imagem da CLI para o script de implantação leva cerca de um mês. Não use as versões da CLI que foram lançadas dentro de 30 dias. Para localizar as datas de lançamento das imagens, consulte as [notas de versão da CLI do Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se for usada uma versão sem suporte, a mensagem de erro listará as versões com suporte.
+  > O script de implantação usa as imagens da CLI disponíveis do registro de contêiner da Microsoft (MCR). A certificação de uma imagem da CLI para o script de implantação leva cerca de um mês. Não use as versões da CLI que foram lançadas dentro de 30 dias. Para localizar as datas de lançamento das imagens, consulte as [notas de versão da CLI do Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se uma versão sem suporte for usada, a mensagem de erro listará as versões com suporte.
 
 O modelo suspende a instância de contêiner de 1800 segundos. Você tem 30 minutos antes de a instância do contêiner entrar no estado do terminal e a sessão terminar.
 
@@ -196,7 +197,7 @@ Você também pode carregar o arquivo usando o portal do Azure e CLI do Azure.
 
 1. No portal do Azure, abra o grupo de recursos em que você implantou a instância de contêiner e a conta de armazenamento.
 1. Abra o grupo de contêineres. O nome do grupo de contêineres padrão é o nome do projeto com **CG** anexado. Você deve ver que a instância de contêiner está em estado de **execução** .
-1. Selecione **contêineres** no menu à esquerda. Você deverá ver uma instância de contêiner.  O nome da instância de contêiner é o nome do projeto com o **contêiner** anexado.
+1. Selecione **contêineres** no menu à esquerda. Você deverá ver uma instância de contêiner. O nome da instância de contêiner é o nome do projeto com o **contêiner** anexado.
 
     ![script de implantação conectar instância de contêiner](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
 
@@ -248,7 +249,7 @@ Você também precisa configurar o compartilhamento de arquivos para montar o di
     docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    Substitua a **&lt;letra da unidade do host>** e o **&lt;nome do diretório de host>** com uma pasta existente na unidade compartilhada.  Ele mapeia a pasta para a pasta **/data** no contêiner. Por exemplo, para mapear D:\docker:
+    Substitua a **&lt;letra da unidade do host>** e o **&lt;nome do diretório de host>** com uma pasta existente na unidade compartilhada. Ele mapeia a pasta para a pasta _/data_ no contêiner. Por exemplo, para mapear _D:\docker_:
 
     ```command
     docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
@@ -262,7 +263,7 @@ Você também precisa configurar o compartilhamento de arquivos para montar o di
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. A captura de tela a seguir mostra como executar um script do PowerShell, Considerando que você tem um arquivo de helloworld.ps1 na unidade compartilhada.
+1. A captura de tela a seguir mostra como executar um script do PowerShell, Considerando que você tem um arquivo de _helloworld.ps1_ na unidade compartilhada.
 
     ![Cmd do Docker do script de implantação do modelo do Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
@@ -273,4 +274,4 @@ Depois que o script for testado com êxito, você poderá usá-lo como um script
 Neste artigo, você aprendeu como usar os scripts de implantação. Para percorrer um tutorial de script de implantação:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Usar scripts de implantação em modelos do Azure Resource Manager](./template-tutorial-deployment-script.md)
+> [Tutorial: usar scripts de implantação em modelos ARM](./template-tutorial-deployment-script.md)

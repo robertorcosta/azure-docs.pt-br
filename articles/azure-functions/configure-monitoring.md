@@ -4,12 +4,12 @@ description: Saiba como conectar seu aplicativo de funções a Application Insig
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 77cc87e44990f471ef38871c0225835660779a3c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 24350eb07481db66907d199cd96f84a02cc98c9e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825753"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937273"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar o monitoramento para Azure Functions
 
@@ -197,7 +197,7 @@ Para saber mais, consulte [amostragem em Application insights](../azure-monitor/
 
 _Este recurso está em versão prévia._ 
 
-Você pode fazer com que o [controlador de escala de Azure Functions](./functions-scale.md#runtime-scaling) emita logs para Application insights ou para o armazenamento de BLOBs para entender melhor as decisões que o controlador de escala está fazendo para seu aplicativo de funções.
+Você pode fazer com que o [controlador de escala de Azure Functions](./event-driven-scaling.md#runtime-scaling) emita logs para Application insights ou para o armazenamento de BLOBs para entender melhor as decisões que o controlador de escala está fazendo para seu aplicativo de funções.
 
 Para habilitar esse recurso, você adiciona uma configuração de aplicativo chamada `SCALE_CONTROLLER_LOGGING_ENABLED` às configurações do aplicativo de funções. O valor dessa configuração deve ser do formato `<DESTINATION>:<VERBOSITY>` , com base no seguinte:
 

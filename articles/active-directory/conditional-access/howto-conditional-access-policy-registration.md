@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 61f655d459592022a2e34b87adc50e3d49b03dc9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837531"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935760"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: proteger o registro de informações de segurança
 
@@ -61,7 +61,7 @@ Alguns podem optar por usar o estado do dispositivo em vez do local na etapa 6 a
 
 > [!WARNING]
 > Se você usar o estado do dispositivo como uma condição em sua política, isso poderá afetar os usuários convidados no diretório. [Modo somente relatório](concept-conditional-access-report-only.md) pode ajudar a determinar o impacto das decisões de política.
-> Observe que o modo somente relatório não é aplicável a políticas CA (Acesso Condicional) com o escopo "Ações do usuário".
+> Observe que o modo somente de relatório não é aplicável para políticas de acesso condicional com o escopo "ações do usuário".
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 21ab58095fa919e6302251c16e474b02f1445993
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: bf6ebd01a18a0ebf0ab5dd7d7ac3aa34256b4696
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301990"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936797"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -204,8 +204,8 @@ O contexto passado para sua função expõe uma `executionContext` propriedade, 
 | Nome da propriedade  | Type  | Descrição |
 |---------|---------|---------|
 | `invocationId` | String | Fornece um identificador exclusivo para a invocação de função específica. |
-| `functionName` | Cadeia de caracteres | Fornece o nome da função em execução |
-| `functionDirectory` | Cadeia de caracteres | Fornece o diretório de aplicativos do functions. |
+| `functionName` | String | Fornece o nome da função em execução |
+| `functionDirectory` | String | Fornece o diretório de aplicativos do functions. |
 
 O exemplo a seguir mostra como retornar o `invocationId` .
 
@@ -327,7 +327,7 @@ Além do nível padrão, os seguintes métodos de log estão disponíveis para p
 | ---------------------- | ------------------------------------------ |
 | **erro (_mensagem_)**   | Grava um evento de nível de erro nos logs.   |
 | **warn(_message_)**    | Grava um evento no nível de aviso nos logs. |
-| **info(_message_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
+| **informações (_mensagem_)**    | Grava no registro em log no nível da informação, ou em um nível inferior.    |
 | **verbose(_message_)** | Grava no registro em log no nível detalhado.           |
 
 O exemplo a seguir grava o mesmo log no nível de rastreamento de aviso, em vez do nível de informações:
@@ -493,7 +493,7 @@ Ao trabalhar com gatilhos HTTP, há várias maneiras de acessar os objetos de so
 
 ## <a name="scaling-and-concurrency"></a>Dimensionamento e simultaneidade
 
-Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Node.js conforme necessário. O Functions usa limites internos (não configuráveis pelo usuário) em tipos de gatilhos diferentes para decidir quando adicionar instâncias, por exemplo, a idade das mensagens e o tamanho da fila para QueueTrigger. Para obter mais informações, confira [Como funcionam os planos de consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Node.js conforme necessário. O Functions usa limites internos (não configuráveis pelo usuário) em tipos de gatilhos diferentes para decidir quando adicionar instâncias, por exemplo, a idade das mensagens e o tamanho da fila para QueueTrigger. Para obter mais informações, confira [Como funcionam os planos de consumo e Premium](event-driven-scaling.md).
 
 Esse comportamento de dimensionamento é suficiente para muitos aplicativos Node.js. Para aplicativos associados à CPU, você pode melhorar ainda mais o desempenho usando vários processos de trabalho de linguagem.
 
@@ -507,7 +507,7 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 
 | Versão do Functions | Versão do nó (Windows) | Versão do nó (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (bloqueada pelo runtime) | N/D |
+| 1.x | 6.11.2 (bloqueada pelo runtime) | n/a |
 | 2. x  | `~8`<br/>`~10` aconselhável<br/>`~12` | `node|8`<br/>`node|10` aconselhável  |
 | 3.x | `~10`<br/>`~12` aconselhável<br/>`~14` (versão prévia)  | `node|10`<br/>`node|12` aconselhável<br/>`node|14` (versão prévia) |
 

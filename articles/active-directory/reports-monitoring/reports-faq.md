@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c274424641ee0173d68f0de9061415815b0df588
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 45b6b182d030c267dcec7ed57c0c0dd1901b0cb1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107423"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935080"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas frequentes sobre os relatórios do Azure Active Directory
 
@@ -99,7 +99,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 ---
 
-## <a name="risky-sign-ins"></a>Entradas suspeitas
+## <a name="risky-sign-ins"></a>Entradas de risco
 
 **P: há uma detecção de risco na proteção de identidade, mas não estou vendo a entrada correspondente no relatório de entradas. Isso é esperado?**
 
@@ -125,7 +125,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 ---
 
-## <a name="conditional-access"></a>Acesso condicional
+## <a name="conditional-access"></a>Acesso Condicional
 
 **P: quais são as novidades com esse recurso?**
 
@@ -143,8 +143,8 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
 
 **R:** O status de acesso condicional pode ter os seguintes valores:
 
-* **Não aplicado**: isso significa que não havia nenhuma política de autoridade de certificação com o usuário e o aplicativo no escopo. 
-* **Sucesso**: isso significa que havia uma política de autoridade de certificação com o usuário e o aplicativo no escopo e as políticas da autoridade de certificação foram atendidas com êxito. 
+* **Não aplicado**: isso significa que não havia nenhuma política de acesso condicional com o usuário e o aplicativo no escopo. 
+* **Êxito**: isso significa que houve uma política de acesso condicional com o usuário e o aplicativo no escopo e as políticas de acesso condicional foram atendidas com êxito. 
 * **Falha**: a entrada satisfez a condição de usuário e aplicativo de pelo menos uma política de acesso condicional e os controles de concessão não são atendidos ou definidos para bloquear o acesso.
     
 **P: quais são os valores possíveis para o resultado da política de acesso condicional?**
@@ -158,7 +158,7 @@ Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azur
     
 **P: o nome da política no relatório de entrada não corresponde ao nome da política na CA. por quê?**
 
-**R:** O nome da política no relatório todas as entrada baseia-se no nome da política de autoridade de certificação no momento da entrada. Isso pode ser inconsistente com o nome da política na autoridade de certificação, se você tiver atualizado o nome da política mais tarde, ou seja, após o logon.
+**R:** O nome da política no relatório de entrada é baseado no nome da política de acesso condicional no momento da entrada. Isso pode ser inconsistente com o nome da política na autoridade de certificação, se você tiver atualizado o nome da política mais tarde, ou seja, após o logon.
 
 **P: minha entrada foi bloqueada devido a uma política de acesso condicional, mas o relatório de atividade de entrada mostra que a entrada foi bem-sucedida. Por?**
 

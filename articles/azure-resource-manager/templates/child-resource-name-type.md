@@ -1,20 +1,20 @@
 ---
 title: Recursos filho em modelos
-description: Descreve como definir o nome e o tipo de recursos filho em um modelo de Azure Resource Manager.
+description: Descreve como definir o nome e o tipo de recursos filho em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: c594096fd95f663db2120b29c575b341924dcc36
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 408914fd309676da36904a364f905a8ee809d648
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97721936"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934298"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Definir nome e tipo para recursos filho
 
 Recursos filho são recursos que existem somente dentro do contexto de outro recurso. Por exemplo, uma [extensão de máquina virtual](/azure/templates/microsoft.compute/virtualmachines/extensions) não pode existir sem uma [máquina virtual](/azure/templates/microsoft.compute/virtualmachines). O recurso de extensão é um filho da máquina virtual.
 
-Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. O tipo de recurso para o recurso filho inclui o tipo de recurso para o recurso pai. Por exemplo, **Microsoft. Web/sites/config** e **Microsoft. Web/sites/Extensions** são recursos filho do **Microsoft. Web/sites**. Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai.
+Cada recurso pai aceita somente determinados tipos de recurso como recursos filho. O tipo de recurso para o recurso filho inclui o tipo de recurso para o recurso pai. Por exemplo, `Microsoft.Web/sites/config` e `Microsoft.Web/sites/extensions` são recursos filho do `Microsoft.Web/sites` . Os tipos de recurso aceitos são especificados no [esquema do modelo](https://github.com/Azure/azure-resource-manager-schemas) do recurso pai.
 
 Em um modelo de Azure Resource Manager (modelo ARM), você pode especificar o recurso filho dentro do recurso pai ou fora do recurso pai. O exemplo a seguir mostra o recurso filho incluído na propriedade Resources do recurso pai.
 
@@ -89,7 +89,7 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede. Observe que a sub-red
 ]
 ```
 
-O tipo de recurso completo ainda é **Microsoft. Network/virtualNetworks/sub-redes**. Você não fornece **Microsoft. Network/virtualNetworks/** porque ele é assumido do tipo de recurso pai.
+O tipo de recurso completo ainda é `Microsoft.Network/virtualNetworks/subnets` . `Microsoft.Network/virtualNetworks/` não é fornecido porque ele é presumido do tipo de recurso pai.
 
 O nome do recurso filho é definido como **Subnet1** , mas o nome completo inclui o nome do pai. Você não fornece **VNet1** porque ele é assumido do recurso pai.
 
@@ -102,7 +102,7 @@ Quando definido fora do recurso pai, você formata o tipo e com barras para incl
 "name": "{parent-resource-name}/{child-resource-name}",
 ```
 
-O exemplo a seguir mostra uma rede virtual e uma sub-rede que são definidas no nível raiz. Observe que a sub-rede não está incluída na matriz de recursos para a rede virtual. O nome é definido como **VNet1/Subnet1** e o tipo é definido como **Microsoft. Network/virtualNetworks/sub-redes**. O recurso filho é marcado como dependente do recurso pai porque o recurso pai deve existir antes que o recurso filho possa ser implantado.
+O exemplo a seguir mostra uma rede virtual e uma sub-rede que são definidas no nível raiz. Observe que a sub-rede não está incluída na matriz de recursos para a rede virtual. O nome é definido como **VNet1/Subnet1** e o tipo é definido como `Microsoft.Network/virtualNetworks/subnets` . O recurso filho é marcado como dependente do recurso pai porque o recurso pai deve existir antes que o recurso filho possa ser implantado.
 
 ```json
 "resources": [
@@ -136,6 +136,6 @@ O exemplo a seguir mostra uma rede virtual e uma sub-rede que são definidas no 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre a criação de modelos do ARM, consulte Criando [modelos](template-syntax.md).
+* Para saber mais sobre a criação de modelos do ARM, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 
 * Para saber mais sobre o formato do nome do recurso ao referenciar o recurso, consulte a [função de referência](template-functions-resource.md#reference).

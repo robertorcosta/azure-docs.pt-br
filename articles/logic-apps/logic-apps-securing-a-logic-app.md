@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/08/2020
-ms.openlocfilehash: cdaa054559be9db52eeef6f3aaa0f86ccf84206f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/09/2020
+ms.openlocfilehash: 1d2ba6dbbcc2b8674718912f00b1d1ec58e1c4c2
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922950"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936083"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -308,12 +308,13 @@ Para adicionar mais [protocolos de autenticação](../active-directory/develop/a
 
 Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar os clientes que podem acessar seu aplicativo lógico. Por exemplo, se você gerenciar seu ponto de extremidade de solicitação usando o [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md), poderá restringir seu aplicativo lógico para aceitar solicitações somente do endereço IP da [instância do serviço de gerenciamento de API que você criar](../api-management/get-started-create-service-instance.md).
 
-> [!NOTE]
-> Independentemente de qualquer endereço IP que você especificar, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando a [API REST dos aplicativos lógicos: gatilhos de fluxo de trabalho – solicitação de execução](/rest/api/logic/workflowtriggers/run) ou usando o gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-vs-authorization.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
+Independentemente de qualquer endereço IP que você especificar, você ainda pode executar um aplicativo lógico que tenha um gatilho baseado em solicitação usando a [API REST dos aplicativos lógicos: gatilhos de fluxo de trabalho – solicitação de execução](/rest/api/logic/workflowtriggers/run) ou usando o gerenciamento de API. Porém, esse cenário ainda requer [autenticação](../active-directory/develop/authentication-vs-authorization.md) em relação à API REST do Azure. Todos os eventos aparecem no Log de Auditoria do Azure. Verifique se você definiu as políticas de controle de acesso de forma adequada.
 
 <a name="restrict-inbound-ip-portal"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Restringir intervalos de IP de entrada no portal do Azure
+
+Quando você usa o portal para restringir os endereços IP de entrada para seu aplicativo lógico, essas restrições afetam gatilhos *e* ações, apesar da descrição no portal em **endereços IP de entrada permitidos**. Para configurar restrições em gatilhos separadamente de ações, use o [ `accessControl` objeto no modelo de Azure Resource Manager do seu aplicativo lógico](#restrict-inbound-ip-template) ou a [API REST de aplicativos lógicos: fluxo de trabalho-criar ou atualizar operação](/rest/api/logic/workflows/createorupdate).
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
@@ -338,7 +339,7 @@ Junto à SAS (Assinatura de Acesso Compartilhado), você talvez queira limitar o
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Restringir intervalos de IP de entrada no modelo do Azure Resource Manager
 
-Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá especificar os intervalos de endereços IP de entrada permitidos na definição de recurso do aplicativo lógico usando a `accessControl` seção. Nesta seção, use as `triggers` seções, `actions` , e opcionais, `contents` conforme apropriado, incluindo a `allowedCallerIpAddresses` seção com a `addressRange` propriedade e defina o valor da propriedade para o intervalo de IP permitido no formato *x.* *x.x.x.x-x.x.x.x* x. x. x/x ou x. x-x. x. x.x.x. x.
+Se você [automatizar a implantação para aplicativos lógicos usando modelos do Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), poderá especificar os intervalos de endereços IP de entrada permitidos na definição de recurso do aplicativo lógico usando a `accessControl` seção. Nesta seção, use as `triggers` seções, `actions` , e opcionais, `contents` conforme apropriado, incluindo a `allowedCallerIpAddresses` seção com a `addressRange` propriedade e defina o valor da propriedade para o intervalo de IP permitido no formato *x.*  x. x. x/x ou x. x-x. x. x.x.x. x.
 
 * Se seu aplicativo lógico aninhado usar a **única opção outros aplicativos lógicos** , que permite chamadas de entrada somente de outros aplicativos lógicos que usam a ação aplicativos lógicos do Azure, defina a `addressRange` propriedade como uma matriz vazia (**[]**).
 
@@ -1125,7 +1126,7 @@ Você pode usar os aplicativos lógicos do Azure no [Azure governamental](../azu
 
 * Para executar seu próprio código ou executar a transformação XML, [crie e chame uma função do Azure](../logic-apps/logic-apps-azure-functions.md), em vez de usar o [recurso de código embutido](../logic-apps/logic-apps-add-run-inline-code.md) ou fornecer [assemblies para usar como mapas](../logic-apps/logic-apps-enterprise-integration-maps.md), respectivamente. Além disso, configure o ambiente de hospedagem para seu aplicativo de funções para obedecer aos seus requisitos de isolamento.
 
-  Por exemplo, para atender aos requisitos de impacto nível 5, crie seu aplicativo de funções com o [plano do serviço de aplicativo](../azure-functions/functions-scale.md#app-service-plan) usando o tipo de [preço **isolado**](../app-service/overview-hosting-plans.md) junto com um [ambiente do serviço de aplicativo (ase)](../app-service/environment/intro.md) que também usa o tipo de preço **isolado** . Nesse ambiente, os aplicativos de funções são executados em máquinas virtuais do Azure dedicadas e em redes virtuais do Azure, que fornecem isolamento de rede sobre o isolamento de computação para seus aplicativos e recursos de expansão máxima. Para obter mais informações, consulte [diretrizes de isolamento do nível 5 de impacto do Azure governamental – Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+  Por exemplo, para atender aos requisitos de impacto nível 5, crie seu aplicativo de funções com o [plano do serviço de aplicativo](../azure-functions/dedicated-plan.md) usando o tipo de [preço **isolado**](../app-service/overview-hosting-plans.md) junto com um [ambiente do serviço de aplicativo (ase)](../app-service/environment/intro.md) que também usa o tipo de preço **isolado** . Nesse ambiente, os aplicativos de funções são executados em máquinas virtuais do Azure dedicadas e em redes virtuais do Azure, que fornecem isolamento de rede sobre o isolamento de computação para seus aplicativos e recursos de expansão máxima. Para obter mais informações, consulte [diretrizes de isolamento do nível 5 de impacto do Azure governamental – Azure Functions](../azure-government/documentation-government-impact-level-5.md#azure-functions).
 
   Para saber mais, consulte esses tópicos:<p>
 

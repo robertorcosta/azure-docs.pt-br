@@ -1,24 +1,24 @@
 ---
 title: Definir ordem de implantação para recursos
-description: Descreve como definir um recurso como dependente de outro recurso durante a implantação. As dependências garantem que os recursos sejam implantados na ordem correta.
+description: Descreve como definir um recurso do Azure como dependente de outro recurso durante a implantação. As dependências garantem que os recursos sejam implantados na ordem correta.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: a96dca0ab30d0baee2688427d78867ea128e673a
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722004"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934740"
 ---
 # <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>Definir a ordem de implantação de recursos em modelos ARM
 
-Ao implantar recursos, talvez seja necessário verificar se existem alguns recursos antes de outros recursos. Por exemplo, você precisa de um SQL Server lógico antes de implantar um banco de dados. Você estabelece essa relação marcando um recurso como dependente do outro recurso. Use o elemento **depending** para definir uma dependência explícita. Use as funções de **referência** ou de **lista** para definir uma dependência implícita.
+Ao implantar recursos, talvez seja necessário verificar se existem alguns recursos antes de outros recursos. Por exemplo, você precisa de um SQL Server lógico antes de implantar um banco de dados. Você estabelece essa relação marcando um recurso como dependente do outro recurso. Use o `dependsOn` elemento para definir uma dependência explícita. Use as funções de **referência** ou de **lista** para definir uma dependência implícita.
 
-O Gerenciador de Recursos avalia as dependências entre os recursos e os implanta na ordem de dependência. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente. Você só precisa definir as dependências para recursos que são implantados no mesmo modelo.
+Azure Resource Manager avalia as dependências entre os recursos e os implanta em sua ordem dependente. Quando os recursos não dependem uns dos outros, o Gerenciador de Recursos os implanta paralelamente. Você só precisa definir as dependências para recursos que são implantados no mesmo modelo.
 
 ## <a name="dependson"></a>dependsOn
 
-No seu modelo, o elemento dependsOn permite definir um recurso como um dependente em um ou mais recursos. Seu valor é uma matriz JSON de cadeias de caracteres, cada uma delas é um nome de recurso ou ID. A matriz pode incluir recursos que são [implantados condicionalmente](conditional-resource-deployment.md). Quando um recurso condicional não é implantado, Azure Resource Manager o remove automaticamente das dependências necessárias.
+Dentro de seu modelo de Azure Resource Manager (modelo ARM), o `dependsOn` elemento permite que você defina um recurso como dependente de um ou mais recursos. Seu valor é uma matriz JavaScript Object Notation (JSON) de cadeias de caracteres, cada uma delas é um nome de recurso ou uma ID. A matriz pode incluir recursos que são [implantados condicionalmente](conditional-resource-deployment.md). Quando um recurso condicional não é implantado, Azure Resource Manager o remove automaticamente das dependências necessárias.
 
 O exemplo a seguir mostra uma interface de rede que depende de uma rede virtual, grupo de segurança de rede e endereço IP público. Para obter o modelo completo, consulte [o modelo de início rápido para uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json).
 
@@ -37,11 +37,11 @@ O exemplo a seguir mostra uma interface de rede que depende de uma rede virtual,
 }
 ```
 
-Embora você talvez queira usar o dependsOn para mapear as relações entre os seus recursos, é importante entender por que você está fazendo isso. Por exemplo, para documentar a maneira como os recursos são interconectados, dependsOn não é a abordagem certa. Não é possível consultar os recursos que foram definidos no elemento dependsOn após a implantação. A definição de dependências desnecessárias reduz o tempo de implantação porque o Gerenciador de recursos não pode implantar esses recursos em paralelo.
+Embora você possa ser inclinado a usar `dependsOn` para mapear relações entre seus recursos, é importante entender por que está fazendo isso. Por exemplo, para documentar como os recursos são interconectados, `dependsOn` não é a abordagem certa. Não é possível consultar quais recursos foram definidos no `dependsOn` elemento após a implantação. A definição de dependências desnecessárias reduz o tempo de implantação porque o Gerenciador de recursos não pode implantar esses recursos em paralelo.
 
 ## <a name="child-resources"></a>Recursos filho
 
-Uma dependência de implantação implícita não é criada automaticamente entre um [recurso filho](child-resource-name-type.md) e o recurso pai. Se você precisar implantar o recurso filho após o recurso pai, defina a propriedade dependy.
+Uma dependência de implantação implícita não é criada automaticamente entre um [recurso filho](child-resource-name-type.md) e o recurso pai. Se você precisar implantar o recurso filho após o recurso pai, defina a `dependsOn` propriedade.
 
 O exemplo a seguir mostra um SQL Server e um banco de dados lógicos. Observe que uma dependência explícita é definida entre o banco de dados e o servidor, embora o banco de dados seja um filho do servidor.
 
@@ -85,13 +85,13 @@ Expressões de lista e referência implicitamente declaram que um recurso depend
 
 Para impor uma dependência implícita, consulte o recurso por nome, não ID do recurso. Se você passar a ID de recurso para as funções de referência ou lista, não será criada uma referência implícita.
 
-O formato geral da função de referência é:
+O formato geral da `reference` função é:
 
 ```json
 reference('resourceName').propertyPath
 ```
 
-O formato geral de função do listKeys é:
+O formato geral da `listKeys` função é:
 
 ```json
 listKeys('resourceName', 'yyyy-mm-dd')
@@ -165,7 +165,7 @@ O exemplo a seguir mostra como implantar várias máquinas virtuais. O modelo cr
 }
 ```
 
-O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. Observe que o elemento Copy tem o nome definido como `storagecopy` e o elemento dependy da máquina virtual também é definido como `storagecopy` .
+O exemplo a seguir mostra como implantar três contas de armazenamento antes de implantar a máquina virtual. Observe que o `copy` elemento foi `name` definido como `storagecopy` e o `dependsOn` elemento da máquina virtual também é definido como `storagecopy` .
 
 ```json
 {
@@ -213,10 +213,9 @@ Para obter informações sobre como avaliar a ordem de implantação e resolver 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para passar por um tutorial, consulte [Tutorial: crie modelos do Azure Resource Manager com recursos dependentes ](template-tutorial-create-templates-with-dependent-resources.md).
+* Para percorrer um tutorial, consulte [tutorial: criar modelos de ARM com recursos dependentes](template-tutorial-create-templates-with-dependent-resources.md).
 * Para um módulo Microsoft Learn que aborda dependências de recursos, consulte [gerenciar implantações de nuvem complexas usando recursos avançados de modelo ARM](/learn/modules/manage-deployments-advanced-arm-template-features/).
-* Para ver recomendações sobre de configuração de dependências, confira [Melhores práticas para modelos do Azure Resource Manager](template-best-practices.md).
+* Para obter recomendações ao definir dependências, consulte [práticas recomendadas do modelo ARM](template-best-practices.md).
 * Para saber mais sobre a solução de problemas de dependência durante a implantação, confira [Solucionar erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
-* Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](template-syntax.md).
-* Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](template-functions.md).
-
+* Para saber mais sobre como criar modelos de Azure Resource Manager, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
+* Para obter uma lista das funções disponíveis em um modelo, consulte [funções de modelo do ARM](template-functions.md).

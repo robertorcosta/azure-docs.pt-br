@@ -3,12 +3,12 @@ title: Variáveis em modelos
 description: Descreve como definir variáveis em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 5d9b58d63e96656c45d3494d24099bbeadc46b11
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353452"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934655"
 ---
 # <a name="variables-in-arm-template"></a>Variáveis no modelo ARM
 
@@ -28,7 +28,7 @@ O seguinte exemplo mostra uma definição de variável. Ele cria um valor de cad
 },
 ```
 
-Você não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções de [lista](template-functions-resource.md#list) na seção de variáveis. Essas funções obtêm o estado de tempo de execução de um recurso e não podem ser executadas antes da implantação quando as variáveis são resolvidas.
+Você não pode usar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções de [lista](template-functions-resource.md#list) na `variables` seção. Essas funções obtêm o estado de tempo de execução de um recurso e não podem ser executadas antes da implantação quando as variáveis são resolvidas.
 
 ## <a name="use-variable"></a>Usar uma variável
 
@@ -63,7 +63,7 @@ Você pode definir variáveis que mantêm valores relacionados para configurar u
 },
 ```
 
-Em parâmetros, você cria um valor que indica quais valores de configuração devem ser usados.
+No `parameters` , você cria um valor que indica quais valores de configuração usar.
 
 ```json
 "parameters": {

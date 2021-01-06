@@ -3,12 +3,12 @@ title: Considerações de armazenamento do Azure Functions
 description: Saiba mais sobre os requisitos de armazenamento do Azure Functions e sobre a criptografia de dados armazenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 67ff822208f065041e479fc484173d9f06a773ba
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107236"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936151"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento do Azure Functions
 
@@ -18,7 +18,7 @@ O Azure Functions requer uma conta de armazenamento do Azure quando você cria u
 |Serviço de armazenamento  | Uso de funções  |
 |---------|---------|
 | [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantenha o estado de associações e as chaves de função.  <br/>Também usado pelos [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md). |
-| [Arquivos do Azure](../storage/files/storage-files-introduction.md)  | Compartilhamento de arquivos usado para armazenar e executar o código do aplicativo de funções em um [plano de consumo](functions-scale.md#consumption-plan) e [plano Premium](functions-scale.md#premium-plan). |
+| [Arquivos do Azure](../storage/files/storage-files-introduction.md)  | Compartilhamento de arquivos usado para armazenar e executar o código do aplicativo de funções em um [plano de consumo](consumption-plan.md) e [plano Premium](functions-premium-plan.md). |
 | [Armazenamento de Filas do Azure](../storage/queues/storage-queues-introduction.md)     | Usado pelos [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Armazenamento de Tabelas do Azure](../storage/tables/table-storage-overview.md)  |  Usado pelos [hubs de tarefas no Durable Functions](durable/durable-functions-task-hubs.md).       |
 
@@ -33,9 +33,11 @@ Para saber mais sobre tipos de conta de armazenamento, confira [Introdução aos
 
 Embora seja possível usar uma conta de armazenamento existente com o aplicativo de funções, verifique se ela atende a esses requisitos. As contas de armazenamento criadas como parte do fluxo de criação do aplicativo de funções no portal do Azure têm a garantia de atender a esses requisitos de conta de armazenamento. No portal, as contas sem suporte são filtradas ao escolher uma conta de armazenamento existente durante a criação de um aplicativo de funções. Nesse fluxo, você só tem permissão para escolher contas de armazenamento existentes na mesma região que o aplicativo de funções que está criando. Para saber mais, consulte [local da conta de armazenamento](#storage-account-location).
 
+<!-- JH: Does using a Premium Storage account improve perf? -->
+
 ## <a name="storage-account-guidance"></a>Orientações sobre a Conta de armazenamento
 
-Cada aplicativo de funções exige uma conta de armazenamento para ser operado. Se essa conta for excluída, o aplicativo de funções não será executado. Para solucionar problemas relacionados ao armazenamento, consulte [Como solucionar problemas relacionados ao armazenamento](functions-recover-storage-account.md). As considerações adicionais a seguir se aplicam à Conta de armazenamento usada pelos aplicativos de funções.
+Cada aplicativo de funções exige uma conta de armazenamento para ser operado. Se essa conta for excluída, o aplicativo de funções não será executado. Para solucionar problemas relacionados ao armazenamento, consulte [Como solucionar problemas relacionados ao armazenamento](functions-recover-storage-account.md). As considerações adicionais a seguir se aplicam à conta de armazenamento usada pelos aplicativos de funções.
 
 ### <a name="storage-account-location"></a>Local da conta de armazenamento
 
@@ -59,7 +61,15 @@ As cadeias de conexão da conta de armazenamento deverão ser atualizadas se voc
 
 [!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
-## <a name="mount-file-shares-linux"></a>Compartilhamentos de arquivos de montagem (Linux)
+### <a name="in-region-data-residency"></a>Residência de dados na região
+
+Quando todos os dados do cliente devem permanecer em uma única região, a conta de armazenamento associada ao aplicativo de funções deve ser uma com [redundância na região](../storage/common/storage-redundancy.md). Uma conta de armazenamento redundante na região também deve ser usada com o [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
+
+Outros dados do cliente gerenciados pela plataforma são armazenados apenas dentro da região ao hospedar em um ASE (Ambiente do Serviço de Aplicativo com balanceamento de carga internamente). Para saber mais, confira [redundância de zona do ase](../app-service/environment/zone-redundancy.md#in-region-data-residency).
+
+## <a name="mount-file-shares"></a>Montar compartilhamentos de arquivos
+
+_Essa funcionalidade só estará disponível quando estiver em execução no Linux._ 
 
 Você pode montar compartilhamentos de arquivos existentes do Azure para os aplicativos de funções do Linux. Ao montar um compartilhamento em seu aplicativo de funções do Linux, você pode aproveitar os modelos de machine learning existentes ou outros dados em suas funções. Use o comando [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) para montar um compartilhamento existente para o aplicativo de funções do Linux. 
 

@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentação do Azure Functions
-summary: O Azure Functions é um serviço de computação sem servidor que permite a você executar código disparado por eventos sem precisar provisionar explicitamente ou gerenciar a infraestrutura. As funcionalidades de "computação sob demanda" dele habilitam a integração leve e a funcionalidade de suporte único. Você também pode usá-lo para fornecer APIs Web, responder a alterações no banco de dados, processar fluxos de dados IoT e gerenciar filas de mensagens.
+summary: O Azure Functions é um serviço de nuvem disponível sob demanda que fornece toda a infraestrutura e os recursos continuamente atualizados necessários para executar seus aplicativos. Você se concentra nas partes do código mais importantes para você e o Azure Functions lida com o restante. Você pode usar o Azure Functions para criar APIs Web, responder a alterações no banco de dados, processar fluxos de IoT, gerenciar filas de mensagens entre outras ações.
 metadata:
   title: Documentação do Azure Functions
-  description: O Azure Functions é um serviço de computação sem servidor que permite a você executar código disparado por eventos sem precisar provisionar explicitamente ou gerenciar a infraestrutura. As funcionalidades de "computação sob demanda" dele habilitam a integração leve e a funcionalidade de suporte único. Você também pode usá-lo para fornecer APIs Web, responder a alterações no banco de dados, processar fluxos de dados IoT e gerenciar filas de mensagens.
+  description: O Azure Functions é um serviço de nuvem disponível sob demanda que fornece toda a infraestrutura e os recursos continuamente atualizados necessários para executar seus aplicativos. Você se concentra nas partes do código mais importantes para você e o Azure Functions lida com o restante. Você pode usar o Azure Functions para criar APIs Web, responder a alterações no banco de dados, processar fluxos de IoT, gerenciar filas de mensagens entre outras ações.
   ms.service: azure-functions
   ms.topic: landing-page
   author: ggailey777
   ms.author: azfundocs
   ms.date: 09/17/2019
-  ms.openlocfilehash: e6c3cb1a9d536ed898c48c45f57434dc4bf66970
-  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+  ms.openlocfilehash: 74acabf21252acfd79520d7f24ff79503734a235
+  ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/15/2020
-  ms.locfileid: "97505283"
+  ms.lasthandoff: 01/05/2021
+  ms.locfileid: "97901514"
 landingContent:
 - title: Sobre o Azure Functions
   linkLists:

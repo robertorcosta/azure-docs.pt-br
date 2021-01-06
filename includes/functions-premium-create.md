@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: 4dc85988d904fdec72e1e6d92f03582a2a8f1427
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eaea46044f0da4766fda051655d57caee9d98b6
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85121547"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937001"
 ---
 1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 
@@ -36,7 +36,7 @@ ms.locfileid: "85121547"
 
     | Configuração      | Valor sugerido  | Descrição |
     | ------------ | ---------------- | ----------- |
-    | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Conta de armazenamento](../articles/storage/common/storage-account-create.md)** |  Nome globalmente exclusivo |  Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](../articles/azure-functions/storage-considerations.md#storage-account-requirements). |
     |**Sistema operacional**| Sistema operacional preferencial | Um sistema operacional é pré-selecionado para você com base na seleção da pilha de runtime, mas você pode alterar a configuração, se necessário. O Python só tem suporte no Linux. |
     | **[Plano](../articles/azure-functions/functions-scale.md)** | Premium | Plano de hospedagem que define como os recursos são alocados para seu aplicativo de funções. Selecione **Premium**. Por padrão, um plano do Serviço de Aplicativo é criado. O **SKU e o tamanho** padrão é **EP1**, em que EP significa _elástico premium_. Para saber mais, confira a [lista de SKUs Premium](../articles/azure-functions/functions-premium-plan.md#available-instance-skus).<br/>Ao executar funções JavaScript em um plano Premium, você deve escolher uma instância que tem menos vCPUs. Para obter mais informações, confira [Escolher planos Premium de núcleo único](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions).  |
 

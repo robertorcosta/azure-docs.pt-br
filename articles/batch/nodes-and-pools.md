@@ -3,12 +3,12 @@ title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: 880a956a2d839483c59578afad1b62146799578a
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: c229381ba1019a5a40a4ca6b7db88f534f57de29
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243062"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934638"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -63,6 +63,9 @@ Quando você cria um pool do Lote, especifique a configuração de máquina virt
 ## <a name="configurations"></a>Configurações
 
 Existem dois tipos de configuração de pool disponíveis no Lote.
+
+> [!IMPORTANT]
+> Os pools devem ser configurados usando ' configuração de máquina virtual ' e não ' configuração de serviços de nuvem '. Todos os recursos do lote têm suporte dos pools de ' configuração de máquina virtual ' e novos recursos estão sendo adicionados. Os pools de ' configuração de serviços de nuvem ' não dão suporte a todos os recursos e nenhuma nova funcionalidade é planejada.
 
 ### <a name="virtual-machine-configuration"></a>Configuração de Máquina Virtual
 

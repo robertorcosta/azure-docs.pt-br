@@ -4,19 +4,19 @@ description: Saiba como desenvolver Azure Functions aplicativos usando Python qu
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 3383ec322903d15c6090630890d14ce6d90bc96f
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97899389"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935862"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Melhorar o desempenho da taxa de transferência de aplicativos Python no Azure Functions
 
 Ao desenvolver para Azure Functions usando o Python, você precisa entender como suas funções são executadas e como esse desempenho afeta a maneira como seu aplicativo de funções é dimensionado. A necessidade é mais importante ao criar aplicativos altamente com alto desempenho. Os principais fatores a serem considerados ao criar, gravar e configurar seus aplicativos de funções são as configurações de escala horizontal e desempenho da taxa de transferência.
 
 ## <a name="horizontal-scaling"></a>Dimensionamento horizontal
-Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Python conforme a necessidade. Azure Functions usa limites internos para diferentes tipos de gatilhos para decidir quando adicionar instâncias, como a idade das mensagens e o tamanho da fila para QueueTrigger. Esses limites não são configuráveis pelo usuário. Para obter mais informações, confira [Como funcionam os planos de consumo e Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativo e cria instâncias de host adicionais para Python conforme a necessidade. Azure Functions usa limites internos para diferentes tipos de gatilhos para decidir quando adicionar instâncias, como a idade das mensagens e o tamanho da fila para QueueTrigger. Esses limites não são configuráveis pelo usuário. Para obter mais informações, consulte [dimensionamento controlado por eventos em Azure Functions](event-driven-scaling.md).
 
 ## <a name="improving-throughput-performance"></a>Melhorando o desempenho da taxa de transferência
 

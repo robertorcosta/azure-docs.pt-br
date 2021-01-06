@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 9416005c708cafe5adbad2b09ce70c41fae66fd7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443306"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936015"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Aplicativo daemon que chama APIs da Web – adquirir um token
 
@@ -57,7 +57,7 @@ O escopo usado para credenciais de cliente sempre deve ser a ID de recurso segui
 
 > [!IMPORTANT]
 > Quando o MSAL solicita um token de acesso para um recurso que aceita um token de acesso da versão 1,0, o Azure AD analisa o público-alvo desejado do escopo solicitado, levando tudo antes da última barra e usando-o como o identificador de recurso.
-> Portanto, se, como o banco de dados SQL do Azure ( **https: \/ /Database.Windows.net** ), o recurso espera um público que termina com uma barra (para o banco de dados SQL do Azure `https://database.windows.net/` ), você precisará solicitar um escopo de `https://database.windows.net//.default` . (Observe a barra dupla.) Consulte também MSAL.NET Issue [#747: a barra à direita da URL do recurso é omitida, o que causou a falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Portanto, se, como o banco de dados SQL do Azure (**https: \/ /Database.Windows.net**), o recurso espera um público que termina com uma barra (para o banco de dados SQL do Azure `https://database.windows.net/` ), você precisará solicitar um escopo de `https://database.windows.net//.default` . (Observe a barra dupla.) Consulte também MSAL.NET Issue [#747: a barra à direita da URL do recurso é omitida, o que causou a falha de autenticação do SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
@@ -91,6 +91,10 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
     // Mitigation: Change the scope to be as expected.
 }
 ```
+
+### <a name="acquiretokenforclient-uses-the-application-token-cache"></a>AcquireTokenForClient usa o cache de token de aplicativo
+
+No MSAL.NET, `AcquireTokenForClient` o usa o cache de token de aplicativo. (Todos os outros métodos AcquireToken *XX* usam o cache de token de usuário.) Não chame `AcquireTokenSilent` antes de chamar `AcquireTokenForClient` , porque `AcquireTokenSilent` o usa o cache de token de *usuário* . `AcquireTokenForClient` verifica o cache do token de *aplicativo* e o atualiza.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -200,10 +204,6 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 Para obter mais informações, consulte a documentação do protocolo: [plataforma de identidade da Microsoft e o fluxo de credenciais do cliente OAuth 2,0](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="application-token-cache"></a>Cache de token de aplicativo
-
-No MSAL.NET, `AcquireTokenForClient` o usa o cache de token de aplicativo. (Todos os outros métodos AcquireToken *XX* usam o cache de token de usuário.) Não chame `AcquireTokenSilent` antes de chamar `AcquireTokenForClient` , porque `AcquireTokenSilent` o usa o cache de token de *usuário* . `AcquireTokenForClient` verifica o cache do token de *aplicativo* e o atualiza.
-
 ## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Você usou o escopo de recurso/. padrão?
@@ -228,6 +228,12 @@ Content: {
   }
 }
 ```
+
+### <a name="are-you-calling-your-own-api"></a>Você está chamando sua própria API?
+
+Se você chamar sua própria API Web e não foi possível adicionar uma permissão de aplicativo ao registro do aplicativo para seu aplicativo daemon, você expôs uma função de aplicativo em sua API Web?
+
+Para obter detalhes, consulte [expondo permissões de aplicativo (funções de aplicativo)](scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles) e, em particular, [garantindo que o Azure ad emita tokens para sua API Web somente para clientes permitidos](scenario-protected-web-api-app-registration.md#ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients).
 
 ## <a name="next-steps"></a>Próximas etapas
 

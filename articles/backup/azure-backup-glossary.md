@@ -3,12 +3,12 @@ title: Glossário do backup do Azure
 description: Este artigo define os termos úteis para uso com o backup do Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 8baa47667e86b99ebbbf273610809814e768c077
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 1e28f0c2ad5d14ea2a8dc6ce8d5fa2b21c7e65ac
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733275"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935063"
 ---
 # <a name="azure-backup-glossary"></a>Glossário do backup do Azure
 
@@ -172,7 +172,7 @@ Backups incrementais armazenam apenas os blocos que foram alterados desde o back
 
 ## <a name="instant-restore"></a>Restauração instantânea
 
-A restauração instantânea envolve a restauração de um computador diretamente de seu instantâneo de backup em vez da cópia do instantâneo no cofre. Restaurações instantâneas são mais rápidas do que restaurações de um cofre. O número de pontos de restauração instantâneas disponíveis depende da duração da retenção configurada para instantâneos.
+(Termo específico da carga de trabalho) A restauração instantânea envolve a restauração de um computador diretamente de seu instantâneo de backup em vez da cópia do instantâneo no cofre. Restaurações instantâneas são mais rápidas do que restaurações de um cofre. O número de pontos de restauração instantâneas disponíveis depende da duração da retenção configurada para instantâneos. Atualmente aplicável somente para o backup de VM do Azure.
 
 ## <a name="iops"></a>IOPS
 
@@ -226,23 +226,19 @@ Uma recuperação feita do ponto de restauração para o local de origem de onde
 
 Uma frase secreta é usada para criptografar e descriptografar dados durante o backup ou a restauração do seu computador local ou localmente usando o agente MARS para ou do Azure.
 
-## <a name="point-in-time-restore"></a>Recuperação pontual
-
-Restaurar um item para seu estado em um ponto no tempo (PIT) específico.
-
 ## <a name="private-endpoint"></a>Ponto de extremidade privado
 
 Consulte a [documentação do ponto de extremidade privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
 
 ## <a name="protected-instance"></a>Instância protegida
 
-Uma instância protegida refere-se ao computador, servidor físico ou virtual que você usa para configurar o backup para o Azure.  De um **ponto de vista de cobrança**, a contagem de instâncias protegidas para um computador é uma função de seu tamanho de front-end. [Saiba mais](https://azure.microsoft.com/pricing/details/backup/).
+Uma instância protegida refere-se ao computador, servidor físico ou virtual que você usa para configurar o backup para o Azure.  De um **ponto de vista de cobrança**, a contagem de instâncias protegidas para um computador é uma função de seu tamanho de front-end. Assim, uma única instância de backup (como um backup de VM para o Azure) pode corresponder a várias instâncias protegidas, dependendo de seu tamanho de front-end. [Saiba mais](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="rbac-role-based-access-control"></a>RBAC (controle de acesso baseado em função)
 
 Consulte a [documentação do RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-## <a name="recovery-point-restore-point-retention-point"></a>Ponto de recuperação/ponto de restauração/ponto de retenção
+## <a name="recovery-point-restore-point-retention-point--point-in-time-pit"></a>Ponto de recuperação/ponto de restauração/ponto de retenção/ponto no tempo (PIT)
 
 Uma cópia dos dados originais que estão sendo submetidos a backup. Um ponto de retenção é associado a um carimbo de data/hora para que você possa usá-lo para restaurar um item para um determinado ponto no tempo.
 
@@ -264,11 +260,11 @@ Uma regra definida pelo usuário que especifica por quanto tempo os backups deve
 
 ## <a name="rpo-recovery-point-objective"></a>RPO (objetivo de ponto de recuperação)
 
-O RPO indica a perda máxima de dados aceitável em um cenário de perda de dados. Isso é determinado pela frequência de backup.
+O RPO indica a perda máxima de dados que é possível em um cenário de perda de dados. Isso é determinado pela frequência de backup.
 
 ## <a name="rto-recovery-time-objective"></a>RTO (objetivo de tempo de recuperação)
 
-O RTO indica o tempo máximo aceitável em que os dados podem ser restaurados para o último ponto no tempo disponível após um cenário de perda de dados.
+O RTO indica o tempo máximo possível em que os dados podem ser restaurados para o último ponto no tempo disponível após um cenário de perda de dados.
 
 ## <a name="scheduled-backup"></a>Backup agendado
 
@@ -284,13 +280,13 @@ A exclusão reversível é um recurso que ajuda a proteger contra a exclusão ac
 
 ## <a name="snapshot"></a>Instantâneo
 
-Um instantâneo é uma cópia completa, somente leitura de um disco rígido virtual (VHD). [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+Um instantâneo é uma cópia completa e somente leitura de um disco rígido virtual (VHD) ou de um compartilhamento de arquivos do Azure. Saiba mais sobre instantâneos de [disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) e [instantâneos de arquivo](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
 
 ## <a name="storage-account"></a>Conta de armazenamento
 
 Consulte a [documentação da conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-## <a name="subscription"></a>Assinatura
+## <a name="subscription"></a>Subscription
 
 Uma assinatura do Azure é um contêiner lógico usado para provisionar recursos no Azure. Ele contém os detalhes de todos os seus recursos, como VMs (máquinas virtuais), bancos de dados e muito mais.
 
@@ -314,7 +310,7 @@ Uma entidade de armazenamento no Azure que hospeda dados de backup. Também é u
 
 ## <a name="vault-credentials"></a>Credenciais do cofre
 
-O arquivo de credenciais do cofre é um certificado gerado pelo portal para cada cofre. Isso é usado ao registrar um servidor no cofre. [Saiba mais](backup-azure-dpm-introduction.md).
+O arquivo de credenciais do cofre é um certificado gerado pelo portal para cada cofre. Isso é usado ao registrar um servidor local no cofre. [Saiba mais](backup-azure-dpm-introduction.md).
 
 ## <a name="vnet-virtual-network"></a>VNET (rede virtual)
 

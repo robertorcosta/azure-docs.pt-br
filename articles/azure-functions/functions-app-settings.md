@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d7292999fc4b53fed06822461857185127dc793
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898718"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937103"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -256,7 +256,7 @@ Para consumo & apenas planos Premium. O caminho do arquivo para o código do apl
 O número máximo de instâncias que o aplicativo de funções pode alcançar. O padrão é sem limites.
 
 > [!IMPORTANT]
-> Essa configuração está em versão prévia.  Uma [propriedade de aplicativo para a função de expansão máxima](./functions-scale.md#limit-scale-out) foi adicionada e é a maneira recomendada para limitar a escala horizontal.
+> Essa configuração está em versão prévia.  Uma [propriedade de aplicativo para a função de expansão máxima](./event-driven-scaling.md#limit-scale-out) foi adicionada e é a maneira recomendada para limitar a escala horizontal.
 
 |Chave|Valor de exemplo|
 |---|------------|

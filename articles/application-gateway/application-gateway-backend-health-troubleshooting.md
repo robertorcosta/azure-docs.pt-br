@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397891"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934893"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solucionar problemas de integridade de back-end no Gateway de Aplicativo
 ==================================================
@@ -21,6 +21,9 @@ ms.locfileid: "93397891"
 --------
 
 Por padrão, o Gateway de Aplicativo do Azure investiga os servidores back-end para verificar seu status de integridade e se eles estão prontos para atender a solicitações. Os usuários também podem criar investigações personalizadas para mencionar o nome do host, o caminho a ser investigado e os códigos de status a serem aceitos como íntegros. Em cada caso, se o servidor back-end não responder com êxito, o Gateway de Aplicativo marcará o servidor como Não íntegro e interromperá o encaminhamento de solicitações ao servidor. Depois que o servidor começa a responder com êxito, o Gateway de Aplicativo retoma o encaminhamento das solicitações.
+
+> [!NOTE]
+> Este artigo contém referências ao termo *lista de permissões*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ### <a name="how-to-check-backend-health"></a>Como verificar a integridade do back-end
 
@@ -191,7 +194,7 @@ Para criar uma investigação personalizada, siga [estas etapas](./application-g
 
 **Mensagem:** o corpo da resposta HTTP do back-end\' não corresponde à configuração de investigação. O corpo da resposta recebida não contém {cadeia de caracteres}.
 
-**Causa:** Ao criar uma investigação personalizada, você tem a opção de marcar um servidor back-end como Íntegro, combinando com uma cadeia de caracteres do corpo da resposta. Por exemplo, você pode configurar o Gateway de Aplicativo para aceitar "não autorizado" como uma cadeia de caracteres a ser correspondida. Se a resposta do servidor back-end para a solicitação de investigação contiver a sequência **não autorizada** , ela será marcada como Íntegra. Caso contrário, ela será marcada como Não íntegra com esta mensagem.
+**Causa:** Ao criar uma investigação personalizada, você tem a opção de marcar um servidor back-end como Íntegro, combinando com uma cadeia de caracteres do corpo da resposta. Por exemplo, você pode configurar o Gateway de Aplicativo para aceitar "não autorizado" como uma cadeia de caracteres a ser correspondida. Se a resposta do servidor back-end para a solicitação de investigação contiver a sequência **não autorizada**, ela será marcada como Íntegra. Caso contrário, ela será marcada como Não íntegra com esta mensagem.
 
 **Solução:** Para resolver esse problema, siga estas etapas:
 
@@ -228,7 +231,7 @@ Para que um certificado TLS/SSL seja confiável, o certificado do servidor back-
 
 1.  Nas propriedades do certificado, selecione a guia **Detalhes**.
 
-1.  Na guia **Detalhes** , selecione a opção **Copiar para Arquivo** e salve o arquivo no formato X.509 (.CER) codificado em Base-64.
+1.  Na guia **Detalhes**, selecione a opção **Copiar para Arquivo** e salve o arquivo no formato X.509 (.CER) codificado em Base-64.
 
 1.  Abra a página **Configurações** de HTTP do Gateway de Aplicativo no portal do Azure.
 
@@ -308,7 +311,7 @@ Para Windows:
 
 1.  Localize o certificado (normalmente em `\Certificates - Current User\\Personal\\Certificates`) e abra o certificado.
 
-1.  Na guia **Detalhes** , verifique o **Assunto** do certificado.
+1.  Na guia **Detalhes**, verifique o **Assunto** do certificado.
 
 1.  Verifique o CN do certificado a partir dos detalhes e inserir o mesmo no campo nome do host da investigação personalizada ou nas configurações de HTTP (se **Escolher nome do host nas configurações HTTP de back-end** estiver selecionado). Se esse não for o nome do host desejado para o seu site, você deve obter um certificado para esse domínio ou inserir o nome do host correto na investigação customizada ou na configuração de HTTP.
 
@@ -359,7 +362,7 @@ Esse comportamento pode ocorrer por uma ou mais das seguintes razões:
 
 **Solução:**
 
-1.  Verifique se o NSG está bloqueando o acesso às portas 65503-65534 (v1 SKU) ou 65200-65535 (v2 SKU) da **Internet** :
+1.  Verifique se o NSG está bloqueando o acesso às portas 65503-65534 (v1 SKU) ou 65200-65535 (v2 SKU) da **Internet**:
 
     a.  Na guia **Visão Geral** do Gateway de Aplicativo, selecione o link **Rede Virtual/Sub-rede**.
 
@@ -369,19 +372,19 @@ Esse comportamento pode ocorrer por uma ou mais das seguintes razões:
 
     d.  Se um NSG estiver configurado, procure esse recurso NSG na guia **Pesquisar** ou em **Todos os Recursos**.
 
-    e.  Na seção **Regras de Entrada** , adicione uma regra de entrada para permitir o intervalo de porta de destino 65503-65534 para SKU v1 ou 65200-65535 v2 SKU com a **Fonte** definida como **Qualquer** ou **Internet**.
+    e.  Na seção **Regras de Entrada**, adicione uma regra de entrada para permitir o intervalo de porta de destino 65503-65534 para SKU v1 ou 65200-65535 v2 SKU com a **Fonte** definida como **Qualquer** ou **Internet**.
 
     f.  Selecione **Salvar** e verifique se você pode exibir o back-end como Íntegro. Como alternativa, você pode fazer isso por meio do [PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
-1.  Verifique se o UDR tem uma rota padrão (0.0.0.0/0) com o próximo salto não definido como **Internet** :
+1.  Verifique se o UDR tem uma rota padrão (0.0.0.0/0) com o próximo salto não definido como **Internet**:
     
     a.  Siga as etapas 1a e 1b para determinar sua sub-rede.
 
     b.  Verifique se há qualquer UDR configurado. Se houver, pesquise o recurso na barra de pesquisa ou em **Todos os Recursos**.
 
-    c.  Verifique se há alguma rota padrão (0.0.0.0/0) com o próximo salto não definido como **Internet**. Se a configuração for **Solução de Virtualização** ou **Gateway de Rede Virtual** , você deverá certificar-se de que sua solução de virtualização ou o dispositivo local possa rotear corretamente o pacote de volta para o destino da Internet sem modificar o pacote.
+    c.  Verifique se há alguma rota padrão (0.0.0.0/0) com o próximo salto não definido como **Internet**. Se a configuração for **Solução de Virtualização** ou **Gateway de Rede Virtual**, você deverá certificar-se de que sua solução de virtualização ou o dispositivo local possa rotear corretamente o pacote de volta para o destino da Internet sem modificar o pacote.
 
-    d.  Caso contrário, altere o próximo salto para **Internet** , selecione **Salvar** e verifique a integridade do back-end.
+    d.  Caso contrário, altere o próximo salto para **Internet**, selecione **Salvar** e verifique a integridade do back-end.
 
 1.  Rota padrão anunciada pela conexão ExpressRoute/VPN à rede virtual através do BGP:
 
@@ -393,7 +396,7 @@ Esse comportamento pode ocorrer por uma ou mais das seguintes razões:
 
 1.  Se houver um servidor DNS personalizado configurado na rede virtual, verifique se o servidor (ou servidores) pode determinar domínios públicos. A resolução de nomes de domínio público pode ser necessária em cenários em que o Gateway de Aplicativo deve acessar domínios externos como servidores OCSP ou verificar o status de revogação do certificado.
 
-1.  Para verificar se o Gateway de Aplicativo está íntegro e em execução, acesse a opção **Resource Health** no portal e verifique se o estado é **Íntegro**. No caso de um estado **Não Íntegro** ou **Degradado** , entre em [contato com o suporte](https://azure.microsoft.com/support/options/).
+1.  Para verificar se o Gateway de Aplicativo está íntegro e em execução, acesse a opção **Resource Health** no portal e verifique se o estado é **Íntegro**. No caso de um estado **Não Íntegro** ou **Degradado**, entre em [contato com o suporte](https://azure.microsoft.com/support/options/).
 
 <a name="next-steps"></a>Próximas etapas
 ----------

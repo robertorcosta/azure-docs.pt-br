@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e011417b936ed83b4658e6dad25bf8e8ee88aed
-ms.sourcegitcommit: e5f9126c1b04ffe55a2e0eb04b043e2c9e895e48
+ms.openlocfilehash: b5c960c7fbcc29d0aaea7511ba2187c916e84ab3
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96317769"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935233"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>F5 BIG-IP Access Policy Manager e Azure Active Directory integração para acesso híbrido seguro
 
@@ -37,7 +37,7 @@ Ter o acesso de pré-autenticação do Azure AD aos serviços publicados BIG-IP 
 
 - [Detecção de credenciais vazadas](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks)
 
-- [SSPR (redefinição de senha por autoatendimento)](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr)
+- [SSPR (redefinição de senha de autoatendimento)](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-sspr)
 
 - [Colaboração do parceiro](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users) – gerenciamento de direitos para acesso de convidado controlado
 
@@ -71,7 +71,7 @@ As etapas 1-4 no diagrama ilustram a troca de pré-autenticação de front-end e
 |:------|:-----------|
 | 1. | O usuário seleciona um ícone de aplicativo no portal, resolvendo a URL para o SP SAML (BIG-IP) |
 | 2. | O BIG-IP redireciona o usuário para o IDP SAML (Azure AD) para pré-autenticação|
-| 3. | O Azure AD processa políticas de autoridade de certificação e [controles de sessão](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) para autorização|
+| 3. | O Azure AD processa políticas de acesso condicional e [controles de sessão](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) para autorização|
 | 4. | O usuário redireciona de volta para BIG-IP apresentando as declarações SAML emitidas pelo Azure AD |
 | 5. | BIG-IP solicita quaisquer informações adicionais de sessão a serem incluídas no [SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) e no [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/overview) para o serviço publicado |
 | 6. | BIG-IP encaminha a solicitação do cliente para o serviço de back-end

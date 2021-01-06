@@ -4,12 +4,12 @@ description: Conheça as diferentes maneiras como você pode implantar código p
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 7a75408008a90a2c40553b1f6c5c196775a48e61
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96168093"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936950"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -25,7 +25,7 @@ A tabela a seguir descreve os métodos de implantação disponíveis para seu pr
 | -- | -- | -- |
 | Baseado em ferramentas | &bull;&nbsp;[Publicação do Visual &nbsp; Studio &nbsp; Code &nbsp;](functions-develop-vs-code.md#publish-to-azure)<br/>&bull;&nbsp;[Publicação do Visual Studio](functions-develop-vs.md#publish-to-azure)<br/>&bull;&nbsp;[Publicação de ferramentas principais](functions-run-local.md#publish) | Implantações durante o desenvolvimento e outras implantações ad-Hock. As implantações são gerenciadas localmente pelas ferramentas. | 
 | Serviço de aplicativo-gerenciado| &bull;&nbsp;[&nbsp;Centro &nbsp; de implantação (CI/CD)](functions-continuous-deployment.md)<br/>&bull;&nbsp;[Implantações de contêiner &nbsp;](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) |  A implantação contínua (CI/CD) do controle do código-fonte ou de um registro de contêiner. As implantações são gerenciadas pela plataforma do serviço de aplicativo (kudu).|
-| Pipelines externos|&bull;&nbsp;[Pipelines do DevOps](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Ações do GitHub](functions-how-to-github-actions.md) | Os pipelines de produção e DevOps que incluem validação, teste e outras ações adicionais são executados como parte de uma implantação automatizada. As implantações são gerenciadas pelo pipeline. |
+| Pipelines externos|&bull;&nbsp;[Azure Pipelines](functions-how-to-azure-devops.md)<br/>&bull;&nbsp;[Ações do GitHub](functions-how-to-github-actions.md) | Os pipelines de produção e DevOps que incluem validação, teste e outras ações adicionais são executados como parte de uma implantação automatizada. As implantações são gerenciadas pelo pipeline. |
 
 Embora implantações de funções específicas usem a melhor tecnologia com base em seu contexto, a maioria dos métodos de implantação se baseia na [implantação de zip](#zip-deploy).
 
@@ -33,9 +33,9 @@ Embora implantações de funções específicas usem a melhor tecnologia com bas
 
 O Azure Functions dá suporte ao desenvolvimento local de plataforma cruzada e à hospedagem no Windows e no Linux. Atualmente, três planos de hospedagem estão disponíveis:
 
-+ [Utilização](functions-scale.md#consumption-plan)
-+ [Premium](functions-scale.md#premium-plan)
-+ [Dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan)
++ [Consumo](consumption-plan.md)
++ [Premium](functions-premium-plan.md)
++ [Dedicado (serviço de aplicativo)](dedicated-plan.md)
 
 Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implantação estão disponíveis para cada tipo de Azure Functions. O gráfico a seguir mostra quais tecnologias de implantação têm suporte para cada combinação de sistema operacional e plano de hospedagem:
 
@@ -96,7 +96,7 @@ Os aplicativos de funções do Linux em execução no plano de consumo não têm
 
 ##### <a name="dedicated-and-premium-plans"></a>Planos dedicado e Premium
 
-Os aplicativos de funções em execução no Linux no [plano dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan) e no [plano Premium](functions-scale.md#premium-plan) também têm um site do SCM/kudu limitado.
+Os aplicativos de funções em execução no Linux no [plano dedicado (serviço de aplicativo)](dedicated-plan.md) e no [plano Premium](functions-premium-plan.md) também têm um site do SCM/kudu limitado.
 
 ## <a name="deployment-technology-details"></a>Detalhes da tecnologia de implantação
 

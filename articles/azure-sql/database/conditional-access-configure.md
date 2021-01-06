@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: eae7d0a34d6bd76dae5998f05f9d64e0d40f7d9b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c18d235977f1256a10e813fa8e02aa3590366fe1
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321617"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936406"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Acesso condicional com o banco de dados SQL do Azure e o Azure Synapse Analytics
 
@@ -25,7 +25,7 @@ ms.locfileid: "93321617"
 
 O [banco de dados SQL do Azure](sql-database-paas-overview.md), o [Azure SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md)e o [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) dão suporte ao acesso condicional da Microsoft.
 
-As etapas a seguir mostram como configurar o banco de dados SQL do Azure, o SQL Instância Gerenciada ou o Azure Synapse para impor uma política de acesso condicional (CA).  
+As etapas a seguir mostram como configurar o banco de dados SQL do Azure, o SQL Instância Gerenciada ou o Azure Synapse para impor uma política de acesso condicional.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,18 +40,18 @@ As etapas a seguir mostram como configurar o banco de dados SQL do Azure, o SQL 
 1. Entre no portal do Azure, selecione **Azure Active Directory** e, em seguida, selecione **acesso condicional**. Para obter mais informações, consulte [Referência técnica do Acesso Condicional ao Azure Active Directory](../../active-directory/conditional-access/concept-conditional-access-conditions.md).  
    ![Folha acesso condicional](./media/conditional-access-configure/conditional-access-blade.png)
 
-2. Na folha **Políticas de Acesso Condicional** , clique em **Nova política** , forneça um nome e, em seguida, clique em **Configurar regras**.  
-3. Em **atribuições** , selecione **usuários e grupos** , marque **Selecionar usuários e grupos** e, em seguida, selecione o usuário ou grupo para acesso condicional. Clique em **Selecionar** e, em seguida, em **Concluído** para aceitar a seleção.  
+2. Na folha **Políticas de Acesso Condicional**, clique em **Nova política**, forneça um nome e, em seguida, clique em **Configurar regras**.  
+3. Em **atribuições**, selecione **usuários e grupos**, marque **Selecionar usuários e grupos** e, em seguida, selecione o usuário ou grupo para acesso condicional. Clique em **Selecionar** e, em seguida, em **Concluído** para aceitar a seleção.  
    ![selecionar usuários e grupos](./media/conditional-access-configure/select-users-and-groups.png)  
 
-4. Selecione **Aplicativos na nuvem** e clique em **Selecionar aplicativos**. Você verá todos os aplicativos disponíveis para acesso condicional. Selecione **Banco de Dados SQL do Azure** , na parte inferior clique em **Selecionar** e, em seguida, clique em **Concluído**.  
+4. Selecione **Aplicativos na nuvem** e clique em **Selecionar aplicativos**. Você verá todos os aplicativos disponíveis para acesso condicional. Selecione **Banco de Dados SQL do Azure**, na parte inferior clique em **Selecionar** e, em seguida, clique em **Concluído**.  
    ![selecionar Banco de Dados SQL](./media/conditional-access-configure/select-sql-database.png)  
    Se você não encontrar o **banco de dados SQL do Azure** listado na terceira captura de tela a seguir, conclua as seguintes etapas:
    - Conecte-se ao banco de dados no banco de dados SQL do Azure usando o SSMS com uma conta de administrador do Azure AD.  
    - Execute `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
    - Entre no Azure AD e verifique se o banco de dados SQL do Azure, o SQL Instância Gerenciada ou o Azure Synapse estão listados nos aplicativos em sua instância do Azure AD.  
 
-5. Selecione **Controles de acesso** , selecione **Conceder** e, em seguida, marque a política que você deseja aplicar. Para este exemplo, selecionamos **Exigir autenticação multifator**.  
+5. Selecione **Controles de acesso**, selecione **Conceder** e, em seguida, marque a política que você deseja aplicar. Para este exemplo, selecionamos **Exigir autenticação multifator**.  
    ![selecionar conceder acesso](./media/conditional-access-configure/grant-access.png)  
 
 ## <a name="summary"></a>Resumo

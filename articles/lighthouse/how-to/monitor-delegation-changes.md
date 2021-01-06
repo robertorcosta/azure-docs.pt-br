@@ -3,12 +3,12 @@ title: Monitorar alterações de delegação no seu locatário de gerenciamento
 description: Saiba como monitorar a atividade de delegação de locatários do cliente para seu locatário de gerenciamento.
 ms.date: 12/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 8d254c90881d23255dda5c38a868eb61e51b4f08
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: f65ffda642e67ec6e2c7694a823c2ba6845a7af4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356405"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936100"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorar alterações de delegação no seu locatário de gerenciamento
 
@@ -46,7 +46,7 @@ Como esse é um nível amplo de acesso, recomendamos que você atribua essa fun�
 
 - [Crie uma nova conta de entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md) para ser usada somente para essa função, em vez de atribuir essa função a uma entidade de serviço existente usada para outra automação.
 - Certifique-se de que essa entidade de serviço não tenha acesso a nenhum recurso de cliente delegado.
-- [Use um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) e [armazená-lo com segurança no Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Use um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) e [armazená-lo com segurança no Azure Key Vault](../../key-vault/general/security-overview.md).
 - Limite os usuários que têm acesso ao Act em nome da entidade de serviço.
 
 > [!NOTE]

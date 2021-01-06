@@ -3,12 +3,12 @@ title: Implantação condicional com modelos
 description: Descreve como implantar condicionalmente um recurso em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 1492e9f9f45f23628f9933628fd2740e08ad9eb0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 5650f7fb9f1483f2dc7059607732ecc68cbb7b9d
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672841"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934774"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Implantação condicional em modelos ARM
 
@@ -19,7 +19,7 @@ ms.locfileid: "97672841"
 
 ## <a name="new-or-existing-resource"></a>Recurso novo ou existente
 
-Você pode usar a implantação condicional para criar um novo recurso ou usar um existente. O exemplo a seguir mostra como usar a condição para implantar uma nova conta de armazenamento ou usar uma conta de armazenamento existente.
+Você pode usar a implantação condicional para criar um novo recurso ou usar um existente. O exemplo a seguir mostra como usar o `condition` para implantar uma nova conta de armazenamento ou usar uma conta de armazenamento existente.
 
 ```json
 {
@@ -36,7 +36,7 @@ Você pode usar a implantação condicional para criar um novo recurso ou usar u
 }
 ```
 
-Quando o parâmetro **newOrExisting** é definido como **New**, a condição é avaliada como true. A conta de armazenamento é implantada. No entanto, quando **newOrExisting** é definido como **existing**, a condição é avaliada como false e a conta de armazenamento não é implantada.
+Quando o parâmetro `newOrExisting` é definido como **New**, a condição é avaliada como true. A conta de armazenamento é implantada. No entanto, quando `newOrExisting` é definido como **existente**, a condição é avaliada como false e a conta de armazenamento não é implantada.
 
 Para obter um modelo de exemplo completo que usa o elemento `condition`, confira [VM com uma Rede Virtual nova ou existente, um Armazenamento e um IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
@@ -80,13 +80,13 @@ Para obter o modelo completo, consulte [servidor lógico do SQL do Azure](https:
 
 Se você usar uma função de [referência](template-functions-resource.md#reference) ou de [lista](template-functions-resource.md#list) com um recurso que é implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado. Você receberá um erro se a função se referir a um recurso que não existe.
 
-Use a função [If](template-functions-logical.md#if) para certificar-se de que a função é avaliada apenas para condições quando o recurso for implantado. Consulte a [função if](template-functions-logical.md#if) para um modelo de exemplo que usa if e reference com um recurso implantado condicionalmente.
+Use a função [If](template-functions-logical.md#if) para certificar-se de que a função é avaliada apenas para condições quando o recurso for implantado. Consulte a [função If](template-functions-logical.md#if) para obter um modelo de exemplo que usa `if` e `reference` com um recurso implantado condicionalmente.
 
 Você define um [recurso como dependente](define-resource-dependency.md) de um recurso condicional exatamente como faria com qualquer outro recurso. Quando um recurso condicional não é implantado, Azure Resource Manager o remove automaticamente das dependências necessárias.
 
 ## <a name="complete-mode"></a>Modo completo
 
-Se você implantar um modelo com o [modo completo](deployment-modes.md) e um recurso não for implantado porque a condição é avaliada como false, o resultado depende de qual versão da API REST você usa para implantar o modelo. Se você usar uma versão anterior à 2019-05-10, o recurso **não será excluído**. Com o 2019-05-10 ou posterior, o recurso **é excluído**. As versões mais recentes do Azure PowerShell e CLI do Azure excluir o recurso quando a condição for falsa.
+Se você implantar um modelo com o [modo completo](deployment-modes.md) e um recurso não for implantado porque `condition` é avaliado como false, o resultado dependerá da versão da API REST usada para implantar o modelo. Se você usar uma versão anterior à 2019-05-10, o recurso **não será excluído**. Com o 2019-05-10 ou posterior, o recurso **é excluído**. As versões mais recentes do Azure PowerShell e CLI do Azure excluir o recurso quando a condição for falsa.
 
 ## <a name="next-steps"></a>Próximas etapas
 

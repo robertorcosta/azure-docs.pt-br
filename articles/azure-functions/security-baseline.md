@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 86e13c0f57b30d2c53d9194e89ec89e7abdf1574
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 707c69efddeda364f0c62e9719ae1a6073dfe9ad
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187044"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935726"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Linha de base de segurança do Azure para Azure Functions
 
 A linha de base de segurança do Azure para Azure Functions contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações de como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
 Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
@@ -26,7 +26,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 *Para saber mais, confira [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
 
 **Diretrizes**: Integre seus aplicativos de Azure Functions com uma rede virtual do Azure. Os aplicativos de funções em execução no plano Premium têm os mesmos recursos de hospedagem que os aplicativos Web no serviço Azure App, que inclui o recurso "integração VNet".  As redes virtuais do Azure permitem que você coloque muitos dos seus recursos do Azure, como Azure Functions, em uma rede roteável que não seja da Internet.
 
@@ -80,7 +80,7 @@ Além disso, configure um gateway de front-end, como o Firewall do aplicativo We
 
 - [Opções de rede do Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions plano Premium](./functions-scale.md#premium-plan)
+- [Azure Functions plano Premium](./functions-premium-plan.md)
 
 - [Introdução aos Ambientes de Serviço de Aplicativo](../app-service/environment/intro.md)
 
@@ -124,7 +124,7 @@ Como alternativa, há várias opções do Marketplace, como o Barracuda WAF para
 
 - [Opções de rede do Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions plano Premium](./functions-scale.md#premium-plan)
+- [Azure Functions plano Premium](./functions-premium-plan.md)
 
 - [Introdução aos Ambientes de Serviço de Aplicativo](../app-service/environment/intro.md)
 
@@ -146,7 +146,7 @@ Como alternativa, há várias opções do Marketplace, como o Barracuda WAF para
 
 - [Opções de rede do Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions plano Premium](./functions-scale.md#premium-plan)
+- [Azure Functions plano Premium](./functions-premium-plan.md)
 
 - [Introdução aos Ambientes de Serviço de Aplicativo](../app-service/environment/intro.md)
 
@@ -551,7 +551,7 @@ Você também pode usar pontos de extremidade privados para executar o isolament
 
 - [Opções de rede do Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions plano Premium](./functions-scale.md#premium-plan)
+- [Azure Functions plano Premium](./functions-premium-plan.md)
 
 - [Entender o ponto de extremidade privado](../private-link/private-endpoint-overview.md)
 
@@ -827,7 +827,7 @@ Implante aplicativos de funções do Azure de alto risco em sua própria rede vi
 
 - [Opções de rede do Azure Functions](./functions-networking-options.md)
 
-- [Azure Functions plano Premium](./functions-scale.md#premium-plan)
+- [Azure Functions plano Premium](./functions-premium-plan.md)
 
 - [Considerações de rede para um Ambiente do Serviço de Aplicativo](../app-service/environment/network-info.md)
 
