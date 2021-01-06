@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 085ba4d9d4e78acec4505ddb0e9e89d4e0b5c4a3
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ed9d41a84e455241ed3cfc41b905a671f2a2d499
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881473"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912947"
 ---
 # <a name="train-and-track-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Treinar e acompanhar modelos de ML com MLflow e Azure Machine Learning (visualização)
 
@@ -211,7 +211,7 @@ run.get_metrics()
 
 Registre e acompanhe seus modelos com o [registro de modelo de Azure Machine Learning](concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere) que dá suporte ao registro de modelo MLflow. Os modelos de Azure Machine Learning são alinhados com o esquema de modelo MLflow, facilitando a exportação e a importação desses modelos em diferentes fluxos de trabalho. Os metadados relacionados ao MLflow, como a ID de execução, também são marcados com o modelo registrado para rastreamento. Os usuários podem enviar execuções de treinamento, registrar e implantar modelos produzidos por meio de execuções do MLflow. 
 
-Se você quiser implantar e registrar seu modelo pronto de produção em uma única etapa, consulte [implantar e registrar modelos MLflow](how-to-deploy-models-with-mlflow.md).
+Se você quiser implantar e registrar seu modelo pronto de produção em uma única etapa, consulte [implantar e registrar modelos MLflow](how-to-deploy-mlflow-models.md).
 
 Para registrar e exibir um modelo de uma execução, use as seguintes etapas:
 
@@ -237,7 +237,7 @@ Para registrar e exibir um modelo de uma execução, use as seguintes etapas:
     ![MLmodel-esquema](./media/how-to-use-mlflow/mlmodel-view.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não planeja usar as métricas registradas e os artefatos em seu espaço de trabalho, a capacidade de excluí-los individualmente não estará disponível no momento. Em vez disso, exclua o grupo de recursos que contém a conta de armazenamento e o espaço de trabalho, para que você não incorra nenhum encargo:
 
@@ -260,7 +260,7 @@ O [MLflow com notebooks do Azure Machine Learning](https://github.com/Azure/Mach
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Implante modelos com MLflow](how-to-deploy-models-with-mlflow.md).
+* [Implante modelos com MLflow](how-to-deploy-mlflow-models.md).
 * Monitore os modelos de produção para [descompasso de dados](./how-to-enable-data-collection.md).
 * [Acompanhe as execuções de Azure Databricks com MLflow](how-to-use-mlflow-azure-databricks.md).
 * [Gerenciar os modelos](concept-model-management-and-deployment.md).

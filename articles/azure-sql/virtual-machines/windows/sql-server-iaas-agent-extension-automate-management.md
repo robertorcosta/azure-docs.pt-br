@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e8268630b2c108dc95ded059ce41866a14fadd0e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359244"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914239"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizar o gerenciamento com a extensão SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,20 +42,21 @@ A extensão do agente IaaS SQL Server fornece vários benefícios para SQL Serve
 
 - **Gratuito**: a extensão em todos os três modos de gerenciamento é completamente gratuita. Não há custo adicional associado à extensão ou com a alteração dos modos de gerenciamento. 
 
-- **Gerenciamento de licenças simplificado**: a extensão simplifica o gerenciamento de licenças SQL Server e permite que você identifique rapidamente SQL Server VMs com o benefício híbrido do Azure habilitado usando o [portal do Azure](manage-sql-vm-portal.md), o CLI do Azure ou o PowerShell: 
-
-   # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-   ```azurecli-interactive
-   $vms = az sql vm list | ConvertFrom-Json
-   $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
-   ```
+- **Gerenciamento de licenças simplificado**: a extensão simplifica o gerenciamento de licenças SQL Server e permite que você identifique rapidamente SQL Server VMs com o benefício híbrido do Azure habilitado usando o [portal do Azure](manage-sql-vm-portal.md), o PowerShell ou o CLI do Azure: 
 
    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
    ```powershell-interactive
    Get-AzSqlVM | Where-Object {$_.LicenseType -eq 'AHUB'}
    ```
+
+   # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+   ```azurecli-interactive
+   $ az sql vm list --query "[?sqlServerLicenseType=='AHUB']"
+   ```
+
+
 
    ---
 
@@ -239,7 +240,7 @@ Sim. Não há restrições para registrar uma instância de SQL Server em uma VM
 
 **Qual é o custo de registro com a extensão do agente IaaS do SQL ou com a atualização para o modo de gerenciamento completo?**
 
-nenhuma. Não há nenhuma taxa associada ao registro com a extensão do agente IaaS do SQL ou com o uso de qualquer um dos três modos de gerenciamento. O gerenciamento de sua VM SQL Server com a extensão é totalmente livre. 
+Nenhum. Não há nenhuma taxa associada ao registro com a extensão do agente IaaS do SQL ou com o uso de qualquer um dos três modos de gerenciamento. O gerenciamento de sua VM SQL Server com a extensão é totalmente livre. 
 
 **Qual é o impacto no desempenho do uso dos diferentes modos de gerenciamento?**
 

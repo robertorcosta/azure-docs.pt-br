@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: a54404dafaf1093a2e2acbde88187739bd6c9f06
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: 86e4a111be7585373ecf4c2fe9508f2bfca7de16
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827403"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915072"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Exibir e configurar a telemetria da Proteção contra DDoS
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 As [métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetworkpublicipaddresses) a seguir estão disponíveis para a proteção contra DDoS do Azure Standard. Essas métricas também são exportáveis por meio de configurações de diagnóstico (consulte [Exibir e configurar o log de diagnóstico de DDoS](diagnostic-logging.md)).
 
 
-| Metric | Nome de exibição da métrica | Unit | Tipo de agregação | Descrição |
+| Métrica | Nome de exibição da métrica | Unit | Tipo de agregação | Description |
 | --- | --- | --- | --- | --- |
 | ByteCount | Contagem de Bytes | Contagem | Total | Número total de Bytes transmitidos no período |
 | BytesDroppedDDoS | DDoS de bytes de entrada removidos | BytesPerSecond | Máximo | DDoS de bytes de entrada removidos| 
@@ -70,7 +70,7 @@ As [métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-s
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Antes de concluir as etapas deste tutorial, você deve primeiro criar um plano de [proteção padrão do DDoS do Azure](manage-ddos-protection.md) e a proteção contra DDoS Standard deve ser habilitada em uma rede virtual.
-- DDoS monitora os endereços IP públicos atribuídos aos recursos em uma rede virtual. Se você não tiver todos os recursos com endereços IP públicos na rede virtual, você deve primeiro criar um recurso com um endereço IP público. Você pode monitorar o endereço IP público de todos os recursos implantados por meio do Resource Manager (não clássico) listados em [rede virtual para serviços do Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo balanceadores de carga do Azure onde as máquinas virtuais de back-end estão na rede virtual), exceto para ambientes de serviço Azure app e gateway de VPN do Azure. Para continuar este tutorial, você pode criar rapidamente uma máquina virtual do [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+- DDoS monitora os endereços IP públicos atribuídos aos recursos em uma rede virtual. Se você não tiver todos os recursos com endereços IP públicos na rede virtual, você deve primeiro criar um recurso com um endereço IP público. Você pode monitorar o endereço IP público de todos os recursos implantados por meio do Resource Manager (não clássico) listado em [rede virtual para serviços do Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo balanceadores de carga do Azure onde as máquinas virtuais de back-end estão na rede virtual), exceto para ambientes de serviço Azure app. Para continuar este tutorial, você pode criar rapidamente uma máquina virtual do [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
 
 ## <a name="view-ddos-protection-telemetry"></a>Exibir telemetria de proteção contra DDoS
 

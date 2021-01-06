@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 526afe758063ce6c5f6bd86f8192f56d5f844a85
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694002"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915854"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Personalização de dados no Machine Learning automatizado
 
@@ -46,7 +46,7 @@ Para os experimentos que você configura com o SDK do Python, você pode habilit
 
 A tabela a seguir mostra as configurações aceitas para `featurization` na [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração do personalização | Descrição|
+|Configuração do personalização | Description|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [as etapas](#featurization) de guardrails e personalização de [dados](#data-guardrails) são feitas automaticamente. Essa é a configuração padrão.|
 |`"featurization": 'off'`| Especifica que as etapas do personalização não devem ser feitas automaticamente.|
@@ -61,16 +61,13 @@ A tabela a seguir resume as técnicas que são aplicadas automaticamente aos seu
 > [!NOTE]
 > Se você planeja exportar seus modelos AutoML para um [modelo ONNX](concept-onnx.md), somente as opções de personalização indicadas com um asterisco ("*") têm suporte no formato ONNX. Saiba mais sobre [conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Etapas de personalização &nbsp;| Descrição |
+|Etapas de personalização &nbsp;| Description |
 | ------------- | ------------- |
 |**Descartar alta cardinalidade ou nenhum recurso de variação** _ |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
 |_*Imputar valores ausentes**_ |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
 |_*Gerar mais recursos**_ |Para recursos DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br><br> _For tarefas de previsão, * esses recursos de DateTime adicionais são criados: ano ISO, semestre, mês como cadeia de caracteres, semana, dia da semana como cadeia de caracteres, dia do trimestre, dia do ano, AM/PM (0 se a hora for anterior ao meio-dia (12 PM), 1 caso contrário), AM/PM como cadeia de caracteres, hora do dia<br/><br/>Para recursos de texto: a frequência de termos com base em unigrams, bigrams e trigrams. Saiba mais sobre [como isso é feito com o Bert.](#bert-integration)|
 |**Transformar e codificar** _|Transforme recursos numéricos que têm poucos valores exclusivos em recursos categóricos.<br/><br/>A codificação One-Hot é usada para recursos categóricos de baixa cardinalidade. A codificação um-Hot-hash é usada para recursos categóricos de alta cardinalidade.|
 |_ *Incorporações de palavras**|Uma featurizer de texto converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado com o restante para produzir um vetor de recursos de documento.|
-|**Codificações de destino**|Para recursos categóricos, essa etapa mapeia cada categoria com um valor de destino médio para problemas de regressão e para a probabilidade de classe de cada classe para problemas de classificação. O peso baseado em frequência e a validação cruzada de k-fold são aplicados para reduzir o superajuste do mapeamento e ruído causados por categorias de dados esparsas.|
-|**Codificação de destino de texto**|Para uma entrada de texto, um modelo linear empilhado com um conjunto de palavras é usado para gerar a probabilidade de cada classe.|
-|**Peso de evidência (WoE)**|Calcula o WoE como uma medida de correlação de colunas categóricas para a coluna de destino. WoE é calculado como o log da proporção de probabilidades de classe vs. fora de classe. Esta etapa produz uma coluna de recurso numérico por classe e remove a necessidade de imputar explicitamente os valores ausentes e o tratamento de exceção.|
 |**Distância do cluster**|Treina um modelo de clustering k-means em todas as colunas numéricas. Produz novos recursos do *k* (um novo recurso numérico por cluster) que contém a distância de cada amostra para o centróide de cada cluster.|
 
 ## <a name="data-guardrails"></a>Verificadores de integridade dos dados

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: d0c26255e6d9d35d51390ed2b432b9c5dc9ab2be
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: db29fbda404900c29f85fa876e9427994ee9a093
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862461"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915905"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conhecidos no Azure digital gêmeos
 
@@ -47,11 +47,11 @@ Este artigo fornece informações sobre problemas conhecidos associados ao Azure
 
 ## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Problema com a autenticação de credencial do Azure padrão no Azure. Identity 1.3.0
 
-**Descrição do problema:** Ao gravar o código de autenticação em seus aplicativos gêmeos do Azure digital usando a versão **1.3.0** da biblioteca do **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)**, você pode enfrentar problemas com o método [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) usado em muitos exemplos em vários documentos. Isso apresenta uma resposta de erro de "Azure. Identity. AuthenticationFailedException: falha na autenticação do SharedTokenCacheCredential" quando o código tenta autenticar.
+**Descrição do problema:** Ao escrever o código de autenticação usando a versão **1.3.0** da biblioteca do **[Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)**, alguns usuários tiveram problemas com o método [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet?view=azure-dotnet&preserve-view=true) usado em muitos exemplos em vários documentos do Azure digital gêmeos. Isso apresenta uma resposta de erro de "Azure. Identity. AuthenticationFailedException: falha na autenticação do SharedTokenCacheCredential" quando o código tenta autenticar.
 
 | Isso me afeta? | Causa | Resolução |
 | --- | --- | --- |
-| O DefaultAzureCredential é usado na maioria dos exemplos de documentação que incluem a autenticação do. Se você estiver escrevendo código de autenticação usando o DefaultAzureCredential e usando a versão 1.3.0 da `Azure.Identity` biblioteca, é provável que isso afete você. | Esse problema apresenta ao usar o DefaultAzureCredential com a versão **1.3.0** da `Azure.Identity` biblioteca. | Para resolver, alterne seu aplicativo para usar a [versão 1.2.2](https://www.nuget.org/packages/Azure.Identity/1.2.2) do `Azure.Identity` . Depois de alterar a versão da biblioteca, a autenticação deverá ter sucesso conforme o esperado. |
+| `DefaultAzureCredential` é usado na maioria dos exemplos de documentação para esse serviço que incluem a autenticação do. Se você estiver gravando o código `DefaultAzureCredential` de autenticação usando com a versão 1.3.0 da `Azure.Identity` biblioteca e vendo essa mensagem de erro, isso afetará você. | Isso é provavelmente um resultado de algum problema de configuração com o `Azure.Identity` . | Uma estratégia para resolver isso é excluir `SharedTokenCacheCredential` de sua credencial, conforme descrito neste [problema de DefaultAzureCredential](https://github.com/Azure/azure-sdk/issues/1970) que está aberto no momento `Azure.Identity` .<br>Outra opção é alterar seu aplicativo para usar uma versão anterior do `Azure.Identity` , como a [versão 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3). Isso não tem impacto funcional no Azure digital gêmeos e, portanto, também é uma solução aceita. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

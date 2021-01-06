@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 12/14/2020
+ms.date: 01/05/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 78e9d7355b8c96295456f8aa9cb80b1d3bdd2fab
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bde5cecc4052724f795cac03f6efceb3451ea2ee
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509539"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914341"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
 Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
@@ -82,6 +82,10 @@ O [tempo](./application-provisioning-when-will-provisioning-finish-specific-user
 **Alterações que não se movem do aplicativo de destino para o Azure AD**
 
 O serviço de provisionamento de aplicativos não está ciente das alterações feitas em aplicativos externos. Portanto, nenhuma ação é executada para reverter. O serviço de provisionamento de aplicativo depende das alterações feitas no Azure AD. 
+
+**A alternância de sincronizar tudo para a sincronização atribuída não está funcionando**
+
+Depois de alterar o escopo de ' sincronizar tudo ' para ' sincronizar atribuído ', certifique-se também de executar uma reinicialização para garantir que a alteração entra em vigor. Você pode fazer a reinicialização da interface do usuário.
 
 **O ciclo de provisionamento continua até a conclusão**
 

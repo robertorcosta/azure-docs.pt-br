@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 4f9de2f956451cd6ab8bc8a7a0fc51903ec54694
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: d9b77def3ccefe3c866ccef78684d38da0b8a268
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97815881"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915140"
 ---
-# <a name="view-and-configure-ddos-protection-alerts"></a>Exibir e configurar alertas de proteção contra DDoS
+# <a name="view-and-configure-ddos-protection-alerts"></a>Exibir e configurar os alertas da proteção contra DDoS
 
 O padrão de Proteção contra DDoS do Azure fornece informações detalhadas de ataque e visualização com Análise de Ataque de DDoS. Os clientes que protegem suas redes virtuais contra ataques de DDoS têm visibilidade detalhada sobre o tráfego de ataque e as ações tomadas para reduzir o ataque por meio de relatórios de mitigação de ataque e logs de fluxo de mitigação. A telemetria avançada é exposta por meio de Azure Monitor incluindo métricas detalhadas durante a duração de um ataque de DDoS. Alertas podem ser configurados para qualquer métrica do Azure Monitor exposta pela Proteção contra DDoS. O registro em log pode ser integrado com o [Azure Sentinel](../sentinel/connect-azure-ddos-protection.md), Splunk (hubs de eventos do Azure), OMS log Analytics e armazenamento do Azure para análise avançada por meio da interface de diagnóstico de Azure monitor.
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Antes de concluir as etapas deste tutorial, você deve primeiro criar um plano de [proteção padrão do DDoS do Azure](manage-ddos-protection.md) e a proteção contra DDoS Standard deve ser habilitada em uma rede virtual.
-- DDoS monitora os endereços IP públicos atribuídos aos recursos em uma rede virtual. Se você não tiver todos os recursos com endereços IP públicos na rede virtual, você deve primeiro criar um recurso com um endereço IP público. Você pode monitorar o endereço IP público de todos os recursos implantados por meio do Resource Manager (não clássico) listados em [rede virtual para serviços do Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo balanceadores de carga do Azure onde as máquinas virtuais de back-end estão na rede virtual), exceto para ambientes de serviço Azure app e gateway de VPN do Azure. Para continuar este tutorial, você pode criar rapidamente uma máquina virtual do [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).     
+- DDoS monitora os endereços IP públicos atribuídos aos recursos em uma rede virtual. Se você não tiver todos os recursos com endereços IP públicos na rede virtual, você deve primeiro criar um recurso com um endereço IP público. Você pode monitorar o endereço IP público de todos os recursos implantados por meio do Resource Manager (não clássico) listado em [rede virtual para serviços do Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo balanceadores de carga do Azure onde as máquinas virtuais de back-end estão na rede virtual), exceto para ambientes de serviço Azure app. Para continuar este tutorial, você pode criar rapidamente uma máquina virtual do [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).     
 
 ## <a name="configure-alerts-through-azure-monitor"></a>Configurar alertas por meio do Azure Monitor
 
@@ -64,7 +64,7 @@ Selecione uma das métricas de proteção contra DDoS disponíveis para alertá-
     |---------                |---------                                                                                           |
     | Escopo                   | Escolha **Selecionar recurso**. </br> Selecione a **assinatura** que contém o endereço IP público que você deseja registrar, selecione **endereço IP público** para **tipo de recurso** e, em seguida, selecione o endereço IP público específico para o qual você deseja registrar as métricas. </br> Selecione **Concluído**. | 
     | Condição | Selecione **Selecionar condição**. </br> Em nome do sinal, selecione **sob ataque de DDoS ou não**. </br> Em **operador**, selecione **maior ou igual a**. </br> Em **tipo de agregação**, selecione **máximo**. </br> Em **valor do limite**, insira *1*. Para o **ataque sob DDoS ou não** a métrica, **0** significa que você não está sob ataque, enquanto que **1** significa que você está sob ataque. </br> Selecione **Concluído**. | 
-    | Actions | Selecione **Adicionar grupos de ações**. </br> Selecione **Criar grupo de ações**. </br> Em **notificações**, em **tipo de notificação**, selecione **email/mensagem SMS/Push/voz**. </br> Em **nome**, insira _MyUnderAttackEmailAlert_. </br> Clique no botão Editar, selecione **email** e como muitas das opções a seguir que você precisa e, em seguida, selecione **OK**. </br> Selecione **Examinar + criar**. | 
+    | Ações | Selecione **Adicionar grupos de ações**. </br> Selecione **Criar grupo de ações**. </br> Em **notificações**, em **tipo de notificação**, selecione **email/mensagem SMS/Push/voz**. </br> Em **nome**, insira _MyUnderAttackEmailAlert_. </br> Clique no botão Editar, selecione **email** e como muitas das opções a seguir que você precisa e, em seguida, selecione **OK**. </br> Selecione **Examinar + criar**. | 
     | Detalhes da regra de alerta | Em **nome da regra de alerta**, insira _MyDdosAlert_. |
 
 Em alguns minutos de detecção de ataque, você deve receber um email de Azure Monitor métricas semelhante à imagem a seguir:

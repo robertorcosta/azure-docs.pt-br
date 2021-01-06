@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: c1c2c5f27143be7fc10269c948bee9d5465d565a
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530435"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912692"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de roteamento (versão prévia)?
 
@@ -72,11 +72,6 @@ Para o armazenamento, os pontos de extremidade primários sempre usam a **rede g
 ## <a name="pricing"></a>Preços
 A diferença de preço entre as duas opções é refletida nos preços de transferência de dados de saída da Internet. O preço de transferência de dados do roteamento por meio da **rede global da Microsoft** é igual ao atual preço de saída da Internet. Visite a [página de preços de largura de banda do Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações de preços mais recentes. 
 
-## <a name="availability"></a>Disponibilidade
-
-O suporte à preferência de roteamento está disponível nas seguintes regiões para serviços como máquina virtual e balanceador de carga voltado para a Internet que usam um IP público para a saída da Internet: Norte da Europa, Oeste da Europa, Sul da França, Sul do Reino Unido, Leste dos EUA, Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Centro-Oeste dos EUA, Sudeste da Ásia, Centro-Oeste da Alemanha, Oeste da Suíça, Leste do Japão e Oeste do Japão.
-
-O suporte de preferência de roteamento para a conta de armazenamento está disponível nas seguintes regiões do Azure-norte EUA Central, Oeste EUA Central, Sul EUA Central, leste dos EUA, oeste dos EUA, Europa Setentrional, sul da França, Centro-oeste da Alemanha, Oeste da Suíça, Sul Ásia Oriental, leste do Japão e oeste do Japão.
 ## <a name="limitations"></a>Limitações
 
 * A preferência de roteamento é compatível apenas com o SKU Standard do endereço IP público. Não há suporte para o SKU Básico do endereço IP público.

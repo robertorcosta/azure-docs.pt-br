@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fac26c616c977eedc466f004a9455297ec995fb8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352534"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915616"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteger e isolar clusters do Azure HDInsight com o link privado (visualização)
 
@@ -29,7 +29,7 @@ Por padrão, o RP do HDInsight usa uma conexão de *entrada* para o cluster usan
 
 Os balanceadores de carga básicos usados na arquitetura de rede virtual padrão fornecem automaticamente o NAT público (conversão de endereços de rede) para acessar as dependências de saída necessárias, como o HDInsight RP. Se você quiser restringir a conectividade de saída à Internet pública, poderá [configurar um firewall](./hdinsight-restrict-outbound-traffic.md), mas isso não é um requisito.
 
-Configurar `resourceProviderConnection` para saída também permite que você acesse recursos específicos do cluster, como Azure data Lake Storage Gen2 ou metastores externos, usando pontos de extremidade privados. O uso de pontos de extremidade privados para esses recursos não é mandetory, mas se você planeja ter pontos de extremidade privados para esses recursos, deverá configurar os pontos de extremidade privados e as entradas DNS `before` que criará o cluster HDInsight. Recomendamos que você crie e forneça todos os bancos de dados do SQL externos necessários, como Apache Ranger, Ambari, Oozie e metastores do hive, no momento da criação do cluster. O requisito é que todos esses recursos devem estar acessíveis de dentro da sub-rede do cluster, seja por meio de seu próprio ponto de extremidade privado ou de outra forma.
+Configurar `resourceProviderConnection` para saída também permite que você acesse recursos específicos do cluster, como Azure data Lake Storage Gen2 ou metastores externos, usando pontos de extremidade privados. O uso de pontos de extremidade privados para esses recursos não é obrigatório, mas se você planeja ter pontos de extremidade privados para esses recursos, deverá configurar os pontos de extremidade privados e as entradas DNS `before` que criará o cluster HDInsight. Recomendamos que você crie e forneça todos os bancos de dados do SQL externos necessários, como Apache Ranger, Ambari, Oozie e metastores do hive, no momento da criação do cluster. O requisito é que todos esses recursos devem estar acessíveis de dentro da sub-rede do cluster, seja por meio de seu próprio ponto de extremidade privado ou de outra forma.
 
 Não há suporte para o uso de pontos de extremidade privados para Azure Key Vault. Se você estiver usando Azure Key Vault para criptografia CMK em repouso, o ponto de extremidade de Azure Key Vault deverá ser acessível de dentro da sub-rede do HDInsight sem nenhum ponto de extremidade privado.
 

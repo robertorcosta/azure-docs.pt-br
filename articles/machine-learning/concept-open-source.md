@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 12/16/2020
-ms.openlocfilehash: b3fa9767310bfc300087c9dc7384f33993aca70d
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675802"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914103"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integração de código-fonte aberto com projetos Azure Machine Learning
 
@@ -74,7 +74,7 @@ Para obter mais informações sobre como criar modelos razoáveis e interpretáv
 - [Mitigar a imparcialidade em modelos de aprendizado de máquina](concept-fairness-ml.md)
 - [Usar Azure Machine Learning à imparcialidade do modelo de ativos](how-to-machine-learning-fairness-aml.md)
 
-## <a name="model-deployment"></a>Implantação de modelos
+## <a name="model-deployment"></a>Implantação de modelo
 
 Depois que os modelos são treinados e estão prontos para produção, você precisa escolher como implantá-los. O Azure Machine Learning fornece vários destinos de implantação. Para obter mais informações, consulte o [artigo onde e como implantar](./how-to-deploy-and-where.md).
 
@@ -101,4 +101,4 @@ As operações de Machine Learning (MLOps), normalmente pensadas como DevOps par
 
 Usando práticas DevOpss como integração contínua (CI) e implantação contínua (CD), você pode automatizar o ciclo de vida de aprendizado de máquina de ponta a ponta e capturar dados de governança em relação a ele. Você pode definir o [pipeline de CI/CD do Machine Learning em ações do GitHub](./how-to-github-actions-machine-learning.md) para executar Azure Machine Learning tarefas de treinamento e implantação. 
 
-A captura de dependências de software, métricas, metadados, dados e controle de versão de modelo são uma parte importante do processo MLOps para criar pipelines transparentes, reproduzíveis e auditáveis. Para essa tarefa, você pode [usar MLFlow em Azure Machine Learning](how-to-use-mlflow.md) , bem como ao [treinar modelos de aprendizado de máquina no Azure Databricks](./how-to-use-mlflow-azure-databricks.md).
+A captura de dependências de software, métricas, metadados, dados e controle de versão de modelo são uma parte importante do processo MLOps para criar pipelines transparentes, reproduzíveis e auditáveis. Para essa tarefa, você pode [usar MLFlow em Azure Machine Learning](how-to-use-mlflow.md) , bem como ao [treinar modelos de aprendizado de máquina no Azure Databricks](./how-to-use-mlflow-azure-databricks.md). Você também pode [implantar modelos MLflow como um serviço Web do Azure](how-to-deploy-mlflow-models.md). 
