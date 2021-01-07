@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 75e3886e31592b0672487bacd5ff2266e07e39cd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 766ad12daeb6d2763f7ed5fe026cd4a0021eaf33
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182489"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937035"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer o acesso a sites particulares do Azure Functions
 
@@ -130,7 +130,7 @@ O [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) é um ser
 
 ## <a name="create-an-azure-functions-app"></a>Criar um aplicativo do Azure Functions
 
-A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de consumo](functions-scale.md#consumption-plan). Você implantará o código de função nesse recurso mais adiante no tutorial.
+A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de consumo](consumption-plan.md). Você implantará o código de função nesse recurso mais adiante no tutorial.
 
 1. No portal, escolha **Adicionar** na parte superior da exibição do grupo de recursos.
 1. Selecione **Computação > Aplicativo de Funções**
@@ -149,7 +149,7 @@ A próxima etapa é criar um aplicativo de funções no Azure usando o [Plano de
 
     | Configuração      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | _Conta de armazenamento_ | Nome globalmente exclusivo | Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](./functions-scale.md#storage-account-requirements). |
+    | _Conta de armazenamento_ | Nome globalmente exclusivo | Crie uma conta de armazenamento usada pelo seu aplicativo de funções. Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Use também uma conta existente, que precisará atender aos [requisitos da conta de armazenamento](storage-considerations.md#storage-account-requirements). |
     | _Sistema operacional_ | Sistema operacional preferencial | Um sistema operacional é pré-selecionado para você com base na seleção da pilha de runtime, mas você pode alterar a configuração, se necessário. |
     | _Plano_ | Consumo | O [plano de hospedagem](./functions-scale.md) determina como o aplicativo de funções é escalado e os recursos disponíveis para cada instância. |
 1. Selecione **Examinar + Criar** para examinar as seleções de configuração de aplicativo.

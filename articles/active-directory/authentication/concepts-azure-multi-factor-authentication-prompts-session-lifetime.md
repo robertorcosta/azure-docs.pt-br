@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8789015c239aae58ec25f0f644d4c497da477c2b
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0033b6985313de351ffdaf7028d2c1e9bd76ba72
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881235"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963512"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure AD
 
@@ -121,7 +121,7 @@ Para configurar políticas de acesso condicional para a frequência de entrada e
 1. Selecione **segurança** e **acesso condicional**.
 1. Configure uma política usando as opções de gerenciamento de sessão recomendadas detalhadas neste artigo.
 
-Para examinar os tempos de vida [do token, use o PowerShell do Azure ad para consultar as políticas do Azure ad](../develop/configure-token-lifetimes.md#prerequisites). Desabilite as políticas que você tiver em vigor.
+Para examinar os tempos de vida [do token, use o PowerShell do Azure ad para consultar as políticas do Azure ad](../develop/configure-token-lifetimes.md#get-started). Desabilite as políticas que você tiver em vigor.
 
 Se mais de uma configuração estiver habilitada em seu locatário, é recomendável atualizar suas configurações com base no licenciamento disponível para você. Por exemplo, se você tiver licenças do Azure AD Premium, você deve usar apenas a política de acesso condicional de *frequência de entrada* e *sessão de navegador persistente*. Se você tiver aplicativos Microsoft 365 ou licenças gratuitas do Azure AD, deverá usar a configuração *permanecer conectado?* .
 

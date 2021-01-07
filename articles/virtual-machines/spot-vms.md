@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: b8e5c6b6b755134772cc8eaea3dab3af7f5346c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e1666b7e74ceefd7e7e4fe6e499667b09efa0ac7
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963356"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963786"
 ---
 # <a name="use-spot-vms-in-azure"></a>Usar VMs pontuais no Azure
 
@@ -81,7 +81,7 @@ Você pode ver os preços históricos e as taxas de remoção por tamanho em uma
 
 **Tabela**:
 
-:::image type="content" source="./media/spot-table.png" alt-text="Captura de tela das opções de região com a diferença nas taxas de preço e de remoção como um gráfico.":::
+:::image type="content" source="./media/spot-table.png" alt-text="Captura de tela das opções de região com a diferença nas taxas de preço e de remoção como uma tabela.":::
 
 
 
@@ -110,6 +110,11 @@ Você pode ver os preços históricos e as taxas de remoção por tamanho em uma
 **P:** Onde posso postar perguntas?
 
 **R:** Você pode postar e marcar sua pergunta com `azure-spot` em [Perguntas e respostas](/answers/topics/azure-spot.html). 
+
+
+**P:** Como posso alterar o preço máximo de uma VM Spot?
+
+**R:** Para poder alterar o preço máximo, você precisa desalocar a VM. Em seguida, você pode alterar o preço máximo no portal, na seção de **configuração** da VM. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Use a [CLI](./linux/spot-cli.md), o [portal](spot-portal.md), o [modelo ARM](./linux/spot-template.md)ou o [PowerShell](./windows/spot-powershell.md) para implantar VMs pontuais.

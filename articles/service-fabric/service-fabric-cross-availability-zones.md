@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 1217ecba7a5fcb3c0fc95f505e7ca07fc76129b2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f729c00d3b78631a32013ec9453302584cecbd16
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930813"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962424"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implantar um cluster de Service Fabric do Azure entre Zonas de Disponibilidade
 Zonas de Disponibilidade no Azure é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. Uma zona de disponibilidade é um local físico exclusivo equipado com energia, resfriamento e rede independentes em uma região do Azure.
@@ -344,7 +344,7 @@ O modelo de exemplo completo está presente [aqui](https://github.com/Azure-Samp
 Para habilitar zonas em um conjunto de dimensionamento de máquinas virtuais, você deve incluir os três valores a seguir no recurso do conjunto de dimensionamento de máquinas virtuais.
 
 * O primeiro valor é a propriedade **Zones** , que especifica o zonas de disponibilidade presente no conjunto de dimensionamento de máquinas virtuais.
-* O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como true.
+* O segundo valor é a propriedade "singlePlacementGroup", que deve ser definida como true. **O conjunto de dimensionamento distribuído entre 3 AZ pode ser dimensionado para até 300 VMs mesmo com "singlePlacementGroup = true".**
 * O terceiro valor é "zoneBalance" e é opcional, o que garante o balanceamento de zona estrito se definido como true. Leia sobre [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 * As substituições FaultDomain e UpgradeDomain não precisam ser configuradas.
 

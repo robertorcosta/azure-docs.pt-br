@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 01/06/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1ebfa137357e60a1f462ef90c6430cbf0cb5b968
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: references_regions
+ms.openlocfilehash: 85d880966c4c3864206c7e92256eb8e705812f20
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746594"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962169"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Exclusão reversível para contêineres (visualização)
 
@@ -53,11 +53,9 @@ A versão 2019-12-12 e superior da API REST do armazenamento do Azure dá suport
 
 A exclusão reversível de contêiner está disponível para os seguintes tipos de contas de armazenamento:
 
-- Contas de armazenamento de uso geral v2
+- Contas de armazenamento de uso geral V2 e v1
 - Bloquear contas de armazenamento de BLOBs
 - Contas de armazenamento de Blobs
-
-Se sua conta de armazenamento for uma conta v1 de uso geral, use o portal do Azure para atualizar para uma conta v2 de uso geral. Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 Também há suporte para contas de armazenamento com um namespace hierárquico habilitado para uso com Azure Data Lake Storage Gen2.
 

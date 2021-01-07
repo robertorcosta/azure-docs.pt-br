@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1c88b9f77513021609b99c81ea572c2b5b3d365b
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9c316362e2cd3fca9290e5f8070879567d9b7ea5
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936787"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963495"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -135,7 +135,7 @@ Para aplicar uma transformação a um atributo de usuário:
 | **StartWith()** | Gera um atributo ou constante se a entrada começa com o valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor será a ID de funcionário do usuário quando o país/região começar com "EUA", mas quiser gerar um atributo de extensão quando o início do país/região for diferente. Para fazer isso, você configuraria os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user.country<br/>*Valor*: "EUA"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
 | **Extract() – Após a correspondência** | Retorna a substring após ela corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BFernandes", o valor correspondente será "Finance_", então a saída da declaração será "BFernandes". |
 | **Extract() – Antes da correspondência** | Retorna a substring até ela corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "BFernandes_EUA", o valor correspondente será "_EUA", então a saída da declaração será "BFernandes". |
-| **Extract() – Entre a correspondência** | Retorna a substring até ela corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BFernandes_EUA", o primeiro valor correspondente será "Finance_", o segundo valor correspondente será "_EUA", então a saída da declaração será "BFernandes". |
+| **Extract() – Entre a correspondência** | Retorna a substring até ela corresponder ao valor especificado.<br/>Por exemplo, se o valor da entrada for "Finance_BSimon_US", o primeiro valor correspondente é "Finance \_ ", o segundo valor correspondente é " \_ US", então a saída da declaração é "BSimon". |
 | **ExtractAlpha() – Prefixo** | Retorna a parte alfabética do prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada for "BFernandes_123", ele retornará "BFernandes". |
 | **ExtractAlpha() – Sufixo** | Retorna a parte alfabética do sufixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada for "123_Fernandes", ele retornará "Fernandes". |
 | **ExtractNumeric() – Prefixo** | Retorna a parte numérica do prefixo da cadeia de caracteres.<br/>Por exemplo, se o valor da entrada for "123_BFernandes", ele retornará "123". |

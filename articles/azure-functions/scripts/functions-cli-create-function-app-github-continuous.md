@@ -4,16 +4,16 @@ description: Criar um aplicativo de funções e implantar o código de função 
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 752d8a729c56fc2e0e110fcedc263eab4ba7a96b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 219e993ad7132c90de6db680facc9b8f815947cc
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565289"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934374"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Criar um aplicativo de funções no Azure que é implantado no GitHub
 
-Este script de exemplo do Azure Functions cria um aplicativo de funções usando o [Plano de consumo](../functions-scale.md#consumption-plan), junto com seus recursos relacionados. O script também configura o código de função para implantação contínua de um repositório do GitHub. 
+Este script de exemplo do Azure Functions cria um aplicativo de funções usando o [Plano de consumo](../consumption-plan.md), junto com seus recursos relacionados. O script também configura o código de função para implantação contínua de um repositório do GitHub. 
 
 Neste exemplo, você precisa de:
 
@@ -42,7 +42,7 @@ Cada comando da tabela é vinculado à documentação específica do comando. Es
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Cria a conta de armazenamento necessária para o aplicativo de funções. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções sem servidor [Plano de consumo](../functions-scale.md#consumption-plan) e a associa a um repositório Git ou Mercurial. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Cria um aplicativo de funções sem servidor [Plano de consumo](../consumption-plan.md) e a associa a um repositório Git ou Mercurial. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
