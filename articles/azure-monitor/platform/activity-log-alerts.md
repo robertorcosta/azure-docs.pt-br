@@ -4,12 +4,12 @@ description: Seja notificado por SMS, webhook, email e mais quando ocorrerem det
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 836fc20b6c3d46766801dce0e2aeda83a217d6a3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
+ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536074"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97708425"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades
 
@@ -18,7 +18,8 @@ ms.locfileid: "95536074"
 Alertas do log de atividades são alertas que são ativados quando ocorre um novo [evento do log de atividades](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e no volume dos eventos registrados no [log de atividades do Azure](platform-logs-overview.md), a regra de alerta será acionada. As regras de alerta do log de atividades são recursos do Azure, para que possam ser criadas usando um modelo de Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de log de atividades. Para obter mais informações sobre a criação ou uso de regras de alerta do log de atividades, consulte [criar e gerenciar alertas do log de atividades](alerts-activity-log.md).
 
 > [!NOTE]
-> **Não é possível** criar alertas para eventos na categoria de alerta do log de atividades.
+> * **Não é possível** criar alertas para eventos na categoria de alerta do log de atividades.
+> * Os alertas do log de atividades com a categoria de segurança também podem ser definidos em um [novo fluxo atualizado](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) para o [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem)
 
 Normalmente, você cria alertas de log de atividade para receber notificações quando:
 
@@ -48,7 +49,7 @@ Os alertas do log de atividades têm algumas opções comuns:
 > [!NOTE]
 > Em uma assinatura, é possível criar até 100 regras de alerta para uma atividade de escopo: um único recurso, todos os recursos no grupo de recursos (ou) todo o nível de assinatura.
 
-Quando um alerta do log de atividades é ativado, ele usa um grupo de ações para gerar ações ou notificações. Um grupo de ações é um conjunto reutilizável de destinatários de notificação, como endereços de email, URLs de webhook ou números de telefone de SMS. Os destinatários podem ser referenciados de vários alertas para centralizar e agrupar seus canais de notificação. Quando você define o alerta do log de atividades, tem duas opções. Você pode:
+Quando um alerta do log de atividades é ativado, ele usa um grupo de ações para gerar ações ou notificações. Um grupo de ações é um conjunto reutilizável de destinatários de notificação, como endereços de email, URLs de webhook ou números de telefone de SMS. Os destinatários podem ser referenciados de vários alertas para centralizar e agrupar seus canais de notificação. Quando você define o alerta do log de atividades, tem duas opções. Você poderá:
 
 * Use um grupo existente no seu alerta do log de atividades.
 * Crie um novo grupo de ações.
