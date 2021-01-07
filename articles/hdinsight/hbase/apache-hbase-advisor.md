@@ -8,22 +8,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/03/2021
-ms.openlocfilehash: 36d40215f759190cc9e6c6e3f4918dcbc384f94f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 73af7e2a1920e6cfdad9245d965908255ef95a1f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893256"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964585"
 ---
 # <a name="apache-hbase-advisories-in-azure-hdinsight"></a>Conselhos do Apache HBase no Azure HDInsight
 
-Este artigo descreve várias consultorias que ajudam a otimizar o desempenho do Apache HBase no Azure HDInsight. 
+Este artigo descreve várias consultorias para ajudá-lo a otimizar o desempenho do Apache HBase no Azure HDInsight. 
 
 ## <a name="optimize-hbase-to-read-most-recently-written-data"></a>Otimizar o HBase para ler os dados gravados mais recentemente
 
-Ao usar o Apache HBase no Azure HDInsight, você pode otimizar a configuração do HBase para o cenário em que seu aplicativo lê os dados gravados mais recentemente. Para alto desempenho, é ideal que as leituras do HBase sejam servidas do memstore, em vez do armazenamento remoto.
+Se seu UseCase envolver a leitura dos dados gravados mais recentemente do HBase, este comunicado pode ajudá-lo. Para alto desempenho, é ideal que as leituras do HBase sejam servidas do memstore, em vez do armazenamento remoto.
 
-O comunicado de consulta indica que para uma determinada família de coluna em uma tabela tem > 75% de leituras que estão sendo servidas de memstore. Esse indicador sugere que, mesmo que ocorra uma liberação no memstore, o arquivo recente precisa ser acessado e que precisa estar no cache. Os dados são gravados primeiro em memstore o sistema acessa os dados recentes. Há uma chance de que os threads de liberação do HBase internos detectem que uma determinada região atingiu o tamanho de 128M (padrão) e pode disparar uma liberação. Esse cenário ocorre até mesmo os dados mais recentes que foram gravados quando o memstore estava em cerca de 128M de tamanho. Portanto, uma leitura posterior desses registros recentes pode exigir uma leitura de arquivo em vez de memstore. Portanto, é melhor otimizar que até dados recentes que são liberados recentemente podem residir no cache.
+O comunicado de consulta indica que para uma determinada família de coluna em uma tabela > 75% de leituras que estão sendo servidas de memstore. Esse indicador sugere que, mesmo que ocorra uma liberação no memstore, o arquivo recente precisa ser acessado e que precisa estar no cache. Os dados são gravados primeiro em memstore o sistema acessa os dados recentes. Há uma chance de que os threads de liberação do HBase internos detectem que uma determinada região atingiu o tamanho de 128M (padrão) e pode disparar uma liberação. Esse cenário ocorre até mesmo os dados mais recentes que foram gravados quando o memstore estava em cerca de 128M de tamanho. Portanto, uma leitura posterior desses registros recentes pode exigir uma leitura de arquivo em vez de memstore. Portanto, é melhor otimizar que até dados recentes que são liberados recentemente podem residir no cache.
 
 Para otimizar os dados recentes no cache, considere as seguintes definições de configuração:
 
@@ -35,7 +35,7 @@ Para otimizar os dados recentes no cache, considere as seguintes definições de
 
 4. Se você tiver certeza de que precisa ler apenas os dados recentes, defina `hbase.rs.cachecompactedblocksonwrite` configuração como **ativado**. Essa configuração informa ao sistema que, mesmo que ocorra a compactação, os dados permanecem no cache. As configurações também podem ser definidas no nível da família. 
 
-   No Shell do HBase, execute o seguinte comando:
+   No Shell do HBase, execute o seguinte comando para definir a `hbase.rs.cachecompactedblocksonwrite` configuração:
    
    ```
    alter '<TableName>', {NAME => '<FamilyName>', CONFIGURATION => {'hbase.hstore.blockingStoreFiles' => '300'}}
@@ -43,15 +43,15 @@ Para otimizar os dados recentes no cache, considere as seguintes definições de
 
 5. O cache de blocos pode ser desativado para uma determinada família em uma tabela. Verifique se **ele está ativado para famílias** que têm leituras de dados mais recentes. Por padrão, o cache de blocos está ativado para todas as famílias em uma tabela. Caso você tenha desabilitado o cache de blocos para uma família e precise ativá-lo, use o comando ALTER do shell do HBase.
 
-   Essas configurações ajudam a garantir que os dados estão no cache e que os dados recentes não passam pela compactação. Se um TTL for possível em seu cenário, considere o uso da compactação em camadas de data. Para obter mais informações, consulte [Guia de referência do Apache HBase: compactação em camadas de data](https://hbase.apache.org/book.html#ops.date.tiered)  
+   Essas configurações ajudam a garantir que os dados estão disponíveis no cache e que os dados recentes não passam pela compactação. Se um TTL for possível em seu cenário, considere o uso da compactação em camadas de data. Para obter mais informações, consulte [Guia de referência do Apache HBase: compactação em camadas de data](https://hbase.apache.org/book.html#ops.date.tiered)  
 
 ## <a name="optimize-the-flush-queue"></a>Otimizar a fila de liberação
 
-O aviso otimizar a fila de liberação indica que as liberações do HBase podem precisar de ajuste. Os manipuladores de liberação podem não ser altos o suficiente conforme configurado.
+Esse comunicado indica que as liberações do HBase podem precisar de ajuste. A configuração atual para manipuladores de liberação pode não ser alta o suficiente para lidar com o tráfego de gravação, o que pode levar a lentidão de liberações.
 
 Na interface do usuário do servidor de região, observe se a fila de liberação cresce além de 100. Esse limite indica que as liberações são lentas e talvez você precise ajustar a   `hbase.hstore.flusher.count` configuração. Por padrão, o valor é 2. Verifique se os threads de liberação máxima não aumentam além de 6.
 
-Além disso, veja se você tem uma recomendação para o ajuste da contagem de regiões. Se, primeiro, experimente o ajuste de região para ver se isso ajuda em liberações mais rápidas. O ajuste dos threads de liberação pode ajudar de várias maneiras como 
+Além disso, veja se você tem uma recomendação para o ajuste da contagem de regiões. Se sim, sugerimos que você experimente o ajuste de região para ver se isso ajuda em liberações mais rápidas. Caso contrário, ajustar os threads de liberação pode ajudá-lo.
 
 ## <a name="region-count-tuning"></a>Ajuste da contagem de regiões
 
@@ -65,7 +65,7 @@ Como um cenário de exemplo:
 
 - Com essas configurações em vigor, o número de regiões é 100. O memstore global de 4 GB agora está dividido em regiões de 100. Efetivamente, cada região obtém apenas 40 MB para memstore. Quando as gravações são uniformes, o sistema faz liberações frequentes e o tamanho menor da ordem < 40 MB. Ter muitos threads de liberação pode aumentar a velocidade de liberação `hbase.hstore.flusher.count` .
 
-A consultoria significa que seria bom reconsiderar o número de regiões por servidor, o tamanho do heap e a configuração de tamanho global do memstore junto com o ajuste de threads de liberação para que as atualizações que podem ser bloqueadas possam ser evitadas.
+A consultoria significa que seria bom reconsiderar o número de regiões por servidor, o tamanho do heap e a configuração do tamanho global do memstore junto com o ajuste dos threads de liberação para evitar que as atualizações sejam bloqueadas.
 
 ## <a name="compaction-queue-tuning"></a>Ajuste da fila de compactação
 

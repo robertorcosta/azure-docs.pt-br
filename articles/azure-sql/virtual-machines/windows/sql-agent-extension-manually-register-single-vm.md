@@ -15,12 +15,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: e7a8f54abbadb63c870c4d92843699c67f59752c
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 393d0c69201f87ad7c96bd2f9a1f9f57df512e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505623"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964517"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Registrar SQL Server VM com extensão do agente IaaS do SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -189,6 +189,9 @@ $sqlvm.SqlManagementType
 
 SQL Server VMs que registraram a extensão no modo *leve* podem ser atualizadas para _full_ usando o portal do Azure, o CLI do Azure ou o Azure PowerShell. As VMs do SQL Server no modo _NoAgent_ podem ser atualizadas para _completo_ depois que o sistema operacional é atualizado para o Windows 2008 R2 e superior. Não é possível fazer o downgrade – para isso, você precisará cancelar o [registro](#unregister-from-extension) da VM SQL Server da extensão do agente IaaS do SQL. Isso removerá o **recurso** da _máquina virtual do SQL_, mas não excluirá a máquina virtual em si. 
 
+> [!NOTE]
+> Quando você atualizar o modo de gerenciamento para a extensão IaaS do SQL para Full, ele reiniciará o serviço SQL Server. Em alguns casos, a reinicialização pode fazer com que os SPNs (nomes da entidade de serviço) associados ao serviço de SQL Server sejam alterados para a conta de usuário incorreta. Se você tiver problemas de conectividade depois de atualizar o modo de gerenciamento para completo, cancele o [registro e registre novamente seus SPNs](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
+
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -279,7 +282,7 @@ O cancelamento do registro da máquina virtual do SQL com a extensão do SQL Iaa
 
 Para cancelar o registro da VM SQL Server da extensão usando o portal do Azure, siga estas etapas:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).
+1. Entre no [portal do Azure](https://portal.azure.com).
 1. Navegue até o recurso de VM do SQL. 
   
    ![Recurso de máquinas virtuais do SQL](./media/sql-agent-extension-manually-register-single-vm/sql-vm-manage.png)

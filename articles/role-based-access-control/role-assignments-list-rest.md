@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b717d84c8fedf4a87c0b81752b14914ece185250
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 7d00c40a021bbe087d906fd6d9b767188a7b169a
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369201"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964314"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>Listar atribuições de função do Azure usando a API REST
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Este artigo descreve como listar as atribuições de função usando a API REST.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] Este artigo descreve como listar as atribuições de função usando a API REST.
 
 > [!NOTE]
 > Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
@@ -54,7 +54,7 @@ No RBAC do Azure, para listar o acesso, você lista as atribuições de função
 1. Substitua *{filter}* pela condição que você deseja aplicar a fim de filtrar a lista de atribuições de função.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrar | Descrição |
+    > | Filtrar | Description |
     > | --- | --- |
     > | `$filter=atScope()` | Lista as atribuições de função somente para o escopo especificado, não incluindo as atribuições de função em Subescopos. |
     > | `$filter=assignedTo('{objectId}')` | Lista as atribuições de função para um usuário ou entidade de serviço especificada.<br/>Se o usuário for membro de um grupo que tem uma atribuição de função, essa atribuição de função também será listada. Esse filtro é transitivo para grupos, o que significa que, se o usuário for membro de um grupo e esse grupo for membro de outro grupo que tenha uma atribuição de função, essa atribuição de função também será listada.<br/>Esse filtro só aceita uma ID de objeto para um usuário ou uma entidade de serviço. Não é possível passar uma ID de objeto para um grupo. |

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 023dc877158c7074f46945893d40291e94ab2f09
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629539"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964415"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Como criar planos para uma oferta de máquina virtual
 
@@ -42,7 +42,7 @@ Na caixa de diálogo **novo plano** , insira uma **ID de plano** exclusiva para 
 > [!NOTE]
 > A ID do plano não poderá ser alterada depois que você selecionar a opção **Criar**.
 
-Insira um **nome de plano**. Os clientes veem esse nome quando estão decidindo qual plano selecionar dentro de sua oferta. Crie um nome exclusivo que indica claramente as diferenças entre os planos. Por exemplo, você pode inserir os planos **Windows Server** com *Pago conforme o uso* , *BYOL* , *Avançado* e *Enterprise*.
+Insira um **nome de plano**. Os clientes veem esse nome quando estão decidindo qual plano selecionar dentro de sua oferta. Crie um nome exclusivo que indica claramente as diferenças entre os planos. Por exemplo, você pode inserir os planos **Windows Server** com *Pago conforme o uso*, *BYOL*, *Avançado* e *Enterprise*.
 
 Selecione **Criar**. Isso abre a página **configuração do plano** .
 
@@ -108,7 +108,7 @@ Neste painel, você configura:
 
 Cada plano precisa estar disponível em pelo menos um mercado. A maioria dos mercados é selecionada por padrão. Para editar a lista, selecione **Editar mercados** e marque ou desmarque as caixas de seleção de cada local do mercado em que esse plano deve (ou não deve) estar disponível para compra. Os usuários em mercados selecionados ainda podem implantar a oferta em todas as regiões do Azure selecionadas na seção ["configuração do plano"](#plan-setup) .
 
-Selecione **selecionar somente imposto da Microsoft remetido** para selecionar somente países/regiões nos quais a Microsoft remete vendas e impostos sobre o uso em seu nome. A publicação na China é limitada a planos que são *Gratuitos* ou BYOL ( *traga sua própria licença* ).
+Selecione **selecionar somente imposto da Microsoft remetido** para selecionar somente países/regiões nos quais a Microsoft remete vendas e impostos sobre o uso em seu nome. A publicação na China é limitada a planos que são *Gratuitos* ou BYOL (*traga sua própria licença*).
 
 Se você já tiver definido preços para seu plano em dólares americanos (US$) e adicionar outra localização de mercado, o preço do novo mercado será calculado de acordo com as tarifas de câmbio atuais. Sempre examine o preço de cada mercado antes de publicar. Examine seus preços selecionando **Exportar preços (xlsx)** depois de salvar as alterações.
 
@@ -118,7 +118,7 @@ Selecione **salvar** para continuar.
 
 ### <a name="pricing"></a>Preços
 
-Para o **modelo de licença** , selecione **plano de cobrança mensal com base no uso** para configurar os preços para esse plano ou **traga sua própria licença** para permitir que os clientes usem esse plano com a licença existente.
+Para o **modelo de licença**, selecione **plano de cobrança mensal com base no uso** para configurar os preços para esse plano ou **traga sua própria licença** para permitir que os clientes usem esse plano com a licença existente.
 
 Para um plano cobrado mensalmente baseado em uso, use uma das três opções de entrada de preço a seguir:
 
@@ -139,9 +139,9 @@ Você pode oferecer uma **avaliação gratuita** de um, três ou seis meses para
 
 Você pode criar cada plano para ser visível para todos ou apenas a um público-alvo previamente selecionado. Atribua associações neste público-alvo restrito usando as IDs da assinatura do Azure.
 
-**Público** : seu plano pode ser visto por todos.
+**Público**: seu plano pode ser visto por todos.
 
-**Particular** : torne seu plano visível apenas para um público selecionado. Depois de ele ser publicado como um plano privado, você pode atualizar o público-alvo ou alterá-lo para público. Depois de você tornar um plano público, ele precisa permanecer como público. Ele não pode ser alterado de volta para um plano privado.
+**Particular**: torne seu plano visível apenas para um público selecionado. Depois de ele ser publicado como um plano privado, você pode atualizar o público-alvo ou alterá-lo para público. Depois de você tornar um plano público, ele precisa permanecer como público. Ele não pode ser alterado de volta para um plano privado.
 
 Atribua o público que terá acesso a este plano privado usando a **ID de assinatura do Azure** s. Opcionalmente, inclua uma **Descrição** de cada ID de assinatura do Azure que você atribui. Adicione até 10 IDs de assinatura manualmente ou até 20.000 se você estiver importando uma planilha CSV. As IDs de assinatura do Azure são representadas como GUIDs e todas as letras devem estar em minúsculas.
 
@@ -191,7 +191,7 @@ A geração de uma máquina virtual define o hardware virtual que ele usa. Com b
 
 1. Ao criar uma nova oferta, selecione um **tipo de geração** e insira os detalhes solicitados:
 
-    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="Uma exibição da caixa suspensa geração.":::
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details-1.png" alt-text="Uma exibição da seção detalhes da geração no Partner Center.":::
 
 2. Para adicionar outra geração a um plano, selecione **Adicionar geração**...
 
@@ -203,9 +203,7 @@ A geração de uma máquina virtual define o hardware virtual que ele usa. Com b
 
 <!--    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
 -->
-3. Para atualizar uma VM existente que tenha uma geração 1 já publicada, edite detalhes nesta página de **configuração técnica** :
-
-    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Uma exibição da página de configuração técnica do plano.":::
+3. Para atualizar uma VM existente que tenha uma geração 1 já publicada, edite detalhes na página de **configuração técnica** .
 
 Para saber mais sobre as diferenças entre os recursos de geração 1 e geração 2, consulte [suporte para VMs de geração 2 no Azure](../virtual-machines/generation-2.md).
 
@@ -215,10 +213,10 @@ Forneça uma versão de disco e o URI de SAS (Assinatura de Acesso Compartilhado
 
 Esses dois campos obrigatórios são mostrados na imagem anterior acima:
 
-- **Versão do disco** : a versão da imagem que você está fornecendo.
-- **Link do VHD do so** : o local em sua conta de armazenamento do Azure para o VHD do sistema operacional. Para saber como obter um URI de SAS, consulte [obter URI de assinatura de acesso compartilhado para sua imagem de VM](azure-vm-get-sas-uri.md).
+- **Versão do disco**: a versão da imagem que você está fornecendo.
+- **Link do VHD do so**: o local em sua conta de armazenamento do Azure para o VHD do sistema operacional. Para saber como obter um URI de SAS, consulte [obter URI de assinatura de acesso compartilhado para sua imagem de VM](azure-vm-get-sas-uri.md).
 
-Discos de dados (selecione **adicionar disco de dados (máximo 16)** ) também são URIs de assinatura de acesso compartilhado VHD que são armazenados em suas contas de armazenamento do Azure. Adicione apenas uma imagem por envio em um plano.
+Discos de dados (selecione **adicionar disco de dados (máximo 16)**) também são URIs de assinatura de acesso compartilhado VHD que são armazenados em suas contas de armazenamento do Azure. Adicione apenas uma imagem por envio em um plano.
 
 Independentemente de qual sistema operacional que você usa, adicione apenas o número mínimo de discos de dados que a solução exige. Durante a implantação, os clientes não podem remover discos que fazem parte de uma imagem, mas podem sempre adicionar discos durante ou após a implantação.
 

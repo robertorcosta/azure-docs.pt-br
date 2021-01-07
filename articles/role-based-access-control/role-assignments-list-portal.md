@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 06a9a955e8a963f94b1885abf5a920cb96c01940
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: adb3691625d6cdde03c803480ae948bb1911cc7d
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007409"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964364"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Listar atribuições de função do Azure usando o portal do Azure
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Este artigo descreve como listar atribuições de função usando o portal do Azure.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] Este artigo descreve como listar atribuições de função usando o portal do Azure.
 
 > [!NOTE]
 > Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
@@ -63,7 +63,7 @@ Os usuários aos quais foi atribuída a função de [proprietário](built-in-rol
 
 1. Clique no recurso específico.
 
-1. Clique em **Controle de acesso (IAM)** .
+1. Clique em **IAM (Controle de Acesso)**.
 
 1. Clique na guia **Atribuições de função** para visualizar todas as atribuições de função nesse escopo.
 
@@ -83,7 +83,7 @@ Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade g
 
 1. Clique na guia **Verificar acesso**.
 
-    ![Controle de acesso do grupo de recursos – guia acesso de verificação](./media/role-assignments-list-portal/rg-access-control-check-access.png)
+    ![Controle de acesso do grupo de recursos – Guia Verificar acesso](./media/role-assignments-list-portal/rg-access-control-check-access.png)
 
 1. Na lista **Localizar** , selecione o usuário, grupo, entidade de serviço ou identidade gerenciada para a qual você deseja verificar o acesso.
 
@@ -93,11 +93,11 @@ Para listar o acesso de um usuário, grupo, entidade de serviço ou identidade g
 
 1. Clique na entidade de segurança para abrir o painel **atribuições**.
 
-    Nesse painel, você pode ver o acesso para a entidade de segurança selecionada nesse escopo e herdado para esse escopo. As atribuições em escopos filho não estão listadas. Você verá as seguintes atribuições:
+    Nesse painel, você pode ver o acesso para a entidade de segurança selecionada nesse escopo e herdada para esse escopo. As atribuições em escopos filho não estão listadas. Você verá as seguintes atribuições:
 
-    - Atribuições de função adicionadas com o RBAC do Azure.
-    - Atribuições de negação adicionadas usando plantas do Azure ou aplicativos gerenciados do Azure.
-    - Atribuições de administrador de serviço clássico ou Co-Administrator para implantações clássicas. 
+    - Atribuições de função adicionadas com o Azure RBAC.
+    - Atribuições de negação adicionadas usando o Azure Blueprints ou os aplicativos gerenciados do Azure.
+    - Atribuições de Administrador de serviços ou Coadministrador clássicas para implantações clássicas. 
 
     ![painel atribuições](./media/shared/rg-check-access-assignments-user.png)
 
@@ -121,7 +121,7 @@ Você pode listar as atribuições de função para identidades gerenciadas atri
 
 1. Para alterar a assinatura, clique na lista **assinatura** .
 
-### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
+### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída ao usuário
 
 1. No portal do Azure, abra uma identidade gerenciada atribuída pelo usuário.
 
@@ -159,7 +159,7 @@ Siga estas etapas para baixar atribuições de função em um escopo.
 
 1. Clique no recurso específico.
 
-1. Clique em **Controle de acesso (IAM)** .
+1. Clique em **IAM (Controle de Acesso)**.
 
 1. Clique em **baixar atribuições de função** para abrir o painel de atribuições de função de download.
 

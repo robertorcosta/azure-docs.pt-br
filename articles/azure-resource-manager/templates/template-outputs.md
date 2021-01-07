@@ -3,16 +3,16 @@ title: Saídas em modelos
 description: Descreve como definir valores de saída em um modelo de Azure Resource Manager (modelo ARM).
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 9e4ac134e9c1864bca8dd56c3a6e2311d0328d7d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f8f13b6caf063cea79dc71775fb936f406a3ee6c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934723"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964007"
 ---
 # <a name="outputs-in-arm-templates"></a>Saídas em modelos ARM
 
-Este artigo descreve como definir valores de saída em seu modelo de Azure Resource Manager (modelo ARM). Você usa saídas quando precisa retornar valores dos recursos implantados.
+Este artigo descreve como definir valores de saída em seu modelo de Azure Resource Manager (modelo ARM). Você usa `outputs` quando precisa retornar valores dos recursos implantados.
 
 O formato de cada valor de saída deve corresponder a um dos [tipos de dados](template-syntax.md#data-types).
 
@@ -31,7 +31,7 @@ O exemplo a seguir mostra como retornar a ID de recurso para um endereço IP pú
 
 ## <a name="conditional-output"></a>Saída condicional
 
-Na seção de saídas, você pode retornar um valor condicionalmente. Normalmente, você usa a condição nas saídas quando [implantou condicionalmente](conditional-resource-deployment.md) um recurso. O exemplo a seguir mostra como retornar condicionalmente a ID de recurso para um endereço IP público com base no fato de um novo ter sido implantado:
+Na `outputs` seção, você pode retornar um valor condicionalmente. Normalmente, você usa `condition` o no `outputs` quando tiver [implantado condicionalmente](conditional-resource-deployment.md) um recurso. O exemplo a seguir mostra como retornar condicionalmente a ID de recurso para um endereço IP público com base no fato de um novo ter sido implantado:
 
 ```json
 "outputs": {

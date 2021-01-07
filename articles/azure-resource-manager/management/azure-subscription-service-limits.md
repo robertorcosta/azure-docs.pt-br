@@ -3,12 +3,12 @@ title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 182df937ae5c0194aecfbe20b5962b44b363c708
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 20de08ee30deae74954f2857b4de756b8cf46f08
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934452"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964177"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -176,6 +176,10 @@ Os valores mais recentes para Azure Machine Learning cotas de computação podem
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
+## <a name="azure-role-based-access-control-limits"></a>Limites de controle de acesso baseado em função do Azure
+
+[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
+
 ## <a name="azure-signalr-service-limits"></a>Limites do serviço de Signaler do Azure
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
@@ -339,10 +343,6 @@ Os valores mais recentes para cotas do Azure alcance podem ser encontrados na [p
 ## <a name="notification-hubs-limits"></a>Limites de hubs de notificação
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
-
-## <a name="azure-role-based-access-control-limits"></a>Limites de controle de acesso baseado em função do Azure
-
-[!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 
 ## <a name="service-bus-limits"></a>Limites de Barramento de Serviço
 

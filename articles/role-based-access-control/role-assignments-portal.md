@@ -10,16 +10,16 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1aebb80fcba6c21ccce63772195af80b94092bde
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7c58641f0039982f05be14d0f24ba89c62273d4b
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368310"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964296"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Adicionar ou remover atribuições de função do Azure usando o portal do Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando o portal do Azure.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve como atribuir funções usando o portal do Azure.
 
 Se você precisar atribuir funções de administrador no Azure Active Directory, consulte [Exibir e atribuir funções de administrador no Azure Active Directory](../active-directory/roles/manage-roles-portal.md).
 
@@ -53,7 +53,7 @@ No RBAC do Azure, para conceder acesso a um recurso do Azure, você adiciona uma
 
 1. Clique no recurso específico para esse escopo.
 
-1. Clique em **Controle de acesso (IAM)** .
+1. Clique em **IAM (Controle de Acesso)**.
 
 1. Clique na guia **atribuições de função** para exibir as atribuições de função nesse escopo.
 
@@ -140,7 +140,7 @@ Siga estas etapas para atribuir uma função a uma identidade gerenciada atribu�
 
 1. Clique em **Adicionar atribuição de função (versão prévia)**.
 
-1. Use as listas suspensas para selecionar o conjunto de recursos que a atribuição de função aplica a, como **assinatura**, **grupo de recursos**ou recurso.
+1. Use as listas suspensas para selecionar o conjunto de recursos que a atribuição de função aplica a, como **assinatura**, **grupo de recursos** ou recurso.
 
     Se você não tiver permissões de gravação de atribuição de função para o escopo selecionado, uma mensagem embutida será exibida. 
 
@@ -152,7 +152,7 @@ Siga estas etapas para atribuir uma função a uma identidade gerenciada atribu�
 
    Depois de alguns instantes, a identidade gerenciada é atribuída à função no escopo selecionado.
 
-### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo usuário
+### <a name="user-assigned-managed-identity"></a>Identidade gerenciada atribuída ao usuário
 
 Siga estas etapas para atribuir uma função a uma identidade gerenciada atribuída pelo usuário, começando com a identidade gerenciada.
 
@@ -168,7 +168,7 @@ Siga estas etapas para atribuir uma função a uma identidade gerenciada atribu�
 
 1. Clique em **Adicionar atribuição de função (versão prévia)**.
 
-1. Use as listas suspensas para selecionar o conjunto de recursos que a atribuição de função aplica a, como **assinatura**, **grupo de recursos**ou recurso.
+1. Use as listas suspensas para selecionar o conjunto de recursos que a atribuição de função aplica a, como **assinatura**, **grupo de recursos** ou recurso.
 
     Se você não tiver permissões de gravação de atribuição de função para o escopo selecionado, uma mensagem embutida será exibida. 
 

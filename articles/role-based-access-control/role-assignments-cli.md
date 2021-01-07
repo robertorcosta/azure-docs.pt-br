@@ -10,16 +10,16 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 10060e0dc6595a4d59f3968fa324ca40c91a7a39
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e1aa4945391e159f99c82fecff99c238ae0e7e93
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033792"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964398"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Adicionar ou remover atribuições de função do Azure usando a CLI do Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve como atribuir funções usando CLI do Azure.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve como atribuir funções usando CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
