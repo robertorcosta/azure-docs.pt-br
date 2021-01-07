@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: c29af68433f29d7bdd363bedfa6d36316b952f4c
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 87fb7f0eb4017a39aca081f73de543a67400d4b5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795336"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97969054"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetria, propriedade e payloads de comando
 
@@ -829,9 +829,6 @@ O dispositivo deve enviar a carga JSON a seguir para IoT Central depois de proce
 
 ## <a name="commands"></a>Comandos
 
-> [!NOTE]
-> Na interface do usuário da Web do IoT Central, você pode selecionar a opção **fila se estiver offline** para um comando. Essa configuração não será incluída se você exportar um modelo ou interface do modelo de dispositivo.
-
 O trecho a seguir de um modelo de dispositivo mostra a definição de um comando que não tem parâmetros e que não espera que o dispositivo retorne nada:
 
 ```json
@@ -999,6 +996,91 @@ Quando o dispositivo terminar de processar a solicitação, ele deverá enviar u
   }
 }
 ```
+
+### <a name="offline-commands"></a>Comandos offline
+
+Na interface do usuário da Web do IoT Central, você pode selecionar a opção **fila se estiver offline** para um comando. Os comandos offline são notificações unidirecionais para o dispositivo de sua solução que são entregues assim que um dispositivo se conecta. Comandos offline podem ter parâmetros de solicitação, mas não retornam uma resposta.
+
+A configuração **fila se offline** não será incluída se você exportar um modelo ou interface do modelo de dispositivo. Não é possível saber como examinar um modelo ou uma interface JSON exportada que um comando é um comando offline.
+
+Comandos offline usam [mensagens da nuvem para o dispositivo do Hub IOT](../../iot-hub/iot-hub-devguide-messages-c2d.md) para enviar o comando e a carga para o dispositivo.
+
+O trecho a seguir de um modelo de dispositivo mostra a definição de um comando. O comando tem um parâmetro de objeto com um campo DateTime e uma enumeração:
+
+```json
+{
+  "@type": "Command",
+  "displayName": {
+    "en": "Generate Diagnostics"
+  },
+  "name": "GenerateDiagnostics",
+  "request": {
+    "@type": "CommandPayload",
+    "displayName": {
+      "en": "Payload"
+    },
+    "name": "Payload",
+    "schema": {
+      "@type": "Object",
+      "displayName": {
+        "en": "Object"
+      },
+      "fields": [
+        {
+          "displayName": {
+            "en": "StartTime"
+          },
+          "name": "StartTime",
+          "schema": "dateTime"
+        },
+        {
+          "displayName": {
+            "en": "Bank"
+          },
+          "name": "Bank",
+          "schema": {
+            "@type": "Enum",
+            "displayName": {
+              "en": "Enum"
+            },
+            "enumValues": [
+              {
+                "displayName": {
+                  "en": "Bank 1"
+                },
+                "enumValue": 1,
+                "name": "Bank1"
+              },
+              {
+                "displayName": {
+                  "en": "Bank2"
+                },
+                "enumValue": 2,
+                "name": "Bank2"
+              },
+              {
+                "displayName": {
+                  "en": "Bank3"
+                },
+                "enumValue": 2,
+                "name": "Bank3"
+              }
+            ],
+            "valueSchema": "integer"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+Se você habilitar a opção **fila se estiver offline** na interface do usuário do modelo de dispositivo para o comando no trecho anterior, a mensagem que o dispositivo recebe incluirá as seguintes propriedades:
+
+| Nome da propriedade | Valor de exemplo |
+| ---------- | ----- |
+| `custom_properties` | `{'method-name': 'GenerateDiagnostics'}` |
+| `data` | `{"StartTime":"2021-01-05T08:00:00.000Z","Bank":2}` |
 
 ## <a name="next-steps"></a>Próximas etapas
 

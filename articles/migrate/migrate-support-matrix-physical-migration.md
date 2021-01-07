@@ -6,12 +6,12 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: c549cae0b7bdc5e237ec3cf704a1ead53db91449
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: a1203133d8749b43a92d89e7251539a1e002bfd8
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754021"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968561"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidor físico
 
@@ -48,7 +48,7 @@ A tabela resume o suporte para servidores físicos que você deseja migrar usand
 **Inicialização UEFI** | Com suporte. As máquinas baseadas em UEFI serão migradas para VMs do Azure geração 2.  <br/><br/> O disco do sistema operacional deve ter até quatro partições, e os volumes devem ser formatados com NTFS.
 **Inicialização segura de UEFI**         | Sem suporte para migração.
 **Disco de destino** | Os computadores só podem ser migrados para discos gerenciados (HDD padrão, SSD Standard, SSD Premium) no Azure.
-**Tamanho do disco** | disco do sistema operacional de 2 TB (inicialização do BIOS); disco do sistema operacional de 4 TB (inicialização UEFI); 8 TB para discos de dados.
+**Tamanho do disco** | disco do sistema operacional de 2 TB; 32 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por computador.
 **Discos/volumes criptografados** |  Computadores com discos/volumes criptografados não têm suporte para migração.
 **Cluster de disco compartilhado** | Não há suporte.
@@ -57,7 +57,7 @@ A tabela resume o suporte para servidores físicos que você deseja migrar usand
 **NFS** | Volumes NFS montados como volumes nos computadores não serão replicados.
 **destinos iSCSI** | Não há suporte para computadores com destinos iSCSI para migração sem agente.
 **E/s de vários caminhos** | Não há suporte.
-**VMotion de armazenamento** | Com suporte
+**VMotion de armazenamento** | Suportado
 **NICs agrupadas** | Não há suporte.
 **IPv6** | Não há suporte.
 

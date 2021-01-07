@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: d22d040b0001ee30e29c551e686a7cb6bc47c2af
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/07/2021
+ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921930"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968884"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solucionar problemas de desempenho da atividade de cópia
 
@@ -53,7 +53,7 @@ Como referência, no momento as dicas de ajuste de desempenho fornecem sugestõe
 
 Os detalhes e as durações de execução na parte inferior da exibição de monitoramento da atividade de cópia descrevem os principais estágios pelos quais sua atividade de cópia passa (consulte o exemplo no início deste artigo), que é especialmente útil para solucionar problemas de desempenho de cópia. O afunilamento de sua execução de cópia é aquele com a duração mais longa. Consulte a tabela a seguir na definição de cada estágio e saiba como [solucionar problemas de atividade de cópia em Azure ir](#troubleshoot-copy-activity-on-azure-ir) e [solucionar problemas de atividade de cópia em ir via hospedagem interna](#troubleshoot-copy-activity-on-self-hosted-ir) com tais informações.
 
-| Fase           | Descrição                                                  |
+| Estágio           | Descrição                                                  |
 | --------------- | ------------------------------------------------------------ |
 | Fila           | O tempo decorrido até que a atividade de cópia realmente seja iniciada no Integration Runtime. |
 | Script de pré-cópia | O tempo decorrido entre a atividade de cópia a partir do IR e a atividade de cópia concluindo a execução do script de pré-cópia no repositório de dados do coletor. Aplique quando você configurar o script de pré-cópia para coletores de banco de dados, por exemplo, ao gravar dados no banco de dados SQL do Azure, faça uma limpeza antes de copiar novos dados. |
@@ -172,6 +172,60 @@ Quando o desempenho da cópia não atender à sua expectativa, para solucionar p
 
   - Considere o ajuste gradual das [cópias paralelas](copy-activity-performance-features.md), observe que muitas cópias paralelas podem até mesmo prejudicar o desempenho.
 
+
+## <a name="connector-and-ir-performance"></a>Desempenho do conector e do IR
+
+Esta seção explora alguns guias de solução de problemas de desempenho para determinado tipo de conector ou tempo de execução de integração.
+
+### <a name="activity-execution-time-varies-using-azure-ir-vs-azure-vnet-ir"></a>O tempo de execução da atividade varia de acordo com o Azure IR o IR do Azure VNet
+
+O tempo de execução da atividade varia quando o conjunto de base é baseado em diferentes Integration Runtime.
+
+- **Sintomas**: simplesmente alternar a lista suspensa serviço vinculado no conjunto de um executa as mesmas atividades de pipeline, mas tem tempos de execução drasticamente diferentes. Quando o conjunto de informações é baseado na Integration Runtime de rede virtual gerenciada, demora mais de 2 minutos para concluir a execução, mas leva aproximadamente 20 segundos para ser concluído quando baseado no Integration Runtime padrão.
+
+- **Causa**: verificando os detalhes das execuções de pipeline, você pode ver que o pipeline lento está em execução no ir (rede virtual) da VNet gerenciada enquanto o normal está em execução no Azure ir. Por design, o IR para VNet gerenciada leva tempo de fila maior do que Azure IR, pois não estamos reservando um nó de computação por data factory, portanto, há um aquecimento de cerca de 2 minutos para que cada atividade de cópia seja iniciada e ela ocorre principalmente na junção VNet, em vez de Azure IR.
+
+    
+### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Baixo desempenho durante o carregamento de dados no Azure SQL Database
+
+- **Sintomas**: a cópia de dados para o Azure SQL Database torna-se lenta.
+
+- **Causa**: a causa raiz do problema é disparada principalmente pelo afunilamento do lado do banco de dados SQL do Azure. Veja a seguir algumas causas possíveis:
+
+    - A camada do banco de dados SQL do Azure não é alta o suficiente.
+
+    - O uso de DTU do banco de dados SQL do Azure está próximo de 100%. Você pode [monitorar o desempenho](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) e considerar a atualização da camada do banco de dados SQL do Azure.
+
+    - Os índices não estão definidos corretamente. Remova todos os índices antes de carregar os dados e recrie-os após a conclusão da carga.
+
+    - WriteBatchSize não é grande o suficiente para ajustar o tamanho da linha do esquema. Tente aumentar a propriedade para o problema.
+
+    - Em vez da inserção em massa, o procedimento armazenado está sendo usado, o que deve ter um desempenho pior. 
+
+- **Resolução**: consulte [solucionar problemas de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
+
+### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tempo limite ou desempenho lento ao analisar arquivo grande do Excel
+
+- **Sintomas**:
+
+    - Quando você cria o conjunto de dados do Excel e importa o esquema de conexões/armazenamento, visualização de data, lista ou atualização de planilhas, você pode atingir um erro de tempo limite se o arquivo do Excel for grande em tamanho.
+
+    - Quando você usa a atividade de cópia para copiar dados de um arquivo grande do Excel (>= 100 MB) para outro armazenamento de dados, você pode enfrentar um problema de desempenho ou OOM lento.
+
+- **Causa**: 
+
+    - Para operações como importação de esquema, visualização de dados e listagem de planilhas no conjunto do dados do Excel, o tempo limite é de 100 s e estáticos. Para grandes arquivos do Excel, essas operações podem não ser concluídas dentro do valor de tempo limite.
+
+    - A atividade de cópia do ADF lê o arquivo inteiro do Excel na memória e, em seguida, localiza a planilha e as células especificadas para ler os dados. Esse comportamento ocorre devido ao uso do ADF do SDK subjacente.
+
+- **Resolução**: 
+
+    - Para importar o esquema, você pode gerar um arquivo de exemplo menor, que é um subconjunto do arquivo original, e escolher "importar esquema do arquivo de exemplo" em vez de "importar esquema da conexão/armazenamento".
+
+    - Para a planilha de listagem, no menu suspenso da planilha, você pode clicar em "Editar" e inserir o nome/índice da planilha em vez disso.
+
+    - Para copiar um arquivo grande do Excel (>100 MB) em outro repositório, você pode usar a origem do Excel de fluxo de dados que utiliza streaming de esporte e desempenho melhor.
+    
 ## <a name="other-references"></a>Outras referências
 
 Aqui estão as referências de monitoramento e ajuste do desempenho para alguns dos armazenamentos de dados com suporte:

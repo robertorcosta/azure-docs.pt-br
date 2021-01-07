@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1bbc3b3cd755aabd348a238ad65cda132b9a7547
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: c32f90221a73d04fd6c54c8332826232d0e6a6f3
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746602"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968527"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use as ferramentas do Spark & Hive para Visual Studio Code
 
@@ -269,7 +269,7 @@ A ferramenta também dá suporte à consulta **SQL do Spark** :
 
 > [!NOTE]
 >
-> ["MS-python >= versão 2020.5.78807 não tem suporte nesta extensão"](#issues-changed) foi resolvido. A versão mais recente do MS-Python pode ser usada por enquanto.
+> [A versão "MS-python >= 2020.5.78807 não tem suporte nesta extensão"](#issues-changed) foi resolvida. Atualize o **MS-Python** para a **versão mais recente** agora.
 
 ## <a name="submit-pyspark-batch-job"></a>Enviar trabalho em lotes PySpark
 
@@ -353,34 +353,34 @@ Envie um arquivo e observe que a `.vscode` pasta é adicionada automaticamente �
   
   **Corpo da solicitação**
 
-  | name | descrição | type |
+  | name | descrição | tipo |
   | --- | --- | --- |
   | file | Arquivo que contém o aplicativo a ser executado | Caminho (obrigatório) |
-  | proxyUser | Usuário a representar ao executar o trabalho | String |
-  | className | Classe principal de Java/Spark do aplicativo | String |
+  | proxyUser | Usuário a representar ao executar o trabalho | Cadeia de caracteres |
+  | className | Classe principal de Java/Spark do aplicativo | Cadeia de caracteres |
   | args | Argumentos de linha de comando para o aplicativo | Lista de cadeias de caracteres |
   | jars | Jars a serem usados nesta sessão | Lista de cadeias de caracteres | 
   | pyFiles | Arquivos Python a serem usados nesta sessão | Lista de cadeias de caracteres |
   | files | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
-  | driverMemory | Quantidade de memória a ser usada para o processo do driver | String |
+  | driverMemory | Quantidade de memória a ser usada para o processo do driver | Cadeia de caracteres |
   | driverCores | Número de núcleos a serem usados para o processo do driver | int |
-  | executorMemory | Quantidade de memória a ser usada pelo processo de executor | String |
+  | executorMemory | Quantidade de memória a ser usada pelo processo de executor | Cadeia de caracteres |
   | executorCores | Número de núcleos a serem usados para cada executor | int |
   | numExecutors | Número de executores a serem iniciados para esta sessão | int |
   | archives | Arquivos a serem usados nesta sessão | Lista de cadeias de caracteres |
   | fila | Nome da fila de YARN a ser enviada| String |
-  | name | Nome desta sessão | String |
+  | name | Nome desta sessão | Cadeia de caracteres |
   | conf | Propriedades de configuração do Spark | Mapa de chave = valor |
 
   **Corpo da resposta** O objeto de lote criado.
 
-  | name | descrição | type |
+  | name | descrição | tipo |
   | --- | ---| --- |
   | ID | ID da sessão | int |
-  | appId | ID do aplicativo desta sessão | String |
+  | appId | ID do aplicativo desta sessão | Cadeia de caracteres |
   | appInfo | Informações detalhadas do aplicativo | Mapa de chave = valor |
   | log | Linhas de log | Lista de cadeias de caracteres |
-  | state |Estado do lote | String |
+  | state |Estado do lote | Cadeia de caracteres |
 
   > [!NOTE]
   > A configuração Livy atribuída é exibida no painel de saída quando você envia o script.
@@ -491,7 +491,7 @@ Na barra de menus, vá para **Exibir**  >  **paleta de comandos** e, em seguida,
 
 ## <a name="issues-changed"></a>Problemas alterados
 
-Para esse problema, "MS-Python >= versão 2020.5.78807 não tem suporte nessa extensão" foi resolvido, a **versão mais recente do MS-Python** pode ser usada por enquanto.
+Para esse problema, "MS-Python >= versão 2020.5.78807 não tem suporte nesta extensão" foi resolvido, atualize o **MS-Python** para a **versão mais recente** agora.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: fc0f148da518c718dafaab082f9598ccd4372a1f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 2d7c732771749c0c0372c5433b76c3e30469e2b0
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963803"
+ms.locfileid: "97968408"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -137,23 +137,24 @@ Use o procedimento a seguir para criar grupos de ações:
     * Em um caso, você seleciona no menu suspenso "incidente" ou "alerta" do item de trabalho:
         * Se você marcar a caixa de seleção **"criar itens de trabalho individuais para cada item de configuração"** , cada item de configuração em cada alerta criará um novo item de trabalho. Pode haver mais de um item de trabalho por item de configuração no sistema ITSM.
 
-            Por exemplo:
-            1) Alerta 1 com 3 itens de configuração: A, B, C-criará 3 itens de trabalho.
-            2) Alerta 2 com 1 item de configuração: A-criará 1 item de trabalho.
-       >[!NOTE]
-        > Nesse caso, alguns dos alertas acionados não gerarão novos itens de trabalho na ferramenta ITSM.
+             Por exemplo:
+             1) Alerta 1 com 3 itens de configuração: A, B, C-criará 3 itens de trabalho.
+             2) Alerta 2 com 1 item de configuração: A-criará 1 item de trabalho.
 
         * Se você desmarcar a caixa de seleção **"criar itens de trabalho individuais para cada item de configuração"** , o conector ITSM criará um único item de trabalho para cada regra de alerta e acrescentará a ele todos os itens de configuração afetados. Um novo item de trabalho será criado se o anterior for fechado.
 
-            Por exemplo:
-             1) Alerta 1 com 3 itens de configuração: A, B, C-criará 1 item de trabalho.
-             2) Alerta 2 para a mesma regra de alerta que a fase 1 com 1 item de configuração: D-será mesclado ao item de trabalho na fase 1.
-             3) Alerta 3 para uma regra de alerta diferente com 1 item de configuração: E-criará 1 item de trabalho.
+        >[!NOTE]
+        > Nesse caso, alguns dos alertas acionados não gerarão novos itens de trabalho na ferramenta ITSM.
+
+        Por exemplo:
+         1) Alerta 1 com 3 itens de configuração: A, B, C-criará 1 item de trabalho.
+         2) Alerta 2 para a mesma regra de alerta que a fase 1 com 1 item de configuração: D-será mesclado ao item de trabalho na fase 1.
+         3) Alerta 3 para uma regra de alerta diferente com 1 item de configuração: E-criará 1 item de trabalho.
 
        ![Captura de tela que mostra a janela incidente de ITSM.](media/itsmc-overview/itsm-action-configuration.png)
 
     * Caso você selecione no menu suspenso "evento" do item de trabalho:
-        * Se você selecionar **"criar itens de trabalho individuais para cada entrada de log (o campo item de configuração não será preenchido. Pode resultar em um grande número de itens de trabalho.) "** na seleção de botões de opção, um alerta será criado por cada linha nos resultados da pesquisa da consulta de alerta de pesquisa de logs. Na carga do alerta, a propriedade Descrição terá a linha dos resultados da pesquisa.
+        * Se você selecionar **"criar itens de trabalho individuais para cada entrada de log (o campo item de configuração não será preenchido. Pode resultar em um grande número de itens de trabalho.) "** na seleção de botões de opção, um item de trabalho será criado por cada linha nos resultados da pesquisa da consulta de alerta de pesquisa de logs. Na carga do item de trabalho, a propriedade Descrição terá a linha dos resultados da pesquisa.
         * Se você selecionar **"criar itens de trabalho individuais para cada item de configuração"** na seleção de botões de opção, cada item de configuração em cada alerta criará um novo item de trabalho. Pode haver mais de um item de trabalho por item de configuração no sistema ITSM. Isso será o mesmo que a marca de seleção na seção incidente/alerta.
     ![Captura de tela que mostra a janela de evento de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 

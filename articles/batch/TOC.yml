@@ -137,6 +137,8 @@
           href: batch-automatic-scaling.md
         - name: Escolha um tamanho de VM para os nós de computação
           href: batch-pool-vm-sizes.md
+        - name: Mover do Serviço de Nuvem para os pools da Máquina Virtual
+          href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: Configurar o acesso a nós de computação
           href: pool-endpoint-configuration.md
         - name: Criar um pool com a Galeria de Imagens Compartilhadas

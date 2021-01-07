@@ -8,7 +8,7 @@
       href: whats-new.md
     - name: Hierarquia de armazenamento do Azure NetApp Files
       href: azure-netapp-files-understand-storage-hierarchy.md
-- name: Início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Configurar o Azure NetApp Files e criar um volume do NFS
@@ -123,6 +123,8 @@
           href: troubleshoot-cross-region-replication.md
         - name: Solucionar problemas de volumes de protocolo duplo
           href: troubleshoot-dual-protocol-volumes.md
+        - name: Solucionar problemas de volumes Kerberos do NFSv4.1
+          href: troubleshoot-nfsv41-kerberos-volumes.md
         - name: Solucionar problemas de políticas de instantâneo
           href: troubleshoot-snapshot-policies.md
         - name: Solucionar erros do provedor de recursos

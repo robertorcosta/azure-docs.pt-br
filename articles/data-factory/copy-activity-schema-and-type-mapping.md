@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: 2b54ee29b1b03bab5af8410a3fae06438180299d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507516"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968867"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Esquema e mapeamento de tipo de dados na atividade de cópia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -49,7 +49,7 @@ Você pode configurar o mapeamento na interface do usuário de criação de Data
 
 | Propriedade | Descrição                                                  | Obrigatório |
 | -------- | ------------------------------------------------------------ | -------- |
-| name     | Nome do campo/coluna de origem ou de coletor. Aplicar para fonte de tabela e coletor. | Sim      |
+| name     | Nome do campo/coluna de origem ou de coletor. Aplicar para fonte de tabela e coletor. | Yes      |
 | ordinal  | Índice de coluna. Inicie de 1. <br>Aplica-se e é necessário ao usar texto delimitado sem linha de cabeçalho. | Não       |
 | caminho     | Expressão de caminho JSON para cada campo a ser extraído ou mapeado. Aplicar para origem e coletor hierárquicos, por exemplo, Cosmos DB, MongoDB ou conectores REST.<br>Para campos sob o objeto raiz, o caminho JSON começa com root `$` ; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento de matriz sem `$` . | Não       |
 | type     | Data Factory tipo de dados provisório da coluna de origem ou do coletor. Em geral, você não precisa especificar ou alterar essa propriedade. Saiba mais sobre [mapeamento de tipo de dados](#data-type-mapping). | Não       |
@@ -66,7 +66,7 @@ As propriedades a seguir têm suporte em `translator` além de `mappings` :
 
 Por exemplo, para copiar dados do Salesforce para o banco de dados SQL do Azure e mapear explicitamente três colunas:
 
-1. Na guia atividade de cópia – mapeamento de >, clique no botão **importar esquema** para importar os esquemas de origem e de coletor.
+1. Na guia atividade de cópia – mapeamento de >, clique no botão **Importar esquemas** para importar os esquemas de origem e de coletor.
 
 2. Mapeie os campos necessários e exclua/exclua o restante.
 
@@ -180,7 +180,7 @@ E você deseja copiá-lo em um arquivo de texto no formato a seguir com a linha 
 
 Você pode definir esse mapeamento na interface do usuário de criação de Data Factory:
 
-1. Na guia atividade de cópia – mapeamento de >, clique no botão **importar esquema** para importar os esquemas de origem e de coletor. Como Data Factory amostras dos principais objetos ao importar o esquema, se algum campo não aparecer, você poderá adicioná-lo à camada correta na hierarquia-focalizar um nome de campo existente e escolher Adicionar um nó, um objeto ou uma matriz.
+1. Na guia atividade de cópia – mapeamento de >, clique no botão **Importar esquemas** para importar os esquemas de origem e de coletor. Como Data Factory amostras dos principais objetos ao importar o esquema, se algum campo não aparecer, você poderá adicioná-lo à camada correta na hierarquia-focalizar um nome de campo existente e escolher Adicionar um nó, um objeto ou uma matriz.
 
 2. Selecione a matriz da qual você deseja iterar e extrair dados. Ele será preenchido automaticamente como **referência de coleção**. Observação apenas uma única matriz tem suporte para essa operação.
 
@@ -283,16 +283,16 @@ Atualmente, a atividade de cópia dá suporte aos seguintes tipos de dados provi
 
 As conversões de tipo de dados a seguir têm suporte entre os tipos provisórios da origem para o coletor.
 
-| Source\Sink | Boolean | Matriz de bytes | Decimal | Data/hora <small>(1)</small> | Ponto flutuante <small>(2)</small> | GUID | Inteiro <small>(3)</small> | String | TimeSpan |
+| Source\Sink | Booliano | Matriz de bytes | Decimal | Data/hora <small>(1)</small> | Ponto flutuante <small>(2)</small> | GUID | Inteiro <small>(3)</small> | Cadeia de caracteres | TimeSpan |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Booliano     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Matriz de bytes  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
 | Data/Hora   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
 | Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Ponto de flutuação | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
 | Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
+| Cadeia de caracteres      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
 (1) data/hora inclui DateTime e DateTimeOffset.
@@ -454,8 +454,8 @@ Você pode especificar a atividade de cópia-> `translator`  ->  `schemaMapping`
 
 | Propriedade            | Descrição                                                  | Obrigatório |
 | :------------------ | :----------------------------------------------------------- | :------- |
-| type                | A propriedade Type do tradutor de atividade de cópia deve ser definida como: **TabularTranslator** | Sim      |
-| schemaMapping       | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>- **Chave:** representa a origem. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Valor:** representa o coletor. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento da matriz. | Sim      |
+| type                | A propriedade Type do tradutor de atividade de cópia deve ser definida como: **TabularTranslator** | Yes      |
+| schemaMapping       | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado da origem para o lado do coletor**.<br/>- **Chave:** representa a origem. Para **fonte de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **fonte hierárquica**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado.<br>- **Valor:** representa o coletor. Para o **coletor de tabela**, especifique o nome da coluna conforme definido na estrutura do conjunto de dados; para **coletor hierárquico**, especifique a expressão de caminho JSON para cada campo a ser extraído e mapeado. <br>No caso de dados hierárquicos, para campos em objeto raiz, o caminho JSON começa com root $; para campos dentro da matriz escolhida pela `collectionReference` propriedade, o caminho JSON é iniciado a partir do elemento da matriz. | Yes      |
 | collectionReference | Se você quiser fazer uma iteração e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e converter para por linha por objeto, especifique o caminho JSON da matriz para realizar a aplicação cruzada. Essa propriedade só terá suporte quando os dados hierárquicos forem a origem. | Não       |
 
 **Exemplo: copiar do MongoDB para a Oracle:**

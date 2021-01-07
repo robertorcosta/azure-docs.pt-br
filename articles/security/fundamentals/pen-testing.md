@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2020
 ms.author: terrylan
-ms.openlocfilehash: af61b6ee1e69d175f47170df30f75832033d61d5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 84229ce3562f9cdcc4b55704eaa4f3b891a43d75
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489710"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968935"
 ---
 # <a name="penetration-testing"></a>Teste de penetração
 
@@ -28,11 +28,11 @@ Um dos benefícios do uso do Azure para implantação e testes de aplicativos é
 
 A criação rápida de ambientes é excelente, mas você ainda precisa ter certeza de que executou sua auditoria normal de segurança. Uma das coisas que você provavelmente quer fazer é o teste de penetração dos aplicativos implantados no Azure.
 
-Talvez você já saiba que a Microsoft realiza [teste de penetração do nosso ambiente do Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Esse teste ajuda a impulsionar as melhorias do Azure.
+Talvez você já saiba que a Microsoft realiza [teste de penetração do nosso ambiente do Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Esse teste ajuda a gerar melhorias no Azure.
 
 Não realizamos testes de penetração de seu aplicativo para você, mas entendemos que você deseja e precisa executar testes em seus próprios aplicativos. Isso é bom, porque ao aprimorar a segurança de seus aplicativos, você ajuda a tornar todo o ecossistema do Azure mais seguro.
 
-A partir de 15 de junho de 2017, a Microsoft não exige mais aprovação prévia para conduzir um teste de penetração nos recursos do Azure. Esse processo só está relacionado ao Microsoft Azure e não se aplica a outro serviço do Microsoft Cloud.
+Desde 15 de junho de 2017, a Microsoft não exige aprovação prévia para realizar testes de penetração com base nos recursos do Azure. Esse processo só está relacionado ao Microsoft Azure e não se aplica a outro serviço do Microsoft Cloud.
 
 >[!IMPORTANT]
 >Embora a notificação da Microsoft da caneta as atividades de teste não é mais necessário clientes ainda devem estar de acordo com o [Microsoft nuvem unificado penetração teste regras](https://technet.microsoft.com/mt784683).
@@ -46,7 +46,7 @@ Os testes padrão que você pode executar incluem:
 Um tipo de teste de caneta que você não pode executar é qualquer tipo de ataque de [dos (negação de serviço)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Esse teste inclui o início de um ataque de DoS em si ou a execução de testes relacionados que podem determinar, demonstrar ou simular qualquer tipo de ataque de DoS.
 
 >[!Note]
->A Microsoft firmou parceria com BreakingPoint Cloud para criar uma interface em que você pode gerar tráfego contra endereços IP públicos com a Proteção contra DDoS habilitada para fins de simulação. Para saber mais sobre a simulação de nuvem de ponto de interrupção, consulte [validar detecção de DDoS](../../ddos-protection/manage-ddos-protection.md#validate-and-test).
+>A Microsoft firmou parceria com BreakingPoint Cloud para criar uma interface em que você pode gerar tráfego contra endereços IP públicos com a Proteção contra DDoS habilitada para fins de simulação. Para saber mais sobre a simulação de nuvem do BreakingPoint, confira [teste por meio de simulações](../../ddos-protection/test-through-simulations.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

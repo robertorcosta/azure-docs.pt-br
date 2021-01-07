@@ -2,19 +2,21 @@
 title: Migrar a configuração do pool do lote dos serviços de nuvem para máquinas virtuais
 description: Saiba como atualizar sua configuração de pool para a configuração mais recente e recomendada
 ms.topic: how-to
-ms.date: 1/4/2021
-ms.openlocfilehash: 52e1762dc8e81b3eb7e1bce388d91dfd2c76191a
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 1/6/2021
+ms.openlocfilehash: b6f4184f7c4f133f74cb3157638b1621dad25fda
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937551"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97969020"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migrar a configuração do pool do lote dos serviços de nuvem para máquinas virtuais
 
 Os pools do lote podem ser criados usando [cloudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) ou [virtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration). ' virtualMachineConfiguration ' é a configuração recomendada, pois oferece suporte a todos os recursos do lote. os pools ' cloudServiceConfiguration ' não dão suporte a todos os recursos e nenhum recurso novo está planejado.
 
-Se você usar pools ' cloudServiceConfiguration ', é altamente recomendável que você mova para usar os pools ' virtualMachineConfiguration '. Este artigo descreve como migrar para a configuração ' virtualMachineConfiguration ' recomendada.
+Se você usar pools ' cloudServiceConfiguration ', é altamente recomendável que você mova para usar os pools ' virtualMachineConfiguration '. Isso permitirá que você se beneficie de todos os recursos do lote, como uma seleção expandida [de séries de VM](batch-pool-vm-sizes.md), VMS do Linux, [contêineres](batch-docker-container-workloads.md), [Azure Resource Manager redes virtuais](batch-virtual-network.md)e a [criptografia de disco do nó](disk-encryption.md).
+
+Este artigo descreve como migrar para ' virtualMachineConfiguration '.
 
 ## <a name="new-pools-are-required"></a>Novos pools são necessários
 

@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de imagem, aplicativo de reconhecimento de imagem, visão personalizada
-ms.openlocfilehash: ab747ad5e7b9362e9c587741198a0191c032b124
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018337"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912977"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Início Rápido: criar um detector de objeto com o site da Visão Personalizada
 
@@ -100,6 +100,7 @@ Depois que o treinamento for concluído, o desempenho do modelo será calculado 
 
 - A **precisão** indica a fração de classificações identificadas que estão corretas. Por exemplo, se o modelo identificou 100 imagens como cachorros e 99 delas são realmente de cachorros, a precisão é de 99%.
 - A **recuperação** indica a fração de classificações reais que foram corretamente identificadas. Por exemplo, se há de fato 100 imagens de maçãs e o modelo identifica 80 como maçãs, a recuperação é de 80%.
+- **A média da precisão média** é o valor médio da AP (precisão média). AP é a área sob a curva de precisão/recall (a precisão é plotada em relação à recuperação para cada previsão feita).
 
 ![Os resultados do treinamento mostram a precisão e o recall gerais, bem como a precisão média.](./media/get-started-build-detector/trained-performance.png)
 

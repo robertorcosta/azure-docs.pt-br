@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 12/26/2020
+ms.date: 01/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: a1c3fcf868af76865eec9fa2be4f0fdb58074867
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 539ea6f80604eabdbbe56a3280cf5ddb367c0439
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964449"
+ms.locfileid: "97966776"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>Serviços de fala em nuvens soberanass
 
@@ -41,15 +41,7 @@ Disponível apenas para entidades do governo dos EUA e seus parceiros. Veja mais
   - Voz neural
   - Voz personalizada
 - **Idiomas com suporte:**
-  - Árabe (ar-*)
-  - Chinês (ZH-*)
-  - Inglês (en-*)
-  - Francês (FR-*)
-  - Alemão (de-*)
-  - Híndi (Hi-IN)
-  - Coreano (ko-KR)
-  - Russo (ru-RU)
-  - Espanhol (es-*)
+  - Veja a lista de idiomas com suporte [aqui](language-support.md)
 
 ### <a name="endpoint-information"></a>Informações do ponto de extremidade
 
