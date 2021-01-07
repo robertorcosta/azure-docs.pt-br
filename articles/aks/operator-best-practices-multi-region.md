@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b53c0002af3680567aabf0955f6bb4e0d99c2ab1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3ff8406a3634fa946ab8ce7aca694bbc57d556a5
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093427"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976394"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para continuidade dos negócios e recuperação de desastres no Serviço de Kubernetes do Azure (AKS)
 
@@ -119,10 +119,7 @@ A estratégia típica é fornecer um ponto de armazenamento comum em que os apli
 
 ![Replicação assíncrona baseada em infraestrutura](media/operator-best-practices-bc-dr/aks-infra-based-async-repl.png)
 
-Se você usar o Azure Managed Disks, poderá escolher soluções de recuperação de desastres e replicação, como estas:
-
-* [Velero no Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Serviço de Backup do Azure](../backup/backup-overview.md)
+Se você usar o Azure Managed Disks, há algumas opções que podem ser usadas para lidar com a replicação e a recuperação de desastres. [Velero no Azure][velero] e [Kasten][kasten] são soluções de backup nativas para kubernetes, mas não têm suporte.
 
 ### <a name="application-based-asynchronous-replication"></a>Replicação assíncrona baseada em aplicativo
 
@@ -140,3 +137,6 @@ Este artigo se concentra na continuidade dos negócios e nas considerações de 
 <!-- INTERNAL LINKS -->
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+
+[velero]: https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md
+[kasten]: https://www.kasten.io/

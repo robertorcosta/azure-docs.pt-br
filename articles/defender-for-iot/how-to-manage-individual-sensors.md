@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/22/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 87bc3b172fdbd99130dbb36cceb5f3d16fc39dbd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: daaca1d7c6cf43f69241e6a23f8bdfaf4015ba23
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837669"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976938"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
 
@@ -120,7 +120,7 @@ Para atualizar um certificado:
 Para alterar a configuração de validação:
 
 1. Habilitar ou desabilitar a alternância **Habilitar validação de certificado** .
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Se a opção estiver habilitada e a validação falhar, a comunicação entre o console de gerenciamento e o sensor será interrompida e um erro de validação será apresentado no console do.
 
@@ -248,7 +248,7 @@ Para alterar o nome:
 
 1. Na caixa de diálogo **Editar nome do sensor** , insira um nome.
 
-1. Clique em **Salvar**. O novo nome é aplicado.
+1. Selecione **Salvar**. O novo nome é aplicado.
 
 ### <a name="change-the-name-of-a-cloud-connected-sensor"></a>Alterar o nome de um sensor conectado à nuvem
 
@@ -291,7 +291,7 @@ Para alterar a configuração:
     | Nome do host | O nome do host do sensor |
     | Proxy | Host de proxy e nome da porta |
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ## <a name="synchronize-time-zones-on-the-sensor"></a>Sincronizar fusos horários no sensor
 
@@ -397,7 +397,7 @@ O console exibirá falhas de restauração.
 
 O procedimento a seguir descreve como atualizar um sensor autônomo usando o console do sensor. O processo de atualização leva cerca de 30 minutos.
 
-1. Vá para o [Portal do Azure](https://portal.azure.com/).
+1. Acesse o [portal do Azure](https://portal.azure.com/).
 
 2. Vá para defender para IoT.
 
@@ -427,8 +427,6 @@ Você pode encaminhar alertas para terceiros para fornecer detalhes sobre:
 
 - Falhas de backup remoto
 
-:::image type="content" source="media/how-to-work-with-system-notifications/image81.png" alt-text="Captura de tela da exibição de email de status do sistema de gerenciamento.] (mídia/image80.png)! [Captura de tela da exibição de email de status do sistema de gerenciamento":::
-
 Essas informações são enviadas quando você cria uma regra de encaminhamento para notificações do sistema.
 
 > [!NOTE]
@@ -457,7 +455,7 @@ Para acessar as propriedades do sistema:
 
 3. Selecione **Propriedades do sistema** na seção **geral** .
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Pesquisa e pacotes de inteligência contra ameaças](how-to-work-with-threat-intelligence-packages.md)
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d634978333e2b833324228fb0908cfba61a786d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d04f2d1717e1d95f8bcafb8f72f2b0a2f83a248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919755"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976819"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -1434,6 +1434,14 @@ Não use – não se destina para uso geral.
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| Microsoft. Directory/Applications/appRoles/Update | Gerencie funções de aplicativo e solicite permissões delegadas para aplicativos. |
+| microsoft.directory/applications/audience/update | Atualize o público em todos os tipos de aplicativos. |
+| microsoft.directory/applications/authentication/update | Atualizar a autenticação em todos os tipos de aplicativos. |
+| microsoft.directory/applications/basic/update | Atualize as propriedades básicas em todos os tipos de aplicativos. |
+| microsoft.directory/applications/credentials/update | Atualize as credenciais em todos os tipos de aplicativos. |
+| microsoft.directory/applications/owners/update | Atualize os proprietários em todos os tipos de aplicativos. |
+| microsoft.directory/applications/permissions/update | Atualize as permissões expostas e as permissões necessárias em todos os tipos de aplicativos. |
+| microsoft.directory/applications/policies/update | Atualize a propriedade applications.policies no Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Atualize as propriedades básicas em contatos no Azure Active Directory. |
 | microsoft.directory/contacts/create | Crie contatos no Azure Active Directory. |
 | microsoft.directory/contacts/delete | Exclua contatos no Azure Active Directory. |
@@ -1467,6 +1475,14 @@ Não use – não se destina para uso geral.
 
 | **Ações** | **Descrição** |
 | --- | --- |
+| Microsoft. Directory/Applications/appRoles/Update | Gerencie funções de aplicativo e solicite permissões delegadas para aplicativos. |
+| microsoft.directory/applications/audience/update | Atualize o público em todos os tipos de aplicativos. |
+| microsoft.directory/applications/authentication/update | Atualizar a autenticação em todos os tipos de aplicativos. |
+| microsoft.directory/applications/basic/update | Atualize as propriedades básicas em todos os tipos de aplicativos. |
+| microsoft.directory/applications/credentials/update | Atualize as credenciais em todos os tipos de aplicativos. |
+| microsoft.directory/applications/owners/update | Atualize os proprietários em todos os tipos de aplicativos. |
+| microsoft.directory/applications/permissions/update | Atualize as permissões expostas e as permissões necessárias em todos os tipos de aplicativos. |
+| microsoft.directory/applications/policies/update | Atualize a propriedade applications.policies no Azure Active Directory. |
 | microsoft.directory/contacts/basic/update | Atualize as propriedades básicas em contatos no Azure Active Directory. |
 | microsoft.directory/contacts/create | Crie contatos no Azure Active Directory. |
 | microsoft.directory/contacts/delete | Exclua contatos no Azure Active Directory. |

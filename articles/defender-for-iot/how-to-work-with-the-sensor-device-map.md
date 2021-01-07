@@ -1,18 +1,18 @@
 ---
-title: Trabalhar com o mapa de dispositivo do sensor
+title: Trabalhar com o mapa do dispositivo do sensor
 description: O mapa do dispositivo fornece uma representação gráfica dos dispositivos de rede detectados. Use o mapa para analisar e gerenciar informações de dispositivo, fatias de rede e gerar relatórios.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/07/2020
+ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: dd0f28411dccab1a1dd36fbd01d2d1acbcc689e0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: fd1721060bdc4b18f324a94f7c367bacde6ed4e8
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97838040"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976751"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigar as detecções do sensor no mapa do dispositivo
 
@@ -59,7 +59,7 @@ Cada sub-rede é apresentada como uma única entidade no mapa do dispositivo, in
 
 A figura a seguir mostra uma sub-rede de ti recolhida com 27 elementos de rede de ti.
 
-:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet.png" alt-text="sub-rede de ti recolhida com 27 elementos de rede de ti":::
+:::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="sub-rede de ti recolhida com 27 elementos de rede de ti":::
 
 Para habilitar o recurso de recolhimento de redes de ti:
 
@@ -120,7 +120,7 @@ Os seguintes grupos predefinidos estão disponíveis:
 
 | Nome do grupo | Descrição |
 |--|--|
-| **Aplicativos conhecidos ou portas não standrad (padrão)** | Dispositivos que usam portas reservadas, como TCP. Dispositivos que usam portas não padrão ou portas que não foram atribuídos a um alias. |
+| **Aplicativos conhecidos ou portas não padrão (padrão)** | Dispositivos que usam portas reservadas, como TCP. Dispositivos que usam portas não padrão ou portas que não foram atribuídos a um alias. |
 | **Protocolos de OT (padrão)** | Dispositivos que lidam com o tráfego de OT. |
 | **Autorização (padrão)** | Dispositivos que foram descobertos na rede durante o processo de aprendizado ou foram oficialmente adicionados à rede |
 | **Filtros de inventário de dispositivo** | Dispositivos agrupados de acordo com os filtros salvos na tabela de inventário do dispositivo. |
@@ -226,7 +226,7 @@ O ícone do tipo de dispositivo é mostrado com dispositivos conectados.
 
 A exibição detalhada apresenta dispositivos e rótulos de dispositivo e indicadores com as seguintes informações:
 
-:::image type="content" source="media/how-to-work-with-maps/device-map.png" alt-text="Exibição detalhada":::
+:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="Exibição detalhada":::
 
 ### <a name="control-the-zoom-view"></a>Controlar a exibição de zoom
 
@@ -236,7 +236,7 @@ A exibição de mapa exibida depende do nível de zoom do mapa. Alternar entre o
 
 ### <a name="enable-simplified-zoom-views"></a>Habilitar exibições de zoom simplificadas
 
-Os administradores que desejam que os analistas de segurança e os usuários de RO acessem as exibições de conexão de dispositivo e tipo Brid, devem habilitar a opção de exibição simplificada.
+Os administradores que desejam que os analistas de segurança e os usuários do RO acessem as exibições de conexão de dispositivo e tipo de pássaro, devem habilitar a opção de exibição simplificada.
 
 Para habilitar exibições de mapa simplificadas:
 
@@ -306,7 +306,7 @@ As informações a seguir podem ser atualizadas manualmente. As informações in
 
   - Nome
 
-  - Tipo
+  - Type
 
   - Sistema operacional
 
@@ -318,7 +318,7 @@ As informações a seguir podem ser atualizadas manualmente. As informações in
 |--|--|
 | Informações Básicas | As informações básicas necessárias. |
 | Nome | O nome do dispositivo. <br /> Por padrão, o sensor descobre o nome do dispositivo como definido na rede. Por exemplo, um nome definido no servidor DNS. <br /> Se esses nomes não tiverem sido definidos, o endereço IP do dispositivo aparecerá nesse campo. <br /> Você pode alterar um nome de dispositivo manualmente. Dê aos seus dispositivos nomes significativos que reflitam sua funcionalidade. |
-| Tipo | O tipo de dispositivo detectado pelo sensor. <br /> Para obter mais informações, consulte [Exibir tipos de dispositivo](#view-device-types). |
+| Type | O tipo de dispositivo detectado pelo sensor. <br /> Para obter mais informações, consulte [Exibir tipos de dispositivo](#view-device-types). |
 | Fornecedor | O fornecedor do dispositivo. |
 | Sistema operacional | O sistema operacional do dispositivo. |
 | Camada Purdue | A camada Purdue identificada pelo sensor para este dispositivo, incluindo: <br /> -Automático <br /> -Controle de processo <br /> -Supervisão <br /> - Enterprise |
@@ -361,7 +361,7 @@ A tabela a seguir apresenta todos os tipos no sistema:
 | PARTILHA | Estação de engenharia <br /> PLC <br />Historian <br />HMI <br />NEGADO <br />Controlador DCS <br />RTU <br />Sistema de empacotamento industrial <br />Escala industrial <br />Robô industrial <br />Slot <br />Medidor <br />Unidade de frequência variável  <br />Controlador de robô <br />Unidade servo <br />Dispositivo pneumático <br />Marquee |
 | TI | Controlador de domínio <br />Servidor de BD <br />Estação de Trabalho <br />Servidor <br />Estação de terminal <br />Armazenamento <br />Smartphone <br />Tablet <br />Servidor de backup |
 | IoT | Câmera de IP <br />Impressora  <br />Relógio de perfuração <br />ATM <br />Smart TV <br />Console do jogo <br />DVR <br />Painel de controle da porta <br />HVAC <br />Termostato <br />Alarme de incêndio <br />Luz inteligente <br />Comutador inteligente <br />Detector de incêndio <br />Telefone IP <br />Sistema de alarme <br />Siren de alarme <br />Detector de Movimento <br />Elevador <br />Sensor de umidade <br />Scanner de Código de Barras <br />No-break <br />Sistema de contador de pessoas <br />Intercom <br />Dupla |
-| Rede | Ponto de acesso sem fio <br />Router <br />Opção <br />Firewall <br />Gateway de VPN <br />Servidor NTP <br />Pineapple WiFi <br />Local físico <br />Adaptador de e/s <br /> Conversor de protocolo |
+| Rede | Ponto de acesso sem fio <br />Router <br />Alternar <br />Firewall <br />Gateway de VPN <br />Servidor NTP <br />Pineapple WiFi <br />Local físico <br />Adaptador de e/s <br /> Conversor de protocolo |
 
 Para exibir as informações do dispositivo:
 
@@ -604,7 +604,7 @@ Para mesclar dispositivos:
 
    :::image type="content" source="media/how-to-work-with-maps/name-the-device-v2.png" alt-text="caixa de diálogo atributos":::
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ### <a name="authorize-and-unauthorize-devices"></a>Autorizar e desautorizar dispositivos
 
@@ -706,6 +706,6 @@ Para exportar:
 
 1. Selecione uma opção de exportação.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Investigar detecções de sensor em um inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)

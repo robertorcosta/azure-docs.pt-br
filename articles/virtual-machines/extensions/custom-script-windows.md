@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: aa95d6792f2f5754a237c7bf5e90a11e2e011ede
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b0502fb05043a54d81d768a7809d19b108cc6248
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861781"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976836"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -50,6 +50,8 @@ Você pode configurar a extensão para usar suas credenciais do Armazenamento de
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
 Se você precisar fazer o download um script externamente, como do GitHub ou do Armazenamento do Azure, será necessário abrir portas adicionais do firewall e do Grupo de Segurança de Rede. Por exemplo, se o script estiver localizado no Armazenamento do Azure, você poderá permitir acesso usando Marcas de Serviço do NSG do Azure para [Armazenamento](../../virtual-network/network-security-groups-overview.md#service-tags).
+
+Observe que a extensão CustomScript não tem nenhuma maneira de ignorar a validação do certificado. Portanto, se você estiver baixando de um local seguro com por exemplo. um certificado autoassinado, você pode acabar com erros como *"o certificado remoto é inválido de acordo com o procedimento de validação"*. Certifique-se de que o certificado esteja instalado corretamente no repositório *"autoridades de certificação raiz confiáveis"* na máquina virtual.
 
 Se o script estiver em um servidor local, ainda poderá ser necessário abrir portas adicionais do firewall e do Grupo de Segurança de Rede.
 

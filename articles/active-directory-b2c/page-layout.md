@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: beb38be985457ea36b2cea9a6dc337ba305d503f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108494"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976496"
 ---
 # <a name="page-layout-versions"></a>Versões do layout da página
 
@@ -51,7 +51,7 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 - O foco agora é colocado no campo de senha depois que o email é verificado.
 - Removido `autofocus` do controle de caixa de seleção. 
 - Adicionado suporte para um controle de exibição para a verificação do número de telefone.
-- Agora você pode adicionar o `data-preload="true"` atributo [nas marcas HTML] (Custom-UI-with-HTML. MD # Guidelines-for
+- Agora você pode adicionar o `data-preload="true"` atributo [em suas marcas HTML](customize-ui-with-html.md#guidelines-for-using-custom-page-content)
   - Carregue arquivos CSS vinculados ao mesmo tempo que o modelo HTML para que ele não fique piscando entre o carregamento dos arquivos.
   - Controle a ordem na qual suas `script` marcas são buscadas e executadas antes do carregamento da página.
 - O campo de email é agora `type=email` e teclados móveis fornecerão as sugestões corretas.

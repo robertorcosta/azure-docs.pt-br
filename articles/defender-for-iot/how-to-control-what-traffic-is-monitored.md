@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 08afba8ade30775a49492f337bb5337320b9e282
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837957"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977058"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Controlar qual tráfego é monitorado
 
@@ -90,7 +90,7 @@ Para configurar sub-redes:
 
 10. Para exportar sub-redes configuradas, selecione **Exportar**. A tabela de sub-rede é baixada para sua estação de trabalho.
 
-11. Clique em **Salvar**.
+11. Selecione **Salvar**.
 
 ### <a name="importing-information"></a>Importando informações 
 
@@ -182,7 +182,7 @@ Para definir um intervalo de endereços DHCP:
     > [!NOTE]
     > Os intervalos que você importa de um arquivo CSV substituem as configurações de intervalo existentes.
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Configurar servidores DNS para resolução de pesquisa inversa
 
@@ -228,7 +228,7 @@ Usando um ativo de teste, verifique se as configurações definidas funcionam co
 
 3. Insira um endereço no **endereço de pesquisa** para a caixa de diálogo **teste de pesquisa inversa de DNS para servidor** .
 
-    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-looup-test-screen.png" alt-text="Captura de tela que mostra a área de endereço de pesquisa.":::
+    :::image type="content" source="media/how-to-enrich-asset-information/dns-reverse-lookup-test-screen.png" alt-text="Captura de tela que mostra a área de endereço de pesquisa.":::
 
 4. Selecione **Testar**.
 
@@ -277,7 +277,7 @@ Para configurar uma verificação automática:
 
 7. Para remover um intervalo, selecione :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: ao lado do intervalo.
 
-8. Clique em **Salvar**. A caixa de diálogo **Editar configuração de intervalos de verificação** fecha e o número de intervalos é exibido no painel **intervalos de digitalização** .
+8. Selecione **Salvar**. A caixa de diálogo **Editar configuração de intervalos de verificação** fecha e o número de intervalos é exibido no painel **intervalos de digitalização** .
 
 Para executar uma verificação manual:
 
@@ -295,7 +295,7 @@ Para exibir os resultados da verificação:
 
 1. Quando a verificação for concluída, no painel **ações** , selecione **exibir resultados da verificação**. O arquivo CSV com os resultados da verificação é baixado em seu computador.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Investigar detecções de sensor em um inventário](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  de dispositivos [Investigar as detecções do sensor no mapa do dispositivo](how-to-work-with-the-sensor-device-map.md)

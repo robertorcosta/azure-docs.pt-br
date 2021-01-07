@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: d0cb9dc3c54f409c3bdd71fbb57c823e15abc22d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 68a384197409115343a81aea23b0f7d42166d716
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762955"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97976802"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Linguagem                           | Localidade (BCP-47) | Personalizações                                   |
+| Idioma                           | Localidade (BCP-47) | Personalizações                                   |
 |------------------------------------|--------|--------------------------------------------------|
 | Árabe (Bahrein), padrão moderno  | `ar-BH` | Modelo de linguagem                                   |
 | Árabe (Egito)                     | `ar-EG` | Modelo de linguagem                                   |
@@ -53,9 +53,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Árabe (Emirados Árabes Unidos)      | `ar-AE` | Modelo de linguagem                                   |
 | Búlgaro (Bulgária)               | `bg-BG` | Modelo de linguagem                                   |
 | Catalão (Espanha)                    | `ca-ES` | Modelo de linguagem                                   |
-| Chinês (Cantonês tradicional)   | `zh-HK` | Modelo de linguagem                                   |
+| Chinês (Cantonês tradicional)   | `zh-HK` | Modelo acústico<br>Modelo de linguagem                 |
 | Chinês (mandarim, simplificado)     | `zh-CN` | Modelo acústico<br>Modelo de linguagem                 |
-| Chinês (Mandarim Taiwanês)       | `zh-TW` | Modelo de linguagem                                   |
+| Chinês (Mandarim Taiwanês)       | `zh-TW` | Modelo acústico<br>Modelo de linguagem                 |
 | Croata (Croácia)                 | `hr-HR` | Modelo de linguagem                                   |
 | Tcheco (República Tcheca)             | `cs-CZ` | Modelo de Linguagem                                   |
 | Dinamarquês (Dinamarca)                   | `da-DK` | Modelo de linguagem                                   |
@@ -83,8 +83,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Húngaro (Hungria)                | `hu-HU` | Modelo de Linguagem                                   |
 | Irlandês (Irlanda)                     | `ga-IE` | Modelo de linguagem                                   |
 | Italiano (Itália)                    | `it-IT` | Modelo acústico<br>Modelo de linguagem<br>Pronúncia|
-| Japonês (Japão)                   | `ja-JP` | Modelo de linguagem                                   |
-| Coreano (Coreia do Sul)                     | `ko-KR` | Modelo de linguagem                                   |
+| Japonês (Japão)                   | `ja-JP` | Modelo acústico<br>Modelo de linguagem                 |
+| Coreano (Coreia do Sul)                     | `ko-KR` | Modelo acústico<br>Modelo de linguagem                 |
 | Letão (Letônia)                   | `lv-LV` | Modelo de linguagem                                   |
 | Lituano (Lituânia)             | `lt-LT` | Modelo de linguagem                                   |
 | Maltês (Malta)                     | `mt-MT` | Modelo de linguagem                                   |
@@ -143,7 +143,7 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 > Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
 
 
-| Linguagem | Localidade | Gênero | Nome da voz | Suporte de estilo |
+| Idioma | Locale | Gênero | Nome da voz | Suporte de estilo |
 |---|---|---|---|---|
 | Árabe (Egito) | `ar-EG` | Feminino | `ar-EG-SalmaNeural` | Geral |
 | Árabe (Egito) | `ar-EG` | Masculino | `ar-EG-ShakirNeural` <sup>Novo</sup> | Geral |
@@ -264,7 +264,7 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 
 As vozes neurais a seguir estão em visualização pública. 
 
-| Linguagem                         | Localidade  | Gênero | Nome da voz                             | Suporte de estilo |
+| Idioma                         | Locale  | Gênero | Nome da voz                             | Suporte de estilo |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaohanNeural` | Geral, vários estilos disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaomoNeural` | Geral, vários estilos e execução de função disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -304,7 +304,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades
 > **As vozes en-US-AriaRUS** e **en-US-GuyRUS** também são criadas a partir de exemplos que usam uma taxa de amostra de 24 kHz.
 > Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
 
-| Linguagem | Localidade (BCP-47) | Gênero | Nome da voz |
+| Idioma | Localidade (BCP-47) | Gênero | Nome da voz |
 |--|--|--|--|
 | Árabe (árabe) | `ar-EG` | Feminino | `ar-EG-Hoda`|
 | Árabe (Arábia Saudita) | `ar-SA` | Masculino | `ar-SA-Naayf`|
@@ -481,7 +481,7 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 
 Veja na tabela a seguir os idiomas com suporte para as várias APIs de Reconhecimento do Locutor. Confira a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o Reconhecimento do Locutor.
 
-| Linguagem | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
+| Idioma | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
 |----|----|----|----|----|
 |Inglês (EUA)  |  en-US  |  sim  |  sim  |  sim |
 |Chinês (mandarim, simplificado) | zh-CN     |     n/d |     sim |     sim|

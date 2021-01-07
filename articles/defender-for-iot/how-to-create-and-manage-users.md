@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 22d0c59110ba033232fbdf41062b49e9a146ca6f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955053"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97977006"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre os usuários do console do defender para IoT
 
@@ -185,7 +185,7 @@ Para configurar Active Directory:
 
 1. Defina os parâmetros do servidor Active Directory, da seguinte maneira:
 
-   | Parâmetro de servidor | Description |
+   | Parâmetro de servidor | Descrição |
    |--|--|
    | FQDN do controlador de domínio | Defina o nome de domínio totalmente qualificado (FQDN) exatamente como ele aparece no servidor LDAP. Por exemplo, insira `host1.subdomain.domain.com`. |
    | Porta do controlador de domínio | Defina a porta na qual o LDAP está configurado. |
@@ -193,7 +193,7 @@ Para configurar Active Directory:
    | Grupos do Active Directory | Insira os nomes de grupo que são definidos em sua configuração de Active Directory no servidor LDAP. |
    | Domínios confiáveis | Para adicionar um domínio confiável, adicione o nome de domínio e o tipo de conexão de um domínio confiável. <br />Você pode configurar domínios confiáveis somente para usuários que foram definidos em usuários. |
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. Para adicionar um servidor confiável, selecione **Adicionar servidor** e configurar outro servidor.
 
@@ -223,8 +223,6 @@ Para redefinir a senha para um usuário CyberX ou de suporte:
     > Não altere o arquivo de recuperação de senha. É um arquivo assinado e não funcionará se você violar.
 
 1. Na tela **recuperação de senha** , selecione **carregar**. **A janela carregar arquivo de recuperação de senha** será aberta.
-
-   :::image type="content" source="media/password-recovery-images/upload.png" alt-text="Carregue seu arquivo de recuperação para obter uma nova senha.":::
 
 1. Selecione **procurar** para localizar o `password_recovery.zip` arquivo ou arraste o `password_recovery.zip` para a janela.
 
