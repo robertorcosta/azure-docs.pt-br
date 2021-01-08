@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: tisande
-ms.openlocfilehash: 2d99e0e2b65f7131e564e6ab64e454d2947c58a6
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903013"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019169"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -103,7 +103,7 @@ Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-example
 
 Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminho mais preciso terá precedência.
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 **Caminho incluído**: `/food/ingredients/nutrition/*`
 
@@ -135,7 +135,7 @@ Azure Cosmos DB, por padrão, não criará nenhum índice espacial. Se você qui
 
 ## <a name="composite-indexes"></a>Índices compostos
 
-As consultas que têm uma `ORDER BY` cláusula com duas ou mais propriedades exigem um índice composto. Você também pode definir um índice composto para melhorar o desempenho de várias consultas de igualdade e de intervalo. Por padrão, nenhum índice composto é definido, portanto, você deve [Adicionar índices compostos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) conforme necessário.
+As consultas que têm uma `ORDER BY` cláusula com duas ou mais propriedades exigem um índice composto. Você também pode definir um índice composto para melhorar o desempenho de várias consultas de igualdade e de intervalo. Por padrão, nenhum índice composto é definido, portanto, você deve [Adicionar índices compostos](how-to-manage-indexing-policy.md#composite-index) conforme necessário.
 
 Ao contrário dos caminhos incluídos ou excluídos, você não pode criar um caminho com o `/*` curinga. Cada caminho composto tem um implícito `/?` no final do caminho que você não precisa especificar. Os caminhos compostos levam a um valor escalar e esse é o único valor que é incluído no índice composto.
 
@@ -160,7 +160,7 @@ As seguintes considerações são usadas ao usar índices compostos para consult
 
 Considere o exemplo a seguir em que um índice composto é definido nas propriedades Name, age e _ts:
 
-| **Índice composto**     | **Consulta de exemplo `ORDER BY`**      | **Com suporte do índice composto?** |
+| **Índices compostos**     | **Consulta de exemplo `ORDER BY`**      | **Compatível com índice composto?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.name ASC, c.age asc``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c ORDER BY c.age ASC, c.name asc```   | ```No```             |
@@ -205,7 +205,7 @@ As seguintes considerações são usadas ao criar índices compostos para consul
 
 Considere os seguintes exemplos em que um índice composto é definido nas propriedades Name, age e timestamp:
 
-| **Índice composto**     | **Consulta de exemplo**      | **Com suporte do índice composto?** |
+| **Índices compostos**     | **Consulta de exemplo**      | **Compatível com índice composto?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
@@ -256,7 +256,7 @@ As seguintes considerações são usadas ao criar índices compostos para otimiz
 * Todas as considerações para a criação de índices compostos para `ORDER BY` consultas com várias propriedades, bem como consultas com filtros em várias propriedades ainda se aplicam.
 
 
-| **Índice composto**                      | **Consulta de exemplo `ORDER BY`**                                  | **Com suporte do índice composto?** |
+| **Índices compostos**                      | **Consulta de exemplo `ORDER BY`**                                  | **Compatível com índice composto?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |

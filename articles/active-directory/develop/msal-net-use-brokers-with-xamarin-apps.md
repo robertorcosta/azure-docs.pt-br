@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 7fa13a328a55b0e9eaa546e70bf0711f4f011cf1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 10fb55cc133d5d6b39ca2809474ff20dfe500708
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173423"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017792"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin
 
@@ -183,7 +183,7 @@ Adicione o URI de redirecionamento ao registro do aplicativo no [portal do Azure
 
 **Para gerar o URI de redirecionamento:**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Selecione **Azure Active Directory**  >  **registros de aplicativo** > seu aplicativo registrado
 1. Selecione **autenticação**  >  **Adicionar uma plataforma**  >  **Ios/MacOS**
 1. Insira a ID do pacote e, em seguida, selecione **Configurar**.
@@ -315,7 +315,7 @@ Modifique o manifesto do aplicativo para adicionar o filtro de intenção:
 
 Por exemplo, se você tiver um URI de redirecionamento de `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=` , seu manifesto deverá ser semelhante ao trecho de código XML a seguir.
 
-É necessária a barra de encaminhamento ( `/` ) na frente da assinatura no `android:path` valor **required**.
+É necessária a barra de encaminhamento ( `/` ) na frente da assinatura no `android:path` valor .
 
 ```xml
 <!-- NOTE the SLASH (required) that prefixes the signature value in the path attribute.

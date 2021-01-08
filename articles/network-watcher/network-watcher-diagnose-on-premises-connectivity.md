@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 9014f24918013872ce102d094f62fd5703594ddc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a5db1ac9c70429d4b6a0b690de1b29c3656b3cc8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961848"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016704"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio do Gateway de VPN
 
@@ -87,9 +87,9 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | PlannedMaintenance |  A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento. | Não |
 | VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não |
-| PlatformInActive | Há um problema com a plataforma. | No|
-| ServiceNotRunning | O serviço subjacente não está em execução. | No|
-| NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| No|
+| PlatformInActive | Há um problema com a plataforma. | Não|
+| ServiceNotRunning | O serviço subjacente não está em execução. | Não|
+| NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| Não|
 | ConnectionsNotConnected | Nenhuma das Conexões está conectada. Isso é apenas um aviso.| Yes|
 | GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | Yes |
 
@@ -101,9 +101,9 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | No |
-| ConnectionEntityNotFound | A configuração da Conexão está ausente. | No |
-| ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |No|
+| VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não |
+| ConnectionEntityNotFound | A configuração da Conexão está ausente. | Não |
+| ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não|
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Yes |
 | ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Yes|
 | Autenticação | Incompatibilidade de chave pré-compartilhada. | Yes|

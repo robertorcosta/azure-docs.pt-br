@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 01/07/2021
 ms.author: tisande
-ms.openlocfilehash: f65d179baa2c0a08e2c1dca1716c9691797fc242
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: f959e4e230c1d9f89ad5141713b6a17a8cbb17a2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106284"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018897"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Trabalhando com matrizes e objetos no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -54,9 +54,27 @@ SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as Ch
 FROM f
 ```
 
+Os resultados são:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="iteration"></a><a id="Iteration"></a>Interação
 
-A API do SQL fornece suporte para iteração em matrizes JSON, com uma nova construção adicionada por meio da [palavra-chave in](sql-query-keywords.md#in) na fonte from. No exemplo a seguir:
+A API do SQL fornece suporte para iteração em matrizes JSON, com a [palavra-chave in](sql-query-keywords.md#in) na origem do. No exemplo a seguir:
 
 ```sql
 SELECT *
@@ -156,6 +174,9 @@ Os resultados são:
   }
 ]
 ```
+
+> [!NOTE]
+> Ao usar a palavra-chave IN para iteração, você não pode filtrar ou projetar nenhuma propriedade fora da matriz. Em vez disso, você deve usar [junções](sql-query-join.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

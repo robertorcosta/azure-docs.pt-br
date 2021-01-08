@@ -1,19 +1,18 @@
 ---
 title: Saídas de Azure Stream Analytics
 description: Este artigo descreve as opções de saída de dados disponíveis para Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 12/9/2020
-ms.openlocfilehash: c11e0702a7825b719417288c5ebbf93defde186c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3ce4f673657561e196520466b569d0cf83d75a8a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029237"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019339"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas de Azure Stream Analytics
 
@@ -30,7 +29,7 @@ Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [ta
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|Autenticação de usuário do SQL, </br> Identidade Gerenciada (versão prévia)|
 |[Armazenamento de BLOBs e Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Chave de acesso, </br> Identidade Gerenciada (versão prévia)|
 |[Hubs de eventos do Azure](event-hubs-output.md)|Sim, é necessário definir a coluna de chave de partição na configuração de saída.|Chave de acesso, </br> Identidade Gerenciada (versão prévia)|
-|[Power BI](power-bi-output.md)|No|Azure Active Directory usuário, </br> Identidade Gerenciada|
+|[Power BI](power-bi-output.md)|Não|Azure Active Directory usuário, </br> Identidade Gerenciada|
 |[Armazenamento de Tabelas do Azure](table-storage-output.md)|Yes|Chave de conta|
 |[Filas do barramento de serviço do Azure](service-bus-queues-output.md)|Yes|Chave de acesso|
 |[Tópicos do barramento de serviço do Azure](service-bus-topics-output.md)|Yes|Chave de acesso|

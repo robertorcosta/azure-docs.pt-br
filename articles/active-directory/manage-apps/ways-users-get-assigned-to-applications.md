@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/11/2017
+ms.topic: reference
+ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: b9786f9d9da363f15bd2f59390d5dddf86bc1bf9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: aedcecf528f07d9d7f89c1d5659d8fcd2cb36df2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658843"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016721"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Entenda como os usuários são atribuídos a aplicativos no Azure Active Directory
 Este artigo o ajudará a compreender como usuários são atribuídos a um aplicativo em seu locatário.

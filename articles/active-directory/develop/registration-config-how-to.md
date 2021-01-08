@@ -12,20 +12,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: ryanwi
-ms.openlocfilehash: dc37ce474ad3226f5dbf7e6efd687ddf55f7da03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c348bd7a1738742744976c46396f62a3317dc17
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82926673"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017062"
 ---
 # <a name="how-to-discover-endpoints"></a>Como descobrir pontos de extremidade
 
 Você pode encontrar os pontos de extremidade de autenticação para seu aplicativo no [Portal do Azure](https://portal.azure.com).
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Selecione **Azure Active Directory**.
-1. Em **gerenciar**, selecione **registros de aplicativo**e, em seguida, selecione **pontos de extremidade** no menu superior.
+1. Em **gerenciar**, selecione **registros de aplicativo** e, em seguida, selecione **pontos de extremidade** no menu superior.
 
     A página **pontos de extremidade** é exibida, mostrando os pontos de extremidade de autenticação para seu locatário.
     

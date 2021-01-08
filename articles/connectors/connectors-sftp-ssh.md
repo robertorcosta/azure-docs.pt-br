@@ -4,28 +4,20 @@ description: Automatize tarefas que monitoram, criam, gerenciam, enviam e recebe
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/07/2021
 tags: connectors
-ms.openlocfilehash: 31714eee2e79481bbc8afb47718ed38e178d5b82
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 388d747da692160ab6d0a89c0c35de348d921486
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324233"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016755"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
 Para automatizar tarefas que monitoram, criam, enviam e recebem arquivos em um servidor [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) usando o protocolo [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/), você pode criar e automatizar fluxos de trabalho de integração usando os Aplicativos Lógicos do Azure e o conector SFTP-SSH. O SFTP é um protocolo de rede que fornece acesso a arquivos, transferência de arquivos e gerenciamento de arquivos em qualquer fluxo de dados confiável.
-
-> [!NOTE]
-> O conector SFTP-SSH atualmente não dá suporte a estes servidores SFTP:
-> 
-> * IBM datapower
-> * MessageWay
-> * MFT seguro do OpenText
-> * GXS de OpenText
 
 Aqui estão algumas tarefas de exemplo que você pode automatizar:
 
@@ -39,7 +31,14 @@ Você pode usar gatilhos que monitoram eventos em seu servidor SFTP e disponibil
 
 Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a seção [comparar SFTP-SSH versus SFTP](#comparison) mais adiante neste tópico.
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
+
+* O conector SFTP-SSH atualmente não dá suporte a estes servidores SFTP:
+
+  * IBM datapower
+  * MessageWay
+  * MFT seguro do OpenText
+  * GXS de OpenText
 
 * O conector SFTP-SSH dá suporte à autenticação de chave privada ou autenticação de senha, não a ambos.
 
@@ -48,7 +47,7 @@ Para obter diferenças entre o conector SFTP-SSH e o conector SFTP, examine a se
   > [!NOTE]
   > Para aplicativos lógicos em um [ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector requer que o agrupamento use os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
 
-  Você pode substituir esse comportamento adaptável ao [especificar um tamanho de parte constante](#change-chunk-size) para usar em vez disso. Esse tamanho pode variar de 5 MB a 50 MB. Por exemplo, suponha que você tenha um arquivo de 45 MB e uma rede que possa dar suporte a esse tamanho de arquivo sem latência. O agrupamento adaptável resulta em várias chamadas, em vez de uma chamada. Para reduzir o número de chamadas, você pode tentar definir um tamanho de bloco de 50 MB. Em um cenário diferente, se seu aplicativo lógico estiver atingindo o tempo limite, por exemplo, ao usar partes de 15 MB, você poderá tentar reduzir o tamanho para 5 MB.
+  Você pode substituir esse comportamento adaptável ao [especificar um tamanho de parte constante](#change-chunk-size) para usar em vez disso. Esse tamanho pode variar de 5 MB a 50 MB. Por exemplo, suponha que você tenha um arquivo de 45 MB e uma rede que possa dar suporte a esse tamanho de arquivo sem latência. O agrupamento adaptável resulta em várias chamadas, em vez de uma chamada. Para reduzir o número de chamadas, você pode tentar definir um tamanho de parte de 50 MB. Em um cenário diferente, se seu aplicativo lógico estiver atingindo o tempo limite, por exemplo, ao usar partes de 15 MB, você poderá tentar reduzir o tamanho para 5 MB.
 
   O tamanho da parte é associado a uma conexão, o que significa que você pode usar a mesma conexão para ações que dão suporte a agrupamento e, em seguida, para ações que não dão suporte a agrupamento. Nesse caso, o tamanho da parte para ações que não dão suporte a intervalos de agrupamento de 5 MB a 50 MB. Esta tabela mostra quais ações de SFTP-SSH dão suporte ao agrupamento:
 
@@ -82,11 +81,11 @@ Aqui estão outras diferenças importantes entre o conector SFTP-SSH e o conecto
 
 * Usa a [biblioteca SSH.net](https://github.com/sshnet/SSH.NET), que é uma biblioteca de Secure Shell de código aberto (SSH) que dá suporte ao .net.
 
-* Fornece a ação **Criar pasta** , que cria uma pasta no caminho especificado no servidor SFTP.
+* Fornece a ação **Criar pasta**, que cria uma pasta no caminho especificado no servidor SFTP.
 
-* Fornece a ação **Renomear arquivo** , que renomeia um arquivo no servidor SFTP.
+* Fornece a ação **Renomear arquivo**, que renomeia um arquivo no servidor SFTP.
 
-* Armazena em cache a conexão com o servidor SFTP *por até 1 hora* , o que melhora o desempenho e reduz o número de tentativas de conexão com o servidor. Para definir a duração desse comportamento de armazenamento em cache, edite a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na configuração do SSH em seu servidor SFTP.
+* Armazena em cache a conexão com o servidor SFTP *por até 1 hora*, o que melhora o desempenho e reduz o número de tentativas de conexão com o servidor. Para definir a duração desse comportamento de armazenamento em cache, edite a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) na configuração do SSH em seu servidor SFTP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -98,13 +97,13 @@ Aqui estão outras diferenças importantes entre o conector SFTP-SSH e o conecto
   >
   > O conector SFTP-SSH suporta *somente* estes formatos de chave privada, algoritmos e impressões digitais:
   >
-  > * **Formatos de chave privada** : chaves RSA (Rivest Shamir Adleman) e DSA (algoritmo de assinatura digital) nos formatos OpenSSH e SSH.com. Se sua chave privada estiver no formato de arquivo de reversões (. PPK), primeiro [converta a chave para o formato de arquivo OpenSSH (. pem)](#convert-to-openssh).
+  > * **Formatos de chave privada**: chaves RSA (Rivest Shamir Adleman) e DSA (algoritmo de assinatura digital) nos formatos OpenSSH e SSH.com. Se sua chave privada estiver no formato de arquivo de reversões (. PPK), primeiro [converta a chave para o formato de arquivo OpenSSH (. pem)](#convert-to-openssh).
   >
-  > * **Algoritmos de criptografia** : EDE3-DES-CBC, EDE3 CFB DES, DES-CBC, CBC de AES-128, AES-192-CBC e AES-256-CBC
+  > * **Algoritmos de criptografia**: EDE3-DES-CBC, EDE3 CFB DES, DES-CBC, CBC de AES-128, AES-192-CBC e AES-256-CBC
   >
-  > * **Impressão digital** : MD5
+  > * **Impressão digital**: MD5
   >
-  > Depois de adicionar o gatilho SFTP-SSH ou a ação que você deseja ao seu aplicativo lógico, você precisa fornecer informações de conexão para seu servidor SFTP. Ao fornecer sua chave privada SSH para essa conexão, * *_não insira manualmente ou edite a chave_* _, o que pode causar falha na conexão. Em vez disso, certifique-se de _*_copiar a chave_*_ de seu arquivo de chave privada SSH e _*_Cole_*_ essa chave nos detalhes da conexão. 
+  > Depois de adicionar o gatilho SFTP-SSH ou a ação que você deseja ao seu aplicativo lógico, você precisa fornecer informações de conexão para seu servidor SFTP. Ao fornecer sua chave privada SSH para essa conexão, **_não insira manualmente ou edite a chave_* _, o que pode causar falha na conexão. Em vez disso, certifique-se de _*_copiar a chave_*_ de seu arquivo de chave privada SSH e _*_Cole_*_ essa chave nos detalhes da conexão. 
   > Para obter mais informações, consulte a seção [conectar-se ao SFTP com SSH](#connect) posteriormente neste artigo.
 
 _ Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -113,7 +112,11 @@ _ Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/qui
 
 ## <a name="how-sftp-ssh-triggers-work"></a>Como os gatilhos de SFTP-SSH funcionam
 
-SFTP-os gatilhos SSH funcionam sondando o sistema de arquivos SFTP e procurando por qualquer arquivo que tenha sido alterado desde a última sondagem. Algumas ferramentas permitem preservar o registro de data e hora quando os arquivos são alterados. Nesses casos, você precisa desativar esse recurso para que seu gatilho funcione. Aqui estão algumas configurações comuns:
+<a name="polling-behavior"></a>
+
+### <a name="polling-behavior"></a>Comportamento de sondagem
+
+SFTP-os gatilhos SSH sondam o sistema de arquivos SFTP e procuram qualquer arquivo que tenha sido alterado desde a última sondagem. Algumas ferramentas permitem preservar o registro de data e hora quando os arquivos são alterados. Nesses casos, você precisa desativar esse recurso para que seu gatilho funcione. Aqui estão algumas configurações comuns:
 
 | Cliente SFTP | Ação |
 |-------------|--------|
@@ -123,6 +126,12 @@ SFTP-os gatilhos SSH funcionam sondando o sistema de arquivos SFTP e procurando 
 
 Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está concluído e não gravado parcialmente. Por exemplo, um arquivo pode ter alterações em andamento quando o gatilho verifica o servidor de arquivos. Para evitar o retorno de um arquivo gravado parcialmente, o gatilho observa o carimbo de data/hora do arquivo que tem alterações recentes, mas não retorna o arquivo imediatamente. O gatilho retorna o arquivo apenas ao executar a sondagem do servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o intervalo de sondagem do gatilho.
 
+<a name="trigger-recurrence-shift-drift"></a>
+
+### <a name="trigger-recurrence-shift-and-drift"></a>Disparar mudança e descompasso de recorrência
+
+Gatilhos baseados em conexão onde você precisa criar uma conexão primeiro, como o gatilho SFTP-SSH, diferem de gatilhos internos que são executados nativamente em aplicativos lógicos do Azure, como o [gatilho de recorrência](../connectors/connectors-native-recurrence.md). Em gatilhos baseados em conexão recorrentes, o agendamento de recorrência não é o único driver que controla a execução, e o fuso horário só determina a hora de início inicial. As execuções subsequentes dependem da agenda de recorrência, da última execução do gatilho *e* de outros fatores que podem causar tempos de execução para descompassor ou produzir um comportamento inesperado, por exemplo, não manter a agenda especificada quando o horário de verão é iniciado e encerrado. Para garantir que a hora da recorrência não mude quando o DST entrar em vigor, ajuste manualmente a recorrência para que seu aplicativo lógico continue a ser executado no tempo esperado. Caso contrário, a hora de início mudará uma hora para frente quando o horário de verão for iniciado e uma hora para trás quando o horário de verão terminar. Para obter mais informações, consulte [recorrência para gatilhos baseados em conexão](../connectors/apis-list.md#recurrence-connection-based).
+
 <a name="convert-to-openssh"></a>
 
 ## <a name="convert-putty-based-key-to-openssh"></a>Converter chave baseada em saída para OpenSSH
@@ -131,7 +140,7 @@ Se sua chave privada estiver no formato de reversões, que usa a extensão de no
 
 ### <a name="unix-based-os"></a>Sistema operacional baseado em UNIX
 
-1. Se as ferramentas de saída ainda não estiverem instaladas no sistema, faça isso agora, por exemplo:
+1. Se você não tiver as ferramentas de saída instaladas no sistema, faça isso agora, por exemplo:
 
    `sudo apt-get install -y putty`
 
@@ -189,7 +198,7 @@ Para criar um arquivo em seu servidor SFTP, você pode usar a ação de **criaç
 
    > [!IMPORTANT]
    >
-   > Ao inserir sua chave privada SSH na propriedade **chave privada SSH** , siga estas etapas adicionais, que ajudam a fornecer o valor completo e correto para essa propriedade. Uma chave inválida faz com que a conexão falhe.
+   > Ao inserir sua chave privada SSH na propriedade **chave privada SSH**, siga estas etapas adicionais, que ajudam a fornecer o valor completo e correto para essa propriedade. Uma chave inválida faz com que a conexão falhe.
 
    Embora você possa usar qualquer editor de texto, aqui estão etapas de exemplo que mostram como copiar e colar corretamente a chave usando o Notepad.exe como exemplo.
 
@@ -199,9 +208,9 @@ Para criar um arquivo em seu servidor SFTP, você pode usar a ação de **criaç
 
    1. Selecione **Editar**  >  **cópia**.
 
-   1. No acionador ou ação SFTP-SSH que você adicionou, cole a chave *completa* que você copiou na propriedade **chave privada SSH** , que suporta várias linhas.  **_Certifique-se de colar_* _ a chave. _*_Não insira ou edite manualmente a chave_*_.
+   1. No acionador ou ação SFTP-SSH que você adicionou, cole a chave *completa* que você copiou na propriedade **chave privada SSH**, que suporta várias linhas.  **_Certifique-se de colar_* _ a chave. _*_Não insira ou edite manualmente a chave_*_.
 
-1. Quando você terminar de inserir os detalhes da conexão, selecione _ * criar * *.
+1. Depois de terminar de inserir os detalhes da conexão, selecione _ * criar * *.
 
 1. Agora, forneça os detalhes necessários para o acionador ou a ação selecionada e continue criando o fluxo de trabalho do seu aplicativo lógico.
 
@@ -211,15 +220,15 @@ Para criar um arquivo em seu servidor SFTP, você pode usar a ação de **criaç
 
 Para substituir o comportamento adaptável padrão que o agrupamento usa, você pode especificar um tamanho de parte constante de 5 MB a 50 MB.
 
-1. No canto superior direito da ação, selecione o botão de reticências ( **...** ) e, em seguida, selecione **configurações**.
+1. No canto superior direito da ação, selecione o botão de reticências (**...**) e, em seguida, selecione **configurações**.
 
    ![Abrir SFTP-configurações de SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. Em **transferência de conteúdo** , na propriedade **tamanho da parte** , insira um valor inteiro de `5` para `50` , por exemplo: 
+1. Em **transferência de conteúdo**, na propriedade **tamanho da parte** , insira um valor inteiro de `5` para `50` , por exemplo: 
 
    ![Especifique o tamanho da parte para usar em vez disso](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
-1. Quando tiver terminado, selecione **Concluído**.
+1. Depois de concluir, selecione **concluído**.
 
 ## <a name="examples"></a>Exemplos
 
@@ -229,7 +238,7 @@ Para substituir o comportamento adaptável padrão que o agrupamento usa, você 
 
 Esse acionador inicia um fluxo de trabalho de aplicativo lógico quando um arquivo é adicionado ou alterado em um servidor SFTP. Por exemplo, você pode adicionar uma condição que verifica o conteúdo do arquivo e obtém o conteúdo com base em se o conteúdo atende a uma condição especificada. Em seguida, você pode adicionar uma ação que obtém o conteúdo do arquivo e coloca esse conteúdo em uma pasta no servidor SFTP.
 
-**Exemplo corporativo** : você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes. Em seguida, você pode usar uma ação de SFTP, como **Obter conteúdo de arquivo** , para obter o conteúdo do pedido para processamento posterior e armazenar esse pedido em um banco de dados de pedidos.
+**Exemplo corporativo**: você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes. Em seguida, você pode usar uma ação de SFTP, como **Obter conteúdo de arquivo**, para obter o conteúdo do pedido para processamento posterior e armazenar esse pedido em um banco de dados de pedidos.
 
 <a name="get-content"></a>
 
@@ -239,21 +248,9 @@ Essa ação Obtém o conteúdo de um arquivo em um servidor SFTP especificando o
 
 <a name="troubleshooting-errors"></a>
 
-## <a name="troubleshoot-errors"></a>Solucionar problemas de erros
+## <a name="troubleshoot-problems"></a>Solução de problemas
 
 Esta seção descreve as possíveis soluções para erros ou problemas comuns.
-
-<a name="file-does-not-exist"></a>
-
-### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 erro: "uma referência foi feita a um arquivo ou pasta que não existe"
-
-Esse erro pode acontecer quando seu aplicativo lógico cria um novo arquivo em seu servidor SFTP por meio da ação de **criação de arquivo** SFTP-SSH, mas o arquivo recém-criado é imediatamente movido antes de o serviço de aplicativos lógicos obter os metadados do arquivo. Quando seu aplicativo lógico executa a ação **criar arquivo** , o serviço de aplicativos lógicos também chama automaticamente seu servidor SFTP para obter os metadados do arquivo. No entanto, se o arquivo for movido, o serviço de aplicativos lógicos não poderá mais localizar o arquivo para que você receba a `404` mensagem de erro.
-
-Se não for possível evitar ou atrasar a movimentação do arquivo, você poderá ignorar a leitura dos metadados do arquivo após a criação do arquivo, seguindo estas etapas:
-
-1. Na ação **criar arquivo** , abra a lista **Adicionar novo parâmetro** , selecione a propriedade **obter todos os metadados do arquivo** e defina o valor como **não**.
-
-1. Se precisar desses metadados de arquivo mais tarde, você poderá usar a ação **obter metadados de arquivo** .
 
 <a name="connection-attempt-failed"></a>
 
@@ -272,6 +269,18 @@ Esse erro pode acontecer quando seu aplicativo lógico não consegue estabelecer
 * Para reduzir o custo de estabelecimento de conexão, na configuração de SSH para seu servidor SFTP, aumente a propriedade [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) para cerca de uma hora.
 
 * Examine o log do servidor SFTP para verificar se a solicitação do aplicativo lógico alcançou o servidor SFTP. Para obter mais informações sobre o problema de conectividade, você também pode executar um rastreamento de rede em seu firewall e seu servidor SFTP.
+
+<a name="file-does-not-exist"></a>
+
+### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 erro: "uma referência foi feita a um arquivo ou pasta que não existe"
+
+Esse erro pode acontecer quando seu aplicativo lógico cria um novo arquivo em seu servidor SFTP por meio da ação de **criação de arquivo** SFTP-SSH, mas move imediatamente o arquivo recém-criado antes que o serviço de aplicativos lógicos possa obter os metadados do arquivo. Quando seu aplicativo lógico executa a ação **criar arquivo** , o serviço de aplicativos lógicos também chama automaticamente seu servidor SFTP para obter os metadados do arquivo. No entanto, se o aplicativo lógico mover o arquivo, o serviço de aplicativos lógicos não poderá mais localizar o arquivo para que você receba a `404` mensagem de erro.
+
+Se não for possível evitar ou atrasar a movimentação do arquivo, você poderá ignorar a leitura dos metadados do arquivo após a criação do arquivo, seguindo estas etapas:
+
+1. Na ação **criar arquivo** , abra a lista **Adicionar novo parâmetro** , selecione a propriedade **obter todos os metadados do arquivo** e defina o valor como **não**.
+
+1. Se precisar desses metadados de arquivo mais tarde, você poderá usar a ação **obter metadados de arquivo** .
 
 ## <a name="connector-reference"></a>Referência de conector
 

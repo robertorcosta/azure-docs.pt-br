@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 6540b5f93bebfe39253a88dc495a3613568f8926
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: e5fa4bde316f4b1677f78c65e913a6303a9f4735
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837631"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019135"
 ---
 # <a name="about-high-availability"></a>Sobre alta disponibilidade
 
@@ -52,7 +52,7 @@ Os procedimentos de instalação e configuração são executados em quatro est�
 
 3. Instale um dispositivo secundário do console de gerenciamento local. Para obter mais informações, consulte [sobre a instalação do defender para IOT](how-to-install-software.md).
 
-4. Emparelhe os dispositivos de console de gerenciamento locais primários e secundários, conforme descrito [aqui](/create-the-primary-and-secondary-pair.md). O console de gerenciamento local primário deve gerenciar pelo menos dois sensores para executar a configuração.
+4. Emparelhe os dispositivos de console de gerenciamento locais primários e secundários, conforme descrito [aqui](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). O console de gerenciamento local primário deve gerenciar pelo menos dois sensores para executar a configuração.
 
 ## <a name="high-availability-requirements"></a>Requisitos de alta disponibilidade
 
@@ -149,6 +149,6 @@ Para atualizar com alta disponibilidade:
 
 3. Atualize os sensores.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Ativar e configurar seu console de gerenciamento local](how-to-activate-and-set-up-your-on-premises-management-console.md)

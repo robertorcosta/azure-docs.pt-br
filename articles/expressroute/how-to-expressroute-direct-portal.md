@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: 56638f14565f76b0a2fc252b81dba3dae9e53dd8
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: acbd5c3aa88c2c8c14407ebda0c42d228aa6c9e3
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289437"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018931"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Criar ExpressRoute direto usando o portal do Azure
 
@@ -21,10 +21,17 @@ O ExpressRoute Direct permite que você se conecte diretamente à rede global da
 
 ## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
-Verifique se o provedor de recursos **Microsoft. Network** está registrado em sua assinatura. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos.
+Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatura. Para se inscrever, envie um e-mail para <ExpressRouteDirect@microsoft.com> com seu ID de assinatura, incluindo os seguintes detalhes:
+
+* Cenários que você pretende para realizar com o **ExpressRoute Direct**
+* Preferências de localização. Confira [Localizações de emparelhamento e parceiros do ExpressRoute](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
+* Linha do tempo para implementação
+* Tem mais perguntas?
+
+Depois de registrado, verifique se o provedor de recursos **Microsoft. Network** está registrado em sua assinatura. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos.
 
 1. Acesse suas configurações de assinatura, conforme descrito em [provedores de recursos e tipos do Azure](../azure-resource-manager/management/resource-providers-and-types.md).
-1. Em sua assinatura, para **provedores de recursos** , verifique se o provedor **Microsoft. Network** mostra um status **registrado** . Se o provedor de recursos Microsoft. Network não estiver presente na lista de provedores registrados, adicione-o.
+1. Em sua assinatura, para **provedores de recursos**, verifique se o provedor **Microsoft. Network** mostra um status **registrado** . Se o provedor de recursos Microsoft. Network não estiver presente na lista de provedores registrados, adicione-o.
 
 ## <a name="create-expressroute-direct"></a><a name="create-erdir"></a>Criar ExpressRoute direto
 
@@ -40,18 +47,18 @@ Verifique se o provedor de recursos **Microsoft. Network** está registrado em s
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/basics.png" alt-text="Página de noções básicas":::
 
-    * **Assinatura** : a assinatura do Azure que você deseja usar para criar um novo ExpressRoute Direct. O recurso do ExpressRoute Direct e os circuitos do ExpressRoute precisam estar na mesma assinatura.
-    * **Grupo de recursos** : o grupo de recursos do Azure no qual o novo recurso direto do ExpressRoute será criado. Se você não tiver um grupo de recursos atualmente, crie um.
-    * **Região** : A região pública do Azure na qual o recurso será criado.
-    * **Nome** : o nome do novo recurso direto do ExpressRoute.
+    * **Assinatura**: a assinatura do Azure que você deseja usar para criar um novo ExpressRoute Direct. O recurso do ExpressRoute Direct e os circuitos do ExpressRoute precisam estar na mesma assinatura.
+    * **Grupo de recursos**: o grupo de recursos do Azure no qual o novo recurso direto do ExpressRoute será criado. Se você não tiver um grupo de recursos atualmente, crie um.
+    * **Região**: A região pública do Azure na qual o recurso será criado.
+    * **Nome**: o nome do novo recurso direto do ExpressRoute.
 
 1. Em seguida, preencha os campos na página de **configuração** .
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/configuration.png" alt-text="Captura de tela que mostra a página ' criar ExpressRoute direto ' com a guia ' configuração ' selecionada.":::
 
-    * **Local de emparelhamento** : o local de emparelhamento em que você se conectará ao recurso direto do ExpressRoute. Para obter mais informações sobre locais de emparelhamento, examine [locais de ExpressRoute](expressroute-locations-providers.md).
-   * **Largura de banda** : a largura de banda do par de portas que você deseja reservar. O ExpressRoute Direct dá suporte a opções de largura de banda de 10 GB e 100 GB. Se a largura de banda desejada não estiver disponível no local de emparelhamento especificado, [abra uma solicitação de suporte no portal do Azure](https://aka.ms/azsupt).
-   * **Encapsulamento** : o ExpressRoute Direct dá suporte a encapsulamento QinQ e Dot1Q.
+    * **Local de emparelhamento**: o local de emparelhamento em que você se conectará ao recurso direto do ExpressRoute. Para obter mais informações sobre locais de emparelhamento, examine [locais de ExpressRoute](expressroute-locations-providers.md).
+   * **Largura de banda**: a largura de banda do par de portas que você deseja reservar. O ExpressRoute Direct dá suporte a opções de largura de banda de 10 GB e 100 GB. Se a largura de banda desejada não estiver disponível no local de emparelhamento especificado, [abra uma solicitação de suporte no portal do Azure](https://aka.ms/azsupt).
+   * **Encapsulamento**: o ExpressRoute Direct dá suporte a encapsulamento QinQ e Dot1Q.
      * Se o QinQ for selecionado, cada circuito do ExpressRoute será atribuído dinamicamente a uma marca S e será exclusivo em todo o recurso ExpressRoute Direct.
      *  Cada marca C no circuito precisa ser exclusiva no circuito, mas não no ExpressRoute Direct.
      * Se o encapsulamento Dot1Q for selecionado, você precisará gerenciar a exclusividade da marca C (VLAN) em todo o recurso ExpressRoute Direct.

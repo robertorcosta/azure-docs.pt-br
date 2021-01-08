@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 099ead37b8d6b46b767ef59ff24a7e7ff9dc9e3c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d4112bd1d632ec21e2d8cb565027277eeb85452d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966438"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018252"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -79,7 +79,7 @@ Depois de o limite de tempo definido na captura de pacotes expirar, a captura é
 ## <a name="delete-a-packet-capture"></a>Excluir uma captura de pacotes
 
 1. Na exibição da captura de pacote, selecione **…** no lado direito da captura de pacote, ou clique com o botão direito do mouse em uma captura de pacote existente e selecione **Excluir**.
-2. Você será solicitado a confirmar se deseja excluir a captura de pacotes. Selecione **Sim**.
+2. Você será solicitado a confirmar se deseja excluir a captura de pacotes. Selecione **Sim** na barra superior.
 
 > [!NOTE]
 > Excluir uma captura de pacotes não exclui o arquivo de captura na conta de armazenamento nem na máquina virtual.
