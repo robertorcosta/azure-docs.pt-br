@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bae8f0955ef45e21d38797789bdea4f62bf5ea28
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b2ac90334ade52d68c775d9db5a84545774f3844
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614924"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013695"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Como: adicionar funções de aplicativo ao seu aplicativo e recebê-las no token
 
@@ -49,7 +49,7 @@ O número de funções que você adiciona conta para os limites de manifesto do 
 
 Para criar uma função de aplicativo usando a interface do usuário do portal do Azure:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o locatário Azure Active Directory que contém o registro do aplicativo ao qual você deseja adicionar uma função de aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **gerenciar**, selecione **registros de aplicativo** e, em seguida, selecione o aplicativo no qual você deseja definir funções de aplicativo.
@@ -74,7 +74,7 @@ Para criar uma função de aplicativo usando a interface do usuário do portal d
 
 Para adicionar funções editando o manifesto diretamente:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Selecione o **diretório +** filtro de assinatura no menu superior e escolha o locatário Azure Active Directory que contém o registro do aplicativo ao qual você deseja adicionar uma função de aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **gerenciar**, selecione **registros de aplicativo** e, em seguida, selecione o aplicativo no qual você deseja definir funções de aplicativo.
@@ -136,7 +136,7 @@ Depois de adicionar funções de aplicativo em seu aplicativo, você pode atribu
 
 Para atribuir usuários e grupos a funções usando o portal do Azure:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Em **Azure Active Directory**, selecione **aplicativos empresariais** no menu de navegação à esquerda.
 1. Selecione **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos. Se o seu aplicativo não aparecer na lista, use os filtros na parte superior da lista **todos os aplicativos** para restringir a lista ou role para baixo na lista para localizar seu aplicativo.
 1. Selecione o aplicativo no qual deseja atribuir funções a usuários ou grupos de segurança.
@@ -158,7 +158,7 @@ Ao atribuir funções de aplicativo a um aplicativo, você cria *permissões de 
 
 Para atribuir funções de aplicativo a um aplicativo usando o portal do Azure:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Em **Azure Active Directory**, selecione **registros de aplicativo** no menu de navegação à esquerda.
 1. Selecione **Todos os aplicativos** para exibir uma lista com todos os seus aplicativos. Se o seu aplicativo não aparecer na lista, use os filtros na parte superior da lista **todos os aplicativos** para restringir a lista ou role para baixo na lista para localizar seu aplicativo.
 1. Selecione o aplicativo ao qual você deseja atribuir uma função de aplicativo.

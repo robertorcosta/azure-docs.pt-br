@@ -1,18 +1,17 @@
 ---
 title: Saída de filas do barramento de serviço de Azure Stream Analytics
 description: Este artigo descreve as filas do barramento de serviço como saída para Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 3527bdbbf1ba337d24dc390f97ed090c8dfbe039
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9f71a0f9c6d3fdca4b81be3a69479c78236fcc31
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348382"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014205"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas do barramento de serviço de Azure Stream Analytics
 
@@ -34,7 +33,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Formato de serialização do evento |O formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
 | Codificação |Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador |Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores com suporte são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
-| Formatar |Aplicável somente para o tipo JSON. Uma **Linha separada** especifica que a saída é formatada com cada objeto JSON separado por uma nova linha. Se você selecionar **Linha separada** , o JSON será lido um objeto por vez. O conteúdo inteiro por si só não seria um JSON válido. A **matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
+| Formatar |Aplicável somente para o tipo JSON. Uma **Linha separada** especifica que a saída é formatada com cada objeto JSON separado por uma nova linha. Se você selecionar **Linha separada**, o JSON será lido um objeto por vez. O conteúdo inteiro por si só não seria um JSON válido. A **matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
 | Colunas da propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez do conteúdo. Há mais informações sobre esse recurso na seção [Propriedades de metadados personalizadas para saída](#custom-metadata-properties-for-output). |
 | Colunas da Propriedade do Sistema | Opcional. Pares de valor-chave das Propriedades do Sistema e nomes de colunas correspondentes que precisam ser anexados à mensagem de saída em vez do conteúdo.  |
 

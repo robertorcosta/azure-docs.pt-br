@@ -12,12 +12,12 @@ ms.date: 1/05/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 4674fe41a0e3d63ef0cadc6ad55eca02fc69618e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fd3e4a4442f7da89ffee1557e7d908db805931ed
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935896"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014855"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -136,7 +136,7 @@ Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua
 
 Você pode configurar declarações opcionais para seu aplicativo por meio da interface do usuário ou do manifesto do aplicativo.
 
-1. Vá para o [Portal do Azure](https://portal.azure.com). 
+1. Vá para a <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. 
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo**.
 1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
@@ -199,7 +199,7 @@ Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo 
 
 **Tabela 5: Propriedades do tipo OptionalClaims**
 
-| Nome          | Tipo                       | Descrição                                           |
+| Nome          | Type                       | Descrição                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT.     |
 | `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
@@ -212,7 +212,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 
 **Tabela 6: Propriedades do tipo OptionalClaim**
 
-| Nome                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Type                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e definidas pelo usuário de propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for um usuário, o valor na propriedade name será a propriedade de extensão do objeto de usuário. |
@@ -245,7 +245,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
 **Configurar declarações opcionais de grupos por meio da interface do usuário:**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo**.
@@ -258,7 +258,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
 **Configurando declarações opcionais de grupos por meio do manifesto do aplicativo:**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
@@ -389,7 +389,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 
 **Configuração da interface do usuário:**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 
 1. Pesquise **Azure Active Directory** e selecione-o.
@@ -412,7 +412,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 
 **Configuração do manifesto:**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e selecione-o.

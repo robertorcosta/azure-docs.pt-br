@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75839893d0048841440f2c790df7d23ad825d962
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 8acc547552cecaebb60888bb7b9777f6279b9b7c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093461"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015752"
 ---
 # <a name="invite-internal-users-to-b2b-collaboration"></a>Convidar usuários internos para colaboração B2B
 
@@ -44,8 +44,7 @@ Nesses casos, se o usuário interno precisar ser alterado para um usuário B2B, 
 
 Você pode usar o PowerShell ou a API de convite para enviar um convite B2B para o usuário interno. Verifique se o endereço de email que você deseja usar para o convite está definido como o endereço de email externo no objeto de usuário interno.
 
-- Para um usuário somente em nuvem, use o endereço de email na propriedade User. OtherMails para o convite.
-- Para um usuário sincronizado no local, você deve usar o valor na propriedade User. mail para o convite.
+- Você deve usar o endereço de email na propriedade User. mail para o convite.
 - O domínio na propriedade mail do usuário deve corresponder à conta que está usando para entrar. Caso contrário, alguns serviços, como as equipes, não poderão autenticar o usuário.
 
 Por padrão, o convite enviará ao usuário um email informando que eles foram convidados, mas você poderá suprimir esse email e enviar seu próprio.

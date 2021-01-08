@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052130"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014528"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Mídia do Azure?
 
@@ -76,7 +76,7 @@ A lista a seguir mostra os insights que você pode recuperar dos vídeos usando 
 
 * **Transcrição de áudio**: Conversão de fala em texto em 12 idiomas e permite extensões. Os idiomas com suporte incluem inglês, espanhol, francês, alemão, italiano, chinês (mandarim), japonês, árabe, russo e português, hindi e coreano.
 * **Detecção automática de idioma**: Identifica automaticamente o idioma falado dominante. Os idiomas com suporte incluem inglês, espanhol, francês, alemão, italiano, chinês (mandarim), japonês, russo e português. Se o idioma não for identificado claramente, o Video Indexer suporá que o idioma falado é o inglês. Para obter mais informações, consulte [Modelo de identificação de idioma](language-identification-model.md).
-* **Identificação e transcrição de fala em vários idiomas** (versão prévia): Identifica automaticamente o idioma falado em diferentes segmentos do áudio. Ele envia cada segmento do arquivo de mídia a ser transcrito e, em seguida, combina a transcrição em uma transcrição unificada. Para obter mais informações, consulte [Identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md).
+* **Identificação e transcrição de fala em vários idiomas**: identifica automaticamente o idioma falado em segmentos diferentes do áudio. Ele envia cada segmento do arquivo de mídia a ser transcrito e, em seguida, combina a transcrição em uma transcrição unificada. Para obter mais informações, consulte [Identificar e transcrever automaticamente o conteúdo em vários idiomas](multi-language-identification-transcription.md).
 * **Legendagem oculta**: Cria legendas ocultas em três formatos: VTT, TTML, SRT.
 * **Processamento de dois canais**: Detecta automaticamente, separa a transcrição e mescla em uma única linha do tempo.
 * **Redução de ruído**: Limpa gravações com ruídos ou áudio com telefonia (com base nos filtros do Skype).

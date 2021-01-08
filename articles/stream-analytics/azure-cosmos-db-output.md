@@ -1,18 +1,17 @@
 ---
 title: Azure Cosmos DB saída de Azure Stream Analytics
 description: Este artigo descreve como gerar dados de saída de Azure Stream Analytics para Azure Cosmos DB.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9382ac8dc71d1ccb3a85dc0a7a027c8e99296cc6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491725"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98016570"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Cosmos DB saída de Azure Stream Analytics
 
@@ -34,7 +33,7 @@ A tabela a seguir descreve as propriedades para a criação de uma saída do Azu
 | ID da Conta | O nome ou o URI do ponto de extremidade da conta do Azure Cosmos DB. |
 | Chave de conta | A chave de acesso compartilhado da conta do Azure Cosmos DB. |
 | Banco de dados | O nome do banco de dados do Azure Cosmos DB. |
-| Nome do contêiner | O nome do contêiner a ser usado, o qual deve existir no Cosmos DB. Exemplo:  <br /><ul><li> _MyContainer_ : Já deve existir um contêiner chamado "MyContainer".</li>|
+| Nome do contêiner | O nome do contêiner a ser usado, o qual deve existir no Cosmos DB. Exemplo:  <br /><ul><li> _MyContainer_: Já deve existir um contêiner chamado "MyContainer".</li>|
 | ID do documento |Opcional. O nome do campo em eventos de saída que é usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.
 
 ## <a name="partitioning"></a>Particionamento

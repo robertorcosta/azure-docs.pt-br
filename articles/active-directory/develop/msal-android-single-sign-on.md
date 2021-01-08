@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: 3f5791bfcf6547b7fc4e84bee3d4c1c49453af9c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c4c98ad377100c35b0c364607bfd3803d07a95a7
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169487"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015922"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Como habilitar o SSO entre aplicativos no Android usando o MSAL
 
@@ -119,7 +119,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Depois de gerar um hash de assinatura com *keytool*, use o portal do Azure para gerar o URI de redirecionamento:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione seu aplicativo Android no **registros de aplicativo**.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a> e selecione seu aplicativo Android no **registros de aplicativo**.
 1. Selecione **autenticação**  >  **Adicionar uma plataforma**  >  **Android**.
 1. No painel **configurar seu aplicativo Android** que é aberto, insira o **hash de assinatura** que você gerou anteriormente e um **nome de pacote**.
 1. Selecione o botão **Configurar** .

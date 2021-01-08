@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 46781edad6ad9290932216b9e9f23a359d25497a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366149"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014936"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -55,7 +55,7 @@ Para verificar suas permissões de assinatura:
 
 1. Pesquise e selecione **assinaturas**, ou selecione **assinaturas** na **Home** Page do.
 
-   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selecione a assinatura na qual você deseja criar a entidade de serviço.
 
@@ -75,7 +75,7 @@ Para verificar suas permissões de assinatura:
 
 Vamos diretamente para a criação da identidade. Se você encontrar um problema, verifique as [permissões necessárias](#permissions-required-for-registering-an-app) para garantir que sua conta possa criar a identidade.
 
-1. Entre sua conta do Azure através do [portal do Microsoft Azure](https://portal.azure.com).
+1. Entre em sua conta do Azure por meio <a href="https://portal.azure.com/" target="_blank">do <span class="docon docon-navigate-external x-hidden-focus"></span> portal do Azure</a>.
 1. Selecione **Azure Active Directory**.
 1. Selecione **Registros do Aplicativo**.
 1. Selecione **Novo registro**.
@@ -181,8 +181,8 @@ Se você optar por não usar um certificado, poderá criar um novo segredo do ap
 ## <a name="configure-access-policies-on-resources"></a>Configurar políticas de acesso em recursos
 Tenha em mente que talvez seja necessário configurar permissões adicionais em recursos que seu aplicativo precisa acessar. Por exemplo, você também deve [atualizar as políticas de acesso de um cofre de chaves](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar ao aplicativo acesso a chaves, segredos ou certificados.
 
-1. No [portal do Azure](https://portal.azure.com), navegue até o cofre de chaves e selecione **políticas de acesso**.
-1. Selecione **Adicionar política de acesso**e, em seguida, selecione as permissões de chave, segredo e certificado que você deseja conceder ao seu aplicativo.  Selecione a entidade de serviço que você criou anteriormente.
+1. No <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portal do Azure</a>, navegue até o cofre de chaves e selecione **políticas de acesso**.
+1. Selecione **Adicionar política de acesso** e, em seguida, selecione as permissões de chave, segredo e certificado que você deseja conceder ao seu aplicativo.  Selecione a entidade de serviço que você criou anteriormente.
 1. Selecione **Adicionar** para adicionar a política de acesso e, em seguida, **salvar** para confirmar suas alterações.
     ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 

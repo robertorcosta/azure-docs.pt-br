@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cd51210a64223fab5d2d48a91bd3d0a6521a9627
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8d52f8c59e83a4aae8724100770965f756a439fb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341307"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015684"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerenciar políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ No Azure Cosmos DB, os dados são indexados seguindo [políticas de indexação]
 
 Aqui estão alguns exemplos de políticas de indexação mostradas em [seu formato JSON](index-policy.md#include-exclude-paths), que é como elas são expostas no portal do Azure. Os mesmos parâmetros podem ser definidos por meio da CLI do Azure ou qualquer SDK.
 
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Política de recusa para excluir seletivamente alguns caminhos de propriedade
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a><a id="range-index"></a>Política de recusa para excluir seletivamente alguns caminhos de propriedade
 
 ```json
     {
@@ -146,7 +146,7 @@ Essa política de indexação é equivalente à seguinte que define manualmente 
 > [!NOTE]
 > Geralmente, é recomendável usar uma política de indexação de **recusa** para permitir que Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo de dados.
 
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Como usar um índice espacial em apenas um caminho de propriedade específico
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a><a id="spatial-index"></a>Como usar um índice espacial em apenas um caminho de propriedade específico
 
 ```json
 {
@@ -176,7 +176,7 @@ Essa política de indexação é equivalente à seguinte que define manualmente 
 }
 ```
 
-## <a name="composite-indexing-policy-examples"></a>Exemplos de política de indexação composta
+## <a name="composite-indexing-policy-examples"></a><a id="composite-index"></a>Exemplos de política de indexação composta
 
 Além de incluir ou excluir caminhos para as propriedades individuais, você também pode especificar um índice composto. Se quiser executar uma consulta que tem uma `ORDER BY` cláusula para várias propriedades, será necessário um [índice composto](index-policy.md#composite-indexes) com essas propriedades. Além disso, os índices compostos terão um benefício de desempenho para consultas que têm vários filtros ou um filtro e uma cláusula ORDER BY.
 
@@ -351,7 +351,7 @@ Uma [atualização de política de indexação](index-policy.md#modifying-the-in
 > [!NOTE]
 > Ao atualizar a política de indexação, as gravações para Azure Cosmos DB não serão interrompidas. Saiba mais sobre as [transformações de indexação](index-policy.md#modifying-the-indexing-policy)
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Contêineres do Azure Cosmos armazenam sua política de indexação como um documento JSON que o portal do Azure lhe permite editar diretamente.
 

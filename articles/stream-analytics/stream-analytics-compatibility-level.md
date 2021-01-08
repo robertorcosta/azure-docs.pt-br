@@ -1,17 +1,17 @@
 ---
 title: Níveis de compatibilidade Azure Stream Analytics
 description: Saiba como definir um nível de compatibilidade para um trabalho do Azure Stream Analytics e as principais alterações no nível de compatibilidade mais recente
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348926"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015973"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para trabalhos do Azure Stream Analytics
 
@@ -53,7 +53,7 @@ As seguintes alterações principais são introduzidas no nível de compatibilid
 
 ###  <a name="amqp-messaging-protocol"></a>Protocolo de mensagens AMQP
 
-**nível 1,2** : o Azure Stream Analytics usa o protocolo de mensagens [do protocolo AMQP](../service-bus-messaging/service-bus-amqp-overview.md) para gravar em filas e tópicos do barramento de serviço. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto.
+**nível 1,2**: o Azure Stream Analytics usa o protocolo de mensagens [do protocolo AMQP](../service-bus-messaging/service-bus-amqp-overview.md) para gravar em filas e tópicos do barramento de serviço. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto.
 
 ### <a name="geospatial-functions"></a>Funções geoespaciais
 
