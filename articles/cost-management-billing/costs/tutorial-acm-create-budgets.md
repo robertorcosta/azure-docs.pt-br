@@ -3,24 +3,24 @@ title: 'Tutorial: criar e gerenciar orçamentos do Azure'
 description: Este tutorial ajuda a planejar e contabilizar os custos de serviços do Azure que você consome.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/20/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c8b0265a72911688f08e0f8c4a39fa657f034472
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132798"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630132"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
 Orçamentos no Gerenciamento de Custos ajudam você a planejar e promover responsabilidade organizacional. Com orçamentos, você pode considerar os serviços do Azure que consome ou assina durante um período específico. Eles ajudam você a informar outras pessoas sobre seus gastos para gerenciar proativamente os custos e monitorar como os gastos evoluem ao longo do tempo. Quando os limites de orçamento que você criou são excedidos, apenas notificações são disparadas. Nenhum de seus recursos é afetado e seu consumo não é interrompido. Você pode usar os orçamentos para comparar e controlar como analisar os custos de gastos.
 
-Os dados de custo e de uso geralmente ficam disponíveis no prazo de 8 a 24 horas e os orçamentos são avaliados em relação a esses custos entre 12 e 14 horas. Familiarize-se com os aspectos específicos das [Atualizações de dados de custo e de uso](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quando um limite de orçamento é atingido, as notificações por email são enviadas normalmente em até uma hora da avaliação.
+Os dados de custo e de uso geralmente ficam disponíveis no prazo de 8 a 24 horas, e os orçamentos são avaliados em relação a esses custos a cada 24 horas. Familiarize-se com os aspectos específicos das [Atualizações de dados de custo e de uso](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quando um limite de orçamento é atingido, as notificações por email são enviadas normalmente em até uma hora da avaliação.
 
 Os orçamentos são redefinidos automaticamente no final de um período (mensal, trimestral ou anual) para o mesmo valor de orçamento quando você seleciona uma data de expiração no futuro. Uma vez que redefinidos com o mesmo valor de orçamento, você precisará criar orçamentos separados quando os valores monetários orçados forem diferentes para períodos futuros.
 

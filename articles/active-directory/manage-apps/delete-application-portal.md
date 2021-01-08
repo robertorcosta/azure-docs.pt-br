@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 12/28/2020
 ms.author: kenwith
-ms.openlocfilehash: 677c9c0123c174fdf2cf8e94f9c8110656d21306
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e2b8bd47f7d124562a38413d36b849d1f7efacee
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649391"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802755"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Início Rápido: Excluir um aplicativo do seu locatário do Azure AD (Azure Active Directory)
 
@@ -53,6 +53,6 @@ Quando concluir esta série de guias de início rápido, considere a possibilida
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você concluiu a série de guias de início rápido. Como uma próxima etapa, leia mais sobre as melhores práticas em gerenciamento de aplicativos.
+Você concluiu a série de guias de início rápido. Em seguida, saiba mais sobre o SSO (Logon Único). Confira o artigo [O que é o SSO?](what-is-single-sign-on.md) Ou leia informações sobre práticas recomendadas no gerenciamento de aplicativos.
 > [!div class="nextstepaction"]
 > [Melhores práticas de gerenciamento de aplicativos](application-management-fundamentals.md)

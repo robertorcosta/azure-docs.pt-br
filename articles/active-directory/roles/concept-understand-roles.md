@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 968ca6fa293e7bcc01bae6f48164c48c19b8267b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: db3eaef240e1f76e4c61a454e104336806666a7c
+ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501661"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97803894"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Compreender funções no Azure Active Directory
 
@@ -44,7 +44,7 @@ Quando dizemos sistema de controle de acesso baseado em função separado, isso 
 
 ## <a name="why-some-azure-ad-roles-are-for-other-services"></a>Por que algumas funções do Azure AD são feitas para outros serviços
 
-O Microsoft 365 tem vários sistemas de controle de acesso baseado em função que foram desenvolvidos independentemente ao longo do tempo, cada um com o próprio portal de serviço. Para facilitar o gerenciamento de identidades no Microsoft 365 do portal do Azure AD, adicionamos algumas funções internas específicas do serviço, cada uma delas permite acesso administrativo a um serviço do Microsoft 365. Um exemplo dessa adição é a função Administrador do Exchange no Azure AD. Essa função é equivalente ao [grupo de funções de Gerenciamento da Organização](/exchange/organization-management-exchange-2013-help) no sistema de controle de acesso baseado em função do Exchange e pode gerenciar todos os aspectos do Exchange. Da mesma forma, adicionamos a função Administrador do Intune, Administrador do Teams, Administrador do SharePoint e assim por diante. As funções específicas do servidor são uma categoria de funções internas do Azure AD mostradas na seção a seguir.
+O Microsoft 365 tem vários sistemas de controle de acesso baseado em função que foram desenvolvidos independentemente ao longo do tempo, cada um com o próprio portal de serviço. Para facilitar o gerenciamento de identidades no Microsoft 365 do portal do Azure AD, adicionamos algumas funções internas específicas do serviço, cada uma delas permite acesso administrativo a um serviço do Microsoft 365. Um exemplo dessa adição é a função Administrador do Exchange no Azure AD. Essa função é equivalente ao [grupo de funções de Gerenciamento da Organização](/exchange/organization-management-exchange-2013-help) no sistema de controle de acesso baseado em função do Exchange e pode gerenciar todos os aspectos do Exchange. Da mesma forma, adicionamos a função Administrador do Intune, Administrador do Teams, Administrador do SharePoint e assim por diante. As funções específicas do serviço são uma categoria de funções internas do Azure AD que serão mostradas na seção a seguir.
 
 ## <a name="categories-of-azure-ad-roles"></a>Categorias de funções do Azure AD
 

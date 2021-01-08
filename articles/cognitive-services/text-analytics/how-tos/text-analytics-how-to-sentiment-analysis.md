@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 12/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4f5c47000355a004f8d76d8b740b705618748380
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
+ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505215"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97673046"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>Como usar a análise de sentimento e a mineração de opiniões
 
@@ -24,8 +24,6 @@ O recurso Análise de Sentimento da API de Análise de Texto fornece duas maneir
 Os modelos de IA usados pela API são fornecidos pelo serviço; basta enviar o conteúdo para análise.
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versões e recursos da Análise de Sentimento
-
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 | Recurso                                   | Análise de Sentimento v3 | Análise de Sentimento v3.1 (versão prévia) |
 |-------------------------------------------|-----------------------|-----------------------------------|
@@ -47,7 +45,7 @@ Os rótulos são *positivos*, *negativos* e *neutros*. No nível do documento, o
 | Há, pelo menos, uma frase `negative` e uma frase `positive` no documento.    | `mixed`                 |
 | Todas as frases do documento são `neutral`.                                                  | `neutral`               |
 
-As pontuações de confiança vão de 1 a 0. As pontuações mais próximas a 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações inferiores indicam uma menor confiança. Para cada documento ou cada frase, as pontuações previstas associadas aos rótulos (positivo, negativo e neutro) somam 1.
+As pontuações de confiança vão de 1 a 0. As pontuações mais próximas a 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações inferiores indicam uma menor confiança. Para cada documento ou cada frase, as pontuações previstas associadas aos rótulos (positivo, negativo e neutro) somam 1. Para obter mais informações, confira a [observação sobre a transparência da Análise de Texto](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context). 
 
 ## <a name="opinion-mining"></a>Mineração de opiniões
 

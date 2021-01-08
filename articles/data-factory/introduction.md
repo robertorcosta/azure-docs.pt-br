@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: d8b6a852ff0aeb287b12d63bfa689a38a56d418f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 00ae812536e73f432b9bddb93fc1b4a958b379f5
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485002"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97812861"
 ---
 # <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
 
@@ -56,8 +56,7 @@ Depois que os dados estiverem presentes em um armazenamento de dados centralizad
 Se você preferir codificar as transformações manualmente, o ADF é compatível com atividades externas para executar suas transformações em serviços de computação, tais como HDInsight Hadoop, Spark, Data Lake Analytics e Machine Learning.
 
 ### <a name="cicd-and-publish"></a>CI/CD e publicar
-O Data Factory oferece total compatibilidade para CI/CD de seus pipelines de dados usando o Azure DevOps e o GitHub. Isso permite que você desenvolva e entregue incrementalmente seus processos de ETL antes de publicar o produto acabado. Após os dados brutos terem sido refinados para uma forma consumível pronta para negócios, carregue-os no Data Warehouse do Azure, no Banco de Dados SQL do Azure, no Azure CosmosDB ou em qualquer mecanismo analítico que os seus usuários empresariais possam acessar por meio de suas respectivas ferramentas de business intelligence.
-
+[O Data Factory oferece total compatibilidade para CI/CD](continuous-integration-deployment.md) dos pipelines de dados usando o Azure DevOps e o GitHub. Isso permite que você desenvolva e entregue incrementalmente seus processos de ETL antes de publicar o produto acabado. Após os dados brutos terem sido refinados para uma forma consumível pronta para negócios, carregue-os no Data Warehouse do Azure, no Banco de Dados SQL do Azure, no Azure CosmosDB ou em qualquer mecanismo analítico que os seus usuários empresariais possam acessar por meio de suas respectivas ferramentas de business intelligence.
 ### <a name="monitor"></a>Monitoramento
 Após ter criado e implantado com sucesso o pipeline de integração de dados, fornecendo valor empresarial com base em dados refinados, monitore as atividades e pipelines agendados para saber as taxas de sucesso e falha. O Azure Data Factory tem suporte interno para monitoramento de pipelines por meio do Azure Monitor, da API, do PowerShell, dos logs do Azure Monitor e dos painéis de integridade no portal do Azure.
 

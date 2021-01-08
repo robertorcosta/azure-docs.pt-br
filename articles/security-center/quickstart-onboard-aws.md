@@ -3,16 +3,16 @@ title: Conectar as contas da AWS à Central de Segurança do Azure
 description: Como monitorar seus recursos da AWS por meio da Central de Segurança do Azure
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 12/29/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 23609613cace2f9be90ad5c88d4d51bb1c2f1a9b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573503"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814305"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conectar as contas da AWS à Central de Segurança do Azure
 
@@ -41,7 +41,7 @@ Na captura de tela abaixo, você pode ver as contas da AWS exibidas no dashboard
 |----|:----|
 |Estado da versão:|Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
-|Funções e permissões necessárias:|**Proprietário** ou **Colaborador** na Assinatura relevante do Azure|
+|Funções e permissões necessárias:|**Proprietário** na assinatura relevante do Azure<br>O **Colaborador** também pode conectar uma conta da AWS se um proprietário fornecer os detalhes da entidade de serviço|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 

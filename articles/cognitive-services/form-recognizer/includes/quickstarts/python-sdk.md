@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 12b49bf81328cc405337b682241aef2cd965c3de
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9762ca79f73b3333045d1c11376ab315aac2d55e
+ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356538"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97808650"
 ---
 > [!IMPORTANT]
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Confira a documentação de referência abaixo. 
@@ -36,17 +36,23 @@ ms.locfileid: "96356538"
 
 Depois de instalar o Python, você poderá instalar a versão mais recente da biblioteca de clientes do Reconhecimento de Formulários com:
 
-#### <a name="version-30"></a>[versão 3.0](#tab/ga)
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
 
 ```console
 pip install azure-ai-formrecognizer
 ```
 
-#### <a name="version-31-preview"></a>[versão 3.1 – versão prévia](#tab/preview)
+> [!NOTE]
+> O Reconhecimento de Formulários mais recente reflete a API versão 2.0
+
+#### <a name="version-21-preview"></a>[versão 2.1 – versão prévia](#tab/preview)
 
 ```console
 pip install azure-ai-formrecognizer --pre
 ```
+
+> [!NOTE]
+> O SDK da versão prévia do Reconhecimento de Formulários reflete a versão prévia da API versão 2.1
 
 ---
 
@@ -91,7 +97,7 @@ Com o Reconhecimento de Formulários, você pode criar dois tipos diferentes de 
 
 Estes snippets de código mostram como executar as seguintes tarefas com a biblioteca de clientes do Reconhecimento de Formulários para Python:
 
-#### <a name="version-30"></a>[versão 3.0](#tab/ga)
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Reconhecer o conteúdo do formulário](#recognize-form-content)
@@ -100,7 +106,7 @@ Estes snippets de código mostram como executar as seguintes tarefas com a bibli
 * [Analisar formulários com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerenciar seus modelos personalizados](#manage-your-custom-models)
 
-#### <a name="version-31-preview"></a>[versão 3.1 – versão prévia](#tab/preview)
+#### <a name="version-21-preview"></a>[versão 2.1 – versão prévia](#tab/preview)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Reconhecer o conteúdo do formulário](#recognize-form-content)
@@ -123,7 +129,9 @@ Aqui, você autenticará os objetos de cliente usando as variáveis de assinatur
 ## <a name="get-assets-for-testing"></a>Obter ativos para teste
 
 Você precisará adicionar referências às URLs para os dados de treinamento e teste.
-* Para recuperar a URL de SAS para os dados de treinamento do modelo personalizado, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **Obter Assinatura de Acesso Compartilhado**. Verifique se as permissões de **Leitura** e **Lista** estão marcadas e clique em **Criar**. Em seguida, copie o valor na seção **URL**. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+  
+   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="Recuperação da URL SAS":::
 * Use as imagens de exemplo e de recibo incluídas nos exemplos abaixo (também disponíveis no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) ou use as etapas acima para obter a URL SAS de um documento individual no Armazenamento de Blobs. 
 
 > [!NOTE]
@@ -194,11 +202,15 @@ Tax: 104.4 has confidence 0.713
 Total: 1203.39 has confidence 0.774
 ```
 
-#### <a name="version-30"></a>[versão 3.0](#tab/ga)
-
-#### <a name="version-31-preview"></a>[versão 3.1 – versão prévia](#tab/preview)
 
 ## <a name="recognize-business-cards"></a>Reconhecer cartões de visita
+
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Este recurso não está disponível na versão selecionada da API.
+
+#### <a name="version-21-preview"></a>[versão 2.1 – versão prévia](#tab/preview)
 
 Esta seção demonstra como reconhecer e extrair campos comuns de cartões de visita em inglês usando um modelo pré-treinado. Para reconhecer cartões de visita por meio de uma URL, use o método `begin_recognize_business_cards_from_url`. 
 
@@ -207,7 +219,16 @@ Esta seção demonstra como reconhecer e extrair campos comuns de cartões de vi
 > [!TIP]
 > Reconheça também imagens de cartões de visita locais. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_business_cards`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
 
+---
+
 ## <a name="recognize-invoices"></a>Reconhecer faturas
+
+#### <a name="version-20"></a>[versão 2.0](#tab/ga)
+
+> [!IMPORTANT]
+> Este recurso não está disponível na versão selecionada da API.
+
+#### <a name="version-21-preview"></a>[versão 2.1 – versão prévia](#tab/preview)
 
 Esta seção demonstra como reconhecer e extrair campos comuns de faturas de vendas usando um modelo pré-treinado. Para reconhecer faturas por meio de uma URL, use o método `begin_recognize_invoices_from_url`. 
 

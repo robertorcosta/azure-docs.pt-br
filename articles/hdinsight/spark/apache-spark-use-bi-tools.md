@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 4eb10298ac683c991835f86582d82fb952b314b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f56bb5e3ed8c953b67f1e88fc16846accaed995
+ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82195104"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97821274"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark usando o Power BI no HDInsight
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 O [Jupyter Notebook](https://jupyter.org/) que você criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar uma tabela `hvac`. Esta tabela é baseada no arquivo CSV disponível em todos os clusters do Spark do HDInsight em `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv`. Use o procedimento a seguir para verificar os dados.
 
-1. A partir do notebook Jupyter, cole o código a seguir e pressione **SHIFT+ENTER**. O código verifica a existência das tabelas.
+1. Do Jupyter Notebook, cole o código a seguir e pressione **SHIFT + ENTER**. O código verifica a existência das tabelas.
 
     ```PySpark
     %%sql
@@ -99,7 +99,7 @@ As primeiras etapas ao trabalhar com Spark são conectar-se ao cluster no Power 
 
     1. No painel **VISUALIZAÇÕES**, selecione **Gráfico de Área**.
 
-    2. Arraste o campo **BuildingID** para **Eixo**e arraste os campos **ActualTemp** e **TargetTemp** para **Valor**.
+    2. Arraste o campo **BuildingID** para **Eixo** e arraste os campos **ActualTemp** e **TargetTemp** para **Valor**.
 
         ![adicionar colunas de valor](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "adicionar colunas de valor")
 

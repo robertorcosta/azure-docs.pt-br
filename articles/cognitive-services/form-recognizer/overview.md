@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, processamento de formulários
-ms.openlocfilehash: 39243f4428d055ee5d4491c3e87b4b91213f63f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353673"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845518"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -108,23 +108,21 @@ O modelo de Cartões de Visita permite que você extraia informações, como nom
 
 Use a [ferramenta Reconhecimento de Formulários de Exemplo](https://fott.azurewebsites.net/) ou siga um guia de início rápido para começar a extrair dados dos seus formulários. Recomendamos usar o serviço gratuito quando estiver aprendendo a tecnologia. Lembre-se de que o número de páginas gratuitas é limitado a 500 por mês.
 
-* [Inícios rápidos da biblioteca de cliente](./quickstarts/client-library.md) (todos os idiomas, vários cenários)
+* [Início rápido da biblioteca de clientes/API REST](./quickstarts/client-library.md) (todos os idiomas, vários cenários)
 * Inícios rápidos da interface do usuário da Web
   * [Treinar com rótulos – ferramenta de rotulação de amostra](quickstarts/label-tool.md)
-* Guias de início rápido do REST
+* Exemplos de REST (GitHub)
  * Extrair texto, marcas de seleção e estrutura de tabela de documentos
-    * [Extrair dados de layout – Python](quickstarts/python-layout.md)
+    * [Extrair dados de layout – Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
   * Treinar modelos personalizados e extrair dados de formulário
-    * [Treinar sem rótulos – cURL](quickstarts/curl-train-extract.md)
-    * [Treinar sem rótulos – Python](quickstarts/python-train-extract.md)
-    * [Treinar com rótulos – Python](quickstarts/python-labeled-data.md)
+    * [Treinar sem rótulos – Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+    * [Treinar com rótulos – Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
   * Extrair dados de faturas
-    * [Extrair dados de faturas – Python](quickstarts/python-invoices.md)
+    * [Extrair dados de faturas – Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
   * Extrair dados de recibos de vendas
-    * [Extrair dados de recibo – cURL](quickstarts/curl-receipts.md)
-    * [Extrair dados de recibo – Python](quickstarts/python-receipts.md)
+    * [Extrair dados de recibo – Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
   * Extrair dados de cartões de visita
-    * [Extrair dados do cartão de visita – Python](quickstarts/python-business-cards.md)
+    * [Extrair dados do cartão de visita – Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### <a name="review-the-rest-apis"></a>revisar as Especificações das APIs REST
 
@@ -162,4 +160,4 @@ Assim como ocorre com todos os serviços cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conclua um [início rápido da biblioteca de clientes](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários no idioma de sua escolha.
+Conclua um [início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários no idioma de sua escolha.

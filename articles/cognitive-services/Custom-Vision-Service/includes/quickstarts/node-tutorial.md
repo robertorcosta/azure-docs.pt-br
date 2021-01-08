@@ -4,12 +4,12 @@ ms.author: areddish
 ms.service: cognitive-services
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3942d4e7316c9617e1d2f61820cfa91b42d4b883
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 07aff220e211578a6a4b18e8d88ff44a4cc39a86
+ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625536"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97582581"
 ---
 Este artigo fornece informações e um código de exemplo para ajudar você a começar a usar a biblioteca de clientes da Visão Personalizada para Node.js, a fim de criar um modelo de classificação de imagem. Você criará um projeto, adicionará marcas, treinará o projeto e usará a URL do ponto de extremidade de previsão do projeto para testá-lo programaticamente. Use este exemplo como um modelo para criar o próprio aplicativo de reconhecimento de imagem.
 
@@ -75,7 +75,7 @@ Crie variáveis para as chaves e o ponto de extremidade do Azure do recurso.
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Acesse o portal do Azure. Se o recurso do [Nome do produto] que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Acessar o Recurso** em **Próximas Etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
+> Acesse o portal do Azure. Se o recurso de Treinamento da Visão Personalizada que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para Recurso** em **Próximas Etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
 >
 > Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](../../../cognitive-services-security.md) de Serviços Cognitivos para obter mais informações.
 
@@ -145,18 +145,18 @@ Este código cria a primeira iteração do modelo de previsão.
 
 ## <a name="publish-the-current-iteration"></a>Publicar a iteração atual
 
-Este código publica a iteração treinada no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
+Esse código publica a iteração treinada no ponto de extremidade de previsão. O nome dado à iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não fica disponível no ponto de extremidade de previsão até ser publicada.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_publish)]
 
 
 ## <a name="test-the-prediction-endpoint"></a>Testar o ponto de extremidade de previsão
 
-Para enviar uma imagem ao ponto de extremidade de previsão e recuperar a previsão, adicione o código a seguir à sua função. 
+Para enviar uma imagem para o ponto de extremidade de previsão e recuperar a previsão, adicione o código a seguir à sua função. 
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_test)]
 
-Em seguida, feche a função da Visão Personalizada e chame-a.
+Em seguida, feche a função Visão Personalizada e chame-a.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ImageClassification/CustomVisionQuickstart.js?name=snippet_function_close)]
 

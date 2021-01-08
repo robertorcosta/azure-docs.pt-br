@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e267de136271991446444a47a470dd52789b3613
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
+ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533954"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97617350"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -49,7 +49,7 @@ Lançamos a versão 2.0.1 dos cmdlets da Área de Trabalho Virtual do Windows. E
 
 ### <a name="azure-advisor-updates"></a>Atualizações do Assistente do Azure
 
-O Assistente do Azure agora tem uma nova recomendação para diretrizes de proximidade na Área de Trabalho Virtual do Windows. Saiba mais no [site do Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
+Agora, o Assistente do Azure tem uma nova recomendação para diretrizes de proximidade na Área de Trabalho Virtual do Windows e uma nova recomendação para otimizar o desempenho em pools de hosts com balanceamento de carga em profundidade. Saiba mais no [site do Azure](https://azure.microsoft.com/updates/new-recommendations-from-azure-advisor/).
 
 ## <a name="october-2020"></a>Outubro de 2020
 

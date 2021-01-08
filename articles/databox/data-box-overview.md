@@ -7,23 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: dd71b03f55cc1522727f6c496c1bdbe0f42cb828
+ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336668"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97678621"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
 A solução de nuvem do Microsoft Azure Data Box permite que você troque terabytes de dados com o Azure (envio e recebimento) de maneira rápida, barata e confiável. A transferência de dados segura é acelerada pelo envio de um dispositivo de armazenamento Data Box proprietário. Cada dispositivo de armazenamento tem uma capacidade máxima de armazenamento utilizável de 80 TB e é transportado para o seu datacenter por meio de uma transportadora regional. O dispositivo tem uma caixa reforçada para proteger os dados durante o transporte.
 
-Você pode solicitar o dispositivo Data Box pelo portal do Azure para importar dados de ou exportar dados para o Azure. Depois que o dispositivo é recebido, você pode configurá-lo rapidamente usando a interface do usuário da Web local. Dependendo de qual for seu objetivo (importar ou exportar dados), copie os dados dos servidores para o dispositivo ou vice-versa e envie o dispositivo de volta para o Azure. Ao importar dados para o Azure, no datacenter do Azure, seus dados são carregados automaticamente do dispositivo para o Azure. Todo o processo é acompanhado de ponta a ponta pelo serviço Data Box no portal do Azure.
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
-
+Você pode solicitar o dispositivo Data Box pelo portal do Azure para importar dados de ou exportar dados para o Azure. Depois que o dispositivo é recebido, você pode configurá-lo rapidamente usando a interface do usuário da Web local. Se você for importar ou exportar os dados, copie os dados dos servidores para o dispositivo ou vice-versa e envie o dispositivo novamente para o Azure. Ao importar dados para o Azure, no datacenter do Azure, seus dados são carregados automaticamente do dispositivo para o Azure. Todo o processo é acompanhado de ponta a ponta pelo serviço Data Box no portal do Azure.
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -43,25 +40,25 @@ Veja a seguir os vários cenários em que o Data Box pode ser usado para importa
 
 Veja a seguir os vários cenários em que o Data Box pode ser usado para exportar dados do Azure.
 
-- **Recuperação de desastre** – quando uma cópia dos dados do Azure é restaurada para uma rede local. Isso normalmente é feito em cenários de recuperação de desastre em que uma grande quantidade de dados do Azure é exportada para o Data Box. Em seguida, a Microsoft envia esse Data Box e os dados são restaurados em seu local após um breve período de tempo. 
+- **Recuperação de desastre** – quando uma cópia dos dados do Azure é restaurada para uma rede local. Em um cenário típico de recuperação de desastre, um grande volume de dados do Azure é exportado para um Data Box. Em seguida, a Microsoft envia esse Data Box, e os dados são restaurados no seu local após um breve período.
 
 - **Requisitos de segurança** – quando você precisa ser capaz de exportar dados provenientes do Azure devido a requisitos governamentais ou de segurança. Por exemplo, o Armazenamento do Azure está disponível nas nuvens Secreto e Altamente Secreto dos EUA, e você pode usar o Data Box para exportar dados provenientes do Azure. 
 
-- **Migre de volta para o local ou para outro provedor de serviços de nuvem** : quando desejar mover todos os dados de volta para o local ou para outro provedor de serviços de nuvem, exporte os dados por meio do Data Box para migrar as cargas de trabalho.
+- **Migre de volta para o local ou para outro provedor de serviços de nuvem**: quando desejar mover todos os dados de volta para o local ou para outro provedor de serviços de nuvem, exporte os dados por meio do Data Box para migrar as cargas de trabalho.
 
 
 ## <a name="benefits"></a>Benefícios
 
 O Data Box foi projetado para mover grandes quantidades de dados para o Azure com pouco ou nenhum impacto à rede. A solução oferece as seguintes vantagens:
 
-- **Velocidade** – os adaptadores de rede do Data Box usa 1 Gbps ou 10 Gbps para mover até 80 TB de dados para o Azure/do Azure.
+- **Velocidade**: o Data Box usa adaptadores de rede de 1 ou 10 Gbps para mover até 80 TB de dados no Azure.
 
 - **Seguro** – o Data Box tem proteções de segurança internas para o dispositivo, os dados e o serviço.
   - O dispositivo tem uma caixa reforçada protegida por parafusos resistentes a adulteração e adesivos com evidência de adulteração. 
   - Os dados do dispositivo são sempre protegidos por uma criptografia AES de 256 bits.
   - O dispositivo só pode ser desbloqueado com uma senha fornecida no portal do Azure.
   - O serviço é protegido pelos recursos de segurança do Azure.
-  - Após o upload dos dados no Azure para uma ordem de importação, os discos do dispositivo são apagados, de acordo com os padrões NIST 800-88r1. Para uma ordem de exportação, os discos são apagados quando o dispositivo atinge o datacenter do Azure.
+  - Depois que os dados do seu pedido de importação são importados no Azure, os discos do dispositivo são apagados, de acordo com os padrões NIST 800-88r1. Para uma ordem de exportação, os discos são apagados quando o dispositivo atinge o datacenter do Azure.
     
     Para obter mais informações, acesse [Segurança e proteção de dados do Azure Data Box](data-box-security.md).
 
@@ -75,9 +72,9 @@ O dispositivo Data Box tem os seguintes recursos nesta versão.
 | Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            
 | Espaço em rack                                              | 7 U quando colocado no rack em seu lado (não pode ser montado em rack)|
 | Cabos necessários                                         | 1 x cabo de alimentação (incluído) <br> 2 cabos de conector RJ-45 <br> 2 x cabos de cobre SFP+ Twinax|
-| Capacidade de armazenamento                                        | Dispositivo de 100 TB tem capacidade utilizável de 80 TB após a proteção RAID 5|
+| Capacidade de armazenamento                                        | Dispositivo de 100 TB tem capacidade utilizável ou de 80 TB após a proteção RAID 5|
 | Classificação de energia                                            | A unidade de fornecimento de energia é classificada para 700 W. <br> Normalmente, a unidade extrai 375 W.|
-| Interfaces de rede                                      | 2 x interface de 1 GbE – MGMT, DADOS 3. <br> MGMT – para o gerenciamento, o não configurável pelo usuário, usado para a configuração inicial <br> DATA3 – para os dados, configurável pelo usuário e dinâmico por padrão <br> MGMT e DATA 3 também podem funcionar como 10 GbE <br> 2 x interface de 10 GbE – DATA 1, DATA 2 <br> Ambos são para os dados, pode ser configurado como dinâmicos (padrão) ou estático |
+| Interfaces de rede                                      | Dois adaptadores de 1 GbE – MGMT, DATA 3. <br> MGMT – para o gerenciamento, o não configurável pelo usuário, usado para a configuração inicial <br> DATA3 – para os dados, configurável pelo usuário e dinâmico por padrão <br> MGMT e DATA 3 também podem funcionar como 10 GbE <br> Dois adaptadores de 10 GbE – DATA 1, DATA 2 <br> Ambos são para os dados, pode ser configurado como dinâmicos (padrão) ou estático |
 | Transferência de dados                                      | Há suporte para importação e exportação.  |
 | Mídia de transferência de dados                                     | Conector RJ-45, Ethernet de 10 GbE de cobre SFP+  |
 | Segurança                                                | Caixa do dispositivo reforçada com parafusos personalizados invioláveis <br> Adesivos invioláveis colocados na parte inferior do dispositivo|
@@ -88,7 +85,7 @@ O dispositivo Data Box tem os seguintes recursos nesta versão.
 
 O Data Box inclui os seguintes componentes:
 
-* **Dispositivo Data Box** – um dispositivo físico que oferece armazenamento primário, gerencia a comunicação com o armazenamento em nuvem e ajuda a garantir a segurança e a confidencialidade de todos os dados armazenados no dispositivo. O dispositivo Data Box tem uma capacidade de armazenamento utilizável de 80 TB. 
+* **Dispositivo Data Box**: um dispositivo físico que oferece armazenamento primário, gerencia a comunicação com o armazenamento em nuvem e ajuda a garantir a segurança e a confidencialidade de todos os dados armazenados no dispositivo. O dispositivo Data Box tem uma capacidade de armazenamento utilizável de 80 TB. 
 
     ![Plano frontal e traseiro do Data Box](media/data-box-overview/data-box-combined.png)
 
@@ -132,17 +129,17 @@ Um fluxo de exportação típico inclui as seguintes etapas:
 
 4. **Devolução** – prepare, desligue e envie o dispositivo novamente para o datacenter do Azure.
 
-5. **Apagamento de dados** : os discos do dispositivo são apagados com segurança, de acordo com as diretrizes do NIST (National Institute of Standards and Technology).
+5. **Apagamento de dados**: os discos do dispositivo são apagados com segurança, de acordo com as diretrizes do NIST (National Institute of Standards and Technology).
 
 Ao longo do processo de exportação, você receberá uma notificação por email sobre todas as alterações de status. Para saber mais sobre o fluxo detalhado, acesse [Implantar Data Box no portal do Azure](data-box-deploy-export-ordered.md).
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O Data Box pode transferir dados de acordo com a região na qual o serviço foi implantado, o país ou a região aos quais o dispositivo é enviado e a conta de armazenamento do Azure de destino usada para a transferência dos dados. 
+O Data Box pode transferir dados de acordo com a região na qual o serviço foi implantado, o país ou a região aos quais o dispositivo é enviado e a conta de armazenamento do Azure de destino usada para a transferência dos dados.
 
 ### <a name="for-import"></a>Para importação
 
-- **Disponibilidade de serviço** – Ao usar o Data Box para ordens de importação ou exportação, para obter mais informações sobre a disponibilidade da região, acesse [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). O recurso de exportação no Data Box está atualmente em versão prévia. 
+- **Disponibilidade de serviço** – Ao usar o Data Box para ordens de importação ou exportação, para obter mais informações sobre a disponibilidade da região, acesse [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
     Para ordens de importação, o Data Box também pode ser implantado na Nuvem do Azure Government. Para obter mais informações, confira [O que é o Azure Governamental?](../azure-government/documentation-government-welcome.md). 
 

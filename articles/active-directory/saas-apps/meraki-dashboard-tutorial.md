@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 0d5b6b7b3cf74ab740dbaeb8d86ab8bbb98e8531
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0c43e085725ceb5db718c9b4c9c9d83787964d63
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356986"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813523"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Meraki Dashboard
 
@@ -132,7 +132,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar uma função**, escolha a função apropriada para o usuário na lista e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 
     ![função de usuário](./media/meraki-dashboard-tutorial/user-role.png)
 
@@ -143,7 +143,15 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 ## <a name="configure-meraki-dashboard-sso"></a>Configurar o SSO do Meraki Dashboard
 
-1. Em outra janela do navegador da Web, entre no site do Meraki Dashboard como administrador.
+1. Para automatizar a configuração no Meraki Dashboard, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos** clicando em **Instalar a extensão**.
+
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão ao navegador, clique em **Configurar o Meraki Dashboard** para ser direcionado ao aplicativo do Meraki Dashboard. Nele, forneça as credenciais de administrador para entrar no Meraki Dashboard. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 7.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se desejar configurar o Meraki Dashboard manualmente, em outra janela do navegador da Web, entre no site da empresa do Meraki Dashboard como administrador.
 
 1. Navegue até **Organização** -> **Configurações**.
 

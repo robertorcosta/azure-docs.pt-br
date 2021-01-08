@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f788c9e78790e6872870869e2bc153e1b1451e51
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 64e648cf6ae3c763d3e9ab1a6970f48c84331bad
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566530"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845624"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -52,8 +52,6 @@ Estes são os componentes implementados pelo aplicativo de exemplo *AdtSampleApp
 * Interface de console para chamar a API dos Gêmeos Digitais do Azure
 * *SampleClientApp* – uma solução de exemplo dos Gêmeos Digitais do Azure
 * *SampleFunctionsApp* – um aplicativo do Azure Functions que atualiza seu gráfico dos Gêmeos Digitais do Azure como resultado da telemetria do Hub IoT e de eventos dos Gêmeos Digitais do Azure
-
-O projeto de exemplo também contém um componente de autorização interativo. Toda vez que você iniciar o projeto, uma janela do navegador será aberta, solicitando que você faça logon com sua conta do Azure.
 
 ### <a name="instantiate-the-pre-created-twin-graph"></a>Criar uma instância do gráfico gêmeo pré-criado
 
@@ -134,7 +132,7 @@ Para um destino específico, escolha **Aplicativo de Funções do Azure (Windows
 
 Na página da *instância do Azure Functions*, escolha sua assinatura. Isso deve popular uma caixa com os *grupos de recursos* em sua assinatura.
 
-Selecione o grupo de recursos de sua instância e clique em *+ Criar uma função do Azure...* .
+Selecione o grupo de recursos de sua instância e clique em *+* para criar uma função do Azure.
 
 :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Publicar função do Azure no Visual Studio: instância do Azure Functions (antes do aplicativo de funções)":::
 

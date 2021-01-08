@@ -7,18 +7,21 @@ ms.service: storage
 ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 11/07/2017
+ms.date: 12/29/2020
 ms.author: fryu
-ms.openlocfilehash: 2d921a968f50f64788ccbd7637bc04c8492a3f90
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: dfc338844e310102447e2498ee9cce8f28a79b9f
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96010887"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809557"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de cobrança de um contêiner de blob
 
 Este script calcula o tamanho de um contêiner no armazenamento de Blobs do Azure com a finalidade de estimar os custos de cobrança. O script soma o tamanho dos blobs no contêiner.
+
+> [!IMPORTANT]
+> O script de exemplo fornecido neste artigo pode não calcular com precisão o tamanho da cobrança para os instantâneos de blob.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -31,9 +34,9 @@ Este script calcula o tamanho de um contêiner no armazenamento de Blobs do Azur
 
 O tamanho total do contêiner de blob inclui o tamanho do próprio contêiner e o tamanho de todos os blobs no contêiner.
 
-O exemplo de seções a seguir descreve como a capacidade de armazenamento é calculada para contêineres de blob e blobs.  Na seção a seguir, Len(X) significa o número de caracteres na cadeia de caracteres.
+O exemplo de seções a seguir descreve como a capacidade de armazenamento é calculada para contêineres de blob e blobs. Na seção a seguir, Len(X) significa o número de caracteres na cadeia de caracteres.
 
-### <a name="blob-containers"></a>Contêineres de blob
+### <a name="blob-containers"></a>Contêineres de blobs
 
 O cálculo a seguir descreve como estimar a quantidade de armazenamento consumida por contêiner de blob:
 
@@ -44,6 +47,7 @@ For-Each Signed Identifier[512 bytes]
 ```
 
 A seguir, encontra-se a divisão:
+
 * 48 bytes de sobrecarga para cada contêiner inclui a Hora da última modificação, as Permissões, as Configurações públicas e alguns metadados do sistema.
 
 * O nome do contêiner é armazenado como Unicode. Portanto, multiplique o número de caracteres por dois.

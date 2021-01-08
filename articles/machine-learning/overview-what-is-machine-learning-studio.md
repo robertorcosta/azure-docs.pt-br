@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565901"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740497"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 
@@ -25,6 +25,11 @@ Neste artigo, você aprende:
 > - Como [gerenciar ativos e recursos](#manage-assets-and-resources) no estúdio.
 > - A diferença entre o [Estúdio do Azure Machine Learning e o ML Studio (clássico)](#ml-studio-classic-vs-azure-machine-learning-studio).
 
+É recomendável que você use o navegador mais atualizado compatível com o sistema operacional. Há suporte para os seguintes navegadores:
+  * Microsoft Edge (a versão mais recente, não o Microsoft Edge herdado)
+  * Safari (última versão, apenas Mac)
+  * Chrome (última versão)
+  * Firefox (última versão)
 
 ## <a name="author-machine-learning-projects"></a>Criar projetos de machine learning
 
@@ -33,6 +38,8 @@ O estúdio oferece várias experiências de criação, dependendo do tipo de pro
 + **Notebooks**
 
   Escreva e execute seu código em [servidores gerenciados do Jupyter Notebook](how-to-run-jupyter-notebooks.md) que estão diretamente integrados no estúdio. 
+
+:::image type="content" source="media/overview-what-is-azure-ml-studio/notebooks.gif" alt-text="Captura de tela: gravar e executar o código em um notebook":::
 
 + **Designer do Azure Machine Learning**
 
@@ -94,6 +101,9 @@ A tabela a seguir resume as principais diferenças entre o ML Studio (clássico)
 | Detecção de descompasso de dados | Sem suporte | [Com suporte](how-to-monitor-datasets.md) |
 | Projetos de rotulagem de dados | Sem suporte | [Com suporte](how-to-create-labeling-projects.md) |
 
+## <a name="troubleshooting"></a>Solução de problemas
+
+* **Itens da interface do usuário ausentes no estúdio**: o controle de acesso baseado em função do Azure pode ser usado para restringir ações que podem ser executadas com o Azure Machine Learning. Essas restrições podem impedir que itens da interface do usuário apareçam no Estúdio do Azure Machine Learning. Por exemplo, caso seja atribuída a você uma função que não pode criar uma instância de computação, a opção para criá-la não será exibida no estúdio. Para obter mais informações, confira [Gerenciar usuários e funções](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

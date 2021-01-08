@@ -5,14 +5,14 @@ author: rahulg1190
 ms.author: rahugup
 ms.manager: bsiva
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: af1c321e5c537fbd3af770cb392c538e6056e075
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: bd560a6ef4a3b4ab5eb4632e7741c764f6e314e1
+ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752865"
+ms.lasthandoff: 01/03/2021
+ms.locfileid: "97854920"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrar computadores como servidores físicos para o Azure
 
@@ -109,7 +109,7 @@ Prepare-se para implantação do dispositivo, conforme mostrado a seguir:
 - Você prepara um computador para hospedar o dispositivo de replicação. [Examine](migrate-replication-appliance.md#appliance-requirements) os requisitos do computador.
 - O dispositivo de replicação usa o MySQL. Examine as [opções](migrate-replication-appliance.md#mysql-installation) para instalar o MySQL no dispositivo.
 - Examine as URLs do Azure necessárias para que o dispositivo de replicação acesse as nuvens [públicas](migrate-replication-appliance.md#url-access) e [governamentais](migrate-replication-appliance.md#azure-government-url-access).
-- Examine os requisitos de acesso da [porta] (migrate-replication-appliance.md#port-access) para o dispositivo de replicação.
+- Examine os requisitos de acesso à [porta](migrate-replication-appliance.md#port-access) para o dispositivo de replicação.
 
 > [!NOTE]
 > O dispositivo de replicação não deve ser instalado em um computador de origem que você deseja replicar nem no dispositivo de avaliação e descoberta das Migrações para Azure que pode ter sido instalado antes.

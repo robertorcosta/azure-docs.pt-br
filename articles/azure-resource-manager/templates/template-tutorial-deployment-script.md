@@ -8,15 +8,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/14/2020
+ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ec7b951581efd0a25b44d298b1f1bfb997167d88
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
+ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589093"
+ms.lasthandoff: 12/18/2020
+ms.locfileid: "97683496"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Usar scripts de implantação para criar um certificado autoassinado
 
@@ -34,13 +34,15 @@ Este tutorial cobre as seguintes tarefas:
 > * Depurar o script com falha
 > * Limpar os recursos
 
+Para ver um módulo do Microsoft Learn que aborda os scripts de implantação, confira [Estender modelos do ARM usando scripts de implantação](/learn/modules/extend-resource-manager-template-deployment-scripts/).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este artigo, você precisa do seguinte:
 
 * **[Visual Studio Code](https://code.visualstudio.com/) com a extensão Ferramentas do Resource Manager**. Confira [Início Rápido: Criar modelos do ARM com o Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
-* **Uma identidade gerenciada atribuída por usuário com função de colaborador no nível da assinatura**. Essa identidade é usada para executar scripts de implantação. Para criar uma, confira [Identidade gerenciada atribuída por usuário](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Você precisa da ID da identidade ao implantar o modelo. O formato da identidade é:
+* **Uma identidade gerenciada atribuída pelo usuário**. Essa identidade é usada para executar ações específicas do Azure no script. Para criar uma, confira [Identidade gerenciada atribuída por usuário](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Você precisa da ID da identidade ao implantar o modelo. O formato da identidade é:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -253,7 +255,7 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
 
     O recurso `deploymentScripts` depende do recurso do cofre de chaves e do recurso de atribuição de função. Ele tem estas propriedades:
 
-    * `identity`: o script de implantação usa uma identidade gerenciada atribuída por usuário para executar os scripts.
+    * `identity`: o script de implantação usa uma identidade gerenciada atribuída pelo usuário para executar as operações no script.
     * `kind`: especifica o tipo de script. Atualmente, há suporte apenas para scripts do PowerShell.
     * `forceUpdateTag`: determine se o script de implantação deverá ser executado mesmo se a origem do script não tiver sido alterada. Pode ser o carimbo de data/hora atual ou um GUID. Para saber mais, confira [Executar script mais de uma vez](./deployment-script-template.md#run-script-more-than-once).
     * `azPowerShellVersion`: especifica a versão do módulo do Azure PowerShell a ser usada. No momento, o script de implantação é compatível com as versões 2.7.0, 2.8.0 e 3.0.0.

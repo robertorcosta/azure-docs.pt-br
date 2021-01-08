@@ -1,6 +1,6 @@
 ---
-title: O que é o diagnóstico de entrada do Azure AD? | Microsoft Docs
-description: Fornece uma visão geral do diagnóstico de entrada do Azure AD.
+title: O que é o Diagnóstico de Entrada do Azure AD? | Microsoft Docs
+description: Fornece uma visão geral do Diagnóstico de Entrada do Azure AD.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,25 +17,25 @@ ms.date: 12/15/2020
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6aedf41fbf1ed0d70467a2efe97431fdecaa4fa
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e85de1edd94a0430a4b28b332d9e43b967afba76
+ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585898"
+ms.locfileid: "97608911"
 ---
-# <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>O que é o diagnóstico de entrada do Azure AD?
+# <a name="what-is-sign-in-diagnostic-in-azure-ad"></a>O que é o Diagnóstico de Entrada do Azure AD?
 
 O Azure AD fornece um modelo de segurança flexível para controlar o que os usuários podem fazer com os recursos gerenciados. O acesso a esses recursos é controlado por **quem** você é e por **como** você os acessa. Normalmente, a flexibilidade vem junto com um certo grau de complexidade devido ao número de opções de configuração disponíveis. A complexidade tem o potencial de aumentar o risco de erros.
 
-Como administrador de TI, você precisa encontrar uma solução que forneça o nível certo de insights sobre as atividades do sistema, de modo que possa diagnosticar e resolver problemas com facilidade quando eles ocorrerem. O diagnóstico de entrada do Azure AD é um exemplo dessa solução. Use o diagnóstico para analisar o que aconteceu durante uma entrada e quais ações você pode executar para resolver problemas sem precisar envolver o Suporte da Microsoft.
+Como administrador de TI, você precisa encontrar uma solução que forneça o nível certo de insights sobre as atividades do sistema, de modo que possa diagnosticar e resolver problemas com facilidade quando eles ocorrerem. O Diagnóstico de Entrada do Azure AD é um exemplo dessa solução. Use o diagnóstico para analisar o que aconteceu durante uma entrada e quais ações você pode executar para resolver problemas sem precisar envolver o Suporte da Microsoft.
 
 Este artigo fornece uma visão geral do que a solução faz e como você pode usá-la.
 
 
 ## <a name="requirements"></a>Requisitos
 
-O diagnóstico de entrada está disponível em todas as edições do Azure AD.<br> Você precisa ser um Administrador global no Azure AD para usá-lo.
+O Diagnóstico de Entrada está disponível em todas as edições do Azure AD.<br> Você precisa ser um Administrador global no Azure AD para usá-lo.
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -47,7 +47,7 @@ Devido à maior flexibilidade do sistema para responder a uma tentativa de entra
 
 - Exibe o que aconteceu e as recomendações sobre como resolver problemas. 
 
-O diagnóstico de entrada para o Azure AD foi projetado para habilitar o autodiagnóstico de erros de entrada. Para concluir o processo de diagnóstico, você precisará:
+O Diagnóstico de Entrada do Azure AD foi projetado para habilitar o autodiagnóstico de erros de entrada. Para concluir o processo de diagnóstico, você precisará:
 
 ![Processo de diagnóstico de entrada](./media/overview-sign-in-diagnostics/process.png)
  

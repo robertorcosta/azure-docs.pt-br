@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 12/16/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: d992748e9829993acc28795778baae3eb92e88f3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7ca9b21838d35b54b4ed84d5aaf3aa797b02d9e0
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463442"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97630761"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutorial: Preparar a implantação do Azure Stack Edge Pro R
 
@@ -41,7 +41,7 @@ Para implantar o Azure Stack Edge Pro R, veja os tutoriais a seguir na sequênci
 |  | |
 |**Tutoriais de implantação** |Esses tutoriais são necessários para implantar seu dispositivo Azure Stack Edge Pro R em produção. |
 |**[1. Preparar o portal do Azure para o dispositivo](azure-stack-edge-pro-r-deploy-prep.md)** |Crie e configure seu recurso do Azure Stack Edge antes de instalar um dispositivo físico do Azure Stack Edge. |
-|**[2. Instalar o dispositivo](azure-stack-edge-pro-r-deploy-install.md)**|Desempacotar, montar e cabear seu dispositivo físico.  |
+|**[2. Instalar o dispositivo](azure-stack-edge-pro-r-deploy-install.md)**|Inspecione e conecte seu dispositivo físico.  |
 |**[3. Conectar-se ao dispositivo](azure-stack-edge-pro-r-deploy-connect.md)** |Depois que o dispositivo for instalado, conecte-se à IU da Web local do dispositivo.  |
 |**[4. Definir as configurações de rede](azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md)** |Configure a rede, incluindo as configurações de rede de computação e do proxy Web para seu dispositivo.   |
 |**[5. Definir configurações do dispositivo](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Atribua um nome de dispositivo e domínio DNS, configure o servidor de atualização e a hora do dispositivo. |

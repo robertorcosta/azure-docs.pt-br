@@ -12,18 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
+ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421695"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97631152"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades do Azure NetApp Files
 
 O Azure NetApp Files é atualizado regularmente. Este artigo mostra um resumo dos novos recursos mais recentes e de melhorias. 
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+* [Ferramenta de Instantâneo Consistente do Aplicativo Azure](azacsnap-introduction.md) (versão prévia pública)    
+
+    O AzAcSnap (Ferramenta de Instantâneo Consistente do Aplicativo Azure) é uma ferramenta de linha de comando que permite simplificar a proteção de dados para bancos de dados de terceiros (SAP HANA) em ambientes do Linux (por exemplo, SUSE e RHEL).   
+
+    O AzAcSnap aproveita as funcionalidades de replicação e instantâneo de volume do Azure NetApp Files e da Instância Grande do Azure. Ele oferece os seguintes benefícios:
+
+    * Proteção de dados consistente com o aplicativo 
+    * Gerenciamento de catálogo do banco de dados 
+    * Proteção *ad hoc* de volume 
+    * Clonagem de volumes de armazenamento 
+    * Suporte para recuperação de desastre 
 
 ## <a name="november-2020"></a>Novembro de 2020
 

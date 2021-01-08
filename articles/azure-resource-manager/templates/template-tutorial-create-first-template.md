@@ -2,16 +2,16 @@
 title: Tutorial – criar e implantar um modelo
 description: Criar seu primeiro modelo do ARM (Azure Resource Manager). No tutorial, você aprende sobre a sintaxe do arquivo de modelo e como implantar uma conta de armazenamento.
 author: mumian
-ms.date: 09/28/2020
+ms.date: 12/17/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 191eacbc9cc66ccfb9b378cb5e8a90b4e0fb20e6
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 001a20c38a82d053ae22a2614a32f0be9d8aabce
+ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107016"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97656981"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Criar e implantar seu primeiro modelo do ARM
 
@@ -19,7 +19,7 @@ Este tutorial apresenta a você os modelos do ARM (Azure Resource Manager). Ele 
 
 Este tutorial é o primeiro de uma série. À medida que avança pela série, você modifica o modelo inicial passo a passo até explorar todas as partes principais de um modelo do ARM. Esses elementos são os blocos de construção para modelos muito mais complexos. Esperamos que ao final da série você tenha confiança para criar seus próprios modelos e esteja pronto para automatizar suas implantações com modelos.
 
-Se você quiser saber mais sobre os benefícios de usar modelos e por que deve automatizar a implantação com modelos, confira [visão geral do modelo do ARM](overview.md).
+Se você quiser saber mais sobre os benefícios de usar modelos e por que deve automatizar a implantação com modelos, confira [visão geral do modelo do ARM](overview.md). Para saber mais sobre os modelos do ARM por meio de um conjunto guiado de módulos no Microsoft Learn, confira [Implantar e gerenciar recursos no Azure usando modelos do ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

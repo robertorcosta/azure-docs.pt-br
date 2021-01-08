@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: d6dfa8ccc35b36bf7f1e85e6ab213bd4e4783eaf
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 616ad26e28db46f8c28aaa3fb763e2f0acf15409
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95097368"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745679"
 ---
 [Documentação de referência](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [Pacote (PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="python-prerequisites"></a>Pré-requisitos para usar o Python
 
 * Uma assinatura válida do Azure; [crie uma gratuitamente](https://azure.microsoft.com/free/).
 * [Python 3.x](https://www.python.org/)
@@ -58,6 +58,10 @@ Em seguida, adicione o código a seguir para construir um objeto **CognitiveServ
 
 ## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
 
+Para criar e assinar um recurso dos Serviços Cognitivos, use a função **Criar**. Essa função adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. A função a seguir usa todos esses argumentos e cria um recurso.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_create)]
+
 ### <a name="choose-a-service-and-pricing-tier"></a>Escolher um serviço e um tipo de preço
 
 Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/) (ou SKU) desejado. Você usará essa e outras informações como parâmetros ao criar o recurso. A função a seguir lista os "tipos" de Serviços Cognitivos disponíveis.
@@ -67,12 +71,6 @@ Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar,
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
-
-Para criar e assinar um recurso dos Serviços Cognitivos, use a função **Criar**. Essa função adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. A função a seguir usa todos esses argumentos e cria um recurso.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_create)]
 
 ## <a name="view-your-resources"></a>Exibir os recursos
 

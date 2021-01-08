@@ -12,20 +12,27 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 12/30/2020
 ms.author: memildin
-ms.openlocfilehash: bd8c5c31579ac22cd6c77dffd31103680e393f69
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d3ed064547b1202aa562fffdfde85a28cbe8514e
+ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187163"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97809540"
 ---
-# <a name="quickstart-setting-up-azure-security-center"></a>Início Rápido: configurando a Central de Segurança do Azure
+# <a name="quickstart-set-up-azure-security-center"></a>Início Rápido: Configurar a Central de Segurança do Azure
 
 A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto os recursos gratuitos oferecem segurança limitada somente aos recursos do Azure, ao habilitar o Azure Defender você estende essas funcionalidades para o ambiente local e para outras nuvens. O Azure Defender ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e a inteligência e responder rapidamente a eventuais ataques. Você pode experimentar o Azure Defender sem custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
-Neste artigo, você atualizará para o Azure Defender a fim de aumentar a segurança e instalará o agente do Log Analytics nos computadores para monitorar as ameaças e as vulnerabilidades de segurança.
+Este início rápido orientará você na habilitação do Azure Defender para aumentar a segurança e na instalação do agente de Log Analytics nos computadores a fim de monitorar as vulnerabilidades e as ameaças de segurança.
+
+Você executará as seguintes etapas:
+
+> [!div class="checklist"]
+> * Habilitar a Central de Segurança na sua assinatura do Azure
+> * Habilitar o Azure Defender na assinatura do Azure
+> * Habilitar a coleta de dados automática
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).

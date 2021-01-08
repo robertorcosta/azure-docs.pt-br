@@ -5,18 +5,22 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/15/2020
-ms.openlocfilehash: fffe337a59ff343164a155fcd0f4d5616a32bf41
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52f8aad0a429d3378d46265fab719b1cb9f07fd0
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91334609"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813183"
 ---
 # <a name="whats-new-in-language-understanding"></a>Novidades sobre reconhecimento vocal
 
 Conheça o que há de novo no serviço. Esses itens incluem notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para manter-se atualizado quanto ao serviço.
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="december-2020"></a>Dezembro de 2020
+
+* Todos os usuários do LUIS são obrigados a [migrar para um recurso authorint do LUIS](luis-migration-authoring.md)
 
 ### <a name="june-2020"></a>Junho de 2020
 

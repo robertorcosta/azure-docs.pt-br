@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: ff82b90189e134db7d39b259c2c135489d14595d
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: e11c3277ffa07fe0a8d5fc7495e2c09152ce585f
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752780"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704275"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Descobrir VMs de VMware com a Avaliação de Servidor
 
@@ -236,12 +236,17 @@ Configure o dispositivo pela primeira vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
 1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, acesse **Avaliação do Servidor> Descobrir> Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
-1. Clique em **Fazer logon**. Será aberto um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-1. Na nova guia, entre usando seu nome de usuário e senha do Azure.
+1. Será necessário um código do dispositivo para a autenticação com o Azure. Clicar em **Logon** abrirá uma janela restrita com o código do dispositivo, conforme mostrado abaixo.
+
+    ![Janela restrita mostrando o código do dispositivo](./media/tutorial-discover-vmware/device-code.png)
+
+1. Clique em **Copiar código e Fazer logon** para copiar o código do dispositivo e abrir um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
+1. Na nova guia, cole o código do dispositivo e entre usando seu nome de usuário e sua senha do Azure.
    
    Não há suporte para a entrada com um PIN.
-3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
-4. Se a conta de usuário do Azure usada para o registro em log tiver as permissões corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
+3. Caso feche a guia de logon por engano sem fazer logon, você precisará atualizar a guia do navegador do gerenciador de configuração do dispositivo para habilitar novamente o botão Logon.
+1. Depois de fazer logon com êxito, volte para a guia anterior usando o gerenciador de configuração do dispositivo.
+1. Se a conta de usuário do Azure usada para o registro em log tiver as permissões corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
 1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
 
 

@@ -3,15 +3,15 @@ title: Visão Geral das Funções Duráveis – Azure
 description: Introdução à extensão de Durable Functions do Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 03/12/2020
+ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 28c494bf2867ec5d2d3ee99ef7ee45f8181cfd90
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
+ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669256"
+ms.lasthandoff: 12/24/2020
+ms.locfileid: "97763567"
 ---
 # <a name="what-are-durable-functions"></a>O que são as Durable Functions?
 
@@ -23,9 +23,11 @@ Atualmente, as Durable Functions dão suporte às seguintes linguagens:
 
 * **C#**: [bibliotecas de classes pré-compiladas](../functions-dotnet-class-library.md) e [script C#](../functions-reference-csharp.md).
 * **JavaScript**: compatível apenas com a versão 2.x do Azure Functions Runtime. Exige a versão 1.7.0 da extensão das Durable Functions ou uma versão posterior. 
-* **Python**: exige a versão 1.8.5 da extensão das Durable Functions ou uma versão posterior. No momento, o suporte das Durable Functions está em versão prévia pública.
+* **Python**: requer a versão 2.3.1 ou posterior da extensão das Durable Functions. No momento, o suporte das Durable Functions está em versão prévia pública.
 * **F#**: bibliotecas de classes pré-compiladas e script F#. Só há suporte para o script F# na versão 1.x do Azure Functions Runtime.
 * **PowerShell**: atualmente, o suporte das Durable Functions está em versão prévia pública. Compatível apenas com a versão 3.x do Azure Functions Runtime e o PowerShell 7. Exige a versão 2.2.2 da extensão das Durable Functions ou uma versão posterior. No momento, há suporte apenas para os seguintes padrões: [Encadeamento de funções](#chaining), [Fan-out/fan-in](#fan-in-out) e [APIs HTTP assíncronas](#async-http).
+
+Recomendamos usar as versões mais recentes da extensão Durable Functions, além de bibliotecas específicas a um idioma das Durable Functions para acessar os recursos e as atualizações mais recentes. Saiba mais sobre as [versões das Durable Functions](durable-functions-versions.md).
 
 As Durable Functions têm o objetivo de dar suporte a todas as [linguagens do Azure Functions](../supported-languages.md). Confira a [lista de problemas das Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues) para obter o último status do trabalho para dar suporte a linguagens adicionais.
 

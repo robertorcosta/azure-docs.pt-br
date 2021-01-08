@@ -4,12 +4,12 @@ description: Descreve como usar o Gerenciador de Recursos do Azure para implanta
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f3b3ebce3dd34637a787895e7724736adfc186fb
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
+ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032245"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97858511"
 ---
 # <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
@@ -33,7 +33,7 @@ Se você for um novo usuário do Azure Resource Manager, há alguns termos com o
 
 * **recurso** -um item gerenciável que está disponível por meio do Azure. Máquinas virtuais, contas de armazenamento, aplicativos Web, bancos de dados e redes virtuais são exemplos de recursos. Grupos de recursos, assinaturas, grupos de gerenciamento e marcas também são exemplos de recursos.
 * **grupo de recursos** - Um contêiner que mantém os recursos relacionados a uma solução do Azure. O grupo de recursos inclui esses recursos que você deseja gerenciar como um grupo. Você decide quais recursos pertencem a um grupo de recursos com base no que faz mais sentido para sua organização. Confira [Grupos de recursos](#resource-groups).
-* **provedor de recursos** – um serviço que fornece recursos do Azure. Por exemplo, um provedor de recursos comum é Microsoft.Compute, que fornece o recurso de máquina virtual. Microsoft.Storage é outro provedor de recursos comum. Confira [Provedores e tipos de recurso](resource-providers-and-types.md).
+* **provedor de recursos** – um serviço que fornece recursos do Azure. Por exemplo, um provedor de recursos comum é `Microsoft.Compute`, que fornece o recurso de máquina virtual. `Microsoft.Storage` é outro provedor de recursos comum. Confira [Provedores e tipos de recurso](resource-providers-and-types.md).
 * **Modelo do Resource Manager** – um arquivo JSON (JavaScript Object Notation) que define um ou mais recursos para implantação em um grupo de recursos, assinatura, grupo de gerenciamento ou locatário. O modelo pode ser usado para implantar os recursos de forma consiste e repetida. Confira [Visão geral da implantação de modelo](../templates/overview.md).
 * **sintaxe declarativa** - sintaxe que permite a declaração "Isso é o que pretendo criar" sem precisar escrever a sequência de comandos de programação para criá-la. O modelo do Resource Manager é um exemplo de sintaxe declarativa. No arquivo, você define as propriedades da infraestrutura a ser implantada no Azure.  Confira [Visão geral da implantação de modelo](../templates/overview.md).
 
@@ -99,11 +99,11 @@ Existem alguns fatores importantes a considerar ao definir seu grupo de recursos
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Resiliência do Azure Resource Manager
 
-O serviço do Azure Resource Manager foi projetado para resiliência e disponibilidade contínua. As operações do Resource Manager e do painel de controle (solicitações enviadas para management.azure.com) na API REST são:
+O serviço do Azure Resource Manager foi projetado para resiliência e disponibilidade contínua. As operações do Resource Manager e do painel de controle (solicitações enviadas para `management.azure.com`) na API REST são:
 
 * Distribuídas entre regiões. Alguns serviços são regionais.
 
-* Distribuídas entre Zonas de Disponibilidade (e também regiões) em locais que têm várias Zonas de Disponibilidade.
+* Distribuídas entre Zonas de Disponibilidade (e regiões) em localizações que têm várias Zonas de Disponibilidade.
 
 * Não dependem de um datacenter lógico único.
 

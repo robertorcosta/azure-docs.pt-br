@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: f5cf432e3824ca0bb441a458a08fc7353291cf1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490050"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97813608"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Como provisionar automaticamente agentes e extensões por meio da Central de Segurança do Azure
 
@@ -30,6 +30,17 @@ Os dados são coletados usando:
 > Conforme a Central de Segurança se expandiu, os tipos de recursos que podem ser monitorados também aumentaram. O número de extensões também aumentou. O provisionamento automático foi expandido para dar suporte a tipos de recursos adicionais, aproveitando as funcionalidades do Azure Policy.
 
 :::image type="content" source="./media/security-center-enable-data-collection/auto-provisioning-options.png" alt-text="Página de configurações de provisionamento automático da Central de Segurança":::
+
+
+## <a name="availability"></a>Disponibilidade
+
+| Aspecto                  | Detalhes                                                                                                                                                                                                                      |
+|-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Estado da versão:          | **Recurso**: O provisionamento automático está em GA (disponibilidade geral)<br>**Agente e extensões**: O agente do Log Analytics para VMs do Azure está em GA, o Microsoft Dependency Agent está em versão prévia e o complemento de Política para Kubernetes está em GA                |
+| Preço:                | Gratuita                                                                                                                                                                                                                         |
+| Destinos compatíveis: | ![Sim](./media/icons/yes-icon.png) Computadores do Azure<br>![Não](./media/icons/no-icon.png) Computadores do Azure Arc<br>![Não](./media/icons/no-icon.png) Nós do Kubernetes<br>![Não](./media/icons/no-icon.png) Conjuntos de Dimensionamento de Máquinas Virtuais |
+| Nuvens:                 | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, governo da China e outros governos                                                                                                      |
+|                         |                                                                                                                                                                                                                              |
 
 
 ## <a name="why-use-auto-provisioning"></a>Por que usar o provisionamento automático?

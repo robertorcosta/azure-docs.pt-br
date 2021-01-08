@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: e25469e23358ade32e050bed0818338dc290e71f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7dccce597dcfbcedd5083befafa79b8ba6f3adac
+ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451396"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97693483"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Artigos sobre a conexão ao Banco de Dados SQL do Azure e à Instância Gerenciada de SQL do Azure e a consulta deles
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,6 +42,29 @@ O documento a seguir inclui links para exemplos do Azure que mostram como se con
 |[Ruby](connect-query-ruby.md)|Este guia de início rápido demonstra como usar não só o Ruby para criar um programa e se conectar a um banco de dados, mas também as instruções T-SQL para consultar dados.|
 |[R](connect-query-r.md)|Este guia de início rápido demonstra como usar não só o R com os Serviços de Machine Learning do Banco de Dados SQL do Azure para criar um programa e se conectar a um banco de dados no Banco de Dados SQL do Azure, mas também as instruções T-SQL para consultar dados.|
 |||
+
+## <a name="get-server-connection-information"></a>Obter informações de conexão do servidor
+
+Obtenha as informações de conexão necessárias para se conectar ao banco de dados no Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor ou do host, do nome do banco de dados e das informações de logon nos próximos procedimentos.
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
+
+2. Navegue até a página **bancos de dados SQL** ou **Instâncias Gerenciadas de SQL**.
+
+3. Na página **Visão geral**, examine o nome do servidor totalmente qualificado ao lado de **Nome do servidor** para obter um banco de dados no Banco de Dados SQL do Azure ou o nome do servidor totalmente qualificado (ou endereço IP) ao lado de **Host** para obter uma instância gerenciada de SQL do Azure ou um SQL Server na VM do Azure. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone **Copiar**.
+
+> [!NOTE]
+> Para obter informações de conexão do SQL Server na VM do Azure, confira [Conectar-se a uma Instância do SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+
+## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Obter informações de conexão do ADO.NET (opcional, somente no Banco de Dados SQL)
+
+1. Navegue até a folha do banco de dados no portal do Azure e, em **Configurações**, selecione **Cadeias de conexão**.
+
+2. Examine a cadeia de conexão **ADO.NET** completa.
+
+    ![Cadeia de conexão do ADO.NET](./media/connect-query-dotnet-core/adonet-connection-string2.png)
+
+3. Copie a cadeia de conexão **ADO.NET** se pretender usá-la.
 
 ## <a name="tls-considerations-for-database-connectivity"></a>Considerações sobre o TLS para a conectividade de banco de dados
 

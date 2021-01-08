@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 572c657dd44db73b1401c72f0750fe8e000985ac
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 8d0d4726763e36bd889c2f564d116d454b2f62b9
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734346"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97740599"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Conectar os computadores não Azure à Central de Segurança
 
@@ -139,4 +139,4 @@ Parabéns! Agora você pode ver seus computadores Azure e não Azure juntos, em 
 
 Essa página mostrou como adicionar seus computadores não Azure à Central de Segurança do Azure. Para monitorar o status, use as ferramentas de estoque, conforme explicado na seguinte página:
 
-- [Explorar e gerenciar os recursos com as ferramentas de gerenciamento e estoque de ativos](asset-inventory.md)
+- [Explore e gerencie seus recursos usando um inventário de ativos](asset-inventory.md)

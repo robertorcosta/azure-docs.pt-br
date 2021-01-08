@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: f0335e28b3f0fd2d339aa329b92203ddb8d3216c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ae2cd72bfde3eb7fdc6b135cbb22d04535a2f251
+ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94424800"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97731844"
 ---
 Neste início rápido, você aprende os padrões de design comuns para fazer uma síntese da conversão de texto em fala usando o SDK de Fala. Você começa fazendo a configuração e a sintetização básicas e passa para exemplos mais avançados de desenvolvimento de aplicativos personalizados, incluindo:
 
@@ -203,6 +203,9 @@ Para alterar o formato do áudio, use a propriedade `speechSynthesisOutputFormat
 
 Há várias opções de diferentes tipos de arquivo dependendo de seus requisitos. Observe que, por definição, formatos brutos como `Raw24Khz16BitMonoPcm` não incluem cabeçalhos de áudio. Use formatos brutos somente quando souber que sua implementação downstream pode decodificar um fluxo de bits fragmentado ou se você planejar criar cabeçalhos manualmente com base na profundidade de bits, na taxa de amostragem, no número de canais etc.
 
+> [!NOTE]
+> As vozes **en-US-AriaRUS** e **en-US-GuyRUS** são criadas com base em amostras codificadas na taxa de amostragem `Riff24Khz16BitMonoPcm`.
+
 Neste exemplo, você especifica um formato RIFF de alta fidelidade `Riff24Khz16BitMonoPcm` definindo o `speechSynthesisOutputFormat` no objeto `SpeechConfig`. Semelhante ao exemplo na seção anterior, obtenha os dados `ArrayBuffer` de áudio e interaja com eles.
 
 ```javascript
@@ -236,7 +239,7 @@ Executar o programa novamente gravará um arquivo `.wav` no caminho especificado
 A linguagem SSML (linguagem marcação de sintetização de voz) permite ajustar a densidade, a pronúncia, a taxa de fala, o volume e outras características da saída da conversão de texto em fala enviando suas solicitações de um esquema XML. Esta seção mostra alguns exemplos de uso práticos, mas, para ver um guia mais detalhado, confira o [artigo de instruções sobre SSML](../../../speech-synthesis-markup.md).
 
 Para começar a usar SSML para personalização, você faz uma alteração simples que muda a voz.
-Primeiro, crie um arquivo XML para a configuração SSML no diretório do projeto raiz, neste exemplo, `ssml.xml`. O elemento raiz sempre é `<speak>`, e encapsular o texto em um elemento `<voice>` permite alterar a voz usando o parâmetro `name`. Este exemplo altera a voz para uma voz masculina que fala inglês (Reino Unido). Observe que essa é uma voz **padrão** , que tem preços e disponibilidades diferentes das vozes **neurais**. Confira a [lista completa](../../../language-support.md#standard-voices) de vozes **padrão** com suporte.
+Primeiro, crie um arquivo XML para a configuração SSML no diretório do projeto raiz, neste exemplo, `ssml.xml`. O elemento raiz sempre é `<speak>`, e encapsular o texto em um elemento `<voice>` permite alterar a voz usando o parâmetro `name`. Este exemplo altera a voz para uma voz masculina que fala inglês (Reino Unido). Observe que essa é uma voz **padrão**, que tem preços e disponibilidades diferentes das vozes **neurais**. Confira a [lista completa](../../../language-support.md#standard-voices) de vozes **padrão** com suporte.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -300,7 +303,7 @@ As vozes neurais são algoritmos de sintetização de voz que usam a tecnologia 
 Para alternar para uma voz neural, altere o `name` para uma das [opções de voz neural](../../../language-support.md#neural-voices). Em seguida, adicione um namespace de XML para `mstts` e encapsule o texto na marca `<mstts:express-as>`. Use o parâmetro `style` para personalizar o estilo de fala. Este exemplo usa `cheerful`, mas tente defini-lo como `customerservice` ou `chat` para ver a diferença no estilo de fala.
 
 > [!IMPORTANT]
-> As vozes neurais têm suporte **somente** com os recursos de Fala criados nas regiões *Leste dos EUA* , *Sudeste da Ásia* e *Oeste da Europa*.
+> As vozes neurais têm suporte **somente** com os recursos de Fala criados nas regiões *Leste dos EUA*, *Sudeste da Ásia* e *Oeste da Europa*.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"

@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 6ac76b3d3cc8fb27734730275836fba0dbfb08fe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 14203021846e97a53f59c3bc24a1586774613dec
+ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700300"
+ms.lasthandoff: 12/20/2020
+ms.locfileid: "97704326"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga interno para balancear a carga de VMs usando o portal do Azure
 
-Comece a usar o Azure Load Balancer por meio do portal do Azure para criar um balanceador de carga interno e duas máquinas virtuais.
+Comece a usar o Azure Load Balancer no portal do Azure para criar um balanceador de carga interno e três máquinas virtuais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,6 +40,8 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos do Standard Load Balancer criados para o guia de início rápido." border="false":::
 
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
 
@@ -106,7 +108,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 2. Na guia **Informações Básicas** da página **Criar balanceador de carga**, insira ou selecione as seguintes informações: 
 
-    | Setting                 | Valor                                              |
+    | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Selecione sua assinatura.    |    
     | Resource group         | Selecione **CreateIntLBQS-rg** criado na etapa anterior.|
@@ -197,7 +199,7 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Investigação de integridade | Selecione **myHealthProbe**. |
     | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15** minutos. |
     | Redefinição de TCP | Selecione **Habilitado**. |
-    | SNAT (conversão de endereços de rede de origem) de saída | Selecione **(Recomendado) Usar regras de saída para fornecer acesso à Internet aos membros do pool de back-ends**. |
+    | SNAT (conversão de endereços de rede de origem) de saída | Selecione **(Recomendado) Usar regras de saída para fornecer acesso à Internet aos membros do pool de back-ends.** |
 
 4. Deixe o restante dos padrões e selecione **OK**.
 
@@ -208,12 +210,12 @@ Nesta seção, você criará uma regra de balanceador de carga:
 
 Nesta seção, você:
 
-* Criar duas máquinas virtuais para o pool de back-end do balanceador de carga.
+* Crie três máquinas virtuais para o pool de back-end do balanceador de carga.
 * Instale o IIS nas máquinas virtuais para testar o balanceador de carga.
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Nesta seção, você criará duas VMs (**myVM1**, **myVM2**).
+Nesta seção, você criará três VMs (**myVM1**, **myVM2** e **myVM3**).
 
 Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado anteriormente.
 
@@ -262,19 +264,21 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 6. Examine as configurações e selecione **Criar**.
 
-7. Siga as etapas 1 a 8 para criar uma VM adicional com os seguintes valores e todas as outras configurações iguais à **myVM1**:
+7. Siga as etapas 1 a 8 para criar mais duas VMs com os seguintes valores e todas as outras configurações iguais à **myVM1**:
 
-    | Configuração | VM 2|
-    | ------- | ----- |
-    | Nome |  **myVM2** |
-    | Zona de disponibilidade | **2** |
-    | Grupo de segurança de rede | Selecione o **myNSG** existente|
+    | Configuração | VM 2 | VM 3 |
+    | ------- | ----- | ---- |
+    | Nome |  **myVM2** | **myVM3** |
+    | Zona de disponibilidade | **2** | **3** |
+    | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente |
 
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos do balanceador de carga básico criados no guia de início rápido." border="false":::
 
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
 
@@ -445,13 +449,13 @@ Nesta seção, você criará uma regra de balanceador de carga:
 
 Nesta seção, você:
 
-* Criar duas máquinas virtuais para o pool de back-end do balanceador de carga.
+* Crie três máquinas virtuais para o pool de back-end do balanceador de carga.
 * Crie um conjunto de disponibilidade para as máquinas virtuais.
 * Instale o IIS nas máquinas virtuais para testar o balanceador de carga.
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Nesta seção, você criará duas VMs (**myVM1** e **myVM2**).
+Nesta seção, você criará três VMs (**myVM1**, **myVM2**, **myVM3**).
 
 As duas VMs serão adicionadas a um conjunto de disponibilidade chamado **myAvailabilitySet**.
 
@@ -498,13 +502,13 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
   
 6. Examine as configurações e selecione **Criar**.
 
-7. Siga as etapas 1 a 8 para criar uma VM adicional com os seguintes valores e todas as outras configurações iguais à **myVM1**:
+7. Siga as etapas 1 a 8 para criar mais duas VMs com os seguintes valores e todas as outras configurações iguais à **myVM1**:
 
-    | Configuração | VM 2 |
-    | ------- | ----- |
-    | Nome |  **myVM2** |
-    | Conjunto de disponibilidade| Selecione **myAvailabilitySet** |
-    | Grupo de segurança de rede | Selecione o **myNSG** existente|
+    | Configuração | VM 2 | VM 3 |
+    | ------- | ----- | ---- |
+    | Nome |  **myVM2** | **myVM3** |
+    | Conjunto de disponibilidade | Selecione **myAvailabilitySet** | Selecione **myAvailabilitySet** |
+    | Grupo de segurança de rede | Selecione o **myNSG** existente | Selecione o **myNSG** existente |
 
 ### <a name="add-virtual-machines-to-the-backend-pool"></a>Adicionar máquinas virtuais ao pool de back-end
 
@@ -518,7 +522,7 @@ As VMs criadas nas etapas anteriores devem ser adicionadas ao pool de back-end d
 
 4. Na seção **Máquinas virtuais**, selecione **+Adicionar**.
 
-5. Selecione as caixas ao lado de **myVM1** e **myVM2**.
+5. Selecione as caixas ao lado de **myVM1**, **myVM2** e **myVM3**.
 
 6. Selecione **Adicionar**.
 
@@ -598,7 +602,7 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
    ```
 8. Feche a sessão do Bastion com **myVM1**.
 
-9. Repita as etapas de 1 a 6 para instalar o IIS e o arquivo iisstart.htm atualizado em **myVM2**.
+9. Repita as etapas de 1 a 6 para instalar o IIS e o arquivo iisstart.htm atualizado em **myVM2** e **myVM3**.
 
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga
@@ -607,7 +611,7 @@ Nesta seção, você criará uma VM chamada **myTestVM**.  Essa VM será usada p
 
 2. Anote ou copie o endereço ao lado de **Endereço IP Privado** na **Visão geral** do **myLoadBalancer**.
 
-3. Selecione **Todos os serviços** no menu à esquerda, em seguida, **Todos os recursos** e, na lista de recursos, escolha **myTestVM**, que está no grupo de recursos **CreateIntLBQS-rg**.
+3. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, na lista de recursos, escolha **myTestVM**, que está no grupo de recursos **CreateIntLBQS-rg**.
 
 4. Na página **Visão Geral**, selecione **Conectar** e **Bastion**.
 
@@ -630,9 +634,9 @@ Quando não forem mais necessários, exclua o grupo de recursos, o balanceador d
 Neste início rápido, você:
 
 * Criou um balanceador de carga interno Standard ou Básico do Azure
-* Anexou duas VMs ao balanceador de carga.
+* Anexou três VMs ao balanceador de carga.
 * Configurou a regra de tráfego do balanceador de carga e a investigação de integridade e testou o balanceador de carga. 
 
-Para saber mais sobre o Azure Load Balancer, vá para...
+Para saber mais sobre o Azure Load Balancer, vá para:
 > [!div class="nextstepaction"]
 > [O que é o Azure Load Balancer?](load-balancer-overview.md)

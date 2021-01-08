@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320193"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739698"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Azure DevOps Services e o Azure Pipelines
 
@@ -91,7 +91,7 @@ Siga as etapas adicionais descritas abaixo com base na pilha de runtime usada pa
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
-Para instalar um aplicativo JavaScript ou um aplicativo Node.js, você precisará de uma VM do Linux com o servidor Web Nginx para implantar o aplicativo.
+Para instalar um aplicativo JavaScript ou Node.js, será necessário obter uma VM do Linux com o servidor Web Nginx para implantar o aplicativo.
 Se você ainda não tiver uma VM do Linux com Nginx, crie uma agora no Azure usando as etapas [neste](./quick-create-cli.md) exemplo.
 
 * * * 
@@ -118,7 +118,7 @@ Você pode criar um ambiente no Hub "**Ambientes**" na seção "**Pipelines**".
 
     ![VMresource_view](media/tutorial-deploy-vms-azure-pipelines/vm-resourceview.png)
 
-9. Você pode adicionar marcas à VM como parte do script interativo de registro do PS ou também pode adicionar/remover esse script da exibição de recursos clicando nas reticências no final de cada recurso da VM na exibição de recursos.
+9. É possível adicionar marcas à VM como parte do script de registro interativo do PowerShell ou adicionar/remover esse script do modo de exibição de recursos, clicando no ícone de três pontos disponível no final de cada recurso da VM no modo de exibição de recursos.
 
    As marcas atribuídas permitem que você limite a implantação a máquinas virtuais específicas quando o ambiente é usado em um trabalho de implantação. As marcas são limitadas a 256 caracteres, mas não há nenhum limite para o número de marcas que você pode usar.
 
@@ -202,7 +202,7 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
 
 - Dê uma olhada no pipeline para compreender o que ele faz. Verifique se todas as entradas padrão são apropriadas para seu código.
 
-- Selecione **Salvar e executar**, depois selecione **Confirmar diretamente para o branch mestre** e, em seguida, escolha **Salvar e executar** novamente.
+- Clique em **Salvar e executar** e selecione **Fazer commit diretamente para a ramificação principal**. Depois clique de novo em **Salvar e executar**.
 
 - Uma nova execução é iniciada. Aguarde a conclusão da execução.
 
@@ -224,7 +224,7 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
 2. Você pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implantação, especificando as **marcas** que você definiu para cada máquina virtual no ambiente.
 Confira [aqui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) o esquema completo do YAML para o trabalho de implantação.
 
-3. Você pode especificar `runOnce` ou `rolling` como a estratégia de implantação. 
+3. É possível especificar `runOnce` ou `rolling` como a estratégia de implantação. 
 
    `runOnce` é a estratégia de implantação mais simples, em que todos os ganchos de ciclo de vida, especificamente `preDeploy` `deploy`, `routeTraffic` e `postRouteTraffic`, são executados uma vez. Em seguida, `on:` `success` ou `on:` `failure` é executado.
 

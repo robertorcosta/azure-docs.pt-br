@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: c628ba780ae64fceb32322fdb2004d69e2ebf24b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2645842130b83fe7b4cfb33b9389b19a1306506d
+ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452747"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97756017"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o provedor do Azure Key Vault para o driver da Secrets Store CSI no Kubernetes
 
@@ -81,7 +81,7 @@ Conclua as seções "Criar um grupo de recursos", "Criar cluster do AKS" e "Cone
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Para exibir os metadados do cluster do AKS que você criou, use o comando a seguir. Copie a **principalId**, a **clientId**, **a subscriptionId** e o **nodeResourceGroup** para uso posterior. Se o cluster ASK não tiver sido criado com identidades gerenciadas habilitadas, **principalId** e **clientId** serão nulos. 
+1. Para exibir os metadados do cluster do AKS que você criou, use o comando a seguir. Copie a **principalId**, a **clientId**, **a subscriptionId** e o **nodeResourceGroup** para uso posterior. Caso o cluster do AKS não seja criado com identidades gerenciadas habilitadas, a **principalId** e a **clientId** serão nulas. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup

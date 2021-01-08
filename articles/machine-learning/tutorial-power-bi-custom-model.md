@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Criar o modelo preditivo com um Notebook (parte 1 de 2)'
+title: 'Tutorial: Criar o modelo de previsão usando um notebook (parte 1 de 2)'
 titleSuffix: Azure Machine Learning
-description: Saiba como criar e implantar um modelo de machine learning usando um código em um Jupyter Notebook, de modo que você possa usá-lo para prever resultados no Microsoft Power BI.
+description: Saiba como criar e implantar um modelo de machine learning usando código em um Jupyter Notebook. Você poderá usar o modelo para prever resultados no Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,69 +10,70 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: f8209c0d26cf8c572d10666696231b0468cfcbc6
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 1dfee56f90011d3c532767e136b383e4eb95c234
+ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97370551"
+ms.lasthandoff: 12/30/2020
+ms.locfileid: "97814764"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-notebook-part-1-of-2"></a>Tutorial: Integração do Power BI – Criar o modelo preditivo com um Notebook (parte 1 de 2)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-a-jupyter-notebook-part-1-of-2"></a>Tutorial: Integração do Power BI – Criar o modelo preditivo usando um Jupyter Notebook (parte 1 de 2)
 
-Na primeira parte deste tutorial, você treinará e implantará um modelo preditivo de machine learning usando um código em um Jupyter Notebook. Na segunda parte, você usará o modelo para prever resultados no Microsoft Power BI.
+Na parte 1 deste tutorial, você treinará e implantará um modelo de machine learning preditivo usando o código em um Jupyter Notebook. Na parte 2, você usará o modelo para prever resultados no Microsoft Power BI.
 
 Neste tutorial, você:
 
 > [!div class="checklist"]
-> * Criará um Jupyter Notebook
-> * Criar uma instância de computação do Azure Machine Learning
-> * Treinar um modelo de regressão usando o Scikit-learn
-> * Implantar o modelo em um ponto de extremidade de pontuação em tempo real
+> * Criar um Jupyter Notebook.
+> * Criar uma instância de computação do Azure Machine Learning.
+> * Treinar um modelo de regressão usando o Scikit-learn.
+> * Implantar o modelo em um ponto de extremidade de pontuação em tempo real.
 
-Há três maneiras diferentes de criar e implantar o modelo que você usará no Power BI.  Este artigo aborda a opção A: Treinar e implantar modelos usando Notebooks.  Essa opção mostra uma experiência de criação code-first usando Jupyter Notebooks hospedados no estúdio do Azure Machine Learning. 
+Há três maneiras de criar e implantar o modelo que você usará no Power BI.  Este artigo aborda a "Opção A: treinar e implantar modelos usando notebooks".  Essa opção é uma experiência de criação que começa pela codificação. Ela usa Jupyter Notebooks hospedados no Estúdio do Azure Machine Learning. 
 
-Em vez disso, você poderá usar:
+Mas, em vez disso, você pode usar uma das outras opções:
 
-* [Opção B: Treinar e implantar modelos usando o designer](tutorial-power-bi-designer-model.md): uma experiência de criação com pouco código usando o Designer (uma interface do usuário do tipo "arrastar e soltar").
-* [Opção C: Treinar e implantar modelos usando o ML automatizado](tutorial-power-bi-automated-model.md): uma experiência de criação sem código que automatiza totalmente a preparação de dados e o treinamento do modelo.
+* [Opção B: treinar e implantar modelos usando o designer do Azure Machine Learning](tutorial-power-bi-designer-model.md). Essa experiência de criação com pouco código usa uma interface do usuário do tipo "arrastar e soltar".
+* [Opção C: treinar e implantar modelos usando o machine learning automatizado](tutorial-power-bi-automated-model.md). Essa experiência de criação sem codificação automatiza totalmente a preparação de dados e o treinamento do modelo.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure ([uma avaliação gratuita está disponível](https://aka.ms/AMLFree)). 
-- Um Workspace do Azure Machine Learning. Caso ainda não tenha um workspace, siga [Como criar um Workspace do Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
+- Uma assinatura do Azure. Se você ainda não tiver uma assinatura, poderá usar uma [avaliação gratuita](https://aka.ms/AMLFree). 
+- Um Workspace do Azure Machine Learning. Se você ainda não tiver um workspace, confira [Criar e gerenciar workspaces do Azure Machine Learning](./how-to-manage-workspace.md#create-a-workspace).
 - Conhecimento introdutório da linguagem Python e dos fluxos de trabalho de machine learning.
 
 ## <a name="create-a-notebook-and-compute"></a>Criar um notebook e uma instância de computação
 
-Na home page do [estúdio do Azure Machine Learning](https://ml.azure.com), selecione **Criar** seguido de **Notebook**:
+Na home page do [**Estúdio do Azure Machine Learning**](https://ml.azure.com), selecione **Criar** > **Notebook**:
 
-:::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Captura de tela mostrando como criar um notebook":::
+:::image type="content" source="media/tutorial-power-bi/create-new-notebook.png" alt-text="Captura de tela mostrando como criar um notebook.":::
  
-Você verá uma caixa de diálogo para **Criar um arquivo**. Insira:
+Na página **Criar um arquivo**:
 
-1. Um nome de arquivo para seu notebook (por exemplo, `my_model_notebook`)
-1. Altere o **Tipo de Arquivo** para **Notebook**
+1. Dê um nome ao notebook (por exemplo, *my_model_notebook*).
+1. Altere o **Tipo de arquivo** para **Notebook**.
+1. Selecione **Criar**. 
+ 
+Em seguida, para executar as células de código, crie uma instância de computação e anexe-a ao notebook. Comece selecionando o ícone de adição, na parte superior do notebook:
 
-Selecione **Criar**. Em seguida, você precisará criar uma instância de computação e anexá-la ao notebook para executar células de código. Para fazer isso, selecione o ícone de adição na parte superior do notebook:
+:::image type="content" source="media/tutorial-power-bi/create-compute.png" alt-text="Captura de tela mostrando como criar uma instância de computação.":::
 
-:::image type="content" source="media/tutorial-power-bi/create-compute.png" alt-text="Captura de tela mostrando como criar uma instância de computação":::
+Na página **Criar instância de computação**:
 
-Em seguida, na página **Criar instância de computação**:
-
-1. Escolha um tamanho de máquina virtual de CPU. Para os fins deste tutorial, uma **Standard_D11_v2** (dois núcleos e 14 GB de RAM) será suficiente.
+1. Escolha o tamanho da máquina virtual da CPU. Para este tutorial, você pode escolher um **Standard_D11_v2** com 2 núcleos e 14 GB de RAM.
 1. Selecione **Avançar**. 
-1. Na página **Definir Configurações**, forneça um **Nome de instância de computação** válido (os caracteres válidos são letras maiúsculas e minúsculas, números e o caractere -).
+1. Na página **Definir configurações**, forneça um **Nome de Computação** válido. Os caracteres válidos são letras maiúsculas e minúsculas, dígitos e hifens (–).
 1. Selecione **Criar**.
 
-Você poderá observar no notebook que a cor do círculo ao lado de **Computação** passou a ser ciano, indicando que a instância de computação está sendo criada:
+No notebook, você poderá notar o círculo ao lado da **Computação** ficar ciano. Essa alteração de cor indica que a instância de computação está sendo criada:
 
-:::image type="content" source="media/tutorial-power-bi/creating.png" alt-text="Captura de tela mostrando a instância de computação sendo criada":::
+:::image type="content" source="media/tutorial-power-bi/creating.png" alt-text="Captura de tela mostrando a instância de computação sendo criada.":::
 
 > [!NOTE]
-> Pode levar cerca de 2 a 4 minutos para que a computação seja provisionada.
+> A instância de computação pode levar de 2 a 4 minutos para ser provisionada.
 
-Depois que a instância de computação for provisionada, use o notebook para executar células de código. Por exemplo, digite na célula:
+Depois que a instância de computação for provisionada, use o notebook para executar as células de código. Por exemplo, na célula, você pode digitar o seguinte código:
 
 ```python
 import numpy as np
@@ -80,20 +81,20 @@ import numpy as np
 np.sin(3)
 ```
 
-Seguido de **SHIFT-ENTER** (ou **Control-ENTER** ou selecione o botão Reproduzir ao lado da célula). A seguinte saída deve ser exibida:
+Em seguida, selecione Shift + Enter (ou Ctrl + Entre ou ainda o botão **Reproduzir**, ao lado da célula). Você deve ver o seguinte resultado:
 
-:::image type="content" source="media/tutorial-power-bi/simple-sin.png" alt-text="Captura de tela mostrando a execução da célula":::
+:::image type="content" source="media/tutorial-power-bi/simple-sin.png" alt-text="Captura de tela mostrando a saída de uma célula.":::
 
 Agora você está pronto para criar um modelo de machine learning.
 
-## <a name="build-a-model-using-scikit-learn"></a>Criar um modelo usando o Scikit-learn
+## <a name="build-a-model-by-using-scikit-learn"></a>Criar um modelo usando o Scikit-learn
 
-Neste tutorial, você usará o [conjunto de dados Diabetes](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html), que é disponibilizado em [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/). 
+Neste tutorial, você usará o [conjunto de dados de Diabetes](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). Esse conjunto de dados está disponível nos [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/).
 
 
 ### <a name="import-data"></a>Importar dados
 
-Para importar seus dados, copie e cole o código abaixo em uma nova **célula de código** no seu notebook:
+Para importar os dados, copie e cole o código abaixo em uma nova *célula de código* do notebook.
 
 ```python
 from azureml.opendatasets import Diabetes
@@ -106,11 +107,11 @@ y_df = y.to_pandas_dataframe()
 X_df.info()
 ```
 
-O quadro de dados do Pandas `X_df` contém 10 variáveis de entrada de linha de base (como idade, sexo, índice de massa corpórea, pressão arterial média e seis medições de soro sanguíneo). O quadro de dados do Pandas `y_df` é a variável de destino que contém uma medida quantitativa de progressão da doença um ano após a linha de base. Há um total de 442 registros.
+O quadro de dados do Pandas `X_df` contém 10 variáveis de entrada de linha de base. Essas variáveis incluem idade, sexo, índice de massa corporal, pressão sanguínea média e seis medidas de soro sanguíneo. O quadro de dados do Pandas `y_df` é a variável de destino. Ele contém uma medida quantitativa de progressão de doença um ano após a linha de base. O quadro de dados contém 442 registros.
 
-### <a name="train-model"></a>Treinar um modelo
+### <a name="train-the-model"></a>Treinar o modelo
 
-Crie uma **célula de código** no seu notebook e copie e cole o snippet de código abaixo, que constrói um modelo de regressão de Ridge e serializa o modelo usando o formato pickle do Python:
+Crie uma *célula de código* no notebook. Então, copie o código a seguir e cole-o na célula. Esse snippet de código constrói um modelo de regressão de cume e serializa o modelo usando o formato pickle do Python.
 
 ```python
 import joblib
@@ -122,9 +123,11 @@ joblib.dump(model, 'sklearn_regression_model.pkl')
 
 ### <a name="register-the-model"></a>Registre o modelo
 
-Além do conteúdo do próprio arquivo de modelo, seu modelo registrado também armazenará os metadados do modelo (descrição do modelo, marcas e informações de estrutura) que serão úteis ao gerenciar e implantar modelos no workspace. Usando marcas, por exemplo, você pode categorizar seus modelos e aplicar filtros ao listar modelos no workspace. Além disso, marcar esse modelo com a estrutura Scikit-learn simplificará a implantação como um serviço Web, como veremos mais adiante.
+Além do conteúdo do próprio arquivo de modelo, o modelo registrado armazenará metadados. Os metadados incluem a descrição do modelo, as marcas e as informações da estrutura. 
 
-Copie e cole o código abaixo em uma nova **célula de código** no seu notebook:
+Os metadados são úteis quando você está gerenciando e implantando modelos no workspace. Usando marcas, por exemplo, você pode categorizar os modelos e aplicar filtros ao listar os modelos no workspace. Além disso, se você marcar esse modelo com a estrutura do Scikit-learn, isso simplificará a implantação do modelo como um serviço Web.
+
+Copie e cole o código abaixo em uma nova *célula de código* do notebook.
 
 ```python
 import sklearn
@@ -150,21 +153,21 @@ print('Name:', model.name)
 print('Version:', model.version)
 ```
 
-Veja também o modelo no estúdio do Azure Machine Learning navegando até **Pontos de extremidade** no menu à esquerda:
+Você também pode ver o modelo no Estúdio do Azure Machine Learning. No menu à esquerda, selecione **Modelos**:
 
-:::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Captura de tela mostrando o modelo":::
+:::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Captura de tela mostrando como exibir um modelo.":::
 
 ### <a name="define-the-scoring-script"></a>Definir o script de pontuação
 
-Ao implantar um modelo a ser integrado ao Microsoft Power BI, você precisará definir um *script de pontuação* do Python e um ambiente personalizado. O script de pontuação contém duas funções:
+Ao implantar um modelo que será integrado ao Power BI, você precisa definir um *script de Pontuação* do Python e um ambiente personalizado. O script de pontuação contém duas funções:
 
-- `init()`: essa função é executada quando o serviço é iniciado. Ela carrega o modelo (observe que o modelo é baixado automaticamente do Registro do modelo) e o desserializa.
-- `run(data)`: essa função é executada quando uma chamada é feita ao serviço com alguns dados de entrada que precisam de pontuação. 
+- A função `init()` é executada quando o serviço é iniciado. Ela carrega o modelo (que é baixado automaticamente do registro de modelos) e o desserializa.
+- A função `run(data)` é executada quando uma chamada para o serviço inclui dados de entrada que precisam ser pontuados. 
 
 >[!NOTE]
-> Usamos decoradores do Python para definir o esquema dos dados de entrada e saída, que é importante para que a integração do Microsoft Power BI funcione.
+> Este artigo usa decoradores do Python para definir o esquema dos dados de entrada e saída. Essa configuração é importante para a integração do Power BI.
 
-Copie e cole o código abaixo em uma nova **célula de código** no seu notebook. O snippet de código abaixo tem um magic de célula que gravará o código em um arquivo chamado score.py.
+Copie e cole o código abaixo em uma nova *célula de código* do notebook. O snippet de código a seguir tem um magic de célula que grava o código em um arquivo chamado *score.py*.
 
 ```python
 %%writefile score.py
@@ -219,7 +222,7 @@ def run(data):
         result = model.predict(data)
         print("result.....")
         print(result)
-    # You can return any data type, as long as it is JSON serializable.
+    # You can return any data type, as long as it can be serialized by JSON.
         return result.tolist()
     except Exception as e:
         error = str(e)
@@ -228,9 +231,9 @@ def run(data):
 
 ### <a name="define-the-custom-environment"></a>Definir o ambiente personalizado
 
-Em seguida, precisamos definir o ambiente para pontuar o modelo. Nesse ambiente, precisamos definir os pacotes do Python necessários para o script de pontuação (score.py) definido acima, como o Pandas, o Scikit-learn etc.
+Em seguida, defina o ambiente para pontuar o modelo. No ambiente, defina os pacotes do Python, como Pandas e Scikit-learn, que o script de pontuação (*score.py*) exige.
 
-Para definir o ambiente, copie e cole o código abaixo em uma nova **célula de código** no seu notebook:
+Para definir o ambiente, copie e cole o código a seguir em uma nova *célula de código* do notebook.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -252,7 +255,7 @@ inference_config = InferenceConfig(entry_script='./score.py',environment=environ
 
 ### <a name="deploy-the-model"></a>Implantar o modelo
 
-Para implantar o modelo, copie e cole o código abaixo em uma nova **célula de código** no seu notebook:
+Para implantar o modelo, copie e cole o código seguinte em uma nova *célula de código* do notebook:
 
 ```python
 service_name = 'my-diabetes-model'
@@ -262,9 +265,9 @@ service.wait_for_deployment(show_output=True)
 ```
 
 >[!NOTE]
-> Pode levar de 2 a 4 minutos para que o serviço seja implantado.
+> O serviço pode levar de 2 a 4 minutos para ser implantado.
 
-Você verá a seguinte saída de um serviço implantado com êxito:
+Se o serviço for implantado com sucesso, você verá a seguinte saída:
 
 ```txt
 Tips: You can try get_logs(): https://aka.ms/debugimage#dockerlog or local deployment: https://aka.ms/debugimage#debug-locally to debug if deployment takes longer than 10 minutes.
@@ -273,11 +276,11 @@ Succeeded
 ACI service creation operation finished, operation "Succeeded"
 ```
 
-Veja também o serviço no estúdio do Azure Machine Learning navegando até **Pontos de extremidade** no menu à esquerda:
+Você também pode ver o serviço no Estúdio do Azure Machine Learning. No menu à esquerda, selecione **Pontos de extremidade**:
 
-:::image type="content" source="media/tutorial-power-bi/endpoint.png" alt-text="Captura de tela mostrando o ponto de extremidade":::
+:::image type="content" source="media/tutorial-power-bi/endpoint.png" alt-text="Captura de tela mostrando como exibir o serviço.":::
 
-Recomendamos que você teste o serviço Web para verificar se ele funciona conforme o esperado. Volte ao notebook selecionando **Notebooks** no menu à esquerda do estúdio do Azure Machine Learning. Copie e cole o código abaixo em uma nova **célula de código** no seu notebook para testar o serviço:
+Recomendamos que você teste o serviço Web para garantir que ele funcione conforme o esperado. Para retornar o bloco de anotações, no Estúdio do Azure Machine Learning, no menu à esquerda, selecione **Notebooks**. Em seguida, copie e cole o código a seguir em uma nova *célula de código* do notebook para testar o serviço.
 
 ```python
 import json
@@ -293,11 +296,11 @@ output = service.run(input_payload)
 print(output)
 ```
 
-A saída será semelhante à seguinte estrutura JSON: `{'predict': [[205.59], [68.84]]}`.
+A saída deve ser semelhante a esta estrutura JSON: `{'predict': [[205.59], [68.84]]}`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você viu como criar e implantar um modelo de modo que ele possa ser consumido pelo Microsoft Power BI. Na próxima parte, você aprenderá a consumir esse modelo em um relatório do Power BI.
+Neste tutorial, você viu como criar e implantar um modelo para que ele possa ser consumido pelo Power BI. Na próxima parte, você aprenderá a consumir esse modelo em um relatório do Power BI.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Consumir um modelo no Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)

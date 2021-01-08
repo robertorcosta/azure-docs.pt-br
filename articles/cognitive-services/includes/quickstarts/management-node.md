@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 7b691dc408c65b2152c60276dbea826042ecb0d8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eddee6bc0fdcd636b7b9ffb81b121052499251b2
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95096608"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97745678"
 ---
 [Documentação de referência](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="javascript-prerequisites"></a>Pré-requisitos para usar o JavaScript
 
 * Uma assinatura válida do Azure; [crie uma gratuitamente](https://azure.microsoft.com/free/).
 * A versão atual do [Node.js](https://nodejs.org/)
@@ -76,6 +76,10 @@ Adicione o código a seguir ao final de sua função `quickstart` para listar os
 
 ## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
 
+Para criar e assinar um recurso dos Serviços Cognitivos, use a função **Criar**. Essa função adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. A função a seguir usa todos esses argumentos e cria um recurso.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_create)]
+
 ### <a name="choose-a-service-and-pricing-tier"></a>Escolher um serviço e um tipo de preço
 
 Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/) (ou SKU) desejado. Você usará essa e outras informações como parâmetros ao criar o recurso. A função a seguir lista os "tipos" de Serviços Cognitivos disponíveis.
@@ -85,12 +89,6 @@ Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar,
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 [!INCLUDE [SKUs and pricing](./sku-pricing.md)]
-
-## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
-
-Para criar e assinar um recurso dos Serviços Cognitivos, use a função **Criar**. Essa função adiciona um novo recurso que pode ser cobrado ao grupo de recursos que você passa. Ao criar o recurso, você precisará saber qual "tipo" de serviço deseja usar, bem como o tipo de preço (ou SKU) desejado e um local do Azure. A função a seguir usa todos esses argumentos e cria um recurso.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_create)]
 
 ## <a name="view-your-resources"></a>Exibir os recursos
 

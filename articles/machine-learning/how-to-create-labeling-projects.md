@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5abb222a6211e2f3f92c002a49987ac54edc78e2
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: cd35cea28e23e88ba97bb7a27dc252d6bebd65e4
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346649"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739647"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -256,6 +256,17 @@ Você pode exportar os dados de rótulo para experimentação no Machine Learnin
 O arquivo COCO é criado no armazenamento de blobs padrão do Workspace do Azure Machine Learning em uma pasta dentro de *export/coco*. Acesse o conjunto de dados exportado do Azure Machine Learning na seção **Conjuntos de dados** do Machine Learning. A página de detalhes do conjunto de dados também fornece um código de exemplo para acessar seus rótulos por meio do Python.
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Use essas dicas caso veja algum desses problemas.
+
+|Problema  |Resolução  |
+|---------|---------|
+|Somente conjuntos de dados criados em armazenamentos de dados de um blob poderão ser usados.     |  Essa é uma limitação conhecida da versão atual.       |
+|Após a criação, o projeto mostrará a mensagem "Inicializando" por um longo período.     | Atualize a página de modo manual. A inicialização deverá prosseguir por aproximadamente 20 pontos de dados por segundo. A ausência de uma atualização automática é um problema conhecido.         |
+|As imagens recém rotuladas não serão mostradas durante uma revisão.     |   Para carregar todas as imagens rotuladas, clique no botão **Primeiro**. O botão **Primeiro** levará você de volta ao início da lista. No entanto, ele carregará todos os dados rotulados.      |
+|Pressionar a tecla ESC durante a rotulagem de uma detecção de objetos criará um rótulo de tamanho igual a zero no canto superior esquerdo. Haverá falha ao enviar rótulos nesse estado.     |   Exclua o rótulo clicando no ícone de x vermelho ao lado dele.  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

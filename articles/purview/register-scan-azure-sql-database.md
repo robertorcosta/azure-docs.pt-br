@@ -1,18 +1,18 @@
 ---
 title: Registrar e examinar um Banco de Dados SQL do Azure
 description: Este tutorial descreve como examinar um Banco de Dados SQL do Azure
-author: hophan
+author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 1fbeedd8643a777b29ebe4993eed7b664240621c
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
+ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920273"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97739783"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrar e examinar um Banco de Dados SQL do Azure
 
@@ -28,7 +28,7 @@ A fonte de dados do Banco de Dados SQL do Azure dá suporte às seguintes funcio
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-O Azure Purview não dá suporte à verificação de [exibições](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) no Banco de Dados SQL do Azure. 
+O Azure Purview não dá suporte à verificação de [exibições](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) no Banco de Dados SQL do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -89,7 +89,7 @@ Para usar uma entidade de serviço, use uma existente ou crie uma.
 A entidade de serviço ou a identidade gerenciada precisa ter permissão para obter metadados para o banco de dados, esquemas e tabelas. Ela também precisa conseguir consultar as tabelas para obter uma amostragem de classificação.
 
 - [Configurar e gerenciar a autenticação do Azure AD com o Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Se você estiver usando a identidade gerenciada, sua conta do Purview terá uma identidade gerenciada própria, que é basicamente seu nome do Purview quando você o criou. Você precisará criar um usuário do Azure AD no Banco de Dados SQL do Azure com a identidade gerenciada exata do Purview ou sua entidade de serviço seguindo o tutorial descrito em [Criar o usuário da entidade de serviço no Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). Você precisará atribuir a permissão `db_owner` (**recomendado**) à identidade. Exemplo de sintaxe SQL para criar um usuário e conceder a permissão:
+- Se você estiver usando a identidade gerenciada, sua conta do Purview terá uma identidade gerenciada própria, que é basicamente seu nome do Purview quando você o criou. Você precisará criar um usuário do Azure AD no Banco de Dados SQL do Azure com a identidade gerenciada exata do Purview ou sua entidade de serviço seguindo o tutorial descrito em [Criar o usuário da entidade de serviço no Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). É necessário atribuir uma permissão apropriada (como `db_owner` ou `db_datareader`) à identidade. Exemplo de sintaxe SQL para criar um usuário e conceder a permissão:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
@@ -100,7 +100,7 @@ A entidade de serviço ou a identidade gerenciada precisa ter permissão para ob
     ```
 
     > [!Note]
-    > O `Username` é a entidade de serviço ou a identidade gerenciada do Purview
+    > O `Username` é a sua entidade de serviço ou identidade gerenciada do Purview. É possível ler mais sobre [funções de banco de dados fixas e respectivas funcionalidades](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Adicionar a entidade de serviço ao cofre de chaves e à credencial do Purview
 
