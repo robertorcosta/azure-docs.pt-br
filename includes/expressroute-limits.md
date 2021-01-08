@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 12c0acd5211a6fbcfd1e2861a3109b57fc67dbcf
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 54306b8bd8718a0a69f5b04ceaab15dff46d21a8
+ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930564"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978905"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "97930564"
 | Circuitos do ExpressRoute por região por assinatura, com o Azure Resource Manager |10 |
 | Número máximo de rotas anunciadas para o emparelhamento privado do Azure com o ExpressRoute Standard |4.000 |
 | Número máximo de rotas anunciadas para o emparelhamento privado do Azure com o complemento ExpressRoute Premium |10.000 |
-| Número máximo de rotas anunciadas do emparelhamento privado do Azure do espaço de endereço da VNet para uma conexão do ExpressRoute |200 |
+| Número máximo de rotas anunciadas do emparelhamento privado do Azure do espaço de endereço da VNet para uma conexão do ExpressRoute |1000 |
 | Número máximo de rotas anunciadas para emparelhamento do Microsoft com o Standard do ExpressRoute |200 |
 | Número máximo de rotas anunciadas para o emparelhamento da Microsoft com o complemento ExpressRoute Premium |200 |
 | Número máximo de circuitos do ExpressRoute vinculados à mesma rede virtual no mesmo local de emparelhamento |4 |

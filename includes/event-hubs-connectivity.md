@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/19/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dac82692c76d9d36b1f25d7b93b5c3a2e2400672
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7ebb9dbce020086a716872c86221b97b4b7a6653
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002777"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97978851"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir no firewall? 
 Você pode usar os seguintes protocolos com os hubs de eventos do Azure para enviar e receber eventos:
@@ -72,7 +72,7 @@ Se você usar a **redundância de zona** para seu namespace, precisará executar
     > [!NOTE]
     > O endereço IP retornado pelo `nslookup` comando não é um endereço IP estático. No entanto, ela permanece constante até que a implantação subjacente seja excluída ou movida para um cluster diferente.
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Onde posso encontrar o IP do cliente enviando ou recebendo mensagens para o namespace?
+### <a name="what-client-ips-are-sending-events-to-or-receiving-events-from-my-namespace"></a>Que IPs de cliente estão enviando eventos ou recebendo eventos do meu namespace?
 Primeiro, habilite a [filtragem de IP](../articles/event-hubs/event-hubs-ip-filtering.md) no namespace. 
 
 Em seguida, habilite os logs de diagnóstico para [eventos de conexão de rede virtual dos hubs de eventos](../articles/event-hubs/event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguindo as instruções em [Habilitar logs de diagnóstico](../articles/event-hubs/event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Você verá o endereço IP para o qual a conexão é negada.
@@ -92,3 +92,6 @@ Em seguida, habilite os logs de diagnóstico para [eventos de conexão de rede v
 
 > [!IMPORTANT]
 > Os logs de rede virtual serão gerados somente se o namespace permitir o acesso de **endereços IP específicos** (regras de filtro IP). Se você não quiser restringir o acesso ao seu namespace usando esses recursos e ainda quiser obter logs de rede virtual para rastrear endereços IP de clientes que se conectam ao namespace de hubs de eventos, você pode usar a seguinte solução alternativa: habilitar a filtragem de IP e adicionar o intervalo de IPv4 endereçável total (1.0.0.0/1-255.0.0.0/1). Os hubs de eventos não dão suporte a intervalos de endereços IPv6. 
+
+> [!NOTE]
+> Atualmente, não é possível determinar o IP de origem de uma mensagem ou evento individual. 
