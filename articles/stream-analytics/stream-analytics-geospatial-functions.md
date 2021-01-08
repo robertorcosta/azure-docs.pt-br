@@ -1,18 +1,17 @@
 ---
 title: Introdução às funções geoespaciais do Azure Stream Analytics
 description: Este artigo descreve funções geoespaciais que são usadas em trabalhos do Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: krishna0815
+ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 44e445f6d1dce8193109d6b5ad1742210458e74c
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 8d01f43dd6e404bb8f8ae0898625ae1ea9d09fd6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130401"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020427"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introdução às funções geoespaciais do Stream Analytics
 
@@ -26,7 +25,7 @@ Exemplos de cenários que podem se beneficiar de funções geoespaciais incluem:
 * Isolamento geográfico
 * Rastreamento por telefone em sites de celular
 
-A Linguagem de Consulta do Stream Analytics tem sete funções geoespaciais internas: **CreateLineString** , **CreatePoint** , **CreatePolygon** , **ST_DISTANCE** , **ST_OVERLAPS** , **ST_INTERSECTS** e **ST_WITHIN** .
+A Linguagem de Consulta do Stream Analytics tem sete funções geoespaciais internas: **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS** e **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -57,7 +56,7 @@ Para saber mais, visite a referência [CreateLineString](/stream-analytics-query
 
 ## <a name="createpoint"></a>CreatePoint
 
-A função `CreatePoint` aceita uma latitude e longitude e retorna um ponto GeoJSON, que pode ser plotado em um mapa. As latitudes e longitudes devem ser um tipo de dados **float** .
+A função `CreatePoint` aceita uma latitude e longitude e retorna um ponto GeoJSON, que pode ser plotado em um mapa. As latitudes e longitudes devem ser um tipo de dados **float**.
 
 A consulta de exemplo a seguir usa `CreatePoint` para criar um ponto usando latitudes e longitudes dos dados de entrada de streaming.
 

@@ -1,18 +1,17 @@
 ---
 title: Saída dos hubs de eventos de Azure Stream Analytics
 description: Este artigo descreve como gerar dados de saída de Azure Stream Analytics para os hubs de eventos do Azure.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: e01a4418681e0f78864eacbf70016cfb33fa6f53
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: c2bde64c17520f4cf66ddecd9fc55a9bdd9edc37
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739630"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020580"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Saída dos hubs de eventos de Azure Stream Analytics
 

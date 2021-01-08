@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/11/2017
+ms.topic: reference
+ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: 49dd8b65db771a182138f13218adda2f0e7f7396
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 18e29ce8bf744cabb31c5634c9b0ca547bca5acc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858222"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020665"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Exibindo aplicativos usando seu locatário do Azure AD para o gerenciamento de identidades
 A [série de guias de início rápido sobre o gerenciamento de aplicativos](view-applications-portal.md) orienta os conceitos básicos. Nele, você aprende a exibir todos os aplicativos usando seu locatário do Azure AD para o gerenciamento de identidades. Este artigo mergulha um pouco mais sobre os tipos de aplicativos que você encontrará.

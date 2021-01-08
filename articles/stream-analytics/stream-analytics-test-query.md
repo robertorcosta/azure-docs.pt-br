@@ -1,19 +1,18 @@
 ---
 title: Testar um trabalho do Azure Stream Analytics com dados de exemplo
 description: Este artigo descreve como usar o portal do Azure para testar um trabalho do Azure Stream Analytics, uma entrada de exemplo e fazer o upload de dados de exemplo.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: eff9103f476e6074ab46198ff8cc78588675569f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490960"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020036"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testar um trabalho de Azure Stream Analytics no portal
 
@@ -27,7 +26,7 @@ Azure Stream Analytics busca automaticamente eventos de suas entradas de streami
 
 2. Localize e selecione seu trabalho de Stream Analytics existente.
 
-3. Na página de trabalho do Stream Analytics, sob o título **Topologia de Trabalho** , selecione **Consulta** para abrir a janela Editor de consultas. 
+3. Na página de trabalho do Stream Analytics, sob o título **Topologia de Trabalho**, selecione **Consulta** para abrir a janela Editor de consultas. 
 
 4. Para ver uma lista de exemplos de eventos de entrada, selecione o ícone entrada com arquivo e os eventos de exemplo serão exibidos automaticamente na **visualização de entrada**.
 
@@ -37,11 +36,11 @@ Azure Stream Analytics busca automaticamente eventos de suas entradas de streami
     
    c. Se os dados mostrados não estiverem atuais, selecione **Atualizar** para ver os eventos mais recentes.
 
-   A tabela a seguir é um exemplo de dados no **formato de tabela** :
+   A tabela a seguir é um exemplo de dados no **formato de tabela**:
 
    ![Azure Stream Analytics entrada de exemplo no formato de tabela](./media/stream-analytics-test-query/asa-sample-table.png)
 
-   A tabela a seguir é um exemplo de dados no **formato bruto** :
+   A tabela a seguir é um exemplo de dados no **formato bruto**:
 
    ![Azure Stream Analytics entrada de exemplo no formato bruto](./media/stream-analytics-test-query/asa-sample-raw.png)
 
@@ -61,7 +60,7 @@ Azure Stream Analytics busca automaticamente eventos de suas entradas de streami
 
    ![Azure Stream Analytics exibir resultados de teste](./media/stream-analytics-test-query/asa-view-test-results.png)
 
-9. Selecione **Redefinir** para ver a lista de exemplos de eventos de entrada. Se você selecionar **Redefinir** , sua seleção de intervalo de tempo será perdida. Selecione **testar consulta** para testar sua consulta e examine os resultados na guia **resultados do teste** .
+9. Selecione **Redefinir** para ver a lista de exemplos de eventos de entrada. Se você selecionar **Redefinir**, sua seleção de intervalo de tempo será perdida. Selecione **testar consulta** para testar sua consulta e examine os resultados na guia **resultados do teste** .
 
 10. Ao fazer alterações em sua consulta, selecione **Salvar consulta** para testar a nova lógica de consulta. Isso permite que você modifique a consulta iterativamente e teste-a novamente para ver como a saída é alterada.
 
@@ -75,7 +74,7 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
    
 2. Localize o trabalho existente do Stream Analytics e selecione-o.
 
-3. Na página de trabalho do Stream Analytics, sob o título **Topologia de Trabalho** , selecione **Consulta** para abrir a janela Editor de consultas.
+3. Na página de trabalho do Stream Analytics, sob o título **Topologia de Trabalho**, selecione **Consulta** para abrir a janela Editor de consultas.
 
 4. Para testar sua consulta com um arquivo local, selecione **carregar entrada de exemplo** na guia **visualização de entrada** . 
 
@@ -85,7 +84,7 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
 
    ![Captura de tela mostra a caixa de diálogo carregar dados de exemplo, em que é possível selecionar um arquivo.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
-6. Assim que você carregar o arquivo, também poderá ver o conteúdo do arquivo no formato como uma tabela ou no formato bruto. Se você selecionar **Redefinir** , os dados de exemplo serão retornados para os dados de entrada de entrada explicados na seção anterior. Você pode carregar qualquer outro arquivo para testar a consulta a qualquer momento.
+6. Assim que você carregar o arquivo, também poderá ver o conteúdo do arquivo no formato como uma tabela ou no formato bruto. Se você selecionar **Redefinir**, os dados de exemplo serão retornados para os dados de entrada de entrada explicados na seção anterior. Você pode carregar qualquer outro arquivo para testar a consulta a qualquer momento.
 
 7. Selecione **testar consulta** para testar sua consulta em relação ao arquivo de exemplo carregado.
 

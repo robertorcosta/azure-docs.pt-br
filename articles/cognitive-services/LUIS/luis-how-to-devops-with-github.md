@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
-ms.openlocfilehash: b733e90b69be4e2bd458be5486564747ed4cca78
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 448b3d93ed58e4cfc73da576f0c5871600400ac6
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018864"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019832"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Aplicar DevOps ao desenvolvimento de aplicativo do LUIS usando GitHub Actions
 
@@ -29,7 +29,7 @@ O [repositório de modelos Luis DevOps](https://github.com/Azure-Samples/LUIS-De
 * **Clonar o repositório de modelos** – Copie o modelo para seu próprio repositório do github.
 * **Configurar recursos do Luis** – crie os [recursos de criação e previsão do Luis no Azure](./luis-how-to-azure-subscription.md) que serão usados pelos fluxos de trabalho de integração contínua.
 * **Configurar os fluxos de trabalho de CI/CD** -configurar parâmetros para os fluxos de trabalho de CI/CD e armazená-los em [segredos do GitHub](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
-* **Percorre o ["loop interno de desenvolvimento"](https://mitchdenny.com/the-inner-loop/)** – o desenvolvedor faz atualizações em um aplicativo Luis de exemplo enquanto trabalha em uma ramificação de desenvolvimento, testa as atualizações e, em seguida, gera uma solicitação de pull para propor alterações e para buscar aprovação de revisão.
+* **Percorre o ["loop interno de desenvolvimento"](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)** – o desenvolvedor faz atualizações em um aplicativo Luis de exemplo enquanto trabalha em uma ramificação de desenvolvimento, testa as atualizações e, em seguida, gera uma solicitação de pull para propor alterações e para buscar aprovação de revisão.
 * **Executar fluxos de trabalho de CI/CD** -executar [fluxos de trabalho de integração contínua para compilar e testar um aplicativo Luis](luis-concept-devops-automation.md) usando ações do github.
 * **Executar testes automatizados** -executar [testes de lote automatizados para um aplicativo Luis](luis-concept-devops-testing.md) para avaliar a qualidade do aplicativo.
 * **Implantar o aplicativo Luis** – executar um [trabalho de entrega contínua (CD)](luis-concept-devops-automation.md#continuous-delivery-cd) para publicar o aplicativo Luis.

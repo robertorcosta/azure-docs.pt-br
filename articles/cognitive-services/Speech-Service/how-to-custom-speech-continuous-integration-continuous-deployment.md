@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 7e27c3dd6e70d9a532c326d8187d82e14bf7ddda
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d37fca06a3d2eafa0af9e31c3a30ac66be5404f0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591609"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020597"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Fala Personalizada
 
@@ -83,7 +83,7 @@ Para uma solução DevOps já implementada para Fala Personalizada, vá para o [
 O [repositório de modelos de fala DevOps](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) fornece a infraestrutura e orientações detalhadas para:
 
 - Copie o repositório de modelos para sua conta do GitHub e, em seguida, crie recursos do Azure e uma [entidade de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) para os fluxos de trabalho de CI/CD de ações do github.
-- Percorra o "[loop interno de desenvolvimento](https://mitchdenny.com/the-inner-loop/)". Atualize os dados de treinamento e teste de um Branch de recurso, teste as alterações com um modelo de desenvolvimento temporário e gere uma solicitação de pull para propor e revisar as alterações.
+- Percorra o "[loop interno de desenvolvimento](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)". Atualize os dados de treinamento e teste de um Branch de recurso, teste as alterações com um modelo de desenvolvimento temporário e gere uma solicitação de pull para propor e revisar as alterações.
 - Quando os dados de treinamento são atualizados em uma solicitação pull para *Main*, treine modelos com o fluxo de trabalho de CI de ações do github.
 - Execute o teste de precisão automatizado para estabelecer a [taxa de erros do Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) do modelo (WER). Armazene os resultados de teste no blob do Azure.
 - Execute o fluxo de trabalho do CD para criar um ponto de extremidade quando o WER melhorar.
