@@ -4,12 +4,12 @@ description: Saiba como lidar com interação humana e tempos limite na extensã
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4e0f71369bc02fdce5625d9c74e1d52264ed86be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335753"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028296"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana nas Funções Duráveis – exemplo de verificação por telefone
 
@@ -45,7 +45,7 @@ Este artigo aborda as seguintes funções no aplicativo de exemplo:
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
-> Pode não ser óbvio a princípio, mas essa função de orquestrador é totalmente determinística. Ele é determinístico porque a `CurrentUtcDateTime` propriedade é usada para calcular o tempo de expiração do temporizador e retorna o mesmo valor em cada reprodução neste ponto do código do orquestrador. Esse comportamento é importante para garantir que os mesmos `winner` resultados de cada chamada repetida para `Task.WhenAny` .
+> Pode não ser óbvio a princípio, mas esse orquestrador não viola a [restrição de orquestração determinística](durable-functions-code-constraints.md). Ele é determinístico porque a `CurrentUtcDateTime` propriedade é usada para calcular o tempo de expiração do temporizador e retorna o mesmo valor em cada reprodução neste ponto do código do orquestrador. Esse comportamento é importante para garantir que os mesmos `winner` resultados de cada chamada repetida para `Task.WhenAny` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -58,7 +58,20 @@ Este é o código que implementa a função:
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 > [!NOTE]
-> Pode não ser óbvio a princípio, mas essa função de orquestrador é totalmente determinística. Ele é determinístico porque a `currentUtcDateTime` propriedade é usada para calcular o tempo de expiração do temporizador e retorna o mesmo valor em cada reprodução neste ponto do código do orquestrador. Esse comportamento é importante para garantir que os mesmos `winner` resultados de cada chamada repetida para `context.df.Task.any` .
+> Pode não ser óbvio a princípio, mas esse orquestrador não viola a [restrição de orquestração determinística](durable-functions-code-constraints.md). Ele é determinístico porque a `currentUtcDateTime` propriedade é usada para calcular o tempo de expiração do temporizador e retorna o mesmo valor em cada reprodução neste ponto do código do orquestrador. Esse comportamento é importante para garantir que os mesmos `winner` resultados de cada chamada repetida para `context.df.Task.any` .
+
+# <a name="python"></a>[Python](#tab/python)
+
+A função **E4_SmsPhoneVerification** usa o *function.json* padrão para funções de orquestrador.
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/function.json)]
+
+Este é o código que implementa a função:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
+
+> [!NOTE]
+> Pode não ser óbvio a princípio, mas esse orquestrador não viola a [restrição de orquestração determinística](durable-functions-code-constraints.md). Ele é determinístico porque a `currentUtcDateTime` propriedade é usada para calcular o tempo de expiração do temporizador e retorna o mesmo valor em cada reprodução neste ponto do código do orquestrador. Esse comportamento é importante para garantir que os mesmos `winner` resultados de cada chamada repetida para `context.df.Task.any` .
 
 ---
 
@@ -94,6 +107,16 @@ O *function.json* é definido da seguinte maneira:
 E aqui está o código que gera o código de desafio de quatro dígitos e envia a mensagem SMS:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
+
+# <a name="python"></a>[Python](#tab/python)
+
+O *function.json* é definido da seguinte maneira:
+
+[!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
+
+E aqui está o código que gera o código de desafio de quatro dígitos e envia a mensagem SMS:
+
+[!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
 
 ---
 

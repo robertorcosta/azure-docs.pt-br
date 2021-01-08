@@ -8,29 +8,31 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/10/2020
+ms.date: 01/07/2021
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cdba4ce36322f9c3fb0f898cb7eb1d1185ed1dc6
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: fcd194e2503610db314f6a975a4afb1d27962f8c
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636938"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028161"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Usar a API do Video Indexer
 
 O Video Indexer consolida várias tecnologias de inteligência artificial (AI) de áudio e vídeo oferecidas pela Microsoft em um único serviço integrado, simplificando o trabalho de desenvolvimento. As APIs são projetadas para permitir que os desenvolvedores se concentrem no consumo de tecnologias de IA de Mídia sem se preocuparem com escala, alcance global, disponibilidade e confiabilidade das plataformas de nuvem. Você pode usar a API para fazer carregar seus arquivos, obter insights de vídeo detalhados, obter URLs de insights e widgets de player que permitem inserção e muito mais.
 
-Quando cria uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que você não está limitado pela cota). O Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API com uma conta de avaliação gratuita. Com uma opção paga, você cria uma conta do Video Indexer que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga por minutos indexados, para obter mais informações, consulte [preços dos serviços de mídia](https://azure.microsoft.com/pricing/details/media-services/).
+Quando cria uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que você não está limitado pela cota). O Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API com uma conta de avaliação gratuita. Com uma opção paga, você cria uma conta do Video Indexer que está [conectada à sua assinatura do Azure e a uma conta dos Serviços de Mídia do Azure](connect-to-azure.md). Você paga pelos minutos indexados. Para obter mais informações, confira [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).
 
 Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="subscribe-to-the-api"></a>Inscrever-se à API
 
 1. Entre no [Portal do Desenvolvedor do Video Indexer](https://api-portal.videoindexer.ai/).
+
+    Examine uma nota de versão sobre [as informações de logon](release-notes.md#october-2020).
     
-    ![Conexão ao Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/video-indexer-api01.png)
+     ![Conexão ao Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/sign-in.png)
 
    > [!Important]
    > * Você deve usar o mesmo provedor usado quando se inscreveu no Video Indexer.
@@ -40,14 +42,14 @@ Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Inde
 
     Selecione a guia [Produtos](https://api-portal.videoindexer.ai/products). Em seguida, selecione a autorização e inscrever-se.
     
-    ![Guia Produtos no Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Guia Produtos no Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/authorization.png)
 
     > [!NOTE]
     > Novos usuários são automaticamente inscritos na Autorização.
     
     Depois de assinar, você pode encontrar sua assinatura em **produtos**  ->  **autorização**. Na página assinatura, você encontrará as chaves primária e secundária. As chaves devem ser protegidas. As chaves só devem ser usadas pelo seu código do servidor. Elas não devem estar disponíveis no lado do cliente (.js, .html, e assim por diante).
 
-    ![Assinatura e chaves no Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Assinatura e chaves no Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/subscriptions.png)
 
 > [!TIP]
 > O usuário do Video Indexer pode usar uma chave de assinatura única para se conectar a várias contas do aplicativo. Depois você pode vincular essas contas do Video Indexer para diferentes contas de Serviços de Mídia.
@@ -64,9 +66,9 @@ Cada chamada para a API de operações deve estar associada a um token de acesso
 
 Você pode controlar se esses tokens são somente leitura ou se eles permitem edições especificando **allowEdit=true/false**.
 
-Na maioria dos cenários de servidor para servidor, você provavelmente usará o mesmo token de **conta** , pois ele abrange operações de **conta** e operações de **vídeo**. No entanto, se estiver planejando fazer chamadas do lado do cliente para o Video Indexer (por exemplo, do JavaScript), convém usar um token de acesso de **vídeo** para impedir que os clientes obtenham acesso a toda a conta. Essa também é a razão pela qual ao inserir o código do cliente do Video Indexer em seu cliente (por exemplo, usando **Obter Widget de Insights** ou **Obter Widget de Player** ) você deve fornecer um token de acesso de **vídeo**.
+Na maioria dos cenários de servidor para servidor, você provavelmente usará o mesmo token de **conta**, pois ele abrange operações de **conta** e operações de **vídeo**. No entanto, se estiver planejando fazer chamadas do lado do cliente para o Video Indexer (por exemplo, do JavaScript), convém usar um token de acesso de **vídeo** para impedir que os clientes obtenham acesso a toda a conta. Essa também é a razão pela qual ao inserir o código do cliente do Video Indexer em seu cliente (por exemplo, usando **Obter Widget de Insights** ou **Obter Widget de Player**) você deve fornecer um token de acesso de **vídeo**.
 
-Para facilitar, você pode usar a **API de autorização** > **GetAccounts** para obter suas contas sem obter primeiro um token de usuário. Você também pode pedir para obter as contas com tokens válidos, permitindo que você ignore uma chamada adicional para obter um token de conta.
+Para facilitar, você pode usar a **API de autorização**> **GetAccounts** para obter suas contas sem obter primeiro um token de usuário. Você também pode pedir para obter as contas com tokens válidos, permitindo que você ignore uma chamada adicional para obter um token de conta.
 
 Os tokens de acesso expiram após 1 hora. Certifique-se de que seu token de acesso seja válido antes de usar a API de operações. Se ele expirar, chame a API de Autorização novamente para obter um novo token de acesso.
 

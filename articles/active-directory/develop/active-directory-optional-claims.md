@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 1/05/2021
+ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: fd3e4a4442f7da89ffee1557e7d908db805931ed
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014855"
+ms.locfileid: "98028464"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -87,10 +87,12 @@ Essas declarações são sempre incluídas em tokens do Azure AD v1.0, mas não 
 | `given_name`  | Nome                      | Fornece o nome ou nome “especificado” do usuário, conforme definido no objeto de usuário.<br>"given_name": "Davi"                   | Com suporte na MSA e no Azure AD.  Requer o escopo de `profile`. |
 | `upn`         | Nome UPN | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para identificar exclusivamente as informações do usuário (por exemplo, como uma chave de banco de dados). Em vez disso, use a ID de objeto de usuário ( `oid` ) como uma chave de banco de dados. Os usuários que se conectam com uma [ID de logon alternativa](../authentication/howto-authentication-use-email-signin.md) não devem ser mostrados no nome UPN. Em vez disso, use a declaração a seguir `preferred_username` para exibir o estado de entrada para o usuário. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da declaração. Requer o escopo de `profile`.|
 
+## <a name="v10-specific-optional-claims-set"></a>v 1.0-conjunto de declarações opcionais específicas
+
+Alguns dos aprimoramentos do formato de token v2 estão disponíveis para aplicativos que usam o formato de token v1, pois ajudam a melhorar a segurança e a confiabilidade. Eles não terão efeito para tokens de ID solicitados do ponto de extremidade v2, nem tokens de acesso para APIs que usam o formato de token v2. Eles se aplicam somente a tokens SAML e não a JWTs. 
 
 **Tabela 4: apenas declarações opcionais de v 1.0**
 
-Alguns dos aprimoramentos do formato de token v2 estão disponíveis para aplicativos que usam o formato de token v1, pois ajudam a melhorar a segurança e a confiabilidade. Eles não terão efeito para tokens de ID solicitados do ponto de extremidade v2, nem tokens de acesso para APIs que usam o formato de token v2. 
 
 | Declaração JWT     | Nome                            | Descrição | Observações |
 |---------------|---------------------------------|-------------|-------|
@@ -199,7 +201,7 @@ Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo 
 
 **Tabela 5: Propriedades do tipo OptionalClaims**
 
-| Nome          | Type                       | Descrição                                           |
+| Nome          | Tipo                       | Descrição                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT.     |
 | `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
@@ -212,7 +214,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 
 **Tabela 6: Propriedades do tipo OptionalClaim**
 
-| Nome                   | Type                    | Descrição                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e definidas pelo usuário de propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for um usuário, o valor na propriedade name será a propriedade de extensão do objeto de usuário. |
@@ -245,7 +247,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
 **Configurar declarações opcionais de grupos por meio da interface do usuário:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo**.
@@ -258,7 +260,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
 **Configurando declarações opcionais de grupos por meio do manifesto do aplicativo:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista.
@@ -389,7 +391,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 
 **Configuração da interface do usuário:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 
 1. Pesquise **Azure Active Directory** e selecione-o.
@@ -412,7 +414,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 
 **Configuração do manifesto:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Depois de autenticado, escolha o locatário do Azure AD selecionando-o no canto superior direito da página.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e selecione-o.

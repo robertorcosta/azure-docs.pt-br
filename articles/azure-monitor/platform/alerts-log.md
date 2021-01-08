@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: a8dbadd3af9dc21ced54af151e4de705f854e011
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696061"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028991"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor
 
@@ -33,7 +33,7 @@ Você também pode criar regras de alerta de log usando modelos de Azure Resourc
 
 Aqui estão as etapas para começar a escrever consultas para alertas:
 
-1. Vá para o recurso no qual você gostaria de alertar.
+1. Vá para o recurso no qual você gostaria de alertar. Considere configurar regras de alerta em vários recursos selecionando uma assinatura ou um escopo de grupo de recursos sempre que possível. O alerta em vários recursos reduz os custos e a necessidade de gerenciar várias regras de alerta.
 1. Em **Monitor**, selecione **logs**.
 1. Consulte os dados de log que podem indicar o problema. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/example-queries.md) para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/log-analytics-tutorial.md). Além disso, [saiba como criar consultas de alerta otimizadas](alerts-log-query.md).
 1. Pressione o botão ' + nova regra de alerta ' para iniciar o fluxo de criação de alerta.
@@ -155,7 +155,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
     1. Escolha [a divisão de alerta por dimensões](alerts-unified-log.md#split-by-alert-dimensions), se necessário: 
        - A **coluna ID de recurso** é selecionada automaticamente, se detectada, e altera o contexto do alerta acionado para o recurso do registro. 
        - A **coluna ID de recurso** pode ser desmarcada para acionar alertas em grupos de recursos ou de assinatura. A remoção de seleção é útil quando os resultados da consulta são baseados em recursos cruzados. Por exemplo, uma consulta que verifica se 80% das máquinas virtuais do grupo de recursos estão apresentando alto uso da CPU.
-       - Até seis divisores adicionais também podem ser selecionadas para qualquer tipo de colunas de texto ou número usando a tabela de dimensões.
+       - Até seis divisores também podem ser selecionados para qualquer tipo de colunas de texto ou número usando a tabela de dimensões.
        - Os alertas são acionados separadamente de acordo com a divisão com base em combinações exclusivas e a carga de alerta inclui essas informações.
     
         ![Selecionar parâmetros de agregação e divisão](media/alerts-log/select-aggregation-parameters-and-splitting.png)

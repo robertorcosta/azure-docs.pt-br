@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 3725970c982c2d060685bf0b99d12a8fc998f20a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 2079a3a7c9ce6817186e743bb09d31facdecf0e7
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763567"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97931714"
 ---
 # <a name="what-are-durable-functions"></a>O que são as Durable Functions?
 
@@ -697,7 +697,7 @@ Para fornecer garantias de execução confiáveis e de execução longa, as fun�
 
 ## <a name="billing"></a>Cobrança
 
-As Durable Functions são cobradas da mesma forma que o Azure Functions. Para saber mais, confira [Preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Ao executar funções de orquestrador no [plano de Consumo](../functions-scale.md#consumption-plan) do Azure Functions, há alguns comportamentos de cobrança para sua informação. Para obter mais informações sobre esses comportamentos, confira o artigo [Cobrança das Durable Functions](durable-functions-billing.md).
+As Durable Functions são cobradas da mesma forma que o Azure Functions. Para saber mais, confira [Preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/). Ao executar funções de orquestrador no [plano de Consumo](../consumption-plan.md) do Azure Functions, há alguns comportamentos de cobrança para sua informação. Para obter mais informações sobre esses comportamentos, confira o artigo [Cobrança das Durable Functions](durable-functions-billing.md).
 
 ## <a name="jump-right-in"></a>Comece a usar agora
 

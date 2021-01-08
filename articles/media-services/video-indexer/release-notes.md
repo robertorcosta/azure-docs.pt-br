@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 81e52d4a6827492931179055d040b541d51228eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 3552d55d995608dd0d471c84cd5e9f9988ebe2c0
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916653"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028634"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -44,12 +44,15 @@ Video Indexer dá suporte à detecção, agrupamento e reconhecimento de caracte
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>Alterações de authenticatication de site Video Indexer planejadas
 
-A partir de 1º de janeiro de 2021, você não poderá mais se inscrever e entrar no site [Video indexer](https://www.videoindexer.ai/) (oferta de avaliação) usando o Facebook ou o LinkedIn.
+A partir de 1º de março de 2021, você não poderá mais se inscrever e entrar no site [Video indexer](https://www.videoindexer.ai/) usando o Facebook ou o LinkedIn.
 
 Você poderá se inscrever e entrar usando um destes provedores: Azure AD, Microsoft e Google.
 
 > [!NOTE]
-> Você é aconselhado a exportar seu conteúdo antes de 1º de janeiro de 2021, já que as contas conectadas ao LinkedIn e ao Facebook serão excluídas e o conteúdo não estará mais acessível.
+> As contas de Video Indexer conectadas ao LinkedIn e ao Facebook não estarão acessíveis após 1º de março de 2021. 
+> 
+> Você deve [convidar](invite-users.md) um email do Azure AD, Microsoft ou Google para a conta de video indexer para que você ainda terá acesso.<br/>
+> Como alternativa, você pode criar uma conta paga e migrar os dados.
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -148,7 +151,7 @@ Nas próximas semanas, iremos alterá-la e retornar o Video Indexer URL do [site
    
     As URLs regionais não têm suporte e serão bloqueadas nas próximas semanas.
 
-## <a name="january-2020"></a>janeiro de 2020
+## <a name="january-2020"></a>Janeiro de 2020
  
 ### <a name="custom-language-support-for-additional-languages"></a>Suporte a idiomas personalizados para idiomas adicionais
 

@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 7671d8d58ffbd0fca444eefe53c46c99a4e76d37
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
+ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96009323"
+ms.lasthandoff: 01/01/2021
+ms.locfileid: "97845536"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -106,7 +106,7 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
    Esse comando disponibilizará a ferramenta de rotulagem de exemplo por meio de um navegador da Web. Ir para `http://localhost:3000`.
 
 > [!NOTE]
-> Você também pode rotular documentos e treinar modelos usando a API REST do Reconhecimento de Formulários. Para treinar e analisar com a API REST, confira [Treinar com rótulos usando a API REST e o Python](./python-labeled-data.md).
+> Você também pode rotular documentos e treinar modelos usando a API REST do Reconhecimento de Formulários. Para treinar e analisar com a API REST, confira [Treinar com rótulos usando a API REST e o Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="set-up-input-data"></a>Configurar dados de entrada
 
@@ -137,7 +137,9 @@ Preencha os campos com os valores a seguir:
 
 * **Nome de Exibição** – o nome de exibição da conexão.
 * **Descrição** – a descrição do seu projeto.
-* **URL SAS** – a SAS (Assinatura de Acesso Compartilhado) do seu contêiner do Armazenamento de Blobs do Azure. Para recuperar a URL de SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no seu contêiner e selecione **Obter assinatura de acesso compartilhado**. Defina o tempo de expiração para algum tempo depois de você ter usado o serviço. Verifique se as permissões de **Leitura**, **Gravação**, **Exclusão** e **Lista** estão marcadas e clique em **Criar**. Em seguida, copie o valor na seção **URL**. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **URL SAS** – a SAS (Assinatura de Acesso Compartilhado) do seu contêiner do Armazenamento de Blobs do Azure. [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+
+   :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="Recuperação da URL SAS":::
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
 
@@ -223,7 +225,7 @@ Siga as etapas acima para rotular pelo menos cinco de seus formulários.
 
 ### <a name="specify-tag-value-types"></a>Especificar tipos de valor de marca
 
-Opcionalmente, você pode definir o tipo de dados esperado para cada marca. Abra o menu de contexto à direita de uma determinada marca e selecione um tipo no menu. Esse recurso permite que o algoritmo de detecção faça determinadas suposições que melhorarão a precisão da detecção de texto. Ele também garante que os valores detectados serão retornados em um formato padronizado na saída JSON final. 
+Opcionalmente, você pode definir o tipo de dados esperado para cada marca. Abra o menu de contexto à direita de uma determinada marca e selecione um tipo no menu. Esse recurso permite que o algoritmo de detecção faça determinadas suposições que melhorarão a precisão da detecção de texto. Ele também garante que os valores detectados serão retornados em um formato padronizado na saída JSON final. As informações de tipo de valor são salvas no arquivo *fields.json* no mesmo caminho que o dos arquivos de rótulo.
 
 > [!div class="mx-imgBorder"]
 > ![Seleção de tipo de valor com a ferramenta de rotulagem de exemplo](../media/whats-new/formre-value-type.png)
@@ -266,7 +268,7 @@ Os tipos de valor e as variações a seguir são compatíveis no momento:
 
 Clique no ícone Treinar no painel esquerdo para abrir a página Treinamento. Em seguida, clique no botão **Treinar** para começar a treinar o modelo. Quando o processo de treinamento for concluído, você verá as seguintes informações:
 
-* **ID do Modelo** – a ID do modelo que foi criado e treinado. Cada chamada de treinamento cria um novo modelo com sua própria ID. Copie esta cadeia de caracteres para um local seguro. Você precisará dela se quiser fazer chamadas de previsão por meio da [API REST](./curl-train-extract.md) ou da [biblioteca de clientes](./client-library.md).
+* **ID do Modelo** – a ID do modelo que foi criado e treinado. Cada chamada de treinamento cria um novo modelo com sua própria ID. Copie esta cadeia de caracteres para um local seguro. Você precisará dela se quiser fazer chamadas de previsão por meio da [API REST](./client-library.md?pivots=programming-language-rest-api) ou da [biblioteca de clientes](./client-library.md).
 * **Precisão Média** – a precisão média do modelo. Você pode aprimorar a precisão do modelo rotulando formulários adicionais e treinando novamente para criar outro modelo. É recomendável começar rotulando cinco formulários e adicionando mais formulários conforme necessário.
 * A lista de marcas e a precisão estimada por marca.
 
@@ -276,7 +278,7 @@ Clique no ícone Treinar no painel esquerdo para abrir a página Treinamento. Em
 Após a conclusão do treinamento, examine o valor de **Precisão Média**. Se ele estiver baixo, você deverá adicionar mais documentos de entrada e repetir as etapas acima. Os documentos que você já rotulou permanecerão no índice do projeto.
 
 > [!TIP]
-> Você também pode executar o processo de treinamento com uma chamada à API REST. Para saber como fazer isso, confira [treinar com rótulos usando o Python](./python-labeled-data.md).
+> Você também pode executar o processo de treinamento com uma chamada à API REST. Para saber como fazer isso, confira [treinar com rótulos usando o Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="compose-trained-models"></a>Compor modelos treinados
 
@@ -299,7 +301,7 @@ Para compor modelos na ferramenta de rotulagem de exemplo, clique no ícone Mode
 Clique no ícone Prever (lâmpada) à esquerda para testar seu modelo. Carregue um documento de formulário que você não usou no processo de treinamento. Em seguida, clique no botão **Prever** à direita para obter previsões de chave-valor para o formulário. A ferramenta aplicará marcas nas caixas delimitadoras e relatará o nível de confiança de cada marca.
 
 > [!TIP]
-> Você também pode executar a API de Análise com uma chamada REST. Para saber como fazer isso, confira [treinar com rótulos usando o Python](./python-labeled-data.md).
+> Você também pode executar a API de Análise com uma chamada REST. Para saber como fazer isso, confira [treinar com rótulos usando o Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md).
 
 ## <a name="improve-results"></a>Aprimorar os resultados
 
@@ -326,7 +328,7 @@ Por fim, vá para a página principal (ícone da casa) e clique em Abrir Projeto
 Neste guia início rápido, você aprendeu a usar a ferramenta de rotulagem de exemplo do Reconhecimento de Formulários para treinar um modelo usando dados rotulados manualmente. Se desejar criar o próprio utilitário para rotular dados de treinamento, use as APIs REST para lidar com o treinamento de dados rotulados.
 
 > [!div class="nextstepaction"]
-> [Treinar com rótulos usando o Python](./python-labeled-data.md)
+> [Treinar com rótulos usando o Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [O que é o Reconhecimento de Formulários?](../overview.md)
-* [Inícios rápidos de bibliotecas de clientes do Reconhecimento de Formulários](client-library.md)
+* [Início rápido do Reconhecimento de Formulários](client-library.md)

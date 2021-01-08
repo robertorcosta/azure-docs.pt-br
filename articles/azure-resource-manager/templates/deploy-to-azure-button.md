@@ -3,23 +3,23 @@ title: Botão Implantar no Azure
 description: Use o botão para implantar modelos de Azure Resource Manager de um repositório GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 65891cace1cb17614abbfe091e1592d6f13feff4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185718"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028736"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar um botão de implantação para implantar modelos do repositório GitHub
 
-Este artigo descreve como usar o botão **implantar no Azure** para implantar modelos de um repositório github. Você pode adicionar o botão diretamente ao arquivo README.md em seu repositório GitHub. Ou então, você pode adicionar o botão a uma página da Web que faz referência ao repositório.
+Este artigo descreve como usar o botão **implantar no Azure** para implantar modelos de um repositório github. Você pode adicionar o botão diretamente ao arquivo _README.MD_ em seu repositório github. Ou então, você pode adicionar o botão a uma página da Web que faz referência ao repositório.
 
 O escopo da implantação é determinado pelo esquema do modelo. Para obter mais informações, consulte:
 
-* [grupos de recursos](deploy-to-resource-group.md)
-* [assinaturas](deploy-to-subscription.md)
-* [grupos de gerenciamento](deploy-to-management-group.md)
-* [locatários](deploy-to-tenant.md)
+- [grupos de recursos](deploy-to-resource-group.md)
+- [assinaturas](deploy-to-subscription.md)
+- [grupos de gerenciamento](deploy-to-management-group.md)
+- [locatários](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Usar imagem comum
 
@@ -78,7 +78,7 @@ Você tem a URL completa para o link.
 
 Normalmente, você hospeda o modelo em um repositório público. Se você usar um repositório privado, deverá incluir um token para acessar o conteúdo bruto do modelo. O token gerado pelo GitHub é válido apenas por um curto período de tempo. Você precisaria atualizar o link com frequência.
 
-Se você estiver usando o [git com Azure Repos](/azure/devops/repos/git/) em vez de um repositório GitHub, ainda poderá usar o botão implantar no Azure. Verifique se seu repositório é público. Use a [operação itens](/rest/api/azure/devops/git/items/get) para obter o modelo. Sua solicitação deve estar no seguinte formato:
+Se você estiver usando o [git com Azure Repos](/azure/devops/repos/git/) em vez de um repositório GitHub, ainda poderá usar o botão **implantar no Azure** . Verifique se seu repositório é público. Use a [operação itens](/rest/api/azure/devops/git/items/get) para obter o modelo. Sua solicitação deve estar no seguinte formato:
 
 ```http
 https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
@@ -90,7 +90,7 @@ Codifique essa URL de solicitação.
 
 Por fim, coloque o link e a imagem juntos.
 
-Para adicionar o botão com redução no arquivo README.md no repositório GitHub ou em uma página da Web, use:
+Para adicionar o botão com redução no arquivo _README.MD_ no repositório GitHub ou em uma página da Web, use:
 
 ```markdown
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json)
@@ -122,4 +122,4 @@ O portal exibe um painel que permite que você forneça facilmente valores de pa
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre modelos, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](template-syntax.md).
+- Para saber mais sobre modelos, confira [Noções básicas de estrutura e sintaxe dos modelos do ARM](template-syntax.md).

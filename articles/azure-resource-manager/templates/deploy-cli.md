@@ -3,12 +3,12 @@ title: Implantar recursos com CLI do Azure e modelo
 description: Use Azure Resource Manager e CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 7b1639f31b696f300177d05107a98effc3f3ae23
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a2caea70a51a737bfa433a089c03b43f252b5d6e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676200"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028141"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
@@ -18,19 +18,19 @@ Os comandos de implantação foram alterados no CLI do Azure versão 2.2.0. Os e
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-Se você não tiver a CLI do Azure instalada, você pode usar o Cloud Shell. Para obter mais informações, consulte [implantar modelos de ARM de Cloud Shell](deploy-cloud-shell.md).
+Se você não tiver CLI do Azure instalado, poderá usar Azure Cloud Shell. Para obter mais informações, consulte [implantar modelos de ARM de Azure cloud Shell](deploy-cloud-shell.md).
 
 ## <a name="deployment-scope"></a>Escopo da implantação
 
 Você pode direcionar sua implantação para um grupo de recursos, uma assinatura, um grupo de gerenciamento ou um locatário. Dependendo do escopo da implantação, você usará comandos diferentes.
 
-* Para implantar em um **grupo de recursos** , use [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create):
+* Para implantar em um **grupo de recursos**, use [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Para implantar em uma **assinatura** , use [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create):
+* Para implantar em uma **assinatura**, use [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -38,7 +38,7 @@ Você pode direcionar sua implantação para um grupo de recursos, uma assinatur
 
   Para saber mais sobre as implantações de nível de assinatura, confira [Criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
 
-* Para implantar em um **grupo de gerenciamento** , use [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
+* Para implantar em um **grupo de gerenciamento**, use [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -46,7 +46,7 @@ Você pode direcionar sua implantação para um grupo de recursos, uma assinatur
 
   Para saber mais sobre implantações de nível de grupo de gerenciamento, confira [Criar recursos no nível de grupo de gerenciamento](deploy-to-management-group.md).
 
-* Para implantar em um **locatário** , use [AZ Deployment locatário Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+* Para implantar em um **locatário**, use [AZ Deployment locatário Create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -163,13 +163,13 @@ Para obter mais informações, consulte [Azure Resource Manager de especificaç�
 
 Antes de implantar seu modelo, você pode visualizar as alterações que o modelo fará no seu ambiente. Use a [operação What-If](template-deploy-what-if.md) para verificar se o modelo faz as alterações que você espera. O What-If também valida o modelo para erros.
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Para passar valores de parâmetros, você pode usar parâmetros inline ou um arquivo de parâmetros.
 
 ### <a name="inline-parameters"></a>Parâmetros embutidos
 
-Para passar parâmetros embutidos, forneça os valores em `parameters`. Por exemplo passar uma cadeia de caracteres e a matriz a um modelo é um shell Bash, use:
+Para passar parâmetros embutidos, forneça os valores em `parameters`. Por exemplo, para passar uma cadeia de caracteres e uma matriz para um modelo em um shell bash, use:
 
 ```azurecli-interactive
 az deployment group create \
@@ -191,7 +191,7 @@ az deployment group create \
 
 Obtendo um valor de parâmetro de um arquivo é útil quando você precisa fornecer valores de configuração. Por exemplo, você pode fornecer [valores de cloud-init para uma máquina virtual Linux](../../virtual-machines/linux/using-cloud-init.md).
 
-O formato arrayContent.json é:
+O _arrayContent.jsno_ formato é:
 
 ```json
 [
@@ -228,7 +228,7 @@ Em vez de passar parâmetros como valores embutidos no script, talvez seja mais 
 
 Para saber mais sobre o arquivo de parâmetro, confira [Criar arquivo de parâmetro do Resource Manager](parameter-files.md).
 
-Para passar um arquivo de parâmetros local, use `@` para especificar um arquivo local chamado storage.parameters.json.
+Para passar um arquivo de parâmetro local, use `@` para especificar um arquivo local chamado _storage.parameters.jsem_.
 
 ```azurecli-interactive
 az deployment group create \

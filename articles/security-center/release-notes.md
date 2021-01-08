@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 12/28/2020
 ms.author: memildin
-ms.openlocfilehash: 484a8c7c230863f230719ddaf4e98a6248512bcc
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: f0015177332aa07ed65f9d0345a11bfdad170104
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560246"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97862619"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -40,6 +40,12 @@ As atualizações de dezembro incluem:
 - [Os administradores globais já podem conceder a si mesmos permissões no nível dos locatários](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
 - [Dois novos planos do Azure Defender: Azure Defender para DNS e Azure Defender para Resource Manager (em versão prévia)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
 - [Nova página de alertas de segurança no portal do Azure (versão prévia)](#new-security-alerts-page-in-the-azure-portal-preview)
+- [Experiência revitalizada da Central de Segurança no Banco de Dados SQL do Azure e na Instância Gerenciada de SQL](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
+- [Ferramentas e filtros de inventário de ativos atualizados](#asset-inventory-tools-and-filters-updated)
+- [Recomendação sobre aplicativos Web solicitando certificados SSL que não fazem mais parte da classificação de segurança](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
+- [A página de recomendações tem novos filtros para o ambiente, a severidade e as respostas disponíveis](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)
+- [A exportação contínua obtém novos tipos de dados e políticas de deployifnotexist aprimoradas](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
+
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>O Azure Defender para SQL Servers em computadores está em disponibilidade geral
 
@@ -114,6 +120,87 @@ Para acessar a nova experiência, use o link "Experimente agora" da faixa na par
 :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Faixa com o link para a nova experiência de versão prévia de alertas":::
 
 Para criar alertas de exemplo na nova experiência de alertas, consulte [Gerar alertas de exemplo do Azure Defender](security-center-alert-validation.md#generate-sample-azure-defender-alerts).
+
+
+### <a name="revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance"></a>Experiência revitalizada da Central de Segurança no Banco de Dados SQL do Azure e na Instância Gerenciada de SQL 
+
+A experiência da Central de Segurança no SQL fornece acesso aos seguintes recursos da Central de Segurança e do Azure Defender para SQL:
+
+- **Recomendações de segurança** – A Central de Segurança analisa periodicamente o estado de segurança de todos os recursos do Azure conectados para identificar possíveis configurações incorretas na segurança. Em seguida, ela fornece recomendações sobre como corrigir essas vulnerabilidades e aprimorar a postura de segurança das organizações.
+- **Alertas de segurança** – Um serviço de detecção que monitora continuamente as atividades do SQL do Azure em busca de ameaças como injeção de SQL, ataques de força bruta e abuso de privilégios. Este serviço dispara alertas de segurança detalhados e orientados a ações na Central de Segurança e fornece opções para continuar as investigações com o Azure Sentinel, a solução SIEM nativa do Microsoft Azure.
+- **Descobertas** – Um serviço de avaliação de vulnerabilidade que monitora continuamente as configurações do SQL do Azure e ajuda a corrigir vulnerabilidades. As verificações de avaliação fornecem uma visão geral dos estados de segurança do SQL do Azure junto com as descobertas de segurança detalhadas.     
+
+:::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="Os recursos de segurança da Central de Segurança do Azure para SQL estão disponíveis no SQL do Azure":::
+
+
+### <a name="asset-inventory-tools-and-filters-updated"></a>Ferramentas e filtros de inventário de ativos atualizados
+
+A página de inventário na Central de Segurança do Azure foi atualizada com as seguintes alterações:
+
+- **Guias e comentários** adicionados à barra de ferramentas. Isso abre um painel com links para informações e ferramentas relacionadas. 
+- **Filtro de assinaturas** adicionado aos filtros padrão disponíveis para seus recursos.
+- Link **Abrir consulta** para abrir as opções de filtro atuais como uma consulta do Azure Resource Graph (anteriormente chamada de "Exibir no Resource Graph Explorer").
+- **Opções de operador** para cada filtro. Agora você pode escolher entre operadores lógicos adicionais diferentes de " = ". Por exemplo, talvez você queira localizar todos os recursos com recomendações ativas cujos títulos incluem a cadeia de caracteres "encrypt". 
+
+    :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Controles para a opção de operador nos filtros de inventário de ativos":::
+
+Saiba mais sobre inventário em [Explorar e gerenciar seus recursos com o inventário de ativos](asset-inventory.md).
+
+
+### <a name="recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score"></a>Recomendação sobre aplicativos Web solicitando certificados SSL que não fazem mais parte da classificação de segurança
+
+A recomendação "Os aplicativos Web devem solicitar um certificado SSL para todas as solicitações de entrada" foi movida do controle de segurança **Gerenciar o acesso e as permissões** (vale no máximo quatro pontos) para **Implementar as melhores práticas de segurança** (que não vale nenhum ponto). 
+
+Garantir que seus aplicativos Web solicitem um certificado certamente os tornarão mais seguros. No entanto, para aplicativos Web voltados para o público, é irrelevante. se você acessar seu site por HTTP e não por HTTPS, você não receberá nenhum certificado do cliente. Por isso, se o aplicativo exigir certificados de cliente, você não deverá permitir solicitações ao seu aplicativo via HTTP. Saiba mais em [Como configurar a autenticação mútua TLS para o Serviço de Aplicativo do Azure](../app-service/app-service-web-configure-tls-mutual-auth.md).
+
+Com essa alteração, a recomendação agora é uma melhor prática que não afeta sua pontuação. 
+
+Saiba quais recomendações estão em cada controle de segurança em [Controles de segurança e suas recomendações](secure-score-security-controls.md#security-controls-and-their-recommendations).
+
+
+### <a name="recommendations-page-has-new-filters-for-environment-severity-and-available-responses"></a>A página de recomendações tem novos filtros para o ambiente, a severidade e as respostas disponíveis
+
+A Central de Segurança do Azure monitora todos os recursos conectados e gera recomendações de segurança. Use essas recomendações para fortalecer sua postura de nuvem híbrida e acompanhar a conformidade com as políticas e os padrões relevantes para sua organização, setor e país.
+
+À medida que a Central de Segurança continua a expandir sua cobertura e seus recursos, a lista de recomendações de segurança cresce todos os meses. Por exemplo, confira [29 recomendações de versão prévia adicionadas para aumentar a cobertura do Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
+
+Com a lista crescente, há a necessidade de poder filtrar as recomendações de maior interesse. Em novembro, adicionamos filtros à página de recomendações (confira [A lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)).
+
+Os filtros adicionados neste mês fornecem opções para refinar a lista de recomendações de acordo com:
+
+- **Ambiente** – Exibir recomendações para seus recursos AWS, GCP ou Azure (ou qualquer combinação)
+- **Severidade** – Exibir recomendações de acordo com a classificação de severidade definida pela Central de Segurança
+- **Ações de resposta** – Exibir recomendações de acordo com a disponibilidade das opções de resposta da Central de Segurança: Correção rápida, negar e impor
+
+    > [!TIP]
+    > O filtro de ações de resposta substitui o filtro de **correção rápida disponível (Sim/Não)** . 
+    > 
+    > Saiba mais sobre cada uma dessas opções de resposta:
+    > - [Correção rápida](security-center-remediate-recommendations.md#quick-fix-remediation)
+    > - [Impedir configurações incorretas com as recomendações de Impor/Negar](prevent-misconfigurations.md)
+
+:::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="Recomendações agrupadas por controle de segurança" lightbox="./media/release-notes/added-recommendations-filters.png":::
+
+### <a name="continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies"></a>A exportação contínua obtém novos tipos de dados e políticas de deployifnotexist aprimoradas
+
+As ferramentas de exportação contínua da Central de Segurança do Azure permitem exportar recomendações e alertas da Central de Segurança para uso com outras ferramentas de monitoramento em seu ambiente.
+
+A exportação contínua permite que você personalize totalmente o que será exportado e o local da exportação. Para obter detalhes completos, confira [Exportar continuamente dados da Central de Segurança](continuous-export.md).
+
+Essas ferramentas foram aprimoradas e expandidas das seguintes maneiras:
+
+- **Aprimoramento das políticas deployifnotexist da exportação contínua**. As políticas agora:
+
+    - **Verificam se a configuração está habilitada.** Se não estiver, a política será mostrada como não compatível e criará um recurso compatível. Saiba mais sobre os modelos do Azure Policy fornecidos na guia "Implantar em escala com o Azure Policy" em [Configurar uma exportação contínua](continuous-export.md#set-up-a-continuous-export).
+
+    - **Dão suporte à exportação de descobertas de segurança.** Ao usar os modelos do Azure Policy, você pode configurar sua exportação contínua para incluir descobertas. Isso é relevante ao exportar recomendações com "sub" recomendações, como as descobertas de verificações de avaliação de vulnerabilidade ou atualizações de sistema específicas para a recomendação "pai" "As atualizações do sistema devem ser instaladas em seus computadores".
+    
+    - **Dão suporte à exportação de dados da classificação de segurança.**
+
+- **Dados de avaliação de conformidade regulatória adicionados (em versão prévia).** Agora você pode exportar atualizações continuamente para avaliações de conformidade regulatória, incluindo para qualquer iniciativa personalizada, para um workspace do Log Analytics ou hub de eventos. Este recurso não está disponível em nuvens nacionais/soberanas.
+
+    :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="As opções para incluir informações de avaliação de conformidade regulatória com seus dados de exportação contínua.":::
+
 
 ## <a name="november-2020"></a>Novembro de 2020
 
@@ -464,7 +551,7 @@ A Central de Segurança analisa periodicamente o estado de segurança dos seus r
 
 Quando qualquer recurso tiver recomendações pendentes, eles serão exibidos no inventário.
 
-Saiba mais em [Explorar e gerenciar seus recursos com as ferramentas de gerenciamento e inventário de ativos](asset-inventory.md).
+Saiba mais em [Explorar e gerenciar recursos usando um inventário de ativos](asset-inventory.md).
 
 
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 07b511182950095c356887d72ffde75ac098674d
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 82eaa597796bf3772faa90a9dbc4151da935c46a
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904673"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98027716"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrar recursos de IaaS do clássico para o Azure Resource Manager usando o PowerShell
 
@@ -265,7 +265,7 @@ Se a configuração preparada estiver correta, será possível continuar e confi
 Depois de terminar de migrar as máquinas virtuais, execute as seguintes verificações de pré-requisitos antes de migrar as contas de armazenamento.
 
 > [!NOTE]
-> Se sua conta de armazenamento não tiver discos associados ou dados de VM, você poderá pular diretamente para a seção "validar contas de armazenamento e iniciar a migração".
+> Se sua conta de armazenamento não tiver discos associados ou dados de VM, você poderá pular diretamente para a seção "validar contas de armazenamento e iniciar a migração". Observe também que a exclusão dos discos clássicos, imagens de VM ou imagens do sistema operacional não remove os arquivos VHD de origem na conta de armazenamento. No entanto, ele interrompe a concessão nesses arquivos VHD para que eles possam ser reutilizados para criar discos ou imagens ARM após a migração.
 
 * As verificações de pré-requisitos se você migrou qualquer VM ou sua conta de armazenamento tem recursos de disco:
     * Migre máquinas virtuais cujos discos estejam armazenados na conta de armazenamento.

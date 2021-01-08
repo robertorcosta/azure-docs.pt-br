@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 05ac0f78345e1c1d7643f24410d53b209ab7c375
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 62a1f43fb73f0eda77ebb8f62f64c95ff4ad37a1
+ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574149"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97734191"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Introdução ao Azure Machine Learning no seu ambiente de desenvolvimento (parte 1 de 4)
 
@@ -65,6 +65,9 @@ tutorial
 
 - `tutorial`: diretório de nível superior do projeto.
 - `.azureml`: subdiretório oculto usado para armazenar arquivos de configuração do Azure Machine Learning.
+
+> [!TIP]
+> Caso esteja usando um Mac, use **Comando + Shift + .** em uma janela do Localizador para ativar/desativar a capacidade de ver e criar diretórios que começam com um ponto.  Como alternativa, use o terminal de comando para criar o diretório.
 
 
 > [!div class="nextstepaction"]
