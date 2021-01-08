@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2020
+ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8da1130809c1802f4db963f4b4b000a848e9abaa
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948537"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011094"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Início rápido: implantar e gerenciar logs de fluxo de NSG usando Azure Policy 
 
@@ -25,7 +25,7 @@ ms.locfileid: "94948537"
 O Azure Policy ajuda a impor padrões organizacionais e a avaliar a conformidade em escala. Casos de uso comuns do Azure Policy incluem implementar a governança para consistência de recursos, conformidade regulatória, segurança, custo e gerenciamento. Neste artigo, usaremos duas políticas internas disponíveis para logs de fluxo de NSG para gerenciar sua configuração de logs de fluxo. A primeira política sinaliza qualquer NSGs sem logs de fluxo habilitados. A segunda política implanta automaticamente os logs de fluxo para NSGs sem os logs de fluxo habilitados. 
 
 Se você estiver criando uma política do Azure pela primeira vez, poderá ler: 
-- [Visão geral de Azure Policy](../governance/policy/overview.md) 
+- [Visão geral da política do Azure](../governance/policy/overview.md) 
 - [Tutorial para a criação de política](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 

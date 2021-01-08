@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d3a00491bc0628244a5a7907f0dee03a5f8d3c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fdff7e62753e75a14d6711b77dd451603353dae5
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744186"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012828"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticação em opções de Azure Active Directory-telefone
 
@@ -58,6 +58,8 @@ Se você tiver problemas com a autenticação por telefone do Azure AD, examine 
 
 * "Você atingiu nosso limite de chamadas de verificação" ou "você atingiu nosso limite em códigos de verificação de texto" ao entrar
    * A Microsoft pode limitar tentativas de autenticação repetidas que são executadas pelo mesmo usuário em um curto período de tempo. Essa limitação não se aplica ao código de Microsoft Authenticator ou verificação. Se você tiver atingido esses limites, poderá usar o aplicativo autenticador, o código de verificação ou tentar entrar novamente em alguns minutos.
+* Mensagem de erro "Desculpe, estamos tendo problemas para verificar sua conta" durante a entrada
+   * A Microsoft pode limitar ou bloquear as tentativas de autenticação de voz ou de SMS executadas pelo mesmo usuário, número de telefone ou organização devido ao alto número de tentativas de autenticação de voz ou SMS com falha. Se você estiver enfrentando esse erro, poderá tentar outro método, como um aplicativo autenticador ou código de verificação, ou entrar em contato com o administrador para obter suporte.
 * ID de chamador bloqueada em um único dispositivo.
    * Examine os números bloqueados configurados no dispositivo.
 * Número de telefone errado, código de país/região incorreto ou confusão entre número de telefone pessoal e o número de telefone comercial.

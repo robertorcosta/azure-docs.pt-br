@@ -3,16 +3,15 @@ title: Use a paralelização de consultas e dimensionamento no Azure Stream Anal
 description: Este artigo descreve como dimensionar trabalhos do Stream Analytics configurando partições de entrada, ajustando a definição da consulta e definindo unidades de streaming de trabalho.
 author: JSeb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 326af3bc38ce70cc7cb205384bb4302c5ff73d28
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 9149413d070bbb5eb8d0f8d0c99fe5ff705bcefb
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704173"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012318"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aproveitar a paralelização de consultas no Azure Stream Analytics
 Este artigo mostra como tirar proveito da paralelização no Azure Stream Analytics. Aprenda a dimensionar trabalhos do Stream Analytics configurando partições de entrada e ajustando a definição da consulta de análise.

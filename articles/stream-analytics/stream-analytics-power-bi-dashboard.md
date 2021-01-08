@@ -3,16 +3,15 @@ title: Integração do painel de controle do Power BI com o Azure Stream Analyti
 description: Este artigo descreve como usar um painel do Power BI em tempo real para visualizar dados de um trabalho do Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 4e3f31442c5fa645e27a640d8facf86aed20aa75
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3bd35df91e836245de52d8959dff0671582ebc3f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006688"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012437"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
 

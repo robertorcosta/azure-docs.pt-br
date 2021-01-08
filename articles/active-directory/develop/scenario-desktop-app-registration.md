@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7c0623d58bf88b8bcc5f19665a081ce012b560b6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 08e07ac3a8079d725611f9b072e8d21dabb32867
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614857"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011553"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de área de trabalho que chama APIs da Web: registro de aplicativo
 
@@ -48,7 +48,7 @@ Os URIs de redirecionamento a serem usados em um aplicativo de área de trabalho
 - Se seu aplicativo usar apenas a autenticação integrada do Windows ou um nome de usuário e uma senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esses fluxos fazem uma viagem de ida e volta para o ponto de extremidade v 2.0 da plataforma de identidade da Microsoft. Seu aplicativo não será chamado de volta em nenhum URI específico.
 - Para distinguir [o fluxo de código do dispositivo](scenario-desktop-acquire-token.md#device-code-flow), a [autenticação integrada do Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)e um nome de [usuário e uma senha](scenario-desktop-acquire-token.md#username-and-password) de um aplicativo cliente confidencial usando um fluxo de credencial de cliente usado em [aplicativos daemon](scenario-daemon-overview.md), nenhum deles requer um URI de redirecionamento, você precisa configurá-lo como um aplicativo cliente público. Para alcançar essa configuração:
 
-    1. Na [portal do Azure](https://portal.azure.com), selecione seu aplicativo no **registros de aplicativo** e, em seguida, selecione **autenticação**.
+    1. Na <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portal do Azure</a>, selecione seu aplicativo no **registros de aplicativo** e, em seguida, selecione **autenticação**.
     1. Em **Configurações avançadas**,  >  **permitir fluxos de cliente público**  >  **habilite os seguintes fluxos móveis e de área de trabalho:**, selecione **Sim**.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Habilitar a configuração de cliente público no painel de autenticação no portal do Azure":::

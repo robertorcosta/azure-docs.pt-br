@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 04/20/2018
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 2d5f6f9cfaff722245f6105b5e86390b8aeb769f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 42174ce094242a6e7412deea0bf1f0eed0f3b6ea
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539695"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013168"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de roteamento de rede de máquina virtual - CLI do Azure
 
@@ -32,19 +32,19 @@ Neste artigo, você implanta uma VM (máquina virtual ) e, em seguida, verifica 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Este artigo requer a versão 2,0 ou posterior do CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
+- Este artigo exige a versão 2.0 ou posterior da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 - Os comandos CLI do Azure neste artigo estão formatados para serem executados em um shell bash.
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Antes de criar uma VM, você deve criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus* :
+Antes de criar uma VM, você deve criar um grupo de recursos para conter a VM. Crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`. O exemplo a seguir cria uma VM chamada *myVm* :
+Crie uma VM com [az vm create](/cli/azure/vm#az-vm-create). Se as chaves SSH ainda não existirem em uma localização de chave padrão, o comando criará. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`. O exemplo a seguir cria uma VM chamada *myVm*:
 
 ```azurecli-interactive
 az vm create \
@@ -101,7 +101,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-A saída retornada informa que **nenhum** é o **nextHopType** , e que o **routeTableId** também é a rota do **sistema**. Esse resultado permite que você saiba que, embora haja uma rota do sistema válida para o destino, não há nenhum próximo salto para encaminhar o tráfego para o destino.
+A saída retornada informa que **nenhum** é o **nextHopType**, e que o **routeTableId** também é a rota do **sistema**. Esse resultado permite que você saiba que, embora haja uma rota do sistema válida para o destino, não há nenhum próximo salto para encaminhar o tráfego para o destino.
 
 ## <a name="view-details-of-a-route"></a>Exibir detalhes de uma rota
 

@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286949"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011536"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 
@@ -33,7 +33,7 @@ Você pode configurar os atributos de um aplicativo por meio do portal do Azure 
 
 Para configurar o manifesto do aplicativo:
 
-1. Vá para o [Portal do Azure](https://portal.azure.com). Procurar e selecionar o serviço **Azure Active Directory**.
+1. Vá para a <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Procurar e selecionar o serviço **Azure Active Directory**.
 1. Selecione **Registros do Aplicativo**.
 1. Selecione o aplicativo que você deseja configurar.
 1. Na página **Visão Geral** do aplicativo, selecione a seção **Manifesto**. Um editor de manifesto baseado na Web é aberto, permitindo que você edite o manifesto no portal. Opcionalmente, você pode selecionar **Download** para editar o manifesto localmente e usar **Upload** para reaplicá-lo ao seu aplicativo.

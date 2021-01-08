@@ -3,17 +3,16 @@ title: Solucionar problemas Azure Stream Analytics usando logs de recursos
 description: Este artigo descreve como analisar os logs de recursos no Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: b29e0f99cb4549370be49dc5a1b11d367e30d8c0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029134"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011111"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solucionar problemas do Azure Stream Analytics usando logs de recursos
 
@@ -66,7 +65,7 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
     ![Navegação de folha para logs de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log** e **biométricas** em **métrica**. Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Save** (Salvar).
+2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log** e **biométricas** em **métrica**. Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Salvar**.
 
     ![Configurações para logs de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -117,7 +116,7 @@ Nome | Descrição
 ------- | -------
 Fonte | Nome da entrada ou saída do trabalho em que ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
-Tipo | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
+Type | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
 Dados | Contém dados que são úteis para localizar com precisão a origem do erro. Sujeito a truncamento, dependendo do tamanho.
 
 Dependendo do valor de **operationName**, os erros de dados terão o seguinte esquema:
@@ -138,7 +137,7 @@ Nome | Descrição
 -------- | --------
 Erro | (opcional) Informações sobre erros. Normalmente, essas são informações de exceção, se estiverem disponíveis.
 Mensagem| Mensagem de log.
-Tipo | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
+Type | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas do log de execução desde a hora em que o trabalho é iniciado até ele ser interrompido têm o mesmo valor de **ID de Correlação**.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3679bf9d55ddccefddb4bf3b2a96ec1b427315af
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663395"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013525"
 ---
 # <a name="using-an-app-service-environment"></a>Usando um Ambiente do Serviço de Aplicativo
 
@@ -78,13 +78,20 @@ A URL do SCM é usada para acessar o console do kudu ou para publicar seu aplica
 
 ### <a name="dns-configuration"></a>Configuração de DNS 
 
-O ASE usa pontos de extremidade privados para o tráfego de entrada e é configurado automaticamente com as zonas privadas do DNS do Azure. Se você quiser usar seu próprio servidor DNS, precisará adicionar os seguintes registros:
+O ASE usa pontos de extremidade privados para o tráfego de entrada. Ele não é configurado automaticamente com as zonas privadas do DNS do Azure. Se você quiser usar seu próprio servidor DNS, precisará adicionar os seguintes registros:
 
 1. crie uma zona para &lt;nome do ASE&gt;.appserviceenvironment.net
 1. criar um registro A na zona que aponta para o endereço IP de entrada usado pelo ponto de extremidade privado do ASE
 1. criar um registro A na zona que aponta para @ para o endereço IP de entrada usado pelo ponto de extremidade privado do ASE
 1. crie uma zona em &lt;nome do ASE&gt;.appserviceenvironment.net chamada scm
 1. criar um registro A na zona SCM que aponta para o endereço IP usado pelo ponto de extremidade privado do ASE
+
+Para configurar o DNS em Zonas Privadas do DNS do Azure:
+
+1. crie uma zona privada de DNS do Azure chamada <ASE name>.appserviceenvironment.net
+1. crie um registro A nessa zona que aponte * para o endereço IP do ILB
+1. crie um registro A nessa zona que aponte @ para o endereço IP do ILB
+1. crie um registro A nessa zona que aponte *.scm para o endereço IP do ILB
 
 As configurações de DNS para o sufixo de domínio padrão do ASE não restringem seus aplicativos a serem acessíveis apenas por esses nomes. Você pode definir um nome de domínio personalizado sem qualquer validação em seus aplicativos em um ASE. Se você quiser criar uma zona chamada *contoso.net*, poderá fazer isso e apontar para o endereço IP de entrada. O nome de domínio personalizado funciona para solicitações de aplicativo, mas não para o site do scm. O site do SCM está disponível somente em *&lt; AppName &gt; . SCM. &lt; asename &gt; . appserviceenvironment.net*. 
 

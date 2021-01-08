@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 4dca1fa0e823b482044d35f98412187af2fa72ed
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f0620c4d373ee96c87b575ae7eb173b2f16eecb2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507754"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98013644"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -374,7 +374,8 @@ Para registrar seu aplicativo e adicionar as informações de registro do aplica
    1. Altere habilitado para SSL `True`.
    1. Clique com o botão direito do mouse no projeto no Visual Studio, selecione **Propriedades** e, em seguida, selecione a guia **Web**. Na seção **Servidores**, altere a configuração de **URL do projeto** para **URL do SSL**.
    1. Copie a URL do SSL. Você adicionará essa URL à lista de URIs de Redirecionamento na lista de URIs de Redirecionamento do portal de Registro na próxima etapa.<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-1. Entre no [portal do Azure](https://portal.azure.com).
+   
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.

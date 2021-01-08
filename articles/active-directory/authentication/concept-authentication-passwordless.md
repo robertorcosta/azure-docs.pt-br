@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b4ac8f87e8e19d3487859849ba37272c501751d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: e1b82dbe169e01b68e7d4b8a4c243cb72d3a3e8b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744373"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012998"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
@@ -140,6 +140,7 @@ Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma dife
 | VinCSS | [https://passwordless.vincss.net](https://passwordless.vincss.net) |
 | KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
 | Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
+| Token2 Suíça | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
 
 > [!NOTE]
 > Se você comprar e planejar usar chaves de segurança baseadas em NFC, precisará de um leitor de NFC com suporte para a chave de segurança. O leitor NFC não é um requisito ou limitação do Azure. Consulte o fornecedor da sua chave de segurança baseada em NFC para obter uma lista de leitores NFC com suporte.
@@ -168,7 +169,7 @@ A escolha entre essas três opções de senha depende dos requisitos de seguran�
 
 Aqui estão alguns fatores a serem considerados ao escolher a tecnologia com senha da Microsoft:
 
-||**Windows Hello para Empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
+||**Windows Hello para empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou posterior<br>Azure Active Directory| Aplicativo Microsoft Authenticator<br>Telefone (dispositivos iOS e Android que executam o Android 6,0 ou superior.)|Windows 10, versão 1903 ou posterior<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|
