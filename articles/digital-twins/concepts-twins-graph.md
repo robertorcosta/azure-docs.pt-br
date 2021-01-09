@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d9a6eb572b1ab870fdb848f8b0989f88e6dbc3c0
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356376"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045947"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Entenda o gêmeos digital e seu gráfico de entrelaçamento
 
-Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são representadas pelo Azure **digital gêmeos**. Uma cópia digital é uma instância de um dos seus [modelos](concepts-models.md)definidos pelo personalizado. Ele pode ser conectado a outras gêmeos digitais por meio de **relações** para formar um **grafo de entrelaçamento** : este grafo de Altova é a representação de todo o seu ambiente.
+Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são representadas pelo Azure **digital gêmeos**. Uma cópia digital é uma instância de um dos seus [modelos](concepts-models.md)definidos pelo personalizado. Ele pode ser conectado a outras gêmeos digitais por meio de **relações** para formar um **grafo de entrelaçamento**: este grafo de Altova é a representação de todo o seu ambiente.
 
 > [!TIP]
 > "Azure digital gêmeos" refere-se a esse serviço do Azure como um todo. "Cópia digital (ões)" ou apenas ""/s "" refere-se a nós de cópia individual na sua instância do serviço.
@@ -25,7 +25,7 @@ Em uma solução de gêmeos digital do Azure, as entidades em seu ambiente são 
 
 Antes de criar uma cópia digital em sua instância do gêmeos digital do Azure, você precisa ter um *modelo* carregado para o serviço. Um modelo descreve o conjunto de propriedades, mensagens de telemetria e relações que uma mensagem de grupo pode ter em particular, entre outras coisas. Para os tipos de informações que são definidas em um modelo, consulte [*conceitos: modelos personalizados*](concepts-models.md).
 
-Depois de criar e carregar um modelo, seu aplicativo cliente pode criar uma instância do tipo; Este é um teledigital. Por exemplo, depois de criar um modelo de *andar* , você pode criar um ou vários gêmeos digitais que usam esse tipo (como um tipo de *chão* de texto chamado *GroundFloor* , outro chamado *Floor2* , etc.). 
+Depois de criar e carregar um modelo, seu aplicativo cliente pode criar uma instância do tipo; Este é um teledigital. Por exemplo, depois de criar um modelo de *andar*, você pode criar um ou vários gêmeos digitais que usam esse tipo (como um tipo de *chão* de texto chamado *GroundFloor*, outro chamado *Floor2*, etc.). 
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relações: um grafo de gêmeos digital
 
@@ -47,7 +47,7 @@ Abaixo está um trecho de código de cliente que usa as [APIs DigitalTwins](/res
 
 Você pode inicializar as propriedades de um conjunto de entrelaçamento quando ele é criado ou defini-los mais tarde. Para criar um entrelaçar com propriedades inicializadas, crie um documento JSON que forneça os valores de inicialização necessários.
 
-[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
 Você também pode usar uma classe auxiliar chamada `BasicDigitalTwin` para armazenar campos de propriedade em um objeto "" "" e mais diretamente, como uma alternativa ao uso de um dicionário. Para obter mais informações sobre a classe auxiliar e exemplos de seu uso, consulte a seção [*criar uma*](how-to-manage-twin.md#create-a-digital-twin) altas digitais de *como: gerenciar digital gêmeos*.
 
@@ -58,25 +58,7 @@ Você também pode usar uma classe auxiliar chamada `BasicDigitalTwin` para arma
 
 Aqui está um código de cliente de exemplo que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para criar uma relação entre um tipo de andar de um *piso* digital chamado *GroundFloor* e um tipo de *sala* digital de texto chamado *Cafe*.
 
-```csharp
-// Create Twins, using functions similar to the previous sample
-await CreateRoom("Cafe", 70, 66);
-await CreateFloor("GroundFloor", averageTemperature=70);
-// Create relationships
-var relationship = new BasicRelationship
-{
-    TargetId = "Cafe",
-    Name = "contains"
-};
-try
-{
-    string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
-} catch(ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
 
 ## <a name="json-representations-of-graph-elements"></a>Representações JSON de elementos de grafo
 
@@ -90,7 +72,7 @@ Quando representado como um objeto JSON, uma pesquisa digital exibirá os seguin
 | --- | --- |
 | `$dtId` | Uma cadeia de caracteres fornecida pelo usuário que representa a ID do digital de texto |
 | `$etag` | Campo HTTP padrão atribuído pelo servidor Web |
-| `$conformance` | Um enum que contém o status de conformidade desta teledigital *(compatível* , *não* compatível, *desconhecido* ) |
+| `$conformance` | Um enum que contém o status de conformidade desta teledigital *(compatível*, *não* compatível, *desconhecido*) |
 | `{propertyName}` | O valor de uma propriedade em JSON ( `string` , tipo de número ou objeto) |
 | `$relationships` | A URL do caminho para a coleção de relações. Esse campo estará ausente se o digital up não tiver nenhuma borda de relação de saída. |
 | `$metadata.$model` | Adicional A ID da interface do modelo que caracteriza este teledigital |

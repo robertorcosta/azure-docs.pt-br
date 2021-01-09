@@ -9,12 +9,12 @@ ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: fc407978f18198c9d9525a49a9c8b66de8663065
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 6b48b156ca8d4c64d26d96d7bed525f251832554
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934485"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046049"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Definir listas de controle de acesso (ACLs) recursivamente para Azure Data Lake Storage Gen2
 
@@ -151,27 +151,9 @@ Você pode se conectar usando o Azure Active Directory (AD) ou usando uma chave 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Abra uma janela de comando do Windows PowerShell e entre em sua assinatura do Azure com o `Connect-AzAccount` comando e siga as instruções na tela.
-
-```powershell
-Connect-AzAccount
-```
-
-Se sua identidade estiver associada a mais de uma assinatura, defina sua assinatura ativa para a assinatura da conta de armazenamento na qual você deseja criar e gerenciar diretórios. Neste exemplo, substitua o `<subscription-id>` valor do espaço reservado pela ID da sua assinatura.
-
-```powershell
-Select-AzSubscription -SubscriptionId <subscription-id>
-```
-
-Em seguida, escolha como você deseja que seus comandos obtenham autorização para a conta de armazenamento. 
-
-### <a name="option-1-obtain-authorization-by-using-azure-active-directory-ad"></a>Opção 1: obter autorização usando o Azure Active Directory (AD)
+#### <a name="connect-by-using-azure-active-directory-ad"></a>Conectar usando o Azure Active Directory (AD)
 
 Com essa abordagem, o sistema garante que sua conta de usuário tenha as atribuições apropriadas do Azure RBAC (controle de acesso baseado em função) e permissões de ACL. 
-
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
-```
 
 A tabela a seguir mostra cada uma das funções com suporte e sua funcionalidade de configuração de ACL.
 
@@ -180,13 +162,29 @@ A tabela a seguir mostra cada uma das funções com suporte e sua funcionalidade
 |[Proprietário de Dados do Blob de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|Todos os diretórios e arquivos na conta.|
 |[Colaborador de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Somente diretórios e arquivos de propriedade da entidade de segurança.|
 
-### <a name="option-2-obtain-authorization-by-using-the-storage-account-key"></a>Opção 2: obter autorização usando a chave da conta de armazenamento
+1. Abra uma janela de comando do Windows PowerShell e entre em sua assinatura do Azure com o `Connect-AzAccount` comando e siga as instruções na tela.
 
-Com essa abordagem, o sistema não verifica as permissões de ACL ou RBAC do Azure.
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Se sua identidade estiver associada a mais de uma assinatura, defina sua assinatura ativa para a assinatura da conta de armazenamento na qual você deseja criar e gerenciar diretórios. Neste exemplo, substitua o `<subscription-id>` valor do espaço reservado pela ID da sua assinatura.
+
+   ```powershell
+   Select-AzSubscription -SubscriptionId <subscription-id>
+   ```
+3. Obtenha o contexto da conta de armazenamento.
+
+   ```powershell
+   $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+   ```
+
+#### <a name="connect-by-using-an-account-key"></a>Conectar-se usando uma chave de conta
+
+Com essa abordagem, o sistema não verifica as permissões de ACL ou RBAC do Azure. Obtenha o contexto da conta de armazenamento usando uma chave de conta.
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-$ctx = $storageAccount.Context
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -StorageAccountKey '<storage-account-key>'
 ```
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)

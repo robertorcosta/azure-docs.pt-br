@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0a18e6cef568afa8a0092fc06d8f6bb526739b2a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e783e5dd3b0f1952928d1c36c682c5be1cba2599
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145796"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044383"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gerenciar dispositivos automaticamente no gêmeos digital do Azure usando o DPS (serviço de provisionamento de dispositivos)
 
@@ -29,12 +29,12 @@ Antes de configurar o provisionamento, você precisa ter uma **instância do gê
 Se você ainda não tiver essa configuração, poderá criá-la seguindo o tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md). O tutorial irá orientá-lo na configuração de uma instância do gêmeos digital do Azure com modelos e gêmeos, um [Hub IOT](../iot-hub/about-iot-hub.md)do Azure conectado e várias [funções do Azure](../azure-functions/functions-overview.md) para propagar o fluxo de dados.
 
 Você precisará dos seguintes valores posteriormente neste artigo de quando você configurar sua instância. Se você precisar reunir esses valores novamente, use os links abaixo para obter instruções.
-* A instância de Gêmeos Digitais do Azure **_nome do host_** ( [localizar no portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* **_Cadeia de conexão_** da cadeia de conexão dos hubs de eventos do Azure ( [Localizar no portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
+* A instância de Gêmeos Digitais do Azure **_nome do host_** ([localizar no portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* **_Cadeia de conexão_** da cadeia de conexão dos hubs de eventos do Azure ([Localizar no portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 Este exemplo também usa um **simulador de dispositivo** que inclui o provisionamento usando o serviço de provisionamento de dispositivos. O simulador de dispositivo está localizado aqui: [exemplo de integração do Hub IOT e gêmeos digital do Azure](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Obtenha o projeto de exemplo em seu computador navegando até o link de exemplo e selecionando o botão *baixar zip* abaixo do título. Descompacte a pasta baixada.
 
-O simulador de dispositivo se baseia em **Node.js** , versão 10.0. x ou posterior. [*Preparar seu ambiente de desenvolvimento*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) descreve como instalar Node.js para este tutorial no Windows ou no Linux.
+O simulador de dispositivo se baseia em **Node.js**, versão 10.0. x ou posterior. [*Preparar seu ambiente de desenvolvimento*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) descreve como instalar Node.js para este tutorial no Windows ou no Linux.
 
 ## <a name="solution-architecture"></a>Arquitetura da solução
 
@@ -77,7 +77,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-Em seguida, você criará uma função HTTP disparada por solicitação dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio.
+Em seguida, você criará uma função HTTP disparada por solicitação dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio.
 
 Essa função será usada pelo serviço de provisionamento de dispositivos em uma política de [alocação personalizada](../iot-dps/how-to-use-custom-allocation-policies.md) para provisionar um novo dispositivo. Para obter mais informações sobre como usar solicitações HTTP com o Azure functions, consulte [*gatilho de solicitação de http do Azure para Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
@@ -85,156 +85,13 @@ Dentro de seu projeto de aplicativo de funções, adicione uma nova função. Al
 
 No arquivo de código de função recém-criado, Cole o código a seguir.
 
-```C#
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.Azure.Devices.Shared;
-using Microsoft.Azure.Devices.Provisioning.Service;
-using System.Net.Http;
-using Azure.Identity;
-using Azure.DigitalTwins.Core;
-using Azure.Core.Pipeline;
-using Azure;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-namespace Samples.AdtIothub
-{
-    public static class DpsAdtAllocationFunc
-    {
-        const string adtAppId = "https://digitaltwins.azure.net";
-        private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-        private static readonly HttpClient httpClient = new HttpClient();
-
-        [FunctionName("DpsAdtAllocationFunc")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger log)
-        {
-            // Get request body
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            log.LogDebug($"Request.Body: {requestBody}");
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-
-            // Get registration ID of the device
-            string regId = data?.deviceRuntimeContext?.registrationId;
-
-            bool fail = false;
-            string message = "Uncaught error";
-            ResponseObj obj = new ResponseObj();
-
-            // Must have unique registration ID on DPS request 
-            if (regId == null)
-            {
-                message = "Registration ID not provided for the device.";
-                log.LogInformation("Registration ID: NULL");
-                fail = true;
-            }
-            else
-            {
-                string[] hubs = data?.linkedHubs.ToObject<string[]>();
-
-                // Must have hubs selected on the enrollment
-                if (hubs == null)
-                {
-                    message = "No hub group defined for the enrollment.";
-                    log.LogInformation("linkedHubs: NULL");
-                    fail = true;
-                }
-                else
-                {
-                    // Find or create twin based on the provided registration ID and model ID
-                    dynamic payloadContext = data?.deviceRuntimeContext?.payload;
-                    string dtmi = payloadContext.modelId;
-                    log.LogDebug($"payload.modelId: {dtmi}");
-                    string dtId = await FindOrCreateTwin(dtmi, regId, log);
-
-                    // Get first linked hub (TODO: select one of the linked hubs based on policy)
-                    obj.iotHubHostName = hubs[0];
-
-                    // Specify the initial tags for the device.
-                    TwinCollection tags = new TwinCollection();
-                    tags["dtmi"] = dtmi;
-                    tags["dtId"] = dtId;
-
-                    // Specify the initial desired properties for the device.
-                    TwinCollection properties = new TwinCollection();
-
-                    // Add the initial twin state to the response.
-                    TwinState twinState = new TwinState(tags, properties);
-                    obj.initialTwin = twinState;
-                }
-            }
-
-            log.LogDebug("Response: " + ((obj.iotHubHostName != null) ? JsonConvert.SerializeObject(obj) : message));
-
-            return (fail)
-                ? new BadRequestObjectResult(message)
-                : (ActionResult)new OkObjectResult(obj);
-        }
-
-        public static async Task<string> FindOrCreateTwin(string dtmi, string regId, ILogger log)
-        {
-            // Create Digital Twins client
-            var cred = new ManagedIdentityCredential(adtAppId);
-            var client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-
-            // Find existing twin with registration ID
-            string dtId;
-            string query = $"SELECT * FROM DigitalTwins T WHERE $dtId = '{regId}' AND IS_OF_MODEL('{dtmi}')";
-            AsyncPageable<string> twins = client.QueryAsync(query);
-
-            await foreach (string twinJson in twins)
-            {
-                // Get DT ID from the Twin
-                JObject twin = (JObject)JsonConvert.DeserializeObject(twinJson);
-                dtId = (string)twin["$dtId"];
-                log.LogInformation($"Twin '{dtId}' with Registration ID '{regId}' found in DT");
-                return dtId;
-            }
-
-            // Not found, so create new twin
-            log.LogInformation($"Twin ID not found, setting DT ID to regID");
-            dtId = regId; // use the Registration ID as the DT ID
-
-            // Define the model type for the twin to be created
-            Dictionary<string, object> meta = new Dictionary<string, object>()
-            {
-                { "$model", dtmi }
-            };
-            // Initialize the twin properties
-            Dictionary<string, object> twinProps = new Dictionary<string, object>()
-            {
-                { "$metadata", meta }
-            };
-            twinProps.Add("Temperature", 0.0);
-
-            await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(dtId, twinProps);
-            log.LogInformation($"Twin '{dtId}' created in DT");
-
-            return dtId;
-        }
-    }
-
-    public class ResponseObj
-    {
-        public string iotHubHostName { get; set; }
-        public TwinState initialTwin { get; set; }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_allocate.cs":::
 
 Salve o arquivo e, em seguida, publique novamente seu aplicativo de funções. Para obter instruções sobre como publicar o aplicativo de funções, consulte a seção [*publicar o aplicativo*](tutorial-end-to-end.md#publish-the-app) do tutorial de ponta a ponta.
 
 ### <a name="configure-your-function"></a>Configurar sua função
 
-Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou. Se você usou o tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)), a configuração já estará configurada.
+Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou. Se você usou o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)), a configuração já estará configurada.
 
 Adicione a configuração com este CLI do Azure comando:
 
@@ -312,12 +169,12 @@ As seções a seguir percorrem as etapas para configurar esse fluxo de dispositi
 Agora você precisa criar um hub de [eventos](../event-hubs/event-hubs-about.md)do Azure, que será usado para receber os eventos do ciclo de vida do Hub IOT. 
 
 Percorra as etapas descritas no início rápido [*criar um hub de eventos*](../event-hubs/event-hubs-create.md) , usando as seguintes informações:
-* Se você estiver usando o tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)), poderá reutilizar o grupo de recursos criado para o tutorial de ponta a ponta.
+* Se você estiver usando o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)), poderá reutilizar o grupo de recursos criado para o tutorial de ponta a ponta.
 * Nomeie seu *lifecycleevents* de Hub de eventos ou outra coisa de sua escolha e lembre-se do namespace que você criou. Você os usará quando configurar a função de ciclo de vida e a rota do Hub IoT nas próximas seções.
 
 ### <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-Em seguida, você criará uma função disparada por hubs de eventos dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio. 
+Em seguida, você criará uma função disparada por hubs de eventos dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio. 
 
 Dê um nome ao seu hub de eventos disparado *lifecycleevents* e conecte o gatilho do hub de eventos ao Hub de eventos criado na etapa anterior. Se você usou um nome de Hub de eventos diferente, altere-o para corresponder ao nome do gatilho abaixo.
 
@@ -325,121 +182,13 @@ Esta função usará o evento de ciclo de vida do dispositivo do Hub IoT para de
 
 Dentro de seu aplicativo de funções publicado, adicione uma nova classe de função do tipo *gatilho de Hub de eventos* e cole no código abaixo.
 
-```C#
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Azure;
-using Azure.Core.Pipeline;
-using Azure.DigitalTwins.Core;
-using Azure.DigitalTwins.Core.Serialization;
-using Azure.Identity;
-using Microsoft.Azure.EventHubs;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-namespace Samples.AdtIothub
-{
-    public static class DeleteDeviceInTwinFunc
-    {
-        private static string adtAppId = "https://digitaltwins.azure.net";
-        private static readonly string adtInstanceUrl = System.Environment.GetEnvironmentVariable("ADT_SERVICE_URL", EnvironmentVariableTarget.Process);
-        private static readonly HttpClient httpClient = new HttpClient();
-
-        [FunctionName("DeleteDeviceInTwinFunc")]
-        public static async Task Run(
-            [EventHubTrigger("lifecycleevents", Connection = "EVENTHUB_CONNECTIONSTRING")] EventData[] events, ILogger log)
-        {
-            var exceptions = new List<Exception>();
-
-            foreach (EventData eventData in events)
-            {
-                try
-                {
-                    //log.LogDebug($"EventData: {System.Text.Json.JsonSerializer.Serialize(eventData)}");
-
-                    string opType = eventData.Properties["opType"] as string;
-                    if (opType == "deleteDeviceIdentity")
-                    {
-                        string deviceId = eventData.Properties["deviceId"] as string;
-                        
-                        // Create Digital Twin client
-                        var cred = new ManagedIdentityCredential(adtAppId);
-                        var client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-
-                        // Find twin based on the original Registration ID
-                        string regID = deviceId; // simple mapping
-                        string dtId = await GetTwinId(client, regID, log);
-                        if (dtId != null)
-                        {
-                            await DeleteRelationships(client, dtId, log);
-
-                            // Delete twin
-                            await client.DeleteDigitalTwinAsync(dtId);
-                            log.LogInformation($"Twin '{dtId}' deleted in DT");
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    // We need to keep processing the rest of the batch - capture this exception and continue.
-                    exceptions.Add(e);
-                }
-            }
-
-            if (exceptions.Count > 1)
-                throw new AggregateException(exceptions);
-
-            if (exceptions.Count == 1)
-                throw exceptions.Single();
-        }
-
-
-        public static async Task<string> GetTwinId(DigitalTwinsClient client, string regId, ILogger log)
-        {
-            string query = $"SELECT * FROM DigitalTwins T WHERE T.$dtId = '{regId}'";
-            AsyncPageable<string> twins = client.QueryAsync(query);
-            await foreach (string twinJson in twins)
-            {
-                JObject twin = (JObject)JsonConvert.DeserializeObject(twinJson);
-                string dtId = (string)twin["$dtId"];
-                log.LogInformation($"Twin '{dtId}' found in DT");
-                return dtId;
-            }
-
-            return null;
-        }
-
-        public static async Task DeleteRelationships(DigitalTwinsClient client, string dtId, ILogger log)
-        {
-            var relationshipIds = new List<string>();
-
-            AsyncPageable<string> relationships = client.GetRelationshipsAsync(dtId);
-            await foreach (var relationshipJson in relationships)
-            {
-                BasicRelationship relationship = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relationshipJson);
-                relationshipIds.Add(relationship.Id);
-            }
-
-            foreach (var relationshipId in relationshipIds)
-            {
-                client.DeleteRelationship(dtId, relationshipId);
-                log.LogInformation($"Twin '{dtId}' relationship '{relationshipId}' deleted in DT");
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIotHub_delete.cs":::
 
 Salve o projeto e, em seguida, publique o aplicativo de funções novamente. Para obter instruções sobre como publicar o aplicativo de funções, consulte a seção [*publicar o aplicativo*](tutorial-end-to-end.md#publish-the-app) do tutorial de ponta a ponta.
 
 ### <a name="configure-your-function"></a>Configurar sua função
 
-Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou e o Hub de eventos. Se você usou o tutorial de ponta a ponta ( [*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)), a primeira configuração já estará configurada.
+Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou e o Hub de eventos. Se você usou o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)), a primeira configuração já estará configurada.
 
 Adicione a configuração com este comando CLI do Azure. O comando pode ser executado no [Cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: d54994a7c64718835e70381f92abed83ef693018
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938504"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045386"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Atualizar Load Balancer públicos do Azure
 O [Azure Standard Load Balancer](load-balancer-overview.md) oferece um conjunto avançado de funcionalidades e alta disponibilidade por meio de redundância de zona. Para saber mais sobre Load Balancer SKU, confira [tabela de comparação](./skus.md#skus).
@@ -48,7 +48,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
     1. Em **configurações**, selecione **configurações**.
    
     1. Em **Atribuição**, selecione **Estático**.
-    1. Clique em **Salvar**.
+    1. Selecione **Salvar**.
     >[!NOTE]
     >Para VMs que têm IPs públicos, você precisará criar endereços IP padrão primeiro, em que o mesmo endereço IP não é garantido. Desassocie as VMs de IPs básicos e associe-as aos endereços IP padrão recém-criados. Em seguida, você poderá seguir as instruções para adicionar VMs ao pool de back-end de Standard Load Balancer. 
 
@@ -120,10 +120,6 @@ Geralmente leva cerca de 5-10 minutos para o script ser concluído e pode levar 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>O script de Azure PowerShell também alterna o tráfego do meu Load Balancer básico para o Standard Load Balancer recém-criado?
 
 Sim. O script Azure PowerShell não apenas atualiza o endereço IP público, copia a configuração de básico para Standard Load Balancer, mas também migra a VM para trás do Load Balancer público padrão recém-criado também. 
-
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Ocorreu alguns problemas com o uso desse script. Como posso obter ajuda?
-  
-Você pode enviar um email para o slbupgradesupport@microsoft.com , abrir um caso de suporte com o suporte do Azure ou fazer ambos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

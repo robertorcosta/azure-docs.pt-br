@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/23/2020
-ms.openlocfilehash: c5086eee805ffbcdf0741eae4db405b1bcbe8692
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.date: 01/08/2021
+ms.openlocfilehash: d39bc35d1edcbcfef4c7774259112ec5144efa15
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760351"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044332"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (visualização)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -31,16 +31,13 @@ Ao usar Azure Cosmos DB, cada operação de banco de dados tem um custo expresso
 
 ## <a name="use-cases"></a>Casos de uso
 
-Azure Cosmos DB cenários de melhor desempenho sem servidor em que você espera:
-
-- **Tráfego baixo, intermitente e imprevisível**: como a capacidade de provisionamento em tais situações não é necessária e pode ser proibitiva de custo
-- **Desempenho moderado**: como os contêineres sem servidor têm [características de desempenho específicas](#performance)
-
-Por esses motivos, o Azure Cosmos DB sem servidor deve ser considerado nas seguintes situações:
+Os cenários de melhor Azure Cosmos DB servidor se encaixam em situações em que você espera **tráfego intermitente e imprevisível** com tempos ociosos longos. Como o provisionamento de capacidade nessas situações não é necessário e pode ser proibitivo, Azure Cosmos DB sem servidor deve ser considerado nos seguintes casos de uso:
 
 - Introdução ao Azure Cosmos DB
-- Desenvolvimento, teste e protótipo de novos aplicativos
-- Executando aplicativos de pequeno a médio porte com tráfego intermitente que é difícil de prever
+- Executando aplicativos com
+    - intermitência, tráfego intermitente que é difícil de prever ou
+    - baixo (<10%) taxa de tráfego média-para-pico
+- Desenvolvimento, teste, criação de protótipos e execução em aplicativos novos de produção em que o padrão de tráfego é desconhecido
 - Integração com serviços de computação sem servidor como [Azure Functions](../azure-functions/functions-overview.md)
 
 Consulte o artigo [como escolher entre produtividade provisionada e sem servidor](throughput-serverless.md) para obter mais diretrizes sobre como escolher a oferta que melhor se adapta ao seu caso de uso.
@@ -74,14 +71,7 @@ Você pode encontrar o mesmo gráfico ao usar Azure Monitor, conforme descrito [
 
 ## <a name="performance"></a><a id="performance"></a>Desempenho
 
-Os recursos sem servidor geram características de desempenho específicas que são diferentes das que os recursos de taxa de transferência provisionados oferecem:
-
-- **Disponibilidade**: depois que a oferta sem servidor ficar disponível para o público geral, a disponibilidade de contêineres sem servidor será coberta por um contrato de nível de serviço (SLA) de 99,9% quando zonas de disponibilidade (redundância de zona) não for usada. O SLA é de 99,99% quando Zonas de Disponibilidade são usados.
-- **Latência**: depois que a oferta sem servidor ficar disponível para o público geral, a latência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para gravações. Uma operação de leitura de ponto consiste em buscar um único item por sua ID e valor de chave de partição.
-- **Intermitênciabilidade**: depois que a oferta sem servidor ficar disponível para o público geral, a intermitência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 95%. Isso significa que a intermitência máxima pode ser obtida em pelo menos 95% do tempo.
-
-> [!NOTE]
-> Como qualquer visualização do Azure, Azure Cosmos DB sem servidor é excluída dos contratos de nível de serviço (SLA). As características de desempenho mencionadas acima são fornecidas como uma visualização do que esta oferta fornecerá quando estiver disponível para o público geral.
+Os recursos sem servidor geram características de desempenho específicas que são diferentes das entregas dos recursos de taxa de transferência provisionados. Depois que a oferta sem servidor ficar disponível para o público geral, a latência de contêineres sem servidor será coberta por um SLO (objetivo de nível de serviço) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para gravações. Uma operação de leitura de ponto consiste em buscar um único item por sua ID e valor de chave de partição.
 
 ## <a name="next-steps"></a>Próximas etapas
 

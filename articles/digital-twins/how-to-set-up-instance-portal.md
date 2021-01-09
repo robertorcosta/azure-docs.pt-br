@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 90a425fe64424c946a02f3c113889b62b58fbeb4
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: aa6429e27faf92f047c580986d5b434c9a418730
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032313"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044366"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
@@ -44,7 +44,7 @@ Na página *criar recurso* a seguir, preencha os valores fornecidos abaixo:
 * **Assinatura**: a assinatura do Azure que você está usando
   - **Grupo de recursos**: um grupo de recursos no qual implantar a instância. Se você ainda não tiver um grupo de recursos existente em mente, poderá criar um aqui selecionando o link *criar novo* e inserindo um nome para um novo grupo de recursos
 * **Local**: uma região do Azure digital gêmeos habilitada para a implantação. Para obter mais detalhes sobre o suporte regional, visite [*produtos do Azure disponíveis por região (Azure digital gêmeos)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* **Nome do recurso**: um nome para sua instância de gêmeos digital do Azure. O nome da nova instância deve ser exclusivo na região da sua assinatura (ou seja, se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome que você escolher, será solicitado que você escolha um nome diferente).
+* **Nome do recurso**: um nome para sua instância de gêmeos digital do Azure. Se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome especificado, você será solicitado a escolher um nome diferente.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Preenchendo os valores descritos para criar um recurso de gêmeos digital do Azure":::
 

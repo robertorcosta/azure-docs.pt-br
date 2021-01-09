@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 58d101bb93b4635e362c5ec78a03a659b71b63da
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 22ee57592af838a236d75fa7f56a0c8e1ed89403
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495266"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046509"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrar o gêmeos digital do Azure ao Azure Time Series Insights
 
@@ -94,51 +94,7 @@ Para obter mais informações sobre como usar hubs de eventos com o Azure functi
 
 Dentro de seu aplicativo de funções publicado, substitua o código de função pelo código a seguir.
 
-```C#
-using Microsoft.Azure.EventHubs;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Threading.Tasks;
-using System.Text;
-using System.Collections.Generic;
-
-namespace SampleFunctionsApp
-{
-    public static class ProcessDTUpdatetoTSI
-    { 
-        [FunctionName("ProcessDTUpdatetoTSI")]
-        public static async Task Run(
-            [EventHubTrigger("twins-event-hub", Connection = "EventHubAppSetting-Twins")]EventData myEventHubMessage, 
-            [EventHub("tsi-event-hub", Connection = "EventHubAppSetting-TSI")]IAsyncCollector<string> outputEvents, 
-            ILogger log)
-        {
-            JObject message = (JObject)JsonConvert.DeserializeObject(Encoding.UTF8.GetString(myEventHubMessage.Body));
-            log.LogInformation("Reading event:" + message.ToString());
-
-            // Read values that are replaced or added
-            Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
-            foreach (var operation in message["patch"]) {
-                if (operation["op"].ToString() == "replace" || operation["op"].ToString() == "add")
-                {
-                    //Convert from JSON patch path to a flattened property for TSI
-                    //Example input: /Front/Temperature
-                    //        output: Front.Temperature
-                    string path = operation["path"].ToString().Substring(1);                    
-                    path = path.Replace("/", ".");                    
-                    tsiUpdate.Add(path, operation["value"]);
-                }
-            }
-            //Send an update if updates exist
-            if (tsiUpdate.Count>0){
-                tsiUpdate.Add("$dtId", myEventHubMessage.Properties["cloudEvents:subject"]);
-                await outputEvents.AddAsync(JsonConvert.SerializeObject(tsiUpdate));
-            }
-        }
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
 A partir daqui, a função enviará os objetos JSON que ele cria para um segundo Hub de eventos, ao qual você se conectará ao Time Series Insights.
 
@@ -202,14 +158,14 @@ Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de
 Em seguida, você irá configurar uma instância de Time Series Insights para receber os dados do segundo Hub de eventos. Siga as etapas abaixo e para obter mais detalhes sobre esse processo, consulte [*tutorial: configurar um ambiente de Azure Time Series insights Gen2 PAYG*](../time-series-insights/tutorials-set-up-tsi-environment.md).
 
 1. Na portal do Azure, comece a criar um recurso de Time Series Insights. 
-    1. Selecione o tipo de preço **PAYG (visualização)** .
+    1. Selecione o tipo de preço **Gen2 (L1)** .
     2. Será necessário escolher uma ID de **série temporal** para esse ambiente. Sua ID de série temporal pode ter até três valores que você usará para pesquisar seus dados em Time Series Insights. Para este tutorial, você pode usar **$dtId**. Leia mais sobre como selecionar um valor de ID nas [*práticas recomendadas para escolher uma ID de série temporal*](../time-series-insights/how-to-select-tsid.md).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="O UX do portal de criação para um ambiente de Time Series Insights. O tipo de preço Gen2 (L1) é selecionado e o nome da propriedade ID da série temporal é $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
 
 2. Selecione **Avançar: origem do evento** e selecione as informações dos hubs de eventos acima. Você também precisará criar um novo grupo de consumidores de hubs de eventos.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="O UX do portal de criação para uma fonte de evento de Time Series Insights ambiente. Você está criando uma origem do evento com as informações do hub de eventos acima. Você também está criando um novo grupo de consumidores." lightbox="media/how-to-integrate-time-series-insights/event-source-twins.png":::
 
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Começar a enviar dados de IoT para o Azure digital gêmeos
 
@@ -221,21 +177,21 @@ Se você estiver usando o tutorial de ponta a ponta ([*tutorial: conectar uma so
 
 Agora, os dados devem estar fluindo para sua instância de Time Series Insights, prontos para serem analisados. Siga as etapas abaixo para explorar os dados recebidos.
 
-1. Abra sua instância do Time Series Insights no [portal do Azure](https://portal.azure.com) (você pode pesquisar o nome da sua instância na barra de pesquisa do Portal). Visite a *URL do time Series insights Explorer* mostrada na visão geral da instância.
+1. Abra sua instância do Time Series Insights no [portal do Azure](https://portal.azure.com) (você pode pesquisar o nome da sua instância na barra de pesquisa do Portal). Acesse a *URL do Gerenciador do Time Series Insights* mostrada na visão geral da instância.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Selecione a URL do Time Series Insights Explorer na guia Visão geral do ambiente de Time Series Insights":::
 
-2. No Gerenciador, você verá os três gêmeos do Azure digital gêmeos mostrados à esquerda. Selecione _**thermostat67**_, selecione **temperatura**e clique em **Adicionar**.
+2. No Gerenciador, você verá os três gêmeos do Azure digital gêmeos mostrados à esquerda. Selecione _**thermostat67**_, selecione **temperatura** e clique em **Adicionar**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Selecione * * thermostat67 * *, selecione * * temperatura * * e pressione * * Adicionar * *":::
 
 3. Agora você deve estar vendo as leituras de temperatura iniciais de seu termostato, conforme mostrado abaixo. A mesma leitura de temperatura é atualizada para *room21* e *FLOOR1*, e você pode visualizar esses fluxos de dados em tandem.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Os dados iniciais de temperatura estão grafos no Gerenciador de TSI. É uma linha de valores aleatórios entre 68 e 85":::
 
 4. Se você permitir que a simulação seja executada por muito mais tempo, sua visualização terá uma aparência semelhante a esta:
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Uma exibição dos serviços do Azure em um cenário de ponta a ponta, realçando Time Series Insights":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/day-data.png" alt-text="Os dados de temperatura para cada linhas de entrelaçamento estão grafos em três linhas paralelas de cores diferentes.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

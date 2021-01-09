@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 6ad58283ad9078088f241a67426657eb7a538e10
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0114c75d99d79041631e5078deb33f77863dc35a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781123"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98043771"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de venda conjuntas de OCP GTM para o mercado comercial
 
@@ -136,7 +136,7 @@ Para obter instruções detalhadas sobre as informações que você precisa forn
 
     :::image type="content" source="media/co-sell-migrate/offer-setup.png" alt-text="As guias da instalação visão geral da oferta no Partner Center.":::
 
-3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Conclua as informações necessárias restantes na guia **co-venda com a Microsoft** para tornar sua oferta ainda mais fácil de vender. Ao concluir, selecione **revisar e publicar**.
+3. Alguns dos detalhes voltados para o vendedor da Microsoft foram copiados da solução OCP GTM. Conclua as informações necessárias restantes na guia **co-venda com a Microsoft** para tornar sua oferta ainda mais fácil de vender. Ao concluir, selecione **revisar e publicar**. Para obter mais informações, consulte [como enviar materiais de vendas em conjunto no Partner Center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center).
 
     :::image type="content" source="media/co-sell-migrate/co-sell-page.png" alt-text="A guia oferta de co-venda no Partner Center.":::
 
@@ -154,4 +154,6 @@ Para obter instruções detalhadas sobre as informações que você precisa forn
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Revenda por meio de Parceiros do CSP](cloud-solution-providers.md)
+- [Como enviar materiais de vendas em conjunto no Partner Center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - Exibir essas [perguntas frequentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
+

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7016abc9d52aa12b497d29f605fe351ee3f6a2dd
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 33b30f29146e446c5525b1bbcfd76af71c557702
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519086"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045302"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -29,7 +29,7 @@ Como alternativa, você também pode gerenciar pontos de extremidade e rotas com
 * Você precisará de uma **conta do Azure** (você pode configurar uma gratuitamente [aqui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-cli.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
     - Nome da instância
-    - Resource group
+    - Grupo de recursos
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Criar um ponto de extremidade para o gêmeos digital do Azure
 
@@ -125,17 +125,8 @@ Para criar um ponto de extremidade com mensagens mortas habilitadas, você preci
 
 1. Em seguida, adicione um `deadLetterSecret` campo ao objeto Properties no **corpo** da solicitação. Defina esse valor de acordo com o modelo abaixo, que recolocará uma URL do nome da conta de armazenamento, do nome do contêiner e do valor do token SAS que você coletou na [seção anterior](#set-up-storage-resources).
       
-    ```json
-    {
-      "properties": {
-        "endpointType": "EventGrid",
-        "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
-        "accessKey1": "xxxxxxxxxxx",
-        "accessKey2": "xxxxxxxxxxx",
-        "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
-      }
-    }
-    ```
+  :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
+
 1. Envie a solicitação para criar o ponto de extremidade.
 
 Para obter mais informações sobre como estruturar essa solicitação, consulte a documentação da API REST do Azure digital gêmeos: [pontos de extremidade – DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
@@ -202,11 +193,7 @@ Uma rota deve permitir que várias notificações e tipos de eventos sejam selec
 
 `CreateOrReplaceEventRouteAsync` é a chamada do SDK que é usada para adicionar uma rota de evento. Aqui está um exemplo de uso:
 
-```csharp
-string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
-var er = new DigitalTwinsEventRoute("<your-endpointName>", eventFilter);
-await client.CreateOrReplaceEventRouteAsync("routeName", er);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
     
 > [!TIP]
 > Todas as funções do SDK são fornecidas em versões síncronas e assíncronas.
@@ -214,35 +201,8 @@ await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ### <a name="event-route-sample-code"></a>Código de exemplo de rota de evento
 
 O método de exemplo a seguir mostra como criar, listar e excluir uma rota de evento:
-```csharp
-private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, DigitalTwinsEventRoute er)
-{
-  try
-  {
-    Console.WriteLine("Create a route: testRoute1");
-            
-    // Make a filter that passes everything
-    er.Filter = "true";
-    await client.CreateOrReplaceEventRouteAsync(routeName, er);
-    Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable<DigitalTwinsEventRoute> result = client.GetEventRoutes();
-    foreach (DigitalTwinsEventRoute r in result)
-    {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
-    }
-    Console.WriteLine("Deleting routes:");
-    foreach (DigitalTwinsEventRoute r in result)
-    {
-        Console.WriteLine($"Deleting route {r.Id}:");
-        client.DeleteEventRoute(r.Id);
-    }
-  }
-    catch (RequestFailedException e)
-    {
-        Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
-    }
-  }
-```
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="FullEventRouteSample":::
 
 ## <a name="filter-events"></a>Filtrar eventos
 
@@ -255,12 +215,8 @@ Você pode restringir os eventos que estão sendo enviados adicionando um **filt
 
 Para adicionar um filtro, você pode usar uma solicitação PUT para *https://{Your-Azure-digital-gêmeos-nome_do_host}/eventRoutes/{Event-rota-Name}? API-Version = 2020-10-31* com o seguinte corpo:
 
-```json  
-{
-    "endpointName": "<endpoint-name>",
-    "filter": "<filter-text>"
-}
-``` 
+:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::
+
 Aqui estão os filtros de rota com suporte. Use os detalhes na coluna *Filtrar esquema de texto* para substituir o `<filter-text>` espaço reservado no corpo da solicitação acima.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]

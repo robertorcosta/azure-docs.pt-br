@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a9a2f9d999a51f2b4600e8379d4a8913675b338
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 33233e8a6aa54e65094e0cc6130e804241d7201c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360009"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044281"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: pré-requisitos para a criação de grupos de disponibilidade em SQL Server em máquinas virtuais do Azure
 
@@ -279,7 +279,7 @@ Depois de criar o primeiro controlador de domínio e habilitar o DNS no primeiro
 
 3. Selecione **personalizado** e digite o endereço IP privado do controlador de domínio primário.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ### <a name="configure-the-second-domain-controller"></a>Configurar o segundo controlador de domínio
 
@@ -539,7 +539,7 @@ Repita essas etapas na outra VM do SQL Server.
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Ajustando limites de rede de cluster de failover
 
-Ao executar nós de cluster de failover do Windows em VMs do Azure com o SQL Server AlwaysOn, é recomendável alterar a configuração de cluster para um estado de monitoramento mais relaxado.  Isso tornará o cluster muito mais estável e confiável.  Para obter detalhes sobre isso, consulte [IaaS with SQL AlwaysOn-ajustando limites de rede de cluster de failover](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+Ao executar nós de cluster de failover do Windows em VMs do Azure com grupos de disponibilidade SQL Server, altere a configuração de cluster para um estado de monitoramento mais relaxado.  Isso tornará o cluster muito mais estável e confiável.  Para obter detalhes sobre isso, consulte [IaaS com limites de rede de cluster de failover de ajuste SQL Server](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Configurar o firewall em cada VM do SQL Server
