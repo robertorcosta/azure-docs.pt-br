@@ -1,20 +1,20 @@
 ---
 title: Visão geral da conta de armazenamento
 titleSuffix: Azure Storage
-description: Leia uma visão geral das contas de armazenamento no armazenamento do Azure. Revise a nomenclatura da conta, as camadas de desempenho, as camadas de acesso, a redundância, a criptografia, os pontos de extremidade e muito mais.
+description: Saiba mais sobre os diferentes tipos de contas de armazenamento no armazenamento do Azure. Revise a nomenclatura da conta, as camadas de desempenho, as camadas de acesso, a redundância, a criptografia, os pontos de extremidade e muito mais.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 01/08/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c9c4cd643e2e4b89f9a7d8f44a6569d0dde2b37
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 5cf43310c68c8446b9465a39d85f84c8273a68d8
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357374"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051217"
 ---
 # <a name="storage-account-overview"></a>Visão geral da conta de armazenamento
 
@@ -24,7 +24,40 @@ Para saber como criar uma conta de armazenamento do Azure, confira [Criar uma co
 
 ## <a name="types-of-storage-accounts"></a>Tipos de contas de armazenamento
 
-[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
+O Armazenamento do Azure oferece diversos tipos de contas de armazenamento. Cada tipo é compatível com recursos diferentes e tem um modelo de preços próprio. Considere essas diferenças antes de criar uma conta de armazenamento para determinar o melhor tipo de conta para seus aplicativos. Os tipos de conta de armazenamento são:
+
+- **Contas para uso geral v2**: tipo de conta de armazenamento básico para blobs, arquivos, filas e tabelas. Recomendado para a maioria dos cenários que usam o Armazenamento do Azure.
+- **Contas para uso geral v1**: tipo de conta herdada para blobs, arquivos, filas e tabelas. Use contas de uso geral v2 em vez desta opção, quando possível.
+- **Contas de BlockBlobStorage**: contas de armazenamento com características de desempenho premium para blobs de blocos e blobs de acréscimo. Recomendadas para cenários com altas taxas de transações ou cenários que usam objetos menores ou exigem latência de armazenamento consistentemente baixa.
+- **Contas de FileStorage**: contas de armazenamento somente para arquivos com características de desempenho premium. Recomendadas para aplicações de escala empresarial ou de alto desempenho.
+- **Contas de BlobStorage**: contas de armazenamento somente em blobs herdadas. Use contas de uso geral v2 em vez desta opção, quando possível.
+
+A tabela a seguir descreve os tipos de contas de armazenamento, os serviços aos quais eles oferecem suporte e os modelos de implantação com suporte para cada tipo de conta:
+
+| Tipo de conta de armazenamento | Serviços com suporte | Opções de redundância | Modelo de implantação<sup>1</sup> |
+|--|--|--|--|
+| Uso geral V2 | BLOB, arquivo, fila, tabela, disco e Data Lake Gen2<sup>2</sup> | LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS<sup>3</sup> | Gerenciador de Recursos |
+| Uso geral V1 | Blob, arquivo, fila, tabela e disco | LRS, GRS, RA-GRS | Resource Manager, Clássico |
+| BlockBlobStorage | Blob (somente blobs de blocos e blobs de acréscimo) | LRS, ZRS<sup>3</sup> | Gerenciador de Recursos |
+| FileStorage | Somente arquivo | LRS, ZRS<sup>3</sup> | Gerenciador de Recursos |
+| BlobStorage | Blob (somente blobs de blocos e blobs de acréscimo) | LRS, GRS, RA-GRS | Gerenciador de Recursos |
+
+<sup>1</sup>É recomendável usar o modelo de implantação do Azure Resource Manager. Ainda é possível criar contas de armazenamento que usam o modelo de implantação clássico em alguns locais, e as contas clássicas existentes ainda têm suporte. Para saber mais, confira [Azure Resource Manager vs. Implantação clássica: compreenda os modelos de implantação e o estado dos seus recursos](../../azure-resource-manager/management/deployment-models.md).
+
+<sup>2</sup> Azure Data Lake Storage Gen2 é um conjunto de recursos dedicados à análise de Big Data, criado no armazenamento de BLOBs do Azure. O Data Lake Storage Gen2 tem suporte apenas em contas de armazenamento de uso geral v2 com namespace hierárquico habilitado. Para obter mais informações sobre o Data Lake Storage Gen2, confira [Introdução ao Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md).
+
+<sup>3</sup> O ZRS (armazenamento com redundância de zona) e o armazenamento com redundância de zona geográfica (GZRS/RA-GZRS) estão disponíveis somente para contas de armazenamento padrão v2, BlockBlobStorage e de uso geral em determinadas regiões. Para obter mais informações sobre as opções de redundância do Armazenamento do Azure, confira [Redundância no Armazenamento do Azure](storage-redundancy.md).
+
+### <a name="storage-account-redundancy"></a>Redundância da conta de armazenamento
+
+As opções de redundância para uma conta de armazenamento incluem:
+
+- **LRS (armazenamento com redundância local)**: uma estratégia de redundância simples e de baixo custo. Os dados serão copiados três vezes em uma localização física única de maneira síncrona na região primária.
+- **ZRS (armazenamento com redundância de zona)**: redundância para cenários que exigem alta disponibilidade. Os dados são copiados de maneira síncrona em três zonas de disponibilidade do Azure na região primária.
+- **Armazenamento com redundância geográfica (GRS)**: redundância entre regiões para proteger contra interrupções regionais. Os dados são copiados de maneira síncrona três vezes na região primária e copiados de maneira assíncrona para a região secundária. Para obter acesso de leitura aos dados na região secundária, habilite RA-GRS (armazenamento com redundância geográfica com acesso de leitura).
+- **Armazenamento com redundância de zona geográfica (GZRS)**: redundância para cenários que exigem alta disponibilidade e durabilidade máxima. Os dados são copiados de maneira síncrona em três zonas de disponibilidade do Azure na região primária e copiados de maneira assíncrona para a região secundária. Para ter acesso de leitura aos dados na região secundária, habilite o RA-GZRS (armazenamento com redundância de zona geográfica com acesso de leitura).
+
+Para obter mais informações sobre opções de redundância no Armazenamento do Azure, confira [Redundância do Armazenamento do Azure](storage-redundancy.md).
 
 ### <a name="general-purpose-v2-accounts"></a>Contas para uso geral v2
 
@@ -83,7 +116,17 @@ Ao nomear sua conta de armazenamento, lembre-se dessas regras:
 
 ## <a name="performance-tiers"></a>Níveis de desempenho
 
-Dependendo do tipo de conta de armazenamento que você criar, você pode escolher entre as camadas de desempenho Standard e Premium.
+Dependendo do tipo de conta de armazenamento que você criar, você pode escolher entre as camadas de desempenho Standard e Premium. A tabela a seguir resume quais níveis de desempenho estão disponíveis para o tipo de conta de armazenamento.
+
+| Tipo de conta de armazenamento | Níveis de desempenho compatíveis |
+|--|--|
+| Uso geral V2 | Standard, Premium<sup>1</sup> |
+| Uso geral V1 | Standard, Premium<sup>1</sup> |
+| BlockBlobStorage | Premium |
+| FileStorage | Premium |
+| BlobStorage | Standard |
+
+<sup>1</sup> O desempenho premium para contas de uso geral V2 e V1 de finalidade geral está disponível somente para blob de disco e de página. O desempenho premium para blobs de blocos ou de acréscimo está disponível apenas para contas de BlockBlobStorage. O desempenho premium para arquivos está disponível apenas para contas de FileStorage.
 
 ### <a name="general-purpose-storage-accounts"></a>Contas de armazenamento de uso geral
 
@@ -112,12 +155,20 @@ As camadas de acesso disponíveis são:
 
 Se houver uma alteração no padrão de uso de seus dados, você poderá alternar entre essas camadas de acesso a qualquer momento. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md).
 
+A tabela a seguir mostra quais camadas de acesso estão disponíveis para BLOBs em cada tipo de conta de armazenamento.
+
+| Tipo de conta de armazenamento | Camadas de acesso compatíveis |
+|--|--|
+| Uso geral V2 | Quente, frio, arquivo<sup>1</sup> |
+| Uso geral V1 | N/D |
+| BlockBlobStorage | N/D |
+| FileStorage | N/D |
+| BlobStorage | Quente, frio, arquivo<sup>1</sup> |
+
+<sup>1</sup> o armazenamento de arquivo e a camada no nível do blob dão suporte apenas a blobs de blocos. A camada de Arquivos está disponível somente no nível de blob individual, e não no nível da conta de armazenamento. Para obter mais informações, consulte [camadas de acesso para armazenamento de BLOBs do Azure-quente, frio e arquivo](../blobs/storage-blob-storage-tiers.md).
+
 > [!IMPORTANT]
-> Alterar a camada de acesso para uma conta de armazenamento existente ou um blob pode resultar em cobranças adicionais. Para obter mais informações, consulte a [Seção de cobrança de conta de armazenamento](#storage-account-billing).
-
-## <a name="redundancy"></a>Redundância
-
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+> Alterar a camada de acesso para uma conta de armazenamento existente ou um blob pode resultar em cobranças adicionais. Para obter mais informações, consulte [cobrança da conta de armazenamento](#storage-account-billing).
 
 ## <a name="encryption"></a>Criptografia
 
@@ -127,13 +178,15 @@ Todos os dados da sua conta de armazenamento são criptografados no lado do serv
 
 Uma conta de armazenamento fornece um namespace exclusivo no Azure para seus dados. Todos os objetos armazenados no Armazenamento do Azure têm um endereço que inclui o nome exclusivo da conta. A combinação do nome da conta e do ponto de extremidade de serviço do Armazenamento do Azure forma os pontos de extremidade da sua conta de armazenamento.
 
-Por exemplo, se a conta de armazenamento para uso geral chamar *mystorageaccount*, os pontos de extremidade padrão da conta serão:
+A tabela a seguir lista os pontos de extremidade para cada um dos serviços de armazenamento do Azure.
 
-- Armazenamento de BLOBs: `https://*mystorageaccount*.blob.core.windows.net`
-- Armazenamento de tabelas: `https://*mystorageaccount*.table.core.windows.net`
-- Armazenamento de filas: `https://*mystorageaccount*.queue.core.windows.net`
-- Arquivos do Azure: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (usa o [Driver ABFS otimizado especificamente para Big data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2).)
+| Serviço de armazenamento | Ponto de extremidade |
+|--|--|
+| Armazenamento de Blobs | `https://<storage-account>.blob.core.windows.net` |
+| Azure Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
+| Arquivos do Azure | `https://<storage-account>.file.core.windows.net` |
+| Armazenamento de filas | `https://<storage-account>.queue.core.windows.net` |
+| Armazenamento de tabela | `https://<storage-account>.table.core.windows.net` |
 
 > [!NOTE]
 > O bloco BLOB e as contas de armazenamento de blob expõem apenas o ponto de extremidade do serviço BLOB.
@@ -184,7 +237,17 @@ Para saber mais sobre a API REST do Armazenamento do Azure, confira a [Referênc
 
 ## <a name="storage-account-billing"></a>Cobrança de conta de armazenamento
 
-[!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
+O armazenamento do Azure cobra com base no uso da sua conta de armazenamento. Todos os objetos em uma conta de armazenamento são cobrados juntos como um grupo. Os custos de armazenamento são calculados de acordo com os seguintes fatores:
+
+- **Região** refere-se à região geográfica na qual sua conta está baseada.
+- **Tipo de conta** refere-se ao tipo de conta de armazenamento que você está usando.
+- **Camada de acesso** refere-se ao padrão de uso de dados que você especificou para sua conta de uso geral v2 ou de armazenamento de blobs.
+- A **capacidade** refere-se à quantidade de alocação de sua conta de armazenamento que você está usando para armazenar dados.
+- A **replicação** determina quantas cópias dos seus dados serão mantidas de uma só vez e em quais locais.
+- As **transações** referem-se a todas as operações de leitura e gravação no Armazenamento do Microsoft Azure.
+- A **saída de dados** refere-se a dados transferidos para fora de uma região do Azure. Quando os dados em sua conta de armazenamento são acessados por um aplicativo que não está sendo executado na mesma região, você é cobrado pela saída de dados. Para obter informações sobre como usar grupos de recursos para agrupar seus dados e serviços na mesma região para limitar os encargos de saída, consulte [O que é um grupo de recursos do Azure?](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management#what-is-an-azure-resource-group).
+
+A página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) fornece informações detalhadas de preços com base no tipo de conta, capacidade de armazenamento, replicação e transações. A página [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/) fornece informações detalhadas de preços para saída de dados. Você pode usar a [Calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) para ajudar a estimar os custos.
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 

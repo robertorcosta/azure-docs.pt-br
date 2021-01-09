@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Armazenamento do Microsoft Azure
 description: Lista as definições de políticas internas do Azure Policy para o Armazenamento do Microsoft Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: reference
 author: tamram
 ms.author: tamram
 ms.service: storage
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4eaa15e26be1b18884f3969f1f3a8b10fce14ba6
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 92ae8a6e9a6b36805e7a15f71350c40260ce3d87
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986720"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051627"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-storage"></a>Definições internas do Azure Policy para o Armazenamento do Azure
 

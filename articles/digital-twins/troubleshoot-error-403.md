@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1517c066fe20d478094f57d85d6e27f355a93601
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091796"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049806"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Falha na solicitação de serviço. Status: 403 (proibido)
 
@@ -44,7 +44,7 @@ A primeira solução é verificar se o usuário do Azure tem a função de _**pr
 Observe que essa função é diferente de...
 * o nome anterior para essa função durante a visualização, *proprietário do gêmeos digital do Azure (versão prévia)* (a função é a mesma, mas o nome foi alterado)
 * a função de *proprietário* em toda a assinatura do Azure. O *proprietário de dados do gêmeos digital do Azure* é uma função dentro do gêmeos digital do Azure e tem como escopo essa instância de gêmeos digital do Azure individual.
-* a função de *proprietário* no gêmeos digital do Azure. Essas são duas funções de gerenciamento de gêmeos digitais do Azure diferentes e o *proprietário dos dados do Azure digital gêmeos* é a função que deve ser usada para gerenciamento durante a visualização.
+* a função de *proprietário* no gêmeos digital do Azure. Essas são duas funções de gerenciamento de gêmeos digitais do Azure diferentes e o *proprietário dos dados do Azure digital gêmeos* é a função que deve ser usada para gerenciamento.
 
 #### <a name="check-current-setup"></a>Verificar a configuração atual
 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 12/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: b0937bbd72460b1d46ce0394af1933e858424966
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c2efd9ac137c226c1d3a77e2cb6ebe17d75cb496
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97360315"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051523"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>Gerenciar o acesso seguro aos recursos no spoke VNets para clientes VPN de usuário
 
@@ -129,7 +129,7 @@ Nesta seção, você precisa garantir que o tráfego seja roteado pelo firewall 
 1. Em **Configurações**, escolha **Configuração de segurança**.
 1. Em **Tráfego privado**, selecione **Enviar por meio do Firewall do Azure**.
 1. Verifique se a conexão VNet e o tráfego privado da conexão de ramificação estão protegidos pelo firewall do Azure.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="validate"></a><a name="validate"></a>Verifica
 
@@ -147,4 +147,4 @@ Verifique a configuração do seu hub protegido.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre a WAN Virtual, consulte as [Perguntas frequentes sobre a WAN Virtual](virtual-wan-faq.md).
-* Para obter mais informações sobre o Firewall do Azure, consulte as [perguntas frequentes](../firewall/firewall-faq.md)sobre o Firewall do Azure.
+* Para obter mais informações sobre o Firewall do Azure, consulte as [perguntas frequentes](../firewall/firewall-faq.yml)sobre o Firewall do Azure.

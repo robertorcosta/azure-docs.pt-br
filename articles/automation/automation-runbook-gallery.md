@@ -3,21 +3,21 @@ title: Usar runbooks e módulos da Automação do Azure no Galeria do PowerShell
 description: Este artigo mostra como usar runbooks e módulos da Microsoft e da comunidade na Galeria do PowerShell.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 26dfedf1961cf39645c3bcf3ce5fa2db6c14119e
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 590220782a7f43e785cc7885e68eefa99afb7d1d
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97682772"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049109"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Usar runbooks e módulos na Galeria do PowerShell
 
 Em vez de criar seus próprios runbooks e módulos na Automação do Azure, você pode acessar cenários que já foram desenvolvidos pela Microsoft e pela comunidade. Você pode obter runbooks e [módulos](#modules-in-powershell-gallery) do PowerShell dos runbooks Galeria do PowerShell e [Python](#use-python-runbooks) da organização GitHub de automação do Azure. Você também pode contribuir para a comunidade compartilhando [cenários que você desenvolve](#add-a-powershell-runbook-to-the-gallery).
 
 > [!NOTE]
-> O TechNet Script Center está sendo desativado. Todos os runbooks do script Center na Galeria de Runbooks foram movidos para nossa [organização do GitHub de automação](https://github.com/azureautomation).
+> O TechNet Script Center está sendo desativado. Todos os runbooks do script Center na Galeria de Runbooks foram movidos para nossa [organização do GitHub de automação](https://github.com/azureautomation) para obter mais informações, consulte [aqui](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
 
 ## <a name="runbooks-in-powershell-gallery"></a>Runbooks na Galeria do PowerShell
 

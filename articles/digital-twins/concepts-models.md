@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0a38f9b8135fed08a95df68f108e44c34fec6325
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: dfea6d531dfb87a5344c5d8e53570b6e1ae8e598
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955320"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049313"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos de entrelaçamento no Azure digital gêmeos
 
@@ -88,53 +88,7 @@ Esta seção contém um exemplo de um modelo típico, escrito como uma interface
  
 Considere que os planetas também podem interagir com **luas** que são seus satélites e **podem conter** enjuntores. No exemplo a seguir, o `Planet` modelo expressa conexões com essas outras entidades fazendo referência a dois modelos externos — `Moon` e `Crater` . Esses modelos também são definidos no código de exemplo abaixo, mas são mantidos muito simples para não detrair o `Planet` exemplo primário.
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "Temperature",
-        "schema": "double"
-      },
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  },
-  {
-    "@id": "dtmi:com:contoso:Moon;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/Planet-Crater-Moon.json":::
 
 Os campos do modelo são:
 
@@ -166,57 +120,7 @@ Os campos de *telemetria* também dão suporte a `Array` .
 
 O exemplo a seguir reimagina o modelo *planeta* do exemplo de DTDL anterior como um subtipo de um modelo de *CelestialBody* maior. O modelo "pai" é definido primeiro e, em seguida, o modelo "filho" é criado com base nele usando o campo `extends` .
 
-```json
-[
-  {
-    "@id": "dtmi:com:contoso:CelestialBody;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Celestial body",
-    "contents": [
-      {
-        "@type": "Property",
-        "name": "name",
-        "schema": "string"
-      },
-      {
-        "@type": "Property",
-        "name": "mass",
-        "schema": "double"
-      },
-      {
-        "@type": "Telemetry",
-        "name": "temperature",
-        "schema": "double"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Planet;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2",
-    "displayName": "Planet",
-    "extends": "dtmi:com:contoso:CelestialBody;1",
-    "contents": [
-      {
-        "@type": "Relationship",
-        "name": "satellites",
-        "target": "dtmi:com:contoso:Moon;1"
-      },
-      {
-        "@type": "Component",
-        "name": "deepestCrater",
-        "schema": "dtmi:com:contoso:Crater;1"
-      }
-    ]
-  },
-  {
-    "@id": "dtmi:com:contoso:Crater;1",
-    "@type": "Interface",
-    "@context": "dtmi:dtdl:context;2"
-  }
-]
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/CelestialBody-Planet-Crater.json":::
 
 Neste exemplo, *CelestialBody* contribui com um nome, uma massa e uma temperatura para o *planeta*. A `extends` seção é um nome de interface ou uma matriz de nomes de interface (permitindo que a interface de extensão herde de vários modelos pai, se desejado).
 

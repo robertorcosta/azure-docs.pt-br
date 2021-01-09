@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: c1dbdc4761c107a8e5028a43ead9710d45526016
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3bc24e88368af056e4d4506a5cf688e1172d4930
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461187"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051557"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs personalizados para o gêmeos digital do Azure usando o REST
 
@@ -57,7 +57,7 @@ Você pode incluir os arquivos gerados pelo autorest diretamente em uma soluçã
 
 Esta seção fornece instruções sobre como criar o SDK como uma biblioteca de classes, que é seu próprio projeto e pode ser incluído em outros projetos. Essas etapas dependem do **Visual Studio** (você pode instalar a versão mais recente [aqui](https://visualstudio.microsoft.com/downloads/)).
 
-Aqui estão as etapas para fazer isso:
+Siga estas etapas:
 
 1. Criar uma nova solução do Visual Studio para uma biblioteca de classes
 2. Usar *ADTApi* como o nome do projeto
@@ -99,17 +99,7 @@ Sempre que ocorrer um erro no SDK (incluindo erros de HTTP, como 404), o SDK ger
 
 Aqui está um trecho de código que tenta adicionar um entrelaçamento e captura todos os erros nesse processo:
 
-```csharp
-try
-{
-    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(id, initData);
-    Console.WriteLine($"Created a twin successfully: {id}");
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_errorHandling":::
 
 ### <a name="paging"></a>Paginamento
 
@@ -117,62 +107,15 @@ O REST gera dois tipos de padrões de paginação para o SDK:
 * Um para todas as APIs, exceto a API de consulta
 * Um para a API de consulta
 
-No padrão de paginação não consulta, aqui está um trecho de código que mostra como recuperar uma lista paginável de relações de saída do Azure digital gêmeos:
+No padrão de paginação não consulta, aqui está um método de exemplo que mostra como recuperar uma lista paginável de relações de saída do Azure digital gêmeos:
 
-```csharp
- try 
- {
-     // List the relationships.
-    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
-    Console.WriteLine($"Twin {srcId} is connected to:");
-    // Iterate through the relationships found.
-    int numberOfRelationships = 0;
-    await foreach (string rel in results)
-    {
-         ++numberOfRelationships;
-         // Do something with each relationship found
-         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
-    }
-    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
-} catch (RequestFailedException rex) {
-    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 O segundo padrão é gerado somente para a API de consulta. Ele usa um `continuationToken` explicitamente.
 
 Aqui está um exemplo com esse padrão:
 
-```csharp
-string query = "SELECT * FROM digitaltwins";
-string conToken = null; // continuation token from the query
-int page = 0;
-try
-{
-    // Repeat the query while there are pages
-    do
-    {
-        QuerySpecification spec = new QuerySpecification(query, conToken);
-        QueryResult qr = await client.Query.QueryTwinsAsync(spec);
-        page++;
-        Console.WriteLine($"== Query results page {page}:");
-        if (qr.Items != null)
-        {
-            // Query returns are JObjects
-            foreach(JObject o in qr.Items)
-            {
-                string twinId = o.Value<string>("$dtId");
-                Console.WriteLine($"  Found {twinId}");
-            }
-        }
-        Console.WriteLine($"== End query results page {page}");
-        conToken = qr.ContinuationToken;
-    } while (conToken != null);
-} catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="PagedQuery":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

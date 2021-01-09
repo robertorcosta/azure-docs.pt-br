@@ -2,14 +2,14 @@
 title: Configurar Azure Monitor para dados dinâmicos de contêineres (visualização) | Microsoft Docs
 description: Este artigo descreve como configurar a exibição em tempo real de logs de contêiner (stdout/stderr) e eventos sem usar o kubectl com Azure Monitor para contêineres.
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 62bc7613995296504dfba551cdb631ac3386aa75
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830778"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050775"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 
@@ -29,8 +29,6 @@ Este artigo explica como configurar a autenticação para controlar o acesso ao 
 - Kubernetes do kubernetes RBAC (controle de acesso baseado em função) habilitado para grupo de AKS
 - Azure Active Directory cluster AKS integrado.
 
->[!NOTE]
->Os clusters AKS habilitados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não têm suporte com esse recurso. Esse recurso depende diretamente do acesso à API kubernetes por meio de um servidor proxy do seu navegador. Habilitar a segurança de rede para bloquear a API do kubernetes desse proxy bloqueará esse tráfego.
 
 ## <a name="authentication-model"></a>Modelo de autenticação
 

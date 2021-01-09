@@ -2,20 +2,20 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 70cc6ac9bf7a5f5e16b6f5a073d738ba45f1d1cf
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e080ce8c040761de0103da8c22ef7f6ca2b4fdf4
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984712"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048634"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[As contas dos Serviços Cognitivos devem habilitar a criptografia de dados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2bdd0062-9d75-436e-89df-487dd8e4b3c7) |Esta política audita qualquer conta dos Serviços Cognitivos que não use a criptografia de dados. Para cada conta dos Serviços Cognitivos com armazenamento, deve-se habilitar a criptografia de dados com a chave gerenciada pelo cliente ou a chave gerenciada pela Microsoft. |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_Encryption_Audit.json) |
-|[As contas dos Serviços Cognitivos devem habilitar a criptografia de dados com uma chave gerenciada pelo cliente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F67121cc7-ff39-4ab8-b7e3-95b84dab487d) |As chaves gerenciadas pelo cliente oferecem proteção de dados aprimorada permitindo que você gerencie suas chaves de criptografia para dados armazenados nos Serviços Cognitivos. Isso geralmente é necessário para atender aos requisitos de conformidade. |Audit, Deny, desabilitado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_CustomerManagedKey_Audit.json) |
+|[As contas de serviços cognitivas devem habilitar a criptografia de dados com uma chave gerenciada pelo cliente (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F67121cc7-ff39-4ab8-b7e3-95b84dab487d) |As chaves gerenciadas pelo cliente (CMK) normalmente são necessárias para atender aos padrões de conformidade regulatória. CMKs habilite os dados armazenados em serviços cognitivas para serem criptografados com uma chave Azure Key Vault criada e de propriedade de seu próprio. Você tem total controle e responsabilidade pelo ciclo de vida da chave, incluindo rotação e gerenciamento. Saiba mais sobre a criptografia CMK em [https://aka.ms/cosmosdb-cmk](https://aka.ms/cosmosdb-cmk) . |Audit, Deny, desabilitado |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_CustomerManagedKey_Audit.json) |
 |[As contas dos Serviços Cognitivos devem restringir o acesso à rede](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F037eea7a-bd0a-46c5-9a66-03aea78705d3) |O acesso à rede para contas dos Serviços Cognitivos deve ser restrito. Configure as regras de rede, de modo que somente os aplicativos das redes permitidas possam acessar a conta dos Serviços Cognitivos. Para permitir conexões de clientes específicos locais ou da Internet, o acesso pode ser permitido para o tráfego de redes virtuais específicas do Azure ou para intervalos de endereços IP públicos da Internet. |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_NetworkAcls_Audit.json) |
 |[As contas dos Serviços Cognitivos devem usar o armazenamento de propriedade do cliente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F46aa9b05-0e60-4eae-a88b-1e9d374fa515) |Esta política audita qualquer conta dos Serviços Cognitivos que não use o armazenamento de propriedade do cliente. |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_UserOwnedStorage_Audit.json) |
 |[As contas dos Serviços Cognitivos devem usar o armazenamento de propriedade do cliente ou habilitar a criptografia de dados.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F11566b39-f7f7-4b82-ab06-68d8700eb0a4) |Esta política audita qualquer conta dos Serviços Cognitivos que não use o armazenamento de propriedade do cliente nem a criptografia de dados. Para cada conta dos Serviços Cognitivos com armazenamento, use o armazenamento de propriedade do cliente ou habilite a criptografia de dados. |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cognitive%20Services/CognitiveServices_BYOX_Audit.json) |

@@ -7,24 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: ba1542d1bb10933edb34b697f1c81cc5e3e7f1c9
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705363"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049772"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Criptografia IPSec em trânsito para o Azure HDInsight
 
 Este artigo aborda a implementação de criptografia em trânsito para a comunicação entre os nós de cluster do Azure HDInsight.
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
 O Azure HDInsight oferece uma variedade de recursos de segurança para proteger seus dados corporativos. Essas soluções são agrupadas sob os pilares de segurança, autenticação, autorização, auditoria, criptografia e conformidade do perímetro. A criptografia pode ser aplicada a dados em repouso e em trânsito.
 
 A criptografia em repouso é coberta pela criptografia do lado do servidor nas contas de armazenamento do Azure, bem como pela criptografia de disco nas VMs do Azure que fazem parte de seu cluster HDInsight.
 
-A criptografia de dados em trânsito no HDInsight é obtida com o protocolo [TLS](../transport-layer-security.md) para acessar os gateways de cluster e a [segurança de protocolo Internet (IPSec)](https://wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente habilitado entre todos os nós de cabeçalho, nós de trabalho, nós de borda e nós de Zookeeper. Ele não está habilitado para tráfego entre nós de [agente de ID](./identity-broker.md) ou de gateway, que são VMs baseadas em Windows e outros nós baseados em Linux no cluster.
+A criptografia de dados em trânsito no HDInsight é obtida com o protocolo [TLS](../transport-layer-security.md) para acessar os gateways de cluster e a [segurança de protocolo Internet (IPSec)](https://wikipedia.org/wiki/IPsec) entre nós de cluster. O IPSec pode ser opcionalmente habilitado entre todos os nós de cabeçalho, nós de trabalho, nós de borda, nós de Zookeeper, bem como nós de [agente de ID](./identity-broker.md) e gateway.
 
 ## <a name="enable-encryption-in-transit"></a>Habilitar criptografia em trânsito
 

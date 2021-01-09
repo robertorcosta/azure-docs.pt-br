@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 805bc2aecda37599234c81dd928868d8c14aea4e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 242ff1d7c16ca952b19f44fb139f8fae7562524a
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97091982"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048310"
 ---
 # <a name="train-machine-learning-models"></a>Treinar modelos de aprendizado de máquina
 Apache Spark no Azure Synapse Analytics permite o aprendizado de máquina com Big Data, fornecendo a capacidade de obter informações valiosas de grandes quantidades de dados estruturados, não estruturados e de movimentação rápida. Há várias opções ao treinar modelos de aprendizado de máquina usando o Azure Spark na análise de Synapse do Azure: Apache Spark MLlib, Azure Machine Learning e várias outras bibliotecas de código-fonte aberto. 
@@ -58,6 +58,6 @@ Os [Serviços cognitivas do Azure](https://docs.microsoft.com/azure/cognitive-se
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo fornece uma visão geral das várias opções para treinar modelos de aprendizado de máquina dentro de pools de Apache Spark no Azure Synapse Analytics. Você pode aprender mais sobre o treinamento de modelo seguindo o tutorial abaixo:
 
-- Executar experimentos de ML automatizados usando o Azure Machine Learning e o Azure Synapse Analytics: [tutorial de ml automatizado](./spark/../apache-spark-autoscale.md) 
-- Executar experimentos do SparkML: [tutorial do Apache SparkML](../spark/apache-spark-azure-machine-learning-tutorial.md)
+- Executar experimentos de ML automatizados usando o Azure Machine Learning e o Azure Synapse Analytics: [tutorial de ml automatizado](../spark/apache-spark-azure-machine-learning-tutorial.md) 
+- Executar experimentos do SparkML: [tutorial do Apache SparkML](../spark/apache-spark-machine-learning-mllib-notebook.md)
 - Exibir as bibliotecas padrão: [tempo de execução do Azure Synapse Analytics](../spark/apache-spark-version-support.md)
