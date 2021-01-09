@@ -3,12 +3,12 @@ title: Integrar como um parceiro de grade de eventos do Azure usando portal do A
 description: Use portal do Azure para carregar um parceiro de grade de eventos do Azure.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 8344fcd822bfcdc67e2c27b200d97fa70dfefdf2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 44dece4d46a6d702d48fa49983818986fcd59f7b
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349379"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050945"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner-using-the-azure-portal"></a>Integrar como um parceiro de grade de eventos do Azure usando o portal do Azure
 Este artigo descreve como os provedores de SaaS de terceiros, também conhecidos como editores de eventos ou parceiros, são integrados à grade de eventos para poderem publicar eventos de seus serviços e como esses eventos são consumidos pelos usuários finais.
@@ -112,7 +112,6 @@ Para concluir as etapas restantes, verifique se você tem:
     1. Na seção **detalhes do canal** , siga estas etapas:
         1. Para **nome do canal de evento**, insira um nome para o canal de evento. 
         1. Insira a **origem**. Consulte [especificações do Cloud events 1,0](https://github.com/cloudevents/spec/blob/v1.0/spec.md#source-1) para ter uma ideia de um valor adequado para a origem. Além disso, consulte [Este exemplo de esquema de eventos de nuvem](cloud-event-schema.md#sample-event-using-cloudevents-schema).
-        1. Insira a origem (o que é isso?).
     1. Na seção **detalhes de destino** , insira os detalhes do tópico de parceiro de destino que será criado para esse canal de evento. 
         1. Insira a **ID da assinatura** na qual o tópico de parceiro será criado. 
         1. Insira o **nome do grupo de recursos** no qual o recurso de tópico de parceiro será criado. 
