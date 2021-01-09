@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 0018b7bafa8ff2ecd328a150df752082c85484e2
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: bc80a4f5c6c2919f0cb3faa15958fb75eed70270
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608503"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035216"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
-Use as [ações do GitHub](https://github.com/features/actions) para definir um fluxo de trabalho para compilar e implantar código automaticamente em seu aplicativo de funções do Azure. 
+Use as [ações do GitHub](https://github.com/features/actions) para definir um fluxo de trabalho para compilar e implantar código automaticamente em seu aplicativo de funções no Azure functions. 
 
-Em ações do GitHub, um [fluxo de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo do Functions no GitHub. 
+Em ações do GitHub, um [fluxo de trabalho](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo de funções no GitHub. 
 
 Um fluxo de trabalho é definido por um arquivo YAML (.yml) no caminho `/.github/workflows/` no repositório. Essa definição contém as várias etapas e os parâmetros que compõem o fluxo de trabalho. 
 
@@ -26,7 +26,7 @@ Para um fluxo de trabalho Azure Functions, o arquivo tem três seções:
 | Seção | Tarefas |
 | ------- | ----- |
 | **Autenticação** | Baixar um perfil de publicação.<br/>Crie um segredo do GitHub.|
-| **Compilar** | Configure o ambiente.<br/>Compile o aplicativo de funções.|
+| **Build** | Configure o ambiente.<br/>Compile o aplicativo de funções.|
 | **Implantar** | Implante o aplicativo de funções.|
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -187,6 +187,7 @@ O exemplo a seguir mostra a parte do fluxo de trabalho que cria o aplicativo de 
 ---
 
 ## <a name="deploy-the-function-app"></a>Implantar o aplicativo de funções
+
 Use a `Azure/functions-action` ação para implantar seu código em um aplicativo de funções. Esta ação tem três parâmetros:
 
 |Parâmetro |Explicação  |
@@ -202,7 +203,7 @@ O exemplo a seguir usa a versão 1 do `functions-action` e um `publish profile` 
 Configure um fluxo de trabalho do Linux .NET que usa um perfil de publicação.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Linux environment
+name: Deploy DotNet project to function app with a Linux environment
 
 on:
   [push]
@@ -241,7 +242,7 @@ jobs:
 Configure um fluxo de trabalho do Windows .NET que usa um perfil de publicação.
 
 ```yaml
-name: Deploy DotNet project to Azure function app with a Windows environment
+name: Deploy DotNet project to function app with a Windows environment
 
 on:
   [push]
@@ -283,7 +284,7 @@ jobs:
 Configure um fluxo de trabalho do Java Linux que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -325,7 +326,7 @@ jobs:
 Configure um fluxo de trabalho do Windows Java que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Java project to Azure Function App
+name: Deploy Java project to function app
 
 on:
   [push]
@@ -369,7 +370,7 @@ jobs:
 Configure um Node.JS fluxo de trabalho do Linux que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -411,7 +412,7 @@ jobs:
 Configure um Node.JS fluxo de trabalho do Windows que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Node.js project to Azure Function App
+name: Deploy Node.js project to function app
 
 on:
   [push]
@@ -455,7 +456,7 @@ jobs:
 Configure um fluxo de trabalho do Python Linux que usa um perfil de publicação.
 
 ```yaml
-name: Deploy Python project to Azure Function App
+name: Deploy Python project to function app
 
 on:
   [push]

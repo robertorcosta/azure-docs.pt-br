@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e4463b932c95e224981b74093effbb355de24f6b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.custom: fasttrack-edit
+ms.openlocfilehash: fed1e31380381b864530b3fa0b9e8c0886737d04
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509811"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033601"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operações disponíveis para Azure AD B2C
 
@@ -38,7 +39,7 @@ Para obter mais informações sobre como gerenciar contas de usuário do Azure A
 
 - [Adicionar](/graph/api/authentication-post-phonemethods)
 - [Obter](/graph/api/b2cauthenticationmethodspolicy-get)
-- [Atualização](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Atualizar](/graph/api/b2cauthenticationmethodspolicy-update)
 - [Excluir](/graph/api/phoneauthenticationmethod-delete)
 
 Para obter mais informações sobre como gerenciar o número de telefone de entrada do usuário com a API do Microsoft Graph, consulte [métodos de autenticação do B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
@@ -57,10 +58,10 @@ Gerencie os provedores de identidade disponíveis para seus fluxos de usuário e
 
 Configure políticas predefinidas para inscrição, entrada, inscrição combinada e entrada, redefinição de senha e atualização de perfil.
 
-- [Listar fluxos de usuário](/graph/api/identityuserflow-list)
-- [Criar um fluxo de usuário](/graph/api/identityuserflow-post-userflows)
-- [Obter um fluxo de usuário](/graph/api/identityuserflow-get)
-- [Excluir um fluxo de usuário](/graph/api/identityuserflow-delete)
+- [Listar fluxos de usuário](/graph/api/identitycontainer-list-b2cuserflows)
+- [Criar um fluxo de usuário](/graph/api/identitycontainer-post-b2cuserflows)
+- [Obter um fluxo de usuário](/graph/api/b2cidentityuserflow-get)
+- [Excluir um fluxo de usuário](/graph/api/b2cidentityuserflow-delete)
 
 ## <a name="custom-policies"></a>Políticas personalizadas
 
@@ -94,7 +95,7 @@ O recurso de nível superior para chaves de política na API de Microsoft Graph 
 - [Carregar um certificado X. 509](/graph/api/trustframeworkkeyset-uploadcertificate)
 - [Carregar um certificado de formato PKCS12](/graph/api/trustframeworkkeyset-uploadpkcs12)
 
-## <a name="applications"></a>Aplicativos
+## <a name="applications"></a>Aplicativo
 
 - [Listar aplicativos](/graph/api/application-list)
 - [Criar um aplicativo](/graph/api/resources/application)

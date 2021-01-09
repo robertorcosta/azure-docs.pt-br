@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 1d2ba6dbbcc2b8674718912f00b1d1ec58e1c4c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5ad01e31cb9af18fa018d99424b25dee338981d7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936083"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034502"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -1083,7 +1083,7 @@ Se a opção de [identidade gerenciada](../active-directory/managed-identities-a
 
 1. Antes que seu aplicativo lógico possa usar uma identidade gerenciada, siga as etapas em [Autenticar o acesso aos recursos do Azure usando identidades gerenciadas nos Aplicativos Lógicos do Azure](../logic-apps/create-managed-service-identity.md). Essas etapas habilitam a identidade gerenciada em seu aplicativo lógico e configuram o acesso da identidade ao recurso de destino do Azure.
 
-1. Antes que uma função do Azure possa usar uma identidade gerenciada, primeiro [habilite a autenticação para as funções do Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
+1. Antes que uma função do Azure possa usar uma identidade gerenciada, primeiro [habilite a autenticação para as funções do Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
 
 1. No gatilho ou na ação em que você deseja usar a identidade gerenciada, especifique estes valores de propriedade:
 

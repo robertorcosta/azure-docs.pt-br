@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: b15849fb8fbfed5d55b9c224f51634047b7c75b2
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 222f6ebacb6139ca26a6f1cdd0f896270c9b2fc2
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914477"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034288"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -1701,7 +1701,7 @@ div(<dividend>, <divisor>)
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer ou Float | O resultado da divisão do primeiro número pelo segundo número. Se o dividendo ou o divisor tiver um tipo float, o resultado terá o tipo float. <p><p>**Observação**: para converter o resultado float em um inteiro, tente [criar e chamar uma função do Azure](../logic-apps/logic-apps-azure-functions.md) de seu aplicativo lógico. |
+| <*quotient-result*> | Integer ou Float | O resultado da divisão do primeiro número pelo segundo número. Se o dividendo ou o divisor tiver um tipo float, o resultado terá o tipo float. <p><p>**Observação**: para converter o resultado float em um número inteiro, tente [criar e chamar uma função no Azure](../logic-apps/logic-apps-azure-functions.md) de seu aplicativo lógico. |
 ||||
 
 *Exemplo 1*
@@ -3921,7 +3921,7 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sim | String | A cadeia de caracteres cujos caracteres você deseja |
 | <*startIndex*> | Sim | Integer | Um número positivo igual ou superior a 0 que você deseja usar como a posição inicial ou o valor do índice |
-| <*length*> | No | Integer | Um número positivo de caracteres que você deseja na subcadeia de caracteres |
+| <*length*> | Não | Integer | Um número positivo de caracteres que você deseja na subcadeia de caracteres |
 |||||
 
 > [!NOTE]

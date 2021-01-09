@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 327ab63a048e08328cd5b1334b0a697a61ced6c8
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 85600bbee15dadcce7315300ffde481cbfc2e255
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346309"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034706"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no Armazenamento de Blobs do Azure usando o Azure Data Factory
 
@@ -433,6 +433,9 @@ As propriedades a seguir têm suporte para o armazenamento de BLOBs do Azure em 
     }
 ]
 ```
+
+> [!NOTE]
+> O `$logs` contêiner, que é criado automaticamente quando análise de armazenamento está habilitado para uma conta de armazenamento, não é mostrado quando uma operação de listagem de contêiner é executada por meio da interface do usuário do data Factory. O caminho do arquivo deve ser fornecido diretamente para Data Factory consumir arquivos do `$logs` contêiner.
 
 ### <a name="blob-storage-as-a-sink-type"></a>Armazenamento de blob como um tipo de coletor
 

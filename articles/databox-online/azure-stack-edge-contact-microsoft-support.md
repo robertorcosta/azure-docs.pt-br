@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/07/2021
 ms.author: alkohli
-ms.openlocfilehash: a457c2816d4075190a2174339f7e52a2ea41730a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 5bbd02f9e15a4ee29e244b2a0307accd151ba487
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696024"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033941"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra um tíquete de suporte para Azure Stack Edge pro e Gateway do Azure Data Box
 
@@ -78,7 +78,7 @@ Essas informações se aplicam somente ao dispositivo do Azure Stack. O processo
     * Uma FRU (unidade de substituição de campo) para a peça do hardware com falha é enviada. Atualmente, as unidades de fonte de alimentação e unidades de estado sólido são as únicas FRUs com suporte.
     * Somente as FRUs são substituídas no próximo dia útil. Todo o resto exige o envio de uma FSR (substituição completa do sistema).
 
-3. Se um tíquete de suporte for gerado antes de 4:30 Hora local (de segunda-feira a sexta-feira), um técnico no local será expedido no próximo dia útil para o local para executar uma substituição de FRU. Normalmente, uma substituição completa do sistema levará muito mais tempo porque as peças são enviadas de nossa fábrica e podem estar sujeitas a atrasos de transporte e alfandegário.
+3. Se for determinado que uma substituição de FRU é necessária em um horário local de 1 hora (de segunda-feira a sexta-feira), um técnico no local será expedido no próximo dia útil para o seu local para executar uma substituição de FRU. Normalmente, uma substituição completa do sistema levará muito mais tempo porque as peças são enviadas de nossa fábrica e podem estar sujeitas a atrasos de transporte e alfandegário.
 
 ## <a name="manage-a-support-request"></a>Gerenciar uma solicitação de suporte
 

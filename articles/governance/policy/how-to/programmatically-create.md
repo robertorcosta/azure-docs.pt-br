@@ -3,12 +3,12 @@ title: Cria políticas de maneira programática
 description: Este artigo orienta você na criação e gerenciamento por meio de programação de políticas no Azure Policy com a CLI do Azure, o Azure PowerShell e a API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 4c3a503e8d48573441093879511490608437b1e1
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920008"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033856"
 ---
 # <a name="programmatically-create-policies"></a>Cria políticas de maneira programática
 
@@ -95,7 +95,7 @@ A primeira etapa para obter melhor visibilidade de seus recursos é criar e atri
    - Assinatura – `/subscriptions/{subId}`
    - Grupo de gerenciamento – `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo do PowerShell do Gerenciador de recursos, consulte [AZ. Resources](/powershell/module/az.resources/#policies).
+Para obter mais informações sobre como gerenciar políticas de recursos usando o módulo do PowerShell do Gerenciador de recursos, consulte [AZ. Resources](/powershell/module/az.resources/#policy).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Criar e atribuir uma definição de política usando ARMClient
 
@@ -242,7 +242,7 @@ Para obter mais informações sobre como gerenciar políticas de recursos com a 
 Examine os seguintes artigos para obter mais informações sobre os comandos e consultas neste artigo.
 
 - [Recursos da API REST do Azure](/rest/api/resources/)
-- [Módulos do Azure PowerShell](/powershell/module/az.resources/#policies)
+- [Módulos do Azure PowerShell](/powershell/module/az.resources/#policy)
 - [Comandos de Política da CLI do Azure](/cli/azure/policy)
 - [Referência da API REST do provedor de recursos do Azure Policy Insights](/rest/api/policy-insights)
 - [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

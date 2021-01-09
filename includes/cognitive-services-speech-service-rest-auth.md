@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/29/2019
+ms.date: 01/08/2021
 ms.author: erhopf
-ms.openlocfilehash: 410b73d3f9011f9384fafa18394d9318e3eafa67
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 22127f81d871fe333750020196540db17e7544f7
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504484"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033432"
 ---
 ## <a name="authentication"></a>Autenticação
 
@@ -17,7 +17,7 @@ Cada solicitação requer um cabeçalho de autorização. Esta tabela ilustra qu
 
 | Cabeçalhos de autorização suportados | Conversão de fala em texto | Conversão de texto em fala |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Sim | Não |
+| Ocp-Apim-Subscription-Key | Sim | Sim |
 | Autorização: portador | Sim | Sim |
 
 Ao usar o cabeçalho `Ocp-Apim-Subscription-Key`, você só precisa fornecer sua chave de assinatura. Por exemplo:

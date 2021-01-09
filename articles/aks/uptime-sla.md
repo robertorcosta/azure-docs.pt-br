@@ -3,14 +3,14 @@ title: Serviço de Kubernetes do Azure (AKS) com SLA de tempo de atividade
 description: Saiba mais sobre a oferta opcional de SLA de tempo de atividade para o servidor de API do Serviço de Kubernetes do Azure (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: d9d22b54ef2534cf0adb205175fdc3f1c57205fb
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 95728ca14b96adf7396ca13888107477d953b2a9
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607332"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98033329"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -26,7 +26,7 @@ Os clientes ainda podem criar clusters grátis ilimitados com um objetivo de ní
 ## <a name="region-availability"></a>Disponibilidade de região
 
 * O SLA de tempo de atividade está disponível em regiões públicas e regiões do Azure governamental em que há [suporte para AKs](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-* O SLA de tempo de atividade está disponível para [clusters AKs privados][private-clusters] em todas as regiões em que AKs tem suporte.
+* O SLA de tempo de atividade está disponível para [clusters AKs privados][private-clusters] em todas as regiões públicas em que há suporte para AKs.
 
 ## <a name="sla-terms-and-conditions"></a>Termos e condições do SLA
 
