@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 370b84f451e22c20c798018951a7a801e0bba826
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 9763835142e66bbbce51cd5c863dff87f261c270
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763937"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060153"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
@@ -245,9 +245,8 @@ O aplicativo está lançando exceções não identificadas – Verifique o arqui
 A causa comum para os tempos de início longos do aplicativo é um número alto de arquivos nos módulos do nó\_. O aplicativo tenta carregar a maioria desses arquivos ao iniciar. Por padrão, como os arquivos estão armazenados no compartilhamento de rede no Serviço de Aplicativo do Azure, o carregamento de muitos arquivos pode demorar algum tempo.
 Algumas soluções para tornar esse processo mais rápido são:
 
-1. Verifique se você tem uma estrutura de dependência simples e nenhuma dependência duplicada usando npm3 para instalar os módulos.
-2. Tente carregar lentamente os node\_modules e não carregue todos os módulos na inicialização do aplicativo. Para módulos de carregamento Lento, a chamada para exigir (‘módulo’) deve ser feita quando você realmente precisar do módulo dentro da função antes da primeira execução do código do módulo.
-3. O Serviço de Aplicativo do Azure oferece um recurso chamado cache local. Esse recurso copia o conteúdo do compartilhamento de rede para o disco local na VM. Como os arquivos são locais, o tempo de carregamento do nó\_módulos é muito mais rápido.
+1. Tente carregar lentamente os node\_modules e não carregue todos os módulos na inicialização do aplicativo. Para módulos de carregamento Lento, a chamada para exigir (‘módulo’) deve ser feita quando você realmente precisar do módulo dentro da função antes da primeira execução do código do módulo.
+2. O Serviço de Aplicativo do Azure oferece um recurso chamado cache local. Esse recurso copia o conteúdo do compartilhamento de rede para o disco local na VM. Como os arquivos são locais, o tempo de carregamento do nó\_módulos é muito mais rápido.
 
 ## <a name="iisnode-http-status-and-substatus"></a>Substatus e status http de IISNODE
 

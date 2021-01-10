@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: 31cf89cb66dfbc404d65f8fc09b96c03e1be2f8f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401281"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060224"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solucionar problemas de análise de vídeo ao vivo no IoT Edge
 
@@ -65,6 +65,8 @@ Você pode usar o portal do Azure para executar um diagnóstico do grafo de míd
     * 406 – o dispositivo do IoT Edge está offline ou não está enviando relatórios de status.
     * 500 – ocorreu um erro no runtime do IoT Edge.
 
+    > [!TIP]
+    > Se você tiver problemas ao executar Azure IoT Edge módulos em seu ambiente, use **[Azure IOT Edge etapas de diagnóstico padrão](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como um guia para solução de problemas e diagnósticos.
 ### <a name="post-deployment-direct-method-error-code"></a>Pós-implantação: código de erro do método direto
 1. Se você receber um status `501 code` , verifique se o nome do método direto é preciso. Se o nome do método e a carga da solicitação forem precisos, você deverá obter resultados juntamente com o código de êxito = 200. 
 1. Se a carga de solicitação for imprecisa, você obterá um status `400 code` e uma carga de resposta que indica o código e a mensagem de erro que devem ajudar no diagnóstico do problema com sua chamada de método direta.
@@ -93,6 +95,8 @@ A análise de vídeo ao vivo é implantada como um módulo IoT Edge no dispositi
 * [A análise de vídeo ao vivo ou qualquer outro módulo de IOT Edge personalizado falha ao enviar uma mensagem para o Hub do Edge com erro 404](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
 * [O módulo IOT Edge é implantado com êxito e desaparece do dispositivo](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
+    > [!TIP]
+    > Se você tiver problemas ao executar Azure IoT Edge módulos em seu ambiente, use **[Azure IOT Edge etapas de diagnóstico padrão](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como um guia para solução de problemas e diagnósticos.
 ### <a name="live-video-analytics-working-with-external-modules"></a>Análise de vídeo ao vivo trabalhando com módulos externos
 
 A análise de vídeo ao vivo por meio dos processadores de extensão do grafo de mídia pode estender o grafo de mídia para enviar e receber dados de outros módulos IoT Edge usando protocolos HTTP ou gRPC. Como um [exemplo específico](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), esse grafo de mídia pode enviar quadros de vídeo como imagens para um módulo de inferência externo, como o Yolo v3, e receber resultados de análise baseada em JSON usando o protocolo http. Nessa topologia, o destino para os eventos é principalmente o Hub IoT. Em situações em que você não vê os eventos de inferência no Hub, verifique o seguinte:
@@ -207,7 +211,7 @@ Para configurar a análise de vídeo ao vivo no módulo IoT Edge para gerar logs
     > [!NOTE] 
     > Esse comando associa as pastas de logs entre o dispositivo de borda e o contêiner. Se você quiser coletar os logs em um local diferente, use o comando a seguir, substituindo **$LOG _LOCATION_ON_EDGE_DEVICE** pelo local que você deseja usar: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
-1. Selecione **Atualizar**.
+1. Selecione **Atualização**.
 1. Selecione **Examinar + criar**. Uma mensagem de validação bem-sucedida é postada em uma faixa verde.
 1. Selecione **Criar**.
 1. Atualize a **identidade do módulo** "atualizar" para apontar para o parâmetro DebugLogsDirectory, que aponta para o diretório no qual os logs são coletados:

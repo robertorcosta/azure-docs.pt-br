@@ -1,15 +1,15 @@
 ---
 title: Implantar o consórcio do Fabric do kubernetes no serviço do Azure
 description: Como implantar e configurar uma rede do consórcio de malha de multirazão no serviço kubernetes do Azure
-ms.date: 08/06/2020
+ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab5b9fadfbb0f1c9c1cdf25ee319c7775a593ed
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651554"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060309"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implantar o consórcio do Fabric do kubernetes no serviço do Azure
 
@@ -66,7 +66,7 @@ Para começar, você precisa de uma assinatura do Azure que possa suportar a imp
 
 Para começar a usar a implantação de componentes de rede do Fabric do multilimiar, vá para o [portal do Azure](https://portal.azure.com).
 
-1. Selecione **criar um recurso**  >  **Blockchain**e, em seguida, pesquise a malha do Microsoft **Azure no serviço de kubernetes do Azure (versão prévia)**.
+1. Selecione **criar um recurso**  >  **Blockchain** e, em seguida, pesquise a malha do Microsoft **Azure no serviço de kubernetes do Azure (versão prévia)**.
 
 2. Insira os detalhes do projeto na guia **noções básicas** .
 
@@ -106,7 +106,7 @@ Para começar a usar a implantação de componentes de rede do Fabric do multili
     - **Prefixo DNS**: Insira um prefixo de nome DNS (sistema de nomes de domínio) para o cluster AKs. Você usará o DNS para se conectar à API do kubernetes ao gerenciar contêineres depois de criar o cluster.
     - **Tamanho do nó**: para o tamanho do nó kubernetes, você pode escolher na lista de SKUs (unidades de manutenção de estoque) da VM disponíveis no Azure. Para obter um desempenho ideal, recomendamos o Standard DS3 v2.
     - **Contagem de nós**: Insira o número de nós kubernetes a serem implantados no cluster. É recomendável manter essa contagem de nós igual ou maior que o número de nós de malha de hiperrazãos especificados na guia **configurações de malha** .
-    - **ID do cliente da entidade de serviço**: Insira a ID do cliente de uma entidade de serviço existente ou crie uma nova. Uma entidade de serviço é necessária para autenticação AKS. Consulte as [etapas para criar uma entidade de serviço](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **ID do cliente da entidade de serviço**: Insira a ID do cliente de uma entidade de serviço existente ou crie uma nova. Uma entidade de serviço é necessária para autenticação AKS. Consulte as [etapas para criar uma entidade de serviço](/powershell/azure/create-azure-service-principal-azureps#create-a-service-principal).
     - **Segredo do cliente da entidade de serviço**: Insira o segredo do cliente da entidade de serviço fornecida na ID do cliente para a entidade de serviço.
     - **Confirmar segredo do cliente**: Confirme o segredo do cliente para a entidade de serviço.
     - **Habilitar o monitoramento de contêiner**: escolha habilitar o monitoramento de AKs, que permite que os logs de AKs enviem por push para o espaço de trabalho log Analytics especificado.
@@ -334,7 +334,7 @@ Execute o comando a seguir para instalar o chaincode na organização par.
 ```
 O comando instalará o chaincode em todos os nós pares da organização par definida na `ORGNAME` variável de ambiente. Se duas ou mais organizações pares estiverem em seu canal e você quiser instalar o chaincode em todos eles, execute esse comando separadamente para cada organização de mesmo nível.  
 
-Siga estas etapas:  
+Execute estas etapas:  
 
 1.  Defina `ORGNAME` e de `USER_IDENTITY` acordo com `peerOrg1` e execute o `./azhlf chaincode install` comando.  
 2.  Defina `ORGNAME` e de `USER_IDENTITY` acordo com `peerOrg2` e execute o `./azhlf chaincode install` comando.  
@@ -393,23 +393,35 @@ Passe o nome da função de consulta e a lista de argumentos separados por espa�
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-Execute os comandos a seguir para localizar a versão de sua implantação de modelo.
+### <a name="find-deployed-version"></a>Localizar versão implantada
 
-Defina variáveis de ambiente de acordo com o grupo de recursos em que o modelo foi implantado.
-
-```bash
-
-SWITCH_TO_AKS_CLUSTER() { az aks get-credentials --resource-group $1 --name $2 --subscription $3; }
-AKS_CLUSTER_SUBSCRIPTION=<AKSClusterSubscriptionID>
-AKS_CLUSTER_RESOURCE_GROUP=<AKSClusterResourceGroup>
-AKS_CLUSTER_NAME=<AKSClusterName>
-```
-Execute o comando a seguir para imprimir a versão do modelo.
+Execute os comandos a seguir para localizar a versão de sua implantação de modelo. Defina variáveis de ambiente de acordo com o grupo de recursos em que o modelo foi implantado.
 
 ```bash
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
+```
 
+### <a name="patch-previous-version"></a>Versão anterior do patch
+
+Se você estiver enfrentando problemas com a execução do chaincode em todas as implantações da versão do modelo abaixo do v 3.0.0, siga as etapas abaixo para corrigir seus nós de mesmo nível com uma correção.
+
+Baixe o script de implantação de mesmo nível.
+
+```bash
+curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service/master/scripts/patchPeerDeployment.sh -o patchPeerDeployment.sh; chmod 777 patchPeerDeployment.sh
+```
+
+Execute o script usando o comando a seguir substituindo os parâmetros de seu par.
+
+```bash
+source patchPeerDeployment.sh <peerOrgSubscription> <peerOrgResourceGroup> <peerOrgAKSClusterName>
+```
+
+Aguarde até que todos os nós de mesmo nível sejam corrigidos. Você sempre pode verificar o status de seus nós de mesmo nível, em uma instância diferente do shell usando o comando a seguir.
+
+```bash
+kubectl get pods -n hlf
 ```
 
 ## <a name="support-and-feedback"></a>Suporte e comentários

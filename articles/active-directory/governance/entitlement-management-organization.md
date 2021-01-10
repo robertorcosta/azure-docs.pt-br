@@ -16,12 +16,12 @@ ms.date: 12/11/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6299f9ad660252ae39903401672d493b1c1ad52c
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 8f08c25749bbd21e3624dee898d9a8c97fd74164
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347482"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059374"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Adicionar uma organização conectada no gerenciamento de direitos do Azure AD
 
@@ -48,7 +48,7 @@ Nesse caso, você pode configurar duas organizações conectadas. Você cria uma
 
 A forma como os usuários do diretório do Azure AD ou do domínio se autenticam depende do tipo de autenticação. Os tipos de autenticação para organizações conectadas são:
 
-- AD do Azure
+- Azure AD
 - [Federação direta](../external-identities/direct-federation.md)
 - [Senha de uso único](../external-identities/one-time-passcode.md) (domínio)
 
@@ -135,8 +135,6 @@ Se você não tiver mais uma relação com um diretório ou domínio do Azure AD
 1. No painel esquerdo, selecione **organizações conectadas** e, em seguida, selecione a organização conectada para abri-la.
 
 1. No painel Visão geral da organização conectada, selecione **excluir** para excluí-la.
-
-    No momento, você pode excluir uma organização conectada somente se não houver nenhum usuário conectado.
 
     ![O botão excluir da organização conectada](./media/entitlement-management-organization/organization-delete.png)
 

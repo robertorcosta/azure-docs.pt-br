@@ -1,18 +1,18 @@
 ---
 title: Consulta entre recursos do Azure Data Explorer usando Azure Monitor
 description: Use Azure Monitor para executar consultas entre produtos entre os Data Explorer do Azure, os espaços de trabalho do Log Analytics e os aplicativos Application Insights clássicos no Azure Monitor.
-author: orens
+author: osalzberg
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: cb586d15e762f88620fe0c91152af41b3f607d74
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674422"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060445"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta entre recursos do Azure Data Explorer usando Azure Monitor
 O Azure Monitor dá suporte a consultas entre serviços entre o Azure Data Explorer, o [Application insights](/azure/azure-monitor/app/app-insights-overview)e o [log Analytics](/azure/azure-monitor/platform/data-platform-logs). Em seguida, você pode consultar o cluster de Data Explorer do Azure usando ferramentas de Log Analytics/Application Insights e consultá-lo em uma consulta entre serviços. O artigo mostra como fazer uma consulta entre serviços.
@@ -22,7 +22,7 @@ O diagrama a seguir mostra o Azure Monitor fluxo entre serviços:
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-monitor-data-explorer-flow.png" alt-text="Diagrama que mostra o fluxo de consultas entre um usuário, Azure Monitor, um proxy e Data Explorer do Azure.":::
 
 >[!NOTE]
-> Azure Monitor consulta entre serviços está em visualização privada. Allowlisting é obrigatório. Entre em contato com a [equipe de serviço](mailto:ADXProxy@microsoft.com) com perguntas.
+> Azure Monitor consulta entre serviços está em visualização pública. Entre em contato com a [equipe de serviço](mailto:ADXProxy@microsoft.com) com perguntas.
 
 ## <a name="cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer"></a>Consulta cruzada de seus Log Analytics ou recursos de Application Insights e Data Explorer do Azure
 

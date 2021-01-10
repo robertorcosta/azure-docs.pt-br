@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: dd24c4f20fa3a56d25ef142947268b2d2b75474a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029593"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060003"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -152,7 +152,8 @@ Se o armazenamento estiver em uma VNet, você deve primeiro executar etapas de c
 Para habilitar a funcionalidade completa do estúdio dentro de uma VNet, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md#configure-data-access-in-the-studio). O estúdio dá suporte a contas de armazenamento usando pontos de extremidade de serviço ou pontos de extremidade privados.
 
 ### <a name="limitations"></a>Limitações
-- [Rótulos de dados assistidos de ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) não dão suporte a contas de armazenamento padrão protegidas por trás de uma rede virtual. Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. Observe que a conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
+
+O [rotulamento de dados assistido por ml](how-to-create-labeling-projects.md#use-ml-assisted-data-labeling) não dá suporte a contas de armazenamento padrão protegidas por trás de uma rede virtual. Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. Observe que a conta de armazenamento não padrão pode ser protegida por trás da rede virtual. 
 
 ## <a name="configure-firewall-settings"></a>Definir configurações de firewall
 

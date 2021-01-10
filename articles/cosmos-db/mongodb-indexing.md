@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 01/08/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: e920af85c511387e66bcafcb6a140844d25f204c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 34caca47746814046a894494ec43d9b5c977389a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369283"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060054"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerenciar a indexação na API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -29,6 +29,16 @@ Para indexar campos adicionais, você aplica os comandos de gerenciamento de ín
 
 Para aplicar uma classificação a uma consulta, você deve criar um índice nos campos usados na operação de classificação.
 
+### <a name="editing-indexing-policy"></a>Editando política de indexação
+
+É recomendável editar sua política de indexação no Data Explorer dentro do portal do Azure.
+. Você pode adicionar índices de campo único e curinga do editor de políticas de indexação no Data Explorer:
+
+:::image type="content" source="./media/mongodb-indexing/indexing-policy-editor.png" alt-text="Editor de políticas de indexação":::
+
+> [!NOTE]
+> Você não pode criar índices compostos usando o editor de política de indexação no Data Explorer.
+
 ## <a name="index-types"></a>Tipos de índice
 
 ### <a name="single-field"></a>Campo único
@@ -36,6 +46,10 @@ Para aplicar uma classificação a uma consulta, você deve criar um índice nos
 Você pode criar índices em qualquer campo único. A ordem de classificação do índice de campo único não importa. O comando a seguir cria um índice no campo `name` :
 
 `db.coll.createIndex({name:1})`
+
+Você pode criar o mesmo índice de campo único no `name` portal do Azure:
+
+:::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Adicionar índice de nome no editor de políticas de indexação":::
 
 Uma consulta usa vários índices de campo único, quando disponíveis. Você pode criar até 500 índices de campo único por contêiner.
 
@@ -54,7 +68,7 @@ Você pode usar índices compostos para classificar com eficiência em vários c
 
 `db.coll.find().sort({name:1,age:1})`
 
-Você também pode usar o índice composto anterior para classificar com eficiência uma consulta com a ordem de classificação oposta em todos os campos. Aqui está um exemplo:
+Você também pode usar o índice composto anterior para classificar com eficiência uma consulta com a ordem de classificação oposta em todos os campos. Veja um exemplo:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -135,6 +149,10 @@ Veja como você pode criar um índice curinga em todos os campos:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
+Você também pode criar índices curinga usando o Data Explorer no portal do Azure:
+
+:::image type="content" source="./media/mongodb-indexing/add-wildcard-index.png" alt-text="Adicionar índice curinga no editor de política de indexação":::
+
 > [!NOTE]
 > Se você estiver apenas iniciando o desenvolvimento, é **altamente** recomendável começar com um índice curinga em todos os campos. Isso pode simplificar o desenvolvimento e facilitar a otimização das consultas.
 
@@ -148,9 +166,9 @@ Os índices curinga não oferecem suporte a nenhum dos seguintes tipos de índic
 - TTL
 - Exclusivo
 
-**Ao contrário do MongoDB** , na API do Azure Cosmos DB para MongoDB, você **não pode** usar índices curinga para:
+**Ao contrário do MongoDB**, na API do Azure Cosmos DB para MongoDB, você **não pode** usar índices curinga para:
 
-- Criando um índice curinga que inclui vários campos específicos
+- Criar um índice curinga que inclui vários campos específicos
 
 `db.coll.createIndex(
     { "$**" : 1 },
@@ -162,7 +180,7 @@ Os índices curinga não oferecem suporte a nenhum dos seguintes tipos de índic
     }
 )`
 
-- Criando um índice curinga que exclui vários campos específicos
+- Criar um índice curinga que exclui vários campos específicos
 
 `db.coll.createIndex(
     { "$**" : 1 },

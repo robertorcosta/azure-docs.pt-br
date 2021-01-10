@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 520b2eff91faf2e333ab0a5df7bcc85e6a47c80a
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585183"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98058660"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
 
@@ -74,7 +74,7 @@ Ao usar seus próprios arquivos HTML e CSS para personalizar a interface do usu�
 ## <a name="guidelines-for-using-custom-page-content"></a>Diretrizes para usar o conteúdo da página personalizada
 
 - Use uma URL absoluta quando você incluir recursos externos, como mídia, CSS e arquivos JavaScript em seu arquivo HTML.
-- Usando o [layout de página versão](page-layout.md) 1.2.0 e superior, você pode adicionar o `data-preload="true"` atributo em suas marcas HTML para controlar a ordem de carregamento para CSS e JavaScript. Com `data-preload=true` o, a página é construída antes de ser exibida para o usuário. Esse atributo ajuda a impedir que a página "oscilação", precarregando o arquivo CSS, sem que o HTML com estilo seja mostrado ao usuário. O trecho de código HTML a seguir mostra o uso da `data-preload` marca.
+- Usando o [layout de página versão](page-layout.md) 1.2.0 e superior, você pode adicionar o `data-preload="true"` atributo em suas marcas HTML para controlar a ordem de carregamento para CSS e JavaScript. Com `data-preload="true"` o, a página é construída antes de ser exibida para o usuário. Esse atributo ajuda a impedir que a página "oscilação", precarregando o arquivo CSS, sem que o HTML com estilo seja mostrado ao usuário. O trecho de código HTML a seguir mostra o uso da `data-preload` marca.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
