@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 1a51cd242eb26709464aa502938cd04807aea721
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97805650"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98061216"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os cenários a seguir podem se beneficiar muito da intermitência:
@@ -28,7 +28,7 @@ O sistema de crédito de intermitências aplica-se da mesma maneira no nível de
 
 ![Diagrama de Bucket de intermitência](media/managed-disks-bursting/bucket-diagram.jpg)
 
-Seu funcionamento completo para você sobre como deseja usar os 30 minutos de intermitência. Você pode usá-lo por 30 minutos consecutivamente ou esporadicamente ao longo do dia. Quando o produto é implantado, ele vem pronto com créditos completos e quando esgota os créditos que leva menos de um dia para ser totalmente estocado em todos os créditos. Você pode acumular e gastar seus créditos de intermitência a seu critério e o Bucket de 30 minutos não precisa estar cheio novamente para intermitência. Uma coisa a ser observada sobre a acumulação de intermitência é que ele é diferente para cada recurso, pois ele se baseia em IOPS não utilizados e MB/s abaixo de seus valores de desempenho. Isso significa que produtos de desempenho de linha de base mais altos podem acumular seus valores de intermitência mais rápido que os produtos de execução de linha de base menores. Por exemplo, um deixar de disco P1 sem atividade acumulará 120 IOPS por segundo, enquanto um disco P20 acumula 2.300 IOPS por segundo, enquanto deixar sem atividade.
+Cabe a você saber como você deseja usar os 30 minutos de intermitência. Você pode usá-lo por 30 minutos consecutivamente ou esporadicamente ao longo do dia. Quando o produto é implantado, ele vem pronto com créditos completos e quando esgota os créditos que leva menos de um dia para ser totalmente estocado em todos os créditos. Você pode acumular e gastar seus créditos de intermitência a seu critério e o Bucket de 30 minutos não precisa estar cheio novamente para intermitência. Uma coisa a ser observada sobre a acumulação de intermitência é que ele é diferente para cada recurso, pois ele se baseia em IOPS não utilizados e MB/s abaixo de seus valores de desempenho. Isso significa que produtos de desempenho de linha de base mais altos podem acumular seus valores de intermitência mais rápido que os produtos de execução de linha de base menores. Por exemplo, um deixar de disco P1 sem atividade acumulará 120 IOPS por segundo, enquanto um disco P20 acumula 2.300 IOPS por segundo, enquanto deixar sem atividade.
 
 ## <a name="bursting-states"></a>Estados de intermitência
 Há três Estados em que o recurso pode estar com a intermitência ativada:
