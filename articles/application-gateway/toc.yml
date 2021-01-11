@@ -109,7 +109,7 @@
     - name: Noções básicas sobre preços
       href: understanding-pricing.md
     - name: Perguntas frequentes
-      href: application-gateway-faq.md
+      href: application-gateway-faq.yml
 - name: Guias de instruções
   items:
     - name: Hospedar site único
