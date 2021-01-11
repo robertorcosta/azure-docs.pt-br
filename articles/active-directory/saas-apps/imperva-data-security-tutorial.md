@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ea08f8ec98ff8ddd4a9f15f12a0224db440b7b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 710164fa3712058d64e5d23006b986eb3dc3eaba
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675605"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882748"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-imperva-data-security"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Imperva Data Security
 
@@ -37,7 +37,7 @@ Para começar, você precisará dos seguintes itens:
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O Imperva Data Security dá suporte ao SSO iniciado por **IdP**
+* O Imperva Data Security é compatível com um SSO iniciado por **SP**
 
 ## <a name="adding-imperva-data-security-from-the-gallery"></a>Como adicionar o Imperva Data Security por meio da galeria
 
@@ -76,9 +76,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configurar logon único com SAML**, insira os valores para os seguintes campos:
 
-    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<IMPERVA_DNS_NAME>:8443`
+    a. Na caixa de texto **Identificador**, digite um identificador usando o seguinte padrão: `application-name`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<IMPERVA_DNS_NAME>:8443`
+    
+    c. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<IMPERVA_DNS_NAME>:8443`
+    
+    d. Na caixa de texto **URL de Logoff**, digite uma URL usando o seguinte padrão: `https://<IMPERVA_DNS_NAME>:8443`    
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte ao cliente do Imperva Data Security](mailto:support@jsonar.imperva.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

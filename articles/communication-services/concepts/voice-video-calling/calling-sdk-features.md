@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c801a276f3a116f00b34d750ca8bfec7e56d377b
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: e0fff67d6998e55854d4dc3c8db261bc4499f0be
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680738"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936049"
 ---
 # <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
 
@@ -58,7 +58,7 @@ A lista a seguir apresenta o conjunto de recursos que estão disponíveis atualm
 |                   | Discar de uma chamada de grupo como um participante PSTN                                                                    | ✔️   | ✔️            | ✔️   
 | Geral           | Teste o microfone, o alto-falante e a câmera com um serviço de teste de áudio (disponível chamando 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Suporte da biblioteca de clientes de chamada de JavaScript por sistema operacional e navegador
+## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Suporte para bibliotecas de clientes de Chamada ao JavaScript por SO e navegador
 
 A tabela a seguir representa o conjunto de navegadores e versões com suporte disponíveis no momento.
 
@@ -96,8 +96,8 @@ A biblioteca de clientes de chamada dos Serviços de Comunicação dá suporte �
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|Nº de fluxos de saída que podem ser enviados simultaneamente |1 vídeo + 1 compartilhamento de tela | 1 vídeo + 1 compartilhamento de tela|
-|Nº de fluxos de entrada que podem ser renderizados simultaneamente |1 vídeo + 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
+|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 compartilhamento de tela | 1 vídeo + 1 compartilhamento de tela|
+|**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7b4a1b2e1d737dad0054cbdf08443436ac2c181
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 90532a88e145507b09de9d36f704bc5c88899e95
+ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705550"
+ms.lasthandoff: 01/04/2021
+ms.locfileid: "97861906"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: descobrir VMs do Hyper-V com a Avaliação de Servidor
 
@@ -42,7 +42,7 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 **Requisito** | **Detalhes**
 --- | ---
 **Host do Hyper-V** | Os hosts do Hyper-V nos quais as VMs estão localizadas podem ser autônomos ou estar em um cluster.<br/><br/> O host deve executar Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Verifique se as conexões de entrada são permitidas na porta 5985 do WinRM (HTTP), para que o dispositivo possa se conectar a fim de extrair os metadados da VM e os dados de desempenho usando uma sessão do modelo CIM.
-**Implantação do dispositivo** | O host do Hyper-v precisa de recursos para alocar uma VM no dispositivo:<br/><br/> - Windows Server 2016<br/><br/> – 16 GB de RAM<br/><br/> – Oito vCPUs<br/><br/> – Cerca de 80 GB de armazenamento em disco.<br/><br/> – Um comutador virtual externo.<br/><br/> – Acesso à Internet para a VM, diretamente ou por meio de um proxy.
+**Implantação do dispositivo** | O host do Hyper-V precisa de recursos a fim de alocar uma VM para o dispositivo:<br/><br/> - Windows Server 2016<br/><br/> – 16 GB de RAM<br/><br/> – Oito vCPUs<br/><br/> – Cerca de 80 GB de armazenamento em disco.<br/><br/> – Um comutador virtual externo.<br/><br/> – Acesso à Internet para a VM, diretamente ou por meio de um proxy.
 **VMs** | As VMs podem executar qualquer sistema operacional Windows ou Linux. 
 
 Antes de iniciar, [examine os dados](migrate-appliance.md#collected-data---hyper-v) que o dispositivo coleta durante a descoberta.

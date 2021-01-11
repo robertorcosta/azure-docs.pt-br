@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 01/05/2021
 ms.author: mbullwin
 keywords: detecção de anomalias, machine learning, algoritmos
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d8698a17db8be6a3d5b26d764ef86702320ebfa4
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
+ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705074"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97901361"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detector de Anomalias?
 
@@ -83,8 +83,17 @@ Após a inscrição:
 
 Você pode ler o artigo [Serviço de detecção de anomalias da série temporal na Microsoft](https://arxiv.org/abs/1906.03821) (aceito por KDD 2019) para saber mais sobre os algoritmos SR-CNN desenvolvidos pela Microsoft.
 
-
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## <a name="service-availability-and-redundancy"></a>Disponibilidade e redundância do serviço
+
+### <a name="is-the-anomaly-detector-service-zone-resilient"></a>A zona de serviço do Detector de Anomalias é resiliente?
+
+Sim. O serviço do Detector de Anomalias tem uma zona resiliente por padrão.
+
+### <a name="how-do-i-configure-the-anomaly-detector-service-to-be-zone-resilient"></a>Como devo configurar o serviço do Detector de Anomalias para obter uma zona resiliente?
+
+Nenhuma configuração do cliente será necessária para habilitar a resiliência de zona. A resiliência de zona está disponível por padrão para recursos do Detector de Anomalias, além de ser gerenciada pelo serviço.
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
 

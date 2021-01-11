@@ -54,7 +54,7 @@
           href: enable-dynamic-configuration-java-spring-app.md
     - name: Usar sinalizadores de recursos
       items:
-        - name: .NET Core
+        - name: ASP.NET Core
           href: use-feature-flags-dotnet-core.md
         - name: Spring Boot
           href: use-feature-flags-spring-boot.md
@@ -110,7 +110,7 @@
           href: concept-disaster-recovery.md
 - name: Guias de instruções
   items:
-    - name: Habilitar um recurso para um percentual de usuários
+    - name: Usar sinalizadores de recursos condicionais
       href: howto-feature-filters-aspnet-core.md
     - name: Habilitar um recurso para os usuários/grupos especificados
       href: howto-targetingfilter-aspnet-core.md
