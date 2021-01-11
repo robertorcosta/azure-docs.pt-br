@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 1fd7a2fbb890e53f8c4851e0ec8e94c24469f902
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fcee52d585d465b06e7b0dc8d70dc35fb66d2615
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458210"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916160"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mapbox"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Mapbox
 
@@ -26,7 +26,6 @@ Neste tutorial, você aprenderá a integrar o Mapbox ao Azure AD (Azure Active D
 * Permitir que os usuários sejam conectados automaticamente ao Mapbox com as contas do Azure AD deles.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +39,6 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Mapbox dá suporte ao SSO iniciado por **IDP**
-* Depois de configurar o Mapbox, você poderá impor um controle de sessão, que fornece proteção contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
@@ -49,18 +47,18 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 
 Para configurar a integração do Mapbox ao Azure AD, você precisará adicionar o Mapbox da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria** , digite **Mapbox** na caixa de pesquisa.
+1. Na seção **Adicionar da galeria**, digite **Mapbox** na caixa de pesquisa.
 1. Selecione **Mapbox** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-mapbox"></a>Configurar e testar o logon único do Azure AD para o Mapbox
+## <a name="configure-and-test-azure-ad-sso-for-mapbox"></a>Configurar e testar o SSO do Azure AD para o Mapbox
 
 Configure e teste o SSO do Azure AD com o Mapbox usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Mapbox.
 
-Para configurar e testar o SSO do Azure AD com o Mapbox, conclua os seguintes blocos de construção:
+Execute as seguintes etapas para configurar e testar o SSO do Azure AD com o Mapbox:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -73,13 +71,13 @@ Para configurar e testar o SSO do Azure AD com o Mapbox, conclua os seguintes bl
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Mapbox** , localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No portal do Azure, na página de integração de aplicativos do **Mapbox**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica de SAML** , o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
+1. Na seção **Configuração Básica de SAML**, o aplicativo é pré-configurado e as URLs necessárias já são preenchidas previamente com o Azure. É necessário que o usuário salve a configuração, clicando no botão **Salvar**.
 
 1. Seu aplicativo Mapbox espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizado de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -93,13 +91,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | | |
 
     > [!NOTE]
-    > Para entender como configurar funções no Azure AD, confira [aqui](../develop/active-directory-enterprise-app-role-management.md).
+    > Para entender como configurar funções no Azure AD, confira [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
 
-1. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Bruto)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Bruto)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificateraw.png)
 
-1. Na seção **Configurar o Mapbox** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o Mapbox**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -107,11 +105,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -122,16 +120,10 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Mapbox**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você tiver configurado as funções conforme explicado acima, será possível selecioná-las na lista suspensa **Selecionar uma função**.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-mapbox-sso"></a>Configurar o SSO do Mapbox
 
@@ -153,9 +145,9 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![Configuração do Mapbox](./media/mapbox-tutorial/configure4.png)
 
-    1. Na caixa de texto **URL de Logon IdP** , cole o valor da **URL de Logon** que você copiou do portal do Azure.
+    1. Na caixa de texto **URL de Logon IdP**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
-    1. Na caixa de texto **ID do Emissor** , cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    1. Na caixa de texto **ID do Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
     1. Abra o arquivo **Certificado (Bruto)** baixado do portal do Azure no Bloco de notas, copie o conteúdo do certificado e cole-o na caixa de texto **Certificado X.509**.
 
@@ -167,20 +159,13 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no Mapbox. Tr
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir.
 
-Ao clicar no bloco do Mapbox no Painel de Acesso, você deverá ser conectado automaticamente ao Mapbox, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Clique em Testar este aplicativo no portal do Azure e você será conectado de modo automático ao Mapbox para o qual configurou o SSO
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Mapbox em Meus Aplicativos, você deverá ser conectado automaticamente ao Mapbox, para o qual você configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimente o Mapbox com o Azure AD](https://aad.portal.azure.com/)
-
-- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Como proteger o Mapbox com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)
+Depois de configurar o Mapbox, você poderá impor um controle de sessão, que fornece proteção contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

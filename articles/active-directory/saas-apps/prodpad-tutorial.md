@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/28/2020
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 0faaf37e55e5b3f7bb89b9a601a6f4b98e7fdd15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 770e934b3040aae8b1bb55298460e91bae367f35
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181666"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97915582"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-prodpad"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ProdPad
 
@@ -71,7 +71,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No portal do Azure, na página de integração de aplicativos do **ProdPad**, localize a seção **Gerenciar** e selecione **logon único**.
 1. Na página **Selecionar um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -96,7 +96,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | User.ProdpadRole | user.assignedroles |
 
     > [!NOTE]
-    > O ProdPad espera funções para usuários atribuídos ao aplicativo. Configure essas funções no Azure AD para que os usuários possam ser atribuídos às funções apropriadas. Para entender como configurar funções no Azure AD, confira [aqui](../develop/active-directory-enterprise-app-role-management.md).
+    > O ProdPad espera funções para usuários atribuídos ao aplicativo. Configure essas funções no Azure AD para que os usuários possam ser atribuídos às funções apropriadas. Para entender como configurar funções no Azure AD, confira [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -126,7 +126,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Se você tiver configurado as funções conforme explicado acima, será possível selecioná-las na lista suspensa **Selecionar uma função**.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-prodpad-sso"></a>Configurar o SSO do ProdPad

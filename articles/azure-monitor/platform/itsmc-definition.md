@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 2d7c732771749c0c0372c5433b76c3e30469e2b0
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: eacdf0cf80414c44aaccf6925e466b914c66da03
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968408"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065296"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -64,7 +64,7 @@ Depois de ter preparado suas ferramentas de ITSM, conclua estas etapas para cria
 
 1. Em **todos os recursos**, procure por **assistência técnica (*seu nome de espaço de trabalho*)**:
 
-   ![Captura de tela que mostra os recursos recentes no portal do Azure.](media/itsmc-overview/itsm-connections.png)
+   ![Captura de tela que mostra os recursos recentes no portal do Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
 
 1. Em **fontes de dados do espaço de trabalho** no painel esquerdo, selecione **conexões de ITSM**:
 

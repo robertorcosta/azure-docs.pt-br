@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 391febcf8852147aedf5ef61d2442b2f50b4c9ae
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 2c03e6940d392e3e2c03bf6508de41a7a19aef3b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014732"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063766"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar um aplicativo de página única do JavaScript da concessão implícita para o fluxo do código de autorização
 
-A Biblioteca de Autenticação da Microsoft para JavaScript (MSAL.js) v2.0 oferece suporte ao fluxo do código de autorização com PKCE e CORS para aplicativos de página única na plataforma de identidade da Microsoft. Siga as etapas das seções abaixo para migrar seu aplicativo MSAL.js 1.x usando a concessão implícita para MSAL.js 2.0+ (doravante *2. x*) e o fluxo do código de autorização.
+A biblioteca de autenticação da Microsoft para JavaScript (MSAL.js) v 2.0 oferece suporte para o fluxo de código de autorização com PKCE e CORS para aplicativos de página única na plataforma de identidade da Microsoft. Siga as etapas das seções abaixo para migrar seu aplicativo MSAL.js 1.x usando a concessão implícita para MSAL.js 2.0+ (doravante *2. x*) e o fluxo do código de autorização.
 
 A MSAL.js 2.x tem aprimoramentos em comparação com a MSAL.js 1.x, dando suporte ao fluxo do código de autorização no navegador em vez do fluxo de concessão implícita. A MSAL.js 2.x **NÃO** dá suporte ao fluxo implícito.
 

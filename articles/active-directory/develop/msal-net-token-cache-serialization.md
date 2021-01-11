@@ -1,7 +1,7 @@
 ---
 title: Serialização de cache de token (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre serialização e serialização de cliente do cache de token usando a Biblioteca de Autenticação da Microsoft para .NET (MSAL.NET).
+description: Saiba mais sobre serialização e serialização de cliente do cache de token usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 4a0d5af8faafac8b733bd2daa9655e663da6fe71
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 7e80123f21efded92ab6d59d550965ca72427b1c
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873516"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064650"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização do cache de token na MSAL.NET
-Depois que um [token é adquirido](msal-acquire-cache-tokens.md), ele é armazenado em cache pela Biblioteca de Autenticação da Microsoft (MSAL).  O código do aplicativo deve tentar obter um token a partir do cache antes de adquirir um token por outro método.  Este artigo aborda a serialização padrão e personalizada do cache de token na MSAL.NET.
+Depois que um [token é adquirido](msal-acquire-cache-tokens.md), ele é armazenado em cache pela MSAL (biblioteca de autenticação da Microsoft).  O código do aplicativo deve tentar obter um token a partir do cache antes de adquirir um token por outro método.  Este artigo aborda a serialização padrão e personalizada do cache de token na MSAL.NET.
 
 Este artigo serve para MSAL.NET 3.x. Se você estiver interessado na MSAL.NET 2.x, consulte [Serialização de cache de token da MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Token-cache-serialization-2x).
 

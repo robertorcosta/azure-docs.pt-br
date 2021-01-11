@@ -13,12 +13,12 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5ec419be5c7549553788d009f09fa3e0fb8655e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd836afd6b8574be71ad22d26d67f49971834a88
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258278"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064718"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicializar aplicativos cliente usando o MSAL.NET
 Este artigo descreve como inicializar aplicativos cliente públicos e clientes confidenciais usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).  Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).

@@ -3,7 +3,7 @@ title: 'Tutorial: Implantar um aplicativo Python Django com Postgres'
 description: Crie um aplicativo Web Python com um banco de dados PostgreSQL e implante-o no Azure. O tutorial usa a estrutura Django e o aplicativo é hospedado no Serviço de Aplicativo do Azure no Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: b106b403022f3407a3838b7f65222baf41cbfff5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852958"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898582"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implantar um aplicativo Web Django com o PostgreSQL no Serviço de Aplicativo do Azure
 
@@ -236,14 +236,11 @@ As migrações de banco de dados do Django garantem que o esquema no PostgreSQL 
 1. Na sessão SSH, execute os seguintes comandos (você pode colar os comandos usando **CTRL**+**Shift**+**V**):
 
     ```bash
-    # Change to the folder where the app code is deployed
-    cd site/wwwroot
+    # Change to the app folder
+    cd $APP_PATH
     
-    # Activate default virtual environment in App Service container
+    # Activate the venv (requirements.txt is installed automatically)
     source /antenv/bin/activate
-
-    # Install packages
-    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -251,6 +248,8 @@ As migrações de banco de dados do Django garantem que o esquema no PostgreSQL 
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
+
+    Se você encontrar erros relacionados à conexão com o banco de dados, verifique os valores das configurações do aplicativo criadas na seção anterior.
 
 1. O comando `createsuperuser` solicita suas credenciais de superusuário. Para este tutorial, use o nome de usuário padrão `root`, pressione **Enter** para o endereço de email ser deixado em branco e digite `Pollsdb1` para a senha.
 
@@ -260,13 +259,13 @@ Está com problemas? Veja primeiro o [Guia de solução de problemas](configure-
     
 ### <a name="44-create-a-poll-question-in-the-app"></a>4.4 Criar uma pergunta de enquete no aplicativo
 
-1. Em um navegador, abra a URL `http://<app-name>.azurewebsites.net`. O aplicativo deve exibir a mensagem "Não há enquetes disponíveis" porque ainda não há enquetes específicas no banco de dados.
+1. Em um navegador, abra a URL `http://<app-name>.azurewebsites.net`. O aplicativo deve exibir a mensagem "Aplicativo de enquetes" e "Não há enquetes disponíveis" porque ainda não há enquetes específicas no banco de dados.
 
     Se você vir "Erro de Aplicativo", é provável que não tenha criado as configurações necessárias na etapa anterior, [Configurar as variáveis de ambiente para conexão com o banco de dados](#42-configure-environment-variables-to-connect-the-database) ou que esses valores contenham erros. Execute o comando `az webapp config appsettings list` para verificar as configurações. Você também pode [verificar os logs de diagnóstico](#6-stream-diagnostic-logs) para ver erros específicos durante a inicialização do aplicativo. Por exemplo, se você não tiver criado as configurações, os logs mostrarão o erro `KeyError: 'DBNAME'`.
 
     Após atualizar as configurações para corrigir os erros, aguarde um minuto para que o aplicativo seja reiniciado e atualize o navegador.
 
-1. Navegue até `http://<app-name>.azurewebsites.net/admin`. Entre usando as credenciais de superusuário da seção anterior (`root` e `Pollsdb1`). Em **Enquetes**, selecione **Adicionar** ao lado de **Perguntas** e crie uma enquete com algumas opções.
+1. Navegue até `http://<app-name>.azurewebsites.net/admin`. Entre usando as credenciais de superusuário do Django da seção anterior (`root` e `Pollsdb1`). Em **Enquetes**, selecione **Adicionar** ao lado de **Perguntas** e crie uma enquete com algumas opções.
 
 1. Navegue novamente para `http://<app-name>.azurewebsites.net` para confirmar que as perguntas agora são apresentadas ao usuário. Responda às perguntas como desejar para gerar dados no banco de dados.
 
@@ -292,7 +291,7 @@ Em uma janela de terminal, execute os comandos a seguir. Siga os prompts ao cria
 python3 -m venv venv
 source venv/bin/activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -310,7 +309,7 @@ py -3 -m venv venv
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
 venv\scripts\activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -327,7 +326,7 @@ python manage.py runserver
 py -3 -m venv venv
 venv\scripts\activate
 
-:: Install packages
+:: Install dependencies
 pip install -r requirements.txt
 :: Run Django migrations
 python manage.py migrate
@@ -397,11 +396,8 @@ Como você fez alterações no modelo de dados, é necessário executar novament
 Abra uma sessão SSH novamente no navegador acessando `https://<app-name>.scm.azurewebsites.net/webssh/host`. Em seguida, execute os comandos a seguir:
 
 ```
-cd site/wwwroot
-
-# Activate default virtual environment in App Service container
+cd $APP_PATH
 source /antenv/bin/activate
-# Run database migrations
 python manage.py migrate
 ```
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 919ec1c3c2b71b7d9aecb90d434aa919c7188d38
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740905"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897579"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados por meio de compartilhamentos com uma GPU do Azure Stack Edge Pro
 
@@ -43,7 +43,7 @@ Antes de adicionar compartilhamentos ao Azure Stack Edge Pro, verifique o seguin
 
 Para criar um compartilhamento, siga o procedimento a seguir:
 
-1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Azure Stack Edge e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online.
+1. No [portal do Azure](https://portal.azure.com/), selecione o recurso do Azure Stack Edge e, em seguida, acesse **Visão Geral**. O dispositivo deve estar online. Selecione **Gateway de armazenamento em nuvem**.
 
    ![Dispositivo online](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
 
@@ -51,7 +51,7 @@ Para criar um compartilhamento, siga o procedimento a seguir:
 
    ![Adicionar um compartilhamento](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
 
-3. No painel **Adicionar compartilhamento**, siga o procedimento a seguir:
+3. No painel **Adicionar compartilhamento**, siga estas etapas:
 
     a. Na caixa **Nome**, forneça um nome exclusivo para seu compartilhamento.  
     O nome do compartilhamento pode ter apenas letras, números e hifens. Ele deve entre 3 e 63 caracteres e começar com uma letra ou um número. Hifens devem ser precedidos e seguidos por uma letra ou um número.

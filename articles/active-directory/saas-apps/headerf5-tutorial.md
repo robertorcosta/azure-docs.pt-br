@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 8706ac588f2cc868805de7126140a1edd4b8c735
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6bf21205c028eaff08eef91757424f8b52764ada
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92445487"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936134"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Tutorial: Configurar o SSO (logon único) entre o Azure Active Directory e o F5
 
@@ -71,7 +71,7 @@ Para começar, você precisará dos seguintes itens:
 
 1. Na interface do usuário da Web de BIG-IP da F5, clique em **Acessar >> Configuração do Guia**.
 
-1. Na página **Configuração Guiada** , clique em **Atualizar Configuração Guiada** no canto superior esquerdo.
+1. Na página **Configuração Guiada**, clique em **Atualizar Configuração Guiada** no canto superior esquerdo.
 
     ![A captura de tela mostra a página de configuração guiada com o link Atualizar Configuração Guiada.](./media/headerf5-tutorial/configure14.png) 
 
@@ -117,7 +117,7 @@ Para configurar a integração do F5 ao Azure AD, você precisa adicionar o F5 p
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria** , digite **F5** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria**, digite **F5** na caixa de pesquisa.
 1. Selecione **F5** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-f5"></a>Configurar e testar logon único do Azure AD para o F5
@@ -137,13 +137,13 @@ Para configurar e testar o SSO do Azure AD com o F5, conclua os seguintes blocos
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **F5** , localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **F5**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , caso deseje configurar o aplicativo no modo iniciado por **IDP** , digite os valores dos seguintes campos:
+1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
@@ -151,16 +151,16 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de logon** , digite um URL usando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** e **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e **Certificado (Base64)** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o F5** , copie as URLs apropriadas de acordo com suas necessidades.
+1. Na seção **Configurar o F5**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -168,11 +168,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -190,12 +190,12 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 1. Clique em **Acesso Condicional**.
 1. Clique em **Nova Política**.
-1. Agora você pode ver seu aplicativo da F5 como um recurso para a Política de AC e aplicar qualquer acesso condicional, incluindo a Autenticação Multifator, o controle de acesso baseado em dispositivo ou a Política do Identity Protection.
+1. Agora você pode ver seu aplicativo da F5 como um recurso para a política de Acesso Condicional e aplicar qualquer acesso condicional, incluindo a Autenticação Multifator, o controle de acesso baseado em dispositivo ou a Política do Identity Protection.
 
 ## <a name="configure-f5-sso"></a>Configurar o SSO do F5
 
@@ -209,7 +209,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 1. Abra uma nova janela do navegador da Web, entre no site da empresa F5 (Baseado em Cabeçalho) como administrador e execute as seguintes etapas:
 
-1. Navegue até **Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego > Lista de Certificados SSL**. Selecione **Importar** do lado direito. Especifique um **Nome do Certificado** (será referenciado futuramente na configuração). Na **Origem do Certificado** , selecione Fazer Upload de Arquivo e especifique o certificado baixado do Azure ao configurar o Logon Único do SAML. Clique em **Importar**.
+1. Navegue até **Sistema > Gerenciamento de Certificado > Gerenciamento de Certificado de Tráfego > Lista de Certificados SSL**. Selecione **Importar** do lado direito. Especifique um **Nome do Certificado** (será referenciado futuramente na configuração). Na **Origem do Certificado**, selecione Fazer Upload de Arquivo e especifique o certificado baixado do Azure ao configurar o Logon Único do SAML. Clique em **Importar**.
 
     ![A captura de tela mostra a Lista de Certificados SSL em que você seleciona o Nome do Certificado e a Origem do Certificado.](./media/headerf5-tutorial/configure12.png)
  
@@ -220,7 +220,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![A captura de tela mostra a página Origem do Certificado/Chave SSL.](./media/headerf5-tutorial/configure13.png)
 
-1. Usaremos a Experiência Guiada para configurar a Federação do Azure AD e o Acesso ao Aplicativo. Acesse – **Principal** do BIG-IP da F5 e selecione **Acessar > Configuração Guiada > Federação > Provedor de Serviços SAML**. Clique em **Avançar** ; em seguida, clique em **Avançar** para iniciar a configuração.
+1. Usaremos a Experiência Guiada para configurar a Federação do Azure AD e o Acesso ao Aplicativo. Acesse – **Principal** do BIG-IP da F5 e selecione **Acessar > Configuração Guiada > Federação > Provedor de Serviços SAML**. Clique em **Avançar**; em seguida, clique em **Avançar** para iniciar a configuração.
 
     ![A captura de tela mostra a página Configuração Guiada com Federação selecionada.](./media/headerf5-tutorial/configure01.png)
 
@@ -237,11 +237,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     ![A captura de tela mostra a página Propriedades do Servidor Virtual.](./media/headerf5-tutorial/configure04.png) 
 
-1. Em **Selecione um método para configurar seu conector IdP** , especifique os Metadados, clique em Escolher Arquivo e faça upload do arquivo XML de Metadados baixado anteriormente do Azure AD. Especifique um **Nome** exclusivo para o conector IDP do SAML. Escolha o **Certificado de Autenticação de Metadados** que foi carregado anteriormente. Clique em **Salvar e Avançar**.
+1. Em **Selecione um método para configurar seu conector IdP**, especifique os Metadados, clique em Escolher Arquivo e faça upload do arquivo XML de Metadados baixado anteriormente do Azure AD. Especifique um **Nome** exclusivo para o conector IDP do SAML. Escolha o **Certificado de Autenticação de Metadados** que foi carregado anteriormente. Clique em **Salvar e Avançar**.
 
     ![A captura de tela mostra a página Configurações do Conector do Provedor de Identidade Externo.](./media/headerf5-tutorial/configure05.png)
  
-1. Em **Selecione um Pool** , especifique **Criar** (ou selecione um pool que já existe). Deixe o outro valor ser o padrão. Em Servidores de Pool, digite o Endereço IP em **Endereço IP/Nome do Nó**. Especifique a **Porta**. Clique em **Salvar e Avançar**.
+1. Em **Selecione um Pool**, especifique **Criar** (ou selecione um pool que já existe). Deixe o outro valor ser o padrão. Em Servidores de Pool, digite o Endereço IP em **Endereço IP/Nome do Nó**. Especifique a **Porta**. Clique em **Salvar e Avançar**.
 
     ![A captura de tela mostra a página Propriedades do Pool.](./media/headerf5-tutorial/configure06.png)
 
@@ -289,11 +289,11 @@ Esta seção deverá ser usada se você não puder usar a Configuração guiada 
 
 1. Clique em **Principal > IApps > Serviços de Aplicativo > Aplicativo > Criar**.
 
-1. Forneça o **Nome** e, em **Modelo** , escolha **f5.http**.
+1. Forneça o **Nome** e, em **Modelo**, escolha **f5.http**.
  
     ![A captura de tela mostra a página Serviços de Aplicativos com Seleção de Modelo.](./media/headerf5-tutorial/configure18.png)
 
-1. Publicaremos nosso HeaderApp2 externamente como HTTPS nesse caso, **como o sistema de BIG-IP deve lidar com o tráfego SSL** ? Especificamos **Encerrar o SSL do cliente, texto não criptografado para servidores (descarregamento de SSL)** . Especifique o Certificado e a Chave em **Qual certificado SSL você deseja usar?** e **Qual chave privada SSL você deseja usar?** . Especifique o IP do servidor virtual em **Qual endereço IP você deseja usar para o servidor virtual?** . 
+1. Publicaremos nosso HeaderApp2 externamente como HTTPS nesse caso, **como o sistema de BIG-IP deve lidar com o tráfego SSL**? Especificamos **Encerrar o SSL do cliente, texto não criptografado para servidores (descarregamento de SSL)** . Especifique o Certificado e a Chave em **Qual certificado SSL você deseja usar?** e **Qual chave privada SSL você deseja usar?** . Especifique o IP do servidor virtual em **Qual endereço IP você deseja usar para o servidor virtual?** . 
 
     * **Especificar outros detalhes**
 
@@ -337,7 +337,7 @@ Esta seção deverá ser usada se você não puder usar a Configuração guiada 
 
 ### <a name="create-idp-connector"></a>Criar conector Idp
 
-1. Clique no botão **Associar/Desassociar Conectores IdP** , selecione **Criar Conector IdP** e escolha entre a opção **Metadados** e, em seguida, execute as seguintes etapas:
+1. Clique no botão **Associar/Desassociar Conectores IdP**, selecione **Criar Conector IdP** e escolha entre a opção **Metadados** e, em seguida, execute as seguintes etapas:
  
     ![A captura de tela mostra a caixa de diálogo Editar IdPs SAML que usam este SP com Criar Conector do IdP selecionado.](./media/headerf5-tutorial/configure29.png)
 
@@ -351,7 +351,7 @@ Esta seção deverá ser usada se você não puder usar a Configuração guiada 
 
     d. Configure o F5BIG-IP para enviar todas as solicitações ao Azure AD.
 
-    e. Clique em **Adicionar Nova Linha** , escolha **AzureIDP** (conforme criado nas etapas anteriores, especifique 
+    e. Clique em **Adicionar Nova Linha**, escolha **AzureIDP** (conforme criado nas etapas anteriores, especifique 
 
     f. **Fonte correspondente = %{session.server.landinguri}** 
 
@@ -389,7 +389,7 @@ Esta seção deverá ser usada se você não puder usar a Configuração guiada 
 
     ![A captura de tela mostra a guia Política de Acesso com Propriedades Gerais.](./media/headerf5-tutorial/configure35.png)
  
-    g. Clique no **Editor de Política Visual** , edite o link **Política de Acesso para Perfil**.
+    g. Clique no **Editor de Política Visual**, edite o link **Política de Acesso para Perfil**.
 
     h. Clique no sinal de + no editor de Política Visual e escolha **Autenticação SAML**.
 
@@ -399,7 +399,7 @@ Esta seção deverá ser usada se você não puder usar a Configuração guiada 
  
     i. Clique em **Adicionar Item**.
 
-    j. Em **Propriedades** , especifique **Nome** e, em **Servidor AAA** , selecione o SP configurado anteriormente; clique em **SALVAR**.
+    j. Em **Propriedades**, especifique **Nome** e, em **Servidor AAA**, selecione o SP configurado anteriormente; clique em **SALVAR**.
  
     ![A captura de tela mostra as Propriedades do item, incluindo seu servidor AAA.](./media/headerf5-tutorial/configure38.png)
 
@@ -417,7 +417,7 @@ Esta seção deverá ser usada se você não puder usar a Configuração guiada 
 
     ![A captura de tela mostra a página Lista de Servidores Virtuais.](./media/headerf5-tutorial/configure40.png)
  
-    b. Clique no servidor virtual, role até a seção **Política de Acesso** , na lista suspensa **Perfil de Acesso** e selecione a política SAML criada (no exemplo HeaderAppAzureSAMLPolicy)
+    b. Clique no servidor virtual, role até a seção **Política de Acesso**, na lista suspensa **Perfil de Acesso** e selecione a política SAML criada (no exemplo HeaderAppAzureSAMLPolicy)
 
     c. Clique em **Atualizar**
  

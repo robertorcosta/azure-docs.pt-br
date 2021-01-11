@@ -1,7 +1,7 @@
 ---
 title: Usar agentes com o Xamarin iOS & Android | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como configurar aplicativos Xamarin iOS que podem usar Microsoft Authenticator e MSAL.NET (biblioteca de autenticação da Microsoft para .NET). Saiba também como migrar da biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) para a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
+description: Saiba como configurar aplicativos Xamarin iOS que podem usar o Microsoft Authenticator e a MSAL.NET (biblioteca de autenticação da Microsoft para .NET). Saiba também como migrar da biblioteca de autenticação do AD do Azure para .NET (ADAL.NET) para a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 10fb55cc133d5d6b39ca2809474ff20dfe500708
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017792"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063477"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin
 
@@ -171,7 +171,7 @@ Quando você usa o agente, seu URI de redirecionamento tem um requisito extra. O
 $"msauth.{BundleId}://auth"
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
@@ -183,7 +183,7 @@ Adicione o URI de redirecionamento ao registro do aplicativo no [portal do Azure
 
 **Para gerar o URI de redirecionamento:**
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Selecione **Azure Active Directory**  >  **registros de aplicativo** > seu aplicativo registrado
 1. Selecione **autenticação**  >  **Adicionar uma plataforma**  >  **Ios/MacOS**
 1. Insira a ID do pacote e, em seguida, selecione **Configurar**.

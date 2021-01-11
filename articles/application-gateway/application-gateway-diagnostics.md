@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 9d2fba48762e11a92f6f3925c969b01aebbe3630
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347584"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065313"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
@@ -222,7 +222,7 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
 |serverRouted| O servidor back-end para o qual o gateway de aplicativo roteia a solicitação.|
 |serverStatus| Código de status HTTP do servidor de back-end.|
 |serverResponseLatency| Latência da resposta do servidor de back-end.|
-|host| Endereço listado no cabeçalho do host da solicitação. Se reescrito, esse campo conterá o nome de host atualizado|
+|host| Endereço listado no cabeçalho do host da solicitação. Se reescrito usando a reescrita de cabeçalho, esse campo conterá o nome de host atualizado|
 |originalRequestUriWithArgs| Este campo contém a URL de solicitação original |
 |requestUri| Este campo contém a URL após a operação de regravação no gateway de aplicativo |
 |originalHost| Este campo contém o nome do host de solicitação original

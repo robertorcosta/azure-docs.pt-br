@@ -3,12 +3,12 @@ title: Planejando a implantação da Solução VMware no Azure
 description: Este artigo descreve um fluxo de trabalho de implantação da Solução VMware no Azure.  O resultado final é um ambiente pronto para a criação e a migração da VM (máquina virtual).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 1d1deebd56717c63a745500198eb8df9e3687b49
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 2cc4d40fd8088a632e0c24e3c4b770ebdc9de2e8
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558684"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912726"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planejando a implantação da Solução VMware no Azure
 
@@ -100,7 +100,7 @@ Para acessar a nuvem privada da Solução VMware no Azure, o circuito do Express
 O circuito do ExpressRoute da Solução VMware no Azure conecta-se a um gateway do ExpressRoute na Rede Virtual do Azure que você define nesta etapa.  
 
 >[!IMPORTANT]
->Você pode usar um Gateway de ExpressRoute existente para se conectar à Solução VMware no Azure, desde que ela não exceda o limite de quatro circuitos de ExpressRoute por rede virtual.  No entanto, para acessar a Solução VMware no Azure do local por meio do ExpressRoute, você precisa ter o Alcance Global do ExpressRoute, pois o gateway do ExpressRoute não fornece roteamento transitivo entre os circuitos conectados.  
+>Você pode usar um Gateway de ExpressRoute existente para se conectar à Solução VMware no Azure, desde que ela não exceda o limite de quatro circuitos de ExpressRoute por rede virtual.  No entanto, para acessar a Solução VMware no Azure do local por meio do ExpressRoute, você precisa ter o Alcance Global do ExpressRoute, pois o Gateway do ExpressRoute não fornece roteamento transitivo entre os circuitos conectados.  
 
 Se você quiser conectar o circuito do ExpressRoute da Solução VMware no Azure a um gateway existente do ExpressRoute, faça isso após a implantação.  
 

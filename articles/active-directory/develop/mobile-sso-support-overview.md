@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173457"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064961"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Suporte a políticas de logon único e proteção de aplicativo em aplicativos móveis que você desenvolve
 
@@ -36,7 +36,7 @@ Além disso, habilitar o logon único em seu aplicativo desbloqueia novos mecani
 
 Recomendamos o seguinte para permitir que seu aplicativo aproveite o logon único.
 
-### <a name="use-microsoft-authentication-library-msal"></a>Usar a MSAL (biblioteca de autenticação da Microsoft)
+### <a name="use-the-microsoft-authentication-library-msal"></a>Usar a MSAL (biblioteca de autenticação da Microsoft)
 
 A melhor opção para implementar o logon único em seu aplicativo é usar [a MSAL (biblioteca de autenticação da Microsoft)](msal-overview.md). Usando o MSAL, você pode adicionar autenticação ao seu aplicativo com código mínimo e chamadas à API, obter os recursos completos da [plataforma de identidade da Microsoft](./index.yml)e deixar que a Microsoft manipule a manutenção de uma solução de autenticação segura. Por padrão, o MSAL adiciona suporte de SSO para seu aplicativo. Além disso, o uso de MSAL é um requisito se você também planeja implementar políticas de proteção de aplicativo.
 

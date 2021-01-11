@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 83917214705546b21553e997ccab11a7511f77fd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5af4eb931015e386e35470f2b36341e15f76150f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353299"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065398"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -128,12 +128,18 @@ Para manter o aplicativo de ponto de extremidade de previsão carregado mesmo qu
 Saiba mais sobre como definir as [configurações gerais](../../../app-service/configure-common.md#configure-general-settings)do serviço de aplicativo.
 
 ### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurar Ambiente do Serviço de Aplicativo para hospedar QnA Maker serviço de aplicativo
-O Ambiente do Serviço de Aplicativo pode ser usado para hospedar QnA Maker serviço de aplicativo. Se o Ambiente do Serviço de Aplicativo for interno, você precisará seguir estas etapas:
-1. Crie um serviço de aplicativo e um serviço de Azure Search.
-2. Expor o serviço de aplicativo e permitir a disponibilidade de QnA Maker como:
-    * Publicamente disponível-padrão
-    * Marca de serviço DNS: `CognitiveServicesManagement`
-3. Crie um QnA Maker instância de serviço cognitiva (Microsoft. Cognitivaservices/accounts) usando Azure Resource Manager, em que QnA Maker ponto de extremidade deve ser definido como Ambiente do Serviço de Aplicativo.
+O Ambiente do Serviço de Aplicativo (ASE) pode ser usado para hospedar QnA Maker serviço de aplicativo. Siga as etapas abaixo:
+
+1. Crie um Ambiente do Serviço de Aplicativo e marque-o como "externo". Siga o [tutorial](https://docs.microsoft.com/azure/app-service/environment/create-external-ase) para obter instruções.
+2.  Crie um serviço de aplicativo dentro do Ambiente do Serviço de Aplicativo.
+    * Verifique a configuração do serviço de aplicativo e adicione ' PrimaryEndpointKey ' como uma configuração de aplicativo. O valor de ' PrimaryEndpointKey ' deve ser definido como " \<app-name\> -PrimaryEndpointKey". O nome do aplicativo é definido na URL do serviço de aplicativo. Por exemplo, se a URL do serviço de aplicativo for "mywebsite.myase.p.azurewebsite.net", o nome do aplicativo será "mysite". Nesse caso, o valor de ' PrimaryEndpointKey ' deve ser definido como "mysite-PrimaryEndpointKey".
+    * Crie um serviço de Azure Search.
+    * Verifique se Azure Search e as configurações do aplicativo estão configuradas adequadamente. 
+      Siga este [tutorial](https://docs.microsoft.com/azure/cognitiveservices/qnamaker/reference-app-service#app-service).
+3.  Atualizar o grupo de segurança de rede associado ao Ambiente do Serviço de Aplicativo
+    * Atualize as regras de segurança de entrada criadas previamente de acordo com seus requisitos.
+    * Adicione uma nova regra de segurança de entrada com a fonte como ' marca de serviço ' e a marca de serviço de origem como ' CognitiveServicesManagement '.
+4.  Crie um QnA Maker instância de serviço cognitiva (Microsoft. Cognitivaservices/accounts) usando Azure Resource Manager, em que QnA Maker ponto de extremidade deve ser definido para o ponto de extremidade do serviço de aplicativo criado acima (https://mywebsite.myase.p.azurewebsite.net).
 
 ### <a name="network-isolation-for-app-service"></a>Isolamento de rede para o serviço de aplicativo
 
@@ -254,15 +260,15 @@ Saiba como atualizar os recursos usados pela sua base de dados de conhecimento. 
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 
-Se você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do serviço Pesquisa Cognitiva do Azure.
+Ao planejar ter muitas bases de dados de conhecimento, atualize o tipo de preço do serviço do Azure Cognitive Search.
 
-No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, execute estas etapas:
+No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, siga estas etapas:
 
 1. Crie um novo recurso de Azure Search no portal do Azure e selecione o SKU desejado.
 
     ![Recurso de pesquisa do Azure do QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
 
-1. Restaure os índices de seu recurso original da pesquisa do Azure para o novo. Consulte o [código de exemplo de restauração de backup](https://github.com/pchoudhari/QnAMakerBackupRestore).
+1. Restaure os índices de seu recurso original da pesquisa do Azure para o novo. Consulte o [código de exemplo de backup e restauração](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
 1. Depois que os dados forem restaurados, vá para o novo recurso do Azure Search, selecione **chaves** e anote o **nome** e a **chave de administração**:
 
@@ -272,11 +278,11 @@ No momento, não é possível realizar uma atualização in-loco da SKU do Azure
 
     ![Instância do serviço de aplicativo QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource-list-appservice.png)
 
-1. Selecione **configurações do aplicativo** e modifique as configurações nos campos **AzureSearchName** e **AzureSearchAdminKey** da etapa 3.
+1. Selecione **Configurações do aplicativo** e modifique as configurações nos campos **AzureSearchName** e **AzureSearchAdminKey** da etapa 3.
 
     ![QnA Maker configuração do serviço de aplicativo](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
 
-1. Reinicie a instância do serviço de aplicativo.
+1. Reinicie a instância do Serviço de Aplicativo.
 
     ![Reinicialização da instância do serviço de aplicativo QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
@@ -343,15 +349,15 @@ Os recursos de pesquisa gratuitos são excluídos após 90 dias sem receber uma 
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
-Se você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do serviço Pesquisa Cognitiva do Azure.
+Ao planejar ter muitas bases de dados de conhecimento, atualize o tipo de preço do serviço do Azure Cognitive Search.
 
-No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, execute estas etapas:
+No momento, não é possível realizar uma atualização in-loco da SKU do Azure Search. No entanto, pode criar um novo recurso de pesquisa do Azure com o SKU desejado, restaurar os dados para o novo recurso e vinculá-lo com a pilha do QnA Maker. Para fazer isso, siga estas etapas:
 
 1. Crie um novo recurso de Azure Search no portal do Azure e selecione o SKU desejado.
 
     ![Recurso de pesquisa do Azure do QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
 
-1. Restaure os índices de seu recurso original da pesquisa do Azure para o novo. Consulte o [código de exemplo de restauração de backup](https://github.com/pchoudhari/QnAMakerBackupRestore).
+1. Restaure os índices de seu recurso original da pesquisa do Azure para o novo. Consulte o [código de exemplo de backup e restauração](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
 1. Para vincular o novo recurso de Azure Search ao serviço QnA Maker gerenciado (versão prévia), consulte o tópico abaixo.
 

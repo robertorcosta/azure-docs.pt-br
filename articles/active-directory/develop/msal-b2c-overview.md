@@ -13,14 +13,14 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
-ms.openlocfilehash: ef1c0003978251dd2637915e56dc396e85f4438f
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53294a30b38bed7ab7516443277cac24e4fef4c1
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107865"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063715"
 ---
-# <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Usar a biblioteca de autenticação da Microsoft para JavaScript para trabalhar com Azure AD B2C
+# <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Use a biblioteca de autenticação da Microsoft para JavaScript para trabalhar com Azure AD B2C
 
 A [biblioteca de autenticação da Microsoft para JavaScript (MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js) permite que os desenvolvedores de JavaScript autentiquem usuários com identidades sociais e locais usando [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure ad B2C).
 

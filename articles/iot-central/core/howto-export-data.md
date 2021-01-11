@@ -7,21 +7,18 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q3
+ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032364"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065381"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos de nuvem usando a exportação de dados
 
 > [!Note]
-> Este artigo descreve os recursos de exportação de dados no IoT Central.
->
-> - Para obter informações sobre os recursos de exportação de dados herdados, consulte [exportar dados de IOT para destinos de nuvem usando a exportação de dados (Herdado)](./howto-export-data-legacy.md).
-> - Para saber mais sobre as diferenças entre a exportação de dados e os recursos de exportação de dados herdados, consulte a [tabela de comparação](#comparison-of-legacy-data-export-and-data-export) abaixo.
+> Este artigo descreve os recursos de exportação de dados no IoT Central. Para obter informações sobre os recursos de exportação de dados herdados, consulte [exportar dados de IOT para destinos de nuvem usando a exportação de dados (Herdado)](./howto-export-data-legacy.md).
 
 Este artigo descreve como usar o novo recurso de exportação de dados no Azure IoT Central. Use esse recurso para exportar continuamente dados de IoT filtrados e aprimorados do seu aplicativo IoT Central. A exportação de dados envia as alterações quase em tempo real para outras partes da sua solução de nuvem para percepções, análises e armazenamento de caminho quente.
 
@@ -43,7 +40,7 @@ Para usar os recursos de exportação de dados, você deve ter um [aplicativo v3
 
 O destino de exportação deve existir antes de você configurar a exportação de dados. Os seguintes tipos de destino estão disponíveis no momento:
 
-- Hubs de eventos do Azure
+- Hubs de Eventos do Azure
 - Fila do Barramento de Serviço do Azure
 - Tópico do Barramento de Serviço do Azure
 - Armazenamento do Blobs do Azure
@@ -99,7 +96,7 @@ Se você não tiver uma conta de armazenamento do Azure existente para a qual ex
     |-|-|
     |Standard|Uso Geral v2|
     |Standard|Uso Geral v1|
-    |Standard|Armazenamento de blob|
+    |Standard|Armazenamento de Blobs|
     |Premium|Armazenamento de blobs de blocos|
 
 1. Para criar um contêiner em sua conta de armazenamento, vá para sua conta de armazenamento. Em **Serviço Blob**, selecione **Procurar Blobs**. Selecione **+ Contêiner** na parte superior para criar um contêiner.
@@ -276,7 +273,7 @@ O exemplo a seguir mostra uma mensagem de alteração de propriedade exportada r
 
 A tabela a seguir mostra as diferenças entre a [exportação de dados herdados](howto-export-data-legacy.md) e os novos recursos de exportação de dados:
 
-| Funcionalidades  | Exportação de dados herdados | Nova exportação de dados |
+| Capacidades  | Exportação de dados herdados | Nova exportação de dados |
 | :------------- | :---------- | :----------- |
 | Tipos de dados disponíveis | Telemetria, dispositivos, modelos de dispositivo | Telemetria, alterações de propriedade |
 | Filtragem | Nenhum | Depende do tipo de dados exportado. Para telemetria, filtragem por telemetria, propriedades de mensagem, valores de propriedade |

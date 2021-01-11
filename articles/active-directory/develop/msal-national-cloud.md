@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2f631ad650b20110084ff902043447f26c2d4ab3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 22b3ea9eb0e4c3379438b6c3fb58ccfb13b4ed32
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453600"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064786"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usar o MSAL em um ambiente de nuvem nacional
 
@@ -83,7 +83,7 @@ Para habilitar seu aplicativo MSAL.js para nuvens soberanas:
 1. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)**.
 1. Este tutorial requer que você habilite o [fluxo de concessão implícito](v2-oauth2-implicit-grant-flow.md). No painel esquerdo do aplicativo registrado, selecione **Autenticação**.
 1. Em **Configurações avançadas**, em **Concessão implícita**, marque as caixas de seleção **Tokens de ID** e **Tokens de Acesso**. Tokens de ID e tokens de acesso são necessários porque esse aplicativo precisa conectar usuários e chamar uma API.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Etapa 2: configurar seu servidor Web ou projeto
 

@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 853ab82ab40cc7ebee1c74feaf6aad87adf39ece
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f60e21f98092df65ef01e68fe9c2e64833a24855
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443102"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063205"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: Aplicativo móvel que chama APIs Web
 
@@ -40,10 +40,10 @@ Uma experiência de usuário personalizada e direta é essencial para aplicativo
 
 Considerações para aplicativos móveis:
 
-- A **experiência do usuário é a chave** : permite que os usuários vejam o valor do seu aplicativo antes de solicitar a entrada. Solicite apenas as permissões necessárias.
-- **Suporte a todas as configurações de usuário** : muitos usuários comerciais móveis devem aderir às políticas de acesso condicional e às políticas de conformidade do dispositivo. Certifique-se de dar suporte a esses cenários principais.
-- **Implementar SSO (logon único)** : usando o MSAL e a plataforma de identidade da Microsoft, você pode habilitar o logon único por meio do navegador do dispositivo ou Microsoft Authenticator (e portal da empresa do Intune no Android).
-- **Implementar o modo de dispositivo compartilhado** : habilite seu aplicativo a ser usado em cenários de dispositivo compartilhado, por exemplo, hospitais, manufatura, varejo e finanças. [Leia mais sobre como dar suporte ao modo de dispositivo compartilhado](msal-shared-devices.md).
+- A **experiência do usuário é a chave**: permite que os usuários vejam o valor do seu aplicativo antes de solicitar a entrada. Solicite apenas as permissões necessárias.
+- **Suporte a todas as configurações de usuário**: muitos usuários comerciais móveis devem aderir às políticas de acesso condicional e às políticas de conformidade do dispositivo. Certifique-se de dar suporte a esses cenários principais.
+- **Implementar SSO (logon único)**: usando o MSAL e a plataforma de identidade da Microsoft, você pode habilitar o logon único por meio do navegador do dispositivo ou Microsoft Authenticator (e portal da empresa do Intune no Android).
+- **Implementar o modo de dispositivo compartilhado**: habilite seu aplicativo a ser usado em cenários de dispositivo compartilhado, por exemplo, hospitais, manufatura, varejo e finanças. [Leia mais sobre como dar suporte ao modo de dispositivo compartilhado](msal-shared-devices.md).
 
 ## <a name="specifics"></a>Especificações
 

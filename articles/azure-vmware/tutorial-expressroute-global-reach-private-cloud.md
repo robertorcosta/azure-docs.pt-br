@@ -2,13 +2,13 @@
 title: Tutorial – Emparelhar ambientes locais com uma nuvem privada
 description: Saiba como criar um emparelhamento de Alcance Global do ExpressRoute com uma nuvem privada em uma Solução VMware no Azure.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: 4d10972a693f7c4c3ae25a5bc986f6c15e978294
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 1/5/2021
+ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912490"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913151"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Emparelhar ambientes locais com uma nuvem privada
 
@@ -19,7 +19,7 @@ O circuito de ExpressRoute que você usa ao [configurar a rede do Azure para nuv
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar uma segunda chave de autorização para o _circuito 2_ , o circuito do ExpressRoute na nuvem privada
+> * Criar uma segunda chave de autorização para o _circuito 2_, o circuito do ExpressRoute na nuvem privada
 > * Usar o [portal do Azure](#azure-portal-method) ou a [CLI do Azure em um método do Cloud Shell](#azure-cli-in-a-cloud-shell-method) na assinatura do _circuito 1_ para habilitar o emparelhamento do Alcance Global do ExpressRoute entre o local e a nuvem privada
 
 
@@ -33,6 +33,7 @@ Antes de habilitar a conectividade entre dois circuitos do ExpressRoute usando o
 - Estabelecer a conectividade entre a nuvem privada da Solução VMware no Azure e o circuito do ExpressRoute emparelhado com o gateway do ExpressRoute em uma rede virtual do Azure (VNet) – o _circuito 2_ dos procedimentos de emparelhamento.  
 - Um circuito do ExpressRoute em funcionamento e separado, usado para conectar ambientes locais ao Azure – esse é o _circuito 1_ da perspectiva dos procedimentos de emparelhamento.
 - [Bloco de endereço de rede](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) A/29 não sobreposto para o emparelhamento de Alcance Global do ExpressRoute.
+- Verifique se todos os roteadores, incluindo o serviço do provedor de ExpressRoute, dão suporte ao ASN (número do sistema autônomo) de 4 bytes. A Solução VMware no Azure usa ASNs públicos de 4 bytes para anunciar rotas.
 
 > [!TIP]
 > No contexto desses pré-requisitos, o circuito do ExpressRoute local é o _circuito 1_ e o circuito do ExpressRoute na nuvem privada está em uma assinatura diferente rotulada como _circuito 2_. 

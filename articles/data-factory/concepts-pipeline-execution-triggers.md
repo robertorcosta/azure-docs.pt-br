@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: c72538de8aba60ce7ed880561b55773c22737f97
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e46b08e31725765d700bf41649d997d7b20e5f95
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498618"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065483"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
 
@@ -381,7 +381,7 @@ A tabela a seguir fornece uma comparação entre o gatilho de janela em cascata 
 | **Confiabilidade** | 100% de confiabilidade. As execuções de pipeline podem ser agendadas para todas as janelas de uma data de início especificada sem folgas. | Menos confiável. |
 | **Repetir o recurso** | Com suporte. As execuções de pipeline com falha têm o padrão de política de repetição como 0, ou uma política especificada pelo usuário como parte da definição do gatilho. Repete automaticamente quando o pipeline é executado com falha devido a limites de simultaneidade/servidor/limitação (ou seja, códigos de status 400: erro do usuário, 429: muitas solicitações e 500: erro interno do servidor). | Não há suporte. |
 | **Simultaneidade** | Com suporte. Os usuários podem definir explicitamente os limites de simultaneidade para o gatilho. Permite entre 1 e 50 execuções de pipeline disparadas simultaneamente. | Não há suporte. |
-| **Variáveis do sistema** | Juntamente com @trigger (). scheduletime e @trigger (). StartTime, ele também dá suporte ao uso das variáveis de sistema **WindowStart** e **WindowEnd** . Os usuários podem acessar `triggerOutputs().windowStartTime` e `triggerOutputs().windowEndTime` como variáveis de sistema de gatilho na definição do gatilho. Os valores são usados como hora de início e hora de término da janela, respectivamente. Por exemplo, para um gatilho de janela em cascata que é executado a cada hora, para a janela de 1h a 2h, a definição é `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` e `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Dá suporte apenas a @trigger variáveis padrão (). scheduletime e @trigger (). StartTime. |
+| **Variáveis do sistema** | Juntamente com @trigger (). scheduletime e @trigger (). StartTime, ele também dá suporte ao uso das variáveis de sistema **WindowStart** e **WindowEnd** . Os usuários podem acessar `trigger().outputs.windowStartTime` e `trigger().outputs.windowEndTime` como variáveis de sistema de gatilho na definição do gatilho. Os valores são usados como hora de início e hora de término da janela, respectivamente. Por exemplo, para um gatilho de janela em cascata que é executado a cada hora, para a janela de 1h a 2h, a definição é `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` e `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Dá suporte apenas a @trigger variáveis padrão (). scheduletime e @trigger (). StartTime. |
 | **Relação pipeline para gatilho** | Dá suporte a uma relação um para um. Somente um pipeline pode ser disparado. | Dá suporte a relações muitos para muitos. Vários gatilhos podem disparar um único pipeline. Um único gatilho pode disparar vários pipelines. |
 
 ## <a name="next-steps"></a>Próximas etapas

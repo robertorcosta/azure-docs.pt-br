@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 12eba5a0de85f97dba9c220ed71679bdd35d7482
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: f1277972480f504d9d2df67930d9385cbe8c06b4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963325"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063188"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
@@ -40,7 +40,7 @@ Considere as seguintes perguntas:
 
 O token de portador definido no cabeçalho quando o aplicativo é chamado contém informações sobre a identidade do aplicativo. Ele também contém informações sobre o usuário, a menos que o aplicativo Web aceite chamadas de serviço a serviço de um aplicativo daemon.
 
-Aqui está um exemplo de código C# que mostra um cliente que chama a API após adquirir um token com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET):
+Aqui está um exemplo de código em C# que mostra um cliente que chama a API depois de adquirir um token com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET):
 
 ```csharp
 var scopes = new[] {$"api://.../access_as_user"};
@@ -195,7 +195,7 @@ As etapas de validação são capturadas em validadores, que são fornecidas pel
 
 Esta tabela descreve os validadores:
 
-| Validador | Description |
+| Validador | Descrição |
 |---------|---------|
 | **ValidateAudience** | Garante que o token seja para o aplicativo que valida o token para você. |
 | **ValidateIssuer** | Garante que o token foi emitido por um STS confiável, o que significa que ele é de alguém em que você confia. |

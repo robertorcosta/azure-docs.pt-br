@@ -8,18 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169130"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895964"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Conectar usuários e chamar uma API protegida de um aplicativo Blazor WebAssembly
 
-Neste tutorial, você criará um aplicativo WebAssembly Blazor que conecta os usuários e obtém dados do Microsoft Graph usando a plataforma de identidade da Microsoft e registrando seu aplicativo no Azure AD (Azure Active Directory).
-
-Também temos um tutorial para o [Blazor Server](tutorial-blazor-server.md). 
+Neste tutorial, você criará um aplicativo WebAssembly Blazor que conecta os usuários e obtém dados do Microsoft Graph usando a plataforma de identidade da Microsoft e registrando seu aplicativo no Azure AD (Azure Active Directory). 
 
 Neste tutorial:
 
@@ -27,6 +25,10 @@ Neste tutorial:
 >
 > * Criar um aplicativo Blazor WebAssembly configurado para usar o Azure AD (Azure Active Directory) para [autenticação e autorização](authentication-vs-authorization.md) usando a plataforma de identidade da Microsoft
 > * Recuperar dados de uma API Web protegida, neste caso, [Microsoft Graph](/graph/overview)
+
+Este tutorial usa o .NET Core 3.1. Os documentos do .NET contêm instruções sobre [como proteger um aplicativo Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) usando o ASP.NET Core 5.0. 
+
+Também temos um tutorial para o [Blazor Server](tutorial-blazor-server.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,9 +76,11 @@ No navegador, navegue até `https://localhost:5001` e faça logon usando uma con
 
 Os componentes desse modelo que habilitam logons com o Azure AD usando a plataforma de identidade da Microsoft são explicados no [documento do ASP.NET sobre esse tópico](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
-## <a name="retrieving-data-from-microsoft-graph"></a>Recuperar dados do Microsoft Graph
+## <a name="retrieving-data-from-a-protected-api-microsoft-graph"></a>Recuperar dados de uma API protegida (Microsoft Graph)
 
-O [Microsoft Graph](/graph/overview) oferece uma variedade de APIs que fornecem acesso aos dados do Microsoft 365 dos seus usuários em seu locatário. Usando a plataforma de identidade da Microsoft como o provedor de identidade para seu aplicativo, você tem acesso mais fácil a essas informações porque o Microsoft Graph dá suporte direto aos tokens emitidos pela plataforma de identidade da Microsoft. Nesta seção, você adicionará código que pode exibir os emails do usuário conectado na página "Buscar dados" do aplicativo.
+O [Microsoft Graph](/graph/overview) contém APIs que fornecem acesso a dados do Microsoft 365 para seus usuários e dá suporte aos tokens emitidos pela plataforma de identidade da Microsoft, o que o torna uma boa API protegida para usar como exemplo. Nesta seção, você adicionará código para chamar o Microsoft Graph e exibir os emails do usuário na página "Buscar dados" do aplicativo.
+
+Esta seção é escrita usando uma abordagem comum para chamar uma API protegida usando um cliente nomeado. O mesmo método pode ser usado para outras APIs protegidas que você deseja chamar. No entanto, se você planeja chamar o Microsoft Graph do seu aplicativo, pode usar o SDK do Graph para reduzir o texto clichê. Os documentos do .NET contêm instruções sobre [como usar o SDK do Graph](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
 
 Antes de começar, faça logoff do seu aplicativo, pois você fará alterações nas permissões necessárias e seu token atual não funcionará. Se você ainda não fez isso, execute o aplicativo novamente e selecione **Fazer logoff** antes de atualizar o código abaixo.
 

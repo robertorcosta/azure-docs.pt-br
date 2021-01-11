@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 238801171d19191bcac505f0c95395320f96d75c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347499"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882459"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagens de várias classes 
 
@@ -104,7 +104,8 @@ Agora que você tem acesso aos dados que deseja rotular, crie o projeto de rotul
 1. Use a seguinte entrada para o formulário **Criar conjunto de dados por meio do armazenamento de dados**:
 
     1. No formulário **Informações básicas**, adicione um nome; aqui usaremos **images-for-tutorial**.  Adicione uma descrição se desejar.  Em seguida, selecione **Avançar**.
-    1. No formulário **Seleção de armazenamento de dados**, use a lista suspensa para selecionar o **Armazenamento de dados criado anteriormente**, por exemplo **tutorial_images (Armazenamento de Blobs do Azure)**
+    1. No formulário **Seleção de armazenamento de dados**, selecione **Armazenamento de dados criado anteriormente**, clique no nome do armazenamento de dados e selecione **Selecionar armazenamento de dados**.
+    1. Na próxima página, verifique se armazenamento de dados selecionado no momento está correto. Caso contrário, selecione **Armazenamento de dados criado anteriormente** e repita a etapa anterior.
     1. Em seguida, ainda no formulário **Seleção de armazenamento de dados**, selecione **Procurar** e, em seguida, selecione **MultiClass – DogsCats**.  Selecione **Salvar** para usar **/MultiClass – DogsCats** como o caminho.
     1. Selecione **Avançar** para confirmar os detalhes e, em seguida, **Criar** para criar o conjunto de dados.
     1. Selecione o círculo ao lado do nome do conjunto de dados na lista, por exemplo **images-for-tutorial**.
