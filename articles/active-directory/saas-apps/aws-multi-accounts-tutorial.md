@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 7e71058e1899cf83e712025b534e51a1be1f6bdb
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e6b4175f4f47c9dd378bec84da2575c079a2079f
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591745"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014392"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Active Directory com a AWS (Amazon Web Services) (Tutorial Herdado)
 
@@ -89,11 +89,11 @@ No Amazon Web Services (AWS), atribua o valor do **nome de usuário** no Microso
 
 Para configurar e testar o logon único do Azure AD com a AWS (Amazon Web Services), execute as seguintes etapas:
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único da AWS (Amazon Web Services)](#configure-amazon-web-services-aws-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
-3. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+2. **[Configurar o SSO da AWS (Amazon Web Services)](#configure-amazon-web-services-aws-sso)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure e configurar o logon único em seu aplicativo AWS (Amazon Web Services).
 
@@ -107,7 +107,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
+3. Na página **Definir logon único com SAML**, clique no ícone **lápis** para abrir a caixa de diálogo **Configuração básica do SAML**.
 
     ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -143,11 +143,14 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     g. Clique em **Save** (Salvar).
 
+    >[!NOTE]
+    >Para obter mais informações sobre funções no Azure AD, confira [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+
 7. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, clique em **Download** para fazer o download do **XML de metadados de federação** e salve-o no seu computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-### <a name="configure-amazon-web-services-aws-single-sign-on"></a>Configurar logon único da AWS (Amazon Web Services)
+### <a name="configure-amazon-web-services-aws-sso"></a>Configurar o SSO da AWS (Amazon Web Services)
 
 1. Em uma janela de navegador diferente, entre no site de sua empresa do AWS (Amazon Web Services) como administrador.
 
@@ -231,7 +234,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     ![A captura de tela mostra onde a ID da conta aparece na janela da AWS.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
-1. Agora, entre no [portal do Azure](https://portal.azure.com/) e navegue até **Grupos**.
+1. Agora, entre no portal do Azure e navegue até **Grupos**.
 
 1. Crie grupos com o mesmo nome que as Funções do IAM criadas anteriormente e anote as **IDs de Objeto** desses novos grupos.
 
@@ -347,11 +350,11 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     > [!Note]
     > Observe que você precisa atualizar a sua sessão no Portal do Azure para ver as novas funções.
 
-### <a name="test-single-sign-on"></a>Testar logon único
+### <a name="test-sso"></a>Testar o SSO
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD usando Meus Aplicativos.
 
-Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve entrar na página do aplicativo AWS (Amazon Web Services) com a opção para selecionar a função.
+Ao clicar no bloco AWS (Amazon Web Services) nos Meus Aplicativos, você deve entrar na página do aplicativo AWS (Amazon Web Services) com a opção para selecionar a função.
 
 ![Testar o logon único1](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-screen.png)
 
@@ -359,7 +362,7 @@ Você também pode verificar a resposta SAML para ver as funções sendo passada
 
 ![Testar o logon único2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

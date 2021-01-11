@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c21efc9cb082d915fd87e9ae01606fce18016bc
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 71f4cfa9e7b69e51bafa5364f857f8ab689f2ad0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897257"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955460"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configurar o ServiceNow para o provisionamento automático de usuários
 
@@ -152,6 +152,11 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
    ![Autorizando a solicitação de SOAP](media/servicenow-provisioning-tutorial/servicenow-webservice.png)
 
    Se resolver seus problemas, entre em contato com o suporte do ServiceNow e solicite a ativação da depuração de SOAP para ajudar a solucionar problemas. 
+
+* **Intervalos de IP** 
+
+   No momento, o serviço de provisionamento do Azure AD opera em intervalos de IP específicos. Portanto, se necessário, você pode restringir outros intervalos de IP e incluir esses intervalos de IP específicos na lista de permitidos do seu aplicativo para permitir o fluxo de tráfego do serviço de provisionamento do Azure AD para seu aplicativo. Confira a documentação em [Intervalos de IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
+
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 11/24/2020
+ms.date: 01/05/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ce906ad62b51956cb85f854846740fa09e06895d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 780da47e6f071d854a16ca1d1c5cd02dbdd6bef0
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97665111"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955630"
 ---
 O Hub de Eventos organiza as sequências de eventos em uma ou mais partições. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Uma partição pode ser pensada como "log de confirmação".
 
@@ -25,7 +25,7 @@ Os Hubs de Eventos são projetados para ajudar no processamento de grandes volum
 
 Primeiro, embora os Hubs de Eventos sejam um serviço de PaaS, há uma realidade física por baixo, e a manutenção de um log que preserva a ordem dos eventos exige que esses eventos sejam mantidos juntos no armazenamento subjacente e suas réplicas e que resultem em um teto de taxa de transferência para tal log. O particionamento permite que vários logs paralelos sejam usados para o mesmo Hub de Eventos e, portanto, multiplique a capacidade de taxa de transferência de E/S bruta disponível.
 
-Em segundo lugar, seus próprios aplicativos devem ser capazes de acompanhar o processamento do volume de eventos que estão sendo enviados para um Hub de Eventos. Isso pode ser bastante complexo e exige uma capacidade substancial, de expansão e de processamento paralelo. A lógica para partições é a mesma acima: A capacidade de um único processo de lidar com eventos é limitada e, portanto, você precisa de vários processos, e as partições são como sua solução alimenta esses processos e, ainda assim, garantem que cada evento tenha um proprietário de processamento claro. 
+Em segundo lugar, seus próprios aplicativos devem ser capazes de acompanhar o processamento do volume de eventos que estão sendo enviados para um Hub de Eventos. Isso pode ser complexo e exige uma capacidade substancial, de expansão e de processamento paralelo. A lógica para partições é a mesma acima: A capacidade de um único processo de lidar com eventos é limitada e, portanto, você precisa de vários processos, e as partições são como sua solução alimenta esses processos e, ainda assim, garantem que cada evento tenha um proprietário de processamento claro. 
 
 Os Hubs de Eventos mantêm os eventos por um período de retenção configurado que se aplica a todas as partições. Os eventos são removidos automaticamente quando o período de retenção é atingido. Se você especificar um período de retenção de um dia, o evento ficará indisponível exatamente 24 horas depois de ser aceito. Não é possível excluir eventos explicitamente. 
 
@@ -51,7 +51,7 @@ A especificação de uma chave de partição permite manter eventos relacionados
 
 Uma sequência de eventos identificados por uma chave de partição é um *fluxo*. Uma partição é um repositório de logs multiplexado para muitos desses fluxos. 
 
-A contagem de partições de um Hub de Eventos pode ser aumentada após o Hub de Eventos ter sido criado, mas a distribuição de fluxos entre partições será alterada quando for feita como o mapeamento de chaves de partição para alterações de partições. Portanto, você deve tentar evitar essas alterações se a ordem relativa dos eventos é importante em seu aplicativo.
+A contagem de partições de um hub de eventos em um [cluster de Hubs de Eventos dedicados](../articles/event-hubs/event-hubs-dedicated-overview.md) pode ser [aumentada](../articles/event-hubs/dynamically-add-partitions.md) após o hub de eventos ter sido criado, mas a distribuição de fluxos entre partições será alterada quando for feita como o mapeamento de chaves de partição para alterações de partições. Portanto, você deve tentar evitar essas alterações se a ordem relativa dos eventos é importante em seu aplicativo.
 
 Definir o número de partições com o valor máximo permitido é tentador, mas sempre tenha em mente que os fluxos de eventos precisam ser estruturados de um jeito que você possa tirar proveito de várias partições. Se você precisar de preservação de ordem absoluta em todos os eventos ou apenas em alguns subfluxos, talvez não seja possível tirar proveito de muitas partições. Além disso, muitas partições tornam o lado de processamento mais complexo. 
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d84f500560031322cff32005b537037dc897919e
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: e29a692e3fdad1bea7132b3bed50444c7398ba46
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94516757"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936304"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Início Rápido: Criar um cofre de chaves usando a CLI do Azure
 
@@ -72,5 +72,6 @@ az group delete --name myResourceGroup
 Neste guia de início rápido, você criou um Key Vault e o excluiu. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Key Vault](overview.md)
-- Confira a referência dos [comandos az keyvault da CLI do Azure](/cli/azure/keyvault?view=azure-cli-latest)
-- Examine as [Melhores práticas do Azure Key Vault](best-practices.md)
+- Examine a [Visão geral de segurança do Azure Key Vault](security-overview.md)
+- Confira a referência dos [comandos az keyvault da CLI do Azure](/cli/azure/keyvault)
+

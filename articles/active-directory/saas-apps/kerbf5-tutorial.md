@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009153"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933074"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao F5
 
@@ -195,7 +195,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 1. Clique em **Acesso Condicional**.
 1. Clique em **Nova Política**.
-1. Agora você pode ver seu aplicativo da F5 como um recurso para a Política de AC e aplicar qualquer acesso condicional, incluindo a Autenticação Multifator, o controle de acesso baseado em dispositivo ou a Política do Identity Protection.
+1. Agora você pode ver seu aplicativo da F5 como um recurso para a política de Acesso Condicional e aplicar qualquer acesso condicional, incluindo a Autenticação Multifator, o controle de acesso baseado em dispositivo ou a Política do Identity Protection.
 
 ## <a name="configure-f5-sso"></a>Configurar o SSO do F5
 

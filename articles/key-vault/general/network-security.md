@@ -10,16 +10,18 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3639237a0dc34c521fd3fa52631fdb19c26ec284
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015546"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936338"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
 Este artigo fornece diretrizes sobre como configurar o firewall do Azure Key Vault. Este documento aborda as diferentes configurações do firewall do Key Vault com detalhes e fornece instruções passo a passo de como configurar o Azure Key Vault para trabalhar com outros aplicativos e serviços do Azure.
+
+Para obter mais informações, confira [Pontos de extremidade de serviço de rede virtual para o Azure Key Vault](overview-vnet-service-endpoints.md).
 
 ## <a name="firewall-settings"></a>Configurações do Firewall
 
@@ -167,10 +169,10 @@ Segue como configurar redes virtuais e firewalls do Key Vault usando o PowerShel
 
 ## <a name="references"></a>Referências
 * Referência de modelo ARM: [Referência de modelo ARM do Azure Key Vault](/azure/templates/Microsoft.KeyVault/vaults)
-* Comandos da CLI do Azure: [az keyvault network-rule](/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Comandos da CLI do Azure: [az keyvault network-rule](/cli/azure/keyvault/network-rule)
 * Cmdlets do Azure PowerShell: [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Pontos de extremidade de serviço de rede virtual para Key Vault](overview-vnet-service-endpoints.md)
-* [Proteger seu cofre de chaves](secure-your-key-vault.md)
+* [Visão geral da segurança do Azure Key Vault](security-overview.md)

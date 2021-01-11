@@ -3,18 +3,18 @@ title: Início Rápido – Explorar os custos do Azure com a análise de custo
 description: Este início rápido ajuda você a usar a análise de custo para explorar e analisar os custos organizacionais do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/20/2020
+ms.date: 01/04/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1926a5a2ee81b6be4abee5e4064a4a23354da1a1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 83f2d87e3f4a03ff17526ea5706e4f87b8f39487
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033571"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882442"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custo
 
@@ -72,6 +72,8 @@ A previsão de custos mostra uma projeção dos custos estimados para o período
 
 O modelo usa no máximo seis meses de dados de treinamento para projetar os custos de um ano. No mínimo, ele precisa de sete dias de dados de treinamento para alterar sua previsão. A previsão tem base em mudanças drásticas, como picos e quedas, em padrões de custo e de uso. A previsão não gera projeções individuais para cada item nas propriedades **Agrupar por**. Ela fornece apenas uma previsão para os custos totais acumulados. Se você usar várias moedas, o modelo fornecerá a previsão apenas dos custos em USD.
 
+Devido à dependência do modelo em picos e quedas de dados, grandes compras, como instâncias reservadas, farão com que sua previsão se torne artificialmente inflada. O período de previsão e o tamanho das compras afetam o tempo da previsão. A previsão retorna ao normal quando o gasto é estabilizado.
+
 ## <a name="customize-cost-views"></a>Personalizar as exibições de custo
 
 A análise de custo tem quatro modos de exibição internos, otimizados para os objetivos mais comuns:
@@ -123,7 +125,7 @@ Por padrão, a análise de custo mostra todos os custos de uso e compra conforme
 
 ![Alterne entre custo amortizado e real para ver a distribuição de compras de reserva entre o termo e alocadas aos recursos que usaram a reserva](./media/quick-acm-cost-analysis/metric-picker.png)
 
-O custo amortizado detalha as compras de reserva em partes diárias e as distribui ao longo da duração do termo de reserva. Por exemplo, em vez de ver uma compra de US$ 365 em 1º de janeiro, você verá uma compra de US$ 1 todos os dias de 1º de janeiro a 31 de dezembro. Além da amortização básica, esses custos também são realocados e associados ao usar os recursos específicos que usaram a reserva. Por exemplo, se esse preço diário de US$ 1 for dividido entre duas máquinas virtuais, você verá dois preços de US$ 0,50 para o dia. Se parte da reserva não for utilizada para o dia, você verá um preço de US$ 0,50 associado à máquina virtual aplicável e outro preço de US$ 0,50 com um tipo de preço de `UnusedReservation`. Observe que os custos de reserva não usados somente podem ser vistos ao exibir o custo amortizado.
+O custo amortizado detalha as compras de reserva em partes diárias e as distribui ao longo da duração do termo de reserva. Por exemplo, em vez de ver uma compra de US$ 365 em 1º de janeiro, você verá uma compra de US$ 1 todos os dias de 1º de janeiro a 31 de dezembro. Além da amortização básica, esses custos também são realocados e associados ao usar os recursos específicos que usaram a reserva. Por exemplo, se esse preço diário de US$ 1 for dividido entre duas máquinas virtuais, você verá dois preços de US$ 0,50 para o dia. Se parte da reserva não for utilizada para o dia, você verá um preço de US$ 0,50 associado à máquina virtual aplicável e outro preço de US$ 0,50 com um tipo de preço de `UnusedReservation`. Os custos de reserva não utilizados só podem ser vistos na exibição do custo amortizado.
 
 Devido à alteração em como os custos são representados, é importante observar que o custo real e as exibições de custo amortizado mostram números totais diferentes. Em geral, o custo total de meses com uma compra de reserva diminuirá ao exibir os custos amortizados e os meses após a uma compra de reserva aumentarão. A amortização só está disponível para compras de reserva e não se aplica a compras do Azure Marketplace no momento.
 
@@ -151,17 +153,17 @@ Assista ao vídeo [Como compartilhar e salvar exibições no Gerenciamento de Cu
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-Para fixar a análise de custo, selecione o ícone de fixação no canto superior direito ou logo após "<Subscription Name> | Análise de custo". Fixar a análise de custo salvará apenas a exibição principal de gráfico ou a tabela. Compartilhe o painel para dar a outras pessoas acesso ao bloco. Observe que isso compartilha apenas a configuração do painel e não concede acesso a outras pessoas aos dados subjacentes. Se você não tiver acesso aos custos, mas tiver acesso a um painel compartilhado, verá a mensagem "acesso negado".
+Para fixar a análise de custo, selecione o ícone de fixação no canto superior direito ou logo após "<Subscription Name> | Análise de custo". Fixar a análise de custo salvará apenas a exibição principal de gráfico ou a tabela. Compartilhe o painel para dar a outras pessoas acesso ao bloco. Isso apenas compartilha a configuração do painel e não permite acesso a outras pessoas aos dados subjacentes. Se você não tiver acesso aos custos, mas tiver acesso a um painel compartilhado, verá a mensagem "acesso negado".
 
-Para compartilhar um link para a análise de custo, selecione **Compartilhar** na parte superior da folha. Uma URL personalizada será mostrada, abrindo a exibição específica para esse escopo específico. Se você não tiver acesso aos custos e receber essa URL, verá a mensagem de "acesso negado".
+Para compartilhar um link para a análise de custo, selecione **Compartilhar** na parte superior da janela. Uma URL personalizada será mostrada, abrindo a exibição específica para esse escopo específico. Se você não tiver acesso aos custos e receber essa URL, verá a mensagem de "acesso negado".
 
 ## <a name="download-usage-data"></a>Baixar os dados de uso
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Às vezes você precisa baixar os dados para análise posterior, mesclá-lo com seus próprios dados ou integrá-los a seus próprios sistemas. O Gerenciamento de Custos oferece algumas opções diferentes. Como ponto de partida, se você precisar de um resumo ad hoc de alto nível, como o que se obtém na análise de custo, crie a exibição necessária. Em seguida, baixe-a selecionando **Exportar** e depois **Baixar dados como CSV** ou **Baixar dados no Excel**. O download para Excel fornece contexto adicional sobre a exibição que você usou para gerar o download, como escopo, configuração de consulta, totais e data da geração.
+Às vezes você precisa baixar os dados para análise posterior, mesclá-lo com seus próprios dados ou integrá-los a seus próprios sistemas. O Gerenciamento de Custos oferece algumas opções diferentes. Como ponto de partida, se você precisar de um resumo rápido de alto nível, como o que se obtém na análise de custo, crie a exibição necessária. Em seguida, baixe-a selecionando **Exportar** e depois **Baixar dados como CSV** ou **Baixar dados no Excel**. O download para Excel fornece mais contexto sobre a exibição que você usou para gerar o download, como escopo, configuração de consulta, totais e data da geração.
 
-Se você precisar do conjunto de dados completo não agregado, baixe-o da conta de cobrança. Em seguida, na lista de serviços no painel de navegação esquerdo do portal, acesse **Gerenciamento de Custos + Cobrança**. Selecione a conta de cobrança, se aplicável. Acesse **Uso + encargos** e selecione o ícone **Baixar** do período de cobrança desejado.
+Se você precisar do conjunto de dados completo não agregado, baixe-o da conta de cobrança. Em seguida, na lista de serviços no painel de navegação esquerdo do portal, acesse **Gerenciamento de Custos + Cobrança**. Selecione a conta de cobrança, se aplicável. Acesse **Uso + encargos** e selecione o ícone **Baixar** do período de cobrança.
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

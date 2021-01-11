@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: da3ad4f70e0cc41fe95327eb74093c1471c877bd
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 14708ddcc5c0e06ee58f5e9db5945c4e9f1a1d08
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351564"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97937131"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: Configurar o ZPA (Zscaler Private Access) para o provisionamento automático de usuário
 
@@ -115,6 +115,9 @@ Esta seção orienta você pelas etapas de configuração do serviço de provisi
 
 > [!TIP]
 > Você também pode optar por habilitar o logon único baseado em SAML para o ZPA (Zscaler Private Access) seguindo as instruções fornecidas no [tutorial de logon único do ZPA (Zscaler Private Access)](./zscalerprivateaccess-tutorial.md). O logon único pode ser configurado de modo independente do provisionamento automático de usuário, embora os dois sejam complementares.
+
+> [!NOTE]
+> Quando os usuários e grupos são provisionados ou desprovisionados, é recomendável reiniciar periodicamente o provisionamento para garantir que as associações de grupo sejam atualizadas corretamente. A realização de uma reinicialização forçará nosso serviço a reavaliar todos os grupos e atualizar as associações.  
 
 > [!NOTE]
 > Para saber mais sobre o ponto de extremidade do SCIM do Zscaler Private Access, veja [isto](https://www.zscaler.com/partners/microsoft).

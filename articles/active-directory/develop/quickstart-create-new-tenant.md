@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: f43cb80a148f5dadb409f506f237cb1210a2000a
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575972"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97933992"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um locatário
 
@@ -55,7 +55,7 @@ Muitos desenvolvedores já contam com locatários por meio de serviços ou assin
 > [!TIP]
 > Se você precisar localizar a ID do locatário:
 > * Passe o mouse sobre o nome da sua conta para obter o diretório ou a ID do locatário ou
-> * Selecione **Azure Active Directory > Propriedades > ID do diretório** no portal do Azure
+> * Pesquise e selecione **Azure Active Directory > Propriedades > ID do Locatário** no portal do Azure
 
 Se não houver um locatário existente associado à sua conta, você verá um GUID abaixo do nome da conta e só poderá executar ações, como registrar aplicativos, depois de seguir as etapas da próxima seção.
 

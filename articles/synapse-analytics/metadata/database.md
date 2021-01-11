@@ -10,18 +10,18 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14ae8b8670db53761d085bc019711e829633601b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93602e522338166abac98c3e4a198e1aff392d21
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451807"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97934961"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Banco de dados compartilhado do Azure Synapse Analytics
 
-O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas entre os pools do Apache Spark sem servidor e o mecanismo do pool de SQL sem servidor.
+O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do workspace compartilhem bancos de dados e tabelas. Atualmente, os bancos de dados e as tabelas Parquet criadas nos pools do Apache Spark são compartilhados automaticamente com o mecanismo de pool de SQL sem servidor.
 
-Um banco de dados criado com um trabalho do Spark ficará visível com esse mesmo nome para todos os pools do Spark, atuais e futuros, no workspace, incluindo o mecanismo do pool de SQL sem servidor.
+Um banco de dados criado com um trabalho do Spark ficará visível com esse mesmo nome para todos os pools do Spark, atuais e futuros, no workspace, incluindo o mecanismo do pool de SQL sem servidor. Você não pode adicionar objetos personalizados (tabelas externas, exibições, procedimentos) diretamente neste banco de dados replicado usando o pool de SQL sem servidor.
 
 O banco de dados padrão do Spark, chamado `default`, também ficará visível no contexto do pool de SQL sem servidor como um banco de dados chamado `default`.
 

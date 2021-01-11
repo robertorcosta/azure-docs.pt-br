@@ -9,12 +9,12 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3cea28fa278bb699a7fb5aaa0c79bf1e71f59ac1
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e3570a716eccf131cf19192454bfbc1008a6306e
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940488"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935029"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Início Rápido: Definir e recuperar uma chave do Azure Key Vault usando o Azure PowerShell
 
@@ -94,4 +94,4 @@ Neste início rápido, você criou um Key Vault e armazenou um certificado nele.
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
 - Confira a referência dos [cmdlets do Key Vault do Azure PowerShell](/powershell/module/az.keyvault/)
-- Examine as [Melhores práticas do Azure Key Vault](../general/best-practices.md)
+- Examine a [Visão geral de segurança do Key Vault](../general/security-overview.md)

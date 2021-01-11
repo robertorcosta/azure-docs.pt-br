@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3fe1b966b56142fd312850ac5d77839b7d9db434
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e451171859efc49753131b145642aec4864db45d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97706210"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015651"
 ---
 | Recurso | Basic | Standard | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "97706210"
 | Tamanho máximo da camada de imagem (GiB) | 200 | 200 | 200 |
 | ReadOps por minuto<sup>2, 3</sup> | 1,000 | 3\.000 | 10.000 |
 | WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
-| Mbps de largura de banda de download<sup>2</sup> | 30 | 60 | 100 |
-| Mbps de largura de banda de upload<sup>2</sup> | 10 | 20 | 50 |
+| Largura de banda para download <sup>2</sup> (Mbps) | 30 | 60 | 100 |
+| Largura de banda para upload <sup>2</sup> (Mbps) | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
 | Replicação geográfica | N/D | N/D | [Com suporte][geo-replication] |
 | Zonas de disponibilidade | N/D | N/D | [Visualização][zones] |
@@ -38,7 +38,7 @@ ms.locfileid: "97706210"
 | &bull; Repositórios por mapa de escopo | N/D | N/D | 500 |
 
 
-<sup>1</sup> Armazenamento incluído na taxa diária de cada camada. Para obter um armazenamento adicional, será cobrada uma taxa diária adicional por GiB, até o limite de armazenamento. Para obter informações de taxa, confira [Preço de Registro de Contêiner do Azure][pricing].
+<sup>1</sup> Armazenamento incluído na taxa diária de cada camada. Um armazenamento adicional pode ser usado a uma taxa diária adicional por GiB, até o limite de armazenamento de registro. Para obter informações de taxa, confira [Preço de Registro de Contêiner do Azure][pricing].
 
 <sup>2</sup>*ReadOps*, *WriteOps* e *Largura de Banda* são estimativas mínimas. O Registro de Contêiner do Azure se esforça para aprimorar o desempenho conforme os requisitos de uso.
 
