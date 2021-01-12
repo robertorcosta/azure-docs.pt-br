@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
-ms.openlocfilehash: faf50899e5897a8f06cf0e24166abd303d24b491
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 06a06d275ba6f5ded475ffd693ee61e7a72b9516
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011369"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127695"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Solucionar problemas comuns na API do Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -30,7 +30,7 @@ O artigo a seguir descreve erros comuns e soluções para implantações usando 
 | 13 | Não Autorizado | A solicitação não tem as permissões a serem concluídas. | Verifique se você definiu as permissões adequadas para o banco de dados e a coleção.  |
 | 16 | InvalidLength | A solicitação especificada tem um comprimento inválido. | Se você estiver usando a função explicar (), certifique-se de fornecer apenas uma operação. |
 | 26 | NamespaceNotFound | O banco de dados ou a coleção que está sendo referenciada na consulta não pode ser encontrada. | Verifique se o nome do banco de dados/coleção corresponde precisamente ao nome em sua consulta.|
-| 50 | ExceededTimeLimit | A solicitação excedeu o tempo limite de 60 segundos de execução. |  Pode haver muitas causas para esse erro. Uma das causas é quando a capacidade das unidades de solicitação atualmente alocadas não é suficiente para concluir a solicitação. Isso pode ser resolvido aumentando as unidades de solicitação da coleção ou do banco de dados. Em outros casos, esse erro pode ser solucionado por meio da divisão de uma solicitação grande em partes menores.|
+| 50 | ExceededTimeLimit | A solicitação excedeu o tempo limite de 60 segundos de execução. |  Pode haver muitas causas para esse erro. Uma das causas é quando a capacidade das unidades de solicitação atualmente alocadas não é suficiente para concluir a solicitação. Isso pode ser resolvido aumentando as unidades de solicitação da coleção ou do banco de dados. Em outros casos, esse erro pode ser solucionado por meio da divisão de uma solicitação grande em partes menores. Repetir uma operação de gravação que recebeu esse erro pode resultar em uma gravação duplicada.|
 | 61 | ShardKeyNotFound | O documento em sua solicitação não continha a chave de fragmentação da coleção (chave de partição de Azure Cosmos DB). | Verifique se a chave de fragmentação da coleção está sendo usada na solicitação.|
 | 66 | Imutável | A solicitação está tentando alterar um campo imutável | os campos "ID" são imutáveis. Certifique-se de que sua solicitação não tente atualizar esse campo. |
 | 67 | CannotCreateIndex | A solicitação para criar um índice não pode ser concluída. | Até 500 índices de campo único podem ser criados em um contêiner. Até oito campos podem ser incluídos em um índice composto (há suporte para índices compostos na versão 3.6 +). |
@@ -40,6 +40,7 @@ O artigo a seguir descreve erros comuns e soluções para implantações usando 
 | 16501 | ExceededMemoryLimit | Como um serviço multilocatário, a operação excedeu a alocação de memória do cliente. | Reduza o escopo da operação por meio de um critério de consulta mais restritivo ou entre em contato com o suporte no [Portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | 40324 | Nome do estágio de pipeline não reconhecido. | O nome do estágio em sua solicitação de pipeline de agregação não foi reconhecido. | Verifique se todos os nomes de pipeline de agregação são válidos em sua solicitação. |
 | - | Problemas de versão de fios do MongoDB | As versões mais antigas dos drivers do MongoDB não conseguem detectar o nome da conta do Azure Cosmos nas cadeias de conexão. | Acrescente *AppName = @**accountName** @* no final da API da sua Cosmos DB para a cadeia de conexão do MongoDB, em que ***accountName*** é o nome da sua conta de Cosmos DB. |
+| - | Problemas de rede do cliente do MongoDB (como exceções de soquete ou endOfStream)| Falha na solicitação de rede. Isso geralmente é causado por uma conexão TCP inativa que o cliente MongoDB está tentando usar. Os drivers do MongoDB geralmente utilizam o pool de conexões, o que resulta em uma conexão aleatória escolhida a partir do pool que está sendo usado para uma solicitação. Conexões inativas normalmente expiram no Azure Cosmos DB terminar após quatro minutos. | Você pode repetir essas solicitações com falha no código do aplicativo, alterar as configurações do cliente MongoDB (driver) para desmontar conexões TCP inativas antes da janela de tempo limite de quatro minutos ou definir as configurações de KeepAlive do sistema operacional para manter as conexões TCP em um estado ativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

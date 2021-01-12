@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 87fb7f0eb4017a39aca081f73de543a67400d4b5
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 5a9f6fa79da59425e4972dddd21ffdea15af73e7
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969054"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127899"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetria, propriedade e payloads de comando
 
@@ -187,6 +187,9 @@ O trecho a seguir de um modelo de dispositivo mostra a definição de um `geopoi
   "schema": "geopoint"
 }
 ```
+
+> [!NOTE]
+> O tipo de esquema de **ponto** não faz parte da [especificação da linguagem de definição de gêmeos digital](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). O IoT Central atualmente dá suporte ao tipo de esquema **geopoint** e ao tipo semântico de **localização** para compatibilidade com versões anteriores.
 
 Um cliente de dispositivo deve enviar a telemetria como JSON semelhante ao exemplo a seguir. IoT Central exibe o valor como um PIN em um mapa:
 
@@ -575,6 +578,9 @@ O trecho a seguir de um modelo de dispositivo mostra a definição de um `geopoi
   "writable": false
 }
 ```
+
+> [!NOTE]
+> O tipo de esquema de **ponto** não faz parte da [especificação da linguagem de definição de gêmeos digital](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). O IoT Central atualmente dá suporte ao tipo de esquema **geopoint** e ao tipo semântico de **localização** para compatibilidade com versões anteriores.
 
 Um cliente de dispositivo deve enviar uma carga JSON parecida com o exemplo a seguir como uma propriedade relatada no dispositivo "r".
 

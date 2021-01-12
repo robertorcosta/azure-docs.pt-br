@@ -8,18 +8,24 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566360"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127882"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Métricas e logs de WAN virtual do Azure
 
-Você pode monitorar a WAN virtual do Azure usando o Azure Monitor. A WAN virtual é um serviço de rede que reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma única interface operacional. Gateways de VPN de WAN virtual, gateways de ExpressRoute e firewall do Azure têm registro em log e métricas disponíveis por meio de Azure Monitor. Para obter informações sobre o Firewall do Azure, consulte [métricas e logs de firewall do Azure](../firewall/logs-and-metrics.md).
+Você pode monitorar a WAN virtual do Azure usando o Azure Monitor. A WAN virtual é um serviço de rede que reúne muitas funcionalidades de rede, segurança e roteamento para fornecer uma única interface operacional. Gateways de VPN de WAN virtual, gateways de ExpressRoute e firewall do Azure têm registro em log e métricas disponíveis por meio de Azure Monitor.
 
 Este artigo discute métricas e diagnósticos que estão disponíveis por meio do Portal. As métricas são leves e podem dar suporte a cenários quase em tempo real, tornando-as úteis para alertas e detecção rápida de problemas.
+
+## <a name="monitoring-secured-hub-azure-firewall"></a>Monitorando o Hub protegido (firewall do Azure) 
+
+Você pode monitorar o Hub protegido usando os logs de firewall do Azure. Você também pode usar os logs de atividades para auditar operações nos recursos do Firewall do Azure.
+
+Se você optou por proteger seu hub virtual usando o Firewall do Azure, os logs e as métricas relevantes estão disponíveis aqui: [logs e métricas de firewall do Azure](../firewall/logs-and-metrics.md).
 
 ## <a name="metrics"></a>Métricas
 
@@ -109,7 +115,7 @@ Os logs estão localizados no **espaço de trabalho log Analytics do Azure**. Vo
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
-Substitua os valores abaixo, após o **= =** , conforme necessário.
+Substitua os valores abaixo, após o **= =**, conforme necessário.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
@@ -119,7 +125,7 @@ Substitua os valores abaixo, após o **= =** , conforme necessário.
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>Logs de atividade
 
-As entradas do **log de atividades** são coletadas por padrão e podem ser exibidas no portal do Azure. Você pode usar os logs de atividades do Azure (anteriormente conhecidos como logs *operacionais* e *logs de auditoria* ) para exibir todas as operações enviadas à sua assinatura do Azure.
+As entradas do **log de atividades** são coletadas por padrão e podem ser exibidas no portal do Azure. Você pode usar os logs de atividades do Azure (anteriormente conhecidos como logs *operacionais* e *logs de auditoria*) para exibir todas as operações enviadas à sua assinatura do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

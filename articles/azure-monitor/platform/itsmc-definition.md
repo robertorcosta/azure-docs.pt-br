@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: a7e39bb8ed742007a13a222771b430372d50e889
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 717a1bc4361ba4a7366f4864c1fe44f93b6f4b5e
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071690"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127848"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -153,7 +153,7 @@ Use o procedimento a seguir para criar grupos de ações:
 
     * Em um caso, você seleciona no "evento de lista suspensa" item de trabalho ": ![ captura de tela que mostra a janela de evento de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-        * Se você selecionar **"criar itens de trabalho individuais para cada entrada de log (o campo item de configuração não será preenchido. Pode resultar em um grande número de itens de trabalho.) "** na seleção de botões de opção, um item de trabalho será criado por cada linha nos resultados da pesquisa da consulta de alerta de pesquisa de logs. Na carga do item de trabalho, a propriedade Descrição terá a linha dos resultados da pesquisa.
+        * Se você selecionar **"criar itens de trabalho individuais para cada entrada de log (o campo item de configuração não será preenchido. Pode resultar em um grande número de itens de trabalho.) "** na seleção de botões de opção, um item de trabalho será criado por cada linha nos resultados da pesquisa da consulta de alerta de pesquisa de logs. A propriedade Description na carga do item de trabalho conterá a linha dos resultados da pesquisa.
         * Se você selecionar **"criar itens de trabalho individuais para cada item de configuração"** na seleção de botões de opção, cada item de configuração em cada alerta criará um novo item de trabalho. Pode haver mais de um item de trabalho por item de configuração no sistema ITSM. Isso será o mesmo que a marca de seleção na seção incidente/alerta.
 
 10. Selecione **OK**.

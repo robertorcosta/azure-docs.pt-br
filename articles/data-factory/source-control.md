@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: e839b8a22da50ce172043f57a4467219a1771175
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 27f14834e45dd32bdf3a26d22d38ab250aa1bcbe
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584181"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127729"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -25,6 +25,7 @@ Por padrão, a UX (experiência de interface do usuário) do Azure Data Factory 
 
 - O serviço de Data Factory não inclui um repositório para armazenar as entidades JSON para as alterações. A única maneira de salvar as alterações é por meio do botão **Publicar Tudo**, e todas as alterações são publicadas diretamente no serviço de Data Factory.
 - O serviço de Data Factory não está otimizado para colaboração e controle de versão.
+- O modelo de Azure Resource Manager necessário para implantar Data Factory em si não é incluído.
 
 Para fornecer uma experiência de criação melhor, o Azure Data Factory permite que você configure um repositório Git com o Azure Repos ou o GitHub. O Git é um sistema de controle de versão que facilita o controle de alterações e a colaboração. Este artigo descreverá como configurar e trabalhar em um repositório git juntamente com as práticas recomendadas de realce e um guia de solução de problemas.
 
@@ -186,7 +187,7 @@ Se você já se conectou ao GitHub e concedeu apenas permissão para acessar uma
 
 1. Selecione o aplicativo e conceda o acesso do aplicativo à sua organização.
 
-    ![Conceder acesso](media/author-visually/github-organization-grant.png)
+    ![Permitir acesso](media/author-visually/github-organization-grant.png)
 
 Depois de seguir essas etapas, sua fábrica poderá se conectar a repositórios públicos e privados em sua organização. 
 

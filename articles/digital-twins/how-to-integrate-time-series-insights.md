@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22ee57592af838a236d75fa7f56a0c8e1ed89403
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046509"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127018"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrar o gêmeos digital do Azure ao Azure Time Series Insights
 
@@ -84,13 +84,13 @@ O tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*
 
 Antes de prosseguir, anote o seu *namespace de hubs de eventos* e o grupo de *recursos*, pois você irá usá-los novamente para criar outro hub de eventos posteriormente neste artigo.
 
-## <a name="create-an-azure-function"></a>Criar uma função do Azure 
+## <a name="create-a-function-in-azure"></a>Criar uma função no Azure
 
-Em seguida, você criará uma função disparada por hubs de eventos dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)) ou seu próprio. 
+Em seguida, você usará Azure Functions para criar uma função disparada por hubs de eventos dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)) ou seu próprio. 
 
 Essa função converterá esses eventos de atualização de alto% do formulário original como documentos de patch JSON em objetos JSON, contendo apenas valores atualizados e adicionados de seu gêmeos.
 
-Para obter mais informações sobre como usar hubs de eventos com o Azure functions, consulte [*gatilho de hubs de eventos do Azure para Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+Para obter mais informações sobre como usar os hubs de eventos com Azure Functions, consulte [*gatilho de hubs de eventos do Azure para Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
 Dentro de seu aplicativo de funções publicado, substitua o código de função pelo código a seguir.
 

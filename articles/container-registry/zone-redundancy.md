@@ -1,20 +1,20 @@
 ---
 title: Registro com redundância de zona para alta disponibilidade
-description: Saiba como habilitar a redundância de zona no registro de contêiner do Azure criando um registro de contêiner ou replicação em uma zona de disponibilidade do Azure. A redundância de zona é um recurso da camada de serviço Premium.
+description: Saiba como habilitar a redundância de zona no registro de contêiner do Azure. Crie um registro de contêiner ou replicação em uma zona de disponibilidade do Azure. A redundância de zona é um recurso da camada de serviço Premium.
 ms.topic: article
-ms.date: 12/11/2020
-ms.openlocfilehash: 1553beef47a3d493f066e47cd39751093d83fc24
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.date: 01/07/2021
+ms.openlocfilehash: 8c03b2bb093f8d0fa70ff5132f7448ce86e8779d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803503"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127338"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Habilitar a redundância de zona no registro de contêiner do Azure para resiliência e alta disponibilidade
 
 Além da [replicação geográfica](container-registry-geo-replication.md), que replica os dados do registro em uma ou mais regiões do Azure para fornecer disponibilidade e reduzir a latência para operações regionais, o registro de contêiner do Azure dá suporte à *redundância de zona* opcional. A [redundância de zona](../availability-zones/az-overview.md#availability-zones) fornece resiliência e alta disponibilidade a um registro ou a um recurso de replicação (réplica) em uma região específica.
 
-Este artigo mostra como configurar um registro de contêiner com redundância de zona ou uma réplica com redundância de zona usando o portal do Azure ou um modelo de Azure Resource Manager. 
+Este artigo mostra como configurar uma réplica ou um registro de contêiner com redundância de zona usando o modelo CLI do Azure, portal do Azure ou Azure Resource Manager. 
 
 A redundância de zona é um recurso de **Visualização** da camada de serviço do registro de contêiner Premium. Para saber mais sobre os limites e as camadas de serviço do registro, confira [Camadas de serviço do Registro de Contêiner do Azure](container-registry-skus.md).
 
@@ -24,7 +24,6 @@ A redundância de zona é um recurso de **Visualização** da camada de serviço
 * Atualmente, não há suporte para conversões de região para zonas de disponibilidade. Para habilitar o suporte à zona de disponibilidade em uma região, o registro deve ser criado na região desejada, com o suporte à zona de disponibilidade habilitado, ou uma região replicada deve ser adicionada com o suporte à zona de disponibilidade habilitado.
 * A redundância de zona não pode ser desabilitada em uma região.
 * [As tarefas ACR](container-registry-tasks-overview.md) ainda não dão suporte a zonas de disponibilidade.
-* Atualmente com suporte por meio de modelos de Azure Resource Manager ou portal do Azure. CLI do Azure suporte será habilitado em uma versão futura.
 
 ## <a name="about-zone-redundancy"></a>Sobre a redundância de zona
 
@@ -33,6 +32,61 @@ Use as [zonas de disponibilidade](../availability-zones/az-overview.md) do Azure
 O registro de contêiner do Azure também dá suporte à [replicação geográfica](container-registry-geo-replication.md), que Replica o serviço em várias regiões, permitindo a redundância e a localidade para computar recursos em outros locais. A combinação de zonas de disponibilidade para redundância em uma região e replicação geográfica em várias regiões aumenta a confiabilidade e o desempenho de um registro.
 
 As zonas de disponibilidade são locais físicos exclusivos em uma região do Azure. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Cada zona tem um ou mais data centers equipados com energia, resfriamento e rede independentes. Quando configurado para redundância de zona, um registro (ou uma réplica de registro em uma região diferente) é replicado em todas as zonas de disponibilidade na região, mantendo-a disponível se houver falhas no datacenter.
+
+## <a name="create-a-zone-redundant-registry---cli"></a>Criar um registro com redundância de zona-CLI
+
+Para usar o CLI do Azure para habilitar a redundância de zona, é necessário CLI do Azure versão 2.17.0 ou posterior ou Azure Cloud Shell. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+
+### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+Se necessário, execute o comando [AZ Group Create](/cli/az/group#az_group_create) para criar um grupo de recursos para o registro.
+
+```azurecli
+az group create --name <resource-group-name> --location <location>
+```
+
+### <a name="create-zone-enabled-registry"></a>Criar registro habilitado para zona
+
+Execute o comando [AZ ACR Create](/cli/az/acr#az_acr_create) para criar um registro com redundância de zona na camada de serviço Premium. Escolha uma região que [ofereça suporte a zonas de disponibilidade](../availability-zones/az-region.md) para o registro de contêiner do Azure. No exemplo a seguir, a redundância de zona está habilitada na região *lesteus* . Consulte a `az acr create` ajuda do comando para obter mais opções de registro.
+
+```azurecli
+az acr create \
+  --resource-group <resource-group-name> \
+  --name <container-registry-name> \
+  --location eastus \
+  --zone-redundancy enabled \
+  --sku Premium
+```
+
+Na saída do comando, observe a `zoneRedundancy` Propriedade do registro. Quando habilitado, o registro tem redundância de zona:
+
+```JSON
+{
+ [...]
+"zoneRedundancy": "Enabled",
+}
+```
+
+### <a name="create-zone-redundant-replication"></a>Criar replicação com redundância de zona
+
+Execute o comando [AZ ACR Replication Create](/cli/az/acr/replication#az_acr_replication_create) para criar uma réplica de registro com redundância de zona em uma região que [dá suporte a zonas de disponibilidade](../availability-zones/az-region.md) para o registro de contêiner do Azure, como *westus2*. 
+
+```azurecli
+az acr replication create \
+  --location westus2 \
+  --resource-group <resource-group-name> \
+  --registry <container-registry-name> \
+  --zone-redundancy enabled
+```
+ 
+Na saída do comando, observe a `zoneRedundancy` propriedade da réplica. Quando habilitado, a réplica tem redundância de zona:
+
+```JSON
+{
+ [...]
+"zoneRedundancy": "Enabled",
+}
+```
 
 ## <a name="create-a-zone-redundant-registry---portal"></a>Criar um registro com redundância de zona-Portal
 
@@ -50,22 +104,24 @@ As zonas de disponibilidade são locais físicos exclusivos em uma região do Az
 Para criar uma replicação com redundância de zona:
 
 1. Navegue até o registro de contêiner da camada Premium e selecione **replicações**.
-1. No mapa que aparece, selecione um hexágono verde em uma região que ofereça suporte à redundância de zona para o registro de contêiner do Azure, como **oeste dos EUA 2**. Em seguida, selecione **Criar**.
-1. Na janela **criar replicação** , em **zonas de disponibilidade**, selecione **habilitado** e, em seguida, selecione **criar**.
+1. No mapa que aparece, selecione um hexágono verde em uma região que ofereça suporte à redundância de zona para o registro de contêiner do Azure, como **oeste dos EUA 2**. Ou selecione **+ Adicionar**.
+1. Na janela **criar replicação** , confirme o **local**. Em **zonas de disponibilidade**, selecione **habilitado** e, em seguida, selecione **criar**.
+
+    :::image type="content" source="media/zone-redundancy/enable-availability-zones-replication-portal.png" alt-text="Habilitar a replicação com redundância de zona no portal do Azure":::
 
 ## <a name="create-a-zone-redundant-registry---template"></a>Criar um modelo de registro com redundância de zona
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Se necessário, execute o comando [AZ Group Create](/cli/azure/group) para criar um grupo de recursos para o registro em uma região que [dê suporte a zonas de disponibilidade](../availability-zones/az-region.md) para o registro de contêiner do Azure, como *eastus*.
+Se necessário, execute o comando [AZ Group Create](/cli/az/group#az_group_create) para criar um grupo de recursos para o registro em uma região que [dê suporte a zonas de disponibilidade](../availability-zones/az-region.md) para o registro de contêiner do Azure, como *eastus*. Essa região é usada pelo modelo para definir o local do registro.
 
 ```azurecli
-az group create --name <resource-group-name> --location <location>
+az group create --name <resource-group-name> --location eastus
 ```
 
 ### <a name="deploy-the-template"></a>Implantar o modelo 
 
-Você pode usar o seguinte modelo do Resource Manager para criar um registro replicado geograficamente com redundância de zona. Por padrão, o modelo habilita a redundância de zona no registro e uma réplica regional adicional. 
+Você pode usar o seguinte modelo do Resource Manager para criar um registro replicado geograficamente com redundância de zona. Por padrão, o modelo habilita a redundância de zona no registro e uma réplica regional. 
 
 Copie o conteúdo a seguir em um novo arquivo e salve-o usando um nome de arquivo como `registryZone.json`.
 
@@ -163,7 +219,7 @@ Copie o conteúdo a seguir em um novo arquivo e salve-o usando um nome de arquiv
   }
 ```
 
-Execute o comando [AZ Deployment Group Create](/cli/azure/deployment?view=azure-cli-latest) a seguir para criar o registro usando o arquivo de modelo anterior. Quando indicado, forneça:
+Execute o comando [AZ Deployment Group Create](/cli/az/deployment#az_group_deployment_create) a seguir para criar o registro usando o arquivo de modelo anterior. Quando indicado, forneça:
 
 * um nome de registro exclusivo ou implantar o modelo sem parâmetros e ele criará um nome exclusivo para você
 * um local para a réplica que dá suporte a zonas de disponibilidade, como *westus2*

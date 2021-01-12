@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 07562167131d1839bc0827c74fae09c683302c08
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6c1f323828eb48b61b38370bc2fe56d4c93bf036
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118601"
+ms.locfileid: "98127202"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -126,10 +126,10 @@ Essas configurações podem ser atualizadas no Key Vault por meio da CLI e do Po
 ## <a name="create-cluster"></a>Criar cluster
 
 > [!NOTE]
-> Os clusters dão suporte a dois [tipos de identidade gerenciados](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), atribuídos pelo sistema e atribuídos pelo usuário, que podem ser usados com base em seu cenário. A identidade gerenciada atribuída pelo sistema é mais simples e criada automaticamente com a criação do cluster quando você define a identidade `type` como `SystemAssigned` --essa identidade pode ser usada posteriormente para conceder acesso ao seu Key Vault. Se você precisar criar um cluster com a configuração de chave gerenciada pelo cliente durante a criação, deverá ter uma identidade definida pelo usuário e uma chave concedida no seu Key Vault antecipadamente, em seguida, crie o cluster com `type` a identidade como `UserAssigned` , `UserAssignedIdentities` com a ID de recurso dos detalhes de identidade e chave no `keyVaultProperties` .
+> Os clusters dão suporte a dois [tipos de identidade gerenciados](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): atribuídos pelo sistema e atribuídos pelo usuário e cada um pode ser baseado, dependendo do seu cenário. A identidade gerenciada atribuída pelo sistema é mais simples e criada automaticamente com a criação do cluster quando a identidade `type` é definida como "*SystemAssigned*"--essa identidade pode ser usada posteriormente para conceder ao cluster acesso ao seu Key Vault. Se você quiser criar um cluster enquanto a chave gerenciada pelo cliente for definida no momento da criação do cluster, deverá ter uma identidade definida pelo usuário e uma chave concedida no seu Key Vault antecipadamente, em seguida, crie o cluster com essas configurações: Identity `type` como "*userassigned*", `UserAssignedIdentities` com a ID de recurso da identidade e `keyVaultProperties` com os detalhes da chave.
 
 > [!IMPORTANT]
-> No momento, não é possível definir a chave gerenciada pelo cliente com identidade gerenciada atribuída pelo usuário se o Key Vault estiver localizado em Private-Link (vNet). Essa limitação não é aplicada à identidade gerenciada atribuída pelo sistema.
+> No momento, não é possível definir a chave gerenciada pelo cliente com identidade gerenciada atribuída pelo usuário se o Key Vault estiver localizado em Private-Link (vNet) e você pode usar a identidade gerenciada atribuída pelo sistema nesse caso.
 
 Siga o artigo procedimento ilustrado no [clusters dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -416,7 +416,7 @@ Customer-Managed chave é fornecida no cluster dedicado e essas operações são
 
   - Se o cluster estiver definido com identidade gerenciada atribuída pelo usuário, a configuração `UserAssignedIdentities` com `None` suspende o cluster e impede o acesso aos seus dados, mas você não pode reverter a revogação e ativar o cluster sem abrir a solicitação de suporte. Essa limitação não é aplicada à identidade gerenciada atribuída pelo sistema.
 
-  - No momento, não é possível definir a chave gerenciada pelo cliente com identidade gerenciada atribuída pelo usuário se o Key Vault estiver localizado em Private-Link (vNet). Essa limitação não é aplicada à identidade gerenciada atribuída pelo sistema.
+  - No momento, não é possível definir a chave gerenciada pelo cliente com identidade gerenciada atribuída pelo usuário se o Key Vault estiver localizado em Private-Link (vNet) e você pode usar a identidade gerenciada atribuída pelo sistema nesse caso.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

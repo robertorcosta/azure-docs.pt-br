@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 34d8881eb072c4c723bf68b7c6ccfd24ab19cd3c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116272"
+ms.locfileid: "98126845"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -71,7 +71,7 @@ Ao integrar o defender for Endpoint à central de segurança, você se beneficia
 
 Quando você usa a central de segurança do Azure para monitorar seus servidores, um locatário do Microsoft defender para ponto de extremidade é criado automaticamente. Os dados coletados pelo defender para ponto de extremidade são armazenados na localização geográfica do locatário, conforme identificado durante o provisionamento. Dados do cliente – no formulário pseudônimos – também podem ser armazenados no armazenamento central e nos sistemas de processamento no Estados Unidos. 
 
-Depois de configurar o local, você não poderá alterá-lo. Se você precisar mover seus dados para outro local, entre em contato com Suporte da Microsoft para redefinir o locatário.
+Depois de configurar o local, você não poderá alterá-lo. Se você tiver sua própria licença para o Microsoft defender para ponto de extremidade e precisar mover seus dados para outro local, entre em contato com Suporte da Microsoft para redefinir o locatário.
 
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Habilitando a integração do Microsoft defender para ponto de extremidade
