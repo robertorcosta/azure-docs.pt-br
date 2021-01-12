@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c0fa7a6e676e1b888bc13e0fa4cb42e93b2e71
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 412a987e0a93f7b69250450b8367a37bd3682925
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802840"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115694"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -107,8 +107,6 @@ Agora você pode automatizar a criação, a atualização e a exclusão de conta
 Para obter mais informações para proteger melhor sua organização com o provisionamento automatizado de contas de usuário, consulte [Automatizar o provisionamento de usuário para aplicativos SaaS com o Azure Active Directory](../app-provisioning/user-provisioning.md).
  
 ---
- 
-[1233182](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1233182&triage=true&fullScreen=false&_a=edit)
 
 ### <a name="new-federated-apps-available-in-azure-ad-application-gallery---december-2020"></a>Novos aplicativos federados disponíveis na Galeria de aplicativos do Azure AD – dezembro de 2020
 
@@ -123,6 +121,29 @@ Em dezembro de 2020, adicionamos 18 novos aplicativos em nossa galeria de aplica
 Você também pode encontrar a documentação de todos os aplicativos aqui https://aka.ms/AppsTutorial
 
 Para listar seu aplicativo na Galeria de aplicativos do Azure AD, leia os detalhes aqui https://aka.ms/AzureADAppRequest
+
+---
+
+### <a name="navigate-to-teams-directly-from-my-access-portal"></a>Navegar para equipes diretamente do meu portal de acesso
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** **Capacidade do produto** de gerenciamento de acesso do usuário: gerenciamento de direitos
+
+Agora você pode iniciar equipes diretamente do meu portal do Access. Para fazer isso, entre no [meu acesso](https://myaccess.microsoft.com/), navegue até pacotes de **acesso** e, em seguida, vá para a guia **ativo** para ver todos os pacotes de acesso aos quais você já tem acesso. Quando você expande o pacote do Access e passa o mouse sobre uma equipe, você pode iniciá-lo clicando no botão **abrir** . 
+
+Para saber mais sobre como usar o meu portal de acesso, acesse [solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure ad](../governance/entitlement-management-request-access.md#sign-in-to-the-my-access-portal).
+
+---
+
+### <a name="public-preview---second-level-manager-can-be-set-as-alternate-approver"></a>Visualização pública-o Gerenciador de segundo nível pode ser definido como Aprovador alternativo
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** Gerenciamento de acesso do usuário  
+**Funcionalidade do produto:** Gerenciamento de direitos
+
+Uma opção adicional agora está disponível no processo de aprovação no gerenciamento de direitos. Se você selecionar gerente como Aprovador para o primeiro aprovador, terá uma opção adicional, gerente de segundo nível como Aprovador alternativo, disponível para escolher no campo aprovador alternativo. Se você selecionar essa opção, será necessário adicionar um Aprovador de fallback para encaminhar a solicitação para, caso o sistema não possa encontrar o gerente de segundo nível.
+
+Para obter mais informações, vá para [alterar as configurações de aprovação de um pacote do Access no gerenciamento de direitos do Azure ad](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
 
 --- 
 
@@ -502,7 +523,7 @@ Os recursos de detecção de risco e acesso condicional com base em risco do Ide
  
 Em outubro de 2020, adicionamos os seguintes 27 novos aplicativos em nossa galeria de aplicativos com suporte à Federação:
 
-[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee-Productivity superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture Cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [integração de nuvem do Genesys para o Azure](https://apps.mypurecloud.com/msteams-integration/), [portal de tecnologias de zona](https://portail.zonetechnologie.com/signin), [Beautiful.ai](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access Broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [Ecochallenge.org](https://events.ecochallenge.org/users/login), [atSpoke](http://atspoke.com/login), [lembrete de compromisso](https://app.appointmentreminder.co.nz/account/login), [Cloud. Market](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [saudação](https://app.greetly.com/), [OrgVitality SSO} (.. /SaaS-apps/orgvitality-SSO-tutorial.MD), [carga de ar da Web](../saas-apps/web-cargo-air-tutorial.md), [CRM de fluxo de loop](../saas-apps/loop-flow-crm-tutorial.md), [Starmind](../saas-apps/starmind-tutorial.md), [Workstem](https://hrm.workstem.com/login), [varejo zipline](../saas-apps/retail-zipline-tutorial.md), [Hoxhunt](../saas-apps/hoxhunt-tutorial.md), [MEVISIO](../saas-apps/mevisio-tutorial.md), [samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Gerenciador de tráfego virtual seguro do Pulse](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
+[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee-Productivity superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture Cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [integração de nuvem Genesys para Azure](https://apps.mypurecloud.com/msteams-integration/), [portal de tecnologias de zona](https://portail.zonetechnologie.com/signin), [Beautiful.ai](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access Broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [Ecochallenge.org](https://events.ecochallenge.org/users/login), [atSpoke](http://atspoke.com/login), [lembrete de compromissos](https://app.appointmentreminder.co.nz/account/login), [Cloud. Market](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [saudação](https://app.greetly.com/), OrgVitality [SSO](../saas-apps/orgvitality-sso-tutorial.md), [Web de carga aérea](../saas-apps/web-cargo-air-tutorial.md), fluxo de [tráfego virtual](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md) de [circuito](../saas-apps/loop-flow-crm-tutorial.md), [Starmind](../saas-apps/starmind-tutorial.md), [](../saas-apps/samsara-tutorial.md) [Workstem](https://hrm.workstem.com/login), zipline de [varejo](../saas-apps/retail-zipline-tutorial.md) [, Hoxhunt,](../saas-apps/hoxhunt-tutorial.md) [MEVISIO, samsara](../saas-apps/mevisio-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), Gerenciador de
 
 Você também pode encontrar a documentação de todos os aplicativos aqui https://aka.ms/AppsTutorial
 

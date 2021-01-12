@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e3daf89b80daf47049150b05ca392eede360bd3e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673409"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117683"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacidade para o pool de SQL dedicado no Azure Synapse Analytics
 
@@ -43,7 +43,7 @@ Valores máximos permitidos para vários componentes do pool SQL dedicado no Azu
 | Tabela |Tabelas por banco de dados | 100.000 |
 | Tabela |Colunas por tabela |1024 colunas |
 | Tabela |Bytes por coluna |Dependente do [tipo de dados](sql-data-warehouse-tables-data-types.md) da coluna. O limite é de 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados MAX. |
-| Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página. Assim como SQL Server, o armazenamento de estouro de linha tem suporte, o que permite que **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são colocadas para fora da linha, apenas a raiz de 24 bytes é armazenada no registro principal. Para obter mais informações, consulte [dados de estouro de linha excedendo 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Tabela |Bytes por linha, tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma maneira que no SQL Server, com a compactação de página. Assim como SQL Server, o armazenamento de estouro de linha tem suporte, o que permite que **colunas de comprimento variável** sejam empurradas para fora da linha. Quando as linhas de comprimento variável são colocadas para fora da linha, apenas a raiz de 24 bytes é armazenada no registro principal. Para obter mais informações, consulte [dados de estouro de linha excedendo 8 KB](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)). |
 | Tabela |Partições por tabela |15,000<br/><br/>Para alto desempenho, recomendamos minimizar o número de partições necessárias e, ao mesmo tempo, dar suporte aos seus requisitos de negócios. À medida que o número de partições aumenta, a sobrecarga de operações de DDL (Linguagem de Definição de Dados) e DML (Linguagem de Manipulação de Dados) também aumenta e faz com que o desempenho fique mais lento. |
 | Tabela |Caracteres por valor de limite de partição. |4000 |
 | Índice |Índices não clusterizados por tabela. |50<br/><br/>Aplica-se somente a tabelas rowstore. |
@@ -54,7 +54,7 @@ Valores máximos permitidos para vários componentes do pool SQL dedicado no Azu
 | Estatísticas |As colunas por objeto de estatísticas. |32 |
 | Estatísticas |As estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos armazenados |Os níveis máximos de aninhamento. |8 |
-| Visualizar |Colunas por exibição |1\.024 |
+| Exibir |Colunas por exibição |1\.024 |
 ||||
 
 ## <a name="loads"></a>Cargas
@@ -79,7 +79,7 @@ Valores máximos permitidos para vários componentes do pool SQL dedicado no Azu
 | SELECT |Bytes por colunas GROUP BY. |8060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes. |
 | SELECT |Bytes por colunas ORDER BY |8060 bytes<br/><br/>As colunas na cláusula ORDER BY podem ter, no máximo, 8060 bytes |
 | Identificadores por instrução |Número de identificadores referenciados |65.535<br/><br/> O número de identificadores que podem estar contidos em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server. Para obter mais informações, veja [Erro interno: foi atingido o limite de serviços de uma expressão](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
-| Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20.000 <br/><br/>O número de constantes de cadeia de caracteres em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server.|
+| Literais de cadeia de caracteres | Número de literais de cadeia de caracteres em uma instrução | 20,000 <br/><br/>O número de constantes de cadeia de caracteres em uma única expressão de uma consulta é limitado. Exceder esse número resulta no erro 8632 do SQL Server.|
 ||||
 
 ## <a name="metadata"></a>Metadados

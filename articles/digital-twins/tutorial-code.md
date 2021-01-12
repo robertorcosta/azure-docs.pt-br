@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 22600f6519a44e71ae5c4b59b0165401b54e55fd
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: fd958c09a14334d8230e52413c590febb2148851
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964534"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98048939"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs dos Gêmeos Digitais do Azure
 
@@ -57,9 +57,9 @@ Isso criará vários arquivos dentro do diretório, incluindo um chamado *Progra
 
 Mantenha a janela Comando aberta, pois você continuará usando-a em todo o tutorial.
 
-Depois, **adicione duas dependências ao seu projeto**, que serão necessárias para trabalhar com os Gêmeos Digitais do Azure. Você pode usar os links abaixo para navegar até os pacotes no NuGet, onde encontrará os comandos de console (inclusive da CLI do .NET) para adicionar cada um ao seu projeto.
-* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este é o pacote para o [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). Adicione a última versão.
-* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Esta biblioteca fornece ferramentas para ajudar com a autenticação no Azure. Adicionar versão 1.2.2.
+Depois, **adicione duas dependências ao seu projeto**, que serão necessárias para trabalhar com os Gêmeos Digitais do Azure. Você pode usar os links abaixo para navegar até os pacotes no NuGet, onde encontrará os comandos de console (inclusive da CLI do .NET) para adicionar a versão mais recente de cada um ao seu projeto.
+* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este é o pacote para o [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Esta biblioteca fornece ferramentas para ajudar com a autenticação no Azure.
 
 ## <a name="get-started-with-project-code"></a>Introdução ao código do projeto
 
@@ -73,29 +73,19 @@ Nesta seção, você começará a escrever o código do novo projeto de aplicati
 
 Também há uma seção que mostra o código completo no final do tutorial. Use isso como uma referência para verificar seu programa durante as etapas.
 
-Para começar, abra o arquivo *Program.cs* em qualquer editor de códigos. Você verá um modelo de código mínimo parecido com este:
+Para começar, abra o arquivo *Program.cs* em qualquer editor de códigos. Você verá um modelo com o mínimo de código que terá a seguinte aparência:
 
-```csharp
-using System;
-
-namespace DigitalTwinsCodeTutorial
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
-```
+:::row:::
+    :::column:::
+        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="Um snippet de código de exemplo. Há uma instrução 'using System;', um namespace chamado DigitalTwinsCodeTutorial; uma classe no namespace chamada Program; e um método Main na classe com uma assinatura padrão de 'static void MainMain(string[] args)'. O método main contém uma instrução print Olá, Mundo." lightbox="media/tutorial-code/starter-template.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 Primeiro, adicione algumas linhas `using` à parte superior do código para extrair as dependências necessárias.
 
-```csharp
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Azure_Digital_Twins_dependencies":::
 
 Em seguida, você adicionará o código a esse arquivo para preencher algumas funcionalidades. 
 
@@ -107,12 +97,7 @@ Para se autenticar, você precisa de *hostName* da instância dos Gêmeos Digita
 
 Em *Program.cs*, cole o código a seguir abaixo da linha de cópia impressa "Olá, mundo!" no método `Main`. Defina o valor de `adtInstanceUrl` como o *hostName* da instância dos Gêmeos Digitais do Azure.
 
-```csharp
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
-var credential = new DefaultAzureCredential();
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-Console.WriteLine($"Service client created – ready to go");
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 
 Salve o arquivo. 
 
@@ -134,25 +119,7 @@ A primeira etapa na criação de uma solução dos Gêmeos Digitais do Azure é 
 
 No diretório em que você criou o projeto, crie um arquivo *.json* chamado *SampleModel.json*. Cole-o no corpo do seguinte arquivo: 
 
-```json
-{
-  "@id": "dtmi:example:SampleModel;1",
-  "@type": "Interface",
-  "displayName": "SampleModel",
-  "contents": [
-    {
-      "@type": "Relationship",
-      "name": "contains"
-    },
-    {
-      "@type": "Property",
-      "name": "data",
-      "schema": "string"
-    }
-  ],
-  "@context": "dtmi:dtdl:context;2"
-}
-```
+:::code language="json" source="~/digital-twins-docs-samples/models/SampleModel.json":::
 
 > [!TIP]
 > Se você estiver usando o Visual Studio para este tutorial, o ideal será selecionar o arquivo JSON recém-criado e definir a propriedade *Copiar para o Diretório de Saída* na inspeção de propriedade como *Copiar se for o Mais Recente* ou *Sempre Copiar*. Isso permitirá que o Visual Studio localize o arquivo JSON com o caminho padrão quando você executar o programa com **F5** durante o restante do tutorial.
@@ -164,18 +131,11 @@ Em seguida, adicione mais um código a *Program.cs* para carregar o modelo recé
 
 Primeiro, adicione algumas instruções `using` à parte superior do arquivo:
 
-```csharp
-using System.Threading.Tasks;
-using System.IO;
-using System.Collections.Generic;
-using Azure;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Model_dependencies":::
 
 Em seguida, prepare-se para usar os métodos assíncronos no SDK do serviço C#, alterando a assinatura do método `Main` para permitir a execução assíncrona. 
 
-```csharp
-static async Task Main(string[] args)
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Async_signature":::
 
 > [!NOTE]
 > O uso de `async` não é estritamente necessário, pois o SDK também fornece versões síncronas de todas as chamadas. Este tutorial ensina o uso de `async`.
@@ -184,15 +144,7 @@ Em seguida, vem o primeiro trecho de código que interage com o serviço Gêmeos
 
 Cole o código a seguir no código de autorização adicionado anteriormente.
 
-```csharp
-Console.WriteLine();
-Console.WriteLine($"Upload a model");
-var typeList = new List<string>();
-string dtdl = File.ReadAllText("SampleModel.json");
-typeList.Add(dtdl);
-// Upload the model to the service
-await client.CreateModelsAsync(typeList);
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs":::
 
 Na janela Comando, execute o programa com este comando: 
 
@@ -203,15 +155,7 @@ dotnet run
 
 Para adicionar uma instrução de impressão mostrando todos os modelos que foram carregados com êxito na instância, adicione o seguinte código logo após a seção anterior:
 
-```csharp
-// Read a list of models back from the service
-Console.WriteLine("Models uploaded to the instance:");
-AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
-await foreach (DigitalTwinsModelData md in modelDataList)
-{
-    Console.WriteLine($"{md.Id}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Print_model":::
 
 **Antes de executar o programa novamente para testar esse novo código**, lembre-se de que na última vez que você executou o programa, você já tinha carregado o modelo. Os Gêmeos Digitais do Azure não permitem que você carregue o mesmo modelo duas vezes. Sendo assim, se você tentar carregar o mesmo modelo novamente, o programa deverá lançar uma exceção.
 
@@ -229,13 +173,7 @@ A próxima seção aborda exceções como essa e como tratá-las no código.
 
 Para impedir a falha do programa, adicione um código de exceção ao código de upload do modelo. Encapsule a chamada de cliente existente `await client.CreateModelsAsync(typeList)` em um manipulador try/catch desta forma:
 
-```csharp
-try {
-    await client.CreateModelsAsync(typeList);
-} catch (RequestFailedException rex) {
-    Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Model_try_catch":::
 
 Se você executar o programa com `dotnet run` na janela Comando agora, receberá um código de erro. A saída do código de criação do modelo mostra este erro:
 
@@ -249,23 +187,7 @@ Agora que você carregou um modelo nos Gêmeos Digitais do Azure, use essa defin
 
 Adicione o código a seguir ao final do método `Main` para criar e inicializar três gêmeos digitais com base nesse modelo.
 
-```csharp
-// Initialize twin data
-BasicDigitalTwin twinData = new BasicDigitalTwin();
-twinData.Metadata.ModelId = "dtmi:example:SampleModel;1";
-twinData.Contents.Add("data", $"Hello World!");
-
-string prefix="sampleTwin-";
-for(int i=0; i<3; i++) {
-    try {
-        twinData.Id = $"{prefix}{i}";
-        await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twinData.Id, twinData);
-        Console.WriteLine($"Created twin: {prefix}{i}");
-    } catch(RequestFailedException rex) {
-        Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Initialize_twins":::
 
 Na janela Comando, execute o programa com `dotnet run`. Na saída, procure as mensagens de impressão que indicam que *sampleTwin-0*, *sampleTwin-1* e *sampleTwin-2* foram criados. 
 
@@ -279,34 +201,11 @@ Em seguida, você pode criar **relações** entre os gêmeos criados para conect
 
 Adicione um **novo método estático** à classe `Program`, abaixo do método `Main` (o código agora tem dois métodos):
 
-```csharp
-public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
-{
-    var relationship = new BasicRelationship
-    {
-        TargetId = targetId,
-        Name = "contains"
-    };
-
-    try
-    {
-        string relId = $"{srcId}-contains->{targetId}";
-        await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
-        Console.WriteLine("Created relationship successfully");
-    }
-    catch (RequestFailedException rex) {
-        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Create_relationship":::
 
 Em seguida, adicione o seguinte código ao final do método `Main` para chamar o método `CreateRelationship` e usar o código que você acabou de escrever:
 
-```csharp
-// Connect the twins with relationships
-await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
-await CreateRelationship(client, "sampleTwin-0", "sampleTwin-2");
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Use_create_relationship":::
 
 Na janela Comando, execute o programa com `dotnet run`. Na saída, procure instruções de impressão indicando que as duas relações foram criadas com êxito.
 
@@ -318,32 +217,15 @@ O próximo código que você adicionará permite ver a lista de relações criad
 
 Adicione o seguinte **novo método** à classe `Program`:
 
-```csharp
-public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
-{
-    try {
-        AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
-        Console.WriteLine($"Twin {srcId} is connected to:");
-        await foreach (BasicRelationship rel in results)
-        {
-            Console.WriteLine($" -{rel.Name}->{rel.TargetId}");
-        }
-    } catch (RequestFailedException rex) {
-        Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
-    }
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="List_relationships":::
 
 Em seguida, adicione o seguinte código ao final do método `Main` para chamar o código `ListRelationships`:
 
-```csharp
-//List the relationships
-await ListRelationships(client, "sampleTwin-0");
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Use_list_relationships":::
 
 Na janela Comando, execute o programa com `dotnet run`. Você verá uma lista de todas as relações criadas em uma instrução de saída parecida com esta:
 
-:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Saída do programa mostrando a mensagem 'O gêmeo sampleTwin-0 está conectado a: contains->sampleTwin-1, -contains->sampleTwin-2'":::
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="Saída do programa mostrando a mensagem 'O gêmeo sampleTwin-0 está conectado a: contains->sampleTwin-1, -contains->sampleTwin-2'" lightbox="media/tutorial-code/list-relationships.png":::
 
 ### <a name="query-digital-twins"></a>Consultar os gêmeos digitais
 
@@ -353,23 +235,11 @@ A última seção de código a ser adicionada neste tutorial executa uma consult
 
 Adicione esta instrução `using` para permitir o uso da classe `JsonSerializer` a fim de ajudar a apresentar as informações do gêmeo digital:
 
-```csharp
-using System.Text.Json;
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Query_dependencies":::
 
 Depois, adicione o seguinte código ao final do método `Main`:
 
-```csharp
-// Run a query for all twins   
-string query = "SELECT * FROM digitaltwins";
-AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
-
-await foreach (BasicDigitalTwin twin in result)
-{
-    Console.WriteLine(JsonSerializer.Serialize(twin));
-    Console.WriteLine("---------------");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Query_twins":::
 
 Na janela Comando, execute o programa com `dotnet run`. Você deverá ver todas os gêmeos digitais nessa instância na saída.
 
@@ -377,120 +247,8 @@ Na janela Comando, execute o programa com `dotnet run`. Você deverá ver todas 
 
 Neste ponto do tutorial, você tem um aplicativo cliente completo, que pode executar ações básicas nos Gêmeos Digitais do Azure. Para referência, o código completo do programa em *Program.cs* é listado abaixo:
 
-```csharp
-using System;
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Threading.Tasks;
-using System.IO;
-using System.Collections.Generic;
-using Azure;
-using System.Text.Json;
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
-namespace minimal
-{
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-            
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
-            
-            var credential = new DefaultAzureCredential();
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
-            Console.WriteLine($"Service client created – ready to go");
-
-            Console.WriteLine();
-            Console.WriteLine($"Upload a model");
-            var typeList = new List<string>();
-            string dtdl = File.ReadAllText("SampleModel.json");
-            typeList.Add(dtdl);
-
-            // Upload the model to the service
-            try {
-                await client.CreateModelsAsync(typeList);
-            } catch (RequestFailedException rex) {
-                Console.WriteLine($"Load model: {rex.Status}:{rex.Message}");
-            }
-            // Read a list of models back from the service
-            Console.WriteLine("Models uploaded to the instance:");
-            AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
-            await foreach (DigitalTwinsModelData md in modelDataList)
-            {
-                Console.WriteLine($"{md.Id}");
-            }
-
-            // Initialize twin data
-            BasicDigitalTwin twinData = new BasicDigitalTwin();
-            twinData.Metadata.ModelId = "dtmi:example:SampleModel;1";
-            twinData.Contents.Add("data", $"Hello World!");
-            
-            string prefix="sampleTwin-";
-            for(int i=0; i<3; i++) {
-                try {
-                    twinData.Id = $"{prefix}{i}";
-                    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(twinData.Id, twinData);
-                    Console.WriteLine($"Created twin: {prefix}{i}");
-                } catch(RequestFailedException rex) {
-                    Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
-                }
-            }
-
-            // Connect the twins with relationships
-            await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
-            await CreateRelationship(client, "sampleTwin-0", "sampleTwin-2");
-
-            //List the relationships
-            await ListRelationships(client, "sampleTwin-0");
-
-            // Run a query for all twins   
-            string query = "SELECT * FROM digitaltwins";
-            AsyncPageable<BasicDigitalTwin> result = client.QueryAsync<BasicDigitalTwin>(query);
-            
-            await foreach (BasicDigitalTwin twin in result)
-            {
-                Console.WriteLine(JsonSerializer.Serialize(twin));
-                Console.WriteLine("---------------");
-            }
-        }
-
-        public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
-        {
-            var relationship = new BasicRelationship
-            {
-                TargetId = targetId,
-                Name = "contains"
-            };
-        
-            try
-            {
-                string relId = $"{srcId}-contains->{targetId}";
-                await client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
-                Console.WriteLine("Created relationship successfully");
-            }
-            catch (RequestFailedException rex) {
-                Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
-            }
-        }
-        
-        public async static Task ListRelationships(DigitalTwinsClient client, string srcId)
-        {
-            try {
-                AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
-                Console.WriteLine($"Twin {srcId} is connected to:");
-                await foreach (BasicRelationship rel in results)
-                {
-                    Console.WriteLine($" -{rel.Name}->{rel.TargetId}");
-                }
-            } catch (RequestFailedException rex) {
-                Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
-            }
-        }
-
-    }
-}
-```
 ## <a name="clean-up-resources"></a>Limpar os recursos
  
 A instância usada neste tutorial pode ser reutilizada no próximo tutorial, [*Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). Se você pretende prosseguir para o próximo tutorial, mantenha a instância dos Gêmeos Digitais do Azure configurada aqui.

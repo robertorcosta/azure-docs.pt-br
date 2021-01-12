@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 41c0bd23bbd2d69506a979c5a36ac40f73258f2c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ab03e0bdf7761e45a134ec90685955403fbc433b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605506"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060377"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para o Banco de Dados do Azure para MySQL online usando o DMS
 
@@ -237,7 +237,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
     ![Mapear para bancos de dados de destino](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
    > [!NOTE] 
-   > Embora você possa selecionar vários bancos de dados nesta etapa, cada instância do Serviço de Migração de Banco de Dados do Azure dá suporte a até quatro bancos de dados para migração simultânea. Além disso, há um limite de duas instâncias do Serviço de Migração de Banco de Dados do Azure por região em cada assinatura. Por exemplo, se você tiver 40 bancos de dados para migrar, só poderá migrar oito deles simultaneamente e somente se tiver criado duas instâncias do Serviço de Migração de Banco de Dados do Azure.
+   > Embora você possa selecionar vários bancos de dados nesta etapa, cada instância do Serviço de Migração de Banco de Dados do Azure dá suporte a até quatro bancos de dados para migração simultânea. Além disso, há um limite de dez instâncias do Serviço de Migração de Banco de Dados do Azure por assinatura em cada região. Por exemplo, se você tiver 80 bancos de dados para migrar, só poderá migrar 40 deles simultaneamente para a mesma região, mas somente se tiver criado dez instâncias do Serviço de Migração de Banco de Dados do Azure.
 
 3. Selecione **Salvar** na tela **Resumo de migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração e reveja o resumo para ter certeza de que os detalhes de origem e destino correspondem ao que foi especificado anteriormente.
 

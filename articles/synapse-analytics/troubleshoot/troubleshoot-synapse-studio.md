@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a96709c7538bda6d6b338c29dc512902e9ca2c87
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7d91001024ad547e52fe48ee30749fee9a4fb4a1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445843"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116170"
 ---
 # <a name="azure-synapse-studio-troubleshooting"></a>Solução de problemas do Azure Synapse Studio
 
@@ -102,4 +102,4 @@ Determinados navegadores dão suporte à exibição de carimbos de data/hora na 
 ![Mostrar carimbo de data/hora](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Se as etapas anteriores não ajudarem a resolver seu problema, [crie um tíquete de suporte](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Se as etapas anteriores não ajudarem a resolver seu problema, [crie um tíquete de suporte](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cf638e1de116532136b9e78df1933048c8305b7b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 907bf06c009738eb098532ac5ff53e13dbd16826
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005446"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98047108"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -65,3 +65,4 @@ ms.locfileid: "96005446"
 |[A conta de armazenamento que possui o contêiner com os logs de atividade deve ser criptografada com BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Essa política auditará se a conta de armazenamento que possui o contêiner com logs de atividades estiver criptografada com BYOK. A política funcionará apenas se a conta de armazenamento estiver na mesma assinatura dos logs de atividades por design. Mais informações sobre a criptografia de Armazenamento do Microsoft Azure em repouso podem ser encontradas aqui [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok).  |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 |[O agente do Log Analytics deve ser instalado nos Conjuntos de Dimensionamento de Máquinas Virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fefbde977-ba53-4479-b8e9-10b957924fbf) |Essa política audita os Conjuntos de Dimensionamento de Máquinas Virtuais do Windows ou do Linux nos quais o agente do Log Analytics não está instalado. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VMSS_LogAnalyticsAgent_AuditIfNotExists.json) |
 |[O agente do Log Analytics deve ser instalado nas máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa70ca396-0a34-413a-88e1-b956c1e683be) |Essa política audita as máquinas virtuais do Windows ou do Linux nas quais o agente do Log Analytics não está instalado. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VirtualMachines_LogAnalyticsAgent_AuditIfNotExists.json) |
+|[Pastas de trabalho devem ser salvas em contas de armazenamento controladas por você](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fc8115b-2008-441f-8c61-9b722c1e537f) |Com o BYOS (traga seu próprio armazenamento), suas pastas de trabalho são carregadas em uma conta de armazenamento controlada por você. Isso significa que você controla a política de criptografia em repouso, a política de gerenciamento de tempo de vida e o acesso à rede. No entanto, você será responsável pelos custos associados a essa conta de armazenamento. Para obter mais informações, visite [https://aka.ms/workbooksByos](https://aka.ms/workbooksByos) |deny, audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Workbooks_BYOSEnabled_Audit.json) |

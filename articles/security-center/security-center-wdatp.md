@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 9a8dba99435e1616b1c49d5209b30c3c523876db
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 34d8881eb072c4c723bf68b7c6ccfd24ab19cd3c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071333"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116272"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -131,7 +131,7 @@ O defender for Endpoint está incluído sem custo adicional com o **Azure defend
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Se já tenho uma licença para o Microsoft defender for Endpoint, posso obter um desconto para o Azure defender?
 Se você já tiver uma licença para o Microsoft defender for Endpoint, não precisará pagar por essa parte da sua licença do Azure defender.
 
-Para confirmar seu desconto, entre em contato com a equipe de suporte da central de segurança e forneça a ID, a região e as informações de licença relevantes do espaço de trabalho.
+Para confirmar seu desconto, entre em contato com a equipe de suporte da central de segurança e forneça a ID do espaço de trabalho, a região e as informações de licença relevantes para cada licença relevante.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Como fazer mudar de uma ferramenta de EDR de terceiros?
 As instruções completas para alternar de uma solução de ponto de extremidade não Microsoft estão disponíveis na documentação do Microsoft defender para ponto de extremidade: [visão geral da migração](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

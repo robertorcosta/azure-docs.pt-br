@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43200985820779c56983f09b81a86989261c36f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 13756be041f88883d84f9558308c7fe5c9be2d0e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934995"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116000"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planejar uma implantação de acesso condicional
 
@@ -223,14 +223,6 @@ A criação de uma política para cada aplicativo não é eficiente e leva a uma
 Se você configurar uma política incorretamente, ela poderá bloquear as organizações do portal do Azure. Você pode reduzir o impacto da falta acidental de acesso administrativo ao armazenar duas ou mais [contas de acesso de emergência](../roles/security-emergency-access.md) em sua organização.
 
 * Crie uma conta de usuário dedicada à administração de política e excluída de todas as suas políticas.
-
-* Cenário de interrupção para ambientes híbridos:
-
-  * Crie um grupo de segurança local e sincronize-o com o Azure AD. O grupo de segurança deve conter sua conta de administração de política dedicada. 
-
-   * Isentar este grupo de segurança do formulário todas as políticas de acesso condicional.
-
-   * Quando ocorrer uma interrupção de serviço, adicione os outros administradores ao grupo local conforme apropriado e Force uma sincronização. Isso anima sua isenção às políticas de acesso condicional.
 
 ### <a name="set-up-report-only-mode"></a>Configurar o modo somente relatório
 
@@ -493,4 +485,4 @@ Após recolher as informações, consulte os recursos a seguir:
 
 [Saiba mais sobre Proteção de identidade](../identity-protection/overview-identity-protection.md)
 
-[Gerenciar políticas de acesso condicional com a API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Gerenciar políticas de acesso condicional com a API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)

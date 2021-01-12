@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1fc6c7086917f2bcd6e4991d2dac37ea24cbfa83
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697196"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116374"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar BLOBs JSON usando um indexador de blob no Azure Pesquisa Cognitiva
 
@@ -108,7 +108,7 @@ Você pode usar a API REST para indexar BLOBs JSON, seguindo um fluxo de trabalh
 
 Você pode examinar o [código de exemplo REST](#rest-example) no final desta seção que mostra como criar todos os três objetos. Esta seção também contém detalhes sobre os [modos de análise JSON](#parsing-modes), [BLOBs únicos](#parsing-single-blobs), [matrizes JSON](#parsing-arrays)e [matrizes aninhadas](#nested-json-arrays).
 
-Para a indexação JSON baseada em código, use o [postmaster ou Visual Studio Code](search-get-started-rest.md) e a API REST para criar esses objetos:
+Para a indexação JSON baseada em código, use o [postmaster](search-get-started-rest.md) ou [Visual Studio Code](search-get-started-vs-code.md) e a API REST para criar esses objetos:
 
 + [index](/rest/api/searchservice/create-index)
 + [fonte de dados](/rest/api/searchservice/create-data-source)
@@ -291,7 +291,7 @@ O SDK do .NET tem paridade total com a API REST. É recomendável examinar a se�
 
 Os BLOBs JSON podem assumir vários formulários. O parâmetro **parsingMode** no indexador JSON determina como o conteúdo do blob JSON é analisado e estruturado em um índice de pesquisa cognitiva do Azure:
 
-| parsingMode | Description |
+| parsingMode | Descrição |
 |-------------|-------------|
 | `json`  | Indexe cada blob como um único documento. Este é o padrão. |
 | `jsonArray` | Escolha esse modo se os BLOBs consistirem em matrizes JSON e você precisar que cada elemento da matriz se torne um documento separado no Azure Pesquisa Cognitiva. |
@@ -455,7 +455,7 @@ Você também pode se referir a elementos individuais da matriz usando um índic
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a tornar o Azure Pesquisa Cognitiva melhor
 Caso você tenha solicitações de recursos ou ideias para melhorias, dê sua opinião em [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Se precisar de ajuda para usar o recurso existente, poste sua pergunta em [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 + [Indexando o armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva](search-howto-index-json-blobs.md)

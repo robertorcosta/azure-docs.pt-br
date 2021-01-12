@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 565b84603a14452dd2ec49f8cf61da128503bc03
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964245"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117241"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Etapas para adicionar uma atribuição de função
 
@@ -31,7 +31,7 @@ Primeiro, você precisa determinar quem precisa de acesso. Você pode atribuir u
 - Entidade de serviço - Uma identidade de segurança usada por aplicativos ou serviços para acessar recursos específicos do Azure. Você pode pensar nela como uma *identidade do usuário* (nome de usuário e senha ou certificado) para um aplicativo.
 - Identidade gerenciada - uma identidade no Azure Active Directory que é gerenciada automaticamente pelo Azure. Normalmente, você usa [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md) durante o desenvolvimento de aplicativos em nuvem para gerenciar as credenciais de autenticação nos serviços do Azure.
 
-## <a name="step-2-find-the-appropriate-role"></a>Etapa 2: localizar a função apropriada
+## <a name="step-2-select-the-appropriate-role"></a>Etapa 2: selecionar a função apropriada
 
 As permissões são agrupadas em uma *definição de função*. Normalmente ela é chamada apenas de *função*. Você pode selecionar em uma lista de várias funções internas. Se as funções internas não atenderem às necessidades específicas da sua organização, você poderá criar suas próprias funções personalizadas.
 

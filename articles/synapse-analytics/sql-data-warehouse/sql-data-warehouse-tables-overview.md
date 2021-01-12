@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ec62724b7aedbad4111a4882dd89f86d116b2a96
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2a8cfbe75925ddc49f6fa3205fafdd1c2203b472
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448064"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115626"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Projetar tabelas usando o pool SQL dedicado no Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ As tabelas temporárias utilizam o armazenamento local para oferecer um desempen
 
 Uma tabela externa aponta para dados localizados no Azure Storage Blob ou Azure Data Lake Store. Quando usado em conjunto com a instrução CREATE TABLE AS SELECT, a seleção de uma tabela externa importa dados para o pool SQL dedicado.
 
-Dessa forma, as tabelas externas são úteis para carregar dados. Para obter um tutorial de carregamento, consulte [usar o polybase para carregar dados do armazenamento de BLOBs do Azure](load-data-from-azure-blob-storage-using-polybase.md).
+Dessa forma, as tabelas externas são úteis para carregar dados. Para obter um tutorial de carregamento, consulte [usar o polybase para carregar dados do armazenamento de BLOBs do Azure](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="data-types"></a>Tipos de dados
 
@@ -107,7 +107,7 @@ A categoria da tabela geralmente determina qual opção escolher para a distribu
 |:---------------|:--------------------|
 | Fato           | Use a distribuição de hash com índice columnstore clusterizado. O desempenho melhora quando duas tabelas de hash são unidas na mesma coluna de distribuição. |
 | Dimensão      | Use a replicada para tabelas menores. Se as tabelas forem grandes demais para serem armazenadas em cada nó de computação, use a distribuição de hash. |
-| Staging        | Use um round robin para a tabela de preparo. A carga com CTAS é rápida. Depois que os dados estiverem na tabela de preparo, use INSERT... Selecione para mover os dados para tabelas de produção. |
+| De preparo        | Use um round robin para a tabela de preparo. A carga com CTAS é rápida. Depois que os dados estiverem na tabela de preparo, use INSERT... Selecione para mover os dados para tabelas de produção. |
 
 ## <a name="table-partitions"></a>Partições de tabela
 

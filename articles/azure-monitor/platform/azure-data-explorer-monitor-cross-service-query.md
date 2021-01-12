@@ -7,19 +7,17 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 5aadd9d96f538f92e1b9e0100b2c1055ee0b0633
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e60f77495cdb822a0c50be936c2b0d3ac31348f3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065262"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116702"
 ---
 # <a name="cross-service-query---azure-monitor-and-azure-data-explorer-preview"></a>Azure Monitor de consulta entre serviços e Data Explorer do Azure (versão prévia)
 Crie consultas entre serviços entre o [Azure data Explorer](https://docs.microsoft.com/azure/data-explorer/), [Application insights](/azure/azure-monitor/app/app-insights-overview)e [log Analytics](/azure/azure-monitor/platform/data-platform-logs).
 ## <a name="azure-monitor-and-azure-data-explorer-cross-service-querying"></a>Azure Monitor e Data Explorer consulta entre serviços do Azure
 Essa experiência permite que você [crie consultas entre serviços entre o azure data Explorer e o Azure monitor](https://docs.microsoft.com/azure/data-explorer/query-monitor-data) e [crie consultas entre serviços entre Azure monitor e data Explorer do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/azure-monitor-data-explorer-proxy).
-
-:::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="Fluxo de proxy do Azure data Explorer.":::
 
 Por exemplo, (consultando o Azure Data Explorer do Log Analytics):
 ```kusto
