@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 11/18/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 861b963922d64926266b42a23f85e9dc30fda7a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a1031656eaa5125d07ae078773379270b26625e7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95903977"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121372"
 ---
 # <a name="compatibility-issues-with-third-party-applications-and-azure-synapse-analytics"></a>Problemas de compatibilidade com aplicativos de terceiros e com o Azure Synapse Analytics
 
@@ -53,7 +53,7 @@ O exemplo a seguir mostra um arquivo TDC tableau que passa o parâmetro FMTONLY 
 ```
 Para obter mais detalhes sobre como usar arquivos TDC, entre em contato com o suporte do tableau. 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
-* [Elementos de linguagem T-SQL para o pool SQL dedicado no Azure Synapse Analytics.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-* [Instruções T-SQL com suporte para o pool SQL dedicado no Azure Synapse Analytics.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)
+* [Elementos de linguagem T-SQL para o pool SQL dedicado no Azure Synapse Analytics.](./sql-data-warehouse-reference-tsql-language-elements.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+* [Instruções T-SQL com suporte para o pool SQL dedicado no Azure Synapse Analytics.](./sql-data-warehouse-reference-tsql-statements.md)

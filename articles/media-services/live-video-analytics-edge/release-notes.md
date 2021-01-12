@@ -3,12 +3,12 @@ title: Análise de vídeo ao vivo em notas de versão IoT Edge – Azure
 description: Este tópico fornece notas de versão de análise de vídeo ao vivo sobre versões IoT Edge, melhorias, correções de bugs e problemas conhecidos.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7761fee8f23b5be259f9a5c278f761fa4ce92fbf
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059969"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121236"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Análise de vídeo ao vivo em notas de versão IoT Edge
 
@@ -20,6 +20,23 @@ Este artigo fornece informações sobre:
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+<hr width=100%>
+
+## <a name="january-12-2021"></a>12 de janeiro de 2021
+
+Esta marca de versão destina-se à atualização de janeiro de 2021 do módulo:
+
+```
+mcr.microsoft.com/media/live-video-analytics:2.0.1
+```
+
+> [!NOTE]
+> Nos guias de início rápido e tutoriais, os manifestos de implantação usam uma marca de 2 (Live-Video-Analytics: 2). Portanto, simplesmente reimplantar esses manifestos deve atualizar o módulo em seus dispositivos de > de borda.
+### <a name="bug-fixes"></a>Correções de bug 
+
+* Os campos `ActivationSignalOffset` `MinimumActivationTime` e os `MaximumActivationTime` processadores de porta de sinal foram definidos incorretamente como propriedades obrigatórias. Agora, eles são propriedades **opcionais** .
+* Corrigido um bug de uso que faz com que a análise de vídeo ao vivo no módulo IoT Edge falhe quando implantada em determinadas regiões.
 
 <hr width=100%>
 

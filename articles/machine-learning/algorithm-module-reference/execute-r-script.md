@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/17/2020
-ms.openlocfilehash: 5d291ad745122d929c4b664e9da5e4649e463529
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: bdd7fd8e19bf2de6d0b3c6b2edd4515771fae237
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679113"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118992"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -49,10 +49,12 @@ azureml_main <- function(dataframe1, dataframe2){
 Para instalar pacotes de R adicionais, use o `install.packages()` método. Os pacotes são instalados para cada módulo executar script R. Eles não são compartilhados entre outros módulos executar script R.
 
 > [!NOTE]
+> **Não** é recomendável instalar o pacote R do grupo de script. É recomendável instalar pacotes diretamente no editor de scripts.
 > Especifique o repositório CRAN quando você estiver instalando pacotes, como `install.packages("zoo",repos = "http://cran.us.r-project.org")` .
 
 > [!WARNING]
 > O módulo excute R script não dá suporte à instalação de pacotes que exigem compilação nativa, como `qdap` o pacote, que requer Java e `drc` pacote que requer C++. Isso ocorre porque esse módulo é executado em um ambiente pré-instalado com permissão de não administrador.
+> Não instale pacotes pré-criados no/para Windows, pois os módulos de designer estão em execução no Ubuntu. Para verificar se um pacote é pré-compilado no Windows, você pode ir para [Cran](https://cran.r-project.org/) e pesquisar seu pacote, baixar um arquivo binário de acordo com seu sistema operacional e verificar a **compilação:** Part no arquivo de **Descrição** . Veja a seguir um exemplo: :::image type="content" source="media/module/r-package-description.png" alt-text="Descrição do pacote R" lightbox="media/module/r-package-page.png":::
 
 Este exemplo mostra como instalar o Zoo:
 ```R

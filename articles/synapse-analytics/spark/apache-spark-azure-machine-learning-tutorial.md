@@ -9,18 +9,18 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: e547d047e8d736acbd1cdda5ffe3a78dbe8259f7
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 2594e25bff3ca949b329f8b66f4427eb1f6950b0
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901026"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118703"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>Tutorial: Treinar um modelo em Python com o machine learning automatizado
 
 O Azure Machine Learning é um ambiente baseado em nuvem que permite treinar, implantar, automatizar, gerenciar e acompanhar modelos de machine learning. 
 
-Neste tutorial, você usará o [machine learning automatizado](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) no Azure Machine Learning para criar um modelo de regressão a fim de prever preços de tarifa de táxi. Esse processo chega ao melhor modelo aceitando dados de treinamento e definições de configuração, além de iterar automaticamente por meio de combinações de diferentes métodos, modelos e configurações de hiperparâmetros.
+Neste tutorial, você usará o [machine learning automatizado](../../machine-learning/concept-automated-ml.md) no Azure Machine Learning para criar um modelo de regressão a fim de prever preços de tarifa de táxi. Esse processo chega ao melhor modelo aceitando dados de treinamento e definições de configuração, além de iterar automaticamente por meio de combinações de diferentes métodos, modelos e configurações de hiperparâmetros.
 
 Neste tutorial, você aprenderá como:
 - Baixar os dados usando o Apache Spark e o Azure Open Datasets.
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="before-you-begin"></a>Antes de começar
 
 - Crie um Pool do Apache Spark sem servidor seguindo o [guia de início rápido Criar um Pool do Apache Spark sem servidor](../quickstart-create-apache-spark-pool-studio.md).
-- Conclua o [tutorial de instalação do workspace do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) caso você não tenha um workspace do Azure Machine Learning. 
+- Conclua o [tutorial de instalação do workspace do Azure Machine Learning](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) caso você não tenha um workspace do Azure Machine Learning. 
 
 ## <a name="understand-regression-models"></a>Entender os modelos de regressão
 
@@ -48,7 +48,7 @@ Neste exemplo, você usa o Spark para executar uma análise de dados de gorjeta 
 
 Aqui está como:
 
-1. Crie um notebook usando o kernel do PySpark. Para obter instruções, confira [Criar um notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook).
+1. Crie um notebook usando o kernel do PySpark. Para obter instruções, confira [Criar um notebook](../quickstart-apache-spark-notebook.md#create-a-notebook).
    
     > [!Note]
     > Por causa do kernel do PySpark, não será necessário criar nenhum contexto explicitamente. O contexto do Spark é criado automaticamente para você ao executar a primeira célula do código.
@@ -144,7 +144,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Converter um dataframe em um conjunto de dados do Azure Machine Learning
-Para enviar um experimento remoto, converta seu conjunto de dados em um ```TabularDatset``` do Azure Machine Learning. Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa dados em um formato tabular, com base na análise dos arquivos fornecidos.
+Para enviar um experimento remoto, converta seu conjunto de dados em um ```TabularDatset``` do Azure Machine Learning. Um [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa dados em um formato tabular, com base na análise dos arquivos fornecidos.
 
 O código a seguir obtém o workspace existente e o armazenamento de dados padrão do Azure Machine Learning. Em seguida, ele passa o armazenamento de dados e os locais de arquivo para que o parâmetro de caminho crie um ```TabularDataset```. 
 
@@ -170,7 +170,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 As seções a seguir orientam você pelo processo de envio de um experimento de machine learning automatizado.
 
 ### <a name="define-training-settings"></a>Definir configurações de treinamento
-1. Para enviar um experimento, você precisa definir as configurações de modelos e os parâmetros do experimento para o treinamento. Para obter a lista completa de configurações, consulte [Configurar experimentos de machine learning automatizado no Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train).
+1. Para enviar um experimento, você precisa definir as configurações de modelos e os parâmetros do experimento para o treinamento. Para obter a lista completa de configurações, consulte [Configurar experimentos de machine learning automatizado no Python](../../machine-learning/how-to-configure-auto-train.md).
 
    ```python
    import logging
@@ -338,5 +338,5 @@ Por fim, você também pode acessar os resultados das iterações acessando o ex
 ![Captura de tela do workspace do Azure Machine Learning.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Tutorial: Criar um aplicativo de aprendizado de máquina com o Apache Spark MLlib e o Azure Synapse Analytics](./apache-spark-machine-learning-mllib-notebook.md)

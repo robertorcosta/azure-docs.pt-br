@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462861"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121185"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recomendações do Azure Advisor para o pool SQL dedicado no Azure Synapse Analytics
 
@@ -65,12 +65,12 @@ Atualmente, o Assistente mostrará apenas no máximo quatro tabelas replicadas p
 
 
 ## <a name="adaptive-gen2-cache-utilization"></a>Utilização de cache adaptável (Gen2)
-Quando você tem um grande conjunto de trabalho, pode experimentar um percentual baixo de falha de cache e uma alta utilização de cache. Nesse cenário, você deve escalar verticalmente para aumentar a capacidade do cache e executar novamente a carga de trabalho. Visite a seguinte [documentação](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache) para saber mais. 
+Quando você tem um grande conjunto de trabalho, pode experimentar um percentual baixo de falha de cache e uma alta utilização de cache. Nesse cenário, você deve escalar verticalmente para aumentar a capacidade do cache e executar novamente a carga de trabalho. Visite a seguinte [documentação](./sql-data-warehouse-how-to-monitor-cache.md) para saber mais. 
 
 ## <a name="tempdb-contention"></a>Contenção de Tempdb
 
-O desempenho da consulta pode diminuir quando há uma contenção de tempdb alta.  A contenção de tempdb pode ocorrer por meio de tabelas temporárias definidas pelo usuário ou quando há uma grande quantidade de movimentação de dados. Neste cenário, você pode aumentar a alocação de tempdb e [configurar o gerenciamento de carga de trabalho e classes de recursos](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) para fornecer mais memória às consultas. 
+O desempenho da consulta pode diminuir quando há uma contenção de tempdb alta.  A contenção de tempdb pode ocorrer por meio de tabelas temporárias definidas pelo usuário ou quando há uma grande quantidade de movimentação de dados. Neste cenário, você pode aumentar a alocação de tempdb e [configurar o gerenciamento de carga de trabalho e classes de recursos](./sql-data-warehouse-workload-management.md) para fornecer mais memória às consultas. 
 
 ## <a name="data-loading-misconfiguration"></a>Carregamento de dados de configuração incorreta
 
-Você sempre deve carregar dados de uma conta de armazenamento na mesma região que o pool SQL dedicado para minimizar a latência. Use a [instrução de cópia para a ingestão de dados de alta taxa de transferência](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os arquivos de preparo em sua conta de armazenamento para maximizar a taxa de transferência. Se você não puder usar a instrução de cópia, poderá usar a API SqlBulkCopy ou o bcp com um tamanho de lote alto para obter uma melhor taxa de transferência. Para obter diretrizes adicionais de carregamento de dados, visite a [documentação](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)a seguir. 
+Você sempre deve carregar dados de uma conta de armazenamento na mesma região que o pool SQL dedicado para minimizar a latência. Use a [instrução de cópia para a ingestão de dados de alta taxa de transferência](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os arquivos de preparo em sua conta de armazenamento para maximizar a taxa de transferência. Se você não puder usar a instrução de cópia, poderá usar a API SqlBulkCopy ou o bcp com um tamanho de lote alto para obter uma melhor taxa de transferência. Para obter diretrizes adicionais de carregamento de dados, visite a [documentação](./guidance-for-loading-data.md)a seguir.

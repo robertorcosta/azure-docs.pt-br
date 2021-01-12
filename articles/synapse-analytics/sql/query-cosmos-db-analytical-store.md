@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095093"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121338"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com um pool SQL sem servidor na visualização do link Synapse do Azure
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Não use `OPENROWSET` sem esquema explicitamente definido, pois isso pode afetar o desempenho. Certifique-se de usar os menores tamanhos possíveis para suas colunas (por exemplo VARCHAR (100) em vez de VARCHAR padrão (8000)). Você deve usar um agrupamento UTF-8 como agrupamento de banco de dados padrão ou defini-lo como agrupamento de coluna explícito para evitar o [problema de conversão de UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). O agrupamento `Latin1_General_100_BIN2_UTF8` fornece o melhor desempenho quando o Yu filtra dados usando algumas colunas de cadeia de caracteres.
+Não use `OPENROWSET` sem esquema explicitamente definido, pois isso pode afetar o desempenho. Certifique-se de usar os menores tamanhos possíveis para suas colunas (por exemplo VARCHAR (100) em vez de VARCHAR padrão (8000)). Você deve usar um agrupamento UTF-8 como agrupamento de banco de dados padrão ou defini-lo como agrupamento de coluna explícito para evitar o [problema de conversão de UTF-8](../troubleshoot/reading-utf8-text.md). O agrupamento `Latin1_General_100_BIN2_UTF8` fornece o melhor desempenho quando o Yu filtra dados usando algumas colunas de cadeia de caracteres.
 
 ## <a name="query-nested-objects-and-arrays"></a>Consultar objetos aninhados e matrizes
 
@@ -268,8 +268,8 @@ O resultado dessa consulta pode ser semelhante à seguinte tabela:
 Saiba mais sobre a análise [de tipos de dados complexos no link Synapse do Azure](../how-to-analyze-complex-schema.md) e [estruturas aninhadas em um pool SQL sem servidor](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
-> Se você vir caracteres inesperados em seu texto como `MÃƒÂ©lade` em vez de `Mélade` , o agrupamento de banco de dados não será definido como agrupamento [UTF-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) .
-> [Altere o agrupamento do banco de dados](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) para o agrupamento UTF-8 usando uma instrução SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
+> Se você vir caracteres inesperados em seu texto como `MÃƒÂ©lade` em vez de `Mélade` , o agrupamento de banco de dados não será definido como agrupamento [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) .
+> [Altere o agrupamento do banco de dados](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) para o agrupamento UTF-8 usando uma instrução SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
 
 ## <a name="flatten-nested-arrays"></a>Mesclar matrizes aninhadas
 
@@ -325,7 +325,7 @@ Informações complementares de um epidemi de eco... | `[{"first":"Nicolas","las
 | Informações complementares de um epidemi de eco... |   `[{"first":"Olivier","last":"Flores","suffix":"","affiliation":{"laboratory":"UMR C53 CIRAD, …` | Olivier | Flores |`{"laboratory":"UMR C53 CIRAD, …` |     
 
 > [!IMPORTANT]
-> Se você vir caracteres inesperados em seu texto como `MÃƒÂ©lade` em vez de `Mélade` , o agrupamento de banco de dados não será definido como agrupamento [UTF-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) . [Altere o agrupamento do banco de dados](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) para o agrupamento UTF-8 usando uma instrução SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
+> Se você vir caracteres inesperados em seu texto como `MÃƒÂ©lade` em vez de `Mélade` , o agrupamento de banco de dados não será definido como agrupamento [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) . [Altere o agrupamento do banco de dados](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) para o agrupamento UTF-8 usando uma instrução SQL como `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Azure Cosmos DB para mapeamentos de tipo SQL
 
@@ -341,7 +341,7 @@ Azure Cosmos DB contas da API do SQL (Core) dão suporte a tipos de propriedade 
 | Cadeia de caracteres | varchar (agrupamento de banco de dados UTF-8) |
 | Data e hora (cadeia de caracteres formatada em ISO) | varchar (30) |
 | Data e hora (carimbo de hora do UNIX) | BIGINT |
-| Nulo | `any SQL type` 
+| Null | `any SQL type` 
 | Objeto ou matriz aninhada | varchar (max) (agrupamento de banco de dados UTF-8), serializado como texto JSON |
 
 ## <a name="full-fidelity-schema"></a>Esquema de fidelidade total

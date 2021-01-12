@@ -9,16 +9,16 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: de446209104c113b10346645f79b461239c3efab
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 25c692ea9a2dce4723472f6812ac46d82b2b318d
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901260"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120981"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar dados com segurança usando o SQL do Synapse
 
-Este artigo realça e fornece exemplos sobre os mecanismos de autenticação segura para a [Instrução COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). A instrução COPY é a maneira mais flexível e segura de carregar dados em massa no SQL do Synapse.
+Este artigo realça e fornece exemplos sobre os mecanismos de autenticação segura para a [Instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). A instrução COPY é a maneira mais flexível e segura de carregar dados em massa no SQL do Synapse.
 ## <a name="supported-authentication-mechanisms"></a>Mecanismos de autenticação compatíveis
 
 A matriz a seguir descreve os métodos de autenticação compatíveis com cada tipo de arquivo e conta de armazenamento. Isso se aplica ao local de armazenamento de origem e ao local do arquivo de erros.
@@ -136,7 +136,7 @@ A autenticação de identidade gerenciada é obrigatória quando sua conta de ar
 
     ![Concedendo permissão de RBAC do Azure para carregar](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. Configure a autenticação do Azure AD examinando a [documentação](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server) a seguir. 
+2. Configure a autenticação do Azure AD examinando a [documentação](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell) a seguir. 
 
 3. Conecte-se ao seu pool de SQL usando o Active Directory, em que agora você pode executar a instrução COPY sem especificar nenhuma credencial:
 
@@ -152,11 +152,11 @@ A autenticação de identidade gerenciada é obrigatória quando sua conta de ar
 ## <a name="e-service-principal-authentication"></a>E. Autenticação de entidade de serviço
 #### <a name="steps"></a>Etapas
 
-1. [Criar um aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
-2. [Obter ID do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
-3. [Obter a chave de autenticação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
-4. [Obter o ponto de extremidade do token OAuth 2.0 V1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. [Atribuir permissões de leitura, gravação e execução ao aplicativo do Azure AD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) da sua conta de armazenamento
+1. [Criar um aplicativo do Azure Active Directory](../..//active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
+2. [Obter ID do aplicativo](../..//active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)
+3. [Obter a chave de autenticação](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+4. [Obter o ponto de extremidade do token OAuth 2.0 V1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
+5. [Atribuir permissões de leitura, gravação e execução ao aplicativo do Azure AD](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) da sua conta de armazenamento
 6. Agora você pode executar a instrução COPY:
 
     ```sql
@@ -176,5 +176,5 @@ A autenticação de identidade gerenciada é obrigatória quando sua conta de ar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Conferir o artigo [Instrução COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) para ver a sintaxe detalhada
-- Conferir o artigo [Visão geral de carregamento de dados](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading#what-is-elt) para ver as melhores práticas de carregamento
+- Conferir o artigo [Instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) para ver a sintaxe detalhada
+- Conferir o artigo [Visão geral de carregamento de dados](./design-elt-data-loading.md#what-is-elt) para ver as melhores práticas de carregamento

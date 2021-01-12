@@ -10,12 +10,12 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: de45e338b0b863dc2364af399a6991f56658b0e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6042b5be48144ce6730a9bf4f342d7735a262643
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212268"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118057"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Solicitar aumentos de cota ou obter suporte para o Azure Synapse Analytics
 
@@ -137,5 +137,4 @@ Depois que você enviar a solicitação de suporte, a equipe de suporte do Azure
 
 ## <a name="other-resources"></a>Outros recursos
 
-Você também pode se conectar com a Comunidade do Azure Synapse Analytics em [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) ou por meio da [página de perguntas do Microsoft Q&uma pergunta para o Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
-
+Você também pode se conectar com a Comunidade do Azure Synapse Analytics em [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) ou por meio da [página de perguntas do Microsoft Q&uma pergunta para o Azure Synapse Analytics](/answers/topics/azure-synapse-analytics.html).

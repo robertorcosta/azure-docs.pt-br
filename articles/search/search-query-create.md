@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: db36a77d93735b151ad893b7e25ba86f104e7b90
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 9bee391ddb0fa6c270c6d833fb7e81d5f4880497
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510457"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118635"
 ---
 # <a name="create-a-query-in-azure-cognitive-search"></a>Criar uma consulta no Azure Pesquisa Cognitiva
 
@@ -26,7 +26,7 @@ Você precisará de uma ferramenta ou API para criar uma consulta. Qualquer uma 
 | Metodologia | Descrição |
 |-------------|-------------|
 | Portal| O [Search Explorer (Portal)](search-explorer.md) é uma interface de consulta no portal do Azure que executa consultas em índices no serviço de pesquisa subjacente. O portal faz chamadas à API REST nos bastidores para a operação [Pesquisar documentos](/rest/api/searchservice/search-documents) , mas não pode invocar AutoCompletar, sugestões ou pesquisa de documentos.<br/><br/> Você pode selecionar qualquer índice e versão da API REST, incluindo a visualização. Uma cadeia de caracteres de consulta pode usar sintaxe simples ou completa, com suporte para todos os parâmetros de consulta (filtro, seleção, searchFields e assim por diante). No portal, ao abrir um índice, você pode trabalhar com o Search Explorer ao lado da definição de JSON de índice em guias lado a lado para facilitar o acesso a atributos de campo. Verifique quais campos são pesquisáveis, classificável, filtráveis e com aparência durante o teste de consultas. <br/>Recomendado para investigação, teste e validação iniciais. [Saiba mais.](search-explorer.md) |
-| Ferramentas de teste na Web| O [postmaster ou o Visual Studio Code](search-get-started-rest.md) são opções fortes para formular uma solicitação de [pesquisa de documentos](/rest/api/searchservice/search-documents) e qualquer outra solicitação em repouso. As APIs REST dão suporte a todas as operações programáticas possíveis no Azure Pesquisa Cognitiva e, ao usar uma ferramenta como o postmaster ou o Visual Studio Code, você pode emitir solicitações interativamente para entender como o recurso funciona antes de investir no código. Uma ferramenta de teste na Web é uma boa opção se você não tiver direitos de colaborador ou administrativos na portal do Azure. Contanto que você tenha uma URL de pesquisa e uma chave de API de consulta, você pode usar as ferramentas para executar consultas em um índice existente. |
+| Ferramentas de teste na Web| O [postmaster](search-get-started-rest.md) ou o [Visual Studio Code](search-get-started-vs-code.md) são opções fortes para formular uma solicitação de [pesquisa de documentos](/rest/api/searchservice/search-documents) e qualquer outra solicitação em repouso. As APIs REST dão suporte a todas as operações programáticas possíveis no Azure Pesquisa Cognitiva e, ao usar uma ferramenta como o postmaster ou o Visual Studio Code, você pode emitir solicitações interativamente para entender como o recurso funciona antes de investir no código. Uma ferramenta de teste na Web é uma boa opção se você não tiver direitos de colaborador ou administrativos na portal do Azure. Contanto que você tenha uma URL de pesquisa e uma chave de API de consulta, você pode usar as ferramentas para executar consultas em um índice existente. |
 | SDK do Azure | Quando você estiver pronto para escrever código, poderá usar as bibliotecas de cliente do Azure.Search.Document nos SDKs do Azure para .NET, Python, JavaScript ou Java. Cada SDK está em sua própria agenda de liberação, mas você pode criar e consultar índices em todos eles. <br/><br/>[SearchClient (.net)](/dotnet/api/azure.search.documents.searchclient) pode ser usado para consultar um índice de pesquisa em C#.  [Saiba mais.](search-howto-dotnet-sdk.md)<br/><br/>[SearchClient (Python)](/dotnet/api/azure.search.documents.searchclient) pode ser usado para consultar um índice de pesquisa em Python. [Saiba mais.](search-get-started-python.md)<br/><br/>[SearchClient (JavaScript)](/dotnet/api/azure.search.documents.searchclient) pode ser usado para consultar um índice de pesquisa em JavaScript. [Saiba mais.](search-get-started-javascript.md) |
 
 ## <a name="set-up-a-search-client"></a>Configurar um cliente de pesquisa
@@ -35,7 +35,7 @@ Um cliente de pesquisa é autenticado no serviço de pesquisa, envia solicitaç�
 
 | Propriedades | Descrição |
 |------------|-------------|
-| Ponto de extremidade | Um serviço de pesquisa tem URL endereçável neste formato: `https://[service-name].search.windows.net` . |
+| Ponto de Extremidade | Um serviço de pesquisa tem URL endereçável neste formato: `https://[service-name].search.windows.net` . |
 | Chave de acesso da API (administrador ou consulta) | Autentica a solicitação para o serviço de pesquisa. |
 | Nome do índice | As consultas são sempre direcionadas à coleção de documentos de um único índice. Não é possível unir índices ou criar estruturas de dados temporárias ou personalizadas como um destino de consulta. |
 | Versão da API | As chamadas REST requerem explicitamente o `api-version` na solicitação. Por outro lado, as bibliotecas de cliente no SDK do Azure têm controle de versão em uma versão de API REST específica. Para SDKs, o `api-version` é implícito. |

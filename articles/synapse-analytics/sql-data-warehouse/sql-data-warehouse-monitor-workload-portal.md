@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 53c68f44273b14658bd4d95ce7cf3cf847c077d0
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f780d5404d99435a61c4e3f9e90b1acbd9539af9
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025945"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118431"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitorar carga de trabalho-portal do Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve como usar o portal do Azure para monitorar sua carga de tra
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Assinatura do Azure: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-- Pool do SQL: coletaremos logs para um pool do SQL. Se você não tiver um pool do SQL provisionado, consulte as instruções em [criar um pool do SQL](load-data-from-azure-blob-storage-using-polybase.md).
+- Pool do SQL: coletaremos logs para um pool do SQL. Se você não tiver um pool do SQL provisionado, consulte as instruções em [criar um pool do SQL](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
 
@@ -63,7 +63,7 @@ Navegue até o espaço de trabalho Log Analytics onde você pode fazer o seguint
 - Criar alertas de log
 - Fixar resultados da consulta em um painel
 
-Para obter detalhes sobre os recursos das consultas de log, visite a [documentação](../../azure-monitor/log-query/query-language.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)a seguir.
+Para obter detalhes sobre os recursos das consultas de log, visite a [documentação](/azure/data-explorer/kusto/query/?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json)a seguir.
 
 ![Editor de espaço de trabalho Log Analytics](./media/sql-data-warehouse-monitor-workload-portal/log_analytics_workspace_editor.png)
 

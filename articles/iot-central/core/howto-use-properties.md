@@ -7,16 +7,16 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751420"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119077"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usar propriedades em uma solução de IoT Central do Azure
 
-Este artigo mostra como usar as propriedades do dispositivo que são definidas em um modelo de dispositivo em seu aplicativo de IoT Central do Azure.
+Este guia de instruções mostra como, como desenvolvedor do dispositivo, usar as propriedades do dispositivo definidas em um modelo de dispositivo no aplicativo IoT Central do Azure.
 
 As propriedades representam valores de ponto no tempo. Por exemplo, um dispositivo pode usar uma propriedade para relatar a temperatura de destino que está tentando alcançar. Por padrão, as propriedades do dispositivo são somente leitura em IoT Central. As propriedades graváveis permitem sincronizar o estado entre o dispositivo e o aplicativo IoT Central do Azure.
 
@@ -35,12 +35,12 @@ A tabela a seguir mostra as definições de configuração para uma funcionalida
 | Campo           | Descrição                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nome de exibição    | O nome de exibição do valor da propriedade usado em dashboards e formulários.                                                                                                                                                              |
-| Nome            | O nome da propriedade. O Azure IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo deve ser alfanumérico.                                                 |
+| Nome            | O nome da propriedade. O Azure IoT Central gera um valor para esse campo a partir do nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo deve ser alfanumérico.  O código do dispositivo usa esse valor de **nome** .           |
 | Tipo de funcionalidade | Propriedade.                                                                                                                                                                                                                          |
 | Tipo semântico   | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis.                                                                       |
 | Esquema          | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado.                                               |
 | Gravável       | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para o Azure IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para o Azure IoT Central. Em seguida, o Azure IoT Central pode enviar atualizações de propriedade para o dispositivo. |
-| Severity        | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**.                                                                                                                         |
+| Severidade        | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**.                                                                                                                         |
 | Valores de estado    | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor.                                                                                   |
 | Unidade            | Uma unidade para o valor da propriedade, como **mph**, **%** ou **&deg; C**.                                                                                                                                                              |
 | Unidade de exibição    | Uma unidade de exibição para uso em dashboards e formulários.                                                                                                                                                                                    |
@@ -160,7 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-Este artigo usa Node.js para simplificar a simplicidade. Para obter informações completas sobre exemplos de aplicativos de dispositivo, consulte o tutorial [criar e conectar um aplicativo cliente ao seu aplicativo do Azure IOT central](tutorial-connect-device.md) .
+Este artigo usa Node.js para simplificar a simplicidade. Para obter outros exemplos de linguagem, consulte o tutorial [criar e conectar um aplicativo cliente ao aplicativo do Azure IOT central](tutorial-connect-device.md) .
 
 A exibição a seguir no aplicativo IoT Central do Azure mostra as propriedades que você pode ver. A exibição automaticamente torna a propriedade de **modelo do dispositivo** uma _propriedade de dispositivo somente leitura_.
 

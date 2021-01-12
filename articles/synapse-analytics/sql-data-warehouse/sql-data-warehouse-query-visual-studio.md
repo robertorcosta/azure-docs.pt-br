@@ -11,18 +11,18 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c55f8483ba54ecf9778693b364603d642ddb3deb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2b81ddedbcb254a840e85d41cf9d69c78b149bbd
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452324"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121389"
 ---
 # <a name="connect-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Conectar-se ao pool do SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics com o Visual Studio e o SSDT
 
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -78,6 +78,6 @@ Agora que uma conexão foi estabelecida com o banco de dados, escreveremos uma c
     ![Resultados da consulta](./media/sql-data-warehouse-query-visual-studio/query-results.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você pode se conectar e consultar, tente [visualizar os dados com o Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+Agora que você pode se conectar e consultar, tente [visualizar os dados com o Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect).
 
 Para configurar seu ambiente para Azure Active Directory autenticação, consulte [autenticar no pool SQL dedicado (anteriormente conhecido como SQL DW)](sql-data-warehouse-authentication.md).

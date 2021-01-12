@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 60a995f78b9b696197d9bd45e04becb19e4129f0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c91310d9d1e67dd77098ee13a87190ee6d411607
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653054"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120097"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Práticas recomendadas para carregar dados usando pools de SQL dedicados no Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ Este exemplo cria um usuário de carregamento classificado para um grupo de carg
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Conecte-se ao pool do SQL dedicado e crie um usuário. O código a seguir pressupõe que você esteja conectado ao banco de dados chamado mySampleDataWarehouse. Ele mostra como criar um usuário chamado Loader e fornece permissões de usuário para criar tabelas e carregar usando a [instrução Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Em seguida, ele classifica o usuário para o grupo de cargas de trabalho de carregamentos de carga com recursos máximos. 
+Conecte-se ao pool do SQL dedicado e crie um usuário. O código a seguir pressupõe que você esteja conectado ao banco de dados chamado mySampleDataWarehouse. Ele mostra como criar um usuário chamado Loader e fornece permissões de usuário para criar tabelas e carregar usando a [instrução Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Em seguida, ele classifica o usuário para o grupo de cargas de trabalho de carregamentos de carga com recursos máximos. 
 
 ```sql
    -- Connect to the dedicated SQL pool
@@ -179,5 +179,5 @@ Não é necessária nenhuma outra alteração nas fontes de dados externas subja
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre a instrução de cópia ou o polybase ao criar um processo de extração, carregamento e transformação (ELT), consulte [design ELT para o Azure Synapse Analytics](design-elt-data-loading.md).
-- Para obter um tutorial de carregamento, [use a instrução Copy para carregar dados do armazenamento de BLOBs do Azure para Synapse SQL](load-data-from-azure-blob-storage-using-polybase.md).
+- Para obter um tutorial de carregamento, [use a instrução Copy para carregar dados do armazenamento de BLOBs do Azure para Synapse SQL](./load-data-from-azure-blob-storage-using-copy.md).
 - Para monitorar os carregamentos de dados, consulte [Monitorar sua carga de trabalho usando DMVs](sql-data-warehouse-manage-monitor.md).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: ae8fd7f405beb20d516835ccb80b86e769fd0393
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697077"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119094"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Como recriar um índice no Azure Pesquisa Cognitiva
 
@@ -91,11 +91,11 @@ Quando você carrega o índice, o índice invertido de cada campo é preenchido 
 
 Você pode começar a consultar um índice, assim que o primeiro documento for carregado. Se você souber a ID de um documento, a [API REST de Procurar documento](/rest/api/searchservice/lookup-document) retorna o documento específico. Para testes mais amplos, você deve aguardar até que o índice seja totalmente carregado e, em seguida, usar consultas para verificar o contexto em que você espera ver.
 
-Você pode usar o [Search Explorer](search-explorer.md) ou uma ferramenta de teste na Web, como o [postmaster ou Visual Studio Code](search-get-started-rest.md) para verificar o conteúdo atualizado.
+Você pode usar o [Search Explorer](search-explorer.md) ou uma ferramenta de teste na Web, como o [postmaster](search-get-started-rest.md) ou [Visual Studio Code](search-get-started-vs-code.md) para verificar o conteúdo atualizado.
 
 Se você adicionou ou renomeou um campo, use [$Select](search-query-odata-select.md) para retornar esse campo: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Visão geral do indexador](search-indexer-overview.md)
 + [Indexar grandes conjuntos de dados em escala](search-howto-large-index.md)

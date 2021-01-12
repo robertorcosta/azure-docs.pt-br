@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 6b1079797f1a753fa8362d6e920f3394087d7e9f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530877"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119281"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurar chaves gerenciadas pelo cliente para criptografia de dados no Azure Pesquisa Cognitiva
 
@@ -52,7 +52,7 @@ As ferramentas e os serviços a seguir são usados neste cenário.
 Você deve ter um aplicativo de pesquisa que possa criar o objeto criptografado. Nesse código, você fará referência a uma chave do Key Vault e Active Directory informações de registro. Esse código pode ser um aplicativo em funcionamento ou um código de protótipo como o [exemplo de código C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> Você pode usar o [postmaster ou o Visual Studio Code](search-get-started-rest.md), ou [Azure PowerShell](./search-get-started-powershell.md), para chamar as APIs REST que criam índices e mapas de sinônimos que incluem um parâmetro de chave de criptografia. Não há suporte do portal para adicionar uma chave a índices ou mapas de sinônimos no momento.
+> Você pode usar o [postmaster](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)ou [Azure PowerShell](./search-get-started-powershell.md)para chamar as APIs REST que criam índices e mapas de sinônimos que incluem um parâmetro de chave de criptografia. Não há suporte do portal para adicionar uma chave a índices ou mapas de sinônimos no momento.
 
 ## <a name="1---enable-key-recovery"></a>1-Habilitar recuperação de chave
 
@@ -66,7 +66,7 @@ Você pode definir as duas propriedades usando o portal, o PowerShell ou os coma
 
 1. Na página **visão geral** em **Essentials**, habilite a proteção de exclusão e **limpeza** **reversível** .
 
-### <a name="using-powershell"></a>Usar o PowerShell
+### <a name="using-powershell"></a>Usando o PowerShell
 
 1. Execute `Connect-AzAccount` para configurar suas credenciais do Azure.
 
