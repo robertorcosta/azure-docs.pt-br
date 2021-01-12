@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: e7b5dfe9380612d56e591c3f619dfcb8582f8dee
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 016ad0e11f3378dba887e0a235f235fa91e3aa03
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95556385"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109297"
 ---
 ### <a name="property-limits"></a>Limites de propriedade
 
@@ -32,7 +32,7 @@ Azure Time Series Insights os limites de propriedade aumentaram para 1.000 para 
 
 * As práticas recomendadas e as diretrizes gerais para fontes de eventos podem ser encontradas [aqui](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices)
 
-* Por padrão, Azure Time Series Insights Gen2 pode ingerir dados de entrada a uma taxa de **até 1 megabyte por segundo (Mbps) por Azure Time Series insights ambiente do Gen2**. Há limitações adicionais [por partição de hub](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits). Taxas de até 8 MBps podem ser fornecidas enviando um tíquete de suporte por meio do portal do Azure. Para saber mais, leia [limites de taxa de transferência de ingestão de streaming](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md).
+* Por padrão, Azure Time Series Insights Gen2 pode ingerir dados de entrada a uma taxa de **até 1 megabyte por segundo (Mbps) por Azure Time Series insights ambiente do Gen2**. Há limitações adicionais [por partição de hub](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits). Taxas de até 2 MBps podem ser fornecidas enviando um tíquete de suporte por meio do portal do Azure. Para saber mais, leia [limites de taxa de transferência de ingestão de streaming](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md).
 
 ### <a name="api-limits"></a>Limites de API
 

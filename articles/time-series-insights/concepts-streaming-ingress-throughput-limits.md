@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: c8be18049e6ae74a198f5885a46b70df581e0cd7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 7496a7a40df49fa1b9f8410526cb9ec00c10478b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187452"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108765"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limites de taxa de transferência de ingestão de streaming
 
@@ -34,7 +34,7 @@ Por padrão, Azure Time Series Insights Gen2 pode ingerir dados de entrada a uma
 
 > [!TIP]
 >
-> * O suporte de ambiente para velocidades de ingestão de até 8 MBps pode ser fornecido por solicitação.
+> * O suporte de ambiente para velocidades de ingestão de até 2 MBps pode ser fornecido por solicitação.
 > * Entre em contato conosco se você precisar de uma taxa de transferência maior enviando um tíquete de suporte por meio do portal do Azure.
 
 * **Exemplo 1:**
@@ -47,10 +47,10 @@ Por padrão, Azure Time Series Insights Gen2 pode ingerir dados de entrada a uma
 
 * **Exemplo 2:**
 
-    A análise de frota da Contoso tem 40.000 dispositivos que emitem um evento a cada segundo. Eles estão usando um hub de eventos com uma contagem de partições igual a 2 como a origem do evento Azure Time Series Insights Gen2. O tamanho de um evento é de 200 bytes.
+    A análise de frota da Contoso tem 10.000 dispositivos que emitem um evento a cada segundo. Eles estão usando um hub de eventos com uma contagem de partições igual a 2 como a origem do evento Azure Time Series Insights Gen2. O tamanho de um evento é de 200 bytes.
 
-  * A taxa de ingestão de ambiente seria: **40.000 dispositivos * 200 bytes/evento * 1 evento/s = 8 Mbps**.
-    * Supondo partições balanceadas, sua taxa por partição seria de 4 MBps.
+  * A taxa de ingestão de ambiente seria: **10.000 dispositivos * 200 bytes/evento * 1 evento/s = 2 Mbps**.
+    * Supondo partições balanceadas, sua taxa por partição seria de 1 MBps.
     * A taxa de ingestão da Análise de Frota da Contoso está acima dos limites do ambiente e da partição. Eles podem enviar uma solicitação para Azure Time Series Insights Gen2 por meio do portal do Azure para aumentar a taxa de ingestão para seu ambiente e criar um hub de eventos com mais partições dentro dos limites.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>Partições de Hub e limites por partição

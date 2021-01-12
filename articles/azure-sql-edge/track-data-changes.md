@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 86e84c60aec99246f58b5dc9d67584b23a3969f3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: dddaad3e171c757b353deb81ffcb77cfbe706340
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394911"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108255"
 ---
 # <a name="track-data-changes-in-azure-sql-edge"></a>Acompanhar alterações de dados no Azure SQL Edge
 
@@ -36,7 +36,10 @@ Para administrar e monitorar esse recurso, consulte [administrar e monitorar a c
 
 Para entender como consultar e trabalhar com os dados alterados, confira [trabalhar com dados de alteração](/sql/relational-databases/track-changes/work-with-change-data-sql-server).
 
-## <a name="change-tracking"></a>controle de alterações
+> [!NOTE]
+> As funções de captura de dados de alterações que dependem de CLR não têm suporte no Azure SQL Edge.
+
+## <a name="change-tracking"></a>Change tracking
 
 Para entender os detalhes de como esse recurso funciona, consulte [sobre o controle de alterações](/sql/relational-databases/track-changes/about-change-tracking-sql-server).
 
@@ -48,7 +51,7 @@ Para entender como consultar e trabalhar com os dados alterados, confira [trabal
 
 ## <a name="temporal-tables"></a>Tabelas temporais
 
-O Azure SQL Edge também dá suporte ao recurso de tabelas temporais do SQL Server. Esse recurso (também conhecido como *tabelas temporais com controle de versão do sistema* ) traz suporte interno para fornecer informações sobre os dados armazenados na tabela a qualquer momento. O recurso não fornece apenas informações sobre os dados que estão corretos no momento atual.
+O Azure SQL Edge também dá suporte ao recurso de tabelas temporais do SQL Server. Esse recurso (também conhecido como *tabelas temporais com controle de versão do sistema*) traz suporte interno para fornecer informações sobre os dados armazenados na tabela a qualquer momento. O recurso não fornece apenas informações sobre os dados que estão corretos no momento atual.
 
 Uma tabela temporal com controle da versão do sistema é um tipo de tabela de usuário criado para manter um histórico completo de alterações de dados e permitir uma análise pontual fácil. Esse tipo de tabela temporal é conhecido como uma tabela temporal com controle de versão do sistema porque o período de validade de cada linha é gerenciado pelo sistema (ou seja, o mecanismo de banco de dados).
 

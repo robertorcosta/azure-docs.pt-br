@@ -12,19 +12,21 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740667"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108583"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de os Azure Machine Learning
 
 
-Neste artigo, você aprenderá a trabalhar com [conjuntos de Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) de trabalho em seus experimentos de treinamento.  Você pode usar conjuntos de dados em seu destino de computação local ou remoto sem se preocupar com cadeias de conexão ou caminhos de dado.
+Neste artigo, você aprenderá a trabalhar com [conjuntos de Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) de trabalho para treinar modelos de aprendizado de máquina.  Você pode usar conjuntos de dados em seu destino de computação local ou remoto sem se preocupar com cadeias de conexão ou caminhos de dado. 
 
 Azure Machine Learning conjuntos de valores fornecem uma integração direta com Azure Machine Learning funcionalidade de treinamento como [pipelines](how-to-create-your-first-pipeline.md)de [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) e Azure Machine Learning.
+
+Se você não estiver pronto para disponibilizar seus dados para treinamento de modelo, mas quiser carregar seus dados para o seu bloco de anotações para exploração de dados, consulte como [explorar os dados em seu DataSet](how-to-create-register-datasets.md#explore-data). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +36,7 @@ Para criar e treinar com conjuntos de os, você precisa:
 
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
 
-* O [SDK do Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), que inclui o pacote de conjuntos de linhas do azureml.
+* O [SDK do Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), que inclui o `azureml-datasets` pacote.
 
 > [!Note]
 > Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) . Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
@@ -65,7 +67,7 @@ O código a seguir configura um argumento de script `--input-data` que será esp
 > [!Note]
 > Se a fonte de dados original contiver NaN, cadeias de caracteres vazias ou valores em branco, quando você usar `to_pandas_dataframe()` , esses valores serão substituídos como um valor *nulo* .
 
-Se você precisar carregar os dados preparados em um novo conjunto de dado a partir de um data frame do pandas na memória, grave os dados em um arquivo local, como um parquet, e crie um novo DataSet a partir desse arquivo. Você também pode criar conjuntos de valores de arquivos locais ou caminhos em repositórios de armazenamento. Saiba mais sobre [como criar conjuntos de](how-to-create-register-datasets.md)os.
+Se você precisar carregar os dados preparados em um novo conjunto de dado a partir de um data frame do pandas na memória, grave os dados em um arquivo local, como um parquet, e crie um novo DataSet a partir desse arquivo. Saiba mais sobre [como criar conjuntos de](how-to-create-register-datasets.md)os.
 
 ```Python
 %%writefile $script_folder/train_titanic.py

@@ -3,12 +3,12 @@ title: Recuperação de desastre geográfico – Hubs de Eventos do Azure | Micr
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8824334e762237c3f18cb763d5b39fa55d6415a3
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861469"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108444"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
 
@@ -70,7 +70,29 @@ A seção a seguir é uma visão geral do processo de failover e explica como co
 
 ### <a name="setup"></a>Instalação
 
-Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. Por fim, você deve adicionar um monitoramento para detectar se um failover é necessário. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, assim, failovers automáticos raramente são possíveis, uma vez que failovers devem ser executados em sincronia com o subsistema ou a infraestrutura restante.
+Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. 
+
+1. Crie o namespace primário.
+1. Crie o namespace secundário. Esta etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
+1. No portal do Azure, navegue até o namespace primário.
+1. Selecione **recuperação geográfica** no menu à esquerda e selecione **Iniciar emparelhamento** na barra de ferramentas. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar emparelhamento a partir do namespace primário":::    
+1. Na página **Iniciar emparelhamento** , selecione um namespace secundário existente ou crie um e, em seguida, selecione **criar**. No exemplo a seguir, um namespace secundário existente está selecionado. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selecionar o namespace secundário":::        
+1. Agora, ao selecionar a **recuperação geográfica** para o namespace primário, você deverá ver a página de **alias do geo-Dr** semelhante à imagem a seguir:
+
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Página de alias do geo-DR":::    
+1. Nesta página de **visão geral** , você pode executar as seguintes ações: 
+    1. Quebre o emparelhamento entre os namespaces primário e secundário. Selecione **quebrar emparelhamento** na barra de ferramentas. 
+    1. Fazer failover manual para o namespace secundário. Selecione **failover** na barra de ferramentas. 
+    
+        > [!WARNING]
+        > O failover ativará o namespace secundário e removerá o namespace primário do emparelhamento de recuperação Geo-Disaster. Crie outro namespace para ter um novo par de recuperação de desastres geograficamente. 
+1. Na página **alias do geo-Dr** , selecione **políticas de acesso compartilhado** para acessar a cadeia de conexão primária para o alias. Use essa cadeia de conexão em vez de usar a cadeia de conexão para o namespace primário/secundário diretamente. 
+
+Por fim, você deve adicionar um monitoramento para detectar se um failover é necessário. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, assim, failovers automáticos raramente são possíveis, uma vez que failovers devem ser executados em sincronia com o subsistema ou a infraestrutura restante.
 
 ### <a name="example"></a>Exemplo
 
@@ -133,7 +155,7 @@ Você pode habilitar as Zonas de Disponibilidade apenas em novos namespaces usan
 ![3][]
 
 ## <a name="private-endpoints"></a>Pontos de extremidade privados
-Esta seção fornece considerações adicionais ao usar a recuperação de desastre geográfico com namespaces que usam pontos de extremidade privados. Para aprender a usar pontos de extremidade privados com Hubs de Eventos em geral, confira [Configurar pontos de extremidade privados](private-link-service.md).
+Esta seção fornece mais considerações ao usar a recuperação de desastres geograficamente com namespaces que usam pontos de extremidade privados. Para aprender a usar pontos de extremidade privados com Hubs de Eventos em geral, confira [Configurar pontos de extremidade privados](private-link-service.md).
 
 ### <a name="new-pairings"></a>Novos emparelhamentos
 Se você tentar criar um emparelhamento entre um namespace primário com um ponto de extremidade privado e um namespace secundário sem um ponto de extremidade privado, o emparelhamento falhará. O emparelhamento só terá sucesso se os namespaces primários e secundários tiverem pontos de extremidade privados. Recomendamos que você use as mesmas configurações nos namespaces primário e secundário e nas redes virtuais nas quais os pontos de extremidade privados são criados.  

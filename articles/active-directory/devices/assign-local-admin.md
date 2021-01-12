@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575815"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107354"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais nos dispositivos do Microsoft Azure Active Directory
 
@@ -32,8 +32,7 @@ Quando você conecta um dispositivo Windows com o Azure AD usando uma junção d
 - Função de administrador de dispositivo do Microsoft Azure Active Directory 
 - O usuário que está executando o ingresso no Microsoft Azure Active Directory   
 
-Com a adição de funções do Microsoft Azure ADao grupo Administradores local, você pode atualizar os usuários que podem gerenciar um dispositivo a qualquer momento no Microsoft Azure AD sem modificar algo no dispositivo. Atualmente, é possível atribuir grupos a uma função de administrador.
-O Azure Active Directory também adiciona a função de administrador do dispositivo do Microsoft Azure Active Directory ao grupo Administradores local para dar suporte o princípio do privilégio mínimo (PoLP). Além dos administradores globais, você também pode habilitar os usuários que foram *apenas* atribuídos à função de administrador do dispositivo para gerenciar um dispositivo. 
+Com a adição de funções do Microsoft Azure ADao grupo Administradores local, você pode atualizar os usuários que podem gerenciar um dispositivo a qualquer momento no Microsoft Azure AD sem modificar algo no dispositivo. O Azure Active Directory também adiciona a função de administrador do dispositivo do Microsoft Azure Active Directory ao grupo Administradores local para dar suporte o princípio do privilégio mínimo (PoLP). Além dos administradores globais, você também pode habilitar os usuários que foram *apenas* atribuídos à função de administrador do dispositivo para gerenciar um dispositivo. 
 
 ## <a name="manage-the-global-administrators-role"></a>Gerenciar a função de administradores globais
 
@@ -70,7 +69,7 @@ Administradores do dispositivo são atribuídos a todos os dispositivos ingressa
 ## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Gerenciar privilégios de administrador usando grupos do Azure AD (versão prévia)
 
 >[!NOTE]
-> Esse recurso está atualmente na visualização.
+> Esse recurso atualmente está em versão prévia.
 
 
 A partir da atualização do Windows 10 2004, você pode usar os grupos do Azure AD para gerenciar privilégios de administrador em dispositivos ingressados no Azure AD com a política de MDM de [Grupos restritos](/windows/client-management/mdm/policy-csp-restrictedgroups) . Essa política permite que você atribua usuários individuais ou grupos do Azure AD ao grupo de administradores locais em um dispositivo ingressado no Azure AD, fornecendo a granularidade para configurar administradores distintos para diferentes grupos de dispositivos. 

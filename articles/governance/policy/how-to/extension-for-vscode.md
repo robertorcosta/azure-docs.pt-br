@@ -1,22 +1,22 @@
 ---
 title: Extensão do Azure Policy para Visual Studio Code
 description: Saiba como usar a extensão de Azure Policy para Visual Studio Code para procurar Azure Resource Manager aliases.
-ms.date: 10/20/2020
+ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8c7357d70323fa74ec77cf43bd11f149a2f99154
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 4c4ba0eeb0506179ff92ead0ee86f048600d157e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906294"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107932"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usar extensão de Azure Policy para Visual Studio Code
 
-> Aplica-se a Azure Policy versão de extensão **0.1.0** e mais recente
+> Aplica-se a Azure Policy versão de extensão **0.1.1** e mais recente
 
 Saiba como usar a extensão de Azure Policy para Visual Studio Code para pesquisar [aliases](../concepts/definition-structure.md#aliases), examinar recursos e políticas, exportar objetos e avaliar definições de políticas. Primeiro, descreveremos como instalar a extensão de Azure Policy no Visual Studio Code. Em seguida, vamos examinar como Pesquisar aliases.
 
-A extensão de Azure Policy para Visual Studio Code pode ser instalada em todas as plataformas com suporte no Visual Studio Code. Esse suporte inclui Windows, Linux e macOS.
+A extensão de Azure Policy para Visual Studio Code pode ser instalada no Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,7 +93,7 @@ A extensão Azure Policy lista os recursos nas assinaturas selecionadas por prov
 - **Grupos de recursos**
   - Todos os recursos do grupo de recursos em que estão
 
-Por padrão, a extensão filtra a parte ' provedor de recursos ' por recursos existentes e recursos que têm aliases de política. Altere esse comportamento em extensões de **configurações**  >  **Extensions**  >  **Azure Policy** para ver todos os provedores de recursos sem filtragem.
+Por padrão, a extensão filtra a parte ' provedor de recursos ' por recursos existentes e recursos que têm aliases de política. Altere esse comportamento em extensões de **configurações**  >    >  **Azure Policy** para ver todos os provedores de recursos sem filtragem.
 
 Clientes com centenas ou milhares de recursos em uma única assinatura podem preferir uma maneira pesquisável de localizar seus recursos. A extensão Azure Policy torna possível pesquisar um recurso específico com as seguintes etapas:
 

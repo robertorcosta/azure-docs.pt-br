@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como criar código para os 
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 17bec931f79a6dbb3d98270ab0ff6e2d1d4c6541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f95abe3668bb400d84e354c3bca9eac289c5795
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013904"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108680"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guia de programação do .NET para hubs de eventos do Azure (pacote Microsoft. Azure. EventHubs herdado)
 Este artigo descreve alguns cenários comuns de produção de código usando os Hubs de Eventos do Azure. Ele supõe uma compreensão preliminar de Hubs de Eventos. Para obter uma visão geral conceitual dos Hubs de Eventos, confira [Visão geral dos Hubs de Eventos](./event-hubs-about.md).
@@ -144,7 +144,6 @@ Além dos recursos avançados de tempo de execução do host do processador de e
 > [!NOTE]
 > Atualmente, somente a API REST dá suporte a esse recurso ([revogação de Publicador](/rest/api/eventhub/revoke-publisher)).
 
-Para obter mais informações sobre a revogação do publicador e como enviar para os Hubs de Eventos como um publicador, consulte o exemplo [Publicação Segura em Larga Escala dos Hubs de Eventos](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
 ## <a name="next-steps"></a>Próximas etapas
 

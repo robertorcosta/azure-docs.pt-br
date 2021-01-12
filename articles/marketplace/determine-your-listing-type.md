@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
-ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/18/2020
+ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302861"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107388"
 ---
 # <a name="introduction-to-listing-options"></a>Introdução às opções de listagem
 
@@ -26,21 +26,23 @@ Ao criar um tipo de oferta, você escolhe uma ou mais opções de listagem. Essa
 
 Esta tabela mostra quais opções de listagem estão disponíveis para cada tipo de oferta.
 
-| Tipo de oferta | Avaliação gratuita | Test drive | Entre em contato comigo | Obtenha agora (transação) |
+| Tipo de oferta | Avaliação gratuita | Test drive | Entre em contato comigo | Obtenha agora `*` |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Aplicativo Azure (aplicativo gerenciado) |   | &#10004; |   | &#10004; |
-| Aplicativo Azure (modelo de solução) |  |  |  |  |
+| Aplicativo Azure (modelo de solução) |  |  |  | &#10004; |
 | Serviço de consultoria |  |  | &#10004; |  |
-| Contêiner do Azure |  |  |  |  |
-| Dynamics 365 Business central | &#10004; | &#10004; | &#10004; |  |
-| Compromisso com o cliente do Dynamics 365 & PowerApps | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 para operações | &#10004; | &#10004; | &#10004; |  |
-| Módulo do IoT Edge |  |  |  |  |
-| Serviço gerenciado |  |  |  |  |
-| Aplicativo do Power BI |  |  |  |  |
+| Contêiner do Azure |  |  |  | &#10004; |
+| Dynamics 365 Business central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Compromisso com o cliente do Dynamics 365 & PowerApps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 para operações | &#10004; | &#10004; | &#10004; | &#10004; |
+| Módulo do IoT Edge |  |  |  | &#10004; |
+| Serviço gerenciado |  |  |  | &#10004; |
+| Aplicativo do Power BI |  |  |  | &#10004; |
 | Máquina Virtual do Azure | &#10004; | &#10004; |  | &#10004; |
 | Software como serviço | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
+
+`*` A opção obter agora de listagem inclui obtê-lo agora (gratuito), traga sua própria licença (BYOL), assinatura e preços com base no uso. Para obter detalhes, consulte [obter agora](#get-it-now).
 
 ### <a name="free-trial"></a>Avaliação gratuita
 

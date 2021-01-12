@@ -3,12 +3,12 @@ title: Perguntas frequentes
 description: Fornece respostas para algumas das perguntas mais comuns sobre a solução do Azure VMware.
 ms.topic: conceptual
 ms.date: 1/4/2020
-ms.openlocfilehash: d0228739a6ee4eac20d2fa04e47cf86b6fddb84e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 1420fba40492e1a5f45f4ad5e58da2caa29ae7e7
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881218"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107949"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -29,6 +29,10 @@ O serviço está sendo adicionado continuamente a novas regiões, portanto, exib
 #### <a name="can-workloads-running-in-an-azure-vmware-solution-instance-consume-or-integrate-with-azure-services"></a>As cargas de trabalho em execução em uma instância de solução do Azure VMware consomem ou se integram aos serviços do Azure?
 
 Todos os serviços do Azure estarão disponíveis para os clientes da solução Azure VMware. As limitações de desempenho e disponibilidade para serviços específicos precisarão ser tratadas caso a caso.
+
+#### <a name="what-guest-operating-systems-are-compatible-with-azure-vmware-solution"></a>Quais sistemas operacionais convidados são compatíveis com a solução VMware do Azure?
+
+Você pode encontrar informações sobre a compatibilidade do sistema operacional convidado com o vSphere usando o [Guia de compatibilidade do VMware](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16).  Para identificar a versão do vSphere em execução na solução VMware do Azure, consulte [versões de software VMware](concepts-private-clouds-clusters.md#vmware-software-versions).
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Eu uso as mesmas ferramentas que utilizo atualmente para gerenciar recursos de nuvem privada?
 

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2dd1ac58c89060fc3e09e97617cb2a68d8ac
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094566"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107864"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: Perguntas frequentes
 
@@ -85,6 +85,7 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
 
    > [!NOTE]
    >Você precisará de ambas as credenciais de administrador de domínio e de administrador global para as etapas abaixo.
+   >Se você não for um administrador de domínio e tiver recebido permissões pelo administrador de domínio, deverá chamar `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
 
    **Etapa 1. Obter lista de florestas do AD em que o SSO Contínuo foi habilitado**
 
@@ -105,9 +106,6 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
    >A conta de administrador de domínio usada não deve ser um membro do grupo usuários protegidos. Nesse caso, a operação falhará.
 
    2. Chame `Update-AzureADSSOForest -OnPremCredentials $creds`. Esse comando atualiza a chave de descriptografia do Kerberos para a `AZUREADSSO` conta de computador nessa floresta do AD específico e a atualiza no AD do Azure.
-   
-   >[!NOTE]
-   >Se você não for um administrador de domínio e tiver recebido permissões pelo administrador de domínio, deverá chamar `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Repita as etapas anteriores para cada floresta do AD em que você configurou o recurso.
    

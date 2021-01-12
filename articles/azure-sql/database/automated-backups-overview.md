@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917895"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108051"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -122,7 +122,7 @@ O consumo de armazenamento de backup até o tamanho máximo de dados de um banco
 
 ## <a name="backup-retention"></a>Retenção de backup
 
-Para todos os bancos de dados novos, restaurados e copiados, o Azure SQL Database e o Azure SQL Instância Gerenciada retêm backups suficientes para permitir PITR nos últimos 7 dias por padrão. Com exceção dos bancos de dados de hiperescala, você pode [alterar o período de retenção de backup](#change-the-pitr-backup-retention-period) por cada banco de dados ativo no intervalo de 1-35 dias. Conforme descrito em [consumo de armazenamento de backup](#backup-storage-consumption), os backups armazenados para habilitar PITR podem ser mais antigos do que o período de retenção. Somente para o Azure SQL Instância Gerenciada, é possível definir a taxa de retenção de backup PITR quando um banco de dados tiver sido excluído no intervalo de 0-35 dias. 
+Para todos os bancos de dados novos, restaurados e copiados, o Azure SQL Database e o Azure SQL Instância Gerenciada retêm backups suficientes para permitir PITR nos últimos 7 dias por padrão. Com exceção dos bancos de dados de hiperescala e de camada básica, você pode [alterar o período de retenção de backup](#change-the-pitr-backup-retention-period) por cada banco de dados ativo no intervalo de 1-35 dias. Conforme descrito em [consumo de armazenamento de backup](#backup-storage-consumption), os backups armazenados para habilitar PITR podem ser mais antigos do que o período de retenção. Somente para o Azure SQL Instância Gerenciada, é possível definir a taxa de retenção de backup PITR quando um banco de dados tiver sido excluído no intervalo de 0-35 dias. 
 
 Se você excluir um banco de dados, o sistema manterá os backups da mesma forma que faria com um banco de dados online com seu período de retenção específico. Não é possível alterar o período de retenção de backup de um banco de dados excluído.
 
