@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: 73b18d15ad054f1c485d6f61cdefe54993148bc4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f11693b34048b11c02668e086561b9a6521a5213
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450541"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121518"
 ---
 # <a name="visualize-data"></a>Visualizar dados
 O Azure Synapse é um serviço de análise integrado que acelera o tempo de insight, entre data warehouses e sistemas de análise de Big Data. A visualização de dados é um componente fundamental na capacidade de obter informações sobre seus dados. Ele ajuda a tornar os dados grandes e pequenos mais fáceis para os seres humanos entenderem. Ele também facilita a detecção de padrões, tendências e exceções em grupos de dados. 
@@ -227,7 +227,7 @@ Você pode visitar a [documentação](./spark/../apache-spark-version-support.md
 ## <a name="connect-to-power-bi-using-apache-spark--sql-on-demand"></a>Conectar-se a Power BI usando Apache Spark & SQL sob demanda
 O Azure Synapse Analytics se integra profundamente com Power BI permitindo que os engenheiros de dados criem soluções de análise.
 
-O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do espaço de trabalho compartilhem bancos de dados e tabelas entre seus pools do Spark e o pool SQL sem servidor. Usando o [modelo de metadados compartilhado](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview), você pode consultar suas tabelas de Apache Spark usando o SQL sob demanda. Depois de concluído, você pode conectar seu ponto de extremidade do SQL sob demanda para Power BI para consultar facilmente suas tabelas do Spark sincronizadas.
+O Azure Synapse Analytics permite que os diferentes mecanismos computacionais do espaço de trabalho compartilhem bancos de dados e tabelas entre seus pools do Spark e o pool SQL sem servidor. Usando o [modelo de metadados compartilhado](../metadata/overview.md), você pode consultar suas tabelas de Apache Spark usando o SQL sob demanda. Depois de concluído, você pode conectar seu ponto de extremidade do SQL sob demanda para Power BI para consultar facilmente suas tabelas do Spark sincronizadas.
 
 
 ## <a name="next-steps"></a>Próximas etapas
