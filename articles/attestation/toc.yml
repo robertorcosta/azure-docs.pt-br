@@ -15,6 +15,8 @@
   items:
     - name: Criação de uma política de atestado
       href: author-sign-policy.md
+    - name: Criar um ponto de extremidade privado – PowerShell
+      href: private-endpoint-powershell.md
     - name: Exemplos de código de atestado de SGX
       href: /samples/browse/?expanded=azure&terms=attestation
 - name: Exemplos
