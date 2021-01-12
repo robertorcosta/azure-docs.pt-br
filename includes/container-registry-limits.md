@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: e451171859efc49753131b145642aec4864db45d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015651"
+ms.locfileid: "98052736"
 ---
 | Recurso | Basic | Standard | Premium |
 |---|---|---|---|
@@ -38,7 +38,7 @@ ms.locfileid: "98015651"
 | &bull; Repositórios por mapa de escopo | N/D | N/D | 500 |
 
 
-<sup>1</sup> Armazenamento incluído na taxa diária de cada camada. Um armazenamento adicional pode ser usado a uma taxa diária adicional por GiB, até o limite de armazenamento de registro. Para obter informações de taxa, confira [Preço de Registro de Contêiner do Azure][pricing].
+<sup>1</sup> Armazenamento incluído na taxa diária de cada camada. Um armazenamento adicional pode ser usado a uma taxa diária adicional por GiB, até o limite de armazenamento de registro. Para obter informações de taxa, confira [Preço de Registro de Contêiner do Azure][pricing]. Se você precisar de armazenamento além do limite do armazenamento de registro, entre em contato com o Suporte do Azure.
 
 <sup>2</sup>*ReadOps*, *WriteOps* e *Largura de Banda* são estimativas mínimas. O Registro de Contêiner do Azure se esforça para aprimorar o desempenho conforme os requisitos de uso.
 
