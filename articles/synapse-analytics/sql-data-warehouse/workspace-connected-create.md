@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: a1fbc6eede6c82020b765185602c672c1162fdf8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548181"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071180"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Habilitando recursos de espaço de trabalho Synapse para um pool SQL dedicado (antigo SQL DW)
 
@@ -57,6 +57,9 @@ As etapas a seguir devem ser concluídas para garantir que as instâncias existe
 4. Selecione uma das instâncias do pool de SQL dedicado (anteriormente conhecido como SQL DW) hospedadas no servidor lógico. Na página Visão geral, selecione **iniciar o Synapse Studio** ou acesse a [entrada no Synapse Studio](https://web.azuresynapse.net) e entre no seu espaço de trabalho.
 
 5. Abra o **Hub de dados** e expanda o pool SQL dedicado no Pesquisador de objetos para garantir que você tenha acesso e possa consultar sua data warehouse.
+
+    > [!NOTE] 
+    > Um espaço de trabalho conectado pode ser excluído a qualquer momento. Excluir o espaço de trabalho não excluirá o pool de SQL dedicado conectado (antigo SQL DW). O recurso de espaço de trabalho pode ser reabilitado no pool do SQL dedicado (anteriormente conhecido como SQL DW) quando a operação de exclusão for concluída.
 
 ## <a name="next-steps"></a>Próximas etapas
 Introdução ao [Synapse Workspace and Studio](../get-started.md).

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/04/2020
+ms.date: 01/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 919a9831731a8f7c8065f2f1c496691ae33ba659
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: a66b5d59415aad7abf3e8dc95c7498b5d774d640
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861977"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071265"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas da solução usando o Azure NetApp Files
 Este artigo fornece referências a práticas recomendadas que podem ajudá-lo a entender as arquiteturas de solução para usar o Azure NetApp Files.  
@@ -136,6 +136,7 @@ Esta seção fornece soluções para os serviços da plataforma Azure.
 * [Integrar Azure NetApp Files com o serviço kubernetes do Azure](../aks/azure-netapp-files.md)
 * [Desempenho de kubernetes fora do mundo no Azure com Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Trident-orquestrador de armazenamento para contêineres](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
+* [Magento a plataforma de comércio eletrônico no serviço kubernetes do Azure (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
 
 ### <a name="azure-batch"></a>Lote do Azure
 

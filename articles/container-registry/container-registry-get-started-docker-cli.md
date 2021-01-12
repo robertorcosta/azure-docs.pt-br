@@ -3,13 +3,13 @@ title: Enviar por push & imagem do Docker pull
 description: Envie e obtenha imagens do Docker para um registro de contêiner privado no Azure usando a CLI do Docker
 ms.topic: article
 ms.date: 01/23/2019
-ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 067b5749332c2c41b86d22e7de60083d5f61a442
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: seodec18, H1Hack27Feb2017
+ms.openlocfilehash: d04a5fcbc4d6294a216ddfc9a8e6ea1ef98825a3
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020051"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071622"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Envie sua primeira imagem para um registro de contêiner privado do Docker usando a CLI do Docker
 
@@ -37,6 +37,8 @@ docker login myregistry.azurecr.io
 ```
 
 Os dois comandos retornam `Login Succeeded` após a conclusão.
+> [!NOTE]
+>* Talvez você queira usar Visual Studio Code com extensão do Docker para um logon mais rápido e conveniente.
 
 > [!TIP]
 > Sempre especifique o nome totalmente qualificado do registro (todas as letras minúsculas) quando você usar `docker login` e quando marcar imagens para envio por push para o registro. Nos exemplos deste artigo, o nome totalmente qualificado é *myregistry.azurecr.io*.

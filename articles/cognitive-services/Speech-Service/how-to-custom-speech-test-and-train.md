@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: d24565522a75427be04cacfdc20347056a515847
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709292"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070755"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -50,7 +50,7 @@ Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser 
 | [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Sim | 1-20 horas de áudio |
 | [Texto relacionado](#related-text-data-for-training) | Não | N/A | Sim | 1-200 MB de texto relacionado |
 
-Ao treinar um novo modelo, comece com o [texto relacionado](#related-text-data-for-training). Esses dados já melhorarão o reconhecimento de termos e frases especiais.
+Ao treinar um novo modelo, comece com o [texto relacionado](#related-text-data-for-training). Esses dados já melhorarão o reconhecimento de termos e frases especiais. O treinamento com texto é muito mais rápido do que o treinamento com áudio (minutos versus dias).
 
 Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo. zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
@@ -138,7 +138,9 @@ Depois de coletar os arquivos de áudio e as transcrições correspondentes, emp
 > [!div class="mx-imgBorder"]
 > ![Selecionar áudio no portal de fala](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-Consulte [configurar sua conta do Azure](custom-speech-overview.md#set-up-your-azure-account) para obter uma lista de regiões recomendadas para suas assinaturas de serviço de fala. A configuração das assinaturas de fala em uma dessas regiões reduzirá o tempo necessário para treinar o modelo.
+Consulte [configurar sua conta do Azure](custom-speech-overview.md#set-up-your-azure-account) para obter uma lista de regiões recomendadas para suas assinaturas de serviço de fala. A configuração das assinaturas de fala em uma dessas regiões reduzirá o tempo necessário para treinar o modelo. Nessas regiões, o treinamento pode processar cerca de 10 horas de áudio por dia, em comparação a apenas uma hora por dia em outras regiões. Se o treinamento do modelo não puder ser concluído em uma semana, o modelo será marcado como com falha.
+
+Nem todos os modelos de base dão suporte ao treinamento com dados de áudio. Se o modelo base não oferecer suporte a ele, o serviço irá ignorar o áudio e apenas treinar com o texto das transcrições. Nesse caso, o treinamento será o mesmo que o treinamento com o texto relacionado.
 
 ## <a name="related-text-data-for-training"></a>Dados de texto relacionados para treinamento
 
@@ -150,6 +152,8 @@ Os nomes de produtos ou recursos que são exclusivos devem incluir dados de text
 | Pronúncias | Melhore a pronúncia de termos, acrônimos ou outras palavras incomuns, com pronúncias indefinidas. |
 
 As frases podem ser fornecidas como um único arquivo de texto ou vários arquivos de texto. Para melhorar a precisão, use dados de texto que estejam mais próximos do declarações falado esperado. As pronúncias devem ser fornecidas como um único arquivo de texto. Tudo pode ser empacotado como um único arquivo zip e carregado no <a href="https://speech.microsoft.com/customspeech" target="_blank">Portal <span class="docon docon-navigate-external x-hidden-focus"></span> de fala personalizada </a>.
+
+O treinamento com texto relacionado geralmente é concluído em alguns minutos.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Diretrizes para criar um arquivo de sentenças
 
@@ -190,7 +194,7 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês ( `en-US` ) e alemão ( `de-DE` ). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Linguagem | Localidade | Caracteres |
+| Language | Locale | Characters |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |

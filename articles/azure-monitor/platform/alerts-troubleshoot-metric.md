@@ -4,14 +4,14 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/03/2021
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857334"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070721"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica do Azure Monitor 
 
@@ -91,9 +91,9 @@ Se você quiser criar um alerta em uma métrica específica, mas não puder vê-
 Se você estiver procurando alertar sobre [valores de dimensão específicos de uma métrica](./alerts-metric-overview.md#using-dimensions), mas não puder encontrar esses valores, observe o seguinte:
 
 1. Pode levar alguns minutos para que os valores de dimensão apareçam na lista **Valores de dimensão**
-1. Os valores de dimensão exibidos se baseiam nos dados de métrica coletados nos últimos 3 dias
-1. Se o valor da dimensão ainda não foi emitido, clique no sinal ' + ' para adicionar um valor personalizado
-1. Se você quiser alertar sobre todos os valores possíveis de uma dimensão (incluindo valores futuros), marque a caixa de seleção ' selecionar * '
+1. Os valores de dimensão exibidos se baseiam nos dados de métrica coletados no último dia
+1. Se o valor da dimensão ainda não for emitido ou não for mostrado, você poderá usar a opção ' adicionar valor personalizado ' para adicionar um valor de dimensão personalizado
+1. Se você quiser alertar sobre todos os valores possíveis de uma dimensão (incluindo valores futuros), escolha a opção ' selecionar todos os valores atuais e futuros '
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Regras de alerta de métrica ainda definidas em um recurso excluído 
 

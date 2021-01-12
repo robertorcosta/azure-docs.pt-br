@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356116"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070857"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros ISV Azure Active Directory B2C
 
@@ -54,10 +54,10 @@ A Microsoft faz parceria com os seguintes ISVs para MFA e autenticação sem sen
 | ![Captura de tela de um logotipo do Nevis](./media/partner-gallery/nevis-logo.png) | O [Nevis](./partner-nevis.md) habilita a autenticação sem senha e fornece uma experiência de usuário final totalmente marcada e móvel com identidade visual com o aplicativo de acesso de Névis para autenticação de cliente forte e para atender aos requisitos de transação PSD2. |
 | ![Captura de tela de um logotipo do trusona](./media/partner-gallery/trusona-logo.png) | A integração do [Trusona](./partner-trusona.md) ajuda você a entrar com segurança e permite a autenticação sem senha, MFA e verificação de licença digital. |
 | ![Captura de tela de um logotipo do twilio.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) fornece várias soluções para habilitar a MFA por meio de OTP (senha de uso único) do SMS, uma senha de uso único baseada em tempo (TOTP) e notificações por push e para obedecer aos requisitos de SCA para PSD2. |
-| ![Captura de tela de um logotipo do typingDNA](./media/partner-gallery/typingdna-logo.png) | O [TypingDNA](./partner-twilio.md) permite uma autenticação de cliente forte analisando o padrão de digitação de um usuário. Ele ajuda as empresas a habilitar uma MFA silenciosa e a cumprir os requisitos de SCA para PSD2. |
+| ![Captura de tela de um logotipo do typingDNA](./media/partner-gallery/typingdna-logo.png) | O [TypingDNA](./partner-typingdna.md) permite uma autenticação de cliente forte analisando o padrão de digitação de um usuário. Ele ajuda as empresas a habilitar uma MFA silenciosa e a cumprir os requisitos de SCA para PSD2. |
 | ![Captura de tela de um logotipo do whoiam](./media/partner-gallery/whoiam-logo.png) | O [WhoIAM](./partner-whoiam.md) é um aplicativo BRIMS (sistema de gerenciamento de identidades) que permite que as organizações verifiquem sua base de usuários por voz, SMS e email. |
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em funções 
+## <a name="role-based-access-control"></a>Controle de acesso baseado em função 
  
 A Microsoft faz parceria com os seguintes ISVs para controle de acesso baseado em função.
 

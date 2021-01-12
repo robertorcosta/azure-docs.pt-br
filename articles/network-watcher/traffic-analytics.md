@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 8b1eedc47d2a89b9552c22b3ae770f655f926945
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 6cd1965ab51e7a7bbcc65836383000f0773b9b82
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898769"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070906"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -131,7 +131,7 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
       Leste dos EUA 2 EUAP  
       França Central  
       Centro-Oeste da Alemanha  
-      Leste do Japão  
+      Japan East  
       Coreia Central  
       Centro-Norte dos EUA  
       Norte da Europa  
@@ -269,7 +269,7 @@ Algumas das informações que talvez você pode querer obter depois que a Análi
 - Estatísticas do tráfego bloqueado.
     - Por que um host está bloqueando um volume significativo de tráfego benigno? Esse comportamento requer investigação adicional e provavelmente otimização da configuração
 - Estatísticas de tráfego mal-intencionado permitido/bloqueado
-  - Por que um host está recebendo tráfego mal-intencionado e por que fluxos de origem mal-intencionada são permitidos? Esse comportamento requer investigação adicional e provavelmente otimização da configuração.
+  - Por que um host recebe tráfego mal-intencionado e por que os fluxos de fontes mal-intencionadas são permitidos? Esse comportamento requer investigação adicional e provavelmente otimização da configuração.
 
     Selecione **Ver todos**, em **Host**, conforme mostrado na figura a seguir:
 

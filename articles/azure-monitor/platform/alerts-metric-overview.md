@@ -1,15 +1,15 @@
 ---
 title: Entender como funcionam os alertas de métrica no Azure Monitor.
 description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam no Azure Monitor.
-ms.date: 09/30/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 066ffff5979e658a7c06fe10bd668a9fac839a14
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 424cc9db01f1eb6300c2915795f3e2c37b34449f
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460837"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071044"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -137,7 +137,7 @@ No momento, esse recurso tem suporte para métricas de plataforma (não métrica
 
 | Serviço | Azure público | Governo | China |
 |:--------|:--------|:--------|:--------|
-| Máquinas virtuais<sup>1</sup>  | **Sim** | Não | Não |
+| Máquinas virtuais<sup>1</sup>  | **Sim** | **Sim** | Não |
 | Bancos de dados do SQL Server | **Sim** | **Sim** | **Sim** |
 | Pools elásticos do SQL Server | **Sim** | **Sim** | **Sim** |
 | Pools de capacidade de arquivos do NetApp | **Sim** | **Sim** | **Sim** |

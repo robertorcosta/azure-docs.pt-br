@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: dd7a336df5ff187b874876db32abb45915e00f3b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 195f1c527185fbd55450b6151f26525074db75f7
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739375"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070415"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
 
@@ -322,6 +322,8 @@ A tabela a seguir descreve os diferentes Estados de serviço:
 | Com falha | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
 | Íntegros | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
 
+> [!TIP]
+> Durante a implantação, as imagens do Docker para destinos de computação são criadas e carregadas do ACR (registro de contêiner do Azure). Por padrão, Azure Machine Learning cria um ACR que usa a camada de serviço *básica* . Alterar o ACR para o seu espaço de trabalho para a camada Standard ou Premium pode reduzir o tempo necessário para criar e implantar imagens em seus destinos de computação. Para obter mais informações, confira [Níveis de serviço do Registro de Contêiner do Azure](../container-registry/container-registry-skus.md).
 
 ### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inferência de lote
 Azure Machine Learning destinos de computação são criados e gerenciados pelo Azure Machine Learning. Eles podem ser usados para previsão de lote de pipelines de Azure Machine Learning.

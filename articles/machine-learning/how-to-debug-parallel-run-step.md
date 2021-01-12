@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas do ParallelRunStep
+title: Como solucionar problemas do ParallelRunStep
 titleSuffix: Azure Machine Learning
 description: Dicas sobre como solucionar problemas quando você recebe erros usando o ParallelRunStep em pipelines de Machine Learning.
 services: machine-learning
@@ -7,18 +7,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting
-ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
+ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 468af45f88c097e6f792a28df61ea0f1aea0d1ef
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 6ea796fb2ec038a03595d37d903fe8ee3ce904db
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740276"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070262"
 ---
-# <a name="troubleshooting-the-parallelrunstep"></a>Solução de problemas do ParallelRunStep
+# <a name="troubleshooting-the-parallelrunstep"></a>Como solucionar problemas do ParallelRunStep
 
 Neste artigo, você aprenderá a solucionar problemas quando receber erros usando a classe [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) do [SDK do Azure Machine Learning](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 

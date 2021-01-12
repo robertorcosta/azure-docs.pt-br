@@ -7,16 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: gvashishtha
 ms.author: gopalv
-ms.reviewer: jmartens
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4224e301d6410fc97da1f98cd0dd9577c6341cd3
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 2b953fd040b9ba76eacddb91a89ac65d51e340a0
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740616"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071656"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Solucionando problemas de implantação de modelo remoto 
 
@@ -182,7 +181,7 @@ Você pode aumentar o tempo limite ou tentar acelerar o serviço, modificando o 
 
 Execute estas ações para os seguintes erros:
 
-|Erro  | Resolução  |
+|Error  | Resolução  |
 |---------|---------|
 |Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |

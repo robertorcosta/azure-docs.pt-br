@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/13/2020
-ms.openlocfilehash: 47ee4c71abadc4d4e3cb60d54aef1d8262e41119
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 01/11/2021
+ms.openlocfilehash: 755346c1da38f66c0c0fef6144d34eea62735273
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637302"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072048"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copiar dados de e para a nuvem do serviço Salesforce usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +37,7 @@ Especificamente, esse conector de nuvem do serviço Salesforce dá suporte a:
 - Edições de Desenvolvedor, Professional, Enterprise ou Ilimitada do Salesforce.
 - Copiar dados de e para a produção, da área restrita e do domínio personalizado do Salesforce.
 
-O conector do Salesforce é criado sobre a API REST do Salesforce/em massa. Por padrão, o conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados do Salesforce e usa o [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para o Salesforce. Você também pode definir explicitamente a versão da API usada para ler/gravar dados por meio da [ `apiVersion` Propriedade](#linked-service-properties) no serviço vinculado.
+O conector do Salesforce é criado sobre a API REST do Salesforce/em massa. Por padrão, ao copiar dados do Salesforce, o conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) e escolhe automaticamente entre as APIs REST e Bulk com base no tamanho dos dados – quando o conjunto de resultados é grande, a API em massa é usada para melhorar o desempenho; ao gravar dados no Salesforce, o conector usa [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) da API em massa. Você também pode definir explicitamente a versão da API usada para ler/gravar dados por meio da [ `apiVersion` Propriedade](#linked-service-properties) no serviço vinculado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,7 +64,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade Type deve ser definida como **SalesforceServiceCloud** . |Sim |
+| type |A propriedade Type deve ser definida como **SalesforceServiceCloud**. |Sim |
 | environmentUrl | Especifique a URL da instância de nuvem do serviço do Salesforce. <br> – O padrão é `"https://login.salesforce.com"`. <br> – Para copiar dados da área restrita, especifique `"https://test.salesforce.com"`. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
 | Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
 | password |Especifique um senha para a conta de usuário.<br/><br/>Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
@@ -143,7 +143,7 @@ Para copiar dados de e para a nuvem do serviço Salesforce, há suporte para as 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type deve ser definida como **SalesforceServiceCloudObject** .  | Sim |
+| type | A propriedade Type deve ser definida como **SalesforceServiceCloudObject**.  | Sim |
 | objectApiName | O nome do objeto de Salesforce para recuperar dados. | Não para fonte, Sim para o coletor |
 
 > [!IMPORTANT]
@@ -172,7 +172,7 @@ Para copiar dados de e para a nuvem do serviço Salesforce, há suporte para as 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como **RelationalTable** . | Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como **RelationalTable**. | Sim |
 | tableName | Nome da tabela na nuvem do serviço Salesforce. | Não (se "query" na fonte da atividade for especificada) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -185,9 +185,9 @@ Para copiar dados da nuvem do serviço Salesforce, as propriedades a seguir têm
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type da fonte da atividade de cópia deve ser definida como **SalesforceServiceCloudSource** . | Sim |
+| type | A propriedade Type da fonte da atividade de cópia deve ser definida como **SalesforceServiceCloudSource**. | Sim |
 | Consulta |Utiliza a consulta personalizada para ler os dados. É possível usar a consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) ou a consulta SQL-92. Veja mais dicas na seção [dicas de consulta](#query-tips). Se a consulta não for especificada, todos os dados do objeto de nuvem do serviço do Salesforce especificados em "objectApiName" no conjunto serão recuperados. | Não (se "objectApiName" no conjunto de dados for especificado) |
-| readBehavior | Indica se deve consultar os registros existentes, ou consultar todos os registros, incluindo o que foi excluído. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **query** (padrão), **queryAll** .  | Não |
+| readBehavior | Indica se deve consultar os registros existentes, ou consultar todos os registros, incluindo o que foi excluído. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **query** (padrão), **queryAll**.  | Não |
 
 > [!IMPORTANT]
 > A parte "__c" do **Nome da API** é necessária para qualquer objeto personalizado.
@@ -232,11 +232,11 @@ Para copiar dados para a nuvem do serviço Salesforce, as propriedades a seguir 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade Type do coletor da atividade de cópia deve ser definida como **SalesforceServiceCloudSink** . | Sim |
-| writeBehavior | O comportamento da operação de gravação.<br/>Valores permitidos são **Insert** e **Upsert** . | Não (o padrão é Insert) |
+| type | A propriedade Type do coletor da atividade de cópia deve ser definida como **SalesforceServiceCloudSink**. | Sim |
+| writeBehavior | O comportamento da operação de gravação.<br/>Valores permitidos são **Insert** e **Upsert**. | Não (o padrão é Insert) |
 | externalIdFieldName | O nome do campo de ID externo para a operação upsert. O campo especificado deve ser definido como "campo de ID externa" no objeto de nuvem do serviço Salesforce. Ele não pode ter valores nulos nos dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados gravados na nuvem do serviço Salesforce em cada lote. | Não (o padrão é 5.000) |
-| ignoreNullValues | Indica se deve ignorar valores NULL de dados de entrada durante a operação de gravação.<br/>Os valores permitidos são **True** e **False** .<br>- **True** : Deixa os dados no objeto de destino inalterados quando você faz uma operação upsert ou atualização. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False** : atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert ou atualização. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |
+| ignoreNullValues | Indica se deve ignorar valores NULL de dados de entrada durante a operação de gravação.<br/>Os valores permitidos são **True** e **False**.<br>- **True**: Deixa os dados no objeto de destino inalterados quando você faz uma operação upsert ou atualização. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False**: atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert ou atualização. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |
 
 **Exemplo:**
 
@@ -291,7 +291,7 @@ Ao copiar dados da nuvem do serviço Salesforce, você pode usar a consulta SOQL
 |:--- |:--- |:--- |
 | Seleção de coluna | É necessário enumerar os campos a serem copiados na consulta, por exemplo, `SELECT field1, filed2 FROM objectname` | `SELECT *` tem suporte além da seleção de colunas. |
 | Aspas | Nomes de campos/objetos não podem ser entre aspas. | Nomes de campos/objetos podem ser entre aspas, p. ex. `SELECT "id" FROM "Account"` |
-| Formato de data/hora |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na próxima seção. | Consulte os detalhes [aqui](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e exemplos na próxima seção. |
+| Formato de data/hora |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na próxima seção. | Consulte os detalhes [aqui](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals) e exemplos na próxima seção. |
 | Valores boolianos | Representado como `False` e `True`, p. ex. `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, p. ex. `SELECT … WHERE IsDeleted=1`. |
 | Renomeação de coluna | Não há suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
 | Relationship | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Não há suporte. |
@@ -300,8 +300,8 @@ Ao copiar dados da nuvem do serviço Salesforce, você pode usar a consulta SOQL
 
 Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo:
 
-* **Exemplo de SOQL** : `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Exemplo de SQL** : `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **Exemplo de SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Exemplo de SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_query-truncated"></a>Erro de MALFORMED_QUERY: truncado
 
@@ -317,7 +317,7 @@ Quando você copia dados da nuvem do serviço Salesforce, os seguintes mapeament
 | Caixa de seleção |Booliano |
 | Moeda |Decimal |
 | Data |Datetime |
-| Data/Hora |Datetime |
+| Data/Hora |DateTime |
 | Email |String |
 | ID |String |
 | Relação de pesquisa |String |

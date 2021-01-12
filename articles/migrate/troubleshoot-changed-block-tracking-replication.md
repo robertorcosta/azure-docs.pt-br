@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753528"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071367"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Solucionando problemas de replicação na migração de VM do VMware sem agente
 
@@ -297,6 +297,24 @@ Esse é um problema conhecido do VMware no qual o tamanho do disco indicado pelo
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Mensagem de erro: ocorreu um erro interno. [Falha na alocação de memória. Memória insuficiente.]
 
 Isso acontece quando o buffer de host NFC está sem memória. Para resolver esse problema, você precisa mover a VM (Compute vMotion) para um host diferente, que tem recursos gratuitos.
+
+## <a name="replication-cycle-failed"></a>Falha no ciclo de replicação
+
+**ID do erro:** 181008
+
+**Mensagem de erro:** VM: ' VMName '. Erro: nenhum disksnapshots foi encontrado para a replicação de instantâneo com a ID de instantâneo: ' Snapshotid '.
+
+**Possíveis causas:**
+
+As possíveis razões são:
+1. O caminho de um ou mais discos incluídos foi alterado devido ao Storage VMotion.
+2. Um ou mais discos incluídos não estão mais anexados à VM.
+      
+**Recomendação:**
+
+As recomendações a seguir são fornecidas
+1. Restaure os discos incluídos no caminho original usando o Storage vMotion e, em seguida, desabilite o Storage VMotion.
+2. Desabilite o Storage VMotion, se habilitado, pare a replicação na máquina virtual e replique a máquina virtual novamente. Se o problema persistir, contate o suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 

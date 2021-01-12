@@ -5,17 +5,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: a413cabf59fbd89cfe53b581d1018231c0e22e84
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e88fbaed77113896f818710497a544fbab486246
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323925"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072268"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalar e usar a extensão CLI do Azure Machine Learning
 
@@ -34,7 +33,7 @@ O CLI não é um substituto para o SDK do Azure Machine Learning. É uma ferrame
 
 * Para usar a CLI, você deve ter uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar os comandos da CLI deste documento em seu **ambiente local** , você precisará da [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Para usar os comandos da CLI deste documento em seu **ambiente local**, você precisará da [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Se você usar o [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), a CLI será acessada por meio do navegador e residirá na nuvem.
 
@@ -159,7 +158,7 @@ Os comandos a seguir demonstram como usar a CLI para gerenciar recursos usados p
 
 + Criar um novo cluster de computação gerenciado com identidade gerenciada
 
-  + Identidade gerenciada atribuída pelo usuário
+  + Identidade gerenciada atribuída ao usuário
 
     ```azurecli
     az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
@@ -172,7 +171,7 @@ Os comandos a seguir demonstram como usar a CLI para gerenciar recursos usados p
     ```
 + Adicione uma identidade gerenciada a um cluster existente:
 
-    + Identidade gerenciada atribuída pelo usuário
+    + Identidade gerenciada atribuída ao usuário
         ```azurecli
         az ml computetarget amlcompute identity assign --name cpu-cluster '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
         ```

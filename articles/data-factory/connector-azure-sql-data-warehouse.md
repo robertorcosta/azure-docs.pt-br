@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 68f536e06ec5a40083d96745f5b72e511e423f64
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 01/11/2021
+ms.openlocfilehash: a411f4ce261ee6d203e274efe3cf23ca23203453
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695171"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070874"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copiar e transformar dados no Azure Synapse Analytics usando Azure Data Factory
 
@@ -391,7 +391,7 @@ Para copiar dados para o Azure Synapse Analytics, defina o tipo de coletor na at
 | writeBatchTimeout | Tempo de espera para a operação de inserção em lote ser concluída antes de expirar.<br/><br/>O valor permitido é **timespan**. Exemplo: "00:30:00" (30 minutos). | Não.<br/>Aplicar ao usar Bulk Insert.        |
 | preCopyScript     | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados no Azure Synapse Analytics em cada execução. Use essa propriedade para limpar os dados pré-carregados. | Não                                            |
 | tableOption | Especifica se a [tabela do coletor deve ser criada automaticamente](copy-activity-overview.md#auto-create-sink-tables) se não existir com base no esquema de origem. Os valores permitidos são `none` (padrão) e `autoCreate`. |Não |
-| disableMetricsCollection | Data Factory coleta métricas como o Azure Synapse Analytics DWUs para otimização e recomendações de desempenho de cópia. Se você estiver preocupado com esse comportamento, especifique `true` para desativá-lo. | Não (o padrão é `false`) |
+| disableMetricsCollection | O Data Factory coleta métricas como o Azure Synapse Analytics DWUs para otimização e recomendações de desempenho de cópia, o que introduz acesso de BD mestre adicional. Se você estiver preocupado com esse comportamento, especifique `true` para desativá-lo. | Não (o padrão é `false`) |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Exemplo de coletor de análise do Azure Synapse
 

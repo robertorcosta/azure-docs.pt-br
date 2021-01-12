@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 075f113975e5f340493fe33584d8072190be77c8
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 130fcaacedc8aaea7790f6aa9ca7463b4e378e02
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896474"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070704"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração do VMware
 
@@ -32,7 +32,7 @@ Use essas comparações selecionadas para ajudá-lo a decidir qual método usar.
 **Implantação do dispositivo** | O [dispositivo migrações para Azure](migrate-appliance.md) é implantado localmente. | O [dispositivo de replicação de migrações para Azure](migrate-replication-appliance.md) é implantado localmente.
 **Compatibilidade Site Recovery** | Compatíveis. | Você não poderá replicar com a migração de servidor de migrações para Azure se tiver configurado a replicação para um computador usando Site Recovery.
 **Disco de destino** | Discos gerenciados | Discos gerenciados
-**Limites de disco** | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 32 TB<br/><br/> Máximo de discos: 60 | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 8 TB<br/><br/> Máximo de discos: 63
+**Limites de disco** | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 32 TB<br/><br/> Máximo de discos: 60 | Disco do sistema operacional: 2 TB<br/><br/> Disco de dados: 32 TB<br/><br/> Máximo de discos: 63
 **Discos de passagem** | Sem suporte | Suportado
 **Inicialização UEFI** | Com suporte. | Com suporte.
 
@@ -46,8 +46,8 @@ Depois de revisar as limitações, entender as etapas envolvidas na implantaçã
 **Usar a ferramenta de avaliação do servidor** | Avaliar computadores com a ferramenta migrações para Azure: Server Assessment. | Você pode avaliar as máquinas antes de migrá-las, mas não é necessário. | A avaliação é opcional.
 **Usar a ferramenta de migração de servidor** | Adicione a ferramenta de migração de servidor de migrações para Azure no projeto de migrações para Azure. | Obrigatório | Obrigatório
 **Preparar o VMware para migração** | Defina as configurações em servidores VMware e VMs. | Obrigatório | Obrigatório
-**Instalar o serviço de mobilidade em VMs** | O serviço de mobilidade é executado em cada VM que você deseja replicar | Não obrigatório | Necessária
-**Implantar o dispositivo de replicação** | O [dispositivo de replicação](migrate-replication-appliance.md) é usado para a migração baseada em agente. Ele se conecta entre o serviço de mobilidade em execução em VMs e a migração de servidor. | Não obrigatório | Necessária
+**Instalar o serviço de mobilidade em VMs** | O serviço de mobilidade é executado em cada VM que você deseja replicar | Não obrigatório | Obrigatório
+**Implantar o dispositivo de replicação** | O [dispositivo de replicação](migrate-replication-appliance.md) é usado para a migração baseada em agente. Ele se conecta entre o serviço de mobilidade em execução em VMs e a migração de servidor. | Não obrigatório | Obrigatório
 **Replicar VMs**. Habilite a replicação da VM. | Definir as configurações de replicação e selecionar as VMs a serem replicadas | Obrigatório | Obrigatório
 **Execute um teste de migração** | Executar uma migração de teste para verificar se tudo está funcionando conforme o esperado. | Obrigatório | Obrigatório
 **Executar uma migração completa** | Migre as VMs. | Obrigatório | Obrigatório

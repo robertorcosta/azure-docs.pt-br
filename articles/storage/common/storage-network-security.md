@@ -9,18 +9,18 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 13d1ad0b1b5e32ea2ca86e7556dd910c542bcbe2
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938385"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070551"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
 O Armazenamento do Microsoft Azure fornece um modelo de segurança em camadas. Esse modelo permite que você proteja e controle o nível de acesso às suas contas de armazenamento que seus aplicativos e ambientes empresariais exigem, com base no tipo e no subconjunto das redes usadas. Quando as regras de rede são configuradas, somente dados de solicitação de aplicativos do conjunto especificado de redes podem acessar uma conta de armazenamento. Você pode limitar o acesso à sua conta de armazenamento a solicitações originadas de endereços IP especificados, intervalos de IP ou de uma lista de sub-redes em uma VNet (Rede Virtual) do Azure.
 
-As contas de armazenamento têm um ponto de extremidade público que pode ser acessado pela Internet. Você também pode criar [pontos de extremidade privados para sua conta de armazenamento](storage-private-endpoints.md), que atribui um endereço IP privado de sua VNet à conta de armazenamento e protege todo o tráfego entre a VNet e a conta de armazenamento por meio de um link privado. O firewall do Armazenamento do Azure fornece acesso de controle de acesso para o ponto de extremidade público da sua conta de armazenamento. Você também pode usar o firewall para bloquear todo o acesso por meio do ponto de extremidade público ao usar pontos de extremidades privados. A configuração do firewall de armazenamento também permite selecionar serviços confiáveis da plataforma Azure para acessar a conta de armazenamento com segurança.
+As contas de armazenamento têm um ponto de extremidade público que pode ser acessado pela Internet. Você também pode criar [pontos de extremidade privados para sua conta de armazenamento](storage-private-endpoints.md), que atribui um endereço IP privado de sua VNet à conta de armazenamento e protege todo o tráfego entre a VNet e a conta de armazenamento por meio de um link privado. O Firewall do armazenamento do Azure fornece controle de acesso para o ponto de extremidade público da sua conta de armazenamento. Você também pode usar o firewall para bloquear todo o acesso por meio do ponto de extremidade público ao usar pontos de extremidades privados. A configuração do firewall de armazenamento também permite selecionar serviços confiáveis da plataforma Azure para acessar a conta de armazenamento com segurança.
 
 Um aplicativo que acessa uma conta de armazenamento quando as regras de rede estão em vigor ainda requer autorização adequada para a solicitação. A autorização é compatível com as credenciais do Azure AD (Azure Active Directory) para blobs e filas, com uma chave de acesso de conta válida ou um token SAS.
 
@@ -33,13 +33,13 @@ Um aplicativo que acessa uma conta de armazenamento quando as regras de rede est
 
 ## <a name="scenarios"></a>Cenários
 
-Para proteger sua conta de armazenamento, primeiro você deve configurar uma regra para negar o acesso ao tráfego de todas as redes (incluindo o tráfego da Internet) no ponto de extremidade público, por padrão. Em seguida, você deve configurar regras que permitem acesso ao tráfego de VNets específicas. Você também pode configurar regras para permitir acesso ao tráfego de intervalos de endereço IP de Internet pública selecionados, permitindo conexões de clientes locais ou específicos da Internet. Essa configuração permite que você crie um limite de rede seguro para seus aplicativos.
+Para proteger sua conta de armazenamento, primeiro você deve configurar uma regra para negar o acesso ao tráfego de todas as redes (incluindo o tráfego da Internet) no ponto de extremidade público, por padrão. Em seguida, você deve configurar regras que permitem acesso ao tráfego de VNets específicas. Você também pode configurar regras para conceder acesso ao tráfego de intervalos de endereços IP de Internet públicos selecionados, permitindo conexões de clientes locais ou da Internet específicos. Essa configuração permite que você crie um limite de rede seguro para seus aplicativos.
 
 Você pode combinar regras de firewall que permitem o acesso de redes virtuais específicas e de intervalos de endereços IP públicos na mesma conta de armazenamento. As regras de firewall de armazenamento podem ser aplicadas a contas de armazenamento existentes ou durante a criação de contas de armazenamento.
 
 As regras de firewall de armazenamento se aplicam ao ponto de extremidade público de uma conta de armazenamento. Você não precisa de nenhuma regra de acesso de firewall para permitir o tráfego para pontos de extremidade privados de uma conta de armazenamento. O processo de aprovar a criação de um ponto de extremidade privado concede acesso implícito ao tráfego da sub-rede que hospeda o ponto de extremidade privado.
 
-As regras de rede são aplicadas em todos os protocolos de rede para o armazenamento do Azure, incluindo REST e SMB. Para acessar os dados usando ferramentas como o portal do Azure, o Gerenciador de Armazenamento e o AZCopy, é necessário configurar regras de rede explícitas.
+As regras de rede são impostas em todos os protocolos de rede para o armazenamento do Azure, incluindo REST e SMB. Para acessar os dados usando ferramentas como o portal do Azure, o Gerenciador de Armazenamento e o AZCopy, é necessário configurar regras de rede explícitas.
 
 Depois que as regras de rede são aplicadas, elas são impostas para todas as solicitações. Os tokens SAS que concedem acesso a um serviço de endereço IP específico limitam o acesso do proprietário do token, mas não concedem um novo acesso além das regras de rede configuradas.
 

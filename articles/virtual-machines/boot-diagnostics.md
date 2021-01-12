@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500743"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071724"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de inicialização do Azure
 
@@ -21,10 +21,14 @@ O diagnóstico de inicialização é um recurso de depuração para VMs (máquin
 ## <a name="boot-diagnostics-storage-account"></a>Conta de armazenamento de diagnóstico de inicialização
 Ao criar uma VM no portal do Azure, o diagnóstico de inicialização é habilitado por padrão. A experiência de diagnóstico de inicialização recomendada é usar uma conta de armazenamento gerenciada, pois ela gera melhorias significativas no desempenho no momento da criação de uma VM do Azure. Isso ocorre porque uma conta de armazenamento gerenciado do Azure será usada, removendo o tempo necessário para criar uma nova conta de armazenamento de usuário para armazenar os dados de diagnóstico de inicialização.
 
-Uma experiência de diagnóstico de inicialização alternativa é usar uma conta de armazenamento gerenciada pelo usuário. Um usuário pode criar uma nova conta de armazenamento ou usar uma existente. 
-
 > [!IMPORTANT]
 > Os blobs de dados de diagnóstico de inicialização (que compõem os logs e imagens de instantâneo) são armazenados em uma conta de armazenamento gerenciada. Os clientes serão cobrados somente em GiBs usados pelos BLOBs, não no tamanho provisionado do disco. Os medidores de instantâneo serão usados para cobrança da conta de armazenamento gerenciada. Como as contas gerenciadas são criadas no padrão LRS ou Standard ZRS, os clientes serão cobrados a US $0,05/GB por mês apenas para o tamanho dos BLOBs de dados de diagnóstico. Para saber mais sobre esse preço, confira [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). Os clientes verão esse encargo associado ao URI do recurso da VM. 
+
+Uma experiência de diagnóstico de inicialização alternativa é usar uma conta de armazenamento gerenciada pelo usuário. Um usuário pode criar uma nova conta de armazenamento ou usar uma existente.
+> [!NOTE]
+> As contas de armazenamento gerenciadas pelo usuário associadas ao diagnóstico de inicialização exigem que a conta de armazenamento e as máquinas virtuais associadas residam na mesma assinatura. 
+
+
 
 ## <a name="boot-diagnostics-view"></a>Exibição de diagnóstico de inicialização
 Localizado na folha máquina virtual, a opção diagnóstico de inicialização está na seção *suporte e solução de problemas* no portal do Azure. A seleção de diagnósticos de inicialização exibirá uma captura de tela e informações de log serial. O log serial contém mensagens de kernel e a captura de tela é um instantâneo do estado atual de suas VMs. Com base em se a VM que está executando o Windows ou Linux determinar a aparência esperada da captura de tela. Para o Windows, os usuários verão um plano de fundo de área de trabalho e para Linux, os usuários verão um prompt de logon.
