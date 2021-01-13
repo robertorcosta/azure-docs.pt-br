@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 308b2a9cb00f44f0e330d4fef5592d8855ee3394
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 00c1c8ddab9214bf7698c21b05c24afa36ec20d9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553111"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147513"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Análise de Texto para categorias de integridade, entidades e atributos
 
@@ -23,15 +23,15 @@ ms.locfileid: "94553111"
 
 | Categoria  | Descrição  |
 |---------|---------|
-| Anatomia | conceitos que capturam informações sobre o corpo e sistemas, sites, locais ou regiões. |
- | DADOS demográficos | conceitos que capturam informações sobre sexo e idade. |
- | EXAME | conceitos que capturam informações sobre testes e procedimentos de diagnóstico. |
- | GENOMICS | conceitos que capturam informações sobre genes e variantes. |
- | EMPRESAS | conceitos que capturam informações sobre eventos administrativos, ambientes de cuidado e prestações de saúde. |
- | CONDIÇÃO MÉDICA | conceitos que capturam informações sobre diagnósticos, sintomas ou sinais. |
- | MEDICAMENTOS | conceitos que capturam informações sobre medicamentos, incluindo nomes medicamentos, classes, dosage e rota de administração. |
- | RG | conceitos que capturam informações sobre aspectos sociais de medicinaidade relevantes, como a relação de família. |
- | TRATAMENTOS | conceitos que capturam informações sobre procedimentos therapeutic. |
+| [Anatomia](#anatomy) | conceitos que capturam informações sobre o corpo e sistemas, sites, locais ou regiões. |
+ | [DADOS demográficos](#demographics) | conceitos que capturam informações sobre sexo e idade. |
+ | [EXAME](#examinations) | conceitos que capturam informações sobre testes e procedimentos de diagnóstico. |
+ | [GENOMICS](#genomics) | conceitos que capturam informações sobre genes e variantes. |
+ | [EMPRESAS](#healthcare) | conceitos que capturam informações sobre eventos administrativos, ambientes de cuidado e prestações de saúde. |
+ | [CONDIÇÃO MÉDICA](#medical-condition) | conceitos que capturam informações sobre diagnósticos, sintomas ou sinais. |
+ | [MEDICAMENTOS](#medication) | conceitos que capturam informações sobre medicamentos, incluindo nomes medicamentos, classes, dosage e rota de administração. |
+ | [RG](#social) | conceitos que capturam informações sobre aspectos sociais de medicinaidade relevantes, como a relação de família. |
+ | [TRATAMENTOS](#treatment) | conceitos que capturam informações sobre procedimentos therapeutic. |
   
 Cada categoria pode incluir dois grupos de conceito:
 
@@ -98,11 +98,11 @@ Termos **direcionais** , como: esquerda, lateral, superior, posteriores, que car
 
 :::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Um exemplo de um atributo de direção com uma entidade de nome de exame.":::
 
-**MEASUREMENT_UNIT** – a unidade do exame. Por exemplo, em *hemoglobin > 9,5 g/dl* , o termo *g/dl* é a unidade para o teste *Hemoglobin* .
+**MEASUREMENT_UNIT** – a unidade do exame. Por exemplo, em *hemoglobin > 9,5 g/dl*, o termo *g/dl* é a unidade para o teste *Hemoglobin* .
 
 :::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Um exemplo de um atributo de unidade de medida com uma entidade de nome de exame.":::
 
-**MEASUREMENT_VALUE** – o valor do exame. Por exemplo, em *hemoglobin > 9,5 g/dl* , o termo *9,5* é o valor para o teste *Hemoglobin* .
+**MEASUREMENT_VALUE** – o valor do exame. Por exemplo, em *hemoglobin > 9,5 g/dl*, o termo *9,5* é o valor para o teste *Hemoglobin* .
 
 :::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Um exemplo de um atributo de valor de medição com uma entidade de nome de exame.":::
 
@@ -198,11 +198,11 @@ Termos direcionais de **direção** que caracterizam uma condição médica de c
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Outro exemplo de um atributo de direção com uma entidade de sintoma ou sinal.":::
 
-**MEASUREMENT_UNIT** -a unidade que caracteriza uma condição médica. Por exemplo, em *1,5 X2X1 cm tumor* , o termo *cm* é a unidade de medida para o *tumor*. 
+**MEASUREMENT_UNIT** -a unidade que caracteriza uma condição médica. Por exemplo, em *1,5 X2X1 cm tumor*, o termo *cm* é a unidade de medida para o *tumor*. 
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Um exemplo de um atributo de unidade de medida com entidade de condição médica.":::
 
-**MEASUREMENT_VALUE** -o valor que caracteriza uma condição médica. Por exemplo, em *1,5 X2X1 cm tumor* , o termo *1.5 X2X1* é o valor de medida para o *tumor*. 
+**MEASUREMENT_VALUE** -o valor que caracteriza uma condição médica. Por exemplo, em *1,5 X2X1 cm tumor*, o termo *1.5 X2X1* é o valor de medida para o *tumor*. 
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="Captura de tela mostra um exemplo de um atributo de direção com uma entidade sintoma ou sinal.":::
 
@@ -267,7 +267,15 @@ Termos direcionais de **direção** que caracterizam uma condição médica de c
 +   **FREQUENCY_OF_MEDICATION**
 +   **ROUTE_OF_MEDICATION**
 +   **TIME_OF_MEDICATION**
-  
+
+## <a name="social"></a>Social
+
+### <a name="entities"></a>Entidades
+
+**FAMILY_RELATION** – menciona os parentes da família do assunto. Por exemplo, pai, filha, irmãos, pais.
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Captura de tela mostra outro exemplo de um atributo de tempo de tratamento.":::
+
 ## <a name="treatment"></a>Tratamento
 
 ### <a name="entities"></a>Entidades
@@ -294,17 +302,8 @@ Termos direcionais de **direção** que caracterizam um tratamento.
 
 :::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Captura de tela mostra um exemplo de um atributo de tempo de tratamento.":::
 
-
 ### <a name="supported-relations"></a>Relações com suporte
 
 + **DIRECTION_OF_TREATMENT**
 +   **TIME_OF_TREATMENT**
 +   **FREQUENCY_OF_TREATMENT**
-
-## <a name="social"></a>Social
-
-### <a name="entities"></a>Entidades
-
-**FAMILY_RELATION** – menciona os parentes da família do assunto. Por exemplo, pai, filha, irmãos, pais.
-
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Captura de tela mostra outro exemplo de um atributo de tempo de tratamento.":::

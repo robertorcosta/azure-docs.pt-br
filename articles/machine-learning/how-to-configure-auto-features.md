@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915854"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134408"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Personalização de dados no Machine Learning automatizado
 
@@ -46,7 +46,7 @@ Para os experimentos que você configura com o SDK do Python, você pode habilit
 
 A tabela a seguir mostra as configurações aceitas para `featurization` na [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração do personalização | Description|
+|Configuração do personalização | Descrição|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [as etapas](#featurization) de guardrails e personalização de [dados](#data-guardrails) são feitas automaticamente. Essa é a configuração padrão.|
 |`"featurization": 'off'`| Especifica que as etapas do personalização não devem ser feitas automaticamente.|
@@ -61,7 +61,7 @@ A tabela a seguir resume as técnicas que são aplicadas automaticamente aos seu
 > [!NOTE]
 > Se você planeja exportar seus modelos AutoML para um [modelo ONNX](concept-onnx.md), somente as opções de personalização indicadas com um asterisco ("*") têm suporte no formato ONNX. Saiba mais sobre [conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Etapas de personalização &nbsp;| Description |
+|Etapas de personalização &nbsp;| Descrição |
 | ------------- | ------------- |
 |**Descartar alta cardinalidade ou nenhum recurso de variação** _ |Descartar esses recursos de conjuntos de treinamento e validação. Aplica-se a recursos com todos os valores ausentes, com o mesmo valor em todas as linhas ou com alta cardinalidade (por exemplo, hashes, IDs ou GUIDs).|
 |_*Imputar valores ausentes**_ |Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
@@ -122,6 +122,9 @@ As personalizações com suporte incluem:
 |**Atualização de parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente dá suporte a *imputer* (média, mais frequente e mediana) e *HashOneHotEncoder*.|
 |**Remover colunas** |Especifica que as colunas a serem descartadas são destacados.|
 |**Bloquear transformadores**| Especifica os transformadores de bloqueio a serem usados no processo personalização.|
+
+>[!NOTE]
+> A funcionalidade **remover colunas** foi preterida a partir da versão 1,19 do SDK. Remova as colunas do conjunto de dados como parte da limpeza, antes de consumi-la em seu experimento de ML automatizado. 
 
 Crie o `FeaturizationConfig` objeto usando chamadas de API:
 
