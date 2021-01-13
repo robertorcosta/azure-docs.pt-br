@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: d42a32e236eb73f2aa9f2f61d9708314783564dd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187283"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050520"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Início Rápido – Explorar um cenário de exemplo dos Gêmeos Digitais do Azure usando o ADT Explorer
 
@@ -251,9 +251,7 @@ Nesta seção, você executará uma consulta para descobrir quantos gêmeos no a
 
 Para ver a resposta, execute a consulta a seguir na caixa **GERENCIADOR DE CONSULTAS**.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Lembre-se que, na exibição das propriedades do gêmeo anteriormente, Room0 tinha uma temperatura de 70 e Room1 tinha uma temperatura de 80. Por esse motivo, somente Room1 aparece nos resultados aqui.
     
@@ -284,9 +282,7 @@ Agora, você verá uma janela **Informações de Patch** em que aparece o códig
 
 Para verificar se o grafo registrou com êxito sua atualização para a temperatura de Room0, execute novamente a consulta anterior para obter todos os gêmeos no ambiente com uma temperatura acima de 75.
 
-```SQL
-SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
-```
+:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="TemperatureQuery":::
 
 Agora que a temperatura da Room0 foi alterada de 70 para 76, os dois gêmeos devem aparecer no resultado.
 
