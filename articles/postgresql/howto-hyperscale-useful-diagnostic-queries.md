@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/5/2021
-ms.openlocfilehash: 90f8b74168f1b02647f14645aa4dc7a3dff8c2ba
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4858f650aca1b704ac79482e0158fd83fc0264b8
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937545"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165234"
 ---
 # <a name="useful-diagnostic-queries"></a>Consultas de diagnóstico úteis
 
@@ -278,6 +278,31 @@ Saída de exemplo:
 │ 10.0.0.20 │ 0.89           │
 └───────────┴────────────────┘
 ```
+
+## <a name="cache-hit-rate"></a>Taxa de acesso ao cache
+
+A maioria dos aplicativos normalmente acessa uma pequena fração de seus dados totais ao mesmo tempo. O PostgreSQL mantém os dados acessados com frequência na memória para evitar leituras lentas do disco. Você pode ver as estatísticas sobre ela na exibição [pg_statio_user_tables](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STATIO-ALL-TABLES-VIEW) .
+
+Uma medida importante é qual a porcentagem de dados proveniente do cache de memória em vez do disco em sua carga de trabalho:
+
+``` postgresql
+SELECT
+  sum(heap_blks_read) AS heap_read,
+  sum(heap_blks_hit)  AS heap_hit,
+  sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) AS ratio
+FROM
+  pg_statio_user_tables;
+```
+
+Saída de exemplo:
+
+```
+ heap_read | heap_hit |         ratio
+-----------+----------+------------------------
+         1 |      132 | 0.99248120300751879699
+```
+
+Se você se deparar com uma taxa significativamente menor que 99%, provavelmente desejará considerar aumentar o cache disponível para o banco de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 

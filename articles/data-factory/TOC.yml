@@ -629,15 +629,19 @@
         - name: Azure Integration runtime
           href: create-azure-integration-runtime.md
         - name: runtime de integração auto-hospedada
-          href: create-self-hosted-integration-runtime.md
+          items:
+            - name: Criar e configurar um runtime de integração auto-hospedada
+              href: create-self-hosted-integration-runtime.md
+            - name: Notificação de expiração e atualização automática do runtime de integração auto-hospedada
+              href: self-hosted-integration-runtime-auto-update.md
+            - name: runtime de integração auto-hospedada compartilhado
+              href: create-shared-self-hosted-integration-runtime-powershell.md
+            - name: Scripts de automação do runtime de integração auto-hospedada
+              href: self-hosted-integration-runtime-automation-scripts.md
+            - name: Executar um runtime de integração auto-hospedada em um contêiner do Windows
+              href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
         - name: runtime de integração do Azure-SSIS
           href: create-azure-ssis-integration-runtime.md
-        - name: runtime de integração auto-hospedada compartilhado
-          href: create-shared-self-hosted-integration-runtime-powershell.md
-        - name: Scripts de automação do runtime de integração auto-hospedada
-          href: self-hosted-integration-runtime-automation-scripts.md
-        - name: Executar um runtime de integração auto-hospedada em um contêiner do Windows
-          href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
     - name: Executar pacotes SSIS no Azure
       items:
         - name: Executar pacotes SSIS no Azure do SSDT

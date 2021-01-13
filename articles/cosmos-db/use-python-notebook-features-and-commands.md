@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b89fcf32ed033f359b4db601e36cc69bb899944d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340406"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165817"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Usar comandos e recursos de notebook integrado nos notebooks Python do Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -123,6 +123,8 @@ Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
 Com as estatísticas de saída, você pode calcular a RU/s efetiva usado para carregar os itens. Por exemplo, se 25.000 RUs foram consumidos em 38 segundos, a RU/s efetiva é 25.000 RUs/38 segundos = 658 RU/s.
+
+Você pode salvar arquivos (como arquivos CSV ou JSON) no espaço de trabalho local do bloco de anotações. Recomendamos que você adicione uma célula em seu bloco de anotações para salvar arquivos. Você pode exibir esses arquivos do terminal integrado no ambiente do bloco de anotações. Você pode usar o comando "ls" para exibir os arquivos salvos. No entanto, esses arquivos serão removidos se você redefinir o espaço de trabalho. Portanto, é melhor usar o armazenamento persistente, como o GitHub ou uma conta de armazenamento, em vez do espaço de trabalho local.
 
 ## <a name="run-another-notebook-in-current-notebook"></a>Executar outro notebook no notebook atual 
 Você pode usar o comando mágico ``%%run`` para executar outro notebook no espaço de trabalho do notebook atual. Use a sintaxe:

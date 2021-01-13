@@ -3,12 +3,12 @@ title: Introdução ao Azure Lab Services
 description: Este artigo descreve como começar a usar o Azure Lab Services.
 ms.topic: article
 ms.date: 11/18/2020
-ms.openlocfilehash: 44afe13fb6f555b12dfce939ce8e88e3af8dc7ef
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: d260ace7d7819c3ca2db96d6c4984bf834e170da
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602658"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165035"
 ---
 # <a name="get-started-with-lab-services"></a>Introdução aos serviços de laboratório 
 
@@ -109,60 +109,11 @@ Os professores podem se conectar a uma VM de aluno desde que ela esteja ativada 
 
 ## <a name="manage-users-in-a-lab"></a>Gerenciar usuários em um laboratório
 
-Os professores podem adicionar usuários de aluno a um laboratório e monitorar suas cotas de hora. 
-
-### <a name="add-users-by-email-address"></a>Adicionar usuários por endereço de email
-
-1. No [site do Azure Lab Services](https://labs.azure.com/) , clique em **usuários** no lado esquerdo da janela.
-1. Na parte superior da janela, clique em **Adicionar usuários** e selecione **Adicionar por endereço de email**. 
-1. No painel **Adicionar usuários** que aparece à direita, insira os endereços de email dos alunos em linhas separadas ou em uma única linha, separados por ponto e vírgula.
-1. Clique em **Save** (Salvar).
-1. Sua lista de usuários agora será atualizada com emails, status, convite e horas de cota.
-
-    Depois que os alunos forem registrados para um laboratório, seus nomes serão atualizados com o nome e o sobrenome de Azure Active Directory.
-
-    > [!NOTE]
-    > Mantenha a opção de restrição de acesso restrito ativada para os usuários. Isso significa que somente os usuários que você lista podem registrar com o laboratório usando o link de registro que você envia.
-
-### <a name="add-users-using-a-spreadsheet"></a>Adicionar usuários usando uma planilha 
-
-Você também pode adicionar usuários carregando um arquivo CSV que contém seus endereços de email.
-
-1. No Microsoft Excel, crie um arquivo CSV que liste os endereços de email dos alunos em uma coluna.
-1. No [site Azure Lab Services](https://labs.azure.com/), na parte superior da página **usuários** , clique no botão **Adicionar usuários** .
-1. Selecione **carregar CSV**.
-1. Selecione o arquivo CSV que contém os endereços de email dos alunos e clique em **abrir**.
-
-    :::image type="content" source="./media/get-started-manage-labs/add-users-spreadsheet.png" alt-text="Adicionar usuários usando uma planilha":::
-1. Os emails agora serão exibidos na janela à direita. Clique em **Save** (Salvar).
-
-    :::image type="content" source="./media/get-started-manage-labs/register-users.png" alt-text="Registrar usuários":::
-
-### <a name="register-users"></a>Registrar usuários
-
-Depois que os usuários tiverem sido adicionados ao laboratório, eles precisarão se registrar para acessar as VMs. Isso pode ser feito convidando usuários do portal, que enviará um email contendo o link de registro para o laboratório. Ou copiando e colando o link de registro em um email ou outra forma de comunicação com os alunos.
-
-1. Na página **usuários** , selecione um aluno ou vários alunos na lista.
-
-    Na linha do aluno que você selecionou, selecione o ícone de envelope na lista ou clique em **convidar** na parte superior da tela.
-
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation.png" alt-text="Enviar um convite":::
-    
-    Na janela **Enviar convite** por email, insira uma mensagem opcional (como um nome de usuário e uma senha) para alunos e clique em **Enviar**. 
-    
-    :::image type="content" source="./media/get-started-manage-labs/send-invitation-mail.png" alt-text="Enviar um convite por email":::
-
-    Como alternativa, na página mesmos **usuários** , você pode clicar no botão **link de registro** na parte superior da tela. 
-
-    :::image type="content" source="./media/get-started-manage-labs/registration-link.png" alt-text="Link de registro do usuário":::
-    
-    Copie o link de registro do campo de texto e cole-o em email ou em sua ferramenta de mensagens seguras preferida.  
-    
-    :::image type="content" source="./media/get-started-manage-labs/user-registration.png" alt-text="Enviar registro de usuário":::
+Os professores podem adicionar usuários de aluno a um laboratório e monitorar suas cotas de hora. Para obter detalhes sobre como adicionar usuários por endereço de email ou usando uma lista de planilhas e registrar usuários, consulte [Adicionar e gerenciar usuários de laboratório](how-to-configure-student-usage.md).
 
 Depois de ter convidado usuários ou compartilhado o link, você poderá monitorar quais usuários registraram com êxito na página **usuários** na coluna **status** . 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não pretende usar os recursos que criou neste guia de início rápido, exclua os recursos.
 

@@ -3,15 +3,15 @@ title: Solução de monitoramento de contêiner no Azure Monitor | Microsoft Doc
 description: A solução de monitoramento de contêiner no Azure Monitor ajuda a exibir e gerenciar seus hosts de contêiner do Docker e do Windows em um único local.
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/06/2020
-ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 483113fc508800eb126ee39f146c1fa34e5dba5e
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145677"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165698"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitoramento de contêiner no Azure Monitor
 
@@ -116,7 +116,7 @@ Examine o artigo [Mecanismo do Docker no Windows](/virtualization/windowscontain
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalar e configurar hosts de contêiner do Linux
 
-Depois de instalar o Docker, use as seguintes definições para o host do contêiner para configurar o agente para uso com o Docker. Primeiro, você precisa da ID e chave de seu espaço de trabalho do Log Analytics, que podem ser encontradas no Portal do Azure. Em seu espaço de trabalho, clique em **início rápido**  >  **computadores** para exibir a **ID do espaço de trabalho** e a **chave primária** .  Copie e cole os dois em seu editor favorito.
+Depois de instalar o Docker, use as seguintes definições para o host do contêiner para configurar o agente para uso com o Docker. Primeiro, você precisa da ID e chave de seu espaço de trabalho do Log Analytics, que podem ser encontradas no Portal do Azure. Em seu espaço de trabalho, clique em **início rápido**  >  **computadores** para exibir a **ID do espaço de trabalho** e a **chave primária**.  Copie e cole os dois em seu editor favorito.
 
 **Para todos os hosts de contêiner do Linux, exceto CoreOS:**
 
@@ -513,11 +513,11 @@ Para habilitar o monitoramento do contêiner do Windows e do Hyper-V, instale o 
 
 Você pode monitorar os contêineres do Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](../learn/quick-collect-azurevm.md) e [computadores executando o Windows no seu ambiente local](../platform/agent-windows.md) têm suporte atualmente para o Service Fabric.
 
-Você pode verificar se a solução de Monitoramento de contêiner está definida corretamente para o Windows. Para verificar se o pacote de gerenciamento foi baixado corretamente, procure *ContainerManagement.xxx* . Os arquivos devem estar na pasta C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
+Você pode verificar se a solução de Monitoramento de contêiner está definida corretamente para o Windows. Para verificar se o pacote de gerenciamento foi baixado corretamente, procure *ContainerManagement.xxx*. Os arquivos devem estar na pasta C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
 ## <a name="solution-components"></a>Componentes da solução
 
-No portal do Azure, navegue até a *Galeria de Soluções* e adicione a **Solução de Monitoramento de Contêiner** . Se você estiver usando agentes do Windows, o pacote de gerenciamento a seguir será instalado em cada computador que possui um agente quando você adicionar essa solução. Não é necessária nenhuma configuração nem manutenção do pacote de gerenciamento.
+No portal do Azure, navegue até a *Galeria de Soluções* e adicione a **Solução de Monitoramento de Contêiner**. Se você estiver usando agentes do Windows, o pacote de gerenciamento a seguir será instalado em cada computador que possui um agente quando você adicionar essa solução. Não é necessária nenhuma configuração nem manutenção do pacote de gerenciamento.
 
 - *ContainerManagement.xxx* instalado em C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -558,7 +558,7 @@ O bloco mostra uma visão geral de quantos contêineres existem no ambiente e se
 
 ### <a name="using-the-containers-dashboard"></a>Usando o painel de Contêineres
 
-Clique no bloco **Contêineres** . A partir daí, você verá exibições organizadas por:
+Clique no bloco **Contêineres**. A partir daí, você verá exibições organizadas por:
 
 - **Eventos de Contêiner** - Mostra o status do contêiner, e os computadores com contêineres com falha.
 - **Logs do Contêiner** - Mostra um gráfico de arquivos de log gerados com o tempo, e uma lista de computadores com o maior número de arquivos de log.
@@ -578,7 +578,7 @@ Cada área do painel é uma representação visual de uma pesquisa executada nos
 
 ![Painel de Contêineres](./media/containers/containers-dash02.png)
 
-Na área **Status do Contêiner** , clique na área superior, como mostrado abaixo.
+Na área **Status do Contêiner**, clique na área superior, como mostrado abaixo.
 
 ![Status dos contêineres](./media/containers/containers-status.png)
 
@@ -590,11 +590,11 @@ A partir daqui, você pode editar a consulta de pesquisa para modificá-la para 
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Solucionar problemas localizando um contêiner com falha
 
-O Log Analytics marca um contêiner como **Com Falha** se ele tiver sido encerrado com um código de saída diferente de zero. Você pode conferir uma visão geral dos erros e falhas no ambiente na área **Contêineres com Falha** .
+O Log Analytics marca um contêiner como **Com Falha** se ele tiver sido encerrado com um código de saída diferente de zero. Você pode conferir uma visão geral dos erros e falhas no ambiente na área **Contêineres com Falha**.
 
 ### <a name="to-find-failed-containers"></a>Para localizar contêineres com falha
 
-1. Clique na área **Status do Contêiner** .  
+1. Clique na área **Status do Contêiner**.  
    ![status dos contêineres](./media/containers/containers-status.png)
 2. Log Analytics abre e exibe o estado de seus contêineres, semelhante ao seguinte.  
    ![estado dos contêineres](./media/containers/containers-log-search.png)
@@ -620,7 +620,7 @@ Quando você estiver solucionando um erro específico, pode ajudar ver onde ele 
 
 ### <a name="to-query-logs-for-container-data"></a>Para consultar logs de dados de contêiner
 
-* Escolha uma imagem que você saiba que falhou recentemente e encontre os logs de erros dela. Comece localizando um nome de contêiner que está executando a imagem com uma pesquisa **ContainerInventory** . Por exemplo, pesquise por `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Escolha uma imagem que você saiba que falhou recentemente e encontre os logs de erros dela. Comece localizando um nome de contêiner que está executando a imagem com uma pesquisa **ContainerInventory**. Por exemplo, pesquise por `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Pesquisar por contêineres do Ubuntu](./media/containers/search-ubuntu.png)
 
   Expanda qualquer linha nos resultados para exibir os detalhes desse contêiner.
@@ -635,7 +635,7 @@ Costuma ser útil criar consultas começando com um ou dois exemplos e, em segui
 
 Salvar consultas é um recurso padrão no Azure Monitor. Ao salvá-las, você terá aquelas que considerou úteis acessíveis para uso futuro.
 
-Depois de criar uma consulta que considerar útil, salve-a clicando em **Favoritos** na parte superior da página Pesquisa de Log. Depois, você pode acessá-la facilmente pela página **Meu Painel** .
+Depois de criar uma consulta que considerar útil, salve-a clicando em **Favoritos** na parte superior da página Pesquisa de Log. Depois, você pode acessá-la facilmente pela página **Meu Painel**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

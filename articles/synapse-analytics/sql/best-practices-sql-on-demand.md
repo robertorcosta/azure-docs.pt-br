@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93ac8cd3e462c244840a5ed569d685a9d67fa6c2
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457896"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165868"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Práticas recomendadas para o pool SQL sem servidor no Azure Synapse Analytics
 
@@ -25,9 +25,9 @@ Neste artigo, você encontrará uma coleção de práticas recomendadas para usa
 
 O pool SQL sem servidor permite consultar arquivos em suas contas de armazenamento do Azure. Ele não tem armazenamento local nem recursos de ingestão. Portanto, todos os arquivos que a consulta tem como destino são externos ao pool SQL sem servidor. Tudo relacionado à leitura de arquivos do armazenamento pode ter um impacto no desempenho da consulta.
 
-## <a name="colocate-your-azure-storage-account-and-serverless-sql-pool"></a>Coloque sua conta de armazenamento do Azure e o pool SQL sem servidor
+## <a name="colocate-your-storage-and-serverless-sql-pool"></a>Coloque seu pool SQL sem servidor e de armazenamento
 
-Para minimizar a latência, coloque a conta de armazenamento do Azure e o ponto de extremidade do pool SQL sem servidor. As contas de armazenamento e os pontos de extremidade provisionados durante a criação do workspace estão localizados na mesma região.
+Para minimizar a latência, coloque a conta de armazenamento do Azure ou o armazenamento analítico CosmosDB e o ponto de extremidade do pool SQL sem servidor. As contas de armazenamento e os pontos de extremidade provisionados durante a criação do workspace estão localizados na mesma região.
 
 Para obter um desempenho ideal, se você acessar outras contas de armazenamento com o pool SQL sem servidor, verifique se elas estão na mesma região. Se elas não estiverem na mesma região, haverá uma latência maior para a transferência de rede dos dados entre a região remota e as regiões do ponto de extremidade.
 
@@ -44,9 +44,9 @@ Quando a limitação é detectada, o pool do SQL sem servidor tem tratamento int
 
 Se possível, você pode preparar arquivos para melhorar o desempenho:
 
-- Converta CSV e JSON em Parquet. Parquet é um formato de coluna. Como ele é compactado, os tamanhos de arquivo são menores do que arquivos CSV ou JSON com os mesmos dados. O pool SQL sem servidor precisará de menos tempo e menos solicitações de armazenamento para lê-lo.
+- Converta CSV grande e JSON em parquet. Parquet é um formato de coluna. Como ele é compactado, os tamanhos de arquivo são menores do que arquivos CSV ou JSON com os mesmos dados. O pool SQL sem servidor é capaz de ignorar as colunas e as linhas que não são necessárias na consulta se você estiver lendo arquivos parquet. O pool SQL sem servidor precisará de menos tempo e menos solicitações de armazenamento para lê-lo.
 - Se uma consulta tiver como objetivo um único arquivo grande, dividi-lo em vários arquivos menores será vantajoso para você.
-- Tente manter o tamanho do arquivo CSV abaixo de 10 GB.
+- Tente manter o tamanho do arquivo CSV entre 100 MB e 10 GB.
 - É melhor ter arquivos com o mesmo tamanho para um único caminho OPENROWSET ou um local de tabela externa.
 - Particione os dados armazenando partições em diferentes pastas ou nomes de arquivos. Consulte [Usar as funções fileinfo e filepath para segmentar partições específicas](#use-filename-and-filepath-functions-to-target-specific-partitions).
 

@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: ba4e6b8b5e9db494ab4c0c372c2086087a2d58cb
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133167"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165783"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (visualização)-Azure Monitor Application Insights para Java
 
@@ -23,58 +23,48 @@ O agente do Java 3,0 para Application Insights agora tem os recursos para proces
 A seguir estão alguns casos de uso dos processadores de telemetria:
  * Mascarar dados confidenciais
  * Adicionar dimensões personalizadas condicionalmente
- * Atualizar o nome de telemetria usado para agregação e exibição
- * Descartar ou filtrar atributos de span para controlar o custo de ingestão
+ * Atualize o nome que é usado para agregação e exibição no portal do Azure
+ * Descartar atributos de span para controlar o custo de ingestão
 
 ## <a name="terminology"></a>Terminologia
 
-Antes de passarmos para processadores de telemetria, é importante entender o que são rastreamentos e spans.
+Antes de passarmos para processadores de telemetria, é importante entender o que o termo span refere.
 
-### <a name="traces"></a>Rastreamentos
+Uma extensão é um termo geral para qualquer uma destas três coisas:
 
-Os rastreamentos rastreiam a progressão de uma única solicitação, chamada a `trace` , conforme é manipulada pelos serviços que compõem um aplicativo. A solicitação pode ser iniciada por um usuário ou um aplicativo. Cada unidade de trabalho em um `trace` é chamada a `span` ; a `trace` é uma árvore de Spans. Um `trace` é composto pelo único span raiz e por qualquer número de Spans filho.
+* Uma solicitação de entrada
+* Uma dependência de saída (por exemplo, uma chamada remota para outro serviço)
+* Uma dependência em processo (por exemplo, trabalho sendo feito por subcomponentes do serviço)
 
-### <a name="span"></a>Compreende
+Para a finalidade dos processadores de telemetria, os componentes importantes de um Span são:
 
-Os spans são objetos que representam o trabalho que está sendo feito por serviços individuais ou componentes envolvidos em uma solicitação à medida que ele flui através de um sistema. Um `span` contém um `span context` , que é um conjunto de identificadores globalmente exclusivos que representam a solicitação exclusiva para a qual cada span faz parte. 
+* Nome
+* Atributos
 
-Abrange encapsulamento:
+O nome do span é a exibição primária usada para solicitações e dependências no portal do Azure.
 
-* O nome do span
-* Uma imutável `SpanContext` que identifica exclusivamente a extensão
-* Uma extensão pai na forma de um `Span` , `SpanContext` ou NULL
-* Um `SpanKind`
-* Um carimbo de data/hora inicial
-* Um carimbo de data/hora final
-* [`Attributes`](#attributes)
-* Uma lista de eventos com carimbo de data/hora
-* Um `Status`.
+Os atributos de span representam as propriedades padrão e personalizadas de uma determinada solicitação ou dependência.
 
-Em geral, o ciclo de vida de um Span é semelhante ao seguinte:
+## <a name="telemetry-processor-types"></a>Tipos de processador de telemetria
 
-* Uma solicitação é recebida por um serviço. O contexto de span é extraído dos cabeçalhos de solicitação, se existir.
-* Um novo Span é criado como um filho do contexto de span extraído; Se não houver nenhum, um novo Span raiz será criado.
-* O serviço manipula a solicitação. Atributos e eventos adicionais são adicionados ao span que são úteis para entender o contexto da solicitação, como o nome do host do computador que manipula a solicitação ou os identificadores do cliente.
-* Novas extensões podem ser criadas para representar o trabalho sendo feito por subcomponentes do serviço.
-* Quando o serviço faz uma chamada remota para outro serviço, o contexto de span atual é serializado e encaminhado para o próximo serviço injetando o contexto de span no envelope de cabeçalhos ou de mensagem.
-* O trabalho que está sendo feito pelo serviço é concluído, com êxito ou não. O status de span é definido adequadamente e o intervalo é marcado como concluído.
+Atualmente, há dois tipos de processadores de telemetria.
 
-### <a name="attributes"></a>Atributos
+#### <a name="attribute-processor"></a>Processador de atributos
 
-`Attributes` Há uma lista de zero ou mais pares chave-valor encapsulados em um `span` . Um atributo deve ter as seguintes propriedades:
+Um processador de atributos tem a capacidade de inserir, atualizar, excluir ou hash de atributos.
+Ele também pode extrair (por meio de uma expressão regular) um ou mais atributos novos de um atributo existente.
 
-A chave de atributo, que deve ser uma cadeia de caracteres não nula e não vazia.
-O valor do atributo, que é:
-* Um tipo primitivo: String, Boolean, ponto flutuante de precisão dupla (IEEE 754-1985) ou um inteiro de bit de 64 assinado.
-* Uma matriz de valores de tipo primitivo. A matriz deve ser homogênea, ou seja, não deve conter valores de tipos diferentes. Para protocolos que não dão suporte nativo a valores de matriz, esses valores devem ser representados como cadeias de caracteres JSON.
+#### <a name="span-processor"></a>Processador span
 
-## <a name="supported-processors"></a>Processadores com suporte:
- * Processador de atributos
- * Processador span
+Um processador de span tem a capacidade de atualizar o nome da telemetria.
+Ele também pode extrair (por meio de uma expressão regular) um ou mais atributos novos do nome do span.
 
-## <a name="to-get-started"></a>Para começar
+> [!NOTE]
+> Observe que os processadores de telemetria atualmente processam apenas atributos do tipo cadeia de caracteres e não processam atributos do tipo booliano ou número.
 
-Crie um arquivo de configuração chamado `applicationinsights.json` e coloque-o no mesmo diretório do `applicationinsights-agent-***.jar` , com o modelo a seguir.
+## <a name="getting-started"></a>Introdução
+
+Crie um arquivo de configuração chamado `applicationinsights.json` e coloque-o no mesmo diretório do `applicationinsights-agent-*.jar` , com o modelo a seguir.
 
 ```json
 {
@@ -98,9 +88,14 @@ Crie um arquivo de configuração chamado `applicationinsights.json` e coloque-o
 }
 ```
 
-## <a name="includeexclude-spans"></a>Incluir/excluir spans
+## <a name="includeexclude-criteria"></a>Incluir/excluir critérios
 
-O processador de atributos e o processador span expõem a opção para fornecer um conjunto de propriedades de um intervalo para correspondência, para determinar se a extensão deve ser incluída ou excluída do processador de telemetria. Para configurar essa opção, em `include` e/ou `exclude` pelo menos um `matchType` e um `spanNames` ou `attributes` é necessário. A configuração de inclusão/exclusão tem suporte para ter mais de uma condição especificada. Todas as condições especificadas devem ser avaliadas como true para que uma correspondência ocorra. 
+Os processadores de atributo e os processadores de span dão suporte a `include` critérios e opcionais `exclude` .
+Um processador só será aplicado a esses spans que correspondam aos seus `include` critérios (se fornecido) _e_ não correspondam aos seus `exclude` critérios (se fornecido).
+
+Para configurar essa opção, em `include` e/ou `exclude` pelo menos um `matchType` e um `spanNames` ou `attributes` é necessário.
+A configuração de inclusão/exclusão tem suporte para ter mais de uma condição especificada.
+Todas as condições especificadas devem ser avaliadas como true para que uma correspondência ocorra. 
 
 **Campo obrigatório**: 
 * `matchType` controla como os itens `spanNames` nas `attributes` matrizes e são interpretados. Os possíveis valores são `regexp` ou `strict`. 
@@ -150,7 +145,7 @@ O processador de atributos e o processador span expõem a opção para fornecer 
 ```
 Para obter mais noções básicas, confira a documentação [exemplos do processador de telemetria](./java-standalone-telemetry-processors-examples.md) .
 
-## <a name="attribute-processor"></a>Processador de atributos 
+## <a name="attribute-processor"></a>Processador de atributos
 
 O processador de atributos modifica os atributos de um Span. Opcionalmente, ele dá suporte à capacidade de incluir/excluir spans. Ele usa uma lista de ações que são executadas na ordem especificada no arquivo de configuração. As ações com suporte são:
 
@@ -167,7 +162,7 @@ Insere um novo atributo em spans onde a chave ainda não existe.
         "key": "attribute1",
         "value": "value1",
         "action": "insert"
-      },
+      }
     ]
   }
 ]
@@ -190,7 +185,7 @@ Atualiza um atributo em spans onde a chave existe
         "key": "attribute1",
         "value": "newValue",
         "action": "update"
-      },
+      }
     ]
   }
 ]
@@ -213,7 +208,7 @@ Exclui um atributo de um span
       {
         "key": "attribute1",
         "action": "delete"
-      },
+      }
     ]
   }
 ]
@@ -234,7 +229,7 @@ Hashes (SHA1) um valor de atributo existente
       {
         "key": "attribute1",
         "action": "hash"
-      },
+      }
     ]
   }
 ]
@@ -259,7 +254,7 @@ Extrai valores usando uma regra de expressão regular da chave de entrada para c
         "key": "attribute1",
         "pattern": "<regular pattern with named matchers>",
         "action": "extract"
-      },
+      }
     ]
   }
 ]
@@ -271,7 +266,7 @@ Para a `extract` ação, os itens a seguir são necessários
 
 Para obter mais noções básicas, confira a documentação [exemplos do processador de telemetria](./java-standalone-telemetry-processors-examples.md) .
 
-## <a name="span-processors"></a>Processadores de span
+## <a name="span-processor"></a>Processador span
 
 O processador span modifica o nome do SPAN ou os atributos de um Span com base no nome do span. Opcionalmente, ele dá suporte à capacidade de incluir/excluir spans.
 

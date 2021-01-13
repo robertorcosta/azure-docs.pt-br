@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708933"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164865"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 
@@ -99,6 +99,7 @@ Eles representam os limites de cada ação de criação da base de dados de conh
 * Número máximo recomendado de perguntas alternativas por resposta: 300
 * Número máximo de URLs: 10
 * Número máximo de arquivos: 10
+* Número máximo de QnAs permitido por chamada: 1000
 
 ## <a name="update-knowledge-base-call-limits"></a>Atualizar limites de chamada da base de dados de conhecimento
 Eles representam os limites de cada ação de atualização; ou seja, clique em *Salvar e treinar* ou chame a API UpdateKnowledgeBase.
@@ -106,6 +107,7 @@ Eles representam os limites de cada ação de atualização; ou seja, clique em 
 * Número máximo recomendado de perguntas alternativas adicionadas ou excluídas: 300
 * Número máximo de campos de metadados adicionados ou excluídos: 10
 * Número máximo de URLs que podem ser atualizadas: 5
+* Número máximo de QnAs permitido por chamada: 1000
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd438a09b929274808984322981f6d21da0bf68f
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860942"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165137"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -142,6 +142,12 @@ Veja abaixo como essas ações podem ser corrigidas.
 >* Se um dispositivo for removido de um escopo de sincronização no Azure AD Connect e adicionado de volta.
 >
 >Em ambos os casos, você deve registrar novamente o dispositivo manualmente em cada um desses dispositivos. Para verificar se o dispositivo foi registrado anteriormente, você pode [solucionar problemas de dispositivos usando o comando dsregcmd](troubleshoot-device-dsregcmd.md).
+
+---
+
+### <a name="q-i-cannot-add-more-than-3-azure-ad-user-accounts-under-the-same-user-session-on-a-windows-10-device-why"></a>P: não consigo adicionar mais de três contas de usuário do Azure AD na mesma sessão de usuário em um dispositivo Windows 10, por quê?
+
+**R: o** Azure ad adicionou suporte para várias contas do Azure ad na versão 10 1803 do Windows. No entanto, o Windows 10 restringe o número de contas do Azure AD em um dispositivo para 3 para limitar o tamanho das solicitações de token e habilitar o SSO (logon único confiável). Depois que 3 contas tiverem sido adicionadas, os usuários verão um erro para as contas subsequentes. As informações adicionais sobre o problema na tela de erro fornecem a seguinte mensagem indicando o motivo: "a operação de adição de conta está bloqueada porque o limite de conta é atingido". 
 
 ---
 ## <a name="azure-ad-join-faq"></a>Perguntas frequentes sobre ingresso no Azure AD
@@ -291,7 +297,7 @@ Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os 
 
 **Um** 
 - Para dispositivos registrados no Azure AD do Windows 10, acesse **configurações**  >  **contas**  >  **acesso corporativo ou de estudante**. Selecione sua conta e, em seguida, **Desconectar**. O registro de dispositivo é por perfil de usuário no Windows 10.
-- Para IOS e Android, você pode usar o registro de dispositivo Microsoft Authenticator **configurações** de aplicativo  >  **Device Registration** e selecionar **Cancelar registro de dispositivo**.
+- Para IOS e Android, você pode usar o registro de dispositivo Microsoft Authenticator **configurações** de aplicativo  >   e selecionar **Cancelar registro de dispositivo**.
 - Para o macOS, você pode usar o aplicativo Microsoft Intune Portal da Empresa para cancelar o registro do dispositivo do gerenciamento e remover qualquer registro. 
 
 ---

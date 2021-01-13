@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 5eb58c48acc7974a4379cf1993a73228c99f5e6d
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 03a16bfbcb3a8d46a6cb4faa03aa6b6e96cf3db3
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857563"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165953"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Configurar o Azure para conectar as ferramentas de ITSM usando a exportação segura
 
@@ -35,13 +35,13 @@ Siga estas etapas para registrar o aplicativo com o Azure AD:
 3. Selecione **definir** para o **URI da ID do aplicativo**.
 
    [![Captura de tela da opção de configuração do U R I do aplicativo I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ## <a name="define-service-principal"></a>Definir entidade de serviço
 
-O serviço do grupo de ações precisará de permissão para adquirir tokens de autenticação do seu aplicativo do AAD para autenticação com o serviço agora. Para conceder essas permissões, você precisará criar uma entidade de serviço para o serviço de grupo de ação em seu locatário.
-Você pode usar esses [comandos do PowerShell](./action-groups.md#secure-webhook-powershell-script) para essa finalidade. (Requer privilégios de administrador de locatários).
-Como uma etapa opcional, você pode definir a função de aplicativo no manifesto do aplicativo criado, que pode permitir que você restrinja ainda mais o acesso de forma que apenas determinados aplicativos com essa função específica possam enviar mensagens. Essa função deve ser atribuída à entidade de serviço do grupo de ações. \
+O serviço do grupo de ações é um aplicativo de primeira parte, portanto, ele tem permissão para adquirir tokens de autenticação do seu aplicativo do AAD para autenticação com o serviço agora.
+Como uma etapa opcional, você pode definir a função de aplicativo no manifesto do aplicativo criado, que pode permitir que você restrinja ainda mais o acesso de forma que apenas determinados aplicativos com essa função específica possam enviar mensagens. Essa função deve ser atribuída à entidade de serviço do grupo de ações (requer privilégios de administrador de locatário).
+
 Essa etapa pode ser feita por meio dos mesmos [comandos do PowerShell](./action-groups.md#secure-webhook-powershell-script).
 
 ## <a name="create-a-secure-webhook-action-group"></a>Criar um grupo de ação de webhook seguro
