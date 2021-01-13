@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6bb54cf6a5545a49b3c84df59a9ee1294b788846
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 629a063d80c9f1bb1a9ae3d56783e07491149f24
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462684"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118234"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Recursos do Transact-SQL compatíveis com o Azure Synapse SQL
 
@@ -43,7 +43,7 @@ Os modelos de consumo do SQL do Synapse permitem que você use diferentes objeto
 | **[Partições de tabela](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Sim | Não |
 | **[Estatísticas](develop-tables-statistics.md)**            | Sim | Sim |
 | **[Gerenciamento de carga de trabalho, classes de recursos e controle de simultaneidade](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Sim    | Não |
-| **Controle de custo** | Sim, usando ações de escala e redução verticais. | Sim, usando [o portal do Azure ou um procedimento T-SQL](https://docs.microsoft.com/azure/synapse-analytics/sql/data-processed#cost-control). |
+| **Controle de custo** | Sim, usando ações de escala e redução verticais. | Sim, usando [o portal do Azure ou um procedimento T-SQL](./data-processed.md#cost-control). |
 
 ## <a name="query-language"></a>Idioma de consulta
 
@@ -84,23 +84,23 @@ O Synapse SQL permite que você use recursos de segurança internos para protege
 | **Autenticação de passagem do Azure AD (Azure Active Directory) de armazenamento** | Sim | Sim |
 | **Autenticação de token SAS de armazenamento** | Não | Sim, usando [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) em [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) ou [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) no nível da instância. |
 | **Autenticação da chave de acesso de armazenamento** | Sim, usando [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) em [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Não |
-| **Autenticação da [Identidade Gerenciada](../security/synapse-workspace-managed-identity.md) de armazenamento** | Sim, usando a [credencial da identidade de serviço gerenciado](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Sim, usando a credencial da `Managed Identity`. |
+| **Autenticação da [Identidade Gerenciada](../security/synapse-workspace-managed-identity.md) de armazenamento** | Sim, usando a [credencial da identidade de serviço gerenciado](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&preserve-view=true&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=azure-sqldw-latest) | Sim, usando a credencial da `Managed Identity`. |
 | **Autenticação da identidade de aplicativo de armazenamento** | [Sim](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Não |
 | **Permissões – nível do objeto** | Sim, incluindo a capacidade de CONCEDER, NEGAR e REVOGAR permissões aos usuários | Sim, incluindo a capacidade de CONCEDER, NEGAR e REVOGAR permissões aos usuários/aos logons nos objetos do sistema que são compatíveis |
 | **Permissões – nível do esquema** | Sim, incluindo a capacidade de CONCEDER, NEGAR e REVOGAR permissões aos usuários/aos logons no esquema | Sim, incluindo a capacidade de CONCEDER, NEGAR e REVOGAR permissões aos usuários/aos logons no esquema |
 | **Permissões – [nível do banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)** | Sim | Sim |
 | **Permissão – [nível do servidor](/sql/relational-databases/security/authentication-access/server-level-roles)** | Não | Sim, há suporte para sysadmin e outras funções de servidor |
-| **Permissões: [Segurança no Nível da Coluna](/azure/synapse-analytics/sql-data-warehouse/column-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Sim | Sim |
+| **Permissões: [Segurança no Nível da Coluna](../sql-data-warehouse/column-level-security.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)** | Sim | Sim |
 | **Funções/grupos** | Sim (no escopo do banco de dados) | Sim (no escopo do servidor e do banco de dados) |
 | **Funções de &amp; identidade e segurança** | Algumas funções e alguns operadores de segurança Transact-SQL: `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS` e `OPEN/CLOSE MASTER KEY` | Alguns operadores e funções de segurança Transact-SQL: `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SESSION_CONTEXT`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS` e `REVERT`. As funções de segurança não podem ser usadas para consultar dados externos (armazene o resultado em uma variável que possa ser usada na consulta).  |
 | **DATABASE SCOPED CREDENTIAL** | Sim | Sim |
 | **SERVER SCOPED CREDENTIAL** | Não | Sim |
-| **Segurança em nível de linha** | [Sim](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&view=sql-server-ver15) | Não |
-| **TDE (Transparent Data Encryption)** | [Sim](/azure/sql-database/transparent-data-encryption-azure-sql?toc=%2Fazure%2Fsynapse-analytics%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fbreadcrumb%2Ftoc.json&tabs=azure-portal) | Não | 
-| **Descoberta e classificação de dados** | [Sim](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Não |
-| **Avaliação de Vulnerabilidade** | [Sim](/azure/sql-database/sql-vulnerability-assessment?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Não |
-| **Proteção Avançada contra Ameaças** | [Sim](/azure/sql-database/sql-database-threat-detection-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-| **Auditoria** | [Sim](/azure/sql-database/sql-database-auditing?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Não |
+| **Segurança em nível de linha** | [Sim](/sql/relational-databases/security/row-level-security?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=sql-server-ver15) | Não |
+| **TDE (Transparent Data Encryption)** | [Sim](../../azure-sql/database/transparent-data-encryption-tde-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&tabs=azure-portal&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Não | 
+| **Descoberta e classificação de dados** | [Sim](../../azure-sql/database/data-discovery-and-classification-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Não |
+| **Avaliação de Vulnerabilidade** | [Sim](../../azure-sql/database/sql-vulnerability-assessment.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Não |
+| **Proteção Avançada contra Ameaças** | [Sim](../../azure-sql/database/threat-detection-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
+| **Auditoria** | [Sim](../../azure-sql/database/auditing-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) | Não |
 | **[Regras de firewall](../security/synapse-workspace-ip-firewall.md)**| Sim | Sim |
 | **[Ponto de extremidade privado](../security/synapse-workspace-managed-private-endpoints.md)**| Sim | Sim |
 
@@ -134,7 +134,7 @@ Os dados analisados podem ser armazenados em vários tipos de armazenamento. A s
 | **Armazenamento de Blobs do Azure** | Sim | Sim |
 | **SQL do Azure (remoto)** | Não | Não |
 | **Armazenamento transacional do Azure Cosmos DB** | Não | Não |
-| **Armazenamento analítico do Azure Cosmos DB** | Não | Sim, usando o [Link do Synapse (versão prévia)](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) ([versão prévia pública](/azure/cosmos-db/synapse-link?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#limitations)) |
+| **Armazenamento analítico do Azure Cosmos DB** | Não | Sim, usando o [Link do Synapse (versão prévia)](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) ([versão prévia pública](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json#limitations)) |
 | **Tabelas do Apache Spark (no workspace)** | Não | Tabelas PARQUET somente usando [sincronização de metadados](develop-storage-files-spark-tables.md) |
 | **Tabelas do Apache Spark (remotas)** | Não | Não |
 | **Tabelas do Databricks (remotas)** | Não | Não |
@@ -153,7 +153,7 @@ Os dados analisados podem ser armazenados em vários formatos de armazenamento. 
 | **JSON** | Sim | [Sim](query-json-files.md) |
 | **Avro** | Não | Não |
 | **[Delta-lake](https://delta.io/)** | Não | Não |
-| **[CDM](https://docs.microsoft.com/common-data-model/)** | Não | Não |
+| **[CDM](/common-data-model/)** | Não | Não |
 
 ## <a name="next-steps"></a>Próximas etapas
 Encontre mais informações sobre as melhores práticas do pool de SQL dedicado e do pool de SQL sem servidor nos seguintes artigos:

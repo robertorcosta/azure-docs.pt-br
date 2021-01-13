@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: fb8aad52eeaef2366afe28aa71059b7f8f780501
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 511d5841652b1f7b6487a42341ec392cb86d2b3a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843291"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120369"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Usar a Autenticação multifator do AAD com o SQL do Synapse (suporte do SSMS à MFA)
 
@@ -71,7 +71,7 @@ Se você estiver executando o SSMS 18.x ou posterior, o nome de domínio do AD o
    ![mfa-tenant-ssms](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Suporte entre empresas do Azure AD   
-Os usuários do Azure AD compatíveis com cenários de B2B do Azure AD como usuários convidados (confira [O que é colaboração B2B do Azure](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)) podem se conectar ao SQL do Synapse apenas como parte dos membros de um grupo criado no Azure AD atual e mapeados manualmente usando a instrução `CREATE USER` do Transact-SQL em um determinado banco de dados. 
+Os usuários do Azure AD compatíveis com cenários de B2B do Azure AD como usuários convidados (confira [O que é colaboração B2B do Azure](../../active-directory/external-identities/what-is-b2b.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)) podem se conectar ao SQL do Synapse apenas como parte dos membros de um grupo criado no Azure AD atual e mapeados manualmente usando a instrução `CREATE USER` do Transact-SQL em um determinado banco de dados. 
 
 Por exemplo, se `steve@gmail.com` é convidado para o Azure AD `contosotest` (com o domínio do Azure Ad `contosotest.onmicrosoft.com`), um grupo do Azure AD, como `usergroup` deve ser criado no Azure AD que contém o membro `steve@gmail.com`. Em seguida, esse grupo deve ser criado para um banco de dados específico (ou seja, MyDatabase) pelo administrador do SQL do Azure AD ou DBO do Azure AD, executando uma instrução `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` do Transact-SQL. 
 
@@ -92,5 +92,4 @@ Como usuário convidado, `steve@gmail.com` precisa marcar a caixa e adicionar o 
 - A versão da Biblioteca de Autenticação do Active Directory (ADAL) para autenticação Universal foi atualizada para a última versão lançada disponível de ADAL.dll 3.13.9. Consulte [Biblioteca de Autenticação do Active Directory 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações, confira o artigo [Conectar-se ao SQL do Synapse com o SQL Server Management Studio](get-started-ssms.md). 
-
+Para obter mais informações, confira o artigo [Conectar-se ao SQL do Synapse com o SQL Server Management Studio](get-started-ssms.md).

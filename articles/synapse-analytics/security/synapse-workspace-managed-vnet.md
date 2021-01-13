@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: b605c2c9f3c7468d0fe1f2cccd8c3602c556714b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501066"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116357"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Rede virtual gerenciada do Azure Synapse Analytics
 
@@ -41,7 +41,7 @@ O pool de SQL dedicado e o pool de SQL sem servidor são funcionalidades multilo
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-virtual-network"></a>Criar um workspace do Azure Synapse com uma Rede Virtual de workspace gerenciada
 
-Registre o provedor de recursos de rede, caso ainda não tenha feito isso. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Escolha *Microsoft.Network* na lista de provedores de recursos ao se [registrar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+Registre o provedor de recursos de rede, caso ainda não tenha feito isso. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. Escolha *Microsoft.Network* na lista de provedores de recursos ao se [registrar](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 Para criar um workspace do Azure Synapse que tenha uma Rede Virtual de workspace gerenciada associada a ele, selecione a guia **Rede** no portal do Azure e marque a caixa de seleção **Habilitar rede virtual gerenciada**.
 

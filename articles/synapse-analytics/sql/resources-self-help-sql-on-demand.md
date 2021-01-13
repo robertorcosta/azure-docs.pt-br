@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12ff369cb931eb36014b7c9598b036afdc158750
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4c3b5095da4e55dc8f881a610f80f1150422e739
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457186"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119910"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Autoajuda para o pool de SQL sem servidor
 
@@ -25,7 +25,7 @@ Este artigo contém informações sobre como solucionar os problemas mais freque
 Se o Synapse Studio não puder estabelecer uma conexão com o pool de SQL sem servidor, você observará que o pool de SQL sem servidor está esmaecido ou mostra o status "Offline". Normalmente, esse problema ocorre quando um dos seguintes casos acontece:
 
 1) A rede impede a comunicação com o back-end do Azure Synapse. O caso mais frequente é o bloqueio da porta 1443. Para que o pool de SQL sem servidor funcione, desbloqueie essa porta. Outros problemas também podem impedir que o pool de SQL sem servidor funcione; [acesse o guia de solução de problemas completo para obter mais informações](../troubleshoot/troubleshoot-synapse-studio.md).
-2) Você não tem permissões para fazer logon no pool de SQL sem servidor. Para obter acesso, um dos administradores do workspace do Azure Synapse deverá adicionar você à função de administrador do workspace ou do SQL. [Acesse o guia completo sobre controle de acesso para obter mais informações](access-control.md).
+2) Você não tem permissões para fazer logon no pool de SQL sem servidor. Para obter acesso, um dos administradores do workspace do Azure Synapse deverá adicionar você à função de administrador do workspace ou do SQL. [Acesse o guia completo sobre controle de acesso para obter mais informações](../security/synapse-workspace-access-control-overview.md).
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>A consulta falha porque o arquivo não pode ser aberto
 

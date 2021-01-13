@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 83b5804888379316b855c36f803f646cec102d9e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 939a74a2bbedf6b00159f0c33a50eeb93595cda4
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024578"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116068"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Início Rápido: Carregar dados em massa usando a instrução COPY
 
-Neste guia de início rápido, você carregará dados em massa para seu pool de SQL dedicado usando a [instrução COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) simples e flexível para a ingestão de dados com alta taxa de transferência. A instrução COPY é o utilitário de carregamento recomendado, pois permite carregar dados de maneira direta e flexível oferecendo funcionalidades para:
+Neste guia de início rápido, você carregará dados em massa para seu pool de SQL dedicado usando a [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) simples e flexível para a ingestão de dados com alta taxa de transferência. A instrução COPY é o utilitário de carregamento recomendado, pois permite carregar dados de maneira direta e flexível oferecendo funcionalidades para:
 
 - Permitir que usuários com menor privilégio carreguem sem a necessidade de permissões CONTROL estritas no data warehouse
 - Usar apenas uma instrução T-SQL sem precisar criar nenhum objeto de banco de dados adicional
@@ -138,5 +138,5 @@ GROUP BY r.[request_id]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter as melhores práticas sobre o carregamento de dados, confira [Melhores práticas para carregar dados](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data).
-- Para obter informações sobre como gerenciar os recursos para carregamentos de dados, confira [Isolamento da carga de trabalho](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql). 
+- Para obter as melhores práticas sobre o carregamento de dados, confira [Melhores práticas para carregar dados](./guidance-for-loading-data.md).
+- Para obter informações sobre como gerenciar os recursos para carregamentos de dados, confira [Isolamento da carga de trabalho](./quickstart-configure-workload-isolation-tsql.md).

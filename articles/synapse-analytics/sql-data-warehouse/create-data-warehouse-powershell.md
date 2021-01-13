@@ -11,12 +11,12 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
-ms.openlocfilehash: 0ce94b62d67048896cdf7355043ec2dde7f2df79
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 18fba46e4e8de14d9b3ec43455ba2abcc4218dc1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456577"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120182"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>Início rápido: Criar um pool de SQL dedicado (antigo SQL DW) com o Azure PowerShell
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você acabou de criar um pool de SQL dedicado (antigo SQL DW), criar uma regra de firewall e se conectar ao seu pool de SQL dedicado. Para saber mais, prossiga para o artigo [Carregar dados para um pool de SQL dedicado](load-data-from-azure-blob-storage-using-polybase.md).
+Você acabou de criar um pool de SQL dedicado (antigo SQL DW), criar uma regra de firewall e se conectar ao seu pool de SQL dedicado. Para saber mais, prossiga para o artigo [Carregar dados para um pool de SQL dedicado](./load-data-from-azure-blob-storage-using-copy.md).

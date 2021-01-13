@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: Kevin
 ms.custom: azure-synapse
-ms.openlocfilehash: 59195bba69bb343e55cfcb7342400d93dcce60c0
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 2920c96d6a2e505347edb51780101327cb884e08
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94932949"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120165"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-cli"></a>Início rápido: Criar um pool de SQL do Synapse com a CLI do Azure
 
@@ -134,4 +134,4 @@ az group delete --ResourceGroupName MyResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você acabou de criar um pool de SQL, criar uma regra de firewall e se conectar ao pool de SQL. Para saber mais, prossiga para o artigo [Carregar dados para o pool de SQL](load-data-from-azure-blob-storage-using-polybase.md).
+Você acabou de criar um pool de SQL, criar uma regra de firewall e se conectar ao pool de SQL. Para saber mais, prossiga para o artigo [Carregar dados para o pool de SQL](./load-data-from-azure-blob-storage-using-copy.md).

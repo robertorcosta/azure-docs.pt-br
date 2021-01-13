@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1217cf74ab36a8fe865e47009616b1ccb240df67
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462397"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119876"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -111,7 +111,7 @@ Para criar um banco de dados, o usuário deve ser um usuário baseado em um logo
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Adicione o novo usuário à função de banco de dados **dbmanager** no `master` usando o procedimento [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (observe que instrução [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) não tem suporte no SQL provisionado). Exemplo de instruções:
+4. Adicione o novo usuário à função de banco de dados **dbmanager** no `master` usando o procedimento [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (observe que instrução [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) não tem suporte no SQL provisionado). Exemplo de instruções:
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -133,7 +133,7 @@ A outra função administrativa é a função de gerente de logon. Os membros de
 
 ## <a name="non-administrator-users"></a>Usuários não administradores
 
-Em geral, contas que não são de administrador não precisam de acesso ao banco de dados mestre. Crie usuários do banco de dados independente no nível do banco de dados usando a instrução [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) . 
+Em geral, contas que não são de administrador não precisam de acesso ao banco de dados mestre. Crie usuários do banco de dados independente no nível do banco de dados usando a instrução [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) . 
 
 O usuário pode ser usuário de banco de dados independente de autenticação no Azure Active Directory (se você tiver configurado o ambiente para autenticação do Azure AD), ou um usuário de banco de dados independente de autenticação do SQL Server, ou um usuário de autenticação do SQL Server com base em um logon de autenticação do SQL Server (criado na etapa anterior).  
 
@@ -191,7 +191,7 @@ As funções do banco de dados podem ser funções internas, como **db_owner**, 
 
 Por exemplo, a função do banco de dados fixa **db_datareader** concede acesso de leitura a todas as tabelas no banco de dados, sendo, em geral, mais do que é estritamente necessário. 
 
-É muito melhor usar a instrução [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para criar suas funções do banco de dados definidas pelo usuário e conceder cuidadosamente a cada função as permissões mínimas necessárias para o negócio. Quando um usuário for membro de várias funções, ele agregará as permissões de todas elas.
+É muito melhor usar a instrução [CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql) para criar suas funções do banco de dados definidas pelo usuário e conceder cuidadosamente a cada função as permissões mínimas necessárias para o negócio. Quando um usuário for membro de várias funções, ele agregará as permissões de todas elas.
 
 ## <a name="permissions"></a>Permissões
 
@@ -199,7 +199,7 @@ Há mais de 100 permissões que podem ser concedidas ou negadas individualmente 
 
 Devido à natureza aninhada e ao número de permissões, talvez seja necessário realizar um estudo cuidadoso para criar um sistema de permissões apropriado a fim de proteger corretamente o banco de dados. 
 
-Comece com a lista de permissões em [Permissões (Mecanismo do Banco de Dados)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) e examine o [gráfico com tamanho de pôster](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) das permissões.
+Comece com a lista de permissões em [Permissões (Mecanismo do Banco de Dados)](/sql/relational-databases/security/permissions-database-engine) e examine o [gráfico com tamanho de pôster](/sql/relational-databases/security/media/database-engine-permissions.png) das permissões.
 
 ### <a name="considerations-and-restrictions"></a>Considerações e restrições
 
@@ -236,5 +236,4 @@ Ao gerenciar logons e usuários no Banco de Dados SQL, considere os seguintes po
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
- 
+Para obter mais informações, consulte [Usuários de bancos de dados independentes – Tornando seu banco de dados portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).

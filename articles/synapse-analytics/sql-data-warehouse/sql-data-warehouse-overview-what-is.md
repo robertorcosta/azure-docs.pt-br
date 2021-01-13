@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f9ab6dacde0259905368d8a0cb788dde77bbfb2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453642"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115813"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>O que é o pool de SQL dedicado (antigo SQL DW) no Azure Synapse Analytics?
 
@@ -51,7 +51,7 @@ Os resultados da análise podem ir para aplicativos ou bancos de dados em todo o
 
 - Explorar a [arquitetura do Azure Synapse](massively-parallel-processing-mpp-architecture.md)
 - Rapidamente [criar um pool de SQL dedicado](create-data-warehouse-portal.md)
-- [Carregue dados de exemplo](load-data-from-azure-blob-storage-using-polybase.md).
+- [Carregue dados de exemplo](./load-data-from-azure-blob-storage-using-copy.md).
 - Explore os [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 Ou, dê uma olhada em alguns desses outros recursos do Azure Synapse.
@@ -59,5 +59,5 @@ Ou, dê uma olhada em alguns desses outros recursos do Azure Synapse.
 - Pesquisar em [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - Enviar [Solicitações de recurso](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Criar um tíquete de suporte](sql-data-warehouse-get-started-create-support-ticket.md)
-- Pesquisar [Página de P e R da Microsoft](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- Pesquisar [Página de P e R da Microsoft](/answers/topics/azure-synapse-analytics.html)
 - Pesquisar no [Fórum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
