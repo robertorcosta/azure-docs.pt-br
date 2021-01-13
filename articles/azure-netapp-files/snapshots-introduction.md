@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 01/12/2021
 ms.author: b-juche
-ms.openlocfilehash: 4d21f7c4e74a87e409a73b22fc6b316e97e24a4e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: beadd250ec4472b894f0f474b1057ad44cf474ed
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121984"
+ms.locfileid: "98133507"
 ---
 # <a name="how-azure-netapp-files-snapshots-work"></a>Como funcionam os instantâneos do Azure NetApp Files
 
@@ -37,11 +37,11 @@ Os seguintes diagramas ilustram os conceitos:
 
 ![Diagramas que mostram os principais conceitos de instantâneos](../media/azure-netapp-files/snapshot-concepts.png)
 
-Nos diagramas acima, o instantâneo é obtido na Figura 1a. Na figura 1B, os dados alterados são gravados em um *novo bloco* e o ponteiro é atualizado. Mas o ponteiro de instantâneo ainda aponta para o *bloco escrito anteriormente*, oferecendo uma exibição dinâmica e histórica dos dados. Outro instantâneo é obtido na figura 1C. Agora você tem acesso a três gerações de dados (os dados dinâmicos, o instantâneo 2 e o instantâneo 1, em ordem de idade), sem ocupar o espaço do volume que três cópias completas exigirão. 
+Nos diagramas, um instantâneo é obtido na Figura 1a. Na figura 1B, os dados alterados são gravados em um *novo bloco* e o ponteiro é atualizado. Mas o ponteiro de instantâneo ainda aponta para o *bloco escrito anteriormente*, oferecendo uma exibição dinâmica e histórica dos dados. Outro instantâneo é obtido na figura 1C. Agora você tem acesso a três gerações de dados (os dados dinâmicos, o instantâneo 2 e o instantâneo 1, em ordem de idade), sem ocupar o espaço do volume que três cópias completas exigirão. 
 
 Um instantâneo usa apenas uma cópia dos metadados de volume (*tabela de inode*). Leva apenas alguns segundos para criar, independentemente do tamanho do volume, da capacidade usada ou do nível de atividade no volume. Portanto, tirar um instantâneo de um volume 100-TiB leva o mesmo tempo (ao lado de zero) como tirar um instantâneo de um volume 100-GiB. Depois que um instantâneo é criado, as alterações nos arquivos de dados são refletidas na versão ativa dos arquivos, como de costume.
 
-Enquanto isso, os blocos de dados que são apontados de um instantâneo permanecem estáveis e imutáveis. Devido à natureza de "redirecionamento na gravação" de Azure NetApp Files instantâneos, um instantâneo não provoca nenhuma sobrecarga de desempenho e, em si, não consome espaço. Você pode armazenar até 255 instantâneos por volume ao longo do tempo, todos acessíveis como somente leitura e versões online dos dados, consumindo uma pequena capacidade como o número de blocos alterados entre cada instantâneo. Os blocos modificados são armazenados no volume ativo. Os blocos apontados para os instantâneos são mantidos (como somente leitura) no volume para fins de proteção, para serem redefinidos somente quando todos os instantâneos (ponteiros) tiverem sido limpos. Portanto, a utilização de volume aumentará ao longo do tempo, por novos blocos de dados ou blocos de dados (modificados) mantidos em instantâneos.
+Enquanto isso, os blocos de dados que são apontados de um instantâneo permanecem estáveis e imutáveis. Devido à natureza de "redirecionamento na gravação" de Azure NetApp Files volumes, um instantâneo não provoca nenhuma sobrecarga de desempenho e, em si, não consome nenhum espaço. Você pode armazenar até 255 instantâneos por volume ao longo do tempo, todos acessíveis como somente leitura e versões online dos dados, consumindo uma pequena capacidade como o número de blocos alterados entre cada instantâneo. Os blocos modificados são armazenados no volume ativo. Os blocos apontados para os instantâneos são mantidos (como somente leitura) no volume para fins de proteção, para serem redefinidos somente quando todos os ponteiros (no volume ativo e instantâneos) tiverem sido apagados. Portanto, a utilização de volume aumentará ao longo do tempo, por novos blocos de dados ou blocos de dados (modificados) mantidos em instantâneos.
 
  O diagrama a seguir mostra os instantâneos de um volume e o espaço usado ao longo do tempo: 
 
@@ -56,7 +56,7 @@ Como um instantâneo de volume registra apenas as alterações de bloco desde o 
     Leva apenas alguns segundos para criar, replicar, restaurar ou clonar um instantâneo, independentemente do tamanho do volume e do nível de atividades. Você pode criar um instantâneo de volume [sob demanda](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume). Você também pode usar [políticas de instantâneo](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) para especificar quando Azure NetApp files deve criar automaticamente um instantâneo e quantos instantâneos devem ser mantidos em um volume.  A consistência do aplicativo pode ser obtida por meio da orquestração de instantâneos com a camada de aplicativo, por exemplo, usando a [ferramenta AzAcSnap](azacsnap-introduction.md) para SAP Hana.
 
 _ Instantâneos não têm impacto sobre o volume ***desempenho** _.   
-    Devido à natureza de "redirecionamento na gravação" da tecnologia de subposição, armazenar ou reter Azure NetApp Files instantâneos não tem impacto no desempenho, mesmo com atividade de dados pesada. A exclusão de um instantâneo também tem pouco ou nenhum impacto no desempenho em muitos casos. 
+    Devido à natureza de "redirecionamento na gravação" da tecnologia de subposição, armazenar ou reter Azure NetApp Files instantâneos não tem impacto no desempenho, mesmo com atividade de dados pesada. A exclusão de um instantâneo também tem pouco ou nenhum impacto no desempenho na maioria dos casos. 
 
 _ Os instantâneos fornecem ***escalabilidade** _ porque eles podem ser criados com frequência e muitos podem ser retidos.   
     Os volumes Azure NetApp Files dão suporte a até 255 instantâneos. A capacidade de armazenar um grande número de instantâneos criados com frequência de baixo impacto aumenta a probabilidade de que a versão desejada de dados possa ser recuperada com êxito.
@@ -66,7 +66,7 @@ O alto desempenho, a escalabilidade e a estabilidade de Azure NetApp Files tecno
 
 ## <a name="ways-to-create-snapshots"></a>Maneiras de criar instantâneos   
 
-Os instantâneos de Azure NetApp Files são versáteis em uso. Dessa forma, vários métodos estão disponíveis para criar e manter instantâneos:
+Você pode usar vários métodos para criar e manter instantâneos:
 
 _ Manualmente (sob demanda), usando:   
     * As ferramentas [portal do Azure](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [API REST](/rest/api/netapp/snapshots), [CLI do Azure](/cli/azure/netappfiles/snapshot)ou [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot)
@@ -78,7 +78,7 @@ _ Manualmente (sob demanda), usando:
 
 ## <a name="how-volumes-and-snapshots-are-replicated-cross-region-for-dr"></a>Como os volumes e instantâneos são replicados entre regiões para DR  
 
-O Azure NetApp Files dá suporte à [replicação entre regiões](cross-region-replication-introduction.md) para fins de Dr (recuperação de desastre). Azure NetApp Files replicação entre regiões usa a tecnologia SnapMirror. Somente os blocos alterados são enviados pela rede em um formato compactado e eficiente. Depois que uma replicação entre regiões é iniciada entre volumes, todo o conteúdo do volume (ou seja, os blocos de dados armazenados reais) é transferido apenas uma vez. Essa operação é chamada de *transferência de linha de base*. Após a transferência inicial, somente os blocos alterados (como capturados em instantâneos) são transferidos. Uma réplica 1:1 assíncrona do volume de origem é criada (incluindo todos os instantâneos).  Esse comportamento segue um mecanismo de replicação completo e incremental. Essa tecnologia proprietária minimiza a quantidade de dados necessária para replicar entre as regiões. Desse modo, você economiza nos custos de transferência de dados. Ele também reduz o tempo de replicação. Você pode obter um RPO (objetivo de ponto de recuperação) menor, pois mais instantâneos podem ser criados e transferidos com mais frequência com transferências de dados limitadas.
+O Azure NetApp Files dá suporte à [replicação entre regiões](cross-region-replication-introduction.md) para fins de Dr (recuperação de desastre). Azure NetApp Files replicação entre regiões usa a tecnologia SnapMirror. Somente os blocos alterados são enviados pela rede em um formato compactado e eficiente. Depois que uma replicação entre regiões é iniciada entre volumes, todo o conteúdo do volume (ou seja, os blocos de dados armazenados reais) é transferido apenas uma vez. Essa operação é chamada de *transferência de linha de base*. Após a transferência inicial, somente os blocos alterados (como capturados em instantâneos) são transferidos. O resultado é uma réplica 1:1 assíncrona do volume de origem, incluindo todos os instantâneos. Esse comportamento segue um mecanismo de replicação completo e incremental. Essa tecnologia minimiza a quantidade de dados necessária para replicar entre as regiões, economizando, portanto, os custos de transferência de dados. Ele também reduz o tempo de replicação. Você pode obter um RPO (objetivo de ponto de recuperação) menor, pois mais instantâneos podem ser criados e transferidos com mais frequência com transferências de dados limitadas. Além disso, elimina a necessidade de mecanismos de replicação baseados em host, evitando o custo de licença de software e de máquina virtual.
 
 O diagrama a seguir mostra o tráfego de instantâneo em cenários de replicação entre regiões: 
 
@@ -90,7 +90,7 @@ A tecnologia de instantâneos de Azure NetApp Files melhora muito a frequência 
 
 ### <a name="restoring-files-or-directories-from-snapshots"></a>Restaurando arquivos ou diretórios de instantâneos 
 
-Se a [visibilidade do caminho de instantâneo](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) não estiver oculta, os usuários poderão acessar diretamente os instantâneos para se recuperarem de exclusão acidental, corrupção ou modificação de seus dados. A segurança de arquivos e diretórios é mantida no instantâneo e os instantâneos são somente leitura por design. Assim, a restauração é segura e simples. 
+Se a [visibilidade do caminho do instantâneo](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) não estiver definida como `hidden` , os usuários poderão acessar diretamente os instantâneos para se recuperar da exclusão acidental, corrupção ou modificação de seus dados. A segurança de arquivos e diretórios é mantida no instantâneo e os instantâneos são somente leitura por design. Assim, a restauração é segura e simples. 
 
 O diagrama a seguir mostra o acesso ao arquivo ou ao diretório para um instantâneo: 
 
@@ -108,7 +108,7 @@ Consulte [restaurar um arquivo de um instantâneo usando um cliente](azure-netap
 
 ### <a name="restoring-cloning-a-snapshot-to-a-new-volume"></a>Restaurando (clonando) um instantâneo para um novo volume
 
-Os instantâneos de Azure NetApp Files podem ser restaurados para um volume separado e independente. Essa operação é quase instantânea, independentemente do tamanho do volume e da capacidade consumida. O volume recém-criado está quase imediatamente disponível para acesso, enquanto os blocos de dados reais de volume e instantâneo estão sendo copiados. Dependendo do tamanho e da capacidade do volume, esse processo pode levar um tempo considerável durante o qual o volume pai e o instantâneo não podem ser excluídos. No entanto, o volume já pode ser acessado após a criação inicial, enquanto o processo de cópia está em andamento em segundo plano. Esse recurso permite a criação rápida de volumes para recuperação de dados ou clonagem de volume para teste e desenvolvimento. Por natureza do processo de cópia de dados, o consumo do pool de capacidade de armazenamento dobrará quando a restauração for concluída e o novo volume mostrará a capacidade total ativa do instantâneo original. Depois que esse processo for concluído, o volume será independente e desassociado com o volume original, e os volumes de origem e o instantâneo poderão ser gerenciados ou removidos independentemente do novo volume.
+Você pode restaurar Azure NetApp Files instantâneos para um volume separado e independente. Essa operação é quase instantânea, independentemente do tamanho do volume e da capacidade consumida. O volume recém-criado está quase imediatamente disponível para acesso, enquanto os blocos de dados reais de volume e instantâneo estão sendo copiados. Dependendo do tamanho e da capacidade do volume, esse processo pode levar um tempo considerável durante o qual o volume pai e o instantâneo não podem ser excluídos. No entanto, o volume já pode ser acessado após a criação inicial, enquanto o processo de cópia está em andamento em segundo plano. Esse recurso permite a criação rápida de volumes para recuperação de dados ou clonagem de volume para teste e desenvolvimento. Por natureza do processo de cópia de dados, o consumo do pool de capacidade de armazenamento dobrará quando a restauração for concluída e o novo volume mostrará a capacidade total ativa do instantâneo original. Depois que esse processo for concluído, o volume será independente e desassociado com o volume original, e os volumes de origem e o instantâneo poderão ser gerenciados ou removidos independentemente do novo volume.
 
 O diagrama a seguir mostra um novo volume criado pela restauração (clonagem) de um instantâneo:   
 
@@ -124,7 +124,7 @@ Consulte [restaurar um instantâneo em um novo volume](azure-netapp-files-manage
 
 ### <a name="restoring-reverting-a-snapshot-in-place"></a>Restaurando (revertendo) um instantâneo in-loco
 
-Em alguns casos, como o novo volume consumirá a capacidade de armazenamento, a criação de um novo volume de um instantâneo pode não ser necessária ou apropriada. Para recuperar-se de dados corrompidos (por exemplo, danos ou ataques de ransomware) rapidamente, pode ser mais apropriado restaurar um instantâneo dentro do próprio volume. Essa operação pode ser feita usando a funcionalidade de reversão de instantâneo Azure NetApp Files. Essa funcionalidade permite que você reverta rapidamente um volume para o estado em que ele estava quando um determinado instantâneo foi tirado. Na maioria dos casos, reverter um volume é muito mais rápido do que restaurar arquivos individuais de um instantâneo para o sistema de arquivos ativo, especialmente em volumes grandes e TiB. 
+Em alguns casos, como o novo volume consumirá a capacidade de armazenamento, a criação de um novo volume de um instantâneo pode não ser necessária ou apropriada. Para recuperar-se de dados corrompidos rapidamente (por exemplo, danos ou ataques de ransomware), talvez seja mais apropriado restaurar um instantâneo dentro do próprio volume. Essa operação pode ser feita usando a funcionalidade de reversão de instantâneo Azure NetApp Files. Essa funcionalidade permite que você reverta rapidamente um volume para o estado em que ele estava quando um determinado instantâneo foi tirado. Na maioria dos casos, reverter um volume é muito mais rápido do que restaurar arquivos individuais de um instantâneo para o sistema de arquivos ativo, especialmente em volumes grandes e TiB. 
 
 A reversão de um instantâneo de volume é quase instantânea e leva apenas alguns segundos para ser concluída, mesmo para os maiores volumes. Os metadados do volume ativo (*tabela de inode*) são substituídos pelos metadados do instantâneo a partir do momento da criação do instantâneo, revertendo o volume para esse momento específico. Nenhum bloco de dados precisa ser copiado para que a reversão entre em vigor. Assim, é mais eficiente do que restaurar um instantâneo para um novo volume. 
 
@@ -142,11 +142,11 @@ Consulte [reverter um volume usando o instantâneo REVERT](azure-netapp-files-ma
 Os instantâneos consomem a capacidade de armazenamento. Como tal, eles normalmente não são mantidos indefinidamente. Para proteção de dados, retenção e capacidade de recuperação, vários instantâneos (criados em vários pontos no tempo) geralmente são mantidos online por uma determinada duração, dependendo do RPO, RTO e requisitos de SLA de retenção. No entanto, os instantâneos mais antigos geralmente não precisam ser mantidos no serviço de armazenamento e talvez precisem ser excluídos para liberar espaço. Qualquer instantâneo pode ser excluído (não necessariamente em ordem de criação) por um administrador a qualquer momento. 
 
 > [!IMPORTANT]
-> A operação de exclusão de instantâneo não pode ser desfeita. 
+> A operação de exclusão de instantâneo não pode ser desfeita. Você deve reter cópias offline do volume para fins de proteção e retenção de dados. 
 
 Quando um instantâneo é excluído, todos os ponteiros desse instantâneo para os blocos de dados existentes serão removidos. Quando um bloco de dados não tem mais ponteiros apontando para ele (pelo volume ativo ou outros instantâneos no volume), o bloco de dados é retornado para o espaço livre do volume para uso futuro. Portanto, a remoção de instantâneos geralmente libera mais capacidade em um volume do que excluir dados do volume ativo, pois os blocos de dados geralmente são capturados em instantâneos criados anteriormente. 
 
-O diagrama a seguir mostra o efeito sobre o consumo de armazenamento da exclusão de instantâneos para um volume:  
+O diagrama a seguir mostra o efeito sobre o consumo de armazenamento da exclusão do instantâneo 3 de um volume:  
 
 ![Diagrama que mostra o efeito de consumo de armazenamento da exclusão de instantâneo](../media/azure-netapp-files/snapshot-delete-storage-consumption.png)
 

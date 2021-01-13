@@ -1,14 +1,14 @@
 ---
 title: Monitorar recursos delegados em escala
 description: Saiba como usar efetivamente os logs de Azure Monitor de maneira escalonável nos locatários do cliente que você está gerenciando.
-ms.date: 12/14/2020
+ms.date: 01/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 797a6159d310f85c35c7eb550f05ff152526b3e8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509267"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131144"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados em escala
 
@@ -24,6 +24,9 @@ Este tópico mostra como usar [os logs de Azure monitor](../../azure-monitor/pla
 Para coletar dados, você precisará criar Log Analytics espaços de trabalho. Esses espaços de trabalho Log Analytics são ambientes exclusivos para dados coletados pelo Azure Monitor. Cada workspace tem seu próprio repositório de dados e configuração. As fontes de dados e as soluções são configuradas para armazenar seus dados em um determinado workspace.
 
 É recomendável criar esses espaços de trabalho diretamente nos locatários do cliente. Dessa forma, seus dados permanecem em seus locatários em vez de serem exportados para o seu. Isso também permite o monitoramento centralizado de quaisquer recursos ou serviços com suporte pelo Log Analytics, proporcionando a você mais flexibilidade sobre os tipos de dados que você monitora.
+
+> [!TIP]
+> Qualquer conta de automação usada para acessar dados de um espaço de trabalho Log Analytics deve ser criada no mesmo locatário que o espaço de trabalho.
 
 Você pode criar um espaço de trabalho Log Analytics usando o [portal do Azure](../../azure-monitor/learn/quick-create-workspace.md), usando [CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)ou usando [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
 

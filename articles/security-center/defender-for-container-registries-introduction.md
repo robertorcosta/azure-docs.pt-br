@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
-ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
+ms.openlocfilehash: 79a428c322b65bfbb982be7a7e0c8b9fab7eed18
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96310384"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132709"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registros de contêiner
 
@@ -28,7 +28,7 @@ A Central de Segurança identifica os registros do ACR baseados no Azure Resourc
 
 O **Azure Defender para registros de contêiner** inclui um verificador de vulnerabilidade para verificar as imagens nos seus registros do Registro de Contêiner do Azure baseados no Azure Resource Manager e fornecer uma visibilidade mais profunda das vulnerabilidades das suas imagens. O verificador integrado é fornecido pela Qualys, o fornecedor líder do setor de verificação de vulnerabilidades.
 
-Quando forem encontrados problemas – pela Qualys ou pela Central de Segurança – você será notificado no painel da Central de Segurança. Para cada vulnerabilidade, a Central de Segurança fornece recomendações práticas, juntamente com uma classificação de severidade e diretrizes sobre como corrigir o problema. Para obter detalhes das recomendações da Central de Segurança para contêineres, confira a [lista de referência de recomendações](recommendations-reference.md#recs-containers).
+Quando forem encontrados problemas – pela Qualys ou pela Central de Segurança – você será notificado no painel da Central de Segurança. Para cada vulnerabilidade, a Central de Segurança fornece recomendações práticas, juntamente com uma classificação de severidade e diretrizes sobre como corrigir o problema. Para obter detalhes das recomendações da Central de Segurança para contêineres, confira a [lista de referência de recomendações](recommendations-reference.md#recs-compute).
 
 A Central de Segurança filtra e classifica as descobertas do verificador. Quando uma imagem está íntegra, a Central de Segurança marca a imagem como tal. A Central de Segurança gera recomendações de segurança apenas para as imagens que têm problemas a serem resolvidos. Ela fornece detalhes de cada vulnerabilidade relatada e uma classificação de severidade. Além disso, oferece diretrizes de como corrigir as vulnerabilidades específicas encontradas em cada imagem.
 

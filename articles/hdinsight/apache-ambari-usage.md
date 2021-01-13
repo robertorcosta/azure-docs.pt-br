@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/05/2020
-ms.openlocfilehash: cfb83c4ec9972fda3813d414583bc73edeef3229
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.date: 01/12/2021
+ms.openlocfilehash: ff83e559919a836208faae4eae4a5f992534b6cb
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285965"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134136"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Uso do Apache Ambari no Azure HDInsight
 
@@ -65,6 +65,15 @@ Para qualquer cluster com contagem de nós de trabalho maior que 16 ao criar o c
 Nunca inicie/interrompa manualmente os serviços ambari-Server ou ambari-Agent, a menos que você esteja tentando reiniciar o serviço para solucionar um problema. Para forçar um failover, você pode reinicializar o cabeçalho ativo.
 
 Nunca modifique manualmente nenhum arquivo de configuração em qualquer nó de cluster, deixe que a interface do usuário do Ambari faça o trabalho para você.
+
+## <a name="property-values-in-esp-clusters"></a>Valores de propriedade em clusters ESP
+
+No HDInsight 4,0 Enterprise Security Package clusters, use pipes `|` em vez de vírgulas como delimitadores de variável. Um exemplo é mostrado abaixo:
+
+```
+Property Key: hive.security.authorization.sqlstd.confwhitelist.append
+Property Value: environment|env|dl_data_dt
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

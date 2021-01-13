@@ -10,39 +10,43 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845609"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131111"
 ---
-# <a name="business-card-concepts"></a>Conceitos de cartão de visita
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de cartões de visita pré-criados do reconhecedor de formulário 
 
-O reconhecedor de formulários do Azure pode analisar e extrair informações de contato de cartões de visita usando um de seus modelos predefinidos. A API do cartão de negócios combina recursos avançados de reconhecimento de caracteres ópticos (OCR) com nosso modelo de compreensão de cartão de negócios para extrair informações importantes de cartões de visita em inglês. Ele extrai informações de contato pessoal, nome da empresa, cargo e muito mais. A API de cartão de visita predefinida está publicamente disponível no formulário versão prévia do Recognizer v 2.1. 
+O reconhecedor de formulários do Azure pode analisar e extrair informações de contato de cartões de visita usando seu modelo de cartões de visita predefinidos. Ele combina recursos avançados de OCR (reconhecimento óptico de caracteres) com nosso modelo de compreensão de cartão de negócios para extrair informações importantes de cartões de visita em inglês. Ele extrai informações de contato pessoal, nome da empresa, cargo e muito mais. A API de cartão de visita predefinida está publicamente disponível no formulário versão prévia do Recognizer v 2.1. 
 
-## <a name="what-does-the-business-card-api-do"></a>O que a API do cartão de negócios faz?
+## <a name="what-does-the-business-card-service-do"></a>O que o serviço de cartão de negócios faz?
 
-A API do cartão de negócios extrai campos de chave de cartões de visita e os retorna em uma resposta de JSON organizada.
+A API de cartão de visita predefinida extrai campos de chave de cartões de visita e os retorna em uma resposta de JSON organizada.
 
-![Imagem do contoso discriminada da saída FOTT + JSON](./media/business-card-english.jpg)
+![Imagem do contoso discriminada da saída FOTT + JSON](./media/business-card-example.jpg)
+
+
 
 ### <a name="fields-extracted"></a>Campos extraídos:
 
-* Nomes de contato 
-  * Primeiros nomes
-  * Últimos nomes
-* Nomes de empresa 
-* Departments 
-* Títulos de trabalho 
-* Emails 
-* Sites 
-* Endereços 
-* Números de telefone 
-  * Telefones celulares 
-  * Cujo 
-  * Telefones de trabalho 
-  * Outros telefones 
+|Nome| Tipo | Descrição | Texto | 
+|:-----|:----|:----|:----|
+| ContactNames | matriz de objetos | Nome do contato extraído do cartão de visita | [{"FirstName": "John", "LastName": "Doe"}] |
+| FirstName | string | Primeiro (fornecido) nome do contato | "John" | 
+| LastName | string | Último nome (família) do contato |   "Doe" | 
+| Empresasnames | Matriz de cadeias de caracteres | Nome da empresa extraído do cartão de visita | ["Contoso"] | 
+| Departments | Matriz de cadeias de caracteres | Departamento ou organização de contato | ["R&D"] | 
+| JobTitles | Matriz de cadeias de caracteres | Título de trabalho de contato listado | ["Engenheiro de software"] | 
+| Emails | Matriz de cadeias de caracteres | Email de contato extraído do cartão de visita | ["johndoe@contoso.com"] | 
+| Sites | Matriz de cadeias de caracteres | Site extraído do cartão de visita | ["https://www.contoso.com"] | 
+| Endereços | Matriz de cadeias de caracteres | Endereço extraído do cartão de visita | ["rua principal 123, Redmond, WA 98052"] | 
+| MobilePhones | matriz de números de telefone | Número de telefone celular extraído do cartão de visita | ["+ 19876543210"] |
+| Cujo | matriz de números de telefone | Número de telefone de fax extraído do cartão de visita | ["+ 19876543211"] |
+| WorkPhones | matriz de números de telefone | Número de telefone de trabalho extraído do cartão de visita | ["+ 19876543231"] |
+| OtherPhones    | matriz de números de telefone | Outro número de telefone extraído do cartão de visita | ["+ 19876543233"] |
+
 
 A API do cartão de negócios também pode retornar todo o texto reconhecido do cartão de visita. Essa saída de OCR é incluída na resposta JSON.  
 

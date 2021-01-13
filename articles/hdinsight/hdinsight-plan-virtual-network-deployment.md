@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/04/2020
-ms.openlocfilehash: 2d6d18cc73c02d3139074555fdd22a40c797ce40
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/12/2021
+ms.openlocfilehash: 429f0b2ffe486279a1c429fc7a153e6528642f54
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825138"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131654"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planejar uma rede virtual para o Azure HDInsight
 
@@ -51,7 +51,8 @@ Estas são as perguntas que você deve responder ao planejar a instalação do H
 Use as etapas descritas nesta seção para descobrir como adicionar um novo HDInsight a uma Rede Virtual do Azure existente.
 
 > [!NOTE]  
-> Não é possível adicionar um cluster HDInsight existente a uma rede virtual.
+> - Não é possível adicionar um cluster HDInsight existente a uma rede virtual.
+> - A VNET e o cluster que está sendo criado devem estar na mesma assinatura.
 
 1. Você está usando um modelo de implantação clássico ou do Resource Manager para a rede virtual?
 
@@ -69,7 +70,7 @@ Use as etapas descritas nesta seção para descobrir como adicionar um novo HDIn
 
     Para encontrar a configuração de segurança existente, use os seguintes comandos do Azure PowerShell ou da CLI do Azure:
 
-    * Grupos de segurança de rede
+    * Grupos de Segurança de Rede
 
         Substitua `RESOURCEGROUP` pelo nome do grupo de recursos que contém a rede virtual e, em seguida, insira o comando:
 

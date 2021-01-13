@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/03/2020
+ms.date: 1/12/2020
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08d5e20bf0755a71e70a0e446cf96d33bb42ad59
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aadf4000da4ab88a3c3b4dee37d2179eb49d39d7
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351861"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132057"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Criar um nome de domínio totalmente qualificado no Portal do Azure para uma VM Linux
 
@@ -24,16 +24,14 @@ Quando você cria uma máquina virtual (VM) no [portal do Azure](https://portal.
 Este artigo pressupõe que você já tenha criado uma VM. Se necessário, você pode criar uma VM do [Linux](./linux/quick-create-portal.md) ou do [Windows](./windows/quick-create-portal.md) no Portal. Siga estas etapas depois que a VM estiver em execução:
 
 
-1. Selecione sua VM no portal. Em **nome DNS** , selecione **Configurar**.
-2. Insira o nome DNS e, em seguida, selecione **salvar** na parte superior da página.
-3. Para retornar à folha de visão geral da VM, feche a folha **configuração** selecionando o **X** no canto superior direito. 
-4. Verifique se o *nome DNS* agora é mostrado corretamente.
-   
-
-
+1. Selecione sua VM no portal. 
+1. No menu à esquerda, selecione **configuração**
+1. Em **rótulo de nome DNS**, insira o prefixo que você deseja usar.
+1. No início da página, selecione **Salvar**.
+1. Retorne à folha visão geral da VM selecionando **visão geral** no menu à esquerda. 
+1. Verifique se o *nome DNS* aparece corretamente. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que sua VM tem um IP público e um nome DNS, você pode implantar estruturas de aplicativo ou serviços comuns, como Nginx, MongoDB e Docker.
 
-Leia mais sobre como [usar o Resource Manager](../azure-resource-manager/management/overview.md) para obter dicas sobre a criação de implantações do Azure.
+Você também pode gerenciar o DNS usando [zonas DNS do Azure](../dns/dns-getstarted-portal.md).
 

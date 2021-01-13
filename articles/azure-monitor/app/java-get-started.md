@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6bdad71f0b36995abdeb3b1edb87cbef32df8b67
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 115e1ec347cdcd80904b47a0c8798206360d0dad
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919431"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131773"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guia de Início Rápido: Introdução ao Application Insights em um projeto Web Java
 
@@ -56,7 +56,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
         <artifactId>applicationinsights-web-auto</artifactId>
         <!-- or applicationinsights-web for manual web filter registration -->
         <!-- or applicationinsights-core for bare API -->
-        <version>2.5.0</version>
+        <version>2.6.2</version>
       </dependency>
     </dependencies>
 ```
@@ -69,15 +69,11 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 
 ```gradle
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.5.0'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.6.2'
       // or applicationinsights-web for manual web filter registration
       // or applicationinsights-core for bare API
     }
 ```
-
-# <a name="other-types"></a>[Outros tipos](#tab/other)
-
-Baixe a [versão mais recente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) e copie os arquivos necessários para o projeto substituindo as versões anteriores.
 
 ---
 
@@ -88,10 +84,7 @@ Baixe a [versão mais recente](https://github.com/Microsoft/ApplicationInsights-
   * `applicationinsights-core` oferece apenas a API Bare, por exemplo, se seu aplicativo não for baseado em servlet.
   
 * *Como fazer para atualizar o SDK para a versão mais recente?*
-  * Se você estiver usando gradle ou Maven...
-    * Atualize o arquivo de compilação para especificar a versão mais recente.
-  * Se você estiver gerenciando dependências manualmente...
-    * Baixe o [SDK do Application Insights para Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) mais recente e substitua os antigos. As alterações descritas nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
+  * A partir de novembro de 2020, para monitorar aplicativos Java, recomendamos a instrumentação automática usando o Azure Monitor Application Insights o agente Java 3,0. Para obter mais informações sobre como começar, consulte [Application insights o agente do Java 3,0](./java-in-process-agent.md).
 
 ## <a name="add-an-applicationinsightsxml-file"></a>Adicionar um arquivo de *ApplicationInsights.xml*
 Adicione *ApplicationInsights.xml* à pasta de recursos em seu projeto ou verifique se ele foi adicionado ao caminho de classe de implantação do seu projeto. Copie o XML a seguir nele.
@@ -153,7 +146,7 @@ Você também pode [defini-lo no código](./api-custom-events-metrics.md#ikey):
 
 [Instale o agente Java](java-agent.md) para capturar chamadas http de saída, consultas JDBC, log de aplicativo e melhor nomenclatura de operação.
 
-## <a name="run-your-application"></a>Executar seu aplicativo
+## <a name="run-your-application"></a>Execute seu aplicativo.
 Execute-o no modo de depuração no computador de desenvolvimento ou publique em seu servidor.
 
 ## <a name="view-your-telemetry-in-application-insights"></a>Exibir sua telemetria no Application Insights
@@ -168,10 +161,6 @@ Dados de solicitações HTTP são exibidos na folha de visão geral. (Se não es
 Clique em qualquer gráfico para ver métricas agregadas mais detalhadas.
 
 ![Painel de falhas Application Insights com gráficos](./media/java-get-started/006-barcharts.png)
-
-<!--
-[TODO update image with 2.5.0 operation naming provided by agent]
--->
 
 ### <a name="instance-data"></a>Dados de instância
 Clique em um tipo de solicitação específica para ver instâncias individuais.

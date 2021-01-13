@@ -3,12 +3,12 @@ title: Restrições de nomenclatura de recursos
 description: Mostra as regras e restrições de nomenclatura de recursos do Azure.
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814373"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132742"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -83,7 +83,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
 > | locks | escopo da atribuição | 1-90 | Caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses.<br><br>Não pode terminar com ponto. |
-> | policyAssignments | escopo da atribuição | Nome de exibição 1–128<br><br>1-64 nome do recurso | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço. |
+> | policyAssignments | escopo da atribuição | Nome de exibição 1–128<br><br>1-64 nome do recurso<br><br>1-24 nome do recurso no escopo do grupo de gerenciamento | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço. |
 > | policyDefinitions | escopo da definição | Nome de exibição 1–128<br><br>1-64 nome do recurso | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço. |
 > | policySetDefinitions | escopo da definição | Nome de exibição 1–128<br><br>1-64 nome do recurso<br><br>1-24 nome do recurso no escopo do grupo de gerenciamento | O nome para exibição pode conter qualquer caractere.<br><br>O nome do recurso não pode incluir `%` e não pode terminar com ponto ou espaço.  |
 

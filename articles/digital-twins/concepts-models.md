@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: dfea6d531dfb87a5344c5d8e53570b6e1ae8e598
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049313"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131382"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Entender os modelos de entrelaçamento no Azure digital gêmeos
 
@@ -140,7 +140,7 @@ Ao criar modelos para refletir as entidades em seu ambiente, pode ser útil olha
 
 Usar modelos baseados em padrões do setor ou usar a representação ontologia padrão, como RDF ou OWL, fornece um ponto de partida rico ao projetar seus modelos do Azure digital gêmeos. O uso de modelos do setor também ajuda na padronização e no compartilhamento de informações.
 
-Para ser usado com o gêmeos digital do Azure, um modelo deve ser representado na [**DTDL (digital gêmeos Definition Language)**](concepts-models.md)baseada em JSON-ld. Portanto, este artigo descreve como representar os modelos padrão do setor no DTDL, integrando os conceitos existentes do setor com a semântica DTDL para que o Azure digital gêmeos possa usá-los. O modelo DTDL, em seguida, serve como a fonte de verdade para o modelo dentro do gêmeos digital do Azure.
+Para ser usado com o gêmeos digital do Azure, um modelo deve ser representado na [**DTDL (digital gêmeos Definition Language)**](concepts-models.md)baseada em JSON-ld. Portanto, para usar um modelo padrão do setor, você deve primeiro convertê-lo em DTDL para que o gêmeos digital do Azure possa usá-lo. O modelo DTDL, em seguida, serve como a fonte de verdade para o modelo dentro do gêmeos digital do Azure.
 
 Há dois caminhos principais para integrar modelos padrão do setor com o DTDL, dependendo da sua situação:
 * Se você ainda tiver criado seus modelos, poderá criá-los em um **ontologies inicial DTDL existente** que contenha idioma específico do seu setor.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723971"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134340"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
 
@@ -133,7 +133,7 @@ Esta seção discute considerações sobre a implantação de diferentes tipos d
 
 Provavelmente, você precisará implantar várias contas de armazenamento do Azure. Cada um deles manterá um número menor de compartilhamentos de arquivos do Azure, de acordo com seu plano de implantação, concluído na seção anterior deste artigo. Vá para o portal do Azure para [implantar suas contas de armazenamento planejadas](../common/storage-account-create.md#create-a-storage-account). Considere obedecer às configurações básicas a seguir para qualquer nova conta de armazenamento.
 
-#### <a name="subscription"></a>Assinatura
+#### <a name="subscription"></a>Subscription
 
 Você pode usar a mesma assinatura usada para sua implantação do StorSimple ou outra. A única limitação é que sua assinatura deve estar no mesmo locatário Azure Active Directory que a assinatura do StorSimple. Considere mover a assinatura do StorSimple para o locatário correto antes de iniciar uma migração. Você só pode mover a assinatura inteira. Os recursos individuais do StorSimple não podem ser movidos para um locatário ou assinatura diferente.
 
@@ -441,6 +441,9 @@ Neste ponto, há diferenças entre sua instância local do Windows Server e o di
 1. Alguns arquivos podem ter sido deixados para trás pelo trabalho de transformação de dados devido a caracteres inválidos. Nesse caso, copie-os para a instância do Windows Server habilitada para Sincronização de Arquivos do Azure. Posteriormente, você pode ajustá-los para que eles sejam sincronizados. Se você não usar Sincronização de Arquivos do Azure para um compartilhamento específico, será melhor renomear os arquivos com caracteres inválidos no volume do StorSimple. Em seguida, execute o RoboCopy diretamente no compartilhamento de arquivos do Azure.
 
 > [!WARNING]
+> Atualmente, o Robocopy no Windows Server 2019 apresenta um problema que fará com que os arquivos em camadas por Sincronização de Arquivos do Azure no servidor de destino sejam copiados novamente da origem e recarregados no Azure ao usar a função/MIR do Robocopy. É imperativo que você use o Robocopy em um servidor Windows diferente de 2019. Uma escolha preferida é o Windows Server 2016. Esta observação será atualizada se o problema for resolvido por meio de Windows Update.
+
+> [!WARNING]
 > Você *não deve* iniciar o Robocopy antes que o servidor tenha o namespace para um compartilhamento de arquivos do Azure baixado totalmente. Para obter mais informações, consulte [determinar quando seu namespace foi totalmente baixado em seu servidor](#determine-when-your-namespace-has-fully-synced-to-your-server).
 
  Você só deseja copiar os arquivos que foram alterados após a última execução do trabalho de migração e os arquivos que não foram movidos por meio desses trabalhos antes. Você pode resolver o problema para o motivo pelo qual eles não se moveram mais tarde no servidor, após a conclusão da migração. Para obter mais informações, consulte [sincronização de arquivos do Azure solução de problemas](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
@@ -448,7 +451,7 @@ Neste ponto, há diferenças entre sua instância local do Windows Server e o di
 O RoboCopy tem vários parâmetros. O exemplo a seguir demonstra um comando concluído e uma lista de motivos para escolher esses parâmetros.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Plano de fundo:
@@ -499,6 +502,14 @@ Plano de fundo:
    :::column-end:::
    :::column span="1":::
       Permite que o RoboCopy considere apenas deltas entre origem (dispositivo StorSimple) e destino (diretório do Windows Server).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /IT
+   :::column-end:::
+   :::column span="1":::
+      Garante que a fidelidade seja preservada em determinados cenários de espelhamento.</br>Exemplo: entre dois Robocopy é executado um arquivo experimenta uma alteração de ACL e uma atualização de atributo, por exemplo, ele também está marcado como *oculto*. Sem/IT, a alteração de ACL pode ser perdida pelo Robocopy e, portanto, não é transferida para o local de destino.
    :::column-end:::
 :::row-end:::
 :::row:::

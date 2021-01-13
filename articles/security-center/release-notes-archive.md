@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/07/2020
 ms.author: memildin
-ms.openlocfilehash: 7325ba1a8a90fec90182f9780c1fb18d29d3c0f1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 835950cc68ca22ea3958d614d669d7a105fefe62
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955256"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132912"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivos de novidades na Central de Segurança do Azure?
 
@@ -110,7 +110,7 @@ Saiba mais sobre a segurança de contêiner da Central de Segurança nos seguint
 - [Como verificar os registros e proteger os hosts do Docker](container-security.md)
 - [Alertas de segurança dos recursos de proteção contra ameaças para clusters do Serviço de Kubernetes do Azure](alerts-reference.md#alerts-akscluster)
 - [Alertas de segurança dos recursos de proteção contra ameaças para hosts do Serviço de Kubernetes do Azure](alerts-reference.md#alerts-containerhost)
-- [Recomendações de segurança para contêineres](recommendations-reference.md#recs-containers)
+- [Recomendações de segurança para contêineres](recommendations-reference.md#recs-compute)
 
 
 
@@ -124,7 +124,7 @@ O recurso de controles de aplicativos adaptáveis recebeu duas atualizações si
 
     * Usando um curinga no final de um caminho para permitir todos os executáveis dentro desta pasta e das subpastas
 
-    * Usando um caractere curinga no meio de um caminho para habilitar um nome executável conhecido com um nome de pasta de alteração (por exemplo, pastas de usuário pessoais com um executável conhecido, nomes de pasta gerados automaticamente, etc.).
+    * Usando um curinga no meio de um caminho para habilitar um nome executável conhecido com um nome de pasta alterado (por exemplo, pastas de usuário pessoais com um executável conhecido, nomes de pasta gerados automaticamente etc.).
 
 
 [Saiba mais sobre controles de aplicativo adaptáveis](security-center-adaptive-application.md).
@@ -195,7 +195,7 @@ Essas novas recomendações serão exibidas nos mesmos quatro controles de segur
 
 As recomendações também incluem a capacidade de correção rápida para ajudar a acelerar o processo de implantação. 
 
-Saiba mais sobre essas duas novas recomendações na tabela [Recomendações de computação e aplicativo](recommendations-reference.md#recs-computeapp).
+Saiba mais sobre essas duas novas recomendações na tabela [Recomendações de computação e aplicativo](recommendations-reference.md#recs-compute).
 
 Saiba mais sobre como a Central de Segurança do Azure usa o agente em [O que é o agente do Log Analytics?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
 
@@ -232,7 +232,7 @@ O controle de segurança "Implementar melhores práticas de segurança" agora in
 
 Uma recomendação existente, **As máquinas virtuais voltadas para a Internet devem ser protegidas com grupos de segurança de rede**, não distingue entre as VMs voltadas para a Internet e aquelas não voltadas para a Internet. Para ambas, uma recomendação de alta severidade foi gerada se uma VM não foi atribuída a um grupo de segurança de rede. Essa nova recomendação separa os computadores não voltados para a Internet para reduzir os falsos positivos e evitar alertas de alta severidade desnecessários.
 
-Saiba mais na tabela [Recomendações de rede](recommendations-reference.md#recs-network).
+Saiba mais na tabela [Recomendações de rede](recommendations-reference.md#recs-networking).
 
 
 
@@ -432,7 +432,7 @@ Exemplos de recomendações de identidade e acesso incluem:
 
 Se você tiver assinaturas no tipo de preço gratuito, suas classificações de segurança serão afetadas por essa alteração, pois essas assinaturas nunca foram avaliadas quanto à identidade e segurança de acesso.
 
-Saiba mais sobre [recomendações de identidade e acesso](recommendations-reference.md#recs-identity).
+Saiba mais sobre [recomendações de identidade e acesso](recommendations-reference.md#recs-identityandaccess).
 
 Saiba mais sobre o [monitoramento de identidade e acesso](security-center-identity-access.md).
 
@@ -737,7 +737,7 @@ A Central de Segurança agora dá suporte a cenários de gerenciamento entre loc
 
 A Central de Segurança do Azure (ASC) lançou novas recomendações de rede e melhorou algumas delas. Agora, o uso da Central de Segurança garante uma proteção de rede ainda maior para seus recursos. 
 
-[Saiba mais sobre as recomendações de rede](recommendations-reference.md#recs-network).
+[Saiba mais sobre as recomendações de rede](recommendations-reference.md#recs-networking).
 
 
 ## <a name="june-2019"></a>Junho de 2019

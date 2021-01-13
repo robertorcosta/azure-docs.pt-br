@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8c9beaca0fb3ee7881559ffcc955f171bc2ddd7b
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 7eb8010853ba370f4502b6bc155c6a098e64965b
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886440"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133439"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de testes de versão e acompanhamento em experimentos
 
@@ -166,9 +166,7 @@ A seguir estão os cenários em que os dados são rastreados como um conjunto de
 A seguir estão os cenários em que os dados são rastreados como um conjunto de dado de **saída**.  
 
 * Passe um `OutputFileDatasetConfig` objeto por meio do `outputs` `arguments` parâmetro ou ao enviar uma execução de experimento. `OutputFileDatasetConfig` os objetos também podem ser usados para manter os dados entre as etapas do pipeline. Consulte [mover dados entre as etapas do pipeline ml.](how-to-move-data-in-out-of-pipelines.md)
-    > [!TIP]
-    > [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) é uma classe de visualização pública que contém recursos de visualização [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#&preserve-view=truestable-vs-experimental) que podem ser alterados a qualquer momento.
-
+  
 * Registrar um conjunto de registros em seu script. Para esse cenário, o nome atribuído ao conjunto de os quando você o registrou no espaço de trabalho é o nome exibido. No exemplo a seguir, `training_ds` é o nome que seria exibido.
 
     ```Python

@@ -3,12 +3,12 @@ title: Perguntas frequentes de retransmissão do Azure | Microsoft Docs
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o serviço de retransmissão do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299279"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131824"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
@@ -50,7 +50,6 @@ Aqui estão três exemplos de cenários de cobrança para Conexões Híbridas:
     *   Você envia 6 GB de dados pela conexão B durante o mês.
     *   O encargo total é de US$ 10,50. São US$ 5 para conexão A + US$ 5 para a conexão B + US$ 0,50 (para o sexto gigabyte na conexão B).
 
-Observe que os preços usados nos exemplos são aplicáveis somente durante o período de versão prévia das Conexões Híbridas. Os preços estão sujeitos a alterações conforme a disponibilidade geral de Conexões Híbridas.
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Como as horas são calculadas para Retransmissão?
 

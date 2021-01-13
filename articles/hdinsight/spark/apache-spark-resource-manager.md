@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
-ms.openlocfilehash: f7cac8ef41ff49f2d623e2b86dff271adcd71ff1
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.date: 01/12/2021
+ms.openlocfilehash: 43e46c1b5e720e4f9f46f8d3198fea7124d8f5ba
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821410"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132198"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight
 
@@ -85,6 +85,9 @@ O comando a seguir é um exemplo de como alterar os parâmetros de configuraçã
 curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 ```
 
+> [!Note]
+> Copie o arquivo JAR para sua conta de armazenamento de cluster. Não copie o arquivo JAR diretamente para o nó principal.
+
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Alterar esses parâmetros em um Servidor Spark Thrift
 
 O Servidor Thrift Spark fornece acesso JDBC/ODBC a um cluster Spark e é usado para atender às consultas SQL do Spark. Ferramentas como Power BI, tableau e assim por diante, usam o protocolo ODBC para se comunicar com o servidor Spark Thrift para executar consultas SQL do Spark como um aplicativo Spark. Quando um cluster Spark é criado, as duas instâncias do Servidor Thrift Spark são iniciadas, uma em cada nó de cabeçalho. Cada Servidor Thrift Spark é visto como um aplicativo Spark na interface de usuário do YARN.
@@ -146,7 +149,7 @@ Inicie a interface do usuário do Yarn, conforme mostrado no início do artigo. 
 
     ![Eliminar App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Eliminar App2")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)
 

@@ -3,12 +3,12 @@ title: Adicionar partições dinamicamente a um hub de eventos nos Hubs de Event
 description: Este artigo mostra como adicionar partições dinamicamente a um hub de eventos nos Hubs de Eventos do Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ebe4491338c24a331812041f4d3e6d37b934117
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002532"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132164"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicionar partições dinamicamente a um hub de eventos (tópico do Apache Kafka) nos Hubs de Eventos do Azure
 Os Hubs de Evento fornecem streaming de mensagens por meio de um padrão de consumidor particionado no qual cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens. Esse padrão permite a escala horizontal para processamento de eventos e fornece outros recursos centrados no fluxo que não estão disponíveis em filas e tópicos. Uma partição é uma sequência ordenada de eventos que é mantida em um hub de eventos. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Para obter mais informações sobre partições em geral, confira [Partições](event-hubs-scalability.md#partitions)
@@ -71,7 +71,7 @@ Os Hubs de Eventos fornecem três opções de remetente:
 
 - **Remetente da partição**: nesse cenário, os clientes enviam eventos diretamente para uma partição. Embora as partições sejam identificáveis e os eventos possam ser enviados diretamente a elas, não recomendamos esse padrão. A adição de partições não afeta esse cenário. Recomendamos que você reinicie os aplicativos para que eles possam detectar partições adicionadas recentemente. 
 - **Remetente da chave de partição** – nesse cenário, os clientes enviam os eventos com uma chave para que todos os eventos que pertençam a essa chave terminem na mesma partição. Nesse caso, o serviço faz hash da chave e das rotas para a partição correspondente. A atualização de contagem de partições pode causar problemas fora de ordem devido à alteração de hash. Portanto, se você se preocupa com a ordenação, verifique se o aplicativo consome todos os eventos de partições existentes antes de aumentar a contagem de partições.
-- **Remetente de round robin (padrão)** – nesse cenário, o serviço de Hubs de Eventos faz distribuição round robin dos eventos entre partições. O serviço de Hubs de Eventos reconhece alterações de contagem de partições e solicitará novas partições segundos após uma alteração da contagem de partições.
+- **Remetente de Round Robin (padrão)** – neste cenário, o serviço de hubs de eventos Arredonde Robin os eventos entre partições e também usa um algoritmo de balanceamento de carga. O serviço de Hubs de Eventos reconhece alterações de contagem de partições e solicitará novas partições segundos após uma alteração da contagem de partições.
 
 ### <a name="receiverconsumer-clients"></a>Clientes de receptor/consumidor
 Os Hubs de Eventos fornecem receptores diretos e uma biblioteca de consumidor fácil de usar, chamada de [Host do Processador de Eventos (SDK antigo)](event-hubs-event-processor-host.md) ou [Processador de Eventos (SDK novo)](event-processor-balance-partition-load.md).
@@ -99,7 +99,7 @@ Quando um membro do grupo de consumidores executa uma atualização de metadados
     > [!IMPORTANT]
     > Enquanto os dados existentes preservarem a ordenação, o hash de partição será interrompido para mensagens com hash após a alteração na contagem de partições devido à adição de partições.
 - A adição de uma partição a uma instância do hub de eventos ou tópico existente é recomendada nos seguintes casos:
-    - Quando você usa o método round robin (padrão) de envio de eventos
+    - Quando você usa o método padrão de envio de eventos
      - Kafka estratégias de particionamento padrão, exemplo – estratégia de atribuição de adesivo
 
 

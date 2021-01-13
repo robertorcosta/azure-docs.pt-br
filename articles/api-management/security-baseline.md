@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab4ae6980af9556f973ece93634b614d01c615e9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183746"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132657"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança do Azure para Gerenciamento de API
 
 A linha de base de segurança do Azure para o Gerenciamento de API contém recomendações que ajudarão a aprimorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações de como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
 Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
@@ -26,7 +26,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 *Para saber mais, confira [Controle de segurança: Segurança de rede](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteger recursos usando grupos de segurança de rede ou o Firewall do Azure em sua Rede Virtual
 
 **Diretriz**: O Gerenciamento de API do Azure pode ser implantado em uma Rede Virtual do Microsoft Azure (VNet) para que possa acessar serviços de back-end na rede. O portal do desenvolvedor e o gateway do Gerenciamento de API podem ser configurados para serem acessados pela Internet (externo) ou somente na rede virtual (interno).
 - Externo: o portal de desenvolvedor e o gateway de Gerenciamento de API podem ser acessados pela Internet pública por meio de um balanceador de carga externo. O gateway pode acessar recursos na rede virtual.
@@ -381,7 +381,7 @@ Siga as recomendações da Central de Segurança do Azure para o gerenciamento e
 
 * [Como obter uma definição de função do diretório no Azure Active Directory com o PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-* [Compreender as recomendações de identidade e acesso da Central de Segurança do Azure](../security-center/recommendations-reference.md#recs-identity)
+* [Compreender as recomendações de identidade e acesso da Central de Segurança do Azure](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -816,7 +816,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicativos de software não aprovados do Azure
 
-**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
+**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

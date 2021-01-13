@@ -6,12 +6,12 @@ ms.date: 01/10/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 299e9010b74c8363cacd1c20044d183dc1def6a6
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 50c5a8a0c1e7c5d554e19ffcbc9a78bc0a385a5c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601281"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131722"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções capturadas e tempos de execução de método em aplicativos Web Java
 
@@ -37,7 +37,7 @@ Se você tiver [instrumentado seu aplicativo Web Java com Application insights S
 Para usar o agente Java, instale-o no servidor. Seus aplicativos Web devem ser instrumentados com o [SDK do Java do Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Instalar o agente do Application Insights para Java
-1. No computador que está executando o servidor Java, [baixe o agente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Certifique-se de baixar a mesma versão do Agente Java que o núcleo e os pacotes da Web do SDK de Java do Application Insights.
+1. No computador que executa o servidor Java, [Baixe o agente 2. x](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/2.6.2). Verifique se a versão do agente Java 2. x que você usa corresponde à versão do SDK do Java do 2. x Application Insights que você usa.
 2. Edite o script de inicialização do servidor de aplicativos e adicione o seguinte argumento JVM:
    
     `-javaagent:<full path to the agent JAR file>`
@@ -89,10 +89,7 @@ Para Azure App serviços, faça o seguinte:
 * Selecione Configurações > Configurações do Aplicativo
 * Em configurações do aplicativo, adicione um novo par de chave/valor:
 
-Chave: `JAVA_OPTS` valor: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
-
-Para obter a versão mais recente do agente Java, verifique as versões [aqui](https://github.com/Microsoft/ApplicationInsights-Java/releases
-). 
+Chave: `JAVA_OPTS` valor: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.6.2.jar`
 
 O agente deve ser empacotado como um recurso em seu projeto, de modo que ele termine no diretório D:/Home/site/wwwroot/. Você pode confirmar que o agente está no diretório do serviço de aplicativo correto acessando **ferramentas**  >  **avançadas**  >  **console de depuração** e examinando o conteúdo do diretório do site.    
 
@@ -127,7 +124,7 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 
 [Diagnosticando problemas de dependência – Saiba mais](./asp-net-dependencies.md#diagnosis).
 
-## <a name="questions-problems"></a>Dúvidas? Problemas?
+## <a name="questions-problems"></a>Perguntas? Problemas?
 * Não há dados? [Definir exceções de firewall](./ip-addresses.md)
 * [Solucionar problemas de Java](java-troubleshoot.md)
 

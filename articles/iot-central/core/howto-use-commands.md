@@ -7,12 +7,12 @@ ms.date: 01/07/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: dd05a4880bdf077f63dc58575828e6180e415260
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 52872175eb799785674c331ad4d687ff8ef427a4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121982"
+ms.locfileid: "98134272"
 ---
 # <a name="how-to-use-commands-in-an-azure-iot-central-solution"></a>Como usar comandos em uma solução de IoT Central do Azure
 
@@ -219,10 +219,8 @@ A captura de tela a seguir mostra a interface do usuário do IoT Central quando 
 
 Esta seção mostra como um dispositivo lida com um comando offline. Se um dispositivo estiver online, ele poderá manipular o comando offline assim que ele for recebido. Se um dispositivo estiver offline, ele manipulará o comando offline quando ele se conectar ao IoT Central. Os dispositivos não podem enviar um valor de retorno em resposta a um comando offline.
 
-O trecho de código a seguir mostra como um dispositivo pode implementar um comando offline:
-
 > [!NOTE]
-> Este artigo usa Node.js para simplificar a simplicidade. Para obter outros exemplos de linguagem, consulte o tutorial [criar e conectar um aplicativo cliente ao aplicativo do Azure IOT central](tutorial-connect-device.md) .
+> Este artigo usa Node.js para simplificar a simplicidade.
 
 A captura de tela a seguir mostra um comando offline chamado **GenerateDiagnostics**. O parâmetro de solicitação é um objeto com a propriedade DateTime chamada **StartTime** e uma propriedade de enumeração de inteiro chamada **Bank**:
 

@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845474"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131434"
 ---
-# <a name="receipt-concepts"></a>Conceitos de recebimento
+# <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recebimento predefinido do reconhecedor de formulário
 
-O reconhecedor de formulários do Azure pode analisar recibos usando um de seus modelos predefinidos. A API de recebimento extrai informações de chave de recibos de vendas em inglês, como o nome do comerciante, a data da transação, o total da transação, os itens de linha e muito mais. 
+O reconhecedor de formulários do Azure pode analisar e extrair informações de recibos de vendas usando seu modelo de recebimento predefinido. Ele combina nossos poderosos recursos de [OCR (reconhecimento óptico de caracteres)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) com recebimento, entendendo modelos de aprendizado profundo para extrair informações importantes dos recibos em inglês. A API de recebimento extrai informações de chave de recibos de vendas em inglês, como o nome do comerciante, a data da transação, o total da transação, os itens de linha e muito mais. 
 
 ## <a name="understanding-receipts"></a>Entendendo os recibos 
 
@@ -27,37 +27,44 @@ Muitas empresas e indivíduos ainda dependem da extração manual de dados de se
 
 A extração automática de dados dessas confirmações pode ser complicada. Os recibos podem ser crumpleddos e difíceis de ler, as partes impressa ou manuscritas e as imagens do smartphone de recibos podem ser de baixa qualidade. Além disso, modelos de recebimento e campos podem variar muito por mercado, região e comerciante. Esses desafios na extração dos dados e na detecção de campos fazem com que o processamento de recibos seja um problema exclusivo.  
 
-Usando o OCR (reconhecimento óptico de caracteres) e nosso modelo de recebimento precompilado, a API de recebimento permite esses cenários de processamento de recebimento e extrai dados dos recibos, por exemplo, nome do comerciante, gorjeta, total, itens de linha e muito mais. Com essa API, não há necessidade de treinar um modelo que você apenas envia o recibo para a API de análise de recebimento e os dados são extraídos.
+Usando o OCR (reconhecimento óptico de caracteres) e nosso modelo de recebimento precompilado, a API de recebimento permite esses cenários de processamento de recebimento e extrai dados dos recibos, por exemplo, nome do comerciante, gorjeta, total, itens de linha e muito mais. Com essa API, não há necessidade de treinar um modelo, basta enviar a imagem de recebimento para a API de análise de recebimento e os dados são extraídos.
 
-![exemplo de recibo](./media/contoso-receipt-small.png)
+![exemplo de recibo](./media/receipts-example.jpg)
 
-## <a name="what-does-the-receipt-api-do"></a>O que a API de recebimento faz? 
 
-A API de recebimento predefinida extrai o conteúdo de recibos de vendas &mdash; o tipo de recibo que você normalmente obteria em um restaurante, varejista ou armazenamento de supermercado.
+## <a name="what-does-the-receipt-service-do"></a>O que o serviço de recebimento faz? 
+
+O serviço de recebimento predefinido extrai o conteúdo de recibos de vendas &mdash; o tipo de recibo que você normalmente obteria em um restaurante, varejista ou armazenamento de supermercado.
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-* Nome do comerciante 
-* Endereço do comerciante 
-* Número de telefone do comerciante 
-* Data da transação 
-* Tempo de transação 
-* Subtotal 
-* Imposto 
-* Total 
-* Dica 
-* Extração de item de linha (por exemplo, quantidade de item, preço do item, nome do item)
+|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
+|:-----|:----|:----|:----| :----|
+| Recibotype | string | Tipo de recibo de vendas | Detalhadas |  |
+| Comerciantename | string | Nome do comerciante que está emitindo o recebimento | Contoso |  |
+| MerchantPhoneNumber | phoneNumber | Número de telefone listado do comerciante | 987-654-3210 | + 19876543210 |
+| MerchantAddress | string | Endereço listado do comerciante | 123 principal Saint Redmond WA 98052 |  |
+| Data da transação | date | Data em que o recebimento foi emitido | 06 de junho de 2019 | 2019-06-26  |
+| Transacionatime | time | Hora em que o recebimento foi emitido | 4:49 PM | 16:49:00  |
+| Total | número | Total de transações completas de recebimento | $14.34 | 14,34 |
+| Subtotal | número | Subtotal do recibo, geralmente antes que os impostos sejam aplicados | $12.34 | 12.34 |
+| Imposto | número | Imposto sobre o recebimento, geralmente imposto sobre vendas ou equivalente | $2.00 | 2,00 |
+| Dica | número | Dica incluída pelo comprador | $1 | 1.00 |
+| Itens | matriz de objetos | Itens de linha extraídos, com nome, quantidade, preço unitário e preço total extraído | |
+| Nome | cadeia de caracteres | Nome do item | Surface Pro 6 | |
+| Quantidade | número | Quantidade de cada item | 1 | |
+| Preço | número | Preço individual de cada unidade de item | $999 | 999, 0 |
+| Preço total | número | Preço total do item de linha | $999 | 999, 0 |
 
 ### <a name="additional-features"></a>Recursos adicionais
 
 A API de recebimento também retorna as seguintes informações:
 
-* Tipo de recibo (como discriminado, cartão de crédito e assim por diante)
 * Nível de confiança de campo (cada campo retorna um valor de confiança associado)
 * Texto bruto de OCR (saída de texto extraído por OCR para o recebimento inteiro)
 * Caixa delimitadora para cada valor, linha e palavra
 
-## <a name="try-it-out"></a>Experimente
+## <a name="try-it-out"></a>Experimentar
 
 Para experimentar o serviço de recebimento do reconhecedor de formulário, vá para a ferramenta de interface do usuário de exemplo online:
 

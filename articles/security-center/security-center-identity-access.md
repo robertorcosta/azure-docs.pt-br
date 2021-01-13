@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: b36f52fd97a9f7ff294f14ec394ff9a9f607b5b0
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 3c0dd2b4e7e48eeb76d82c26eb52b89b61e9f668
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187146"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134102"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorar a identidade e acesso
 
@@ -44,7 +44,7 @@ Exemplos de recomendações que você pode ver nesses dois controles na página 
 - As contas preteridas devem ser removidas da sua assinatura (contas preteridas são contas que não são mais necessárias e impedidas de entrar pelo Azure Active Directory)
 
 > [!TIP]
-> Para obter mais informações sobre essas recomendações e os outros que você pode ver nesses controles, consulte [recomendações de identidade e acesso](recommendations-reference.md#recs-identity).
+> Para obter mais informações sobre essas recomendações e os outros que você pode ver nesses controles, consulte [recomendações de identidade e acesso](recommendations-reference.md#recs-identityandaccess).
 
 ### <a name="limitations"></a>Limitações
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 1593c47b7a6cf3b861f3e1af148b7a5fbfae9a19
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127372"
+ms.locfileid: "98132470"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para o armazenamento de blobs
 
@@ -31,8 +31,8 @@ A central de segurança do Azure analisa periodicamente o estado de segurança d
 |-|----|--|
 | Usar o modelo de implantação Azure Resource Manager | Crie novas contas de armazenamento usando o modelo de implantação Azure Resource Manager para aprimoramentos de segurança importantes, incluindo controle de acesso baseado em função do Azure (RBAC do Azure) e auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso a Azure Key Vault para segredos e autenticação e autorização baseadas no Azure AD para acesso aos dados e recursos do armazenamento do Azure. Se possível, migre as contas de armazenamento existentes que usam o modelo de implantação clássico para usar Azure Resource Manager. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](../../azure-resource-manager/management/overview.md). | - |
 | Habilitar o Azure defender para todas as suas contas de armazenamento | O Azure defender para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são disparados na central de segurança do Azure quando ocorrem anomalias na atividade e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. Para obter mais informações, consulte [Configurar o Azure defender para o armazenamento do Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
-| Ativar a exclusão reversível para BLOBs | A exclusão reversível permite recuperar dados de blob após sua exclusão. Para obter mais informações sobre exclusão reversível, consulte [exclusão reversível para BLOBs de armazenamento do Azure](./soft-delete-blob-overview.md). | - |
-| Ativar exclusão reversível para contêineres | ???. | - |
+| Ativar a exclusão reversível para BLOBs | A exclusão reversível para BLOBs permite recuperar dados de blob após sua exclusão. Para obter mais informações sobre a exclusão reversível de BLOBs, consulte [exclusão reversível para BLOBs de armazenamento do Azure](./soft-delete-blob-overview.md). | - |
+| Ativar exclusão reversível para contêineres | A exclusão reversível para contêineres permite que você recupere um contêiner depois que ele tiver sido excluído. Para obter mais informações sobre a exclusão reversível de contêineres, consulte [exclusão reversível para contêineres (versão prévia)](./soft-delete-container-overview.md). | - |
 | Bloquear a conta de armazenamento para evitar a exclusão acidental da conta | Você pode bloquear um Azure Resource Manager recursos, como uma assinatura, um grupo de recursos ou uma conta de armazenamento, para impedir que outros usuários em sua organização os excluam ou modifiquem acidentalmente. O bloqueio de uma conta de armazenamento não impede que os dados dentro dessa conta sejam excluídos. Ele apenas impede que a própria conta seja excluída. Para obter mais informações, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 | Armazene dados críticos para os negócios em BLOBs imutáveis | Configure as políticas de retenção baseadas em tempo e as isenções legais para armazenar dados de BLOB em um estado de WORM (gravar uma vez, ler muitos). Os BLOBs armazenados immutably podem ser lidos, mas não podem ser modificados ou excluídos durante a duração do intervalo de retenção. Para obter mais informações, consulte [armazenar dados de blob críticos para os negócios com armazenamento imutável](storage-blob-immutable-storage.md). | - |
 | Exigir transferência segura (HTTPS) para a conta de armazenamento | ??? | - |

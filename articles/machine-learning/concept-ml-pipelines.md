@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 08/17/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: c29ee87ab177357f4289134bb39353c764a0d75b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ee3d7d1cf285573db894d64549cf79babb517d95
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535292"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131280"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -41,7 +41,7 @@ A nuvem do Azure fornece vários outros pipelines, cada um com uma finalidade di
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
 | Orquestração de modelo (Machine Learning) | Cientista de dados | Pipelines do Azure Machine Learning | Pipelines do Kubeflow | Modelo de > de dados | Distribuição, cache, primeiro código, reutilização | 
 | Orquestração de dados (preparação de dados) | Engenheiro de dados | [Pipelines do Azure Data Factory](../data-factory/concepts-pipelines-activities.md) | Fluxo de ar do Apache | Dados > dados | Movimentação fortemente tipada, atividades centradas em dados |
-| Código & orquestração de aplicativo (CI/CD) | Desenvolvedor de aplicativos/Ops | [Pipelines do Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + modelo – aplicativo/serviço > | Mais suporte a atividades abertas e flexíveis, filas de aprovação, fases com a retenção | 
+| Código & orquestração de aplicativo (CI/CD) | Desenvolvedor de aplicativos/Ops | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + modelo – aplicativo/serviço > | Mais suporte a atividades abertas e flexíveis, filas de aprovação, fases com a retenção | 
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>O que os pipelines do Azure ML podem fazer?
 
@@ -107,15 +107,18 @@ experiment = Experiment(ws, 'MyExperiment')
 input_data = Dataset.File.from_files(
     DataPath(datastore, '20newsgroups/20news.pkl'))
 
-output_data = PipelineData("output_data", datastore=blob_store)
-
+dataprep_step = PythonScriptStep(
+    name="prep_data",
+    script_name="dataprep.py",
+    compute_target=cluster,
+    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
+    )
+output_data = OutputFileDatasetConfig()
 input_named = input_data.as_named_input('input')
 
 steps = [ PythonScriptStep(
     script_name="train.py",
     arguments=["--input", input_named.as_download(), "--output", output_data],
-    inputs=[input_data],
-    outputs=[output_data],
     compute_target=compute_target,
     source_directory="myfolder"
 ) ]
@@ -126,7 +129,9 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-O trecho de código começa com objetos Azure Machine Learning comuns, a `Workspace` , a `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)e um `Experiment` . Em seguida, o código cria os objetos a serem guardados `input_data` e `output_data` . A matriz `steps` contém um único elemento, um `PythonScriptStep` que usará os objetos de dados e será executado no `compute_target` . Em seguida, o código instancia o `Pipeline` objeto em si, passando o espaço de trabalho e a matriz de etapas. A chamada para `experiment.submit(pipeline)` começa a execução do pipeline do Azure ml. A chamada para `wait_for_completion()` blocos até que o pipeline seja concluído. 
+O trecho de código começa com objetos Azure Machine Learning comuns, a `Workspace` , a `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)e um `Experiment` . Em seguida, o código cria os objetos a serem guardados `input_data` e `output_data` . O `input_data` é uma instância de [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e `output_data` é uma instância de  [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para `OutputFileDatasetConfig` o comportamento padrão é copiar a saída para o `workspaceblobstore` repositório de armazenamento no caminho `/dataset/{run-id}/{output-name}` , em que `run-id` é a ID da execução e `output-name` é um valor gerado automaticamente se não for especificado pelo desenvolvedor.
+
+A matriz `steps` contém um único elemento, um `PythonScriptStep` que usará os objetos de dados e será executado no `compute_target` . Em seguida, o código instancia o `Pipeline` objeto em si, passando o espaço de trabalho e a matriz de etapas. A chamada para `experiment.submit(pipeline)` começa a execução do pipeline do Azure ml. A chamada para `wait_for_completion()` blocos até que o pipeline seja concluído. 
 
 Para saber mais sobre como conectar seu pipeline a seus dados, confira os artigos [acesso a dados em Azure Machine Learning](concept-data.md) e [movendo dados para e entre as etapas de pipeline do ml (Python)](how-to-move-data-in-out-of-pipelines.md). 
 
@@ -142,7 +147,7 @@ Quando você cria pipelines visualmente, as entradas e saídas de uma etapa são
 
 As principais vantagens de usar pipelines para seus fluxos de trabalho de aprendizado de máquina são:
 
-|Principal vantagem|Description|
+|Principal vantagem|Descrição|
 |:-------:|-----------|
 |**Execuções&nbsp;autônomas**|Agende as etapas para execução em paralelo ou em sequência de maneira confiável e autônoma. A preparação e a modelagem de dados podem durar dias ou semanas, e os pipelines permitem que você se concentre em outras tarefas enquanto o processo está em execução. |
 |**Computação heterogênea**|Use vários pipelines que são coordenados de forma confiável entre os recursos de computação heterogêneos e escalonáveis e os locais de armazenamento. Faça uso eficiente dos recursos de computação disponíveis executando etapas de pipeline individuais em diferentes destinos de computação, como o HDInsight, VMs de ciência de dados de GPU e databricks.|

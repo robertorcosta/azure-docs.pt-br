@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 6db0c82c034aab97deee1be4aa8bdc54368521bc
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734769"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131518"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gerenciar variáveis na Automação do Azure
 
@@ -26,7 +26,7 @@ As variáveis de automação são úteis para os seguintes cenários:
 
 A Automação do Azure persiste variáveis e as disponibiliza mesmo quando um runbook ou uma configuração DSC falha. Esse comportamento permite que um runbook ou uma configuração DSC defina um valor que será usado por outro runbook ou pelo mesmo runbook ou configuração DSC na próxima vez em que for executado.
 
-A Automação do Azure armazena cada variável criptografada com segurança. Ao criar uma variável, você pode especificar sua criptografia e armazenamento pela automação do Azure como um ativo seguro. Após criar a variável, você não pode alterar seu status de criptografia sem recriá-la. Se tiver variáveis de conta de Automação que armazenam dados confidenciais que ainda não foram criptografados, você precisará excluí-los e recriá-los como variáveis criptografadas. Uma recomendação da Central de Segurança do Azure é criptografar todas as variáveis de Automação do Azure, conforme descrito em [As variáveis da conta de automação devem ser criptografadas](../../security-center/recommendations-reference.md#recs-computeapp). Se você tiver variáveis não criptografadas que deseja excluir dessa recomendação de segurança, confira [Isentar um recurso das recomendações e da classificação de segurança](../../security-center/exempt-resource.md) para criar uma regra de isenção.
+A Automação do Azure armazena cada variável criptografada com segurança. Ao criar uma variável, você pode especificar sua criptografia e armazenamento pela automação do Azure como um ativo seguro. Após criar a variável, você não pode alterar seu status de criptografia sem recriá-la. Se tiver variáveis de conta de Automação que armazenam dados confidenciais que ainda não foram criptografados, você precisará excluí-los e recriá-los como variáveis criptografadas. Uma recomendação da Central de Segurança do Azure é criptografar todas as variáveis de Automação do Azure, conforme descrito em [As variáveis da conta de automação devem ser criptografadas](../../security-center/recommendations-reference.md#recs-compute). Se você tiver variáveis não criptografadas que deseja excluir dessa recomendação de segurança, confira [Isentar um recurso das recomendações e da classificação de segurança](../../security-center/exempt-resource.md) para criar uma regra de isenção.
 
 >[!NOTE]
 >Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta da Automação do Azure. A Automação do Azure armazena a chave no Key Vault gerenciado pelo sistema. Antes de armazenar um ativo seguro, a Automação do Azure carrega a chave do Key Vault e depois a usa para criptografar o ativo.

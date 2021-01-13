@@ -3,12 +3,12 @@ title: Versões de cluster com suporte no Azure Service Fabric
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 5770aa072666f89a574da9d1f2584ab33b612330
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: abf9900e9749a1b21d927e0315076b38848bea10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862177"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132640"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
@@ -25,25 +25,57 @@ Consulte os seguintes documentos para obter detalhes sobre como manter o cluster
 ## <a name="unsupported-versions"></a>Versões sem suporte
 
 ### <a name="upgrade-alert-for-versions-between-57-and-below-6363"></a>Alerta de atualização para versões entre 5,7 e abaixo de 6.3.63. *
+Para melhorar a segurança e a disponibilidade, a infraestrutura do Azure fará uma alteração que possa afetar Service Fabric clientes. **Todos os clusters Service Fabric em versões sem suporte de 5,7 a 6,3. são afetados**. Abordar a alteração requer uma atualização para o tempo de execução de Service Fabric, que já está disponível para todas as versões de Service Fabric com suporte em todas as regiões.
 
-***Todos os clusters Service Fabric que estão em versões sem suporte de 5,7 a 6.3.63.* serão afetados por uma alteração significativa de segurança que será distribuída no Azure em 7 de janeiro de 2021 * * *.
- 
- Para evitar interrupções de serviço graves (incluindo clusters não surgindo), você deve atualizar seus clusters assim que possível para uma das versões com suporte do Service Fabric Runtime que inclui a correção para o problema de segurança. Atingimos os clientes afetados com diretrizes. Se você tiver um plano de suporte e precisar de ajuda técnica, entre em contato conosco por meio de [canais de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) abrindo uma solicitação de suporte e mencione esse contexto no tíquete de suporte. 
- 
-  #### <a name="supported-service-fabric-runtime-versions-including-the-fix-for-the-security-breaking-change"></a>Versões de tempo de execução com suporte Service Fabric, incluindo a correção para a alteração da interrupção de segurança 
-   Atualize seus clusters de Service Fabric que estão em execução em versões mais antigas sem suporte afetadas pela alteração da interrupção de segurança para uma das versões abaixo com suporte.
+Solicitamos e recomendamos realizar ações para atualizar para as versões mais recentes com suporte até **19 de janeiro de 2021** para evitar interrupções de serviço se você tiver um plano de suporte e precisar de ajuda técnica, entre em contato conosco por meio de canais de suporte do Azure abrindo uma solicitação de suporte para Service Fabric do Azure e mencione esse contexto no tíquete de suporte.
 
+#### <a name="impact-if-not-upgraded-to-supported-versions"></a>Impacto se não for atualizado para versões com suporte
+
+**Clusters Service Fabric do Azure que são executados em versões sem suporte de 5,7 para 6.3.63. \* Não será capaz de surgir e** não estará disponível se você não tiver atualizado para uma das versões abaixo com suporte até 19 de janeiro de 2021.
+
+#### <a name="required-action"></a>Ação necessária
+Atualize para as Service Fabric versões com suporte listadas abaixo para evitar o tempo de inatividade ou a perda de funcionalidade relacionada a essa alteração. Verifique se os clusters estão executando pelo menos essas versões para evitar problemas em seu ambiente.
+
+  ###### <a name="supported-service-fabric-runtime-versions"></a>Versões de tempo de execução Service Fabric com suporte
+   Se você não estiver nas versões do Service Fabric com suporte listadas abaixo, atualize para uma dessas versões que já contêm as alterações necessárias para evitar o tempo de inatividade para o cluster.  
+  
   | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
   | Windows | 7,2. * | 7.2.445.9590 |
   | Ubuntu 16 | 7,0. * | 7.0.472.1  |
-  | Ubuntu 16 | 7,1. * | 7.1.455.1  |
-  | Ubuntu 1804 | 7,1. * | 7.1.455.1804 |
-  | Ubuntu 16 | 7,2. * | 7.2.447.1 |
-  | Ubuntu 1804 | 7,2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16.04 | 7,1. * | 7.1.455.1  |
+  | Linux Ubuntu 18, 4 | 7,1. * | 7.1.455.1804 |
+  | Linux Ubuntu 16.04 | 7,2. * | 7.2.447.1 |
+  | Linux Ubuntu 18, 4 | 7,2. * | 7.2.447.1804 |
  
+### <a name="upgrade-alert-for-versions-greater-than-63"></a>Alerta de atualização para versões maiores que 6,3 
+Para melhorar a segurança e a disponibilidade, a infraestrutura do Azure fará uma alteração que possa afetar Service Fabric clientes. **Todos os clusters de Service Fabric que usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode), executados em versões sem suporte superiores a 6,3 e inferiores a 7,0 e versões com suporte incompatíveis do 7,0 em diante são afetados**. Abordar a alteração requer uma atualização para o tempo de execução de Service Fabric, que já está disponível para todas as versões de Service Fabric com suporte em todas as regiões.
+
+ #### <a name="impact-if-not-upgraded-to-supported-versions"></a>Impacto se não for atualizado para versões com suporte
+  Os clusters Service Fabric do Azure que **usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) e execuções em versões superiores a 6,3** que não incluem alterações terão perda de funcionalidade ou interrupções de serviço se não forem atualizados para uma das versões abaixo com suporte até o **dia 19 de janeiro de 2021**.
+ 
+  - **Para clusters que executam uma versão do Service Fabric maior que 6,3 não usando o recurso de rede aberta**, o cluster permanecerá, no entanto, o recurso de rede aberta para clusters de contêineres deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
+
+ - **Para clusters que executam uma versão do Service Fabric maior que 6,3 e usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , o cluster permanecerá ativo, mas deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
+  
+#### <a name="required-action"></a>Ação necessária
+Atualize para as Service Fabric versões com suporte listadas abaixo para evitar o tempo de inatividade ou a perda de funcionalidade relacionada a essa alteração. Verifique se os clusters estão executando pelo menos essas versões para evitar problemas em seu ambiente. 
+ 
+ ###### <a name="supported-service-fabric-runtime-versions"></a>Versões de tempo de execução Service Fabric com suporte
+ Se você não estiver nas versões do Service Fabric com suporte listadas abaixo, atualize para uma dessas versões que já contêm as alterações necessárias para evitar a perda de funcionalidade.  
+ 
+  | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
+  | --- | --- |--- | 
+  | Windows | 7,0. * | 7.0.478.9590 |
+  | Windows | 7,1. * | 7.1.503.9590 |
+  | Windows | 7,2. * | 7.2.445.9590 |
+  | Linux Ubuntu 16.04 | 7,0. * | 7.0.472.1  |
+  | Linux Ubuntu 16.04 | 7,1. * | 7.1.455.1  |
+  | Linux Ubuntu 18, 4 | 7,1. * | 7.1.455.1804 |
+  | Linux Ubuntu 16.04 | 7,2. * | 7.2.447.1 |
+  | Linux Ubuntu 18, 4 | 7,2. * | 7.2.447.1804 |
 
 ## <a name="supported-versions"></a>Versões com suporte
 A tabela a seguir lista as versões do Service Fabric e suas datas de término do suporte.
@@ -87,11 +119,11 @@ A tabela a seguir lista os sistemas operacionais com suporte para as versões de
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Windows Server 1709 | 6,0 |
+| Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6,0 |
+| Linux Ubuntu 16.04 | 6.0 |
 | Linux Ubuntu 18, 4 | 7.1 |
 
 ## <a name="supported-version-names"></a>Nomes de versão com suporte

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: a0cd968c90a27d6f1ae79d08fb2bd027169233db
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844962"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133779"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte à linguagem API de Análise de Texto v3 
 
@@ -52,7 +52,7 @@ ms.locfileid: "97844962"
 | Inglês               |     `en`      |              2020-04-01              |                    |
 
 
-#### <a name="named-entity-recognition-ner"></a>[NER (Reconhecimento de Entidade Nomeada)](#tab/named-entity-recognition)
+#### <a name="named-entity-recognition-ner"></a>[Reconhecimento de entidade nomeada (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
 > * O NER v3 atualmente dá suporte apenas a idiomas inglês e espanhol. Se você chamar NER v3 com um idioma diferente, a API retornará os resultados de v 2.1, desde que a linguagem tenha suporte na versão 2,1.
@@ -86,11 +86,9 @@ ms.locfileid: "97844962"
 
 #### <a name="key-phrase-extraction"></a>[Extração de frases-chave](#tab/key-phrase-extraction)
 
-> [!NOTE]
-> As versões de modelo do Extração de Frases-chave anteriores a 2020-07-01 têm um limite de 64 caracteres. Esse limite não está presente em versões posteriores do modelo.
-
 | Linguagem              | Código de idioma | suporte a v2 | suporte v3 | Disponível a partir da versão do modelo V3: |       Observações        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
+| Dinamarquês                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
 | Holandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Finlandês               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -120,7 +118,7 @@ O API de Análise de Texto pode detectar uma ampla gama de linguagens, variantes
 
 Se você tiver um conteúdo expresso em um idioma usado com menos frequência, experimente a Detecção de Idioma para ver se ela retorna um código. A resposta para idiomas que não pode ser detectada é `unknown`.
 
-| Linguagem | Código de idioma | suporte v3 | Disponível a partir da versão do modelo V3: |
+| Idioma | Código de idioma | suporte v3 | Disponível a partir da versão do modelo V3: |
 |:-|:-:|:-:|:-:|
 | Africâner | `af` | ✓ |  |
 | Albanês | `sq` | ✓ |  |
@@ -203,7 +201,7 @@ Se você tiver um conteúdo expresso em um idioma usado com menos frequência, e
 | Tagalo | `tl` | ✓ |  |
 | Taitiano | `ty` | ✓ | 2020-09-01 |
 | Tâmil | `ta` | ✓ |  |
-| Telugu | `te` | ✓ |  |
+| Télugo | `te` | ✓ |  |
 | Tailandês | `th` | ✓ |  |
 | Tongan | `to` | ✓ | 2020-09-01 |
 | Turco | `tr` | ✓ |  |
@@ -217,6 +215,6 @@ Se você tiver um conteúdo expresso em um idioma usado com menos frequência, e
 
 ---
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [O que é o API de Análise de Texto?](overview.md)   

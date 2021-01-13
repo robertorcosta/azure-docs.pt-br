@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/05/2020
+ms.date: 01/12/2020
 ms.author: b-juche
-ms.openlocfilehash: d296f80d85bb5081c466b27e6a8624e8b3f2c924
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: c914ab007f482e4d2b560b1cb461e27d4f4442ec
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914970"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133150"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de protocolo duplo (NFSv3 e SMB) para Azure NetApp Files
 
@@ -39,7 +39,6 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 * Crie uma zona de pesquisa inversa no servidor DNS e adicione um registro de ponteiro (PTR) do computador host do AD nessa zona de pesquisa inversa. Caso contrário, a criação do volume de protocolo duplo falhará.
 * Verifique se o cliente NFS está atualizado e executando as atualizações mais recentes para o sistema operacional.
 * Verifique se o servidor LDAP do Active Directory (AD) está ativo e em execução no AD. Você pode fazer isso instalando e configurando a função [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) no computador do AD.
-* Verifique se uma AC (autoridade de certificação) foi criada para o AD usando a função de [serviços de certificados Active Directory (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para gerar e exportar o certificado de AC raiz autoassinado.   
 * Atualmente, os volumes de protocolo duplo não dão suporte a Azure Active Directory Domain Services (AADDS).  
 * A versão do NFS usada por um volume de protocolo duplo é NFSv3. Assim, as seguintes considerações se aplicam:
     * O protocolo duplo não dá suporte aos atributos estendidos ACLS `set/get` do Windows de clientes NFS.
@@ -105,9 +104,6 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 3. Clique em **Protocolo** e, em seguida, conclua as seguintes ações:  
     * Selecione **protocolo duplo (NFSv3 e SMB)** como o tipo de protocolo para o volume.   
 
-    * Selecione a conexão **Active Directory** na lista suspensa.  
-    O Active Directory usado deve ter um certificado de autoridade de certificação raiz do servidor. 
-
     * Especifique o **caminho do volume** para o volume.   
     Esse caminho de volume é o nome do volume compartilhado. O nome deve começar com um caractere alfabético e deve ser exclusivo em cada assinatura e em cada região.  
 
@@ -122,32 +118,6 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
     O volume que você criou aparece na página Volumes. 
  
     Um volume herda a assinatura, grupo de recursos, atributos de localização de seu pool de capacidade. Para monitorar o status de implantação do volume, você pode usar a guia Notificações.
-
-## <a name="upload-active-directory-certificate-authority-public-root-certificate"></a>Carregar Active Directory certificado raiz público da autoridade de certificação  
-
-1.  Siga [instalar a autoridade de certificação](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para instalar e configurar o adiciona a autoridade de certificado. 
-
-2.  Siga [exibir certificados com o snap-in do MMC](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) para usar o snap-in do MMC e a ferramenta Gerenciador de certificados.  
-    Use o snap-in Gerenciador de certificados para localizar a raiz ou o certificado emissora para o dispositivo local. Você deve executar os comandos do snap-in de gerenciamento de certificados de uma das seguintes configurações:  
-    * Um cliente baseado em Windows que ingressou no domínio e tenha o certificado raiz instalado 
-    * Outro computador no domínio que contém o certificado raiz  
-
-3. Exporte o certificado de autoridade de certificação raiz.  
-    Os certificados de autoridade de certificação raiz podem ser exportados do diretório de autoridades de certificação raiz pessoais ou confiáveis, conforme mostrado nos exemplos a seguir:   
-    ![captura de tela que mostra certificados pessoais](../media/azure-netapp-files/personal-certificates.png)   
-    ![captura de tela que mostra autoridades de certificação raiz confiáveis](../media/azure-netapp-files/trusted-root-certification-authorities.png)    
-
-    Verifique se o certificado foi exportado no X. 509 codificado em base-64 (. CER) formato: 
-
-    ![Assistente de Exportação de Certificados](../media/azure-netapp-files/certificate-export-wizard.png)
-
-4. Vá para a conta do NetApp do volume de protocolo duplo, clique em **Active Directory conexões** e carregue o certificado de autoridade de certificação raiz usando a janela **ingressar Active Directory** :  
-
-    ![Certificado de autoridade de certificação raiz do servidor](../media/azure-netapp-files/server-root-ca-certificate.png)
-
-    Verifique se o nome da autoridade de certificação pode ser resolvido pelo DNS. Esse nome é o campo "emitido por" ou "emissor" no certificado:  
-
-    ![Informações de certificado](../media/azure-netapp-files/certificate-information.png)
 
 ## <a name="manage-ldap-posix-attributes"></a>Gerenciar atributos POSIX LDAP
 

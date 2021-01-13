@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 47cc67b408ff7fa50a244fffa8d41e640df0ecf3
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796424"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132075"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 
@@ -224,6 +224,9 @@ As personalizações com suporte para `forecasting` as tarefas incluem:
 |**Remover colunas** |Especifica que as colunas a serem descartadas são destacados.|
 
 Para personalizar o featurizations com o SDK, especifique `"featurization": FeaturizationConfig` em seu `AutoMLConfig` objeto. Saiba mais sobre o [featurizations personalizado](how-to-configure-auto-features.md#customize-featurization).
+
+>[!NOTE]
+> A funcionalidade **remover colunas** foi preterida a partir da versão 1,19 do SDK. Remova as colunas do conjunto de dados como parte da limpeza, antes de consumi-la em seu experimento de ML automatizado. 
 
 ```python
 featurization_config = FeaturizationConfig()

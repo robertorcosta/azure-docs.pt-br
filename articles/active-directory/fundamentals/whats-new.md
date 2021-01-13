@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 412a987e0a93f7b69250450b8367a37bd3682925
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115694"
+ms.locfileid: "98132538"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -209,7 +209,7 @@ Alguns cenários comuns de delegação:
 
 ---
 
-### <a name="azure-ad-application-proxy-natively-supports-single-sign-on-access-to-applications-that-use-headers-for-authentication"></a>O Azure Proxy de Aplicativo do AD dá suporte nativo ao acesso de logon único a aplicativos que usam cabeçalhos para autenticação
+### <a name="public-preview---azure-ad-application-proxy-natively-supports-single-sign-on-access-to-applications-that-use-headers-for-authentication"></a>Visualização pública-o Azure Proxy de Aplicativo do AD dá suporte nativo ao acesso de logon único para aplicativos que usam cabeçalhos para autenticação
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** proxy de aplicativo  

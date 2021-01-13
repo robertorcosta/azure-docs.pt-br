@@ -3,12 +3,12 @@ title: Controles de segurança para retransmissão do Azure
 description: Este artigo fornece uma lista de verificação de controles de segurança internos para avaliar a retransmissão do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 64abee031bb20e2bdb10bf1cc3cd77e135713550
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d55026bfb6e3d6fe955a540b7596a85707398d6
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85316618"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133337"
 ---
 # <a name="security-controls-for-azure-relay"></a>Controles de segurança para retransmissão do Azure
 
@@ -20,7 +20,7 @@ Este artigo documenta os controles de segurança criados na retransmissão do Az
 
 | Controle de segurança | Sim/Não | Observações | Documentação |
 |---|---|--|--|
-| Suporte ao ponto de extremidade de serviço| Não |  |   |
+| Suporte de ponto de extremidade privado| Não |  |   |
 | Isolamento de rede e suporte de firewall| Não |  |   |
 | Suporte a túnel forçado| N/D | Retransmissão é o túnel TLS  |   |
 

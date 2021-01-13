@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 739e59ea8e5737abbc6f0f0799129be5f59fb9b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674490"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131467"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão para o agente de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -236,14 +236,14 @@ As notas sobre a versão a seguir são para a versão 9.0.0.0 do agente de Sincr
 ### <a name="improvements-and-issues-that-are-fixed"></a>Problemas corrigidos e aprimoramentos
 
 - Compatibilidade com a restauração de autoatendimento
-    - Os usuários agora podem restaurar arquivos usando o recurso de versão anterior. Antes da versão v9, o recurso de versão anterior não era compatível com os volumes que tinham camada de nuvem habilitadas. Esse recurso deve ser habilitado para cada volume separadamente, em que um ponto de extremidade com camada de nuvem habilitada existe. Para obter mais informações, consulte:  
+    - Os usuários agora podem também restaurar arquivos em camadas (juntamente com arquivos em disco) usando o recurso de versão anterior, dos instantâneos do VSS que são criados após o recurso de restauração de autoatendimento ser habilitado no volume. Antes da versão V9, não havia suporte para o recurso de versão anterior para arquivos em camadas. Esse recurso deve ser habilitado para cada volume separadamente, em que um ponto de extremidade com camada de nuvem habilitada existe. Para obter mais informações, consulte:  
 [A restauração de autoatendimento por meio de versões anteriores e do VSS (Serviço de Cópias de Sombra de Volume)](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Compatibilidade com tamanhos maiores de compartilhamento de arquivo 
     - A Sincronização de Arquivos do Azure agora é compatível com até 64 TiB e 100 milhões de arquivos em um único namespace de sincronização.  
  
 - Compatibilidade com a eliminação de duplicação de dados no Server 2019 
-    - A Eliminação de Duplicação de Dados é compatível com a camada de nuvem habilitada no Windows Server 2019. Para ter compatibilidade com a Eliminação de Duplicação de Dados em volumes com camada de nuvem, a atualização do Windows [KB4520062](https://support.microsoft.com/help/4520062) precisa ser instalada. 
+    - A eliminação de duplicação de dados agora tem suporte (independentemente de a disposição em camadas da nuvem estar habilitada ou desabilitada em um ou mais pontos de extremidade do servidor no volume) no Windows Server 2016 e no Windows Server 2019. Para dar suporte à eliminação de duplicação de dados em volumes com camadas de nuvem no servidor 2019, o Windows Update [KB4520062](https://support.microsoft.com/help/4520062) deve estar instalado. 
  
 - Aumento do tamanho do arquivo mínimo para um arquivo ser colocado em camadas 
     - O tamanho do arquivo mínimo para um arquivo ser colocado em camadas agora é baseado no tamanho do cluster do sistema de arquivos (duas vezes o tamanho do cluster de sistema de arquivos). Por exemplo, por padrão, o tamanho do cluster do sistema de arquivos NTFS é de 4 KB, o tamanho mínimo resultante para um arquivo ser colocado em camadas é de 8 KB. 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 200753c6458698d515b02252933e4fdf6d88df55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 460380d9435528dcd8cbb3f877c8034fdc34f50c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019084"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134139"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre como usar o serviço de migração de banco de dados do Azure
 
@@ -109,7 +109,7 @@ Durante uma migração de banco de dados típica e simples, você:
 ## <a name="troubleshooting-and-optimization"></a>Solução de problemas e otimização
 
 **Perguntas. Estou configurando um projeto de migração no DMS e estou tendo dificuldades para se conectar ao meu banco de dados de origem. O que devo fazer?**
-Se você tiver problemas para se conectar ao sistema de banco de dados de origem enquanto trabalha na migração, crie uma máquina virtual na rede virtual com a qual você configurou sua instância DMS. Na máquina virtual, você deve ser capaz de executar um teste do Connect, como usar um arquivo UDL para testar uma conexão com SQL Server ou baixar Robo 3T para testar conexões do MongoDB. Se o teste de conexão tiver sucesso, você não deverá ter um problema com a conexão com o banco de dados de origem. Se o teste de conexão não tiver sucesso, contate o administrador da rede.
+Se você tiver problemas para se conectar ao sistema de banco de dados de origem enquanto trabalha na migração, crie uma máquina virtual na mesma sub-rede da rede virtual com a qual você configurou sua instância DMS. Na máquina virtual, você deve ser capaz de executar um teste do Connect, como usar um arquivo UDL para testar uma conexão com SQL Server ou baixar Robo 3T para testar conexões do MongoDB. Se o teste de conexão tiver sucesso, você não deverá ter um problema com a conexão com o banco de dados de origem. Se o teste de conexão não tiver sucesso, contate o administrador da rede.
 
 **Perguntas. Por que meu serviço de migração de banco de dados do Azure não está disponível ou parou?**
 Se o usuário parar explicitamente o serviço de migração de banco de dados do Azure (DMS) ou se o serviço estiver inativo por um período de 24 horas, o serviço estará em um estado interrompido ou automaticamente pausado. Em cada caso, o serviço estará indisponível e em status parado.  Para retomar as migrações ativas, reinicie o serviço.

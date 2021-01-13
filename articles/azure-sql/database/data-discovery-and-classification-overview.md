@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462122"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132011"
 ---
 # <a name="data-discovery--classification"></a>Descoberta e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -28,7 +28,7 @@ A descoberta de dados & classificação é incorporada ao banco de dado SQL do A
 Seus dados mais confidenciais podem incluir informações comerciais, financeiras, de saúde ou pessoais. Descobrir e classificar esses dados pode desempenhar uma função dinâmica na abordagem de proteção de informações da sua organização. Isso pode servir como infraestrutura para:
 
 - Ajudando a atender aos padrões de privacidade de dados e requisitos de conformidade regulatória.
-- Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
+- Vários cenários de segurança, como o monitoramento (auditoria) de acesso a dados confidenciais.
 - Controlando o acesso e protegendo a segurança de bancos de dados que contêm um dado altamente confidencial.
 
 > [!NOTE]
@@ -112,7 +112,7 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Auditoria de acesso a dados confidenciais
 
-Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Aqui está um exemplo:
+Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Veja um exemplo:
 
 ![Log de auditoria](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
