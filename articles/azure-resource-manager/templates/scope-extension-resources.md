@@ -2,21 +2,24 @@
 title: Escopo em tipos de recursos de extensão
 description: Descreve como usar a Propriedade Scope ao implantar tipos de recursos de extensão.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd468d31454c38bd314269243702d7df4f279a5e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/13/2021
+ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681394"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179972"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Definindo o escopo para recursos de extensão em modelos ARM
 
-Um recurso de extensão é um recurso que modifica outro recurso. Por exemplo, você pode atribuir uma função a um recurso para limitar o acesso. A atribuição de função é um tipo de recurso de extensão.
+Um recurso de extensão é um recurso que modifica outro recurso. Por exemplo, você pode atribuir uma função a um recurso. A atribuição de função é um tipo de recurso de extensão.
 
 Para obter uma lista completa dos tipos de recursos de extensão, consulte [tipos de recursos que estendem funcionalidades de outros recursos](../management/extension-resource-types.md).
 
 Este artigo mostra como definir o escopo de um tipo de recurso de extensão quando implantado com um modelo de Azure Resource Manager (modelo ARM). Ele descreve a Propriedade Scope que está disponível para recursos de extensão ao aplicar a um recurso.
+
+> [!NOTE]
+> A Propriedade Scope só está disponível para tipos de recursos de extensão. Para especificar um escopo diferente para um tipo de recurso que não seja um tipo de extensão, use uma implantação aninhada ou vinculada. Para obter mais informações, consulte implantações de [grupo de recursos](deploy-to-resource-group.md), [implantações de assinatura](deploy-to-subscription.md), [implantações de grupo de gerenciamento](deploy-to-management-group.md)e [implantações de locatário](deploy-to-tenant.md).
 
 ## <a name="apply-at-deployment-scope"></a>Aplicar no escopo da implantação
 

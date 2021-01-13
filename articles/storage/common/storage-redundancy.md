@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 60ae6eb3142f8898f760027d37881ded8261f571
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 3c0b466a7db688ed3e24441f652f6a1ef1a88ee1
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108085"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180074"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -155,7 +155,7 @@ A tabela a seguir descreve os principais parâmetros para cada opção de redund
 | Porcentagem de durabilidade dos objetos em um determinado ano | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
 | Disponibilidade para solicitações de leitura | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GRS<br /><br />Pelo menos 99,99% (99,9% para a camada de acesso esporádico) para o RA-GRS | Pelo menos 99,9% (99% para a camada de acesso esporádico) para o GZRS<br /><br />Pelo menos 99,99% (99.9% para a camada de acesso esporádico) para o RA-GZRS |
 | Disponibilidade para solicitações de gravação | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) |
-| Número de cópias de dados mantidas em nós separados.                             | 3   | 3   | 6   | 6      |
+| Número de cópias de dados mantidos em nós separados | Três cópias em uma única região | Três cópias em zonas de disponibilidade separadas em uma única região | Total de seis cópias, incluindo três na região primária e três na região secundária | Total de seis cópias, incluindo três em zonas de disponibilidade separadas na região primária e três cópias localmente redundantes na região secundária |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Cenário de durabilidade e disponibilidade durante interrupções
 

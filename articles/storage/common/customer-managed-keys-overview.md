@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483276"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179024"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure
 
@@ -78,7 +78,7 @@ Ao configurar a criptografia com chaves gerenciadas pelo cliente, você tem duas
 
     Quando a versão de chave é especificada explicitamente, você deve atualizar manualmente a conta de armazenamento para usar o novo URI de versão de chave quando uma nova versão é criada. Para saber como atualizar a conta de armazenamento para usar uma nova versão da chave, consulte [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault](customer-managed-keys-configure-key-vault.md) ou [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault HSM gerenciado (versão prévia)](customer-managed-keys-configure-key-vault-hsm.md).
 
-Atualizar a versão de chave para uma chave gerenciada pelo cliente não dispara a recriptografia de dados na conta de armazenamento. Não há nenhuma ação adicional necessária do usuário.
+Quando você atualiza a versão da chave, a proteção da chave de criptografia raiz é alterada, mas os dados em sua conta de armazenamento do Azure não são criptografados novamente. Não há nenhuma ação adicional necessária do usuário.
 
 > [!NOTE]
 > Para girar uma chave, crie uma nova versão da chave no cofre de chaves ou HSM gerenciado, de acordo com suas políticas de conformidade. Você pode girar a chave manualmente ou criar uma função para girá-la em um agendamento.

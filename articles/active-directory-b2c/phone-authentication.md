@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8d41f8959d0a1ec0d6e48cf2fa4711a8ef8d8ae5
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953569"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178935"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurar a inscrição e a entrada do telefone com políticas personalizadas no Azure AD B2C
 
@@ -39,7 +39,7 @@ Com a inscrição e a entrada do telefone, o usuário pode se inscrever no aplic
 >
 > *&lt;Inserir: um link para sua política de privacidade&gt;*<br/>*&lt;Inserir: um link para seus termos de serviço&gt;*
 
-Para adicionar suas próprias informações de consentimento, personalize o exemplo a seguir e inclua-o no LocalizedResources para o ContentDefinition usado pela página autodeclarada com o controle de exibição (o arquivo de Phone-Email-Base.xml no pacote de início de conexão & entrada de telefone):
+Para adicionar suas próprias informações de consentimento, personalize o exemplo a seguir e inclua-o no LocalizedResources para o ContentDefinition usado pela página autodeclarada com o controle de exibição (o arquivo *Phone_Email_Base.xml* no [pacote de início de inscrição e entrada do telefone][starter-pack-phone]):
 
 ```xml
 <LocalizedResources Id="phoneSignUp.en">        

@@ -2,13 +2,13 @@
 title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 79cdb35de40501dfc0794155dcf807cced94bfa7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: f847e481670d7f9afd4b40cfb8fcbec65d1e28c8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95798599"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178918"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implantações de grupo de gerenciamento com modelos ARM
 
@@ -123,7 +123,8 @@ Ao implantar em um grupo de gerenciamento, você pode implantar recursos em:
 * assinaturas no grupo de gerenciamento
 * grupos de recursos no grupo de gerenciamento
 * o locatário para o grupo de recursos
-* os [recursos de extensão](scope-extension-resources.md) podem ser aplicados aos recursos
+
+Um [recurso de extensão](scope-extension-resources.md) pode ser definido como escopo para um destino diferente do destino de implantação.
 
 O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
 

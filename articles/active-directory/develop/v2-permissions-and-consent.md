@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 14b6d6ecc6523199102fd3ef9370fe901c4ff51d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d3edadd4878dbd6e06648f7fb67a0c3e111665d1
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355691"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178119"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -166,10 +166,11 @@ Os aplicativos podem observar quais permissões eles precisam (delegadas e de ap
 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar a lista de permissões solicitadas estaticamente para um aplicativo
 
-1. Vá para seu aplicativo na experiência de [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) ou [crie um aplicativo](quickstart-register-app.md) , caso ainda não tenha feito isso.
-2. Localize a seção **permissões de API** e, dentro das permissões de API, clique em adicionar uma permissão.
-3. Selecione **Microsoft Graph** na lista de APIs disponíveis e, em seguida, adicione as permissões que seu aplicativo requer.
-3. **Salve** o registro do aplicativo.
+1. Vá para seu aplicativo na experiência de início rápido de <a href="https://go.microsoft.com/fwlink/?linkid=2083908" target="_blank">portal do Azure registros de aplicativo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+1. Selecione um aplicativo ou [crie um aplicativo](quickstart-register-app.md) , caso ainda não tenha feito isso.
+1. Na página **visão geral** do aplicativo, em **gerenciar**, selecione **permissões de API**  >  **Adicionar uma permissão**.
+1. Selecione **Microsoft Graph** na lista de APIs disponíveis e, em seguida, adicione as permissões que seu aplicativo requer.
+1. Selecione **adicionar permissões**.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Recomendado: conectar o usuário ao seu aplicativo
 
@@ -198,7 +199,7 @@ https://graph.microsoft.com/mail.send
 | `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido em formato de nome amigável ou GUID ou referenciado genericamente com organizações, como visto no exemplo. Não use ' Common ', pois as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
 | `client_id` | Obrigatório | A **ID do Aplicativo (cliente)** que a experiência [Portal do Microsoft Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribui ao seu aplicativo. |
 | `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
-| `state` | Recomendadas | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+| `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 |`scope`        | Obrigatório        | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Isso pode ser estático (usando [`/.default`](#the-default-scope) ) ou escopos dinâmicos.  Isso pode incluir os escopos OIDC ( `openid` , `profile` , `email` ). Se você precisar de permissões de aplicativo, deverá usar `/.default` para solicitar a lista de permissões configuradas estaticamente.  |
 
 

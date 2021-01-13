@@ -1,19 +1,19 @@
 ---
 title: Integração com os Azure Mapas
 titleSuffix: Azure Digital Twins
-description: Veja como criar uma função do Azure que pode usar as notificações do grafo gêmeos e do Azure digital para atualizar um mapa interno do Azure Maps.
+description: Consulte como usar Azure Functions para criar uma função que pode usar as notificações do grafo gêmeos e do Azure digital para atualizar um mapa interno do Azure Maps.
 author: alexkarcher-msft
 ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e582415d9a83dc506b77d506f3e0803002129a07
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051574"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180040"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usar o gêmeos digital do Azure para atualizar um mapa interno do Azure Maps
 
@@ -22,7 +22,7 @@ Este artigo percorre as etapas necessárias para usar os dados do gêmeos digita
 Este "como" abordará:
 
 1. Configurar sua instância do gêmeos digital do Azure para enviar eventos de atualização de cópia para uma função no [Azure Functions](../azure-functions/functions-overview.md).
-2. Criar uma função do Azure para atualizar um estado do recurso de mapas de recursos do Azure Maps.
+2. Criando uma função para atualizar um estado do recurso de mapas de recursos do Azure Maps.
 3. Como armazenar a ID do mapa e a ID do estado do recurso no grafo do gêmeos digital do Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -41,7 +41,7 @@ A imagem abaixo ilustra onde os elementos de integração de mapas internos nest
 
 ## <a name="create-a-function-to-update-a-map-when-twins-update"></a>Criar uma função para atualizar um mapa quando gêmeos Update
 
-Primeiro, você criará uma rota no Azure digital gêmeos para encaminhar todos os eventos de atualização de entrelaçamento para um tópico da grade de eventos. Em seguida, você usará uma função do Azure para ler essas mensagens de atualização e atualizar um estado do recurso no Azure Maps. 
+Primeiro, você criará uma rota no Azure digital gêmeos para encaminhar todos os eventos de atualização de entrelaçamento para um tópico da grade de eventos. Em seguida, você usará uma função para ler as mensagens de atualização e atualizar um estado do recurso no Azure Maps. 
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Criar uma rota e um filtro para as notificações de atualização do entrelaçamento
 
@@ -70,7 +70,7 @@ Esse padrão lê-se diretamente da sala, em vez do dispositivo IoT, que oferece 
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-## <a name="create-an-azure-function-to-update-maps"></a>Criar uma função do Azure para atualizar mapas
+## <a name="create-a-function-to-update-maps"></a>Criar uma função para atualizar mapas
 
 Você vai criar uma função disparada por grade de eventos dentro de seu aplicativo de funções do tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)). Essa função desempacotará essas notificações e enviará atualizações para um recurso do Azure Maps de estado para atualizar a temperatura de uma sala. 
 

@@ -6,13 +6,13 @@ ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
-ms.author: xujing
-ms.openlocfilehash: 101f2cfe57624502764d145351a6343cfdd2a334
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.author: mimckitt
+ms.openlocfilehash: 9f45b0a9454176f53413940d3c310e0499b43d3c
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572857"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180108"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implantar o Windows 10 no Azure com direitos de hospedagem multilocatário 
 Para clientes com Windows 10 Enterprise E3/E5 por usuário ou por Acesso de Área de Trabalho Virtual do Windows por usuário (licenças de assinatura do usuário ou licenças complementares de assinatura do usuário), os direitos de hospedagem multilocatário para Windows 10 permitem que você coloque suas licenças do Windows 10 na nuvem e execute máquinas virtuais do Windows 10 no Azure sem necessidade de pagar por outra licença. Para obter mais informações, consulte [Hospedagem multilocatário para Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -26,7 +26,7 @@ Para clientes com Windows 10 Enterprise E3/E5 por usuário ou por Acesso de Áre
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Implantando a imagem do Windows 10 do Azure Marketplace 
 Para implantações de modelo do PowerShell, CLI e Azure Resource Manager, a imagem do Windows 10 pode ser encontrada com o PublisherName, oferta, SKU a seguir.
 
-| SO  |      PublisherName      |  Oferta | Sku |
+| Sistema operacional  |      PublisherName      |  Oferta | Sku |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |

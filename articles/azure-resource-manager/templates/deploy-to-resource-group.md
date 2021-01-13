@@ -2,13 +2,13 @@
 title: Implantar recursos em grupos de recursos
 description: Descreve como implantar recursos em um modelo de Azure Resource Manager. Ele mostra como direcionar mais de um grupo de recursos.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 8fe503cc95d71772c07427438b17e2ff0d4620a7
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807717"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178884"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implantações de grupo de recursos com modelos ARM
 
@@ -85,7 +85,8 @@ Ao implantar em um grupo de recursos, você pode implantar recursos em:
 * outros grupos de recursos na mesma assinatura ou outras assinaturas
 * qualquer assinatura no locatário
 * o locatário para o grupo de recursos
-* os [recursos de extensão](scope-extension-resources.md) podem ser aplicados aos recursos
+
+Um [recurso de extensão](scope-extension-resources.md) pode ser definido como escopo para um destino diferente do destino de implantação.
 
 O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
 

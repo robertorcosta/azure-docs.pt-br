@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: f5d6d6255b48192a5943159599531fac18ebeb26
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: f3d1918eafe8d61d9c5a7db3f29b83b5412914c0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796985"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179552"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -126,13 +126,13 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Notificações por email para alertas de segurança](security-center-provide-security-contact-details.md)|✔|✔|
 |[Inventário de ativos](asset-inventory.md)|✔|✔|
 |[Azure Defender for Serviço de Aplicativo](defender-for-app-service-introduction.md)|-|-|
-|[Azure Defender para Armazenamento](defender-for-storage-introduction.md)|✔ (2)|-|
+|[Azure Defender para Armazenamento](defender-for-storage-introduction.md)|✔|-|
 |[Azure Defender para SQL](defender-for-sql-introduction.md)|✔|✔ (2)|
 |[Azure Defender para Key Vault](defender-for-key-vault-introduction.md)|-|-|
 |[Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
-|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔ (2)|✔|
-|[Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)|✔ (2)|-|
+|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
 |||
 
 (1) Requer _ *Azure Defender para servidores**

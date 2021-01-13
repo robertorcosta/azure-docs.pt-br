@@ -2,13 +2,13 @@
 title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: a397678488921744f076d93235304c8d217d961f
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807645"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178952"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Implantações de locatário com modelos ARM
 
@@ -145,7 +145,8 @@ Ao implantar em um locatário, você pode implantar recursos em:
 * grupos de gerenciamento dentro do locatário
 * subscriptions
 * grupos de recursos
-* os [recursos de extensão](scope-extension-resources.md) podem ser aplicados aos recursos
+
+Um [recurso de extensão](scope-extension-resources.md) pode ser definido como escopo para um destino diferente do destino de implantação.
 
 O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
 

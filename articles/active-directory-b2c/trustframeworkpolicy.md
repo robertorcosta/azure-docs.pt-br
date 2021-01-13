@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 354c6f9710b7cbd70e0631bc973b2482ea8d8bb3
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: a87b4c6b845006a9f9f3cf82815277c67c09bef0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386877"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178833"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -46,7 +46,7 @@ O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 | PolicyId | Sim | O identificador exclusivo da política. Esse identificador deve ter o *B2C_1A_* como prefixo |
 | PublicPolicyUri | Sim | O URI para a política, o que é uma combinação de ID do locatário e ID da política. |
 | DeploymentMode | Não | Valores possíveis: `Production` , ou `Development` . `Production` é o padrão. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado quando **DeploymentMode** é definido como `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | Não | O ponto de extremidade usado para registro em log. O valor deve ser definido como `urn:journeyrecorder:applicationinsights` se o atributo existir. Para obter mais informações, veja [Coleta de Logs](troubleshoot-with-application-insights.md). |
 
 
 O exemplo a seguir mostra como especificar o elemento **TrustFrameworkPolicy**:

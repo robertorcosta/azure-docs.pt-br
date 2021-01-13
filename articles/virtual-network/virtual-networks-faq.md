@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 3ee9e165ce9c24968b072d19367e0285f5438259
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5ce5f5cea5d689720455dd8d60f6fff4692a9d3d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938793"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179292"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -392,6 +392,9 @@ Quando pontos de extremidade de serviço de rede virtual estão habilitados, os 
 
 ### <a name="does-the-service-endpoint-route-always-take-precedence"></a>A rota de ponto de extremidade de serviço sempre tem precedência?
 Os pontos de extremidade de serviço adicionam uma rota do sistema que tem precedência sobre rotas BGP e fornece roteamento ideal para o tráfego do ponto de extremidade de serviço. Os pontos de extremidade sempre usam o tráfego do serviço diretamente da sua rede virtual para o serviço na rede de backbone do Microsoft Azure. Para obter mais informações sobre como o Azure seleciona uma rota, consulte [Roteamento de tráfego de rede virtual do Azure](virtual-networks-udr-overview.md).
+
+### <a name="do-service-endpoints-work-with-icmp"></a>Os pontos de extremidade de serviço funcionam com o ICMP?
+Não, o tráfego ICMP originado de uma sub-rede com pontos de extremidade de serviço habilitados não pegará o caminho do túnel de serviço para o ponto final desejado. Os pontos de extremidade de serviço só tratarão o tráfego TCP. Isso significa que se você quiser testar a latência ou a conectividade com um ponto de extremidade por meio de pontos de extremidades de serviço, ferramentas como ping e tracert não mostrarão o caminho verdadeiro que os recursos dentro da sub-rede executarão.
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Como o NSG de uma sub-rede funciona com os pontos de extremidade de serviço?
 Para alcançar o serviço do Azure, os NSGs precisam permitir a conectividade de saída. Se os NSGs estiverem abertos para todo o tráfego de saída da Internet, o tráfego do ponto de extremidade de serviço funcionará. Também é possível limitar o tráfego de saída aos IPs de serviço usando somente as tags do Serviço.  

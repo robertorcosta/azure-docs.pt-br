@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509607"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178799"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuários para Azure AD B2C
 
@@ -97,7 +97,7 @@ Antes de iniciar o processo de migração, aproveite a oportunidade de limpar se
 
 ### <a name="password-policy"></a>Política de senha
 
-Se as contas que você está migrando tiverem uma intensidade de senha mais fraca do que a [força de senha forte](../active-directory/authentication/concept-sspr-policy.md) imposta pelo Azure ad B2C, você poderá desabilitar o requisito de senha forte. Para obter mais informações, consulte [propriedade de política de senha](manage-user-accounts-graph-api.md#password-policy-property).
+Se as contas que você está migrando tiverem uma intensidade de senha mais fraca do que a [força de senha forte](../active-directory/authentication/concept-sspr-policy.md) imposta pelo Azure ad B2C, você poderá desabilitar o requisito de senha forte. Para obter mais informações, consulte [propriedade de política de senha](user-profile-attributes.md#password-policy-attribute).
 
 ## <a name="next-steps"></a>Próximas etapas
 

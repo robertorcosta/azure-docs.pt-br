@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549082"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178969"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicação de objeto para BLOBs de blocos
 
@@ -89,6 +89,16 @@ Quando você cria uma regra de replicação, por padrão, somente os novos blobs
 Você também pode especificar um ou mais filtros como parte de uma regra de replicação para filtrar blobs de blocos por prefixo. Quando você especifica um prefixo, somente os blobs que correspondem a esse prefixo no contêiner de origem serão copiados para o contêiner de destino.
 
 Os contêineres de origem e de destino devem existir para que você possa especificá-los em uma regra. Depois de criar a política de replicação, o contêiner de destino torna-se somente leitura. Qualquer tentativa de gravar no contêiner de destino falha com o código de erro 409 (conflito). No entanto, você pode chamar a operação [definir camada de blob](/rest/api/storageservices/set-blob-tier) em um blob no contêiner de destino para movê-lo para a camada de arquivo morto. Para obter mais informações sobre a camada de arquivo, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](storage-blob-storage-tiers.md#archive-access-tier).
+
+## <a name="replication-status"></a>Status de replicação
+
+Você pode verificar o status de replicação de um blob na conta de origem. Para obter mais informações, consulte [verificar o status de replicação de um blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+Se o status de replicação de um blob na conta de origem indicar falha, investigue as seguintes causas possíveis:
+
+- Verifique se a política de replicação de objeto está configurada na conta de destino.
+- Verifique se o contêiner de destino ainda existe.
+- Se o blob de origem tiver sido criptografado com uma chave fornecida pelo cliente como parte de uma operação de gravação, a replicação do objeto falhará. Para obter mais informações sobre chaves fornecidas pelo cliente, consulte [fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs](encryption-customer-provided-keys.md).
 
 ## <a name="billing"></a>Cobrança
 

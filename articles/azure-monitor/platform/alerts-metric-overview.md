@@ -1,15 +1,15 @@
 ---
 title: Entender como funcionam os alertas de métrica no Azure Monitor.
 description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam no Azure Monitor.
-ms.date: 01/11/2021
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 424cc9db01f1eb6300c2915795f3e2c37b34449f
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: d8e0621f88455a68ad0ee1b236f6b423c9d54b52
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071044"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179887"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -64,6 +64,10 @@ Se o uso de "myVM" continuar acima do limite em verificações subsequentes, a r
 Após algum tempo, o uso em "myVM" volta para o normal (fica abaixo do limite). A regra de alerta monitora a condição mais duas vezes, para enviar uma notificação de resolução. A regra de alerta envia uma mensagem de resolução/desativação quando a condição de alerta não é atendida por três períodos consecutivos para reduzir o excesso em caso de condições intermitentes.
 
 Como a notificação de resolução é enviada por email ou webhooks, o status da instância do alerta (chamado de estado do monitor) no portal do Azure também é definido como resolvido.
+
+> [!NOTE]
+>
+> Quando uma regra de alerta monitora várias condições, um alerta acionado será resolvido se pelo menos uma das condições não for mais atendida por três períodos consecutivos.
 
 ### <a name="using-dimensions"></a>Usando dimensões
 
@@ -135,7 +139,7 @@ Até agora, você viu como um único alerta de métrica pode ser usado para moni
 
 No momento, esse recurso tem suporte para métricas de plataforma (não métricas personalizadas) para os seguintes serviços nas seguintes nuvens do Azure:
 
-| Serviço | Azure público | Governo | China |
+| Serviço | Azure público | Governamental | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuais<sup>1</sup>  | **Sim** | **Sim** | Não |
 | Bancos de dados do SQL Server | **Sim** | **Sim** | **Sim** |
