@@ -1,18 +1,18 @@
 ---
 title: Controles de conformidade regulatória do Azure Policy para Cache do Azure para Redis
 description: Lista os controles de conformidade regulatória disponíveis do Azure Policy para Cache do Azure para Redis. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: sample
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7924d82067e74a2055185384ff324c6bd0325efc
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 9328908e51625ce5e65a4805bbf627b3620f981d
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992278"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98049416"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cache-for-redis"></a>Controles de conformidade regulatória do Azure Policy para Cache do Azure para Redis
 

@@ -6,19 +6,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 09/18/2020
-ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 01/14/2020
+ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488886"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183431"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte para o programa do Marketplace comercial no Partner Center
 
 A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. Encontrar a equipe de suporte correta é importante para garantir uma resposta apropriada e oportuna. Considere os seguintes cenários, que podem ajudá-lo a rotear sua consulta para a equipe apropriada:
 
 - Se você for um Publicador e tiver uma pergunta de um cliente, peça ao cliente para solicitar suporte usando os links de suporte no [portal do Azure](https://portal.azure.com/).
+- Se você for um Publicador e tiver detectado um problema de segurança com um aplicativo em execução no Azure, consulte [como registrar um tíquete de suporte de evento de segurança](/azure/security/fundamentals/event-support-ticket). Os editores devem relatar eventos de segurança suspeitos, incluindo incidentes e vulnerabilidades de segurança das ofertas de serviço e de software do Microsoft Azure Marketplace na primeira oportunidade.
 - Se você for um Publicador e tiver uma pergunta relacionada ao seu aplicativo ou serviço, examine as opções de suporte a seguir.
 
 ## <a name="support-options-for-publishers"></a>Opções de suporte para Publicadores
@@ -62,12 +63,12 @@ As seguintes opções ficarão disponíveis:
 
 - Para selecionar um tópico diferente, selecione um link de tópico diferente em **problema selecionado**.
 - Examine a descrição desse problema, se disponível.  É o texto mostrado acima das **etapas recomendadas**.
-- Examine **as etapas recomendadas** , se disponíveis.
-- Examine os **documentos recomendados** , se disponíveis.
+- Examine **as etapas recomendadas**, se disponíveis.
+- Examine os **documentos recomendados**, se disponíveis.
 
 ![Soluções recomendadas](./media/support/recommended-solutions.png)
 
-Se você não conseguir encontrar sua resposta em **soluções recomendadas** , selecione **fornecer detalhes do problema**. Preencha todos os campos obrigatórios para acelerar o processo de resolução e selecione **Enviar**.
+Se você não conseguir encontrar sua resposta em **soluções recomendadas**, selecione **fornecer detalhes do problema**. Preencha todos os campos obrigatórios para acelerar o processo de resolução e selecione **Enviar**.
 
 >[!Note]
 >Se você não tiver feito logon no Partner Center e o tópico exigir autenticação, será solicitado que você faça logon antes de continuar.  Para tópicos públicos, a autenticação não é necessária.
@@ -85,7 +86,7 @@ Para ajudar os agentes de suporte a solucionar o problema, considere anexar um a
 
 ### <a name="microsoft-edge-and-google-chrome"></a>Microsoft Edge e Google Chrome
 
-Para gerar um arquivo HAR usando **o Microsoft Edge ou o** **Google Chrome** :
+Para gerar um arquivo HAR usando **o Microsoft Edge ou o** **Google Chrome**:
 
 1. Vá para a página da Web onde você está enfrentando o problema.
 2. No canto superior direito da janela, selecione o ícone de reticências e, **em seguida, ferramentas de**  >  **desenvolvedor** ferramentas. Você pode pressionar F12 como um atalho.
@@ -100,16 +101,16 @@ Para gerar um arquivo HAR usando **o Microsoft Edge ou o** **Google Chrome** :
 
 6. Reproduza o problema que você deseja solucionar.
 7. Depois de reproduzir o problema, selecione **parar de gravar o log de rede**.
-8. Selecione **Exportar Har** , marcado com um ícone de seta para baixo e salve o arquivo.
+8. Selecione **Exportar Har**, marcado com um ícone de seta para baixo e salve o arquivo.
 
     ![Como exportar um arquivo HAR no Microsoft Edge ou no Google Chrome](media/support/chromium-network-export-har.png)
 
 ### <a name="mozilla-firefox"></a>Mozilla Firefox
 
-Para gerar um arquivo HAR usando o **Mozilla Firefox** :
+Para gerar um arquivo HAR usando o **Mozilla Firefox**:
 
 1. Vá para a página da Web onde você está enfrentando o problema.
-1. No canto superior direito da janela, selecione o ícone de reticências e, em seguida, ferramentas de alternância de **desenvolvedor da Web**  >  **Toggle Tools**. Você pode pressionar F12 como um atalho.
+1. No canto superior direito da janela, selecione o ícone de reticências e, em seguida, ferramentas de alternância de **desenvolvedor da Web**  >  . Você pode pressionar F12 como um atalho.
 1. Selecione a guia **rede** e, em seguida, selecione **limpar** para remover os logs existentes.
 
     ![Como remover os logs existentes no Mozilla Firefox](media/support/firefox-clear-session.png)
@@ -121,9 +122,9 @@ Para gerar um arquivo HAR usando o **Mozilla Firefox** :
 
 ### <a name="apple-safari"></a>Apple Safari
 
-Para gerar um arquivo HAR usando o **Safari** :
+Para gerar um arquivo HAR usando o **Safari**:
 
-1. Habilitar as ferramentas de desenvolvedor no Safari: selecione Preferências do **Safari**  >  **Preferences**. Vá para a guia **avançado** e, em seguida, selecione **Mostrar menu desenvolver na barra de menus**.
+1. Habilitar as ferramentas de desenvolvedor no Safari: selecione Preferências do **Safari**  >  . Vá para a guia **avançado** e, em seguida, selecione **Mostrar menu desenvolver na barra de menus**.
 1. Vá para a página da Web onde você está enfrentando o problema.
 1. Selecione **Desenvolver** e, em seguida, selecione **Mostrar Inspetor da Web**.
 1. Selecione a guia **rede** e, em seguida, selecione **limpar itens de rede** para remover os logs existentes.

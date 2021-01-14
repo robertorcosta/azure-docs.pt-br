@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: 88dd82ee7e004a3613d6d9892b0e853406f4caf4
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: e2ebdd3d0f4a4461521ee5f412d5b4c4f872b8a0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696139"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183227"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 
@@ -315,7 +315,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
 
     **CLI do Azure**
 
-    ```cli
+    ```azurecli
     az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployUMSolutiontemplate.json
     ```
 
@@ -341,7 +341,7 @@ Se você for novo na automação do Azure e Azure Monitor, é importante entende
 
     ![Exibição de avaliação de recurso Gerenciamento de Atualizações](./media/enable-from-template/update-management-assessment-view.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando você não precisar mais deles, exclua a solução **atualizações** no espaço de trabalho log Analytics, desvincule a conta de automação do espaço de trabalho e, em seguida, exclua a conta de automação e o espaço de trabalho.
 

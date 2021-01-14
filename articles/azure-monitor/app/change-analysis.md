@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0cdb82bbf38244bc91ed54ffb7d7d734cefe9dd2
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881502"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183312"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -169,7 +169,7 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 ### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Tendo problemas para registrar o provedor de recursos da Microsoft. Change Analysis no histórico de alterações guia
 Se for a primeira vez que você exibir o histórico de alterações após sua integração com a análise de alterações do aplicativo, você verá que ele registra automaticamente um provedor de recursos **Microsoft. ChangeAnalysis**. Em casos raros, pode ocorrer falha pelos seguintes motivos:
@@ -194,6 +194,27 @@ Se for a primeira vez que você exibir o histórico de alterações após sua in
 ### <a name="azure-lighthouse-subscription-is-not-supported"></a>Não há suporte para a assinatura do Azure Lighthouse
 
 - **Falha ao consultar o provedor de recursos Microsoft. ChangeAnalysis** com a mensagem *não há suporte para a assinatura do Azure Lighthouse, as alterações só estão disponíveis no locatário inicial da assinatura*. Há uma limitação no momento para que o provedor de recursos de análise de alterações seja registrado por meio da assinatura do Azure Lighthouse para usuários que não estão no locatário inicial. Esperamos que essa limitação seja abordada em um futuro próximo. Se esse for um problema de bloqueio para você, há uma solução alternativa que envolve a criação de uma entidade de serviço e a atribuição explícita da função para permitir o acesso.  Entre em contato changeanalysishelp@microsoft.com para saber mais sobre isso.
+
+### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>Ocorreu um erro ao obter as alterações. Atualize esta página ou volte mais tarde para exibir as alterações
+
+Esta é a mensagem de erro geral apresentada pelo serviço de análise de alteração de aplicativo quando não foi possível carregar as alterações. Algumas causas conhecidas são:
+- Erro de conectividade com a Internet do dispositivo cliente
+- O serviço de análise de alterações está temporariamente indisponível, atualizando a página depois de alguns minutos geralmente corrige esse problema. Se o erro persistir, contate changeanalysishelp@micorosoft.com
+
+### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>Você não tem permissões suficientes para exibir algumas alterações. Contate o administrador da assinatura do Azure
+
+Esta é a mensagem de erro geral não autorizada, explicando que o usuário atual não tem permissões suficientes para exibir a alteração. Pelo menos acesso de leitor é necessário no recurso para exibir as alterações de infraestrutura retornadas pelo grafo de recursos do Azure e Azure Resource Manager. Para alterações no arquivo de aplicativo Web no convidado e alterações de configuração, pelo menos a função de colaborador é necessária.
+
+### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Falha ao registrar o provedor de recursos Microsoft. ChangeAnalysis
+ 
+**Você não tem permissões suficientes para registrar o provedor de recursos Microsoft. ChangeAnalysis. Contate o administrador da assinatura do Azure.** Essa mensagem de erro significa que sua função na assinatura atual não tem o escopo **Microsoft. support/Register/Action** associado a ela. Isso pode acontecer se você não for o proprietário de uma assinatura e tiver permissões de acesso compartilhado por meio de um colega de colaborador. ou seja, exiba o acesso a um grupo de recursos. Para corrigir isso, você pode entrar em contato com o proprietário da sua assinatura para registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Isso pode ser feito em portal do Azure por meio de **assinaturas | Provedores de recursos** e pesquisam ```Microsoft.ChangeAnalysis``` e registram na interface do usuário, ou por meio de Azure PowerShell ou CLI do Azure.
+
+Registrar provedor de recursos por meio do PowerShell: 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

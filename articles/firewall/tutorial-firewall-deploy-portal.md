@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658580"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051506"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -72,7 +72,7 @@ O grupo de recursos contém todos os recursos para o tutorial.
 Essa VNET conterá três sub-redes.
 
 > [!NOTE]
-> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, confira [Perguntas frequentes sobre o Firewall do Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, confira [Perguntas frequentes sobre o Firewall do Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 1. Selecione **Rede** > **Rede virtual**.
@@ -134,7 +134,7 @@ Implante o firewall na VNET.
 
    |Configuração  |Valor  |
    |---------|---------|
-   |Assinatura     |\<your subscription\>|
+   |Subscription     |\<your subscription\>|
    |Grupo de recursos     |**Test-FW-RG** |
    |Nome     |**Test-FW01**|
    |Location     |Selecionar o mesmo local usado anteriormente|

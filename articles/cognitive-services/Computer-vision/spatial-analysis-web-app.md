@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014553"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183465"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Como implantar um aplicativo Web de contagem de pessoas
 
@@ -63,12 +63,12 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Implantar o contêiner em Azure IoT Edge no computador host
 
-Implante o contêiner de análise espacial como um módulo IoT no computador host, usando o CLI do Azure. O processo de implantação requer um arquivo de manifesto de implantação que descreve os contêineres, as variáveis e as configurações necessárias para sua implantação. Você pode encontrar um [manifesto de implantação específico do Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) , bem como um [manifesto de implantação específico de borda não Azure Stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) no GitHub, que inclui uma configuração de implantação básica para o contêiner de *análise espacial* . 
+Implante o contêiner de análise espacial como um módulo IoT no computador host, usando o CLI do Azure. O processo de implantação requer um arquivo de manifesto de implantação que descreve os contêineres, as variáveis e as configurações necessárias para sua implantação. Você pode encontrar um exemplo de [manifesto de implantação específico de Azure Stack de borda](https://go.microsoft.com/fwlink/?linkid=2142179), manifesto de [implantação específico de Azure Stack de borda](https://go.microsoft.com/fwlink/?linkid=2152189)e [VM do Azure com manifesto de implantação específico de GPU](https://go.microsoft.com/fwlink/?linkid=2152189) no GitHub, que incluem uma configuração de implantação básica para o contêiner de *análise espacial* . 
 
 Como alternativa, você pode usar as extensões do Azure IoT para Visual Studio Code para executar operações com o Hub IoT. Vá para [implantar módulos de Azure IOT Edge de Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) para saber mais.
 
 > [!NOTE] 
-> Os contêineres *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* são opcionais. Você pode decidir removê-los do *DeploymentManifest.jsno* arquivo. Para obter mais informações, consulte o artigo [telemetria e solução de problemas](./spatial-analysis-logging.md) . Você pode encontrar dois *DeploymentManifest.jsde exemplo em* arquivos no GitHub, para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outro [computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
+> Os contêineres *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* são opcionais. Você pode decidir removê-los do *DeploymentManifest.jsno* arquivo. Para obter mais informações, consulte o artigo [telemetria e solução de problemas](./spatial-analysis-logging.md) . Você pode encontrar três *DeploymentManifest.jsde exemplo em* arquivos no GitHub, para [dispositivos Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), um [computador desktop](https://go.microsoft.com/fwlink/?linkid=2152189)ou uma [VM do Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189)
 
 ### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
@@ -185,7 +185,7 @@ Aguarde a conclusão da instalação e navegue até o recurso no portal do Azure
 * `EventHubConsumerGroup` – O nome da cadeia de caracteres do grupo de consumidores do Hub IoT do Azure, você pode criar um novo grupo de consumidores em seu hub IoT ou usar o grupo padrão. 
 * `IotHubConnectionString` – A cadeia de conexão para o Hub IoT do Azure, que pode ser recuperada na seção chaves do recurso do Hub IoT do Azure ![ configurar parâmetros](./media/spatial-analysis/solution-app-config-page.png)
 
-Depois que essas duas configurações forem adicionadas, clique em **salvar**. Em seguida, clique em **autenticação/autorização** no menu de navegação à esquerda e atualize-o com o nível de autenticação desejado. Recomendamos o Azure Active Directory (Azure AD) Express. 
+Depois que essas duas configurações forem adicionadas, clique em **salvar**. Em seguida, clique em **autenticação/autorização** no menu de navegação à esquerda e atualize-o com o nível de autenticação desejado. Recomendamos Azure Active Directory (Azure AD) Express. 
 
 ### <a name="test-the-app"></a>Testar o aplicativo
 

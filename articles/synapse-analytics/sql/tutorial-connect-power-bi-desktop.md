@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6b45bad7c439fb98737f0caee08b2996323fbd3b
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 8dd3edd25d21bfcd0fde1bc8b5f103877d968c8a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602692"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119978"
 ---
 # <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Tutorial: usar o pool de SQL sem servidor com o Power BI Desktop e criar um relatório
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 Para concluir este tutorial, você precisará dos seguintes pré-requisitos:
 
 - [Power BI Desktop](https://powerbi.microsoft.com/downloads/) – necessário para visualizar os dados e criar um relatório.
-- [Workspace do Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) – necessário para criar um banco de dados, uma fonte de dados externa e uma exibição.
+- [Workspace do Azure Synapse](../get-started-create-workspace.md) – necessário para criar um banco de dados, uma fonte de dados externa e uma exibição.
 
 Opcional:
 

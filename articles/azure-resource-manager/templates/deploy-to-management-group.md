@@ -3,12 +3,12 @@ title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: f847e481670d7f9afd4b40cfb8fcbec65d1e28c8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178918"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184009"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implantações de grupo de gerenciamento com modelos ARM
 
@@ -44,6 +44,8 @@ Para modelos aninhados que são implantados em assinaturas ou grupos de recursos
 Para gerenciar seus recursos, use:
 
 * [marcas](/azure/templates/microsoft.resources/tags)
+
+Os grupos de gerenciamento são recursos de nível de locatário. No entanto, você pode criar grupos de gerenciamento em uma implantação de grupo de gerenciamento definindo o escopo do novo grupo de gerenciamento para o locatário. Consulte [grupo de gerenciamento](#management-group).
 
 ## <a name="schema"></a>Esquema
 
@@ -168,9 +170,55 @@ Você pode usar uma implantação aninhada com o `scope` e o `location` set.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
-Ou, você pode definir o escopo como `/` para alguns tipos de recursos, como grupos de gerenciamento.
+Ou, você pode definir o escopo como `/` para alguns tipos de recursos, como grupos de gerenciamento. A criação de um novo grupo de gerenciamento é descrita na próxima seção.
+
+## <a name="management-group"></a>Grupo de gerenciamento
+
+Para criar um grupo de gerenciamento em uma implantação de grupo de gerenciamento, você deve definir o escopo como `/` para o grupo de gerenciamento.
+
+O exemplo a seguir cria um novo grupo de gerenciamento no grupo de gerenciamento raiz.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+
+O exemplo a seguir cria um novo grupo de gerenciamento no grupo de gerenciamento especificado como o pai. Observe que o escopo está definido como `/` .
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        },
+        "parentMG": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('mgName')]",
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "scope": "/",
+            "location": "eastus",
+            "properties": {
+                "details": {
+                    "parent": {
+                        "id": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('parentMG'))]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
 
 ## <a name="azure-policy"></a>Azure Policy
 
