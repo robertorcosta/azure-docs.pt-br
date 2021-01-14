@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2c632de3d602fe2d3e5bfa74f78e90f48412067
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444054"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208906"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurar um aplicativo móvel que chama APIs da Web
 
@@ -148,9 +148,9 @@ Para obter mais informações, consulte [Considerações específicas de UWP com
 
 No Android e no iOS, os agentes habilitam:
 
-- **SSO (logon único)** : você pode usar o SSO para dispositivos que são registrados com o Azure Active Directory (Azure AD). Quando você usa o SSO, os usuários não precisam entrar em cada aplicativo.
-- **Identificação do dispositivo** : essa configuração habilita políticas de acesso condicional que estão relacionadas aos dispositivos do Azure AD. O processo de autenticação usa o certificado de dispositivo que foi criado quando o dispositivo foi ingressado no local de trabalho.
-- **Verificação da identificação do aplicativo** : quando um aplicativo chama o agente, ele passa sua URL de redirecionamento. Em seguida, o agente o verifica.
+- **SSO (logon único)**: você pode usar o SSO para dispositivos que são registrados com o Azure Active Directory (Azure AD). Quando você usa o SSO, os usuários não precisam entrar em cada aplicativo.
+- **Identificação do dispositivo**: essa configuração habilita políticas de acesso condicional que estão relacionadas aos dispositivos do Azure AD. O processo de autenticação usa o certificado de dispositivo que foi criado quando o dispositivo foi ingressado no local de trabalho.
+- **Verificação da identificação do aplicativo**: quando um aplicativo chama o agente, ele passa sua URL de redirecionamento. Em seguida, o agente o verifica.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Habilitar o agente no Xamarin
 
@@ -218,7 +218,7 @@ Para definir a janela de objeto, siga estas etapas:
 
     `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker."`
 
-1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Aqui está um exemplo:
+1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Veja um exemplo:
 
     Em `App.cs`:
     ```csharp
@@ -249,8 +249,8 @@ Para registrar o esquema de URL do seu aplicativo, siga estas etapas:
 
    Aqui, `BundleId` identifica exclusivamente seu dispositivo. Por exemplo, se `BundleId` for `yourcompany.xforms` , o esquema de URL será `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente.
+  
+      Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente.
 
    ```XML
     <key>CFBundleURLTypes</key>
@@ -310,10 +310,9 @@ Quando o MSAL para iOS e macOS chama o agente, o agente retorna ao seu aplicativ
     }
 ```
 
-> [!NOTE]
-> Se você adotou `UISceneDelegate` no Ios 13 ou posterior, coloque o retorno de chamada MSAL no `scene:openURLContexts:` de `UISceneDelegate` em vez disso. MSAL `handleMSALResponse:sourceApplication:` deve ser chamado apenas uma vez para cada URL.
->
-> Para obter mais informações, consulte a [documentação da Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
+Se você adotou `UISceneDelegate` no Ios 13 ou posterior, coloque o retorno de chamada MSAL no `scene:openURLContexts:` de `UISceneDelegate` em vez disso. MSAL `handleMSALResponse:sourceApplication:` deve ser chamado apenas uma vez para cada URL.
+
+Para obter mais informações, consulte a [documentação da Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
 
 #### <a name="step-2-register-a-url-scheme"></a>Etapa 2: registrar um esquema de URL
 
@@ -329,8 +328,7 @@ Para registrar um esquema para seu aplicativo:
 
    Aqui, `BundleId` identifica exclusivamente seu dispositivo. Por exemplo, se `BundleId` for `yourcompany.xforms` , o esquema de URL será `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente. Verifique se o URI de redirecionamento no formato `msauth.(BundleId)://auth` está registrado para seu aplicativo no [portal do Azure](https://portal.azure.com).
+    Esse esquema de URL se tornará parte do URI de redirecionamento que identifica exclusivamente seu aplicativo quando receber a resposta do agente. Verifique se o URI de redirecionamento no formato `msauth.(BundleId)://auth` está registrado para seu aplicativo no [portal do Azure](https://portal.azure.com).
 
    ```XML
    <key>CFBundleURLTypes</key>

@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d855e124c84dee8554073d05fa04fe078b92ddaa
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011536"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208882"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
 
@@ -115,17 +115,6 @@ Exemplo:
     "allowPublicClient": false,
 ```
 
-### <a name="availabletoothertenants-attribute"></a>atributo availableToOtherTenants
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| availableToOtherTenants | Boolean |
-
-Defina como true se o aplicativo for compartilhado com outros locatários; caso contrário, false.
-
-> [!NOTE]
-> Esse atributo está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `signInAudience` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="appid-attribute"></a>atributo appId
 
 | Chave | Tipo de valor |
@@ -165,17 +154,6 @@ Exemplo:
     ],
 ```
 
-### <a name="displayname-attribute"></a>atributo displayName
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| displayName | String |
-
-O nome de exibição do aplicativo.
-
-> [!NOTE]
-> Esse atributo está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `name` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="errorurl-attribute"></a>atributo errorUrl
 
 | Chave | Tipo de valor |
@@ -203,33 +181,6 @@ Exemplo:
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### <a name="homepage-attribute"></a>atributo homepage
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| homepage |String |
-
-A URL da home page do aplicativo.
-
-> [!NOTE]
-> Esse atributo está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `signInUrl` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-### <a name="objectid-attribute"></a>atributo objectId
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-|objectId | String |
-
-O identificador exclusivo do aplicativo no diretório.
-
-Está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `id` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-Exemplo:
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
-
 ### <a name="optionalclaims-attribute"></a>atributo optionalClaims
 
 | Chave | Tipo de valor |
@@ -245,7 +196,6 @@ Exemplo:
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### <a name="identifieruris-attribute"></a>atributo identifierUris
@@ -489,16 +439,6 @@ Exemplo:
     ],
 ```
 
-### <a name="publicclient-attribute"></a>atributo publicClient
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| publicClient | Boolean|
-
-Especifica se este aplicativo é um cliente público (como um aplicativo instalado em execução em um dispositivo móvel).
-
-Essa propriedade está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `allowPublicClient` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="publisherdomain-attribute"></a>atributo publisherDomain
 
 | Chave | Tipo de valor |
@@ -511,17 +451,7 @@ Exemplo:
 
 ```json
     "publisherDomain": "https://www.contoso.com",
-````
-
-### <a name="replyurls-attribute"></a>atributo replyUrls
-
-| Chave | Tipo de valor |
-| :--- | :--- |
-| replyUrls | Matriz de cadeia de caracteres |
-
-Essa propriedade de vários valores contém a lista de valores redirect_uri registrados que o Azure AD aceitará como destinos quando retornar tokens.
-
-Essa propriedade está disponível apenas na experiência de **Registros de aplicativo (Herdados)** . Substituído por `replyUrlsWithType` na experiência [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908).
+```
 
 ### <a name="replyurlswithtype-attribute"></a>atributo replyUrlsWithType
 

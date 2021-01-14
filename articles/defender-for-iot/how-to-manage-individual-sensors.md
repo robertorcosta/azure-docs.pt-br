@@ -4,15 +4,15 @@ description: Saiba como gerenciar sensores individuais, incluindo o gerenciament
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/22/2020
+ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: daaca1d7c6cf43f69241e6a23f8bdfaf4015ba23
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: b61bef89d53da280961b818425d11a6f81bbf5ea
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976938"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210232"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
 
@@ -120,7 +120,7 @@ Para atualizar um certificado:
 Para alterar a configuração de validação:
 
 1. Habilitar ou desabilitar a alternância **Habilitar validação de certificado** .
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Se a opção estiver habilitada e a validação falhar, a comunicação entre o console de gerenciamento e o sensor será interrompida e um erro de validação será apresentado no console do.
 
@@ -248,7 +248,7 @@ Para alterar o nome:
 
 1. Na caixa de diálogo **Editar nome do sensor** , insira um nome.
 
-1. Selecione **Salvar**. O novo nome é aplicado.
+1. Clique em **Salvar**. O novo nome é aplicado.
 
 ### <a name="change-the-name-of-a-cloud-connected-sensor"></a>Alterar o nome de um sensor conectado à nuvem
 
@@ -291,7 +291,7 @@ Para alterar a configuração:
     | Nome do host | O nome do host do sensor |
     | Proxy | Host de proxy e nome da porta |
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ## <a name="synchronize-time-zones-on-the-sensor"></a>Sincronizar fusos horários no sensor
 
@@ -397,7 +397,7 @@ O console exibirá falhas de restauração.
 
 O procedimento a seguir descreve como atualizar um sensor autônomo usando o console do sensor. O processo de atualização leva cerca de 30 minutos.
 
-1. Acesse o [portal do Azure](https://portal.azure.com/).
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 
 2. Vá para defender para IoT.
 
@@ -455,7 +455,7 @@ Para acessar as propriedades do sistema:
 
 3. Selecione **Propriedades do sistema** na seção **geral** .
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 [Pesquisa e pacotes de inteligência contra ameaças](how-to-work-with-threat-intelligence-packages.md)
 

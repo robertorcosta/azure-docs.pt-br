@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: ba7081c877f3c3adae6e678280592c9445a95d1b
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 990c396c859477c83e0ef421659a299920ee0c35
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858800"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209127"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Como Benefício Híbrido do Azure se aplica a máquinas virtuais Linux
 
@@ -47,6 +47,9 @@ Benefício Híbrido do Azure para RHEL está disponível para clientes Red Hat q
 
 - Ter assinaturas RHEL ativas ou não usadas qualificadas para uso no Azure
 - Habilitou uma ou mais dessas assinaturas para uso no Azure com o programa de [acesso à nuvem do Red Hat](https://www.redhat.com/en/technologies/cloud-computing/cloud-access)
+
+> [!IMPORTANT]
+> Verifique se a assinatura correta foi habilitada no programa de [acesso à nuvem](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) .
 
 Para começar a usar o benefício do Red Hat:
 

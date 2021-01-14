@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93ac8cd3e462c244840a5ed569d685a9d67fa6c2
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c752bc6ae49f009056067545fde292dc29027d5d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165868"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208124"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Práticas recomendadas para o pool SQL sem servidor no Azure Synapse Analytics
 
@@ -129,7 +129,7 @@ Você pode usar um analisador otimizado para desempenho ao consultar arquivos CS
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Criar manualmente estatísticas para arquivos CSV
 
-O pool SQL sem servidor se baseia em estatísticas para gerar planos de execução de consulta ideais. As estatísticas serão criadas automaticamente para colunas em arquivos parquet quando necessário. Neste momento, as estatísticas não são criadas automaticamente para colunas em arquivos CSV e você deve criar estatísticas manualmente para as colunas que você usa em consultas, particularmente as usadas em DISTINCT, junção, WHERE, ORDENAr por e agrupar por. Verifique [estatísticas no pool SQL sem servidor] (desenvolva-Tables-Statistics. MD # Statistics-in-Server-SQL-pool para obter detalhes.
+O pool SQL sem servidor se baseia em estatísticas para gerar planos de execução de consulta ideais. As estatísticas serão criadas automaticamente para colunas em arquivos parquet quando necessário. Neste momento, as estatísticas não são criadas automaticamente para colunas em arquivos CSV e você deve criar estatísticas manualmente para as colunas que você usa em consultas, particularmente as usadas em DISTINCT, junção, WHERE, ORDENAr por e agrupar por. Verifique as [estatísticas no pool SQL sem servidor](develop-tables-statistics.md#statistics-in-serverless-sql-pool) para obter detalhes.
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Use o CETAS para aprimorar o desempenho e as junções de consulta
 

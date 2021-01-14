@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013525"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209722"
 ---
 # <a name="using-an-app-service-environment"></a>Usando um Ambiente do Serviço de Aplicativo
 
@@ -51,7 +51,7 @@ Para criar um aplicativo em um ASE:
     > Os aplicativos do Linux e os aplicativos do Windows não podem estar no mesmo plano do serviço de aplicativo, mas podem estar na mesma Ambiente do Serviço de Aplicativo.
     >
 
-1. Selecione * * Avançar: monitoramento * * se você quiser habilitar o Application insights com seu aplicativo, poderá fazê-lo aqui durante o fluxo de criação. 
+1. Selecione **Avançar: monitorando**  se você deseja habilitar o Application insights com seu aplicativo, você pode fazer isso aqui durante o fluxo de criação. 
 
 1.  Selecione **Avançar: marcações** adicione as marcas que você deseja ao aplicativo  
 
@@ -112,7 +112,7 @@ Sem alterações adicionais, os sistemas de CI baseados na Internet, como GitHub
 
 Um ASE tem 1 TB de armazenamento para todos os aplicativos no ASE. Um plano do serviço de aplicativo no SKU de preços isolado tem um limite de 250 GB. Em um ASE, 250 GB de armazenamento são adicionados por plano do serviço de aplicativo até o limite de 1 TB. Você pode ter mais planos do serviço de aplicativo do que apenas quatro, mas não há mais armazenamento adicionado além do limite de 1 TB.
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 Você pode integrar seu ASE com Azure Monitor para enviar logs sobre o ASE para o armazenamento do Azure, hubs de eventos do Azure ou Log Analytics. Estes itens estão registrados hoje:
 

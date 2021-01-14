@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008476"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209824"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa no Azure Pesquisa Cognitiva
 
@@ -103,7 +103,7 @@ As pontuações de pesquisa transmitem o sentido geral de relevância, refletind
 
 ### <a name="how-to-get-consistent-ordering"></a>Como obter uma ordem consistente
 
-Se a ordenação consistente for um requisito de aplicativo, você poderá definir explicitamente uma **`$orderby`** expressão [] (Query-OData-Filter-OrderBy-Syntax.MD) em um campo. Somente os campos que são indexados como **`sortable`** podem ser usados para ordenar os resultados. Campos geralmente usados em um **`$orderby`** campo de classificação, data e localização de inclusão se você especificar o valor do **`orderby`** parâmetro para incluir nomes de campos e chamadas para a [**`geo.distance()` função**](query-odata-filter-orderby-syntax.md) para valores geoespaciais.
+Se a ordenação consistente for um requisito de aplicativo, você poderá definir explicitamente uma [ **`$orderby`** expressão](query-odata-filter-orderby-syntax.md) em um campo. Somente os campos que são indexados como **`sortable`** podem ser usados para ordenar os resultados. Campos geralmente usados em um **`$orderby`** campo de classificação, data e localização de inclusão se você especificar o valor do **`orderby`** parâmetro para incluir nomes de campos e chamadas para a [**`geo.distance()` função**](query-odata-filter-orderby-syntax.md) para valores geoespaciais.
 
 Outra abordagem que promove a consistência é usar um [perfil de Pontuação personalizado](index-add-scoring-profiles.md). Os perfis de Pontuação oferecem mais controle sobre a classificação de itens nos resultados da pesquisa, com a capacidade de aumentar as correspondências encontradas em campos específicos. A lógica de Pontuação adicional pode ajudar a substituir pequenas diferenças entre as réplicas, pois as pontuações de pesquisa de cada documento estão mais distantes. Recomendamos o [algoritmo de classificação](index-ranking-similarity.md) para essa abordagem.
 

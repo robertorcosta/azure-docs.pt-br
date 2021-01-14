@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5e33a7adc7b529df8c7c821cbfdcb0ad5709803b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837689"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208753"
 ---
 # <a name="defender-for-iot-installation"></a>Instalação do defender para IoT
 
@@ -230,9 +230,9 @@ Este artigo descreve como configurar o BIOS usando o arquivo de configuração.
 
 4. As credenciais do dispositivo são:
 
-   - Nome de usuário: **CyberX**
+   - Nome de usuário: **xxx**
 
-   - Senha: **xhxvhttju, @4338**
+   - Senha: **xxx**
 
      A operação importar perfil do servidor foi iniciada.
 
@@ -274,7 +274,7 @@ Para configurar manualmente:
 
    - Se o dispositivo não for um dispositivo defender para IoT, abra um navegador e vá para o endereço IP que foi configurado antes. Entre com os privilégios de administrador padrão da Dell. Use **root** para o nome de usuário e **Calvin** para a senha.
 
-   - Se o dispositivo for um dispositivo defender para IoT, entre usando **CyberX** para o nome de usuário e **@4338 xhxvhttju** para a senha.
+   - Se o dispositivo for um dispositivo defender para IoT, entre usando **xxx** para o nome de usuário e **xxx** para a senha.
 
 2. Depois de acessar o BIOS, vá para **configurações do dispositivo**.
 

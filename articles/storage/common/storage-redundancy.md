@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3c0b466a7db688ed3e24441f652f6a1ef1a88ee1
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 5a09a2083c1258a3120f8696aa39a0252dbfcf2d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180074"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209671"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -97,11 +97,19 @@ O armazenamento com redundância geográfica (GRS) copia seus dados de forma sí
 
 Uma operação de gravação primeiro é confirmada para o local primário e replicados usando o LRS. A atualização, em seguida, é replicada assincronamente para a região secundária. Quando dados são gravados para o local secundário, ela também é replicada dentro desse local usando o LRS.
 
+O diagrama a seguir mostra como os dados são replicados com GRS ou RA-GRS:
+
+:::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados com GRS ou RA-GRS":::
+
 ### <a name="geo-zone-redundant-storage"></a>Armazenamento com redundância de zona geográfica
 
 O armazenamento com redundância de zona geográfica (GZRS) combina a alta disponibilidade fornecida pela redundância entre zonas de disponibilidade com a proteção contra interrupções regionais fornecidas pela replicação geográfica. Os dados em uma conta de armazenamento GZRS são copiados entre três [zonas de disponibilidade do Azure](../../availability-zones/az-overview.md) na região primária e também são replicados para uma região geográfica secundária para proteção contra desastres regionais. A Microsoft recomenda o uso do GZRS para aplicativos que exigem consistência, durabilidade e disponibilidade máximas, excelente desempenho e resiliência para recuperação de desastres.
 
 Com uma conta de armazenamento GZRS, você pode continuar lendo e gravando dados se uma zona de disponibilidade ficar indisponível ou não puder ser recuperada. Além disso, seus dados também serão duráveis no caso de uma interrupção regional completa ou um desastre no qual a região primária não possa ser recuperada. O GZRS foi projetado para fornecer pelo menos 99,99999999999999% (dezesseis noves) de durabilidade dos objetos durante um determinado ano.
+
+O diagrama a seguir mostra como os dados são replicados com GZRS ou RA-GZRS:
+
+:::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados com GZRS ou RA-GZRS":::
 
 Somente contas de armazenamento para uso geral v2 dão suporte ao GZRS e ao RA-GZRS. Para obter mais informações sobre os tipos de conta de armazenamento, consulte [Visão geral da conta de armazenamento do Azure](storage-account-overview.md). O GZRS e o RA-GZRS dão suporte a blobs de blocos, blobs de páginas (exceto discos VHD), arquivos, tabelas e filas.
 

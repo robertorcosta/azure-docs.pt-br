@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9a6e46c0b52c22df0682034deaebd58bbfeb34a7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065160"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210029"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Solução de problemas no Conector ITSM
 
@@ -53,6 +53,25 @@ Para exibir os erros no painel, você deve seguir as próximas etapas:
 
 5. Usando este painel, você poderá examinar o status e os erros em seu conector.
     ![Captura de tela que mostra o status do conector.](media/itsmc-resync-servicenow/connector-dashboard.png)
+
+### <a name="dashboard-elements"></a>Elementos do painel
+
+O painel contém informações sobre os alertas que foram enviados para a ferramenta de ITSM usando esse conector.
+O painel é dividido em quatro partes:
+
+1. Item de trabalho criado: o grafo e a tabela abaixo contêm a contagem do item de trabalho por tipo. Se você clicar no grafo ou na tabela, poderá ver mais detalhes sobre os itens de trabalho.
+    ![Captura de tela que mostra o item de trabalho criado.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
+2. Computadores afetados: as tabelas contêm detalhes sobre os itens de configuração que criaram itens de configuração.
+    Ao clicar em linhas nas tabelas, você poderá obter mais detalhes sobre os itens de configuração.
+    A tabela conterá um número limitado de linhas se você quiser ver toda a lista em que você pode clicar em "ver tudo".
+    ![Captura de tela que mostra os computadores afetados.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
+3. Status do conector: o grafo e a tabela abaixo contêm mensagens sobre o status do conector. Ao clicar no gráfico em linhas na tabela, você pode obter mais detalhes sobre as mensagens do status do conector.
+    A tabela conterá um número limitado de linhas se você quiser ver toda a lista em que você pode clicar em "ver tudo".
+    ![Captura de tela que mostra o status do conector.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
+4. Regras de alerta: as tabelas contêm as informações sobre o número de regras de alerta que foram detectadas.
+    Ao clicar em linhas nas tabelas, você poderá obter mais detalhes sobre as regras que foram detectadas.
+    A tabela conterá um número limitado de linhas se você quiser ver toda a lista em que você pode clicar em "ver tudo".
+    ![Captura de tela que mostra as regras de alerta.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
 
 ### <a name="service-map"></a>Mapa do serviço
 

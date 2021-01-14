@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: d3edadd4878dbd6e06648f7fb67a0c3e111665d1
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: da432ee3877af4de931ee6d55860b647090d8e3d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178119"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208770"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
 
@@ -31,8 +31,7 @@ A plataforma de identidade da Microsoft implementa o protocolo de autorização 
 * API do Microsoft 365 mail: `https://outlook.office.com`
 * Azure Key Vault: `https://vault.azure.net`
 
-> [!NOTE]
-> É altamente recomendável que você use Microsoft Graph em vez de Microsoft 365 API de email, etc.
+É altamente recomendável que você use Microsoft Graph em vez de Microsoft 365 API de email, etc.
 
 Isso se aplica a todos os recursos de terceiros que se integraram à plataforma de identidade da Microsoft. Qualquer um desses recursos também pode definir um conjunto de permissões que pode ser usado para dividir a funcionalidade desse recurso em partes menores. Por exemplo, o [Microsoft Graph](https://graph.microsoft.com) definiu permissões para realizar as seguintes tarefas, entre outras:
 
@@ -115,8 +114,7 @@ O parâmetro `scope` é uma lista de permissões delegadas separadas por espaço
 
 Depois que o usuário inserir suas credenciais, o ponto de extremidade da plataforma de identidade da Microsoft verificará se há um registro correspondente de *consentimento do usuário*. Se o usuário não consentiu em nenhuma das permissões solicitadas no passado, nem tem um administrador que consentiu essas permissões em nome de toda a organização, o ponto de extremidade da plataforma de identidade da Microsoft solicita que o usuário conceda as permissões solicitadas.
 
-> [!NOTE]
->Nesse momento, as permissões `offline_access` ("Manter o acesso aos dados para os quais recebeu acesso") e `user.read` ("Entrar e ler o seu perfil") são incluídas automaticamente no consentimento inicial para um aplicativo.  Essas permissões geralmente são necessárias para a funcionalidade adequada do aplicativo: `offline_access` dá ao aplicativo acesso aos tokens de atualização, essenciais para aplicativos Web e nativos, enquanto `user.read` dá acesso à declaração `sub`, permitindo que o cliente ou aplicativo identifique corretamente o usuário ao longo do tempo e acesse informações básicas do usuário.
+Nesse momento, as permissões `offline_access` ("Manter o acesso aos dados para os quais recebeu acesso") e `user.read` ("Entrar e ler o seu perfil") são incluídas automaticamente no consentimento inicial para um aplicativo.  Essas permissões geralmente são necessárias para a funcionalidade adequada do aplicativo: `offline_access` dá ao aplicativo acesso aos tokens de atualização, essenciais para aplicativos Web e nativos, enquanto `user.read` dá acesso à declaração `sub`, permitindo que o cliente ou aplicativo identifique corretamente o usuário ao longo do tempo e acesse informações básicas do usuário.
 
 ![Captura de tela de exemplo que mostra o consentimento da conta corporativa](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -148,8 +146,7 @@ Se o aplicativo estiver solicitando permissões de aplicativo e um administrador
 
 ## <a name="using-the-admin-consent-endpoint"></a>Usando o ponto de extremidade de consentimento do administrador
 
-> [!NOTE]
-> Observe que, depois de conceder o consentimento do administrador usando o ponto de extremidade de consentimento do administrador, você terminou de conceder o consentimento do administrador e os usuários não precisam executar outras ações adicionais. Depois de conceder o consentimento do administrador, os usuários poderão obter um token de acesso por meio de um fluxo de autenticação típico e o token de acesso resultante terá as permissões consentidas.
+Depois de conceder o consentimento do administrador usando o ponto de extremidade de consentimento do administrador, você terminou de conceder o consentimento do administrador e os usuários não precisam executar outras ações adicionais. Depois de conceder o consentimento do administrador, os usuários poderão obter um token de acesso por meio de um fluxo de autenticação típico e o token de acesso resultante terá as permissões consentidas.
 
 Quando um administrador da empresa usa seu aplicativo e é direcionado para o ponto de extremidade autorizado, a plataforma de identidade da Microsoft detecta a função do usuário e pergunta se ele gostaria de conceder as permissões solicitadas por você em nome de todo o locatário. No entanto, há também um ponto de extremidade de consentimento de administrador dedicado que você pode usar se quiser solicitar proativamente que um administrador conceda permissão em nome do locatário inteiro. O uso desse ponto de extremidade também é necessário para solicitar permissões de aplicativo (que não podem ser solicitadas usando o ponto de extremidade de autorização).
 
@@ -263,8 +260,7 @@ Você pode usar o `/.default` escopo para ajudar a migrar seus aplicativos do po
 
 O escopo/.default pode ser usado em qualquer fluxo OAuth 2,0, mas é necessário no fluxo [em nome de](v2-oauth2-on-behalf-of-flow.md) e no fluxo de [credenciais do cliente](v2-oauth2-client-creds-grant-flow.md), bem como ao usar o ponto de extremidade de consentimento do administrador v2 para solicitar permissões de aplicativo.
 
-> [!NOTE]
-> Os clientes não podem combinar `/.default` o consentimento estático () e dinâmico em uma única solicitação. Portanto, `scope=https://graph.microsoft.com/.default+mail.read` resultará em um erro devido à combinação de tipos de escopo.
+Os clientes não podem combinar `/.default` o consentimento estático () e dinâmico em uma única solicitação. Portanto, `scope=https://graph.microsoft.com/.default+mail.read` resultará em um erro devido à combinação de tipos de escopo.
 
 ### <a name="default-and-consent"></a>/.default e consentimento
 

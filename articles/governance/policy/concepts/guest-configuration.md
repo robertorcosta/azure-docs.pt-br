@@ -1,14 +1,14 @@
 ---
 title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como Azure Policy usa o cliente de configuração de convidado para auditar as configurações nas máquinas virtuais.
-ms.date: 10/14/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5ec43516c60d2fe5d923a7b87cddbea0ad640453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071826"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210113"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -101,11 +101,11 @@ Para servidores conectados em arco em data centers privados, permita o tráfego 
 
 ## <a name="managed-identity-requirements"></a>Requisitos de identidade gerenciada
 
-As definições de política na iniciativa [implantar pré-requisitos para habilitar políticas de configuração de convidado em máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) habilitam uma identidade gerenciada atribuída pelo sistema, caso não exista uma. Há duas definições de política na iniciativa que gerenciam a criação de identidade. As condições IF nas definições de política garantem o comportamento correto com base no estado atual do recurso de máquina no Azure.
+As definições de política na iniciativa _implantar pré-requisitos para habilitar políticas de configuração de convidado em máquinas virtuais_ habilitam uma identidade gerenciada atribuída pelo sistema, caso não exista uma. Há duas definições de política na iniciativa que gerenciam a criação de identidade. As condições IF nas definições de política garantem o comportamento correto com base no estado atual do recurso de máquina no Azure.
 
-Se o computador não tiver nenhuma identidade gerenciada no momento, a política efetiva será: versão [ \[ prévia \] : Adicionar identidade gerenciada atribuída pelo sistema para habilitar atribuições de configuração de convidado em máquinas virtuais sem identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+Se o computador não tiver nenhuma identidade gerenciada no momento, a política efetiva será: [Adicionar identidade gerenciada atribuída pelo sistema para habilitar atribuições de configuração de convidado em máquinas virtuais sem identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
-Se o computador tiver atualmente uma identidade de sistema atribuída pelo usuário, a política efetiva será: versão [ \[ prévia \] : Adicionar identidade gerenciada atribuída pelo sistema para habilitar atribuições de configuração de convidado em máquinas virtuais com uma identidade atribuída pelo usuário](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+Se o computador tiver atualmente uma identidade de sistema atribuída pelo usuário, a política efetiva será: [Adicionar identidade gerenciada atribuída pelo sistema para habilitar atribuições de configuração de convidado em VMs com uma identidade atribuída pelo usuário](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição da Configuração de Convidado
 
@@ -120,7 +120,7 @@ Azure Policy usa a propriedade **complianceStatus** do provedor de recursos de c
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditar configurações do sistema operacional seguindo as linhas de base do setor
 
-Uma iniciativa no Azure Policy fornece a capacidade de auditar as configurações do sistema operacional seguindo uma "linha de base". A definição, _\[Versão prévia\]: Auditar as VMs do Windows que não correspondem às configurações da linha de base de segurança do Azure_ inclui um conjunto de regras com base na Política de Grupo do Active Directory.
+Uma iniciativa no Azure Policy audita as configurações do sistema operacional seguindo uma "linha de base". A definição, versão _\[ prévia \] : computadores Windows devem atender aos requisitos para a linha de base de segurança do Azure_ inclui um conjunto de regras com base em Active Directory política de grupo.
 
 A maioria das configurações estão disponíveis como parâmetros. Os parâmetros permitem que você personalize o que é auditado.
 Alinhe a política com seus requisitos ou mapeie a política para informações de terceiros, como padrões regulatórios do setor.

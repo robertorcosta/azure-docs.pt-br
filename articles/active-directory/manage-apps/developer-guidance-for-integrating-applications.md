@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de16c947c59f5a0111b9325dbefe7daf1268fb40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 006aaf7ca5066c552f9c0b797549d7e90ac9beb7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649153"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208685"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócios para o Azure Active Directory
 Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (linha de negócios) para o Azure Active Directory (AD). O público-alvo é Active Directory/Microsoft 365 administradores globais.
@@ -70,7 +70,7 @@ Por padrão, cada usuário passa por uma experiência de consentimento para entr
 
 Para aplicativos em que você confia, você pode simplificar a experiência do usuário consentindo aplicativo em nome de sua organização.
 
-Para saber mais sobre o consentimento do usuário e sobre a experiência de consentimento no Azure, confira [Integrando aplicativos com o Azure Active Directory](../develop/quickstart-register-app.md).
+Para obter mais informações sobre o consentimento do usuário e a experiência de consentimento no Azure, consulte [noções básicas sobre experiências de consentimento de aplicativos do Azure ad](../develop/application-consent-experience.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Habilitar acesso remoto seguro a aplicativos locais com o Proxy de Aplicativo do Azure AD](application-proxy.md)

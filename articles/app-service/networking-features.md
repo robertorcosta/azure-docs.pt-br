@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5d950598e4a0af86ac37b53722e80eb4ef0a71a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183049"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210011"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -110,7 +110,7 @@ Esse recurso permite que você crie uma lista de regras de permissão e negaçã
 
 O recurso de restrições de acesso baseado em IP ajuda quando você deseja restringir os endereços IP que podem ser usados para acessar seu aplicativo. Há suporte para IPv4 e IPv6. Alguns casos de uso para esse recurso:
 * Restrinja o acesso ao seu aplicativo de um conjunto de endereços bem definidos. 
-* Restringir o acesso ao tráfego proveniente de um serviço de balanceamento de carga, como a porta frontal do Azure. Se você quiser bloquear seu tráfego de entrada para a porta frontal do Azure, crie regras para permitir o tráfego de 147.243.0.0/16 e 2a01:111:2050::/44. 
+* Restrinja o acesso ao tráfego proveniente de um serviço de balanceamento de carga externo ou de outros dispositivos de rede com endereços IP de egresso conhecidos. 
 
 Para saber como habilitar esse recurso, consulte [Configurando restrições de acesso][iprestrictions].
 
@@ -126,7 +126,20 @@ Alguns casos de uso para esse recurso:
 ![Diagrama que ilustra o uso de pontos de extremidade de serviço com o gateway de aplicativo.](media/networking-features/service-endpoints-appgw.png)
 
 Para saber mais sobre como configurar pontos de extremidade de serviço com seu aplicativo, consulte [Azure app restrições de acesso de serviço][serviceendpoints].
+#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Regras de restrição de acesso baseadas em marcas de serviço (versão prévia)
+As [marcas de serviço do Azure][servicetags] são conjuntos bem definidos de endereços IP para os serviços do Azure. As marcas de serviço agrupam os intervalos de IP usados em vários serviços do Azure e, muitas vezes, também estão no escopo de regiões específicas. Isso permite que você filtre o tráfego de *entrada* de serviços específicos do Azure. 
 
+Para obter uma lista completa de marcas e mais informações, visite o link de marca de serviço acima. Para saber como habilitar esse recurso, consulte [Configurando restrições de acesso][iprestrictions].
+#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtragem de cabeçalho HTTP para regras de restrição de acesso (versão prévia)
+Para cada regra de restrição de acesso, você pode adicionar filtragem de cabeçalho http adicional. Isso permite inspecionar ainda mais a solicitação e o filtro de entrada com base em valores de cabeçalho HTTP específicos. Cada cabeçalho pode ter até 8 valores por regra. Atualmente, há suporte para a seguinte lista de cabeçalhos http: 
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Alguns casos de uso para filtragem de cabeçalho HTTP são:
+* Restringir o acesso ao tráfego de servidores proxy encaminhando o nome do host
+* Restringir o acesso a uma instância específica do Azure front door com uma regra de marca de serviço e a restrição de cabeçalho X-Azure-FDID
 ### <a name="private-endpoint"></a>Ponto de extremidade privado
 
 O ponto de extremidade privado é uma interface de rede que conecta você de forma privada e segura ao seu aplicativo Web pelo link privado do Azure. O ponto de extremidade privado usa um endereço IP privado de sua rede virtual, colocando efetivamente o aplicativo Web em sua rede virtual. Esse recurso é apenas para fluxos de *entrada* para seu aplicativo Web.
@@ -280,7 +293,7 @@ Configurar pontos de extremidade privados vai expor seus aplicativos em um ender
 
 Se você verificar o serviço de aplicativo, encontrará várias portas que são expostas para conexões de entrada. Não há como bloquear ou controlar o acesso a essas portas no serviço multilocatário. Aqui está a lista de portas expostas:
 
-| Usar | Porta ou portas |
+| Use | Porta ou portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Gerenciamento | 454, 455 |
@@ -299,3 +312,4 @@ Se você verificar o serviço de aplicativo, encontrará várias portas que são
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md
+[servicetags]: ../virtual-network/service-tags-overview.md
