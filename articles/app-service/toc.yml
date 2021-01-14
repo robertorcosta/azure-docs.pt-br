@@ -102,6 +102,8 @@
   items:
     - name: Planos do Serviço de Aplicativo
       href: overview-hosting-plans.md
+    - name: Gerenciamento de custo
+      href: overview-manage-costs.md
     - name: Funcionalidade de SO
       href: operating-system-functionality.md
     - name: Melhores práticas de implantação
