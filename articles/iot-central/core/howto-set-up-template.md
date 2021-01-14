@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 9e5e96d97494f4ba9aa28e84b046cd057fe8eba7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 236acc2ded3fcb651295e0342ab4e1e88174be46
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033401"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202956"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central
 
@@ -42,8 +42,16 @@ Em um aplicativo IoT Central, um modelo de dispositivo usa um modelo de disposit
 
 - Crie o modelo de dispositivo no IoT Central e, em seguida, [implemente seu modelo de dispositivo no código do dispositivo](concepts-telemetry-properties-commands.md).
 - Importe um modelo de dispositivo do [Catálogo de dispositivos certificado pelo Azure para IOT](https://aka.ms/iotdevcat). Personalize o modelo de dispositivo para seus requisitos no IoT Central.
+> [!NOTE]
+> IoT Central requer o modelo completo com todas as interfaces referenciadas no mesmo arquivo, quando você importa um modelo do repositório de modelos, use a palavra-chave "Expanded" para obter a versão completa.
+Por exemplo. https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
+
 - Crie um modelo de dispositivo usando o [DTDL (digital gêmeos Definition Language)-versão 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). O Visual Studio Code tem uma extensão que dá suporte a criação de modelos DTDL. Para saber mais, confira [Instalar e usar as ferramentas de criação DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Em seguida, publique o modelo no repositório de modelo público. Para saber mais, consulte [repositório de modelos de dispositivo](../../iot-pnp/concepts-model-repository.md). Implemente o código do dispositivo do modelo e conecte seu dispositivo real ao seu aplicativo IoT Central. IoT Central localiza e importa o modelo de dispositivo do repositório público para você e gera um modelo de dispositivo. Em seguida, você pode adicionar propriedades de nuvem, personalizações e dashboards necessários para o aplicativo do IoT Central ao modelo de dispositivo.
 - Crie um modelo de dispositivo usando o DTDL. Implemente o código do dispositivo do modelo. Importe manualmente o modelo de dispositivo para seu aplicativo IoT Central e, em seguida, adicione quaisquer propriedades de nuvem, personalizações e painéis de que seu aplicativo IoT Central precisa.
+
+> [!TIP]
+> IoT Central requer o modelo completo com todas as interfaces referenciadas no mesmo arquivo. Quando você importa um modelo do repositório de modelos, use a palavra-chave *Expanded* para obter a versão completa.
+> Por exemplo, [https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json](https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json).
 
 Você também pode adicionar modelos de dispositivo a um aplicativo IoT Central usando a [API REST](/learn/modules/manage-iot-central-apps-with-rest-api/) ou a [CLI](howto-manage-iot-central-from-cli.md).
 
@@ -122,7 +130,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do valor de telemetria usado em dashboards e formulários. |
-| Nome | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
+| Name | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Telemetria. |
 | Tipo Semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados telemétricos, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
@@ -131,7 +139,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Unidade | Uma unidade para o valor de telemetria, como **mph**, **%** ou **&deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de telemetria. |
-| Descrição | Uma descrição da funcionalidade de telemetria. |
+| Description | Uma descrição da funcionalidade de telemetria. |
 
 ### <a name="properties"></a>Propriedades
 
@@ -142,7 +150,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do valor da propriedade usado em dashboards e formulários. |
-| Nome | O nome da propriedade. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
+| Name | O nome da propriedade. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Propriedade. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
@@ -152,7 +160,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Unidade | Uma unidade para o valor da propriedade, como **mph**, **%** ou **&deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
 | Comentário | Comentários sobre a funcionalidade de propriedade. |
-| Descrição | Uma descrição da funcionalidade de propriedade. |
+| Description | Uma descrição da funcionalidade de propriedade. |
 
 ### <a name="commands"></a>Comandos
 
@@ -163,10 +171,10 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do comando usado em dashboards e formulários. |
-| Nome | O nome do comando. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
+| Name | O nome do comando. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. Este campo precisa ser alfanumérico. |
 | Tipo de Funcionalidade | Comando. |
 | Comentário | Comentários sobre a funcionalidade de comando. |
-| Descrição | Uma descrição da funcionalidade de comando. |
+| Description | Uma descrição da funcionalidade de comando. |
 | Solicitação | Se habilitada, uma definição do parâmetro de solicitação, incluindo nome, nome de exibição, esquema, unidade e unidade de exibição. |
 | Resposta | Se habilitada, uma definição da resposta do comando, incluindo nome, nome de exibição, esquema, unidade e unidade de exibição. |
 
@@ -202,7 +210,7 @@ A seguinte tabela mostra as definições de configuração para uma propriedade 
 | Campo | Descrição |
 | ----- | ----------- |
 | Nome de exibição | O nome de exibição do valor da propriedade de nuvem usado em dashboards e formulários. |
-| Nome | O nome da propriedade de nuvem. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
+| Name | O nome da propriedade de nuvem. O IoT Central gera um valor para esse campo com base no nome de exibição, mas você pode escolher seu próprio valor, se necessário. |
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade de nuvem, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. |
 

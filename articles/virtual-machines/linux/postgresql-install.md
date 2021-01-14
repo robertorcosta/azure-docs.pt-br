@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: fdde7613627c9fec0694f3985f78cf10e52f59c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4052a9c8614a17c3b5cdd871ad78be8cc3258c5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397089"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202582"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
 PostgreSQL é um banco de dados avançado de código aberto semelhante ao Oracle e DB2. Ele inclui recursos corporativos como conformidade total com ACID, processamento transacional confiável e controle de simultaneidade de várias versões. Também oferece suporte a padrões como ANSI SQL e SQL/MED (inclusive wrappers de dados externos para Oracle, MySQL, MongoDB e muitos outros). Ele é altamente extensível com suporte para mais de 12 idiomas de procedimento, índices GIN e GiST, dados espaciais e vários recursos como NoSQL para aplicativos JSON ou de chave-valor.
@@ -24,13 +24,13 @@ Neste artigo, você aprenderá a instalar e configurar PostgreSQL em uma máquin
 
 ## <a name="install-postgresql"></a>Instalar o PostgreSQL
 > [!NOTE]
-> Você já deve ter uma máquina virtual do Azure executando o Linux para concluir este tutorial. Para criar e configurar uma VM Linux antes de continuar, consulte o [tutorial da VM Linux do Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Você já deve ter uma máquina virtual do Azure executando o Linux para concluir este tutorial. Para criar e configurar uma VM Linux antes de continuar, consulte o [tutorial da VM Linux do Azure](quick-create-cli.md).
 > 
 > 
 
 Nesse caso, use a porta 1999 como a porta do PostgreSQL.  
 
-Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você está usando uma VM Linux do Azure, consulte [Como usar SSH com Linux no Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para saber como usar PuTTY para se conectar a uma VM Linux.
+Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você está usando uma VM Linux do Azure, consulte [Como usar SSH com Linux no Azure](mac-create-ssh-keys.md) para saber como usar PuTTY para se conectar a uma VM Linux.
 
 1. Execute o seguinte comando para alternar para a raiz (admin):
 
@@ -169,7 +169,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
 ## <a name="set-up-postgresql"></a>Configurar o PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
 
-Execute os comandos a seguir:
+Execute os seguintes comandos:
 
 ```console
 # cd /root/postgresql-9.3.5/contrib/start-scripts
@@ -205,7 +205,7 @@ Verifique se o ponto de extremidade do PostgreSQL está em:
 # netstat -tunlp|grep 1999
 ```
 
-A seguinte saída deve ser exibida:
+Você deve ver o seguinte resultado:
 
 ![Captura de tela que mostra que o ponto de extremidade do PostgreSQL está ativado.](./media/postgresql-install/no3.png)
 
@@ -259,7 +259,7 @@ Primeiro, insira as informações em uma linha:
 INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
 ```
 
-Você deverá ver esta saída:
+Você deverá ver este resultado:
 
 ![Captura de tela que mostra as informações de linha que você adicionou.](./media/postgresql-install/no6.png)
 
@@ -293,7 +293,7 @@ delete from potluck where name=’John’;
 
 Isso exclui todas as informações na linha "John". A saída é:
 
-![imagem](./media/postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Atualizar dados em uma tabela
 Use o seguinte comando para atualizar dados em uma tabela. Para isso, arenoso confirmou que eles estão participando, portanto, alteraremos o RSVP de "N" para "Y":

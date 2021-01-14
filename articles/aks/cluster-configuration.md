@@ -3,15 +3,15 @@ title: Configuração de cluster no AKS (Serviços de Kubernetes do Azure)
 description: Saiba como configurar um cluster no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 01/13/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: ab9e2a5483f0699ad7bfca991539025adff34b11
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: eacca50e00dfe8625d86362c444544e2fd5d5511
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606905"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201103"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -21,10 +21,52 @@ Como parte da criação de um cluster do AKS, talvez seja necessário personaliz
 
 O AKS agora dá suporte ao Ubuntu 18, 4 como o sistema operacional do nó (SO) em disponibilidade geral para clusters em versões do kubernetes superiores a 1.18.8. Para as versões abaixo de 18E. x, o AKS Ubuntu 16, 4 ainda é a imagem base padrão. Do kubernetes v 18E. x e em diante, a base padrão é AKS Ubuntu 18, 4.
 
-> [!IMPORTANT]
-> Pools de nós criados em kubernetes v 18E ou superior padrão para `AKS Ubuntu 18.04` imagem de nó. Pools de nós em uma versão de kubernetes com suporte inferior a 1,18 recebem `AKS Ubuntu 16.04` como a imagem de nó, mas serão atualizados para `AKS Ubuntu 18.04` quando a versão do pool de nós kubernetes for atualizada para v 18E ou superior.
-> 
-> É altamente recomendável testar suas cargas de trabalho em pools de nós do AKS Ubuntu 18, 4 antes de usar clusters em 1,18 ou superior. Leia sobre como [testar pools de nós do Ubuntu 18, 4](#use-aks-ubuntu-1804-existing-clusters-preview).
+### <a name="use-aks-ubuntu-1804-generally-available-on-new-clusters"></a>Usar o AKS Ubuntu 18, 4 geralmente disponível em novos clusters
+
+Clusters criados em kubernetes v 18E ou superior padrão para `AKS Ubuntu 18.04` imagem de nó. Os pools de nós em uma versão do kubernetes com suporte inferior a 1,18 ainda serão recebidos `AKS Ubuntu 16.04` como a imagem do nó, mas serão atualizados para `AKS Ubuntu 18.04` quando a versão do cluster ou do pool de nós kubernetes for atualizada para o v 18E ou superior.
+
+É altamente recomendável testar suas cargas de trabalho em pools de nós do AKS Ubuntu 18, 4 antes de usar clusters em 1,18 ou superior. Leia sobre como [testar pools de nós do Ubuntu 18, 4](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+
+Para criar um cluster usando a `AKS Ubuntu 18.04` imagem do nó, basta criar um cluster executando o kubernetes v 18E ou superior, conforme mostrado abaixo
+
+```azurecli
+az aks create --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="use-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Usar o AKS Ubuntu 18, 4 geralmente disponível em clusters existentes
+
+Clusters criados em kubernetes v 18E ou superior padrão para `AKS Ubuntu 18.04` imagem de nó. Os pools de nós em uma versão do kubernetes com suporte inferior a 1,18 ainda serão recebidos `AKS Ubuntu 16.04` como a imagem do nó, mas serão atualizados para `AKS Ubuntu 18.04` quando a versão do cluster ou do pool de nós kubernetes for atualizada para o v 18E ou superior.
+
+É altamente recomendável testar suas cargas de trabalho em pools de nós do AKS Ubuntu 18, 4 antes de usar clusters em 1,18 ou superior. Leia sobre como [testar pools de nós do Ubuntu 18, 4](#test-aks-ubuntu-1804-generally-available-on-existing-clusters).
+
+Se os clusters ou pools de nós estiverem prontos para a `AKS Ubuntu 18.04` imagem de nó, você poderá simplesmente atualizá-los para um v 18E ou superior, como mostrado abaixo.
+
+```azurecli
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+Se você apenas deseja atualizar apenas um pool de nós:
+
+```azurecli
+az aks nodepool upgrade -name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="test-aks-ubuntu-1804-generally-available-on-existing-clusters"></a>Testar AKS Ubuntu 18, 4 geralmente disponível em clusters existentes
+
+Pools de nós criados em kubernetes v 18E ou superior padrão para `AKS Ubuntu 18.04` imagem de nó. Os pools de nós em uma versão de kubernetes com suporte inferior a 1,18 ainda serão recebidos `AKS Ubuntu 16.04` como a imagem de nó, mas serão atualizados para `AKS Ubuntu 18.04` quando a versão do pool de nós kubernetes for atualizada para o v 18E ou superior.
+
+É altamente recomendável testar suas cargas de trabalho em pools de nós do AKS Ubuntu 18, 4 antes de atualizar seus pools de nós de produção.
+
+Para criar um pool de nós usando a `AKS Ubuntu 18.04` imagem do nó, basta criar um pool de nós executando o kubernetes v 18E ou superior. O plano de controle de cluster precisa ser pelo menos no v 18E ou superior, mas os outros pools de nós podem permanecer em uma versão mais antiga do kubernetes.
+A seguir, atualizamos primeiro o plano de controle e, em seguida, criamos um novo pool de nós com v 18E que receberá a nova versão do sistema operacional da imagem do nó.
+
+```azurecli
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14 --control-plane-only
+
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.18.14
+```
+
+### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>Usar o AKS Ubuntu 18, 4 em novos clusters (versão prévia)
 
 A seção a seguir explicará como usar e testar o AKS Ubuntu 18, 4 em clusters que ainda não estão usando uma versão kubernetes 18E. x ou superior, ou foram criados antes que esse recurso fique disponível para o público em geral, usando a visualização de configuração do so.
 
@@ -57,8 +99,6 @@ Quando o status aparecer como registrado, atualize o registro do provedor de rec
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
-
-### <a name="use-aks-ubuntu-1804-on-new-clusters-preview"></a>Usar o AKS Ubuntu 18, 4 em novos clusters (versão prévia)
 
 Configure o cluster para usar o Ubuntu 18.04 quando o cluster for criado. Use o sinalizador `--aks-custom-headers` para definir o Ubuntu 18.04 como o SO padrão.
 

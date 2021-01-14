@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4e82b4adbfde7623de9497c94e56a9ae303131ad
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461277"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202769"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de base de segurança do Azure para Azure Data Factory
 
 A linha de base de segurança do Azure para Azure Data Factory contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações de como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
 Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
@@ -331,7 +331,7 @@ Além disso, no nível do locatário, Azure Active Directory (AD) tem funções 
 
 Embora o Azure AD seja o método recomendado para administrar o acesso do usuário, tenha em mente que, se você estiver executando Integration Runtime em uma VM (máquina virtual) do Azure, sua VM também poderá ter contas locais. As contas locais e de domínio devem ser examinadas e gerenciadas, normalmente com uma superfície mínima. Além disso, aconselhamos que o Privileged Identity Manager seja revisado pelo recurso just in time para reduzir a disponibilidade de permissões administrativas.
 
-* [Funções e permissões para o Azure Data Factory](./concepts-roles-permissions.md)
+* [Funções e permissões do Azure Data Factory](./concepts-roles-permissions.md)
 
 * [Informações sobre o Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
@@ -370,7 +370,7 @@ Se você estiver executando seu Integration Runtime em uma máquina virtual do A
 
 * [Informações sobre o Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Funções e permissões para o Azure Data Factory](./concepts-roles-permissions.md)
+* [Funções e permissões do Azure Data Factory](./concepts-roles-permissions.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -408,7 +408,7 @@ Se você estiver executando seu Integration Runtime em uma máquina virtual do A
 
 **Diretriz**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA (autenticação multifator) configurada para fazer logon e configurar os recursos do Azure.
 
-* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Como habilitar a MFA no Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -608,7 +608,7 @@ Para suas Data Factory fontes de dados, como o banco de dado SQL do Azure, consu
 
 * [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
-* [Funções e permissões para o Azure Data Factory](./concepts-roles-permissions.md)
+* [Funções e permissões do Azure Data Factory](./concepts-roles-permissions.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -900,7 +900,7 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 * [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md)
 
-* [O que é a rede virtual do Azure?](../virtual-network/virtual-networks-overview.md)
+* [O que é a Rede Virtual do Azure?](../virtual-network/virtual-networks-overview.md)
 
 * [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md)
 
@@ -994,7 +994,7 @@ A função colaborador de Data Factory pode ser usada para criar e gerenciar fá
 
 * [Como configurar o RBAC do Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-* [Funções e permissões para o Azure Data Factory](./concepts-roles-permissions.md)
+* [Funções e permissões do Azure Data Factory](./concepts-roles-permissions.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

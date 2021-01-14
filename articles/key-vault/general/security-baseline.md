@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7d116010d5e6fea5e1ba8a66431b874194506283
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ad47ac7d51de6ab497d7061961c14b5324fab931
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843444"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202446"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de base de segurança do Azure para o Key Vault
 
@@ -399,7 +399,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Diretrizes**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure ad configurada para fazer logon e configurar Key Vault recursos habilitados. 
 
-Estações de trabalho com acesso privilegiado: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+Estações de trabalho com acesso privilegiado: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/ 
 
 Planejando uma implantação da autenticação multifator do Azure AD baseada em nuvem: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -1261,7 +1261,7 @@ https://docs.microsoft.com/azure/security-center/continuous-export
 
   
 
-Como transmitir alertas para o Azure Sentinel:  
+Como transmitir alertas para o Azure Sentinel: 
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 

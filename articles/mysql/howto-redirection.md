@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: bea618b34809544308caba46a0ffbdecee91d69f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 199810f835924ccbb51948169244622a19c5e8ed
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541803"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201426"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Conectar-se ao Banco de Dados do Azure para MySQL com redirecionamento
 
@@ -21,6 +21,9 @@ Este tópico explica como conectar um aplicativo ao servidor do Banco de Dados d
 Entre no [portal do Azure](https://portal.azure.com). Crie um servidor do Banco de Dados do Azure para MySQL com a versão do mecanismo 5.6, 5.7 ou 8.0. 
 
 Para obter detalhes, consulte como criar um servidor de banco de dados do Azure para MySQL usando o [portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md) ou [CLI do Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+> [!IMPORTANT]
+> No momento, não há suporte para o redirecionamento com o [link privado para o banco de dados do Azure para MySQL](concepts-data-access-security-private-link.md).
 
 ## <a name="enable-redirection"></a>Habilitar redirecionamento
 

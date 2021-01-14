@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 96603d27f53161c72c9e81bb7b84fdc6ab5d1ca2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6699db280c4d82867d5559255eab08fd6b55b65a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320057"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201511"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Visualização: Criar uma imagem do Windows e distribuí-la para uma Galeria de Imagens Compartilhadas 
 
@@ -20,7 +20,7 @@ Este artigo mostra como você pode usar o Construtor de Imagens do Azure e o Azu
 
 Usaremos um modelo .json para configurar a imagem. O arquivo .json que estamos usando está aqui: [armTemplateWinSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Vamos baixar e editar uma versão local do modelo, assim, este artigo é escrito usando a sessão local do PowerShell.
 
-Para distribuir a imagem a uma Galeria de Imagens Compartilhadas, o modelo usa [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) como o valor da seção `distribute` do modelo.
+Para distribuir a imagem a uma Galeria de Imagens Compartilhadas, o modelo usa [sharedImage](../linux/image-builder-json.md#distribute-sharedimage) como o valor da seção `distribute` do modelo.
 
 O Construtor de Imagens do Azure executa automaticamente sysprep para generalizar a imagem. Esse é um comando sysprep genérico que você pode [substituir](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully), se necessário. 
 

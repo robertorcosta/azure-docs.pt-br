@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 236390529ddaf84416448138d7b5bdf31caf681b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: fa133e7c62b7970a1c48c7fd86c877bcf699e034
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827488"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201596"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como usar o diagnóstico de inicialização para solucionar problemas das máquinas virtuais no Azure
 
@@ -94,4 +94,4 @@ Para habilitar o diagnóstico de inicialização em uma máquina virtual existen
 
 ### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Habilitar o diagnóstico de inicialização usando a CLI do Azure
 
-Use a CLI do Azure para habilitar o diagnóstico de inicialização em uma máquina virtual existente do Azure. Para obter mais informações, confira [az vm boot-diagnostics](/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).
+Use a CLI do Azure para habilitar o diagnóstico de inicialização em uma máquina virtual existente do Azure. Para obter mais informações, confira [az vm boot-diagnostics](/cli/azure/vm/boot-diagnostics).
