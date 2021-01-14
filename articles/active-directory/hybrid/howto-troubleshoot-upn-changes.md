@@ -140,7 +140,7 @@ Permita tempo suficiente para que a alteração de UPN seja sincronizada com o A
 ![Captura de tela dos domínios verificados](./media/howto-troubleshoot-upn-changes/other-user.png)
 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD híbrido
+### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos ingressado no Azure AD Híbrido
 
 Dispositivos [ingressados no Azure ad híbrido](../devices/concept-azure-ad-join-hybrid.md) são associados a Active Directory e ao Azure AD. Você pode implementar o ingresso no Azure AD híbrido se o seu ambiente tiver uma superfície de Active Directory local e você também quiser se beneficiar dos recursos fornecidos pelo Azure AD.
 
