@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 9762ca79f73b3333045d1c11376ab315aac2d55e
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: fb9d74da6030c430cce4a2a3c4c5e4299183ca15
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808650"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132251"
 ---
 > [!IMPORTANT]
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Confira a documentação de referência abaixo. 
@@ -100,8 +100,8 @@ Estes snippets de código mostram como executar as seguintes tarefas com a bibli
 #### <a name="version-20"></a>[versão 2.0](#tab/ga)
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Reconhecer o conteúdo do formulário](#recognize-form-content)
-* [Reconhecer recibos](#recognize-receipts)
+* [Analisar layout](#analyze-layout)
+* [Analisar recibos](#analyze-receipts)
 * [Treinar um modelo personalizado](#train-a-custom-model)
 * [Analisar formulários com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerenciar seus modelos personalizados](#manage-your-custom-models)
@@ -109,10 +109,10 @@ Estes snippets de código mostram como executar as seguintes tarefas com a bibli
 #### <a name="version-21-preview"></a>[versão 2.1 – versão prévia](#tab/preview)
 
 * [Autenticar o cliente](#authenticate-the-client)
-* [Reconhecer o conteúdo do formulário](#recognize-form-content)
-* [Reconhecer recibos](#recognize-receipts)
-* [Reconhecer cartões de visita](#recognize-business-cards)
-* [Reconhecer faturas](#recognize-invoices)
+* [Analisar layout](#analyze-layout)
+* [Analisar recibos](#analyze-receipts)
+* [Analisar cartões de visita](#analyze-business-cards)
+* [Analisar faturas](#analyze-invoices)
 * [Treinar um modelo personalizado](#train-a-custom-model)
 * [Analisar formulários com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerenciar seus modelos personalizados](#manage-your-custom-models)
@@ -137,7 +137,7 @@ Você precisará adicionar referências às URLs para os dados de treinamento e 
 > [!NOTE]
 > Os snippets de código deste guia usam formulários remotos acessados por URLs. Caso deseje processar documentos de formulário local, confira os métodos relacionados na [documentação de referência](/python/api/azure-ai-formrecognizer) e nas [amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
-## <a name="recognize-form-content"></a>Reconhecer o conteúdo do formulário
+## <a name="analyze-layout"></a>Analisar layout
 
 Use o Reconhecimento de Formulários para reconhecer tabelas, linhas e palavras em documentos, sem a necessidade de treinar um modelo.
 
@@ -171,7 +171,7 @@ Confidence score: 1.0
 
 ```
 
-## <a name="recognize-receipts"></a>Reconhecer recibos
+## <a name="analyze-receipts"></a>Analisar recibos
 
 Esta seção demonstra como reconhecer e extrair campos comuns de recibos dos EUA usando um modelo de recibo pré-treinado. Para reconhecer recibos de uma URL, use o método `begin_recognize_receipts_from_url`. 
 
@@ -203,7 +203,7 @@ Total: 1203.39 has confidence 0.774
 ```
 
 
-## <a name="recognize-business-cards"></a>Reconhecer cartões de visita
+## <a name="analyze-business-cards"></a>Analisar cartões de visita
 
 #### <a name="version-20"></a>[versão 2.0](#tab/ga)
 
@@ -221,7 +221,7 @@ Esta seção demonstra como reconhecer e extrair campos comuns de cartões de vi
 
 ---
 
-## <a name="recognize-invoices"></a>Reconhecer faturas
+## <a name="analyze-invoices"></a>Analisar faturas
 
 #### <a name="version-20"></a>[versão 2.0](#tab/ga)
 

@@ -63,19 +63,8 @@
         - name: Usar o Azure Lab Services dentro do Teams
           items:
             - name: Visão geral
+              displayName: labs within Teams
               href: lab-services-within-teams-overview.md
-            - name: Criar um laboratório por meio do Teams
-              href: how-to-get-started-create-lab-within-teams.md
-            - name: Gerenciar listas do usuário
-              href: how-to-manage-user-lists-within-teams.md
-            - name: Gerenciar pool de VMs
-              href: how-to-manage-vm-pool-within-teams.md
-            - name: Excluir laboratórios
-              href: how-to-delete-lab-within-teams.md
-            - name: Agendamentos e configurações
-              href: how-to-create-schedules-within-teams.md
-            - name: Acessar uma VM (exibição de estudante)
-              href: how-to-access-vm-for-students-within-teams.md
 - name: Guias de instruções
   items:
     - name: Guia do administrador
@@ -164,6 +153,20 @@
           href: how-to-set-virtual-machine-passwords-student.md
         - name: Exibir informações de suporte (aluno)
           href: lab-user-support-information.md
+    - name: Usar laboratórios dentro do Teams
+      items:
+        - name: Criar um laboratório por meio do Teams
+          href: how-to-get-started-create-lab-within-teams.md
+        - name: Gerenciar listas do usuário
+          href: how-to-manage-user-lists-within-teams.md
+        - name: Gerenciar pool de VMs
+          href: how-to-manage-vm-pool-within-teams.md
+        - name: Excluir laboratórios
+          href: how-to-delete-lab-within-teams.md
+        - name: Agendamentos e configurações
+          href: how-to-create-schedules-within-teams.md
+        - name: Acessar uma VM (exibição de estudante)
+          href: how-to-access-vm-for-students-within-teams.md
 - name: Referência
   items:
     - name: API REST

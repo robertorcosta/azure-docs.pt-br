@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 0cdb82bbf38244bc91ed54ffb7d7d734cefe9dd2
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183312"
+ms.locfileid: "98195867"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -169,7 +169,7 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 ### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Tendo problemas para registrar o provedor de recursos da Microsoft. Change Analysis no histórico de alterações guia
 Se for a primeira vez que você exibir o histórico de alterações após sua integração com a análise de alterações do aplicativo, você verá que ele registra automaticamente um provedor de recursos **Microsoft. ChangeAnalysis**. Em casos raros, pode ocorrer falha pelos seguintes motivos:
@@ -206,8 +206,10 @@ Esta é a mensagem de erro geral apresentada pelo serviço de análise de altera
 Esta é a mensagem de erro geral não autorizada, explicando que o usuário atual não tem permissões suficientes para exibir a alteração. Pelo menos acesso de leitor é necessário no recurso para exibir as alterações de infraestrutura retornadas pelo grafo de recursos do Azure e Azure Resource Manager. Para alterações no arquivo de aplicativo Web no convidado e alterações de configuração, pelo menos a função de colaborador é necessária.
 
 ### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Falha ao registrar o provedor de recursos Microsoft. ChangeAnalysis
+Essa mensagem significa que algo falhou imediatamente porque a interface do usuário enviou a solicitação para registrar o provedor de recursos e não está relacionada ao problema de permissão. É provável que possa ser um problema de conectividade de Internet temporário. Tente atualizar a página e verificar sua conexão com a Internet. Se o erro persistir, contate changeanalysishelp@microsoft.com
  
-**Você não tem permissões suficientes para registrar o provedor de recursos Microsoft. ChangeAnalysis. Contate o administrador da assinatura do Azure.** Essa mensagem de erro significa que sua função na assinatura atual não tem o escopo **Microsoft. support/Register/Action** associado a ela. Isso pode acontecer se você não for o proprietário de uma assinatura e tiver permissões de acesso compartilhado por meio de um colega de colaborador. ou seja, exiba o acesso a um grupo de recursos. Para corrigir isso, você pode entrar em contato com o proprietário da sua assinatura para registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Isso pode ser feito em portal do Azure por meio de **assinaturas | Provedores de recursos** e pesquisam ```Microsoft.ChangeAnalysis``` e registram na interface do usuário, ou por meio de Azure PowerShell ou CLI do Azure.
+### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>Você não tem permissões suficientes para registrar o provedor de recursos Microsoft. ChangeAnalysis. Contate o administrador da assinatura do Azure.
+Essa mensagem de erro significa que sua função na assinatura atual não tem o escopo **Microsoft. support/Register/Action** associado a ela. Isso pode acontecer se você não for o proprietário de uma assinatura e tiver permissões de acesso compartilhado por meio de um colega de colaborador. ou seja, exiba o acesso a um grupo de recursos. Para corrigir isso, você pode entrar em contato com o proprietário da sua assinatura para registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Isso pode ser feito em portal do Azure por meio de **assinaturas | Provedores de recursos** e pesquisam ```Microsoft.ChangeAnalysis``` e registram na interface do usuário, ou por meio de Azure PowerShell ou CLI do Azure.
 
 Registrar provedor de recursos por meio do PowerShell: 
 

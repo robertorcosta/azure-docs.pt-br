@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f9930f42e7d76820674405a98ef53489b91f31f5
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 12c7fd1d8ee36b562cd651f50fd0565825441883
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985681"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197380"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Linha de base de segurança do Azure para o banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -383,7 +383,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Diretrizes**: habilite a MFA (autenticação multifator) do Azure AD (Azure Active Directory) e siga as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure.
 
-Como habilitar a MFA no Azure: 
+Como habilitar a MFA no Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -401,9 +401,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 Saiba mais sobre estações de trabalho com acesso privilegiado: 
 
-https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
 
-Como habilitar a MFA no Azure: 
+Como habilitar a MFA no Azure:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -617,7 +617,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-control-access
 
 **Diretrizes**: a Microsoft gerencia a infraestrutura subjacente para o banco de dados SQL do Azure e implementou controles estritos para evitar a perda ou a exposição dos clientes.
 
-Entenda a proteção de dados do cliente no Azure: 
+Entender a proteção de dados do cliente no Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -875,7 +875,7 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 **Diretrizes**: Use Azure Policy ou as recomendações da central de segurança do Azure para o banco de dados SQL do Azure para manter as configurações de segurança para todos os recursos do Azure.
 
-Como configurar e gerenciar o Azure Policy: 
+Como configurar e gerenciar Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -1155,7 +1155,7 @@ https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Diretrizes**: as informações de contato de incidente de segurança serão usadas pela Microsoft para entrar em contato com você se o MSRC (Microsoft Security Response Center) descobre que seus dados foram acessados por uma entidade ilegal ou não autorizada.
 
-Como definir o contato de segurança da Central de Segurança do Azure: 
+Como definir o contato da segurança da central de segurança do Azure:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
@@ -1171,7 +1171,7 @@ Como configurar a exportação contínua:
 
 https://docs.microsoft.com/azure/security-center/continuous-export
 
-Como transmitir alertas para o Azure Sentinel: 
+Como transmitir alertas para o Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 

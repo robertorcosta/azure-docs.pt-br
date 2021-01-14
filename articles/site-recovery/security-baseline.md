@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 860bc9440547a4c62336ccc573859ec56b3400b5
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533852"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197567"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Linha de base de segurança do Azure para Site Recovery
 
@@ -222,7 +222,7 @@ Crie um processo para controlar a identidade e o controle de acesso para contas 
 
 **Orientação**: Use uma estação de trabalho segura e gerenciada pelo Azure (também conhecida como Paw (estação de trabalho de acesso privilegiado) com a autenticação multifator do Azure para tarefas administrativas e para executar ações privilegiadas em site Recovery recursos.
 
-- [Estações de trabalho com acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Estações de trabalho com acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../active-directory/authentication/howto-mfa-getstarted.md)
 

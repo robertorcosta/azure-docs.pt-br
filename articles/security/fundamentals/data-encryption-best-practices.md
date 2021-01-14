@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c88a2cf33cf1149a17af4a82dcf2858822f0c6d4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696142"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196071"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança de dados e criptografia do Azure
 Este artigo descreve as práticas recomendadas para segurança e criptografia de dados.
@@ -74,7 +74,7 @@ Use o RBAC do Azure para controlar o que os usuários têm acesso. Por exemplo, 
 Uma vez que a maioria dos ataques tem o usuário final como alvo, o ponto de extremidade se torna um dos principais pontos de ataque. Um invasor se compromete com o ponto de extremidade, ele poderá aproveitar as credenciais do usuário para obter acesso aos dados da organização. A maioria dos ataques de ponto de extremidade aproveita o fato dos usuários finais serem os administradores em suas estações de trabalho locais.
 
 **Prática recomendada**: usar uma estação de trabalho de gerenciamento seguro para proteger contas confidenciais, tarefas e dados.   
-**Detalhe**: Use uma [estação de trabalho de acesso privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations) para reduzir a superfície de ataque em estações de trabalho. Essas estações de trabalho de gerenciamento seguras podem ajudar a atenuar alguns desses ataques e a garantir que seus dados ficarão mais seguros.
+**Detalhe**: Use uma [estação de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) para reduzir a superfície de ataque em estações de trabalho. Essas estações de trabalho de gerenciamento seguras podem ajudar a atenuar alguns desses ataques e a garantir que seus dados ficarão mais seguros.
 
 **Prática recomendada**: assegurar a proteção de ponto de extremidade.   
 **Detalhes**: impor políticas de segurança em todos os dispositivos que são usados para consumir dados, independentemente do local de dados (nuvem ou local).

@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, processamento de formulários
-ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845518"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044757"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -42,11 +42,11 @@ Para experimentar o serviço Reconhecimento de Formulários, acesse a ferramenta
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Experimentar modelos predefinidos](https://fott.azurewebsites.net/)
+> [Experimentar o Reconhecimento de Formulários](https://fott.azurewebsites.net/)
 
 # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)
 > [!div class="nextstepaction"]
-> [Experimentar modelos predefinidos](https://fott-preview.azurewebsites.net/)
+> [Experimentar o Reconhecimento de Formulários](https://fott-preview.azurewebsites.net/)
 
 ---
 
@@ -152,7 +152,18 @@ Explore a [documentação de referência da API REST](https://westus2.dev.cognit
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Implantação local usando contêineres do Docker
 
-[Use os contêineres do Reconhecimento de Formulários (versão prévia)](form-recognizer-container-howto.md) para implantar recursos de API no local. Esse contêiner do Docker permite que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais.
+[Use os contêineres do Reconhecimento de Formulários (versão prévia)](form-recognizer-container-howto.md) para implantar recursos de API no local. Esse contêiner do Docker permite que você aproxime o serviço dos seus dados para fins de conformidade, segurança ou outras razões operacionais. 
+
+## <a name="service-availability-and-redundancy"></a>Disponibilidade e redundância do serviço
+
+### <a name="is-form-recognizer-service-zone-resilient"></a>O serviço de Reconhecimento de Formulários é resiliente por zona?
+
+Sim. O serviço de Reconhecimento de Formulários é resiliente por zona por padrão.
+
+### <a name="how-do-i-configure-the-form-recognizer-service-to-be-zone-resilient"></a>Como faço para configurar o serviço de Reconhecimento de Formulários para ser resiliente por zona?
+
+Nenhuma configuração do cliente será necessária para habilitar a resiliência de zona. A resiliência por zona para recursos do Reconhecimento de Formulários está disponível por padrão e é gerenciada pelo próprio serviço.
+
 
 ## <a name="data-privacy-and-security"></a>Segurança e privacidade de dados
 

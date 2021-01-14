@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3c1c7ac8fe8b7adf287bcde30a054df5ebaa63d7
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2b6ea68d069b90293ab35024bebf3fbdc8acb592
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337433"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197669"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos Apache Hadoop de terceiros no Azure HDInsight
 
@@ -37,7 +37,7 @@ A lista a seguir mostra os aplicativos publicados:
 |[Starburst Presto para Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1579800938563.starburst-presto?tab=Overview) |O Hadoop |Presto é um rápido e escalonável distribuído mecanismo de consulta SQL. Arquitetado para a separação de armazenamento e computação, o Presto é perfeito para consultar dados no Azure Data Lake Storage, no Armazenamento de Blobs do Azure, em bancos de dados SQL e NoSQL e em outras fontes de dados. |
 |[Coletor de dados do StreamSets para nuvem do HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop,HBase,Spark,Kafka |O coletor de dados StreamSets é um mecanismo leve e poderoso que transmite dados em tempo real. Use o coletor de dados para rotear e processar dados em seus fluxos de dados. Ele vem com uma licença de avaliação gratuita de 30 dias. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark,HBase |Trifacta Wrangler Enterprise para HDInsight dá suporte à estruturação de dados de toda a empresa para qualquer escala de dados. O custo da execução de Trifacta no Azure é uma combinação dos custos de assinatura do Trifacta, além dos custos de infraestrutura do Azure para as máquinas virtuais. |
-|[Unifi Data Platform](https://unifisoftware.com/platform/) |Hadoop,HBase,Storm,Spark |O Unifi Data Platform é um conjunto integrado de ferramentas de dados de autoatendimento projetado para capacitar o usuário corporativo a enfrentar desafios de dados que geram receita incremental, reduzem custos ou complexidade operacional. |
+|[Unifi Data Platform](https://www.crunchbase.com/organization/unifi-software) |Hadoop,HBase,Storm,Spark |O Unifi Data Platform é um conjunto integrado de ferramentas de dados de autoatendimento projetado para capacitar o usuário corporativo a enfrentar desafios de dados que geram receita incremental, reduzem custos ou complexidade operacional. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Aplicativo de dados Unravel para o cluster HDInsight Spark. |
 |[Catálogo de Dados baseado em IA de Waterline](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |A Waterline cataloga, organiza e governa dados usando a AI para marcar automaticamente os dados com termos comerciais. O catálogo didático de negócios da Waterline é um componente crítico e de sucesso para iniciativas de análise, conformidade e governança de autoatendimento e gerenciamento de TI. |
 
@@ -54,7 +54,7 @@ O procedimento a seguir mostra como instalar aplicativos do HDInsight em um clus
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, navegue até **Todos os serviços** > **Analytics** > **clusters HDInsight**.
 3. Selecione um cluster HDInsight na lista.  Se não tiver um, você deverá criá-lo primeiro.  Confira [Criar clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-4. Na categoria **Configurações** , selecione **Aplicativos**. Você poderá ver uma lista de aplicativos instalados na janela principal. 
+4. Na categoria **Configurações**, selecione **Aplicativos**. Você poderá ver uma lista de aplicativos instalados na janela principal. 
    
     ![Menu do portal de aplicativos do HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Selecione **+Adicionar** no menu. Você pode ver uma lista de aplicativos disponíveis.  Se **+Adicionar** estiver esmaecido, isso significa que não há nenhum aplicativo para esta versão do cluster HDInsight.
@@ -66,7 +66,7 @@ Você pode ver o status de instalação nas notificações do portal (selecione 
 
 ## <a name="install-applications-during-cluster-creation"></a>Instalar aplicativos durante a criação do cluster
 
-Você tem a opção de instalar aplicativos do HDInsight ao criar um cluster. Durante o processo, os aplicativos do HDInsight são instalados depois que o cluster é criado e está no estado de execução. Para instalar aplicativos durante a criação do cluster usando o portal do Azure, na guia **Configuração + preços** , selecione **+Adicionar aplicativo**.
+Você tem a opção de instalar aplicativos do HDInsight ao criar um cluster. Durante o processo, os aplicativos do HDInsight são instalados depois que o cluster é criado e está no estado de execução. Para instalar aplicativos durante a criação do cluster usando o portal do Azure, na guia **Configuração + preços**, selecione **+Adicionar aplicativo**.
 
 ![Aplicativos de configuração do cluster do portal do Azure](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
 
@@ -78,7 +78,7 @@ O portal mostra uma lista dos aplicativos do HDInsight instalados para um cluste
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, navegue até **Todos os serviços** > **Analytics** > **clusters HDInsight**.
 3. Selecione um cluster HDInsight na lista.
-4. Na categoria **Configurações** , selecione **Aplicativos**. Você poderá ver uma lista de aplicativos instalados na janela principal. 
+4. Na categoria **Configurações**, selecione **Aplicativos**. Você poderá ver uma lista de aplicativos instalados na janela principal. 
    
     ![Aplicativos instalados de aplicativos do HDInsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Selecione um dos aplicativos instalados para mostrar a propriedade. A propriedades lista:

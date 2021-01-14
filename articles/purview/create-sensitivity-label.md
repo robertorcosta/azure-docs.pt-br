@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092679"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196581"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular seus dados automaticamente no Azure alcance
 
@@ -33,8 +33,9 @@ No alcance, as classificações são semelhantes às marcas de assunto e são us
 O alcance usa as mesmas classificações, também conhecidas como tipos de informações confidenciais, como Microsoft 365.  Os rótulos de sensibilidade MIP são criados no Microsoft 365 Security and Compliance Center (SCC). Isso permite que você estenda os rótulos de sensibilidade existentes nos ativos de alcance do Azure.
 
 > [!NOTE]
-> Embora as classificações sejam correspondidas diretamente (um número de seguro social tem uma classificação de **número de previdência social**), os rótulos de sensibilidade são aplicados quando uma ou mais classificações e cenários são encontrados em conjunto. 
-> 
+> As classificações são correspondidas diretamente, como um número do seguro social, que tem uma classificação de número do seguro **social**. 
+>
+> Por outro lado, os rótulos de sensibilidade são aplicados quando uma ou mais classificações e condições são encontradas em conjunto. Nesse contexto, as [condições](/microsoft-365/compliance/apply-sensitivity-label-automatically) se referem a todos os parâmetros que você pode definir para dados não estruturados, como **proximidade a outra classificação** e **% de confiança**. 
 
 Os rótulos de sensibilidade no Azure alcance podem ser usados para aplicar rótulos automaticamente a arquivos e colunas de banco de dados.
 
@@ -91,11 +92,6 @@ Ao estender os rótulos de sensibilidade de MIP com o Azure alcance, as organiza
 > Como Microsoft 365 e alcance do Azure são serviços separados, há a possibilidade de que eles sejam implantados em regiões diferentes. Nomes de rótulo e nomes de tipos de informações confidenciais personalizadas são considerados dados do cliente e são mantidos na mesma localização geográfica por padrão para proteger a sensibilidade dos seus dados e para evitar leis GDPRs.
 >
 > Por esse motivo, os rótulos e os tipos de informações confidenciais personalizadas não são compartilhados no Azure alcance por padrão e exigem seu consentimento para usá-los no Azure alcance.
-
-> [!IMPORTANT]
-> Seu consentimento permite que a Microsoft Compartilhe o nome do rótulo e o nome do tipo de informações confidenciais personalizadas para *o* Azure alcance e a central de segurança do Azure (ASC). A Microsoft usa as informações de rótulo do Azure alcance para enriquecer suas recomendações e alertas em ASC. 
->
-> O consentimento no centro de conformidade Microsoft 365 se aplica ao compartilhamento desses dados com ambos os serviços. Atualmente, não há opção para compartilhar informações de rótulo somente com o Azure alcance.
 
 **Para estender os rótulos de sensibilidade para alcance:**
 
@@ -189,7 +185,7 @@ Para obter mais informações sobre como configurar verificações em vários at
 |---------|---------|
 |**Armazenamento de Blobs do Azure**     |[Registrar e verificar o armazenamento de BLOBs do Azure](register-scan-azure-blob-storage-source.md)         |
 |**Armazenamento do Azure Data Lake**     |[Registrar e verificar Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Registrar e verificar Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
-|**Bancos de Dados SQL do Azure**|[Registrar e verificar um banco de dados SQL do Azure](register-scan-azure-sql-database.md) </br>[Registrar e verificar um Instância Gerenciada do Banco de Dados SQL do Azure](register-scan-azure-sql-database-managed-instance.md)|
+|**Bancos de Dados SQL do Azure**|[Registrar e examinar um Banco de Dados SQL do Azure](register-scan-azure-sql-database.md) </br>[Registrar e examinar uma Instância Gerenciada do Banco de Dados SQL do Azure](register-scan-azure-sql-database-managed-instance.md)|
 | | |
 
 ## <a name="view-labels-on-assets"></a>Exibir rótulos em ativos

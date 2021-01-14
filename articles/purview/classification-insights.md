@@ -1,18 +1,18 @@
 ---
-title: Relatórios de classificação em seus dados usando o alcance insights (versão prévia)
-description: Este guia de instruções descreve como exibir e usar o relatório de classificação do alcance insights em seus dados.
+title: Relatórios de classificação em seus dados no Azure alcance usando o alcance insights
+description: Este guia de instruções descreve como exibir e usar o relatório de classificação do alcance em seus dados.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938878"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196530"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Informações de classificação sobre seus dados do Azure alcance
 
@@ -33,7 +33,9 @@ Antes de começar a usar o alcance insights, verifique se você concluiu as segu
 
 - Configurar os recursos do Azure e preencher as contas relevantes com dados de teste
 
-- Configurar e concluir uma verificação nos dados de teste em cada fonte de dados 
+- Configurar e concluir uma verificação nos dados de teste em cada fonte de dados
+
+- Conectado ao alcance com uma [função de leitor de dados ou de curador dos dados](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
 Para obter mais informações, consulte [gerenciar fontes de dados no Azure alcance (versão prévia)](manage-data-sources.md).
 

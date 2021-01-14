@@ -12,12 +12,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de imagem, aplicativo de reconhecimento de imagem, visão personalizada
-ms.openlocfilehash: 8274ddd0e492d1a27ebc1579fc6efdcc8cc84955
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912977"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132572"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Início Rápido: criar um detector de objeto com o site da Visão Personalizada
 
@@ -107,6 +107,10 @@ Depois que o treinamento for concluído, o desempenho do modelo será calculado 
 ### <a name="probability-threshold"></a>Limite de probabilidade
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
+
+### <a name="overlap-threshold"></a>Limite de sobreposição
+
+O controle deslizante do **Limite de Sobreposição** aborda o quão correta deve ser uma previsão de objeto para que seja considerada "correta" no treinamento. Ele define a sobreposição mínima permitida entre a caixa delimitadora do objeto previsto e a caixa delimitadora real inserida pelo usuário. Se as caixas delimitadoras não se sobrepuserem a esse grau, a previsão não será considerada correta.
 
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 

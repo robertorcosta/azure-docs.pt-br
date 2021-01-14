@@ -3,12 +3,12 @@ title: Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 description: Saiba como o backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cc6ad2f67b84bcd62bcc18566a4ac5d159ea32c4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895980"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197721"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 
@@ -25,15 +25,15 @@ Este artigo discute o seguinte:
 
 ## <a name="before-you-start"></a>Antes de começar
 
-- Esse recurso permite que você criptografe **somente os novos cofres dos serviços de recuperação** . Todos os cofres que contêm itens existentes registrados ou que tentaram ser registrados nele não têm suporte.
+- Esse recurso permite que você criptografe **somente os novos cofres dos serviços de recuperação**. Todos os cofres que contêm itens existentes registrados ou que tentaram ser registrados nele não têm suporte.
 
 - Uma vez habilitado para um cofre dos serviços de recuperação, a criptografia usando chaves gerenciadas pelo cliente não pode ser revertida para usar chaves gerenciadas por plataforma (padrão). Você pode alterar as chaves de criptografia de acordo com seus requisitos.
 
-- Atualmente, esse recurso **não dá suporte ao backup usando o agente Mars** , e você não poderá usar um cofre criptografado por CMK para o mesmo. O agente MARS usa uma criptografia baseada em senha do usuário. Esse recurso também não dá suporte ao backup de VMs clássicas.
+- Atualmente, esse recurso **não dá suporte ao backup usando o agente Mars**, e você não poderá usar um cofre criptografado por CMK para o mesmo. O agente MARS usa uma criptografia baseada em senha do usuário. Esse recurso também não dá suporte ao backup de VMs clássicas.
 
 - Esse recurso não está relacionado a [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), que usa a criptografia baseada em convidado dos discos de uma VM usando o BitLocker (para Windows) e DM-Crypt (para Linux)
 
-- O cofre dos serviços de recuperação pode ser criptografado somente com chaves armazenadas em um Azure Key Vault, localizado na **mesma região** . Além disso, as chaves devem ser apenas **chaves RSA 2048** e devem estar no estado **habilitado** .
+- O cofre dos serviços de recuperação pode ser criptografado somente com chaves armazenadas em um Azure Key Vault, localizado na **mesma região**. Além disso, as chaves devem ser apenas **chaves RSA 2048** e devem estar no estado **habilitado** .
 
 - A movimentação do cofre dos serviços de recuperação criptografada CMK entre grupos de recursos e assinaturas não tem suporte no momento.
 
@@ -66,7 +66,7 @@ O backup do Azure usa a identidade gerenciada atribuída pelo sistema para auten
 
     ![Configurações de identidade](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Altere o **status** para **ativado** e selecione **salvar** .
+1. Altere o **status** para **ativado** e selecione **salvar**.
 
 1. Uma ID de objeto é gerada, que é a identidade gerenciada atribuída pelo sistema do cofre.
 
@@ -74,11 +74,11 @@ O backup do Azure usa a identidade gerenciada atribuída pelo sistema para auten
 
 Agora você precisa permitir que o cofre dos serviços de recuperação acesse o Azure Key Vault que contém a chave de criptografia. Isso é feito ao permitir que a identidade gerenciada do cofre dos serviços de recuperação acesse o Key Vault.
 
-1. Acesse suas **políticas de acesso** de Azure Key Vault >. Continue para **+ Adicionar políticas de acesso** .
+1. Acesse suas **políticas de acesso** de Azure Key Vault >. Continue para **+ Adicionar políticas de acesso**.
 
     ![Adicionar políticas de acesso](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. Em **permissões de chave** , **selecione obter** , **listar** , **desencapsular** as operações de chave e **encapsular chave** . Isso especifica as ações na chave que será permitida.
+1. Em **permissões de chave**, **selecione obter**, **listar**, **desencapsular** as operações de chave e **encapsular chave** . Isso especifica as ações na chave que será permitida.
 
     ![Atribuir permissões de chave](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -148,28 +148,36 @@ Para atribuir a chave:
 
     ![Configurações de criptografia](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Selecione **Atualizar** em **configurações de criptografia** .
+1. Selecione **Atualizar** em **configurações de criptografia**.
 
 1. No painel configurações de criptografia, selecione **usar sua própria chave** e continue para especificar a chave usando uma das seguintes maneiras. **Verifique se a chave que você deseja usar é uma chave RSA 2048, que está em um estado habilitado.**
 
     1. Insira o **URI de chave** com o qual você deseja criptografar os dados neste cofre dos serviços de recuperação. Você também precisa especificar a assinatura na qual o Azure Key Vault (que contém essa chave) está presente. Esse URI de chave pode ser obtido da chave correspondente no seu Azure Key Vault. Verifique se o URI da chave foi copiado corretamente. É recomendável que você use o botão **copiar para área de transferência** fornecido com o identificador de chave.
 
+        >[!NOTE]
+        >Ao especificar a chave de criptografia usando o URI de chave, a chave não será girada automaticamente. Portanto, as principais atualizações precisarão ser feitas manualmente, especificando a nova chave quando necessário.
+
         ![Inserir URI de chave](./media/encryption-at-rest-with-cmk/key-uri.png)
 
     1. Procure e selecione a chave na Key Vault no painel seletor de chave.
 
+        >[!NOTE]
+        >Ao especificar a chave de criptografia usando o painel seletor de chave, a chave será girada automaticamente sempre que uma nova versão para a chave estiver habilitada.
+
         ![Selecionar chave do Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Selecione **Salvar** .
+1. Clique em **Salvar**.
 
-1. **Acompanhamento do progresso da atualização da chave de criptografia:** Você pode acompanhar o progresso da atribuição de chave usando o **log de atividades** no cofre dos serviços de recuperação. O status deve ser alterado em breve para **êxito** . Agora, seu cofre criptografará todos os dados com a chave especificada como KEK.
+1. **Acompanhamento do progresso e do status da atualização da chave de criptografia**: você pode acompanhar o progresso e o status da atribuição de chave de criptografia usando a exibição **trabalhos de backup** na barra de navegação à esquerda. O status deve ser alterado em breve para **concluído**. Agora, seu cofre criptografará todos os dados com a chave especificada como KEK.
 
-    ![Acompanhar o progresso com o log de atividades](./media/encryption-at-rest-with-cmk/activity-log.png)
+    ![Status concluído](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
-    ![Status bem-sucedido](./media/encryption-at-rest-with-cmk/status-succeeded.png)
+    As atualizações da chave de criptografia também são registradas no log de atividades do cofre.
+
+    ![Log de atividades](./media/encryption-at-rest-with-cmk/activity-log.png)
 
 >[!NOTE]
-> Esse processo permanece o mesmo quando você deseja atualizar/alterar a chave de criptografia. Se você quiser atualizar e usar uma chave de outra Key Vault (diferente da que está sendo usada no momento), verifique se:
+> Esse processo permanece o mesmo quando você deseja atualizar ou alterar a chave de criptografia. Se você quiser atualizar e usar uma chave de outra Key Vault (diferente da que está sendo usada no momento), verifique se:
 >
 > - O Key Vault está localizado na mesma região que o cofre dos serviços de recuperação
 >
@@ -192,7 +200,7 @@ Antes de prosseguir com a configuração de proteção, é altamente recomendáv
 >
 >Se todas as etapas acima tiverem sido confirmadas, continue com a configuração de backup.
 
-O processo para configurar e executar backups em um cofre de serviços de recuperação criptografado com chaves gerenciadas pelo cliente é o mesmo de um cofre que usa chaves gerenciadas por plataforma, **sem alterações na experiência** . Isso se aplica ao [backup de VMs do Azure](./quick-backup-vm-portal.md) , bem como ao backup de cargas de trabalho em execução dentro de uma VM (por exemplo, [SAP Hana](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) bancos de dados).
+O processo para configurar e executar backups em um cofre de serviços de recuperação criptografado com chaves gerenciadas pelo cliente é o mesmo de um cofre que usa chaves gerenciadas por plataforma, **sem alterações na experiência**. Isso se aplica ao [backup de VMs do Azure](./quick-backup-vm-portal.md) , bem como ao backup de cargas de trabalho em execução dentro de uma VM (por exemplo, [SAP Hana](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) bancos de dados).
 
 ## <a name="restoring-data-from-backup"></a>Restaurando dados do backup
 
@@ -214,7 +222,7 @@ Você pode criptografar o disco/VM restaurado após a conclusão da restauraçã
 
 O conjunto de criptografia de disco é especificado em configurações de criptografia no painel restaurar, conforme mostrado abaixo:
 
-1. Em **criptografar disco (s) usando sua chave** , selecione **Sim** .
+1. Em **criptografar disco (s) usando sua chave**, selecione **Sim**.
 
 1. No menu suspenso, selecione o DES que você deseja usar para os discos restaurados. **Verifique se você tem acesso ao DES.**
 

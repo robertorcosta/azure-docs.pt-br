@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 4ac8ae4fd4218bbf74bbb6760d8344096c214a76
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: bbd7091eb2139801956d77ec8b3ca821c935ac64
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97820544"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109411"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Comece com código de texto clichê
 
@@ -187,6 +187,14 @@ Insira este código abaixo de seu `IntentRecognizer`. Substitua `"YourLanguageUn
           recognizer.addAllIntents(lm);
         }
 ```
+
+> [!NOTE]
+> O SDK de Fala é compatível somente com os pontos de extremidade do LUIS v2.0.
+> Você deve modificar manualmente a URL do ponto de extremidade v3.0 encontrada no campo de consulta de exemplo a fim de usar um padrão de URL v2.0.
+> Os pontos de extremidade do LUIS v2.0 sempre seguem um destes dois padrões:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+
 ## <a name="recognize-an-intent"></a>Reconhecer uma intenção
 
 No objeto `IntentRecognizer`, chame o método `recognizeOnceAsync()`. Esse método permite que o Serviço de Fala saiba que você está enviando uma única expressão para reconhecimento e permite parar o reconhecimento, assim que a frase é identificada.

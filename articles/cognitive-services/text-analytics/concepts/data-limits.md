@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2adca03a820d02731bca252dee99c76debc85e2e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965095"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028124"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxa para a API de Análise de Texto
 <a name="data-limits"></a>
@@ -35,7 +35,15 @@ Use este artigo para localizar os limites para o tamanho e as tarifas para as qu
 | Tamanho máximo de um documento individual (ponto de extremidade `/analyze`)  | 125 mil caracteres, conforme calculado por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Não se aplica à Análise de Texto para integridade. |
 | Tamanho máximo de toda a solicitação | 1 MB. Também se aplica à Análise de Texto para integridade. |
 
-O número máximo de documentos que você pode enviar em uma solicitação dependerá da versão da API e do recurso que você está usando. O ponto de extremidade `/analyze` rejeitará toda a solicitação se qualquer documento exceder o tamanho máximo (125 mil caracteres)
+
+Se um documento exceder o limite de caracteres, a API se comportará de maneira diferente, dependendo do ponto de extremidade que você estiver usando:
+
+* Ponto de extremidade `/analyze`:
+  * A API rejeitará toda a solicitação e retornará um erro `400 bad request` se qualquer documento dentro dela exceder o tamanho máximo.
+* Todos os outros pontos de extremidade:  
+  * A API não processará os documentos que excederem o tamanho máximo e retornará um erro de documento inválido para cada um deles. Se uma solicitação de API tiver vários documentos, a API continuará a processá-los se estiverem dentro do limite de caracteres.
+
+O número máximo de documentos que você pode enviar em uma solicitação dependerá da versão da API e do recurso que você está usando, conforme descrito na tabela abaixo.
 
 #### <a name="version-3"></a>[Versão 3](#tab/version-3)
 

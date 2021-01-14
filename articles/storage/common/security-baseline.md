@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 29e72f8358591614489be2731d16e89428ef388b
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301365"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195714"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança do Azure para armazenamento do Azure
 
@@ -90,7 +90,7 @@ Observe que, se você tiver pontos de extremidade privados anexados à sua conta
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems"></a>1,6: implantar sistemas de detecção de invasão/prevenção de intrusão baseados em rede
 
-**Diretrizes**: a proteção avançada contra ameaças para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são acionados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados à central de segurança do Azure e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. 
+**Diretrizes**: a proteção avançada contra ameaças para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são acionados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados à Central de Segurança do Azure e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. 
 
 - [Configurar a proteção avançada contra ameaças para o armazenamento do Azure](./azure-defender-storage-configure.md)
 
@@ -220,7 +220,7 @@ Você também pode fazer uso de definições de política internas relacionadas 
 
 **Orientação**: para examinar os logs de armazenamento do Azure, há as opções usuais, como consultas por meio da oferta de log Analytics, bem como uma opção exclusiva de exibir os arquivos de log diretamente. No armazenamento do Azure, os logs são armazenados em BLOBs que devem ser acessados diretamente em `http://accountname.blob.core.windows.net/$logs` (a pasta de log fica oculta por padrão, portanto, você precisará navegar diretamente. Ele não será exibido em comandos de lista) 
 
-Além disso, habilite a proteção avançada contra ameaças para sua conta de armazenamento do Azure. A proteção avançada contra ameaças para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são acionados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados à central de segurança do Azure e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. 
+Além disso, habilite a proteção avançada contra ameaças para sua conta de armazenamento do Azure. A proteção avançada contra ameaças para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são acionados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados à Central de Segurança do Azure e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. 
 
 - [Registrar e examinar dados](./storage-analytics-logging.md#how-logs-are-stored)
 
@@ -346,7 +346,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Diretrizes**: Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar recursos da conta de armazenamento. 
 
-- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Saiba mais sobre Estações de Trabalho com Acesso Privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Como habilitar a MFA no Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 

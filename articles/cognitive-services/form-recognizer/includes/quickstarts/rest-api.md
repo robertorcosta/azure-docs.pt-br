@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: a677623c030ff26567f14a4526f6d07bc6631a37
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 31e1a0d912c6623f57d4ea256968102604ce42ff
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853705"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132254"
 ---
 > [!NOTE]
 > Este guia usa cURL para executar chamadas à API REST. Há também o [código de exemplo no GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest) que ilustra como chamar as APIs REST com o Python.
@@ -32,7 +32,7 @@ ms.locfileid: "97853705"
 * Uma URL para uma imagem de uma fatura. Você pode usar um [documento de exemplo](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) para este início rápido.
 
 
-## <a name="recognize-form-content"></a>Reconhecer o conteúdo do formulário
+## <a name="analyze-layout"></a>Analisar layout
 
 Use o Reconhecimento de Formulários para reconhecer e extrair tabelas, linhas e palavras em documentos, sem a necessidade de treinar um modelo. Antes de executar o comando, faça essas alterações:
 
@@ -319,7 +319,7 @@ Confira a imagem da fatura a seguir e a respectiva saída em JSON correspondente
 
 ---
 
-## <a name="recognize-receipts"></a>Reconhecer recibos
+## <a name="analyze-receipts"></a>Analisar recibos
 
 Para começar a analisar um recibo, chame a API **[Analisar Recibo](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** usando o comando cURL abaixo. Antes de executar o comando, faça essas alterações:
 
@@ -699,7 +699,7 @@ O nó `"readResults"` contém todo o texto reconhecido (se você define o parâm
 }
 ```
 
-## <a name="recognize-business-cards"></a>Reconhecer cartões de visita
+## <a name="analyze-business-cards"></a>Analisar cartões de visita
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)  
 
@@ -861,7 +861,7 @@ O script imprimirá as respostas no console até que a operação **Analisar Car
 
 ---
 
-## <a name="recognize-invoices"></a>Reconhecer faturas
+## <a name="analyze-invoices"></a>Analisar faturas
 
 # <a name="version-20"></a>[versão 2.0](#tab/v2-0)
 
