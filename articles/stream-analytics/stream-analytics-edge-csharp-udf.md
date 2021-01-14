@@ -1,19 +1,18 @@
 ---
 title: Tutorial – Escrever funções em C# definidas pelo usuário para trabalhos do Azure Stream Analytics no Visual Studio (versão prévia)
 description: Este tutorial mostra como escrever funções em C# definidas pelo usuário para trabalhos do Stream Analytics no Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d53f13cb740b3feb39dc64ce012ff320afbb1db5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 851229e441aa2fbdf7b6eec05390c0ce2b149da2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130486"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020461"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutorial: Escrever uma função em C# definida pelo usuário para um trabalho do Azure Stream Analytics (versão prévia)
 
@@ -71,7 +70,7 @@ O contêiner que você criar será usado para armazenar o pacote C# compilado. S
 ## <a name="write-a-c-udf-with-codebehind"></a>Escreva um UDF C# com o código atrás
 Um arquivo CodeBehind é um arquivo C# associado a um único script de consulta do ASA. Ferramentas do Visual Studio serão automaticamente o arquivo code-behind zip e carregá-lo à sua conta de armazenamento do Azure após o envio. Todas as classes devem ser definidas como *pública* e todos os objetos devem ser definidos como *estáticos públicos*.
 
-1. Na **Gerenciador de soluções** , expanda **Script.asql** para encontrar o **Script.asaql.cs** arquivo code-behind.
+1. Na **Gerenciador de soluções**, expanda **Script.asql** para encontrar o **Script.asaql.cs** arquivo code-behind.
 
 2. Substitua o código com o exemplo a seguir:
 
@@ -97,7 +96,7 @@ Um arquivo CodeBehind é um arquivo C# associado a um único script de consulta 
 
 ## <a name="implement-the-udf"></a>Implementar o UDF
 
-1. Na **Gerenciador de soluções** , abra o **asaql** arquivo.
+1. Na **Gerenciador de soluções**, abra o **asaql** arquivo.
 
 2. Substitua a consulta existente pelo seguinte:
 
@@ -111,7 +110,7 @@ Um arquivo CodeBehind é um arquivo C# associado a um único script de consulta 
 
 1. Baixe o [arquivo de dados de exemplo de simulador de temperatura](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Sample%20Data/TemperatureSampleData.json).
 
-2. Na **Gerenciador de soluções** , expanda **entradas** , clique com botão direito **Input** e selecione **Adicionar entrada Local**.
+2. Na **Gerenciador de soluções**, expanda **entradas**, clique com botão direito **Input** e selecione **Adicionar entrada Local**.
 
    ![Adicionar entrada local para o trabalho do Stream Analytics no Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
