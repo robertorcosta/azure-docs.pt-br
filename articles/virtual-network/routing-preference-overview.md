@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: fa83c51469636eb269aa5dc3192ff7e65b53ce89
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912692"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186134"
 ---
 # <a name="what-is-routing-preference-preview"></a>O que é a preferência de roteamento (versão prévia)?
 
@@ -74,7 +74,7 @@ A diferença de preço entre as duas opções é refletida nos preços de transf
 
 ## <a name="limitations"></a>Limitações
 
-* A preferência de roteamento é compatível apenas com o SKU Standard do endereço IP público. Não há suporte para o SKU Básico do endereço IP público.
+* A preferência de roteamento é compatível apenas com SKU padrão com redundância de zona de endereço IP público. Não há suporte para o SKU Básico do endereço IP público.
 * Atualmente, a preferência de roteamento dá suporte apenas a endereços IP públicos IPv4. Não há suporte para endereços IP públicos IPv6.
 * As máquinas virtuais com várias NICs podem ter apenas um tipo de preferência de roteamento.
 

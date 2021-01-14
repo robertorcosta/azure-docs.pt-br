@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 80a6824edb92d8337481f592cbbf5eb23255b383
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302823"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185522"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Usar chaves gerenciadas pelo cliente no Azure Key Vault para Azure Data Box
 
@@ -57,7 +57,7 @@ Para habilitar uma chave gerenciada pelo cliente para sua ordem de Data Box exis
 
       ![Revisar e criar Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-      Examine as informações do cofre de chaves e selecione **criar**. Aguarde alguns minutos para que a criação do cofre de chaves seja concluída.
+      Examine as informações do seu cofre de chaves e selecione **Criar**. Aguarde alguns minutos até que a criação do cofre de chaves seja concluída.
 
        ![Criar Azure Key Vault com suas configurações](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
@@ -65,11 +65,11 @@ Para habilitar uma chave gerenciada pelo cliente para sua ordem de Data Box exis
 
     ![Selecionar chave de Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-   Se você quiser criar uma nova chave, selecione **criar nova**. Você deve usar uma chave RSA. O tamanho pode ser 2048 ou maior.
+   Se você desejar criar uma chave, selecione **Criar**. Você precisa usar uma chave RSA. O tamanho pode ser 2048 ou maior.
 
     ![Criar nova chave no Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-    Insira um nome para a nova chave, aceite os outros padrões e selecione **criar**. Você será notificado de que uma chave foi criada no cofre de chaves.
+    Insira um nome para a nova chave, aceite os outros padrões e selecione **Criar**. Você será notificado de que uma chave foi criada no cofre de chaves.
 
     ![Nomear nova chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
@@ -79,9 +79,9 @@ Para habilitar uma chave gerenciada pelo cliente para sua ordem de Data Box exis
 
     Se você quiser gerar uma nova versão de chave, selecione **criar nova**.
 
-    ![Abrir uma caixa de diálogo para criar uma nova versão de chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
+    ![Abrir uma caixa de diálogo para criar uma versão de chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
 
-    Escolha configurações para a nova versão de chave e selecione **criar**.
+    Escolha configurações para a nova versão de chave e selecione **Criar**.
 
     ![Criar uma nova versão da chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-b.png)
 
@@ -91,11 +91,11 @@ Para habilitar uma chave gerenciada pelo cliente para sua ordem de Data Box exis
 
     As configurações de **tipo de criptografia** mostram o cofre de chaves e a chave que você escolheu.
 
-    ![Chave e Key Vault para uma chave gerenciada pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+    ![Chave e cofre de chaves para uma chave gerenciada pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
 7. Selecione o tipo de identidade a ser usado para gerenciar a chave gerenciada pelo cliente para este recurso. Você pode usar a identidade **atribuída pelo sistema** que foi gerada durante a criação do pedido ou escolher uma identidade atribuída pelo usuário.
 
-    Uma identidade atribuída pelo usuário é um recurso independente que você pode usar para gerenciar o acesso aos recursos. Para obter mais informações, consulte [tipos de identidade gerenciados](/azure/active-directory/managed-identities-azure-resources/overview).
+    Uma identidade atribuída pelo usuário é um recurso independente que você pode usar para gerenciar o acesso aos recursos. Para obter mais informações, confira [Tipos de identidade gerenciada](/azure/active-directory/managed-identities-azure-resources/overview).
 
     ![Selecione o tipo de identidade](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
 
@@ -107,7 +107,7 @@ Para habilitar uma chave gerenciada pelo cliente para sua ordem de Data Box exis
 
     A identidade de usuário selecionada é mostrada nas configurações de **tipo de criptografia** .
 
-    ![Uma identidade de usuário selecionada mostrada nas configurações de tipo de criptografia](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
+    ![Uma identidade de usuário selecionada mostrada nas configurações Tipo de criptografia](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
 
  9. Selecione **salvar** para salvar as configurações de **tipo de criptografia** atualizadas.
 
@@ -201,5 +201,5 @@ Se você receber erros relacionados à chave gerenciada pelo cliente, use a tabe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
+- [O que é o Azure Key Vault?](../key-vault/general/overview.md)
 - [Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure](../key-vault/secrets/quick-create-portal.md)

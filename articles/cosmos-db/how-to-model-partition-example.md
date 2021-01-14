@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: d2f35ae7a6110acb2ca89bdaeb487eddabf84923
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616239"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185811"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +29,7 @@ Se normalmente trabalha com bancos de dados relacionais, você provavelmente cri
 Para este exercício, vamos considerar o domínio de uma plataforma de blogs em que os *usuários* podem criar *posts*. Os usuários também podem *curtir* esses posts e adicionar *comentários* a elas.
 
 > [!TIP]
-> Destacamos algumas palavras em *itálico* ; essas palavras identificam o tipo de "coisas" que nosso modelo precisará manipular.
+> Destacamos algumas palavras em *itálico*; essas palavras identificam o tipo de "coisas" que nosso modelo precisará manipular.
 
 Adicionando mais requisitos para nossa especificação:
 
@@ -60,7 +60,7 @@ Aqui está a lista de solicitações que nossa plataforma terá de expor:
 
 Neste estágio, não pensamos nos detalhes do que cada entidade (usuário, posta etc.) conterá. Essa etapa geralmente está entre os primeiros a serem resolvidos durante a criação em um relational store, pois precisamos descobrir como essas entidades serão traduzidas em termos de tabelas, colunas, chaves estrangeiras, etc. É muito menos uma preocupação com um banco de dados de documentos que não impõe nenhum esquema na gravação.
 
-O principal motivo pelo qual é importante identificar os nossos padrões de acesso desde o início é porque essa lista de solicitações vai ser o nosso conjunto de testes. Sempre que iteramos pelo nosso modelo de dados, percorremos cada uma das solicitações e verificamos os respectivos desempenho e escalabilidade.
+O principal motivo pelo qual é importante identificar os nossos padrões de acesso desde o início é porque essa lista de solicitações vai ser o nosso conjunto de testes. Sempre que iteramos pelo nosso modelo de dados, percorremos cada uma das solicitações e verificamos os respectivos desempenho e escalabilidade. Calculamos as unidades de solicitação consumidas em cada modelo e as otimizamos. Todos esses modelos usam a política de indexação padrão e você pode substituí-lo ao indexar propriedades específicas, o que pode melhorar ainda mais o consumo e a latência de RU.
 
 ## <a name="v1-a-first-version"></a>V1: uma primeira versão
 
@@ -149,7 +149,7 @@ A recuperação de um usuário é realizada lendo-se o item correspondente do co
 
 ### <a name="c2-createedit-a-post"></a>[C2] Criar/editar um post
 
-Da mesma forma que **[C1]** , temos apenas que gravar o contêiner `posts`.
+Da mesma forma que **[C1]**, temos apenas que gravar o contêiner `posts`.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de posts" border="false":::
 
@@ -208,7 +208,7 @@ Embora a consulta principal filtre na chave de partição do contêiner, agregar
 
 ### <a name="c4-like-a-post"></a>[C4] Curtir um post
 
-Assim como **[C3]** , criamos o item correspondente no contêiner `posts`.
+Assim como **[C3]**, criamos o item correspondente no contêiner `posts`.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Gravar um único item no contêiner de posts" border="false":::
 
@@ -218,7 +218,7 @@ Assim como **[C3]** , criamos o item correspondente no contêiner `posts`.
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Listar as curtidas de um post
 
-Assim como em **[Q4]** , podemos consultar as curtidas desse post e, em seguida, agregar os respectivos nomes de usuário.
+Assim como em **[Q4]**, podemos consultar as curtidas desse post e, em seguida, agregar os respectivos nomes de usuário.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Recuperar todas as curtidas de um post e agregar os respectivos dados adicionais" border="false":::
 
@@ -295,7 +295,7 @@ Também podemos modificar itens de comentário e de curtida para adicionar o nom
 
 O que queremos alcançar é que, cada vez que adicionarmos um comentário ou uma curtida, possamos também aumentar o `commentCount` ou o `likeCount` no post correspondente. Como nosso contêiner `posts` é particionado por `postId`, o novo item (comentário ou curtida) e seu post correspondente ficam na mesma partição lógica. Como resultado, podemos usar um [procedimento armazenado](stored-procedures-triggers-udfs.md) para executar essa operação.
 
-Agora, durante a criação de um comentário ( **[C3]** ), em vez de apenas adicionar um novo item ao contêiner `posts`, podemos chamar o seguinte procedimento armazenado nesse contêiner:
+Agora, durante a criação de um comentário (**[C3]**), em vez de apenas adicionar um novo item ao contêiner `posts`, podemos chamar o seguinte procedimento armazenado nesse contêiner:
 
 ```javascript
 function createComment(postId, comment) {

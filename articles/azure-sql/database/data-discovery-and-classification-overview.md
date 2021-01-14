@@ -13,17 +13,17 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132011"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185344"
 ---
 # <a name="data-discovery--classification"></a>Descoberta e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-A descoberta de dados & classificação é incorporada ao banco de dado SQL do Azure, SQL Instância Gerenciada do Azure e Azure Synapse Analytics. Fornece as funcionalidades avançadas para descobrir, classificar, rotular e relatar os dados confidenciais nos seus bancos de dados.
+A descoberta de dados & classificação é incorporada ao banco de dado SQL do Azure, SQL Instância Gerenciada do Azure e Azure Synapse Analytics. Ele fornece recursos básicos para descobrir, classificar, rotular e relatar os dados confidenciais em seus bancos de dado.
 
 Seus dados mais confidenciais podem incluir informações comerciais, financeiras, de saúde ou pessoais. Descobrir e classificar esses dados pode desempenhar uma função dinâmica na abordagem de proteção de informações da sua organização. Isso pode servir como infraestrutura para:
 
@@ -36,11 +36,11 @@ Seus dados mais confidenciais podem incluir informações comerciais, financeira
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>O que é a descoberta de dados & classificação?
 
-A classificação de & de descoberta de dados apresenta um conjunto de serviços avançados e novos recursos no Azure. Ele forma um novo paradigma de proteção de informações para o banco de dados SQL, o SQL Instância Gerenciada e o Azure Synapse, destinado à proteção dos mesmos, e não apenas ao banco. O paradigma inclui:
+A classificação de & de descoberta de dados apresenta um conjunto de serviços básicos e novos recursos no Azure. Ele forma um novo paradigma de proteção de informações para o banco de dados SQL, o SQL Instância Gerenciada e o Azure Synapse, destinado à proteção dos mesmos, e não apenas ao banco. O paradigma inclui:
 
 - **Descoberta e recomendações:** O mecanismo de classificação verifica seu banco de dados e identifica as colunas que contenham informações potencialmente confidenciais. Em seguida, ele fornece uma maneira fácil de revisar e aplicar a classificação recomendada por meio do portal do Azure.
 
-- **Rotulagem:** Você pode aplicar rótulos de classificação de sensibilidade persistentemente a colunas usando novos atributos de metadados que foram adicionados ao mecanismo de banco de dados SQL Server. Esses metadados podem então ser usados para cenários de proteção e auditoria avançada e baseada em sensibilidade.
+- **Rotulagem:** Você pode aplicar rótulos de classificação de sensibilidade persistentemente a colunas usando novos atributos de metadados que foram adicionados ao mecanismo de banco de dados SQL Server. Esses metadados podem ser usados para cenários de proteção e auditoria baseados em sensibilidade.
 
 - **Sensibilidade do conjunto de resultados da consulta:** A sensibilidade de um conjunto de resultados de consulta é calculada em tempo real para fins de auditoria.
 

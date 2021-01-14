@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ae279c117172f116641c7c908b9fc53f26ceaa90
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 502a89c5a2c0384e34ee35346332a4dd6adc38aa
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802296"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185420"
 ---
 # <a name="linux-support"></a>Suporte para Linux
 
@@ -23,6 +23,7 @@ Os parceiros a seguir aprovaram clientes de área de trabalho virtual do Windows
 
 |Partner (parceiro)|Documentação do parceiro|Suporte a parceiros|
 |:------|:--------------------|:--------------|
+|![Logotipo da Dell](./media/partners/dell.png)|[Documentação do cliente Dell](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Suporte da Dell](https://www.dell.com/support)|
 |![Logotipo do IGEL](./media/partners/igel.png)|[Documentação do cliente do IGEL](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[Suporte do IGEL](https://www.igel.com/support/)|
 |![Logotipo do NComputing](./media/partners/ncomputing.png)|[Documentação do cliente do NComputing](https://www.ncomputing.com/microsoft)|[Suporte do NComputing](https://www.ncomputing.com/support/support-options)|
 |![Logotipo do Stratodesk](./media/partners/stratodesk.png)|[Documentação do cliente do Stratodesk](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Suporte do Stratodesk](https://www.stratodesk.com/support/)|

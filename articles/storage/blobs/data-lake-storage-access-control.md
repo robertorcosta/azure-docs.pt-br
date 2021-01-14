@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2418a8813e7b9de603b7e7cdc11fc756d73ac2a4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350748"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185896"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>ACLs (listas de controle de acesso) no Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ As ACLs de Acesso e as ACLs Padrão têm a mesma estrutura.
 
 ## <a name="levels-of-permission"></a>Níveis de permissão
 
-As permissões em um objeto de contêiner são de **leitura**, **gravação** e **execução**, e podem ser usadas em arquivos e diretórios, conforme mostrado na tabela a seguir:
+As permissões em diretórios e arquivos em um contêiner são **ler**, **gravar** e **executar** e podem ser usadas em arquivos e diretórios, conforme mostrado na tabela a seguir:
 
 |            |    Arquivo     |   Diretório |
 |------------|-------------|----------|
@@ -69,7 +69,7 @@ As permissões em um objeto de contêiner são de **leitura**, **gravação** e 
 | **Executar (X)** | Não significa nada no contexto do Azure Data Lake Storage Gen2 | Necessário para percorrer os itens filhos de um diretório |
 
 > [!NOTE]
-> Se você estiver concedendo permissões usando somente ACLs (sem RBAC do Azure), para conceder a uma entidade de segurança acesso de leitura ou de gravação a um arquivo, você precisará fornecer permissões de **execução** da entidade de segurança para o contêiner e para cada pasta na hierarquia de pastas que levam ao arquivo.
+> Se você estiver concedendo permissões usando somente ACLs (sem RBAC do Azure), para conceder uma entidade de segurança de acesso de leitura ou de gravação a um arquivo, você precisará fornecer permissões de **execução** da entidade de segurança para a pasta raiz do contêiner e para cada pasta na hierarquia de pastas que levam ao arquivo.
 
 ### <a name="short-forms-for-permissions"></a>Formatos abreviados para permissões
 

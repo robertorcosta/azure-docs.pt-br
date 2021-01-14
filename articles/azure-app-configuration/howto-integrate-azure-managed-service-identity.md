@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: d6b3d60a44725869d68dd9f1158d2279f3cf3e86
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 483af51cbaeb8f7b295adb4231e65f742e3f53a1
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963973"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185454"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>Usar identidades gerenciadas para acessar a Configuração de Aplicativos
 
@@ -72,7 +72,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
 
 1. Em **Assinatura**, selecione sua assinatura do Azure. Selecione o recurso de Serviço de Aplicativo para o seu aplicativo.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
     ![Adicionar uma identidade gerenciada](./media/add-managed-identity.png)
 
@@ -82,7 +82,7 @@ Para configurar uma identidade gerenciada no portal, primeiro crie um aplicativo
 
 1. Adicione uma referência ao pacote *Azure. Identity* :
 
-    ```cli
+    ```bash
     dotnet add package Azure.Identity
     ```
 
@@ -213,7 +213,7 @@ git add .
 git commit -m "Initial version"
 ```
 
-Para habilitar a implantação do git local para seu aplicativo com o servidor de compilação kudu, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) em Cloud Shell.
+Para habilitar a implantação do git local para seu aplicativo com o servidor de compilação kudu, execute [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/#az-webapp-deployment-source-config-local-git) em Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>

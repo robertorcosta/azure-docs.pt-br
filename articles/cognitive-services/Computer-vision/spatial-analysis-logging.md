@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014570"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186015"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e solução de problemas
 
@@ -68,7 +68,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-No manifesto de implantação para seu [Azure Stack dispositivo de borda](https://go.microsoft.com/fwlink/?linkid=2142179) ou outro [computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), procure o módulo *Telegraf* e substitua os valores a seguir pelas informações da entidade de serviço da etapa anterior e reimplante-os.
+No manifesto de implantação para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [computador desktop](https://go.microsoft.com/fwlink/?linkid=2152270)ou [VM do Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189), procure o módulo *Telegraf* e substitua os valores a seguir pelas informações da entidade de serviço da etapa anterior e reimplante.
 
 ```json
 
@@ -103,7 +103,7 @@ Depois que o módulo Telegraf é implantado, as métricas relatadas podem ser ac
 
 ### <a name="system-health-events"></a>Eventos de integridade do sistema
 
-| Nome do evento | Description|
+| Nome do evento | Descrição|
 |------|---------|
 |archon_exit    |Enviado quando um usuário altera o status do módulo de análise espacial de *em execução* para *parado*.  |
 |archon_error   |Enviado quando qualquer um dos processos dentro do contêiner falhar. Esse é um erro crítico.  |
@@ -129,7 +129,7 @@ Você pode usar `iotedge` a ferramenta de linha de comando para verificar o stat
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Coletar arquivos de log com o contêiner de diagnóstico
 
-A análise espacial gera logs de depuração do Docker que você pode usar para diagnosticar problemas de tempo de execução ou incluir tíquetes de suporte. O módulo de diagnóstico de análise espacial está disponível no registro de contêiner da Microsoft para você baixar. No arquivo de implantação de manifesto para seu [Azure Stack dispositivo de borda](https://go.microsoft.com/fwlink/?linkid=2142179) ou outro [computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), procure o módulo *diagnóstico* .
+A análise espacial gera logs de depuração do Docker que você pode usar para diagnosticar problemas de tempo de execução ou incluir tíquetes de suporte. O módulo de diagnóstico de análise espacial está disponível no registro de contêiner da Microsoft para você baixar. No arquivo de implantação de manifesto para seu [Azure Stack dispositivo de borda](https://go.microsoft.com/fwlink/?linkid=2142179), [computador desktop](https://go.microsoft.com/fwlink/?linkid=2152270)ou [VM do Azure com a GPU](https://go.microsoft.com/fwlink/?linkid=2152189) , procure o módulo *diagnóstico* .
 
 Na seção "env", adicione a seguinte configuração:
 
@@ -188,13 +188,13 @@ Ele também pode ser definido por meio do documento do módulo de IoT Edge, seja
 > O `diagnostics` módulo não afeta o conteúdo de log, ele só ajuda a coletar, filtrar e carregar logs existentes.
 > Você deve ter a API do Docker versão 1,40 ou superior para usar este módulo.
 
-O arquivo de manifesto de implantação de exemplo para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outro [computador desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  inclui um módulo chamado `diagnostics` que coleta e carrega logs. Esse módulo é desabilitado por padrão e deve ser habilitado por meio da configuração do módulo IoT Edge quando você precisa acessar os logs. 
+O arquivo de manifesto de implantação de exemplo para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [computador desktop](https://go.microsoft.com/fwlink/?linkid=2152270)ou [VM do Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) inclui um módulo chamado `diagnostics` que coleta e carrega logs. Esse módulo é desabilitado por padrão e deve ser habilitado por meio da configuração do módulo IoT Edge quando você precisa acessar os logs. 
 
 A `diagnostics` coleção é sob demanda e controlada por meio de um método direto IOT Edge e pode enviar logs para um armazenamento de BLOBs do Azure.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configurar destinos de upload de diagnóstico
 
-No portal de IoT Edge, selecione o dispositivo e, em seguida, o módulo **diagnóstico** . No arquivo de manifesto de implantação de exemplo para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outros [computadores desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), procure a seção **variáveis de ambiente** para diagnóstico, chamada `env` e adicione as seguintes informações:
+No portal de IoT Edge, selecione o dispositivo e, em seguida, o módulo **diagnóstico** . No arquivo de manifesto de implantação de exemplo para seu [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [computadores desktop](https://go.microsoft.com/fwlink/?linkid=2152270)ou [VM do Azure com GPU](https://go.microsoft.com/fwlink/?linkid=2152189) , procure a seção **variáveis de ambiente** para diagnóstico, chamado `env` e adicione as seguintes informações:
 
 **Configurar upload para o armazenamento de BLOBs do Azure**
 

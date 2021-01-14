@@ -2,32 +2,37 @@
 title: Detecção de mensagens duplicadas do Barramento de Serviço do Azure | Microsoft Docs
 description: Este artigo explica como você pode detectar duplicatas em mensagens do barramento de serviço do Azure. A mensagem duplicada pode ser ignorada e descartada.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.openlocfilehash: 29972f756c66f524cc2e4684fcb7afd1ca628820
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083881"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184672"
 ---
 # <a name="duplicate-detection"></a>Detecção de duplicidade
 
 Se um aplicativo falhar devido a um erro fatal imediatamente após enviar uma mensagem, e a instância do aplicativo reiniciado erroneamente acreditar que a entrega da mensagem anterior não ocorreu, um envio subsequente fará com que a mesma mensagem apareça no sistema duas vezes.
 
-Também é possível ocorrer um erro no nível do cliente ou da rede um momento antes e para uma mensagem enviada ser confirmada na fila, com a confirmação não retornando de forma bem sucedida para o cliente. Este cenário deixa o cliente em dúvida quanto ao resultado da operação de envio.
+Também é possível que um erro no nível do cliente ou da rede ocorra um momento antes e que uma mensagem enviada seja confirmada na fila, com a confirmação não retornada com êxito ao cliente. Este cenário deixa o cliente em dúvida quanto ao resultado da operação de envio.
 
 A detecção duplicada elimina a dúvida dessas situações, permitindo que o remetente reenvie a mesma mensagem, e a fila ou o tópico descarta qualquer cópia duplicada.
 
+## <a name="how-it-works"></a>Como ele funciona? 
 Habilitar detecção de duplicidades ajuda a controlar a *MessageId* controlada pelo aplicativo de todas as mensagens enviadas para uma fila ou tópico durante um intervalo especificado. Se qualquer nova mensagem for enviada com *MessageId* que foi registrada durante a janela de tempo, a mensagem será relatada como aceita (a operação de envio será com êxito), mas a mensagem enviada recentemente será imediatamente ignorada e descartada. Nenhuma outra parte da mensagem além de *MessageId* é considerada.
 
 O controle de aplicativos do identificador é essencial porque somente isso permite que o aplicativo vincule *MessageId* a um contexto de processo de negócios, a partir do qual ele poderá ser previsivelmente reconstruído quando ocorrer uma falha.
 
 Para um processo de negócios em que várias mensagens são enviadas no decorrer de tratamento de algum contexto de aplicativo, a *MessageId* pode ser uma composição do identificador de contexto do nível do aplicativo, como um número de ordem de compra e o assunto da mensagem, por exemplo, **12345.2017/pagamento**.
 
-A *MessageId* sempre pode ser algum GUID, mas a ancoragem o identificador para o processo de negócios produz a repetição previsível, o que é desejado para aproveitar o recurso de detecção de duplicidades com eficiência.
+A *MessageId* sempre pode ser um GUID, mas a ancoragem do identificador para o processo de negócios gera uma repetição previsível, o que é desejado para usar o recurso de detecção de duplicidades com eficiência.
 
-> [!NOTE]
-> Se a detecção de duplicidades estiver habilitada e a ID da sessão ou a chave de partição não estiver definida, a ID da mensagem será usada como a chave de partição. Se a ID da mensagem também não for definida, as bibliotecas .NET e AMQP gerarão automaticamente uma ID de mensagem para a mensagem. Para obter mais informações, consulte [uso de chaves de partição](service-bus-partitioning.md#use-of-partition-keys).
+> [!IMPORTANT]
+>- Quando o **particionamento** está **habilitado**, `MessageId+PartitionKey` é usado para determinar a exclusividade. Quando as sessões são habilitadas, a chave de partição e a ID de sessão devem ser as mesmas. 
+>- Quando o **particionamento** está **desabilitado** (padrão), somente `MessageId` é usado para determinar a exclusividade.
+>- Para obter informações sobre SessionId, PartitionKey e MessageId, consulte [uso de chaves de partição](service-bus-partitioning.md#use-of-partition-keys).
+>- A [camada Premier](service-bus-premium-messaging.md) não dá suporte ao particionamento, portanto, recomendamos que você use IDs de mensagem exclusivas em seus aplicativos e não dependa de chaves de partição para detecção de duplicidades. 
+
 
 ## <a name="enable-duplicate-detection"></a>Habilitar detecção de duplicidade
 

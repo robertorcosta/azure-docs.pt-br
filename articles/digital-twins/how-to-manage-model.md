@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a8b2fdf99b33df3322748b7e073cc4ab18957c84
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 00e6802f37ec60467edbea98038dd23fcba1239a
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045233"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185488"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
@@ -52,9 +53,6 @@ Seguindo esse método, você pode ir para definir modelos para as regiões, zona
 ## <a name="upload-models"></a>Carregar modelos
 
 Depois que os modelos são criados, você pode carregá-los na instância do gêmeos digital do Azure.
-
-> [!TIP]
-> É recomendável validar seus modelos offline antes de carregá-los na instância do gêmeos digital do Azure. Você pode usar a [biblioteca do analisador do lado do cliente DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e a [amostra do validador DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) descritas em [*instruções: analisar e validar modelos*](how-to-parse-models.md) para verificar seus modelos antes de carregá-los para o serviço.
 
 Quando estiver pronto para carregar um modelo, você poderá usar o seguinte trecho de código:
 
