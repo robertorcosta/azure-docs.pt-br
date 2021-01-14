@@ -5,13 +5,13 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 3fe63deb8115c0043023301c6d0dc3731e97743f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/14/2021
+ms.openlocfilehash: ccae7b3f201e55af0e9e6b4ca9e7fd4ffb9c4897
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492618"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200967"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Ler réplicas no banco de dados do Azure para MySQL-servidor flexível
 
@@ -31,7 +31,7 @@ Para saber mais sobre recursos e problemas de replicação do MySQL, consulte a 
 > [!NOTE]
 > Comunicação livre de desvio
 >
-> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra _escravo_. O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, uma vez que, atualmente, é a palavra que aparece no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
+> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências às palavras _mestre_ e _subordinado_. O guia de estilo da Microsoft [para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como palavras de exclusão. As palavras são usadas neste artigo para fins de consistência porque atualmente são as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar em alinhamento.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>Casos de uso comuns para réplica de leitura
@@ -93,23 +93,23 @@ Saiba como [interromper a replicação para uma réplica](how-to-read-replicas-p
 
 ## <a name="failover"></a>Failover
 
-Não há nenhum failover automatizado entre os servidores de origem e de réplica. 
+Não há nenhum failover automatizado entre os servidores de origem e de réplica.
 
 As réplicas de leitura destinam-se ao dimensionamento de cargas de trabalho de leitura intensiva e não são projetadas para atender às necessidades de alta disponibilidade de um servidor. Não há nenhum failover automatizado entre os servidores de origem e de réplica. Parar a replicação na réplica de leitura para colocá-la online no modo de leitura/gravação é o meio pelo qual esse failover manual é executado.
 
-Como a replicação é assíncrona, há um atraso entre a origem e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor de origem e a latência entre os data centers. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica* de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
+Como a replicação é assíncrona, há um atraso entre a origem e a réplica. A quantidade de latência pode ser influenciada por muitos fatores, como a intensidade da carga de trabalho em execução no servidor de origem e a latência entre os data centers. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica* de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
 
 > [!Tip]
 > Se você realizar o failover para a réplica, o retardo no momento em que você desvincular a réplica da fonte indicará a quantidade de dados perdida.
 
-Depois que você decidir que deseja fazer failover para uma réplica, 
+Depois que você decidir que deseja fazer failover para uma réplica:
 
 1. Parar a replicação na réplica<br/>
    Essa etapa é necessária para tornar o servidor de réplica capaz de aceitar gravações. Como parte desse processo, o servidor de réplica será desvinculado da origem. Depois que você inicia a interrupção da replicação, o processo de back-end normalmente leva cerca de 2 minutos para ser concluído. Consulte a seção [parar replicação](#stop-replication) deste artigo para entender as implicações dessa ação.
-    
+
 2. Aponte seu aplicativo para a réplica (antiga)<br/>
    Cada servidor tem uma cadeia de conexão exclusiva. Atualize seu aplicativo para apontar para a réplica (antiga) em vez da origem.
-    
+
 Depois que o aplicativo processar leituras e gravações com êxito, você terá concluído o failover. A quantidade de tempo de inatividade com a qual suas experiências de aplicativo dependerão quando você detectar um problema e concluir as etapas 1 e 2 acima.
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
@@ -118,7 +118,7 @@ Depois que o aplicativo processar leituras e gravações com êxito, você terá
 |:-|:-|
 | Réplica no servidor com HA com redundância de zona habilitada | Sem suporte |
 | Replicação de leitura entre regiões | Sem suporte |
-| Preço | O custo da execução do servidor de réplica é baseado na região em que o servidor de réplica está em execução |
+| Preços | O custo da execução do servidor de réplica é baseado na região em que o servidor de réplica está em execução |
 | Reinicialização do servidor de origem | Quando você cria uma réplica para uma fonte que não tem réplicas existentes, a origem será reiniciada primeiro para se preparar para a replicação. Leve isso em consideração e execute essas operações durante um período de fora de pico |
 | Novas réplicas | Uma réplica de leitura é criada como um novo servidor flexível do banco de dados do Azure para MySQL. Um servidor existente não pode se tornar uma réplica. Não é possível criar uma réplica de outra réplica de leitura |
 | Configuração da réplica | Uma réplica é criada usando a mesma configuração de servidor que a origem. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor de origem: geração de computação, vCores, armazenamento e período de retenção de backup. A camada de computação também pode ser alterada de forma independente.<br> <br> **IMPORTANTE**  <br> -Antes que uma configuração de servidor de origem seja atualizada para novos valores, atualize a configuração de réplica para valores iguais ou maiores. Esta ação garante que a réplica possa acompanhar as alterações realizadas na origem. <br/> As configurações de método e parâmetro de conectividade são herdadas do servidor de origem para a réplica quando a réplica é criada. As regras da réplica são independentes posteriormente. |
@@ -130,5 +130,5 @@ Depois que o aplicativo processar leituras e gravações com êxito, você terá
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [criar e gerenciar réplicas de leitura usando o portal do Azure](how-to-read-replicas-portal.md)
-- Saiba como [criar e gerenciar réplicas de leitura usando a CLI do Azure](how-to-read-replicas-cli.md)
+* Saiba como [criar e gerenciar réplicas de leitura usando o portal do Azure](how-to-read-replicas-portal.md)
+* Saiba como [criar e gerenciar réplicas de leitura usando a CLI do Azure](how-to-read-replicas-cli.md)

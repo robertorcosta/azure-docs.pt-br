@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8f69f94c53227dc86fbbf9e9936a2fc3c97ec55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: af248b4ee3ccd079d41317fdb1db3de82ad0f835
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967866"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199029"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Conectar máquinas virtuais do Azure a Grandes Instâncias do HANA
 
@@ -41,7 +41,7 @@ Olhando mais de perto no lado da rede virtual do Azure, há a necessidade de:
 >[!Note]
 >A rede virtual do Azure para instâncias grandes do HANA deve ser criada usando o modelo de implantação do Azure Resource Manager. O modelo de implantação mais antigo do Azure, comumente conhecido como modelo de implantação clássico, não é suportado pela solução de Instância Grande do HANA.
 
-Você pode usar o portal do Azure, o PowerShell, um modelo do Azure ou a CLI do Azure para criar a rede virtual. (Para obter mais informações, consulte [criar uma rede virtual usando o portal do Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). No exemplo a seguir, analisamos uma rede virtual criada usando o portal do Azure.
+Você pode usar o portal do Azure, o PowerShell, um modelo do Azure ou a CLI do Azure para criar a rede virtual. (Para obter mais informações, consulte [criar uma rede virtual usando o portal do Azure](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)). No exemplo a seguir, analisamos uma rede virtual criada usando o portal do Azure.
 
 Ao fazer referência ao **espaço de endereço** nesta documentação, para o espaço de endereço que a rede virtual do Azure tem permissão para usar. Esse espaço de endereço também é o intervalo de endereços que a rede virtual usa para a propagação de rota do BGP. Esse **espaço de endereço** pode ser visto aqui:
 

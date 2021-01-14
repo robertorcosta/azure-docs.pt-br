@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d06dc03a016f057a9a3407a82a114f8df6757599
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047285"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200678"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Criar uma imagem gerenciada de uma VM generalizada no Azure
 
@@ -33,7 +33,7 @@ Verifique se as funções de servidor em execução no computador são suportada
 >
 >O Sysprep requer que as unidades sejam totalmente descriptografadas. Se você habilitou a criptografia em sua VM, desabilite a criptografia antes de executar o Sysprep.
 >
-> Se você planeja executar o Sysprep antes de carregar o VHD (disco rígido virtual) no Azure pela primeira vez, [prepare a VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> Se você planeja executar o Sysprep antes de carregar o VHD (disco rígido virtual) no Azure pela primeira vez, [prepare a VM](prepare-for-upload-vhd-image.md).  
 > 
 > 
 
@@ -250,4 +250,4 @@ Para criar uma imagem gerenciada de uma VM que não usa discos gerenciados, é n
 
     
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar uma VM de uma imagem gerenciada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).    
+- [Criar uma VM de uma imagem gerenciada](create-vm-generalized-managed.md). 

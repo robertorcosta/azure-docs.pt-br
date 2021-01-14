@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074296"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200712"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>A VM não está respondendo com o erro "C01A001D" ao aplicar Windows Update
 
@@ -56,7 +56,7 @@ Um arquivo de núcleo não pode ser criado no sistema de arquivos. O sistema ope
 
 Se o disco ainda não for de 1 TB, você deverá redimensioná-lo. Depois que o disco for de 1 TB, execute uma limpeza de disco e uma desfragmentação da unidade.
 
-1. Verifique se o disco está cheio. Se o disco estiver abaixo de 1 TB, [expanda-o para um máximo de 1 TB usando o PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Verifique se o disco está cheio. Se o disco estiver abaixo de 1 TB, [expanda-o para um máximo de 1 TB usando o PowerShell](../windows/expand-os-disk.md).
 2. Depois que o disco for de 1 TB, execute uma limpeza de disco.
     - [Desanexe o disco de dados da VM quebrada](../windows/detach-disk.md).
     - [Anexe o disco de dados a uma VM em funcionamento](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
@@ -71,7 +71,7 @@ Se o disco ainda não for de 1 TB, você deverá redimensioná-lo. Depois que o 
 ### <a name="recommended-before-rebuilding-the-vm-enable-serial-console-and-memory-dump-collection"></a>Recomendado: antes de recriar a VM, habilite o console serial e a coleção de despejo de memória
 
 1. Abra uma sessão de prompt de comandos com privilégios elevados (Executar como administrador).
-2. Execute os comandos a seguir:
+2. Execute os seguintes comandos:
 
     Habilitar console serial:
 

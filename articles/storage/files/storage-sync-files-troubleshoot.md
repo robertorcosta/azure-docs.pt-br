@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b84256188cf5df3ddf389f763e669a2b2ca00852
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e2f0d62ae6882229cee3ee32e3b362f2b6593da7
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183329"
+ms.locfileid: "98199228"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -52,9 +52,11 @@ Para resolver esse problema, instale o [KB2919355](https://support.microsoft.com
 <a id="server-registration-missing-subscriptions"></a>**O Registro de Servidor não lista todas as Assinaturas do Azure**  
 Ao registrar um servidor usando o ServerRegistration.exe, as assinaturas estão ausentes quando você clica na lista suspensa da Assinatura do Azure.
 
-Esse problema ocorre porque o ServerRegistration.exe atualmente não dá suporte a ambientes multilocatário. Esse problema será corrigido em uma atualização futura do agente da Sincronização de Arquivos do Azure.
+Esse problema ocorre porque ServerRegistration.exe recuperará somente as assinaturas dos primeiros 5 locatários do Azure AD. 
 
-Para solucionar esse problema, use os seguintes comandos do PowerShell para registrar o servidor:
+Para aumentar o limite do locatário de registro do servidor no servidor, crie um valor DWORD chamado ServerRegistrationTenantLimit em HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync com um valor maior que 5.
+
+Você também pode solucionar esse problema usando os seguintes comandos do PowerShell para registrar o servidor:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"

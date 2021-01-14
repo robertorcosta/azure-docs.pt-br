@@ -1,18 +1,18 @@
 ---
-title: Rótulo de sensibilidade que relata seus dados no armazenamento de BLOBs do Azure
-description: Este guia de instruções descreve como exibir e usar os relatórios de rótulo de sensibilidade de alcance em seus dados no armazenamento de BLOBs do Azure.
+title: Rótulo de confidencialidade de relatórios sobre seus dados no Azure alcance usando o alcance insights
+description: Este guia de instruções descreve como exibir e usar os relatórios de rótulo de sensibilidade de alcance em seus dados.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746175"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199369"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informações de rótulo de confidencialidade sobre seus dados no Azure alcance
 
@@ -27,6 +27,11 @@ Neste guia de instruções, você aprenderá a:
 > - Exibir informações de rótulo de confidencialidade em seus dados
 > - Faça uma busca detalhada para obter detalhes de rótulos de confidencialidade sobre seus dados
 
+> [!NOTE]
+> Os rótulos de sensibilidade encontrados em [ativos de Power bi](register-scan-power-bi-tenant.md) que são verificados pelo alcance não são mostrados no momento no relatório de informações de rótulo de sensibilidade. 
+>
+> Para exibir rótulos de sensibilidade em ativos de Power BI, exiba o ativo no [Catálogo de dados alcance](how-to-search-catalog.md).
+> 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar a usar o alcance insights, verifique se você concluiu as seguintes etapas:
@@ -37,6 +42,8 @@ Antes de começar a usar o alcance insights, verifique se você concluiu as segu
 
 - Configurar e concluir uma verificação nos dados de teste em cada fonte de dados
 
+- Conectado ao alcance com uma [função de leitor de dados ou de curador dos dados](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 Para obter mais informações, consulte [gerenciar fontes de dados no Azure alcance (versão prévia)](manage-data-sources.md) e [rotular automaticamente seus dados no alcance do Azure](create-sensitivity-label.md).
 
 ## <a name="use-purview-sensitivity-labeling-insights"></a>Usar informações de rótulo de sensibilidade de alcance
@@ -45,9 +52,11 @@ No alcance, as classificações são semelhantes às marcas de assunto e são us
 
 Os rótulos de sensibilidade permitem que você declare a confidencialidade de determinados dados em sua organização. Por exemplo, um nome de projeto específico pode ser altamente confidencial em sua organização, enquanto esse mesmo termo não é confidencial para outras organizações. 
 
-Embora as classificações sejam correspondidas diretamente (um número de seguro social tem uma classificação de **número de previdência social**), os rótulos de sensibilidade são aplicados quando uma ou mais classificações e cenários são encontrados em conjunto. 
+As classificações são correspondidas diretamente, como um número do seguro social, que tem uma classificação de número do seguro **social**. 
 
-O alcance usa as mesmas classificações, também conhecidas como tipos de informações confidenciais, como Microsoft 365. Isso permite que você estenda os rótulos de sensibilidade existentes nos ativos de alcance do Azure.
+Por outro lado, os rótulos de sensibilidade são aplicados quando uma ou mais classificações e condições são encontradas em conjunto. Nesse contexto, as [condições](/microsoft-365/compliance/apply-sensitivity-label-automatically) se referem a todos os parâmetros que você pode definir para dados não estruturados, como **proximidade a outra classificação** e **% de confiança**. 
+
+O alcance usa as mesmas classificações, também conhecidas como [tipos de informações confidenciais](/microsoft-365/compliance/sensitive-information-type-entity-definitions), como Microsoft 365. Isso permite que você estenda os rótulos de sensibilidade existentes nos ativos de alcance do Azure.
 
 > [!NOTE]
 > Depois de ter examinado seus tipos de origem, conceda a **sensibilidade de rotular** informações a algumas horas para refletir os novos ativos.

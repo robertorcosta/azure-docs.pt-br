@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c981bde4e0699c4da33ada7e287b16e54b899a58
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861979"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198910"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -255,7 +255,7 @@ Os invasores podem direcionar para contas com privilégios para interromper a in
 * Ataques de usurpação de identidade
 * Ataques de roubo de credenciais, como registro de pressionamento de teclas, Pass-the-Hash e Pass-the-Ticket
 
-Com a implantação de estações de trabalho de acesso privilegiado, você pode reduzir o risco de os administradores inserirem credenciais em um ambiente de área de trabalho que não foi protegido. Para saber mais, confira [Privileged Identity Management](/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Com a implantação de estações de trabalho de acesso privilegiado, você pode reduzir o risco de os administradores inserirem credenciais em um ambiente de área de trabalho que não foi protegido. Para saber mais, confira [Privileged Identity Management](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Analise as recomendações do Instituto Nacional de padrões e tecnologia para lidar com incidentes
 

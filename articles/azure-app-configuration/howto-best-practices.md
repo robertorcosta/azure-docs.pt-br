@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 038d19270fbdb672d397eb2bd56bd27e17ea7af9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f407f9ee2ea0ca73b29e4fde9d542c005f78a929
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929082"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200440"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Práticas recomendadas de configuração do Azure App
 
@@ -89,6 +89,10 @@ A configuração de aplicativo oferece a opção de [importar](./howto-import-ex
 ## <a name="multi-region-deployment-in-app-configuration"></a>Implantação em várias regiões na configuração do aplicativo
 
 A configuração do aplicativo é um serviço regional. Para aplicativos com configurações diferentes por região, armazenar essas configurações em uma instância pode criar um ponto único de falha. A implantação de instâncias de configuração de um aplicativo por região em várias regiões pode ser uma opção melhor. Ele pode ajudar com a recuperação de desastre regional, o desempenho e o silo de segurança. A configuração por região também melhora a latência e usa cotas de limitação separadas, pois a limitação é por instância. Para aplicar a mitigação de recuperação de desastres, você pode usar [vários repositórios de configuração](./concept-disaster-recovery.md). 
+
+## <a name="client-applications-in-app-configuration"></a>Aplicativos cliente na configuração do aplicativo 
+
+Solicitações excessivas para a configuração do aplicativo podem resultar na limitação ou encargos excedentes. Os aplicativos aproveitam o Caching e a atualização inteligente disponíveis no momento para otimizar o número de solicitações que eles enviam. Esse processo pode ser espelhado em aplicativos cliente de alto volume, evitando conexões diretas com o repositório de configurações. Em vez disso, os aplicativos cliente se conectam a um serviço personalizado e esse serviço se comunica com o repositório de configuração. Essa solução de proxy pode garantir que os aplicativos cliente não se aproximam do limite de limitação no repositório de configuração. Para obter mais informações sobre a limitação, consulte [as perguntas frequentes](https://docs.microsoft.com/azure/azure-app-configuration/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Próximas etapas
 
