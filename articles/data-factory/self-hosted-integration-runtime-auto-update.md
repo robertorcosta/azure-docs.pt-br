@@ -1,8 +1,6 @@
 ---
-title: Notificação de atualização automática e expiração do tempo de execução de integração auto-hospedado
+title: Notificação de expiração e atualização automática do runtime de integração auto-hospedada
 description: Saiba mais sobre a notificação de atualização automática e expiração do tempo de execução de integração do auto-hospedado
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
@@ -11,14 +9,14 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 6a6c897d92d469fd6247dd51f2bacb91032ac123
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8c51839e760dcca32bfc0d150c5e4d10767d95a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121998"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222672"
 ---
-# <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Notificação de atualização automática e expiração do tempo de execução de integração auto-hospedado
+# <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Notificação de expiração e atualização automática do runtime de integração auto-hospedada
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -33,7 +31,7 @@ A maneira mais conveniente é habilitar a atualização automática quando você
 
 Você pode verificar o DateTime da última atualização em seu cliente de tempo de execução de integração auto-hospedado.
 
-![Habilitar atualização automática](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
+![Captura de tela da verificação da hora de atualização](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
 
 > [!NOTE]
 > Para garantir a estabilidade do tempo de execução de integração auto-hospedado, embora tenhamos lançado duas versões, atualizaremos-a automaticamente uma vez por mês. Às vezes, você descobrirá que a versão atualizada automaticamente é a versão anterior da versão atual mais recente. Se você quiser obter a versão mais recente, poderá ir para o [centro de download](https://www.microsoft.com/download/details.aspx?id=39717).

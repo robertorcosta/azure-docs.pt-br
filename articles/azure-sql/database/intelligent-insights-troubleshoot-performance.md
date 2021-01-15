@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 06/12/2020
-ms.openlocfilehash: c42db1445c939069f334d04ea26d54cdb843c336
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488820"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220381"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada com Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,11 +32,11 @@ Esta página fornece informações sobre os problemas de desempenho do banco de 
 
 Intelligent Insights detecta automaticamente problemas de desempenho com base em tempos de espera de execução de consulta, erros ou tempos limite. Intelligent Insights gera padrões de desempenho detectados para o log de recursos. Padrões de desempenho detectáveis estão resumidos na tabela a seguir.
 
-| Padrões de desempenho detectáveis | Banco de Dados SQL do Azure | Instância Gerenciada do Azure SQL |
+| Padrões de desempenho detectáveis | Banco de Dados SQL do Azure | Instância Gerenciada de SQL do Azure |
 | :------------------- | ------------------- | ------------------- |
 | [Atingindo os limites do recurso](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | O consumo de recursos disponíveis (DTUs), threads de trabalho de banco de dados ou sessões de logon de banco de dados disponíveis na assinatura monitorado atingiu seus limites de recursos. Isso está afetando o desempenho. | O consumo de recursos de CPU está atingindo seus limites de recursos. Isso está afetando o desempenho do banco de dados. |
 | [Aumento da carga de trabalho](intelligent-insights-troubleshoot-performance.md#workload-increase) | Foi detectado aumento da carga de trabalho ou acumulação contínua de carga de trabalho no banco de dados. Isso está afetando o desempenho. | Foi detectado um aumento da carga de trabalho. Isso está afetando o desempenho do banco de dados. |
-| [Pressão de memória](intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os trabalhadores que solicitaram concessões de memória precisam aguardar as alocações de memória para quantidades estatisticamente significativas, ou um aumento de acumulação de trabalhos que solicitou concessão de memória existe. Isso está afetando o desempenho. | Os operadores que solicitaram concessões de memória estão esperando alocações de memória para quantidades de tempo estatisticamente significativas. Isso está afetando o desempenho do banco de dados. |
+| [Demanda de memória](intelligent-insights-troubleshoot-performance.md#memory-pressure) | Os trabalhadores que solicitaram concessões de memória precisam aguardar as alocações de memória para quantidades estatisticamente significativas, ou um aumento de acumulação de trabalhos que solicitou concessão de memória existe. Isso está afetando o desempenho. | Os operadores que solicitaram concessões de memória estão esperando alocações de memória para quantidades de tempo estatisticamente significativas. Isso está afetando o desempenho do banco de dados. |
 | [Bloqueio](intelligent-insights-troubleshoot-performance.md#locking) | Foi detectado um bloqueio excessivo de banco de dados afetando o desempenho. | Bloqueio de banco de dados excessivo foi detectado, afetando o desempenho do banco de dados. |
 | [Aumento de MAXDOP](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho. | A opção de grau máximo de paralelismo (MAXDOP) foi alterada, afetando a eficiência da execução da consulta. Isso está afetando o desempenho. |
 | [Contenção de pagelatch](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho. | Vários threads estão tentando, simultaneamente, acessar as mesmas páginas de buffer de dados na memória, resultando em maior tempo de espera, causando contenção de pagelatch. Isso está afetando o desempenho do banco de dados. |
@@ -128,7 +128,9 @@ O log de diagnóstico gera detalhes de bloqueio que você pode usar como base pa
 
 A maneira mais simples e segura de atenuar o problema é manter as transações curtas e reduzir a superfície de bloqueio das consultas mais caras. Você pode dividir um lote grande de operações em operações menores. Uma melhor prática é reduzir a superfície de bloqueio de consulta, tornando a consulta o mais eficiente possível. Reduza verificações grandes, pois elas aumentam as chances de deadlocks e afetam negativamente o desempenho geral do banco de dados. Para consultas identificadas que causam o bloqueio, você pode criar novos índices ou adicionar colunas ao índice existente para evitar as verificações de tabela.
 
-Para obter mais sugestões, consulte [Como resolver problemas de bloqueio causados por escalonamento de bloqueios no SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in).
+Para obter mais sugestões, consulte:
+- [Entender e resolver problemas de bloqueio do SQL do Azure](understand-resolve-blocking.md)
+- [Como resolver problemas de bloqueio causados pelo escalonamento de bloqueios no SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)
 
 ## <a name="increased-maxdop"></a>Aumento de MAXDOP
 

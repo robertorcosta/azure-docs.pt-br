@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/16/2020
-ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/14/2020
+ms.openlocfilehash: 983e037376be48f497118b06cce8b23c430b1501
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914103"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223067"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integração de código-fonte aberto com projetos Azure Machine Learning
 
@@ -42,11 +42,11 @@ Os algoritmos de aprendizado de máquina de software livre conhecidos como redes
 
 As estruturas de aprendizado profundo de software livre e os guias de instruções incluem:
 
- *  [PyTorch](https://github.com/pytorch/pytorch): [treinar um modelo de classificação de imagem de aprendizado profundo usando o aprendizado de transferência no PyTorch](how-to-train-pytorch.md) 
+ *  [PyTorch](https://github.com/pytorch/pytorch): [treinar um modelo de classificação de imagem de aprendizado profundo usando o aprendizado de transferência](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [reconhecer dígitos manuscritos usando TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [criar uma rede neural para analisar imagens usando o Keras](how-to-train-keras.md)
 
-Treinar um modelo de aprendizado profundo do zero geralmente requer grandes quantidades de tempo, dados e recursos de computação. Você pode usar um atalho para o processo de treinamento usando o aprendizado de transferência. O aprendizado de transferência é uma técnica que aplica o conhecimento obtido da solução de um problema para um problema diferente, mas relacionado. Isso significa que você pode fazer com que um modelo existente o redefina. Consulte o [artigo de aprendizado profundo](concept-deep-learning-vs-machine-learning.md#transfer-learning) para saber mais sobre o aprendizado de transferência.
+Treinar um modelo de aprendizado profundo do zero geralmente requer grandes quantidades de tempo, dados e recursos de computação. Você pode usar um atalho para o processo de treinamento usando o aprendizado de transferência. O aprendizado de transferência é uma técnica que aplica o conhecimento obtido da solução de um problema para um problema diferente, mas relacionado. Isso significa que você pode fazer com que um modelo existente o redefina. Consulte o [artigo aprendizado profundo vs. Machine Learning](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) para saber mais sobre o aprendizado de transferência.
 
 ### <a name="reinforcement-learning-ray-rllib"></a>Aprendizado de reforço: Ray RLLib
 

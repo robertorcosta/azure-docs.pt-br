@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff656887081681a804285e9a96352feef15fc675
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7557985b23991f1a53d45f6f2d2283500c0d73f3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743857"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222404"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Descubra o estado atual da colaboração externa em sua organização 
 
@@ -46,9 +46,9 @@ As organizações externas podem ser determinadas pelos nomes de domínio dos en
 
 ### <a name="use-allow-or-deny-lists"></a>Usar listas de permissão ou negação
 
-Outra maneira de descobrir com quem você está colaborando, ou com quem você bloqueou a colaboração, é ver se você adicionou todas as organizações às suas [listas de permissão ou negação](../external-identities/allow-deny-list.md).
+Considere se sua organização deseja permitir a colaboração com apenas organizações específicas. Como alternativa, considere se sua organização deseja bloquear a colaboração com organizações específicas.  No nível do locatário, há uma [lista de permitir ou negar](../external-identities/allow-deny-list.md), que pode ser usada para controlar os convites e os resgates de B2B gerais, independentemente da origem (por exemplo, equipes, SharePoint e portal do Azure).
+Se você estiver usando o gerenciamento de direitos, também poderá definir o escopo de pacotes de acesso para um subconjunto de seus parceiros usando a configuração de organizações conectadas específicas, conforme mostrado abaixo.
 
-Considere se sua organização deseja permitir a colaboração com apenas organizações específicas. Considere também se sua organização deseja bloquear a colaboração com organizações específicas. Essas configurações podem ser aplicadas para o resgate de B2B geral ou apenas para um pacote de acesso específico.
 
 ![Captura de tela de permitir lista de negações na criação de um novo pacote de acesso.](media/secure-external-access/2-new-access-package.png)
 

@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97506300"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225649"
 ---
 O uso da integração de VNet regional permite que seu aplicativo acesse:
 
@@ -48,7 +48,6 @@ Há algumas limitações no uso da integração VNet com o VNets na mesma regiã
 * O recurso requer uma sub-rede não utilizada que seja a/28 ou maior em uma VNet Azure Resource Manager.
 * O aplicativo e a VNet devem estar na mesma região.
 * Não é possível excluir uma VNet com um aplicativo integrado. Remova a integração antes de excluir a VNet.
-* Você só pode integrar com VNets na mesma assinatura que o aplicativo.
 * Você pode ter apenas uma integração VNet regional por plano do serviço de aplicativo. Vários aplicativos no mesmo plano do serviço de aplicativo podem usar a mesma VNet.
 * Você não pode alterar a assinatura de um aplicativo ou um plano enquanto há um aplicativo que está usando a integração VNet regional.
 * Seu aplicativo não pode resolver endereços em Zonas Privadas do DNS do Azure sem alterações de configuração
@@ -80,7 +79,7 @@ A integração VNet regional permite que você use pontos de extremidade de serv
 1. configurar a integração VNet regional com seu aplicativo Web
 1. Vá para o serviço de destino e configure os pontos de extremidade de serviço em relação à sub-rede usada para integração
 
-### <a name="network-security-groups"></a>Grupos de segurança de rede
+### <a name="network-security-groups"></a>Grupos de Segurança de Rede
 
 Você pode usar grupos de segurança de rede para bloquear o tráfego de entrada e saída para recursos em uma VNet. Um aplicativo que usa a integração VNet regional pode usar um [grupo de segurança de rede][VNETnsg] para bloquear o tráfego de saída para recursos em sua VNet ou na Internet. Para bloquear o tráfego para endereços públicos, você deve ter a configuração de aplicativo WEBSITE_VNET_ROUTE_ALL definida como 1. As regras de entrada em um NSG não se aplicam ao seu aplicativo porque a integração VNet afeta apenas o tráfego de saída de seu aplicativo.
 

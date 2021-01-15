@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.custom: responsible-ml
+ms.openlocfilehash: 29e29e73aa1094a2941592655af78a24d95c53b5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335751"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223084"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Mitigar a imparcialidade em modelos de aprendizado de máquina (versão prévia)
 
@@ -51,7 +52,7 @@ Juntos, esses componentes permitem que os cientistas de dados e os líderes de n
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Avaliar a imparcialidade em modelos de aprendizado de máquina
 
-No pacote de código-fonte aberto do Fairlearn, a imparcialidade é conceituada por meio de uma abordagem conhecida como **imparcialidade de grupo** , que pergunta: quais grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos por meio de **recursos sensíveis** ou atributos sensíveis. Os recursos confidenciais são passados para um estimador no pacote de código-fonte aberto do Fairlearn como um vetor ou uma matriz chamada  `sensitive_features` . O termo sugere que o designer do sistema deve ser sensível a esses recursos ao avaliar a imparcialidade de grupo. 
+No pacote de código-fonte aberto do Fairlearn, a imparcialidade é conceituada por meio de uma abordagem conhecida como **imparcialidade de grupo**, que pergunta: quais grupos de indivíduos estão em risco de sofrer danos? Os grupos relevantes, também conhecidos como subpopulações, são definidos por meio de **recursos sensíveis** ou atributos sensíveis. Os recursos confidenciais são passados para um estimador no pacote de código-fonte aberto do Fairlearn como um vetor ou uma matriz chamada  `sensitive_features` . O termo sugere que o designer do sistema deve ser sensível a esses recursos ao avaliar a imparcialidade de grupo. 
 
 Algo a ser cuidadoso é se esses recursos contêm implicações de privacidade devido a dados privados. Mas a palavra “sensível” não significa que esses recursos não devem ser usados para fazer previsões.
 

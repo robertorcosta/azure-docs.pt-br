@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358003"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223152"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,7 +68,7 @@ Em um cluster de failover de convidado de VM do Azure, recomendamos uma única N
 Coloque as duas máquinas virtuais:
 
 - No mesmo grupo de recursos do Azure que seu conjunto de disponibilidade, se você estiver usando conjuntos de disponibilidade.
-- Na mesma rede virtual que o controlador de domínio.
+- Na mesma rede virtual que o controlador de domínio ou em uma rede virtual que tem conectividade adequada com seu controlador de domínio.
 - Em uma sub-rede que tenha espaço de endereços IP suficiente para ambas as máquinas virtuais e todas as FCIs que você possa eventualmente usar nesse cluster.
 - No conjunto de disponibilidade do Azure ou na zona de disponibilidade.
 

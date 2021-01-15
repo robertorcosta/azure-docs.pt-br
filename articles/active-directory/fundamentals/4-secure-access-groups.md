@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e28714e2557027a3f8f5504f7052973a77720b6
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: f83e5584f8f9c6823e1259cb5e6034d8b13ae3a6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743863"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222370"
 ---
 # <a name="securing-external-access-with-groups"></a>Protegendo o acesso externo com grupos 
 
@@ -107,7 +107,7 @@ Os grupos de segurança do Azure AD e os grupos de Microsoft 365 podem ser criad
 | Quem cria por padrão?| Administradores <br>Usuários finais| Administradores<br>Usuários finais |
 | Quem pode ser adicionado por padrão?| Usuários internos (Membros)| Membros do locatário e convidados de qualquer organização |
 | A que ele concede acesso?| Somente os recursos aos quais ele foi atribuído.| Todos os recursos relacionados ao grupo:<br>(Caixa de correio de grupo, site, equipe, chats e outros recursos de M365 incluídos)<br>Quaisquer outros recursos aos quais o grupo é adicionado |
-| Pode ser usado com| Acesso Condicional<br>Gerenciamento de direitos<br>Licenciamento de grupo| Acesso Condicional<br>Gerenciamento de direitos<br>Rótulos de confidencialidade |
+| Pode ser usado com| Acesso condicional<br>Gerenciamento de direitos<br>Licenciamento de grupo| Acesso condicional<br>Gerenciamento de direitos<br>Rótulos de confidencialidade |
 
 
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dd5197f99f7187e21eb466bfa213f68a7638e24d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 54001cde76bd89305eb77544c6e6858defda6096
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045335"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222540"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
@@ -157,7 +157,7 @@ Aqui está a saída do console do programa acima:
 > [!TIP]
 > O gráfico de entrelaçamento é um conceito de criação de relações entre gêmeos. Se você quiser exibir a representação visual do grafo de entrelaçamento, consulte a seção [*Visualização*](how-to-manage-graph.md#visualization) deste artigo. 
 
-### <a name="create-a-twin-graph-from-a-csv-file"></a>Criar um gráfico de entrelaçamento de um arquivo CSV
+## <a name="create-graph-from-a-csv-file"></a>Criar grafo a partir de um arquivo CSV
 
 Em casos de uso prático, muitas vezes, as hierarquias de entrelaçamento serão criadas a partir dos dados armazenados em um banco de dado diferente, ou talvez em uma planilha ou em um arquivo CSV. Esta seção ilustra como ler dados de um arquivo CSV e criar um gráfico de cima para fora dele.
 
