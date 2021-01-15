@@ -3,12 +3,12 @@ title: Criar políticas para propriedades de matriz em recursos
 description: Aprenda a trabalhar com parâmetros de matriz e expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos com regras de definição do Azure Policy.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920450"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220738"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Criar políticas para propriedades de matriz em recursos do Azure
 
@@ -16,10 +16,8 @@ As propriedades do Azure Resource Manager são normalmente definidas como cadeia
 
 - O tipo de um [parâmetro de definição](../concepts/definition-structure.md#parameters), para fornecer várias opções
 - Parte de uma [regra de política](../concepts/definition-structure.md#policy-rule) usando as condições **in** ou **notIn**
-- Parte de uma regra de política que avalia o [alias \[\*\]](../concepts/definition-structure.md#understanding-the--alias) para avaliar:
-  - Cenários como **None**, **Any** ou **All**
-  - Cenários complexos com **count**
-- No [efeito append](../concepts/effects.md#append) para substituir ou adicionar a uma matriz existente
+- Parte de uma regra de política que conta quantos membros da matriz atendem a uma condição
+- Nos efeitos [acrescentar](../concepts/effects.md#append) e [Modificar](../concepts/effects.md#modify) para atualizar uma matriz existente
 
 Este artigo aborda cada uso pelo Azure Policy e fornece várias definições de exemplo.
 
@@ -99,48 +97,121 @@ Para usar essa cadeia de caracteres com cada SDK, use os seguintes comandos:
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) com o parâmetro **PolicyParameter**
 - API REST: Na operação [create](/rest/api/resources/policyassignments/create) _PUT_ como parte do corpo da solicitação, como o valor da propriedade **Properties.Parameters**
 
-## <a name="array-conditions"></a>Condições de matriz
+## <a name="using-arrays-in-conditions"></a>Usando matrizes em condições
 
-A regra de política [condições](../concepts/definition-structure.md#conditions) com a qual um **type**
-_array_ do parâmetro pode ser usado limita-se a `in` e `notIn`. Use a seguinte definição de política com a condição `equals` como um exemplo:
+### <a name="in-and-notin"></a>`In` e `notIn`
+
+As `in` `notIn` condições e só funcionam com valores de matriz. Eles verificam a existência de um valor em uma matriz. A matriz pode ser uma matriz JSON literal ou uma referência a um parâmetro de matriz. Por exemplo:
 
 ```json
 {
-  "policyRule": {
-    "if": {
-      "not": {
-        "field": "location",
-        "equals": "[parameters('allowedLocations')]"
-      }
-    },
-    "then": {
-      "effect": "audit"
-    }
-  },
-  "parameters": {
-    "allowedLocations": {
-      "type": "Array",
-      "metadata": {
-        "description": "The list of allowed locations for resources.",
-        "displayName": "Allowed locations",
-        "strongType": "location"
-      }
-    }
-  }
+      "field": "tags.environment",
+      "in": [ "dev", "test" ]
 }
 ```
 
-A tentativa de criar essa definição de política por meio do portal do Azure leva a um erro como esta mensagem de erro:
+```json
+{
+      "field": "location",
+      "notIn": "[parameters('allowedLocations')]"
+}
+```
 
-- "A política '{GUID}' não pôde ser parametrizada devido a erros de validação. Verifique se os parâmetros da política estão definidos corretamente. A exceção interna 'O resultado da avaliação da expressão de linguagem [parameters('allowedLocations')]' é do tipo 'Array', o tipo esperado é 'String'.".
+### <a name="value-count"></a>Contagem de valor
 
-O **type** esperado da condição `equals` é _string_. Como **allowedLocations** é definido como **type** _array_, o mecanismo de política avalia a expressão de linguagem e gera o erro. Com a condição `in` e `notIn`, o mecanismo de política espera o **type** _array_ na expressão de linguagem. Para resolver essa mensagem de erro, altere `equals` para `in` ou `notIn`.
+A expressão de [contagem de valor](../concepts/definition-structure.md#value-count) conta quantos membros de matriz atendem a uma condição. Ele fornece uma maneira de avaliar a mesma condição várias vezes, usando valores diferentes em cada iteração. Por exemplo, a condição a seguir verifica se o nome do recurso corresponde a qualquer padrão de uma matriz de padrões:
+
+```json
+{
+    "count": {
+        "value": [ "test*", "dev*", "prod*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Para avaliar a expressão, Azure Policy avalia a `where` condição 3 vezes, uma vez para cada membro de `[ "test*", "dev*", "prod*" ]` , contando quantas vezes ela foi avaliada `true` . Em cada iteração, o valor do membro da matriz atual é emparelhado com o `pattern` nome do índice definido por `count.name` . Esse valor pode então ser referenciado dentro da `where` condição chamando uma função de modelo especial: `current('pattern')` .
+
+| Iteração | `current('pattern')` valor retornado |
+|:---|:---|
+| 1 | `"test*"` |
+| 2 | `"dev*"` |
+| 3 | `"prod*"` |
+
+A condição será verdadeira somente se a contagem resultante for maior que 0.
+
+Para tornar a condição acima de mais genérica, use a referência de parâmetro em vez de uma matriz literal:
+
+ ```json
+{
+    "count": {
+        "value": "[parameters('patterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Quando a expressão de **contagem de valor** não está sob nenhuma outra expressão de **contagem** , `count.name` é opcional e a `current()` função pode ser usada sem argumentos:
+
+```json
+{
+    "count": {
+        "value": "[parameters('patterns')]",
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+A **contagem de valor** também oferece suporte a matrizes de objetos complexos, permitindo condições mais complexas. Por exemplo, a condição a seguir define um valor de marca desejado para cada padrão de nome e verifica se o nome do recurso corresponde ao padrão, mas não tem o valor de marca necessário:
+
+```json
+{
+    "count": {
+        "value": [
+            { "pattern": "test*", "envTag": "dev" },
+            { "pattern": "dev*", "envTag": "dev" },
+            { "pattern": "prod*", "envTag": "prod" },
+        ],
+        "name": "namePatternRequiredTag",
+        "where": {
+            "allOf": [
+                {
+                    "field": "name",
+                    "like": "[current('namePatternRequiredTag').pattern]"
+                },
+                {
+                    "field": "tags.env",
+                    "notEquals": "[current('namePatternRequiredTag').envTag]"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
+Para obter exemplos úteis, consulte [exemplos de contagem de valor](../concepts/definition-structure.md#value-count-examples).
 
 ## <a name="referencing-array-resource-properties"></a>Referenciando Propriedades de recurso de matriz
 
 Muitos casos de uso exigem o trabalho com propriedades de matriz no recurso avaliado. Alguns cenários exigem a referência a uma matriz inteira (por exemplo, verificando seu comprimento). Outros exigem a aplicação de uma condição a cada membro da matriz individual (por exemplo, certifique-se de que toda a regra de firewall bloqueie o acesso da Internet). Entender as diferentes maneiras Azure Policy pode fazer referência a propriedades de recurso e como essas referências se comportam quando se referem a propriedades de matriz é a chave para escrever condições que abrangem esses cenários.
 
 ### <a name="referencing-resource-properties"></a>Propriedades de recurso de referência
+
 As propriedades de recurso podem ser referenciadas por Azure Policy usando [aliases](../concepts/definition-structure.md#aliases) há duas maneiras de fazer referência aos valores de uma propriedade de recurso dentro de Azure Policy:
 
 - Use condição de [campo](../concepts/definition-structure.md#fields) para verificar se **todas** as propriedades de recurso selecionadas atendem a uma condição. Exemplo:
@@ -219,9 +290,9 @@ Se a matriz contiver objetos, um `[*]` alias poderá ser usado para selecionar o
 }
 ```
 
-Essa condição será verdadeira se os valores de todas as `property` Propriedades no `objectArray` forem iguais a `"value"` .
+Essa condição será verdadeira se os valores de todas as `property` Propriedades no `objectArray` forem iguais a `"value"` . Para obter mais exemplos, [consulte \[ \* \] exemplos de alias adicionais](#appendix--additional--alias-examples).
 
-Ao usar a `field()` função para fazer referência a um alias de matriz, o valor retornado é uma matriz de todos os valores selecionados. Esse comportamento significa que o caso de uso comum da `field()` função, a capacidade de aplicar funções de modelo aos valores de propriedade de recurso, é muito limitado. As únicas funções de modelo que podem ser usadas neste caso são aquelas que aceitam argumentos de matriz. Por exemplo, é possível obter o comprimento da matriz com `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` . No entanto, cenários mais complexos, como aplicar a função de modelo a cada membro da matriz e compará-lo a um valor desejado só são possíveis ao usar a `count` expressão. Para obter mais informações, consulte [expressão de contagem](#count-expressions).
+Ao usar a `field()` função para fazer referência a um alias de matriz, o valor retornado é uma matriz de todos os valores selecionados. Esse comportamento significa que o caso de uso comum da `field()` função, a capacidade de aplicar funções de modelo aos valores de propriedade de recurso, é muito limitado. As únicas funções de modelo que podem ser usadas neste caso são aquelas que aceitam argumentos de matriz. Por exemplo, é possível obter o comprimento da matriz com `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` . No entanto, cenários mais complexos, como aplicar a função de modelo a cada membro da matriz e compará-lo a um valor desejado só são possíveis ao usar a `count` expressão. Para obter mais informações, consulte [expressão de contagem de campos](#field-count-expressions).
 
 Para resumir, consulte o seguinte conteúdo de recurso de exemplo e os valores selecionados retornados por vários aliases:
 
@@ -275,9 +346,9 @@ Ao usar a `field()` função no conteúdo do recurso de exemplo, os resultados s
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray')]` | `[[ 1, 2 ], [ 3, 4 ]]` |
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray[*]')]` | `[1, 2, 3, 4]` |
 
-## <a name="count-expressions"></a>Expressões de contagem
+### <a name="field-count-expressions"></a>Expressões de contagem de campo
 
-As expressões de [contagem](../concepts/definition-structure.md#count) contam como muitos membros de matriz atendem a uma condição e comparam a contagem com um valor de destino. `Count` é mais intuitivo e versátil para avaliar matrizes em comparação com `field` condições. A sintaxe do é:
+As expressões de [contagem de campos](../concepts/definition-structure.md#field-count) contam com quantos membros de matriz atendem a uma condição e comparam a contagem a um valor de destino. `Count` é mais intuitivo e versátil para avaliar matrizes em comparação com `field` condições. A sintaxe do é:
 
 ```json
 {
@@ -289,7 +360,7 @@ As expressões de [contagem](../concepts/definition-structure.md#count) contam c
 }
 ```
 
-Quando usado sem uma condição ' Where ', `count` simplesmente retorna o comprimento de uma matriz. Com o conteúdo de recurso de exemplo da seção anterior, a `count` expressão a seguir é avaliada como `true` `stringArray` tem três membros:
+Quando usado sem uma `where` condição, `count` simplesmente retorna o comprimento de uma matriz. Com o conteúdo de recurso de exemplo da seção anterior, a `count` expressão a seguir é avaliada como `true` `stringArray` tem três membros:
 
 ```json
 {
@@ -314,6 +385,7 @@ Esse comportamento também funciona com matrizes aninhadas. Por exemplo, a expre
 A potência do `count` está na `where` condição. Quando especificado, Azure Policy enumera os membros da matriz e avalia cada um em relação à condição, contando quantos membros de matriz foram avaliados `true` . Especificamente, em cada iteração da `where` avaliação da condição, Azure Policy seleciona um único membro da matriz ***i** _ e avaliamos o conteúdo do recurso com a `where` condição _* como se **_eu_*_ fosse o único membro do array_ *. Ter apenas um membro de matriz disponível em cada iteração fornece uma maneira de aplicar condições complexas em cada membro da matriz individual.
 
 Exemplo:
+
 ```json
 {
   "count": {
@@ -326,7 +398,7 @@ Exemplo:
   "equals": 1
 }
 ```
-Para avaliar a `count` expressão, Azure Policy avalia a `where` condição 3 vezes, uma vez para cada membro de `stringArray` , contando quantas vezes ela foi avaliada `true` . Quando a `where` condição refere-se aos `Microsoft.Test/resourceType/stringArray[*]` membros da matriz, em vez de selecionar todos os membros de `stringArray` , ela selecionará apenas um único membro da matriz a cada vez:
+Para avaliar a `count` expressão, Azure Policy avalia a `where` condição 3 vezes, uma vez para cada membro de `stringArray` , contando quantas vezes ela foi avaliada `true` . Quando a `where` condição se refere aos `Microsoft.Test/resourceType/stringArray[*]` membros da matriz, em vez de selecionar todos os membros de `stringArray` , ele selecionará apenas um único membro da matriz a cada vez:
 
 | Iteração | `Microsoft.Test/resourceType/stringArray[*]`Valores selecionados | `where` Resultado da avaliação |
 |:---|:---|:---|
@@ -337,6 +409,7 @@ Para avaliar a `count` expressão, Azure Policy avalia a `where` condição 3 ve
 E, portanto, o retornará `count` `1` .
 
 Aqui está uma expressão mais complexa:
+
 ```json
 {
   "count": {
@@ -366,6 +439,7 @@ Aqui está uma expressão mais complexa:
 E, portanto, os `count` retornos `1` .
 
 O fato de que a `where` expressão é avaliada em relação a **todo** o conteúdo da solicitação (com alterações somente no membro da matriz que está sendo enumerado atualmente) significa que a `where` condição também pode se referir a campos fora da matriz:
+
 ```json
 {
   "count": {
@@ -384,6 +458,7 @@ O fato de que a `where` expressão é avaliada em relação a **todo** o conteú
 | 2 | `tags.env` => `"prod"` | `true` |
 
 As expressões de contagem aninhadas também são permitidas:
+
 ```json
 {
   "count": {
@@ -417,14 +492,38 @@ As expressões de contagem aninhadas também são permitidas:
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
 
-### <a name="the-field-function-inside-where-conditions"></a>A `field()` função dentro das `where` condições
+#### <a name="accessing-current-array-member-with-template-functions"></a>Acessando o membro da matriz atual com funções de modelo
 
-A maneira como as `field()` funções se comportam quando dentro de uma `where` condição é baseada nos seguintes conceitos:
+Ao usar funções de modelo, use a `current()` função para acessar o valor do membro da matriz atual ou os valores de qualquer uma de suas propriedades. Para acessar o valor do membro da matriz atual, passe o alias definido em `count.field` ou qualquer um de seus aliases filho como um argumento para a `current()` função. Por exemplo:
+
+```json
+{
+  "count": {
+    "field": "Microsoft.Test/resourceType/objectArray[*]",
+    "where": {
+        "value": "[current('Microsoft.Test/resourceType/objectArray[*].property')]",
+        "like": "value*"
+    }
+  },
+  "equals": 2
+}
+
+```
+
+| Iteração | `current()` valor retornado | `where` Resultado da avaliação |
+|:---|:---|:---|
+| 1 | O valor de `property` no primeiro membro de `objectArray[*]` : `value1` | `true` |
+| 2 | O valor de `property` no primeiro membro de `objectArray[*]` : `value2` | `true` |
+
+#### <a name="the-field-function-inside-where-conditions"></a>A função de campo dentro das condições de onde
+
+A `field()` função também pode ser usada para acessar o valor do membro da matriz atual, desde que a expressão de **contagem** não esteja dentro de uma **condição de existência** ( `field()` a função sempre faz referência ao recurso avaliado na condição **If** ).
+O comportamento de `field()` quando se refere à matriz avaliada é baseado nos seguintes conceitos:
 1. Os aliases de matriz são resolvidos em uma coleção de valores selecionados de todos os membros da matriz.
 1. `field()` as funções que fazem referência a aliases de matriz retornam uma matriz com os valores selecionados.
 1. Referenciar o alias de matriz contado dentro da `where` condição retorna uma coleção com um único valor selecionado do membro da matriz que é avaliado na iteração atual.
 
-Esse comportamento significa que, ao fazer referência ao membro da matriz contado com uma `field()` função dentro da `where` condição, **ele retorna uma matriz com um único membro**. Embora isso possa não ser intuitivo, é consistente com a ideia de que os aliases de matriz sempre retornam uma coleção de propriedades selecionadas. Aqui está um exemplo:
+Esse comportamento significa que, ao fazer referência ao membro da matriz contado com uma `field()` função dentro da `where` condição, **ele retorna uma matriz com um único membro**. Embora isso possa não ser intuitivo, é consistente com a ideia de que os aliases de matriz sempre retornam uma coleção de propriedades selecionadas. Veja um exemplo:
 
 ```json
 {
@@ -465,7 +564,7 @@ Portanto, quando houver a necessidade de acessar o valor do alias de matriz cont
 | 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"b"` | `true` |
 | 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true` |
 
-Para obter exemplos úteis, consulte os [exemplos de contagem](../concepts/definition-structure.md#count-examples).
+Para obter exemplos úteis, consulte [exemplos de contagem de campos](../concepts/definition-structure.md#field-count-examples).
 
 ## <a name="modifying-arrays"></a>Modificando matrizes
 
@@ -487,6 +586,59 @@ As propriedades [Append](../concepts/effects.md#append) e [Modify](../concepts/e
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` com `addOrReplace` operação | Azure Policy acrescenta ou substitui a propriedade existente `action` de cada membro da matriz. |
 
 Para obter mais informações, consulte os [exemplos de append](../concepts/effects.md#append-examples).
+
+## <a name="appendix--additional--alias-examples"></a>Apêndice-exemplos de alias adicionais [*]
+
+É recomendável usar as [expressões de contagem de campo](#field-count-expressions) para verificar se ' todos ' ou ' qualquer de ' os membros de uma matriz no conteúdo da solicitação atendem a uma condição. No entanto, para algumas condições simples, é possível obter o mesmo resultado usando um acessador de campo com um alias de matriz (conforme descrito em [referenciando a coleção de membros da matriz](#referencing-the-array-members-collection)). Isso pode ser útil em regras de política que excedem o limite de expressões de **contagem** permitidas. Aqui estão exemplos de casos de uso comuns:
+
+A regra de política de exemplo para a tabela de cenário abaixo:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            <-- Condition (see table below) -->
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+Para o cenário de tabela mostrado abaixo, a matriz **ipRules** é da seguinte maneira:
+
+```json
+"ipRules": [
+    {
+        "value": "127.0.0.1",
+        "action": "Allow"
+    },
+    {
+        "value": "192.168.1.1",
+        "action": "Allow"
+    }
+]
+```
+
+Para cada exemplo de condição abaixo, substitua `<field>` por `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
+
+Os seguintes resultados são o resultado da combinação entre a condição, da regra de política de exemplo e da matriz de valores existentes acima:
+
+|Condição |Resultado | Cenário |Explicação |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |Nada |Nenhuma correspondência |Um elemento de matriz é avaliado como false (127.0.0.1 != 127.0.0.1) e outro como true (127.0.0.1 != 192.168.1.1), portanto, a condição **notEquals** é _false_ e o efeito não é disparado. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Efeito de política |Nenhuma correspondência |Ambos os elementos da matriz são avaliados como true (10.0.4.1 != 127.0.0.1 e 10.0.4.1 != 192.168.1.1), então a condição **notEquals** é _true_ e o efeito é disparado. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Efeito de política |Uma ou mais correspondências |Um elemento de matriz é avaliado como false (127.0.0.1 != 127.0.0.1) e outro como true (127.0.0.1 != 192.168.1.1), então a condição **notEquals** é _false_. O operador lógico é avaliado como true (**not** _false_), então o efeito é disparado. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nada |Uma ou mais correspondências |Ambos os elementos da matriz são avaliados como true (10.0.4.1 != 127.0.0.1 e 10.0.4.1 != 192.168.1.1), então a condição **notEquals** é _true_. O operador lógico é avaliado como falso (**not** _true_), então o efeito não é disparado. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Efeito de política |Nem todos correspondem |Um elemento de matriz é avaliado como true (127.0.0.1 == 127.0.0.1) e outro como false (127.0.0.1 == 192.168.1.1), então a condição **Equals** é _false_. O operador lógico é avaliado como true (**not** _false_), então o efeito é disparado. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Efeito de política |Nem todos correspondem |Ambos os elementos da matriz são avaliados como false (10.0.4.1 == 127.0.0.1 e 10.0.4.1 == 192.168.1.1), então a condição **Equals** é _false_. O operador lógico é avaliado como true (**not** _false_), então o efeito é disparado. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nada |Todos correspondem |Um elemento de matriz é avaliado como true (127.0.0.1 == 127.0.0.1) e outro como false (127.0.0.1 == 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nada |Todos correspondem |Ambos os elementos da matriz são avaliados como true (10.0.4.1 == 127.0.0.1 e 10.0.4.1 == 192.168.1.1), então a condição **Equals** é _false_ e o efeito não é disparado. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
