@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b974af343907c98ebd7a318bc60a0e553a07a233
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335665"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219344"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Solucionar problemas: falha ao excluir uma rede virtual no Azure
 
@@ -43,7 +43,7 @@ Você poderá receber erros ao tentar excluir uma rede virtual no Microsoft Azur
 
 Para remover a rede virtual, você deve remover primeiro o gateway de rede virtual.
 
-Para redes virtuais clássicas, vá para a página **Visão geral** da rede virtual clássica no portal do Azure. Na seção **conexões VPN** , se o gateway estiver em execução na rede virtual, você verá o endereço IP do gateway. 
+Para redes virtuais clássicas, vá para a página **Visão geral** da rede virtual clássica no portal do Azure. Na seção **conexões VPN**, se o gateway estiver em execução na rede virtual, você verá o endereço IP do gateway. 
 
 ![Verifique se o gateway está em execução](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
@@ -64,7 +64,7 @@ Se houver um gateway de aplicativo, você deverá removê-lo antes de você pode
 ### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Verificar se as instâncias de contêiner do Azure ainda existem na rede virtual
 
 1. Na portal do Azure, vá para a página **visão geral** do grupo de recursos.
-1. No cabeçalho da lista de recursos do grupo de recursos, selecione **Mostrar tipos ocultos**. O tipo de perfil de rede fica oculto no portal do Azure por padrão.
+1. No cabeçalho da lista de recursos do grupo de recursos, escolha **Mostrar tipos ocultos**. O tipo de perfil de rede fica oculto no portal do Azure por padrão.
 1. Selecione o perfil de rede relacionado aos grupos de contêineres.
 1. Selecione **Excluir**.
 
@@ -72,7 +72,7 @@ Se houver um gateway de aplicativo, você deverá removê-lo antes de você pode
 
 1. Exclua a sub-rede ou a rede virtual novamente.
 
-Se essas etapas não resolverem o problema, use esses [CLI do Azure comandos](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) para limpar os recursos. 
+Se essas etapas não resolverem o problema, use esses [CLI do Azure comandos](../container-instances/container-instances-vnet.md#clean-up-resources) para limpar os recursos. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Verifique se o Serviço de Domínio do Azure Active Directory está habilitado na rede virtual
 

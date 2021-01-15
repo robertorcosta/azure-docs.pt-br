@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 01/14/2020
-ms.openlocfilehash: bcf11ef9b64a02383aad5175c19c5db58c3c39cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/14/2021
+ms.openlocfilehash: 7c797c7e002f40a28e4be674c125c6ea5d60a13f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791334"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219055"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Solucionar problemas de conectividade e outros erros com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,11 +24,11 @@ Você recebe mensagens de erro quando a conexão com o banco de dados SQL do Azu
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Mensagens transitórias de erro de falha (40197, 40613 e outras)
 
-O sistema Azure tem a capacidade de reconfigurar dinamicamente os servidores quando cargas de trabalho pesadas surgem no serviço do Banco de Dados SQL.  Esse comportamento dinâmico pode fazer com que o programa cliente perca sua conexão com o banco de dados ou instância. Essa variante de condição de erro é chamada de uma *falha transitória* . Eventos de reconfiguração do banco de dados ocorrem devido a um evento planejado (por exemplo, uma atualização de software) ou um evento não planejado (por exemplo, uma falha no processo ou balanceamento de carga). A maioria dos eventos de reconfiguração geralmente é de curta duração e deve ser concluída em, no máximo, de 60 segundos. No entanto, esses eventos ocasionalmente podem levar mais tempo para serem concluídos, como quando uma transação grande causa uma recuperação de execução longa. A tabela a seguir lista vários erros transitórios que os aplicativos podem receber ao se conectar ao banco de dados SQL
+O sistema Azure tem a capacidade de reconfigurar dinamicamente os servidores quando cargas de trabalho pesadas surgem no serviço do Banco de Dados SQL.  Esse comportamento dinâmico pode fazer com que o programa cliente perca sua conexão com o banco de dados ou instância. Essa variante de condição de erro é chamada de uma *falha transitória*. Eventos de reconfiguração do banco de dados ocorrem devido a um evento planejado (por exemplo, uma atualização de software) ou um evento não planejado (por exemplo, uma falha no processo ou balanceamento de carga). A maioria dos eventos de reconfiguração geralmente é de curta duração e deve ser concluída em, no máximo, de 60 segundos. No entanto, esses eventos ocasionalmente podem levar mais tempo para serem concluídos, como quando uma transação grande causa uma recuperação de execução longa. A tabela a seguir lista vários erros transitórios que os aplicativos podem receber ao se conectar ao banco de dados SQL
 
 ### <a name="list-of-transient-fault-error-codes"></a>Lista de códigos de erro transitórios
 
-| Código de erro | Severidade | Descrição |
+| Código do erro | Severidade | Descrição |
 | ---:| ---:|:--- |
 | 4060 |16 |Não é possível abrir o banco de dados "%.&#x2a;ls" solicitado pelo logon. Falha no logon. Para obter mais informações, consulte [erros 4000 a 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |O serviço encontrou um erro ao processar sua solicitação. Tente novamente. Código de erro %d.<br/><br/>Você recebe este erro quando o serviço fica inativo devido a upgrades de software ou hardware, falhas de hardware ou outros problemas de failover. O código de erro (%d) inserido na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou failover que ocorreu. Alguns exemplos de códigos que são inseridos na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>A reconexão automática conecta você a uma cópia íntegra do seu banco de dados. Seu aplicativo deve capturar o erro 40197, registrar o código de erro inserido (%d) na mensagem para solução do problema e tentar se reconectar ao Banco de Dados SQL até que os recursos estejam disponíveis e a conexão seja restabelecida. Para obter mais informações, consulte [erros transitórios](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
@@ -119,19 +119,19 @@ Normalmente, o administrador de serviços pode usar as seguintes etapas para adi
 4. Se o nome de usuário de logon do SQL não existir, crie-o seguindo estas etapas:
 
    1. No SSMS, clique duas vezes em **segurança** para expandi-la.
-   2. Clique com o botão direito do mouse em **logons** e selecione **novo logon** .
+   2. Clique com o botão direito do mouse em **logons** e selecione **novo logon**.
    3. No script gerado com espaços reservados, edite e execute a seguinte consulta SQL:
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = ‘<password, sysname, Change_Password>’
+   WITH PASSWORD = '<password, sysname, Change_Password>'
    GO
    ```
 
-5. Clique duas vezes em **banco de dados** .
+5. Clique duas vezes em **banco de dados**.
 6. Selecione o banco de dados ao qual você deseja conceder a permissão de usuário.
-7. Clique duas vezes em **segurança** .
-8. Clique com o botão direito do mouse em **usuários** e selecione **novo usuário** .
+7. Clique duas vezes em **segurança**.
+8. Clique com o botão direito do mouse em **usuários** e selecione **novo usuário**.
 9. No script gerado com espaços reservados, edite e execute a seguinte consulta SQL:
 
    ```sql
@@ -141,7 +141,7 @@ Normalmente, o administrador de serviços pode usar as seguintes etapas para adi
    GO
    -- Add user to the database owner role
 
-   EXEC sp_addrolemember N’db_owner’, N’<user_name, sysname, user_name>’
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
    GO
    ```
 
@@ -183,22 +183,20 @@ Para contornar esse problema, tente um dos seguintes métodos:
 - Verifique se há consultas de execução longa.
 
   > [!NOTE]
-  > Essa é uma abordagem insuficiente que pode não resolver o problema.
+  > Essa é uma abordagem insuficiente que pode não resolver o problema. Para obter informações detalhadas sobre como solucionar problemas de bloqueio de consulta, consulte [entender e resolver problemas de bloqueio do SQL do Azure](understand-resolve-blocking.md).
 
 1. Execute a seguinte consulta SQL para verificar a exibição de [Sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para ver as solicitações de bloqueio:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determine o **buffer de entrada** para o bloqueador de cabeçalho.
 3. Ajuste a consulta do bloqueador de cabeçalho.
 
-   Para obter um procedimento detalhado de solução de problemas, consulte a [minha consulta está funcionando bem na nuvem?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+   Para obter um procedimento detalhado de solução de problemas, consulte a [minha consulta está funcionando bem na nuvem?](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud). 
 
 Se o banco de dados atingir consistentemente seu limite, apesar de lidar com o bloqueio e consultas de longa execução, considere atualizar para uma edição com mais [edições](https://azure.microsoft.com/pricing/details/sql-database/)de recursos).
-
-Para obter mais informações sobre exibições de gerenciamento dinâmico, consulte [exibições de gerenciamento dinâmico do sistema](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 Para obter mais informações sobre limites de banco de dados, consulte  [limites de recursos do banco de dados SQL para servidores](./resource-limits-logical-server.md).
 
@@ -234,7 +232,7 @@ As etapas a seguir podem ajudá-lo a solucionar o problema ou fornecer opções 
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
-   ORDER BY [Table Size (MB)] DESC
+   ORDER BY [Table Size (MB)] DESC;
    ```
 
 2. Se o tamanho atual não exceder o tamanho máximo com suporte para sua edição, você poderá usar ALTER DATABASE para aumentar a configuração MAXSIZE.
@@ -253,7 +251,7 @@ Se você encontrar esse erro repetidamente, tente resolver o problema seguindo e
 1. Verifique a exibição de sys.dm_exec_requests para ver as sessões abertas que têm um valor alto para a coluna total_elapsed_time. Execute esta verificação executando o seguinte script SQL:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determine o buffer de entrada para a consulta de execução longa.
@@ -296,7 +294,7 @@ Para obter um procedimento detalhado de solução de problemas, consulte a [minh
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabela de mensagens de erro adicionais de governança de recursos
 
-| Código de erro | Severidade | Descrição |
+| Código do erro | Severidade | Descrição |
 | ---:| ---:|:--- |
 | 10928 |20 |ID do recurso: %d. O limite de %s para o banco de dados é %d e foi atingido. Para saber mais, confira [Limites de recursos do Banco de Dados SQL para bancos de dados individuais em pool](resource-limits-logical-server.md).<br/><br/>A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2.<br/><br/>Para obter mais informações sobre esse erro e como resolvê-lo, consulte: <br/>&bull;&nbsp; [Limites de recursos lógicos do SQL Server](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bancos de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites baseados em DTU para pools elásticos](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bancos de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para pools elásticos](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos do SQL instância gerenciada do Azure](../managed-instance/resource-limits.md). |
 | 10929 |20 |ID do recurso: %d. A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. A ID do recurso indica qual dos recursos atingiu o limite. Para threads de trabalho, a ID do recurso é igual a 1. Para sessões, a ID do recurso é igual a 2. Para obter mais informações, consulte: <br/>&bull;&nbsp; [Limites de recursos lógicos do SQL Server](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limites baseados em DTU para bancos de dados individuais](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limites baseados em DTU para pools elásticos](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para bancos de dados individuais](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limites baseados em vCore para pools elásticos](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limites de recursos do SQL instância gerenciada do Azure](../managed-instance/resource-limits.md). <br/>Caso contrário, tente novamente mais tarde. |
@@ -311,7 +309,7 @@ Para obter um procedimento detalhado de solução de problemas, consulte a [minh
 
 Os seguintes erros estão relacionados à criação e ao uso de pools elásticos:
 
-| Código de erro | Severidade | Descrição | Ação Corretiva |
+| Código do erro | Severidade | Descrição | Ação Corretiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |O pool elástico atingiu seu limite de armazenamento. O uso do armazenamento do pool elástico não pode exceder (%d) MB. Tentando gravar dados em um banco de dados quando o limite de armazenamento do pool elástico foi atingido. Para obter informações sobre limites de recursos, consulte: <br/>&bull;&nbsp; [Limites baseados em DTU para pools elásticos](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para pools elásticos](resource-limits-vcore-elastic-pools.md). <br/> |Considere a possibilidade de aumentar as DTUs e/ou adicionar armazenamento ao pool elástico, se possível, para aumentar seu limite de armazenamento, reduzir o armazenamento usado por bancos de dados individuais dentro do pool elástico ou remover bancos de dados do pool elástico. Para o dimensionamento do pool elástico, consulte [dimensionar recursos do pool elástico](elastic-pool-scale.md).|
 | 10929 | 16 |A garantia mínima de %s é %d, o limite máximo é %d e o uso atual do banco de dados é %d. No entanto, o servidor está muito ocupado para dar suporte a solicitações maiores que %d para este banco de dados. Para obter informações sobre limites de recursos, consulte: <br/>&bull;&nbsp; [Limites baseados em DTU para pools elásticos](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limites baseados em vCore para pools elásticos](resource-limits-vcore-elastic-pools.md). <br/> Caso contrário, tente novamente mais tarde. DTU / vCore min por banco de dados; DTU / vCore max por banco de dados. O número total de trabalhos simultâneos (solicitações) em todos os bancos de dados no pool elástico tentou exceder o limite do pool. |Considere a possibilidade de aumentar as DTUs ou vCores do pool elástico, se possível, para aumentar o limite de funções de trabalho ou remover bancos de dados do pool elástico. |
@@ -320,7 +318,7 @@ Os seguintes erros estão relacionados à criação e ao uso de pools elásticos
 | 40858 | 16 |O pool elástico '%ls' já existe no servidor: '%ls'. O pool elástico especificado já existe no servidor especificado. | Forneça um novo nome de pool elástico. |
 | 40859 | 16 |O pool elástico não dá suporte à camada de serviço '%ls'. A camada de serviço especificada não dá suporte ao provisionamento de pool elástico. |Forneça a edição correta ou deixe a camada de serviço em branco para o padrão. |
 | 40860 | 16 |A combinação de pool elástico '%ls' e objetivo de serviço '%ls' é inválida. O pool elástico e a camada de serviço poderão ser especificados juntos somente se o tipo de recurso for especificado como “ElasticPool”. |Especifique a combinação correta de pool elástico e camada de serviço. |
-| 40861 | 16 |A edição do banco de dados '%. *ls' não pode ser diferente da camada de serviço do pool elástico, que é '%.* ls'. A edição do banco de dados é diferente da camada de serviço do pool elástico. |Não especifique uma edição de banco de dados diferente da camada de serviço do pool elástico.  Observe que a edição do banco de dados não precisa ser especificada. |
+| 40861 | 16 |A edição do banco de dados '%.*ls' não pode ser diferente da camada de serviço do pool elástico, que é '%.* ls'. A edição do banco de dados é diferente da camada de serviço do pool elástico. |Não especifique uma edição de banco de dados diferente da camada de serviço do pool elástico.  Observe que a edição do banco de dados não precisa ser especificada. |
 | 40862 | 16 |O nome do pool elástico deverá ser especificado se o objetivo de serviço do pool elástico for especificado. O objetivo de serviço do pool elástico não identifica exclusivamente um pool elástico. |Especifique o nome do pool elástico se você estiver usando o objetivo de serviço do pool elástico. |
 | 40864 | 16 |A quantidade mínima de DTUs para o pool elástico deve ser de (%d) DTUs para a camada de serviço '%.*ls'. Tentando definir uma quantidade de DTUs para o pool elástico abaixo do limite mínimo. |Tente configurar novamente as DTUs para o pool elástico de acordo com o limite mínimo. |
 | 40865 | 16 |A quantidade máxima de DTUs para o pool elástico deve ser de (%d) DTUs para a camada de serviço '%.*ls'. Tentando definir uma quantidade de DTUs para o pool elástico acima do limite máximo. |Tente configurar novamente as DTUs para o pool elástico de acordo com o limite máximo. |
@@ -340,8 +338,8 @@ Esse problema ocorre porque a conta não tem permissão para acessar o banco de 
 
 Para resolver esse problema, siga estas etapas:
 
-1. Na tela de logon do SSMS, selecione **Opções** e, em seguida, selecione **Propriedades da conexão** .
-2. No campo **conectar ao banco de dados** , insira o nome do banco de dados padrão do usuário como o banco de dados de logon padrão e, em seguida, selecione **conectar** .
+1. Na tela de logon do SSMS, selecione **Opções** e, em seguida, selecione **Propriedades da conexão**.
+2. No campo **conectar ao banco de dados** , insira o nome do banco de dados padrão do usuário como o banco de dados de logon padrão e, em seguida, selecione **conectar**.
 
    ![Propriedades da conexão](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
 
@@ -390,5 +388,5 @@ Para obter mais informações sobre como habilitar o registro em log, consulte [
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Arquitetura de conectividade do banco de dados SQL do Azure](./connectivity-architecture.md)
+- [Arquitetura de conectividade do Banco de Dados SQL do Azure](./connectivity-architecture.md)
 - [Controles de acesso à rede do banco de dados SQL do Azure e do Azure Synapse Analytics](./network-access-controls-overview.md)

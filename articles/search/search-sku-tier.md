@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 062bd41b0803cbb08f74fbcbcebb89bbddeb0d45
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4c58968cb6a38a10433915ec8fa00336ccad301e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559796"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216403"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
@@ -88,15 +88,13 @@ Quando estiver estimando o custo de uma solução de pesquisa, tenha em mente qu
 
 ### <a name="bandwidth-charges"></a>Cobranças de largura de banda
 
-O uso de [indexadores](search-indexer-overview.md) pode afetar a cobrança se a fonte de dados do Azure estiver em uma região diferente da pesquisa cognitiva do Azure. Nesse cenário, esse é um custo para mover dados de saída da fonte de dados do Azure para o Azure Pesquisa Cognitiva. 
+O uso de [indexadores](search-indexer-overview.md) pode afetar a cobrança se a fonte de dados do Azure estiver em uma região diferente da pesquisa cognitiva do Azure. Nesse cenário, pode haver um custo para mover dados de saída da fonte de dados do Azure para o Azure Pesquisa Cognitiva. Para obter detalhes, consulte as páginas de preços da plataforma de dados do Azure em questão.
 
 Você pode eliminar os encargos de saída de dados inteiramente se criar o serviço de Pesquisa Cognitiva do Azure na mesma região que seus dados. Aqui estão algumas informações da [página de preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/):
 
-+ A Microsoft não cobra por nenhum dado de entrada para nenhum serviço no Azure.
-+ Não há nenhuma cobrança de dados de saída do Azure Pesquisa Cognitiva. Por exemplo, se o serviço de pesquisa estiver no oeste dos EUA e um aplicativo Web do Azure estiver no leste dos EUA, a Microsoft não cobrará pelas cargas de resposta de consulta originadas no oeste dos EUA.
-+ Em soluções de vários serviços, não há nenhum encargo para dados que cruzam a conexão quando todos os serviços estão na mesma região.
++ Dados de entrada: a Microsoft não cobra por nenhum dado de entrada para qualquer serviço no Azure. 
 
-Os encargos se aplicam a dados de saída se os serviços estiverem em regiões diferentes. Esses encargos não são, na verdade, parte da sua conta de Pesquisa Cognitiva do Azure. Eles são mencionados aqui porque, se você estiver usando os dados ou indexadores aprimorados de ia para efetuar pull de dados de regiões diferentes, verá os custos refletidos na sua fatura geral.
++ Dados de saída: dados de saída referem-se aos resultados da consulta. Pesquisa Cognitiva não cobra pelos dados de saída, mas os encargos de saída do Azure serão possíveis se os serviços estiverem em regiões diferentes. Esses encargos não são, na verdade, parte da sua conta de Pesquisa Cognitiva do Azure. Eles são mencionados aqui porque, se você estiver enviando resultados para outras regiões ou aplicativos não Azure, poderá ver esses custos refletidos na sua fatura geral.
 
 ### <a name="ai-enrichment-with-cognitive-services"></a>Enriquecimento de ia com serviços cognitivas
 

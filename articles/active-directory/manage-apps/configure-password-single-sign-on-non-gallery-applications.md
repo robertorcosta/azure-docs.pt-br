@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1b647e15d3fc99a7f15fbc24e2b6050fdfdc6e93
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7f9d29fee78c01dd3b1ee79d564297fa0cef14d3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654704"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219871"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Entender o logon único baseado em senha
 
@@ -44,7 +44,7 @@ Usar o Azure AD como seu IdP (provedor de identidade) e configurar o logon únic
 > [!IMPORTANT] 
 > Há alguns cenários em que a opção de **logon único** não estará na navegação de um aplicativo em **aplicativos empresariais**. 
 >
-> Se o aplicativo tiver sido registrado usando **registros de aplicativo** , a funcionalidade de logon único será configurada para usar o OIDC OAuth por padrão. Nesse caso, a opção de **logon único** não será mostrada na navegação em **aplicativos empresariais**. Ao usar **registros de aplicativo** para adicionar seu aplicativo personalizado, você configura opções no arquivo de manifesto. Para saber mais sobre o arquivo de manifesto, consulte [Azure Active Directory manifesto do aplicativo](../develop/reference-app-manifest.md). Para saber mais sobre os padrões de SSO, consulte [autenticação e autorização usando a plataforma de identidade da Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
+> Se o aplicativo tiver sido registrado usando **registros de aplicativo** , a funcionalidade de logon único será configurada para usar o OIDC OAuth por padrão. Nesse caso, a opção de **logon único** não será mostrada na navegação em **aplicativos empresariais**. Ao usar **registros de aplicativo** para adicionar seu aplicativo personalizado, você configura opções no arquivo de manifesto. Para saber mais sobre o arquivo de manifesto, consulte [Azure Active Directory manifesto do aplicativo](../develop/reference-app-manifest.md). Para saber mais sobre os padrões de SSO, consulte [autenticação e autorização usando a plataforma de identidade da Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform). 
 >
 > Outros cenários em que o **logon único** ficará ausente da navegação incluem quando um aplicativo é hospedado em outro locatário ou se sua conta não tem as permissões necessárias (administrador global, administrador de aplicativos de nuvem, administrador de aplicativos ou proprietário da entidade de serviço). As permissões também podem causar um cenário em que você pode abrir o **logon único** , mas não poderá salvar. Para saber mais sobre as funções administrativas do Azure AD, consulte ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 

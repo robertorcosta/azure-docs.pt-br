@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 76d53458154a7e66589c16f955373975bb04b25b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: fd56ef74a7641a01eae2354f149f45e84ff56833
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121560"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217389"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração auto-hospedada
 
@@ -155,23 +155,23 @@ dmgcmd ACTION args...
 
 Aqui estão os detalhes das ações e dos argumentos do aplicativo: 
 
-|ACTION|args|Descrição|
+|ACTION|args|Description|
 |------|----|-----------|
-|RN<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Registre um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó.|
-|dourado<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Habilite o acesso remoto no nó atual para configurar um cluster de alta disponibilidade. Ou habilite as credenciais de configuração diretamente no IR de hospedagem interna sem passar pelo Azure Data Factory. Você faz o último usando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** de um computador remoto na mesma rede.|
-|-erac,<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Habilite o acesso remoto ao nó atual quando o nó for executado em um contêiner.|
-|Dra<br/>-DisableRemoteAccess||Desabilite o acesso remoto ao nó atual. O acesso remoto é necessário para a instalação de vários nós. O cmdlet do PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** ainda funciona mesmo quando o acesso remoto está desabilitado. Esse comportamento é verdadeiro, desde que o cmdlet seja executado no mesmo computador que o nó IR auto-hospedado.|
-|c<br/>-Chave|"`<AuthenticationKey>`"|Substituir ou atualizar a chave de autenticação anterior. Tenha cuidado com essa ação. O nó IR auto-hospedado anterior pode ficar offline se a chave for de um tempo de execução de integração novo.|
-|-gbf,<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Gere um arquivo de backup para o nó atual. O arquivo de backup inclui a chave do nó e as credenciais do armazenamento de dados.|
-|IBF<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Restaure o nó de um arquivo de backup.|
-|d<br/>-Restart||Reinicie o serviço de host do Integration Runtime auto-hospedado.|
-|&<br/>-Iniciar||Inicie o serviço de host do Integration Runtime auto-hospedado.|
-|t<br/>-Parar||Pare o serviço de host do Integration Runtime auto-hospedado.|
-|SUS<br/>-StartUpgradeService||Inicie o serviço de atualização do Integration Runtime de hospedagem interna.|
-|Tus<br/>-StopUpgradeService||Pare o serviço de atualização do Integration Runtime de hospedagem interna.|
-|-tonau,<br/>-TurnOnAutoUpdate||Ative a atualização automática do Integration Runtime de hospedagem interna.|
-|-toffau,<br/>-TurnOffAutoUpdate||Desative a atualização automática do Integration Runtime de hospedagem interna.|
-|SSAS<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Defina DIAHostService para executar como uma nova conta. Use a senha vazia "" para contas de sistema e contas virtuais.|
+|`-rn`,<br/>`-RegisterNewNode`|"`<AuthenticationKey>`" ["`<NodeName>`"]|Registre um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó.|
+|`-era`,<br/>`-EnableRemoteAccess`|"`<port>`" ["`<thumbprint>`"]|Habilite o acesso remoto no nó atual para configurar um cluster de alta disponibilidade. Ou habilite as credenciais de configuração diretamente no IR de hospedagem interna sem passar pelo Azure Data Factory. Você faz o último usando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** de um computador remoto na mesma rede.|
+|`-erac`,<br/>`-EnableRemoteAccessInContainer`|"`<port>`" ["`<thumbprint>`"]|Habilite o acesso remoto ao nó atual quando o nó for executado em um contêiner.|
+|`-dra`,<br/>`-DisableRemoteAccess`||Desabilite o acesso remoto ao nó atual. O acesso remoto é necessário para a instalação de vários nós. O cmdlet do PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** ainda funciona mesmo quando o acesso remoto está desabilitado. Esse comportamento é verdadeiro, desde que o cmdlet seja executado no mesmo computador que o nó IR auto-hospedado.|
+|`-k`,<br/>`-Key`|"`<AuthenticationKey>`"|Substituir ou atualizar a chave de autenticação anterior. Tenha cuidado com essa ação. O nó IR auto-hospedado anterior pode ficar offline se a chave for de um tempo de execução de integração novo.|
+|`-gbf`,<br/>`-GenerateBackupFile`|"`<filePath>`" "`<password>`"|Gere um arquivo de backup para o nó atual. O arquivo de backup inclui a chave do nó e as credenciais do armazenamento de dados.|
+|`-ibf`,<br/>`-ImportBackupFile`|"`<filePath>`" "`<password>`"|Restaure o nó de um arquivo de backup.|
+|`-r`,<br/>`-Restart`||Reinicie o serviço de host do Integration Runtime auto-hospedado.|
+|`-s`,<br/>`-Start`||Inicie o serviço de host do Integration Runtime auto-hospedado.|
+|`-t`,<br/>`-Stop`||Pare o serviço de host do Integration Runtime auto-hospedado.|
+|`-sus`,<br/>`-StartUpgradeService`||Inicie o serviço de atualização do Integration Runtime de hospedagem interna.|
+|`-tus`,<br/>`-StopUpgradeService`||Pare o serviço de atualização do Integration Runtime de hospedagem interna.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Ative a atualização automática do Integration Runtime de hospedagem interna.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Desative a atualização automática do Integration Runtime de hospedagem interna.|
+|`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Defina DIAHostService para executar como uma nova conta. Use a senha vazia "" para contas de sistema e contas virtuais.|
 
 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instalar e registrar um IR auto-hospedado do centro de download da Microsoft
@@ -205,9 +205,9 @@ A conta de serviço de logon padrão do tempo de execução de integração auto
 
 Verifique se a conta tem a permissão de fazer logon como um serviço. Caso contrário, o tempo de execução de integração auto-hospedado não pode ser iniciado com êxito. Você pode verificar a permissão em **diretiva de segurança local – configurações de segurança de >-> políticas locais-> atribuição de direitos de usuário-> fazer logon como um serviço**
 
-![Permissão de conta de serviço](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+![Captura de tela da política de segurança local-atribuição de direitos de usuário](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![Permissão de conta de serviço](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+![Captura de tela da atribuição de direitos de usuário de logon como um serviço](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
 
 ## <a name="notification-area-icons-and-notifications"></a>Ícones e notificações da área de notificação

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f1fe7c25327e8ecab9b450cab167391d8949b0a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008139"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219735"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controle do código-fonte no Azure Synapse Studio
 
@@ -61,7 +61,7 @@ Ao conectar-se ao repositório git, primeiro selecione o tipo de repositório co
 
 O painel de configuração mostra as seguintes configurações do git DevOps do Azure:
 
-| Setting | Descrição | Valor |
+| Configuração | Descrição | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/> | Git ou GitHub do Azure DevOps |
 | **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |
@@ -77,7 +77,7 @@ O também pode usar o link do repositório para apontar rapidamente para o repos
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Usar um locatário do Azure Active Directory diferente
 
-O repositório Git do Azure Repos pode estar em um locatário diferente do Azure Active Directory. Para especificar outro locatário do Azure AD, você precisa ter permissões de administrador para a assinatura do Azure que está usando. Para obter mais informações, consulte [alterar o administrador da assinatura](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator)
+O repositório Git do Azure Repos pode estar em um locatário diferente do Azure Active Directory. Para especificar outro locatário do Azure AD, você precisa ter permissões de administrador para a assinatura do Azure que está usando. Para obter mais informações, consulte [alterar o administrador da assinatura](../../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator)
 
 > [!IMPORTANT]
 > Para se conectar a outro Azure Active Directory, o usuário conectado deve fazer parte do Active Directory. 
@@ -86,7 +86,7 @@ O repositório Git do Azure Repos pode estar em um locatário diferente do Azure
 
 Para usar uma conta Microsoft pessoal para integração com o Git, você poderá vincular seu Repositório do Azure pessoal ao Active Directory da sua organização.
 
-1. Adicione sua conta Microsoft pessoal ao Active Directory da sua organização como convidado. Para saber mais, veja [Adicionar usuários de colaboração B2B do Azure Active Directory no portal do Azure](https://docs.microsoft.com/azure/active-directory/external-identities/add-users-administrator).
+1. Adicione sua conta Microsoft pessoal ao Active Directory da sua organização como convidado. Para saber mais, veja [Adicionar usuários de colaboração B2B do Azure Active Directory no portal do Azure](../../active-directory/external-identities/add-users-administrator.md).
 
 2. Faça logon no portal do Azure com sua conta Microsoft pessoal. Em seguida, alterne para o Active Directory da sua organização.
 

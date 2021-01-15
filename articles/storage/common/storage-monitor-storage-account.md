@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: bfecae4775655f732df8fd6cffea613cd39fb828
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e5495b466bf9b16319b788ec32c7b3a03100f505
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782001"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218135"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 
@@ -32,6 +32,8 @@ Recomendamos que você examine o [Azure Monitor for Storage](../../azure-monitor
 > Para um guia aprofundado sobre como usar a Análise de Armazenamento e outras ferramentas para identificar, diagnosticar e solucionar problemas relacionados ao Armazenamento do Azure, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
+<a id="modify-retention-policy"></a>
+
 ## <a name="configure-monitoring-for-a-storage-account"></a>Configurar o monitoramento para uma conta de armazenamento
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Contas de armazenamento** e o nome de conta de armazenamento para abrir o painel de conta.
@@ -39,7 +41,7 @@ Recomendamos que você examine o [Azure Monitor for Storage](../../azure-monitor
 
     ![Captura de tela que realça a opção configurações de diagnóstico (clássico) na seção monitoramento (clássico).](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
-1. Selecione o **tipo** de dados de métrica para cada **serviço** que você deseja monitorar e a **política de retenção** para os dados. Você também pode desabilitar o monitoramento definindo **Status** como **Desativado** .
+1. Selecione o **tipo** de dados de métrica para cada **serviço** que você deseja monitorar e a **política de retenção** para os dados. Você também pode desabilitar o monitoramento definindo **Status** como **Desativado**.
 
     ![Opções de monitoramento](./media/storage-monitor-storage-account/storage-enable-metrics-01.png)
 
@@ -49,11 +51,11 @@ Recomendamos que você examine o [Azure Monitor for Storage](../../azure-monitor
    > Você é cobrado quando exclui manualmente dados de métricas. Dados de análise obsoletos (dados anteriores à política de retenção) são excluídos pelo sistema sem custo. É recomendável configurar uma política de retenção com base no tempo pelo qual você deseja manter os dados de análise de armazenamento para sua conta. Consulte [Cobrança de métricas de armazenamento](storage-analytics-metrics.md#billing-on-storage-metrics) para obter mais informações.
    >
 
-1. Ao concluir a configuração de monitoramento, selecione **Salvar** .
+1. Ao concluir a configuração de monitoramento, selecione **Salvar**.
 
 Um conjunto de métricas padrão é exibido em gráficos na folha da conta de armazenamento, bem como nas folhas de serviço individuais (blob, fila, tabela e arquivo). Depois que você habilita métricas para um serviço, pode levar até uma hora para que os dados apareçam nos gráficos. Você pode selecionar **Editar** em qualquer gráfico de métricas para configurar quais métricas serão exibidas.
 
-Você pode desabilitar a coleta de métricas e o registro em log definindo **Status** como **Desativado** .
+Você pode desabilitar a coleta de métricas e o registro em log definindo **Status** como **Desativado**.
 
 > [!NOTE]
 > O Armazenamento do Azure usa o [armazenamento de tabelas](storage-introduction.md#table-storage) para armazenar as métricas para sua conta de armazenamento e armazena as métricas em tabelas em sua conta. Para obter mais informações, consulte: [Como as métricas são armazenadas](storage-analytics-metrics.md#how-metrics-are-stored).
@@ -65,17 +67,17 @@ Use o procedimento a seguir para escolher quais métricas de armazenamento devem
 
 1. Comece exibindo um gráfico de métricas de armazenamento no portal do Azure. Você pode encontrar gráficos na **folha da conta de armazenamento** e na folha **Métricas** de um serviço individual (blob, fila, tabela, arquivo).
 
-   Neste exemplo, usa o gráfico a seguir, que aparece na **folha de conta de armazenamento** :
+   Neste exemplo, usa o gráfico a seguir, que aparece na **folha de conta de armazenamento**:
 
    ![Seleção de gráfico no portal do Azure](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
 
 1. Clique em qualquer lugar dentro do gráfico para editar o gráfico.
 
-1. Em seguida, selecione **Editar Gráfico** , selecione o Intervalo de Tempo das métricas para exibir no gráfico e o **service** (blob, fila, tabela, arquivo) cujas métricas você deseja exibir. Aqui, as métricas da semana passada são selecionadas para exibir o serviço de blob:
+1. Em seguida, selecione **Editar Gráfico**, selecione o Intervalo de Tempo das métricas para exibir no gráfico e o **service** (blob, fila, tabela, arquivo) cujas métricas você deseja exibir. Aqui, as métricas da semana passada são selecionadas para exibir o serviço de blob:
 
    ![Intervalo de tempo e seleção de serviço na folha Editar Gráfico](./media/storage-monitor-storage-account/storage-edit-metric-time-range.png)
 
-1. Selecione as **métricas** individuais que deseja exibir no gráfico e clique em **OK** .
+1. Selecione as **métricas** individuais que deseja exibir no gráfico e clique em **OK**.
 
    ![Seleção de métrica individual na folha Editar Gráfico](./media/storage-monitor-storage-account/storage-edit-metric-selections.png)
 
@@ -98,12 +100,12 @@ As métricas que você selecionou em **Diagnósticos** determinam a resolução 
 
 Você pode criar alertas para notificá-lo quando os limites forem atingidos para métricas de recursos de armazenamento.
 
-1. Para abrir a **folha de Regras de alerta** , role para baixo até a seção **MONITORAMENTO** da **folha de Menu** e selecione **Alertas (clássico)** .
+1. Para abrir a **folha de Regras de alerta**, role para baixo até a seção **MONITORAMENTO** da **folha de Menu** e selecione **Alertas (clássico)** .
 2. Selecione **Adicionar alerta de métrica (clássica)** para abrir a folha **Adicionar uma regra de alerta**
 3. Dê um **Nome** e uma **Descrição** para o alerta.
-4. Selecione a **Métrica** para a qual você deseja adicionar um alerta, uma **Condição** de alerta e um **Limite** . O tipo de unidade de limite é alterado dependendo da métrica que você escolheu. Por exemplo, "count" é o tipo de unidade para *ContainerCount* , enquanto a unidade para a métrica *PercentNetworkError* é um percentual.
-5. Selecione o **Período** . As métricas que atingiram ou excederam o limite dentro do período disparam um alerta.
-6. (Opcional) Configurar notificações de **Email** e **Webhook** . Para obter mais informações sobre webhooks, confira [Configurar um webhook em um alerta de métrica do Azure](../../azure-monitor/platform/alerts-webhooks.md). Se você não configurar notificações por email ou webhook, serão exibidos alertas somente no portal do Azure.
+4. Selecione a **Métrica** para a qual você deseja adicionar um alerta, uma **Condição** de alerta e um **Limite**. O tipo de unidade de limite é alterado dependendo da métrica que você escolheu. Por exemplo, "count" é o tipo de unidade para *ContainerCount*, enquanto a unidade para a métrica *PercentNetworkError* é um percentual.
+5. Selecione o **Período**. As métricas que atingiram ou excederam o limite dentro do período disparam um alerta.
+6. (Opcional) Configurar notificações de **Email** e **Webhook**. Para obter mais informações sobre webhooks, confira [Configurar um webhook em um alerta de métrica do Azure](../../azure-monitor/platform/alerts-webhooks.md). Se você não configurar notificações por email ou webhook, serão exibidos alertas somente no portal do Azure.
 
 ![Folha 'Adicionar uma regra de alerta' no portal do Azure](./media/storage-monitor-storage-account/add-alert-rule.png)
 
@@ -112,10 +114,10 @@ Você pode criar alertas para notificá-lo quando os limites forem atingidos par
 Você pode adicionar gráficos de métricas do Armazenamento do Azure para qualquer uma de suas contas de armazenamento no painel do portal.
 
 1. Clique para selecionar **Editar painel** ao exibir o painel no [portal do Azure](https://portal.azure.com).
-1. Na **Galeria de Blocos** , selecione **Localizar blocos por** > **Tipo** .
-1. Selecione **Tipo** > **Contas de armazenamento** .
-1. Em **Recursos** , selecione a conta de armazenamento cujas métricas deseja adicionar ao painel.
-1. Selecione **Categorias** > **Monitoramento** .
+1. Na **Galeria de Blocos**, selecione **Localizar blocos por** > **Tipo**.
+1. Selecione **Tipo** > **Contas de armazenamento**.
+1. Em **Recursos**, selecione a conta de armazenamento cujas métricas deseja adicionar ao painel.
+1. Selecione **Categorias** > **Monitoramento**.
 1. Arraste e solte o bloco do gráfico no painel para a métrica que você deseja exibir. Repita para todas as métricas que deseja exibir no painel. Na imagem a seguir, o gráfico "Blobs - total de solicitações" está realçado como um exemplo, mas todos os gráficos estão disponíveis para posicionamento em seu painel.
 
    ![Galeria de blocos no portal do Azure](./media/storage-monitor-storage-account/storage-customize-dashboard.png)

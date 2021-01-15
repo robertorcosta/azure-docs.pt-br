@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 2526fd60d6e07ecf43864945f2b05858b41ca567
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70aecc2613fbe21d34e36f9487d7ba383e140bc8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035199"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217355"
 ---
 # <a name="manage-your-function-app"></a>Gerenciar seu aplicativo de funções 
 
@@ -19,11 +19,6 @@ No Azure Functions, um aplicativo de funções fornece o contexto de execução 
 As funções individuais em um aplicativo de funções são implantadas juntas e dimensionadas juntas. Todas as funções no mesmo aplicativo de funções compartilham recursos, por instância, à medida que o aplicativo de funções é dimensionado. 
 
 Cadeias de conexão, variáveis de ambiente e outras configurações de aplicativo são definidas separadamente para cada aplicativo de funções. Todos os dados que devem ser compartilhados entre os aplicativos de funções devem ser armazenados externamente em um repositório persistente.
-
-Este artigo descreve como configurar e gerenciar seus aplicativos de funções. 
-
-> [!TIP]  
-> Muitas opções de configuração também podem ser gerenciadas usando o [CLI do Azure]. 
 
 ## <a name="get-started-in-the-azure-portal"></a>Introdução ao portal do Azure
 
@@ -37,15 +32,17 @@ Você pode navegar até tudo o que precisa para gerenciar seu aplicativo de fun�
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>Trabalhar com as configurações do aplicativo
 
-A guia **configurações do aplicativo** mantém as configurações que são usadas pelo seu aplicativo de funções. Essas configurações são armazenadas criptografadas e você deve selecionar **Mostrar valores** para ver os valores no Portal. Você também pode acessar as configurações do aplicativo usando o CLI do Azure.
+As configurações do aplicativo podem ser gerenciadas no [portal do Azure](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) e usando o [CLI do Azure](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) e [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). Você também pode gerenciar as configurações do aplicativo de [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) e do [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
-### <a name="portal"></a>Portal
+Essas configurações são armazenadas criptografadas. Para saber mais, consulte [segurança de configurações de aplicativo](security-concepts.md#application-settings).
 
-Para adicionar uma configuração no portal, selecione **nova configuração de aplicativo** e adicione o novo par chave-valor.
+# <a name="portal"></a>[Portal](#tab/portal)
+
+A guia **configurações do aplicativo** mantém as configurações que são usadas pelo seu aplicativo de funções. Você deve selecionar **Mostrar valores** para ver os valores no Portal. Para adicionar uma configuração no portal, selecione **nova configuração de aplicativo** e adicione o novo par chave-valor.
 
 ![Configurações do aplicativo de funções no portal do Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-### <a name="azure-cli"></a>CLI do Azure
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azurecli)
 
 O [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) comando retorna as configurações de aplicativo existentes, como no exemplo a seguir:
 
@@ -62,6 +59,22 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+O [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) cmdlet retorna as configurações de aplicativo existentes, como no exemplo a seguir: 
+
+```azurepowershell-interactive
+Get-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+
+O [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) comando adiciona ou atualiza uma configuração de aplicativo. O exemplo a seguir cria uma configuração com uma chave chamada `CUSTOM_FUNCTION_APP_SETTING` e um valor de `12345` :
+
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"CUSTOM_FUNCTION_APP_SETTING" = "12345"}
+```
+
+---
 
 ### <a name="use-application-settings"></a>Usar configurações do aplicativo
 
@@ -186,7 +199,7 @@ az functionapp cors add --name <FUNCTION_APP_NAME> \
 
 Use o [`az functionapp cors show`](/cli/azure/functionapp/cors#az-functionapp-cors-show) comando para listar as origens permitidas atualmente.
 
-### <a name="authentication"></a><a name="auth"></a>Authentication
+### <a name="authentication"></a><a name="auth"></a>Autenticação
 
 ![Configurar a autenticação para um aplicativo de funções](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

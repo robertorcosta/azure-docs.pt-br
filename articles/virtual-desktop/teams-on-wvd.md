@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 85026092e513ecc9ec3c23e292a416297774a2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505539"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217831"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usar o Microsoft Teams na área de trabalho virtual do Windows
 
 >[!IMPORTANT]
->Há suporte para a otimização de mídia para equipes em ambientes Microsoft 365 (GCC) do governo. A otimização de mídia para equipes não tem suporte para GCC-High ou DoD.
+>A otimização de mídia para equipes tem suporte para ambientes Microsoft 365 (GCC) e GCC-Highs governamental. A otimização de mídia para equipes não tem suporte para GCC-High ou DoD.
 
 >[!NOTE]
 >A otimização de mídia para o Microsoft Teams está disponível somente para o cliente de desktop do Windows em computadores Windows 10. As otimizações de mídia exigem o cliente da área de trabalho do Windows versão 1.2.1026.0 ou posterior.
@@ -120,11 +120,11 @@ Depois de instalar o serviço WebSocket e o aplicativo de área de trabalho das 
 
 3. Selecione a **versão**.
 
-      Se as otimizações de mídia forem carregadas, a faixa mostrará a você a **WVD de mídia otimizada**. Se a faixa mostrar que a **mídia WVD não está conectada** , saia do aplicativo de equipes e tente novamente.
+      Se as otimizações de mídia forem carregadas, a faixa mostrará a você a **WVD de mídia otimizada**. Se a faixa mostrar que a **mídia WVD não está conectada**, saia do aplicativo de equipes e tente novamente.
 
 4. Selecione sua imagem de perfil de usuário e, em seguida, selecione **configurações**.
 
-      Se as otimizações de mídia estiverem carregadas, os dispositivos de áudio e câmeras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu Mostrar **áudio remoto** , saia do aplicativo de equipes e tente novamente. Se os dispositivos ainda não aparecerem no menu, verifique as configurações de privacidade no seu computador local. Verifique se a opção em **configurações**  >  **Privacy**  >  **permissões do aplicativo** de privacidade a configuração **permitir que os aplicativos acessem seu microfone** está ativada. **On** Desconecte-se da sessão remota e reconecte-se e verifique novamente os dispositivos de áudio e vídeo. Para unir chamadas e reuniões com vídeo, você também deve conceder permissão para que os aplicativos acessem a câmera.
+      Se as otimizações de mídia estiverem carregadas, os dispositivos de áudio e câmeras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu Mostrar **áudio remoto**, saia do aplicativo de equipes e tente novamente. Se os dispositivos ainda não aparecerem no menu, verifique as configurações de privacidade no seu computador local. Verifique se a opção em **configurações**  >    >  **permissões do aplicativo** de privacidade a configuração **permitir que os aplicativos acessem seu microfone** está ativada.  Desconecte-se da sessão remota e reconecte-se e verifique novamente os dispositivos de áudio e vídeo. Para unir chamadas e reuniões com vídeo, você também deve conceder permissão para que os aplicativos acessem a câmera.
 
       Se as otimizações não forem carregadas, desinstale e reinstale as equipes e verifique novamente.
 
@@ -140,7 +140,7 @@ O uso de equipes em um ambiente virtualizado é diferente do uso de equipes em u
 
 ### <a name="calls-and-meetings"></a>Chamadas e reuniões
 
-- O cliente do teams desktop em ambientes de área de trabalho virtual do Windows não dá suporte a eventos ao vivo. Por enquanto, é recomendável unir eventos ao vivo do [cliente Web Teams](https://teams.microsoft.com) em sua sessão remota em vez disso.
+- O cliente do teams desktop em ambientes de área de trabalho virtual do Windows não dá suporte à criação de eventos ao vivo, mas você pode unir eventos ao vivo. Por enquanto, recomendamos que você crie eventos ao vivo do [cliente Web Teams](https://teams.microsoft.com) em sua sessão remota em vez disso.
 - Chamadas ou reuniões atualmente não dão suporte ao compartilhamento de aplicativos. As sessões de desktop dão suporte ao compartilhamento de desktop.
 - Não há suporte para dar controle e assumir controle no momento.
 - As equipes na área de trabalho virtual do Windows só dão suporte a uma entrada de vídeo de entrada por vez. Isso significa que sempre que alguém tentar compartilhar sua tela, a tela será exibida em vez da tela de líder da reunião.

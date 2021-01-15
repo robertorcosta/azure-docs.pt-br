@@ -8,16 +8,16 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9ebbe54dd41cd7d7b83ef12f465326db3ef2b9ab
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: ee3b2c69d7782dca10b16a3b1726b75bfd99326e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572177"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218118"
 ---
 # <a name="how-to-review-synapse-rbac-role-assignments"></a>Como examinar as atribuições de função do RBAC Synapse
 
-As funções RBAC Synapse são usadas para atribuir permissões a usuários, grupos e outras entidades de segurança para habilitar o acesso e o uso de recursos do Synapse.  [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2148306)
+As funções RBAC Synapse são usadas para atribuir permissões a usuários, grupos e outras entidades de segurança para habilitar o acesso e o uso de recursos do Synapse.  [Saiba mais](./synapse-workspace-synapse-rbac.md)
 
 Este artigo explica como examinar as atribuições de função atuais para um espaço de trabalho.
 

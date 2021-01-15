@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739290"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216641"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Políticas de ponto de extremidade de serviço de rede virtual para o Armazenamento do Azure
 
@@ -32,7 +32,7 @@ Políticas de ponto de extremidade de serviço de rede virtual fornecem os segui
 
 - __Segurança aprimorada para o tráfego de rede virtual para o armazenamento do Azure__
 
-  As [marcas de serviço do Azure para grupos de segurança de rede](https://aka.ms/servicetags) permitem restringir o tráfego de saída da rede virtual para regiões específicas do armazenamento do Azure. No entanto, isso permite o tráfego para qualquer conta na região de armazenamento do Azure selecionada.
+  As [marcas de serviço do Azure para grupos de segurança de rede](./network-security-groups-overview.md) permitem restringir o tráfego de saída da rede virtual para regiões específicas do armazenamento do Azure. No entanto, isso permite o tráfego para qualquer conta na região de armazenamento do Azure selecionada.
   
   As políticas de ponto de extremidade permitem que você especifique as contas de armazenamento do Azure que têm permissão de acesso de saída de rede virtual e restringe o acesso a todas as outras contas de armazenamento. Isso fornece um controle de segurança muito mais granular para proteger os dados vazamento de sua rede virtual.
 

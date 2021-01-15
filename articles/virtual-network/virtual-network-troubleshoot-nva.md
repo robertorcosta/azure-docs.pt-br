@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 3a8982b5626e3c19dbd49a3d2e20542d44b1a1da
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368580"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219225"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de solução de virtualização de rede no Azure
 
@@ -93,7 +93,7 @@ Usar o PowerShell
 
 **Verifique se o tráfego pode alcançar a NVA**
 
-1. No [portal do Azure](https://portal.azure.com), abra **Observador de Rede**e, em seguida, selecione **Verificação do IP de Fluxo**. 
+1. No [portal do Azure](https://portal.azure.com), abra **Observador de Rede** e, em seguida, selecione **Verificação do IP de Fluxo**. 
 2. Especifique a VM e o endereço IP da NVA e, em seguida, verifique se o tráfego está bloqueado por quaisquer grupos de segurança de rede (NSG).
 3. Se houver uma regra NSG que bloqueia o tráfego, localize a NSG em regras de **segurança em vigor** e, em seguida, atualize-o para permitir a passagem do tráfego. Em seguida, execute a **Verificação de Fluxo de IP** novamente e use **Solucionar problemas de conexão** para testar a comunicação de TCP da VM para seu endereço IP interno ou externo.
 
@@ -127,7 +127,7 @@ Se a rede VM usa picos ou mostra períodos de alto uso, que você também pode t
 ## <a name="advanced-network-administrator-troubleshooting"></a>Administrador de rede avançados de solução de problemas
 
 ### <a name="capture-network-trace"></a>Capturar o rastreamento de rede
-Capturar um rastreamento de rede simultânea na VM de origem, a NVA, e a VM de destino ao executar **[PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)** ou **Nmap**, e, em seguida, pare o rastreamento.
+Capturar um rastreamento de rede simultânea na VM de origem, a NVA, e a VM de destino ao executar **[PsPing](/sysinternals/downloads/psping)** ou **Nmap**, e, em seguida, pare o rastreamento.
 
 1. Para capturar um rastreamento de rede simultâneas, execute o seguinte comando:
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c88371eb450d5b0e2e8b821cdec0e87190e291f8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572279"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218188"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Como gerenciar atribuições de função do RBAC Synapse no Synapse Studio
 
@@ -65,7 +65,7 @@ Para atribuir uma função em um escopo mais refinado, selecione **item de espa�
 
 ![Adicionar atribuição de função de item de espaço de trabalho-Selecionar tipo de item](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-Selecione o **Item** específico a ser usado como escopo e, em seguida, selecione a **função** a ser atribuída na lista suspensa.  O menu suspenso lista somente as funções que são válidas para o tipo de item selecionado. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2148306).  
+Selecione o **Item** específico a ser usado como escopo e, em seguida, selecione a **função** a ser atribuída na lista suspensa.  O menu suspenso lista somente as funções que são válidas para o tipo de item selecionado. [Saiba mais](./synapse-workspace-synapse-rbac.md).  
 
 ![Adicionar atribuição de função de item de espaço de trabalho-selecionar função](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
@@ -81,4 +81,4 @@ Lembre-se de que as alterações nas atribuições de função levarão de 2-5 m
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Entender as funções RBAC Synapse necessárias para executar tarefas comuns](./synapse-workspace-understand-what-role-you-need.md) 
+[Entender as funções RBAC Synapse necessárias para executar tarefas comuns](./synapse-workspace-understand-what-role-you-need.md)

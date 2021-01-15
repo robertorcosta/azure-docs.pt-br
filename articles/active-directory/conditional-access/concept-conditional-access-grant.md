@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536a9641b68ccd2510a7891b46483a322fb6ecb7
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900919"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219939"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -30,7 +30,7 @@ O bloco leva em conta quaisquer atribuições e impede o acesso com base na conf
 
 O bloco é um controle poderoso que deve ser atraente com o conhecimento apropriado. Políticas com instruções de bloco podem ter efeitos colaterais indesejados. Os testes e a validação adequados são vitais antes de habilitar em escala. Os administradores devem utilizar ferramentas como o [modo somente de relatório de acesso condicional](concept-conditional-access-report-only.md) e [a ferramenta de What If no acesso condicional](what-if-tool.md) ao fazer alterações.
 
-## <a name="grant-access"></a>Conceder acesso
+## <a name="grant-access"></a>Permitir acesso
 
 Os administradores podem optar por impor um ou mais controles ao conceder acesso. Esses controles incluem as seguintes opções: 
 
@@ -139,7 +139,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Nove emails calendário de & de email
 
 > [!NOTE]
-> Microsoft Kaizala, Microsoft Skype for Business e Microsoft Visio não dão suporte à concessão de **política de proteção de aplicativo necessária** . Se você precisar que esses aplicativos funcionem, use a concessão de **aplicativos aprovados** por exclusividade. O uso da cláusula or entre as duas concessões não funcionará para esses três aplicativos.
+> Microsoft Teams, Microsoft Kaizala, Microsoft Skype for Business e Microsoft Visio não dão suporte à concessão de **política de proteção de aplicativo necessária** . Se você precisar que esses aplicativos funcionem, use a concessão de **aplicativos aprovados** por exclusividade. O uso da cláusula or entre as duas concessões não funcionará para esses três aplicativos.
 
 **Comentários**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687796"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219251"
 ---
 # <a name="test-vm-network-latency"></a>Testar latência da rede de VMs
 
@@ -55,7 +55,7 @@ Ao usar essas ferramentas, você ajuda a garantir que apenas os tempos de entreg
 Ao criar a configuração da VM, tenha em mente as seguintes recomendações:
 - Use a versão mais recente do Windows ou do Linux.
 - Habilite a rede acelerada para obter melhores resultados.
-- Implante VMs com um [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+- Implante VMs com um [grupo de posicionamento de proximidade do Azure](../virtual-machines/co-location.md).
 - VMs maiores geralmente têm um desempenho melhor do que as VMs menores.
 
 ### <a name="tips-for-analysis"></a>Dicas para análise
@@ -111,7 +111,7 @@ Por exemplo, se você copiou latte.exe para a pasta *c:\Tools* , esse seria o co
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    O comando resultante é o mesmo que no receptor, exceto com a adição de &nbsp; *-c* para indicar que este é o *cliente*ou *remetente*:
+    O comando resultante é o mesmo que no receptor, exceto com a adição de &nbsp; *-c* para indicar que este é o *cliente* ou *remetente*:
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 
@@ -127,7 +127,7 @@ Nas VMs do Linux, *remetente* e *destinatário*, execute os seguintes comandos p
 
 #### <a name="for-red-hat-enterprise-linux-rhelcentos"></a>Para Red Hat Enterprise Linux (RHEL)/CentOS
 
-Execute os comandos a seguir:
+Execute os seguintes comandos:
 
 ```bash
 #RHEL/CentOS - Install Git and other helpful tools
@@ -141,7 +141,7 @@ Execute os comandos a seguir:
 
 #### <a name="for-ubuntu"></a>Para Ubuntu
 
-Execute os comandos a seguir:
+Execute os seguintes comandos:
 
 ```bash
 #Ubuntu - Install Git and other helpful tools
@@ -200,7 +200,7 @@ Este exemplo de SockPerf usa um tamanho de mensagem de 350 bytes, que é típico
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Melhore a latência com um [grupo de posicionamento de proximidade do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+* Melhore a latência com um [grupo de posicionamento de proximidade do Azure](../virtual-machines/co-location.md).
 * Saiba como [otimizar a rede para VMs](../virtual-network/virtual-network-optimize-network-bandwidth.md) para seu cenário.
 * Leia sobre [como a largura de banda é alocada para máquinas virtuais](../virtual-network/virtual-machine-network-throughput.md).
 * Para obter mais informações, consulte [perguntas frequentes sobre a rede virtual do Azure](../virtual-network/virtual-networks-faq.md).

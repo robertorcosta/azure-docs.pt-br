@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 62c30356017b5ea5d93351e6f22b8b7b0c22718c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7dbbe3afb2a5eb19b5c4893bd73eddbf11e788d4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109259"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218069"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Como configurar o controle de acesso para seu espaço de trabalho Synapse 
 
@@ -43,7 +43,7 @@ Para proteger um espaço de trabalho do Synapse, você seguirá um padrão de co
 
 Este documento usa nomes padrão para simplificar as instruções. Substitua-os por nomes de sua escolha.
 
-|Setting | Nome padrão | Descrição |
+|Configuração | Nome padrão | Descrição |
 | :------ | :-------------- | :---------- |
 | **Workspace do Synapse** | `workspace1` |  O nome que o workspace do Synapse terá. |
 | **Conta do ADLSGEN2** | `storage1` | A conta do ADLS a ser usada com seu workspace. |
@@ -73,8 +73,8 @@ O `workspace1_SQLAdmins` grupo será usado quando você configurar permissões d
 Para uma configuração básica, esses cinco grupos são suficientes. Posteriormente, você pode adicionar grupos de segurança para lidar com os usuários que precisam de acesso mais especializado ou para conceder aos usuários acesso apenas a recursos específicos.
 
 > [!NOTE]
->- Saiba como criar um grupo de segurança de rede [neste artigo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
->- Saiba como adicionar um grupo de segurança com base em outro grupo de segurança [neste artigo](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+>- Saiba como criar um grupo de segurança de rede [neste artigo](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+>- Saiba como adicionar um grupo de segurança com base em outro grupo de segurança [neste artigo](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 
 >[!Tip]
 >Os usuários individuais do Synapse podem usar Azure Active Directory no portal do Azure para exibir suas associações de grupo para determinar quais funções foram concedidas.

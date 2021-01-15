@@ -3,17 +3,17 @@ title: Segurança de rede para retransmissão do Azure
 description: Este artigo descreve como usar regras de firewall IP e pontos de extremidade privados com a retransmissão do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134459"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217236"
 ---
 # <a name="network-security-for-azure-relay"></a>Segurança de rede para retransmissão do Azure 
 Este artigo descreve como usar os seguintes recursos de segurança com a retransmissão do Azure: 
 
-- Regras de firewall de IP (versão prévia)
+- Regras de firewall de IP
 - Pontos de extremidade privados 
 
 > [!NOTE]
@@ -28,9 +28,6 @@ Esse recurso é útil em cenários nos quais a Retransmissão do Azure deve ser 
 As regras de firewall IP são aplicadas no nível do namespace de retransmissão. Portanto, as regras se aplicam a todas as conexões de clientes que usam qualquer protocolo com suporte. Qualquer tentativa de conexão de um endereço IP que não corresponda a uma regra de IP permitida no namespace de retransmissão é rejeitada como não autorizada. A resposta não menciona a regra IP. As regras de filtro IP são aplicadas na ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
 
 Para obter mais informações, consulte [como configurar o firewall IP para um namespace de retransmissão](ip-firewall-virtual-networks.md)
-
-> [!NOTE]
-> Esse recurso está atualmente em **versão prévia**. 
 
 ## <a name="private-endpoints"></a>Pontos de extremidade privados
 
