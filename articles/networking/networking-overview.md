@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: kumud
-ms.openlocfilehash: f49a340a004a4aef37bcae9e3ae1c2b02ae030b9
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d02f85647d947c2f28527ba6f0397c2a98e73840
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913069"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234181"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de rede do Azure
 
@@ -33,10 +33,10 @@ Esta seção descreve os serviços que fornecem conectividade entre os recursos 
 ### <a name="virtual-network"></a><a name="vnet"></a>Rede virtual
 
 A Rede Virtual do Azure (VNet) é o bloco de construção fundamental de sua rede privada no Azure. Você pode usar um VNets para:
-- **Comunicar-se entre os recursos do Azure** : você pode implantar VMs e vários outros tipos de recursos do Azure em uma rede virtual, como ambientes de serviço Azure app, o AKs (serviço kubernetes do Azure) e conjuntos de dimensionamento de máquinas virtuais do Azure. Para exibir uma lista completa de recursos do Azure que podem ser implantados em uma rede virtual, confira [Integração de serviços de rede virtual](../virtual-network/virtual-network-for-azure-services.md).
+- **Comunicar-se entre os recursos do Azure**: você pode implantar VMs e vários outros tipos de recursos do Azure em uma rede virtual, como ambientes de serviço Azure app, o AKs (serviço kubernetes do Azure) e conjuntos de dimensionamento de máquinas virtuais do Azure. Para exibir uma lista completa de recursos do Azure que podem ser implantados em uma rede virtual, confira [Integração de serviços de rede virtual](../virtual-network/virtual-network-for-azure-services.md).
 - **Comunicar entre** si: você pode conectar redes virtuais entre si, permitindo que os recursos em qualquer rede virtual se comuniquem entre si, usando o emparelhamento de rede virtual. As redes virtuais que você conecta podem estar na mesma região ou em regiões diferentes do Azure. Para obter mais informações, consulte [Emparelhamento de rede virtual do Azure](../virtual-network/virtual-network-peering-overview.md).
-- **Comunicar-se com a Internet** : todos os recursos em uma VNet podem comunicar a saída para a Internet, por padrão. Você pode se comunicar na entrada com um recurso, atribuindo um endereço IP público ou um Load Balancer público. Você também pode usar [endereços IP públicos](../virtual-network/virtual-network-public-ip-address.md) ou [Load Balancer](../load-balancer/load-balancer-overview.md) públicos para gerenciar suas conexões de saída.
-- **Comunicar-se com redes locais** : você pode conectar seus computadores e redes locais a uma rede virtual usando o [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou o [ExpressRoute](../expressroute/expressroute-introduction.md).
+- **Comunicar-se com a Internet**: todos os recursos em uma VNet podem comunicar a saída para a Internet, por padrão. Você pode se comunicar na entrada com um recurso, atribuindo um endereço IP público ou um Load Balancer público. Você também pode usar [endereços IP públicos](../virtual-network/virtual-network-public-ip-address.md) ou [Load Balancer](../load-balancer/load-balancer-overview.md) públicos para gerenciar suas conexões de saída.
+- **Comunicar-se com redes locais**: você pode conectar seus computadores e redes locais a uma rede virtual usando o [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou o [ExpressRoute](../expressroute/expressroute-introduction.md).
 
 Para obter mais informações, consulte [o que é a rede virtual do Azure?](../virtual-network/virtual-networks-overview.md).
 
@@ -89,7 +89,7 @@ O Azure Orbital é uma estação terrestre como serviço baseada em nuvem totalm
 Esta seção descreve os serviços de rede no Azure que ajudam a proteger seus recursos de rede-proteja seus aplicativos usando qualquer uma das combinações ou uma combinação desses serviços de rede na proteção do Azure-DDoS, link privado, firewall, firewall do aplicativo Web, grupos de segurança de rede e pontos de extremidade de serviço de rede virtual.
 
 ### <a name="ddos-protection"></a><a name="ddosprotection"></a>Proteção contra DDoS 
-A [proteção contra DDoS do Azure](../virtual-network/manage-ddos-protection.md) fornece medidas defensivas contra as ameaças de DDoS mais sofisticadas. O serviço fornece recursos aprimorados de mitigação de DDoS para seu aplicativo e recursos implantados em suas redes virtuais. Além disso, os clientes que usam a proteção contra DDoS do Azure têm acesso ao suporte de resposta rápida a DDoS para envolver especialistas em DDoS durante um ataque ativo.
+A [proteção contra DDoS do Azure](../ddos-protection/manage-ddos-protection.md) fornece medidas defensivas contra as ameaças de DDoS mais sofisticadas. O serviço fornece recursos aprimorados de mitigação de DDoS para seu aplicativo e recursos implantados em suas redes virtuais. Além disso, os clientes que usam a proteção contra DDoS do Azure têm acesso ao suporte de resposta rápida a DDoS para envolver especialistas em DDoS durante um ataque ativo.
 
 :::image type="content" source="./media/networking-overview/ddos-protection.png" alt-text="Proteção contra DDoS":::
 
@@ -106,10 +106,10 @@ Para obter mais informações sobre o Firewall do Azure, consulte a [documentaç
 
 :::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="Visão geral do firewall":::
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Firewall do Aplicativo Web
+### <a name="web-application-firewall"></a><a name="waf"></a>Firewall do aplicativo Web
 O WAF ( [Firewall do aplicativo Web](../web-application-firewall/overview.md) ) do Azure fornece proteção aos seus aplicativos Web contra explorações e vulnerabilidades comuns da Web, como injeção de SQL e script entre sites. O Azure WAF fornece proteção pronta para uso das 10 principais vulnerabilidades do OWASP por meio de regras gerenciadas. Além disso, os clientes também podem configurar regras personalizadas, que são regras gerenciadas pelo cliente para fornecer proteção adicional com base no intervalo de IP de origem e atributos de solicitação, como cabeçalhos, cookies, campos de dados de formulário ou parâmetros de cadeia de caracteres de consulta.
 
-Os clientes podem optar por implantar o [Azure WAF com o gateway de aplicativo](../application-gateway/waf-overview.md) , que fornece proteção regional para entidades no espaço de endereço público e privado. Os clientes também podem optar por implantar o [Azure WAF com a porta frontal](../frontdoor/waf-overview.md) , que fornece proteção na borda da rede para pontos de extremidade públicos.
+Os clientes podem optar por implantar o [Azure WAF com o gateway de aplicativo](../web-application-firewall/ag/ag-overview.md) , que fornece proteção regional para entidades no espaço de endereço público e privado. Os clientes também podem optar por implantar o [Azure WAF com a porta frontal](../web-application-firewall/afds/afds-overview.md) , que fornece proteção na borda da rede para pontos de extremidade públicos.
 
 :::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Firewall do Aplicativo Web":::
 
@@ -152,7 +152,7 @@ A imagem a seguir mostra um aplicativo de várias camadas voltado para a Interne
 
 :::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Exemplo de Azure Load Balancer":::
 
-### <a name="application-gateway"></a><a name="applicationgateway"></a>Gateway de Aplicativo
+### <a name="application-gateway"></a><a name="applicationgateway"></a>Gateway de aplicativo
 O Gateway de Aplicativo do Azure é um balanceador de carga do tráfego da Web que permite que você gerencie o tráfego para seus aplicativos Web. É um ADC (controlador de entrega de aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Para obter mais informações, consulte [o que é aplicativo Azure gateway?](../application-gateway/overview.md).
 
 O diagrama a seguir mostra o roteamento baseado em caminho de URL com o gateway de aplicativo.
@@ -166,7 +166,7 @@ Esta seção descreve os serviços de rede no Azure que ajudam a monitorar os re
 Observador de Rede do Azure fornece ferramentas para monitorar, diagnosticar, exibir métricas e ativar ou desativar os logs de recursos em uma rede virtual do Azure. Para obter mais informações, consulte [o que é o observador de rede?](../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### <a name="azure-monitor-for-networks-preview"></a>Azure Monitor para visualização de redes
-O Azure Monitor para redes fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../network-watcher/connection-monitor-preview.md), o [log de fluxo para grupos de segurança de rede](../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../network-watcher/traffic-analytics.md). Para obter mais informações, consulte [Azure monitor para visualização de redes](../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
+O Azure Monitor para redes fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../network-watcher/connection-monitor-overview.md), o [log de fluxo para grupos de segurança de rede](../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../network-watcher/traffic-analytics.md). Para obter mais informações, consulte [Azure monitor para visualização de redes](../azure-monitor/insights/network-insights-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 ### <a name="expressroute-monitor"></a><a name="expressroutemonitor"></a>Monitor do ExpressRoute
 Para saber mais sobre como exibir as métricas de circuito do ExpressRoute, logs de recursos e alertas, consulte [monitoramento, métricas e alertas do expressroute](../expressroute/expressroute-monitoring-metrics-alerts.md?toc=%2fazure%2fnetworking%2ftoc.json).
@@ -185,4 +185,4 @@ Para obter mais informações, consulte [o que é toque de rede virtual](../virt
 
 - Crie sua primeira rede virtual e conecte algumas VMs a ela, concluindo as etapas no artigo [criar sua primeira rede virtual](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json) .
 - Conecte seu computador a uma rede virtual concluindo as etapas no [artigo configurar uma conexão ponto a site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
-- Faça o balanceamento de carga do tráfego de Internet para servidores públicos concluindo as etapas em [Criar um balanceador de carga voltado para a Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- Faça o balanceamento de carga do tráfego de Internet para servidores públicos concluindo as etapas em [Criar um balanceador de carga voltado para a Internet](../load-balancer/quickstart-load-balancer-standard-public-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

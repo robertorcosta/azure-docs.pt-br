@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bca995f8b2cea33266e032b543abb18ee7140f3f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/15/2021
+ms.openlocfilehash: 164285b1fea3dce18161066e643aa165e47cc496
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541174"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233979"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorar o desempenho do banco de dados do Azure para MariaDB com o Repositório de Consultas
 
@@ -21,7 +21,7 @@ O recurso Repositório de Consultas no banco de dados do Azure para MariaDB forn
 
 ## <a name="common-scenarios-for-using-query-store"></a>Cenários comuns para usar o Repositório de Consultas
 
-O repositório de consultas pode ser usado em vários cenários, incluindo o seguinte:
+O repositório de consultas pode ser usado em muitos cenários, incluindo o seguinte:
 
 - Detectar consultas regredidas
 - Determinação do número de vezes que uma consulta foi executada em uma determinada janela de tempo
@@ -34,14 +34,14 @@ O Repositório de Consultas é um recurso que requer aceitação, portanto, ele 
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitar o Repositório de Consultas usando o portal do Azure
 
 1. Entre no portal do Azure e selecione o banco de dados do Azure para o servidor MariaDB.
-1. Selecione **Parâmetros de Servidor** na seção **Configurações** do menu.
-1. Pesquise o parâmetro query_store_capture_mode.
-1. Defina o valor como ALL e **Salve**.
+2. Selecione **Parâmetros de Servidor** na seção **Configurações** do menu.
+3. Pesquise o parâmetro query_store_capture_mode.
+4. Defina o valor como ALL e **Salve**.
 
 Para habilitar as estatísticas de espera no seu Repositório de Consultas:
 
 1. Pesquise o parâmetro query_store_wait_sampling_capture_mode.
-1. Defina o valor como ALL e **Salve**.
+2. Defina o valor como ALL e **Salve**.
 
 Permita que o primeiro lote de dados se mantenha no banco de dados mysql por até 20 minutos.
 
@@ -108,9 +108,9 @@ Use o [portal do Azure](howto-server-parameters.md) para obter ou definir um val
 
 ## <a name="views-and-functions"></a>Exibições e funções
 
-Exiba e gerencie o Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública de privilégio selecionada](howto-create-users.md#create-additional-admin-users) pode usar essas exibições para ver os dados no Repositório de Consultas. Essas exibições estão disponíveis somente no banco de dados **mysql**.
+Exiba e gerencie o Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública de privilégio selecionada](howto-create-users.md#create-more-admin-users) pode usar essas exibições para ver os dados no Repositório de Consultas. Essas exibições estão disponíveis somente no banco de dados **mysql**.
 
-Consultas são normalizadas examinando sua estrutura após a remoção de literais e constantes. Se duas consultas forem idênticas, exceto por valores literais, elas terão o mesmo hash.
+Consultas são normalizadas examinando sua estrutura após a remoção de literais e constantes. Se duas consultas forem idênticas, exceto valores literais, elas terão o mesmo hash.
 
 ### <a name="mysqlquery_store"></a>mysql.query_store
 
@@ -147,7 +147,7 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 
 ### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
-Essa exibição retorna os dados de eventos de espera no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário, ID de consulta e evento distinto.
+Essa exibição retorna os dados de eventos de espera no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário, ID de consulta e evento distintos.
 
 | **Nome**| **Tipo de Dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|

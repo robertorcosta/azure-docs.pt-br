@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 2eb3564153734ff70b7df69da568966e29747863
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: c70de186468eb3efacc82c1d5c8802612475fd4d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202429"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232787"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -912,8 +912,8 @@ Para saber mais sobre as rotas definidas pelo usuário, confira [Rotas definidas
 ### <a name="configure-the-azure-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurar a Extensão para SAP do Azure
 
 > [!NOTE]
-> Instrução de suporte geral: sempre abra um incidente com o SAP no componente BC-OP-NT-AZR para Windows ou BC-OP-LNX-AZR se você precisar de suporte para a extensão do Azure para SAP.
-> Há engenheiros de suporte dedicados da Microsoft trabalhando no sistema de suporte SAP para ajudar nossos clientes em conjunto.
+> Instrução de suporte geral:  
+> O suporte para a extensão do Azure para SAP é fornecido por meio de canais de suporte do SAP. Se você precisar de assistência com a extensão do Azure para SAP, abra um caso de suporte com o [suporte do SAP](https://support.sap.com/). 
 
 Quando você tiver preparado a VM conforme descrito em [Cenários de implantação de VMs para SAP no Azure][deployment-guide-3], o agente estará instalado na máquina virtual. A próxima etapa é implantar a Extensão para SAP do Azure, que está disponível no Repositório de extensões do Azure em data centers globais do Azure. Para obter mais informações, confira [Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver][planning-guide-9.1].
 

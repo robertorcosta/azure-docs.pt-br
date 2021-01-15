@@ -1,14 +1,14 @@
 ---
 title: Integrar um cliente ao Azure Lighthouse
 description: Saiba como integrar um cliente ao Azure Lighthouse, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário usando o gerenciamento de recursos delegado do Azure.
-ms.date: 12/15/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516134"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232668"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Integrar um cliente ao Azure Lighthouse
 
@@ -62,14 +62,17 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definir funções e permissões do administrador
 
-Como provedor de serviços, talvez você queira executar várias tarefas para um único cliente, o que exige acesso diferente para escopos diferentes. Você pode definir quantas autorizações forem necessárias para atribuir as [funções internas do Azure](../../role-based-access-control/built-in-roles.md) apropriadas aos usuários em seu locatário.
+Como provedor de serviços, talvez você queira executar várias tarefas para um único cliente, o que exige acesso diferente para escopos diferentes. Você pode definir quantas autorizações precisar para atribuir as [funções internas do Azure](../../role-based-access-control/built-in-roles.md)apropriadas. Cada autorização inclui um **PrincipalId** que se refere a um usuário, grupo ou entidade de serviço do Azure AD no locatário de gerenciamento.
 
-Para facilitar o gerenciamento, recomendamos o uso de grupos de usuários do Azure AD para cada função. Isso oferece a flexibilidade para adicionar ou remover usuários individuais do grupo que tem acesso, para que você não precise repetir o processo de integração para fazer alterações no usuário. Você pode atribuir funções a uma entidade de serviço, que pode ser útil para cenários de automação.
+> [!NOTE]
+> A menos que especificado explicitamente, as referências a um "usuário" na documentação do Azure Lighthouse podem ser aplicadas a um usuário, grupo ou entidade de serviço do Azure AD em uma autorização.
+
+Para facilitar o gerenciamento, é recomendável usar grupos de usuários do Azure AD para cada função sempre que possível, e não para usuários individuais. Isso oferece a flexibilidade para adicionar ou remover usuários individuais do grupo que tem acesso, para que você não precise repetir o processo de integração para fazer alterações no usuário. Você também pode atribuir funções a uma entidade de serviço, que pode ser útil para cenários de automação.
 
 > [!IMPORTANT]
 > Para adicionar permissões para um grupo do Azure AD, o **tipo de grupo** deve ser definido como **segurança**. Essa opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros usando o Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Ao definir suas autorizações, certifique-se de seguir o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho. Para obter diretrizes e informações sobre as funções com suporte, consulte [locatários, usuários e funções em cenários de Lighthouse do Azure](../concepts/tenants-users-roles.md).
+Ao definir suas autorizações, certifique-se de seguir o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho. Para obter informações sobre funções e práticas recomendadas com suporte, consulte [locatários, usuários e funções em cenários de Lighthouse do Azure](../concepts/tenants-users-roles.md).
 
 Para definir autorizações, você precisará saber os valores de ID para cada usuário, grupo de usuários ou entidade de serviço no locatário do provedor de serviços ao qual você deseja conceder acesso. Você também precisa da ID de definição de função para cada função interna que deseja atribuir. Se você ainda não tiver essas informações, pode recuperá-las executando os comandos abaixo no locatário do provedor de serviços.
 
@@ -195,7 +198,7 @@ O exemplo a seguir mostra um arquivo **delegatedResourceManagement.parameters.js
 }
 ```
 
-A última autorização no exemplo acima adiciona **principalId** com a função de Administrador de Acesso do Usuário (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir essa função, você deve incluir a propriedade **delegatedRoleDefinitionIds** e uma ou mais funções internas. O usuário criado nessa autorização poderá atribuir essas funções internas a [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) no locatário do cliente, o que é necessário para [implantar políticas que podem ser corrigidas](deploy-policy-remediation.md).  O usuário também pode criar incidentes de suporte.  Nenhuma outra permissão normalmente associada à função Administrador de Acesso de Usuário será aplicada a esse usuário.
+A última autorização no exemplo acima adiciona **principalId** com a função de Administrador de Acesso do Usuário (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir essa função, você deve incluir a propriedade **delegatedRoleDefinitionIds** e uma ou mais funções internas do Azure com suporte. O usuário criado nessa autorização poderá atribuir essas funções a [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) no locatário do cliente, o que é necessário para [implantar políticas que podem ser corrigidas](deploy-policy-remediation.md).  O usuário também pode criar incidentes de suporte. Nenhuma outra permissão normalmente associada à função Administrador de acesso do usuário será aplicada a esse **PrincipalId**.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implantar os modelos do Azure Resource Manager
 
@@ -278,7 +281,7 @@ No locatário do cliente:
 3. Confirme que você consegue ver as assinaturas com o nome da oferta fornecido no modelo do Resource Manager.
 
 > [!NOTE]
-> Pode demorar alguns minutos depois da conclusão da implantação até que o portal do Azure reflita as atualizações.
+> Pode levar até 15 minutos depois que a implantação for concluída antes que as atualizações sejam refletidas na portal do Azure. Você poderá ver as atualizações mais cedo se atualizar seu token de Azure Resource Manager atualizando o navegador, entrando e saindo, ou solicitando um novo token.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -312,6 +315,7 @@ Se não for possível integrar o cliente com êxito ou se os usuários tiverem p
 - O provedor de recursos **Microsoft. managedservices** deve ser registrado para a assinatura delegada. Isso deve ocorrer automaticamente durante a implantação, mas se não estiver, você poderá [registrá-lo manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - As autorizações não devem incluir nenhum usuário com a função interna de [proprietário](../../role-based-access-control/built-in-roles.md#owner) ou com funções internas com [dataactions](../../role-based-access-control/role-definitions.md#dataactions).
 - Os grupos devem ser criados com o [**tipo de grupo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) definido como **segurança** e não **Microsoft 365**.
+- Pode haver um atraso adicional antes que o acesso seja habilitado para [grupos aninhados](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Os usuários que precisam exibir recursos no portal do Azure devem ter a função [leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de leitor).
 
 ## <a name="next-steps"></a>Próximas etapas

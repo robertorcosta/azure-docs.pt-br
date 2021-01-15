@@ -3,12 +3,12 @@ title: Versões de cluster com suporte no Azure Service Fabric
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: abf9900e9749a1b21d927e0315076b38848bea10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c2ea2b53649cf148a19df46835c8936345aa20e5
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132640"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234334"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
@@ -37,18 +37,18 @@ Solicitamos e recomendamos realizar ações para atualizar para as versões mais
 Atualize para as Service Fabric versões com suporte listadas abaixo para evitar o tempo de inatividade ou a perda de funcionalidade relacionada a essa alteração. Verifique se os clusters estão executando pelo menos essas versões para evitar problemas em seu ambiente.
 
   ###### <a name="supported-service-fabric-runtime-versions"></a>Versões de tempo de execução Service Fabric com suporte
-   Se você não estiver nas versões do Service Fabric com suporte listadas abaixo, atualize para uma dessas versões que já contêm as alterações necessárias para evitar o tempo de inatividade para o cluster.  
+   Se você não estiver nas versões do Service Fabric com suporte listadas abaixo, atualize para uma dessas versões que já contêm as alterações necessárias para evitar o tempo de inatividade para o cluster. **Observação:** Todas as versões de lançamento do 7,2 incluem as alterações necessárias.
   
-  | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
+  | SO | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
-  | Windows | 7,2. * | 7.2.445.9590 |
+  | Windows | 7,2. * | 7,2. * |
   | Ubuntu 16 | 7,0. * | 7.0.472.1  |
   | Linux Ubuntu 16.04 | 7,1. * | 7.1.455.1  |
   | Linux Ubuntu 18, 4 | 7,1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7,2. * | 7.2.447.1 |
-  | Linux Ubuntu 18, 4 | 7,2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16.04 | 7,2. * | 7,2. * |
+  | Linux Ubuntu 18, 4 | 7,2. * | 7,2. * |
  
 ### <a name="upgrade-alert-for-versions-greater-than-63"></a>Alerta de atualização para versões maiores que 6,3 
 Para melhorar a segurança e a disponibilidade, a infraestrutura do Azure fará uma alteração que possa afetar Service Fabric clientes. **Todos os clusters de Service Fabric que usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode), executados em versões sem suporte superiores a 6,3 e inferiores a 7,0 e versões com suporte incompatíveis do 7,0 em diante são afetados**. Abordar a alteração requer uma atualização para o tempo de execução de Service Fabric, que já está disponível para todas as versões de Service Fabric com suporte em todas as regiões.
@@ -58,24 +58,24 @@ Para melhorar a segurança e a disponibilidade, a infraestrutura do Azure fará 
  
   - **Para clusters que executam uma versão do Service Fabric maior que 6,3 não usando o recurso de rede aberta**, o cluster permanecerá, no entanto, o recurso de rede aberta para clusters de contêineres deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
 
- - **Para clusters que executam uma versão do Service Fabric maior que 6,3 e usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , o cluster permanecerá ativo, mas deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
+ - **Para clusters que executam uma versão do Service Fabric maior que 6,3 e usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , o cluster pode se tornar indisponível e deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
   
 #### <a name="required-action"></a>Ação necessária
 Atualize para as Service Fabric versões com suporte listadas abaixo para evitar o tempo de inatividade ou a perda de funcionalidade relacionada a essa alteração. Verifique se os clusters estão executando pelo menos essas versões para evitar problemas em seu ambiente. 
  
  ###### <a name="supported-service-fabric-runtime-versions"></a>Versões de tempo de execução Service Fabric com suporte
- Se você não estiver nas versões do Service Fabric com suporte listadas abaixo, atualize para uma dessas versões que já contêm as alterações necessárias para evitar a perda de funcionalidade.  
+ Se você não estiver nas versões do Service Fabric com suporte listadas abaixo, atualize para uma dessas versões que já contêm as alterações necessárias para evitar a perda de funcionalidade.  **Observação:** Todas as versões de lançamento do 7,2 incluem as alterações necessárias.
  
-  | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
+  | SO | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
-  | Windows | 7,2. * | 7.2.445.9590 |
+  | Windows | 7,2. * | 7,2. * |
   | Linux Ubuntu 16.04 | 7,0. * | 7.0.472.1  |
   | Linux Ubuntu 16.04 | 7,1. * | 7.1.455.1  |
   | Linux Ubuntu 18, 4 | 7,1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7,2. * | 7.2.447.1 |
-  | Linux Ubuntu 18, 4 | 7,2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16.04 | 7,2. * | 7,2. * |
+  | Linux Ubuntu 18, 4 | 7,2. * | 7,2. * |
 
 ## <a name="supported-versions"></a>Versões com suporte
 A tabela a seguir lista as versões do Service Fabric e suas datas de término do suporte.

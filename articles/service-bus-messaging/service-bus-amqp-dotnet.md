@@ -3,16 +3,19 @@ title: Barramento de Serviço do Azure com o .NET e AMQP 1.0 | Microsoft Docs
 description: Este artigo descreve como usar o barramento de serviço do Azure de um aplicativo .NET usando o AMQP (protocolo de enfileiramento de mensagens avançado).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d6d7d01a56d2e7068f9c4ccb8ec505914a31ecf
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067096"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233926"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usar o Barramento de Serviço do .NET com AMQP 1.0
 
 O suporte do AMQP 1.0 está disponível na versão 2.1 ou posterior do pacote do Barramento de Serviço. Você pode garantir que tem a versão mais recente baixando os bits do Barramento de Serviço do [NuGet][NuGet].
+
+> [!NOTE]
+> Você pode usar o Advanced Message Queuing Protocol (AMQP) ou o protocolo de mensagens do barramento de serviço (SBMP) com a biblioteca do .NET para o barramento de serviço. AMQP é o protocolo padrão usado pela biblioteca do .NET. Recomendamos que você use o protocolo AMQP (que é o padrão) e não o substitua. 
 
 ## <a name="configure-net-applications-to-use-amqp-10"></a>Configurar aplicativos .NET para usar o AMQP 1.0
 
@@ -41,6 +44,14 @@ O valor da configuração `Microsoft.ServiceBus.ConnectionString` é a cadeia de
 Onde `namespace` e `SAS key` são obtidos a partir de [Portal do Azure][Azure portal] quando você cria um namespace do Barramento de Serviço. Para saber mais, veja [Como criar um namespace do Barramento de Serviço usando o Portal do Azure][Create a Service Bus namespace using the Azure portal].
 
 Ao usar AMQP, anexe a cadeia de conexão com `;TransportType=Amqp`. Essa notação orienta a biblioteca de cliente a fazer sua conexão com o Barramento de Serviço usando o AMQP 1.0.
+
+### <a name="amqp-over-websockets"></a>AMQP sobre WebSockets
+Para usar AMQP sobre WebSockets, defina `TransportType` na cadeia de conexão como `AmqpWebSockets` . Por exemplo: `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`. 
+
+Se você estiver usando a biblioteca .NET Microsoft. Azure. ServiceBus, defina [ServiceBusConnection. TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) como AmqpWebSockets de [enum](/dotnet/api/microsoft.azure.servicebus.transporttype).
+
+Se você estiver usando a biblioteca .NET Azure. Messaging. ServiceBus, defina [ServiceBusClient. TransportType](/dotnet/api/azure.messaging.servicebus.servicebusclient.transporttype) como AmqpWebSockets da [Enumeração ServiceBusTransportType](/dotnet/api/azure.messaging.servicebus.servicebustransporttype).
+
 
 ## <a name="message-serialization"></a>Serialização de mensagem
 
@@ -75,7 +86,7 @@ Para facilitar a interoperabilidade com clientes não .NET, use somente tipos .N
 | Uri |Cadeia de caracteres descrita (consulte a tabela a seguir) |Valor do AMQP |
 | DateTimeOffset |Longo descrito (consulte a tabela a seguir) |Valor do AMQP |
 | TimeSpan |Longo descrito (consulte a seguir) |Valor do AMQP |
-| STREAM |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
+| Fluxo |binary |Dados do AMQP (podem ser múltiplos). As seções de Dados contêm os bytes brutos lidos do objeto Stream. |
 | Outro Objeto |binary |Dados do AMQP (podem ser múltiplos). Contém o binário serializado do objeto que usa o DataContractSerializer ou um serializador fornecido pelo aplicativo. |
 
 | Tipo .NET | Tipo descrito do AMQP mapeado | Observações |

@@ -4,12 +4,12 @@ description: Insira algumas linhas de código em seu aplicativo da área de trab
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ae64888669fb9a3c053802ee4f7ad7db6316265d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780494"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233739"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -146,7 +146,9 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Eventos personalizados na Análise
 
-A telemetria está disponível na tabela `customEvents` na [Análise do Application Insights](../log-query/log-query-overview.md). Cada linha representa uma chamada para `trackEvent(..)` em seu aplicativo.
+A telemetria está disponível na `customEvents` tabela na [guia Logs de Application insights](../log-query/log-query-overview.md) ou na [experiência de uso](usage-overview.md). Os eventos podem vir de `trackEvent(..)` ou [clicar em plug-in de coleção de análise automática](javascript-click-analytics-plugin.md).
+
+ 
 
 Se a [amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCount mostrará um valor maior que 1. Para exemplo itemCount==10 significa que de 10 chamadas para trackEvent(), o processo de amostragem somente transmitirá um deles. Para obter uma contagem correta de eventos personalizados, você deve, portanto, usar um código como `customEvents | summarize sum(itemCount)` .
 
@@ -1122,4 +1124,3 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 * [Pesquisar eventos e logs](./diagnostic-search.md)
 * [Solução de problemas](../faq.md)
-

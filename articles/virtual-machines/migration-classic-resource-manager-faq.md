@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 24e52f517f46de06fef8aa52e889185826c20d44
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: abf4e4621a7e42829032923a67d21c5322f432ec
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498388"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232719"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas frequentes sobre a migração clássica para a migração do Azure Resource Manager
 
@@ -82,11 +82,11 @@ Durante a migração, os recursos se transformam do clássico para o Gerenciador
 
 Quando você mover uma VM do modo clássico para o modo do Resource Manager, os backups feitos antes da migração não serão migrados para a VM recém-migrada do Resource Manager. No entanto, caso deseje manter os backups das VMs clássicas, siga estas etapas antes da migração. 
 
-1. No cofre dos Serviços de Recuperação, acesse a guia **Itens Protegidos** e selecione a VM. 
-2. Clique em Parar Proteção. Deixe a opção *Excluir dados de backup associados***desmarcada**.
+1. No cofre dos serviços de recuperação, vá para a folha **itens de backup** e selecione a VM. 
+2. Clique em parar backup. Selecione "reter dados de backup" no menu suspenso.
 
 > [!NOTE]
-> Você será cobrado o custo da instância de backup enquanto mantiver os dados. As cópias de backup serão removidas de acordo com o período de retenção. No entanto, a última cópia de backup sempre é mantida até você excluir explicitamente os dados de backup. É recomendável verificar o período de retenção da Máquina virtual e o gatilho "Excluir Dados de Backup" no item protegido no cofre após o término do período de retenção. 
+> Esta opção impedirá que todos os trabalhos de backup futuros protejam sua VM. No entanto, o serviço de backup do Azure manterá os pontos de recuperação que foram armazenados em backup.  Você precisará pagar para manter os pontos de recuperação no cofre (consulte [preços de backup do Azure](https://azure.microsoft.com/pricing/details/backup/) para obter detalhes). Você poderá restaurar a VM, se necessário. Se você decidir retomar a proteção da VM, poderá usar a opção *retomar backup* .
 >
 >
 

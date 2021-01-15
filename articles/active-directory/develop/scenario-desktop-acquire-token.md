@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d5f5e1098b688fc307bae5ea3538c818cb529b0a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962390"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232294"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo da área de trabalho que chama as APIs Web: Adquirir um token
 
@@ -420,8 +420,8 @@ Para conectar um usuário de domínio em um domínio ou em um computador ingress
 - A IWA pode ser usada somente por usuários *federados+* , ou seja, usuários criados no Active Directory e apoiados pelo Azure AD. Os usuários criados diretamente no Azure AD, sem apoio do Active Directory usuários *gerenciados* não podem usar esse fluxo de autenticação. Essa limitação não afeta o fluxo de nome de usuário e senha.
 - A IWA é para aplicativos escritos para as plataformas .NET Framework, .NET Core e UWP (Plataforma Universal do Windows).
 - A IWA não ignora a [MFA (autenticação multifator)](../authentication/concept-mfa-howitworks.md). Caso a MFA esteja configurada, a IWA poderá falhar caso um desafio de MFA seja necessário, pois esta exige a interação do usuário.
-  > [!NOTE]
-  > Essa é complicada. A IWA é não interativa, mas a MFA requer a interatividade do usuário. Você não controla o momento em que o provedor de identidade solicita que a MFA seja executada; o administrador do locatário é quem faz isso. De acordo com nossas observações, a MFA será solicitada quando você for entrar estando em um país/região diferente, quando não estiver conectado via VPN a uma rede corporativa e, às vezes, até mesmo estando conectado via VPN. Não espere que haja um conjunto determinístico de regras. O Azure AD usa a IA (inteligência artificial) para aprender continuamente se a MFA é necessária. Faça o fallback para um prompt de usuário como uma autenticação interativa ou um fluxo de código de dispositivo caso a IWA falhe.
+  
+    A IWA é não interativa, mas a MFA requer a interatividade do usuário. Você não controla o momento em que o provedor de identidade solicita que a MFA seja executada; o administrador do locatário é quem faz isso. De acordo com nossas observações, a MFA será solicitada quando você for entrar estando em um país/região diferente, quando não estiver conectado via VPN a uma rede corporativa e, às vezes, até mesmo estando conectado via VPN. Não espere que haja um conjunto determinístico de regras. O Azure AD usa a IA (inteligência artificial) para aprender continuamente se a MFA é necessária. Faça o fallback para um prompt de usuário como uma autenticação interativa ou um fluxo de código de dispositivo caso a IWA falhe.
 
 - A autoridade passada em `PublicClientApplicationBuilder` precisa ser:
   - Com locatários do formulário `https://login.microsoftonline.com/{tenant}/`, em que `tenant` é o GUID que representa a ID do locatário ou um domínio associado ao locatário.
@@ -602,14 +602,13 @@ Você também pode adquirir um token ao fornecer o nome de usuário e a senha. E
 
 ### <a name="this-flow-isnt-recommended"></a>Esse fluxo não é recomendado.
 
-Esse fluxo *não é recomendado* porque não é seguro fazer com que seu aplicativo solicite a senha de um usuário. Para obter mais informações, consulte [Qual é a solução para o problema crescente das senhas?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). O fluxo preferencial para adquirir um token silenciosamente em computadores Windows ingressados no domínio é a [Autenticação Integrada do Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Também é possível usar o [fluxo de código do dispositivo](https://aka.ms/msal-net-device-code-flow).
+O fluxo de nome de usuário e senha *não é recomendado* porque fazer com que seu aplicativo solicite a senha de um usuário não é seguro. Para obter mais informações, consulte [qual é a solução para o crescente problema de senhas?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) O fluxo preferencial para adquirir um token silenciosamente em computadores Windows ingressados no domínio é a [Autenticação Integrada do Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Também é possível usar o [fluxo de código do dispositivo](https://aka.ms/msal-net-device-code-flow).
 
-> [!NOTE]
-> Usar um nome de usuário e uma senha é útil em alguns casos, como em cenários DevOps. Mas essa não é uma boa opção se você quiser usar um nome de usuário e senha em cenários interativos nos quais você fornece sua própria interface do usuário. Ao usar um nome de usuário e uma senha, você está deixando de usar várias coisas:
->
-> - Princípios básicos da identidade moderna. Uma senha pode sofrer phishing e ser reproduzida devido à possibilidade de um segredo compartilhado ser interceptado. Ela é incompatível com opções sem senha.
-> - Os usuários que precisam executar a MFA não conseguem entrar porque não há nenhuma interação.
-> - Os usuários não podem usar o SSO (logon único).
+Usar um nome de usuário e uma senha é útil em alguns casos, como em cenários DevOps. Mas essa não é uma boa opção se você quiser usar um nome de usuário e senha em cenários interativos nos quais você fornece sua própria interface do usuário. Ao usar um nome de usuário e uma senha, você está deixando de usar várias coisas:
+
+- Princípios básicos da identidade moderna. Uma senha pode sofrer phishing e ser reproduzida devido à possibilidade de um segredo compartilhado ser interceptado. Ela é incompatível com opções sem senha.
+- Os usuários que precisam executar a MFA não conseguem entrar porque não há nenhuma interação.
+- Os usuários não podem usar o SSO (logon único).
 
 ### <a name="constraints"></a>Restrições
 

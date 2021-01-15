@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694874"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232753"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Usando informações para monitorar e configurar seu Azure Load Balancer
 
@@ -68,7 +68,7 @@ A guia taxa de transferência de dados permite que você examine sua taxa de tra
 ### <a name="flow-distribution"></a>Distribuição de Fluxo
 A guia distribuição de fluxo ajudará você a visualizar e gerenciar o número de fluxos que suas instâncias de back-end estão recebendo e produzindo. Ele mostra a taxa de criação de fluxo e a contagem de fluxo para tráfego de entrada e saída, bem como o tráfego de rede que cada VM e instância do conjunto de dimensionamento de máquinas virtuais está recebendo. 
 
-Esses modos de exibição podem fornecer comentários sobre se sua configuração de Load Balancer ou os padrões de tráfego estão levando a tráfego desbalanceado. Por exemplo, se você tiver a afinidade de sessão configurada e um único cliente estiver fazendo um número desproporcional de solicitações. Ele também informará se você está se aproximando do [limite de fluxo por VM](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) para o tamanho do seu computador.
+Esses modos de exibição podem fornecer comentários sobre se sua configuração de Load Balancer ou os padrões de tráfego estão levando a tráfego desbalanceado. Por exemplo, se você tiver a afinidade de sessão configurada e um único cliente estiver fazendo um número desproporcional de solicitações. Ele também informará se você está se aproximando do [limite de fluxo por VM](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) para o tamanho do seu computador.
 
 ### <a name="connection-monitors"></a>Monitores de Conexão
 A guia monitores de conexão mostrará a latência de ida e volta em um mapa global para todos os [monitores de conexão](../network-watcher/connection-monitor.md)  que você configurou. Esses elementos visuais fornecem informações úteis para serviços com requisitos estritos de latência. Para atender aos seus requisitos, talvez seja necessário adicionar implantações regionais adicionais ou mover para um modelo de [balanceamento de carga entre regiões](./cross-region-overview.md)

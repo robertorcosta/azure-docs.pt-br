@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 61bd23c74fd7960317dff17175b355b473cd6dc7
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602590"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233824"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -35,7 +35,7 @@ Para corrigir esse problema, recupere a imagem do Azure Marketplace e faça alte
 - [Imagens do Windows](azure-vm-create-using-approved-base.md)
 
 > [!Note]
-> Se você estiver usando uma imagem base do Linux não extraída do Azure Marketplace, poderá deslocar a primeira partição de 2048 KB. Isso permite que o espaço não formatado seja usado para adicionar novas informações de cobrança e permite que o Azure prossiga com a publicação de sua VM no Azure Marketplace.  
+> Se você estiver usando uma imagem base do Linux não obtida do Azure Marketplace, verifique se os primeiros 2048 setores (cada setor tem de 512 bytes) no VHD estão vazios para que o Azure prossiga com a publicação da sua VM no Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Falha na extensão da VM
 
@@ -68,7 +68,7 @@ Verifique se você seguiu rigorosamente o processo de provisionamento da VM ante
 
 Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 
-|Cenário|Erro|Motivo|Solução|
+|Cenário|Erro do|Motivo|Solução|
 |---|---|---|---|
 |1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD estiver incorreto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
 |2|Tipo de blob inválido|Falha no provisionamento da VM porque o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
@@ -210,7 +210,7 @@ Como as VMs permitem acesso ao sistema operacional subjacente, verifique se o ta
 
 |Tamanho do VHD|Tamanho real de ocupado|Solução|
 |---|---|---|
-|>500 tebibytes (TiB)|N/D|Contate a equipe de suporte para obter uma aprovação de exceção.|
+|>500 tebibytes (TiB)|n/a|Contate a equipe de suporte para obter uma aprovação de exceção.|
 |250-500 TiB|Diferença de >200 Gibibytes (GiB) do tamanho do blob|Contate a equipe de suporte para obter uma aprovação de exceção.|
 
 > [!NOTE]
@@ -224,7 +224,7 @@ Você pode verificar a versão do arquivo de imagem de `C:\windows\system32\driv
 
 A tabela a seguir mostra a versão mínima com patch do Windows Server: 
 
-|SO|Versão|
+|Sistema operacional|Versão|
 |---|---|
 |Windows servindo 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
@@ -319,7 +319,7 @@ Para enviar sua solicitação com a imagem de SSH desabilitada para o processo d
     
 Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM com uma URL de assinatura de acesso compartilhado (SAS).
 
-|Cenário|Erro|Motivo|Solução|
+|Cenário|Erro do|Motivo|Solução|
 |---|---|---|---|
 |1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
 |2|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa com uma URL SAS.|
@@ -328,14 +328,14 @@ Consulte a tabela a seguir para obter os problemas que surgirem quando você bai
 |6|Cabeçalho condicional HTTP|A URL SAS é inválida.|Obtenha a URL SAS correta.|
 |7|Nome de VHD inválido|Verifique se há algum caractere especial, como um sinal de porcentagem `%` ou aspas `"` , no nome do VHD.|Renomeie o arquivo VHD removendo os caracteres especiais.|
 
-## <a name="first-mb-2048-kb-partition-linux-only"></a>Primeira partição de MB (2048 KB) (somente Linux)
+## <a name="first-1mb-2048-sectors-each-sector-of-512-bytes-partition-linux-only"></a>Primeiro 1MB (2048 setores, cada setor de 512 bytes) partição (somente Linux)
 
-Ao enviar o VHD, verifique se os primeiros 2048 KB do VHD estão vazios. Caso contrário, a solicitação falhará.
+Ao enviar o VHD, verifique se os primeiros 2048 setores (1MB) do VHD estão vazios. Caso contrário, a solicitação falhará. Observe que isso será aplicável ao disco de inicialização/sistema operacional e não aos discos de dados adicionais.
 
 >[!NOTE]
->Para determinadas imagens especiais, como aquelas criadas sobre as imagens base do Azure Windows tiradas do Azure Marketplace, verificamos se há uma marca de cobrança e ignoraremos a partição MB se a marca de cobrança estiver presente e corresponder aos nossos valores internos disponíveis.
+>Para determinadas imagens especiais, como aquelas criadas sobre as imagens base do Azure Windows tiradas do Azure Marketplace ou verifique se os primeiros 1MB (2048 setores) do VHD estão vazios. 
 
-### <a name="create-a-first-mb-2048-kb-partition-on-an-empty-vhd"></a>Criar uma partição da primeira MB (2048 KB) em um VHD vazio
+### <a name="create-a-first-1mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Criar um primeiro 1 MB (2048 setores, cada setor de 512 bytes) de partição em um VHD vazio
 
 Essas etapas se aplicam apenas ao Linux.
 
@@ -386,7 +386,7 @@ Essas etapas se aplicam apenas ao Linux.
    1. Insira 2048 como _primeiro_ valor de setor. Você pode deixar o _último setor_ como o valor padrão.
 
       >[!IMPORTANT]
-      >Todos os dados existentes serão apagados até 2048 KB. Backup do VHD antes de criar uma nova partição.
+      >Todos os dados existentes serão apagados até 2048 setores (cada setor de 512 bytes). Backup do VHD antes de criar uma nova partição.
 
       ![Captura de tela da linha de comando do cliente de reapresentação mostrando os comandos e a saída dos dados apagados.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
@@ -400,7 +400,7 @@ Essas etapas se aplicam apenas ao Linux.
 
 1. Desanexe o VHD da VM e exclua a VM.
 
-### <a name="create-a-first-mb-2048-kb-partition-by-moving-existing-data-on-vhd"></a>Criar uma partição da primeira MB (2048 KB) movendo os dados existentes no VHD
+### <a name="create-a-first-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Criar uma partição dos primeiros MB (2048 setores, cada setor de 512 bytes) movendo os dados existentes no VHD
 
 Essas etapas se aplicam apenas ao Linux.
 
@@ -480,7 +480,7 @@ Se todas as imagens obtidas do Azure Marketplace forem reutilizadas, o VHD do si
 
 Para obter soluções para erros relacionados ao disco de dados, use a seguinte tabela:
 
-|Erro|Motivo|Solução|
+|Erro do|Motivo|Solução|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Esse erro pode ocorrer devido a um número de unidade lógica (LUN) inválido quando a oferta é enviada.|Verifique se a sequência de números de LUN para o disco de dados está no Partner Center.|
 |`DataDisk- NotFound:`|Esse erro pode ocorrer porque um disco de dados não está localizado em uma URL SAS especificada.|Verifique se o disco de dados está localizado na URL SAS especificada.|
@@ -571,7 +571,7 @@ Para fornecer uma imagem de VM fixa para substituir uma imagem de VM que tenha u
 Para concluir essas etapas, prepare os ativos técnicos para a imagem de VM que você deseja adicionar. Para obter mais informações, consulte [criar uma máquina virtual usando uma base aprovada](azure-vm-create-using-approved-base.md)ou [criar uma máquina virtual usando sua própria imagem](azure-vm-create-using-own-image.md) e [gerar um URI de SAS para a imagem da VM](azure-vm-get-sas-uri.md).
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. No painel esquerdo, selecione **Commercial Marketplace**  >  **visão geral** do Marketplace comercial.
+1. No painel esquerdo, selecione   >  **visão geral** do Marketplace comercial.
 1. Na coluna **alias da oferta** , selecione a oferta.
 1. Na guia **visão geral do plano** , na coluna **nome** , selecione o plano apropriado.
 1. Na guia **configuração técnica** , em **imagens de VM**, selecione **+ Adicionar imagem de VM**.
@@ -587,7 +587,7 @@ Em seguida, remova a imagem da VM com a vulnerabilidade de segurança.
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Remover a imagem da VM com a vulnerabilidade ou exploração de segurança
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No painel esquerdo, selecione **Commercial Marketplace**  >  **visão geral** do Marketplace comercial.
+2. No painel esquerdo, selecione   >  **visão geral** do Marketplace comercial.
 3. Na coluna **alias da oferta** , selecione a oferta.
 4. Na guia **visão geral do plano** , na coluna **nome** , selecione o plano apropriado.
 5. Na guia **configuração técnica** , em **imagens de VM**, ao lado da imagem de VM que você deseja remover, selecione **remover imagem de VM**.

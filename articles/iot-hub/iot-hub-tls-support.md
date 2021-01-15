@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: jlian
-ms.openlocfilehash: e569cbe9030b2ac5a42bd99233b4fefc925a5662
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d36a7917693aef9063ade473759f2f451d3a677f
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220296"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234011"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Suporte ao protocolo TLS no Hub IoT
 
@@ -48,7 +48,7 @@ Para maior segurança, configure seus hubs IoT para permitir *somente* conexões
 * Governo dos EUA do Arizona
 * US Gov-Virgínia (o suporte a TLS 1.0/1.1 não está disponível nesta região-TLS 1,2 a imposição deve ser habilitada ou a criação do Hub IoT falhará)
 
-Para habilitar a imposição de TLS 1,2, siga as etapas em [criar Hub IOT no portal do Azure](/.iot-hub-create-through-portal.md), exceto
+Para habilitar a imposição de TLS 1,2, siga as etapas em [criar Hub IOT no portal do Azure](iot-hub-create-through-portal.md), exceto
 
 - Escolha uma **região** de uma na lista acima.
 - Em **Gerenciamento-> avançado-> segurança de camada de transporte (TLS)-> versão mínima do TLS**, selecione **1,2**. Essa configuração só aparece para o Hub IoT criado na região com suporte.

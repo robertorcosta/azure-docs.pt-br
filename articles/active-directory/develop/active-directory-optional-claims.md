@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028464"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232464"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -45,7 +45,7 @@ Embora as declarações opcionais tenham suporte nos tokens de formato v 1.0 e v
 O conjunto de declarações opcionais disponíveis por padrão para uso pelos aplicativos é listado abaixo. Para adicionar declarações opcionais personalizadas para o aplicativo, confira [Extensões de Diretório](#configuring-directory-extension-optional-claims), abaixo. Quando você adicionar declarações ao **token de acesso**, as declarações se aplicarão aos tokens de acesso solicitados *para* o aplicativo (uma API Web) e não as declarações solicitadas *pelo* aplicativo. Não importa como o cliente acessa sua API, os dados corretos estão presentes no token de acesso que é usado para autenticar na sua API.
 
 > [!NOTE]
-> A maioria dessas declarações pode ser incluída em JWTs para tokens v1.0 e v2.0, mas não para tokens SAML, exceto quando indicado na coluna Tipo de Token. As contas de consumidor dão suporte a um subconjunto dessas declarações, marcadas na coluna "Tipo de Usuário".  Muitas das declarações listadas não se aplicam aos usuários do consumidor (não têm locatários e, portanto, `tenant_ctry` não tem valor).
+>A maioria dessas declarações pode ser incluída em JWTs para tokens v1.0 e v2.0, mas não para tokens SAML, exceto quando indicado na coluna Tipo de Token. As contas de consumidor dão suporte a um subconjunto dessas declarações, marcadas na coluna "Tipo de Usuário".  Muitas das declarações listadas não se aplicam aos usuários do consumidor (não têm locatários e, portanto, `tenant_ctry` não tem valor).
 
 **Tabela 2: conjunto de declarações opcionais v 1.0 e v 2.0**
 
@@ -148,13 +148,13 @@ Você pode configurar declarações opcionais para seu aplicativo por meio da in
 [![Configurar declarações opcionais na interface do usuário](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. Em **gerenciar**, selecione **configuração de token**.
+   - A folha de **configuração do token** de opção de interface do usuário não está disponível para aplicativos registrados em um locatário Azure ad B2C que pode ser configurado modificando o manifesto do aplicativo. Para obter mais informações  [, consulte Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md)  
+
 1. Escolha **Adicionar declaração opcional**.
 1. Escolha o tipo de token que você deseja configurar.
 1. Escolha as declarações opcionais a serem adicionadas.
 1. Selecione **Adicionar**.
 
-> [!NOTE]
-> A folha de **configuração do token** de opção de interface do usuário não está disponível para aplicativos registrados em um locatário Azure ad B2C no momento. Para aplicativos registrados em um locatário B2C, as declarações opcionais podem ser configuradas modificando o manifesto do aplicativo. Para obter mais informações [, consulte Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md) 
 
 **Configurando declarações opcionais por meio do manifesto do aplicativo:**
 
@@ -227,8 +227,7 @@ Além do conjunto de declarações opcionais padrão, você também pode configu
 
 As declarações opcionais não dão suporte a esquema e extensões abertas, somente a extensões de diretório do estilo AAD-Graph. Esse recurso é útil para anexar informações adicionais do usuário que o aplicativo pode usar; por exemplo, um identificador adicional ou uma opção de configuração importante que o usuário configurou. Consulte o final desta página para obter um exemplo.
 
-> [!NOTE]
-> As extensões de esquema de diretório são um recurso exclusivo do Azure AD. Se o manifesto do aplicativo solicitar uma extensão personalizada e um usuário da MSA fizer logon em seu aplicativo, essas extensões não serão retornadas.
+As extensões de esquema de diretório são um recurso exclusivo do Azure AD. Se o manifesto do aplicativo solicitar uma extensão personalizada e um usuário da MSA fizer logon em seu aplicativo, essas extensões não serão retornadas.
 
 ### <a name="directory-extension-formatting"></a>Formatação de extensão de diretório
 
@@ -290,8 +289,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
    - accessToken para o token de acesso OAuth
    - Saml2Token para tokens SAML.
 
-   > [!NOTE]
-   > O tipo Saml2Token aplica-se aos tokens de formato SAML 1.1 e SAML 2.0.
+   O tipo Saml2Token aplica-se aos tokens de formato SAML 1.1 e SAML 2.0.
 
    Para cada tipo de token relevante, modifique a declaração de grupos para usar a seção OptionalClaims no manifesto. O esquema OptionalClaims é o seguinte:
 
@@ -315,8 +313,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
    Alguns aplicativos exigem informações de grupo sobre o usuário na declaração de função.  Para alterar o tipo de declaração de uma declaração de grupo para uma declaração de função, adicione "emit_as_roles" a propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
 
-   > [!NOTE]
-   > Se "emit_as_roles" for usado, as funções de aplicativo configuradas que o usuário está atribuído não aparecerão na declaração de função.
+   Se "emit_as_roles" for usado, as funções de aplicativo configuradas que o usuário está atribuído não aparecerão na declaração de função.
 
 **Exemplos:**
 

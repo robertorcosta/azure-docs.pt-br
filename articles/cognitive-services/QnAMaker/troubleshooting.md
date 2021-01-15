@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: e8b1d985fcb2852df52382e005ec0f0266e23d9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aea205bee41aed232b8453417dca521d2dfc83ab
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345637"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233773"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Solução de problemas para QnA Maker
 
@@ -323,6 +323,29 @@ Se você tiver conteúdo de vários idiomas, crie um serviço separado para cada
 
 1. Inicie o serviço de aplicativo.
 1. Acesse sua base de dados de conhecimento para verificar se ela funciona agora.
+
+</details>
+<details>
+<summary><b>Por que minha Application Insights não está funcionando?</b></summary>
+
+**Resposta**: faça uma verificação cruzada e atualize as etapas abaixo para corrigir o problema:
+
+1. No serviço de aplicativo-> grupo de configurações-> seção de configuração-> configurações do aplicativo-> nome "UserAppInsightsKey" parâmetros estão configurados corretamente e definidos para a respectiva Guia de visão geral do Application insights ("chave de instrumentação") GUID. 
+
+1. No serviço de aplicativo-> grupo de configurações – > seção "Application Insights"-> Verifique se o app insights está habilitado e conectado ao respectivo recurso do Application insights.
+
+</details>
+
+<details>
+<summary><b>O meu Application Insights está habilitado, mas por que ele não está funcionando corretamente?</b></summary>
+
+**Resposta**: siga as etapas fornecidas abaixo: 
+
+1.  Copie o valor de ' "APPINSIGHTS_INSTRUMENTATIONKEY" Name ' para o nome ' UserAppInsightsKey ' substituindo se já houver algum valor presente nele. 
+
+1.  Se a chave ' UserAppInsightsKey ' não existir nas configurações do aplicativo, adicione uma nova chave com esse nome e copie o valor.
+
+1.  Salve-o e isso reiniciará automaticamente o serviço de aplicativo. Isso deve resolver o problema. 
 
 </details>
 

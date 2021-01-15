@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 6cc67a6af9e11e5667479eadfe277d400c2d4947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: eaf12a9799f834046bc3914816f38d672fcc931b
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492209"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234079"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -231,6 +231,7 @@ Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos
 Volume do convidado/servidor com discos distribuídos >4 TB | Sim
 Gerenciamento de volumes lógicos (LVM)| Provisionamento espesso-Sim <br></br> Provisionamento dinâmico-não
 Convidado/servidor - espaços de armazenamento | Não
+Interface Guest/Server-NVMe | Não
 Adicionar/remover disco a quente por convidado/servidor | Não
 Convidado/servidor - excluir disco | Sim
 MPIO (Múltiplos caminhos) de convidado/servidor | Não

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e2f0d62ae6882229cee3ee32e3b362f2b6593da7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a262c2b4351c96217001ba42e8c745f7d71c7d45
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199228"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233892"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -205,7 +205,7 @@ No servidor que está sendo exibido como "Aparece offline" no portal, examine a 
     - Se o servidor estiver atrás de um firewall, verifique se a porta 443 de saída é permitida. Se o firewall restringe o tráfego a domínios específicos, confirme se os domínios listados na [documentação](./storage-sync-files-firewall-and-proxy.md#firewall) do Firewall estão acessíveis.
     - Se o servidor estiver atrás de um proxy, defina as configurações de proxy específicas do aplicativo ou para todo o computador seguindo as etapas na [documentação](./storage-sync-files-firewall-and-proxy.md#proxy) do Proxy.
     - Use o cmdlet Test-StorageSyncNetworkConnectivity para verificar a conectividade de rede para os pontos de extremidade de serviço. Para saber mais, confira [Testar conectividade de rede para pontos de extremidade de serviço](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
-    - Para adicionar conjuntos de codificação no servidor, use a política de grupo ou os cmdlets TLS:
+    - Se a ordem do conjunto de criptografia TLS estiver configurada no servidor, você poderá usar a política de grupo ou os cmdlets TLS para adicionar conjuntos de codificação:
         - Para usar a política de grupo, consulte [Configurando a ordem do conjunto de codificação TLS usando política de grupo](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
         - Para usar os cmdlets TLS, consulte [Configurando o TLS Cipher Suite Order usando cmdlets do PowerShell do TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     

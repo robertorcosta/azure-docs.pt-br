@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: b11bdf9b82352c15b7f7236168494f32fe4a4f9f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221503"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233858"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede da máquina virtual
 
@@ -52,15 +52,13 @@ A transferência de dados entre pontos de extremidade requer a criação de vár
 
 ![Contagem de fluxo para conversa TCP por meio de um dispositivo de encaminhamento](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## <a name="flow-limits-and-recommendations"></a>Limites de fluxo e recomendações
+## <a name="flow-limits-and-active-connections-recommendations"></a>Limites de fluxo e recomendações de conexões ativas
 
-Hoje, a pilha de rede do Azure dá suporte a fluxos totais de rede 250 mil com bom desempenho para VMs com mais de 8 núcleos de CPU e 100 mil fluxos totais com bom desempenho para VMs com menos de 8 núcleos de CPU. Além desse limite, o desempenho da rede diminui normalmente para fluxos adicionais até um limite rígido de fluxos totais de 500 mil, 250 mil de entrada e 250 mil de saída, após o qual os fluxos adicionais são descartados.
+Hoje, a pilha de rede do Azure dá suporte a 1mb total de fluxos (500 mil de entrada e 500 mil de saída) para uma VM. As conexões ativas totais que podem ser tratadas por uma VM em cenários diferentes são as seguintes.
+- As VMs que pertencem à VNET podem lidar com *_conexões ativas_* 500 mil * _ para todos os tamanhos de VM com _*_fluxos ativos 500 mil em cada direção_*_.  
+- As VMs com NVAs (soluções de virtualização de rede), como gateway, proxy, firewall podem lidar com _*_conexões ativas_*_ 250 mil com fluxos 500 mil _ *_ativos em cada direção_** devido ao encaminhamento e à criação de novo fluxo adicional na configuração de nova conexão para o próximo salto, conforme mostrado no diagrama acima. 
 
-| Nível de desempenho | VMs com núcleos de CPU <8 | VMs com mais de 8 núcleos de CPU |
-| ----------------- | --------------------- | --------------------- |
-|<b>Bom desempenho</b>|100 mil fluxos |Fluxos de 250 mil|
-|<b>Desempenho degradado</b>|Acima de 100 mil fluxos|Fluxos de 250 mil acima|
-|<b>Limite de fluxo</b>|Fluxos de 500 mil|Fluxos de 500 mil|
+Quando esse limite for atingido, conexões adicionais serão descartadas. As taxas de estabelecimento e término da conexão também podem afetar o desempenho da rede, pois o estabelecimento da conexão e o encerramento compartilham a CPU com rotinas de processamento de pacotes É recomendável que você compare as cargas de trabalho com os padrões de tráfego esperados e escale horizontalmente as cargas de trabalho de acordo com suas necessidades de desempenho.
 
 As métricas estão disponíveis em [Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para controlar o número de fluxos de rede e a taxa de criação de fluxo em suas instâncias de VM ou VMSS.
 

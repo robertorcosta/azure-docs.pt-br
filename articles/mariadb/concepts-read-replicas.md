@@ -5,13 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: b2dbaa932c01c96582cb038143fa7686707be67d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/15/2021
+ms.custom: references_regions
+ms.openlocfilehash: 576ff68961a68a8b54037d661a51a9d2de7a56df
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541157"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231784"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Réplicas de leitura no Banco de Dados do Azure para MariaDB
 
@@ -24,7 +25,7 @@ Para saber mais sobre a replicação do GTID, consulte a [documentação de repl
 > [!NOTE]
 > Comunicação livre de desvio
 >
-> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências à palavra _escravo_. O [guia de estilo para comunicação sem desvios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) da Microsoft reconhece esse termo como uma palavra excludente. A palavra é usada neste artigo para fins de consistência, uma vez que, atualmente, é a palavra que aparece no software. Quando o software for atualizado e esta palavra for removida, este artigo será atualizado para manter o alinhamento.
+> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências às palavras _mestre_ e _subordinado_. O guia de estilo da Microsoft [para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como palavras de exclusão. As palavras são usadas neste artigo para fins de consistência porque atualmente são as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar em alinhamento.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
@@ -38,11 +39,12 @@ Como réplicas são somente leitura, elas não reduzem diretamente os encargos d
 O recurso ler réplica usa replicação assíncrona. O recurso não se destina a cenários de replicação síncrona. Haverá um atraso mensurável entre a origem e a réplica. Os dados na réplica acabarão se tornando consistentes com os dados no mestre. Use este recurso para cargas de trabalho que podem acomodar esse atraso.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
+
 Você pode criar uma réplica de leitura em uma região diferente do seu servidor de origem. A replicação entre regiões pode ser útil para cenários como o planejamento de recuperação de desastres ou para trazer dados mais próximos dos seus usuários.
 
 Você pode ter um servidor de origem em qualquer [banco de dados do Azure para a região MariaDB](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  Um servidor de origem pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo da sua região de origem.
 
-[ ![Ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![Ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor de origem está localizado. As regiões de réplica universal compatíveis incluem:
@@ -81,7 +83,7 @@ Na criação, uma réplica herda as regras de firewall do servidor de origem. Po
 
 A réplica herda a conta do administrador do servidor de origem. Todas as contas de usuário no servidor de origem são replicadas para as réplicas de leitura. Você só pode se conectar a uma réplica de leitura usando as contas de usuário que estão disponíveis no servidor de origem.
 
-Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, como faria em um servidor de banco de dados do Azure normal para MariaDB. Para um servidor chamado **myreplica** com o nome de usuário admin **myadmin** , você pode se conectar à réplica usando a CLI do mysql:
+Você pode se conectar à réplica usando seu nome de host e uma conta de usuário válida, como faria em um servidor de banco de dados do Azure normal para MariaDB. Para um servidor chamado **myreplica** com o nome de usuário admin **myadmin**, você pode se conectar à réplica usando a CLI do mysql:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -118,14 +120,13 @@ Como a replicação é assíncrona, há um atraso entre a origem e a réplica. A
 > [!Tip]
 > Se você realizar o failover para a réplica, o retardo no momento em que você desvincular a réplica da fonte indicará a quantidade de dados perdida.
 
-Depois que você decidir que deseja fazer failover para uma réplica, 
+Depois que você decidir que deseja fazer failover para uma réplica,
 
 1. Parar a replicação na réplica<br/>
    Essa etapa é necessária para tornar o servidor de réplica capaz de aceitar gravações. Como parte desse processo, o servidor de réplica será desvinculado do mestre. Depois que você inicia a interrupção da replicação, o processo de back-end normalmente leva cerca de 2 minutos para ser concluído. Consulte a seção [parar replicação](#stop-replication) deste artigo para entender as implicações dessa ação.
-    
 2. Aponte seu aplicativo para a réplica (antiga)<br/>
    Cada servidor tem uma cadeia de conexão exclusiva. Atualize seu aplicativo para apontar para a réplica (antiga) em vez do mestre.
-    
+
 Depois que o aplicativo processar leituras e gravações com êxito, você terá concluído o failover. A quantidade de tempo de inatividade com a qual suas experiências de aplicativo dependerão quando você detectar um problema e concluir as etapas 1 e 2 acima.
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações

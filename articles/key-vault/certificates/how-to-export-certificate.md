@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 0925b51ed960b8007d2df86115ea7e5cf627fe7e
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826135"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233637"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exportar certificados do Azure Key Vault
 
-Saiba como exportar certificados do Azure Key Vault. Você pode exportar certificados usando a CLI do Azure, o Azure PowerShell ou o portal do Azure. Você também pode usar o portal do Azure para exportar certificados do Serviço de Aplicativo do Azure.
+Saiba como exportar certificados do Azure Key Vault. Você pode exportar certificados usando a CLI do Azure, o Azure PowerShell ou o portal do Azure. 
 
 ## <a name="about-azure-key-vault-certificates"></a>Sobre certificados do Azure Key Vault
 
@@ -114,7 +114,7 @@ Para baixar o certificado, selecione **Baixar no formato CER** ou **Baixar no fo
 
 **Exportar certificados do Serviço de Aplicativo do Azure**
 
-Os certificados do Serviço de Aplicativo do Azure são uma forma conveniente de comprar certificados SSL. Você pode atribuí-los a Aplicativos do Azure por meio do portal. Você também pode exportar esses certificados por meio do portal como arquivos PFX a serem usados em outro local. Depois de importá-los, os certificados do Serviço de Aplicativo ficam localizados em **segredos**.
+Os certificados do Serviço de Aplicativo do Azure são uma forma conveniente de comprar certificados SSL. Você pode atribuí-los a Aplicativos do Azure por meio do portal. Depois de importá-los, os certificados do Serviço de Aplicativo ficam localizados em **segredos**.
 
 Para obter mais informações, consulte as etapas para [exportar certificados do Serviço de Aplicativo do Azure](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 
