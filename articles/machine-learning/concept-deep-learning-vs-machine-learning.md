@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 12/15/2020
+ms.date: 01/14/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 61305e4f9ba45cb7c13a96bee9d1aab81108bb4d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617112"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220687"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizado profundo versus aprendizado de máquina em Azure Machine Learning
 
@@ -57,7 +57,7 @@ A tabela a seguir compara as duas técnicas mais detalhadamente:
 |  **Tempo de execução** | Leva um tempo comparativamente pequeno para ser treinado, variando de alguns segundos a algumas horas. | Geralmente leva muito tempo para treinar porque um algoritmo de aprendizado profundo envolve muitas camadas. |
 |  **Saída** | A saída geralmente é um valor numérico, como uma pontuação ou uma classificação. | A saída pode ter vários formatos, como um texto, uma pontuação ou um som. |
 
-## <a name="transfer-learning"></a>Aprendizado de transferência
+## <a name="what-is-transfer-learning"></a>O que é o aprendizado de transferência
 
 O treinamento de modelos de aprendizado profundo geralmente requer grandes quantidades de dados de treinamento, recursos de computação de alto nível (GPU, TPU) e um tempo de treinamento mais longo. Em cenários em que não há nenhum deles disponível para você, você pode fazer um atalho para o processo de treinamento usando uma técnica conhecida como *aprendizado de transferência.*
 
@@ -65,7 +65,7 @@ O aprendizado de transferência é uma técnica que aplica o conhecimento obtido
 
 Devido à estrutura de redes neurais, o primeiro conjunto de camadas geralmente contém recursos de nível inferior, enquanto o conjunto final de camadas contém um recurso de nível mais alto que está mais próximo do domínio em questão. Ao redirecionar as camadas finais para uso em um novo domínio ou problema, você pode reduzir significativamente a quantidade de tempo, os dados e os recursos de computação necessários para treinar o novo modelo. Por exemplo, se você já tiver um modelo que reconheça carros, poderá redirecionar esse modelo usando o aprendizado de transferência para também reconhecer caminhões, motocicletas e outros tipos de veículos.
 
-Saiba como aplicar o aprendizado de transferência para classificação de imagem usando uma estrutura de código-fonte aberto no Azure Machine Learning: [classificar imagens usando um modelo Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+Saiba como aplicar o aprendizado de transferência para classificação de imagem usando uma estrutura de código-fonte aberto no Azure Machine Learning: [treinar um modelo de PyTorch de aprendizado profundo usando o aprendizado de transferência](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-use-cases"></a>Casos de uso de aprendizado profundo
 
@@ -95,7 +95,7 @@ A tradução automática usa palavras ou frases de uma linguagem e as converte a
 
 Com a transformação de dados apropriada, uma rede neural pode entender o texto, áudio e sinais visuais. A tradução automática pode ser usada para identificar trechos de som em arquivos de áudio maiores e transcrever a palavra ou imagem falada como texto.
 
-### <a name="text-analytics"></a>Análise de Texto
+### <a name="text-analytics"></a>Análises de texto
 
 A análise de texto baseada em métodos de aprendizado profundo envolve a análise de grandes quantidades de dados de texto (por exemplo, documentos médicos ou recebimentos de despesas), reconhecimento de padrões e criação de informações organizadas e concisas.
 

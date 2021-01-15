@@ -10,13 +10,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501253"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222319"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Análise de Desempenho de Consultas para Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,13 +49,13 @@ Você precisa das seguintes permissões do Azure [RBAC (controle de acesso basea
 A Visão do Desempenho de Consulta é fácil de usar:
 
 1. Abra o [portal do Azure](https://portal.azure.com/) e localize um banco de dados que você quer examinar.
-2. No menu do lado esquerdo, abra análise de desempenho de consultas de **desempenho inteligente**  >  **Query Performance Insight**.
+2. No menu do lado esquerdo, abra análise de desempenho de consultas de **desempenho inteligente**  >  .
   
    ![Análise de Desempenho de Consultas no menu](./media/query-performance-insight-use/tile.png)
 
 3. Na primeira guia, examine a lista das consultas que consomem mais recursos.
 4. Escolha uma consulta individual para exibir seus detalhes.
-5. Abra **Intelligent Performance**  >  **recomendações de desempenho** de desempenho inteligente e verifique se há recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho internas, consulte [Assistente do banco de dados SQL do Azure](database-advisor-implement-performance-recommendations.md).
+5. Abra   >  **recomendações de desempenho** de desempenho inteligente e verifique se há recomendações de desempenho disponíveis. Para obter mais informações sobre recomendações de desempenho internas, consulte [Assistente do banco de dados SQL do Azure](database-advisor-implement-performance-recommendations.md).
 6. Use controles deslizantes ou ícones Ampliar para alterar o intervalo observado.
 
    ![Painel de desempenho](./media/query-performance-insight-use/performance.png)
@@ -85,7 +85,7 @@ Por padrão, a Análise de Desempenho de Consultas mostra as cinco principais co
    >
    > Para uma comparação mais precisa (até um minuto), considere criar um gráfico de utilização da DTU personalizado:
    >
-   > 1. No portal do Azure, selecione monitoramento **do banco de dados SQL do Azure**  >  **Monitoring**.
+   > 1. No portal do Azure, selecione monitoramento **do banco de dados SQL do Azure**  >  .
    > 2. Selecione **Métricas**.
    > 3. Selecione **+Adicionar gráfico**.
    > 4. Selecione a porcentagem da DTU no gráfico.
@@ -155,7 +155,7 @@ Para exibir detalhes da consulta:
 
 Duas métricas na Análise de Desempenho de Consultas podem ajudá-lo a encontrar possíveis gargalos: duração e contagem de execuções.
 
-Consultas de longa execução tem o maior potencial para bloquear recursos por mais tempo, bloqueando outros usuários e limitando a escalabilidade. Elas também são as melhores candidatas para otimização.
+Consultas de longa execução tem o maior potencial para bloquear recursos por mais tempo, bloqueando outros usuários e limitando a escalabilidade. Elas também são as melhores candidatas para otimização. Para obter mais informações, consulte [entender e resolver problemas de bloqueio do SQL do Azure](understand-resolve-blocking.md).
 
 Para identificar consultas de execução longa:
 
@@ -177,7 +177,7 @@ Para identificar consultas de execução longa:
    >
    > Para reconhecer o consumo da DTU do banco de dados com mais detalhes (até um minuto), considere a criação de um gráfico personalizado no portal do Azure:
    >
-   > 1. Selecione **monitoramento do banco de dados SQL do Azure**  >  **Monitoring**.
+   > 1. Selecione **monitoramento do banco de dados SQL do Azure**  >  .
    > 2. Selecione **Métricas**.
    > 3. Selecione **+Adicionar gráfico**.
    > 4. Selecione a porcentagem da DTU no gráfico.

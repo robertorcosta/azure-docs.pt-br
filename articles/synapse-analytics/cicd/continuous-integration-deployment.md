@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008071"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223679"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração e entrega contínuas para o espaço de trabalho Synapse do Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "97008071"
 
 A CI (integração contínua) é o processo de automatização da compilação e do teste de código sempre que um membro da equipe confirma alterações no controle de versão. A implantação contínua (CD) é o processo para criar, testar, configurar e implantar a partir de vários ambientes de teste ou de preparo para um ambiente de produção.
 
-Para o espaço de trabalho Synapse do Azure, a integração contínua e a entrega (CI/CD) movem todas as entidades de um ambiente (desenvolvimento, teste, produção) para outro. Para promover seu espaço de trabalho para outro espaço de trabalho, há duas partes: usar [Azure Resource Manager modelos](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) para criar ou atualizar recursos do espaço de trabalho (pools e espaço de trabalho); migrar artefatos (scripts SQL, Notebook, definição de trabalho do Spark, pipelines, conjuntos de dados, fluxos de dados e assim por diante) com ferramentas de CI/CD do Synapse no Azure DevOps. 
+Para o espaço de trabalho Synapse do Azure, a integração contínua e a entrega (CI/CD) movem todas as entidades de um ambiente (desenvolvimento, teste, produção) para outro. Para promover seu espaço de trabalho para outro espaço de trabalho, há duas partes: usar [Azure Resource Manager modelos](../../azure-resource-manager/templates/overview.md) para criar ou atualizar recursos do espaço de trabalho (pools e espaço de trabalho); migrar artefatos (scripts SQL, Notebook, definição de trabalho do Spark, pipelines, conjuntos de dados, fluxos de dados e assim por diante) com ferramentas de CI/CD do Synapse no Azure DevOps. 
 
 Este artigo descreverá o uso do pipeline de liberação do Azure para automatizar a implantação de um espaço de trabalho Synapse em vários ambientes.
 
@@ -46,7 +46,7 @@ Este artigo descreverá o uso do pipeline de liberação do Azure para automatiz
 
 1.  Na caixa **Nome da fase**, insira o nome do seu ambiente.
 
-1.  Selecione **Adicionar artefato** e, em seguida, selecione o repositório git configurado com seu Development Synapse Studio. Selecione o repositório git que você usou para gerenciar o modelo ARM de pools e o espaço de trabalho. Se você usar o GitHub como a origem, precisará criar uma conexão de serviço para sua conta do GitHub e repositórios de pull. Para obter mais informações sobre a [conexão de serviço](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 
+1.  Selecione **Adicionar artefato** e, em seguida, selecione o repositório git configurado com seu Development Synapse Studio. Selecione o repositório git que você usou para gerenciar o modelo ARM de pools e o espaço de trabalho. Se você usar o GitHub como a origem, precisará criar uma conexão de serviço para sua conta do GitHub e repositórios de pull. Para obter mais informações sobre a [conexão de serviço](/azure/devops/pipelines/library/service-endpoints) 
 
     ![Adicionar Branch de publicação](media/release-creation-github.png)
 
@@ -87,7 +87,7 @@ Adicione uma tarefa de implantação de Azure Resource Manager para criar ou atu
     ![conceder permissão](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> No modo de implantação completa, os recursos existentes no grupo de recursos, mas não são especificados no novo modelo do Resource Manager, serão **excluídos**. Para obter mais informações, consulte [Azure Resource Manager modos de implantação](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes)
+> No modo de implantação completa, os recursos existentes no grupo de recursos, mas não são especificados no novo modelo do Resource Manager, serão **excluídos**. Para obter mais informações, consulte [Azure Resource Manager modos de implantação](../../azure-resource-manager/templates/deployment-modes.md)
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configurar uma tarefa de estágio para a implantação de artefatos 
 
@@ -122,7 +122,7 @@ Use a extensão de [implantação do espaço de trabalho Synapse](https://market
 
 ## <a name="create-release-for-deployment"></a>Criar versão para implantação 
 
-Depois de salvar todas as alterações, você pode selecionar **criar versão** para criar uma versão manualmente. Para automatizar a criação de versões, confira [Gatilhos de versão do Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/triggers)
+Depois de salvar todas as alterações, você pode selecionar **criar versão** para criar uma versão manualmente. Para automatizar a criação de versões, confira [Gatilhos de versão do Azure DevOps](/azure/devops/pipelines/release/triggers)
 
    ![Selecionar Criar versão](media/release-creation-manually.png)
 
@@ -133,6 +133,4 @@ Se você estiver usando a integração do git com seu espaço de trabalho do Syn
 -   **Integração do Git**. Configure somente seu espaço de trabalho de Synapse de desenvolvimento com a integração do git. As alterações nos espaços de trabalho de teste e produção são implantadas por meio de CI/CD e não precisam de integração com o git.
 -   **Preparar pools antes da migração de artefatos**. Se você tiver um script SQL ou um notebook anexado a pools no espaço de trabalho de desenvolvimento, será esperado o mesmo nome de pools em ambientes diferentes. 
 -   **Infraestrutura como código (IaC)**. Gerenciamento de infraestrutura (redes, máquinas virtuais, balanceadores de carga e topologia de conexão) em um modelo descritivo, use o mesmo controle de versão que a equipe do DevOps usa para o código-fonte. 
--   **Outros**. Veja [as práticas recomendadas para artefatos do ADF](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
-
-
+-   **Outros**. Veja [as práticas recomendadas para artefatos do ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)

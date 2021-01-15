@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 2e559d574413b8eb0be2303798e0b16bfffad2cb
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695394"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222982"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer perguntas frequentes
 
@@ -36,7 +36,7 @@ As regras de NAT são usadas para especificar um recurso de back-end para rotear
 ## <a name="what-is-ip-1686312916"></a>O que é o 168.63.129.16 de IP?
 O endereço IP virtual para o host marcado como a infraestrutura do Azure Load Balancer onde as investigações de integridade do Azure se originam. Ao configurar instâncias de back-end, elas devem permitir o tráfego desse endereço IP para responder com êxito às investigações de integridade. Essa regra não interage com o acesso ao seu front-end Load Balancer. Se você não estiver usando o Azure Load Balancer, poderá substituir essa regra. Você pode aprender mais sobre marcas de serviço [aqui](../virtual-network/service-tags-overview.md#available-service-tags).
 
-## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>Posso usar o emparelhamento VNET global com Load Balancer básica?
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>Posso usar o emparelhamento VNet global com Load Balancer básica?
 Não. O Load Balancer básico não dá suporte ao emparelhamento VNET global. Em vez disso, você pode usar um Standard Load Balancer. Consulte o artigo [Atualizar do básico para o padrão](upgrade-basic-standard.md) para atualização direta.
 
 ## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Como posso descobrir o IP público que uma VM do Azure usa?
@@ -45,6 +45,9 @@ Há várias maneiras de determinar o endereço IP público de uma conexão de sa
 Usando o comando nslookup, você pode enviar uma consulta DNS para o nome myip.opendns.com para o resolvedor do OpenDNS. O serviço retornará o endereço IP de origem que foi usado para enviar a consulta. Quando você executa a consulta a seguir de sua VM, a resposta será o IP público usado para essa VM:
 
  ```nslookup myip.opendns.com resolver1.opendns.com```
+ 
+## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>Posso adicionar uma VM do mesmo conjunto de disponibilidade a diferentes pools de back-end de uma Load Balancer?
+Não, isso não é possível.
 
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Como funcionam as conexões com o armazenamento do Azure na mesma região?
 Não é necessário ter conectividade de saída por meio dos cenários acima para se conectar ao Armazenamento na mesma região que a VM. Se você não quiser isso, use NSGs (grupos de segurança de rede), conforme explicado acima. Para a conectividade com o armazenamento em outras regiões, a conectividade de saída é necessária. Observe que, ao se conectar ao Armazenamento de uma VM na mesma região, o endereço IP de origem nos logs de diagnóstico de Armazenamento será um endereço de provedor interno e não o endereço IP público da VM. Se você quiser restringir o acesso à sua conta de armazenamento a VMs em uma ou mais sub-redes de rede virtual na mesma região, use [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) (e não seu endereço IP público) ao configurar o firewall da conta de armazenamento. Depois que os pontos de extremidade de serviço forem configurados, você verá seu endereço IP privado da rede virtual nos logs de diagnóstico de armazenamento e não no endereço do provedor interno.

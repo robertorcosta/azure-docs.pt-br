@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 3808ff9b57a900b8a1d55b66f8c652d070107322
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 1acdc311cdd75cb35cfd4b9acc35f4bc954c7f43
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96012043"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221316"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Implantar um aplicativo de pilha dupla IPv6 usando a CLI do Load Balancer básica
 
@@ -94,7 +94,7 @@ Nesta seção, você configurará o IP de front-end duplo (IPv4 e IPv6) e o pool
 
 ### <a name="create-load-balancer"></a>Criar um balanceador de carga
 
-Crie o Load Balancer básico com [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) chamado **dsLB** , que inclui um pool de front-end chamado **dsLbFrontEnd_v4**, um pool de back-end chamado **dsLbBackEndPool_v4** que está associado ao endereço IP público IPv4 **dsPublicIP_v4** que você criou na etapa anterior. 
+Crie o Load Balancer básico com [AZ Network lb Create](/cli/azure/network/lb?view=azure-cli-latest) chamado **dsLB** , que inclui um pool de front-end chamado **dsLbFrontEnd_v4**, um pool de back-end chamado **dsLbBackEndPool_v4** que está associado ao endereço IP público IPv4 **dsPublicIP_v4** que você criou na etapa anterior. 
 
 ```azurecli-interactive
 az network lb create \
@@ -109,7 +109,7 @@ az network lb create \
 
 ### <a name="create-ipv6-frontend"></a>Criar front-end IPv6
 
-Crie um IP de front-end IPV6 com [AZ Network lb frontend-IP Create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). O exemplo a seguir cria uma configuração de IP de front-end chamada *dsLbFrontEnd_v6* e anexa o endereço *dsPublicIP_v6* :
+Crie um IP de front-end IPV6 com [AZ Network lb frontend-IP Create](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create). O exemplo a seguir cria uma configuração de IP de front-end chamada *dsLbFrontEnd_v6* e anexa o endereço *dsPublicIP_v6* :
 
 ```azurecli-interactive
 az network lb frontend-ip create \
@@ -122,7 +122,7 @@ az network lb frontend-ip create \
 
 ### <a name="configure-ipv6-back-end-address-pool"></a>Configurar o pool de endereços de back-end IPv6
 
-Crie um pool de endereços de back-end IPv6 com [AZ Network lb address-pool Create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). O exemplo a seguir cria um pool de endereços de back-end chamado *dsLbBackEndPool_v6*  para incluir VMs com configurações de NIC IPv6:
+Crie um pool de endereços de back-end IPv6 com [AZ Network lb address-pool Create](/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create). O exemplo a seguir cria um pool de endereços de back-end chamado *dsLbBackEndPool_v6*  para incluir VMs com configurações de NIC IPv6:
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -132,7 +132,7 @@ az network lb address-pool create \
 ```
 
 ### <a name="create-a-health-probe"></a>Criar uma investigação de integridade
-Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
+Crie uma investigação de integridade com [az network lb probe create](/cli/azure/network/lb/probe?view=azure-cli-latest) para monitorar a integridade das máquinas virtuais. 
 
 ```azurecli-interactive
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
@@ -142,7 +142,7 @@ az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --pro
 
 Uma regra de balanceador de carga é usada para definir como o tráfego é distribuído para as VMs. Defina a configuração de IP de front-end para o tráfego de entrada e o pool de IPs de back-end para receber o tráfego, junto com as portas de origem e de destino necessárias. 
 
-Crie uma regra de balanceador de carga com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create). O exemplo a seguir cria regras de balanceador de carga chamadas *dsLBrule_v4* e *dsLBrule_v6* e equilibra o tráfego na porta *TCP* *80* para as configurações de IP de front-end IPv4 e IPv6:
+Crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create). O exemplo a seguir cria regras de balanceador de carga chamadas *dsLBrule_v4* e *dsLBrule_v6* e equilibra o tráfego na porta *TCP* *80* para as configurações de IP de front-end IPv4 e IPv6:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -175,7 +175,7 @@ Antes de implantar algumas VMs, você deve criar recursos de rede de suporte –
 ### <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 Para melhorar a disponibilidade do seu aplicativo, coloque suas VMs em um conjunto de disponibilidade.
 
-Crie um conjunto de disponibilidade com [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest). O exemplo a seguir cria um conjunto de disponibilidade chamado *dsAVset*:
+Crie um conjunto de disponibilidade com [az vm availability-set create](/cli/azure/vm/availability-set?view=azure-cli-latest). O exemplo a seguir cria um conjunto de disponibilidade chamado *dsAVset*:
 
 ```azurecli-interactive
 az vm availability-set create \
@@ -192,7 +192,7 @@ Crie um grupo de segurança de rede para as regras que irão controlar a comunic
 
 #### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
-Criar um grupo de segurança de rede com [AZ Network NSG Create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
+Criar um grupo de segurança de rede com [AZ Network NSG Create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
 
 
 ```azurecli-interactive
@@ -205,7 +205,7 @@ az network nsg create \
 
 #### <a name="create-a-network-security-group-rule-for-inbound-and-outbound-connections"></a>Criar uma regra de grupo de segurança de rede para conexões de entrada e saída
 
-Crie uma regra de grupo de segurança de rede para permitir conexões RDP por meio da porta 3389, conexão com a Internet pela porta 80 e para conexões de saída com [AZ Network NSG Rule Create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create).
+Crie uma regra de grupo de segurança de rede para permitir conexões RDP por meio da porta 3389, conexão com a Internet pela porta 80 e para conexões de saída com [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create).
 
 ```azurecli-interactive
 # Create inbound rule for port 3389
@@ -258,7 +258,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Crie a rede virtual com [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *dsVNET* com sub-redes *dsSubNET_v4* e *dsSubNET_v6*:
+Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *dsVNET* com sub-redes *dsSubNET_v4* e *dsSubNET_v6*:
 
 ```azurecli-interactive
 # Create the virtual network
@@ -280,7 +280,7 @@ az network vnet subnet create \
 
 ### <a name="create-nics"></a>Criar NICs
 
-Crie NICs virtuais para cada VM com [AZ Network NIC Create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). O exemplo a seguir cria uma NIC virtual para cada VM. Cada NIC tem duas configurações de IP (1 configuração de IPv4, 1 configuração de IPv6). Você cria a configuração do IPV6 com [AZ Network NIC IP-config Create](https://docs.microsoft.com/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
+Crie NICs virtuais para cada VM com [AZ Network NIC Create](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create). O exemplo a seguir cria uma NIC virtual para cada VM. Cada NIC tem duas configurações de IP (1 configuração de IPv4, 1 configuração de IPv6). Você cria a configuração do IPV6 com [AZ Network NIC IP-config Create](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create).
 
 ```azurecli-interactive
 # Create NICs
@@ -331,7 +331,7 @@ az network nic ip-config create \
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Crie as VM com [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo a seguir cria duas VMs e os componentes de rede virtual necessários, caso ainda não existam. 
+Crie as VM com [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). O exemplo a seguir cria duas VMs e os componentes de rede virtual necessários, caso ainda não existam. 
 
 Crie a máquina virtual *dsVM0* da seguinte maneira:
 

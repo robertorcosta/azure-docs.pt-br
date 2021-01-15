@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 16b37258d922db59f520d4e30c45773f6d1108cf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2f9fa6e7ef9a7ee8ea7dd2a09622f26f6fd9739e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341018"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223118"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio para monitorar seus aplicativos Apache Spark
 
@@ -33,7 +33,7 @@ Este tutorial cobre as seguintes tarefas:
 
 Antes de iniciar este tutorial, verifique se você atende aos seguintes requisitos:
 
-- Um espaço de trabalho do Synapse Studio. Para obter instruções, consulte [criar um espaço de trabalho do Synapse Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- Um espaço de trabalho do Synapse Studio. Para obter instruções, consulte [criar um espaço de trabalho do Synapse Studio](../../machine-learning/how-to-manage-workspace.md#create-a-workspace).
 
 - Um pool do Apache Spark.
 
@@ -47,7 +47,7 @@ Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para e
 
   ![selecionar trabalho concluído](./media/how-to-monitor-spark-applications/select-completed-job.png)
 
-1. Verifique as **tarefas concluídas** , o **status** e a **duração total**.
+1. Verifique as **tarefas concluídas**, o **status** e a **duração total**.
 
 2. Atualizar consulta de log.
 
@@ -96,7 +96,7 @@ Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para e
 
    ![selecionar trabalho em execução](./media/how-to-monitor-spark-applications/select-running-job.png)
 
-1. Verifique as **tarefas concluídas** , o **status** e a **duração total**.
+1. Verifique as **tarefas concluídas**, o **status** e a **duração total**.
 
 2. **Cancele** o aplicativo Apache Spark.
 
@@ -120,7 +120,7 @@ Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para e
 
  ![selecionar trabalho cancelado](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
-1. Verifique as **tarefas concluídas** , o **status** e a **duração total**.
+1. Verifique as **tarefas concluídas**, o **status** e a **duração total**.
 
 2. Atualize a consulta de log.
 
@@ -142,7 +142,7 @@ Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para e
 
 ![selecionar trabalho com falha](./media/how-to-monitor-spark-applications/select-failed-job.png)
 
-1. Verifique as **tarefas concluídas** , o **status** e a **duração total**.
+1. Verifique as **tarefas concluídas**, o **status** e a **duração total**.
 
 2. Atualizar consulta de log.
 
@@ -158,4 +158,4 @@ Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o monitoramento de execuções de pipeline, consulte o artigo [monitorar execuções de pipeline usando o Synapse Studio](how-to-monitor-pipeline-runs.md) .  
+Para obter mais informações sobre o monitoramento de execuções de pipeline, consulte o artigo [monitorar execuções de pipeline usando o Synapse Studio](how-to-monitor-pipeline-runs.md) .

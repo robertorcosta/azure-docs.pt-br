@@ -13,32 +13,32 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: e357667e650e9feeb8dceeffe71c287cde9fe8a0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 965795b96deda03531504952fc8afbea0acb41bf
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631594"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221945"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
 
 Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede.
 
-Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou no [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags). Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço, como **ApiManagement**, no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
+Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](./network-security-groups-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço, como **ApiManagement**, no campo de *origem* ou *destino* apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
 
 Você pode usar as marcas de serviço para obter o isolamento da rede e proteger os recursos do Azure da Internet em geral ao acessar os serviços do Azure que tenham pontos de extremidade públicos. Crie regras de entrada/saída para o grupo de segurança de rede a fim de negar o tráfego de/para a **Internet** e permitir o tráfego de/para o **AzureCloud** ou outras [marcas de serviço disponíveis](#available-service-tags) de serviços específicos do Azure.
 
 ![Isolamento de rede dos serviços do Azure usando marcas de serviço](./media/service-tags-overview/service_tags.png)
 
 ## <a name="available-service-tags"></a>Marcas de serviço disponíveis
-A tabela a seguir inclui todas as marcas de serviço disponíveis para uso em regras do [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
+A tabela a seguir inclui todas as marcas de serviço disponíveis para uso em regras do [grupo de segurança de rede](./network-security-groups-overview.md#security-rules).
 
 As colunas indicam se a marca:
 
 - É adequada para regras que abrangem o tráfego de entrada ou de saída.
 - Dá suporte a um escopo [regional](https://azure.microsoft.com/regions).
-- Pode ser usada em regras do [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags).
+- Pode ser usada em regras do [Firewall do Azure](../firewall/service-tags.md).
 
 Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Algumas marcas de serviço também permitem um controle mais granular ao restringir os intervalos de IP correspondentes a uma região especificada. Por exemplo, a marca de serviço **Armazenamento** representa o Armazenamento do Azure para toda a nuvem, mas **Storage.WestUS** limita o intervalo apenas aos intervalos de endereços IP de armazenamento da região do Oeste dos EUA. A tabela a seguir indica se cada marca de serviço dá suporte a esse escopo regional.  
 
@@ -57,7 +57,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureBackup** |Backup do Azure.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **Armazenamento** e **AzureActiveDirectory**. | Saída | Não | Sim |
 | **AzureBotService** | Serviço de Bot do Azure. | Saída | Não | Não |
 | **AzureCloud** | Todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=56519). | Saída | Sim | Sim |
-| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>Esta marca ou os endereços IP cobertos por essa marca podem ser usados para conceder aos indexadores o acesso seguro a fontes de dados. Consulte a [documentação de conexão do indexador](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) para obter mais detalhes. <br/><br/> *Observação*: o IP do serviço de pesquisa não está incluído na lista de intervalos de IP para essa marca de serviço e **também precisa ser adicionado** ao firewall de IP de fontes de dados. | Entrada | Não | Não |
+| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>Esta marca ou os endereços IP cobertos por essa marca podem ser usados para conceder aos indexadores o acesso seguro a fontes de dados. Consulte a [documentação de conexão do indexador](../search/search-indexer-troubleshooting.md#connection-errors) para obter mais detalhes. <br/><br/> *Observação*: o IP do serviço de pesquisa não está incluído na lista de intervalos de IP para essa marca de serviço e **também precisa ser adicionado** ao firewall de IP de fontes de dados. | Entrada | Não | Não |
 | **AzureConnectors** | Conectores de Aplicativos Lógicos do Azure para conexões de investigação/back-end. | Entrada | Sim | Sim |
 | **AzureContainerRegistry** | Registro de Contêiner do Azure. | Saída | Sim | Sim |
 | **AzureCosmosDB** | Azure Cosmos DB. | Saída | Sim | Sim |
@@ -72,17 +72,17 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureInformationProtection** | Proteção de Informações do Azure.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **AzureActiveDirectory**, **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty**. | Saída | Não | Não |
 | **AzureIoTHub** | Hub IoT do Azure. | Saída | Não | Não |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Observação:* essa marca tem uma dependência na marca **AzureActiveDirectory**. | Saída | Sim | Sim |
-| **AzureLoadBalancer** | O balanceador de carga de infraestrutura do Azure. A marca é traduzida para o [endereço IP virtual do host](security-overview.md#azure-platform-considerations) (168.63.129.16), no qual as sondas de integridade do Azure se originam. Isso inclui apenas o tráfego de investigação, não o tráfego real para o recurso de back-end. Se não estiver usando o Azure Load Balancer, você poderá substituir essa regra. | Ambos | Não | Não |
+| **AzureLoadBalancer** | O balanceador de carga de infraestrutura do Azure. A marca é traduzida para o [endereço IP virtual do host](./network-security-groups-overview.md#azure-platform-considerations) (168.63.129.16), no qual as sondas de integridade do Azure se originam. Isso inclui apenas o tráfego de investigação, não o tráfego real para o recurso de back-end. Se não estiver usando o Azure Load Balancer, você poderá substituir essa regra. | Ambos | Não | Não |
 | **AzureMachineLearning** | Azure Machine Learning. | Ambos | Não | Sim |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon e métricas personalizadas (pontos de extremidade GiG).<br/><br/>*Observação:* para Log Analytics, essa marca tem uma dependência na marca **Armazenamento** . | Saída | Não | Sim |
 | **AzureOpenDatasets** | Conjunto de Dados em Aberto no Azure.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **AzureFrontDoor.Frontend** e **Storage**. | Saída | Não | Não |
-| **AzurePlatformDNS** | O serviço DNS de infraestrutura básica (padrão).<br/><br>Você pode usar essa marca para desabilitar o DNS padrão. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [Considerações sobre a plataforma do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
-| **AzurePlatformIMDS** | O IMDS (Serviço de Metadados de Instância do Azure), que é um serviço de infraestrutura básico.<br/><br/>Você pode usar essa marca para desabilitar o DNS padrão. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [Considerações sobre a plataforma do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
-| **AzurePlatformLKM** | Serviço de gerenciamento de chaves ou licenciamento do Windows.<br/><br/>Você pode usar essa marca para desabilitar os padrões de licenciamento. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [Considerações sobre a plataforma do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations).  Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
+| **AzurePlatformDNS** | O serviço DNS de infraestrutura básica (padrão).<br/><br>Você pode usar essa marca para desabilitar o DNS padrão. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [Considerações sobre a plataforma do Azure](./network-security-groups-overview.md#azure-platform-considerations). Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
+| **AzurePlatformIMDS** | O IMDS (Serviço de Metadados de Instância do Azure), que é um serviço de infraestrutura básico.<br/><br/>Você pode usar essa marca para desabilitar o DNS padrão. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [Considerações sobre a plataforma do Azure](./network-security-groups-overview.md#azure-platform-considerations). Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
+| **AzurePlatformLKM** | Serviço de gerenciamento de chaves ou licenciamento do Windows.<br/><br/>Você pode usar essa marca para desabilitar os padrões de licenciamento. Tenha cuidado ao usar essa marca. Recomendamos que você leia as [Considerações sobre a plataforma do Azure](./network-security-groups-overview.md#azure-platform-considerations).  Também recomendamos que você execute os testes antes de usar essa marca. | Saída | Não | Não |
 | **AzureResourceManager** | Azure Resource Manager. | Saída | Não | Não |
 | **AzureSignalR** | Azure SignalR. | Saída | Não | Não |
 | **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **AzureActiveDirectory**, **AzureKeyVault**, **EventHub**,**GuestAndHybridManagement** e **Storage**. | Saída | Não | Não |
-| **AzureTrafficManager** | Endereços IP de investigação do Gerenciador de Tráfego do Azure.<br/><br/>Saiba mais sobre os endereços IP de investigação no Gerenciador de Tráfego nas [Perguntas frequentes sobre o Gerenciador de Tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Entrada | Não | Sim |  
+| **AzureTrafficManager** | Endereços IP de investigação do Gerenciador de Tráfego do Azure.<br/><br/>Saiba mais sobre os endereços IP de investigação no Gerenciador de Tráfego nas [Perguntas frequentes sobre o Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-faqs.md). | Entrada | Não | Sim |  
 | **BatchNodeManagement** | Tráfego de gerenciamento para implantações dedicadas ao Lote do Azure. | Ambos | Não | Sim |
 | **CognitiveServicesManagement** | Os intervalos de endereços para o tráfego dos Serviços Cognitivos do Azure. | Ambos | Não | Não |
 | **DataFactory**  | Fábrica de dados do Azure | Ambos | Não | Não |
@@ -105,7 +105,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **Storage** | Armazenamento do Microsoft Azure. <br/><br/>*Observação:* essa marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
 | **StorageSyncService** | Serviço de Sincronização de Armazenamento. | Ambos | Não | Não |
 | **WindowsVirtualDesktop** | Área de Trabalho Virtual do Windows. | Ambos | Não | Sim |
-| **VirtualNetwork** | O espaço de endereço de rede virtual (todos os intervalos de endereço IP definidos para a rede virtual), todos os espaços de endereço locais conectados, redes virtuais [emparelhadas](virtual-network-peering-overview.md), redes virtuais conectadas a um [gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), o [endereço IP virtual do host](security-overview.md#azure-platform-considerations) e os prefixos de endereços usados em [rotas definidas pelo usuário](virtual-networks-udr-overview.md). Essa marca também pode conter rotas padrão. | Ambos | Não | Não |
+| **VirtualNetwork** | O espaço de endereço de rede virtual (todos os intervalos de endereço IP definidos para a rede virtual), todos os espaços de endereço locais conectados, redes virtuais [emparelhadas](virtual-network-peering-overview.md), redes virtuais conectadas a um [gateway de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), o [endereço IP virtual do host](./network-security-groups-overview.md#azure-platform-considerations) e os prefixos de endereços usados em [rotas definidas pelo usuário](virtual-networks-udr-overview.md). Essa marca também pode conter rotas padrão. | Ambos | Não | Não |
 
 >[!NOTE]
 >No modelo de implantação clássico (antes do Azure Resource Manager), há suporte para um subconjunto das marcas listadas na tabela anterior. Essas marcas são escritas de forma diferente:
@@ -128,9 +128,9 @@ Você pode obter as informações da marca de serviço e dos intervalos atuais p
 ### <a name="use-the-service-tag-discovery-api-public-preview"></a>Usar a API de Descoberta de Marca de Serviço (versão prévia pública)
 Você pode recuperar de forma programática a lista atual de marcas de serviço com os detalhes dos intervalos de endereços IP:
 
-- [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-- [PowerShell do Azure](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [CLI do Azure](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [REST](/rest/api/virtualnetwork/servicetags/list)
+- [PowerShell do Azure](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
+- [CLI do Azure](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
 > Embora esteja em versão prévia pública, a API de Descoberta pode retornar informações que estão menos atualizadas do que as informações retornadas pelos downloads JSON. (Confira a próxima seção.)
@@ -151,7 +151,7 @@ Os intervalos de endereços IP nesses arquivos estão na notação CIDR.
 
 ### <a name="tips"></a>Dicas 
 - Você pode detectar as atualizações de uma publicação em comparação com a próxima observando os valores *changeNumber* no arquivo JSON. Cada subseção (por exemplo, **Storage.WestUS**) tem seu *changeNumber*, que aumenta conforme ocorrem as alterações. O nível superior do *changeNumber* do arquivo aumenta quando qualquer uma das subseções é alterada.
-- Para obter exemplos de como analisar as informações de marcas de serviço (por exemplo, para obter todos os intervalos de endereços para Armazenamento no Oeste dos EUA), confira a documentação [API de Descoberta de Marca de Serviço do PowerShell](https://aka.ms/discoveryapi_powershell).
+- Para obter exemplos de como analisar as informações de marcas de serviço (por exemplo, para obter todos os intervalos de endereços para Armazenamento no Oeste dos EUA), confira a documentação [API de Descoberta de Marca de Serviço do PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).

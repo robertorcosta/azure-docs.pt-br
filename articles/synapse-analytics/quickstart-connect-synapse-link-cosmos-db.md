@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 14c71d5888aefc11485c03935c5d8c7ff7d17045
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7462c78ecad718c30980a98ff7659a2a4d2ea020
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995872"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222149"
 ---
 # <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Início Rápido: Conectar-se ao Link do Azure Synapse para Azure Cosmos DB
 
@@ -24,8 +24,8 @@ Este artigo descreve como acessar um banco de dados Azure Cosmos DB a partir do 
 
 Antes de conectar uma conta Azure Cosmos DB ao espaço de trabalho, algumas coisas são necessárias.
 
-* Conta do Azure Cosmos DB existente ou criar uma nova conta após este [início rápido](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account)
-* Espaço de trabalho Synapse existente ou criar um novo espaço de trabalho após este [início rápido](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) 
+* Conta do Azure Cosmos DB existente ou criar uma nova conta após este [início rápido](../cosmos-db/how-to-manage-database-account.md)
+* Espaço de trabalho Synapse existente ou criar um novo espaço de trabalho após este [início rápido](./quickstart-create-workspace.md) 
 
 ## <a name="enable-azure-cosmos-db-analytical-store"></a>Habilitar o repositório analítico do Azure Cosmos DB
 

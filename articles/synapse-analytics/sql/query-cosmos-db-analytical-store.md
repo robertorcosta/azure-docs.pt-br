@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 4681039f60154b95eeb7e40196ca33055a192c74
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121338"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222098"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com um pool SQL sem servidor na visualização do link Synapse do Azure
 
@@ -205,6 +205,8 @@ O resultado dessa consulta pode ser semelhante à seguinte tabela:
 Para obter mais informações sobre os tipos SQL que devem ser usados para Azure Cosmos DB valores, consulte as [regras para mapeamentos de tipo SQL](#azure-cosmos-db-to-sql-type-mappings) no final do artigo.
 
 ## <a name="create-view"></a>Criar modo de exibição
+
+A criação de exibições nos bancos de dados mestre ou padrão não é recomendada nem tem suporte. Portanto, você precisa criar um banco de dados de usuário para suas exibições.
 
 Depois de identificar o esquema, você pode preparar uma exibição sobre seus dados de Azure Cosmos DB. Você deve posicionar a chave de conta do Azure Cosmos DB em uma credencial separada e fazer referência a essa credencial da `OPENROWSET` função. Não mantenha sua chave de conta na definição de exibição.
 

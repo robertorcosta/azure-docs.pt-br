@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7589b13dc517a23e8d9d65907fb3342e4e2490a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d2cabecfb2a70e6d325129335c066bb35aeb02ba
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000582"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221814"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrar tráfego com um grupo de segurança de rede utilizando o CLI do Azure
 
@@ -241,6 +241,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você criou um grupo de segurança de rede e o associou a uma sub-rede de rede virtual. Para saber mais sobre grupos de segurança de rede, consulte [Visão geral do grupo de segurança de rede](security-overview.md) e [Gerenciar um grupo de segurança de rede](manage-network-security-group.md).
+Neste artigo, você criou um grupo de segurança de rede e o associou a uma sub-rede de rede virtual. Para saber mais sobre grupos de segurança de rede, consulte [Visão geral do grupo de segurança de rede](./network-security-groups-overview.md) e [Gerenciar um grupo de segurança de rede](manage-network-security-group.md).
 
 O Azure roteia o tráfego entre sub-redes por padrão. Em vez disso, é possível escolher rotear o tráfego entre sub-redes por meio de uma VM, servindo como um firewall, por exemplo. Para saber mais, consulte [Criar uma tabela de roteamentos](tutorial-create-route-table-cli.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 35e4b90e9bdd52a20bf892f0784b191384f271ac
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: beb670106690645a80aa12b930e3a005efb4282a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533699"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221639"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Configurar a preferência de roteamento para uma VM usando o portal do Azure
 
@@ -79,5 +79,5 @@ Quando não for mais necessário, exclua o grupo de recursos e todos os recursos
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [IP público com a preferência de roteamento](routing-preference-overview.md).
-- Saiba mais sobre os [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) no Azure.
+- Saiba mais sobre os [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) no Azure.
 - Saiba mais sobre todas as [configurações de endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address).

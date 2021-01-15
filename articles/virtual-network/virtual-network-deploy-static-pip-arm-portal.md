@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/12/2020
 ms.author: allensu
-ms.openlocfilehash: 1ae0b869b24c4e05c88b936eceb1b9b1db3a9405
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: d416af3d3a8eb8ab8057f13cc0d9a133adcb849a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506304"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221149"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Crie uma máquina virtual com um endereço IP público estático usando o portal do Azure
 
@@ -34,13 +34,13 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 1. No lado superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Máquina virtual** ou pesquise **Máquina virtual** na caixa de pesquisa.
    
-2. Em **Criar uma máquina virtual** , digite ou selecione os valores na guia **Informações Básicas** :
+2. Em **Criar uma máquina virtual**, digite ou selecione os valores na guia **Informações Básicas**:
 
     | Configuração | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalhes do projeto** |  |
     | Subscription | Selecionar sua assinatura do Azure |
-    | Grupo de recursos | Selecione **Criar novo**. </br> Em **nome** , insira **MyResource**. </br> Selecione **OK**. |
+    | Grupo de recursos | Selecione **Criar novo**. </br> Em **nome**, insira **MyResource**. </br> Selecione **OK**. |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **myVM** |
     | Região | Selecione **Leste dos EUA** |
@@ -53,7 +53,7 @@ Entre no [portal do Azure](https://portal.azure.com).
     | Senha | Insira uma senha |
     | Confirmar senha | Insira novamente a senha |
 
-3. Selecione a guia **Rede** ou selecione **Avançar: Discos** , em seguida, **Avançar: Rede**.
+3. Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**.
   
 4. Na guia Rede, selecione ou insira:
 
@@ -62,13 +62,13 @@ Entre no [portal do Azure](https://portal.azure.com).
     | **Interface de rede** |  |
     | Rede virtual | Aceite o nome de rede padrão. |
     | Sub-rede | Aceite a configuração de sub-rede padrão. |
-    | IP público | Selecione **Criar novo**. </br> Em **criar endereço IP público** , em nome, insira **myPublicIP**. </br> Para **SKU** , selecione **padrão**. </br> **Atribuição** , selecione **estático**. </br> Selecione **OK**.  |
+    | IP público | Selecione **Criar novo**. </br> Em **criar endereço IP público**, em nome, insira **myPublicIP**. </br> Para **SKU**, selecione **padrão**. </br> **Atribuição**, selecione **estático**. </br> Selecione **OK**.  |
     | Grupo de segurança de rede da NIC | Selecione **Básico**|
     | Porta de entrada públicas | Selecione **Permitir portas selecionadas**. |
     | Selecione as portas de entrada | Selecionar **RDP (3389)** |
 
     > [!WARNING]
-    > O Portal 3389 está selecionado para permitir o acesso remoto à máquina virtual do Windows Server a partir da Internet. Não é recomendável abrir a porta 3389 para a Internet para gerenciar as cargas de trabalho de produção. </br> Para obter acesso seguro às máquinas virtuais do Azure, consulte **[o que é a bastiões do Azure?](/azure/bastion/bastion-overview)**
+    > O Portal 3389 está selecionado para permitir o acesso remoto à máquina virtual do Windows Server a partir da Internet. Não é recomendável abrir a porta 3389 para a Internet para gerenciar as cargas de trabalho de produção. </br> Para obter acesso seguro às máquinas virtuais do Azure, consulte **[o que é a bastiões do Azure?](../bastion/bastion-overview.md)**
    
 5. Selecione **Examinar + criar**. 
   
@@ -95,7 +95,7 @@ A SKU do endereço IP público da máquina virtual deve corresponder ao SKU de I
 
 Você pode baixar a lista de intervalos (prefixos) para as nuvens [pública](https://www.microsoft.com/download/details.aspx?id=56519), do [governo dos EUA](https://www.microsoft.com/download/details.aspx?id=57063), da [China](https://www.microsoft.com/download/details.aspx?id=57062) e da [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure.
 
-- Saiba mais sobre os [endereços IP públicos estáticos](virtual-network-ip-addresses-overview-arm.md#allocation-method).
-- Saiba mais sobre os [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) no Azure.
+- Saiba mais sobre os [endereços IP públicos estáticos](./public-ip-addresses.md#allocation-method).
+- Saiba mais sobre os [endereços IP públicos](./public-ip-addresses.md#public-ip-addresses) no Azure.
 - Saiba mais sobre todas as [configurações de endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Saiba mais sobre [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e atribuindo um [endereço IP privado estático](virtual-network-network-interface-addresses.md#add-ip-addresses) a uma máquina virtual do Azure.
+- Saiba mais sobre [endereços IP privados](./private-ip-addresses.md) e atribuindo um [endereço IP privado estático](virtual-network-network-interface-addresses.md#add-ip-addresses) a uma máquina virtual do Azure.

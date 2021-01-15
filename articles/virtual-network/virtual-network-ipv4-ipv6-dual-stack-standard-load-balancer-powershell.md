@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: 4b257196a26c72737504fc8bdb5e5a9ab8663590
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: e0b17c7b707a7718428f63c334210a91759f00e3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95995702"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223645"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Implantar um aplicativo IPv6 dual stack no Azure-PowerShell
 
@@ -283,7 +283,7 @@ Crie NICs virtuais com [New-AzNetworkInterface](/powershell/module/az.network/ne
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Defina o nome de usuário e a senha de um administrador para as VMs com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Defina o nome de usuário e a senha de um administrador para as VMs com [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = get-credential -Message "DUAL STACK VNET SAMPLE:  Please enter the Administrator credential to log into the VMs."

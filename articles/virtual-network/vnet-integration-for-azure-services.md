@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: a29454f09268406511730c63dcc3bc3063b909c6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882357"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218647"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrar serviços do Azure com redes virtuais para isolamento de rede
 
@@ -66,7 +66,7 @@ Para obter mais informações, consulte [pontos de extremidade de serviço de re
 
 ## <a name="service-tags"></a>Marcas de serviço
 
-Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. Usando marcas de serviço, você pode definir os controles de acesso à rede em [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou no [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags). Ao especificar o nome da marca de serviço (por exemplo, AzureEventGrid) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
+Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. Usando marcas de serviço, você pode definir os controles de acesso à rede em [grupos de segurança de rede](./network-security-groups-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). Ao especificar o nome da marca de serviço (por exemplo, AzureEventGrid) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
 
 ![Permitir ou negar o tráfego usando marcas de serviço](./media/network-isolation/service-tags.png)
 
@@ -78,4 +78,4 @@ Para obter mais informações sobre marcas de serviço e serviços do Azure que 
 
 - Saiba como [integrar seu aplicativo a uma rede do Azure](../app-service/web-sites-integrate-with-vnet.md).
 - Saiba como [restringir o acesso a recursos usando marcas de serviço](tutorial-restrict-network-access-to-resources.md).
-- Saiba como [conectar-se de forma privada a uma conta do Azure Cosmos usando o link privado do Azure](../private-link/create-private-endpoint-cosmosdb-portal.md).
+- Saiba como [conectar-se de forma privada a uma conta do Azure Cosmos usando o link privado do Azure](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).
