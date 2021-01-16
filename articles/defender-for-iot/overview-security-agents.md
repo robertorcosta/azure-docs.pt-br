@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2019
 ms.author: shhazam
-ms.openlocfilehash: d3b50d909fb167ee123b548603628bae7d844c5b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2b1cd131e578b1d16fabee99b8de536e4a48ece0
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97838010"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247294"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-security-agents"></a>Introdução aos agentes de segurança de dispositivo do Azure defender para IoT
 
@@ -31,7 +31,7 @@ Os agentes de segurança do defender for IoT lidam com a coleta de eventos bruto
 Use o seguinte fluxo de trabalho para implantar e testar seus agentes de segurança do defender para IoT:
 
 1. [Habilitar o defender para o serviço de IoT para o Hub IoT](quickstart-onboard-iot-hub.md)
-1. Se o Hub IoT não tiver nenhum dispositivo registrado, [registre um novo dispositivo](../iot-accelerators/quickstart-device-simulation-deploy.md).
+1. Se o Hub IoT não tiver nenhum dispositivo registrado, [registre um novo dispositivo](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
 1. [Crie um módulo de segurança do azureiotsecurity](quickstart-create-security-twin.md) para seus dispositivos.
 1. Para instalar o agente em um dispositivo simulado do Azure em vez de instalar em um dispositivo real, [crie uma nova VM (máquina virtual) do Azure](../virtual-machines/linux/quick-create-portal.md) em uma zona disponível.
 1. [Implante um agente de segurança do defender para IOT](how-to-deploy-linux-cs.md) em seu dispositivo IOT ou nova VM.

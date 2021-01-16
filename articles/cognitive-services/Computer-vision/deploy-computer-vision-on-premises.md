@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: d79c52c05d09eedab2dd964acb544c9cdb405380
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b3e1bb3f418f21c75e29b5a1cad337c6f3c10145
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562592"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246631"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Usar Pesquisa Visual Computacional contêiner com kubernetes e Helm
 
@@ -42,7 +42,7 @@ Os seguintes pré-requisitos antes de usar Pesquisa Visual Computacional contêi
 
 [!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
-## <a name="connect-to-the-kubernetes-cluster"></a>Conectar-se ao cluster kubernetes
+## <a name="connect-to-the-kubernetes-cluster"></a>Conectar-se ao cluster do Kubernetes
 
 Espera-se que o computador host tenha um cluster kubernetes disponível. Consulte este tutorial sobre como [implantar um cluster kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para obter um entendimento conceitual de como implantar um cluster kubernetes em um computador host. Você pode encontrar mais informações sobre implantações na [documentação do kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 
@@ -168,7 +168,7 @@ spec:
 Na mesma pasta *modelos* , copie e cole as seguintes funções auxiliares no `helpers.tpl` . `helpers.tpl` define funções úteis para ajudar a gerar o modelo Helm.
 
 > [!NOTE]
-> Este artigo contém referências ao termo subordinado, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+> Este artigo contém referências ao termo "servidor subordinado", um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ```yaml
 {{- define "rabbitmq.hostname" -}}
@@ -258,6 +258,8 @@ Por design, cada contêiner v3 tem um Dispatcher e um trabalho de reconhecimento
 
 O contêiner que recebe a solicitação pode dividir a tarefa em subtarefas de página única e adicioná-la à fila universal. Qualquer trabalhador de reconhecimento de um contêiner menos ocupado pode consumir subtarefas de página única da fila, executar o reconhecimento e carregar o resultado no armazenamento. A taxa de transferência pode ser melhorada até `n` os momentos, dependendo do número de contêineres implantados.
 
+O contêiner v3 expõe a API de teste de vida no `/ContainerLiveness` caminho. Use o exemplo de implantação a seguir para configurar uma investigação de vida para kubernetes. 
+
 Copie e cole o YAML a seguir em um arquivo chamado `deployment.yaml` . Substitua os `# {ENDPOINT_URI}` `# {API_KEY}` comentários e pelos seus próprios valores. Substitua o `# {AZURE_STORAGE_CONNECTION_STRING}` Comentário pela cadeia de conexão do armazenamento do Azure. Configure `replicas` para o número desejado, que é definido como `3` no exemplo a seguir.
 
 ```yaml
@@ -293,6 +295,13 @@ spec:
           value: # {AZURE_STORAGE_CONNECTION_STRING}
         - name: Queue__Azure__ConnectionString
           value: # {AZURE_STORAGE_CONNECTION_STRING}
+        livenessProbe:
+          httpGet:
+            path: /ContainerLiveness
+            port: 5000
+          initialDelaySeconds: 60
+          periodSeconds: 60
+          timeoutSeconds: 20
 --- 
 apiVersion: v1
 kind: Service

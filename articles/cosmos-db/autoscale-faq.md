@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 31b96f03a8519b068eaa816443be0a0f374a4a8c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368572"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247022"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ Sim. Quando você adquire capacidade reservada para contas com regiões de grava
 A capacidade reservada da região de várias gravações funciona da mesma para a taxa de transferência de dimensionamento automático e padrão (manual). Confira [Capacidade reservada do Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>O dimensionamento automático funciona com a camada gratuita?
-Sim. Na camada gratuita, você pode usar a taxa de transferência do dimensionamento automático em um contêiner. O suporte para bancos de dados de taxa de transferência compartilhada de dimensionamento automático com o máximo personalizado de RU/s ainda não está disponível. Confira como [a cobrança da camada gratuita funciona com o dimensionamento automático](understand-your-bill.md#billing-examples-with-free-tier-accounts).
+Sim. Na camada gratuita, você pode usar a taxa de transferência do dimensionamento automático em um contêiner. O suporte para bancos de dados de taxa de transferência compartilhada de dimensionamento automático com o máximo personalizado de RU/s ainda não está disponível. Confira como [a cobrança da camada gratuita funciona com o dimensionamento automático](understand-your-bill.md#azure-free-tier).
 
 ### <a name="is-autoscale-supported-for-all-apis"></a>O dimensionamento automático tem suporte para todas as APIs?
 Sim, o dimensionamento automático tem suporte para todas as APIs: Core (SQL), Gremlin, Table, Cassandra e API para MongoDB.

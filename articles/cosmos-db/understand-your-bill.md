@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b51be165d3d05ae753c7e0e5536a157fbbacf1ab
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938623"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247481"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -215,8 +215,12 @@ A fatura mensal total (supondo 30 dias/720 horas em um mês) será calculada da 
 | | |Cobrança de taxa de transferência para duas regiões adicionais: Leste dos EUA, Norte da Europa (todas as regiões são graváveis)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |U$ 224  |
 || |**Custo mensal total**  | |**US$ 38.688**   |
 
-## <a name="billing-examples-with-free-tier-accounts"></a>Exemplos de cobrança com contas de camada gratuita
+## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Exemplos de cobrança com Azure Cosmos DB contas de camada gratuita
+
 Com a camada gratuita do Azure Cosmos DB, você obtém gratuitamente os primeiros 400 RU/s e 5 GB de armazenamento em sua conta, aplicados no nível da conta. Qualquer RU/s e armazenamento além de 400 RU/s e 5 GB será cobrado de acordo com o preço regular da página de preços. Na lista, você não verá uma cobrança ou item de linha para os 5 GB e 400 RU/s gratuitos, somente os RUs e o armazenamento além do que é coberto pela camada gratuita. O 400 RU/s se aplica a qualquer tipo de taxa de transferência, autoescala e gravações de várias regiões provisionadas por RU/s.  
+
+> [!NOTE]
+> Azure Cosmos DB camada gratuita é diferente da conta gratuita do Azure. A conta gratuita do Azure oferece créditos e recursos do Azure gratuitamente por um período limitado. Ao usar Azure Cosmos DB como parte desta conta gratuita, você obtém armazenamento de 25 GB e 400 RU/s de taxa de transferência provisionada por 12 meses.
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Exemplo de cobrança - contêiner ou banco de dados com taxa de transferência provisionada
 - Vamos supor que criamos um banco de dados ou contêiner em uma conta de camada gratuita com 400 RU/s e 5 GB de armazenamento.

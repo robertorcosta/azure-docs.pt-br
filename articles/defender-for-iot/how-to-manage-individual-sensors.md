@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b61bef89d53da280961b818425d11a6f81bbf5ea
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 25f47be98b11f05ee6ac27018152ece05c0de4e4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210232"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246682"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
 
@@ -84,7 +84,7 @@ Você receberá uma mensagem de erro se o arquivo de ativação não pôde ser c
 
 - **Para sensores conectados localmente**: o arquivo de ativação não é válido. Se o arquivo não for válido, vá para o portal do defender para IoT. Na página **Gerenciamento do sensor** , selecione o sensor com o arquivo inválido e baixe um novo arquivo de ativação.
 
-- **Para sensores conectados à nuvem**: o sensor não pode se conectar à Internet. Verifique a configuração de rede do sensor. Se o seu sensor precisar se conectar por meio de um proxy Web para acessar a Internet, verifique se o servidor proxy está configurado corretamente na tela de **configuração de rede do sensor** . Verifique se \* . Azure-Devices.net:443 é permitido no firewall e/ou proxy. Se não houver suporte para caracteres curinga ou se você quiser mais controle, o FQDN do seu defender específico para o Hub IoT deverá ser aberto em seu firewall e/ou proxy. Para obter detalhes, consulte [referência-pontos de extremidade do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints).  
+- **Para sensores conectados à nuvem**: o sensor não pode se conectar à Internet. Verifique a configuração de rede do sensor. Se o seu sensor precisar se conectar por meio de um proxy Web para acessar a Internet, verifique se o servidor proxy está configurado corretamente na tela de **configuração de rede do sensor** . Verifique se \* . Azure-Devices.net:443 é permitido no firewall e/ou proxy. Se não houver suporte para caracteres curinga ou se você quiser mais controle, o FQDN do seu defender específico para o Hub IoT deverá ser aberto em seu firewall e/ou proxy. Para obter detalhes, consulte [referência-pontos de extremidade do Hub IOT](../iot-hub/iot-hub-devguide-endpoints.md).  
 
 - **Para sensores conectados à nuvem**: o arquivo de ativação é válido, mas o defender para IOT o rejeitou. Se você não puder resolver esse problema, poderá baixar outra ativação na página de **Gerenciamento do sensor** do portal do defender para IOT. Se isso não funcionar, entre em contato com Suporte da Microsoft.
 
@@ -397,7 +397,7 @@ O console exibirá falhas de restauração.
 
 O procedimento a seguir descreve como atualizar um sensor autônomo usando o console do sensor. O processo de atualização leva cerca de 30 minutos.
 
-1. Vá para o [Portal do Azure](https://portal.azure.com/).
+1. Acesse o [portal do Azure](https://portal.azure.com/).
 
 2. Vá para defender para IoT.
 

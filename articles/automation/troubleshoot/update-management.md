@@ -2,15 +2,15 @@
 title: Solucionar problemas de Gerenciamento de Atualizações com a Automação do Azure
 description: Este artigo informa como solucionar problemas com o Gerenciamento de Atualizações de automação do Azure.
 services: automation
-ms.date: 12/04/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: f00002c7374e0c35c7bb91c28b2dd87ad71e3350
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 55e58c92004f4f4cf4ba6a96620b4f037c80cdb4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184910"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246257"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -144,13 +144,11 @@ Esse problema pode ser causado por problemas de configuração local ou pela con
    | summarize by Computer, Solutions
    ```
 
-4. Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve [reinstalar o agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve [reinstalar o agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Se o computador aparecer nos resultados da consulta, verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações.
+    Se o computador estiver listado nos resultados da consulta, verifique na propriedade **soluções** que **atualizações** está listada. Isso verifica se ele está registrado com Gerenciamento de Atualizações. Se não estiver, verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. Para configurar a configuração de escopo para o computador de destino, consulte [habilitar máquinas no espaço de trabalho](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-6. Se seu computador estiver aparecendo no seu espaço de trabalho, mas não no Gerenciamento de Atualizações, você deverá definir a configuração de escopo para direcionar os computadores. Para saber como fazer isso, consulte [Habilitar máquinas no espaço de trabalho](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
-
-7. Em seu espaço de trabalho, execute esta consulta.
+4. Em seu espaço de trabalho, execute esta consulta.
 
    ```kusto
    Operation
@@ -158,9 +156,9 @@ Esse problema pode ser causado por problemas de configuração local ou pela con
    | sort by TimeGenerated desc
    ```
 
-8. Se você obtiver um resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, a cota definida em seu espaço de trabalho foi atingida, o que impediu que os dados fossem salvos. Em seu espaço de trabalho, vá para **gerenciamento de volume de dados** em **Uso e custos estimados** e altere ou remova a cota.
+   Se você obtiver um resultado `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, a cota definida em seu espaço de trabalho foi atingida, o que impediu que os dados fossem salvos. Em seu espaço de trabalho, vá para **gerenciamento de volume de dados** em **Uso e custos estimados** e altere ou remova a cota.
 
-9. Se o problema ainda não tiver sido resolvido, siga as etapas descritas em [Implantar um Hybrid Runbook Worker do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker para o Windows. Para o Linux, siga as etapas em [Implantar um Hybrid Runbook Worker do Linux.](../automation-linux-hrw-install.md)
+5. Se o problema ainda não tiver sido resolvido, siga as etapas descritas em [Implantar um Hybrid Runbook Worker do Windows](../automation-windows-hrw-install.md) para reinstalar o Hybrid Worker para o Windows. Para o Linux, siga as etapas em [Implantar um Hybrid Runbook Worker do Linux.](../automation-linux-hrw-install.md)
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Cenário: Não é possível registrar o provedor de recursos de automação para assinaturas
 

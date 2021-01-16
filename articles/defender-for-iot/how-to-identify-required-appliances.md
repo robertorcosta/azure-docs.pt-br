@@ -4,15 +4,15 @@ description: Saiba mais sobre hardware e dispositivos virtuais para sensores do 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b22f880eee1b691b6b50b8151a64a2d501b891b3
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837783"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246563"
 ---
 # <a name="identify-required-appliances"></a>Identificar os dispositivos necessários
 
@@ -255,30 +255,8 @@ Depois de comprar o dispositivo, vá para **defender para**  >  instalação do 
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="BOM Dell R340.":::
 
-## <a name="smb-deployment-neousys-nuvo-5006lp"></a>Implantação de SMB: Neousys Nuvo-5006LP
-
-| Componente | Especificações técnicas |
-|--|--|
-| Construção | Design de alumínio, fanless e prova de poeira |
-| Dimensões | 240 mm (W) x 225 mm (D) x 77 mm (H) |
-| Peso | 3,1 kg (incluindo CPU, memória e HDD) |
-| CPU | Intel Core i5-6500TE (cache 6 minutos, até 3,30 GHz) S1151 |
-| E7505 | Hub do controlador da plataforma Intel Q170 |
-| Memória | 8 GB de DDR4 2133 MHz de largura larga SODIMM |
-| Armazenamento | 128-GB 3ME3 de temperatura larga mSATA SSD |
-| Controlador de rede | 6 vezes portas Gigabit Ethernet por Intel I219 |
-| Acesso ao dispositivo | 4 USBs: dois frontais, duas traseiras, uma interna |
-| Adaptador de energia | 120/240VAC-20VDC/6A |
-| Montar | Kit de montagem, trilho de DIN |
-| Temperatura operacional | \-25 ° C ~ 70 ° C |
-| Temperatura de armazenamento | \-40 ° C ~ 85 ° C |
-| Umidade | 10% ~ 90%, sem condensação |
-| Vibração | Operacional, 5 Grms, 5-500 Hz, 3 eixos <br>(c/SSD, de acordo com IEC60068-2-64) |
-| Choque | Operacional, 50 Grms, metade do seno de 11 a MS (c/SSD, de acordo com IEC60068-2-27) |
-| EMC | CE/FCC classe A, de acordo com a EN 55022, EN 55024 e EN 55032 |
-
 ## <a name="next-steps"></a>Próximas etapas
 
 [Sobre a instalação do Azure defender para IoT](how-to-install-software.md)
 
-[Sobre a configuração de rede do Azure defender para IoT](how-to-set-up-your-network.md)
+[Sobre a configuração de rede do Azure Defender para IoT](how-to-set-up-your-network.md)

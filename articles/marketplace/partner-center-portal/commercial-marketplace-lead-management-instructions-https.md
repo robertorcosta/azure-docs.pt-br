@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: b4dabee6a725fd02b7be6dd12c8a032e3d816835
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489362"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247175"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Use um ponto de extremidade HTTPS para gerenciar clientes potenciais do marketplace comercial
 
@@ -31,11 +31,11 @@ Este artigo explica como criar um novo fluxo no Power Automate para gerar a URL 
 
     ![Entrar em Meus fluxos](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. Em **+ Novo** , selecione **+ Instantâneo - em branco**.
+1. Em **+ Novo**, selecione **+ Instantâneo - em branco**.
 
     ![Meus fluxos + automatizados - em branco](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-1. Nomeie o fluxo e, em **Escolher como acionar este fluxo** , selecione **Quando uma solicitação HTTP for recebida**.
+1. Nomeie o fluxo e, em **Escolher como acionar este fluxo**, selecione **Quando uma solicitação HTTP for recebida**.
 
     ![Criar uma janela de fluxo automatizado botão Ignorar](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
@@ -43,10 +43,10 @@ Este artigo explica como criar um novo fluxo no Power Automate para gerar a URL 
 
     ![Expandir a etapa de fluxo](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-1. Use um dos métodos a seguir para configurar o **Esquema JSON do Corpo da Solicitação** :
+1. Use um dos métodos a seguir para configurar o **Esquema JSON do Corpo da Solicitação**:
 
     - Copie o Esquema JSON na caixa de texto **Esquema JSON do Corpo da Solicitação**.
-    - Selecione **Use o conteúdo de amostra para gerar o esquema**. Na caixa de texto **Digite ou cole uma carga de exemplo de conteúdo JSON** , cole o exemplo de JSON. Selecione **Concluído** para criar o esquema.
+    - Selecione **Use o conteúdo de amostra para gerar o esquema**. Na caixa de texto **Digite ou cole uma carga de exemplo de conteúdo JSON**, cole o exemplo de JSON. Selecione **Concluído** para criar o esquema.
 
     **Esquema JSON**
 
@@ -66,6 +66,10 @@ Este artigo explica como criar um novo fluxo no Power Automate para gerar a URL 
         },
         "LeadSource": {
           "id": "/properties/LeadSource",
+          "type": "string"
+        },
+        "Description": {
+          "id": "/properties/Description",
           "type": "string"
         },
         "UserDetails": {
@@ -152,25 +156,25 @@ Este artigo explica como criar um novo fluxo no Power Automate para gerar a URL 
 ### <a name="set-up-email-notification"></a>Configurar notificação por email
 
 1. Agora que você concluiu o esquema JSON, selecione **+ Nova etapa**.
-1. Em **Escolha uma ação** , selecione **Ações**.
-1. Na guia **Ações** , selecione **Enviar um email (Office 365 Outlook)** .
+1. Em **Escolha uma ação**, selecione **Ações**.
+1. Na guia **Ações**, selecione **Enviar um email (Office 365 Outlook)** .
 
     >[!NOTE]
     >Se você quiser usar um provedor de email diferente, procure e selecione **Enviar uma notificação por email (email)** como a ação.
 
     ![Adicionar uma ação de e-mail](./media/commercial-marketplace-lead-management-instructions-https/https-request-received-send-email.png)
 
-1. Na janela **Enviar um email** , configure os campos obrigatórios a seguir:
+1. Na janela **Enviar um email**, configure os campos obrigatórios a seguir:
 
-   - **Para** : Insira pelo menos um endereço de email válido para o qual os clientes potenciais serão enviados.
-   - **Entidade** : O Power Automate oferece a opção de adicionar conteúdo dinâmico, como **LeadSource** mostrado na tela a seguir. Comece inserindo um nome de campo. Em seguida, escolha a lista de seleção de conteúdo dinâmico na janela pop-up. 
+   - **Para**: Insira pelo menos um endereço de email válido para o qual os clientes potenciais serão enviados.
+   - **Entidade**: O Power Automate oferece a opção de adicionar conteúdo dinâmico, como **LeadSource** mostrado na tela a seguir. Comece inserindo um nome de campo. Em seguida, escolha a lista de seleção de conteúdo dinâmico na janela pop-up. 
 
         >[!NOTE] 
         > Ao adicionar os nomes de campo, você pode colocar dois-pontos (:) depois de cada nome e, em seguida, selecionar **Inserir** para criar uma nova linha. Depois de adicionar os nomes de campo, você poderá adicionar cada parâmetro associado da lista de seleção dinâmica.
 
         ![Adicionar uma ação de email usando conteúdo dinâmico](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Corpo** : Na lista de seleção de conteúdo dinâmico, adicione as informações desejadas no corpo do email. Por exemplo, use Sobrenome, Nome, Email e Empresa. Quando você terminar de configurar a notificação por email, ela será semelhante ao exemplo na tela a seguir.
+   - **Corpo**: Na lista de seleção de conteúdo dinâmico, adicione as informações desejadas no corpo do email. Por exemplo, use Sobrenome, Nome, Email e Empresa. Quando você terminar de configurar a notificação por email, ela será semelhante ao exemplo na tela a seguir.
 
 
        ![Exemplo de notificação por email](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
@@ -229,14 +233,14 @@ Quando estiver pronto para configurar as informações de gerenciamento dos clie
 
 1. Selecione a oferta e acesse a guia **Configuração de oferta**.
 
-1. Na seção **Clientes potenciais** , selecione **Conectar**.
+1. Na seção **Clientes potenciais**, selecione **Conectar**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-https/customer-leads.png" alt-text="Clientes potenciais":::
 
-1. Na janela pop-up **Detalhes da conexão** , selecione **Ponto de extremidade HTTPS** para o **Destino do cliente potencial**. Cole a URL HTTP POST do fluxo que você criou seguindo as etapas anteriores no campo **URL do ponto de extremidade HTTPS**.
+1. Na janela pop-up **Detalhes da conexão**, selecione **Ponto de extremidade HTTPS** para o **Destino do cliente potencial**. Cole a URL HTTP POST do fluxo que você criou seguindo as etapas anteriores no campo **URL do ponto de extremidade HTTPS**.
     ![Email de contato dos detalhes da conexão](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 
-1. Em **Emails de contato** , insira os endereços de email das pessoas da sua empresa que devem receber notificações por email quando um novo cliente potencial for captado. Você pode inserir vários endereços de email, separando-os com um sinal de ponto e vírgula.
+1. Em **Emails de contato**, insira os endereços de email das pessoas da sua empresa que devem receber notificações por email quando um novo cliente potencial for captado. Você pode inserir vários endereços de email, separando-os com um sinal de ponto e vírgula.
 
 1. Selecione **OK**.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
-ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188744"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247158"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como revisar e publicar uma oferta no Marketplace comercial
 
@@ -28,7 +28,7 @@ Você pode revisar o status da sua oferta na guia **visão geral** do painel do 
 | Rascunho | A oferta foi criada, mas não está sendo publicada. |
 | Publicação em andamento | A oferta está funcionando de forma por meio do processo de publicação. |
 | Ação necessária | Descobrimos um problema crítico durante a certificação ou durante outra fase de publicação. |
-| Visualizar | Certificamos a oferta, que agora aguarda uma verificação final pelo Publicador. Selecione **entrar em tempo real** para publicar a oferta ao vivo. |
+| Versão Prévia | Certificamos a oferta, que agora aguarda uma verificação final pelo Publicador. Selecione **entrar em tempo real** para publicar a oferta ao vivo. |
 | Ao vivo | A oferta está ativa no Marketplace e pode ser vista e adquirida pelos clientes. |
 | Venda de parada pendente | O Publicador selecionou "parar venda" em uma oferta ou plano, mas a ação ainda não foi concluída. |
 | Não disponível no Marketplace | Uma oferta publicada anteriormente no marketplace foi removida. |
@@ -150,7 +150,7 @@ A captura de tela a seguir mostra a página **visão geral da oferta** para uma 
 ### <a name="previewing-and-approving-your-offer"></a>Visualizando e aprovando sua oferta
 
 > [!IMPORTANT]
-> Para validar o fluxo de compra e configuração de ponta a ponta, compre sua oferta enquanto ela estiver em versão prévia. Primeiro Notifique a Microsoft com um [tíquete de suporte](https://aka.ms/marketplacesupport) para garantir que não processaremos uma cobrança.
+> Para validar o fluxo de compra e configuração de ponta a ponta, compre sua oferta enquanto ela estiver em versão prévia. Primeiro Notifique a Microsoft com um [tíquete de suporte](https://aka.ms/marketplacesupport) para garantir que não processaremos uma cobrança. Se sua oferta for uma listagem entre em contato comigo, teste se um cliente potencial foi criado conforme o esperado fornecendo os detalhes de contato comigo durante a visualização.
 
 Na página **visão geral da oferta** , você verá links de visualização no botão **ir ao vivo** . Haverá um link para a visualização do AppSource, visualização do Azure Marketplace ou ambos, dependendo das opções escolhidas ao criar sua oferta. Se você optar por vender sua oferta pela Microsoft, qualquer pessoa que tenha sido adicionada ao público de visualização poderá testar a aquisição e a implantação de sua oferta para garantir que ela atenda às suas necessidades durante esse estágio.
 
@@ -191,13 +191,13 @@ A página **histórico** no Partner Center mostra os eventos de publicação par
 Para exibir o histórico de sua oferta:
 
 1.    Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2.    No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **visão geral** do Marketplace comercial.
+2.    No menu de navegação à esquerda, selecione   >  **visão geral** do Marketplace comercial.
 3.    Selecione sua oferta.
 4.    Selecione a guia **histórico** no menu de navegação à esquerda. A página fornece detalhes para os seguintes eventos, conforme aplicável à sua oferta:
 
 |Evento    |Descrição    |
 |---------|---------------|
-|Oferta criada    |A oferta foi criada no Partner Center. Um usuário selecionou o tipo de oferta, a ID da oferta e **Commercial Marketplace** o alias de oferta na  >  **visão geral** do Marketplace comercial.    |
+|Oferta criada    |A oferta foi criada no Partner Center. Um usuário selecionou o tipo de oferta, a ID da oferta e o alias de oferta na  >  **visão geral** do Marketplace comercial.    |
 |Plano criado: *nome do plano*    |Um usuário criou um novo plano inserindo a ID do plano e o nome do plano na guia **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
 |Plano excluído    |Um usuário excluiu um plano de rascunho que não foi publicado selecionando **excluir rascunho** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
 |Reinício do plano iniciado venda: *nome do plano*    |Um usuário iniciou um plano de parada-venda selecionando **parar de vender** na página **visão geral do plano** .</br>*Esse evento se aplica somente aos tipos de oferta que dão suporte a planos*.    |
@@ -226,7 +226,7 @@ Há quatro filtros:
 * Eventos
 * Usuários
 * Data
-* Páginas
+* Pages (Páginas)
 
 Ao escolher o filtro de **páginas** , você pode selecionar qualquer uma das páginas do Partner Center que são aplicáveis ao seu tipo de oferta. Quando aplicado, o filtro **páginas** mostra todas as **ofertas enviadas para visualizar** eventos com alterações na página selecionada.
 

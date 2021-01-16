@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348051"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246699"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
 No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -125,7 +125,7 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [IIF](#iif)
   * [Selecionar](#select)
   * [Switch](#switch)
-  * [Onde](#where)
+  * [Where](#where)
   * [Por](#with)
 * **Text**
   * [GUID](#guid)
@@ -664,7 +664,7 @@ Os valores possíveis para o formato podem ser encontrados aqui: [formatos de da
 
 **Exemplo:**  
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
+`FormatDateTime(CDate("12/25/2007"),"yyyy-MM-dd")`  
  resulta em "25/12/2007".
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
@@ -1275,7 +1275,7 @@ Retorna todos os valores no atributo de valores múltiplos otherPhone depois que
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Alternar
+### <a name="switch"></a>Opção
 **Descrição:**  
  a função Switch é usada para retornar um único valor com base nas condições avaliadas.
 

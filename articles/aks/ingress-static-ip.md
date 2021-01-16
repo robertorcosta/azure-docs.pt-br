@@ -5,12 +5,12 @@ description: Saiba como instalar e configurar um controlador de entrada NGINX co
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 14835f7d332b1fcc6e1afabec9a6ee6e55d699e7
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: e6777946b0c83eb7f7eb6f3230bb95da2313e741
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219854"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246223"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -103,7 +103,7 @@ Nenhuma regra de ingresso foi criada ainda, portanto, a página 404 padrão do c
 Você pode verificar se o rótulo de nome DNS foi aplicado consultando o FQDN no endereço IP público da seguinte maneira:
 
 ```azurecli-interactive
-az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query "[?name=='myAKSPublicIP'].[dnsSettings.fqdn]" -o tsv
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query "[?ipAddress=='myAKSPublicIP'].[dnsSettings.fqdn]" -o tsv
 ```
 
 O controlador de entrada agora está acessível por meio do endereço IP ou do FQDN.

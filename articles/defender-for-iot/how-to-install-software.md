@@ -7,18 +7,18 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 49a0129ff26d4a12392066aa6304317d71fdb0f1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208753"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247583"
 ---
 # <a name="defender-for-iot-installation"></a>Instalação do defender para IoT
 
 Este artigo descreve como instalar os seguintes elementos do Azure defender para IoT:
 
-- **Sensor**: os sensores do defender para IOT coletam o tráfego de rede do ICS usando o monitoramento passivo (sem agente). Passivo e não intrusivo, os sensores não afetam nenhum impacto em redes e dispositivos IoT. O sensor se conecta a uma porta de SPAN ou toque de rede e imediatamente começa a monitorar a rede. As detecções são exibidas no console do sensor. Lá, você pode exibir, investigar e analisá-los em um mapa de rede, inventário de dispositivos e uma ampla gama de relatórios. Os exemplos incluem relatórios de avaliação de risco, consultas de Data Mining e vetores de ataque. Leia mais sobre os recursos do sensor no [Guia do usuário do sensor do defender for IOT (download direto)](https://aka.ms/AzureDefenderforIoTUserGuide).
+- **Sensor**: os sensores do defender para IOT coletam o tráfego de rede do ICS usando o monitoramento passivo (sem agente). Passivo e não intrusivo, os sensores não afetam nenhum impacto em redes e dispositivos IoT. O sensor se conecta a uma porta de SPAN ou toque de rede e imediatamente começa a monitorar a rede. As detecções são exibidas no console do sensor. Lá, você pode exibir, investigar e analisá-los em um mapa de rede, inventário de dispositivos e uma ampla gama de relatórios. Os exemplos incluem relatórios de avaliação de risco, consultas de Data Mining e vetores de ataque. Leia mais sobre os recursos do sensor no [Guia do usuário do sensor do defender for IOT (download direto)](./getting-started.md).
 
 - **Console de gerenciamento local**: o console de gerenciamento local permite que você realize o gerenciamento de dispositivos, gerenciamento de riscos e gerenciamento de vulnerabilidades. Você também pode usá-lo para realizar o monitoramento de ameaças e a resposta a incidentes em sua empresa. Ele fornece uma exibição unificada de todos os dispositivos de rede, IoT de chave e alertas e indicadores de risco detectados em instalações em que os sensores são implantados. Use o console de gerenciamento local para exibir e gerenciar sensores em redes gapped.
 
@@ -923,7 +923,7 @@ Verifique se o sistema está em execução:
 
 1. Conecte-se à CLI com o terminal do Linux (por exemplo, disparador) e **suporte** ao usuário.
 
-2. Digite `system sanity`.
+2. Insira `system sanity`.
 
 3. Verifique se todos os serviços estão verdes (em execução).
 
@@ -937,7 +937,7 @@ Verifique se a versão correta é usada:
 
 1. Conecte-se à CLI com o terminal do Linux (por exemplo, disparador) e **suporte** ao usuário.
 
-2. Digite `system version`.
+2. Insira `system version`.
 
 3. Verifique se a versão correta é exibida.
 
@@ -1065,11 +1065,11 @@ Para habilitar o túnel:
 
 1. Entre na CLI do console de gerenciamento local com **CyberX** ou **dê suporte** a credenciais de usuário.
 
-2. Digite `sudo cyberx-management-tunnel-enable`.
+2. Insira `sudo cyberx-management-tunnel-enable`.
 
 3. Selecione **Enter**.
 
-4. Digite `--port 10000`.
+4. Insira `--port 10000`.
 
 ### <a name="next-steps"></a>Próximas etapas
 

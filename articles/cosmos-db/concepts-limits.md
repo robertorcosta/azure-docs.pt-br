@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 793ff9eedb747da0edcbbf2df50b62f06f407892
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368729"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247416"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -256,7 +256,8 @@ A tabela a seguir lista os limites para o [Avaliar o Azure Cosmos DB gratuitamen
 
 A avaliação do Cosmos DB dá suporte à distribuição global somente nas regiões EUA Central, Norte da Europa e Sudeste da Ásia. Tíquetes de Suporte do Azure não podem ser criados para contas de avaliação do Azure Cosmos DB. No entanto, o suporte é fornecido para assinantes com planos de suporte existentes.
 
-## <a name="free-tier-account-limits"></a>Limites de conta de camada gratuita
+## <a name="azure-cosmos-db-free-tier-account-limits"></a>Azure Cosmos DB limites de conta de camada gratuita
+
 A tabela a seguir lista os limites para as [contas de camada gratuita do Azure Cosmos DB.](optimize-dev-test.md#azure-cosmos-db-free-tier)
 
 | Recurso | Limite padrão |
@@ -268,7 +269,10 @@ A tabela a seguir lista os limites para as [contas de camada gratuita do Azure C
 | Número máximo de bancos de dados de taxa de transferência compartilhados | 5 |
 | Número máximo de contêineres em um banco de dados de taxa de transferência compartilhado | 25 <br>Em contas de camada gratuita, o mínimo de RU/s para um banco de dados de taxa de transferência compartilhado com até 25 contêineres é 400 RU/s. |
 
-  Além do acima, os [limites por conta](#per-account-limits) também se aplicam a contas de camada gratuita.
+Além do acima, os [limites por conta](#per-account-limits) também se aplicam a contas de camada gratuita.
+
+> [!NOTE]
+> Azure Cosmos DB camada gratuita é diferente da conta gratuita do Azure. A conta gratuita do Azure oferece créditos e recursos do Azure gratuitamente por um período limitado. Ao usar Azure Cosmos DB como parte desta conta gratuita, você obtém armazenamento de 25 GB e 400 RU/s de taxa de transferência provisionada por 12 meses.
 
 ## <a name="next-steps"></a>Próximas etapas
 

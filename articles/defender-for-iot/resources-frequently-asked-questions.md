@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835016"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247458"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure defender para IoT
 
@@ -38,7 +38,7 @@ O Azure defender para IoT fornece suporte abrangente a protocolos. Além do supo
 Essa solução exclusiva para o desenvolvimento de protocolos como plug-ins não requer equipes de desenvolvedor dedicadas ou versões de versão para dar suporte a um novo protocolo. Desenvolvedores, parceiros e clientes podem desenvolver com segurança protocolos e compartilhar informações e conhecimento usando o horizonte. 
 
 ## <a name="do-i-have-to-purchase-hardware-appliances-from-microsoft-partners"></a>É necessário comprar dispositivos de hardware de parceiros da Microsoft?
-O sensor do Azure defender para IoT é executado em especificações de hardware específicas, conforme descrito no [Guia de especificações de hardware](https://aka.ms/AzureDefenderforIoTBareMetalAppliance), os clientes podem adquirir hardware certificado de parceiros da Microsoft ou usar a bom (lista de materiais) fornecida e comprá-lo por conta própria. 
+O sensor do Azure defender para IoT é executado em especificações de hardware específicas, conforme descrito no [Guia de especificações de hardware](./how-to-identify-required-appliances.md), os clientes podem adquirir hardware certificado de parceiros da Microsoft ou usar a bom (lista de materiais) fornecida e comprá-lo por conta própria. 
 
 O hardware certificado foi testado em nossos laboratórios para estabilidade do driver, quedas de pacotes e dimensionamento de rede.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 8a3142199502b912f20ebe05c625aa40be9fab11
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218664"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247005"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Use Power BI e o pool de SQL Synapse sem servidor (visualização) para analisar Azure Cosmos DB dados com o link do Synapse 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -41,7 +41,7 @@ Certifique-se de criar os seguintes recursos antes de começar:
 
 ## <a name="create-a-database-and-views"></a>Criar um banco de dados e exibições
 
-A criação de exibições nos bancos de dados mestre ou padrão não é recomendada nem tem suporte. Portanto, você precisa iniciar esta etapa criando um banco de dados. No espaço de trabalho Synapse, acesse a guia **desenvolver** , selecione o **+** ícone e selecione **script SQL**.
+No espaço de trabalho Synapse, acesse a guia **desenvolver** , selecione o **+** ícone e selecione **script SQL**.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Adicionar um script SQL ao espaço de trabalho do Synapse Analytics":::
 
@@ -49,7 +49,7 @@ Todo espaço de trabalho é fornecido com um ponto de extremidade SQL sem servid
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Habilitar o script SQL para usar o ponto de extremidade SQL sem servidor no espaço de trabalho":::
 
-Crie um novo banco de dados, chamado **RetailCosmosDB**, e um modo SQL sobre os contêineres habilitados para link Synapse. O comando a seguir mostra como criar um banco de dados:
+A criação de exibições nos bancos de dados **mestre** ou **padrão** não é recomendada nem tem suporte. Crie um novo banco de dados, chamado **RetailCosmosDB**, e um modo SQL sobre os contêineres habilitados para link Synapse. O comando a seguir mostra como criar um banco de dados:
 
 ```sql
 -- Create database
