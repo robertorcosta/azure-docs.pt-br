@@ -227,7 +227,7 @@
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Exemplo de integração do SignalR
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
-        - name: Swaggers personalizados dos Gêmeos Digitais do Azure para conector dos Aplicativos Lógicos
+        - name: Swaggers personalizados para o conector de Aplicativos Lógicos
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
     - name: Ferramentas do Azure
       items:
