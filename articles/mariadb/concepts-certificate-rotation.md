@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 376a4941ac767b670bd2706cb3af63d139b0c3a3
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: b0f0ee9477a84dc198ea3fb48b2ed81be10ea9c5
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233484"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251872"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Noções básicas sobre as alterações na autoridade de certificação raiz para o banco de dados do Azure para MariaDB
 
@@ -19,12 +19,6 @@ O banco de dados do Azure para MariaDB estará alterando o certificado raiz para
 
 >[!NOTE]
 > Com base nos comentários dos clientes, estendemos a substituição do certificado raiz para nossa CA raiz Baltimore existente de outubro de 26, 2020 até 15 de fevereiro de 2021. Esperamos que essa extensão forneça tempo de avanço suficiente para que nossos usuários implementem as alterações do cliente se elas forem afetadas.
-
-> [!NOTE]
-> Comunicação livre de desvio
->
-> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências às palavras _mestre_ e _subordinado_. O guia de estilo da Microsoft [para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como palavras de exclusão. As palavras são usadas neste artigo para fins de consistência porque atualmente são as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar em alinhamento.
->
 
 ## <a name="what-update-is-going-to-happen"></a>Qual atualização vai acontecer?
 
@@ -79,15 +73,17 @@ Para evitar que a disponibilidade do aplicativo seja interrompida devido aos cer
 
   - Para usuários do .NET no Linux usando SSL_CERT_DIR, verifique se **BaltimoreCyberTrustRoot** e **DigiCertGlobalRootG2** existem no diretório indicado por SSL_CERT_DIR. Se algum certificado não existir, crie o arquivo de certificado ausente.
 
-  - Para outros usuários (MariaDB Client/MariaDB Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift), você pode mesclar dois arquivos de certificado de autoridade de certificação como este formato abaixo</b>
+  - Para outros usuários (MariaDB Client/MariaDB Workbench/C/C++/Go/Python/Ruby/PHP/NodeJS/Perl/Swift), você pode mesclar dois arquivos de certificado de autoridade de certificação como este formato abaixo
 
-    </br>-----INICIAR-----DE CERTIFICADO
-    </br>(CA1 raiz: BaltimoreCyberTrustRoot. CRT. pem)
-    </br>----------DE CERTIFICADO FINAL
-    </br>-----INICIAR-----DE CERTIFICADO
-    </br>(CA2 raiz: DigiCertGlobalRootG2. CRT. pem)
-    </br>----------DE CERTIFICADO FINAL
-
+   ```
+   -----BEGIN CERTIFICATE-----
+   (Root CA1: BaltimoreCyberTrustRoot.crt.pem)
+   -----END CERTIFICATE-----
+   -----BEGIN CERTIFICATE-----
+    (Root CA2: DigiCertGlobalRootG2.crt.pem)
+   -----END CERTIFICATE-----
+   ```
+   
 - Substitua o arquivo PEM da autoridade de certificação raiz original pelo arquivo de autoridade de certificação raiz combinado e reinicie o aplicativo/cliente.
 - No futuro, após o novo certificado implantado no lado do servidor, você poderá alterar o arquivo PEM da autoridade de certificação para DigiCertGlobalRootG2. CRT. PEM.
 
@@ -154,6 +150,21 @@ Como essa atualização é uma alteração no lado do cliente, se o cliente usad
 
 ### <a name="12-if-im-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. se eu estiver usando replicação de dados, preciso executar qualquer ação?
 
+> [!NOTE]
+> Este artigo contém referências ao termo _subordinado_, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
+>
+
+*   Se a replicação de dados for de uma máquina virtual (máquina virtual ou local do Azure) para o banco de dados do Azure para MySQL, você precisará verificar se o SSL está sendo usado para criar a réplica. Execute **Mostrar status escravo** e verifique a configuração a seguir.
+
+    ```azurecli-interactive
+    Master_SSL_Allowed            : Yes
+    Master_SSL_CA_File            : ~\azure_mysqlservice.pem
+    Master_SSL_CA_Path            :
+    Master_SSL_Cert               : ~\azure_mysqlclient_cert.pem
+    Master_SSL_Cipher             :
+    Master_SSL_Key                : ~\azure_mysqlclient_key.pem
+    ```
+
 Se você estiver usando a [replicação de dados em](concepts-data-in-replication.md) para se conectar ao Azure Database para MySQL, há duas coisas a considerar:
 
 - Se a replicação de dados for de uma máquina virtual (máquina virtual ou local do Azure) para o banco de dados do Azure para MySQL, você precisará verificar se o SSL está sendo usado para criar a réplica. Execute **Mostrar status escravo** e verifique a configuração a seguir. 
@@ -166,8 +177,7 @@ Se você estiver usando a [replicação de dados em](concepts-data-in-replicatio
   Master_SSL_Cipher             :
   Master_SSL_Key                : ~\azure_mysqlclient_key.pem
   ```
-
-    Se você vir o certificado fornecido para o CA_file, SSL_Cert e SSL_Key, será necessário atualizar o arquivo adicionando o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
+  Se você vir o certificado fornecido para o CA_file, SSL_Cert e SSL_Key, será necessário atualizar o arquivo adicionando o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
 - Se a replicação de dados estiver entre dois bancos de dado do Azure para MySQL, você precisará redefinir a réplica executando **chamar MySQL.az_replication_change_master** e fornecer o novo certificado raiz duplo como o último [master_ssl_ca](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication)de parâmetro.
 

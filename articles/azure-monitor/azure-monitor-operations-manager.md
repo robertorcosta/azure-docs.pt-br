@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 85172e2430a3e65edb0c5ec119c920e2c7d20217
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234670"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251821"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor para clientes Operations Manager existentes
 Este artigo fornece diretrizes para os clientes que atualmente usam [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) e estão planejando uma transição para [Azure monitor](overview.md) à medida que migram aplicativos de negócios e outros recursos para o Azure. Ele pressupõe que seu objetivo final é uma transição completa para a nuvem, substituindo o máximo Operations Manager funcionalidade possível com Azure Monitor, sem comprometer seus requisitos operacionais de ti e de negócios. 
@@ -63,7 +63,7 @@ Você habilita Application Insights para cada um de seus aplicativos de negócio
 Ao se familiarizar com Azure Monitor, você começa a criar regras de alerta que podem substituir algumas funcionalidades do pacote de gerenciamento e começar a desenvolver seus processos de negócios para usar a nova plataforma de monitoramento. Isso permite que você inicie a remoção de computadores e pacotes de gerenciamento do Operations Manager grupo de gerenciamento. Você continua a usar pacotes de gerenciamento para o software de servidor crítico e a infraestrutura local, mas continua a observar novos recursos no Azure Monitor que permitirão que você desative a funcionalidade adicional.
 
 ## <a name="monitor-azure-services"></a>Monitorar serviços do Azure
-Na verdade, os serviços do Azure exigem Azure Monitor para coletar telemetria e estão habilitados no momento em que você cria uma assinatura do Azure. O [log de atividades](platform/activity-log.md) é coletado automaticamente para a assinatura, e as [métricas de plataforma](platform/data-platform-metrics.md) são coletadas automaticamente de quaisquer recursos do Azure que você criar. Você pode começar imediatamente a usar o [Metrics Explorer](platform/metrics-getting-started.md), que é semelhante às exibições de desempenho no console de operações, mas fornece análise interativa e [agregações avançadas](platform/metrics-charts.md) de dados. [Crie um alerta de métrica](platform/alerts-metric.md) para ser notificado quando um valor cruzar um limite ou [Adicionar um gráfico a um painel do Azure](platform/metrics-charts.md#pin-charts-to-dashboards) para visibilidade.
+Na verdade, os serviços do Azure exigem Azure Monitor para coletar telemetria e estão habilitados no momento em que você cria uma assinatura do Azure. O [log de atividades](platform/activity-log.md) é coletado automaticamente para a assinatura, e as [métricas de plataforma](platform/data-platform-metrics.md) são coletadas automaticamente de quaisquer recursos do Azure que você criar. Você pode começar imediatamente a usar o [Metrics Explorer](platform/metrics-getting-started.md), que é semelhante às exibições de desempenho no console de operações, mas fornece análise interativa e [agregações avançadas](platform/metrics-charts.md) de dados. [Crie um alerta de métrica](platform/alerts-metric.md) para ser notificado quando um valor cruzar um limite ou [Adicionar um gráfico a um painel do Azure](platform/metrics-charts.md#pinning-to-dashboards) para visibilidade.
 
 [![Metrics Explorer](media/azure-monitor-operations-manager/metrics-explorer.png)](media/azure-monitor-operations-manager/metrics-explorer.png#lightbox)
 
