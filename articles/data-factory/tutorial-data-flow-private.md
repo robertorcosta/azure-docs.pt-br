@@ -7,13 +7,13 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/19/2019
-ms.openlocfilehash: 9a4b57f3813adfeee53891f733dd4d303dbbef8d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/15/2021
+ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497122"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249424"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformar dados com segurança usando o fluxo de dados de mapeamento
 
@@ -34,6 +34,7 @@ Neste tutorial, você executa as seguintes etapas:
 > * Monitorar uma atividade de fluxo de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de Armazenamento do Azure**. Você usa Data Lake Storage como armazenamentos de dados de *origem* e de *coletor* . Se você não tiver uma conta de armazenamento, confira [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) a fim de conhecer as etapas para criar uma. *Verifique se a conta de armazenamento permite acesso somente de redes selecionadas.* 
 
@@ -64,12 +65,14 @@ Nesta etapa, você cria um data factory e abre a interface do usuário do Data F
 1. Clique em **Criar e Monitorar** para iniciar a IU do Azure Data Factory em uma guia separada.
 
 ## <a name="create-an-azure-ir-in-data-factory-managed-virtual-network"></a>Criar um Azure IR em Data Factory rede virtual gerenciada
+
 Nesta etapa, você cria um Azure IR e habilita Data Factory rede virtual gerenciada.
 
 1. No portal de Data Factory, vá para **gerenciar** e selecione **novo** para criar um novo Azure ir.
 
    ![Captura de tela que mostra a criação de uma nova Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Selecione a opção ir do **Azure** .
+1. Na página **instalação do Integration Runtime** , escolha qual tempo de execução de integração deve ser criado com base nos recursos necessários. Neste tutorial, selecione **Azure, auto-hospedado** e clique em **continuar**. 
+1. Selecione **Azure** e clique em **continuar** para criar um tempo de execução de integração do Azure.
 
    ![Captura de tela que mostra um novo Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 

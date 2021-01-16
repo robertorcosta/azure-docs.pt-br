@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: fb7d9f78ac5498affa10521e17cff4348eecb5eb
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 5ebae41e68633eb10959c56011dd71952f9564bd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231937"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250410"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurar Replicação de Dados no banco de dados do Azure para MariaDB
 
@@ -23,12 +23,6 @@ Examine as [limitações e os requisitos](concepts-data-in-replication.md#limita
 
 > [!NOTE]
 > Se o servidor de origem for da versão 10,2 ou mais recente, recomendamos que você configure Replicação de Dados usando a [ID de transação global](https://mariadb.com/kb/en/library/gtid/).
-
-> [!NOTE]
-> Comunicação livre de desvio
->
-> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências às palavras _mestre_ e _subordinado_. O guia de estilo da Microsoft [para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como palavras de exclusão. As palavras são usadas neste artigo para fins de consistência porque atualmente são as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar em alinhamento.
->
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Criar um servidor MariaDB para usar como uma réplica
 
@@ -46,6 +40,10 @@ Examine as [limitações e os requisitos](concepts-data-in-replication.md#limita
 3. Adicione o endereço IP do servidor de origem às regras de firewall da réplica. 
 
    Atualizar regras de firewall usando o [Portal do Azure](howto-manage-firewall-portal.md) ou a [CLI do Azure](howto-manage-firewall-cli.md).
+
+> [!NOTE]
+> Este artigo contém referências ao termo _subordinado_, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
+>
 
 ## <a name="configure-the-source-server"></a>Configurar o servidor de origem
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614567"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250393"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Azure Metrics Explorer
 
@@ -38,7 +38,7 @@ Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatu
 
     > ![Selecione uma métrica](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Opcionalmente, você pode [alterar a agregação de métrica](metrics-charts.md#changing-aggregation). Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
+4. Opcionalmente, você pode [alterar a agregação de métrica](metrics-charts.md#aggregation). Por exemplo, talvez você queira que o gráfico mostre os valores mínimo, máximo ou médio da métrica.
 
 > [!TIP]
 > Use o botão **Adicionar métrica** e repita essas etapas se quiser ver várias métricas plotadas no mesmo gráfico. Para vários gráficos em uma exibição, selecione o botão **Adicionar gráfico** na parte superior.
@@ -57,7 +57,7 @@ Por padrão, o gráfico mostra as últimas 24 horas de dados de métricas. Use o
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Aplicar filtros de dimensão e divisão
 
-[Filtragem](metrics-charts.md#apply-filters-to-charts) e [divisão](metrics-charts.md#apply-splitting-to-a-chart) são ferramentas de diagnóstico poderosas para as métricas que têm dimensões. Esses recursos mostram como vários segmentos de métrica ("valores de dimensão") impactam o valor geral da métrica e permitem que você identifique possíveis exceções.
+[Filtragem](metrics-charts.md#filters) e [divisão](metrics-charts.md#apply-splitting) são ferramentas de diagnóstico poderosas para as métricas que têm dimensões. Esses recursos mostram como vários segmentos de métrica ("valores de dimensão") impactam o valor geral da métrica e permitem que você identifique possíveis exceções.
 
 - A **filtragem** permite que você escolha quais valores de dimensão serão incluídos no gráfico. Por exemplo, talvez você queira mostrar solicitações bem-sucedidas ao representar o gráfico da métrica de *tempo de resposta do servidor* . Você precisaria aplicar o filtro no *sucesso da dimensão de solicitação* . 
 

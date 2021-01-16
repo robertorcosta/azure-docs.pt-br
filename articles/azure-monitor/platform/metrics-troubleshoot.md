@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 7c3af0865282475ded0172d18aecad1dfb61721b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 5219553fe300d607212af1ef6cedf72ce6506762
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814254"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250325"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solução de problemas nos gráficos de métrica
 
@@ -48,7 +48,7 @@ Alguns recursos não emitem suas métricas constantemente. Por exemplo, o Azure 
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Todos os valores de métrica estavam fora do intervalo do eixo y bloqueado
 
-Por [bloqueio dos limites do eixo y do gráfico](metrics-charts.md#lock-boundaries-of-chart-y-axis), você acidentalmente pode fazer com que a área de exibição de gráfico não mostre a linha do gráfico. Por exemplo, se o eixo y estiver bloqueado em um intervalo entre 0% e 50% e a métrica tiver um valor constante de 100%, a linha será sempre renderizada fora da área visível, fazendo com que o gráfico apareça em branco.
+Por [bloqueio dos limites do eixo y do gráfico](metrics-charts.md#locking-the-range-of-the-y-axis), você acidentalmente pode fazer com que a área de exibição de gráfico não mostre a linha do gráfico. Por exemplo, se o eixo y estiver bloqueado em um intervalo entre 0% e 50% e a métrica tiver um valor constante de 100%, a linha será sempre renderizada fora da área visível, fazendo com que o gráfico apareça em branco.
 
 **Solução:** Verifique se os limites do eixo y do gráfico não estão bloqueados fora do intervalo dos valores de métrica. Se os limites do eixo y estiverem bloqueados, você talvez queira redefini-los temporariamente para garantir que os valores da métrica não fiquem fora do intervalo do gráfico. Bloquear o intervalo do eixo y não é recomendado com granularidade automática para que os gráficos com agregação **soma**, **mín** e **máx** porque seus valores serão alterados com granularidade redimensionando a janela do navegador ou indo de uma resolução de tela para outra. Alternar a granularidade pode deixar a área de exibição do gráfico vazia.
 

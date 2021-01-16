@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: b62621a77f383b5c6413e7c187e7ba3d60beabad
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5e608d38ff70d51b569088629a6d80cb08e74ed4
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732080"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251617"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinônimos no Azure Pesquisa Cognitiva
 
@@ -21,9 +21,9 @@ Com os mapas de sinônimos, você pode associar termos equivalentes, expandindo 
 
 ## <a name="create-synonyms"></a>Criar sinônimos
 
-Um mapa de sinônimos é um ativo que pode ser criado uma vez e usado por vários índices. A [camada de serviço](search-limits-quotas-capacity.md#synonym-limits) determina quantos mapas de sinônimos você pode criar, variando de três mapas de sinônimos para as camadas gratuita e básica, até 20 para as camadas padrão. 
+Um mapa de sinônimos é um ativo que pode ser criado uma vez e usado por vários índices. A [camada de serviço](search-limits-quotas-capacity.md#synonym-limits) determina a quantidade de mapas de sinônimos que você pode criar, variando de três mapas de sinônimos para as camadas gratuita e básica, até 20 para as camadas padrão. 
 
-Você pode criar vários mapas de sinônimos para diferentes idiomas, como versões em inglês e francês, ou léxicos, se o seu conteúdo inclui terminologia técnica ou obscura. Embora você possa criar vários mapas de sinônimos, no momento um campo só pode usar um deles.
+Você pode criar vários mapas de sinônimos para diferentes idiomas, como versões em inglês e francês, ou léxicos, se o seu conteúdo inclui terminologia técnica ou obscura. Embora você possa criar vários mapas de sinônimos em seu serviço de pesquisa, um campo pode usar apenas um deles.
 
 Um mapa de sinônimos consiste em nome, formato e regras que funcionam como entradas de mapa de sinônimos. O único formato com suporte é `solr` e o `solr` formato determina a construção da regra.
 
@@ -50,7 +50,7 @@ As regras de mapeamento aderem à especificação de filtro de sinônimos de sof
 
 Cada regra deve ser delimitada pelo caractere de nova linha ( `\n` ). Você pode definir até 5.000 regras por mapa de sinônimos em um serviço gratuito e 20.000 regras por mapa em outras camadas. Cada regra pode ter até 20 expansões (ou itens em uma regra). Para obter mais informações, consulte [os limites de sinônimo](search-limits-quotas-capacity.md#synonym-limits).
 
-Analisadores de consulta serão minúsculos quaisquer termos de maiúsculas ou minúsculas, mas se você quiser preservar caracteres especiais na cadeia de caracteres, como uma vírgula ou um traço, adicione os caracteres de escape apropriados ao criar o mapa de sinônimos. 
+Analisadores de consulta serão minúsculos quaisquer termos de maiúsculas ou minúsculas, mas se você quiser preservar caracteres especiais na cadeia de caracteres, como uma vírgula ou um traço, adicione os caracteres de escape apropriados ao criar o mapa de sinônimos.
 
 ### <a name="equivalency-rules"></a>Regras de equivalência
 
@@ -85,7 +85,7 @@ No caso explícito, uma consulta para `Washington` , `Wash.` ou `WA` será reesc
 
 ### <a name="escaping-special-characters"></a>Caracteres especiais de escape
 
-Se você precisar definir sinônimos que contenham vírgulas ou outros caracteres especiais, poderá escapar com uma barra invertida, como neste exemplo:
+Os sinônimos são analisados durante o processamento da consulta. Se você precisar definir sinônimos que contenham vírgulas ou outros caracteres especiais, poderá escapar com uma barra invertida, como neste exemplo:
 
 ```json
 {
@@ -143,11 +143,15 @@ POST /indexes?api-version=2020-06-30
 
 Adicionar sinônimos não impõe novos requisitos na construção da consulta. Você pode emitir consultas de termo e frase da mesma forma como fazia antes da adição de sinônimos. A única diferença é que, se um termo de consulta existir no mapa de sinônimos, o mecanismo de consulta expandirá ou regravará o termo ou frase, dependendo da regra.
 
-## <a name="how-synonyms-interact-with-other-features"></a>Como os sinônimos interagem com outros recursos
+## <a name="how-synonyms-are-used-during-query-execution"></a>Como os sinônimos são usados durante a execução da consulta
 
-O recurso de sinônimos regrava a consulta original com sinônimos com o operador OR. Por esse motivo, os perfis de destaque e pontuação acessados tratam o termo original e os sinônimos como equivalentes.
+Sinônimos são uma técnica de expansão de consulta que complementa o conteúdo de um índice com termos equivalentes, mas apenas para campos que têm uma atribuição de sinônimo. Se uma consulta com escopo de campo *excluir* um campo habilitado para sinônimo, você não verá as correspondências do mapa de sinônimos.
 
-Os sinônimos se aplicam apenas a consultas de pesquisa e não têm suporte para filtros, facetas, preenchimento automático ou sugestões. Preenchimento automático e sugestões são baseados apenas no termo original; as correspondências de sinônimo não aparecem na resposta.
+Para campos habilitados para sinônimos, os sinônimos estão sujeitos à mesma análise de texto que o campo associado. Por exemplo, se um campo for analisado usando o analisador Lucene padrão, os termos de sinônimo também estarão sujeitos ao analisador Lucene padrão no momento da consulta. Se você quiser preservar a pontuação, como pontos ou traços, no termo sinônimo, aplique um analisador de preservação de conteúdo no campo.
+
+Internamente, o recurso de sinônimos regrava a consulta original com sinônimos com o operador OR. Por esse motivo, os perfis de destaque e pontuação acessados tratam o termo original e os sinônimos como equivalentes.
+
+Os sinônimos se aplicam apenas a consultas de texto de forma livre e não têm suporte para filtros, facetas, preenchimento automático ou sugestões. Preenchimento automático e sugestões são baseados apenas no termo original; as correspondências de sinônimo não aparecem na resposta.
 
 Expansões de sinônimo não se aplicam a termos de pesquisa de curinga; prefixo, lógica difusa e termos de regex não são expandidos.
 

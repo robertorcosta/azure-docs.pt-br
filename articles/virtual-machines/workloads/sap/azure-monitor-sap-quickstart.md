@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0bb0a7833e9ee3b499ae013b665ecf137c667005
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968580"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250988"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Implantar Azure Monitor para soluções SAP com portal do Azure
 
@@ -59,7 +59,7 @@ Entre no portal do Microsoft Azure em https://portal.azure.com
 
 6. Insira o nome de usuário do banco de dados que você deseja usar. Verifique se o usuário do banco de dados tem as funções de leitura e de **monitoramento** de **Catálogo** atribuídas. 
 
-7. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar provedores adicionais conforme necessário ou selecione **revisar + criar** para concluir a implantação.
+7. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar mais provedores conforme necessário ou selecione **revisar + criar** para concluir a implantação.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-4.png" alt-text="Imagem de opções de configuração ao adicionar informações do provedor." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-4.png":::
 
@@ -74,9 +74,21 @@ Entre no portal do Microsoft Azure em https://portal.azure.com
  
 3. Insira a ID do sistema (SID), o nome do host e do cluster.
 
-4. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar provedores adicionais conforme necessário ou selecione **revisar + criar** para concluir a implantação.
+4. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar mais provedores conforme necessário ou selecione **revisar + criar** para concluir a implantação.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Imagem mostra opções relacionadas ao provedor de pacemaker de cluster de alta disponibilidade." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+
+
+### <a name="os-linux-provider"></a>Provedor do sistema operacional (Linux) 
+
+1. Selecione so (Linux) na lista suspensa 
+
+> [!IMPORTANT]
+> Para configurar o provedor do sistema operacional (Linux), verifique se Node_Exporter está instalado em cada instância do BareMetal. Para obter mais informações, consulte [Node_Exporter](https://github.com/prometheus/node_exporter)
+
+2. Insira um nome, que será o identificador da instância de BareMetal.
+3. Insira o ponto de extremidade do exportador de nó na forma de http://IP:9100/metrics .
+4. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar mais provedores conforme necessário ou selecione **revisar + criar**   para concluir a implantação. 
 
 
 ### <a name="microsoft-sql-server-provider"></a>Provedor do Microsoft SQL Server
@@ -112,7 +124,7 @@ Entre no portal do Microsoft Azure em https://portal.azure.com
 
 3. Preencha os campos usando as informações associadas à sua Microsoft SQL Server. 
 
-4. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar provedores adicionais conforme necessário ou selecione **revisar + criar** para concluir a implantação.
+4. Quando terminar, selecione **Adicionar provedor**. Continue a adicionar mais provedores conforme necessário ou selecione **revisar + criar** para concluir a implantação.
 
      :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-6.png" alt-text="Imagem mostra informações relacionadas à adição do provedor de Microsoft SQL Server." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-6.png":::
 

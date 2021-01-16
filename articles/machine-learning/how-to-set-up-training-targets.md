@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: ec4917aa378f746eb2caac6a7b4ce99d1c44db90
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55e618a7e4e0d21f6d4afab270e257c26fa15634
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127644"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251107"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurar e enviar execuções de treinamento
 
@@ -59,7 +59,7 @@ Ou você pode:
 * Envie uma execução de HyperDrive para [ajustar o hiperparâmetro](how-to-tune-hyperparameters.md).
 * Envie um experimento por meio da [extensão do VS Code](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model).
 
-## <a name="create-an-experiment"></a>Criar uma experiência
+## <a name="create-an-experiment"></a>Criar um experimento
 
 Crie um experimento em seu espaço de trabalho.
 
@@ -75,6 +75,9 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 Selecione o destino de computação no qual o script de treinamento será executado. Se nenhum destino de computação for especificado no ScriptRunConfig, ou se `compute_target='local'` , o Azure ml executará o script localmente. 
 
 O código de exemplo neste artigo pressupõe que você já criou um destino de computação `my_compute_target` na seção "pré-requisitos".
+
+>[!Note]
+>Não há suporte para Azure Databricks como um destino de computação para treinamento de modelo. Você pode usar Azure Databricks para tarefas de preparação e implantação de dados. 
 
 ## <a name="create-an-environment"></a>Criar um ambiente
 Os [ambientes](concept-environments.md) de Azure Machine Learning são um encapsulamento do ambiente no qual o treinamento do Machine Learning acontece. Eles especificam os pacotes do Python, a imagem do Docker, as variáveis de ambiente e as configurações de software em relação aos seus scripts de treinamento e pontuação. Eles também especificam tempos de execução (Python, Spark ou Docker).

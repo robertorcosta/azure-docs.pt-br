@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9fe0c79a2f65b27b35aa5029d0a53de62ef08078
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452493"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251651"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Banco de dados SQL do Azure e regras de firewall de IP do Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -270,7 +270,7 @@ Considere os seguintes pontos quando o acesso ao banco de dados SQL do Azure nã
 ## <a name="next-steps"></a>Próximas etapas
 
 - Confirme se seu ambiente de rede corporativa permite a comunicação de entrada dos intervalos de endereços IP de computação (incluindo intervalos SQL) que são usados pelos data centers do Azure. Talvez seja necessário adicionar esses endereços IP à lista de permissões. Consulte [Microsoft Azure intervalos de IP do datacenter](https://www.microsoft.com/download/details.aspx?id=41653).  
-- Para obter um início rápido sobre como criar uma regra de firewall de IP no nível de servidor, consulte [criar um banco de dados individual no banco de dados SQL do Azure](single-database-create-quickstart.md).
+- Consulte nosso início rápido sobre como [criar um banco de dados individual no banco de dados SQL do Azure](single-database-create-quickstart.md).
 - Para obter ajuda com a conexão a um banco de dados no banco de dados SQL do Azure de aplicativos de software livre ou de terceiros, consulte [exemplos de código de início rápido do cliente para banco de dados SQL do Azure](connect-query-content-reference-guide.md#libraries).
 - Para obter informações sobre portas adicionais que talvez precisem ser abertas, consulte a seção "banco de dados SQL: fora vs." de [portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](adonet-v12-develop-direct-route-ports.md)
 - Para obter uma visão geral da segurança do banco de dados SQL do Azure, consulte [protegendo seu banco de dados](security-overview.md).

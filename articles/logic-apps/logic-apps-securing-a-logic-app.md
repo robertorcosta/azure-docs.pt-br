@@ -3,15 +3,15 @@ title: Proteger o acesso e os dados
 description: Acesso seguro a entradas, saídas, gatilhos baseados em solicitação, histórico de execuções, tarefas de gerenciamento e acesso a outros recursos nos Aplicativos Lógicos do Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: rarayudu, logicappspm
+ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 5ad01e31cb9af18fa018d99424b25dee338981d7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.date: 01/15/2021
+ms.openlocfilehash: c889498d6341875682055e9d67b8d2b958bac70a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034502"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251056"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -911,6 +911,10 @@ Os pontos de extremidade HTTP e HTTPS dão suporte a vários tipos de autentica�
 > Para proteger informações confidenciais que seu aplicativo lógico manipula, use parâmetros protegidos e codifique os dados conforme necessário.
 > Para obter mais informações sobre como usar e proteger parâmetros, confira [Acesso a entradas de parâmetro](#secure-action-parameters).
 
+<a name="authentication-types-supported-triggers-actions"></a>
+
+#### <a name="authentication-types-for-triggers-and-actions-that-support-authentication"></a>Tipos de autenticação para gatilhos e ações que dão suporte à autenticação
+
 Esta tabela identifica os tipos de autenticação que estão disponíveis nos gatilhos e ações em que você pode selecionar um tipo de autenticação:
 
 | Tipo de autenticação | Gatilhos e ações com suporte |
@@ -919,12 +923,12 @@ Esta tabela identifica os tipos de autenticação que estão disponíveis nos ga
 | [Certificado do Cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth do Active Directory](#azure-active-directory-oauth-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Bruta](#raw-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
-| [Identidade gerenciada](#managed-identity-authentication) | Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, webhook HTTP |
+| [Identidade gerenciada](#managed-identity-authentication) | **Gatilhos e ações internas** <p><p>Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, webhook HTTP <p><p>**Conectores gerenciados** <p><p>Azure AD Identity Protection, automação do Azure, instância de contêiner do Azure, Data Explorer do Azure, Azure Data Factory, Azure Data Lake, grade de eventos do Azure, Azure IoT Central v3, Azure Key Vault, Log Analytics do Azure, logs de Azure Monitor, Azure Resource Manager, Azure Sentinel, HTTP com o Azure AD <p><p>**Observação**: o suporte para conectores gerenciados está atualmente em visualização. |
 |||
 
 <a name="basic-authentication"></a>
 
-### <a name="basic-authentication"></a>Autenticação Básica
+#### <a name="basic-authentication"></a>Autenticação Básica
 
 Se a opção [Básica](../active-directory-b2c/secure-rest-api.md) estiver disponível, especifique estes valores de propriedade:
 
@@ -955,7 +959,7 @@ Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipu
 
 <a name="client-certificate-authentication"></a>
 
-### <a name="client-certificate-authentication"></a>Autenticação de certificado do cliente
+#### <a name="client-certificate-authentication"></a>Autenticação de certificado do cliente
 
 Se a opção [Certificado do Cliente](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) estiver disponível, especifique estes valores de propriedade:
 
@@ -994,7 +998,7 @@ Para mais informações sobre como proteger serviços usando a autenticação de
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### <a name="azure-active-directory-open-authentication"></a>Autenticação do Azure Active Directory
+#### <a name="azure-active-directory-open-authentication"></a>Autenticação do Azure Active Directory
 
 Em gatilhos de solicitação, você pode usar [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml)para autenticar chamadas de entrada depois de [configurar as políticas de autorização do Azure ad](#enable-oauth) para seu aplicativo lógico. Para todos os outros gatilhos e ações que fornecem o tipo de autenticação **OAuth do Active Directory** como opção, especifique estes valores de propriedade:
 
@@ -1034,7 +1038,7 @@ Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipu
 
 <a name="raw-authentication"></a>
 
-### <a name="raw-authentication"></a>Autenticação bruta
+#### <a name="raw-authentication"></a>Autenticação bruta
 
 Se a opção **Bruta** estiver disponível, você poderá usar esse tipo de autenticação quando tiver que usar [esquemas de autenticação](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) que não seguem o [protocolo OAuth 2.0](https://oauth.net/2/). Com esse tipo, você cria manualmente o valor do cabeçalho de autorização enviado com a solicitação de saída e especifica esse valor de cabeçalho em seu gatilho ou ação.
 
@@ -1077,15 +1081,17 @@ Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipu
 
 <a name="managed-identity-authentication"></a>
 
-### <a name="managed-identity-authentication"></a>Autenticação de identidade gerenciada
+#### <a name="managed-identity-authentication"></a>Autenticação de identidade gerenciada
 
-Se a opção de [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) estiver disponível em um [gatilho ou ação específica](#add-authentication-outbound), seu aplicativo lógico poderá usar a identidade atribuída pelo sistema ou uma *única* identidade atribuída pelo usuário criada manualmente para autenticar o acesso a outros recursos protegidos pelo Azure Active Directory (AD do Azure) sem entrar. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais, pois você não precisa fornecer ou trocar segredos. Saiba mais sobre [serviços do Azure que dão suporte a identidades gerenciadas para a autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Quando a opção de [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) está disponível no [gatilho ou na ação que dá suporte à autenticação de identidade gerenciada](#add-authentication-outbound), seu aplicativo lógico pode usar a identidade atribuída pelo sistema ou uma *única* identidade atribuída pelo usuário criada manualmente para autenticar o acesso aos recursos do Azure protegidos pelo Azure Active Directory (AD do Azure), em vez de credenciais, segredos ou tokens do Azure AD. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais porque você não tem os segredos de gerenciamento ou usam diretamente tokens do Azure AD. Saiba mais sobre [serviços do Azure que dão suporte a identidades gerenciadas para a autenticação do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Antes que seu aplicativo lógico possa usar uma identidade gerenciada, siga as etapas em [Autenticar o acesso aos recursos do Azure usando identidades gerenciadas nos Aplicativos Lógicos do Azure](../logic-apps/create-managed-service-identity.md). Essas etapas habilitam a identidade gerenciada em seu aplicativo lógico e configuram o acesso da identidade ao recurso de destino do Azure.
 
 1. Antes que uma função do Azure possa usar uma identidade gerenciada, primeiro [habilite a autenticação para as funções do Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
 
-1. No gatilho ou na ação em que você deseja usar a identidade gerenciada, especifique estes valores de propriedade:
+1. No gatilho ou ação que dá suporte ao uso de uma identidade gerenciada, forneça estas informações:
+
+   **Gatilhos e ações internas**
 
    | Propriedade (designer) | Propriedade (JSON) | Obrigatório | Valor | Descrição |
    |---------------------|-----------------|----------|-------|-------------|
@@ -1094,7 +1100,7 @@ Se a opção de [identidade gerenciada](../active-directory/managed-identities-a
    | **Público-alvo** | `audience` | Sim | <*ID do recurso de destino*> | A ID do recurso de destino que você deseja acessar. <p>Por exemplo, `https://storage.azure.com/` cria os [tokens de acesso](../active-directory/develop/access-tokens.md) para autenticação válidos em todas as contas de armazenamento. No entanto, você também pode especificar uma URL de serviço raiz, como `https://fabrikamstorageaccount.blob.core.windows.net` para uma conta de armazenamento específica. <p>**Observação**: A propriedade **Público** pode estar oculta em alguns gatilhos ou ações. Para tornar essa propriedade visível, no gatilho ou na ação, abra a lista **Adicionar novo parâmetro** e selecione **Público**. <p><p>**Importante**: Verifique se essa ID de recurso de destino *corresponde exatamente* ao valor que o Azure AD espera, incluindo quaisquer barras à direita necessárias. Portanto, a ID de recurso `https://storage.azure.com/` para todas as contas de armazenamento de BLOBs do Azure requer uma barra à direita. No entanto, a ID de recurso para uma conta de armazenamento específica não requer esse tipo de barra. Para encontrar essas IDs de recurso, confira [Serviços do Azure que dão suporte ao Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
-   Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo do Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em runtime. Este exemplo de definição de ação HTTP especifica o `type` da autenticação como `ManagedServiceIdentity` e usa a [função parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
+   Quando você usa [parâmetros protegidos](#secure-action-parameters) para manipular e proteger informações confidenciais, por exemplo, em um [modelo do Azure Resource Manager para automatizar a implantação](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), você pode usar expressões para acessar esses valores de parâmetro em runtime. Por exemplo, essa definição de ação HTTP especifica a autenticação `type` como `ManagedServiceIdentity` e usa a [função Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) para obter os valores de parâmetro:
 
    ```json
    "HTTP": {
@@ -1111,6 +1117,15 @@ Se a opção de [identidade gerenciada](../active-directory/managed-identities-a
       "runAfter": {}
    }
    ```
+
+   **Gatilhos e ações de conector gerenciado**
+
+   | Propriedade (designer) | Obrigatório | Valor | Descrição |
+   |---------------------|----------|-------|-------------|
+   | **Nome da conexão** | Yes | <*nome da conexão*> ||
+   | **Identidade gerenciada** | Yes | **Identidade gerenciada atribuída pelo sistema** <br>ou <br> <*nome-de-identidade gerenciado pelo usuário*> | O tipo de autenticação a ser usado |
+   |||||
+
 
 <a name="block-connections"></a>
 

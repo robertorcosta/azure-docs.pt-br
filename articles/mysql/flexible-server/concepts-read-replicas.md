@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.openlocfilehash: ccae7b3f201e55af0e9e6b4ca9e7fd4ffb9c4897
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fa7cc9b9a09bfd2bc503640272b5e7ac3a0a7b58
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200967"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251294"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Ler réplicas no banco de dados do Azure para MySQL-servidor flexível
 
@@ -29,9 +29,7 @@ Réplicas são novos servidores que você gerencia de forma semelhante ao banco 
 Para saber mais sobre recursos e problemas de replicação do MySQL, consulte a [documentação de replicação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> Comunicação livre de desvio
->
-> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências às palavras _mestre_ e _subordinado_. O guia de estilo da Microsoft [para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como palavras de exclusão. As palavras são usadas neste artigo para fins de consistência porque atualmente são as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar em alinhamento.
+> Este artigo contém referências ao termo _subordinado_, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>Casos de uso comuns para réplica de leitura
@@ -75,7 +73,7 @@ No prompt, insira a senha da conta de usuário.
 
 ## <a name="monitor-replication"></a>Monitorar a replicação
 
-O banco de dados do Azure para MySQL servidor flexível fornece a métrica **atraso de replicação em segundos** no Azure monitor. Essa métrica está disponível apenas para réplicas. Essa métrica é calculada com o uso da métrica `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL. Defina um alerta para informá-lo quando o retardo da replicação atinge um valor que não é aceitável para sua carga de trabalho.
+O banco de dados do Azure para MySQL servidor flexível fornece a métrica **atraso de replicação em segundos** no Azure monitor. Essa métrica está disponível apenas para réplicas. Essa métrica é calculada com o uso da métrica `seconds_behind_master` disponível no comando `SHOW SLAVE STATUS` do MySQL. Defina um alerta para informá-lo quando o retardo de replicação atingir um valor que não é aceitável para sua carga de trabalho.
 
 Se você vir maior atraso de replicação, consulte [Solucionando problemas de latência de replicação](./../howto-troubleshoot-replication-latency.md) para solucionar problemas e entender as possíveis causas.
 

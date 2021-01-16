@@ -4,12 +4,12 @@ description: Obtenha uma visão geral do que você pode fazer com alertas de mé
 ms.date: 01/13/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: d8e0621f88455a68ad0ee1b236f6b423c9d54b52
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ab80496784b5d86d270830546cec73aadbcc50a6
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179887"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251226"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -26,7 +26,7 @@ Digamos que você tenha criado uma regra de alerta de métrica simples com limit
 - Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
 - Métrica: porcentagem de CPU
 - Tipo de condição: estático
-- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As [agregações de tempo com suporte](metrics-charts.md#changing-aggregation) são mín., máx., média, total, contagem): média
+- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As [agregações de tempo com suporte](metrics-charts.md#aggregation) são mín., máx., média, total, contagem): média
 - Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
 - Operador: maior que
@@ -43,7 +43,7 @@ Digamos que você tenha criado uma regra de alerta de métrica simples com limit
 - Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
 - Métrica: porcentagem de CPU
 - Tipo de condição: dinâmica
-- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As [agregações de tempo com suporte](metrics-charts.md#changing-aggregation) são mín., máx., média, total, contagem): média
+- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As [agregações de tempo com suporte](metrics-charts.md#aggregation) são mín., máx., média, total, contagem): média
 - Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
 - Operador: maior que
@@ -139,7 +139,7 @@ Até agora, você viu como um único alerta de métrica pode ser usado para moni
 
 No momento, esse recurso tem suporte para métricas de plataforma (não métricas personalizadas) para os seguintes serviços nas seguintes nuvens do Azure:
 
-| Serviço | Azure público | Governamental | China |
+| Serviço | Azure público | Governo | China |
 |:--------|:--------|:--------|:--------|
 | Máquinas virtuais<sup>1</sup>  | **Sim** | **Sim** | Não |
 | Bancos de dados do SQL Server | **Sim** | **Sim** | **Sim** |
@@ -180,7 +180,7 @@ Você pode encontrar a lista completa dos tipos de recursos com suporte neste [a
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba como criar, exibir e gerenciar alertas de métrica no Azure](alerts-metric.md)
-- [Saiba como criar alertas no Azure Agent Metrics Explorer](./metrics-charts.md#create-alert-rules)
+- [Saiba como criar alertas no Azure Agent Metrics Explorer](./metrics-charts.md#alert-rules)
 - [Saiba como criar alertas de métrica usando modelos do Azure Resource Manager](./alerts-metric-create-templates.md)
 - [Saiba mais sobre grupos de ação](action-groups.md)
 - [Saiba mais sobre o tipo de condição de Limites Dinâmicos](alerts-dynamic-thresholds.md)

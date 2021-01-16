@@ -1,14 +1,14 @@
 ---
 title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
-ms.date: 11/18/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3023991c76d94dc8aa87cfe950c18ab5d6a07ba9
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: f94023d47153dc64ca78e0386edd87a9821515be
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883054"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251719"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -26,17 +26,20 @@ Este artigo aborda os componentes de linguagem com suporte no Resource Graph:
 
 O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre Azure Resource Manager tipos de recursos e suas propriedades. Algumas tabelas podem ser usadas com `join` `union` operadores or para obter propriedades de tipos de recursos relacionados. Esta é a lista de tabelas disponíveis no Resource Graph:
 
-|Tabela de gráfico de recursos |Pode `join` ? |Descrição |
+|Tabela de gráfico de recursos |`join`Outras tabelas podem ser? |Descrição |
 |---|---|
-|Recursos |Sim |A tabela padrão se nenhuma tabela for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
-|ResourceContainers |Sim |Inclui os tipos de recursos e dados da assinatura (em versão prévia -- `Microsoft.Resources/subscriptions`) e do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
-|AdvisorResources |Não |Inclui recursos _relacionados_ ao `Microsoft.Advisor`. |
-|AlertsManagementResources |Não |Inclui recursos _relacionados_ ao `Microsoft.AlertsManagement`. |
-|GuestConfigurationResources |Não |Inclui recursos _relacionados_ ao `Microsoft.GuestConfiguration`. |
-|MaintenanceResources |Não |Inclui recursos _relacionados_ ao `Microsoft.Maintenance`. |
-|PolicyResources |Não |Inclui recursos _relacionados_ ao `Microsoft.PolicyInsights`. (**Visualização**)|
-|SecurityResources |Não |Inclui recursos _relacionados_ ao `Microsoft.Security`. |
-|ServiceHealthResources |Não |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
+|Recursos |Yes |A tabela padrão se nenhuma tabela for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
+|ResourceContainers |Yes |Inclui os tipos de recursos e dados da assinatura (em versão prévia -- `Microsoft.Resources/subscriptions`) e do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|AdvisorResources |Sim (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.Advisor`. |
+|AlertsManagementResources |Sim (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |No |Inclui recursos _relacionados_ ao `Microsoft.GuestConfiguration`. |
+|MaintenanceResources |Parcial _, junção somente_ . (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.Maintenance`. |
+|PatchAssessmentResources|No |Inclui recursos _relacionados_ à avaliação de patch de máquinas virtuais do Azure. |
+|PatchInstallationResources|No |Inclui recursos _relacionados_ à instalação de patch de máquinas virtuais do Azure. |
+|PolicyResources |No |Inclui recursos _relacionados_ ao `Microsoft.PolicyInsights`. (**Visualização**)|
+|RecoveryServicesResources |Parcial _, junção somente_ . (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.DataProtection` e ao `Microsoft.RecoveryServices` . |
+|SecurityResources |Parcial _, junção somente_ . (versão prévia) |Inclui recursos _relacionados_ ao `Microsoft.Security`. |
+|ServiceHealthResources |No |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
 
 Para obter uma lista completa, incluindo os tipos de recursos, veja a Referência de [: tabelas e tipos de recursos com suporte](../reference/supported-tables-resources.md).
 
@@ -45,7 +48,7 @@ Para obter uma lista completa, incluindo os tipos de recursos, veja a Referênci
 
 Use o Explorer do Resource Graph no portal para descobrir quais os tipos de recursos que estão disponíveis em cada tabela. Como alternativa, use uma consulta como `<tableName> | distinct type` para obter uma lista dos tipos de recursos que a tabela do Resource Graph fornecida dá suporte e que existem em seu ambiente.
 
-A consulta a seguir mostra uma consulta `join` simples. O resultado da consulta combina as colunas e quaisquer nomes de coluna duplicados da tabela unida, _ResourceContainers_ neste exemplo, são seguidos do número **1**. Como a tabela _ResourceContainers_ possui tipos para assinaturas e grupos de recursos, qualquer tipo pode ser usado para união com o recurso da tabela _Resources_.
+A consulta a seguir mostra uma consulta `join` simples. O resultado da consulta combina as colunas e quaisquer nomes de coluna duplicados da tabela unida, _ResourceContainers_ neste exemplo, são seguidos do número **1**. Como a tabela _ResourceContainers_ tem tipos para assinaturas e grupos de recursos, qualquer tipo pode ser usado para ingressar no recurso da tabela de _recursos_ .
 
 ```kusto
 Resources
@@ -53,13 +56,14 @@ Resources
 | limit 1
 ```
 
-A consulta a seguir mostra um uso mais complexo da consulta `join`. A consulta limita a tabela ingressada aos recursos de assinaturas e com `project` para incluir apenas o campo original _subscriptionId_ e o campo _name_ renomeado para _SubName_. A renomeação do campo evita que `join` o adicione como _name1_, uma vez que o campo já existe em _Resources_. A tabela original é filtrada com `where` e o `project` a seguir inclui colunas das duas tabelas. O resultado da consulta é um cofre de chaves único exibindo o tipo, o nome do cofre de chaves e o nome da assinatura em que ele está.
+A consulta a seguir mostra um uso mais complexo da consulta `join`. Primeiro, a consulta usa `project` para obter os campos de _recursos_ para o tipo de recurso de cofres Azure Key Vault. A próxima etapa usa `join` para mesclar os resultados com _ResourceContainers_ , em que o tipo é uma assinatura _em_ uma propriedade que está tanto na primeira tabela `project` quanto na tabela unida `project` . A renomeação de campo evita `join` adicioná-lo como _Nome1_ , pois a propriedade já está projetada a partir de _recursos_. O resultado da consulta é um único cofre de chaves que exibe o tipo, o nome, o local e o grupo de recursos do cofre de chaves, junto com o nome da assinatura em que ele está.
 
 ```kusto
 Resources
 | where type == 'microsoft.keyvault/vaults'
+| project name, type, location, subscriptionId, resourceGroup
 | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
-| project type, name, SubName
+| project type, name, location, resourceGroup, SubName
 | limit 1
 ```
 
@@ -125,7 +129,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 |[contagem](/azure/kusto/query/countoperator) |[Contar cofres de chaves](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrar recursos que contêm o armazenamento](../samples/starter.md#show-storage) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contagem de máquinas virtuais por tipo de sistema operacional](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de união com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Há um limite de 3 `join` em uma única consulta. Estratégias de união personalizadas, como união difundida, não são permitidas. Para as tabelas que podem ser usadas `join` , consulte [tabelas de gráfico de recursos](#resource-graph-tables). |
+|[join](/azure/kusto/query/joinoperator) |[Cofre de chaves com o nome da assinatura](../samples/advanced.md#join) |Tipos de união com suporte: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` em uma única consulta, 1 de que pode ser uma tabela cruzada `join` . Se todo o uso de tabela cruzada `join` estiver entre o _recurso_ e o _ResourceContainers_, 3 tabelas cruzadas `join` serão permitidas. Estratégias de união personalizadas, como união difundida, não são permitidas. Para as tabelas que podem ser usadas `join` , consulte [tabelas de gráfico de recursos](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[Listar todos os endereços de IP](../samples/starter.md#list-publicip) |Sinônimo de `take` . Não funciona com [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operador herdado, use `mv-expand` como substituto. _RowLimit_ com limite máximo de 400. O padrão é 128. |
 |[mv-expand](/azure/kusto/query/mvexpandoperator) |[Listar Cosmos DB com locais de gravação específicos](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ com limite máximo de 400. O padrão é 128. |

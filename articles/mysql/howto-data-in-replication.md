@@ -6,21 +6,19 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: f7103a83d115f30367cc07ff4e1ea64a9cc617b9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199539"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250525"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
 Este artigo descreve como configurar [replicação de dados](concepts-data-in-replication.md) no banco de dados do Azure para MySQL Configurando os servidores de origem e de réplica. Este artigo pressupõe que você tenha alguma experiência anterior com servidores e bancos de dados MySQL.
 
 > [!NOTE]
-> Comunicação livre de desvio
->
-> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências às palavras _mestre_ e _subordinado_. O guia de estilo da Microsoft [para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como palavras de exclusão. As palavras são usadas neste artigo para fins de consistência porque atualmente são as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar em alinhamento.
+> Este artigo contém referências ao termo _subordinado_, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 >
 
 Para criar uma réplica no serviço de banco de dados do Azure para MySQL, [replicação de dados](concepts-data-in-replication.md)  sincroniza dados de um servidor MySQL de origem local, em VMS (máquinas virtuais) ou em serviços de banco de dados de nuvem. A Replicação nos dados se baseia na replicação nativa baseada na posição do arquivo de log binário (binlog) para o MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).

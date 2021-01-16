@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 872a67d8d9f41c0c809df54304352b2a5f58e011
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621069"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251753"
 ---
 # <a name="required-url-list"></a>Lista de URLs necessárias
 
@@ -32,6 +32,7 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 |* xt.blob.core.windows.net|443|Tráfego de agente|AzureCloud|
 |* eh.servicebus.windows.net|443|Tráfego de agente|AzureCloud|
 |* xt.table.core.windows.net|443|Tráfego de agente|AzureCloud|
+|* xt.queue.core.windows.net|443|Tráfego de agente|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações do agente e da pilha de SXS|AzureCloud|

@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: c48a7f4b5b1512ec5bcd289e4fb8bd7884ca7394
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922555"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250801"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)
 
@@ -102,6 +102,8 @@ Os seguintes recursos do NFS 3,0 ainda não têm suporte com o Azure Data Lake S
 - Listando montagens (por exemplo: usando o comando `showmount -a` )
 
 - Listando exportações (por exemplo: usando o comando `showmount -e` )
+
+- Link físico
 
 - Exportando um contêiner como somente leitura
 

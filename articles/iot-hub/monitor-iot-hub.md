@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 11/06/2020
-ms.openlocfilehash: 2fabf75f74ccf57f57e7b47720ceda8885420842
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 35134f3ee4946d294ba6c6f71bd3953823d6d138
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460911"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250021"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorando o Hub IoT do Azure
 
@@ -87,7 +87,7 @@ Para obter uma lista das métricas de plataforma coletadas para o Hub IoT do Azu
 
 Para métricas da plataforma do Hub IoT que são coletadas em unidades de contagem, algumas agregações podem não estar disponíveis ou utilizáveis. Para saber mais, consulte [agregações com suporte na referência de dados de monitoramento do Hub IOT do Azure](monitor-iot-hub-reference.md#supported-aggregations).
 
-Algumas métricas do Hub IoT, como [métricas de roteamento](monitor-iot-hub-reference.md#routing-metrics), são multidimensionais. Para essas métricas, você pode aplicar [filtros](../azure-monitor/platform/metrics-charts.md#apply-filters-to-charts) e [divisão](../azure-monitor/platform/metrics-charts.md#apply-splitting-to-a-chart) para seus gráficos com base em uma dimensão.
+Algumas métricas do Hub IoT, como [métricas de roteamento](monitor-iot-hub-reference.md#routing-metrics), são multidimensionais. Para essas métricas, você pode aplicar [filtros](../azure-monitor/platform/metrics-charts.md#filters) e [divisão](../azure-monitor/platform/metrics-charts.md#apply-splitting) para seus gráficos com base em uma dimensão.
 
 ## <a name="analyzing-logs"></a>Análise de logs
 

@@ -4,12 +4,12 @@ description: Monitorar aplicativos web ASP.NET Core de disponibilidade, desempen
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 2921c6379b34e002013b5f0087cefd502ab0ab84
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2f17f4fbed196932ad7a5680338c459740e4d3bd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904526"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249101"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicativos ASP.NET Core
 
@@ -53,7 +53,7 @@ Por Visual Studio para Mac use as [diretrizes manuais](#enable-application-insig
 
 3. Selecione **Introdução**. O texto dessa seleção pode variar, dependendo da sua versão do Visual Studio. Em vez disso, algumas versões anteriores usam um botão **Iniciar gratuito** .
 
-4. Selecione sua assinatura. Em seguida, selecione registro de **recursos**  >  **Register**.
+4. Selecione sua assinatura. Em seguida, selecione registro de **recursos**  >  .
 
 5. Depois de adicionar Application Insights ao seu projeto, verifique se você está usando a versão estável mais recente do SDK. Vá para **projeto**  >  **gerenciar pacotes NuGet**  >  **Microsoft. ApplicationInsights. AspNetCore**. Se necessário, escolha **Atualizar**.
 
@@ -69,7 +69,7 @@ Por Visual Studio para Mac use as [diretrizes manuais](#enable-application-insig
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.16.0" />
         </ItemGroup>
     ```
 
@@ -128,7 +128,7 @@ Por Visual Studio para Mac use as [diretrizes manuais](#enable-application-insig
 Se você quiser armazenar a chave de instrumentação em ASP.NET Core segredos de usuário ou recuperá-lo de outro provedor de configuração, poderá usar a sobrecarga com um `Microsoft.Extensions.Configuration.IConfiguration` parâmetro. Por exemplo, `services.AddApplicationInsightsTelemetry(Configuration);`.
 A partir do Microsoft. ApplicationInsights. AspNetCore versão [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` a chamada lerá automaticamente a chave de instrumentação do `Microsoft.Extensions.Configuration.IConfiguration` aplicativo. Não é necessário fornecer explicitamente o `IConfiguration` .
 
-## <a name="run-your-application"></a>Executar seu aplicativo
+## <a name="run-your-application"></a>Execute seu aplicativo.
 
 Execute seu aplicativo e faça solicitações a ele. A telemetria agora deve fluir para Application Insights. O SDK do Application Insights coleta automaticamente as solicitações da Web de entrada para seu aplicativo, juntamente com a telemetria a seguir também.
 
@@ -232,7 +232,7 @@ Consulte as [configurações configuráveis `ApplicationInsightsServiceOptions` 
 
 ### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150--above"></a>Recomendação de configuração para Microsoft. ApplicationInsights. AspNetCore SDK 2.15.0 & acima
 
-A partir do Microsoft. ApplicationInsights. AspNetCore SDK versão [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) a recomendação é definir todas as configurações disponíveis no `ApplicationInsightsServiceOptions` , incluindo instrumentationkey usando a instância de aplicativos `IConfiguration` . As configurações devem estar na seção "ApplicationInsights", conforme mostrado no exemplo abaixo. A seção a seguir de appsettings.jsem configura a chave de instrumentação e também desabilita a amostragem adaptável e a coleta do contador de desempenho.
+A partir do Microsoft. ApplicationInsights. AspNetCore SDK versão [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0), a recomendação é definir todas as configurações disponíveis no `ApplicationInsightsServiceOptions` , incluindo instrumentationkey usando a instância de aplicativos `IConfiguration` . As configurações devem estar na seção "ApplicationInsights", conforme mostrado no exemplo a seguir. A seção a seguir de appsettings.jsem configura a chave de instrumentação e também desabilita a amostragem adaptável e a coleta do contador de desempenho.
 
 ```json
 {

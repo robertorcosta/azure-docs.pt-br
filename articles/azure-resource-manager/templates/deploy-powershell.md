@@ -2,13 +2,13 @@
 title: Implantar recursos com o PowerShell e o modelo
 description: Use Azure Resource Manager e Azure PowerShell para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 40ee659f5892c983f84409a10634c6a8d6d78cc5
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.date: 01/15/2021
+ms.openlocfilehash: d895c6e029b0b4a70333dde987706549609c8bd3
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028482"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251005"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implantar recursos com modelos do Resource Manager e o Azure PowerShell
 
@@ -135,7 +135,7 @@ Para evitar conflitos com implantações simultâneas e para garantir entradas e
 
 Em vez de implantar um modelo local ou remoto, você pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso em sua assinatura do Azure que contém um modelo do ARM. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Use o controle de acesso baseado em função do Azure (RBAC do Azure) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
 
-Os exemplos a seguir mostram como criar e implantar uma especificação de modelo. Esses comandos só estarão disponíveis se você tiver se [inscrito na versão prévia](https://aka.ms/templateSpecOnboarding).
+Os exemplos a seguir mostram como criar e implantar uma especificação de modelo.
 
 Primeiro, crie a especificação do modelo fornecendo o modelo ARM.
 

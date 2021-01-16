@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 61bd23c74fd7960317dff17175b355b473cd6dc7
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 921c05b76640935a1bd9e65d556933c23093e5b2
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233824"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251430"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -23,19 +23,6 @@ Este artigo explica as mensagens de erro comuns durante a publicação de imagen
 > [!NOTE]
 > Se você tiver dúvidas sobre este artigo ou sugestões de aprimoramento, entre em contato com o [suporte do Partner Center](https://aka.ms/marketplacepublishersupport).
 
-## <a name="approved-base-image"></a>Imagem de base aprovada
-
-Quando você envia uma solicitação para republicar a imagem com atualizações, o caso de teste de verificação de número de peça pode falhar. Se falhar, a imagem não será aprovada.
-
-Essa falha ocorre quando você usa uma imagem base que pertence a outro Publicador e você atualizou a imagem. Nessa situação, você não terá permissão para publicar sua imagem.
-
-Para corrigir esse problema, recupere a imagem do Azure Marketplace e faça alterações nela. Para obter mais informações, consulte os seguintes artigos:
-
-- [Imagens do Linux](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Imagens do Windows](azure-vm-create-using-approved-base.md)
-
-> [!Note]
-> Se você estiver usando uma imagem base do Linux não obtida do Azure Marketplace, verifique se os primeiros 2048 setores (cada setor tem de 512 bytes) no VHD estão vazios para que o Azure prossiga com a publicação da sua VM no Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Falha na extensão da VM
 
@@ -46,7 +33,7 @@ Para habilitar extensões de VM:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    ![Captura de tela que exibe como habilitar o monitoramento em nível de convidado.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
@@ -68,7 +55,7 @@ Verifique se você seguiu rigorosamente o processo de provisionamento da VM ante
 
 Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 
-|Cenário|Erro do|Motivo|Solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
 |1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD estiver incorreto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
 |2|Tipo de blob inválido|Falha no provisionamento da VM porque o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
@@ -170,7 +157,7 @@ Consulte a tabela a seguir para ver os erros comuns que podem ser exibidos duran
 A tabela a seguir lista os casos de teste do Windows que o kit de ferramentas executará, juntamente com uma descrição da validação do teste:
 
 |Cenário |Casos de teste|Descrição|
-|---|---|---|---|
+|---|---|---|
 |1|Arquitetura do SO|O Azure dá suporte apenas a sistemas operacionais de 64 bits.|
 |2|Dependência da conta de usuário|A execução do aplicativo não deve ser dependente da conta de administrador.|
 |3|Cluster de failover|Ainda não há suporte para o recurso Windows Server failover clustering. O aplicativo não deve depender desse recurso.|
@@ -250,7 +237,7 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 |Família de sistema operacional|Versão|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
-||14.04 LTS|4.15.0-1049-*-Azure|
+||14.04 LTS|4.15.0-1049- \* -Azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
@@ -283,9 +270,9 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 |Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK segue RHEL acima|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
-|CoreOS 2079.6.0 estável|4.19.43*|
-||2135.3.1 beta|4.19.50*|
-||2163.2.1 Alfa|4.19.50*|
+|CoreOS 2079.6.0 estável|4.19.43\*|
+||2135.3.1 beta|4.19.50\*|
+||2163.2.1 Alfa|4.19.50\*|
 |Debian|Jessie (segurança)|3.16.68-2|
 ||Jessie backports|4.9.168-1 + deb9u3|
 ||Stretch (segurança)|4.9.168-1 + deb9u3|
@@ -319,7 +306,7 @@ Para enviar sua solicitação com a imagem de SSH desabilitada para o processo d
     
 Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM com uma URL de assinatura de acesso compartilhado (SAS).
 
-|Cenário|Erro do|Motivo|Solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
 |1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
 |2|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa com uma URL SAS.|
@@ -328,14 +315,11 @@ Consulte a tabela a seguir para obter os problemas que surgirem quando você bai
 |6|Cabeçalho condicional HTTP|A URL SAS é inválida.|Obtenha a URL SAS correta.|
 |7|Nome de VHD inválido|Verifique se há algum caractere especial, como um sinal de porcentagem `%` ou aspas `"` , no nome do VHD.|Renomeie o arquivo VHD removendo os caracteres especiais.|
 
-## <a name="first-1mb-2048-sectors-each-sector-of-512-bytes-partition-linux-only"></a>Primeiro 1MB (2048 setores, cada setor de 512 bytes) partição (somente Linux)
+## <a name="first-1-mb-partition-2048-sectors-each-sector-of-512-bytes"></a>Primeira partição de 1 MB (2.048 setores, cada setor de 512 bytes)
 
-Ao enviar o VHD, verifique se os primeiros 2048 setores (1MB) do VHD estão vazios. Caso contrário, a solicitação falhará. Observe que isso será aplicável ao disco de inicialização/sistema operacional e não aos discos de dados adicionais.
+Se você estiver [criando sua própria imagem](azure-vm-create-using-own-image.md), verifique se os primeiros 2.048 setores (1 MB) do disco do sistema operacional estão vazios. Caso contrário, a publicação falhará. Esse requisito é aplicável somente ao disco do sistema operacional (não aos discos de dados). Se você estiver criando a imagem [de uma base aprovada](azure-vm-create-using-approved-base.md), poderá ignorar esse requisito. 
 
->[!NOTE]
->Para determinadas imagens especiais, como aquelas criadas sobre as imagens base do Azure Windows tiradas do Azure Marketplace ou verifique se os primeiros 1MB (2048 setores) do VHD estão vazios. 
-
-### <a name="create-a-first-1mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Criar um primeiro 1 MB (2048 setores, cada setor de 512 bytes) de partição em um VHD vazio
+### <a name="create-a-1-mb-partition-2048-sectors-each-sector-of-512-bytes-on-an-empty-vhd-linux-only-steps"></a>Criar uma partição de 1 MB (2.048 setores, cada setor de 512 bytes) em um VHD vazio (etapas somente do Linux)
 
 Essas etapas se aplicam apenas ao Linux.
 
@@ -400,7 +384,7 @@ Essas etapas se aplicam apenas ao Linux.
 
 1. Desanexe o VHD da VM e exclua a VM.
 
-### <a name="create-a-first-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Criar uma partição dos primeiros MB (2048 setores, cada setor de 512 bytes) movendo os dados existentes no VHD
+### <a name="create-a-first-1-mb-partition-2048-sectors-each-sector-of-512-bytes-by-moving-existing-data-on-vhd"></a>Criar uma primeira partição de 1 MB (2.048 setores, cada setor de 512 bytes) movendo os dados existentes no VHD
 
 Essas etapas se aplicam apenas ao Linux.
 
@@ -480,7 +464,7 @@ Se todas as imagens obtidas do Azure Marketplace forem reutilizadas, o VHD do si
 
 Para obter soluções para erros relacionados ao disco de dados, use a seguinte tabela:
 
-|Erro do|Motivo|Solução|
+|Erro|Motivo|Solução|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Esse erro pode ocorrer devido a um número de unidade lógica (LUN) inválido quando a oferta é enviada.|Verifique se a sequência de números de LUN para o disco de dados está no Partner Center.|
 |`DataDisk- NotFound:`|Esse erro pode ocorrer porque um disco de dados não está localizado em uma URL SAS especificada.|Verifique se o disco de dados está localizado na URL SAS especificada.|

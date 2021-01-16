@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: adec2a85373d33d08fe9aa16895d03229e40f475
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 886db905008af94b66a902cc551e4d55b36572a8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825829"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250121"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Gatilho da Grade de Eventos do Azure para o Azure Functions
 
@@ -603,7 +603,7 @@ A solicitação de validação de assinatura será recebida primeiro. Ignore qua
 
 ### <a name="manually-post-the-request"></a>Postar manualmente a solicitação
 
-Execute sua função de Grade de Eventos localmente.
+Execute sua função de Grade de Eventos localmente. Os `Content-Type` `aeg-event-type` cabeçalhos e precisam ser definidos manualmente, enquanto e todos os outros valores podem ser deixados como padrão.
 
 Use uma ferramenta como [Postman](https://www.getpostman.com/) ou [curl](https://curl.haxx.se/docs/httpscripting.html) para criar uma solicitação HTTP POST:
 

@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: 34210d08ad5328f200f5b92c13bfcf85cfead3ec
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199471"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249764"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Solucionar problemas de latência de replicação no Banco de Dados do Azure para MySQL
 
@@ -32,9 +32,7 @@ O atraso de replicação nas réplicas de leitura secundárias depende de vário
 Neste artigo, você aprenderá a solucionar problemas de latência de replicação no banco de dados do Azure para MySQL. Você também entenderá algumas causas comuns da maior latência de replicação em servidores de réplica.
 
 > [!NOTE]
-> Comunicação livre de desvio
->
-> A Microsoft é compatível com um ambiente diversificado e inclusivo. Este artigo contém referências às palavras _mestre_ e _subordinado_. O guia de estilo da Microsoft [para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como palavras de exclusão. As palavras são usadas neste artigo para fins de consistência porque atualmente são as palavras que aparecem no software. Quando o software for atualizado para remover as palavras, este artigo será atualizado para estar em alinhamento.
+> Este artigo contém referências ao termo _subordinado_, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 >
 
 ## <a name="replication-concepts"></a>Conceitos de replicação

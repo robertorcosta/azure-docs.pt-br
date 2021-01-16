@@ -3,12 +3,12 @@ title: Perguntas frequentes de retransmissão do Azure | Microsoft Docs
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o serviço de retransmissão do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131824"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250020"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
@@ -70,7 +70,7 @@ As retransmissões abertas usando a associação do WCF **netTCPRelay** tratam a
 ## <a name="quotas"></a>Cotas
 | Nome da cota | Escopo |  Observações | Valor |
 | --- | --- | --- | --- |
-| Ouvintes simultâneos em uma retransmissão |Entidade |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
+| Ouvintes simultâneos em uma retransmissão |Entidade (conexão híbrida ou retransmissão do WCF) |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
 | Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Namespace |- |5\.000 |
 | Pontos de extremidade de retransmissão por namespace de serviço |Namespace |- |10.000 |
 | Tamanho de mensagem para retransmissões [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Namespace |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |64 KB |

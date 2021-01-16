@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/09/2020
+ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928317"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251498"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -33,13 +33,17 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **R**: registrar um dispositivo dá ao seu dispositivo acesso aos serviços da sua organização e não permite que sua organização acesse seu dispositivo.
 
-## <a name="too-many-app-permissions"></a>Muitas permissões de aplicativo
+### <a name="too-many-app-permissions"></a>Muitas permissões de aplicativo
 
 **P**: por que o aplicativo solicita tantas permissões?
 
-**R**: aqui está a lista completa de permissões que podem ser solicitadas e como elas são usadas pelo aplicativo. As permissões específicas que você verá dependem do tipo de telefone que você tem.
+**R**: aqui está a lista completa de permissões que podem ser solicitadas e como elas são usadas pelo aplicativo. As permissões específicas que você verá dependem do tipo de telefone que você tem. Às vezes, sua organização deseja saber seu **local** antes de permitir que você acesse determinados recursos. O aplicativo solicitará essa permissão somente se sua organização tiver uma política que exija o local.
 
-- **Localização**. Às vezes, sua organização deseja saber seu local antes de permitir que você acesse determinados recursos. O aplicativo solicitará essa permissão somente se sua organização tiver uma política que exija o local. 
+### <a name="error-adding-account"></a>Erro ao adicionar conta
+
+**P**: quando tento adicionar minha conta, recebo uma mensagem de erro dizendo "a conta que você está tentando adicionar não é válida no momento. Contate seu administrador para corrigir esse problema (validação de exclusividade). " O que devo fazer?
+
+**R**: entre em contato com seu administrador e informe que você está impedido de adicionar sua conta ao autenticador devido a um problema de validação de exclusividade. Você precisará fornecer seu nome de usuário de entrada para que seu administrador possa procurar na sua organização.
 
 ### <a name="legacy-apns-support-deprecated"></a>Suporte a APNs herdado preterido
 
@@ -232,7 +236,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 1. Abra **as configurações** do autenticador e, em **beta** , ative o **preenchimento automático**.
 1. Na guia **senhas** dentro do aplicativo, entre usando [seu conta Microsoft](https://account.microsoft.com/account).
-1. Realize uma destas ações:
+1. Realize um dos seguintes procedimentos:
 
    - No iOS, em **configurações**, selecione **como ativar o preenchimento automático** na seção Configurações de preenchimento automático para saber como definir o autenticador como o provedor de preenchimento automático padrão.
    - No Android, em **configurações**, selecione **definir como provedor de preenchimento automático** na seção Configurações de preenchimento automático para definir o autenticador como o provedor de Autopreenchimento padrão.

@@ -3,12 +3,12 @@ title: Kubernetes monitoramento com Azure Monitor para contêineres | Microsoft 
 description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 68d0ac03ae0f6029e0f984e296a89048536f4eb7
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905699"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251277"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
@@ -88,7 +88,7 @@ Na lista de clusters, você pode fazer uma busca detalhada na página do **clust
 
 ## <a name="view-performance-directly-from-a-cluster"></a>Exibir o desempenho diretamente de um cluster
 
-O acesso a Azure monitor para contêineres está disponível diretamente de um cluster AKs selecionando o cluster **insights**  >  **Cluster** no painel esquerdo, ou quando você selecionou um cluster da exibição de vários clusters. As informações sobre o cluster são organizadas em quatro perspectivas:
+O acesso a Azure monitor para contêineres está disponível diretamente de um cluster AKs selecionando o cluster **insights**  >   no painel esquerdo, ou quando você selecionou um cluster da exibição de vários clusters. As informações sobre o cluster são organizadas em quatro perspectivas:
 
 - Cluster
 - Nós
@@ -130,7 +130,7 @@ No Metrics Explorer, você pode exibir as métricas de utilização de nó e Pod
 | percepções. Container/pods | |
 | | PodCount | Uma contagem de pod de kubernetes.|
 
-Você pode [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) uma métrica para exibi-la por dimensão e visualizar como os diferentes segmentos de ti se comparam entre si. Para um nó, você pode segmentar o gráfico pela dimensão do *host* . De um pod, você pode segmentá-lo pelas seguintes dimensões:
+Você pode [dividir](../platform/metrics-charts.md#apply-splitting) uma métrica para exibi-la por dimensão e visualizar como os diferentes segmentos de ti se comparam entre si. Para um nó, você pode segmentar o gráfico pela dimensão do *host* . De um pod, você pode segmentá-lo pelas seguintes dimensões:
 
 * Controller
 * Namespace kubernetes
@@ -191,7 +191,7 @@ As informações apresentadas quando você exibe a guia **nós** é descrita na 
 
 | Coluna | Descrição |
 |--------|-------------|
-| Nome | O nome do host. |
+| Name | O nome do host. |
 | Status | Exibição de Kubernetes do status do nó. |
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%  | Percentual médio de nós com base no percentil pela duração selecionada. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | Valor real dos nós médios com base no percentil durante o tempo de duração selecionado. O valor médio é medido do limite de CPU/memória definido para um nó. Para pods e contêineres, é o valor médio relatado pelo host. |
@@ -234,7 +234,7 @@ As informações exibidas quando você exibe controladores são descritas na tab
 
 | Coluna | Descrição |
 |--------|-------------|
-| Nome | O nome do controlador.|
+| Name | O nome do controlador.|
 | Status | O status de rollup dos contêineres após a conclusão da execução com status, como *OK*, *encerrado*, *com falha*, *parado* ou em *pausa*. Se o contêiner estiver em execução, mas o status não tiver sido exibido corretamente ou não tiver sido selecionado pelo agente e não tiver respondido por mais de 30 minutos, o status será *desconhecido*. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%| Média de rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max  | Rollup da média de milinúcleo de CPU ou desempenho da memória do contêiner para o percentil selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
@@ -271,7 +271,7 @@ As informações exibidas quando você exibe contêineres são descritas na tabe
 
 | Coluna | Descrição |
 |--------|-------------|
-| Nome | O nome do controlador.|
+| Name | O nome do controlador.|
 | Status | Status dos contêineres, se houver. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;% | O rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | O rollup da média do desempenho de memória ou do milinúcleo da CPU do contêiner para o percentual selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |

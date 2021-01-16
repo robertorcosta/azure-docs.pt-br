@@ -3,31 +3,48 @@ title: Autenticar com identidades gerenciadas
 description: Acessar recursos protegidos por Azure Active Directory sem entrar com credenciais ou segredos usando uma identidade gerenciada
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: 1152c8b72bcb830a7ba4efa053d3ffff667f9dc8
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.date: 01/15/2021
+ms.openlocfilehash: 9ac8a23569d9a85787768419a0377967026e9bd9
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034162"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251551"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso a recursos do Azure usando identidades gerenciadas em Aplicativos Lógicos do Azure
 
-Para acessar facilmente outros recursos protegidos pelo Azure AD (Azure Active Directory) e autenticar sua identidade sem precisar entrar, o aplicativo lógico pode usar uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conhecida como Identidade de Serviço Gerenciada ou MSI), em vez de credenciais ou segredos. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais, porque você não precisa fornecer ou trocar segredos.
+Para acessar facilmente outros recursos protegidos pelo Azure Active Directory (Azure AD) e autenticar sua identidade, seu aplicativo lógico pode usar uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) (antigamente identidade de serviço gerenciada ou msi), em vez de credenciais, segredos ou tokens do Azure AD. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais porque você não precisa gerenciar segredos ou usar diretamente tokens do Azure AD.
 
-Os Aplicativos Lógicos do Azure dão suporte a identidades gerenciadas [*atribuídas pelo sistema*](../active-directory/managed-identities-azure-resources/overview.md) e [*atribuídas pelo usuário*](../active-directory/managed-identities-azure-resources/overview.md). Seu aplicativo lógico pode usar a identidade atribuída ao sistema ou uma *única* identidade atribuída ao usuário, que você pode compartilhar em um grupo de aplicativos lógicos, mas não ambas. No momento, somente [gatilhos e ações internos específicos](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound) dão suporte a identidades gerenciadas, não conectores ou conexões gerenciadas, por exemplo:
+Os Aplicativos Lógicos do Azure dão suporte a identidades gerenciadas [*atribuídas pelo sistema*](../active-directory/managed-identities-azure-resources/overview.md) e [*atribuídas pelo usuário*](../active-directory/managed-identities-azure-resources/overview.md). Seu aplicativo lógico ou conexões individuais podem usar a identidade atribuída pelo sistema ou uma *única* identidade atribuída pelo usuário, que você pode compartilhar em um grupo de aplicativos lógicos, mas não ambos.
 
-* HTTP
-* Funções do Azure
+## <a name="where-can-logic-apps-use-managed-identities"></a>Onde os aplicativos lógicos podem usar identidades gerenciadas?
+
+Atualmente, somente [gatilhos e ações internas específicas](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) e [conectores gerenciados específicos](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions) que dão suporte ao Azure ad OAuth podem usar uma identidade gerenciada para autenticação. Por exemplo, aqui está uma seleção:
+
+**Gatilhos e ações internas**
+
 * Gerenciamento de API do Azure
 * Serviços de Aplicativo do Azure
+* Funções do Azure
+* HTTP
+* HTTP + webhook
+
+**Conectores gerenciados**
+
+* Automação do Azure
+* Grade de Eventos do Azure
+* Azure Key Vault
+* Logs do Azure Monitor
+* Azure Resource Manager
+* HTTP com o Azure AD
+
+O suporte para conectores gerenciados está atualmente em versão prévia. Para obter a lista atual, consulte [tipos de autenticação para gatilhos e ações que dão suporte à autenticação](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 Este artigo mostra como configurar os dois tipos de identidades gerenciadas para seu aplicativo lógico. Para saber mais, consulte esses tópicos:
 
-* [Gatilhos e ações que dão suporte a identidades gerenciadas](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
-* [Tipos de autenticação com suporte em chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+* [Gatilhos e ações que dão suporte a identidades gerenciadas](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)
 * [Limites de identidades gerenciadas para aplicativos lógicos](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [Serviços do Azure que dão suporte à autenticação do Azure AD com identidades gerenciadas](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
@@ -39,7 +56,7 @@ Este artigo mostra como configurar os dois tipos de identidades gerenciadas para
 
 * O recurso do Azure de destino que você deseja acessar. Nesse recurso, você adicionará uma função à identidade gerenciada, que ajuda o aplicativo lógico a autenticar o acesso ao recurso de destino.
 
-* O aplicativo lógico no qual você deseja usar o [gatilho ou ações que dão suporte a identidades gerenciadas](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+* O aplicativo lógico no qual você deseja usar o [gatilho ou as ações que dão suporte a identidades gerenciadas](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 ## <a name="enable-managed-identity"></a>Habilitar identidade gerenciada
 
@@ -70,7 +87,7 @@ Diferentemente de identidades atribuídas pelo sistema, você não precisa criar
    > [!NOTE]
    > Se você receber um erro de que você pode ter apenas uma identidade gerenciada, seu aplicativo lógico já estará associado à identidade atribuída ao usuário. Para adicionar a identidade atribuída ao sistema, primeiro *remova* a identidade atribuída ao usuário do seu aplicativo lógico.
 
-   Seu aplicativo lógico agora pode usar a identidade atribuída ao sistema, que é registrada no Azure Active Directory e representada por uma ID de objeto.
+   Seu aplicativo lógico agora pode usar a identidade atribuída pelo sistema, que é registrada com o Azure AD e é representada por uma ID de objeto.
 
    ![ID de objeto da identidade atribuída ao sistema](./media/create-managed-service-identity/object-id-system-assigned-identity.png)
 
@@ -294,6 +311,8 @@ Para usar a identidade gerenciada do aplicativo lógico para autenticação, con
 
 ### <a name="assign-access-in-the-azure-portal"></a>Atribuir acesso no portal do Azure
 
+No recurso de destino do Azure em que você deseja que a identidade gerenciada tenha acesso, conceda a essa identidade acesso baseado em função ao recurso de destino.
+
 1. No [portal do Azure](https://portal.azure.com), acesse o recurso do Azure ao qual você deseja que sua identidade gerenciada tenha acesso.
 
 1. No menu do recurso, selecione **Controle de acesso (IAM)**  > **Atribuições de função** em que você pode examinar as atribuições de função atuais para esse recurso. Na barra de ferramentas, selecione **Adicionar** > **Adicionar atribuição de função**.
@@ -345,7 +364,7 @@ Para usar a identidade gerenciada do aplicativo lógico para autenticação, con
 
 ## <a name="authenticate-access-with-managed-identity"></a>Autenticar o acesso com a identidade gerenciada
 
-Depois de [habilitar a identidade gerenciada para seu aplicativo lógico](#azure-portal-system-logic-app) e [conceder a essa identidade acesso ao recurso ou à entidade de destino](#access-other-resources), você poderá usar essa identidade em [gatilhos e ações que dão suporte a identidades gerenciadas](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+Depois de [habilitar a identidade gerenciada para seu aplicativo lógico](#azure-portal-system-logic-app) e [conceder a essa identidade acesso ao recurso ou à entidade de destino](#access-other-resources), você poderá usar essa identidade em [gatilhos e ações que dão suporte a identidades gerenciadas](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 > [!IMPORTANT]
 > Se você tiver uma função do Azure em que deseja usar a identidade atribuída pelo sistema, primeiro [habilite a autenticação para Azure Functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
@@ -354,44 +373,120 @@ Estas etapas mostram como usar a identidade gerenciada com um gatilho ou uma aç
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 
-1. Se você ainda não tiver feito isso, adicione [o gatilho ou a ação que dá suporte a identidades gerenciadas](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
+1. Se você ainda não tiver feito isso, adicione [o gatilho ou a ação que dá suporte a identidades gerenciadas](logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
-   Por exemplo, o gatilho ou a ação HTTP pode usar a identidade atribuída ao sistema que você habilitou para seu aplicativo lógico. Em geral, o gatilho ou a ação HTTP usa essas propriedades para especificar o recurso ou a entidade que você deseja acessar:
+   > [!NOTE]
+   > Nem todos os gatilhos e ações dão suporte para permitir que você adicione um tipo de autenticação. Para obter mais informações, consulte [tipos de autenticação para gatilhos e ações que dão suporte à autenticação](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
-   | Propriedade | Obrigatório | Descrição |
-   |----------|----------|-------------|
-   | **Método** | Sim | O método HTTP usado pela operação que você deseja executar |
-   | **URI** | Sim | A URL do ponto de extremidade para acessar a entidade ou o recurso do Azure de destino. A sintaxe do URI geralmente inclui a [ID do recurso](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para o recurso ou serviço do Azure. |
-   | **Cabeçalhos** | Não | Todos os valores de cabeçalho que você precisa ou deseja incluir na solicitação de saída, como o tipo de conteúdo |
-   | **Consultas** | Não | Todos os parâmetros de consulta que você precisa ou deseja incluir na solicitação, como o parâmetro para uma operação específica ou a versão da API para a operação que você deseja executar |
-   | **Autenticação** | Sim | O tipo de autenticação a ser usado para autenticar o acesso ao recurso ou à entidade de destino |
-   ||||
+1. No gatilho ou na ação que você adicionou, siga estas etapas:
 
-   Como um exemplo específico, suponha que você queira executar a [operação Blob de Instantâneo](/rest/api/storageservices/snapshot-blob) em um blob na conta de Armazenamento do Azure em que você configurou o acesso para sua identidade anteriormente. No entanto, o [conector do Armazenamento de Blobs do Azure](/connectors/azureblob/) não oferece essa operação no momento. Em vez disso, você pode executar essa operação usando a [ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) ou [outra operação da API REST de Serviço Blob](/rest/api/storageservices/operations-on-blobs).
+   * **Gatilhos e ações internos que dão suporte ao uso de uma identidade gerenciada**
 
-   > [!IMPORTANT]
-   > Para acessar as contas de armazenamento do Azure por trás de firewalls usando solicitações HTTP e identidades gerenciadas, verifique se você também configurou sua conta de armazenamento com a [exceção que permite o acesso por serviços confiáveis da Microsoft](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
+     1. Adicione a propriedade de **autenticação** se a propriedade ainda não for exibida.
 
-   Para executar a [operação Blob de Instantâneo](/rest/api/storageservices/snapshot-blob), a ação HTTP especifica estas propriedades:
+     1. Em **tipo de autenticação**, selecione **identidade gerenciada**.
 
-   | Propriedade | Obrigatório | Valor de exemplo | Descrição |
-   |----------|----------|---------------|-------------|
-   | **Método** | Sim | `PUT`| O método HTTP usado pela operação Blob de Instantâneo |
-   | **URI** | Sim | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | A ID de recurso para um arquivo do Armazenamento de Blobs do Azure no ambiente do Azure Global (público), que usa essa sintaxe |
-   | **Cabeçalhos** | Para o armazenamento do Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | Os `x-ms-blob-type` `x-ms-version` valores de cabeçalho, e `x-ms-date` são necessários para operações de armazenamento do Azure. <p><p>**Importante**: no gatilho HTTP de saída e nas solicitações de ação para o Armazenamento do Azure, o cabeçalho requer a propriedade `x-ms-version` e a versão da API para a operação que você deseja executar. O `x-ms-date` deve ser a data atual. Caso contrário, o aplicativo lógico falhará com um `403 FORBIDDEN` erro. Para obter a data atual no formato necessário, você pode usar a expressão no valor de exemplo. <p>Para saber mais, consulte esses tópicos: <p><p>- [Cabeçalhos de solicitação – Blob de Instantâneo](/rest/api/storageservices/snapshot-blob#request) <br>- [Controle de versão para serviços de Armazenamento do Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
-   | **Consultas** | Somente para a operação de blob de instantâneo | `comp` = `snapshot` | O nome e o valor do parâmetro de consulta para a operação. |
-   |||||
+     Para obter mais informações, consulte [exemplo: autenticar gatilho interno ou ação com uma identidade gerenciada](#authenticate-built-in-managed-identity).
+ 
+   * **Gatilhos e ações de conector gerenciado que dão suporte ao uso de uma identidade gerenciada**
 
-   Este é o a ação HTTP de exemplo que mostra todos esses valores de propriedade:
+     1. Na página seleção de locatário, selecione **conectar com identidade gerenciada**.
 
-   ![Adicionar uma ação HTTP para acessar um recurso do Azure](./media/create-managed-service-identity/http-action-example.png)
+     1. Na página seguinte, forneça um nome de conexão.
 
-1. Agora adicione a propriedade **Autenticação** à ação HTTP. Na lista **Adicionar novo parâmetro**, selecione **Autenticação**.
+        Por padrão, a lista de identidades gerenciadas mostra apenas a identidade gerenciada habilitada no momento, pois um aplicativo lógico dá suporte à habilitação de apenas uma identidade gerenciada por vez, por exemplo:
+
+        ![Captura de tela que mostra a página nome da conexão e a identidade gerenciada selecionada.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+
+     Para obter mais informações, consulte [exemplo: autenticar gatilho de conector gerenciado ou ação com uma identidade gerenciada](#authenticate-managed-connector-managed-identity).
+
+     As conexões que você cria para usar uma identidade gerenciada são um tipo de conexão especial que funciona apenas com uma identidade gerenciada. Em tempo de execução, a conexão usa a identidade gerenciada habilitada no aplicativo lógico. Essa configuração é salva no objeto da definição de recurso do aplicativo lógico `parameters` , que contém o `$connections` objeto que inclui ponteiros para a ID de recurso da conexão junto com a ID de recurso da identidade, se a identidade atribuída pelo usuário estiver habilitada.
+
+     Este exemplo mostra a aparência da configuração quando o aplicativo lógico habilita a identidade gerenciada atribuída pelo sistema:
+
+     ```json
+     "parameters": {
+        "$connections": {
+           "value": {
+              "<action-name>": {
+                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+                 "connectionName": "{connection-name}",
+                 "connectionProperties": {
+                    "authentication": {
+                       "type": "ManagedServiceIdentity"
+                    }
+                 },
+                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+              }
+           }
+        }
+     }
+     ```
+
+     Este exemplo mostra a aparência da configuração quando o aplicativo lógico habilita uma identidade gerenciada atribuída pelo usuário:
+
+     ```json
+     "parameters": {
+        "$connections": {
+           "value": {
+              "<action-name>": {
+                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+                 "connectionName": "{connection-name}",
+                 "connectionProperties": {
+                    "authentication": {
+                       "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                       "type": "ManagedServiceIdentity"
+                    }
+                 },
+                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+              }
+           }
+        }
+     }
+     ```
+
+     Durante o tempo de execução, o serviço de aplicativos lógicos verifica se qualquer gatilho de conector gerenciado e ações no aplicativo lógico são configurados para usar a identidade gerenciada e se todas as permissões necessárias estão configuradas para usar a identidade gerenciada para acessar os recursos de destino especificados pelo gatilho e pelas ações. Se for bem-sucedido, o serviço de aplicativos lógicos recuperará o token do Azure AD que está associado à identidade gerenciada e usará essa identidade para autenticar o acesso ao recurso de destino e executar a operação configurada em gatilho e ações.
+
+<a name="authenticate-built-in-managed-identity"></a>
+
+#### <a name="example-authenticate-built-in-trigger-or-action-with-a-managed-identity"></a>Exemplo: autenticar gatilho ou ação interna com uma identidade gerenciada
+
+O gatilho ou ação HTTP pode usar a identidade atribuída pelo sistema que você habilitou para seu aplicativo lógico. Em geral, o gatilho ou a ação HTTP usa essas propriedades para especificar o recurso ou a entidade que você deseja acessar:
+
+| Propriedade | Obrigatório | Descrição |
+|----------|----------|-------------|
+| **Método** | Sim | O método HTTP usado pela operação que você deseja executar |
+| **URI** | Sim | A URL do ponto de extremidade para acessar a entidade ou o recurso do Azure de destino. A sintaxe do URI geralmente inclui a [ID do recurso](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) para o recurso ou serviço do Azure. |
+| **Cabeçalhos** | Não | Todos os valores de cabeçalho que você precisa ou deseja incluir na solicitação de saída, como o tipo de conteúdo |
+| **Consultas** | Não | Todos os parâmetros de consulta que você precisa ou deseja incluir na solicitação, como o parâmetro para uma operação específica ou a versão da API para a operação que você deseja executar |
+| **Autenticação** | Sim | O tipo de autenticação a ser usado para autenticar o acesso ao recurso ou à entidade de destino |
+||||
+
+Como um exemplo específico, suponha que você queira executar a [operação Blob de Instantâneo](/rest/api/storageservices/snapshot-blob) em um blob na conta de Armazenamento do Azure em que você configurou o acesso para sua identidade anteriormente. No entanto, o [conector do Armazenamento de Blobs do Azure](/connectors/azureblob/) não oferece essa operação no momento. Em vez disso, você pode executar essa operação usando a [ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) ou [outra operação da API REST de Serviço Blob](/rest/api/storageservices/operations-on-blobs).
+
+> [!IMPORTANT]
+> Para acessar as contas de armazenamento do Azure por trás de firewalls usando solicitações HTTP e identidades gerenciadas, verifique se você também configurou sua conta de armazenamento com a [exceção que permite o acesso por serviços confiáveis da Microsoft](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
+
+Para executar a [operação Blob de Instantâneo](/rest/api/storageservices/snapshot-blob), a ação HTTP especifica estas propriedades:
+
+| Propriedade | Obrigatório | Valor de exemplo | Descrição |
+|----------|----------|---------------|-------------|
+| **Método** | Sim | `PUT`| O método HTTP usado pela operação Blob de Instantâneo |
+| **URI** | Sim | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | A ID de recurso para um arquivo do Armazenamento de Blobs do Azure no ambiente do Azure Global (público), que usa essa sintaxe |
+| **Cabeçalhos** | Para o armazenamento do Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | Os `x-ms-blob-type` `x-ms-version` valores de cabeçalho, e `x-ms-date` são necessários para operações de armazenamento do Azure. <p><p>**Importante**: no gatilho HTTP de saída e nas solicitações de ação para o Armazenamento do Azure, o cabeçalho requer a propriedade `x-ms-version` e a versão da API para a operação que você deseja executar. O `x-ms-date` deve ser a data atual. Caso contrário, o aplicativo lógico falhará com um `403 FORBIDDEN` erro. Para obter a data atual no formato necessário, você pode usar a expressão no valor de exemplo. <p>Para saber mais, consulte esses tópicos: <p><p>- [Cabeçalhos de solicitação – Blob de Instantâneo](/rest/api/storageservices/snapshot-blob#request) <br>- [Controle de versão para serviços de Armazenamento do Azure](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+| **Consultas** | Somente para a operação de blob de instantâneo | `comp` = `snapshot` | O nome e o valor do parâmetro de consulta para a operação. |
+|||||
+
+Este é o a ação HTTP de exemplo que mostra todos esses valores de propriedade:
+
+![Adicionar uma ação HTTP para acessar um recurso do Azure](./media/create-managed-service-identity/http-action-example.png)
+
+1. Depois de adicionar a ação HTTP, adicione a propriedade de **autenticação** à ação http. Na lista **Adicionar novo parâmetro**, selecione **Autenticação**.
 
    ![Adicione a propriedade “Autenticação” à ação HTTP](./media/create-managed-service-identity/add-authentication-property.png)
 
    > [!NOTE]
-   > Nem todos os gatilhos e ações dão suporte para permitir que você adicione um tipo de autenticação. Para obter mais informações, confira [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   > Nem todos os gatilhos e ações dão suporte para permitir que você adicione um tipo de autenticação. Para obter mais informações, consulte [tipos de autenticação para gatilhos e ações que dão suporte à autenticação](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions).
 
 1. Na lista **Tipo de autenticação**, selecione **Identidade Gerenciada**.
 
@@ -422,6 +517,32 @@ Estas etapas mostram como usar a identidade gerenciada com um gatilho ou uma aç
 
    * [Autorizar o acesso a blobs e filas do Azure usando o Azure Active Directory](../storage/common/storage-auth-aad.md)
    * [Autorizar o acesso ao Armazenamento do Azure com o Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+
+1. Continue criando o aplicativo lógico da maneira desejada.
+
+<a name="authenticate-managed-connector-managed-identity"></a>
+
+#### <a name="example-authenticate-managed-connector-trigger-or-action-with-a-managed-identity"></a>Exemplo: autenticar gatilho ou ação de conector gerenciado com uma identidade gerenciada
+
+A ação de Azure Resource Manager, **ler um recurso**, pode usar a identidade gerenciada que você habilitou para seu aplicativo lógico. Este exemplo mostra como usar a identidade gerenciada atribuída pelo sistema.
+
+1. Depois de adicionar a ação ao seu fluxo de trabalho, na página seleção de locatário, selecione **conectar com identidade gerenciada**.
+
+   ![Captura de tela que mostra Azure Resource Manager ação e "conectar com identidade gerenciada" selecionada.](./media/create-managed-service-identity/select-connect-managed-identity.png)
+
+   A ação agora mostra a página nome da conexão com a lista identidade gerenciada, que inclui o tipo de identidade gerenciada que está habilitado no momento no aplicativo lógico.
+
+1. Na página nome da conexão, forneça um nome para a conexão. Na lista identidade gerenciada, selecione a identidade gerenciada, que é a **identidade gerenciada atribuída pelo sistema** neste exemplo, e selecione **criar**. Se você habilitou uma identidade gerenciada atribuída pelo usuário, selecione essa identidade em vez disso.
+
+   ![Captura de tela que mostra Azure Resource Manager ação com o nome de conexão inserido e "identidade gerenciada atribuída pelo sistema" selecionada.](./media/create-managed-service-identity/system-assigned-managed-identity.png)
+
+   Se a identidade gerenciada não estiver habilitada, o seguinte erro será exibido quando você tentar criar a conexão:
+
+   *Você deve habilitar a identidade gerenciada para seu aplicativo lógico e, em seguida, conceder o acesso necessário à identidade no recurso de destino.*
+
+   ![Captura de tela que mostra Azure Resource Manager ação com erro quando nenhuma identidade gerenciada está habilitada.](./media/create-managed-service-identity/system-assigned-managed-identity-disabled.png)
+
+1. Depois de criar a conexão com êxito, o designer pode buscar quaisquer valores dinâmicos, conteúdo ou esquema usando a autenticação de identidade gerenciada.
 
 1. Continue criando o aplicativo lógico da maneira desejada.
 

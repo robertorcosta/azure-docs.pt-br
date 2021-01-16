@@ -2,13 +2,13 @@
 title: Implantar recursos com CLI do Azure e modelo
 description: Use Azure Resource Manager e CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: a2caea70a51a737bfa433a089c03b43f252b5d6e
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.date: 01/15/2021
+ms.openlocfilehash: d79a5c93bf79c5851beabbba2eb3a663c6ab5999
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028141"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251073"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
@@ -134,7 +134,7 @@ Para evitar conflitos com implantações simultâneas e para garantir entradas e
 
 Em vez de implantar um modelo local ou remoto, você pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso em sua assinatura do Azure que contém um modelo do ARM. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Use o controle de acesso baseado em função do Azure (RBAC do Azure) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
 
-Os exemplos a seguir mostram como criar e implantar uma especificação de modelo. Esses comandos só estarão disponíveis se você tiver se [inscrito na versão prévia](https://aka.ms/templateSpecOnboarding).
+Os exemplos a seguir mostram como criar e implantar uma especificação de modelo.
 
 Primeiro, crie a especificação do modelo fornecendo o modelo ARM.
 
