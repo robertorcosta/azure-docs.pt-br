@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 01/15/2021
-ms.openlocfilehash: 5ebae41e68633eb10959c56011dd71952f9564bd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/18/2021
+ms.openlocfilehash: 67e4da13d6954342b9979eb57a35c812cb63bb3e
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250410"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539991"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurar Replicação de Dados no banco de dados do Azure para MariaDB
 
@@ -23,6 +23,9 @@ Examine as [limitações e os requisitos](concepts-data-in-replication.md#limita
 
 > [!NOTE]
 > Se o servidor de origem for da versão 10,2 ou mais recente, recomendamos que você configure Replicação de Dados usando a [ID de transação global](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Este artigo contém referências ao termo _subordinado_, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Criar um servidor MariaDB para usar como uma réplica
 
@@ -40,10 +43,6 @@ Examine as [limitações e os requisitos](concepts-data-in-replication.md#limita
 3. Adicione o endereço IP do servidor de origem às regras de firewall da réplica. 
 
    Atualizar regras de firewall usando o [Portal do Azure](howto-manage-firewall-portal.md) ou a [CLI do Azure](howto-manage-firewall-cli.md).
-
-> [!NOTE]
-> Este artigo contém referências ao termo _subordinado_, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
->
 
 ## <a name="configure-the-source-server"></a>Configurar o servidor de origem
 
@@ -95,7 +94,7 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado localmente
 
 3. Ative o registro em log binário.
 
-    Para ver se o log binário está habilitado no mestre, digite o seguinte comando:
+    Para ver se o log binário está habilitado no primário, digite o seguinte comando:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';

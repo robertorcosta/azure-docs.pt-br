@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360166"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539896"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
@@ -42,7 +42,7 @@ Quando você estiver pronto para usar os dados em sua solução de armazenamento
 
     1. Consuma-o diretamente em soluções de Azure Machine Learning como, execuções de experimento automatizadas do Machine Learning (ML automatizado), pipelines de aprendizado de máquina ou [Designer de Azure Machine Learning](concept-designer.md).
 
-4. Crie [monitores de conjunto](#data-drift) de dados para seu conjunto de dados de saída de modelo para detectar descompasso de dado 
+4. Crie [monitores de conjunto](#drift) de dados para seu conjunto de dados de saída de modelo para detectar descompasso de dado 
 
 5. Se a descompasso de dados for detectada, atualize o DataSet de entrada e retreine seu modelo de acordo.
 
@@ -50,7 +50,8 @@ O diagrama a seguir fornece uma demonstração visual desse fluxo de trabalho re
 
 ![O diagrama mostra o serviço de armazenamento do Azure que flui em um repositório de armazenamento, que flui para um conjunto de uma. O conjunto de dados flui para o treinamento do modelo, que flui em descompassos, o que flui para o conjunto.](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Armazenamentos de dados
+<a name="datastores"></a>
+## <a name="connect-to-storage-with-datastores"></a>Conectar-se ao armazenamento com armazenamentos de
 
 Azure Machine Learning armazenamentos de dados mantêm com segurança as informações de conexão para o armazenamento do Azure, de modo que você não precisará codificar em seus scripts. [Registre e crie um armazenamento](how-to-access-data.md) de dados para se conectar facilmente à sua conta de armazenamento e acesse os dados em seu serviço de armazenamento do Azure subjacente. 
 
@@ -65,7 +66,8 @@ Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser 
 + Sistema de arquivos do Databricks
 + Banco de Dados do Azure para MySQL
 
-## <a name="datasets"></a>Conjunto de dados
+<a name="datasets"></a>
+## <a name="reference-data-in-storage-with-datasets"></a>Dados de referência no armazenamento com DataSets
 
 Os conjuntos de dados Azure Machine Learning não são cópias de seu dado. Com a criação de um conjunto de dados, você cria uma referência a eles em seu serviço de armazenamento, juntamente com uma cópia de seus metadados. 
 
@@ -105,7 +107,7 @@ Com conjuntos de informações, você pode realizar várias tarefas de aprendiza
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Rotulagem de dados
+## <a name="label-data-with-data-labeling-projects"></a>Rotular dados com projetos de rótulos de dados
 
 Rotular grandes quantidades de dados costuma ser uma dor de cabeça nos projetos de aprendizado de máquina. Aqueles com um componente da pesquisa Visual computacional, como classificação de imagem ou detecção de objetos, geralmente exigem milhares de imagens e rótulos correspondentes.
 
@@ -115,7 +117,7 @@ Crie um [projeto de rotulagem de dados](how-to-create-labeling-projects.md)e a s
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>Descompasso de dados
+## <a name="monitor-model-performance-with-data-drift"></a>Monitorar o desempenho do modelo com descompasso de dados
 
 No contexto do Machine Learning, a descompasso de dados é a alteração nos dados de entrada do modelo que leva à degradação do desempenho do modelo. É um dos principais motivos pelos quais a precisão do modelo diminui ao longo do tempo, o que monitora a descompasso de dados ajuda a detectar problemas de desempenho do modelo.
 

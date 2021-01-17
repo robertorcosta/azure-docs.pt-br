@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 37fc33ae8084a2b4e99e7b5dc417eac70060eef5
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 02c3890a9aca03d9d79b55098297174401cab37d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516195"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537950"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Facebook usando o Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97516195"
 
 ## <a name="create-a-facebook-application"></a>Criar um aplicativo do Facebook
 
-Para usar uma conta do Facebook como um [provedor de identidade](authorization-code-flow.md) no Azure Active Directory B2C (Azure ad B2C), você precisa criar um aplicativo em seu locatário que o represente. Se ainda não tiver uma conta do Facebook, abra uma em [https://www.facebook.com/](https://www.facebook.com/).
+Para habilitar a entrada para usuários com uma conta do Facebook no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no [painel do aplicativo do Facebook](https://developers.facebook.com/). Para obter mais informações, consulte [desenvolvimento de aplicativos](https://developers.facebook.com/docs/development). Se ainda não tiver uma conta do Facebook, abra uma em [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Entre no site [Desenvolvedores do Facebook](https://developers.facebook.com/) com suas credenciais de conta do Facebook.
 1. Se ainda não tiver feito isso, você precisará registrar-se como desenvolvedor do Facebook. Para isso, escolha **Começar**, no canto superior direito da página, aceite as políticas do Facebook e conclua as etapas de registro.
@@ -93,7 +93,7 @@ Para usar uma conta do Facebook como um [provedor de identidade](authorization-c
 ## <a name="add-facebook-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Facebook a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário que você deseja para o provedor de identidade do Facebook.
+1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Facebook.
 1. Em **provedores de identidade social**, selecione **Facebook**.
 1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.

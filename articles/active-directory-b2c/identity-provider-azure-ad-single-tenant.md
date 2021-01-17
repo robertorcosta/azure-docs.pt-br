@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 05c4d36f266fb526a1d0232cc32f0408e4322c80
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 2b640730bac410136ef8fdd4ea8e0261f68a3284
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654380"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538135"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar assinatura para uma organização do Active Directory do Azure específica no Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Este artigo mostra como habilitar a entrada de usuários a partir de uma organiz
 
 ## <a name="register-an-azure-ad-app"></a>Registrar um aplicativo do Azure AD
 
-Para habilitar a entrada para usuários de uma organização específica do Azure AD, você precisa registrar um aplicativo no locatário organizacional do Azure AD.
+Para habilitar a entrada para usuários com uma conta do Azure AD de uma organização específica do Azure AD, em Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no [portal do Azure](https://portal.azure.com). Para obter mais informações, consulte [registrar um aplicativo com a plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 1. Verifique se você está usando o diretório que contém seu locatário organizacional do Azure AD (por exemplo, contoso.com). Selecione o **diretório + filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário do Azure AD.
@@ -238,7 +238,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 ## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Azure AD a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário que você deseja para o provedor de identidade do Azure AD.
+1. Clique no fluxo de usuário que você deseja adicionar ao provedor de identidade do Azure AD.
 1. Em **provedores de identidade social**, selecione **contoso Azure ad**.
 1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.

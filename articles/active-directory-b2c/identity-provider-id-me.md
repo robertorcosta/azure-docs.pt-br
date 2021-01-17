@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6877a82d81b46ac2ffda8d0f0bf3fb0d7b337ff3
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c7d43a55878a07e424ce1b6f55782502c244239c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97663562"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537935"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-idme-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do ID.me usando Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ ms.locfileid: "97663562"
 
 ## <a name="create-an-idme-application"></a>Criar um aplicativo ID.me
 
-Para usar uma conta do ID.me como um provedor de identidade no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em [recursos do ID.me Developer para API & SDK](https://developers.id.me/). Se você ainda não tiver uma conta de desenvolvedor ID.me, poderá se inscrever em [https://developers.id.me/registration/new](https://developers.id.me/registration/new) .
+Para habilitar a entrada para usuários com uma conta do ID.me no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em [recursos do ID.me Developer para API & SDK](https://developers.id.me/). Para obter mais informações, consulte [Guia de integração do OAuth](https://developers.id.me/documentation/oauth/overview/kyc). Se você ainda não tiver uma conta de desenvolvedor ID.me, poderá se inscrever em [https://developers.id.me/registration/new](https://developers.id.me/registration/new) .
 
 1. Entre nos recursos do [desenvolvedor do ID.me para API & SDK](https://developers.id.me/) com suas credenciais de conta do ID.me.
 1. Selecione **exibir meus aplicativos** e selecione **continuar**.

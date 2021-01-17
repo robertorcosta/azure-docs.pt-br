@@ -4,15 +4,15 @@ description: A ativação e a configuração do console de gerenciamento garante
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/24/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56092d61e1eed4e4ebe4f8cb7f97d01e91e8543e
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97838033"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538577"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Ativar e configurar seu console de gerenciamento local 
 
@@ -51,7 +51,7 @@ Após a ativação inicial, o número de dispositivos monitorados pode exceder o
 
 ## <a name="set-up-a-certificate"></a>Configurar um certificado
 
-Após a instalação do console de gerenciamento do, um certificado autoassinado local é gerado e usado para acessar o console do. Depois que um administrador entra no console de gerenciamento pela primeira vez, esse usuário é solicitado a integrar um certificado SSL/TLS. Recomendamos que você trabalhe com um certificado assinado por AC confiável e não use o certificado autoassinado gerado localmente.
+Após a instalação do console de gerenciamento do, um certificado autoassinado local é gerado e usado para acessar o console do. Depois que um administrador entra no console de gerenciamento pela primeira vez, esse usuário é solicitado a integrar um certificado SSL/TLS. 
 
 Dois níveis de segurança estão disponíveis:
 
@@ -61,7 +61,9 @@ Dois níveis de segurança estão disponíveis:
 O console do oferece suporte aos seguintes tipos de certificados:
 
 - Infraestrutura privada e de chave corporativa (PKI particular)
+
 - Infraestrutura de chave pública (PKI pública)
+
 - Gerado localmente no dispositivo (autoassinado localmente) 
 
   > [!IMPORTANT]
@@ -223,7 +225,7 @@ A tabela a seguir descreve os parâmetros na janela de **Gerenciamento do site**
 
 | Parâmetro | Descrição |
 |--|--|
-| Nome | O nome do sensor. Você pode alterar esse nome somente do sensor. Para obter mais informações, consulte o guia do usuário do defender para IoT. |
+| Name | O nome do sensor. Você pode alterar esse nome somente do sensor. Para obter mais informações, consulte o guia do usuário do defender para IoT. |
 | IP | O endereço IP do sensor. |
 | Versão | A versão do sensor. |
 | Conectividade | O status de conectividade do sensor. O status pode ser **conectado** ou **desconectado**. |
@@ -314,6 +316,6 @@ Para cancelar a atribuição e excluir um sensor:
 
 3. Para excluir o sensor não atribuído do site, selecione o sensor na lista de sensores não atribuídos e selecione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Solucionar problemas do sensor e do console de gerenciamento local](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

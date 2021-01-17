@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 48887df0ce6228fa436cb91bfb0a3ee7aa0f6c08
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 79fcbb6d2bf10da566139b0d103a4f31930f3200
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654499"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537994"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com a conta da Amazon usando o Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97654499"
 
 ## <a name="create-an-app-in-the-amazon-developer-console"></a>Criar um aplicativo no console do desenvolvedor do Amazon
 
-Para usar uma conta da Amazon como um provedor de identidade federada no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seus [serviços de desenvolvedor e tecnologias do Amazon](https://developer.amazon.com). Se você ainda não tiver uma conta do Amazon, poderá se inscrever em [https://www.amazon.com/](https://www.amazon.com/) .
+Para habilitar a entrada para usuários com uma conta da Amazon no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em [tecnologias e serviços de desenvolvedor da Amazon](https://developer.amazon.com). Para obter mais informações, consulte [registrar-se para fazer logon com o Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html). Se você ainda não tiver uma conta do Amazon, poderá se inscrever em [https://www.amazon.com/](https://www.amazon.com/) .
 
 > [!NOTE]  
 > Use as URLs a seguir na **etapa 8** abaixo, substituindo `your-tenant-name` pelo nome do seu locatário. Ao inserir o nome do locatário, use todas as letras minúsculas, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
@@ -181,7 +181,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 ## <a name="add-amazon-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade da Amazon a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário que você deseja para o provedor de identidade do Amazon.
+1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Amazon.
 1. Em **provedores de identidade social**, selecione **Amazon**.
 1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 9a6e46c0b52c22df0682034deaebd58bbfeb34a7
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 2f0889732ac756e16465659ee2e5b52335d1148f
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210029"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539261"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Solução de problemas no Conector ITSM
 
@@ -31,47 +31,7 @@ Você pode visualizar o incidente e alterar os dados de solicitação usando o p
 
 O painel também fornece informações sobre o status do conector, que você pode usar como ponto de partida para analisar problemas com as conexões.
 
-### <a name="error-investigation-using-the-dashboard"></a>Investigação de erro usando o painel
-
-Para exibir os erros no painel, você deve seguir as próximas etapas:
-
-1. Em **todos os recursos**, procure por **assistência técnica (*seu nome de espaço de trabalho*)**:
-
-   ![Captura de tela que mostra os recursos recentes no portal do Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
-
-2. Em **fontes de dados do espaço de trabalho** no painel esquerdo, selecione **conexões de ITSM**:
-
-   ![Captura de tela que mostra o item de menu de conexões de ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
-
-3. Em **Resumo** na caixa à esquerda **conector de gerenciamento de serviços de ti**, selecione **Exibir Resumo**:
-
-    ![Captura de tela que mostra o resumo da exibição.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
-
-4. Em **Resumo** na caixa à esquerda **conector de gerenciamento de serviços de ti**, clique no grafo:
-
-    ![Captura de tela que mostra o clique do grafo.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
-
-5. Usando este painel, você poderá examinar o status e os erros em seu conector.
-    ![Captura de tela que mostra o status do conector.](media/itsmc-resync-servicenow/connector-dashboard.png)
-
-### <a name="dashboard-elements"></a>Elementos do painel
-
-O painel contém informações sobre os alertas que foram enviados para a ferramenta de ITSM usando esse conector.
-O painel é dividido em quatro partes:
-
-1. Item de trabalho criado: o grafo e a tabela abaixo contêm a contagem do item de trabalho por tipo. Se você clicar no grafo ou na tabela, poderá ver mais detalhes sobre os itens de trabalho.
-    ![Captura de tela que mostra o item de trabalho criado.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
-2. Computadores afetados: as tabelas contêm detalhes sobre os itens de configuração que criaram itens de configuração.
-    Ao clicar em linhas nas tabelas, você poderá obter mais detalhes sobre os itens de configuração.
-    A tabela conterá um número limitado de linhas se você quiser ver toda a lista em que você pode clicar em "ver tudo".
-    ![Captura de tela que mostra os computadores afetados.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
-3. Status do conector: o grafo e a tabela abaixo contêm mensagens sobre o status do conector. Ao clicar no gráfico em linhas na tabela, você pode obter mais detalhes sobre as mensagens do status do conector.
-    A tabela conterá um número limitado de linhas se você quiser ver toda a lista em que você pode clicar em "ver tudo".
-    ![Captura de tela que mostra o status do conector.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
-4. Regras de alerta: as tabelas contêm as informações sobre o número de regras de alerta que foram detectadas.
-    Ao clicar em linhas nas tabelas, você poderá obter mais detalhes sobre as regras que foram detectadas.
-    A tabela conterá um número limitado de linhas se você quiser ver toda a lista em que você pode clicar em "ver tudo".
-    ![Captura de tela que mostra as regras de alerta.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
+Para obter mais informações sobre a investigação do painel, consulte [investigação de erro usando o painel](./itsmc-dashboard.md).
 
 ### <a name="service-map"></a>Mapa do serviço
 

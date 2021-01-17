@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c8b942e66a76bcc3a095f9bd3d40b44bf4217e50
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 286f4f5ca8a18a67da2ac24beb4c6935de35778d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584877"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538127"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Google usando o Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ ms.locfileid: "97584877"
 
 ## <a name="create-a-google-application"></a>Criar um aplicativo do Google
 
-Para usar uma conta do Google como um [provedor de identidade](authorization-code-flow.md) no Azure Active Directory B2C (Azure ad B2C), você precisa criar um aplicativo no console do Google Developers. Se você ainda não tiver uma conta do Google, poderá se inscrever em [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) .
+Para habilitar a entrada para usuários com uma conta do Google no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no [console do Google Developers](https://console.developers.google.com/). Para obter mais informações, consulte [Configurando o OAuth 2,0](https://support.google.com/googleapi/answer/6158849). Se você ainda não tiver uma conta do Google, poderá se inscrever em [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) .
 
 1. Entre no [Console de Desenvolvedores do Google](https://console.developers.google.com/) com suas credenciais de conta do Google.
 1. No canto superior esquerdo da página, selecione a lista projeto e, em seguida, selecione **novo projeto**.
@@ -62,7 +62,7 @@ Insira um **Nome** para seu aplicativo. Insira *b2clogin.com* na seção **domí
 1. Insira um **Nome**. Por exemplo, *Google*.
 1. Para a **ID do cliente**, insira a ID do cliente do aplicativo do Google que você criou anteriormente.
 1. Para o **segredo do cliente**, insira o segredo do cliente que você registrou.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ::: zone-end
 
@@ -189,9 +189,9 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 ## <a name="add-google-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Google a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário que você deseja para o provedor de identidade do Google.
+1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Google.
 1. Em **provedores de identidade social**, selecione **Google**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**

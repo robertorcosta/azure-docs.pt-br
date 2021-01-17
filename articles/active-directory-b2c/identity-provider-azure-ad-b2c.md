@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b8be516051f8eed0649064ae0f7c29a4dde85675
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8a0d69ea57eb5b8b2a074c37d4798a99c576ce95
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224427"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538172"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configurar a inscrição e a entrada com uma conta de Azure AD B2C de outro locatário Azure AD B2C
 
@@ -43,7 +43,7 @@ Este artigo descreve como configurar uma federação com outro locatário Azure 
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar um aplicativo Azure AD B2C
 
-Para usar uma conta de Azure AD B2C como um [provedor de identidade](openid-connect.md) em seu locatário do Azure ad B2C (por exemplo, contoso), no outro Azure ad B2C (por exemplo, fabrikam):
+Para habilitar a entrada para usuários com uma conta de outro locatário Azure AD B2C (por exemplo, fabrikam), em seu Azure AD B2C (por exemplo, contoso):
 
 1. Crie um [fluxo de usuário](tutorial-create-user-flows.md)ou uma [política personalizada](custom-policy-get-started.md).
 1. Em seguida, crie um aplicativo no Azure AD B2C, como descrito nesta seção. 

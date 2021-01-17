@@ -4,15 +4,15 @@ description: Este artigo descreve como entrar e ativar um console do sensor.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/26/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9305609b624a96e4d785657dfb63af6639e132c4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837779"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538569"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar seu sensor
 
@@ -65,10 +65,13 @@ Dois níveis de segurança estão disponíveis:
 O console do oferece suporte aos seguintes tipos de certificado:
 
 - Infraestrutura privada e de chave corporativa (PKI particular)
+
 - Infraestrutura de chave pública (PKI pública)
+
 - Gerado localmente no dispositivo (autoassinado localmente) 
 
-  > FUNDAMENTAL Recomendamos que você não use o certificado autoassinado padrão. O certificado não é seguro e deve ser usado somente para ambientes de teste. O proprietário do certificado não pode ser validado e a segurança do sistema não pode ser mantida. Nunca use essa opção para redes de produção.
+  > [!IMPORTANT]
+  > Recomendamos que você não use o certificado autoassinado padrão. O certificado não é seguro e deve ser usado somente para ambientes de teste. O proprietário do certificado não pode ser validado e a segurança do sistema não pode ser mantida. Nunca use essa opção para redes de produção.
 
 ### <a name="sign-in-and-activate-the-sensor"></a>Entrar e ativar o sensor
 
@@ -176,7 +179,7 @@ Você acessa as ferramentas do console no menu lateral.
 
 | Janela | ícone | Descrição |
 | -----------|--|--|
-| Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Exiba um instantâneo intuitivo do estado da segurança da rede. |
+| Painel | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Exiba um instantâneo intuitivo do estado da segurança da rede. |
 | Mapa do dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Exiba os dispositivos de rede, as conexões de dispositivo e as propriedades de dispositivo em um mapa. Várias opções de zoom, realce e filtro estão disponíveis para exibir a rede. |
 | Inventário de dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | O inventário de dispositivo exibe uma ampla gama de atributos de dispositivo que esse sensor detecta. As opções estão disponíveis para: <br /> -Filtre as informações de acordo com os campos de tabela e veja as informações filtradas exibidas. <br /> -Exportar informações para um arquivo CSV. <br /> -Importar detalhes do registro do Windows.|
 | Alertas | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Exibe alertas quando ocorrem violações de política, desvios do comportamento de linha de base ocorrem ou qualquer tipo de atividade suspeita na rede é detectada. |
@@ -211,7 +214,7 @@ Você acessa as ferramentas do console no menu lateral.
 |----|---|---|
 | Suporte | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contate a [suporte da Microsoft](https://support.microsoft.com/) para obter ajuda. |
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Confira também
 
 [Integrar um sensor](getting-started.md#4-onboard-a-sensor)
 

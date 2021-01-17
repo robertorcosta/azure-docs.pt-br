@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 3370215e9a69e62596f214ba4330fc4914a2837f
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696238"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539682"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrar e verificar um locatário Power BI (versão prévia)
 
@@ -55,7 +55,7 @@ Para configurar a autenticação, crie um grupo de segurança e adicione a ident
     > [!Important]
     > Você precisa ser um administrador de Power BI para ver a página de configurações de locatário.
 
-1. Selecione **as configurações do desenvolvedor**  >  **permitir que as entidades de serviço usem somente leitura Power bi APIs de administração (versão prévia)**.
+1. Selecione **admin API configurações**  >  **permitir que as entidades de serviço usem somente leitura Power bi APIs de administração (versão prévia)**.
 1. Selecione **grupos de segurança específicos**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Imagem mostrando como permitir que as entidades de serviço obtenham somente leitura Power BI permissões de API de administração":::

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b497176deff896e785387f4b64a8e66ff4d6d58e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 5b7c6a229cfee5b543d1169b30be336cc97ba7ed
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654312"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538090"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do QQ usando o Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ ms.locfileid: "97654312"
 
 ## <a name="create-a-qq-application"></a>Criar um aplicativo QQ
 
-Para usar uma conta do QQ como um provedor de identidade no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do QQ, poderá se inscrever em [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) .
+Para habilitar a entrada para usuários com uma conta do QQ no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no [portal do desenvolvedor do QQ](http://open.qq.com). Se você ainda não tiver uma conta do QQ, poderá se inscrever em [https://ssl.zc.qq.com](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) .
 
 ### <a name="register-for-the-qq-developer-program"></a>Registrar-se no programa de desenvolvedores do QQ
 
@@ -189,7 +189,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 ## <a name="add-qq-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade QQ a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário que você deseja para o provedor de identidade QQ.
+1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade QQ.
 1. Em **provedores de identidade social**, selecione **QQ**.
 1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.

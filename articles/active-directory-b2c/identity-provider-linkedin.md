@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: bde7c1adefea88ed5b5d86e2c0e17f475be1bc71
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e2c576c97d170726f5ec1b06e5a6d0d859a85e64
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654363"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538099"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do LinkedIn usando o Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97654363"
 
 ## <a name="create-a-linkedin-application"></a>Criar um aplicativo do LinkedIn
 
-Para usar uma conta do LinkedIn como um [provedor de identidade](authorization-code-flow.md) no Azure Active Directory B2C (Azure ad B2C), você precisa criar um aplicativo em seu locatário que o represente. Se você ainda não tiver uma conta do LinkedIn, poderá se inscrever em [https://www.linkedin.com/](https://www.linkedin.com/) .
+Para habilitar a entrada para usuários com uma conta do LinkedIn no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo no [site de desenvolvedores do LinkedIn](https://www.developer.linkedin.com/). Para obter mais informações, consulte [fluxo de código de autorização](https://docs.microsoft.com/linkedin/shared/authentication/authorization-code-flow). Se você ainda não tiver uma conta do LinkedIn, poderá se inscrever em [https://www.linkedin.com/](https://www.linkedin.com/) .
 
 1. Entre no [site de Desenvolvedores do LinkedIn](https://www.developer.linkedin.com/) com suas credencias de conta do LinkedIn.
 1. Selecione **meus aplicativos** e, em seguida, clique em **criar aplicativo**.
@@ -232,7 +232,7 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
 ## <a name="add-linkedin-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do LinkedIn a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário que você deseja para o provedor de identidade do LinkedIn.
+1. Clique no fluxo de usuário que você deseja adicionar ao provedor de identidade do LinkedIn.
 1. Em **provedores de identidade social**, selecione **LinkedIn**.
 1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.

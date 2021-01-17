@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
-ms.openlocfilehash: 921c05b76640935a1bd9e65d556933c23093e5b2
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/15/2021
+ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251430"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539833"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -22,7 +22,6 @@ Este artigo explica as mensagens de erro comuns durante a publicação de imagen
 
 > [!NOTE]
 > Se você tiver dúvidas sobre este artigo ou sugestões de aprimoramento, entre em contato com o [suporte do Partner Center](https://aka.ms/marketplacepublishersupport).
-
 
 ## <a name="vm-extension-failure"></a>Falha na extensão da VM
 
@@ -60,12 +59,12 @@ Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 |1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD estiver incorreto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
 |2|Tipo de blob inválido|Falha no provisionamento da VM porque o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
 |3|Tempo limite de provisionamento ou não generalizado corretamente|Há um problema com a generalização da VM.|Recrie a imagem com generalização e envie a solicitação.|
+|
 
 > [!NOTE]
 > Para obter mais informações sobre a generalização da VM, consulte:
 > - [Documentação do Linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Documentação do Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
-
 
 ## <a name="vhd-specifications"></a>Especificações do VHD
 
@@ -93,7 +92,7 @@ Checksum (soma de verificação)|4
 ID Exclusiva|16
 Estado salvo|1
 Reservado|427
-
+|
 
 ### <a name="vhd-specifications"></a>Especificações do VHD
 
@@ -139,6 +138,7 @@ A tabela a seguir lista os casos de teste do Linux que o kit de ferramentas exec
 |8|Intervalo de ativo do cliente|Defina ClientAliveInterval como 180. Na necessidade do aplicativo, ele pode ser definido de 30 a 235. Se você estiver habilitando o SSH para seus usuários finais, esse valor deverá ser definido como explicado.|
 |9|Arquitetura do SO|Há suporte somente para sistemas operacionais de 64 bits.|
 |10|Atualização automática|Identifica se a atualização automática do agente do Linux está habilitada.|
+|
 
 ### <a name="common-test-case-errors"></a>Erros comuns de casos de teste
 
@@ -150,7 +150,7 @@ Consulte a tabela a seguir para ver os erros comuns que podem ser exibidos duran
 | 2 | Caso de teste do histórico de bash | Ocorrerá um erro se o tamanho do histórico de bash em sua imagem enviada tiver mais de 1 kilobyte (KB). O tamanho é restrito a 1 KB para garantir que seu arquivo de histórico de bash não contenha nenhuma informação potencialmente confidencial. | Resolva montando o VHD em outra VM de trabalho e faça as alterações para reduzir o tamanho para 1 KB ou menos. Por exemplo, exclua os `.bash` arquivos de histórico. |
 | 3 | Caso de teste do parâmetro do kernel necessário | Você receberá esse erro quando o valor de `console` não estiver definido como `ttyS0` . Verifique executando o seguinte comando: <br /> `cat /proc/cmdline` | Defina o valor para `console` como `ttyS0` e reenvie a solicitação. |
 | 4 | Caso de teste de intervalo ClientAlive | Se o kit de ferramentas fornecer um resultado com falha para esse caso de teste, haverá um valor inadequado para `ClientAliveInterval` . | Defina o valor de `ClientAliveInterval` como menor ou igual a 235 e envie a solicitação novamente. |
-
+|
 
 ### <a name="windows-test-cases"></a>Casos de teste do Windows
 
@@ -175,8 +175,9 @@ A tabela a seguir lista os casos de teste do Windows que o kit de ferramentas ex
 |15|Serviços SNMP|O recurso de serviços SNMP (Simple Network Management Protocol) ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |16|Serviço de Cadastramento na Internet do Windows|Serviço de cadastramento na Internet do Windows. Ainda não há suporte para esse recurso de servidor. O aplicativo não deve depender desse recurso.|
 |17|Serviço de LAN sem fio|Serviço de LAN sem fio. Ainda não há suporte para esse recurso de servidor. O aplicativo não deve depender desse recurso.|
+|
 
-Se você entrar em qualquer falha com os casos de teste anteriores, consulte a coluna **Descrição** na tabela da solução. Para obter mais informações, entre em contato com a equipe de suporte. 
+Se você entrar em qualquer falha com os casos de teste anteriores, consulte a coluna **Descrição** na tabela da solução. Para obter mais informações, entre em contato com a equipe de suporte.
 
 ## <a name="data-disk-size-verification"></a>Verificação do tamanho do disco de dados
 
@@ -192,6 +193,7 @@ Consulte as regras a seguir para obter limitações no tamanho do disco do siste
 |---|---|
 |Linux|1 GB a 1023 GB|
 |Windows|30 GB a 250 GB|
+|
 
 Como as VMs permitem acesso ao sistema operacional subjacente, verifique se o tamanho do VHD é suficientemente grande para o VHD. Os discos não são expansíveis sem tempo de inatividade. Use um tamanho de disco de 30 GB a 50 GB.
 
@@ -199,6 +201,7 @@ Como as VMs permitem acesso ao sistema operacional subjacente, verifique se o ta
 |---|---|---|
 |>500 tebibytes (TiB)|n/a|Contate a equipe de suporte para obter uma aprovação de exceção.|
 |250-500 TiB|Diferença de >200 Gibibytes (GiB) do tamanho do blob|Contate a equipe de suporte para obter uma aprovação de exceção.|
+|
 
 > [!NOTE]
 > Tamanhos de disco maiores incorrem em custos maiores e resultarão em um atraso durante o processo de instalação e replicação. Devido a esse atraso e custo, a equipe de suporte pode buscar justificativa para a aprovação da exceção.
@@ -209,7 +212,7 @@ Para evitar um ataque potencial relacionado ao vírus WannaCry, verifique se tod
 
 Você pode verificar a versão do arquivo de imagem de `C:\windows\system32\drivers\srv.sys` ou `srv2.sys` .
 
-A tabela a seguir mostra a versão mínima com patch do Windows Server: 
+A tabela a seguir mostra a versão mínima com patch do Windows Server:
 
 |Sistema operacional|Versão|
 |---|---|
@@ -218,6 +221,7 @@ A tabela a seguir mostra a versão mínima com patch do Windows Server:
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|NA|
+|
 
 > [!NOTE]
 > O Windows Server 2019 não tem nenhum requisito de versão obrigatório.
@@ -230,8 +234,8 @@ Atualize o kernel com uma versão aprovada e envie a solicitação novamente. Vo
 
 Se a imagem não estiver instalada com uma das seguintes versões de kernel, atualize-a com os patches corretos. Solicite a aprovação necessária da equipe de suporte depois que a imagem for atualizada com estes patches necessários:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |Família de sistema operacional|Versão|Kernel|
@@ -278,6 +282,7 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 ||Stretch (segurança)|4.9.168-1 + deb9u3|
 ||Debian GNU/Linux 10 (Buster)|Debian 6.3.0-18 + deb9u1|
 ||Buster, Sid (alongar portas de ampliação)|4.19.37-5|
+|
 
 ## <a name="image-size-should-be-in-multiples-of-megabytes"></a>O tamanho da imagem deve estar em múltiplos de megabytes
 
@@ -303,7 +308,7 @@ Para enviar sua solicitação com a imagem de SSH desabilitada para o processo d
 3. Envie novamente sua solicitação de certificação.
 
 ## <a name="download-failure"></a>Falha no download
-    
+
 Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM com uma URL de assinatura de acesso compartilhado (SAS).
 
 |Cenário|Erro|Motivo|Solução|
@@ -314,12 +319,13 @@ Consulte a tabela a seguir para obter os problemas que surgirem quando você bai
 |4|Assinatura inválida|A URL SAS associada para o VHD está incorreta.|Obtenha a URL SAS correta.|
 |6|Cabeçalho condicional HTTP|A URL SAS é inválida.|Obtenha a URL SAS correta.|
 |7|Nome de VHD inválido|Verifique se há algum caractere especial, como um sinal de porcentagem `%` ou aspas `"` , no nome do VHD.|Renomeie o arquivo VHD removendo os caracteres especiais.|
+|
 
-## <a name="first-1-mb-partition-2048-sectors-each-sector-of-512-bytes"></a>Primeira partição de 1 MB (2.048 setores, cada setor de 512 bytes)
+## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Primeiros 1 MB (2048 setores, cada setor de 512 bytes) de partição
 
-Se você estiver [criando sua própria imagem](azure-vm-create-using-own-image.md), verifique se os primeiros 2.048 setores (1 MB) do disco do sistema operacional estão vazios. Caso contrário, a publicação falhará. Esse requisito é aplicável somente ao disco do sistema operacional (não aos discos de dados). Se você estiver criando a imagem [de uma base aprovada](azure-vm-create-using-approved-base.md), poderá ignorar esse requisito. 
+Se você estiver [criando sua própria imagem](azure-vm-create-using-own-image.md), verifique se os primeiros 2048 setores (1 MB) do disco do sistema operacional estão vazios. Caso contrário, a publicação falhará. Esse requisito é aplicável somente ao disco do sistema operacional (não discos de dados). Se você estiver criando sua imagem [de uma base aprovada](azure-vm-create-using-approved-base.md), poderá ignorar esse requisito.
 
-### <a name="create-a-1-mb-partition-2048-sectors-each-sector-of-512-bytes-on-an-empty-vhd-linux-only-steps"></a>Criar uma partição de 1 MB (2.048 setores, cada setor de 512 bytes) em um VHD vazio (etapas somente do Linux)
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Criar uma partição de 1 MB (2048 setores, cada setor de 512 bytes) em um VHD vazio
 
 Essas etapas se aplicam apenas ao Linux.
 
@@ -374,17 +380,17 @@ Essas etapas se aplicam apenas ao Linux.
 
       ![Captura de tela da linha de comando do cliente de reapresentação mostrando os comandos e a saída dos dados apagados.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
-   1. Digite `w` para confirmar a criação da partição. 
+   1. Digite `w` para confirmar a criação da partição.
 
       ![Captura de tela da linha de comando do cliente de recriação mostrando os comandos para criar uma partição.](./media/create-vm/vm-certification-issues-solutions-23.png)
 
-   1. Você pode verificar a tabela de partição executando o comando `n fdisk /dev/sdb` e digitando `p` . Você verá que a partição é criada com o valor de deslocamento 2048. 
+   1. Você pode verificar a tabela de partição executando o comando `n fdisk /dev/sdb` e digitando `p` . Você verá que a partição é criada com o valor de deslocamento 2048.
 
       ![Captura de tela da linha de comando do cliente de saída mostrando os comandos para criar o deslocamento 2048.](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. Desanexe o VHD da VM e exclua a VM.
 
-### <a name="create-a-first-1-mb-partition-2048-sectors-each-sector-of-512-bytes-by-moving-existing-data-on-vhd"></a>Criar uma primeira partição de 1 MB (2.048 setores, cada setor de 512 bytes) movendo os dados existentes no VHD
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Criar uma partição de 1 MB (2048 setores, cada setor de 512 bytes) movendo os dados existentes no VHD
 
 Essas etapas se aplicam apenas ao Linux.
 
@@ -452,11 +458,11 @@ Quando uma imagem é criada, ela pode ser mapeada ou atribuída ao rótulo de so
 
 Se todas as imagens obtidas do Azure Marketplace forem reutilizadas, o VHD do sistema operacional deverá ser generalizado.
 
-* Para o **Linux**, o processo a seguir GENERALIZA uma VM Linux e a implanta novamente como uma VM separada.
+- Para o **Linux**, o processo a seguir GENERALIZA uma VM Linux e a implanta novamente como uma VM separada.
 
   Na janela SSH, digite o seguinte comando: `sudo waagent -deprovision+user`.
 
-* Para o **Windows**, você generaliza as imagens do Windows usando o `sysreptool` .
+- Para o **Windows**, você generaliza as imagens do Windows usando o `sysreptool` .
 
   Para obter mais informações sobre a `sysreptool` ferramenta, consulte [visão geral do Sysprep (preparação do sistema)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 

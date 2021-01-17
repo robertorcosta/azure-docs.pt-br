@@ -4,15 +4,15 @@ description: Solucione problemas comuns em uma implantação no Sincronização 
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 1/13/2021
+ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a262c2b4351c96217001ba42e8c745f7d71c7d45
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233892"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539244"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -916,6 +916,22 @@ Esse erro ocorre porque Sincronização de Arquivos do Azure não dá suporte ao
 | **Correção necessária** | Não |
 
 Esse erro ocorre quando uma operação de ingestão de dados excede o tempo limite. Esse erro pode ser ignorado se a sincronização estiver progredindo (AppliedItemCount é maior que 0). Confira [Como fazer para monitorar o progresso de uma sessão de sincronização atual?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+<a id="-2134375814"></a>**Falha na sincronização porque o caminho do ponto de extremidade do servidor não foi encontrado no servidor.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027a |
+| **HRESULT (decimal)** | -2134375814 |
+| **Cadeia de caracteres de erro** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
+| **Correção necessária** | Sim |
+
+Esse erro ocorre se o diretório usado como o caminho do ponto de extremidade do servidor foi renomeado ou excluído. Se o diretório foi renomeado, renomeie o diretório de volta para o nome original e reinicie o serviço do agente de sincronização de armazenamento (FileSyncSvc).
+
+Se o diretório foi excluído, execute as seguintes etapas para remover o ponto de extremidade do servidor existente e criar um novo ponto de extremidade do servidor usando um novo caminho:
+
+1. Remova o ponto de extremidade do servidor no grupo de sincronização seguindo as etapas documentadas em [remover um ponto de extremidade do servidor](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+2. Crie um novo ponto de extremidade do servidor no grupo de sincronização seguindo as etapas documentadas em [Adicionar um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Etapas de solução de problemas comuns
 <a id="troubleshoot-storage-account"></a>**Verifique se que a conta de armazenamento existe.**  
