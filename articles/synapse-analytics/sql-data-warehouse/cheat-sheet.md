@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454622"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120216"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Roteiro para o pool de SQL dedicado (antigo SQL DW) no Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Saber os tipos de operações antecipadamente ajuda-o a otimizar o design de sua
 
 ## <a name="data-migration"></a>Migração de dados
 
-Primeiro, carregue seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou no Armazenamento de Blobs do Azure. Em seguida, use a [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (versão prévia) para carregar os dados em tabelas de preparo. Use a seguinte configuração:
+Primeiro, carregue seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou no Armazenamento de Blobs do Azure. Em seguida, use a [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para carregar os dados em tabelas de preparo. Use a seguinte configuração:
 
 | Design | Recomendação |
 |:--- |:--- |
@@ -46,7 +46,7 @@ Primeiro, carregue seus dados no [Azure Data Lake Storage](../../data-factory/co
 | Particionamento | Nenhum |
 | Classe de recurso | largerc ou xlargerc |
 
-Saiba mais sobre [migração de dados](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [carregamento de dados](design-elt-data-loading.md) e o [processo ELT (Extrair, Carregar e Transformar)](design-elt-data-loading.md).
+Saiba mais sobre [migração de dados](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), [carregamento de dados](design-elt-data-loading.md) e o [processo ELT (Extrair, Carregar e Transformar)](design-elt-data-loading.md).
 
 ## <a name="distributed-or-replicated-tables"></a>Tabelas replicadas ou distribuídas
 
@@ -137,7 +137,7 @@ Dimensione automaticamente no momento que desejar com o Azure Functions:
 
 É recomendável considerar o Banco de Dados SQL e o Azure Analysis Services em uma arquitetura de Hub e Spoke. Essa solução pode fornecer isolamento de carga de trabalho entre diferentes grupos de usuários, além de usar recursos de segurança avançados do Banco de Dados SQL e do Azure Analysis Services. Essa também é uma maneira de fornecer simultaneidade ilimitada para seus usuários.
 
-Saiba mais sobre [arquiteturas típicas que aproveitam o pool de SQL dedicado (antigo SQL DW) no Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Saiba mais sobre [arquiteturas típicas que aproveitam o pool de SQL dedicado (antigo SQL DW) no Azure Synapse Analytics](/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse).
 
 Implante com um clique seus spokes em bancos de dados SQL do pool de SQL dedicado (antigo SQL DW):
 

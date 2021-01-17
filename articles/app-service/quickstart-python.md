@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 058d64d8b34a47101517273ebd17a09d9ca51197
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f60534f7d319bfe0b9e8e7bd4447770bcd6d45e3
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936185"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134425"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
@@ -158,13 +158,13 @@ Está enfrentando problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHel
 Implante o código em sua pasta local (*python-docs-hello-world*) usando o comando `az webapp up`:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name>
+az webapp up --sku B1 --name <app-name>
 ```
 
 - Se o comando `az` não for reconhecido, verifique se você tem a CLI do Azure instalada, conforme descrito em [Configurar seu ambiente inicial](#set-up-your-initial-environment).
 - Se o comando `webapp` não for reconhecido, sua versão da CLI do Azure será a 2.0.80 ou superior. Caso contrário, [instale a versão mais recente](/cli/azure/install-azure-cli).
 - Substitua `<app_name>` por um nome que seja exclusivo em todo o Azure (*os caracteres válidos são `a-z`, `0-9` e `-`* ). Um bom padrão é usar uma combinação do nome da empresa e um identificador de aplicativo.
-- O argumento `--sku F1` cria o aplicativo Web no tipo de preço Gratuito. Omita esse argumento para usar um nível Premium mais rápido, o que incorre em um custo por hora.
+- O argumento `--sku B1` cria o aplicativo Web no tipo de preço Básico, gerando um pequeno custo por hora. Omita este argumento para usar uma camada Premium mais rápida.
 - Opcionalmente, você pode incluir o argumento `--location <location-name>`, em que `<location_name>` é uma região do Azure disponível. Você pode recuperar uma lista de regiões permitidas para sua conta do Azure executando o comando [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations).
 - Caso veja o erro "Não foi possível detectar automaticamente a pilha de runtime do seu aplicativo", verifique se você está executando o comando na pasta *python-docs-hello-world* (Flask) ou na pasta *python-docs-hello-django* (Django), que contém o arquivo *requirements.txt*. (Confira [Solução de problemas na detecção automática com az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
@@ -268,7 +268,7 @@ Está enfrentando problemas? Veja primeiro o [Guia de solução de problemas](co
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. O grupo de recursos tem um nome como "appsvc_rg_Linux_CentralUS", dependendo da sua localização. Se você usar uma SKU do Serviço de Aplicativo diferente do nível F1 gratuito, esses recursos incorrerão em custos contínuos (confira [Preço do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/linux/)).
+Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. O grupo de recursos tem um nome como "appsvc_rg_Linux_CentralUS", dependendo da sua localização. Se você mantiver o aplicativo Web em execução, incorrerá em alguns custos contínuos (confira [Preços do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/linux/)).
 
 Se você achar que não precisará desses recursos no futuro, exclua o grupo de recursos executando o seguinte comando:
 

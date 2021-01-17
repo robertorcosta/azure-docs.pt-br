@@ -3,17 +3,17 @@ title: O que há de novo na Área de Trabalho Virtual do Windows? - Azure
 description: Novos recursos e atualizações de produto para a Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 01/06/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: df3dd8b5b18ec2997ee20ad4955ffd7bc1dc573d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617350"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955001"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -25,6 +25,44 @@ A Área de Trabalho Virtual do Windows é atualizada regularmente. Neste artigo,
 - Correções de bug
 
 Este artigo é atualizado mensalmente. Volte a consultá-lo com frequência para acompanhar as atualizações.
+
+## <a name="december-2020"></a>Dezembro de 2020
+
+Isto é o que mudou em dezembro de 2020: 
+
+### <a name="azure-monitor-for-windows-virtual-desktop"></a>Azure Monitor para Área de Trabalho Virtual do Windows
+
+A versão prévia pública para o Azure Monitor para Área de Trabalho Virtual do Windows já está disponível. Esse novo recurso inclui um painel robusto criado com base em Pastas de Trabalho do Azure Monitor para ajudar os profissionais de TI a entender os ambientes de Área de Trabalho Virtual do Windows. Confira mais detalhes [no comunicado em nosso blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587). 
+
+### <a name="azure-resource-manager-template-change"></a>Alteração do modelo do Azure Resource Manager 
+
+Na atualização mais recente, removemos todo o parâmetro de endereço IP público do modelo do Azure Resource Manager para criar e provisionar pools de hosts. É altamente recomendável evitar o uso de IPs públicos para Área de Trabalho Virtual do Windows para manter sua implantação segura. Se a sua implantação depender de IPs públicos, você precisará reconfigurá-la para usar IPs privados, caso contrário, sua implantação não funcionará corretamente.
+
+### <a name="msix-app-attach-public-preview"></a>Versão prévia pública do anexo de aplicativo MSIX 
+
+O anexo de aplicativo MSIX é outro serviço que iniciou sua versão prévia pública neste mês. O anexo de aplicativo MSIX é um serviço que apresenta dinamicamente aplicativos MSIX para VMs de host da Sessão de Área de Trabalho Virtual do Windows. Confira mais detalhes [no comunicado em nosso blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231). 
+
+### <a name="screen-capture-protection"></a>Proteção de captura de tela 
+
+Este mês também marcou o início da versão prévia pública da proteção de captura de tela. Você pode usar esse recurso para impedir a captura de informações confidenciais nos pontos de extremidade do cliente. Dê uma chave à proteção de captura de tela acessando [esta página](https://aka.ms/WVDScreenCaptureProtection).  
+
+### <a name="built-in-roles"></a>Funções internas
+
+Adicionamos funções internas à Área de Trabalho Virtual do Windows para permissões de administrador. Confirma mais informações em [Funções internas para a Área de Trabalho Virtual do Windows](rbac.md). 
+
+### <a name="application-group-limit-increase"></a>Aumento do limite do grupo de aplicativos
+
+Aumentamos o limite do grupo de aplicativos padrão por locatário do Azure Active Directory para 200 grupos.
+
+### <a name="client-updates-for-december-2020"></a>Atualizações do cliente para dezembro de 2020
+
+Lançamos novas versões dos seguintes clientes: 
+
+- Android
+- macOS
+- Windows
+
+Para obter mais informações sobre atualizações do cliente, confira [Atualizações do cliente](whats-new.md#client-updates).
 
 ## <a name="november-2020"></a>Novembro de 2020
 

@@ -3,12 +3,12 @@ title: Detectar movimento, gravar vídeo nos Serviços de Mídia do Azure
 description: Este guia de início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para detectar o movimento em uma transmissão de vídeo ao vivo e gravar clipes de vídeo nos Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 8872c9aefa0ed748cbed93d0f7376586859be9df
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 33deabf27fe9b74fd01dba5d6fbe3883b54dda63
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511885"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060411"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Início Rápido: Detectar movimento e gravar vídeo em Serviços de Mídia
 
@@ -24,12 +24,14 @@ Este artigo se baseia no [início rápido Introdução](get-started-detect-motio
     * [Configurar recursos do Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Implantar módulos](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
     * [Configurar o Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
-
+    > [!TIP]
+    > Se você tiver problemas com os recursos do Azure que são criados, confira nosso **[guia de solução de problemas](troubleshoot-how-to.md#common-error-resolutions)** para resolver alguns problemas encontrados com frequência.
 ## <a name="review-the-sample-video"></a>Examinar o vídeo de exemplo
 
 Como parte das etapas acima para configurar os recursos do Azure, um vídeo (curto) de um estacionamento será copiado para a VM Linux no Azure que está sendo usada como o dispositivo IoT Edge. Esse arquivo de vídeo será usado para simular uma transmissão ao vivo para este tutorial.
 
 Use um aplicativo como o [VLC Player](https://www.videolan.org/vlc/), inicie-o, clique em `Ctrl+N` e cole o link [do vídeo de exemplo de estacionamento](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) para iniciar a reprodução. Na marca de aproximadamente 5 segundos, um carro branco percorre o estacionamento.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 
 Ao concluir as etapas abaixo, você terá usado a Análise de Vídeo ao vivo no IoT Edge para detectar esse movimento do carro e gravar um clipe de vídeo começando na marca de cerca de 5 segundos. O diagrama a seguir é a representação visual do fluxo geral.
 
@@ -194,7 +196,7 @@ Usando as mesmas etapas que aquelas descritas para invocar GraphTopologyList, vo
 
 O conteúdo JSON acima resulta na criação de uma topologia de grafo que define cinco parâmetros (quatro dos quais têm valores padrão). A topologia tem um nó de origem ([origem RTSP](media-graph-concept.md#rtsp-source)), dois nós de processador ([processador de detecção de movimento](media-graph-concept.md#motion-detection-processor) e [processador da porta de sinal](media-graph-concept.md#signal-gate-processor)) e dois nós de coletor (coletor do Hub IoT e [coletor de ativos](media-graph-concept.md#asset-sink)). A representação visual da topologia é mostrada acima.
 
-Em poucos segundos, você verá a resposta a seguir na janela de SAÍDA.
+Em poucos segundos, você verá a resposta a seguir na janela de **SAÍDA**.
 
 ```
 [DirectMethod] Invoking Direct Method [GraphTopologySet] to [lva-sample-device/lvaEdge] ...

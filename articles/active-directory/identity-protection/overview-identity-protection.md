@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242e0e4614994c30d0a14b8fe3d7a5c2b217bb5a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6e274d35fde6a3d55c05bcb5a9f22e75a37aa3c6
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033333"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955392"
 ---
 # <a name="what-is-identity-protection"></a>O que é proteção de identidade?
 
@@ -49,13 +49,16 @@ O Identity Protection identifica riscos nas seguintes classificações:
 
 | Tipo de detecção de risco | Descrição |
 | --- | --- |
-| Viagem atípica | Entrada proveniente de uma localização atípica com base nas conexões recentes do usuário. |
 | Endereço IP anônimo | Entrada de um endereço IP anônimo (por exemplo: navegador Tor, VPNs para anonimato). |
-| Propriedades de entrada desconhecidas | Entrada com propriedades que não vimos recentemente para o usuário especificado. |
+| Viagem atípica | Entrada proveniente de uma localização atípica com base nas conexões recentes do usuário. |
 | Endereço IP vinculado a malware | Entrada de um endereço IP vinculado a malware. |
+| Propriedades de entrada desconhecidas | Entrada com propriedades que não vimos recentemente para o usuário especificado. |
 | Credenciais vazadas | Indica que as credenciais válidas do usuário foram vazadas. |
 | Pulverização de senha | Indica que vários nomes de usuário estão sendo atacados por meio de senhas comuns de maneira unificada, por força bruta. |
 | Inteligência contra ameaças do Azure AD | As fontes internas e externas de inteligência contra ameaças da Microsoft identificaram um padrão de ataque conhecido. |
+| Novo país | Essa detecção é descoberta pelo [MCAS (Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). |
+| Atividade de um endereço IP anônimo | Essa detecção é descoberta pelo [MCAS (Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). |
+| Encaminhamento suspeito da caixa de entrada | Essa detecção é descoberta pelo [MCAS (Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). |
 
 Mais detalhes sobre esses riscos e como/quando são calculados podem ser encontrados no artigo, [O que é risco](concept-identity-protection-risks.md).
 

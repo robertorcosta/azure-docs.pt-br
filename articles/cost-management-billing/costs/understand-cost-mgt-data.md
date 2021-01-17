@@ -3,18 +3,18 @@ title: Noções básicas dos dados do Gerenciamento de Custos do Azure
 description: Este artigo ajuda você a entender melhor os dados incluídos em seu Gerenciamento de Custos do Azure e a frequência com que eles são processados, coletados, mostrados e fechados.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032568"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964143"
 ---
 # <a name="understand-cost-management-data"></a>Entender os dados de Gerenciamento de Custos
 
@@ -114,11 +114,11 @@ O Gerenciamento de Custos do Azure recebe marcas como parte de cada registro de 
 - Talvez alguns recursos implantados não deem suporte a marcas ou não incluam marcas em dados de uso.
 - As marcas de recurso só são incluídas nos dados de uso enquanto a marca estiver aplicada. As marcas não são aplicadas aos dados históricos.
 - As marcas de recurso só estão disponíveis no Gerenciamento de Custos após a atualização dos dados.
-- As marcas de recurso só ficam disponíveis no Gerenciamento de Custos quando o recurso está ativo/em execução e produzindo registros de uso (por exemplo, não quando uma VM é desalocada).
+- As marcas de recurso só ficam disponíveis no Gerenciamento de Custos quando o recurso está ativo/em execução e produzindo registros de uso. Por exemplo, quando uma VM é desalocada.
 - O gerenciamento de marcas exige acesso de colaborador a cada recurso.
 - O gerenciamento de políticas de marca exige acesso de proprietário ou de colaborador de política a um grupo de gerenciamento, assinatura ou grupo de recursos.
     
-Se você não vir uma marca específica em Gerenciamento de Custos, considere o seguinte:
+Se você não vir alguma marca específica em Gerenciamento de Custos, considere as seguintes questões:
 
 - A marca foi aplicada diretamente ao recurso?
 - A marca foi aplicada há mais de 24 horas?
@@ -139,8 +139,7 @@ Confira algumas dicas para trabalhar com marcas:
 
 - Planeje antecipadamente e defina uma estratégia de marcação que permita dividir os custos por organização, aplicativo, ambiente etc.
 - Use o Azure Policy para copiar marcas de grupo de recursos para recursos individuais e impor sua estratégia de marcação.
-- Use a API de Tags em conjunto com Consulta ou o UsageDetails para obter todo o custo com base nas marcas atuais.
-
+- Use a API de Tags com Query ou o UsageDetails para obter todo o custo com base nas marcas atuais.
 
 ## <a name="cost-and-usage-data-updates-and-retention"></a>Atualizações de dados de custo e de uso e retenção
 
@@ -151,17 +150,18 @@ Em geral, os dados de custo e de uso estão disponíveis em Gerenciamento de Cus
 - Os encargos estimados do período de cobrança atual podem ser alterados conforme você incorre em mais uso.
 - Cada atualização é cumulativa e inclui todos os itens de linha e informações da atualização anterior.
 - O Azure finaliza ou _encerra_ o período de cobrança atual até 72 horas (três dias corridos) após o fim período de cobrança.
+- Durante o período do mês aberto (não faturado), os dados de gerenciamento de custos devem ser considerados apenas uma estimativa. Em alguns casos, os encargos podem ainda não ter chegado ao sistema depois que o uso de fato ocorreu.
 
 Os seguintes exemplos ilustram como os períodos de cobrança podem ser encerrados:
 
 * Assinaturas de EA (Contrato Enterprise) – Se o mês de cobrança terminar em 31 de março, os encargos estimados serão atualizados até 72 horas mais tarde. Neste exemplo, até meia-noite (UTC) de 4 de abril.
 * Assinaturas pagas conforme o uso – Se o mês de cobrança terminar no dia 15 de maio, os encargos estimados poderão ser atualizados até 72 horas depois. Neste exemplo, até meia-noite (UTC) de 19 de maio.
 
-Depois que os dados de custo e de uso estiverem disponíveis em Gerenciamento de Custos + Cobrança, eles serão mantidos por, pelo menos, 7 anos.
+Depois que os dados de custo e de uso estiverem disponíveis em Gerenciamento de Custos e Cobrança, eles serão mantidos por, pelo menos, sete anos.
 
 ### <a name="rerated-data"></a>Dados recalculados
 
-Se você usa as APIs de Gerenciamento de Custos, o Power BI ou o portal do Azure para recuperar dados, espere que os encargos do período de cobrança atual sejam recalculados e, consequentemente, alterados até que a fatura seja fechada.
+Se você usa as APIs de Gerenciamento de Custos, o Power BI ou o portal do Azure para recuperar dados, espere que os encargos do período de cobrança atual sejam recalculados e, assim, alterados até que a fatura seja fechada.
 
 ## <a name="cost-rounding"></a>Arredondamento de custo
 
@@ -184,6 +184,6 @@ Os dados históricos para ofertas com base em crédito e de pagamento antecipado
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## <a name="see-also"></a>Confira também
+## <a name="next-steps"></a>Próximas etapas
 
 - Se você ainda não concluiu o primeiro início rápido de Gerenciamento de Custos, leia-o em [Iniciar a análise dos custos](./quick-acm-cost-analysis.md).

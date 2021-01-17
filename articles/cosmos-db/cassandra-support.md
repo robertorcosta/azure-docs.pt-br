@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 8c51450fb6ce5c381784e6aaf9b1a66c3c4ff153
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188540"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134221"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -84,10 +84,11 @@ A API do Cassandra do Azure Cosmos DB é compatível com as seguintes funções 
 | Token * | Sim |
 | ttl | Sim |
 | writetime | Sim |
-| Conversão | Não |
+| cast ** | Sim |
 
-> [!NOTE]
-> \* API do Cassandra dá suporte ao token como uma projeção/seletor e só permite token(pk) no lado esquerdo de uma cláusula where. Por exemplo, há suporte para `WHERE token(pk) > 1024`, mas **não** para `WHERE token(pk) > token(100)`.
+> [!NOTE] 
+> \* API do Cassandra dá suporte ao token como uma projeção/seletor e só permite token(pk) no lado esquerdo de uma cláusula where. Por exemplo, há suporte para `WHERE token(pk) > 1024`, mas **não** para `WHERE token(pk) > token(100)`.  
+> \*\* A função `cast()` não pode ser aninhada na API do Cassandra. Por exemplo, há suporte para `SELECT cast(count as double) FROM myTable`, mas **não** para `SELECT avg(cast(count as double)) FROM myTable`.
 
 
 
@@ -183,6 +184,30 @@ O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas
 | UPDATE (transações leves com IF CONDITION)| Não |
 | TRUNCATE | Não |
 | USE | Sim |
+
+## <a name="cql-shell-commands"></a>Comandos do Shell CQL
+
+O Azure Cosmos DB dá suporte aos seguintes comandos de banco de dados em contas da API do Cassandra.
+
+|Comando  |Com suporte |
+|---------|---------|
+| CAPTURA | Sim |
+| CLEAR | Sim |
+| CONSISTENCY * | N/D |
+| COPIAR | Não |
+| DESCRIBE | Sim |
+| cqlshExpand | Não |
+| EXIT | Sim |
+| LOGIN | N/A (não há suporte para a função CQL `USER`, portanto, `LOGIN` é redundante) |
+| PAGING | Sim |
+| SERIAL CONSISTENCY * | N/D |
+| SHOW | Sim |
+| ORIGEM | Sim |
+| TRACING | N/A (a API do Cassandra API é apoiada pelo Azure Cosmos DB – use [log de diagnóstico](cosmosdb-monitor-resource-logs.md) para solucionar problemas) |
+
+> [!NOTE] 
+> \* A consistência funciona de maneira diferente no Azure Cosmos DB, confira [aqui](cassandra-consistency.md) mais informações.  
+
 
 ## <a name="json-support"></a>Suporte a JSON
 |Comando  |Com suporte |

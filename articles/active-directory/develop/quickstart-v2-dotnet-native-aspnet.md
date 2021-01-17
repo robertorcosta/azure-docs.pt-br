@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: fe82b03c4a8c71f84de02245b075ff30da31b45b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 2967476d06b8f6f88b740f811a94c5fdb4284b4d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031090"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98011859"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Início Rápido: chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft
 
@@ -48,13 +48,13 @@ Nesta seção, você registrará sua API Web em **Registros de aplicativo** no p
 
 Para registrar seus aplicativos manualmente, escolha o locatário do Azure AD (Azure Active Directory) no qual deseja criar os aplicativos.
 
-1. Entre no [portal do Azure](https://portal.azure.com) com uma conta corporativa ou de estudante ou uma conta pessoal Microsoft.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> com uma conta corporativa ou de estudante ou uma conta pessoal Microsoft.
 1. Se a conta estiver em mais de um locatário do Azure AD, selecione o perfil na parte superior direita e selecione **Alternar diretório**.
 1. Altere sua sessão do portal para o locatário do Azure AD que deseja usar.
 
 ### <a name="register-the-todolistservice-app"></a>Registrar o aplicativo TodoListService
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
