@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 38ddfc2d3940bb9267edd6c5c683918c1fb5dc58
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 1a1fc0ce634282ffd4fcf374138fe97a04f32062
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251686"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539596"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
@@ -71,7 +71,7 @@ Os preços de camada incluem detalhes sobre o armazenamento por partição que v
 
 ## <a name="billing-rates"></a>Taxas de cobrança
 
-As camadas têm taxas de cobrança diferentes, com taxas mais altas para camadas que são executadas em hardware mais caro ou fornecem recursos mais caros. A taxa de cobrança é o que você vê nas [páginas de preços do Azure](https://azure.microsoft.com/pricing/details/search/) para cada camada de serviço do Azure pesquisa cognitiva.
+As camadas têm taxas de cobrança diferentes, com taxas mais altas para camadas que são executadas em hardware mais caro ou fornecem recursos mais caros. A taxa de cobrança por camada pode ser encontrada nas [páginas de preços do Azure](https://azure.microsoft.com/pricing/details/search/) para pesquisa cognitiva do Azure.
 
 Depois de criar um serviço, a taxa de cobrança torna-se um *custo fixo* de execução do serviço em todo o relógio e um *custo incremental* se você optar por adicionar mais capacidade.
 

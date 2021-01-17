@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 327dce053c38fdb7b03e7ceb0d7a62ec8b8e7248
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96993071"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540466"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -59,11 +59,11 @@ Siga estas etapas para instalar a CLI de Fala em um contêiner do Docker:
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Instale o Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> para sua plataforma, se ainda não estiver instalado.
 2. Em um novo prompt de comando ou terminal, digite este comando: 
-   ```shell   
+   ```console   
    docker pull msftspeech/spx
    ```
 3. Digite este comando. Você verá informações da Ajuda para a CLI de Fala: 
-   ```shell 
+   ```console 
    docker run -it --rm msftspeech/spx help
    ```
 
@@ -93,27 +93,27 @@ Ao chamar o comando `spx` em um contêiner do Docker, você precisará montar um
 
 No Windows, os comandos serão iniciados da seguinte maneira:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 No Linux ou macOS, os comandos se parecerão com o exemplo abaixo. Substitua `ABSOLUTE_PATH` pelo caminho absoluto do diretório montado. Esse caminho foi retornado pelo comando `pwd` na seção anterior. 
 
 Se você executar esse comando antes de definir sua chave e região, receberá uma mensagem de erro informando que você deve definir sua chave e região:
-```shell   
+```console   
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 
 Para usar o comando `spx` instalado em um contêiner, sempre insira o comando completo mostrado acima, seguido dos parâmetros da solicitação.
 Por exemplo, no Windows, este comando define a chave:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 Para obter uma interação mais estendida com a ferramenta de linha de comando, inicie um contêiner com um shell do Bash interativo adicionando um parâmetro de ponto de entrada.
 No Windows, insira este comando para iniciar um contêiner que expõe uma interface de linha de comando interativa, na qual você pode inserir vários comandos `spx`:
-```shell
+```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
@@ -160,7 +160,7 @@ Follow these instructions to create a shortcut:
 Para começar a usar a CLI de Fala, você precisa inserir a chave de assinatura de Fala e o identificador de região. Obtenha essas credenciais seguindo as etapas em [Experimente o serviço de Fala gratuitamente](../overview.md#try-the-speech-service-for-free).
 Depois de obter a chave de assinatura e o identificador da região (por exemplo, `eastus`, `westus`), execute os comandos a seguir.
 
-```shell
+```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```

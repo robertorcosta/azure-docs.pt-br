@@ -2,14 +2,14 @@
 title: Práticas recomendadas para melhorar o desempenho usando o barramento de serviço do Azure
 description: Descreve como usar o Barramento de Serviço para otimizar o desempenho na troca de mensagens agenciadas.
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 01/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a0457537712ccb85191f320fd348446eed9b229
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7bfff1a31365724ed1d1cb6ff1956a4e2ef4f4c0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655621"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539439"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
 
@@ -24,22 +24,27 @@ O Barramento de Serviço permite que os clientes enviem e recebam mensagens por 
 2. Protocolo do sistema de mensagens do Barramento de Serviço (SBMP)
 3. Protocolo HTTP
 
-O AMQP é o mais eficiente, pois mantém a conexão com o barramento de serviço. Ele também implementa o envio em lote e a pré-busca. A menos que mencionado explicitamente, todo o conteúdo deste artigo supõe o uso do AMQP ou do SBMP.
+O AMQP é o mais eficiente, pois mantém a conexão com o barramento de serviço. Ele também implementa o [envio em lote](#batching-store-access) e a [pré-busca](#prefetching). A menos que mencionado explicitamente, todo o conteúdo deste artigo supõe o uso do AMQP ou do SBMP.
 
 > [!IMPORTANT]
 > O SBMP só está disponível para .NET Framework. AMQP é o padrão para .NET Standard.
 
 ## <a name="choosing-the-appropriate-service-bus-net-sdk"></a>Escolhendo o SDK do .NET do barramento de serviço apropriado
-Há dois SDKs do .NET do barramento de serviço do Azure com suporte. Suas APIs são semelhantes e podem confundir qual delas escolher. Consulte a tabela a seguir para ajudar a orientar sua decisão. Sugerimos o uso do SDK Microsoft. Azure. ServiceBus, pois ele é mais moderno, com bom desempenho e é compatível com plataforma cruzada. Além disso, ele dá suporte a AMQP sobre WebSockets e faz parte da coleção do SDK do .NET do Azure de projetos de software livre.
+Há três SDKs do .NET do barramento de serviço do Azure com suporte. Suas APIs são semelhantes e podem confundir qual delas escolher. Consulte a tabela a seguir para ajudar a orientar sua decisão. O SDK do Azure. Messaging. ServiceBus é o mais recente e é recomendável usá-lo em outros SDKs. O Azure. Messaging. ServiceBus e o Microsoft. Azure. ServiceBus SDKs são modernos, com bom desempenho e compatíveis com várias plataformas. Além disso, eles dão suporte a AMQP sobre WebSockets e fazem parte da coleção do SDK do .NET do Azure de projetos de software livre.
 
 | Pacote NuGet | Namespaces primários | Plataforma (ões) mínima (s) | Protocolos(s) |
 |---------------|----------------------|---------------------|-------------|
-| <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus" target="_blank">Microsoft. Azure. ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plataforma Universal do Windows 10.0.16299 | AMQP<br>HTTP |
-| <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus" target="_blank">WindowsAzure. ServiceBus <span class="docon docon-navigate-external x-hidden-focus"></span></a> | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
+| [Azure. Messaging. ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) | `Azure.Messaging.ServiceBus`<br>`Azure.Messaging.ServiceBus.Administration` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plataforma Universal do Windows 10.0.16299 | AMQP<br>HTTP |
+| [Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) | `Microsoft.Azure.ServiceBus`<br>`Microsoft.Azure.ServiceBus.Management` | .NET Core 2.0<br>.NET Framework 4.6.1<br>Mono 5.4<br>Xamarin.iOS 10.14<br>Xamarin.Mac 3.8<br>Xamarin.Android 8.0<br>Plataforma Universal do Windows 10.0.16299 | AMQP<br>HTTP |
+| [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) | `Microsoft.ServiceBus`<br>`Microsoft.ServiceBus.Messaging` | .NET Framework 4.6.1 | AMQP<br>SBMP<br>HTTP |
 
 Para obter mais informações sobre o suporte mínimo à plataforma .NET Standard, consulte [suporte à implementação do .net](/dotnet/standard/net-standard#net-implementation-support).
 
 ## <a name="reusing-factories-and-clients"></a>Reutilizando fábricas e clientes
+# <a name="azuremessagingservicebus-sdk"></a>[SDK do Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+Os objetos do barramento de serviço que interagem com o serviço, como [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver)e [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), devem ser registrados para injeção de dependência como singletons (ou instanciados uma vez e compartilhados). ServiceBusClient pode ser registrado para injeção de dependência com o [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
+
+É recomendável não fechar ou descartar esses objetos depois de enviar ou receber cada mensagem. O fechamento ou Descartamento de objetos específicos da entidade (ServiceBusSender/receptor/processador) resulta na subdivisão do link para o serviço do barramento de serviço. Descartar os resultados do ServiceBusClient na divisão da conexão com o serviço do barramento de serviço. Estabelecer uma conexão é uma operação cara que você pode evitar reutilizando o mesmo ServiceBusClient e criando os objetos específicos da entidade necessários da mesma instância ServiceBusClient. Você pode usar esses objetos de cliente com segurança em operações assíncronas simultâneas e de vários threads.
 
 # <a name="microsoftazureservicebus-sdk"></a>[SDK do Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
@@ -55,6 +60,27 @@ Os objetos de cliente do barramento de serviço, como `QueueClient` ou `MessageS
 Operações como enviar, receber, excluir e assim por diante, levam algum tempo. Esse tempo inclui o tempo que o serviço do barramento de serviço leva para processar a operação e a latência da solicitação e da resposta. Para aumentar o número de operações por hora, elas devem ser executadas simultaneamente.
 
 O cliente agenda operações simultâneas executando operações **assíncronas** . A próxima solicitação é iniciada antes que a solicitação anterior seja concluída. O snippet de código a seguir é um exemplo de uma operação de envio assíncrono:
+
+# <a name="azuremessagingservicebus-sdk"></a>[SDK do Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+```csharp
+var messageOne = new ServiceBusMessage(body);
+var messageTwo = new ServiceBusMessage(body);
+
+var sendFirstMessageTask =
+    sender.SendMessageAsync(messageOne).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #1");
+    });
+var sendSecondMessageTask =
+    sender.SendMessageAsync(messageTwo).ContinueWith(_ =>
+    {
+        Console.WriteLine("Sent message #2");
+    });
+
+await Task.WhenAll(sendFirstMessageTask, sendSecondMessageTask);
+Console.WriteLine("All messages sent");
+
+```
 
 # <a name="microsoftazureservicebus-sdk"></a>[SDK do Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
@@ -101,6 +127,35 @@ Console.WriteLine("All messages sent");
 ---
 
 O código a seguir é um exemplo de uma operação de recebimento assíncrono.
+
+# <a name="azuremessagingservicebus-sdk"></a>[SDK do Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+
+```csharp
+var client = new ServiceBusClient(connectionString);
+var options = new ServiceBusProcessorOptions 
+{
+
+      AutoCompleteMessages = false,
+      MaxConcurrentCalls = 20
+};
+await using ServiceBusProcessor processor = client.CreateProcessor(queueName,options);
+processor.ProcessMessageAsync += MessageHandler;
+processor.ProcessErrorAsync += ErrorHandler;
+
+static Task ErrorHandler(ProcessErrorEventArgs args)
+{
+    Console.WriteLine(args.Exception);
+    return Task.CompletedTask;
+};
+
+static async Task MessageHandler(ProcessMessageEventArgs args)
+{
+Console.WriteLine("Handle message");
+      await args.CompleteMessageAsync(args.Message);
+}
+
+await processor.StartProcessingAsync();
+```
 
 # <a name="microsoftazureservicebus-sdk"></a>[SDK do Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
@@ -168,9 +223,12 @@ O barramento de serviço não dá suporte a transações para operações de rec
 
 O envio em lote no lado do cliente permite que um cliente de fila ou de tópico atrase o envio de uma mensagem por um determinado período. Se o cliente enviar mensagens adicionais durante esse período, ele transmitirá as mensagens em um único lote. O envio em lote do lado do cliente também faz com que um cliente de fila ou assinatura agrupe em lote diversas solicitações **Concluir** em uma única solicitação. O envio em lote está disponível apenas para operações **Enviar** e **Concluir**. As operações síncronas são imediatamente enviadas para o serviço Barramento de Serviço. O envio em lote não ocorre para operações de Peek ou recebimento, nem o envio em lote entre clientes.
 
+# <a name="azuremessagingservicebus-sdk"></a>[SDK do Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+A funcionalidade de envio em lote para o SDK do .NET Standard ainda não expõe uma propriedade para manipular.
+
 # <a name="microsoftazureservicebus-sdk"></a>[SDK do Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
-A funcionalidade de envio em lote para o SDK do .NET Standard, ainda não expõe uma propriedade para manipular.
+A funcionalidade de envio em lote para o SDK do .NET Standard ainda não expõe uma propriedade para manipular.
 
 # <a name="windowsazureservicebus-sdk"></a>[SDK do WindowsAzure. ServiceBus](#tab/net-framework-sdk)
 
@@ -218,6 +276,19 @@ As operações de armazenamento adicionais que ocorrerem durante esse intervalo 
 
 Quando uma nova fila, um novo tópico ou uma nova assinatura for criada, o acesso ao repositório em lote será habilitado por padrão.
 
+
+# <a name="azuremessagingservicebus-sdk"></a>[SDK do Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+Para desabilitar o acesso ao repositório em lote, você precisará de uma instância do `ServiceBusAdministrationClient` . Crie um `CreateQueueOptions` de uma descrição de fila que define a `EnableBatchedOperations` propriedade como `false` .
+
+```csharp
+var options = new CreateQueueOptions(path)
+{
+    EnableBatchedOperations = false
+};
+var queue = await administrationClient.CreateQueueAsync(options);
+```
+
+
 # <a name="microsoftazureservicebus-sdk"></a>[SDK do Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
 Para desabilitar o acesso ao repositório em lote, você precisará de uma instância do `ManagementClient` . Crie uma fila de uma descrição da fila que defina a `EnableBatchedOperations` propriedade como `false` .
@@ -230,7 +301,7 @@ var queueDescription = new QueueDescription(path)
 var queue = await managementClient.CreateQueueAsync(queueDescription);
 ```
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.management.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.Azure.ServiceBus.Management.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
@@ -247,7 +318,7 @@ var queueDescription = new QueueDescription(path)
 var queue = namespaceManager.CreateQueue(queueDescription);
 ```
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.QueueDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.SubscriptionDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 * <a href="https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablebatchedoperations?view=azure-dotnet" target="_blank">`Microsoft.ServiceBus.Messaging.TopicDescription.EnableBatchedOperations` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
@@ -270,6 +341,12 @@ A propriedade de vida útil (TTL) de uma mensagem é verificada pelo servidor no
 
 A pré-busca não afeta o número de operações de mensagens faturáveis e está disponível apenas para o protocolo de cliente do barramento de serviço. O protocolo HTTP não dá suporte à pré-busca. A pré-busca está disponível para as operações de recebimento síncrono e assíncrono.
 
+# <a name="azuremessagingservicebus-sdk"></a>[SDK do Azure. Messaging. ServiceBus](#tab/net-standard-sdk-2)
+Para obter mais informações, consulte as seguintes `PrefetchCount` Propriedades:
+
+- [ServiceBusReceiver. PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
+- [ServiceBusProcessor. PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount)
+
 # <a name="microsoftazureservicebus-sdk"></a>[SDK do Microsoft. Azure. ServiceBus](#tab/net-standard-sdk)
 
 Para obter mais informações, consulte as seguintes `PrefetchCount` Propriedades:
@@ -287,10 +364,6 @@ Para obter mais informações, consulte as seguintes `PrefetchCount` Propriedade
 ---
 
 ## <a name="prefetching-and-receivebatch"></a>Pré-busca e ReceiveBatch
-
-> [!NOTE]
-> Esta seção se aplica somente ao SDK do WindowsAzure. ServiceBus, pois o SDK do Microsoft. Azure. ServiceBus não expõe funções em lote.
-
 Embora os conceitos de pré-busca de várias mensagens tenham uma semântica semelhante ao processamento de mensagens em um lote ( `ReceiveBatch` ), há algumas pequenas diferenças que devem ser mantidas em mente ao usar essas abordagens juntas.
 
 Pré-busca é uma configuração (ou modo) no cliente ( `QueueClient` e `SubscriptionClient` ) e `ReceiveBatch` é uma operação (que tem semântica de solicitação-resposta).
@@ -309,7 +382,7 @@ Se uma única fila ou tópico não puder lidar com o esperado, use várias entid
 ## <a name="development-and-testing-features"></a>Recursos de desenvolvimento e teste
 
 > [!NOTE]
-> Esta seção se aplica somente ao SDK do WindowsAzure. ServiceBus, pois o SDK do Microsoft. Azure. ServiceBus não expõe essa funcionalidade.
+> Esta seção se aplica somente ao SDK WindowsAzure. ServiceBus, já que Microsoft. Azure. ServiceBus e Azure. Messaging. ServiceBus não expõem essa funcionalidade.
 
 O barramento de serviço tem um recurso, usado especificamente para desenvolvimento, que **nunca deve ser usado em configurações de produção**: [`TopicDescription.EnableFilteringMessagesBeforePublishing`][TopicDescription.EnableFiltering] .
 
@@ -372,9 +445,9 @@ Para maximizar a taxa de transferência, siga estas diretrizes:
 * Deixe o acesso ao repositório em lote habilitado. Esse acesso reduz a carga geral da entidade. Isso também reduz a taxa geral em que as mensagens podem ser gravadas na fila ou no tópico.
 * Defina a contagem de pré-busca como um valor pequeno (por exemplo, PrefetchCount = 10). Essa contagem impede que os receptores fiquem ociosos enquanto outros receptores tenham grandes quantidades de mensagens armazenadas em cache.
 
-### <a name="topic-with-a-small-number-of-subscriptions"></a>Tópico com um pequeno número de assinaturas
+### <a name="topic-with-a-few-subscriptions"></a>Tópico com algumas assinaturas
 
-Meta: maximizar a taxa de transferência de um tópico com um pequeno número de assinaturas. Uma mensagem é recebida por muitas assinaturas, o que significa que a taxa de recebimento combinada em todas as assinaturas é maior do que a taxa de envio. O número de remetentes é pequeno. O número de receptores por assinatura é pequeno.
+Meta: maximize a taxa de transferência de um tópico com algumas assinaturas. Uma mensagem é recebida por muitas assinaturas, o que significa que a taxa de recebimento combinada em todas as assinaturas é maior do que a taxa de envio. O número de remetentes é pequeno. O número de receptores por assinatura é pequeno.
 
 Para maximizar a taxa de transferência, siga estas diretrizes:
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: a708fb76b5a3d0fd0683cdb8915d1a5e1824a57c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251661"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539559"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Como estimar e gerenciar os custos de um serviço de Pesquisa Cognitiva do Azure
 
@@ -25,7 +25,12 @@ A arquitetura de escalabilidade no Azure Pesquisa Cognitiva baseia-se em combina
 
 A quantidade de recursos usados pelo serviço de pesquisa, multiplicada pela taxa de cobrança estabelecida pela camada de serviço, determina o custo da execução do serviço. Os custos e a capacidade estão ligados rigidamente. Ao estimar os custos, compreender a capacidade necessária para executar a indexação e as cargas de trabalho de consulta oferece a melhor ideia do que os custos projetados serão.
 
-Para fins de cobrança, Pesquisa Cognitiva tem o conceito de uma su ( *unidade de pesquisa* ). Um SU é o produto das *réplicas* e *partições* usadas por um serviço: **(R x P = su)**. O número de SUs multiplicado pela taxa de cobrança **(Su * taxa = gasto mensal)** é o principal determinante dos custos relacionados à pesquisa. 
+Para fins de cobrança, há duas fórmulas simples a serem consideradas:
+
+| Fórmula | Descrição |
+|---------|-------------|
+| **R x P = SU** | O número de réplicas usadas, multiplicado pelo número de partições usadas, é igual à quantidade de *unidades de pesquisa* (Su) usada por um serviço. Um SU é uma unidade de recurso e pode ser uma partição ou uma réplica. |
+| **Taxa de cobrança do SU * = gasto mensal** | O número de SUs multiplicado pela taxa de cobrança da camada na qual você provisionou o serviço é o principal determinante da sua fatura mensal geral. Alguns recursos ou cargas de trabalho têm dependências em outros serviços do Azure, o que pode aumentar o custo de sua solução no nível da assinatura. A seção eventos faturáveis abaixo identifica os recursos que podem ser adicionados à sua fatura. |
 
 Cada serviço começa com uma UA (uma réplica multiplicada por uma partição) como o mínimo. O máximo de qualquer serviço é o SUs 36. Esse máximo pode ser alcançado de várias maneiras: 6 partições x 6 réplicas ou 3 partições x 12 réplicas, por exemplo. É comum usar a capacidade menor que o total (por exemplo, um serviço de 3 réplicas, de três partições cobrado como 9 SUs). Consulte o gráfico de [combinações de partição e réplica](search-capacity-planning.md#chart) para obter combinações válidas.
 
