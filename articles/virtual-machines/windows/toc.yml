@@ -228,7 +228,7 @@
         - name: Reservas de Armazenamento em Disco
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md
         - name: Desempenho de máquina virtual e disco
-          href: disk-performance-windows.md
+          href: ../disks-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Projetando para alto desempenho
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Intermitência de disco
@@ -814,10 +814,8 @@
           href: snapshot-copy-managed-disk.md
         - name: Reservar Armazenamento em Disco
           href: ../disks-reserved-capacity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: Criar um instantâneo incremental – PowerShell
-          href: disks-incremental-snapshots.md
-        - name: Criar um instantâneo incremental – Portal
-          href: disks-incremental-snapshots-portal.md
+        - name: Criar um instantâneo incremental
+          href: ../disks-incremental-snapshots.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Backup de discos não gerenciados
           href: incremental-snapshots.md
         - name: Criptografia
@@ -851,7 +849,7 @@
             - name: Usando Discos Ultra
               href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Submeter um disco a benchmark
-              href: disks-benchmarks.md
+              href: ../disks-benchmarks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Localizar discos desconectados – PowerShell
           href: find-unattached-disks.md
         - name: Localizar discos desconectados – Portal

@@ -1094,25 +1094,26 @@
     - name: Tutoriais
       items:
         - name: Visualizar os dados com o Apache Spark
+          displayname: machine learning
           href: ./spark/apache-spark-data-visualization-tutorial.md
-          displayname: machine learning
         - name: Usar o assistente de pontuação para pools de SQL dedicados
-          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
+          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
         - name: Treinar um modelo sem código com o ML automatizado
+          displayname: machine learning
           href: ./machine-learning/tutorial-automl.md
         - name: Treinar um modelo em Python com o ML automatizado
+          displayname: machine learning
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-          displayname: machine learning
         - name: Criar um modelo com a MLlib do Apache Spark
-          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           displayname: machine learning
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+        - name: Configurar os Serviços Cognitivos para o Azure Synapse
+          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
         - name: Análise de sentimento com os Serviços Cognitivos
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Detecção de anomalias com os Serviços Cognitivos
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-        - name: Configurar os Serviços Cognitivos para o Azure Synapse
-          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: Catálogo e Governança de Dados
   items:
     - name: Inícios rápidos
