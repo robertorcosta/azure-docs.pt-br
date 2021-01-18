@@ -1,6 +1,6 @@
 ---
 title: Notas sobre a versão da Central de Segurança do Azure
-description: Uma descrição do que há de novo e do que mudou na Central de Segurança do Azure.
+description: Uma descrição do que há de novo e do que mudou na Central de Segurança do Azure
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/07/2021
+ms.date: 01/17/2021
 ms.author: memildin
-ms.openlocfilehash: 86da6c0a3393dd3f47143355597cd9ccdec9928d
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 48e7093c30ffb135231f5843cb0767848f242d89
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539949"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541369"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -32,6 +32,24 @@ Para saber mais sobre as alterações *planejadas* chegando em breve à Central 
 
 
 ## <a name="january-2021"></a>Janeiro de 2021
+
+As atualizações de dezembro incluem:
+
+- [Exportação de CSV da lista de recomendações filtrada](#csv-export-of-filtered-list-of-recommendations)
+- [A avaliação de vulnerabilidade de computadores locais e multinuvem está em disponibilidade geral](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available)
+
+
+### <a name="csv-export-of-filtered-list-of-recommendations"></a>Exportação de CSV da lista de recomendações filtrada 
+
+Em novembro de 2020, adicionamos filtros à página de recomendações ([a lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)). Em dezembro, expandimos esses filtros ([a página Recomendações tem novos filtros para o ambiente, a severidade e as respostas disponíveis](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+
+Com este comunicado, estamos alterando o comportamento do botão **Baixar para CSV** para que a exportação de CSV inclua apenas as recomendações atualmente exibidas na lista filtrada. 
+
+Por exemplo, na imagem abaixo, você pode ver que a lista foi filtrada para duas recomendações. O arquivo CSV gerado inclui os detalhes de status de cada recurso afetado por essas duas recomendações.   
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Como exportar recomendações filtradas para um arquivo CSV":::
+
+Saiba mais em [Recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available"></a>A avaliação de vulnerabilidade de computadores locais e multinuvem está em disponibilidade geral
 

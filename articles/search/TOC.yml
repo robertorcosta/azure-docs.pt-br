@@ -308,10 +308,10 @@
       items:
         - name: Escolha uma faixa
           href: search-sku-tier.md
-        - name: Estimar capacidade e custo
-          href: search-sku-manage-costs.md
-        - name: Ajustar a capacidade
+        - name: Estimar e gerenciar a capacidade
           href: search-capacity-planning.md
+        - name: Estimar custos
+          href: search-sku-manage-costs.md
         - name: Limites de serviço
           href: search-limits-quotas-capacity.md
         - name: Dimensionamento em razão de desempenho

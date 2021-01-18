@@ -78,7 +78,7 @@ Depois que você modificar e salvar o manifesto, o Unity será atualizado automa
 
 :::image type="content" source="./media/confirm-packages.png" alt-text="confirmar importações de pacote":::
 
-Se os pacotes não estiverem sendo carregados, verifique se há erros no console do Unity. Se não houver erros e você ainda não vir nenhum pacote na pasta **Packages**, marque o botão de alternância de visibilidade do pacote.
+Se os pacotes não estiverem sendo carregados, verifique se há erros no console do Unity. Se não houver erros e você ainda não vir nenhum pacote na pasta **Packages**, marque o botão de alternância de visibilidade do pacote.\
 ![Captura de tela com uma seta apontando para o botão de alternância de visibilidade do pacote.](./media/unity-package-visibility.png)
 
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Verificar se tem a versão mais recente do pacote
@@ -87,10 +87,10 @@ As etapas a seguir garantem que seu projeto esteja usando a versão mais recente
 
 1. No menu superior do Editor do Unity, abra *Janela -> Gerenciador de Pacotes*.
 1. Selecione o pacote **Microsoft Azure Remote Rendering**.
-1. Na página do gerenciador de pacotes de **Microsoft Azure Remote Rendering**, veja se o botão **Atualizar** está disponível. Se estiver, clique nele para atualizar o pacote para a versão mais recente disponível:
+1. Na página do gerenciador de pacotes de **Microsoft Azure Remote Rendering**, veja se o botão **Atualizar** está disponível. Se estiver, clique nele para atualizar o pacote para a versão mais recente disponível:\
 ![O pacote do ARR no Gerenciador de Pacotes](./media/package-manager.png)
 1. A atualização do pacote pode ocasionalmente levar a erros de console. Se isso ocorrer, tente fechar e reabrir o projeto.
-1. Quando o pacote estiver atualizado, o Gerenciador de Pacotes mostrará **Atualizado** em vez de um botão de Atualizar.
+1. Quando o pacote estiver atualizado, o Gerenciador de Pacotes mostrará **Atualizado** em vez de um botão de Atualizar.\
 ![Pacote atualizado](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>Configurar a câmera
 
@@ -121,7 +121,7 @@ As etapas a seguir garantem que seu projeto esteja usando a versão mais recente
 1. Selecione **Gráficos** no menu de lista à esquerda
 1. Altere a configuração de **Pipeline de Renderização Passível de Script** para *HybridRenderingPipeline*.\
     ![Captura de tela que aponta para em que altera a configuração do Pipeline de Renderização Passível de Script para HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
-    Às vezes, a interface do usuário não preenche a lista de tipos de pipeline disponíveis dos pacotes. Se isso ocorrer, o ativo *HybridRenderingPipeline* deverá ser arrastado para o campo manualmente:
+    Às vezes, a interface do usuário não preenche a lista de tipos de pipeline disponíveis dos pacotes. Se isso ocorrer, o ativo *HybridRenderingPipeline* deverá ser arrastado para o campo manualmente:\
     ![alterando as configurações gráficas do projeto](./media/hybrid-rendering-pipeline.png)
 
     > [!NOTE]
@@ -150,7 +150,7 @@ As etapas a seguir garantem que seu projeto esteja usando a versão mais recente
 1. Abrir *Arquivo -> Configurações de Build*
 1. Selecione **Plataforma Universal do Windows**
 1. Defina as configurações para corresponder às encontradas abaixo
-1. Pressione o botão **Mudar Plataforma**.
+1. Pressione o botão **Mudar Plataforma**.\
 ![configurações do build](./media/build-settings.png)
 1. Depois que o Unity alterar as plataformas, feche o painel de build.
 
@@ -545,7 +545,7 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 O coordenador de Remote Rendering e o script necessário (*ARRServiceUnity*) são MonoBehaviours que devem ser anexados a um GameObject na cena. O script *ARRServiceUnity* é fornecido pelo ARR para expor grande parte da funcionalidade do ARR para conectar e gerenciar sessões remotas.
 
 1. Crie um GameObject na cena (Ctrl + Shift + N ou *GameObject-> Criar Vazio*) e nomeie-o **RemoteRenderingCoordinator**.
-1. Adicione o script *RemoteRenderingCoordinator* ao GameObject **RemoteRenderingCoordinator**.
+1. Adicione o script *RemoteRenderingCoordinator* ao GameObject **RemoteRenderingCoordinator**.\
 ![Adicionar componente RemoteRenderingCoordinator](./media/add-coordinator-script.png)
 1. Confirme se o script *ARRServiceUnity*, que é exibido como *Serviço* no inspetor, é adicionado automaticamente ao GameObject. Caso você esteja se perguntando, isso é resultado de ter `[RequireComponent(typeof(ARRServiceUnity))]` na parte superior do script **RemoteRenderingCoordinator**.
 1. Adicione suas credenciais do Azure Remote Rendering, seu Domínio de Autenticação de Conta e o Domínio de Conta ao script de coordenador:\
@@ -602,9 +602,9 @@ Para progredir de **NotAuthorized** para **NoSession**, normalmente apresentarí
 1. Selecione o GameObject do **RemoteRenderingCoordinator** e localize o evento **OnRequestingAuthorization** do Unity exposto no Inspetor do componente **RemoteRenderingCoordinator**.
 
 1. Adicione um novo evento pressionando o botão "+" no canto inferior direito.
-1. Arraste o componente para o próprio evento, para fazer referência a si mesmo.
+1. Arraste o componente para o próprio evento, para fazer referência a si mesmo.\
 ![Ignorar autenticação](./media/bypass-authorization-add-event.png)\
-1. Na lista suspensa, selecione **RemoteRenderingCoordinator -> BypassAuthorization**.
+1. Na lista suspensa, selecione **RemoteRenderingCoordinator -> BypassAuthorization**.\
 ![Captura de tela que mostra a opção RemoteRenderingCoordinator.BypassAuthorization selecionada.](./media/bypass-authorization-event.png)
 
 ## <a name="create-or-join-a-remote-session"></a>Criar ou ingressar em uma sessão remota

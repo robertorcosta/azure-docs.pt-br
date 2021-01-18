@@ -223,14 +223,12 @@
           items:
             - name: Renderizar usando o Azure
               href: batch-rendering-service.md
-            - name: Renderizando imagens da VM
+            - name: Como renderizar imagens da VM em lote
               href: batch-rendering-applications.md
             - name: Recursos de renderização em lote
               href: batch-rendering-functionality.md
             - name: Usando a renderização em lote
               href: batch-rendering-using.md
-            - name: Usando gerenciadores de renderização
-              href: batch-rendering-render-managers.md
             - name: Referência do aplicativo de renderização
               href: batch-rendering-application-reference.md
             - name: Armazenamento e movimentação de dados

@@ -128,6 +128,8 @@
       href: authentication.md
     - name: Ambiente da Área de Trabalho Virtual do Windows
       href: environment-setup.md
+    - name: Agente da Área de Trabalho Virtual do Windows
+      href: agent-overview.md
     - name: Conectividade de rede
       items:
         - name: Entendendo a conectividade de rede
@@ -180,6 +182,8 @@
       href: troubleshoot-vm-configuration.md
     - name: Conexões de serviço da Área de Trabalho Remota
       href: troubleshoot-service-connection.md
+    - name: Agente da Área de Trabalho Virtual do Windows
+      href: troubleshoot-agent.md
     - name: Problemas do cliente da Área de Trabalho Remota
       href: troubleshoot-client.md
     - name: PowerShell da Área de Trabalho Virtual do Windows
