@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 34524626cc213233c3db2ca438261b238eb18a2a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831764"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562668"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
@@ -58,7 +58,7 @@ Mais detalhes são cobrados para Log Analytics clusters dedicados estão dispon�
 
 ## <a name="asynchronous-operations-and-status-check"></a>Operações assíncronas e verificação de status
 
-Algumas das etapas de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. O status em resposta Contains pode ser um dos seguintes: ' InProgress ', ' atualizando ', ' excluindo ', ' Succeeded ou ' Failed ', incluindo o código de erro. Ao usar REST, a resposta inicialmente retorna um código de status HTTP 200 (OK) e o cabeçalho com Azure-AsyncOperation Propriedade quando aceito:
+Algumas das etapas de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. O status em resposta Contains pode ser um dos seguintes: ' InProgress ', ' atualizando ', ' excluindo ', ' Succeeded ou ' Failed ', incluindo o código de erro. Ao usar REST, a resposta inicialmente retorna um código de status HTTP 202 (aceito) e o cabeçalho com a propriedade Azure-AsyncOperation:
 
 ```JSON
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
@@ -102,7 +102,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST**
 
-*Chamar* 
+*Ligação* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
@@ -125,7 +125,7 @@ Content-type: application/json
 
 *Resposta*
 
-Deve ser 200 OK e um cabeçalho.
+Deve ser 202 (aceito) e um cabeçalho.
 
 ### <a name="check-cluster-provisioning-status"></a>Verificar o status de provisionamento do cluster
 
@@ -229,7 +229,7 @@ Content-type: application/json
 
 *Resposta*
 
-200 OK e cabeçalho.
+202 (aceito) e cabeçalho.
 
 ### <a name="check-workspace-link-status"></a>Verificar status do link do espaço de trabalho
   
@@ -255,7 +255,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 
 **REST**
 
-*Chamar*
+*Ligação*
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
@@ -322,7 +322,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 
 **REST**
 
-*Chamar*
+*Ligação*
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -380,7 +380,7 @@ Get-AzOperationalInsightsCluster
 
 **REST**
 
-*Chamar*
+*Ligação*
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -411,7 +411,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 **REST**
 
-*Chamar*
+*Ligação*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -434,7 +434,7 @@ A propriedade *billtype* determina a atribuição de cobrança para o cluster e 
 
 **REST**
 
-*Chamar*
+*Ligação*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01

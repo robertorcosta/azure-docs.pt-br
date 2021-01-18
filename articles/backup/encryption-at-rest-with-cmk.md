@@ -3,12 +3,12 @@ title: Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 description: Saiba como o backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: cc6ad2f67b84bcd62bcc18566a4ac5d159ea32c4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197721"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562753"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 
@@ -37,7 +37,10 @@ Este artigo discute o seguinte:
 
 - A movimentação do cofre dos serviços de recuperação criptografada CMK entre grupos de recursos e assinaturas não tem suporte no momento.
 
-- Esse recurso é atualmente configurável somente do portal do Azure.
+- Esse recurso pode ser configurado por meio do portal do Azure e do PowerShell.
+
+    >[!NOTE]
+    >Use AZ Module 5.3.0 ou superior para usar chaves gerenciadas pelo cliente para backups no cofre dos serviços de recuperação.
 
 Se você ainda não criou e configurou seu cofre de serviços de recuperação, você pode [ler como fazer isso aqui](backup-create-rs-vault.md).
 
@@ -62,6 +65,8 @@ O backup do Azure usa a identidade gerenciada atribuída pelo sistema para auten
 >[!NOTE]
 >Uma vez habilitada, a identidade gerenciada **não** deve ser desabilitada (até mesmo temporariamente). Desabilitar a identidade gerenciada pode levar a um comportamento inconsistente.
 
+**No Portal:**
+
 1. Vá para o cofre dos serviços de recuperação-> **identidade**
 
     ![Configurações de identidade](./media/encryption-at-rest-with-cmk/managed-identity.png)
@@ -70,9 +75,33 @@ O backup do Azure usa a identidade gerenciada atribuída pelo sistema para auten
 
 1. Uma ID de objeto é gerada, que é a identidade gerenciada atribuída pelo sistema do cofre.
 
+**Com o PowerShell:**
+
+Use o comando [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) para habilitar a identidade gerenciada atribuída pelo sistema para o cofre dos serviços de recuperação.
+
+Exemplo:
+
+```AzurePowerShell
+$vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
+
+Update-AzRecoveryServicesVault -IdentityType SystemAssigned -VaultId $vault.ID
+
+$vault.Identity | fl
+```
+
+Saída:
+
+```output
+PrincipalId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Type        : SystemAssigned
+```
+
 ### <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Atribua permissões ao cofre dos serviços de recuperação para acessar a chave de criptografia no Azure Key Vault
 
 Agora você precisa permitir que o cofre dos serviços de recuperação acesse o Azure Key Vault que contém a chave de criptografia. Isso é feito ao permitir que a identidade gerenciada do cofre dos serviços de recuperação acesse o Key Vault.
+
+**No portal**:
 
 1. Acesse suas **políticas de acesso** de Azure Key Vault >. Continue para **+ Adicionar políticas de acesso**.
 
@@ -89,6 +118,32 @@ Agora você precisa permitir que o cofre dos serviços de recuperação acesse o
 1. Depois de terminar, selecione **Adicionar** para adicionar a nova política de acesso.
 
 1. Selecione **salvar** para salvar as alterações feitas na política de acesso do Azure Key Vault.
+
+**Com o PowerShell**:
+
+Use o comando [set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para habilitar a criptografia usando chaves gerenciadas pelo cliente e para atribuir ou atualizar a chave de criptografia a ser usada.
+
+Exemplo:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Saída:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitar a proteção de exclusão e limpeza reversível no Azure Key Vault
 
@@ -220,6 +275,8 @@ Você pode criptografar o disco/VM restaurado após a conclusão da restauraçã
 
 #### <a name="select-a-disk-encryption-set-while-restoring-from-vault-recovery-point"></a>Selecione um conjunto de criptografia de disco durante a restauração do ponto de recuperação do cofre
 
+**No portal**:
+
 O conjunto de criptografia de disco é especificado em configurações de criptografia no painel restaurar, conforme mostrado abaixo:
 
 1. Em **criptografar disco (s) usando sua chave**, selecione **Sim**.
@@ -230,6 +287,21 @@ O conjunto de criptografia de disco é especificado em configurações de cripto
 >A capacidade de escolher um DES durante a restauração não estará disponível se você estiver restaurando uma VM que usa Azure Disk Encryption.
 
 ![Criptografar disco usando sua chave](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
+
+**Com o PowerShell**:
+
+Use o comando [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) com o parâmetro [ `-DiskEncryptionSetId <string>` ] para [especificar o des](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) a ser usado para criptografar o disco restaurado. Para obter mais informações sobre como restaurar discos do backup de VM, consulte [Este artigo](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+
+Exemplo:
+
+```azurepowershell
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $vault.ID
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $vault.ID
+$startDate = (Get-Date).AddDays(-7)
+$endDate = Get-Date
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $vault.ID
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -DiskEncryptionSetId “testdes1” -VaultId $vault.ID
+```
 
 #### <a name="restoring-files"></a>Restaurando arquivos
 
