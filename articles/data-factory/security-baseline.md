@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4e82b4adbfde7623de9497c94e56a9ae303131ad
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ff777f079116942eba32e49f359c7f7e0b99f65d
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202769"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555773"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de base de segurança do Azure para Azure Data Factory
 
@@ -335,9 +335,9 @@ Embora o Azure AD seja o método recomendado para administrar o acesso do usuár
 
 * [Informações sobre o Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 * [Informações para contas locais](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
@@ -744,7 +744,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 * [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -880,7 +880,7 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 **Orientação**: se você estiver executando sua integração de tempo de execução em uma máquina virtual do Azure, dependendo do tipo de scripts, você poderá usar configurações específicas do sistema operacional ou recursos de terceiros para limitar a capacidade dos usuários de executar scripts nos recursos de computação do Azure. Você também pode aproveitar os controles de aplicativo adaptáveis da central de segurança do Azure para garantir que apenas o software autorizado seja executado e todos os softwares não autorizados sejam impedidos de serem executados em máquinas virtuais do Azure.
 
-* [Como controlar a execução de script do PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Como controlar a execução de script do PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](../security-center/security-center-adaptive-application.md)
 
@@ -918,7 +918,7 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 **Orientação**: definir e implementar configurações de segurança padrão para Azure Data Factory com Azure Policy. Use Azure Policy aliases no namespace "Microsoft. datafactory" para criar políticas personalizadas para auditar ou impor a configuração de suas instâncias de Azure Data Factory.
 
-* [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -964,7 +964,7 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 * [Informações sobre como criar modelos de Azure Resource Manager](../virtual-machines/windows/ps-template.md)
 
-* [Como carregar um VHD de VM personalizado para o Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Como carregar um VHD de VM personalizado para o Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -974,9 +974,9 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-* [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
+* [Documentação do Azure Repos](/azure/devops/repos/index)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1150,7 +1150,7 @@ Para qualquer um de seus armazenamentos de dados, consulte a linha de base de se
 
 * [Uma visão geral do backup de VM do Azure](../backup/backup-azure-vms-introduction.md)
 
-* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1164,7 +1164,7 @@ Para qualquer um de seus armazenamentos de dados, consulte a linha de base de se
 
 * [Como recuperar arquivos do backup de máquina virtual do Azure](../backup/backup-azure-restore-files-from-vm.md)
 
-* [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1214,7 +1214,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testar procedimentos de resposta de segurança
 
-**Diretriz**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
+**Orientação**: conduza exercícios para testar os recursos de resposta a incidentes de seus sistemas em uma cadência regular. Identifique pontos fracos e lacunas e revise o plano conforme necessário.
 
 * [Veja a publicação do NIST: Guia para testar, treinar e exercitar programas para planos de TI e recursos](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1264,7 +1264,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 * [Siga as regras de envolvimento da Microsoft para garantir que seus testes de penetração não estejam em violação às políticas da Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de Red Team e testes de penetração de sites ao vivo em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Você pode encontrar mais informações sobre a estratégia da Microsoft e a execução de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos de nuvem gerenciados pela Microsoft, aqui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

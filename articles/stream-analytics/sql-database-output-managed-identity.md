@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 244f8a446e33102e018881b3ec8f32ba9d8cbcc6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d624f2dd2c0c9b4c7e99d5628a1d47e4303da7f
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014138"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555586"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Usar identidades gerenciadas para acessar o banco de dados SQL do Azure ou o Azure Synapse Analytics de um trabalho Azure Stream Analytics (versão prévia)
 
@@ -123,7 +123,7 @@ Depois de criar um usuário de banco de dados independente e receber acesso aos 
 
 Depois de criar um usuário de banco de dados independente e receber acesso aos serviços do Azure no portal, conforme descrito na seção anterior, seu trabalho de Stream Analytics tem permissão da identidade gerenciada para **se conectar** ao recurso de banco de dados Synapse do Azure por meio de identidade gerenciada. Recomendamos que você conceda as permissões SELECT, INSERT e Administer em massa de banco de dados ao trabalho de Stream Analytics, pois elas serão necessárias mais tarde no fluxo Stream Analytics. A permissão **Select** permite que o trabalho teste sua conexão com a tabela no banco de dados Synapse do Azure. As permissões **Inserir** e **administrar operações em massa de banco de dados** permitem testar consultas de Stream Analytics de ponta a ponta depois de configurar uma entrada e a saída do banco de dados Synapse do Azure.
 
-Para conceder a permissão administrar operações em massa de banco de dados, você precisará conceder todas as permissões rotuladas como **controle** sob [permissão de banco de dados implícita](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) para o trabalho de Stream Analytics. Você precisa dessa permissão porque o trabalho de Stream Analytics executa a instrução de cópia, que requer a [Administração de operações em massa de banco de dados e a inserção](/sql/t-sql/statements/copy-into-transact-sql).
+Para conceder a permissão administrar operações em massa de banco de dados, você precisará conceder todas as permissões rotuladas como **controle** sob [permissão de banco de dados implícita](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) para o trabalho de Stream Analytics. Você precisa dessa permissão porque o trabalho de Stream Analytics executa a instrução de cópia, que requer a [Administração de operações em massa de banco de dados e a inserção](/sql/t-sql/statements/copy-into-transact-sql).
 
 ---
 

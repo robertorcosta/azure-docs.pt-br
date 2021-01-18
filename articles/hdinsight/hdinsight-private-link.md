@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 9fe1b7a077142b00aaf2a8502faa0e166c4311c4
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 219f8728eb90101e7437cbb82b44a1f7124ef14d
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915616"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556419"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteger e isolar clusters do Azure HDInsight com o link privado (visualização)
 
@@ -60,7 +60,7 @@ Os balanceadores de carga padrão não fornecem automaticamente o [NAT de saída
 
 ### <a name="prepare-your-environment"></a>Prepare o seu ambiente
 
-Para a criação de successgfull de serviços de vínculo privado, você deve [desabilitar explicitamente as políticas de rede para o serviço de vínculo privado](../private-link/disable-private-link-service-network-policy.md).
+Para a criação bem-sucedida de serviços de vínculo privado, você deve [desabilitar explicitamente as políticas de rede para o serviço de vínculo privado](../private-link/disable-private-link-service-network-policy.md).
 
 O diagrama a seguir mostra um exemplo da configuração de rede necessária antes de criar um cluster. Neste exemplo, todo o tráfego de saída é [forçado](../firewall/forced-tunneling.md) ao firewall do Azure usando UDR e as dependências de saída necessárias devem ser "permitidas" no firewall antes de criar um cluster. Para Enterprise Security Package clusters, a conectividade de rede com Azure Active Directory Domain Services pode ser fornecida pelo emparelhamento VNet.
 
@@ -100,12 +100,12 @@ networkProperties: {
 
 Para obter um modelo completo com muitos dos recursos de segurança do HDInsight Enterprise, incluindo o link privado, consulte [modelo de segurança do hdinsight Enterprise](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
 
-### <a name="use-azure-powershell"></a>Usar o Azure Powershell
+### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 
-Para usar o PowerShell, consulte o exemplo [aqui](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+Para usar o PowerShell, consulte o exemplo [aqui](/powershell/module/az.hdinsight/new-azhdinsightcluster#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
 
 ### <a name="use-azure-cli"></a>Usar a CLI do Azure
-Para usar CLI do Azure, consulte o exemplo [aqui](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
+Para usar CLI do Azure, consulte o exemplo [aqui](/cli/azure/hdinsight#az_hdinsight_create-examples).
 
 ## <a name="next-steps"></a>Próximas etapas
 

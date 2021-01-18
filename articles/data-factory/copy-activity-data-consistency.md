@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: 3591bfe046fa1c3e1e55aa49a0ae3ad698bc57b3
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 274250fecdf69b6a488c33ff25df3728a1c90af0
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593658"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556368"
 ---
 #  <a name="data-consistency-verification-in-copy-activity"></a>Verificação de consistência de dados na atividade de cópia
 
@@ -81,7 +81,7 @@ linkedServiceName | O serviço vinculado do [Armazenamento de Blobs do Azure](co
 caminho | O caminho dos arquivos de log. | Especifique o caminho que você quer armazenar os arquivos de log. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não
 
 >[!NOTE]
->- Ao copiar arquivos binários de, ou para o BLOB ou Azure Data Lake Storage Gen2 do Azure, o ADF faz a verificação de soma de confirmação MD5 no nível de bloco utilizando a API de [blob do Azure](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) e a [API Azure data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers) Se ContentMD5 em arquivos existirem no blob do Azure ou Azure Data Lake Storage Gen2 como fontes de dados, o ADF verificará a soma de verificação MD5 de nível de arquivo depois de ler os arquivos também. Depois de copiar os arquivos para o blob do Azure ou Azure Data Lake Storage Gen2 como destino de dados, o ADF grava ContentMD5 no blob do Azure ou Azure Data Lake Storage Gen2 que pode ser consumido ainda mais pelos aplicativos downstream para verificação de consistência de dados.
+>- Ao copiar arquivos binários de, ou para o BLOB ou Azure Data Lake Storage Gen2 do Azure, o ADF faz a verificação de soma de confirmação MD5 no nível de bloco utilizando a API de [blob do Azure](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) e a [API Azure data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers) Se ContentMD5 em arquivos existirem no blob do Azure ou Azure Data Lake Storage Gen2 como fontes de dados, o ADF verificará a soma de verificação MD5 de nível de arquivo depois de ler os arquivos também. Depois de copiar os arquivos para o blob do Azure ou Azure Data Lake Storage Gen2 como destino de dados, o ADF grava ContentMD5 no blob do Azure ou Azure Data Lake Storage Gen2 que pode ser consumido ainda mais pelos aplicativos downstream para verificação de consistência de dados.
 >- O ADF faz a verificação do tamanho do arquivo ao copiar arquivos binários entre quaisquer armazenamentos.
 
 ## <a name="monitoring"></a>Monitoramento
@@ -108,15 +108,15 @@ Depois que a atividade de cópia for executada completamente, você poderá ver 
 ```
 Você pode ver os detalhes da verificação de consistência de dados da "propriedade dataConsistencyVerification".
 
-Valor de **VerificationResult** : 
--   **Verified** :  Os dados copiados foram verificados para serem consistentes entre o repositório de origem e destino. 
--   **NotVerified** : Seus dados copiados não foram verificados como consistentes porque você não habilitou o validateDataConsistency na atividade de cópia. 
--   **Unsupported** : Seus dados copiados não foram verificados como consistentes porque a verificação de consistência de dados não tem suporte para esse par de cópia em particular. 
+Valor de **VerificationResult**: 
+-   **Verified**:  Os dados copiados foram verificados para serem consistentes entre o repositório de origem e destino. 
+-   **NotVerified**: Seus dados copiados não foram verificados como consistentes porque você não habilitou o validateDataConsistency na atividade de cópia. 
+-   **Unsupported**: Seus dados copiados não foram verificados como consistentes porque a verificação de consistência de dados não tem suporte para esse par de cópia em particular. 
 
-Valor de **InconsistentData** : 
--   **Encontrado** : A atividade de cópia do ADF encontrou dados inconsistentes. 
--   **Ignorada** : A atividade de cópia do ADF encontrou e ignorou dados inconsistentes. 
--   **Nenhum** : A atividade de cópia do ADF não encontrou dados inconsistentes. Pode ser porque seus dados foram verificados para serem consistentes entre o repositório de origem e de destino ou porque você desabilitou o validateDataConsistency na atividade de cópia. 
+Valor de **InconsistentData**: 
+-   **Encontrado**: A atividade de cópia do ADF encontrou dados inconsistentes. 
+-   **Ignorada**: A atividade de cópia do ADF encontrou e ignorou dados inconsistentes. 
+-   **Nenhum**: A atividade de cópia do ADF não encontrou dados inconsistentes. Pode ser porque seus dados foram verificados para serem consistentes entre o repositório de origem e de destino ou porque você desabilitou o validateDataConsistency na atividade de cópia. 
 
 ### <a name="session-log-from-copy-activity"></a>Log de sessão da atividade de cópia
 

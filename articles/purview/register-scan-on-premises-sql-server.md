@@ -7,18 +7,18 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920286"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555892"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrar e verificar um SQL Server local
 
 Este artigo descreve como registrar uma fonte de dados do SQL Server no alcance e configurar uma verificação nela.
 
-## <a name="supported-capabilities"></a>Recursos com suporte
+## <a name="supported-capabilities"></a>Funcionalidades compatíveis
 
 A fonte de dados local do SQL Server dá suporte à seguinte funcionalidade:
 
@@ -34,7 +34,7 @@ A fonte de dados local do SQL Server dá suporte a:
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-O Azure alcance não dá suporte à verificação de [exibições](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) no SQL Server. 
+O Azure alcance não dá suporte à verificação de [exibições](/sql/relational-databases/views/views) no SQL Server.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,13 +42,13 @@ O Azure alcance não dá suporte à verificação de [exibições](https://docs.
 
 - Configure um [tempo de execução de integração auto-hospedado](manage-integration-runtimes.md) para verificar a fonte de dados.
 
-## <a name="setting-up-authentication-for-a-scan"></a>Configurando a autenticação para uma verificação
+## <a name="setting-up-authentication-for-a-scan"></a>Configurar a autenticação para uma verificação
 
 Há apenas uma maneira de configurar a autenticação para o SQL Server local:
 
 - Autenticação do SQL
 
-### <a name="sql-authentication"></a>Autenticação do SQL
+### <a name="sql-authentication"></a>Autenticação SQL
 
 A identidade do SQL deve ter acesso ao banco de dados primário. Esse local é o local em que `sys.databases` está armazenado. O scanner alcance precisa enumerar para `sys.databases` Localizar todas as instâncias de BD SQL no servidor.
 
@@ -88,20 +88,20 @@ Se você quiser criar um novo logon e um usuário para poder verificar o SQL Ser
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Armazenando sua senha de logon do SQL em um cofre de chaves e criando uma credencial no alcance
 
-1. Navegue até o cofre de chaves na portal do Azure
-1. Selecione **configurações > segredos**
+1. Navegue até o seu cofre de chaves no portal do Azure
+1. Selecione **Configurações > Segredos**
 1. Selecione **+ gerar/importar** e insira o **nome** e o **valor** como a *senha* do seu logon do SQL Server
-1. Selecione **criar** para concluir
-1. Se o cofre de chaves ainda não estiver conectado ao alcance, você precisará [criar uma nova conexão de Key Vault](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Por fim, [crie uma nova credencial](manage-credentials.md#create-a-new-credential) usando o **nome de usuário** e a **senha** para configurar sua verificação
+1. Selecione **Criar** para terminar
+1. Se o cofre de chaves ainda não estiver conectado ao Purview, [crie uma conexão do cofre de chaves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Por fim, [crie uma credencial](manage-credentials.md#create-a-new-credential) usando o **nome de usuário** e a **senha** para configurar a verificação
 
 ## <a name="register-a-sql-server-data-source"></a>Registrar uma fonte de dados do SQL Server
 
-1. Navegue até sua conta do alcance
+1. Acesse sua conta do Purview
 
-1. Em fontes e verificação no painel de navegação esquerdo, selecione **tempos de execução de integração**. Verifique se um Integration Runtime de hospedagem interna está configurado. Se não estiver configurado, siga as etapas mencionadas [aqui](manage-integration-runtimes.md) para criar um tempo de execução de integração auto-hospedado para verificação em uma VM do Azure ou local que tenha acesso à sua rede local.
+1. Em fontes e verificação no painel de navegação esquerdo, selecione **tempos de execução de integração**. Verifique se um runtime de integração auto-hospedada está configurado. Se não estiver configurado, siga as etapas mencionadas [aqui](manage-integration-runtimes.md) para criar um tempo de execução de integração auto-hospedado para verificação em uma VM do Azure ou local que tenha acesso à sua rede local.
 
-1. Selecionar **fontes** no painel de navegação esquerdo
+1. Selecionar **Fontes** no painel de navegação à esquerda
 
 1. Escolha **Registrar**
 
@@ -115,5 +115,5 @@ Se você quiser criar um novo logon e um usuário para poder verificar o SQL Ser
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Procurar o catálogo de dados do Azure alcance](how-to-browse-catalog.md)
-- [Pesquisar no catálogo de dados do Azure alcance](how-to-search-catalog.md)
+- [Navegar pelo Catálogo de Dados do Azure Purview](how-to-browse-catalog.md)
+- [Pesquisar no Catálogo de Dados do Azure Purview](how-to-search-catalog.md)

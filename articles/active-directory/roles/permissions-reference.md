@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568584b849b2c5977d4bbb6216697dce3c498cfd
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 62fb239fd9cb8c1817dea5ab5c22684a65955ed5
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107915"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555722"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -56,7 +56,7 @@ As seguintes funções de administrador estão disponíveis:
 
 Os usuários nessa função podem criar e gerenciar todos os aspectos de aplicativos empresariais, registros dos aplicativos e configurações de proxy de aplicativos. Observe que os usuários atribuídos a essa função não são adicionados como proprietários, ao criar novos registros de aplicativo ou aplicativos empresariais.
 
-Essa função também concede a capacidade de _consentimento_ para permissões delegadas e permissões do aplicativo, com a exceção de permissões na API do Microsoft Graph.
+Essa função também concede a capacidade de _consentir_ com permissões delegadas e permissões de aplicativo, com exceção das permissões de aplicativo na API de Microsoft Graph.
 
 > [!IMPORTANT]
 > Essa exceção significa que você ainda pode consentir com permissões para _outros_ aplicativos (por exemplo, aplicativos que não sejam da Microsoft ou aplicativos que você tenha registrado), mas não com permissões no próprio Azure AD. Você ainda pode _solicitar_ essas permissões como parte do registro do aplicativo, mas a _concessão_ (ou seja, o consentimento) dessas permissões requer um administrador do Azure AD. Dessa foram, um usuário mal-intencionado não poderá facilmente elevar suas próprias permissões ao, por exemplo, criar e consentir com um aplicativo que possa fazer gravações em todo o diretório e, por meio das permissões do aplicativo, tornar a si mesmo um Administrador global.

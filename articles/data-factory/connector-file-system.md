@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: jingwang
-ms.openlocfilehash: 4741053acdefe27eadc380d9144c548af4b5143c
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: a29cf81a6e074f680fc9c04337a07d273ac456cf
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346088"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555348"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de arquivos usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -151,7 +151,7 @@ As seguintes propriedades são compatíveis com o sistema de arquivos em `storeS
 | type                     | A propriedade de tipo em `storeSettings` deve ser definida para **FileServerReadSettings**. | Sim                                           |
 | **_Localize os arquivos a serem copiados:_* _ |  |  |
 | OPÇÃO 1: caminho estático<br> | Copiar do caminho de pasta/arquivo especificado no conjunto de dados. Se quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `_`. |  |
-| OPÇÃO 2: filtro no lado do servidor<br>-filefiltro  | Filtro nativo do servidor de arquivos, que fornece melhor desempenho do que o filtro curinga de opção 3. Use `*` para corresponder a zero ou mais caracteres e `?` para corresponder a zero ou a um caractere único. Saiba mais sobre a sintaxe e as observações dos **comentários** abaixo [desta seção](/dotnet/api/system.io.directory.getfiles?view=netframework-4.7.2#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | Não                                                          |
+| OPÇÃO 2: filtro no lado do servidor<br>-filefiltro  | Filtro nativo do servidor de arquivos, que fornece melhor desempenho do que o filtro curinga de opção 3. Use `*` para corresponder a zero ou mais caracteres e `?` para corresponder a zero ou a um caractere único. Saiba mais sobre a sintaxe e as observações dos **comentários** abaixo [desta seção](/dotnet/api/system.io.directory.getfiles#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | Não                                                          |
 | OPÇÃO 3: filtro do lado do cliente<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. Esse filtro ocorre no lado do ADF, o ADF enumera as pastas/arquivos sob o caminho fornecido e, em seguida, aplica o filtro curinga.<br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                            |
 | OPÇÃO 3: filtro do lado do cliente<br>- wildcardFileName | O nome do arquivo com caracteres curinga sob o folderPath/wildcardFolderPath fornecido para filtrar os arquivos de origem. Esse filtro ocorre no lado do ADF, o ADF enumera os arquivos sob o caminho fornecido e, em seguida, aplica o filtro curinga.<br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de arquivo real tiver curinga ou esse caractere interno de escape.<br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim |
 | OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um determinado conjunto de arquivos. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar, um arquivo por linha, que é o caminho relativo para o caminho configurado no conjunto de um.<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de dados. Veja mais exemplos em [Exemplos de lista de arquivos](#file-list-examples). |Não |

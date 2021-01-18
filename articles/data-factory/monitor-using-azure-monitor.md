@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 35d2073dca21b4a0d48a43bed9933bb7549cf8f3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d1325ac1afbca8b30cc640f1f22cb598506a5c91
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497887"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555705"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorar e alertar Data Factory usando Azure Monitor
 
@@ -199,7 +199,7 @@ Entre no portal do Azure e selecione **monitorar**  >  **alertas** para criar al
 
 ## <a name="set-up-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Configurar logs de diagnóstico por meio da API REST do Azure Monitor
 
-### <a name="diagnostic-settings"></a>Configurações de Diagnóstico
+### <a name="diagnostic-settings"></a>Configurações de diagnóstico
 
 Use as configurações de diagnóstico para configurar os logs de diagnóstico para recursos que não são de computação. As configurações de um controle de recurso têm os seguintes recursos:
 
@@ -583,7 +583,7 @@ Aqui estão os atributos de log das operações de início/parada/manutenção d
 
 #### <a name="ssis-event-message-context-log-attributes"></a>Atributos do log de contexto de mensagem de evento SSIS
 
-Aqui estão os atributos de log das condições relacionadas às mensagens de evento que são geradas pelas execuções de pacote do SSIS em seu IR do SSIS. Eles transmitem informações semelhantes como [tabela de contexto de mensagem de evento de catálogo do SSIS (SSISDB) ou exibição](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15) que mostra os valores de tempo de execução de muitas propriedades de pacote SSIS. Eles são gerados quando você seleciona o `Basic/Verbose` nível de log e é útil para verificação de conformidade/depuração.
+Aqui estão os atributos de log das condições relacionadas às mensagens de evento que são geradas pelas execuções de pacote do SSIS em seu IR do SSIS. Eles transmitem informações semelhantes como [tabela de contexto de mensagem de evento de catálogo do SSIS (SSISDB) ou exibição](/sql/integration-services/system-views/catalog-event-message-context) que mostra os valores de tempo de execução de muitas propriedades de pacote SSIS. Eles são gerados quando você seleciona o `Basic/Verbose` nível de log e é útil para verificação de conformidade/depuração.
 
 ```json
 {
@@ -620,7 +620,7 @@ Aqui estão os atributos de log das condições relacionadas às mensagens de ev
 | **operationId**            | String | A ID exclusiva para acompanhar uma operação específica no SSISDB          | `1` (1 significa operações relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **contextDepth**           | String | A profundidade do seu contexto de mensagem de evento                              | `0` (0 significa o contexto antes do início da execução do pacote, 1 significa o contexto quando ocorre um erro e aumenta à medida que o contexto está além do erro) |
 | **packagePath**            | String | O caminho do objeto de pacote como sua fonte de contexto de mensagem de evento      | `\Package` |
-| **contextType**            | String | O tipo de objeto de pacote como sua fonte de contexto de mensagem de evento      | `60`(veja [mais tipos de contexto](/sql/integration-services/system-views/catalog-event-message-context?view=sql-server-ver15#remarks)) |
+| **contextType**            | String | O tipo de objeto de pacote como sua fonte de contexto de mensagem de evento      | `60`(veja [mais tipos de contexto](/sql/integration-services/system-views/catalog-event-message-context#remarks)) |
 | **contextSourceName**      | String | O nome do objeto de pacote como sua fonte de contexto de mensagem de evento      | `MyPackage` |
 | **contextSourceId**        | String | A ID exclusiva do objeto de pacote como sua fonte de contexto de mensagem de evento | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
 | **propertyName**           | String | O nome da Propriedade do pacote para sua fonte de contexto de mensagem de evento   | `DelayValidation` |
@@ -629,7 +629,7 @@ Aqui estão os atributos de log das condições relacionadas às mensagens de ev
 
 #### <a name="ssis-event-messages-log-attributes"></a>Atributos de log de mensagens de evento do SSIS
 
-Aqui estão os atributos de log das mensagens de evento que são geradas pelas execuções de pacote SSIS em seu IR do SSIS. Eles transmitem informações semelhantes à [tabela ou exibição de mensagens de evento SSISDB](/sql/integration-services/system-views/catalog-event-messages?view=sql-server-ver15) que mostra o texto/metadados detalhados das mensagens de evento. Eles são gerados em qualquer nível de log, exceto `None` .
+Aqui estão os atributos de log das mensagens de evento que são geradas pelas execuções de pacote SSIS em seu IR do SSIS. Eles transmitem informações semelhantes à [tabela ou exibição de mensagens de evento SSISDB](/sql/integration-services/system-views/catalog-event-messages) que mostra o texto/metadados detalhados das mensagens de evento. Eles são gerados em qualquer nível de log, exceto `None` .
 
 ```json
 {
@@ -669,8 +669,8 @@ Aqui estão os atributos de log das mensagens de evento que são geradas pelas e
 | **level**                  | String | O nível dos logs de diagnóstico                                       | `Informational` |
 | **operationId**            | String | A ID exclusiva para acompanhar uma operação específica no SSISDB        | `1` (1 significa operações relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL) |
 | **mensagemtime**            | String | A hora em que a mensagem de evento é criada no formato UTC          | `2017-06-28T21:00:27.3534352Z` |
-| **messageType**            | String | O tipo de sua mensagem de evento                                     | `70`(veja [mais tipos de mensagem](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
-| **messageSourceType**      | String | O tipo de origem da mensagem de evento                              | `20`(veja [mais tipos de origem de mensagem](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database?view=sql-server-ver15#remarks)) |
+| **messageType**            | String | O tipo de sua mensagem de evento                                     | `70`(veja [mais tipos de mensagem](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
+| **messageSourceType**      | String | O tipo de origem da mensagem de evento                              | `20`(veja [mais tipos de origem de mensagem](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
 | **message**                | String | O texto da mensagem de evento                                     | `MyPackage:Validation has started.` |
 | **packageName**            | String | O nome do arquivo de pacote executado                             | `MyPackage.dtsx` |
 | **eventName**              | String | O nome do evento de tempo de execução relacionado                                 | `OnPreValidate` |
@@ -683,7 +683,7 @@ Aqui estão os atributos de log das mensagens de evento que são geradas pelas e
 
 #### <a name="ssis-executable-statistics-log-attributes"></a>Atributos do log de estatísticas de executável do SSIS
 
-Aqui estão os atributos de log das estatísticas de executável que são gerados pelas execuções de pacote SSIS em seu IR do SSIS, em que os executáveis são contêineres ou tarefas no fluxo de controle de pacotes. Eles transmitem informações semelhantes como [tabela ou exibição de estatísticas de executável do SSISDB](/sql/integration-services/system-views/catalog-executable-statistics?view=sql-server-ver15) que mostra uma linha para cada executável em execução, incluindo suas iterações. Elas são geradas em qualquer nível de log, exceto `None` e úteis para identificar afunilamentos/falhas no nível de tarefa.
+Aqui estão os atributos de log das estatísticas de executável que são gerados pelas execuções de pacote SSIS em seu IR do SSIS, em que os executáveis são contêineres ou tarefas no fluxo de controle de pacotes. Eles transmitem informações semelhantes como [tabela ou exibição de estatísticas de executável do SSISDB](/sql/integration-services/system-views/catalog-executable-statistics) que mostra uma linha para cada executável em execução, incluindo suas iterações. Elas são geradas em qualquer nível de log, exceto `None` e úteis para identificar afunilamentos/falhas no nível de tarefa.
 
 ```json
 {
@@ -727,7 +727,7 @@ Aqui estão os atributos de log das estatísticas de executável que são gerado
 
 #### <a name="ssis-execution-component-phases-log-attributes"></a>Atributos de log de fases do componente de execução do SSIS
 
-Aqui estão os atributos de log das estatísticas de tempo de execução para componentes de fluxo de dados que são gerados pelas execuções de pacote SSIS em seu IR do SSIS. Eles transmitem informações semelhantes à [tabela ou exibição de fases do componente de execução do SSISDB](/sql/integration-services/system-views/catalog-execution-component-phases?view=sql-server-ver15) que mostra o tempo gasto pelos componentes de fluxo de dados em todas as fases de execução. Eles são gerados quando você seleciona o `Performance/Verbose` nível de log e é útil para capturar estatísticas de execução de fluxo de dados.
+Aqui estão os atributos de log das estatísticas de tempo de execução para componentes de fluxo de dados que são gerados pelas execuções de pacote SSIS em seu IR do SSIS. Eles transmitem informações semelhantes à [tabela ou exibição de fases do componente de execução do SSISDB](/sql/integration-services/system-views/catalog-execution-component-phases) que mostra o tempo gasto pelos componentes de fluxo de dados em todas as fases de execução. Eles são gerados quando você seleciona o `Performance/Verbose` nível de log e é útil para capturar estatísticas de execução de fluxo de dados.
 
 ```json
 {
@@ -773,7 +773,7 @@ Aqui estão os atributos de log das estatísticas de tempo de execução para co
 
 #### <a name="ssis-execution-data-statistics-log-attributes"></a>Atributos de log de estatísticas de dados de execução do SSIS
 
-Aqui estão os atributos de log de movimentação de dados em cada segmento de pipelines de fluxo de dados, de upstream para componentes downstream, que são gerados por execuções de pacote SSIS em seu IR do SSIS. Eles transmitem informações semelhantes como [tabela de estatísticas de dados de execução do SSISDB ou exibição](/sql/integration-services/system-views/catalog-execution-data-statistics?view=sql-server-ver15) que mostra as contagens de linha de dados movidos por meio de tarefas de fluxo de dados. Eles são gerados quando você seleciona o `Verbose` nível de log e é útil para calcular a taxa de transferência do fluxo de dados.
+Aqui estão os atributos de log de movimentação de dados em cada segmento de pipelines de fluxo de dados, de upstream para componentes downstream, que são gerados por execuções de pacote SSIS em seu IR do SSIS. Eles transmitem informações semelhantes como [tabela de estatísticas de dados de execução do SSISDB ou exibição](/sql/integration-services/system-views/catalog-execution-data-statistics) que mostra as contagens de linha de dados movidos por meio de tarefas de fluxo de dados. Eles são gerados quando você seleciona o `Verbose` nível de log e é útil para calcular a taxa de transferência do fluxo de dados.
 
 ```json
 {
@@ -903,7 +903,7 @@ Ao consultar logs de operação de IR do SSIS na análise de logs, você pode us
 
 ![Consultando logs de operação de IR do SSIS em Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
 
-Ao consultar logs de execução de pacote do SSIS na análise de logs, você pode **OperationId** associá-los usando / as propriedades CorrelationId de operationId **ExecutionID** / **CorrelationId** . **OperationId** / **ExecutionID** sempre é definido como `1` para todas as operações/execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL.
+Ao consultar logs de execução de pacote do SSIS na análise de logs, você pode associá-los usando / as propriedades CorrelationId de operationId **ExecutionID** /  . **OperationId** / **ExecutionID** sempre é definido como `1` para todas as operações/execuções relacionadas a pacotes **não** armazenados no SSISDB/invocado via T-SQL.
 
 ![Consultando logs de execução de pacote SSIS no Log Analytics](media/data-factory-monitor-oms/log-analytics-query2.png)
 
