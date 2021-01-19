@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e294423e3f078253984dc4fcd8695c2676abb236
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: cffc41264dfa30fd833aef465a13abc799334b2f
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541250"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567479"
 ---
 # <a name="connect-data-sources"></a>Conectar fontes de dados
 
@@ -69,7 +69,7 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [WAF do Barracuda](connect-barracuda.md)
     - [Firewall do Barracuda CloudGen](connect-barracuda-cloudgen-firewall.md)
-    - [MELHOR defesa contra ameaças móveis](connect-better-mtd.md)
+    - [MELHOR Defesa Contra Ameaças Móveis](connect-better-mtd.md)
     - [Beyond Security beSECURE](connect-besecure.md)
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
@@ -77,8 +77,10 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
     - [SSO do Okta](connect-okta-single-sign-on.md)
     - [Orca Security](connect-orca-security-alerts.md)
     - [Logs do Perimeter 81](connect-perimeter-81-logs.md)
+    - [Segurança de email de POD (proofpoint on Demand)](connect-proofpoint-pod.md)
     - [Proofpoint TAP](connect-proofpoint-tap.md)
     - [Qualys VM](connect-qualys-vm.md)
+    - [Nuvem de serviço Salesforce](connect-salesforce-service-cloud.md)
     - [secRMM da Squadra Technologies](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
     - [Ponto de extremidade na nuvem padrão do VMware Carbon Black](connect-vmware-carbon-black.md)
@@ -104,15 +106,19 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
         - [Illusive redes AMS](connect-illusive-attack-management-system.md)
         - [One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
+        - [Servidor de segredo Thycotic](connect-thycotic-secret-server.md)
         - [Deep Security da Trend Micro](connect-trend-micro.md)
         - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
         - [Plataforma de perícia de rede WireX](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [Outros dispositivos baseados em CEF](connect-common-event-format.md)
     - **Firewalls, proxies e pontos de extremidade – syslog:**
+        - [UCS (sistema de computação unificada da Cisco)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
+        - [Juniper SRX](connect-juniper-srx.md)
         - [Pulse Connect Secure](connect-pulse-connect-secure.md)
         - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Proxy Squid](connect-squid-proxy.md)
         - [Proxy SG da Symantec](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
         - [Outros dispositivos baseados em syslog](connect-syslog.md)

@@ -1,21 +1,21 @@
 ---
 title: Criar e gerenciar projetos de Migrações para Azure
 description: Localize, crie, gerencie e exclua projetos em migrações para Azure.
-author: ms-psharma
-ms.author: panshar
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 445e08b255e5b4dd67dd1c6a47c8df6ce59df5bd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: de0c48bb775b96052fe16d60aa58049bfd58ca4d
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753817"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567786"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de Migrações para Azure
 
-Este artigo descreve como criar, gerenciar e excluir projetos de [migrações para Azure](migrate-services-overview.md) .
+Este artigo descreve como criar, gerenciar e excluir projetos de [migrações para Azure](migrate-services-overview.md) . Se você estiver usando projetos de migração do Azure clássicos, exclua esses projetos e siga as etapas para criar um novo projeto de migrações para Azure. Você não pode atualizar projetos ou componentes de migração do Azure clássicos para as migrações para Azure.
 
 Um projeto das Migrações para Azure é usado para armazenar metadados de descoberta, avaliação e migração coletados do ambiente que você está avaliando ou migrando. Em um projeto, você pode acompanhar os ativos descobertos, criar avaliações e orquestrar as migrações para o Azure.  
 

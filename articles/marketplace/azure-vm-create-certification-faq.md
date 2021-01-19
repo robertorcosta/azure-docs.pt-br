@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 01/15/2021
-ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.date: 01/18/2021
+ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539833"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567392"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -32,7 +32,7 @@ Para habilitar extensões de VM:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    ![Captura de tela que exibe como habilitar o monitoramento em nível de convidado.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
@@ -70,7 +70,7 @@ Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 
 ### <a name="conectix-cookie-and-other-vhd-specifications"></a>Conectix cookie e outras especificações de VHD
 
-A cadeia de caracteres ' conectix ' faz parte da especificação do VHD. Ele é definido como o cookie de 8 bytes no rodapé do VHD que identifica o criador do arquivo. Todos os arquivos VHD criados pela Microsoft têm esse cookie. 
+A cadeia de caracteres ' conectix ' faz parte da especificação do VHD. Ele é definido como o cookie de 8 bytes no rodapé do VHD que identifica o criador do arquivo. Todos os arquivos VHD criados pela Microsoft têm esse cookie.
 
 Um blob formatado por VHD deve ter um rodapé de 512 bytes neste formato:
 
@@ -189,7 +189,7 @@ Envie novamente a solicitação com um tamanho menor ou igual a 1023 GB.
 
 Consulte as regras a seguir para obter limitações no tamanho do disco do sistema operacional. Ao enviar qualquer solicitação, verifique se o tamanho do disco do sistema operacional está dentro da limitação do Linux ou do Windows.
 
-|SO|Tamanho de VHD recomendado|
+|Sistema operacional|Tamanho de VHD recomendado|
 |---|---|
 |Linux|1 GB a 1023 GB|
 |Windows|30 GB a 250 GB|
@@ -311,14 +311,14 @@ Para enviar sua solicitação com a imagem de SSH desabilitada para o processo d
 
 Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM com uma URL de assinatura de acesso compartilhado (SAS).
 
-|Cenário|Erro|Motivo|Solução|
-|---|---|---|---|
-|1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
-|2|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa com uma URL SAS.|
-|3|URL SAS inválida|A URL SAS associada para o VHD está incorreta.|Obtenha a URL SAS correta.|
-|4|Assinatura inválida|A URL SAS associada para o VHD está incorreta.|Obtenha a URL SAS correta.|
-|6|Cabeçalho condicional HTTP|A URL SAS é inválida.|Obtenha a URL SAS correta.|
-|7|Nome de VHD inválido|Verifique se há algum caractere especial, como um sinal de porcentagem `%` ou aspas `"` , no nome do VHD.|Renomeie o arquivo VHD removendo os caracteres especiais.|
+|Erro|Motivo|Solução|
+|---|---|---|
+|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
+|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa com uma URL SAS.|
+|URL SAS inválida|A URL SAS associada para o VHD está incorreta.|Obtenha a URL SAS correta.|
+|Assinatura inválida|A URL SAS associada para o VHD está incorreta.|Obtenha a URL SAS correta.|
+|Cabeçalho condicional HTTP|A URL SAS é inválida.|Obtenha a URL SAS correta.|
+|Nome de VHD inválido|Verifique se há algum caractere especial, como um sinal de porcentagem `%` ou aspas `"` , no nome do VHD.|Renomeie o arquivo VHD removendo os caracteres especiais.|
 |
 
 ## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Primeiros 1 MB (2048 setores, cada setor de 512 bytes) de partição
@@ -558,7 +558,7 @@ Para fornecer uma imagem de VM fixa para substituir uma imagem de VM que tenha u
 
 #### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Forneça uma nova imagem de VM para resolver a vulnerabilidade ou exploração de segurança
 
-Para concluir essas etapas, prepare os ativos técnicos para a imagem de VM que você deseja adicionar. Para obter mais informações, consulte [criar uma máquina virtual usando uma base aprovada](azure-vm-create-using-approved-base.md)ou [criar uma máquina virtual usando sua própria imagem](azure-vm-create-using-own-image.md) e [gerar um URI de SAS para a imagem da VM](azure-vm-get-sas-uri.md).
+Para concluir essas etapas, prepare os ativos técnicos para a imagem de VM que você deseja adicionar. Para obter mais informações, consulte [criar uma máquina virtual usando uma base aprovada](azure-vm-create-using-approved-base.md) ou [criar uma máquina virtual usando sua própria imagem](azure-vm-create-using-own-image.md) e [gerar um URI de SAS para a imagem da VM](azure-vm-get-sas-uri.md).
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. No painel esquerdo, selecione   >  **visão geral** do Marketplace comercial.

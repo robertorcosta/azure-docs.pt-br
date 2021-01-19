@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: f8a4f29114f7e0a2ed7868f01e05e25c8a0d0ce1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752219"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567750"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Visão geral da avaliação do servidor (migrar para VMs do Azure)
 
@@ -268,8 +268,14 @@ Esta tabela mostra as classificações de confiança de avaliação, que depende
 Aqui estão algumas razões pelas quais uma avaliação pode obter uma classificação de baixa confiança:
 
 - Você não fez o profile do seu ambiente pela duração para a qual está criando a avaliação. Por exemplo, se você criar a avaliação com duração de desempenho definida como um dia, deverá aguardar pelo menos um dia depois de iniciar a descoberta para todos os pontos de dados a serem coletados.
-- Algumas VMs foram desligadas durante o tempo durante o qual a avaliação foi calculada. Se alguma VM for desativada por alguma duração, a avaliação do servidor não poderá coletar os dados de desempenho para esse período.
-- Algumas VMs foram criadas durante o tempo durante o qual a avaliação foi calculada. Por exemplo, suponha que você criou uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas há apenas uma semana atrás. O histórico de desempenho das novas VMs não existirá durante toda a duração.
+- A avaliação não é capaz de coletar os dados de desempenho de algumas ou de todas as VMs no período de avaliação. Para uma classificação de alta confiança, verifique se: 
+    - As VMs são ativadas durante a avaliação
+    - Conexões de saída nas portas 443 são permitidas
+    - Para VMs do Hyper-V, a memória dinâmica está habilitada 
+    
+    “Recalcule” a avaliação para refletir as alterações mais recentes na classificação de confiança.
+
+- Algumas VMs foram criadas durante o tempo durante o qual a avaliação foi calculada. Por exemplo, suponha que você criou uma avaliação para o histórico de desempenho do último mês, mas algumas VMs foram criadas há apenas uma semana atrás. Nesse caso, os dados de desempenho das novas VMs não estariam disponíveis durante todo o período e a classificação de confiança seria baixa.
 
 > [!NOTE]
 > Se a classificação de confiança de qualquer avaliação for menor que cinco estrelas, recomendamos que você aguarde pelo menos um dia para o dispositivo criar o perfil do ambiente e, em seguida, recalcular a avaliação. Caso contrário, o dimensionamento baseado em desempenho pode não ser confiável. Nesse caso, recomendamos que você alterne a avaliação para o dimensionamento local.
@@ -285,7 +291,7 @@ Após a conclusão das recomendações de dimensionamento, uma avaliação de VM
     - Software Assurance
     - Instâncias reservadas
     - Tempo de atividade da VM
-    - Location
+    - Local
     - Configurações de moeda
 
     A avaliação do servidor agrega o custo em todas as máquinas para calcular o custo de computação mensal total.

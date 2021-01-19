@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2021
 ms.author: yelevin
-ms.openlocfilehash: 549b4e1e5e1aef3f6957fa52d69d252c55934286
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 989520e079988e1821d8bb9a936f857e1f62c11a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541532"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567759"
 ---
 # <a name="connect-your-trend-micro-tippingpoint-solution-to-azure-sentinel"></a>Conecte sua solução Trend Micro TippingPoint ao Azure Sentinel
 
@@ -48,15 +48,15 @@ Para fazer seus logs no Azure Sentinel, configure sua solução TippingPoint TPS
 
 1. Siga as instruções na guia **instruções** , em **configuração**:
 
-    1. **1. configuração do agente de syslog do Linux** – faça esta etapa se você ainda não tiver um encaminhador de log em execução ou se precisar de outro. Consulte [a etapa 1: implantar o encaminhador de log](connect-cef-agent.md) na documentação do Azure Sentinel para obter instruções e explicações mais detalhadas.
+    1. Em **1. Configuração do agente de syslog do Linux** – faça esta etapa se você ainda não tiver um encaminhador de log em execução ou se precisar de outro. Consulte [a etapa 1: implantar o encaminhador de log](connect-cef-agent.md) na documentação do Azure Sentinel para obter instruções e explicações mais detalhadas.
 
-    1. **2. encaminhe a Trend Micro TIPPINGPOINT SMS logs ao agente de syslog** – essa configuração deve incluir os seguintes elementos:
+    1. Em **2. Encaminhar os logs de SMS da Trend Micro TippingPoint para o agente de syslog** -essa configuração deve incluir os seguintes elementos:
         - Destino do log – o nome do host e/ou endereço IP do servidor de encaminhamento de log
         - Protocolo e porta – **TCP 514** (se recomendado, caso contrário, certifique-se de fazer a alteração paralela no daemon do syslog em seu servidor de encaminhamento de log)
         - Formato de log – **formato ARCSIGHT CEF v 4.2**
         - Tipos de log – todos disponíveis
 
-    1. **3. validar conexão** -Verifique a ingestão de dados copiando o comando na página do conector e executando-o no encaminhador de log. Consulte [etapa 3: validar a conectividade](connect-cef-verify.md) na documentação do Azure Sentinel para obter instruções e explicações mais detalhadas.
+    1. Menos de **3. Validar conexão** -Verifique a ingestão de dados copiando o comando na página do conector e executando-o no encaminhador de log. Consulte [etapa 3: validar a conectividade](connect-cef-verify.md) na documentação do Azure Sentinel para obter instruções e explicações mais detalhadas.
 
         Pode levar até 20 minutos até que os logs comecem a aparecer na Log Analytics.
 

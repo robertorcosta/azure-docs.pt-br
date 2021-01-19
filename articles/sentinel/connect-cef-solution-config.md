@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 36c832e198d7b6e9a6c3f6ddc19ad87c87917f38
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 80e5cc18888b0e014fc1f617ca27dee05146472e
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541267"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567686"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>ETAPA 2: configurar sua solução de segurança para enviar mensagens CEF
 
@@ -41,6 +41,7 @@ Se sua solução de segurança já tiver um conector existente, use as instruç�
 - [Illusive redes AMS](connect-illusive-attack-management-system.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
+- [Servidor de segredo Thycotic](connect-thycotic-secret-server.md)
 - [Deep Security da Trend Micro](connect-trend-micro.md)
 - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
 - [Plataforma de perícia de rede WireX](connect-wirex-systems.md)

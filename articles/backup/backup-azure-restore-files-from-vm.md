@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831662"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567128"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -188,7 +188,7 @@ No Linux, os volumes do ponto de recuperação são montados para a pasta onde o
 Se o processo de recuperação de arquivo parar depois de executar o script de restauração de arquivo (por exemplo, se os discos nunca estiverem montados ou se estiverem montados, mas os volumes não aparecerem), execute as seguintes etapas:
 
 1. No arquivo /etc/iSCSI/iscsid.conf, altere a configuração de:
-    - `node.conn[0].timeo.noop_out_timeout = 5`  Para `node.conn[0].timeo.noop_out_timeout = 30`
+    - `node.conn[0].timeo.noop_out_timeout = 5`  Para `node.conn[0].timeo.noop_out_timeout = 120`
 2. Depois de fazer as alterações acima, execute o script novamente. Se houver falhas transitórias, certifique-se de que há um intervalo de 20 a 30 minutos entre o reexecutar para evitar picos de solicitações sucessivas que afetam a preparação de destino. Esse intervalo entre as reexecuções garantirá que o destino esteja pronto para conexão do script.
 3. Após a recuperação de arquivos, verifique se você retornou ao portal e selecione **desmontar discos** para pontos de recuperação em que você não conseguiu montar volumes. Essencialmente, essa etapa limpará todos os processos/sessões existentes e aumentará a chance de recuperação.
 

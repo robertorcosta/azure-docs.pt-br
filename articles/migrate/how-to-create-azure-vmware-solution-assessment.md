@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 93d17ec2a4fb5c191ce02c73a7a3532e9c854b00
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: fb1ec55bc68ccc323f8dee90982a9169e3085219
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752066"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567637"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Criar uma avaliação da AVS (solução do Azure VMware)
 
@@ -58,27 +58,29 @@ Execute uma avaliação da AVS (solução do Azure VMware) da seguinte maneira:
 
     ![Captura de tela mostra os servidores de migração do Azure com a avaliação selecionada em ferramentas de avaliação.](./media/how-to-create-assessment/assess.png)
 
-3. Em **avaliar servidores**, selecione o tipo de avaliação como "solução do Azure VMware (AVS)", selecione a origem da descoberta e especifique o nome da avaliação.
+3. Em **avaliar servidores**, selecione o tipo de avaliação como "solução do Azure VMware (AVS)", selecione a origem da descoberta.
 
-    ![Noções básicas sobre a avaliação](./media/how-to-create-avs-assessment/assess-servers-avs.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/assess-servers-avs.png" alt-text="Adicionar noções básicas de avaliação":::
 
-4. Clique em **Exibir tudo** para examinar as propriedades da avaliação.
+4. Clique em **Editar** para examinar as propriedades de avaliação.
 
-    ![Propriedades da avaliação AVS](./media/how-to-create-avs-assessment/avs-view-all.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Local do botão Editar para examinar as propriedades de avaliação":::
 
-5. Clique em **avançar** para **Selecionar computadores para avaliação**. Em **Selecionar ou criar um grupo**, selecione **Criar** e especifique um nome de grupo. Um grupo reúne uma ou mais VMs para avaliação.
+1. Em **Selecionar computadores para avaliar**  >  o **nome da avaliação** > especifique um nome para a avaliação. 
+ 
+1. Em **selecionar ou criar um grupo** > selecione **criar novo** e especifique um nome de grupo. Um grupo reúne uma ou mais VMs para avaliação.
+    
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Adicionar VMs a um grupo":::
 
-6. Em **Adicionar computadores ao grupo**, selecione as VMs a serem adicionadas ao grupo.
+1. Em **Adicionar computadores ao grupo**, selecione as VMs a serem adicionadas ao grupo.
 
-7. Clique em **avançar** para **Examinar + criar avaliação** para examinar os detalhes da avaliação.
+1. Clique em **avançar** para **Examinar + criar avaliação** para examinar os detalhes da avaliação.
 
-8. Clique em **Criar Avaliação** para criar o grupo e execute a avaliação.
+1. Clique em **Criar Avaliação** para criar o grupo e execute a avaliação.
 
-    ![Criar uma avaliação da AVS](./media/how-to-create-avs-assessment/avs-assessment-create.png)
+1. Após a criação da avaliação, veja-a em **Servidores** > **Migrações para Azure: Avaliação de Servidor** > **Avaliações**.
 
-9. Após a criação da avaliação, veja-a em **Servidores** > **Migrações para Azure: Avaliação de Servidor** > **Avaliações**.
-
-10. Clique em **Exportar avaliação**, para baixá-la como um arquivo do Excel.
+1. Clique em **Exportar avaliação**, para baixá-la como um arquivo do Excel.
 
 
 ## <a name="review-an-azure-vmware-solution-avs-assessment"></a>Examinar uma avaliação da AVS (solução do Azure VMware)
@@ -88,6 +90,8 @@ Uma avaliação da AVS (solução do Azure VMware) descreve:
 - **Preparação da solução VMware do Azure (AVS)**: se as VMs locais são adequadas para a migração para a solução VMware do Azure (AVS).
 - **Número de nós de AVS**: número estimado de nós de AVS necessários para executar as VMs.
 - **Utilização em nós de AVS**: utilização de CPU, memória e armazenamento projetada em todos os nós.
+    - A utilização inclui o fator de início nas seguintes sobrecargas de gerenciamento de cluster, como o vCenter Server, o NSX Manager (grande), o NSX Edge, se o HCX for implantado também o HCX Manager e o dispositivo IX consumindo ~ 44vCPU (11 CPU), 75 GB de RAM e 722GB de armazenamento antes da compactação e da eliminação de duplicação.
+    - A memória, a eliminação de duplicação e a compactação estão atualmente definidas como 100% de utilização para memória e 1,5 eliminação de duplicação e compactação, que será uma entrada definida pelo usuário nas versões futuras, permitindo que o usuário ajuste seu tamanho necessário.
 - **Estimativa de custo mensal**: os custos mensais estimados para todos os nós da AVS (solução do Azure VMware) que executam as VMs locais.
 
 
@@ -97,7 +101,7 @@ Uma avaliação da AVS (solução do Azure VMware) descreve:
 
 2. Em **Avaliações**, clique em uma avaliação para abri-la.
 
-    ![Resumo da avaliação de AVS](./media/how-to-create-avs-assessment/avs-assessment-summary.png)
+    :::image type="content" source="./media/how-to-create-avs-assessment/avs-assessment-summary.png" alt-text="Resumo da avaliação de AVS":::
 
 ### <a name="review-azure-vmware-solution-avs-readiness"></a>Examinar a preparação da solução VMware do Azure (AVS)
 
