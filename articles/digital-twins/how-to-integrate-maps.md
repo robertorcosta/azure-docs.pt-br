@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Consulte como usar Azure Functions para criar uma função que pode usar as notificações do grafo gêmeos e do Azure digital para atualizar um mapa interno do Azure Maps.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/3/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 24487d3028b90d28f302a6f259096ba68c964541
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6a654f74ff6a32ad37646021d504359c84942c12
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222115"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573030"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usar o gêmeos digital do Azure para atualizar um mapa interno do Azure Maps
 
@@ -72,7 +72,7 @@ Esse padrão lê-se diretamente da sala, em vez do dispositivo IoT, que oferece 
 
 ## <a name="create-a-function-to-update-maps"></a>Criar uma função para atualizar mapas
 
-Você vai criar uma *função disparada por grade de eventos* dentro de seu aplicativo de funções do tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)). Essa função desempacotará essas notificações e enviará atualizações para um recurso do Azure Maps de estado para atualizar a temperatura de uma sala. 
+Você vai criar uma **função disparada por grade de eventos** dentro de seu aplicativo de funções do tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)). Essa função desempacotará essas notificações e enviará atualizações para um recurso do Azure Maps de estado para atualizar a temperatura de uma sala.
 
 Consulte o seguinte documento para obter informações de referência: [*gatilho de grade de eventos do Azure para Azure Functions*](../azure-functions/functions-bindings-event-grid-trigger.md).
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 7e4f18b5d4f074d6596b375cbc11f40c2ab69d68
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 19a98b5786f35839d84e1e969c29e45e2b5e8dea
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616602"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573387"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
@@ -141,7 +141,7 @@ Em seguida, verifique as propriedades da máquina virtual de origem. Lembre-se d
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Janela Propriedades de computação e rede":::
 
    - **Nome da VM do Azure**: modifique o nome para atender aos requisitos do Azure, se necessário.
-   - **Tamanho da VM de destino ou tipo de VM**: o tamanho padrão da VM é escolhido com base em parâmetros que incluem contagem de disco, contagem de NIC, contagem de núcleo de CPU, memória e tamanhos de função VM disponíveis na região do Azure de destino. Azure Site Recovery escolhe o primeiro tamanho de VM disponível que satisfaz todos os critérios. Você pode selecionar um tamanho de VM diferente com base em suas necessidades a qualquer momento antes do failover. O tamanho do disco da VM também é baseado no tamanho do disco de origem e só pode ser alterado após o failover. Saiba mais sobre tamanhos de disco e taxas de IOPS em [escalabilidade e metas de desempenho para discos de VM no Windows](../virtual-machines/windows/disk-scalability-targets.md).
+   - **Tamanho da VM de destino ou tipo de VM**: o tamanho padrão da VM é escolhido com base em parâmetros que incluem contagem de disco, contagem de NIC, contagem de núcleo de CPU, memória e tamanhos de função VM disponíveis na região do Azure de destino. Azure Site Recovery escolhe o primeiro tamanho de VM disponível que satisfaz todos os critérios. Você pode selecionar um tamanho de VM diferente com base em suas necessidades a qualquer momento antes do failover. O tamanho do disco da VM também é baseado no tamanho do disco de origem e só pode ser alterado após o failover. Saiba mais sobre tamanhos de disco e taxas de IOPS em [escalabilidade e metas de desempenho para discos de VM](../virtual-machines/disks-scalability-targets.md).
    - **Grupo de recursos**: você pode selecionar um [grupo de recursos](../azure-resource-manager/management/overview.md#resource-groups), do qual uma máquina virtual se torna parte de um failover posterior. Você pode alterar essa configuração a qualquer momento antes do failover. Após o failover, se você migrar a máquina virtual para um grupo de recursos diferente, as configurações de proteção dessa quebra de máquina virtual.
    - **Conjunto de disponibilidade**: você pode selecionar um [conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) se sua máquina virtual precisar fazer parte de um failover posterior. Ao selecionar um conjunto de disponibilidade, tenha em mente as seguintes informações:
      - Somente os conjuntos de disponibilidade que pertencem ao grupo de recursos especificado são listados.

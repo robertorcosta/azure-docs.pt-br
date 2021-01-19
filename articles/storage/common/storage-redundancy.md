@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a09a2083c1258a3120f8696aa39a0252dbfcf2d
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 83a4a2aa8328a6e3de9eab44bbf19fc76921b128
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209671"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573336"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -35,11 +35,15 @@ Os dados em uma conta de Armazenamento do Azure são sempre replicados três vez
 
 ### <a name="locally-redundant-storage"></a>Armazenamento com redundância local
 
-O armazenamento com redundância local (LRS) replica seus dados três vezes em um único local físico na região primária. O armazenamento com redundância local (LRS) fornece pelo menos 99,999999999% (11 noves) de durabilidade dos objetos em um determinado ano.
+O LRS (armazenamento com redundância local) Replica seus dados três vezes em um único data center na região primária. O armazenamento com redundância local (LRS) fornece pelo menos 99,999999999% (11 noves) de durabilidade dos objetos em um determinado ano.
 
 O LRS é a opção de redundância de menor custo e oferece a menor durabilidade em comparação com outras opções. O LRS protege seus dados contra falhas de unidade e rack do servidor. No entanto, caso ocorra um desastre no data center, como um incêndio ou uma inundação, todas as réplicas de uma conta de armazenamento que use o LRS poderão ser perdidas ou se tornarem irrecuperáveis. Para atenuar esse risco, a Microsoft recomenda usar o [armazenamento com redundância de zona](#zone-redundant-storage) (ZRS), o [armazenamento com redundância geográfica](#geo-redundant-storage) (GRS) ou o [armazenamento com redundância de zona geográfica](#geo-zone-redundant-storage) (GZRS).
 
 Uma solicitação de gravação para uma conta de armazenamento que está usando o LRS ocorre de forma síncrona. A operação de gravação retorna com êxito somente depois que os dados são gravados em todas as três réplicas.
+
+O diagrama a seguir mostra como os dados são replicados em um único data center com LRS:
+
+:::image type="content" source="media/storage-redundancy/locally-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados em um único data center com LRS":::
 
 O LRS é uma boa opção para os seguintes cenários:
 
@@ -54,7 +58,11 @@ Com o ZRS, seus dados ainda podem ser acessados por operações de leitura e de 
 
 Uma solicitação de gravação para uma conta de armazenamento que está usando o ZRS ocorre de forma síncrona. A operação de gravação retorna com êxito somente depois que os dados são gravados em todas as réplicas nas três zonas de disponibilidade.
 
-A Microsoft recomenda usar o ZRS na região primária para cenários que exigem consistência, durabilidade e alta disponibilidade. Também recomendamos o uso de ZRS se você quiser restringir um aplicativo para replicar dados somente em um país ou região devido aos requisitos de governança de dados.
+A Microsoft recomenda usar o ZRS na região primária para cenários que exigem consistência, durabilidade e alta disponibilidade. O ZRS também é recomendado para restringir a replicação de dados para dentro de um país ou região para atender aos requisitos de governança de dados.
+
+O diagrama a seguir mostra como os dados são replicados entre as zonas de disponibilidade na região primária com ZRS:
+
+:::image type="content" source="media/storage-redundancy/zone-redundant-storage.png" alt-text="Diagrama mostrando como os dados são replicados na região primária com ZRS":::
 
 O ZRS fornece desempenho excelente, baixa latência e resiliência para seus dados se eles ficarem temporariamente indisponíveis. Entretanto, por si só, o ZRS não pode proteger seus dados contra um desastre regional em que várias zonas permanentemente são afetadas. Para proteção contra desastres regionais, a Microsoft recomenda o uso do [armazenamento com redundância de zona geográfica](#geo-zone-redundant-storage) (GZRS), que usa o ZRS na região primária e também replica geograficamente seus dados para uma região secundária.
 

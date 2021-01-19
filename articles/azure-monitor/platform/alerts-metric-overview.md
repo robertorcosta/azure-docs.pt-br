@@ -1,15 +1,15 @@
 ---
 title: Entender como funcionam os alertas de métrica no Azure Monitor.
 description: Obtenha uma visão geral do que você pode fazer com alertas de métrica e como eles funcionam no Azure Monitor.
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: ab80496784b5d86d270830546cec73aadbcc50a6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 031768b8a72fbe9498abd3c17e0f79fd157d4f52
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251226"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572724"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
@@ -26,7 +26,7 @@ Digamos que você tenha criado uma regra de alerta de métrica simples com limit
 - Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
 - Métrica: porcentagem de CPU
 - Tipo de condição: estático
-- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As [agregações de tempo com suporte](metrics-charts.md#aggregation) são mín., máx., média, total, contagem): média
+- Tipo de agregação (uma estatística que é executada sobre valores de métrica brutos. Os [tipos de agregação com suporte](./metrics-aggregation-explained.md#aggregation-types) são mínimo, máximo, média, total, contagem): média
 - Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
 - Operador: maior que
@@ -43,7 +43,7 @@ Digamos que você tenha criado uma regra de alerta de métrica simples com limit
 - Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
 - Métrica: porcentagem de CPU
 - Tipo de condição: dinâmica
-- Agregação de tempo (estatística que é executada sobre os valores brutos de métrica. As [agregações de tempo com suporte](metrics-charts.md#aggregation) são mín., máx., média, total, contagem): média
+- Tipo de agregação (uma estatística que é executada sobre valores de métrica brutos. Os [tipos de agregação com suporte](./metrics-aggregation-explained.md#aggregation-types) são mínimo, máximo, média, total, contagem): média
 - Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
 - Operador: maior que
@@ -80,7 +80,7 @@ Digamos que você tem um Plano do Serviço de Aplicativo para seu site. Você de
 - Tipo de condição: estático
 - Dimensões
   - Instance = InstanceName1, InstanceName2
-- Agregação de tempo: média
+- Tipo de agregação: Média
 - Período: nos últimos 5 minutos
 - Frequência: 1 min
 - Operador: GreaterThan
@@ -95,7 +95,7 @@ Digamos que você tenha um aplicativo Web que esteja sob grande demanda e é nec
 - Tipo de condição: estático
 - Dimensões
   - Instância = *
-- Agregação de tempo: média
+- Tipo de agregação: Média
 - Período: nos últimos 5 minutos
 - Frequência: 1 min
 - Operador: GreaterThan
@@ -112,7 +112,7 @@ Digamos que você tenha um aplicativo Web com muitas instâncias e não sabe qua
 - Tipo de condição: dinâmica
 - Dimensões
   - Instância = *
-- Agregação de tempo: média
+- Tipo de agregação: Média
 - Período: nos últimos 5 minutos
 - Frequência: 1 min
 - Operador: GreaterThan

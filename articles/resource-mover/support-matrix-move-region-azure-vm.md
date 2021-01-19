@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 00b220e07dc3fa7580100d6d36108c14fe598d40
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524242"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572180"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Suporte para mover VMs do Azure entre regiões do Azure
 
@@ -113,7 +113,7 @@ Extensões | Sem suporte | As extensões não são copiadas para a VM na região
 
 ## <a name="supported-vm-storage-settings"></a>Configurações de armazenamento de VM com suporte
 
-Esta tabela resumiu o suporte ao disco do SO do Azure VM, ao disco de dados e ao disco temporário. É importante observar os limites de disco e os destinos da VM para [Linux](../virtual-machines/linux/disk-scalability-targets.md) e [VMs do Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar problemas de desempenho.
+Esta tabela resumiu o suporte ao disco do SO do Azure VM, ao disco de dados e ao disco temporário. É importante observar os limites de disco da VM e os destinos de [discos gerenciados](../virtual-machines/disks-scalability-targets.md) para evitar problemas de desempenho.
 
 > [!NOTE]
 > O tamanho da VM de destino deve ser igual ou maior que a VM de origem. Os parâmetros usados para validação são: contagem de discos de dados, contagem de NICs, CPUs disponíveis, memória em GB. Se não for emitido um erro.
@@ -127,7 +127,7 @@ Tamanho máximo do disco de dados | 8\.192 GB para discos gerenciados
 Tamanho mínimo do disco de dados |  2 GB para discos gerenciados |
 Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/sizes.md) sobre os tamanhos de VM.
 Taxa de alteração do disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento padrão. | Se a taxa média de alteração de dados no disco for continuamente maior do que o máximo, a preparação não será atualizada.<br/><br/>  No entanto, se o máximo for excedido esporadicamente, a preparação poderá ser atualizada, mas você poderá ver pontos de recuperação ligeiramente atrasados.
-Disco de dados (conta de armazenamento Standard) | Não há suporte. | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.
+Disco de dados (conta de armazenamento Standard) | Sem suporte. | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.
 Disco de dados (conta de armazenamento Premium) | Sem suporte | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.
 Disco gerenciado (Standard) | Com suporte  |
 Disco gerenciado (Premium) | Com suporte |

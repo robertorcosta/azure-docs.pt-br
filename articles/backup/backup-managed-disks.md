@@ -3,12 +3,12 @@ title: Fazer backup do Azure Managed Disks
 description: Saiba como fazer backup do Azure Managed Disks do portal do Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: c4e2d4e649d59389ac3f8bd115e43acabc792eb2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557219"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573115"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Fazer backup de Managed Disks do Azure (em versão prévia)
 
@@ -129,6 +129,8 @@ Os seguintes pré-requisitos são necessários para configurar o backup de disco
    >Digite o nome do cofre de backup para selecionar a identidade gerenciada do cofre.
 
    ![Adicionar função de colaborador de instantâneo de disco](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
+
+1. Se o disco a ser copiado em backup for criptografado com [chaves gerenciadas pelo cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou usando a [criptografia dupla usando chaves gerenciadas por plataforma e chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), atribua a permissão de função de **leitor** à identidade gerenciada do cofre de backup no recurso de **conjunto de criptografia de disco** .
 
 1. Verifique se a identidade gerenciada do cofre de backup tem o conjunto correto de atribuições de função no disco de origem e no grupo de recursos que serve como o repositório de armazenamento de instantâneo.
 

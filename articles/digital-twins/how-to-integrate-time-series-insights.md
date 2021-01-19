@@ -4,21 +4,21 @@ titleSuffix: Azure Digital Twins
 description: Consulte como configurar rotas de eventos do Azure digital gêmeos para Azure Time Series Insights.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 7/14/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 24b4f56e5798acc4d9bd0962be7059a359958645
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127018"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573234"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrar o gêmeos digital do Azure ao Azure Time Series Insights
 
 Neste artigo, você aprenderá a integrar o gêmeos digital do Azure ao [TSI (Azure Time Series insights)](../time-series-insights/overview-what-is-tsi.md).
 
-A solução descrita neste artigo permitirá que você reúna e analise dados históricos sobre sua solução de IoT. O gêmeos digital do Azure é uma ótima opção para alimentar dados em Time Series Insights, pois permite que você correlacione vários fluxos de dados e padronize suas informações antes de enviá-las para Time Series Insights. 
+A solução descrita neste artigo permitirá que você reúna e analise dados históricos sobre sua solução de IoT. Os Gêmeos Digitais do Azure são uma ótima opção para alimentar dados no Time Series Insights, pois permite que você correlacione vários fluxos de dados e padronize suas informações antes de enviá-las para o Time Series Insights. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,31 +38,28 @@ Você estará anexando Time Series Insights ao Azure digital gêmeos por meio do
     :::column-end:::
 :::row-end:::
 
-## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Criar uma rota e um filtro para as notificações de atualização do entrelaçamento
+## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Criar uma rota e um filtro para as notificações de atualização do gêmeo
 
 As instâncias de gêmeos digitais do Azure podem emitir [eventos de atualização de entrelaçar](how-to-interpret-event-data.md) sempre que um estado de entrelaçamento é atualizado. Nesta seção, você criará uma [**rota de eventos**](concepts-route-events.md) gêmeos digital do Azure que direcionará esses eventos de atualização para os [hubs de eventos](../event-hubs/event-hubs-about.md) do Azure para processamento adicional.
 
 O tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md) percorre um cenário em que um termômetro é usado para atualizar um atributo de temperatura em uma conexão digital que representa uma sala. Esse padrão se baseia nas atualizações de atualização, em vez de encaminhar a telemetria de um dispositivo IoT, o que oferece a você a flexibilidade de alterar a fonte de dados subjacente sem a necessidade de atualizar sua lógica de Time Series Insights.
 
-1. Primeiro, crie um namespace de Hub de eventos, que receberá eventos de sua instância de gêmeos digital do Azure. Você pode usar as instruções de CLI do Azure abaixo ou usar o portal do Azure: [*início rápido: criar um hub de eventos usando portal do Azure*](../event-hubs/event-hubs-create.md).
+1. Primeiro, crie um namespace de Hub de eventos que receberá eventos de sua instância de gêmeos digital do Azure. Você pode usar as instruções de CLI do Azure abaixo ou usar o portal do Azure: [*início rápido: criar um hub de eventos usando portal do Azure*](../event-hubs/event-hubs-create.md). Para ver quais regiões oferecem suporte a hubs de eventos, visite [*produtos do Azure disponíveis por região*](https://azure.microsoft.com/global-infrastructure/services/?products=event-hubs).
 
     ```azurecli-interactive
-    # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
-    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
+    az eventhubs namespace create --name <name for your Event Hubs namespace> --resource-group <resource group name> -l <region>
     ```
 
-2. Crie um hub de eventos dentro do namespace.
+2. Crie um hub de eventos dentro do namespace para receber eventos de alteração de entrelaçamento. Especifique um nome para o Hub de eventos.
 
     ```azurecli-interactive
-    # Create an event hub to receive twin change events. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. Crie uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e recebimento.
+3. Crie uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e recebimento. Especifique um nome para a regra.
 
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
 4. Crie um [ponto de extremidade](concepts-route-events.md#create-an-endpoint) de gêmeos digital do Azure que vincula seu hub de eventos à instância do gêmeos digital do Azure.
@@ -71,7 +68,7 @@ O tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*
     az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
     ```
 
-5. Crie uma [rota](concepts-route-events.md#create-an-event-route) no gêmeos digital do Azure para enviar eventos de atualização de entrelaçar para seu ponto de extremidade. O filtro nessa rota permitirá que somente as mensagens de atualização de entrelaçamento sejam passadas para o ponto de extremidade.
+5. Crie uma [rota](concepts-route-events.md#create-an-event-route) nos Gêmeos Digitais do Azure para enviar eventos de atualização do gêmeo para seu ponto de extremidade. O filtro nessa rota permitirá que somente as mensagens de atualização de entrelaçamento sejam passadas para o ponto de extremidade.
 
     >[!NOTE]
     >Atualmente, há um **problema conhecido** no Cloud Shell afetando estes grupos de comandos: `az dt route`, `az dt model` e `az dt twin`.
@@ -86,7 +83,7 @@ Antes de prosseguir, anote o seu *namespace de hubs de eventos* e o grupo de *re
 
 ## <a name="create-a-function-in-azure"></a>Criar uma função no Azure
 
-Em seguida, você usará Azure Functions para criar uma função disparada por hubs de eventos dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)) ou seu próprio. 
+Em seguida, você usará Azure Functions para criar uma **função disparada por hubs de eventos** dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)) ou seu próprio. 
 
 Essa função converterá esses eventos de atualização de alto% do formulário original como documentos de patch JSON em objetos JSON, contendo apenas valores atualizados e adicionados de seu gêmeos.
 
@@ -102,7 +99,7 @@ Posteriormente, você também definirá algumas variáveis de ambiente que esta 
 
 ## <a name="send-telemetry-to-an-event-hub"></a>Enviar telemetria para um hub de eventos
 
-Agora, você criará um segundo Hub de eventos e configurará sua função para transmitir sua saída para o Hub de eventos. Esse Hub de eventos será então conectado a Time Series Insights.
+Agora, você criará um segundo Hub de eventos e configurará sua função para transmitir sua saída para o Hub de eventos. Depois, esse hub de eventos será conectado ao Time Series Insights.
 
 ### <a name="create-an-event-hub"></a>Criar um Hub de Evento
 
@@ -110,22 +107,22 @@ Para criar o segundo Hub de eventos, você pode usar as instruções de CLI do A
 
 1. Prepare o *namespace dos hubs de eventos* e o nome do *grupo de recursos* do anterior neste artigo
 
-2. Criar um novo hub de eventos
+2. Crie um novo hub de eventos. Especifique um nome para o Hub de eventos.
+
     ```azurecli-interactive
-    # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. Criar uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e recebimento
+3. Crie uma [regra de autorização](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) com permissões de envio e recebimento. Especifique um nome para a regra.
+
     ```azurecli-interactive
-    # Create an authorization rule. Specify a name for the rule.
-    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
+        az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
     ```
 
-## <a name="configure-your-function"></a>Configurar sua função
+## <a name="configure-your-function"></a>Configurar a função
 
 Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo as cadeias de conexão para os hubs de eventos que você criou.
 
-### <a name="set-the-twins-event-hub-connection-string"></a>Definir a cadeia de conexão do hub de eventos gêmeos
+### <a name="set-the-twins-event-hub-connection-string"></a>Definir a cadeia de conexão do hub de eventos dos Gêmeos
 
 1. Obtenha a [cadeia de conexão do hub de eventos](../event-hubs/event-hubs-get-connection-string.md)gêmeos usando as regras de autorização que você criou acima para o Hub gêmeos.
 
@@ -133,13 +130,13 @@ Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
     ```
 
-2. Use a cadeia de conexão que você obtém como resultado para criar uma configuração de aplicativo em seu aplicativo de funções que contém a cadeia de conexão:
+2. Use a cadeia de conexão que você receber como resultado para criar uma configuração de aplicativo em seu aplicativo de funções que contém a cadeia de conexão:
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
-### <a name="set-the-time-series-insights-event-hub-connection-string"></a>Definir a Time Series Insights cadeia de conexão do hub de eventos
+### <a name="set-the-time-series-insights-event-hub-connection-string"></a>Definir a cadeia de conexão do hub de eventos do Time Series Insights
 
 1. Obtenha a [cadeia de conexão do hub de eventos](../event-hubs/event-hubs-get-connection-string.md)TSI usando as regras de autorização que você criou acima para o hub de time Series insights:
 
@@ -147,13 +144,13 @@ Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
     ```
 
-2. Em seu aplicativo de funções, crie uma configuração de aplicativo contendo a cadeia de conexão:
+2. No aplicativo de funções, crie uma configuração de aplicativo contendo a cadeia de conexão:
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
-## <a name="create-and-connect-a-time-series-insights-instance"></a>Criar e conectar uma instância de Time Series Insights
+## <a name="create-and-connect-a-time-series-insights-instance"></a>Criar e conectar uma instância do Time Series Insights
 
 Em seguida, você irá configurar uma instância de Time Series Insights para receber os dados do segundo Hub de eventos. Siga as etapas abaixo e para obter mais detalhes sobre esse processo, consulte [*tutorial: configurar um ambiente de Azure Time Series insights Gen2 PAYG*](../time-series-insights/tutorials-set-up-tsi-environment.md).
 
@@ -173,7 +170,7 @@ Para começar a enviar dados para Time Series Insights, você precisará começa
 
 Se você estiver usando o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) para auxiliar na configuração do ambiente, você pode começar a enviar dados de IOT simulados executando o projeto *DeviceSimulator* do exemplo. As instruções estão na seção [*configurar e executar a simulação*](tutorial-end-to-end.md#configure-and-run-the-simulation) do tutorial.
 
-## <a name="visualize-your-data-in-time-series-insights"></a>Visualize seus dados no Time Series Insights
+## <a name="visualize-your-data-in-time-series-insights"></a>Visualizar os dados no Time Series Insights
 
 Agora, os dados devem estar fluindo para sua instância de Time Series Insights, prontos para serem analisados. Siga as etapas abaixo para explorar os dados recebidos.
 
