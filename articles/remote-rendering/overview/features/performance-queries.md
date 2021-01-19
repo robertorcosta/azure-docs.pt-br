@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 95993b35174b80dae8c878c22554ee60afeb8a14
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 57a9f6f11283e020efc25f55f1df473a6cb2d321
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206213"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569990"
 ---
 # <a name="server-side-performance-queries"></a>Consultas de desempenho do lado do servidor
 
@@ -65,9 +65,9 @@ O objeto `FrameStatistics` recuperado contém os seguintes membros:
 | Membro | Explicação |
 |:-|:-|
 | latencyPoseToReceive | A latência da câmera representa a estimativa no dispositivo cliente até que um quadro de servidor para essa pose esteja totalmente disponível para o aplicativo cliente. Esse valor inclui viagem de ida e volta da rede, tempo de renderização do servidor, decodificação de vídeo e compensação de tremulação. Veja o **intervalo 1 na ilustração acima.**|
-| latencyReceiveToPresent | Latência da disponibilidade de um quadro remoto recebido até que o aplicativo cliente chame PresentFrame na CPU. |
-| latencyPresentToDisplay  | Latência da apresentação de um quadro na CPU até a tela acender. Esse valor inclui a hora da GPU do cliente, qualquer buffer de quadro executado pelo sistema operacional, reprojeção de hardware e tempo de varredura de exibição dependente do dispositivo. Veja o **intervalo 2 na ilustração acima.**|
-| timeSinceLastPresent | O tempo entre as chamadas subsequentes para PresentFrame na CPU. Valores maiores que a duração da exibição (por exemplo, 16,6 ms em um dispositivo cliente de 60 Hz) indicam problemas causados pelo aplicativo cliente que não conclui sua carga de trabalho de CPU no tempo desejado. Veja o **intervalo 3 na ilustração acima.**|
+| latencyReceiveToPresent | Latência da disponibilidade de um quadro remoto recebido até que o aplicativo cliente chame PresentFrame na CPU. Veja o **intervalo 2 na ilustração acima.**|
+| latencyPresentToDisplay  | Latência da apresentação de um quadro na CPU até a tela acender. Esse valor inclui a hora da GPU do cliente, qualquer buffer de quadro executado pelo sistema operacional, reprojeção de hardware e tempo de varredura de exibição dependente do dispositivo. Veja o **intervalo 3 na ilustração acima.**|
+| timeSinceLastPresent | O tempo entre as chamadas subsequentes para PresentFrame na CPU. Valores maiores que a duração da exibição (por exemplo, 16,6 ms em um dispositivo cliente de 60 Hz) indicam problemas causados pelo aplicativo cliente que não conclui sua carga de trabalho de CPU no tempo desejado.|
 | videoFramesReceived | O número de quadros recebidos do servidor no último segundo. |
 | videoFrameReusedCount | Número de quadros recebidos no último segundo que foram usados no dispositivo mais de uma vez. Valores diferentes de zero indicam que os quadros tinham que ser reutilizados e reprojetados devido à tremulação da rede ou ao tempo excessivo de renderização do servidor. |
 | videoFramesSkipped | Número de quadros recebidos no último segundo que foram decodificados, mas não mostrados na exibição porque um quadro mais recente chegou. Valores diferentes de zero indicam que a tremulação da rede fez com que vários quadros ficassem atrasados e chegassem ao dispositivo cliente de modo intermitente. |
@@ -132,7 +132,7 @@ Ao contrário do objeto `FrameStatistics`, o objeto `PerformanceAssessment` cont
 | networkLatency | A latência de rede de ida e volta média aproximada em milissegundos. Na ilustração acima, isso corresponde à soma das setas vermelhas. O valor é calculado com a subtração do tempo de renderização do servidor real do valor `latencyPoseToReceive` de `FrameStatistics`. Embora essa aproximação não seja precisa, ela fornece alguma indicação da latência da rede, isolada dos valores de latência computados no cliente. |
 | polygonsRendered | O número de triângulos renderizados em um quadro. Esse número também inclui os triângulos que são refigurados posteriormente durante a renderização. Isso significa que esse número não varia muito em posições de câmera diferentes, mas o desempenho pode variar drasticamente, dependendo da taxa de remoção do triângulo.|
 
-Para ajudar a avaliar os valores, cada parte vem com uma classificação de qualidade, como **excelente**, **bom**, **mediana**ou **ruim**.
+Para ajudar a avaliar os valores, cada parte vem com uma classificação de qualidade, como **excelente**, **bom**, **mediana** ou **ruim**.
 Essa métrica de avaliação fornece uma indicação aproximada da integridade do servidor, mas não deve ser vista como absoluta. Por exemplo, vamos supor que você veja uma pontuação "mediana" para a hora da GPU. Ela é considerado mediana porque fica perto do limite do orçamento do tempo geral do quadro. No entanto, no seu caso pode ser um bom valor, pois você está renderizando um modelo complexo.
 
 ## <a name="statistics-debug-output"></a>Saída de depuração de estatísticas

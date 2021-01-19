@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630608"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569837"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Migrar o código de v 2.0 para v 3.0 da API REST
 
@@ -24,11 +24,51 @@ Em comparação com a v2, a versão V3 da API REST dos serviços de fala para a 
 
 ## <a name="forward-compatibility"></a>Compatibilidade com encaminhamento
 
-Todas as entidades de v2 também podem ser encontradas na API v3 sob a mesma identidade. Onde o esquema de um resultado foi alterado (por exemplo, transcrições), o resultado de um GET na versão V3 da API usa o esquema v3. O resultado de um GET na versão V2 da API usa o mesmo esquema v2. As entidades recém-criadas no v3 **não** estão disponíveis nos resultados de APIs v2.
+Todas as entidades de v2 também podem ser encontradas na API v3 sob a mesma identidade. Onde o esquema de um resultado foi alterado (por exemplo, transcrições), o resultado de um GET na versão V3 da API usa o esquema v3. O resultado de um GET na versão V2 da API usa o mesmo esquema v2. As entidades recém-criadas no v3 **não** estão   disponíveis em respostas de APIs v2. 
 
-## <a name="breaking-changes"></a>Alterações da falha
+## <a name="migration-steps"></a>Etapas da migração
 
-A lista de alterações significativas foi classificada pela magnitude das alterações necessárias para adaptação. Apenas algumas alterações exigem alterações não triviais no código de chamada. A maioria das alterações requer apenas uma alteração nos nomes dos itens.
+Esta é uma lista resumida de itens que você precisa estar atento ao se preparar para a migração. Os detalhes são encontrados nos links individuais. Dependendo do uso atual da API, nem todas as etapas listadas aqui podem ser aplicáveis. Apenas algumas alterações exigem alterações não triviais no código de chamada. A maioria das alterações requer apenas uma alteração nos nomes dos itens. 
+
+Alterações gerais: 
+
+1. [Alterar o nome do host](#host-name-changes)
+
+1. [Renomeie a ID da propriedade como Self no código do cliente](#identity-of-an-entity) 
+
+1. [Alterar o código para iterar em coleções de entidades](#working-with-collections-of-entities)
+
+1. [Renomeie o nome da propriedade para displayName no seu código de cliente](#name-of-an-entity)
+
+1. [Ajustar a recuperação dos metadados das entidades referenciadas](#accessing-referenced-entities)
+
+1. Se você usar a transcrição do lote: 
+
+    * [Ajustar o código para criar transcrições em lotes](#creating-transcriptions) 
+
+    * [Adaptar o código ao novo esquema de resultados de transcrição](#format-of-v3-transcription-results)
+
+    * [Ajustar o código para o modo como os resultados são recuperados](#getting-the-content-of-entities-and-the-results)
+
+1. Se você usar APIs de treinamento/teste de modelo personalizado: 
+
+    * [Aplicar modificações ao treinamento de modelo personalizado](#customizing-models)
+
+    * [Alterar a forma como os modelos de base e personalizados são recuperados](#retrieving-base-and-custom-models)
+
+    * [Renomear o segmento de caminho accuracytests para avaliações em seu código de cliente](#accuracy-tests)
+
+1. Se você usar as APIs de pontos de extremidade:
+
+    * [Alterar como os logs de ponto de extremidade são recuperados](#retrieving-endpoint-logs)
+
+1. Outras alterações secundárias: 
+
+    * [Passe todas as propriedades personalizadas como CustomProperties em vez de propriedades em suas solicitações POST](#using-custom-properties)
+
+    * [Ler o local do cabeçalho de resposta em vez do local de operação](#response-headers)
+
+## <a name="breaking-changes"></a>Alterações de quebra
 
 ### <a name="host-name-changes"></a>Alterações de nome de host
 

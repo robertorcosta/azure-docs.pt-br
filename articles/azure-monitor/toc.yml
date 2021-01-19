@@ -571,7 +571,11 @@
             - name: Dados sincronizados do produto de ITSM
               href: platform/itsmc-synced-data.md
             - name: Solução de problemas no Conector ITSM
-              href: platform/itsmc-resync-servicenow.md
+              items:
+                - name: Visão geral
+                  href: platform/itsmc-resync-servicenow.md
+                - name: Painel de Investigação
+                  href: platform/itsmc-dashboard.md
             - name: Integrar-se à Exportação Segura
               items:
                 - name: Visão geral

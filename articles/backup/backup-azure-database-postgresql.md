@@ -4,12 +4,12 @@ description: Saiba mais sobre o backup do banco de dados do Azure para PostgreSQ
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734633"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569480"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Banco de dados do Azure para PostgreSQL backup com retenção de longo prazo (versão prévia)
 
@@ -135,7 +135,7 @@ As instruções a seguir são um guia passo a passo para configurar o backup nos
 
 1. Defina as configurações de **retenção** . Você pode adicionar uma ou mais regras de retenção. Cada regra de retenção assume entradas para backups específicos e a duração da retenção e do armazenamento de dados para esses backups.
 
-1. Você pode optar por armazenar seus backups em um dos dois armazenamentos de dados (ou camadas): **armazenamento de dados de backup** (camada quente) ou armazenamento de dados de **arquivo morto** (em versão prévia). Você pode escolher entre **duas opções de camadas** para definir quando os backups são em camadas entre os dois repositórios de armazenamento:
+1. Você pode optar por armazenar seus backups em um dos dois repositórios de dados (ou camadas): **armazenamento de dados de backup** (camada Standard) ou armazenamento de dados de **arquivo morto** (em versão prévia). Você pode escolher entre **duas opções de camadas** para definir quando os backups são em camadas entre os dois repositórios de armazenamento:
 
     - Escolha copiar **imediatamente** se preferir ter uma cópia de backup em armazenamentos de dados de backup e de arquivo simultaneamente.
     - Opte por mover **-se durante a expiração** se preferir mover o backup para o armazenamento de dados de arquivamento após sua expiração no armazenamento de dados de backup.

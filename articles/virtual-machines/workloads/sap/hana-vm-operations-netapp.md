@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 511801962d07e5fb99000b2fc19adce2489b46d3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967475"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570075"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 no Azure NetApp Files para SAP HANA
 
@@ -69,10 +69,10 @@ A taxa de transferência máxima para um LIF e uma única sessão do Linux é en
 | 1 TB | 16 MB/s | 64 MB/s | 128 MB/s |
 | 2 TB | 32 MB/s | 128 MB/s | 256 MB/s |
 | 4 TB | 64 MB/s | 256 MB/s | 512 MB/s |
-| 10 TB | 160 MB/s | 640 MB/s | 1,280 MB/s |
-| 15 TB | 240 MB/s | 960 MB/s | 1,400 MB/s |
-| 20 TB | 320 MB/s | 1,280 MB/s | 1,400 MB/s |
-| 40 TB | 640 MB/s | 1,400 MB/s | 1,400 MB/s |
+| 10 TB | 160 MB/s | 640 MB/s | 1.280 MB/s |
+| 15 TB | 240 MB/s | 960 MB/s | 1.400 MB/s |
+| 20 TB | 320 MB/s | 1.280 MB/s | 1.400 MB/s |
+| 40 TB | 640 MB/s | 1.400 MB/s | 1.400 MB/s |
 
 É importante entender que os dados são gravados no mesmo SSDs no back-end de armazenamento. A cota de desempenho do pool de capacidade foi criada para poder gerenciar o ambiente.
 Os KPIs de armazenamento são iguais para todos os tamanhos de banco de dados do HANA. Em quase todos os casos, essa suposição não reflete a realidade e a expectativa do cliente. O tamanho dos sistemas HANA não significa necessariamente que um pequeno sistema exige baixa taxa de transferência de armazenamento – e um sistema grande requer alta taxa de transferência de armazenamento. Mas, em geral, podemos esperar mais requisitos de taxa de transferência para instâncias de banco de dados HANA maiores. Como resultado das regras de dimensionamento do SAP para o hardware subjacente, essas instâncias mais grandes do HANA também fornecem mais recursos de CPU e maior paralelismo em tarefas como carregar dados após uma reinicialização de instâncias. Como resultado, os tamanhos de volume devem ser adotados para as expectativas e os requisitos do cliente. E não só é orientado por requisitos de capacidade puras.

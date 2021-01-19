@@ -3,12 +3,12 @@ title: Novidades no Backup do Azure
 description: Saiba mais sobre os novos recursos no backup do Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309657"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569412"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novidades no Backup do Azure
 
@@ -18,6 +18,9 @@ Você pode saber mais sobre as novas versões ao marcar esta página ou [inscrev
 
 ## <a name="updates-summary"></a>Resumo de atualizações
 
+- Janeiro de 2021
+  - [Backup em disco do Azure (em versão prévia)](disk-backup-overview.md)
+  - [Criptografia em repouso usando chaves gerenciadas pelo cliente agora com disponibilidade geral](encryption-at-rest-with-cmk.md)
 - Novembro de 2020
   - [Modelo de Azure Resource Manager para backup de compartilhamento de arquivos do Azure (AFS)](#azure-resource-manager-template-for-afs-backup)
   - [Backups incrementais para bancos de dados SAP HANA em VMs do Azure](#incremental-backups-for-sap-hana-databases)
@@ -32,9 +35,21 @@ Você pode saber mais sobre as novas versões ao marcar esta página ou [inscrev
   - [ZRS (armazenamento com redundância de zona) para dados de backup](#zone-redundant-storage-zrs-for-backup-data)
   - [Exclusão reversível para cargas de trabalho de SQL Server e SAP HANA em VMs do Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
+## <a name="azure-disk-backup-in-preview"></a>Backup em disco do Azure (em versão prévia)
+
+O backup em disco do Azure oferece uma solução completa que fornece gerenciamento de ciclo de vida de instantâneo para o [Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) automatizando a criação periódica de instantâneos e retendo-o por uma duração configurada usando a política de backup. Você pode gerenciar os instantâneos de disco sem custo de infraestrutura zero e sem a necessidade de script personalizado ou qualquer sobrecarga de gerenciamento. Esta é uma solução de backup consistente com falhas que faz backup pontual de um disco gerenciado usando [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) com suporte para vários backups por dia. Ela também é uma solução sem agente e não afeta o desempenho do aplicativo de produção. Ele dá suporte a backup e restauração de sistemas operacionais e de discos de dados (incluindo discos compartilhados), independentemente de estarem ou não conectados a uma máquina virtual do Azure em execução.
+
+Para obter mais informações, consulte [backup em disco do Azure (em versão prévia)](disk-backup-overview.md).
+
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>Criptografia em repouso usando chaves gerenciadas pelo cliente
+
+O suporte para criptografia em repouso usando chaves gerenciadas pelo cliente agora está disponível para o público geral. Isso lhe dá a capacidade de criptografar os dados de backup em seus cofres dos serviços de recuperação usando suas próprias chaves armazenadas em cofres de chaves do Azure. A chave de criptografia usada para criptografar backups no cofre dos serviços de recuperação pode ser diferente daquelas usadas para criptografar a origem. Os dados são protegidos usando uma DEK (chave de criptografia de dados) baseada em AES 256, que é, por sua vez, protegida usando as chaves armazenadas no Key Vault. Em comparação com a criptografia usando chaves gerenciadas pela plataforma (que está disponível por padrão), isso lhe dá mais controle sobre suas chaves e pode ajudá-lo a atender melhor às suas necessidades de conformidade.
+
+Para obter mais informações, consulte [criptografia de dados de backup usando chaves gerenciadas pelo cliente](encryption-at-rest-with-cmk.md).
+
 ## <a name="azure-resource-manager-template-for-afs-backup"></a>Modelo de Azure Resource Manager para o backup AFS
 
-O backup do Azure agora dá suporte à configuração de backup para compartilhamentos de arquivos do Azure existentes usando um modelo de Azure Resource Manager (ARM). O modelo configura a proteção para um compartilhamento de arquivos existente do Azure especificando os detalhes apropriados para o cofre dos serviços de recuperação e a política de backup. Opcionalmente, ele cria um novo cofre de serviços de recuperação e uma política de backup e registra a conta de armazenamento que contém o compartilhamento de arquivos para o cofre dos serviços de recuperação.
+O backup do Azure agora dá suporte à configuração de backup para compartilhamentos de arquivos do Azure existentes usando um modelo de Azure Resource Manager (ARM). O modelo configura a proteção para um compartilhamento de arquivos existente do Azure especificando os detalhes apropriados para o cofre dos serviços de recuperação e a política de backup. Opcionalmente, ele cria um cofre dos Serviços de Recuperação e uma política de backup e registra a conta de armazenamento que contém o compartilhamento de arquivo no cofre dos Serviços de Recuperação.
 
 Para obter mais informações, consulte [modelos de Azure Resource Manager para o backup do Azure](backup-rm-template-samples.md).
 

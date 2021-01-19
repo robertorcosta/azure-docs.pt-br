@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0c7e23e45a84fa73c7e63b5aaa6280177cf8b27
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: fdd5b8f9cea549f64c4857d1c45b95b0d9b9ec53
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541301"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569956"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -44,13 +44,13 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
 Sul | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Centro-Norte dos EUA
-Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, oeste da África do Sul, norte da África do Sul, leste da Noruega, França central, Norte da Suíça
+Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, oeste da África do Sul, norte da África do Sul, leste da Noruega, França central, Norte da Suíça, Centro-oeste da Alemanha
 Ásia | Sul da Índia, Índia Central, Oeste da Índia, Sudeste Asiático, Leste da Ásia, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia
 Austrália    | Leste da Austrália, Sudeste da Austrália, Austrália Central, Austrália Central 2
 Azure Government    | US Gov Virginia, US Gov Iowa, US Gov – Arizona, US Gov – Texas, Leste do US DoD, Região Central do US DoD
 Alemanha    | Centro da Alemanha, Nordeste da Alemanha
 China | Leste da China, Norte da China, Norte da China2, Leste da China2
-Regiões restritas reservadas para recuperação de desastre dentro do país |Norte da Alemanha reservado para Centro-oeste da Alemanha, Oeste da Suíça reservado para Norte da Suíça, o sul da França reservado para a França central, EAU Central restrito para clientes de Norte dos EAU, oeste da Noruega para clientes do leste da Noruega
+Regiões restritas reservadas para recuperação de desastre dentro do país |Oeste da Suíça reservado para Norte da Suíça, o sul da França reservado para a França central, EAU Central restrito para clientes de Norte dos EAU, oeste da Noruega para clientes do leste da Noruega
 
 >[!NOTE]
 >
@@ -198,7 +198,7 @@ VMs migradas com o Site Recovery | Com suporte | Se uma VM VMware ou uma máquin
 Políticas de RBAC do Azure | Sem suporte | As políticas do Azure RBAC (controle de acesso baseado em função) do Azure em VMs não são replicadas para a VM de failover na região de destino.
 Extensões | Sem suporte | As extensões não são replicadas para a VM de failover na região de destino. Ele precisa ser instalado manualmente após o failover.
 Grupos de posicionamento de proximidade | Com suporte | As máquinas virtuais localizadas dentro de um grupo de posicionamento de proximidade podem ser protegidas usando Site Recovery.
-Marcações  | Com suporte | As marcas geradas pelo usuário aplicadas nas máquinas virtuais de origem são transferidas para failover ou failover pós-teste de máquinas virtuais de destino.
+Marcas  | Com suporte | As marcas geradas pelo usuário aplicadas nas máquinas virtuais de origem são transferidas para failover ou failover pós-teste de máquinas virtuais de destino.
 
 
 ## <a name="replicated-machines---disk-actions"></a>As máquinas - ações de disco replicadas
@@ -258,7 +258,7 @@ Discos NVMe | Sem suporte
 Discos compartilhados do Azure | Sem suporte
 Opção de transferência segura | Com suporte
 Discos habilitados para acelerador de gravação | Sem suporte
-Marcações  | As marcas geradas pelo usuário são replicadas a cada 24 horas.
+Marcas  | As marcas geradas pelo usuário são replicadas a cada 24 horas.
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, verifique se você está seguindo as metas de desempenho e escalabilidade de disco de VM para VMs do [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou do [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se você usar as configurações padrão, o Site Recovery criará as contas de armazenamento e discos necessários com base na configuração de origem. Se você personalizar e selecionar suas configurações, siga as metas de desempenho e escalabilidade de discos para suas VMs de origem.
@@ -305,7 +305,7 @@ Redes aceleradas | Com suporte | A rede acelerada deve estar ativada na VM de or
 Dispositivo de Rede da Palo Alto | Sem suporte | Com dispositivos de terceiros, geralmente há restrições impostas pelo provedor dentro da máquina virtual. O Azure Site Recovery precisa que o agente, as extensões e a conectividade de saída estejam disponíveis. Mas o dispositivo não permite que nenhuma atividade de saída seja configurada dentro da máquina virtual.
 IPv6  | Sem suporte | Também não há suporte para configurações mistas que incluem IPv4 e IPv6. Libere a sub-rede do intervalo de IPv6 antes de realizar operações do Site Recovery.
 Acesso de link privado ao serviço de Site Recovery | Com suporte | [Saiba mais](azure-to-azure-how-to-enable-replication-private-endpoints.md)
-Marcações  | Com suporte | As marcas geradas pelo usuário em NICs são replicadas a cada 24 horas.
+Marcas  | Com suporte | As marcas geradas pelo usuário em NICs são replicadas a cada 24 horas.
 
 
 
