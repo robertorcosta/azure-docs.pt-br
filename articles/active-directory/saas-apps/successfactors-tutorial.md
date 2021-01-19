@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 12/26/2020
 ms.author: jeedes
-ms.openlocfilehash: 6570845c6a37a09315b038287ee35a3b48f1cdd0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: fba29f77d67c5b571253b842f865ae29a6ccfacd
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521961"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968374"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o SuccessFactors
 
@@ -26,7 +26,6 @@ Neste tutorial, você aprenderá a integrar o SuccessFactors ao Azure AD (Azure 
 * Permitir que os usuários sejam conectados automaticamente ao SuccessFactors com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,17 +39,16 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O SuccessFactors é compatível com o SSO iniciado por **SP**.
-* Após configurar o SuccessFactors, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-successfactors-from-the-gallery"></a>Adição do SuccessFactors da galeria
 
 Para configurar a integração do SuccessFactors ao Azure AD, você precisará adicionar o SuccessFactors da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar por meio da galeria** , digite **SuccessFactors** na caixa de pesquisa.
+1. Na seção **Adicionar por meio da galeria**, digite **SuccessFactors** na caixa de pesquisa.
 1. Selecione **SuccessFactors** no painel de resultados e adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
@@ -58,7 +56,7 @@ Para configurar a integração do SuccessFactors ao Azure AD, você precisará a
 
 Configure e teste o SSO do Azure AD com o SuccessFactors usando um usuário de teste chamado **B. Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do SuccessFactors.
 
-Para configurar e testar o SSO do Azure AD com o SuccessFactors, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com SuccessFactors, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -71,22 +69,22 @@ Para configurar e testar o SSO do Azure AD com o SuccessFactors, conclua os segu
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **SuccessFactors** , localize a seção **Gerenciar** e escolha **Logon único**.
-1. Na página **Escolher um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML** , clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. No portal do Azure, na página de integração de aplicativos do **SuccessFactors**, localize a seção **Gerenciar** e escolha **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração básica de SAML** , realize as seguintes etapas:
+1. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    a. Na caixa de texto **URL de Logon** , digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Entrada**, digite uma URL usando os seguintes padrões:
 
     - `https://<companyname>.successfactors.com/<companyname>`
     - `https://<companyname>.sapsf.com/<companyname>`
     - `https://<companyname>.successfactors.eu/<companyname>`
     - `https://<companyname>.sapsf.eu`
 
-    b. Na caixa de texto **Identificador** , digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador**, digite uma URL usando um dos seguintes padrões:
 
     - `https://www.successfactors.com/<companyname>`
     - `https://www.successfactors.com`
@@ -98,7 +96,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     - `https://www.successfactors.cn`
     - `https://www.successfactors.cn/<companyname>`
 
-    c. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
+    c. Na caixa de texto **URL de Resposta** , digite uma URL nos seguintes padrões:
 
     - `https://<companyname>.successfactors.com/<companyname>`
     - `https://<companyname>.successfactors.com`
@@ -114,11 +112,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do cliente do SuccessFactors](https://www.sap.com/support.html) para obter esses valores.
 
-4. Na página **Configurar Logon Único com SAML** , na seção **Certificado de Autenticação SAML** , localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
+4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar o SuccessFactors** , copie as URLs apropriadas com base em suas necessidades.
+6. Na seção **Configurar o SuccessFactors**, copie as URLs apropriadas com base em suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -126,11 +124,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-    1. No campo **Nome** , insira `B.Simon`.  
-    1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+    1. No campo **Nome**, insira `B.Simon`.  
+    1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
     1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
     1. Clique em **Criar**.
 
@@ -141,16 +139,10 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **SuccessFactors**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-successfactors-sso"></a>Configurar o SSO do SuccessFactors
 
@@ -173,7 +165,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
   
     b. Defina o **Nome da Parte de Declaração SAML** (por exemplo, emissor SAML + nome da empresa).
 
-    c. Na caixa de texto **Issuer URL** , cole o valor **Identificador do Microsoft Azure Active Directory** que você copiou do portal do Azure.
+    c. Na caixa de texto **Issuer URL**, cole o valor **Identificador do Microsoft Azure Active Directory** que você copiou do portal do Azure.
 
     d. Selecione **Asserção** como **Exigir Assinatura Obrigatória**.
 
@@ -204,13 +196,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure ao c
 
     e. Selecione **Sim** como **Habilitar logon iniciado por sp (AuthnRequest)** .
 
-    f. Na caixa de texto **Enviar solicitação como emissor de toda a empresa** , cole o valor da **URL de Logon** copiada do portal do Azure.
+    f. Na caixa de texto **Enviar solicitação como emissor de toda a empresa**, cole o valor da **URL de Logon** copiada do portal do Azure.
 
 6. Execute estas etapas se quiser fazer com os nomes de usuário de logon diferenciem maiúsculas de minúsculas.
 
     ![Configurar o logon único][29]
 
-    a. Visite **Configurações da Empresa** (próximo à parte inferior).
+    a. Visite **Configurações da Empresa**(próximo à parte inferior).
 
     b. Marque a caixa de seleção ao lado de **Habilitar Nome de Usuário que Não Diferencia Maiúsculas de Minúsculas**.
 
@@ -227,23 +219,18 @@ Para obter os usuários criados no SuccessFactors, você precisará entrar em co
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do SuccessFactors no Painel de Acesso, você deverá ser conectado automaticamente ao SuccessFactors, para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do SuccessFactors, na qual poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse a URL de Logon do SuccessFactors diretamente e inicie dela o fluxo de logon.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco SuccessFactors em Meus Aplicativos, isso redirecionará para a URL de Logon do SuccessFactors. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Próximas etapas
 
-- [Experimentar o SuccessFactors com o Azure AD](https://aad.portal.azure.com)
-
-- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Como proteger o SuccessFactors com visibilidade e controles avançados](/cloud-app-security/proxy-intro-aad)
+Após configurar o SuccessFactors, você poderá impor controles de sessão, que protegem o vazamento e a infiltração de dados confidenciais de sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 

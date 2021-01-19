@@ -3,16 +3,16 @@ title: Tutorial – Criar e gerenciar regras no aplicativo Azure IoT Central
 description: Este tutorial mostra a você como as regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/16/2020
+ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6d49e3585460c95ca931f497a63cbc281aed1db1
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6be49ec3777b4bcaa033a60546e95711090662a4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990938"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065279"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Criar uma regra e configurar notificações no aplicativo Azure IoT Central
 
@@ -38,6 +38,9 @@ Antes de começar, conclua os guias de início rápido [Criar um aplicativo do A
 ## <a name="create-a-rule"></a>Criar uma regra
 
 Para criar uma regra de telemetria, o modelo do dispositivo deve incluir pelo menos um valor de telemetria. Este tutorial usa um dispositivo **Controlador de Sensor** simulado que envia telemetria de temperatura e umidade. Você adicionou esse modelo de dispositivo e criou um dispositivo simulado no início rápido [Adicionar um dispositivo simulado ao seu aplicativo de IoT Central](./quick-create-simulated-device.md). A regra monitora a temperatura relatada pelo dispositivo e envia um email quando ultrapassa os 70 graus.
+
+> [!NOTE]
+> Há um limite de 50 regras por aplicativo.
 
 1. No painel esquerdo, selecione **Regras**.
 
@@ -115,4 +118,4 @@ Neste tutorial, você aprendeu a:
 Agora que você definiu uma regra baseada em limite, a próxima etapa sugerida é aprender a:
 
 > [!div class="nextstepaction"]
-> [Configurar a exportação contínua de dados](./howto-export-data.md).
+> [Criar webhooks em regras](./howto-create-webhooks.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 237ed71f058ae099f19924481eb4dbeb2e2aba05
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3db6fd2e6df96590d7d405157cbb33900c7d8531
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589416"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127797"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services)
 
@@ -388,7 +388,11 @@ Use também o Painel de Acesso da Microsoft para testar o aplicativo em qualquer
 * As funções deverão atender aos seguintes requisitos para que sejam elegíveis a serem importadas do AWS para o Azure AD:
 
   * As funções devem ter exatamente um provedor SAML definido no AWS
-  * O comprimento combinado do ARN (Nome do Recurso da Amazon) para a função e o ARN para o provedor SAML associado devem ter menos de 120 caracteres
+  * O comprimento combinado do ARN (Nome do Recurso da Amazon) para a função e o ARN para o provedor SAML associado devem ter menos de 240 caracteres.
+
+## <a name="change-log"></a>Log de alterações
+
+* 12/01/2020 – aumentado o limite de extensão da função de 119 caracteres para 239 caracteres. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

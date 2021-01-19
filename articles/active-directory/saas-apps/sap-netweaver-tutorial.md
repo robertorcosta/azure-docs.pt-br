@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/11/2020
 ms.author: jeedes
-ms.openlocfilehash: a282e1be019c697ad15d86df56ad191043ab4ae9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b6b8dab3472473082562f1e4c0216886191e4a59
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935828"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97962798"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP NetWeaver
 
@@ -138,7 +138,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No portal do Azure, na página de integração de aplicativos do **SAP NetWeaver**, localize a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Escolher um método de logon único**, escolha **SAML**.
-1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
+1. Na página **Configurar o Logon Único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -206,7 +206,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-sap-netweaver-using-saml"></a>Configurar o SAP NetWeaver usando SAML
@@ -339,7 +339,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
     ![Configurar OAuth](./media/sapnetweaver-tutorial/oauth03.png)
 
     > [!NOTE]
-    > Mensagem `soft state status is not supported` – pode ser ignorada, sem problemas. Para obter mais detalhes, consulte [aqui](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
+    > Mensagem `soft state status is not supported` – pode ser ignorada, sem problemas. Para obter mais detalhes, consulte [aqui](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true).
 
 ### <a name="create-a-service-user-for-the-oauth-20-client"></a>Criar um usuário de serviço para o cliente OAuth 2.0
 
@@ -348,7 +348,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 2. Ao registrar um cliente OAuth, usamos o `SAML Bearer Grant type`.
 
     >[!NOTE]
-    >Para obter mais detalhes, consulte o Registro de clientes do OAuth 2.0 para conhecer o Tipo de concessão de portador SAML [aqui](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type)
+    >Para obter mais detalhes, veja o Registro de clientes do OAuth 2.0 para conhecer o tipo de concessão de portador SAML [aqui](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type).
 
 3. tcod: SU01 / create user CLIENT1 como `System type` e atribua a senha, salve conforme necessário para fornecer a credencial ao programador da API, que deve gravá-la com o nome de usuário para o código de chamada. Nenhum perfil ou função deve ser atribuído.
 

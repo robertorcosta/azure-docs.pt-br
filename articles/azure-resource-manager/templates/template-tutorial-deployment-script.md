@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683496"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963956"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Tutorial: Usar scripts de implantação para criar um certificado autoassinado
 
@@ -329,13 +329,13 @@ O script de implantação adiciona um certificado ao cofre de chaves. Configure 
 
     ![Recursos do script da implantação de modelo do Resource Manager](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    Os dois arquivos têm o sufixo **azscripts**. Um é uma conta de armazenamento e o outro é uma instância de contêiner.
+    Os dois arquivos têm o sufixo _azscripts_. Um é uma conta de armazenamento e o outro é uma instância de contêiner.
 
     Selecione **Mostrar tipos ocultos** para listar o recurso `deploymentScripts`.
 
-1. Selecione a conta de armazenamento com o sufixo **azscripts**.
-1. Selecione o bloco **Compartilhamentos de arquivo**. Você deverá ver uma pasta **azscripts**. A pasta contém os arquivos de execução do script de implantação.
-1. Selecione **azscripts**. Você deverá ver duas pastas **azscriptinput** e **azscriptoutput**. A pasta de entrada contém um arquivo de script do PowerShell do sistema e os arquivos de script da implantação do usuário. A pasta de saída contém um _executionresult.json_ e o arquivo de saída de script. Você pode ver a mensagem de erro em _executionresult.json_. O arquivo de saída não está lá porque a execução falhou.
+1. Selecione a conta de armazenamento com o sufixo _azscripts_.
+1. Selecione o bloco **Compartilhamentos de arquivo**. Você verá uma pasta _azscripts_ que contém os arquivos de execução do script de implantação.
+1. Selecione _azscripts_. Você deverá ver duas pastas _azscriptinput_ e _azscriptoutput_. A pasta de entrada contém um arquivo de script do PowerShell do sistema e os arquivos de script da implantação do usuário. A pasta de saída contém um _executionresult.json_ e o arquivo de saída de script. Você pode ver a mensagem de erro em _executionresult.json_. O arquivo de saída não está lá porque a execução falhou.
 
 Remova a linha de `Write-Output1` e reimplante o modelo.
 

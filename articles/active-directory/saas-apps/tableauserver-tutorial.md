@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 12/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 323df3ded868aeda25f89300f19bf03a61cbc8bc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 531b22122ff19eb3653400cd7e5d06e2162e0365
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516436"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045097"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Tableau Server
 
@@ -26,7 +26,6 @@ Neste tutorial, você aprenderá a integrar o Tableau Server ao Azure AD (Azure 
 * Permitir que seus usuários entrem automaticamente no Tableau Server com suas contas do Azure AD.
 * Gerenciar suas contas em um local central: o portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,24 +39,23 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Tableau Server é compatível com SSO iniciado por **SP**
-* Depois de configurar o Tableau Server, você poderá impor controles de sessão, que fornecem proteção contra exportação e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-tableau-server-from-the-gallery"></a>Adição do Tableau Server a partir da galeria
 
 Para configurar a integração do Tableau Server ao Azure AD, você precisa adicionar o Tableau Server da galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. Entre no portal do Azure usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
 1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
-1. Na seção **Adicionar da galeria** , digite **Tableau Server** na caixa de pesquisa.
+1. Na seção **Adicionar da galeria**, digite **Tableau Server** na caixa de pesquisa.
 1. Selecione **Tableau Server** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-tableau-server"></a>Configurar e testar o logon único do Azure AD para o Tableau Server
+## <a name="configure-and-test-azure-ad-sso-for-tableau-server"></a>Configurar e testar o SSO do Azure AD para o Tableau Server
 
 Configure e teste o SSO do Azure AD com o Tableau Server usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Tableau Server.
 
-Para configurar e testar o SSO do Azure AD com o Tableau Server, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Tableau Server, execute as seguintes etapas:
 
 1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
@@ -70,28 +68,28 @@ Para configurar e testar o SSO do Azure AD com o Tableau Server, conclua os segu
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Tableau Server** , localize a seção **Gerenciar** e selecione **logon único**.
-1. Na página **Selecionar um método de logon único** , escolha **SAML**.
-1. Na página **Configurar o logon único com o SAML** , clique no ícone de edição/caneta da **Configuração Básica do SAML** para editar as configurações.
+1. No portal do Azure, na página de integração de aplicativos do **Tableau Server**, localize a seção **Gerenciar** e selecione **logon único**.
+1. Na página **Selecionar um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o logon único com o SAML**, clique no ícone de caneta da **Configuração Básica do SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-1. Na seção **Configuração Básica do SAML** , insira os valores para os seguintes campos:
+1. Na seção **Configuração Básica do SAML**, insira os valores para os seguintes campos:
 
     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://azure.<domain name>.link`
 
-    b. Na caixa **Identificador** , digite uma URL usando o seguinte padrão: `https://azure.<domain name>.link`
+    b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://azure.<domain name>.link`
 
     c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     > [!NOTE]
     > Os valores anteriores não são valores reais. Atualize os valores com o URL e o identificador reais na página de configuração do Tableau Server, explicada posteriormente no tutorial.
 
-1. Na página **Configurar o logon único com o SAML** , na seção **Certificado de Autenticação SAML** , localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o Tableau Server** , copie a URL apropriada, com base em suas necessidades.
+1. Na seção **Configurar o Tableau Server**, copie a URL apropriada, com base em suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -99,11 +97,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory** , **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades do **Usuário** , siga estas etapas:
-   1. No campo **Nome** , insira `B.Simon`.  
-   1. No campo **Nome de usuário** , insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -114,30 +112,24 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 1. Na lista de aplicativos, selecione **Tableau Server**.
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
-
-   ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O link Adicionar Usuário](common/add-assign-user.png)
-
-1. Na caixa de diálogo **Usuários e grupos** , selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função** , escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
-1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ## <a name="configure-tableau-server-sso"></a>Configurar o SSO do Tableau Server
 
 1. Para configurar o SSO para seu aplicativo, você precisa entrar no locatário Tableau Server como administrador.
 
-2. Na guia **CONFIGURAÇÃO** , selecione **Identidade e acesso do usuário** e, em seguida, selecione a guia Método de **Autenticação**.
+2. Na guia **CONFIGURAÇÃO**, selecione **Identidade e acesso do usuário** e, em seguida, selecione a guia Método de **Autenticação**.
 
     ![A captura de tela mostra a opção Autenticação selecionada em Identidade do Usuário e Acesso.](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
 
-3. Na página **CONFIGURAÇÃO** , realize as seguintes etapas:
+3. Na página **CONFIGURAÇÃO**, realize as seguintes etapas:
 
     ![Captura de tela que mostra a página Configuração, na qual você pode inserir os valores descritos.](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
 
-    a. Para **Método de Autenticação** , selecione SAML.
+    a. Para **Método de Autenticação**, selecione SAML.
 
     b. Selecione a caixa de seleção **Habilitar a autenticação SAML para o servidor**.
 
@@ -167,18 +159,15 @@ O nome de usuário deve corresponder ao valor que você configurou no atributo p
 
 ## <a name="test-sso"></a>Testar o SSO 
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
-Ao clicar no bloco do Tableau Server no Painel de Acesso, você deverá entrar automaticamente no Tableau Server para o qual você configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/my-apps-portal-end-user-access.md).
+* Clique em **Testar este aplicativo** no portal do Azure. Isso redirecionará você para a URL de Logon do Tableau Server, na qual poderá iniciar o fluxo de logon. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Acesse a URL de Logon do Tableau Server diretamente e inicie o fluxo de logon nela.
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](./tutorial-list.md)
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Tableau Server em Meus Aplicativos, isso redirecionará você à URL de logon do Tableau Server. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Próximas etapas
 
-- [Experimentar o Tableau Server com o Azure AD](https://aad.portal.azure.com/)
-
-- [O que é controle de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Depois de configurar o Tableau Server, você poderá impor controles de sessão, que fornecem proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. Os controles da sessão são estendidos do Acesso Condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

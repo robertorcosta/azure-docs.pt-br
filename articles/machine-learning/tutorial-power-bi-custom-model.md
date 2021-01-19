@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Criar o modelo de previsão usando um notebook (parte 1 de 2)'
+title: 'Tutorial: Criar o modelo preditivo com um notebook (parte 1 de 2)'
 titleSuffix: Azure Machine Learning
-description: Saiba como criar e implantar um modelo de machine learning usando código em um Jupyter Notebook. Você poderá usar o modelo para prever resultados no Microsoft Power BI.
+description: Saiba como criar e implantar um modelo de machine learning usando código em um Jupyter Notebook. Além disso, crie um script de pontuação que defina entrada e saída para fácil integração ao Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 1dfee56f90011d3c532767e136b383e4eb95c234
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 29b340448f3ce3e18a649065bdcd0b335bab8b73
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814764"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108238"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-a-jupyter-notebook-part-1-of-2"></a>Tutorial: Integração do Power BI – Criar o modelo preditivo usando um Jupyter Notebook (parte 1 de 2)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>Tutorial: Integração do Power BI – Criar o modelo preditivo com um Jupyter Notebook (parte 1 de 2)
 
-Na parte 1 deste tutorial, você treinará e implantará um modelo de machine learning preditivo usando o código em um Jupyter Notebook. Na parte 2, você usará o modelo para prever resultados no Microsoft Power BI.
+Na parte 1 deste tutorial, você treinará e implantará um modelo de machine learning preditivo usando o código em um Jupyter Notebook. Você também criará um script de pontuação para definir o esquema de entrada e saída do modelo para integração ao Power BI.  Na parte 2, você usará o modelo para prever resultados no Microsoft Power BI.
 
 Neste tutorial, você:
 
@@ -27,6 +27,7 @@ Neste tutorial, você:
 > * Criar um Jupyter Notebook.
 > * Criar uma instância de computação do Azure Machine Learning.
 > * Treinar um modelo de regressão usando o Scikit-learn.
+> * Escreva um script de pontuação que defina a entrada e a saída para fácil integração ao Microsoft Power BI.
 > * Implantar o modelo em um ponto de extremidade de pontuação em tempo real.
 
 Há três maneiras de criar e implantar o modelo que você usará no Power BI.  Este artigo aborda a "Opção A: treinar e implantar modelos usando notebooks".  Essa opção é uma experiência de criação que começa pela codificação. Ela usa Jupyter Notebooks hospedados no Estúdio do Azure Machine Learning. 
@@ -157,7 +158,7 @@ Você também pode ver o modelo no Estúdio do Azure Machine Learning. No menu �
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Captura de tela mostrando como exibir um modelo.":::
 
-### <a name="define-the-scoring-script"></a>Definir o script de pontuação
+## <a name="define-the-scoring-script"></a>Definir o script de pontuação
 
 Ao implantar um modelo que será integrado ao Power BI, você precisa definir um *script de Pontuação* do Python e um ambiente personalizado. O script de pontuação contém duas funções:
 
@@ -165,7 +166,7 @@ Ao implantar um modelo que será integrado ao Power BI, você precisa definir um
 - A função `run(data)` é executada quando uma chamada para o serviço inclui dados de entrada que precisam ser pontuados. 
 
 >[!NOTE]
-> Este artigo usa decoradores do Python para definir o esquema dos dados de entrada e saída. Essa configuração é importante para a integração do Power BI.
+> Os decoradores do Python no código abaixo definem o esquema dos dados de entrada e saída, o que é importante para a integração ao Power BI.
 
 Copie e cole o código abaixo em uma nova *célula de código* do notebook. O snippet de código a seguir tem um magic de célula que grava o código em um arquivo chamado *score.py*.
 

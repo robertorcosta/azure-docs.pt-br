@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 74d77d8c81455116cec861bf6704c6cb96526561
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932346"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121083"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
@@ -81,7 +81,7 @@ Nesta seção, criamos os certificados autoassinados usando uma imagem do Docker
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Fazer upload de certificados para o Azure Key Vault
 
-Para armazenar nossos certificados com segurança e para torná-los acessíveis em vários dispositivos, nós faremos upload deles no Azure Key Vault. Como você pode ver na lista acima, temos dois tipos de arquivos de certificado: PFX e PEM. Trataremos o PFX como certificados do Key Vault a serem carregados para o Key Vault. Os arquivos PEM são texto sem formatação e os trataremos como segredos do Key Vault. Usaremos o Key Vault associado ao workspace do Azure Machine Learning que criamos por meio da execução do [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+Para armazenar nossos certificados com segurança e para torná-los acessíveis em vários dispositivos, nós faremos upload deles no Azure Key Vault. Como você pode ver na lista acima, temos dois tipos de arquivos de certificado: PFX e PEM. Trataremos o PFX como certificados do Key Vault a serem carregados para o Key Vault. Os arquivos PEM são texto sem formatação e os trataremos como segredos do Key Vault. Usaremos o Key Vault associado ao Workspace do Azure Machine Learning que criamos por meio da execução do [Jupyter Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks).
 
 1. No [portal do Azure](https://portal.azure.com), navegue até o workspace do Azure Machine Learning.
 

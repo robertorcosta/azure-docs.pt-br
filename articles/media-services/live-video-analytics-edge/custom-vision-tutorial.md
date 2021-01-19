@@ -4,12 +4,12 @@ description: Saiba como usar a Visão Personalizada do Azure para criar um model
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 614c4e401579eda68d8030dc2d2a42b2c4736031
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401688"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060481"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analisar vídeos ao vivo com Análise Dinâmica de Vídeo no IoT Edge e na Visão Personalizada do Azure
 
@@ -61,8 +61,11 @@ Leia os seguintes artigos antes de começar:
 ::: zone-end
 ## <a name="review-the-sample-video"></a>Examinar o vídeo de exemplo
 
+Este tutorial usa um arquivo de [vídeo de inferência de carros de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular uma transmissão ao vivo. Você pode examinar o vídeo por meio de um aplicativo, como [player de mídia do VLC](https://www.videolan.org/vlc/). Selecione **Ctrl+N** e cole um link para o [vídeo de inferência de carros de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para iniciar a reprodução. Ao assistir ao vídeo, observe que, no marcador de 36 segundos, um caminhão de brinquedo aparece no vídeo. O modelo personalizado foi treinado para detectar esse caminhão de brinquedo específico. 
 
-Este tutorial usa um arquivo de [vídeo de inferência de carros de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular uma transmissão ao vivo. Você pode examinar o vídeo por meio de um aplicativo, como [player de mídia do VLC](https://www.videolan.org/vlc/). Selecione **Ctrl+N** e cole um link para o [vídeo de inferência de carros de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para iniciar a reprodução. Ao assistir ao vídeo, observe que, no marcador de 36 segundos, um caminhão de brinquedo aparece no vídeo. O modelo personalizado foi treinado para detectar esse caminhão de brinquedo específico. Neste tutorial, você usará a Análise Dinâmica de Vídeo no IoT Edge para detectar caminhões de brinquedo e publicar eventos de inferência associados no hub do IoT Edge.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LPwK]
+
+Neste tutorial, você usará a Análise Dinâmica de Vídeo no IoT Edge para detectar caminhões de brinquedo e publicar eventos de inferência associados no hub do IoT Edge.
 
 ## <a name="overview"></a>Visão geral
 
@@ -127,7 +130,6 @@ Depois de terminar, exporte o modelo para um contêiner do Docker usando o botã
 
 ## <a name="examine-the-sample-files"></a>Examinar os arquivos de exemplo
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/csharp/examine-sample-files.md)]
 ::: zone-end
@@ -140,7 +142,7 @@ Depois de terminar, exporte o modelo para um contêiner do Docker usando o botã
 
 1. No Visual Studio Code, navegue até src/cloud-to-device-console-app/operations.json.
 
-1. Em `GraphTopologySet`, verifique se o seguinte é verdadeiro:<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+1. Em `GraphTopologySet`, verifique se o seguinte é verdadeiro:<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/2.0/topology.json"`
 1. Em `GraphInstanceSet`, verifique o seguinte:
     1. `"topologyName" : "InferencingWithHttpExtension"`
     1. Adicione o seguinte conteúdo à parte superior da matriz de parâmetros: `{"name": "inferencingUrl","value": "http://cv:80/image"},`
@@ -261,7 +263,7 @@ Nas mensagens a seguir, o módulo da Análise Dinâmica de Vídeo define as prop
 
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta se conectar com o servidor RTSP em execução no contêiner rtspsim-live555. Se a conexão for bem-sucedida, o evento a seguir será impresso. O tipo de evento é `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta se conectar com o servidor RTSP em execução no contêiner rtspsim-live555. Se a conexão for bem-sucedida, o evento a seguir será impresso. O tipo de evento é **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished**.
 
 ```
 {

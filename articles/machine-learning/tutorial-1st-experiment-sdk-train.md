@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df511e79b73256833ec54c5906bb6acbc852bc46
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b1fa4d3e6c017232922e500352558e34726b90cc
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739613"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183074"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Tutorial: Treinar seu primeiro modelo de machine learning (parte 3 de 4)
 
@@ -40,10 +40,8 @@ Neste tutorial, você:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão da [parte 2](tutorial-1st-experiment-hello-world.md) da série.
-* Conhecimento introdutório da linguagem Python e dos fluxos de trabalho de machine learning.
-* Ambiente de desenvolvimento local, como o Visual Studio Code, o Jupyter ou o PyCharm.
-* Python (versão 3.5 a 3.7).
+- [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://www.anaconda.com/download/) para gerenciar os ambientes virtuais Python e instalar pacotes.
+- Conclusão da [parte 1](tutorial-1st-experiment-sdk-setup-local.md) e da [parte 2](tutorial-1st-experiment-hello-world.md) da série.
 
 ## <a name="create-training-scripts"></a>Criar scripts de treinamento
 
@@ -77,9 +75,7 @@ tutorial
 > [!div class="nextstepaction"]
 > [Criei os scripts de treinamento](?success=create-scripts#environment) [Encontrei um problema](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
-## <a name="create-a-python-environment"></a><a name="environment"></a> Criar um ambiente de Python
-
-Para fins de demonstração, vamos usar um ambiente Conda. (As etapas de um ambiente virtual Pip são quase idênticas.)
+## <a name="create-a-new-python-environment"></a><a name="environment"></a> Criar um ambiente do Python
 
 Crie um arquivo chamado `pytorch-env.yml` no diretório `.azureml` oculto:
 
@@ -92,18 +88,19 @@ Esse ambiente tem todas as dependências que o seu modelo e o script de treiname
 
 ## <a name="test-locally"></a><a name="test-local"></a> Testar localmente
 
-Use o seguinte código para testar as execuções de script localmente nesse ambiente:
+Em uma janela de terminal ou Prompt do Anaconda, use o código a seguir para testar seu script localmente no novo ambiente.  
 
 ```bash
-conda env create -f .azureml/pytorch-env.yml    # create conda environment
-conda activate pytorch-env                      # activate conda environment
+conda deactivate                                # If you are still using the tutorial environment, exit it
+conda env create -f .azureml/pytorch-env.yml    # create the new Conda environment
+conda activate pytorch-env                      # activate new Conda environment
 python src/train.py                             # train model
 ```
 
 Depois de executar esse script, você verá os dados baixados em um diretório chamado `tutorial/data`.
 
 > [!div class="nextstepaction"]
-> [Criei o arquivo de ambiente](?success=test-local#create-local) [Encontrei um problema](https://www.research.net/r/7CTJQQN?issue=test-local)
+> [Executei o código localmente](?success=test-local#create-local) [Encontrei um problema](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 ## <a name="create-the-control-script"></a><a name="create-local"></a> Criar o script de controle
 
@@ -163,11 +160,11 @@ if __name__ == "__main__":
 
 ## <a name="submit-the-run-to-azure-machine-learning"></a><a name="submit"></a> Enviar a execução para o Azure Machine Learning
 
-Se você alternou os ambientes locais, lembre-se de voltar para um ambiente que tenha o SDK do Azure Machine Learning para Python instalado.
-
-Em seguida, execute:
+Volte para o ambiente *tutorial* que tem o SDK do Azure Machine Learning para Python instalado. Como o código de treinamento não está em execução no seu computador, você não precisa ter o PyTorch instalado.  Porém, você precisa do `azureml-sdk`, que está no ambiente *tutorial*.
 
 ```bash
+conda deactivate
+conda activate tutorial
 python 04-run-pytorch.py
 ```
 

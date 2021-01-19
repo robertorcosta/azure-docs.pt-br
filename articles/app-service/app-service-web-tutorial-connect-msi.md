@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 1f6757a9f78e3c400d92fd65a0795ceae7570c99
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f043f7ed63353dcb9cf9fd26690da97b902f32a6
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347567"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108612"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: proteger a conexão do Banco de Dados SQL do Azure no Serviço de Aplicativo usando uma identidade gerenciada
 
@@ -229,6 +229,9 @@ Digite `EXIT` para retornar ao prompt do Cloud Shell.
 > [!NOTE]
 > Os serviços de back-end das identidades gerenciadas também [mantêm um cache de token](overview-managed-identity.md#obtain-tokens-for-azure-resources) que atualiza o token para um recurso de destino somente quando ele expira. Se você cometer um erro ao configurar as permissões do Banco de Dados SQL e tentar modificar as permissões *depois* de tentar obter um token com o seu aplicativo, você não obterá um novo token com as permissões atualizadas até que o token armazenado em cache expire.
 
+> [!NOTE]
+> O AAD não tem suporte para SQL Server local e isso inclui MSIs. 
+
 ### <a name="modify-connection-string"></a>Modificar cadeia de conexão
 
 Lembre-se de que as mesmas alterações feitas em *Web.config* ou *appsettings.json* funcionam com a identidade gerenciada, portanto, o que resta fazer é remover a cadeia de conexão existente no Serviço de Aplicativo, criada pela Visual Studio ao implantar seu aplicativo pela primeira vez. Use o comando a seguir, mas substitua *\<app-name>* pelo nome do aplicativo.
@@ -251,7 +254,7 @@ Na página de publicação, clique em **Publicar**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Quando a nova página da Web mostra a lista de tarefas pendentes, seu aplicativo se conecta ao banco de dados usando a identidade gerenciada.

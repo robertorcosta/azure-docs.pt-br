@@ -3,12 +3,12 @@ title: Análise Dinâmica de Vídeo com a Pesquisa Visual Computacional para An�
 description: Este tutorial mostra como usar a Análise Dinâmica de Vídeo junto com o recurso de IA de Pesquisa Visual Computacional para análise espacial dos Serviços Cognitivos do Azure para analisar um feed de vídeo ao vivo de uma câmera IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5cebedec11b91f5b0b94df25a860da3d517bb997
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400498"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060173"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Análise Dinâmica de Vídeo com a Pesquisa Visual Computacional para Análise Espacial (versão prévia)
 
@@ -166,7 +166,7 @@ O manifesto de implantação define quais módulos são implantados em um dispos
 Siga estas etapas para gerar o manifesto no arquivo de modelo e implantá-lo no dispositivo de borda.
 
 1. Abra o Visual Studio Code.
-1. Ao lado do painel HUB IOT DO AZURE, selecione o ícone Mais ações para definir a cadeia de conexão do Hub IoT. Você pode copiar a cadeia de caracteres do arquivo src/cloud-to-device-console-app/appsettings.json.
+1. Ao lado do painel HUB IOT DO AZURE, selecione o ícone Mais ações para definir a cadeia de conexão do Hub IoT. Você pode copiar a cadeia de caracteres do arquivo `src/cloud-to-device-console-app/appsettings.json`.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/spatial-analysis-tutorial/connection-string.png" alt-text="Análise Espacial: cadeia de conexão":::
@@ -222,13 +222,13 @@ Há um program.cs que invocará os métodos diretos em src/cloud-to-device-conso
 
 Em operations.json:
 
-* Defina a topologia como esta (topologyFile para a topologia local, topologyUrl para a topologia online):
+* Defina a topologia desta forma:
 
 ```json
 {
     "opName": "GraphTopologySet",
     "opParams": {
-        "topologyFile": "../edge/spatialAnalysisTopology.json"
+        "topologyUrl": "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/2.0/topology.json"
     }
 },
 ```
@@ -261,17 +261,6 @@ Em operations.json:
     }
 },
 ```
-* Altere o link para a topologia do grafo:
-
-`topologyUrl` : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/lva-spatial-analysis/topology.json"
-
-Em **GraphInstanceSet**, edite o nome da topologia de grafo para que corresponda ao valor no link anterior:
-
-`topologyName`: InferencingWithCVExtension
-
-Em **GraphTopologyDelete**, edite o nome:
-
-`name`: InferencingWithCVExtension
 
 >[!Note]
 Confira o uso da MediaGraphRealTimeComputerVisionExtension para se conectar com o módulo de análise espacial. Definia ${grpcUrl} como **tcp://spatialAnalysis:<PORT_NUMBER>** , por exemplo, tcp://spatialAnalysis:50051
@@ -281,40 +270,51 @@ Confira o uso da MediaGraphRealTimeComputerVisionExtension para se conectar com 
     "@type": "#Microsoft.Media.MediaGraphCognitiveServicesVisionExtension",
     "name": "computerVisionExtension",
     "endpoint": {
-    "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
-    "url": "${grpcUrl}",
-    "credentials": {
-        "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-        "username": "${spatialanalysisusername}",
-        "password": "${spatialanalysispassword}"
-    }
+        "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+        "url": "${grpcUrl}",
+        "credentials": {
+            "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+            "username": "${spatialanalysisusername}",
+            "password": "${spatialanalysispassword}"
+        }
     },
     "image": {
-    "scale": {
-        "mode": "pad",
-        "width": "1408",
-        "height": "786"
+        "scale": {
+            "mode": "pad",
+            "width": "1408",
+            "height": "786"
+        },
+        "format": {
+            "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
+            "pixelFormat": "bgr24"
+        }
     },
-    "format": {
-        "@type": "#Microsoft.Media.MediaGraphImageFormatRaw",
-        "pixelFormat": "bgr24"
-    }
+    "samplingOptions": {
+        "skipSamplesWithoutAnnotation": "false",
+        "maximumSamplesPerSecond": "20"
     },
     "inputs": [
-    {
-        "nodeName": "frameRateFilter"
-    }
+        {
+            "nodeName": "rtspSource",
+            "outputSelectors": [
+                {
+                    "property": "mediaType",
+                    "operator": "is",
+                    "value": "video"
+                }
+            ]
+        }
     ]
 }
 ```
 
-Execute uma sessão de depuração e siga as instruções do TERMINAL, que definirá a topologia, definirá a instância do grafo, ativará a instância do grafo e, por fim, excluirá os recursos.
+Execute uma sessão de depuração e siga as instruções do **TERMINAL**, que definirá a topologia, definirá a instância do grafo, ativará a instância do grafo e, por fim, excluirá os recursos.
 
 ## <a name="interpret-results"></a>Interpretar os resultados
 
 Quando um grafo de mídia é instanciado, você deve ver o evento "MediaSessionEstablished", aqui, um [evento MediaSessionEstablished de exemplo](detect-motion-emit-events-quickstart.md#mediasessionestablished-event).
 
-O módulo de análise espacial também enviará eventos de insight de IA para a Análise Dinâmica de Vídeo e então para o IoTHub, também será exibido em OUTPUT. ENTITY são objetos de detecção e EVENT são eventos spaceanalytics. Essa saída será passada para a Análise Dinâmica de Vídeo.
+O módulo de análise espacial também enviará eventos de insight de IA para a Análise Dinâmica de Vídeo e então para o IoTHub, também será exibido em **OUTPUT**. ENTITY são objetos de detecção e EVENT são eventos spaceanalytics. Essa saída será passada para a Análise Dinâmica de Vídeo.
 
 Saída de exemplo para personZoneEvent (da operação cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics):
 

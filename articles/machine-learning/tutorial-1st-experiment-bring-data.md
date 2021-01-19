@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: de89f9d87b010dc3710e7d82f4d846de12303905
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: ab497dee35afdd60247d156d0f30bbf003ea1210
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739426"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072149"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Usar seus dados (parte 4 de 4)
 
@@ -40,9 +40,6 @@ Neste tutorial, você:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclusão da [parte 3](tutorial-1st-experiment-sdk-train.md) da série.
-* Conhecimento introdutório da linguagem Python e dos fluxos de trabalho de machine learning.
-* Ambiente de desenvolvimento local, como o Visual Studio Code, o Jupyter ou o PyCharm.
-* Python (versão 3.5 a 3.7).
 
 ## <a name="adjust-the-training-script"></a>Ajustar o script de treinamento
 
@@ -130,7 +127,7 @@ O valor `target_path` especifica o caminho no armazenamento de dados no qual os 
 >[!TIP] 
 > Embora esteja usando o Azure Machine Learning para carregar os dados, você pode usar o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para carregar arquivos ad hoc. Caso precise de uma ferramenta ETL, use o [Azure Data Factory](../data-factory/introduction.md) para ingerir seus dados no Azure.
 
-Execute o arquivo do Python para carregar os dados. (O upload deve ser rápido, em menos de 60 segundos.)
+Na janela que tem o ambiente do Conda *tutorial1* ativado, execute o arquivo do Python para carregar os dados. (O upload deve ser rápido, em menos de 60 segundos.)
 
 ```bash
 python 05-upload-data.py

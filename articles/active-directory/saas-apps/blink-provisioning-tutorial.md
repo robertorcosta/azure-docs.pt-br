@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 886d6ff1d3437a9d45bdabc68b2bf3ab8cdaa3ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5f49d2c918164fa529b12313e000aff5f8893a65
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349966"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201835"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configurar o Blink para provisionamento automático de usuário
 
@@ -117,7 +117,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 9. Examine os atributos de usuário sincronizados do Azure AD com o Blink na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no Blink para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de Usuário do Blink](media/blink-provisioning-tutorial/user-attributes.png)
+    ![Atributos de Usuário do Blink](media/blink-provisioning-tutorial/new-user-attributes.png)
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -136,6 +136,10 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 Essa operação inicia a sincronização inicial de todos os usuários definidos em **Escopo**, na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para o relatório de atividades de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Blink.
 
 Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte [Relatórios sobre o provisionamento automático de contas de usuário](../app-provisioning/check-status-user-account-provisioning.md).
+
+## <a name="change-log"></a>Log de alterações
+
+* 14/01/2021 – o atributo de extensão personalizado **empresa**, **descrição** e **localização** foi adicionado.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

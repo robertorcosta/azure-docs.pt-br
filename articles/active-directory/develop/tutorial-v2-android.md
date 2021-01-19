@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7ba15e66cca7baefdf8cca5cabd5e5d5b1e2c7f7
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 1282c27378e6a088a600a3ab3105f3f548984d03
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507805"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063137"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo Android
 
@@ -71,11 +71,11 @@ Se você ainda não tiver um aplicativo Android, siga estas etapas para configur
 6. Defina o **Nível mínimo da API** como **API 19** ou superior e clique em **Concluir**.
 7. Na exibição do projeto, escolha **Projeto** na lista suspensa para exibir os arquivos do projeto que são e que não são a fonte, abra **app/build.gradle** e defina `targetSdkVersion` como `28`.
 
-## <a name="integrate-with-microsoft-authentication-library"></a>Integrar com a Biblioteca de Autenticação da Microsoft
+## <a name="integrate-with-the-microsoft-authentication-library"></a>Integrar à Biblioteca de Autenticação da Microsoft
 
 ### <a name="register-your-application"></a>Registre seu aplicativo
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.

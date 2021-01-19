@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: 16b924f486215d972477e93c4e199e7076a0a531
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 01/12/2021
+ms.openlocfilehash: 2fcb8f6d22e93f3a95be26b7bc61f3b5226ba090
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508876"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117105"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copiar várias tabelas em massa usando o Azure Data Factory no portal do Azure
 
@@ -51,20 +51,8 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Conta de Armazenamento do Azure**. A conta de Armazenamento do Azure é usada como Armazenamento de Blobs de preparo na operação de cópia em massa. 
-* **Banco de dados SQL do Azure**. Este banco de dados contém os dados de origem. 
-* **Azure Synapse Analytics**. Esse data warehouse contém os dados copiados do Banco de Dados SQL. 
-
-### <a name="prepare-sql-database-and-azure-synapse-analytics"></a>Preparar o Banco de Dados SQL e o Azure Synapse Analytics 
-
-**Prepare o Banco de Dados SQL do Azure de origem**:
-
-Crie um banco de dados contendo dados de exemplo do Adventure Works LT no Banco de Dados SQL, seguindo o artigo [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) a seguir. Este tutorial copia todas as tabelas desse banco de dados de exemplo para o Azure Synapse Analytics.
-
-**Preparar o Azure Synapse Analytics coletor**:
-
-1. Se você não tiver um workspace do Azure Synapse Analytics, confira o artigo [Introdução ao Azure Synapse Analytics](..\synapse-analytics\get-started.md) para obter as etapas necessárias para criar um.
-
-1. Crie esquemas de tabela correspondentes no Azure Synapse Analytics. Você usa o Azure Data Factory para migrar/copiar dados em uma etapa posterior.
+* **Banco de dados SQL do Azure**. Este banco de dados contém os dados de origem. Crie um banco de dados contendo dados de exemplo do Adventure Works LT no Banco de Dados SQL, seguindo o artigo [Criar um banco de dados no Banco de Dados SQL do Azure](../azure-sql/database/single-database-create-quickstart.md) a seguir. Este tutorial copia todas as tabelas desse banco de dados de exemplo para o Azure Synapse Analytics.
+* **Azure Synapse Analytics**. Esse data warehouse contém os dados copiados do Banco de Dados SQL. Se você não tiver um workspace do Azure Synapse Analytics, confira o artigo [Introdução ao Azure Synapse Analytics](..\synapse-analytics\get-started.md) para obter as etapas necessárias para criar um.
 
 ## <a name="azure-services-to-access-sql-server"></a>Permitir que os serviços do Azure acessem o SQL Server
 
@@ -72,7 +60,7 @@ Para o Banco de Dados SQL e o Azure Synapse Analytics, permita que os serviços 
 
 Para verificar e ativar essa configuração, acesse seu servidor > Segurança > Firewalls e redes virtuais > defina a opção **Permitir que os serviços e recursos do Azure acessem este servidor** como **ATIVADA**.
 
-## <a name="create-a-data-factory"></a>Criar uma data factory
+## <a name="create-a-data-factory"></a>Criar um data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome.
 1. Vá para o [Portal do Azure](https://portal.azure.com). 
@@ -241,6 +229,7 @@ O pipeline **IterateAndCopySQLTables** usa uma lista de tabelas como um parâmet
     ![Construtor do parâmetro foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
     d. Alterne para a guia **Atividades**, clique no **ícone de lápis** para adicionar uma atividade filho para a atividade **ForEach**.
+    
     ![Construtor de atividades ForEach](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
 
 1. Na caixa de ferramentas **Atividades**, expanda **Mover e Transferir** e arraste e solte a atividade **Copiar dados** para a superfície do designer de pipeline. Observe o menu de navegação estrutural na parte superior. **IterateAndCopySQLTable** é o nome do pipeline e **IterateSQLTables** é o nome da atividade ForEach. O designer está no escopo da atividade. Para voltar ao editor do pipeline do editor de ForEach, você pode clicar no link no menu de navegação estrutural. 
@@ -257,7 +246,6 @@ O pipeline **IterateAndCopySQLTables** usa uma lista de tabelas como um parâmet
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
-
 1. Alterne para a guia **Coletor** e siga estas etapas: 
 
     1. Selecione **AzureSqlDWDataset** para **Conjunto de dados do coletor**.
@@ -265,6 +253,7 @@ O pipeline **IterateAndCopySQLTables** usa uma lista de tabelas como um parâmet
     1. Clique na caixa de entrada para VALUE do parâmetro DWSchema -> selecione **Adicionar conteúdo dinâmico** abaixo, insira a expressão `@item().TABLE_SCHEMA` como script -> selecione **Concluir**.
     1. Para o método Copy, selecione **PolyBase**. 
     1. Desmarque a opção **Usar padrão do tipo**. 
+    1. Para a opção Tabela, a configuração padrão é "Nenhum". Se você não tiver tabelas criadas previamente no coletor do Azure Synapse Analytics, habilite a opção **Criação automática de tabela**, a atividade Copy então criará automaticamente tabelas para você com base nos dados de origem. Para obter detalhes, confira [Criação automática de tabelas de coletor](copy-activity-overview.md#auto-create-sink-tables). 
     1. Clique na caixa de entrada **Pré-copiar Script** -> selecione **Adicionar conteúdo dinâmico** abaixo -> insira a seguinte expressão como script -> selecione **Concluir**. 
 
         ```sql
@@ -272,6 +261,8 @@ O pipeline **IterateAndCopySQLTables** usa uma lista de tabelas como um parâmet
         ```
 
         ![Copiar as configurações do coletor](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+
+
 1. Alterne para a guia **Configurações** e siga estas etapas: 
 
     1. Marque a caixa de seleção para **Habilitar Preparo**.

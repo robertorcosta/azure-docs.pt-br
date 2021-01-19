@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: 023c4d685804b2c6c201f44ab672139d56338cdb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1798ca74493ba22d29cd9ce819d469c29cd5ec3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979097"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059561"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST
 
@@ -170,10 +170,17 @@ O [Ativo](/rest/api/media/assets) de saída armazena o resultado do trabalho de 
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
+
+> [!NOTE]
+> Substitua os nomes da conta de armazenamento e do contêiner por aqueles do arquivo de ambiente ou forneça os seus.
+>
+> Ao concluir as etapas descritas no restante deste artigo, forneça parâmetros válidos em corpos de solicitação.
 
 ### <a name="create-a-transform"></a>Criar uma transformação
 
@@ -355,8 +362,9 @@ Nesta seção, vamos compilar uma URL de streaming HLS. URLs consistem nos valor
     Para obter o nome do host, você pode usar a seguinte operação:
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    e defina os parâmetros `resourceGroupName` e `accountName` para que correspondam ao arquivo de ambiente. 
     
 3. Um caminho obtido na seção anterior (Listar caminhos).  
 
@@ -375,7 +383,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 Para testar o streaming, este artigo usa o Player de Mídia do Azure. 
 
 1. Abra um navegador da Web e navegue até [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Na caixa **URL:** , cole a URL que você compilou. 
+2. Na caixa **URL:**, cole a URL que você compilou. 
 3. Pressione **Atualizar Player**.
 
 O Player de Mídia do Azure pode ser usado para testes, mas não deve ser usado em um ambiente de produção. 

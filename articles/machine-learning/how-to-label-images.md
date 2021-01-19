@@ -9,16 +9,16 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: f14e120fb7373cc80b9d6e23f155dd964b37a551
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: eb8c69a6bf009543e104a472469c243638726f60
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347958"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060360"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem 
 
-Depois que o administrador de projeto [criar um projeto de rotulagem](./how-to-create-labeling-projects.md#create-a-labeling-project) no Azure Machine Learning, você poderá usar a ferramenta de rotulagem para preparar rapidamente os dados para um projeto do Machine Learning. Este artigo descreve:
+Depois que o administrador de projeto [criar um projeto de rotulagem de dados](./how-to-create-labeling-projects.md#create-a-data-labeling-project) no Azure Machine Learning, você poderá usar a ferramenta de rotulagem para preparar rapidamente os dados para um projeto do Machine Learning. Este artigo descreve:
 
 > [!div class="checklist"]
 > * Como acessar seus projetos de rotulagem

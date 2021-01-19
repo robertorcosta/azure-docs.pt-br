@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3943caba5249432b3a0a4b7c2e63b2b818e2b7a1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575696"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968476"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Tutorial: Preparar a implantação do Azure Stack Edge Pro  
 
@@ -150,11 +150,11 @@ Depois que o pedido for feito, a Microsoft analisará o pedido e o contatará (p
 
 Depois que o recurso do Azure Stack Edge estiver em execução, será necessário obter a chave de ativação. Essa chave é usada para ativar e conectar seu dispositivo Azure Stack Edge Pro ao recurso. Você pode obter essa chave agora enquanto estiver no portal do Azure.
 
-1. Selecione o recurso criado. Selecione **Visão geral** e, em seguida, **Configuração do dispositivo**.
+1. Vá até o recurso criado e selecione **Visão Geral**. Você verá uma notificação informando que pedido está sendo processado.
 
-    ![Selecionar Configuração do dispositivo](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Selecionar Visão geral](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
 
-2. No bloco **Ativar**, selecione **Gerar chave** para criar uma chave de ativação. Selecione o ícone de copiar para copiar a chave e salvá-la para uso posterior.
+2. Depois que o pedido for processado e o dispositivo estiver a caminho, a **Visão geral** será atualizada. Aceite o nome do **Azure Key Vault** padrão ou insira um novo. Selecione **Gerar chave de ativação**. Selecione o ícone de copiar para copiar a chave e salvá-la para uso posterior.
 
     ![Obter a chave de ativação](media/azure-stack-edge-deploy-prep/get-activation-key.png)
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 63d56d8afc584a760f4b31c6021d4c764afd52b3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509454"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064412"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
@@ -50,7 +50,7 @@ Este guia usa o seguinte pacote NuGet:
 
 |Biblioteca|Descrição|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de Autenticação da Microsoft|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)| Biblioteca de Autenticação da Microsoft|
 |[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Biblioteca de Clientes do Microsoft Graph|
 
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
@@ -71,7 +71,7 @@ Este guia cria um aplicativo que exibe um botão que consulta a API do Microsoft
 
    ![Versões mínima e de destino](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
-### <a name="add-microsoft-authentication-library-to-your-project"></a>Adicionar a Biblioteca de Autenticação da Microsoft ao projeto
+### <a name="add-the-microsoft-authentication-library-to-your-project"></a>Adicionar a Biblioteca de Autenticação da Microsoft ao projeto
 
 1. No Visual Studio, selecione **Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Console do Gerenciador de Pacotes**.
 1. Copie e cole os seguintes comandos na janela **Console do Gerenciador de Pacotes**:
@@ -103,7 +103,7 @@ O Visual Studio cria *MainPage.xaml* como parte de seu modelo de projeto. Abra e
 </Grid>
 ```
 
-### <a name="use-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Usar a Biblioteca de Autenticação da Microsoft para obter um token para a API do Microsoft Graph
+### <a name="use-the-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Usar a Biblioteca de Autenticação da Microsoft para obter um token para a API do Microsoft Graph
 
 Esta seção mostra como usar a Biblioteca de Autenticação da Microsoft para obter um token para a API do Microsoft Graph. Faça alterações no arquivo *MainPage.xaml.cs*.
 
@@ -346,7 +346,7 @@ private async Task DisplayMessageAsync(string message)
 
 Agora, você precisa registrar seu aplicativo:
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -357,7 +357,7 @@ Agora, você precisa registrar seu aplicativo:
 
 Configurar a autenticação para o aplicativo:
 
-1. De volta ao [portal do Azure](https://portal.azure.com), em **Gerenciar**, selecione **Autenticação** > **Adicionar uma plataforma** e escolha **Aplicativos móveis e da área de trabalho**.
+1. De volta ao <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, em **Gerenciar**, selecione **Autenticação** > **Adicionar uma plataforma** e escolha **Aplicativos móveis e da área de trabalho**.
 1. Na seção **URIs de Redirecionamento**, verifique **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 1. Selecione **Configurar**.
 

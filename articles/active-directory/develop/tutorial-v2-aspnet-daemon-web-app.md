@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509420"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015939"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Criar um daemon multilocatário que usa a plataforma de identidade da Microsoft
 
@@ -93,7 +93,7 @@ Se você não quiser usar a automação, use as etapas nas seções a seguir.
 
 ### <a name="choose-the-azure-ad-tenant"></a>Escolher o locatário do Azure AD
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 
 
@@ -203,7 +203,7 @@ Este projeto tem projetos de API Web e aplicativo Web. Para implantá-los em sit
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Criar e publicar o dotnet-web-daemon-v2 em um site do Azure
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. No canto superior esquerdo, selecione **Criar um recurso**.
 1. Selecione **Web** > **Aplicativo Web** e dê um nome ao seu site. Por exemplo, nomeie-o **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Selecione as informações para **Assinatura**, **Grupo de recursos** e **Plano do serviço de aplicativo e local**. O **SO** é **Windows** e a **Publicação** é **Código**.
@@ -224,7 +224,7 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador na U
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Atualizar o registro de aplicativo de locatário do Azure AD para dotnet-web-daemon-v2
 
-1. Retorne ao [Portal do Azure](https://portal.azure.com).
+1. Retorne ao <a href="https://portal.azure.com/" target="_blank">portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. No painel à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, **Registros de aplicativo**.
 1. Selecione o aplicativo **dotnet-web-daemon-v2**.
 1. Na página **Autenticação** do seu aplicativo, atualize os campos de **URL de Logout** com o endereço do seu serviço. Por exemplo, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
