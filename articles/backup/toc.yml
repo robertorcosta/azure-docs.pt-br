@@ -66,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Matriz de suporte de backup do compartilhamento de arquivos do Azure
           href: azure-file-share-support-matrix.md
+        - name: Matriz de suporte de Backup de Disco do Azure
+          href: disk-backup-support-matrix.md
         - name: Controladores de domínio do Active Directory
           href: active-directory-backup-restore.md
         - name: SKUs de VM com suporte para o Azure Policy
@@ -82,6 +84,8 @@
           href: backup-azure-file-folder-backup-faq.md
         - name: Perguntas frequentes – fazer backup de Arquivos do Azure
           href: backup-azure-files-faq.md
+        - name: Perguntas frequentes – Backup de Disco do Azure
+          href: disk-backup-faq.md
         - name: Perguntas frequentes – fazer backup de bancos de dados do SQL Server em VMs do Azure
           href: faq-backup-sql-server.md
         - name: Perguntas frequentes – fazer backup de bancos de dados SAP HANA em VMs do Azure
@@ -210,6 +214,14 @@
               href: backup-azure-restore-system-state.md
         - name: Gerenciar
           href: backup-azure-manage-mars.md
+    - name: Backup de Disco do Azure
+      items:
+        - name: Visão geral
+          href: disk-backup-overview.md
+        - name: Backup
+          href: backup-managed-disks.md
+        - name: Restaurar
+          href: restore-managed-disks.md
     - name: Backup do compartilhamento de arquivos do Azure
       items:
         - name: Visão geral
@@ -441,6 +453,8 @@
           href: backup-azure-scdpm-troubleshooting.md
         - name: Compartilhamento de arquivos do Azure
           href: troubleshoot-azure-files.md
+        - name: Backup de Disco do Azure
+          href: disk-backup-troubleshoot.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
         - name: Backup do SAP HANA em VMs do Azure
