@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 76232a917e8856a06645fabc0ab4716195c5c0e1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a303f5e6177d0dc4205eaec8c3b1911e8e004fe3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094192"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602422"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Solicitar dados de elevação usando o serviço de elevação do Azure Maps (versão prévia)
 
@@ -471,7 +471,7 @@ Consulte as <a href='https://codepen.io/azuremaps/pen/619c888c70089c3350a3e95d49
 
 ### <a name="get-elevation-data-by-polyline-path"></a>Obter dados de elevação por caminho de polilinha
 
-A página da Web de exemplo a seguir mostra como usar o controle de mapa para exibir dados de elevação ao longo de um caminho. O usuário define o caminho clicando no `PolyLine` ícone no canto superior esquerdo e desenhando a polilinha no mapa. Em seguida, o controle de mapa renderiza os dados de elevação em cores que são especificadas na chave localizada no canto superior direito.
+A página da Web de exemplo a seguir mostra como usar o controle de mapa para exibir dados de elevação ao longo de um caminho. O usuário define o caminho clicando no `Polyline` ícone no canto superior esquerdo e desenhando a polilinha no mapa. Em seguida, o controle de mapa renderiza os dados de elevação em cores que são especificadas na chave localizada no canto superior direito.
 
 <br/>
 

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/28/2020
+ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803520"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600738"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -130,7 +130,7 @@ O filtro **Status** permite que você selecione:
 O filtro de **ação** permite filtrar o:
 
 - Criar 
-- Atualização
+- Atualizar
 - Excluir
 - Desabilitar
 - Outro
@@ -215,8 +215,6 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 - O portal do Azure repositórios relataram dados de provisionamento por 30 dias se você tiver uma edição Premium e 7 dias se tiver uma edição gratuita. Os logs de provisionamento podem ser publicados no [log Analytics](../app-provisioning/application-provisioning-log-analytics.md) para retenção além de 30 dias. 
 
 - Você pode usar o atributo ID de alteração como um identificador exclusivo. Isso é, por exemplo, útil ao interagir com o suporte ao produto.
-
-- Atualmente, não há nenhuma opção para baixar dados de provisionamento como um arquivo CSV, mas você pode exportar os dados usando [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - Você pode ver eventos ignorados para usuários que não estão no escopo. Isso é esperado, especialmente quando o escopo de sincronização é definido como todos os usuários e grupos. Nosso serviço avaliará todos os objetos no locatário, mesmo aqueles que estão fora do escopo. 
 

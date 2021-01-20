@@ -4,12 +4,12 @@ description: Impedir que os usuários atualizem ou excluam recursos do Azure apl
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 7efeb8a073a04f78f77046c07c107abf0c7526f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555661"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602204"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para evitar alterações inesperadas
 
@@ -28,7 +28,7 @@ Bloqueios do Resource Manager se aplicam apenas às operações que ocorrem no p
 
 ## <a name="considerations-before-applying-locks"></a>Considerações antes da aplicação de bloqueios
 
-A aplicação de bloqueios pode gerar resultados inesperados porque algumas operações que não parecem modificar o recurso, na verdade, exigem ações impedidas pelo bloqueio. Alguns exemplos comuns de operações que são impedidas por bloqueios são:
+A aplicação de bloqueios pode gerar resultados inesperados porque algumas operações que não parecem modificar o recurso, na verdade, exigem ações impedidas pelo bloqueio. Os bloqueios impedirão qualquer operação que exija uma solicitação POST para a API Azure Resource Manager. Alguns exemplos comuns de operações que são impedidas por bloqueios são:
 
 * Um bloqueio do tipo somente leitura em uma **conta de armazenamento** impede que todos os usuários listem as chaves. A operação de lista de chaves é tratada por meio de uma solicitação POST, pois as chaves retornadas estão disponíveis para operações de gravação.
 

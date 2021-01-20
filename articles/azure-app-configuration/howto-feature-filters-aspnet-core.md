@@ -8,12 +8,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 13857580d434736fbf0b12f52d39537ca864a497
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 39455c4bc193cce036bd169c702b5c020d53d2f6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203109"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602276"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Usar filtros de recurso para habilitar sinalizadores de recursos condicionais
 
@@ -31,7 +31,7 @@ Você também pode criar seu próprio filtro de recursos que implementa a [inter
 
 ## <a name="registering-a-feature-filter"></a>Registrando um filtro de recurso
 
-Você registra um filtro de recurso chamando o `AddFeatureFilter` método, especificando o nome do filtro de recursos. Por exemplo, o código a seguir registra `PercentageFilter` :
+Você registra um filtro de recurso chamando o `AddFeatureFilter` método, especificando o nome do tipo do filtro de recursos desejado. Por exemplo, o código a seguir registra `PercentageFilter` :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -56,14 +56,14 @@ Você pode definir essas configurações para sinalizadores de recursos definido
     > [!div class="mx-imgBorder"]
     > ![Editar sinalizador de recurso beta](./media/edit-beta-feature-flag.png)
 
-1. Na tela de **edição** , selecione o botão **habilitar sinalizador de recurso** se ele ainda não estiver selecionado. Em seguida, clique no botão **usar filtro de recursos** e selecione **personalizado**. 
+1. Na tela de **edição** , marque a caixa de seleção **habilitar sinalizador de recurso** se ele ainda não estiver habilitado. Em seguida, marque a caixa de seleção **usar filtro de recurso** e selecione **personalizado**. 
 
-1. No campo **chave** , insira *Microsoft. Percentage*.
+1. No campo **nome** , selecione *Microsoft. Percentage*.
 
     > [!div class="mx-imgBorder"]
     > ![Adicionar filtro de recurso](./media/feature-flag-add-filter.png)
 
-1. Clique no menu de contexto ao lado da chave de filtro de recurso. Clique em **Editar parâmetros de filtro**.
+1. Clique no menu de contexto ao lado do nome do filtro de recursos. Clique em **Editar parâmetros de filtro**.
 
     > [!div class="mx-imgBorder"]
     > ![Editar parâmetros de filtro de recursos](./media/feature-flags-edit-filter-parameters.png)
@@ -75,10 +75,10 @@ Você pode definir essas configurações para sinalizadores de recursos definido
 
 1. Clique em **aplicar** para retornar à tela **Editar sinalizador de recurso** . Em seguida, clique em **aplicar** novamente para salvar as configurações do sinalizador de recurso.
 
-1. O **estado** do sinalizador de recurso agora aparece como *condicional*. Esse estado indica que o sinalizador de recurso será habilitado ou desabilitado em uma base por solicitação, com base nos critérios impostos pelo filtro de recursos.
+1. Na página **Gerenciador de recursos** , o sinalizador de recurso agora tem um valor de **filtro de recurso** *personalizado*. 
 
     > [!div class="mx-imgBorder"]
-    > ![Sinalizador de recurso condicional](./media/feature-flag-filter-enabled.png)
+    > ![Sinalizador de recurso listado com um valor de filtro de recurso de "personalizado"](./media/feature-flag-filter-custom.png)
 
 ## <a name="feature-filters-in-action"></a>Filtros de recurso em ação
 

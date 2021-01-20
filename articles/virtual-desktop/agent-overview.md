@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 6450b44e5c7281f0a24fd5000c9feec6e61fa29c
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540485"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601231"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Introdução ao agente de área de trabalho virtual do Windows
 
@@ -44,5 +44,4 @@ Essa instalação de atualização normalmente dura de 2-3 minutos em uma nova V
 
 Agora que você tem uma melhor compreensão do agente de área de trabalho virtual do Windows, aqui estão alguns recursos que podem ajudá-lo a:
 
-- Confira a seção [atualizações do agente de área de trabalho virtual do Windows](whats-new.md) para ver informações sobre o que a nova atualização do agente envolve a cada mês.
 - Se você estiver enfrentando problemas relacionados ao agente ou à conectividade, confira o guia de solução de problemas do [agente de área de trabalho virtual do Windows](troubleshoot-agent.md).

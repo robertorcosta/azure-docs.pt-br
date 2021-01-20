@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: c28abc882635f7cd0815952fe0ae183bef7138d2
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 462ba0ccbd5d7e7048c2c7fcb9c5bece04adaebe
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241609"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600900"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para recursos de computação MariaDB com capacidade reservada
 
@@ -38,7 +38,7 @@ Por exemplo, vamos supor que você esteja executando uma finalidade geral, Gen5 
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Comprar o banco de dados do Azure para capacidade reservada do MariaDB
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Selecione **Todos os serviços** > **Reservas** .
+2. Selecione **Todos os serviços** > **Reservas**.
 3.  Selecione **Adicionar** e, em seguida, no painel reservas de compra, selecione **banco de dados do Azure para MariaDB** para comprar uma nova reserva para seus bancos de dados MariaDB.
 4.  Preencha os campos obrigatórios. Bancos de dados novos ou existentes que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real do banco de dados do Azure para servidores MariaDB que obtém o desconto depende do escopo e da quantidade selecionada.
 
@@ -50,8 +50,8 @@ A tabela a seguir descreve os campos obrigatórios.
 
 | Campo | Descrição |
 | :------------ | :------- |
-| Subscription   | A assinatura usada para pagar pelo banco de dados do Azure para reserva de capacidade reservada do MariaDB. O método de pagamento na assinatura é cobrado pelos custos antecipados para o banco de dados do Azure para reserva de capacidade reservada do MariaDB. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.
-| Escopo | O escopo da reserva de vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: </br></br> **Compartilhado** , o desconto de reserva vCore é aplicado ao banco de dados do Azure para servidores MariaDB em execução em qualquer assinatura em seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</br></br> **Assinatura única** , o desconto de reserva vCore é aplicado ao banco de dados do Azure para servidores MariaDB nesta assinatura. </br></br> **Um grupo de recursos único** , o desconto de reserva é aplicado ao banco de dados do Azure para servidores MariaDB na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura.
+| Assinatura   | A assinatura usada para pagar pelo banco de dados do Azure para reserva de capacidade reservada do MariaDB. O método de pagamento na assinatura é cobrado pelos custos antecipados para o banco de dados do Azure para reserva de capacidade reservada do MariaDB. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um contrato individual com preço pago conforme o uso (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma assinatura empresarial, os encargos são deduzidos do saldo antecipado do Azure do registro (anteriormente chamado de compromisso monetário) ou cobrados como excedentes. Para uma assinatura individual com o preço pago conforme o uso, os encargos são cobrados no cartão de crédito ou no método de pagamento de fatura na assinatura.
+| Escopo | O escopo da reserva de vCore pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado). Se você selecionar: </br></br> **Compartilhado**, o desconto de reserva vCore é aplicado ao banco de dados do Azure para servidores MariaDB em execução em qualquer assinatura em seu contexto de cobrança. Para clientes empresariais, o escopo compartilhado é o registro e inclui todas as assinaturas no registro. Para clientes de Pagamento Conforme o Uso, o escopo compartilhado consiste em todas as assinaturas de Pagamento Conforme o Uso criadas pelo administrador da conta.</br></br> **Assinatura única**, o desconto de reserva vCore é aplicado ao banco de dados do Azure para servidores MariaDB nesta assinatura. </br></br> **Um grupo de recursos único**, o desconto de reserva é aplicado ao banco de dados do Azure para servidores MariaDB na assinatura selecionada e ao grupo de recursos selecionado dentro dessa assinatura.
 | Região | A região do Azure que é coberta pelo banco de dados do Azure para reserva de capacidade reservada do MariaDB.
 | Tipo de implantação | O banco de dados do Azure para o tipo de recurso MariaDB para o qual você deseja comprar a reserva.
 | Nível de desempenho | A camada de serviço do banco de dados do Azure para servidores MariaDB.

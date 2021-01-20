@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: e87fd8724ab9a967bf3b75579eb0e375a324a7b1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: b53501bf5aa4bafb0229158edfe0cb244116b909
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183091"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600844"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Perguntas frequentes padrão sobre a proteção contra DDoS do Azure
 
@@ -34,6 +34,12 @@ Os planos de proteção contra DDoS têm um encargo mensal fixo de $2944 por mê
 Em um locatário, um único plano de proteção contra DDoS pode ser usado em várias assinaturas, portanto, não é necessário criar mais de um plano de proteção contra DDoS.
 
 Consulte [preços padrão da proteção contra DDoS do Azure](https://azure.microsoft.com/pricing/details/ddos-protection/) para obter mais detalhes.
+
+## <a name="is-the-service-zone-resilient"></a>A zona de serviço é resiliente?
+Sim. A proteção contra DDoS do Azure é resiliente por zona por padrão.
+
+## <a name="how-do-i-configure-the-service-to-be-zone-resilient"></a>Como fazer configurar o serviço para ser resistente a zona?
+Nenhuma configuração do cliente será necessária para habilitar a resiliência de zona. A resiliência de zona para recursos de proteção contra DDoS do Azure está disponível por padrão e gerenciada pelo próprio serviço.
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>E quanto à proteção na camada de serviço (camada 7)?
 Os clientes podem usar o serviço de proteção contra DDoS do Azure em combinação com um WAF (firewall do aplicativo Web) para proteção na camada de rede (camada 3 e 4, oferecida pela proteção contra DDoS do Azure Standard) e na camada de aplicativo (camada 7, oferecida por um WAF). As ofertas do WAF incluem o Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , bem como as ofertas de firewall de aplicativo Web de terceiros disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).

@@ -1,7 +1,7 @@
 ---
-title: Como executar Jupyter Notebooks em seu workspace
+title: Como executar blocos de anotações do Jupyter em seu espaço de trabalho
 titleSuffix: Azure Machine Learning
-description: Saiba como executar um Jupyter Notebook sem sair do workspace no Azure Machine Learning Studio.
+description: Saiba como executar um notebook Jupyter sem sair de seu espaço de trabalho no Azure Machine Learning Studio.
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -10,25 +10,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 06/27/2020
-ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 01/19/2021
+ms.openlocfilehash: 7bb1ce8141f609feb4f354aa85f202915e197f37
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325418"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599291"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar Jupyter Notebooks em seu workspace
 
-
-Saiba como executar seus Jupyter Notebooks diretamente em seu workspace no Azure Machine Learning Studio. Embora seja possível iniciar o [Jupyter](https://jupyter.org/) ou o [JupyterLab](https://jupyterlab.readthedocs.io), você também pode editar e executar seus notebooks sem sair do workspace.
-
-Veja como é possível:
-
-* Criar Jupyter Notebooks em seu workspace
-* Executar um experimento de um notebook
-* Alterar o ambiente do notebook
-* Encontre detalhes das instâncias de computação usadas para executar seus notebooks
+Saiba como executar seus blocos de anotações do Jupyter diretamente em seu espaço de trabalho no Azure Machine Learning Studio. Embora seja possível iniciar o [Jupyter](https://jupyter.org/) ou o [JupyterLab](https://jupyterlab.readthedocs.io), você também pode editar e executar seus notebooks sem sair do workspace.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +40,7 @@ Para criar um notebook:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Criar arquivo":::
 
 1. Dê um nome ao arquivo. 
-1. Para Jupyter Notebook arquivos, selecione **bloco de anotações** como o tipo de arquivo.
+1. Para arquivos do bloco de anotações Jupyter, selecione **Notebook** como o tipo de arquivo.
 1. Selecione um diretório de arquivos.
 1. Selecione **Criar**.
 
@@ -107,7 +99,7 @@ Você pode editar o bloco de anotações sem se conectar a uma instância de com
 
 Quando uma instância de computação está em execução, você também pode usar auto-completar de código, da plataforma [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense), em qualquer notebook Python.
 
-Você também pode iniciar o Jupyter ou o JupyterLab na barra de ferramentas Notebook.  O Azure Machine Learning não fornece atualizações nem corrige bugs do Jupyter ou do JupyterLab, pois são produtos de software livre fora do limite do Suporte da Microsoft.
+Você também pode iniciar o Jupyter ou o JupyterLab na barra de ferramentas do bloco de anotações.  O Azure Machine Learning não fornece atualizações nem corrige bugs do Jupyter ou do JupyterLab, pois são produtos de software livre fora do limite do Suporte da Microsoft.
 
 ### <a name="focus-mode"></a>Modo de foco
 
@@ -153,18 +145,6 @@ Cada bloco de anotações é salvo AutoSalva a cada 30 segundos. O salvamento au
  
 Selecione **pontos de verificação** no menu do bloco de anotações para criar um ponto de verificação nomeado e reverter o bloco de anotações para um ponto de verificação salvo.
 
-
-### <a name="useful-keyboard-shortcuts"></a>Atalhos de teclado úteis
-
-|Teclado  |Ação  |
-|---------|---------|
-|Shift+Enter     |  Executar uma célula       |
-|Ctrl+Space | Ativar o IntelliSense |
-|Ctrl+M(Windows)     |  Habilitar/desabilitar o trapping de tabulação no notebook.       |
-|Ctrl+Shift+M(Mac e Linux)     |    Habilitar/desabilitar o trapping de tabulação no notebook.     |
-|Tab (quando a captura de guias está habilitada) | Adicionar um caractere '\t' (recuo)
-|Guia (quando a captura de guias está desabilitada) | Alterar o foco para o próximo item de foco (botão excluir célula, botão executar etc.)
-
 ## <a name="delete-a-notebook"></a>Excluir um notebook
 
 Você *não pode* excluir os notebooks de **Exemplos**.  Esses blocos notebooks fazem parte do estúdio e são atualizados sempre que um novo SDK é publicado.  
@@ -172,27 +152,45 @@ Você *não pode* excluir os notebooks de **Exemplos**.  Esses blocos notebooks 
 Você *pode* excluir notebooks de **arquivos de usuário** de qualquer uma destas maneiras:
 
 * No estúdio, selecione o **...** no final de uma pasta ou arquivo.  Use um navegador compatível (Microsoft Edge, Chrome ou Firefox).
-* Em qualquer barra de ferramentas Notebook, selecione [**Abrir terminal**](#terminal) para acessar a janela do terminal da instância de computação.
+* Em qualquer barra de ferramentas do bloco de anotações, selecione [**abrir terminal**](#terminal)  para acessar a janela do terminal da instância de computação.
 * No Jupyter ou no JupyterLab com suas ferramentas.
 
-## <a name="run-an-experiment"></a>Executar um experimento
+## <a name="run-a-notebook-or-python-script"></a>Executar um script de bloco de anotações ou Python
 
-Para executar um experimento de um Notebook, primeiro você se conecta a uma [instância de computação](concept-compute-instance.md) em execução. Se você não tiver uma instância de computação, use estas etapas para criar uma: 
+Para executar um bloco de anotações ou um script Python, primeiro você se conecta a uma [instância de computação](concept-compute-instance.md)em execução. Se você não tiver uma instância de computação, use estas etapas para criar uma: 
 
-1. Selecione **+** na barra de ferramentas Notebook. 
+1. Selecione **+** na barra de ferramentas do bloco de anotações ou script. 
 2. Dê um nome a Computação e escolha um **Tamanho da Máquina Virtual**. 
 3. Selecione **Criar**.
-4. A instância de computação é conectada ao Notebook automaticamente e agora você pode executar as células.
+4. A instância de computação é conectada ao arquivo automaticamente.  Agora você pode executar as células do bloco de anotações ou o script Python usando a ferramenta à esquerda da instância de computação
 
 Somente você pode ver e usar as instâncias de computação que criar.  Seus **Arquivos de usuário** são armazenados separadamente da VM e compartilhados entre todas as instâncias de computação no workspace.
 
 ### <a name="view-logs-and-output"></a>Exibir logs e saída
 
-Use [Widgets do Notebook](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) para ver o progresso da execução e dos logs. Um widget é assíncrono e fornece atualizações até que o treinamento seja concluído. Os widgets do Azure Machine Learning também têm suporte no Jupyter e no JupterLab.
+Use [widgets de bloco de anotações](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) para exibir o progresso da execução e dos logs. Um widget é assíncrono e fornece atualizações até que o treinamento seja concluído. Os widgets do Azure Machine Learning também têm suporte no Jupyter e no JupterLab.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Captura de tela: widget Jupyter Notebook ":::
+
+## <a name="explore-variables-in-the-notebook"></a>Explorar variáveis no bloco de anotações
+
+Na barra de ferramentas do bloco de anotações, use a ferramenta **Gerenciador de variáveis** para mostrar o nome, o tipo, o comprimento e os valores de exemplo para todas as variáveis que foram criadas no bloco de anotações.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer.png" alt-text="Captura de tela: ferramenta de Gerenciador de variáveis":::
+
+Selecione a ferramenta para mostrar a janela do Gerenciador de variáveis.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer-window.png" alt-text="Captura de tela: janela do Gerenciador de variáveis":::
+
+## <a name="navigate-with-a-toc"></a>Navegar com um sumário
+
+Na barra de ferramentas do bloco  **de** anotações, use a ferramenta Sumário para exibir ou ocultar o Sumário.  Inicie uma célula de redução com um título para adicioná-la ao Sumário. Clique em uma entrada na tabela para rolar até essa célula no bloco de anotações.  
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/table-of-contents.png" alt-text="Captura de tela: Sumário no bloco de anotações":::
 
 ## <a name="change-the-notebook-environment"></a>Alterar o ambiente do notebook
 
-A barra de ferramentas do Notebook permite que você altere o ambiente no qual seu Notebook é executado.  
+A barra de ferramentas do bloco de anotações permite que você altere o ambiente no qual seu notebook é executado.  
 
 Essas ações não alteraram o estado do notebook ou os valores de nenhuma variável no notebook:
 
@@ -213,9 +211,9 @@ Essas ações redefinirão o estado do notebook e redefinirão todas as variáve
 
 ### <a name="add-new-kernels"></a>Adicionar novos kernels
 
-O Notebook localizará automaticamente todos os kernels do Jupyter instalados na instância de computação conectada.  Para adicionar um kernel à instância de computação:
+O notebook localizará automaticamente todos os kernels do Jupyter instalados na instância de computação conectada.  Para adicionar um kernel à instância de computação:
 
-1. Selecione [**Abrir terminal**](#terminal) na barra de ferramentas Notebook.
+1. Selecione [**abrir terminal**](#terminal) na barra de ferramentas do bloco de anotações.
 1. Use a janela do terminal para criar um ambiente.  Por exemplo, o código a seguir cria `newenv` :
     ```shell
     conda create -y --name newenv
@@ -234,7 +232,7 @@ O Notebook localizará automaticamente todos os kernels do Jupyter instalados na
     ```
 
 > [!NOTE]
-> Para o gerenciamento de pacotes em um notebook, use as funções mágicas **% Pip** ou **% Conda** para instalar pacotes automaticamente no **kernel em execução no momento** , em vez de **! Pip** ou **! Conda** que se refere a todos os pacotes (incluindo pacotes fora do kernel em execução no momento)
+> Para o gerenciamento de pacotes em um notebook, use as funções mágicas **% Pip** ou **% Conda** para instalar pacotes automaticamente no **kernel em execução no momento**, em vez de **! Pip** ou **! Conda** que se refere a todos os pacotes (incluindo pacotes fora do kernel em execução no momento)
 
 Qualquer um dos [Kernels do Jupyter disponíveis](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) pode ser instalado.
 
@@ -257,7 +255,90 @@ Um indicador ao lado do menu suspenso **Kernel** mostra seu status.
 |  Verde |Kernel conectado, ocioso, ocupado|
 |  Cinza |Kernel não conectado |
 
-## <a name="find-compute-details"></a>Localizar detalhes da computação 
+## <a name="shortcut-keys"></a>Teclas de atalho
+Semelhante ao Jupyter notebooks, os notebooks Azure Machine Learning Studio têm uma interface de usuário modal. O teclado faz coisas diferentes, dependendo de em qual modo a célula do notebook está. Azure Machine Learning Studio notebooks dão suporte aos dois modos a seguir para uma determinada célula de código: modo de comando e modo de edição.
+
+### <a name="command-mode-shortcuts"></a>Atalhos do modo de comando
+
+Uma célula está no modo de comando quando não há um cursor de texto solicitando que você digite. Quando uma célula está no modo de comando, você pode editar o notebook como um todo, mas não pode digitar em células individuais. Insira o modo de comando pressionando `ESC` ou usando o mouse para selecionar fora da área do editor de uma célula.  A borda esquerda da célula ativa é azul e sólida e seu botão de **execução** é azul.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Célula do bloco de anotações no modo de comando ":::
+
+| Atalho                      | Descrição                          |
+| ----------------------------- | ------------------------------------|
+| Digite                         | Entrar no modo de edição             |        
+| Shift + Enter                 | Executar célula, selecione abaixo         |     
+| Controle/comando + Enter       | Executar célula                            |
+| Alt + Enter                   | Célula de execução, Inserir célula de código abaixo    |
+| Controle/comando + Alt + Enter | Executar célula, Inserir célula de redução abaixo|
+| Alt + R                       | Executar tudo      |                       
+| S                             | Converter célula em código    |                         
+| M                             | Converter célula em redução  |                       
+| Para cima/K                          | Selecionar célula acima    |               
+| Para baixo/J                        | Selecionar célula abaixo    |               
+| Um                             | Inserir célula de código acima  |            
+| B                             | Inserir célula de código abaixo   |           
+| Controle/Comando + Shift + A   | Inserir célula de redução acima    |      
+| Controle/Comando + Shift + B   | Inserir célula de redução abaixo   |       
+| X                             | Recortar célula selecionada    |               
+| C                             | Copiar célula selecionada   |               
+| Shift + V                     | Colar célula selecionada acima           |
+| V                             | Colar célula selecionada abaixo    |       
+| D D                           | Excluir célula selecionada|                
+| O                             | Ativar/Desativar Saída         |              
+| Shift + O                     | Alternar a rolagem de saída   |          
+| Eu                           | Kernel de interrupção |                   
+| 0 0                           | Reiniciar kernel |                     
+| Shift + espaço                 | Rolar para cima  |                         
+| Space                         | Rolar para baixo|
+| Tab                           | Alterar o foco para o próximo item de foco (quando a captura de guias estiver desabilitada)|
+| Controle/comando + S           | Salvar bloco de anotações |                      
+| 1                             | Alterar para H1|                       
+| 2                             | Alterar para H2|                        
+| 3                             | Alterar para H3|                        
+| 4                             | Alterar para H4 |                       
+| 5                             | Alterar para H5 |                       
+| 6                             | Alterar para H6 |                       
+
+### <a name="edit-mode-shortcuts"></a>Atalhos do modo de edição
+
+O modo de edição é indicado por um cursor de texto solicitando que você digite na área do editor. Quando uma célula está no modo de edição, você pode digitar na célula. Insira o modo de edição pressionando `Enter` ou usando o mouse para selecionar na área do editor de uma célula. A borda esquerda da célula ativa é verde e hachurada e seu botão de **execução** está verde. Você também verá o prompt do cursor na célula no modo de edição.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Célula do bloco de anotações no modo de edição":::
+
+Usando os atalhos de tecla a seguir, você pode navegar e executar o código com mais facilidade em blocos de anotações do Azure Machine Learning no modo de edição.
+
+| Atalho                      | Descrição|                                     
+| ----------------------------- | ----------------------------------------------- |
+| Escape                        | Entrar no modo de comando|  
+| Controle/comando + espaço       | Ativar o IntelliSense |
+| Shift + Enter                 | Executar célula, selecione abaixo |                         
+| Controle/comando + Enter       | Executar célula  |                                      
+| Alt + Enter                   | Célula de execução, Inserir célula de código abaixo  |              
+| Controle/comando + Alt + Enter | Executar célula, Inserir célula de redução abaixo  |          
+| Alt + R                       | Executar todas as células     |                              
+| Up                            | Mover o cursor para cima ou para a célula anterior    |             
+| Down                          | Mover cursor para baixo ou para a próxima célula |                  
+| Controle/comando + S           | Salvar bloco de anotações   |                                
+| Controle/comando + up          | Ir para o início da célula   |                             
+| Controle/comando + down        | Ir para o final da célula |                                 
+| Tab                           | Preenchimento ou recuo de código (se a captura de guias estiver habilitada) |
+| Controle/comando + M           | Habilitar/desabilitar interceptação de guia  |                       
+| Controle/comando +]           | Recuar |                                         
+| Controle/comando + [           | Desfazer recuo  |                                        
+| Controle/comando + A           | Selecionar tudo|                                      
+| Controle/comando + Z           | Desfazer |                                           
+| Controle/Comando + Shift + Z   | Refazer |                                           
+| Controle/comando + Y           | Refazer |                                           
+| Controle/comando + página inicial        | Ir para o início da célula|                                
+| Controle/comando + fim         | Ir para o final da célula   |                               
+| Controle/comando + esquerda        | Ir uma palavra para a esquerda |                               
+| Controle/comando + à direita       | Ir uma palavra para a direita |                              
+| Controle/comando + Backspace   | Excluir palavra anterior |                             
+| Controle/comando + excluir      | Excluir palavra seguinte |                              
+| Controle/comando +/           | Ativar/desativar comentário em cu
+
+## <a name="find-compute-details"></a>Localizar detalhes da computação
 
 Encontre detalhes sobre suas instâncias de computação na página **Computação** no [Studio](https://ml.azure.com).
 
