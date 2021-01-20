@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: e5b12632a60ad5580325fbcda294e1a600bb2b6b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 5d2765787a4eb417f4aa86396e07a25f8157b8ce
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121695"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223050"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
@@ -30,7 +30,7 @@ O **Azure Synapse** é um serviço de análise integrada que acelera o tempo de 
 
 * O SQL do Synapse fornece modelos de recursos **sem servidor** e **dedicados**, oferecendo opções de consumo e cobrança de acordo com as suas necessidades. Para obter desempenho e custo previsíveis, crie pools de SQL dedicados para reservar a capacidade de processamento para os dados armazenados em tabelas SQL. Para cargas de trabalho não planejadas ou intermitentes, use o ponto de extremidade SQL sem servidor e sempre disponível.
 * Use funcionalidades internas de **streaming** para enviar dados de fontes de dados na nuvem para tabelas SQL
-* Integrar a IA ao SQL usando modelos de **machine learning** para pontuar dados empregando a [função T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
+* Integrar a IA ao SQL usando modelos de **machine learning** para pontuar dados empregando a [função T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
 ### <a name="industry-standard-apache-spark"></a>Apache Spark padrão do setor
 
@@ -76,7 +76,7 @@ O **Synapse Studio** é a experiência nativa da Web que reúne tudo para os eng
 ## <a name="engage-with-the-synapse-engineering-team"></a>Envolver-se com a equipe de engenharia do Azure Synapse
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Faça perguntas sobre desenvolvimento.
-- [Página de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
+- [Página de perguntas e respostas da Microsoft](/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

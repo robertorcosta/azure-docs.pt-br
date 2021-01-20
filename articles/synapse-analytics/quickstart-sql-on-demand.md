@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: e75bab664bdd0d6a4ac898905226c9956f62b4ff
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ffa9e7b5685f9a200f6a403045687626f67f66f4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450497"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218290"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>Início Rápido: Usar o pool de SQL sem servidor
 
@@ -26,7 +26,7 @@ Este início rápido mostra a consulta de: arquivos CSV, Apache Parquet e JSON.
 
 Escolha um cliente SQL para emitir consultas:
 
-- O [Azure Synapse Studio](quickstart-synapse-studio.md) é uma ferramenta da Web que pode ser usada para procurar arquivos no armazenamento e criar consultas SQL.
+- O [Azure Synapse Studio](./get-started-create-workspace.md) é uma ferramenta da Web que pode ser usada para procurar arquivos no armazenamento e criar consultas SQL.
 - O [Azure Data Studio](sql/get-started-azure-data-studio.md) é uma ferramenta de cliente que permite executar consultas SQL e notebooks no banco de dados sob demanda.
 - O [SQL Server Management Studio](sql/get-started-ssms.md) é uma ferramenta de cliente que permite executar consultas SQL no banco de dados sob demanda.
 

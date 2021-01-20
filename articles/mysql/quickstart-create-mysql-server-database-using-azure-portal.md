@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b8f3a8e06bb27051417205c4dc3141948960bb00
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492600"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567797"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure
 
@@ -45,7 +45,7 @@ Será necessário ter uma assinatura ativa do Azure. Caso você não tenha uma a
    Nome do servidor | **mydemoserver** | Insira um nome exclusivo. O nome do servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele precisa conter de 3 a 63 caracteres.
    Fonte de dados |**Nenhuma** | Selecione **Nenhum** para criar um novo servidor do zero. Selecione **Backup** somente se você estiver restaurando de um backup geográfico de um servidor existente.
    Location |A localização desejada | Selecione uma localização na lista.
-   Versão | A última versão principal| Use a última versão principal. Confira [todas as versões compatíveis](../postgresql/concepts-supported-versions.md).
+   Versão | A última versão principal| Use a última versão principal. Confira [todas as versões compatíveis](concepts-supported-versions.md).
    Computação + armazenamento | Usar os padrões| O tipo de preço padrão é **Uso Geral** com **4 vCores** e armazenamento de **100 GB**. A retenção de backup é definida como **7 dias**, com a opção de backup **Geograficamente Redundante**.<br/>Examine a página de [preços](https://azure.microsoft.com/pricing/details/mysql/) e atualize os padrões, se necessário.
    Nome de usuário do administrador | **mydemoadmin** | Insira o nome de usuário administrador do servidor. Não é possível usar os termos **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public** como nome de usuário administrador.
    Senha | Uma senha | Uma nova senha para o usuário administrador do servidor. A senha deve ter de 8 a 128 caracteres de comprimento com uma combinação de letras maiúsculas ou minúsculas, números e caracteres não alfanuméricos (!, $, #, % e assim por diante).

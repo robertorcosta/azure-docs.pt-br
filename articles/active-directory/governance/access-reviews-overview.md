@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 08399c1b2d930abfdd5832cb102a789844931d61
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 22bfef17f68b2e83e4f7462d8e9af6fb8aacc284
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027689"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246733"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -103,7 +103,7 @@ Aqui estão alguns exemplos de cenários de licença para ajudá-lo a determinar
 | Um administrador cria uma revisão de acesso do grupo A com 500 usuários e três proprietários do grupo e atribui os três como revisores. | Três licenças para cada proprietário do grupo como revisores | 3 |
 | Um administrador cria uma revisão de acesso do grupo B com 500 usuários. Ele a torna uma autorrevisão. | 500 licenças para cada usuário como autorrevisores | 500 |
 | Um administrador cria uma revisão de acesso do grupo C com 50 usuários membros e 25 usuários convidados. Ele a torna uma autorrevisão. | 50 licenças para cada usuário como autorrevisores.* | 50 |
-| Um administrador cria uma revisão de acesso do grupo D com seis usuários membros e 108 usuários convidados. Ele a torna uma autorrevisão. | 6 licenças para cada usuário como autorrevisores. Usuários convidados são cobrados com base em um MAU (usuário ativo mensal). Não há licenças adicionais necessárias. *  | - |
+| Um administrador cria uma revisão de acesso do grupo D com seis usuários membros e 108 usuários convidados. Ele a torna uma autorrevisão. | 6 licenças para cada usuário como autorrevisores. Usuários convidados são cobrados com base em um MAU (usuário ativo mensal). Não há licenças adicionais necessárias. *  | 6 |
 
 \* O preço das Identidades Externas (usuários convidados) do Azure AD baseiam-se em MAUs (usuários ativos mensais), que é a contagem de usuários exclusivos que realizam atividades de autenticação em um mês civil. Esse modelo substitui o modelo de cobrança com proporção de 1:5, que permitia até cinco usuários convidados para cada licença do Azure AD Premium no locatário. Quando o locatário estiver vinculado a uma assinatura e você usar recursos de Identidades Externas para colaborar com usuários convidados, você será cobrado automaticamente de acordo com o modelo de cobrança baseado em MAU. Para obter mais informações, confira Modelo de cobrança para Identidades Externas do Azure AD.
 

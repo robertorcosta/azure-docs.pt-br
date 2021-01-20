@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 460cca051d743102e734971cf45069362e24c147
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e7ed4ba181d3730ebbea7725451567c93433afb8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97105996"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251090"
 ---
 # <a name="metrics-overview"></a>Visão geral das métricas
 
@@ -30,7 +30,7 @@ Há dois tipos de solicitações representadas nas métricas dos Serviços de Co
 
 As métricas de solicitação da API de SMS e de chat contêm três dimensões que você pode usar para filtrar os dados de métricas. Essas dimensões podem ser agregadas em conjunto usando o tipo de agregação `Count` e dão suporte a todas as séries temporais padrão de agregação do Azure, incluindo `Sum`, `Average`, `Min` e `Max`.
 
-Encontre mais informações sobre os tipos de agregação e as agregações de série temporal compatíveis em [Recursos avançados do Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)
+Encontre mais informações sobre os tipos de agregação e as agregações de série temporal compatíveis em [Recursos avançados do Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#aggregation)
 
 - **Operação**: todas as operações ou rotas que possam ser chamadas no gateway de chat do ACS.
 - **Código de Status**: a resposta do código de status enviada após a solicitação.

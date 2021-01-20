@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 11651b7a76ea0e61f78f3b2f305e39ed621df391
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109310"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218520"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -31,7 +31,7 @@ A rede virtual do Azure permite que os recursos do Azure se comuniquem com segur
 Por padrão, todos os recursos em uma VNet podem se comunicar na saída com a Internet. Você pode se comunicar na entrada com um recurso, atribuindo um endereço IP público ou um Load Balancer público. Você também pode usar o IP público ou Load Balancer público para gerenciar suas conexões de saída.  Para saber mais sobre as conexões de saída no Azure, confira [Conexões de saída](../load-balancer/load-balancer-outbound-connections.md), [Endereços IP públicos](virtual-network-public-ip-address.md) e [Load Balancer](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
->Ao usar somente o [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) interno, a conectividade de saída não está disponível até que você defina como quer que as [conexões de saída](../load-balancer/load-balancer-outbound-connections.md) trabalhem com um IP público no nível da instância, ou um Load Balancer público.
+>Ao usar somente o [Standard Load Balancer](../load-balancer/load-balancer-overview.md) interno, a conectividade de saída não está disponível até que você defina como quer que as [conexões de saída](../load-balancer/load-balancer-outbound-connections.md) trabalhem com um IP público no nível da instância, ou um Load Balancer público.
 
 ### <a name="communicate-between-azure-resources"></a>Comunicação entre recursos do Azure
 
@@ -53,7 +53,7 @@ Você pode conectar suas redes e computadores locais a uma rede virtual usando q
 
 Filtre o tráfego de rede entre sub-redes usando uma ou as duas opções a seguir:
 
-- **Grupos de segurança de rede:** grupos de segurança de rede e grupos de segurança de aplicativo podem conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego para e através de recursos por endereço IP de origem e de destino, porta e protocolo. Para saber mais, confira [Grupos de segurança de rede](security-overview.md#network-security-groups) ou [Grupos de segurança de aplicativo](security-overview.md#application-security-groups).
+- **Grupos de segurança de rede:** grupos de segurança de rede e grupos de segurança de aplicativo podem conter várias regras de segurança de entrada e saída que permitem filtrar o tráfego para e através de recursos por endereço IP de origem e de destino, porta e protocolo. Para saber mais, confira [Grupos de segurança de rede](./network-security-groups-overview.md#network-security-groups) ou [Grupos de segurança de aplicativo](./network-security-groups-overview.md#application-security-groups).
 - **Soluções de virtualização de rede:** uma solução de virtualização de rede é uma VM que executa uma função de rede, como um firewall, otimização WAN ou outra função de rede. Para exibir uma lista de soluções de virtualização de rede disponíveis que você pode implantar em uma rede virtual, confira o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ### <a name="route-network-traffic"></a>Rotear tráfego de rede

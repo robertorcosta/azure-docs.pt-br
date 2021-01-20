@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 3c03a207e91ae969836e208f4e6bf4ea32086c7d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b3ca4f11b02f32e65cf80adc65ec12d25e6e7905
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121304"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573166"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -66,7 +66,7 @@ O Link Privado do Azure fornece os seguintes benefícios:
 |Grade de Eventos do Azure| Todas as regiões públicas<br/> Todas as regiões do Governo       |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para a Grade de Eventos do Azure.](../event-grid/network-security.md) |
 |Aplicativos Web do Azure | Todas as regiões públicas      | Com suporte com o plano PremiumV2, PremiumV3 ou Function Premium  | GA   <br/> [Saiba como criar um ponto de extremidade privado para Aplicativos Web do Azure.](./tutorial-private-endpoint-webapp-portal.md)   |
 |Azure Machine Learning | Todas as regiões públicas    |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
-| Automação do Azure  | Todas as regiões públicas |  | Visualização </br> [Saiba como criar um ponto de extremidade privado para a Automação do Azure.](../automation/how-to/private-link-security.md)| |
+| Automação do Azure  | Todas as regiões públicas<br/> Todas as regiões do Governo |  | Visualização </br> [Saiba como criar um ponto de extremidade privado para a Automação do Azure.](../automation/how-to/private-link-security.md)| |
 | Hub IoT do Azure | Todas as regiões públicas    |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Hub IoT do Azure.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | LESTE DOS EUA, CENTRO-SUL DOS EUA,<br/>OESTE DOS EUA 2, Todas as regiões da China      |  | Visualizar   <br/> [Saiba como criar um ponto de extremidade privado para o Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
 | Azure Monitor <br/>(Log Analytics e Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 

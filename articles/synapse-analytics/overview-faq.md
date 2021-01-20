@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/25/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0d833c32000eb91511782184ef4455bc1973a714
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: a7ee4e205851a751f7a50ac0ddadfb4e4c7eb81a
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807902"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247396"
 ---
 # <a name="azure-synapse-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics
 
@@ -138,11 +138,6 @@ A: Não é possível "mover" nem "migrar". Você pode optar por habilitar novos 
 ### <a name="q-what-is-the-default-deployment-of-dedicated-sql-pools-now"></a>P: Qual é a implantação padrão de pools de SQL dedicados agora? 
 
 A: Por Padrão, todos os novos pools de SQL dedicados serão implantados em um workspace; no entanto, se você precisar, ainda poderá criar um pool de SQL dedicado (anteriormente conhecido como SQL DW) em um fator forma autônomo. 
-
-
-### <a name="q-what-are-the-functional-differences-between-dedicated-sql-pools-and-serverless-sql-pools"></a>P: Quais são as diferenças funcionais entre pools de SQL dedicados e pools de SQL sem servidor?
-
-A: Você pode encontrar uma lista completa das diferenças em [Diferenças do recurso T-SQL no SQL do Synapse](./sql/overview-features.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
