@@ -21,6 +21,8 @@
       href: author-sign-policy.md
     - name: Criar um ponto de extremidade privado – PowerShell
       href: private-endpoint-powershell.md
+    - name: Monitoramento de Diagnóstico do Azure
+      href: azure-diagnostic-monitoring.md
     - name: Exemplos de código de atestado de SGX
       href: /samples/browse/?expanded=azure&terms=attestation
 - name: Exemplos

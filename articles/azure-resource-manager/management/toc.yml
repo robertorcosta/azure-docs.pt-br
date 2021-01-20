@@ -103,6 +103,8 @@
               href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Rede virtual
               href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
+            - name: NIC (Adaptador de Rede)
+              href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Servidor do Banco de Dados do Azure para PostgreSQL
               href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json
             - name: Servidor do Banco de Dados do Azure para MariaDB

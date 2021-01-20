@@ -6,7 +6,7 @@
       href: overview-reports.md
     - name: O que é monitoramento do Azure AD?
       href: overview-monitoring.md
-    - name: O que é diagnóstico de entrada?
+    - name: O que é o diagnóstico de entrada?
       href: overview-sign-in-diagnostics.md
 - name: Inícios rápidos
   expanded: true
