@@ -240,7 +240,7 @@
         - name: Intermitência de disco
           href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Metas da escalabilidade para os discos
-          href: disk-scalability-targets.md
+          href: ../disks-scalability-targets.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Backup e recuperação de desastres para discos
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Discos compartilhados
