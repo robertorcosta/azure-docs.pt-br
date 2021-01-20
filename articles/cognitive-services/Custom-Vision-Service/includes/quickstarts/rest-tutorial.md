@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: a53b316f6d942f070ef925b369bcea8476fbfffd
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 8890a0132e5f510a0af2862c483206fd025a68d8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853713"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256428"
 ---
 Introdução à API REST da Visão Personalizada. Siga estas etapas para chamar a API e criar um modelo de classificação de imagem. Você criará um projeto, adicionará marcas, treinará o projeto e usará a URL do ponto de extremidade de previsão do projeto para testá-lo programaticamente. Use este exemplo como um modelo para criar o próprio aplicativo de reconhecimento de imagem.
 
@@ -102,6 +102,9 @@ Uma resposta JSON semelhante à seguinte será mostrada. Salve o valor `"id"` de
 ## <a name="upload-and-tag-images"></a>Carregar e marcar imagens
 
 Em seguida, baixe as imagens de exemplo para este projeto. Salve o conteúdo da [pasta de imagens de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) em seu dispositivo local.
+
+> [!NOTE]
+> O Trove, um projeto da Microsoft Garage, permite coletar e comprar conjuntos de imagens para fins de treinamento. Depois de coletar suas imagens, você pode baixá-las e, em seguida, importá-las para seu projeto de Visão Personalizada da maneira usual. Visite a [página do Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3) para saber mais.
 
 Use o comando a seguir para carregar as imagens e aplicar marcas; uma vez para as imagens "Cicuta" e separadamente para as imagens "Cerejeira". Confira a API [Criar imagens dos dados](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5) para obter mais opções.
 
