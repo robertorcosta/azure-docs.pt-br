@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 02c3890a9aca03d9d79b55098297174401cab37d
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 64a4404fa881181f92d442a73e5da4c16ae87ae3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98537950"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598879"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Facebook usando o Azure Active Directory B2C
 
@@ -60,7 +60,7 @@ Para habilitar a entrada para usuários com uma conta do Facebook no Azure Activ
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurar o Facebook como um provedor de identidade
+## <a name="configure-facebook-as-an-identity-provider"></a>Configurar o Facebook como um provedor de identidade
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
@@ -70,25 +70,6 @@ Para habilitar a entrada para usuários com uma conta do Facebook no Azure Activ
 1. Para **ID do cliente**, insira a ID do aplicativo do Facebook que criou anteriormente.
 1. Para **Segredo do cliente**, insira o Segredo do Aplicativo que você registrou.
 1. Clique em **Salvar**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="add-facebook-as-an-identity-provider"></a>Adicionar o Facebook como um provedor de identidade
-
-1. No arquivo `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** , substitua o valor de `client_id` pela ID do aplicativo do Facebook:
-
-   ```xml
-   <TechnicalProfile Id="Facebook-OAUTH">
-     <Metadata>
-     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
-       <Item Key="client_id">00000000000000</Item>
-   ```
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
 
 ## <a name="add-facebook-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Facebook a um fluxo de usuário 
 
@@ -103,6 +84,17 @@ Para habilitar a entrada para usuários com uma conta do Facebook no Azure Activ
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurar o Facebook como um provedor de identidade
+
+1. No arquivo `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** , substitua o valor de `client_id` pela ID do aplicativo do Facebook:
+
+   ```xml
+   <TechnicalProfile Id="Facebook-OAUTH">
+     <Metadata>
+     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
+       <Item Key="client_id">00000000000000</Item>
+   ```
 
 ## <a name="upload-and-test-the-policy"></a>Carregar e testar a política
 

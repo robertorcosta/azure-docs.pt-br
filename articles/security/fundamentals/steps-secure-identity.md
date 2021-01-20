@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ffc5bafca305086b0c524c76eb91b8aec2e2655d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842015"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602445"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -81,7 +81,7 @@ Você poderá usar o [PowerShell para impedir que as senhas expirem](../../activ
 
 Se a organização usar uma solução de identidade híbrida com autenticação de passagem ou federação, então, você deverá habilitar a sincronização de hash de senha pelos dois motivos a seguir:
 
-* O relatório [Usuários com credenciais vazadas](../../active-directory/identity-protection/overview-identity-protection.md) no gerenciamento do Azure AD alerta sobre pares de nome de usuário e senha que foram expostos na “dark Web”. Um volume incrível de senhas vazou por meio de phishing, malware e reutilização de senhas em sites de terceiros que posteriormente são violados. A Microsoft localizará muitas dessas credenciais vazadas e indicará, nesse relatório, se elas correspondem às credenciais da sua organização, mas somente se você [habilitar a sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
+* O relatório [Usuários com credenciais vazadas](../../active-directory/identity-protection/overview-identity-protection.md) no gerenciamento do Azure AD alerta sobre pares de nome de usuário e senha que foram expostos na “dark Web”. Um volume incrível de senhas vazou por meio de phishing, malware e reutilização de senhas em sites de terceiros que posteriormente são violados. A Microsoft encontra muitas dessas credenciais vazadas e informará, neste relatório, se elas corresponderem às credenciais em sua organização – mas somente se você [habilitar a sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) ou se tiver identidades somente de nuvem!
 * No caso de uma interrupção local (por exemplo, em um ataque de ransomware), você pode alternar para usar a autenticação de [nuvem usando a sincronização de hash de senha](../../active-directory/hybrid/choose-ad-authn.md). Esse método de autenticação de backup permitirá que você continue acessando aplicativos configurados para autenticação com Azure Active Directory, incluindo Microsoft 365. Nesse caso, a equipe de TI não precisará recorrer a contas de email pessoal para compartilhar dados até que a interrupção local seja resolvida.
 
 Saiba mais sobre como a [sincronização de hash de senha](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) funciona.

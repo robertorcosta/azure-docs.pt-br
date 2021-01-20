@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 4fe06edbb3e02f23ef56a3e7fff848682e36e3af
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 925a092eb67fa459213a37df0fc6b3f7a1b8a0fb
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251311"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602366"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planejar e gerenciar custos para serviços cognitivas do Azure
 
@@ -60,9 +60,9 @@ Depois de excluir QnA Maker recursos, os recursos a seguir podem continuar a exi
 - [Serviço de Azure App (para o tempo de execução)](https://azure.microsoft.com/pricing/details/app-service/)
 - [Pesquisa Cognitiva do Azure (para os dados)](https://azure.microsoft.com/pricing/details/search/)
 
-### <a name="using-monetary-credit-with-cognitive-services"></a>Usando crédito monetário com serviços cognitivas
+### <a name="using-azure-prepayment-credit-with-cognitive-services"></a>Usando o crédito de pagamento antecipado do Azure com serviços cognitivas
 
-Você pode pagar por cobranças de serviços cognitivas com seu crédito de compromisso monetário de EA. No entanto, você não pode usar crédito de compromisso monetário de EA para pagar por cobranças de produtos e serviços de terceiros, incluindo aqueles do Azure Marketplace.
+Você pode pagar por cobranças de serviços cognitivas com o crédito antecipado do Azure (anteriormente chamado de compromisso monetário). No entanto, você não pode usar o crédito de pagamento antecipado do Azure para pagar por cobranças de produtos e serviços de terceiros, incluindo aqueles do Azure Marketplace.
 
 ## <a name="create-budgets"></a>Criar orçamentos
 

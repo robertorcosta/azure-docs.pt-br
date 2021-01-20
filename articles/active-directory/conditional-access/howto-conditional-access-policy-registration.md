@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61f655d459592022a2e34b87adc50e3d49b03dc9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0e99f7466bd3b7ed5517157ca3fa45e7c3241217
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935760"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599755"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Acesso Condicional: proteger o registro de informações de segurança
 
@@ -34,6 +34,8 @@ A política a seguir se aplica a todos os usuários selecionados que tentam se r
    > [!WARNING]
    > Os usuários devem estar habilitados para o [registro combinado](../authentication/howto-registration-mfa-sspr-combined.md).
 
+   1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
+   1. Selecione **Concluído**.
 1. Em **Aplicativos de nuvem ou ações**, selecione **Ações do usuário** e marque **Registrar informações de segurança**.
 1. Em **Condições** > **Locais**.
    1. Configure **Sim**.

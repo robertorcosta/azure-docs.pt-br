@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: 9fe0c79a2f65b27b35aa5029d0a53de62ef08078
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e85c97df29bbbcc5d446d788cc190f3c90f24024
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251651"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602224"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Banco de dados SQL do Azure e regras de firewall de IP do Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -43,6 +43,9 @@ Você pode configurar regras de firewall de IP no nível de servidor usando as i
 
 - Para usar o portal ou o PowerShell, você deve ser o proprietário da assinatura ou um colaborador da assinatura.
 - Para usar o Transact-SQL, você deve se conectar ao banco de dados *mestre* como o logon da entidade de segurança no nível do servidor ou como o administrador do Azure Active Directory. (Uma regra de firewall de IP de nível de servidor deve ser criada primeiro por um usuário que tenha permissões de nível do Azure.)
+
+> [!NOTE]
+> Por padrão, durante a criação de um novo SQL Server lógico do portal do Azure, a configuração **permitir que os serviços e recursos do Azure acessem este servidor** está definida como **não**.
 
 ### <a name="database-level-ip-firewall-rules"></a>Regras de firewall de IP no nível de banco de dados
 

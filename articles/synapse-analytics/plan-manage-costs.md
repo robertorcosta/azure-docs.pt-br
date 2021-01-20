@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/09/2020
-ms.openlocfilehash: ab772043c681684836e3c488419584d94dd0b45a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c7a0be6f1d402cc994532ab4bc5a5d0ea39bc8b7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220636"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599052"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Planejar e gerenciar custos do Azure Synapse Analytics
 
@@ -48,9 +48,9 @@ Depois de excluir os recursos do Synapse do Azure, os recursos a seguir podem co
 
 - Data Lake Storage Gen2
 
-### <a name="using-monetary-credit-with-azure-synapse"></a>Usando crédito monetário com o Azure Synapse 
+### <a name="using-azure-prepayment-credit-with-azure-synapse"></a>Usando o crédito de pagamento antecipado do Azure com o Azure Synapse 
 
-Você pode pagar pelos encargos do Azure Synapse com seu crédito de compromisso monetário de EA. No entanto, você não pode usar crédito de compromisso monetário de EA para pagar por cobranças de produtos e serviços de terceiros, incluindo aqueles do Azure Marketplace.
+Você pode pagar pelos encargos do Azure Synapse com seu crédito antecipado do Azure (anteriormente chamado de compromisso monetário). No entanto, você não pode usar o crédito de pagamento antecipado do Azure para pagar por cobranças de produtos e serviços de terceiros, incluindo aqueles do Azure Marketplace.
 
 ## <a name="review-estimated-costs-in-the-azure-portal"></a>Examinar os custos estimados no portal do Azure
 

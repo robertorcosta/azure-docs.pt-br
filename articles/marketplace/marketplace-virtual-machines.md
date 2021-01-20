@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d9e26b6388223ae252a5e85e6e9fb9783a3b8429
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628281"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600408"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planejar uma oferta de máquina virtual
 
@@ -73,7 +73,7 @@ As ofertas de VM exigem pelo menos um plano. Um plano define o escopo e os limit
 As VMs são totalmente habilitadas para comércio, usando modelos de licenciamento pago pelo uso ou BYOL (traga sua própria licença). A Microsoft hospeda a transação comercial e cobra o cliente em seu nome. Você tem a vantagem de usar a relação de pagamento preferencial entre o cliente e a Microsoft, incluindo os Contratos Enterprise. Para obter mais informações, consulte [recursos de transação do Marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
-> Os compromissos monetários associados a um Enterprise Agreement podem ser usados no uso do Azure de sua VM, mas não em relação às taxas de licenciamento de software.
+> O pagamento antecipado do Azure (anteriormente chamado de compromisso monetário) associado a um Enterprise Agreement pode ser usado em relação ao uso do Azure de sua VM, mas não contra suas taxas de licenciamento de software.
 
 ### <a name="licensing-options"></a>Opções de licenciamento
 

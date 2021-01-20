@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 01/18/2021
-ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567392"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600976"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -32,7 +32,7 @@ Para habilitar extensões de VM:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    ![Captura de tela que exibe como habilitar o monitoramento em nível de convidado.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
@@ -321,7 +321,7 @@ Consulte a tabela a seguir para obter os problemas que surgirem quando você bai
 |Nome de VHD inválido|Verifique se há algum caractere especial, como um sinal de porcentagem `%` ou aspas `"` , no nome do VHD.|Renomeie o arquivo VHD removendo os caracteres especiais.|
 |
 
-## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Primeiros 1 MB (2048 setores, cada setor de 512 bytes) de partição
+## <a name="first-partition-starts-at-1-mb-2048-sectors"></a>A primeira partição começa em 1 MB (2048 setores)
 
 Se você estiver [criando sua própria imagem](azure-vm-create-using-own-image.md), verifique se os primeiros 2048 setores (1 MB) do disco do sistema operacional estão vazios. Caso contrário, a publicação falhará. Esse requisito é aplicável somente ao disco do sistema operacional (não discos de dados). Se você estiver criando sua imagem [de uma base aprovada](azure-vm-create-using-approved-base.md), poderá ignorar esse requisito.
 

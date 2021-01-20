@@ -4,16 +4,16 @@ description: Crie uma conta de armazenamento e um contêiner no armazenamento de
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 39b5a812c5f9b8e148b5180569af110c72e2c75b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b3bb8736eb7a8e24f47812fc4feecbf96628dfb6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544591"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599817"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Java v8
 
@@ -201,5 +201,5 @@ sourceFile.deleteOnExit();
 Neste artigo, você aprendeu a transferir arquivos entre um disco local e o Armazenamento de Blobs do Azure usando Java. Para saber mais sobre como trabalhar com Java, prossiga para o nosso repositório de código de origem do GitHub.
 
 > [!div class="nextstepaction"]
-> [Referência de API do Java](/java/api/overview/azure/storage?view=azure-java-legacy)
+> [Referência de API do Java](/java/api/overview/azure/storage?view=azure-java-legacy&preserve-view=true)
 > [Exemplos de código para Java](../common/storage-samples-java.md)

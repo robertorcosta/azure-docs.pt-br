@@ -2,20 +2,20 @@
 title: Controle de acesso do barramento de serviço do Azure com assinaturas de acesso compartilhado
 description: Visão geral da controle de acesso do Barramento de Serviço usando a visão geral de Assinaturas de Acesso Compartilhado, detalhes sobre a autenticação SAS com o Barramento de Serviço do Azure.
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/19/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f71320613682f7d4b9f3b706845e68f581b3dc10
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6bdc167c437a79d609db25a2e3c48b71e0a748b2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339403"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598827"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controle de acesso do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
-As *Assinaturas de Acesso Compartilhado* (SAS) são o mecanismo de segurança principal para mensagens do Barramento de Serviço. Este artigo discute as SAS, como elas funcionam e como usá-las de maneira independente da plataforma.
+Este artigo discute as *assinaturas de acesso compartilhado* (SAS), como elas funcionam e como usá-las de forma independente da plataforma.
 
-SAS protege o acesso ao Barramento de Serviço com base nas regras de autorização. Elas são configuradas em um namespace ou entidade de mensagens (retransmissão, fila ou tópico). Uma regra de autorização tem nome, está associada a direitos específicos e executa um par de chaves de criptografia. Use o nome e a chave da regra por meio do SDK do Barramento de Serviço ou em seu próprio código para gerar um token SAS. Um cliente pode passar o token para o Barramento de Serviço para comprovar a autorização para a operação solicitada.
+SAS protege o acesso ao Barramento de Serviço com base nas regras de autorização. Eles são configurados em um namespace ou em uma entidade de mensagens (fila ou tópico). Uma regra de autorização tem nome, está associada a direitos específicos e executa um par de chaves de criptografia. Use o nome e a chave da regra por meio do SDK do Barramento de Serviço ou em seu próprio código para gerar um token SAS. Um cliente pode passar o token para o Barramento de Serviço para comprovar a autorização para a operação solicitada.
 
 > [!NOTE]
 > O barramento de serviço do Azure dá suporte à autorização de acesso a um namespace do barramento de serviço e suas entidades usando o Azure Active Directory (AD do Azure). A autorização de usuários ou aplicativos usando o token 2,0 do OAuth retornado pelo Azure AD fornece segurança superior e facilidade de uso sobre SAS (assinaturas de acesso compartilhado). Com o Azure AD, não é necessário armazenar os tokens no código e arriscar as vulnerabilidades de segurança potenciais.
@@ -36,12 +36,12 @@ O token de [Assinatura de Acesso Compartilhado](/dotnet/api/microsoft.servicebus
 
 Cada namespace do Barramento de Serviço e cada entidade do Barramento de Serviço tem uma política de Autorização de Acesso Compartilhado composta de regras. A política no nível de namespace se aplica a todas as entidades dentro do namespace, independentemente de suas configurações de política individuais.
 
-Para cada regra de política de autorização, você toma decisões quanto a três informações: **nome** , **escopo** e **direitos**. O **nome** é apenas isso, um nome exclusivo dentro do escopo. O escopo é bastante simples: é o URI do recurso em questão. Para um namespace do Barramento de Serviço, o escopo é o FQDN (nome de domínio totalmente qualificado), como `https://<yournamespace>.servicebus.windows.net/`.
+Para cada regra de política de autorização, você toma decisões quanto a três informações: **nome**, **escopo** e **direitos**. O **nome** é apenas isso, um nome exclusivo dentro do escopo. O escopo é bastante simples: é o URI do recurso em questão. Para um namespace do Barramento de Serviço, o escopo é o FQDN (nome de domínio totalmente qualificado), como `https://<yournamespace>.servicebus.windows.net/`.
 
 Os direitos concedidos pela regra de política podem ser uma combinação de:
 
 * 'Enviar' - confere o direito de enviar mensagens para a entidade
-* 'Escutar' - confere o direito de escutar (retransmissão) ou receber (fila, assinaturas) e todo o manuseio de mensagens relacionado
+* ' Escutar '-confere o direito de recebimento (fila, assinaturas) e todos os tratamentos de mensagens relacionados
 * 'Gerenciar' - confere o direito de gerenciar a topologia do namespace, incluindo a criação e a exclusão de entidades
 
 O direito de 'Gerenciar' inclui os direitos de 'Enviar' e 'Receber'.
@@ -55,16 +55,16 @@ Quando você cria um namespace do Barramento de Serviço, é criada automaticame
 ## <a name="best-practices-when-using-sas"></a>Práticas recomendadas ao usar SAS
 Ao usar assinaturas de acesso compartilhado nos seus aplicativos, você precisará estar ciente de dois riscos possíveis:
 
-- Se uma SAS for vazada, ela poderá ser usada por qualquer pessoa que a obtenha, o que pode comprometer seus recursos de hubs de eventos.
+- Se uma SAS for vazada, ela poderá ser usada por qualquer pessoa que a obtenha, o que pode comprometer os recursos do barramento de serviço.
 - Se uma SAS fornecida a um aplicativo cliente expirar e o aplicativo não puder recuperar uma nova SAS do seu serviço, a funcionalidade do aplicativo poderá ser prejudicada.
 
 As recomendações a seguir para usar assinaturas de acesso compartilhado podem ajudar a atenuar esses riscos:
 
-- **Fazer com que os clientes renovem automaticamente a SAS, se necessário** : os clientes devem renovar a SAS bem antes da expiração, para permitir tempo para novas tentativas se o serviço que fornece a SAS não estiver disponível. Se a sua SAS for destinada a ser usada para um pequeno número de operações imediatas e de curta duração que devem ser concluídas dentro do período de expiração, pode ser desnecessária, pois a SAS não deve ser renovada. No entanto, se você tiver um cliente que está sempre fazendo solicitações via SAS, surge a possibilidade de expiração. A principal consideração é equilibrar a necessidade de que a SAS seja de curta duração (como mencionado anteriormente) com a necessidade de garantir que o cliente esteja solicitando a renovação cedo o suficiente (para evitar a interrupção devido à expiração da SAS antes de uma renovação bem-sucedida).
-- **Tenha cuidado com a hora de início da SAS** : se você definir a hora de início de SAS como **agora** , devido à distorção do relógio (diferenças na hora atual de acordo com computadores diferentes), as falhas poderão ser observadas intermitentemente pelos primeiros minutos. Em geral, defina a hora de início para pelo menos 15 minutos no passado. Ou então, não o defina, o que o tornará válido imediatamente em todos os casos. O mesmo geralmente se aplica ao tempo de expiração também. Lembre-se de que você pode fazer um observador de até 15 minutos de distorção de relógio em qualquer direção em qualquer solicitação. 
-- **Seja específico com o recurso a ser acessado** : uma prática recomendada de segurança é fornecer ao usuário os privilégios mínimos necessários. Se um usuário precisar apenas de acesso de leitura a uma única entidade, conceda-lhe acesso de leitura a essa única entidade, e não acesso de leitura/gravação/exclusão a todas as entidades. Também ajudará a diminuir o dano se uma SAS for comprometida porque a SAS tem menos poder nas mãos de um invasor.
-- **Nem sempre use SAS** : às vezes, os riscos associados a uma operação específica em relação aos seus hubs de eventos superam os benefícios da SAS. Para essas operações, crie um serviço de camada intermediária que grave em seus hubs de eventos após a validação, a autenticação e a auditoria da regra de negócio.
-- **Sempre usar HTTPS** : sempre use HTTPS para criar ou distribuir uma SAS. Se uma SAS for passada por HTTP e interceptada, um invasor executando um anexo Man-in-the-Middle será capaz de ler a SAS e, em seguida, usá-la da mesma forma que o usuário pretendido pode ter, potencialmente comprometendo dados confidenciais ou permitindo corrupção de dados pelo usuário mal-intencionado.
+- **Fazer com que os clientes renovem automaticamente a SAS, se necessário**: os clientes devem renovar a SAS bem antes da expiração, para permitir tempo para novas tentativas se o serviço que fornece a SAS não estiver disponível. Se a sua SAS for destinada a ser usada para um pequeno número de operações imediatas e de curta duração que devem ser concluídas dentro do período de expiração, pode ser desnecessária, pois a SAS não deve ser renovada. No entanto, se você tiver um cliente que está sempre fazendo solicitações via SAS, surge a possibilidade de expiração. A principal consideração é equilibrar a necessidade de que a SAS seja de curta duração (como mencionado anteriormente) com a necessidade de garantir que o cliente esteja solicitando a renovação cedo o suficiente (para evitar a interrupção devido à expiração da SAS antes de uma renovação bem-sucedida).
+- **Tenha cuidado com a hora de início da SAS**: se você definir a hora de início de SAS como **agora**, devido à distorção do relógio (diferenças na hora atual de acordo com computadores diferentes), as falhas poderão ser observadas intermitentemente pelos primeiros minutos. Em geral, defina a hora de início para pelo menos 15 minutos no passado. Ou então, não o defina, o que o tornará válido imediatamente em todos os casos. O mesmo geralmente se aplica ao tempo de expiração também. Lembre-se de que você pode fazer um observador de até 15 minutos de distorção de relógio em qualquer direção em qualquer solicitação. 
+- **Seja específico com o recurso a ser acessado**: uma prática recomendada de segurança é fornecer ao usuário os privilégios mínimos necessários. Se um usuário precisar apenas de acesso de leitura a uma única entidade, conceda-lhe acesso de leitura a essa única entidade, e não acesso de leitura/gravação/exclusão a todas as entidades. Também ajudará a diminuir o dano se uma SAS for comprometida porque a SAS tem menos poder nas mãos de um invasor.
+- **Nem sempre use SAS**: às vezes, os riscos associados a uma operação específica em relação aos seus hubs de eventos superam os benefícios da SAS. Para essas operações, crie um serviço de camada intermediária que grave em seus hubs de eventos após a validação, a autenticação e a auditoria da regra de negócio.
+- **Sempre usar HTTPS**: sempre use HTTPS para criar ou distribuir uma SAS. Se uma SAS for passada por HTTP e interceptada, um invasor executando um anexo Man-in-the-Middle será capaz de ler a SAS e, em seguida, usá-la da mesma forma que o usuário pretendido pode ter, potencialmente comprometendo dados confidenciais ou permitindo corrupção de dados pelo usuário mal-intencionado.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuração da autenticação de Assinatura de Acesso Compartilhado
 
@@ -72,7 +72,7 @@ Você pode configurar a regra [SharedAccessAuthorizationRule](/dotnet/api/micros
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-Nessa figura, as regras de autorização *manageRuleNS* , *sendRuleNS* e *listenRuleNS* se aplicam à fila Q1 e ao tópico T1, enquanto *listenRuleQ* e *sendRuleQ* se aplicam somente à fila Q1 e *sendRuleT* se aplica apenas ao tópico T1.
+Nessa figura, as regras de autorização *manageRuleNS*, *sendRuleNS* e *listenRuleNS* se aplicam à fila Q1 e ao tópico T1, enquanto *listenRuleQ* e *sendRuleQ* se aplicam somente à fila Q1 e *sendRuleT* se aplica apenas ao tópico T1.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Gerar um token de Assinatura de Acesso Compartilhado
 
@@ -82,18 +82,34 @@ Qualquer cliente que tenha acesso ao nome de uma regra de autorização e a uma 
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** – Instantâneo de expiração do token. Número inteiro que reflete os segundos desde a época `00:00:00 UTC` em 1 de janeiro de 1970 (época UNIX) quando o token expira.
-* **`skn`** -Nome da regra de autorização.
-* **`sr`** -URI do recurso que está sendo acessado.
-* **`sig`** Signature.
+- `se` - Instante de expiração do token. Número inteiro que reflete os segundos desde a época `00:00:00 UTC` em 1 de janeiro de 1970 (época UNIX) quando o token expira.
+- `skn` - Nome da regra de autorização.
+- `sr` -URI codificado de URL do recurso que está sendo acessado.
+- `sig` -Assinatura HMACSHA256 codificada para URL. O cálculo de hash é semelhante ao seguinte pseudocódigo e retorna Base64 de saída binária bruta.
 
-O `signature-string` é o hash SHA-256 calculado sobre o URI de recurso ( **escopo** , conforme descrito na seção anterior) e a representação de cadeia de caracteres do instantâneo de expiração do token, separados por LF.
+    ```
+    urlencode(base64(hmacsha256(urlencode('https://<yournamespace>.servicebus.windows.net/') + "\n" + '<expiry instant>', '<signing key>')))
+    ```
 
-O cálculo de hash é semelhante ao seguinte pseudocódigo e retorna um valor de hash de 256 bits/32 bytes.
+Aqui está um exemplo de código C# para gerar um token SAS:
 
+```csharp
+private static string createToken(string resourceUri, string keyName, string key)
+{
+    TimeSpan sinceEpoch = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    var week = 60 * 60 * 24 * 7;
+    var expiry = Convert.ToString((int)sinceEpoch.TotalSeconds + week);
+    string stringToSign = HttpUtility.UrlEncode(resourceUri) + "\n" + expiry;
+    HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
+    var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+    var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
+    return sasToken;
+}
 ```
-SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
-```
+
+> [!IMPORTANT]
+> Para obter exemplos de como gerar um token SAS usando linguagens de programação diferentes, consulte [gerar token SAS](/rest/api/eventhub/generate-sas-token). 
+
 
 O token contém os valores não hash para que o destinatário possa recalcular o hash com os mesmos parâmetros, verificando se o emissor possui uma chave de assinatura válida.
 
@@ -105,8 +121,6 @@ A regra de autorização de acesso compartilhado usada para assinar deve ser con
 
 Um token SAS é válido para todos os recursos prefixados com o `<resourceURI>` usado na `signature-string`.
 
-> [!NOTE]
-> Para obter exemplos de como gerar um token SAS usando linguagens de programação diferentes, consulte [gerar token SAS](/rest/api/eventhub/generate-sas-token). 
 
 ## <a name="regenerating-keys"></a>Regenerando chaves
 
@@ -174,7 +188,7 @@ sendClient.Send(helloMessage);
 
 Você também pode usar o provedor de token diretamente para emitir tokens para passar para outros clientes.
 
-Cadeias de conexão podem incluir um nome de regra ( *SharedAccessKeyName* ) e uma chave de regra ( *SharedAccessKey* ) ou um token emitido anteriormente ( *SharedAccessSignature* ). Quando estiverem presentes na cadeia de conexão passada para qualquer construtor ou método de fábrica que aceite uma cadeia de conexão, o provedor de token SAS é automaticamente criado e preenchido.
+Cadeias de conexão podem incluir um nome de regra (*SharedAccessKeyName*) e uma chave de regra (*SharedAccessKey*) ou um token emitido anteriormente (*SharedAccessSignature*). Quando estiverem presentes na cadeia de conexão passada para qualquer construtor ou método de fábrica que aceite uma cadeia de conexão, o provedor de token SAS é automaticamente criado e preenchido.
 
 Observe que, para usar a autorização SAS com as retransmissões do Barramento de Serviço, você poderá utilizar as chaves SAS configuradas no namespace do Barramento de Serviço. Se você criar explicitamente uma retransmissão no namespace ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) com uma [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)), será possível definir as regras SAS apenas para essa retransmissão. Para usar a autorização SAS com assinaturas do Barramento de Serviço, você poderá usar as chaves SAS configuradas em um namespace ou em um tópico do Barramento de Serviço.
 
@@ -252,7 +266,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-O método `PutCbsToken()` recebe a *conexão* (instância da classe de conexão AMQP, conforme fornecida pela [biblioteca AMQP .Net Lite](https://github.com/Azure/amqpnetlite)), que representa a conexão TCP com o serviço, e o parâmetro *sasToken* , o token SAS a ser enviado.
+O método `PutCbsToken()` recebe a *conexão* (instância da classe de conexão AMQP, conforme fornecida pela [biblioteca AMQP .Net Lite](https://github.com/Azure/amqpnetlite)), que representa a conexão TCP com o serviço, e o parâmetro *sasToken*, o token SAS a ser enviado.
 
 > [!NOTE]
 > É importante que a conexão seja criada com o **mecanismo de autenticação SASL definido como ANONYMOUS** (e não o padrão PLAIN com nome de usuário e senha usados quando você não precisa enviar o token SAS).

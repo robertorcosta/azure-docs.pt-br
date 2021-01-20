@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6773c6b29ecfd8354c54a6214cfe0b4050edcd38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244305"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602645"
 ---
 # <a name="how-to-sign-up-for-translator"></a>Como se inscrever no Tradutor
 
@@ -41,7 +41,7 @@ Depois de entrar no portal, você pode criar uma assinatura para o tradutor da s
 Ao se inscrever no Translator, você obtém uma chave de acesso personalizada exclusiva para sua assinatura. Essa chave é necessária em cada chamada para o tradutor.
 
 1. Recupere sua chave de autenticação selecionando primeiro a assinatura adequada.
-1. Selecione **Chaves** na seção **Gerenciamento de Recursos** dos detalhes da sua assinatura.
+1. Selecione **chaves e ponto de extremidade** na seção **Gerenciamento de recursos** dos detalhes da sua assinatura.
 1. Copie qualquer uma das chaves listas para sua assinatura.
 
 ## <a name="learn-test-and-get-support"></a>Aprender, testar e obter suporte

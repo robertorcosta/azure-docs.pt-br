@@ -3,19 +3,22 @@ title: Preparar e personalizar uma imagem VHD mestre – Azure
 description: Como preparar, personalizar e carregar uma imagem mestra de área de trabalho virtual do Windows no Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023387"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602370"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
 Este artigo mostra como preparar uma imagem de VHD (disco rígido virtual) mestre para carregar no Azure, incluindo como criar máquinas virtuais (VMs) e instalar software neles. Essas instruções são referentes a uma configuração específica da Área de Trabalho Virtual do Windows que pode ser usada com os processos existentes de sua organização.
+
+>[!IMPORTANT]
+>Recomendamos que você use uma imagem da Galeria de imagens do Azure. No entanto, se você precisar usar uma imagem personalizada, certifique-se de que você ainda não tem o agente de área de trabalho virtual do WIndows instalado em seu dispositivo. Usar uma imagem personalizada com o agente de área de trabalho virtual do Windows pode causar problemas com a imagem.  
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 

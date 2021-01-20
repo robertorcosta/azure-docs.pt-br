@@ -6,26 +6,26 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5e12ca3bf626ae212f44fe0378ccb6649738753c
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 7240c1b0f19dc49ab4130c5ee2516dcfefb2e2c2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562838"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602196"
 ---
 # <a name="errors-in-the-connector-status"></a>Erros no status do conector
 
-Na lista status do conector, você pode encontrar erros que podem ajudá-lo a corrigir o conector ITSM.
+Na lista status do conector, você pode encontrar erros que podem ajudá-lo a corrigir problemas em seu conector ITSM.
 
 ## <a name="status-common-errors"></a>Erros comuns de status
 
-nesta seção, você pode encontrar o erro comum que pode ser encontrado na lista status e como você deve resolvê-lo:
+nesta seção, você pode encontrar os erros comuns apresentados na seção status do conector e como você deve resolvê-lo:
 
-*  **Erro**: "resposta inesperada do ServiceNow junto com o código de status de êxito. Resposta: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "resultado": [{"transform_map": "incidente do OMS", "tabela": "incidente", "status": "erro", "error_message": "{registro de destino não encontrado | Tabela inválida | Tabela de preparo inválida "}"
+* **Erro**: "resposta inesperada do ServiceNow junto com o código de status de êxito. Resposta: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "resultado": [{"transform_map": "incidente do OMS", "tabela": "incidente", "status": "erro", "error_message": "{registro de destino não encontrado | Tabela inválida | Tabela de preparo inválida "}"
 
     **Causa**: esse erro é retornado do ServiceNow quando:
-    * Um script personalizado implantado na instância do ServiceNow faz com que os incidentes sejam ignorados.
-    * O próprio código "aplicativo de integrador do OMS" foi modificado no ServiceNow, por exemplo, o script onbefore.
+  * Um script personalizado implantado na instância do ServiceNow faz com que os incidentes sejam ignorados.
+  * O próprio código "aplicativo de integrador do OMS" foi modificado no ServiceNow, por exemplo, o script onbefore.
 
     **Resolução**: Desabilite todos os scripts personalizados ou modificações de código do caminho de importação de dados.
 
@@ -43,7 +43,7 @@ nesta seção, você pode encontrar o erro comum que pode ser encontrado na list
 
 * **Erro**: "ServiceDeskHttpBadRequestException: StatusCode = 429"
 
-    **Causa**: os limites de taxa do ServiceNow são muito baixos.
+    **Causa**: os limites de taxa do ServiceNow são muito altos/baixos.
 
     **Resolução**: aumente ou cancele os limites de taxa na instância do ServiceNow, conforme explicado [aqui](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
 
@@ -57,14 +57,14 @@ nesta seção, você pode encontrar o erro comum que pode ser encontrado na list
 
     **Causa**: conector ITSM foi excluído.
 
-    **Resolução**: a conector ITSM foi excluída, mas ainda há ações de ITSM definidas para usá-la. Há duas opções para resolver esse problema:
+    **Resolução**: a conector ITSM foi excluída, mas ainda há grupos de ações de ITSM definidos associados a ela. Há duas opções para resolver esse problema:
   * Localizar e desabilitar ou excluir essa ação
   * [Reconfigure o grupo de ações](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) para usar um conector ITSM existente.
   * [Crie um novo conector ITSM](./itsmc-definition.md#create-an-itsm-connection) e [reconfigure o grupo de ações para usá-lo](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="ui-common-errors"></a>Erros comuns da interface do usuário
 
-* **Erro**: "algo deu errado. Não foi possível obter os detalhes da conexão. "
+* **Erro**: "algo deu errado. Não foi possível obter os detalhes da conexão. " Esse erro é apresentado quando o cliente define o grupo de ações de ITSM.
 
     **Causa**: a conector ITSM recém-criada ainda não concluiu a sincronização inicial.
 

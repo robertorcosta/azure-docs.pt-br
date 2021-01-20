@@ -4,12 +4,12 @@ description: Saiba como usar identidades gerenciadas no serviço kubernetes do A
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fe11170b1cdf18aacf832f4c8171bfc082339395
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607279"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599612"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
 
@@ -38,16 +38,16 @@ O AKS usa várias identidades gerenciadas para serviços e Complementos internos
 |----------------------------|-----------|----------|
 | Painel de controle | não visível | Usado pelos componentes do plano de controle AKS para gerenciar recursos de cluster, incluindo balanceadores de carga de entrada e IPs públicos gerenciados por AKS e operações de dimensionamento automático do cluster | Função de colaborador para grupo de recursos de nó | com suporte
 | Kubelet | Nome do cluster AKS – agentpool | Autenticação com o ACR (registro de contêiner do Azure) | NA (para kubernetes v 1.15 +) | Sem suporte no momento
-| Complemento | AzureNPM | Nenhuma identidade necessária | NA | No
-| Complemento | Monitoramento de rede AzureCNI | Nenhuma identidade necessária | NA | No
-| Complemento | Azure-política (gatekeeper) | Nenhuma identidade necessária | NA | No
-| Complemento | Azure-política | Nenhuma identidade necessária | NA | No
-| Complemento | Calico | Nenhuma identidade necessária | NA | No
-| Complemento | Painel | Nenhuma identidade necessária | NA | No
-| Complemento | HTTPApplicationRouting | Gerencia os recursos de rede necessários | Função de leitor para grupo de recursos de nó, função de colaborador para a zona DNS | No
-| Complemento | Gateway de aplicativo de entrada | Gerencia os recursos de rede necessários| Função de colaborador para grupo de recursos de nó | No
-| Complemento | omsagent | Usado para enviar métricas de AKS para Azure Monitor | Função de editor de métricas de monitoramento | No
-| Complemento | Virtual-Node (ACIConnector) | Gerencia os recursos de rede necessários para ACI (instâncias de contêiner do Azure) | Função de colaborador para grupo de recursos de nó | No
+| Complemento | AzureNPM | Nenhuma identidade necessária | NA | Não
+| Complemento | Monitoramento de rede AzureCNI | Nenhuma identidade necessária | NA | Não
+| Complemento | Azure-política (gatekeeper) | Nenhuma identidade necessária | NA | Não
+| Complemento | Azure-política | Nenhuma identidade necessária | NA | Não
+| Complemento | Calico | Nenhuma identidade necessária | NA | Não
+| Complemento | Painel | Nenhuma identidade necessária | NA | Não
+| Complemento | HTTPApplicationRouting | Gerencia os recursos de rede necessários | Função de leitor para grupo de recursos de nó, função de colaborador para a zona DNS | Não
+| Complemento | Gateway de aplicativo de entrada | Gerencia os recursos de rede necessários| Função de colaborador para grupo de recursos de nó | Não
+| Complemento | omsagent | Usado para enviar métricas de AKS para Azure Monitor | Função de editor de métricas de monitoramento | Não
+| Complemento | Virtual-Node (ACIConnector) | Gerencia os recursos de rede necessários para ACI (instâncias de contêiner do Azure) | Função de colaborador para grupo de recursos de nó | Não
 | Projeto do OSS | AAD-Pod-identidade | Permite que os aplicativos acessem recursos de nuvem com segurança com o Azure Active Directory (AAD) | NA | Etapas para conceder permissão em https://github.com/Azure/aad-pod-identity#role-assignment .
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>Criar um cluster AKS com identidades gerenciadas
@@ -131,7 +131,7 @@ Atualize a identidade atribuída pelo usuário:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Depois que as identidades atribuídas pelo sistema ou atribuídas pelo usuário tiverem sido atualizadas para a identidade gerenciada, execute um `az nodepool upgrade --node-image-only` em seus nós para concluir a atualização para a identidade gerenciada.
+> Depois que as identidades atribuídas pelo sistema ou atribuídas pelo usuário tiverem sido atualizadas para a identidade gerenciada, execute um `az aks nodepool upgrade --node-image-only` em seus nós para concluir a atualização para a identidade gerenciada.
 
 ## <a name="bring-your-own-control-plane-mi"></a>Traga seu próprio plano de controle MI
 Uma identidade de plano de controle personalizado permite que o acesso seja concedido à identidade existente antes da criação do cluster. Esse recurso habilita cenários como o uso de uma VNET personalizada ou de uma saída de UDR com uma identidade gerenciada criada previamente.

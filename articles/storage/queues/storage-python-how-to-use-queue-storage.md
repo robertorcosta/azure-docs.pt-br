@@ -4,17 +4,17 @@ description: Saiba como usar o armazenamento de filas do Azure do Python para cr
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 08/25/2020
+ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: e473bf5c2761010a6aeea94e6430d34ca34989fb
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 82d18fd79b10a8500cfd9191f143438d69fda401
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588269"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600800"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Como usar o armazenamento de filas do Azure do Python
 
@@ -69,7 +69,7 @@ O [`QueueClient`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-O [`QueueService`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) objeto permite que você trabalhe com filas. O código a seguir cria um `QueueService` objeto. Adicione o código a seguir próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o armazenamento do Azure programaticamente:
+O [`QueueService`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true) objeto permite que você trabalhe com filas. O código a seguir cria um `QueueService` objeto. Adicione o código a seguir próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o armazenamento do Azure programaticamente:
 
 ```python
 from azure.storage.queue import (
@@ -127,7 +127,7 @@ Para inserir uma mensagem em uma fila, use o [`send_message`](/azure/developer/p
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Para inserir uma mensagem em uma fila, use o [`put_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) método para criar uma nova mensagem e adicioná-la à fila.
+Para inserir uma mensagem em uma fila, use o [`put_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) método para criar uma nova mensagem e adicioná-la à fila.
 
 ```python
 message = u"Hello, World"
@@ -167,7 +167,7 @@ Você pode inspecionar mensagens sem removê-las da fila chamando o [`peek_messa
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Você pode inspecionar mensagens sem removê-las da fila chamando o [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#peek-messages-queue-name--num-messages-none--timeout-none-) método. Por padrão, esse método inspeciona uma única mensagem.
+Você pode inspecionar mensagens sem removê-las da fila chamando o [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#peek-messages-queue-name--num-messages-none--timeout-none-) método. Por padrão, esse método inspeciona uma única mensagem.
 
 ```python
 messages = queue_service.peek_messages(queue_name)
@@ -190,7 +190,7 @@ O código a seguir usa o [`update_message`](/azure/developer/python/sdk/storage/
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-O código a seguir usa o [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) método para atualizar uma mensagem. O tempo limite de visibilidade está definido como 0, indicando que a mensagem será exibida imediatamente e o conteúdo será atualizado.
+O código a seguir usa o [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) método para atualizar uma mensagem. O tempo limite de visibilidade está definido como 0, indicando que a mensagem será exibida imediatamente e o conteúdo será atualizado.
 
 ```python
 messages = queue_service.get_messages(queue_name)
@@ -214,7 +214,7 @@ O método [get_queue_properties](/azure/developer/python/sdk/storage/azure-stora
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-O [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) método retorna propriedades de fila, incluindo `approximate_message_count` .
+O [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-queue-metadata-queue-name--timeout-none-) método retorna propriedades de fila, incluindo `approximate_message_count` .
 
 ```python
 metadata = queue_service.get_queue_metadata(queue_name)
@@ -238,7 +238,7 @@ Ao chamar [receive_messages](/azure/developer/python/sdk/storage/azure-storage-q
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Ao chamar [get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), você obtém a próxima mensagem na fila por padrão. Uma mensagem retornada de `get_messages` torna-se invisível para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar [Delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-message-queue-name--message-id--pop-receipt--timeout-none-).
+Ao chamar [get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), você obtém a próxima mensagem na fila por padrão. Uma mensagem retornada de `get_messages` torna-se invisível para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para concluir a remoção da mensagem da fila, você também deve chamar [Delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#delete-message-queue-name--message-id--pop-receipt--timeout-none-).
 
 ```python
 messages = queue_service.get_messages(queue_name)
@@ -260,7 +260,7 @@ O exemplo de código a seguir usa o [`receive_messages`](/azure/developer/python
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-O exemplo de código a seguir usa o [`get_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) método para obter 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop `for`. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
+O exemplo de código a seguir usa o [`get_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) método para obter 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop `for`. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
 
 ```python
 messages = queue_service.get_messages(queue_name, num_messages=16, visibility_timeout=5*60)
@@ -282,7 +282,7 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o [`delete_queue
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Para excluir uma fila e todas as mensagens contidas nela, chame o [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-queue-queue-name--fail-not-exist-false--timeout-none-) método.
+Para excluir uma fila e todas as mensagens contidas nela, chame o [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#delete-queue-queue-name--fail-not-exist-false--timeout-none-) método.
 
 ```python
 print("Deleting queue: " + queue_name)

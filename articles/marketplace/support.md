@@ -1,18 +1,18 @@
 ---
-title: Obtenha suporte para o portal do Marketplace comercial no Partner Center
-description: Saiba mais sobre suas opções de suporte no Partner Center, incluindo como arquivar uma solicitação de suporte.
+title: Obtenha suporte para o programa do Marketplace comercial no Partner Center
+description: Saiba mais sobre as opções de suporte para o programa comercial do Marketplace no Partner Center, incluindo como arquivar uma solicitação de suporte.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 01/14/2020
-ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.date: 01/19/2020
+ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183431"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602597"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte para o programa do Marketplace comercial no Partner Center
 
@@ -22,60 +22,43 @@ A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. En
 - Se você for um Publicador e tiver detectado um problema de segurança com um aplicativo em execução no Azure, consulte [como registrar um tíquete de suporte de evento de segurança](/azure/security/fundamentals/event-support-ticket). Os editores devem relatar eventos de segurança suspeitos, incluindo incidentes e vulnerabilidades de segurança das ofertas de serviço e de software do Microsoft Azure Marketplace na primeira oportunidade.
 - Se você for um Publicador e tiver uma pergunta relacionada ao seu aplicativo ou serviço, examine as opções de suporte a seguir.
 
-## <a name="support-options-for-publishers"></a>Opções de suporte para Publicadores
+## <a name="get-help-or-open-a-support-ticket"></a>Obter ajuda ou abrir um tíquete de suporte
 
-1. Entre no programa do [Marketplace comercial no Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com sua conta corporativa (se você ainda não tiver feito isso, será necessário [criar uma conta do Partner Center](partner-center-portal/create-account.md).
+1. Entre com as informações da sua conta. Se você ainda não tiver feito isso, será necessário [criar uma conta do Partner Center](partner-center-portal/create-account.md).
 
-2. No menu superior no lado direito da página, selecione o ícone de **suporte** .
+1. No menu no canto superior direito da página, selecione o ícone de **suporte** . O painel **ajuda e suporte** é exibido no lado direito da página.
 
-3. O painel **ajuda e suporte** será exibido no lado direito da página.
+1. Para obter ajuda com o Marketplace comercial, selecione **Marketplace comercial**.
 
    ![Menu suspenso de suporte](./media/support/commercial-marketplace-support-pane.png)
 
-    Ou vá até o painel **página inicial** e selecione **ajuda e suporte**.
+1. Na caixa **Resumo do problema** , insira uma breve descrição do problema.
 
-   ![Ajuda e suporte da Home Page](./media/support/homepage-help-support.png)
+1. Na caixa **tipo de problema** , siga um destes procedimentos:
 
-4. Selecione a **[documentação](../index.yml)** para examinar as respostas abrangentes para perguntas e recursos.
+    - **Opção 1**: insira palavras-chave como: Marketplace, aplicativo do Azure, oferta de SaaS, gerenciamento de conta, gerenciamento de Lead, problema de implantação, pagamento ou migração de oferta de covenda. Em seguida, selecione um tipo de problema na lista recomendada que aparece.
 
-5. Selecione **[Fórum da comunidade de parceiros do Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** para responder suas perguntas, aproveitando o conhecimento de outros publicadores da Microsoft.
+    - **Opção 2**: selecione **Procurar tópicos** na lista **categoria** e, em seguida, selecione **Marketplace comercial**. Em seguida, selecione o **tópico** e o **subtópico** apropriados.
 
-6. Selecione **[ajuda adicional](https://aka.ms/marketplacepublishersupport)** para abrir um **novo** tíquete de solicitação de suporte.  
+1. Depois de encontrar o tópico de sua escolha, selecione **examinar soluções**.
 
-## <a name="how-to-open-a-support-ticket"></a>Como abrir um tíquete de suporte
+    ![Próxima etapa](./media/support/next-step.png)
 
-Agora você está pronto para abrir um tíquete de suporte na tela de **ajuda e suporte** .
+As seguintes opções são mostradas:
 
-![Ajuda e suporte](./media/support/help-and-support.png)
+- Para selecionar um tópico diferente, clique em **selecionar um problema diferente**.
+- Para ajudar a resolver o problema, examine as etapas e os documentos recomendados, se disponíveis.
 
->[!Note]
->Se você estiver conectado ao Partner Center, receberá uma experiência melhor com o suporte.
+    ![Soluções recomendadas](./media/support/recommended-solutions.png)
 
-**Opção 1:** Insira palavras-chave como: Marketplace, aplicativo do Azure, oferta de SaaS, gerenciamento de conta, gerenciamento de Lead, problema de implantação, pagamento, etc.
-
-**Opção 2:** Procurar tópicos-> selecione **categoria** = Marketplace comercial – > selecione o **tópico** apropriado e **subtópico**.
-
-Depois de encontrar o tópico de sua escolha, selecione **examinar soluções**.
-
-![Próxima etapa](./media/support/next-step.png)
-
-As seguintes opções ficarão disponíveis:
-
-- Para selecionar um tópico diferente, selecione um link de tópico diferente em **problema selecionado**.
-- Examine a descrição desse problema, se disponível.  É o texto mostrado acima das **etapas recomendadas**.
-- Examine **as etapas recomendadas**, se disponíveis.
-- Examine os **documentos recomendados**, se disponíveis.
-
-![Soluções recomendadas](./media/support/recommended-solutions.png)
-
-Se você não conseguir encontrar sua resposta em **soluções recomendadas**, selecione **fornecer detalhes do problema**. Preencha todos os campos obrigatórios para acelerar o processo de resolução e selecione **Enviar**.
+Se você não conseguir encontrar sua resposta na autoajuda, selecione **fornecer detalhes do problema**. Preencha todos os campos obrigatórios para acelerar o processo de resolução e selecione **Enviar**.
 
 >[!Note]
->Se você não tiver feito logon no Partner Center e o tópico exigir autenticação, será solicitado que você faça logon antes de continuar.  Para tópicos públicos, a autenticação não é necessária.
+>Se você não tiver entrado no Partner Center, talvez seja necessário entrar antes de criar um tíquete.
 
 ## <a name="track-your-existing-support-requests"></a>Acompanhe suas solicitações de suporte existentes
 
-Para examinar todos os tíquetes abertos e fechados, vá para o **Marketplace comercial** na barra de navegação à esquerda e selecione **suporte**.
+Para examinar os tíquetes abertos e fechados, no menu de navegação esquerdo, selecione suporte do **Marketplace comercial**  >  .
 
 ## <a name="record-issue-details-with-a-har-file"></a>Registrar detalhes do problema com um arquivo HAR
 

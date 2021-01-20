@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/15/2021
-ms.openlocfilehash: 9291689b362b5cbe651a72220196dd30b40745cf
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 9a43318ed935dd1e71b6da75c9f078fbebbd29eb
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540483"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599010"
 ---
 # <a name="error-investigation-using-the-dashboard"></a>Investigação de erro usando o painel
 
@@ -53,6 +53,9 @@ O painel é dividido em quatro partes:
     ![Captura de tela que mostra os computadores afetados.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
 3. Status do conector: o grafo e a tabela abaixo contêm mensagens sobre o status do conector. Ao clicar no gráfico em linhas na tabela, você pode obter mais detalhes sobre as mensagens do status do conector.
     A tabela contém um número limitado de linhas se você quiser ver toda a lista em que você pode clicar em "ver tudo".
+
+    Você pode ver detalhes sobre as mensagens na tabela- [aqui](itsmc-dashboard-errors.md).
+
     ![Captura de tela que mostra o status do conector.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
 4. Regras de alerta: as tabelas contêm as informações sobre o número de regras de alerta que foram detectadas.
     Ao clicar em linhas nas tabelas, você poderá obter mais detalhes sobre as regras que foram detectadas.

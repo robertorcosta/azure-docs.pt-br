@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: d602687ea623b90ea5dcae4ece09a1ccc438ea57
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 5a2a7abf0227812826428557b86c4468f7693c82
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822379"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600394"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Recursos de transação do marketplace comercial
 
@@ -160,7 +160,7 @@ Nesse cenário, a Microsoft cobra US$ 100,00 pela sua licença de software e pag
 
 **Cartões de crédito e fatura mensal** – Os clientes também podem pagar usando um cartão de crédito e uma nota fiscal mensal. Nesse caso, os valores de licença de software serão cobrados da mesma forma que o cenário do Enterprise Agreement, como um custo discriminado, separado dos custos de uso específicos do Azure.
 
-**Créditos gratuitos e compromisso monetário** – Alguns clientes optam por pagar antecipadamente o Azure com um compromisso monetário no Enterprise Agreement ou receberam créditos gratuitos para uso com o Azure. Embora esses créditos possam ser usados para pagar pelo uso do Azure, eles não podem ser usados para pagar valores de licença de software do editor.
+**Créditos gratuitos e pagamentos antecipados do Azure** – alguns clientes optam por pagar o Azure com o pagamento antecipado do Azure (anteriormente chamado de compromisso monetário) no Enterprise Agreement ou foram fornecidos créditos gratuitos para uso com o Azure. Embora esses créditos possam ser usados para pagar pelo uso do Azure, eles não podem ser usados para pagar valores de licença de software do editor.
 
 **Cobrança e coleções** – a cobrança de licença de software do Publicador é apresentada usando o método de faturamento selecionado pelo cliente e segue a linha do tempo de faturamento. Clientes sem um Contrato Enterprise em vigor são cobrados mensalmente pelas licenças de software do mercado. Os clientes com um Contrato Enterprise são faturados mensalmente por meio de uma fatura apresentada trimestralmente.
 

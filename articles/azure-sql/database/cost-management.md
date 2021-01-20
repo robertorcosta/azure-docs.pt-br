@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: sql-database
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: 19531b9d0019fb000efe5aeb2d1b9fed34ce23f1
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d36166a67e683dd7f15eef18d589562b39ba568
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253296"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600619"
 ---
 # <a name="plan-and-manage-costs-for-azure-sql-database"></a>Planejar e gerenciar custos para o banco de dados SQL do Azure
 
@@ -67,7 +67,7 @@ O banco de dados SQL do Azure (com exceção de sem servidor) é cobrado em uma 
 
 ### <a name="using-monetary-credit-with-azure-sql-database"></a>Usando crédito monetário com o banco de dados SQL do Azure
 
-Você pode pagar pelos encargos do banco de dados SQL do Azure com seu crédito de compromisso monetário de EA. No entanto, você não pode usar crédito de compromisso monetário de EA para pagar por cobranças de produtos e serviços de terceiros, incluindo aqueles do Azure Marketplace.
+Você pode pagar por cobranças do banco de dados SQL do Azure com o crédito antecipado do Azure (anteriormente chamado de compromisso monetário). No entanto, você não pode usar o crédito de pagamento antecipado do Azure para pagar por cobranças de produtos e serviços de terceiros, incluindo aqueles do Azure Marketplace.
 
 ## <a name="review-estimated-costs-in-the-azure-portal"></a>Examinar os custos estimados no portal do Azure
 

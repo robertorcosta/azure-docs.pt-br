@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: c5f8be87e7ee95e1deff12cce09204b5fe8a0bb7
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 2cc37cc66c06dc9e6997c6a031a9c60ad050c01a
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694185"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601772"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz usando comandos personalizados
 
-Neste guia de início rápido, você cria e testa um aplicativo básico de comandos personalizados usando o Speech Studio. Você também poderá acessar esse aplicativo de um aplicativo cliente do Windows. Os **comandos personalizados** facilitam a criação de aplicativos avançados de comando de voz otimizados para experiências de interação de voz primeiro. Ele fornece uma experiência de criação unificada, um modelo de hospedagem automático e complexidade relativamente menor, ajudando você a se concentrar na criação da melhor solução para seus cenários de comando de voz.
+Neste guia de início rápido, você cria e testa um aplicativo básico de comandos personalizados usando o Speech Studio. Você também poderá acessar esse aplicativo de um aplicativo cliente do Windows.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 Neste momento, os comandos personalizados dão suporte a assinaturas de fala criadas nessas regiões:

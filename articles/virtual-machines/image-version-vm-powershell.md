@@ -1,5 +1,5 @@
 ---
-title: Criar uma imagem de uma VM (versão prévia)
+title: Criar uma imagem de uma VM
 description: Saiba como usar Azure PowerShell para criar uma imagem em uma galeria de imagens compartilhada de uma VM existente no Azure.
 author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3a7ca8236307bbf8a419d2988e1a6dc1e4c40597
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1a0bfb79b03b778696faef29597cabbcff47e6df
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964857"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601660"
 ---
-# <a name="preview-create-an-image-from-a-vm"></a>Visualização: criar uma imagem de uma VM
+# <a name="create-an-image-from-a-vm"></a>Criar uma imagem de uma VM
 
 Se você tiver uma VM existente que deseja usar para criar várias VMs idênticas, poderá usar essa VM para criar uma imagem em uma galeria de imagens compartilhadas usando Azure PowerShell. Você também pode criar uma imagem de uma VM usando o [CLI do Azure](image-version-vm-cli.md).
 

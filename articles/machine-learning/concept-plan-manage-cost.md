@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 81d9a6bcbd910a60e1f659e430bbe527eb3077c6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 5be02ff698dac02d702e47f8929c6f8ddf2adbb7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251736"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602546"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planejar e gerenciar custos para Azure Machine Learning
 
@@ -81,9 +81,9 @@ ws.delete(delete_dependent_resources=True)
 
 Se você criar o AKS (serviço kubernetes do Azure) em seu espaço de trabalho ou se anexar recursos de computação ao seu espaço de trabalho, deverá excluí-los separadamente no [portal do Azure](https://portal.azure.com).
 
-### <a name="using-monetary-credit-with-azure-machine-learning"></a>Usando crédito monetário com Azure Machine Learning
+### <a name="using-azure-prepayment-credit-with-azure-machine-learning"></a>Usando o crédito de pagamento antecipado do Azure com Azure Machine Learning
 
-Você pode pagar por Azure Machine Learning encargos com seu crédito de compromisso monetário de EA. No entanto, você não pode usar crédito de compromisso monetário de EA para pagar por cobranças de produtos e serviços de terceiros, incluindo aqueles do Azure Marketplace.
+Você pode pagar por Azure Machine Learning encargos com o crédito antecipado do Azure (anteriormente chamado de compromisso monetário). No entanto, você não pode usar o pagamento antecipado do Azure para pagar por cobranças de produtos e serviços de terceiros, incluindo aqueles do Azure Marketplace.
 
 
 ## <a name="create-budgets"></a>Criar orçamentos

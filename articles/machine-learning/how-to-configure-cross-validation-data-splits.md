@@ -11,16 +11,16 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 8e749e5f6ea6bcf76a1b4f143bce03ceb41cbb07
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a781900534156e455c125dffe3b1334820fdf4d5
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573285"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599070"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurar divisões de dados e validação cruzada no machine learning automatizado
 
-Neste artigo, você aprende as diferentes opções para configurar as divisões de dados de treinamento/validação e a validação cruzada para o aprendizado de máquina automatizado, ML automatizados e experimentos.
+Neste artigo, você aprende as diferentes opções para configurar dados de treinamento e dados de validação divididos juntamente com configurações de validação cruzada para aprendizado de máquina automatizado, ML automatizado, experimentos.
 
 Em Azure Machine Learning, quando você usa o ML automatizado para criar vários modelos de ML, cada execução filho precisa validar o modelo relacionado calculando as métricas de qualidade para esse modelo, como precisão ou AUC ponderado. Essas métricas são calculadas comparando as previsões feitas com cada modelo com rótulos reais das observações anteriores nos dados de validação. [Saiba mais sobre como as métricas são calculadas com base no tipo de validação](#metric-calculation-for-cross-validation-in-machine-learning). 
 
@@ -29,7 +29,7 @@ As experiências de ML automatizadas executam automaticamente a validação do m
 Para uma experiência de baixo código ou sem código, confira [criar experiências automatizadas de aprendizado de máquina no Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
 > [!NOTE]
-> Atualmente, o estúdio dá suporte a divisões de dados de treinamento/validação e opções de validação cruzada, mas não oferece suporte à especificação de arquivos de dados individuais para seu conjunto de validação. 
+> Atualmente, o estúdio dá suporte a divisões de dados de treinamento e validação, bem como opções de validação cruzada, mas não oferece suporte à especificação de arquivos de dados individuais para seu conjunto de validação. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Para este artigo, você precisa,
 
 * Noções básicas sobre divisão/validação de dados de treinamento e validação cruzada como conceitos de aprendizado de máquina. Para obter uma explicação de alto nível,
 
-    * [Sobre os conjuntos de treinamento, validação e teste em Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
+    * [Sobre dados de treinamento, validação e teste no aprendizado de máquina](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
     * [Entender a validação cruzada no aprendizado de máquina](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
@@ -62,7 +62,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-Se você não especificar explicitamente um `validation_data` `n_cross_validation` parâmetro ou, o AutoML aplicará as técnicas padrão dependendo do número de linhas no único conjunto de registros `training_data` fornecido:
+Se você não especificar explicitamente um `validation_data` `n_cross_validation` parâmetro ou, o ml automatizado aplicará técnicas padrão dependendo do número de linhas fornecidas no único conjunto de um `training_data` :
 
 |&nbsp;Tamanho dos dados de treinamento &nbsp;| Técnica de validação |
 |---|-----|
@@ -71,7 +71,7 @@ Se você não especificar explicitamente um `validation_data` `n_cross_validatio
 
 ## <a name="provide-validation-data"></a>Fornecer dados de validação
 
-Nesse caso, você pode começar com um único arquivo de dados e dividi-lo em conjuntos de treinamento e validação ou pode fornecer um arquivo de dados separado para o conjunto de validação. De qualquer forma, o `validation_data` parâmetro em seu `AutoMLConfig` objeto atribui os dados a serem usados como seu conjunto de validação. Esse parâmetro só aceita conjuntos de dados na forma de um [conjunto](how-to-create-register-datasets.md) de dados Azure Machine Learning ou pandas dataframe.   
+Nesse caso, você pode começar com um único arquivo de dados e dividi-lo em dados de treinamento e conjuntos de dados de validação ou pode fornecer um arquivo de dados separado para o conjunto de validação. De qualquer forma, o `validation_data` parâmetro em seu `AutoMLConfig` objeto atribui os dados a serem usados como seu conjunto de validação. Esse parâmetro só aceita conjuntos de dados na forma de um [conjunto](how-to-create-register-datasets.md) de dados Azure Machine Learning ou pandas dataframe.   
 
 O exemplo de código a seguir define explicitamente qual parte dos dados fornecidos no `dataset` usar para treinamento e validação.
 

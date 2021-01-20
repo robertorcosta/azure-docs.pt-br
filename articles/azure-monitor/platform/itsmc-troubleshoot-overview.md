@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 14f1056bf761eb7b591d04db34610468058bc255
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 2ffe7c8994d32917a08896c7d25f20d4adf09066
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562837"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601902"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Solução de problemas no Conector ITSM
 
@@ -53,11 +53,36 @@ Se você estiver usando Mapa do Serviço, poderá exibir os itens da central de 
      - Verifique se o aplicativo Web foi implantado com êxito e se a conexão híbrida foi criada. Para verificar se a conexão foi estabelecida com êxito com o computador Service Manager local, vá para a URL do aplicativo Web, conforme descrito na documentação para fazer a [conexão híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 
 - Se Log Analytics alertas forem acionados, mas os itens de trabalho não forem criados no produto de ITSM, se os itens de configuração não forem criados/vinculados a itens de trabalho ou para outras informações, consulte estes recursos:
-   -  ITSMC: a solução mostra um resumo de conexões, itens de trabalho, computadores e muito mais. Selecione o bloco que tem o rótulo **status do conector** . Isso o levará para a **pesquisa de logs** com a consulta relevante. Examine os registros de log com um `LogType_S` de `ERROR` para obter mais informações.
+   -  ITSMC: a solução mostra um [Resumo de conexões](itsmc-dashboard.md), itens de trabalho, computadores e muito mais. Selecione o bloco que tem o rótulo **status do conector** . Isso o levará para a **pesquisa de logs** com a consulta relevante. Examine os registros de log com um `LogType_S` de `ERROR` para obter mais informações.
+   Você pode ver detalhes sobre as mensagens na tabela- [aqui](itsmc-dashboard-errors.md).
    - Página **pesquisa de logs** : exiba os erros e as informações relacionadas diretamente usando a consulta `*ServiceDeskLog_CL*` .
 
-### <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas Service Manager implantação de aplicativo Web
+## <a name="common-symptoms---how-it-should-be-resolved"></a>Sintomas comuns-como eles devem ser resolvidos?
 
--   Se você tiver problemas com a implantação do aplicativo Web, verifique se você tem permissões para criar/implantar recursos na assinatura.
--   Se você receber uma **referência de objeto não definida como uma instância de um erro de objeto** ao executar o [script](itsmc-service-manager-script.md), certifique-se de que você inseriu valores válidos na seção **configuração do usuário** .
--   Se você não conseguir criar o namespace de retransmissão do barramento de serviço, verifique se o provedor de recursos necessário está registrado na assinatura. Se não estiver registrado, crie manualmente o namespace de retransmissão do barramento de serviço do portal do Azure. Você também pode criá-lo ao [criar a conexão híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection) no portal do Azure.
+A lista abaixo contém sintomas comuns e como ele deve ser resolvido:
+
+* **Sintoma**: itens de trabalho duplicados são criados
+
+    **Causa**: a causa pode ser uma das duas opções:
+    * Mais de uma ação de ITSM está definida para o alerta.
+    * O alerta foi resolvido.
+
+    **Resolução**: pode haver duas soluções:
+    * Verifique se você tem um único grupo de ações de ITSM por alerta.
+    * Conector ITSM não dá suporte à atualização de status de itens de trabalho de correspondência quando um alerta é resolvido. Um novo item de trabalho resolvido é criado.
+* **Sintoma**: os itens de trabalho não são criados
+
+    **Causa**: pode haver alguns motivos para esse sintoma:
+    * Modificação de código no lado do ServiceNow
+    * Configurações incorretas de permissões
+    * Os limites de taxa do ServiceNow são muito altos/baixos
+    * O token de atualização expirou
+    * Conector ITSM foi excluído
+
+    **Resolução**: você pode verificar o [painel](itsmc-dashboard.md) e examinar os erros na seção status do conector. Examine os [erros comuns](itsmc-dashboard-errors.md) e descubra como resolver o erro.
+
+* **Sintoma**: não é possível criar a ação de ITSM para o grupo de ações
+
+    **Causa**: a conector ITSM recém-criada ainda não concluiu a sincronização inicial.
+
+    **Resolução**: você pode examinar os [erros comuns da interface do usuário](itsmc-dashboard-errors.md#ui-common-errors) e descobrir como resolver o erro.

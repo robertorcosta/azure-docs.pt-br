@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.openlocfilehash: 793ff9eedb747da0edcbbf2df50b62f06f407892
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 01/19/2021
+ms.openlocfilehash: 9ace9a319f4cc6bcc1545d6d1becce61b1892765
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247416"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598671"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Você pode provisionar a taxa de transferência em um nível de contêiner ou em
 | Armazenamento máximo por contêiner | Ilimitado |
 | Armazenamento máximo por banco de dados | Ilimitado |
 | Tamanho máximo de anexo por conta (o recurso de anexo está sendo preterido) | 2 GB |
-| Mínimo de RU/s exigidos por 1 GB | 10 RU/s<br>**Observação:** se seu contêiner ou banco de dados contiver mais de 1 TB, sua conta poderá estar qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program) |
+| Mínimo de RU/s exigidos por 1 GB | 10 RU/s<br>**Observação:** esse mínimo pode ser reduzido se sua conta estiver qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > Para saber mais sobre as práticas recomendadas para o gerenciamento de cargas de trabalho que têm chaves de partição que exigem limites mais altos para armazenamento ou taxa de transferência, confira [Criar uma chave de partição sintética](synthetic-partition-keys.md).
@@ -60,7 +60,7 @@ Para estimar a taxa de transferência mínima necessária de um contêiner com t
 
 Exemplo: Suponha que você tenha um contêiner provisionado com o armazenamento de 400 RU/s e 0 GB. Você aumenta a taxa de transferência para 50.000 RU/s e importa 20 GB de dados. O mínimo de RU/s agora é `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 ru/s. Ao longo do tempo, o armazenamento aumenta para 200 GB. O mínimo de RU/s agora é `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 ru/s. 
 
-**Observação:** se o contêiner ou banco de dados contiver mais de 1 TB, sua conta poderá estar qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program).
+**Observação:** a taxa de transferência mínima de 10 ru/s por GB de armazenamento poderá ser reduzida se sua conta estiver qualificada para o nosso [programa de "alta taxa de armazenamento/baixa produtividade"](set-throughput.md#high-storage-low-throughput-program).
 
 #### <a name="minimum-throughput-on-shared-throughput-database"></a>Taxa de transferência mínima no banco de dados de produtividade compartilhada 
 Para estimar a taxa de transferência mínima necessária de um banco de dados de produtividade compartilhado com taxa de transferência manual, encontre o máximo de:
@@ -72,7 +72,7 @@ Para estimar a taxa de transferência mínima necessária de um banco de dados d
 
 Exemplo: Suponha que você tenha um banco de dados provisionado com 400 RU/s, 15 GB de armazenamento e 10 contêineres. O mínimo de RU/s é `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ru/s. Se houver 30 contêineres no banco de dados, o RU/s mínimo seria `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ru/s. 
 
-**Observação:** se o contêiner ou banco de dados contiver mais de 1 TB, sua conta poderá estar qualificada para o [programa "alto armazenamento/baixa taxa de transferência"](set-throughput.md#high-storage-low-throughput-program).
+**Observação:** a taxa de transferência mínima de 10 ru/s por GB de armazenamento poderá ser reduzida se sua conta estiver qualificada para o nosso [programa de "alta taxa de armazenamento/baixa produtividade"](set-throughput.md#high-storage-low-throughput-program).
 
 Em resumo, aqui estão os limites mínimos de RU provisionadas. 
 
