@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e87c9efc910d08307d40d42e58f8272a01902a41
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551494"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610362"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Controle de acesso baseado em função no plano de dados do Azure alcance
 
@@ -31,9 +31,9 @@ O alcance do Azure define um conjunto de funções de plano de dados predefinido
 
 ## <a name="understanding-how-to-use-azure-purviews-data-plane-roles"></a>Entendendo como usar as funções do plano de dados do Azure alcance
 
-Quando uma conta do Azure alcance for criada, o criador será tratado como se eles estivessem nas funções de administrador de fonte de dados alcance e alcance. Mas o criador da conta não está atribuído a essas funções no repositório de função. O Azure alcance reconhece que o principal é o criador da conta e estende esses recursos para eles com base em sua identidade.
+Quando uma conta do Azure alcance for criada, o criador será tratado como se eles estivessem nas funções de administrador de fonte de dados alcance e alcance. Mas o criador da conta não está atribuído a essas funções no repositório de função. O Azure Purview reconhece que a entidade de segurança é o criador da conta e estende esses recursos para eles com base em sua identidade.
 
-Todos os outros usuários só poderão usar a conta do Azure alcance se forem colocados em pelo menos uma dessas funções. Isso significa que quando uma conta do Azure alcance é criada, ninguém, mas o criador pode acessar a conta ou usar suas APIs até que elas sejam colocadas em uma ou mais das funções definidas anteriormente.
+Todos os outros usuários só poderão usar a conta do Azure Purview se forem colocados em pelo menos uma dessas funções. Isso significa que quando uma conta do Azure alcance é criada, ninguém, mas o criador pode acessar a conta ou usar suas APIs até que elas sejam colocadas em uma ou mais das funções definidas anteriormente.
 
 Observe que a função de administrador de fonte de dados alcance tem dois cenários com suporte. O primeiro cenário é para usuários que já são alcance leitores de dados ou curadores de dados alcance que também precisam ser capazes de criar verificações. Esses usuários precisam estar em duas funções, pelo menos um leitor de dados alcance ou um curador de dados alcance, bem como ser colocado na função de administrador de fonte de dados alcance.
 
@@ -77,8 +77,8 @@ Para os usuários que têm acesso à [portal do Azure](https://portal.azure.com)
 |Preciso habilitar uma entidade de serviço ou outra identidade programática para configurar e monitorar verificações no Azure alcance sem permitir que a identidade programática acesse as informações do catálogo |Função de administrador de fonte de dados alcance|
 |Preciso colocar os usuários em funções no Azure alcance | Proprietário ou administrador de acesso do usuário |
 
-Avance para o próximo artigo para saber como adicionar uma entidade de segurança a uma função.
+Para obter mais informações sobre como adicionar uma entidade de segurança a uma função, consulte [início rápido: criar uma conta do Azure alcance](create-catalog-portal.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Início rápido: criar uma conta do Azure alcance](create-catalog-portal.md)
+* [Insights sobre os dados](concept-insights.md)

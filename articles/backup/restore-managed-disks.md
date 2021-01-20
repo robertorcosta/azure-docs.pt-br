@@ -3,12 +3,12 @@ title: Restaurar Managed Disks do Azure
 description: Saiba como restaurar Managed Disks do Azure do portal do Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 043a10a7359c95529ff1c4dcc181ea4aba75cb5f
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 848a7476b1c5095d4e4d3156d4c7ce33da777090
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557221"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611127"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Restaurar Managed Disks do Azure (em versão prévia)
 
@@ -65,6 +65,8 @@ Os pré-requisitos a seguir são necessários para executar uma operação de re
     >Embora as atribuições de função sejam refletidas corretamente no portal, pode levar aproximadamente 15 minutos para que a permissão seja aplicada na identidade gerenciada do cofre de backup.
     >
     >Durante os backups agendados ou uma operação de backup sob demanda, o backup do Azure armazena os instantâneos incrementais de disco no grupo de recursos de instantâneo fornecido durante a configuração do backup do disco. O backup do Azure usa esses instantâneos incrementais durante a operação de restauração. Se os instantâneos forem excluídos ou movidos do grupo de recursos de instantâneo ou se as atribuições de função do cofre de backup forem revogadas no grupo de recursos de instantâneo, a operação de restauração falhará.
+
+1. Se o disco a ser restaurado for criptografado com [chaves gerenciadas pelo cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou usando a [criptografia dupla usando chaves gerenciadas por plataforma e chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), atribua a permissão de função de **leitor** à identidade gerenciada do cofre de backup no recurso de **conjunto de criptografia de disco** .
 
 Depois que os pré-requisitos forem atendidos, siga estas etapas para executar a operação de restauração.
 

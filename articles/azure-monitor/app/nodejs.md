@@ -4,12 +4,12 @@ description: Monitore o desempenho e diagnostique problemas em serviços do Node
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920587"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611008"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Como monitorar seus serviços do Node.js e aplicativos com o Application Insights
 
@@ -334,6 +334,12 @@ server.on("listening", () => {
   appInsights.defaultClient.trackMetric({name: "server startup time", value: duration});
 });
 ```
+
+### <a name="flush"></a>Liberar
+
+Por padrão, a telemetria é armazenada em buffer por 15 segundos antes de ser enviada para o servidor de ingestão. Se seu aplicativo tiver um curto período de vida (por exemplo, uma ferramenta CLI), pode ser necessário liberar manualmente sua telemetria armazenada em buffer quando o aplicativo for encerrado, `appInsights.defaultClient.flush()` .
+
+Se o SDK detectar que seu aplicativo está falhando, ele chamará flush para você, `appInsights.defaultClient.flush({ isAppCrashing: true })` . Com a opção flush `isAppCrashing` , supõe-se que seu aplicativo esteja em um estado anormal, não é adequado para o envio de telemetria. Em vez disso, o SDK salvará toda a telemetria armazenada em buffer no [armazenamento persistente](./data-retention-privacy.md#nodejs) e permitirá que o aplicativo seja encerrado. Quando o aplicativo é iniciado novamente, ele tenta enviar qualquer telemetria que foi salva no armazenamento persistente.
 
 ### <a name="preprocess-data-with-telemetry-processors"></a>Pré-processar dados com processadores de telemetria
 

@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 8e310ea487818f6d82869fe1973c8e9ed0b04195
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: d9ae9cae1a0a8014f007cd7c4a3d1f97f27128bb
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797104"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610957"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
@@ -35,13 +35,16 @@ Log Analytics exportação de dados de espaço de trabalho exporta dados continu
 
 ## <a name="current-limitations"></a>Limitações atuais
 
-- Atualmente, a configuração só pode ser executada usando a CLI ou solicitações REST. Você não pode usar o portal do Azure ou o PowerShell.
+- A configuração pode ser executada usando a CLI ou solicitações REST no momento. Portal do Azure ou PowerShell ainda não têm suporte.
 - A ```--export-all-tables``` opção na CLI e no REST não tem suporte e será removida. Você deve fornecer a lista de tabelas em regras de exportação explicitamente.
-- No momento, as tabelas com suporte estão limitadas às especificadas na seção [tabelas com suporte](#supported-tables) abaixo. Se a regra de exportação de dados incluir uma tabela sem suporte, a operação terá sucesso, mas nenhum dado será exportado para essa tabela. Se a regra de exportação de dados incluir uma tabela que não existe, ela falhará com o erro ```Table <tableName> does not exist in the workspace.```
+- No momento, as tabelas com suporte estão limitadas às especificadas na seção [tabelas com suporte](#supported-tables) abaixo. 
+- Se a regra de exportação de dados incluir uma tabela sem suporte, a operação terá sucesso, mas nenhum dado será exportado para essa tabela até que a tabela receba suporte. 
+- Se a regra de exportação de dados incluir uma tabela que não existe, ela falhará com o erro ```Table <tableName> does not exist in the workspace``` .
 - Seu espaço de trabalho do Log Analytics pode estar em qualquer região, exceto para o seguinte:
   - Norte da Suíça
   - Oeste da Suíça
   - Regiões do Azure Governamental
+- Você pode criar duas regras de exportação em um espaço de trabalho – em pode ser uma regra para o Hub de eventos e uma regra para a conta de armazenamento.
 - A conta de armazenamento de destino ou o Hub de eventos deve estar na mesma região que o espaço de trabalho Log Analytics.
 - Os nomes das tabelas a serem exportadas não podem ter mais de 60 caracteres para uma conta de armazenamento e não mais de 47 caracteres para um hub de eventos. Tabelas com nomes mais longos não serão exportadas.
 
@@ -58,7 +61,7 @@ Log Analytics exportação de dados de espaço de trabalho exporta dados continu
 ## <a name="data-completeness"></a>Integridade dos dados
 A exportação de dados continuará a tentar enviar dados por até 30 minutos caso o destino não esteja disponível. Se ainda não estiver disponível após 30 minutos, os dados serão descartados até que o destino fique disponível.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 No momento, não há encargos adicionais para o recurso de exportação de dados. Os preços para exportação de dados serão anunciados no futuro e um aviso fornecido antes do início da cobrança. Se você optar por continuar usando a exportação de dados após o período de aviso, você será cobrado na taxa aplicável.
 
 ## <a name="export-destinations"></a>Destinos de exportação
@@ -115,7 +118,7 @@ Se você tiver configurado sua conta de armazenamento para permitir o acesso de 
 
 
 ### <a name="create-or-update-data-export-rule"></a>Criar ou atualizar regra de exportação de dados
-Uma regra de exportação de dados define os dados a serem exportados para um conjunto de tabelas para um único destino. Você pode criar uma regra para cada destino.
+Uma regra de exportação de dados define os dados a serem exportados para um conjunto de tabelas para um único destino. Você pode criar uma única regra para cada destino.
 
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
@@ -706,7 +709,7 @@ No momento, as tabelas com suporte são limitadas às especificadas abaixo. Todo
 | SynapseRBACEvents | |
 | syslog | Suporte parcial. Alguns dos dados para essa tabela são ingeridos por meio da conta de armazenamento. Esses dados não são exportados no momento. |
 | ThreatIntelligenceIndicator | |
-| Atualização | Suporte parcial. Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esses dados não são exportados no momento. |
+| Atualizar | Suporte parcial. Alguns dos dados são ingeridos por meio de serviços internos que não têm suporte para exportação. Esses dados não são exportados no momento. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | Uso | |

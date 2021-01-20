@@ -1,5 +1,5 @@
 ---
-title: Engenharia de recurso na ciência de dados - Processo da Ciência de dados de Equipe
+title: Engenharia de recursos no Machine Learning – processo de ciência de dados de equipe
 description: Saiba mais sobre a engenharia de recursos e a função dela no processo de melhoria de dados do aprendizado de máquina.
 services: machine-learning
 author: marktab
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
-ms.openlocfilehash: 7cf97edcb2f2f7a23d5c899194d497deade1f507
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b20a6744644678879fedf44e960854f558eb0f03
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031854"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610430"
 ---
-# <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
+# <a name="feature-engineering-in-machine-learning"></a>Engenharia de recursos no Machine Learning
 
 Neste artigo, você aprende sobre a engenharia de recursos e a função dela no aprimoramento de dados no aprendizado de máquina. Aprenda com exemplos ilustrativos desenhados de experimentos do [Azure Machine Learning Studio (clássico)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 

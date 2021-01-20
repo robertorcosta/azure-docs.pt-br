@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 32aa94c986c90b7bd46b9f5561021c34c0f142af
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 29f7f241f119ca7fab50409881b517961b00cf20
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492085"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610464"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -50,6 +50,9 @@ Os grupos de sincronização são implantados em **Serviços de Sincronização 
 Para criar um grupo de sincronização em um Serviço de Sincronização de Armazenamento, primeiro você deve registrar um Windows Server no Serviço de Sincronização de Armazenamento. Isso cria o objeto **servidor registrado** que representa uma relação de confiança entre seu servidor ou cluster e o Serviço de Sincronização de Armazenamento. Para registrar um Serviço de Sincronização de Armazenamento, você deve primeiro instalar o agente da Sincronização de Arquivos do Azure no servidor. Um servidor individual ou um cluster pode ser registrado apenas em um Serviço de Sincronização de Armazenamento por vez.
 
 Um grupo de sincronização contém um ponto de extremidade na nuvem ou um compartilhamento de arquivo do Azure e pelo menos um ponto de extremidade do servidor. O objeto de ponto de extremidade do servidor contém as configurações que definem a funcionalidade de **camada de nuvem**, que fornece a funcionalidade de cache da Sincronização de Arquivos do Azure. Para sincronizar com um compartilhamento de arquivo do Azure, a conta de armazenamento que contém o compartilhamento de arquivo do Azure deve estar na mesma região do Azure que o Serviço de Sincronização de Armazenamento.
+
+> [!Important]  
+> Você pode fazer alterações a qualquer Ponto de extremidade de Nuvem ou de Servidor no Grupo de sincronização e ter seus arquivos sincronizados com os outros pontos de extremidade no Grupo de sincronização. Se você fizer uma alteração diretamente no Ponto de extremidade de nuvem (compartilhamento de Arquivos do Azure), observe que as alterações devem primeiro ser descobertas por um trabalho de detecção de alteração de sincronização de arquivos do Azure. Um trabalho de detecção de alteração é iniciado para um ponto de extremidade da nuvem apenas uma vez a cada 24 horas. Para obter mais informações, consulte [Perguntas frequentes sobre os Arquivos do Azure](storage-files-faq.md#afs-change-detection).
 
 ### <a name="management-guidance"></a>Diretrizes de gerenciamento
 Ao implantar a Sincronização de Arquivos do Azure, recomendamos:

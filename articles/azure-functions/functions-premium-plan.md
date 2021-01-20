@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: d944512e5f6126920ab4fba99fb70513b93177ba
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 26dd3f7df5a71c687bfb4935f290e7a54b4e01fe
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936814"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610260"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
@@ -154,19 +154,21 @@ A execução em um computador com mais memória nem sempre significa que seu apl
 
 Por exemplo, um aplicativo de funções JavaScript é restrito pelo limite de memória padrão em Node.js. Para aumentar esse limite de memória fixa, adicione a configuração `languageWorkers:node:arguments` do aplicativo com um valor de `--max-old-space-size=<max memory in MB>` .
 
+E para planos com mais de 4 GB de memória, verifique se a configuração de plataforma de bits está definida `64 Bit` em [configurações gerais](/azure/app-service/configure-common#configure-general-settings).
+
 ## <a name="region-max-scale-out"></a>Scale Out máxima da região
 
 Abaixo estão os valores máximos de expansão com suporte no momento para um único plano em cada região e configuração de so. Para solicitar um aumento, você pode abrir um tíquete de suporte.
 
 Consulte a disponibilidade regional completa de funções no [site do Azure](https://azure.microsoft.com/global-infrastructure/services/?products=functions).
 
-|Region| Windows | Linux |
+|Região| Windows | Linux |
 |--| -- | -- |
 |Austrália Central| 100 | Não disponível |
 |Austrália Central 2| 100 | Não disponível |
 |Leste da Austrália| 100 | 20 |
-|Sudeste da Austrália | 100 | 20 |
-|Sul do Brasil| 100 | 20 |
+|Australia Southeast | 100 | 20 |
+|Brazil South| 100 | 20 |
 |Canadá Central| 100 | 20 |
 |Centro dos EUA| 100 | 20 |
 |Leste da China 2| 100 | 20 |
@@ -176,7 +178,7 @@ Consulte a disponibilidade regional completa de funções no [site do Azure](htt
 |Leste dos EUA 2| 100 | 20 |
 |França Central| 100 | 20 |
 |Centro-Oeste da Alemanha| 100 | Não disponível |
-|Leste do Japão| 100 | 20 |
+|Japan East| 100 | 20 |
 |Oeste do Japão| 100 | 20 |
 |Coreia Central| 100 | 20 |
 |Sul da Coreia| Não disponível | 20 |

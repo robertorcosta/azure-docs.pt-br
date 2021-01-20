@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 7240c1b0f19dc49ab4130c5ee2516dcfefb2e2c2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9521c13b21317bb0a782b0bea0b08312ff24b113
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602196"
+ms.locfileid: "98610345"
 ---
 # <a name="errors-in-the-connector-status"></a>Erros no status do conector
 
@@ -27,7 +27,7 @@ nesta seção, você pode encontrar os erros comuns apresentados na seção stat
   * Um script personalizado implantado na instância do ServiceNow faz com que os incidentes sejam ignorados.
   * O próprio código "aplicativo de integrador do OMS" foi modificado no ServiceNow, por exemplo, o script onbefore.
 
-    **Resolução**: Desabilite todos os scripts personalizados ou modificações de código do caminho de importação de dados.
+  **Resolução**: Desabilite todos os scripts personalizados ou modificações de código do caminho de importação de dados.
 
 * **Erro**: "{" erro ": {" Message ":" falha na operação "," Detail ":" falha na atualização da exceção de ACL devido a restrições de segurança "}"
 

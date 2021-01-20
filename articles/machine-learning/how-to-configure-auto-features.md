@@ -11,26 +11,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134408"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610294"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Personalização de dados no Machine Learning automatizado
 
-
-
-Saiba mais sobre as configurações de personalização de dados no Azure Machine Learning e como personalizar esses recursos para [experimentos de ml automatizados](concept-automated-ml.md).
+Saiba mais sobre as configurações de personalização de dados no Azure Machine Learning e como personalizar esses recursos para [experiências automatizadas de aprendizado de máquina](concept-automated-ml.md).
 
 ## <a name="feature-engineering-and-featurization"></a>Engenharia de recursos e personalização
 
-A *engenharia de recursos* é o processo de usar o conhecimento de domínio dos dados para criar recursos que ajudem os algoritmos de ml (aprendizado de máquina) a aprender melhor. Em Azure Machine Learning, as técnicas de escalação de dados e normalização são aplicadas para facilitar a engenharia de recursos. Coletivamente, essas técnicas e essa engenharia de recursos são chamadas de *personalização* em experimentos de aprendizado automático de máquina ou *autoML*.
+Os dados de treinamento consistem em linhas e colunas. Cada linha é uma observação ou um registro e as colunas de cada linha são os recursos que descrevem cada registro. Normalmente, os recursos que melhor caracterizam os padrões nos dados são selecionados para criar modelos de previsão.
+
+Embora muitos dos campos de dados brutos possam ser usados diretamente para treinar um modelo, muitas vezes é necessário criar recursos adicionais (desenvolvidos) que fornecem informações que diferenciam melhor os padrões dos dados. Esse processo é chamado de **engenharia de recursos**, em que o uso do conhecimento de domínio dos dados é utilizado para criar recursos que, por sua vez, ajudam os algoritmos de aprendizado de máquina a aprender melhor. 
+
+Em Azure Machine Learning, as técnicas de escalação de dados e normalização são aplicadas para facilitar a engenharia de recursos. Coletivamente, essas técnicas e essa engenharia de recursos são chamadas de **personalização** em experimentos de ml automatizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você já sabe como configurar um experimento do AutoML. Para obter informações sobre a configuração, consulte os seguintes artigos:
+Este artigo pressupõe que você já sabe como configurar um experimento de ML automatizado. Para obter informações sobre a configuração, consulte os seguintes artigos:
 
 - Para uma experiência de primeiro código: [Configure os experimentos de ml automatizados usando o SDK do Azure Machine Learning para Python](how-to-configure-auto-train.md).
 - Para uma experiência de baixo código ou sem código: [crie, revise e implante modelos de aprendizado de máquina automatizados usando o Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
@@ -59,7 +61,7 @@ A tabela a seguir mostra as configurações aceitas para `featurization` na [cla
 A tabela a seguir resume as técnicas que são aplicadas automaticamente aos seus dados. Essas técnicas são aplicadas para experimentos que são configurados usando o SDK ou o estúdio. Para desabilitar esse comportamento, defina `"featurization": 'off'` em seu `AutoMLConfig` objeto.
 
 > [!NOTE]
-> Se você planeja exportar seus modelos AutoML para um [modelo ONNX](concept-onnx.md), somente as opções de personalização indicadas com um asterisco ("*") têm suporte no formato ONNX. Saiba mais sobre [conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
+> Se você planeja exportar seus modelos AutoML para um [modelo ONNX](concept-onnx.md), somente as opções de personalização indicadas com um asterisco ("*") têm suporte no formato ONNX. Saiba mais sobre [conversão de modelos para ONNX](how-to-use-automl-onnx-model-dotnet.md).
 
 |Etapas de personalização &nbsp;| Descrição |
 | ------------- | ------------- |

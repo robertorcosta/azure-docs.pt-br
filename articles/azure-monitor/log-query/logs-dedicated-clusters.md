@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562668"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98609937"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
@@ -102,7 +102,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST**
 
-*Ligação* 
+*Chamar* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
@@ -255,7 +255,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 
 **REST**
 
-*Ligação*
+*Chamar*
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
@@ -322,7 +322,7 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 
 **REST**
 
-*Ligação*
+*Chamar*
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -380,7 +380,7 @@ Get-AzOperationalInsightsCluster
 
 **REST**
 
-*Ligação*
+*Chamar*
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
@@ -411,7 +411,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 **REST**
 
-*Ligação*
+*Chamar*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -434,7 +434,7 @@ A propriedade *billtype* determina a atribuição de cobrança para o cluster e 
 
 **REST**
 
-*Ligação*
+*Chamar*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -512,27 +512,25 @@ Use a seguinte chamada REST para excluir um cluster:
 
 - Você pode vincular um espaço de trabalho ao cluster e, em seguida, desvinculá-lo. O número de operações de link de espaço de trabalho no espaço de trabalho específico é limitado a 2 em um período de 30 dias.
 
-- O link do espaço de trabalho para o cluster deve ser executado somente depois que você tiver verificado que o provisionamento do cluster Log Analytics foi concluído.  Os dados enviados ao seu workspace antes da conclusão serão removidos e não poderão ser recuperados.
-
 - A movimentação de cluster para outro grupo de recursos ou assinatura não tem suporte no momento.
-
-- O link do espaço de trabalho para o cluster falhará se ele estiver vinculado a outro cluster.
 
 - A Lockbox não está disponível atualmente na China. 
 
-- A [criptografia dupla](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 em regiões com suporte. Você pode verificar se o cluster está configurado para criptografia dupla por uma solicitação GET no cluster e observar o valor da `"isDoubleEncryptionEnabled"` propriedade – é `true` para clusters com criptografia dupla habilitada. 
-  - Se você criar um cluster e receber um erro "<Region-Name> não dá suporte à criptografia dupla para clusters.", você ainda poderá criar o cluster sem criptografia dupla. Adicione `"properties": {"isDoubleEncryptionEnabled": false}` a propriedade no corpo da solicitação REST.
+- A [criptografia dupla](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) é configurada automaticamente para clusters criados a partir de outubro de 2020 em regiões com suporte. Você pode verificar se o cluster está configurado para criptografia dupla enviando uma solicitação GET no cluster e observando que o `isDoubleEncryptionEnabled` valor é `true` para clusters com criptografia dupla habilitada. 
+  - Se você criar um cluster e receber um erro "<Region-Name> não dá suporte à criptografia dupla para clusters.", você ainda poderá criar o cluster sem criptografia dupla adicionando `"properties": {"isDoubleEncryptionEnabled": false}` o corpo da solicitação REST.
   - A configuração de criptografia dupla não pode ser alterada após a criação do cluster.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
 - Se você receber um erro de conflito ao criar um cluster, pode ser que você tenha excluído o cluster nos últimos 14 dias e esteja em um estado de exclusão reversível. O nome do cluster permanece reservado durante o período de exclusão reversível e você não pode criar um novo cluster com esse nome. O nome é liberado após o período de exclusão reversível quando o cluster é excluído permanentemente.
 
-- Se você atualizar o cluster enquanto uma operação estiver em andamento, a operação falhará.
+- Se você atualizar o cluster enquanto o cluster estiver no estado de provisionamento ou atualização, a atualização falhará.
 
 - Algumas operações são longas e podem demorar um pouco para serem concluídas--são elas: criação de cluster, atualização de chave de cluster e exclusão de cluster. Você pode verificar o status da operação de duas maneiras:
   - Ao usar o REST, copie o Azure-AsyncOperation valor da URL da resposta e siga a [verificação de status de operações assíncronas](#asynchronous-operations-and-status-check).
   - Enviar solicitação GET para cluster ou espaço de trabalho e observar a resposta. Por exemplo, espaço de trabalho desvinculado não terá o *clusterResourceId* em *recursos*.
+
+- O link do espaço de trabalho para o cluster falhará se ele estiver vinculado a outro cluster.
 
 - Mensagens de erro
   

@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 9ace9a319f4cc6bcc1545d6d1becce61b1892765
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598671"
+ms.locfileid: "98611025"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -236,7 +236,8 @@ A tabela a seguir lista os limites específicos para o suporte a recursos do Mon
 | Recurso | Limite padrão |
 | --- | --- |
 | Tamanho máximo de memória de consulta do MongoDB (essa limitação é apenas para a versão do servidor 3.2) | 40 MB |
-| Tempo máximo de execução para operações do MongoDB| 30 s |
+|Tempo máximo de execução para operações do MongoDB (para a versão 3,2 do servidor)| 15 s|
+|Tempo máximo de execução para operações do MongoDB (para a versão 3,6 do servidor)| 60 segundos|
 | Tempo limite de conexão ociosa para encerramento de conexão no lado do servidor* | 30 minutos |
 
 \* Recomendamos que os aplicativos cliente definam o tempo limite de conexão ociosa nas configurações do driver para 2-3 minutos porque o [tempo limite padrão para o Azure Load Balancer é de 4 minutos](../load-balancer/load-balancer-tcp-idle-timeout.md).  Esse tempo limite garantirá que as conexões ociosas não sejam fechadas por um balanceador de carga intermediário entre o computador cliente e o Azure Cosmos DB.

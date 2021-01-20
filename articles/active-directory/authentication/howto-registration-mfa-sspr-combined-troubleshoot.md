@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 04/15/2020
+ms.date: 01/19/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba1e280e3c14a24e33246799ca0d7ef8221294f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: db87887fc2b51c7cb8cb300eb8e711d3ae9b6ac8
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741687"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610770"
 ---
 # <a name="troubleshooting-combined-security-information-registration"></a>Solucionando problemas de registro de informações de segurança combinadas
 
@@ -24,7 +24,7 @@ As informações neste artigo destinam-se a orientar os administradores que est�
 
 ## <a name="audit-logs"></a>Logs de auditoria
 
-Os eventos registrados para registro combinado estão na categoria métodos de autenticação nos logs de auditoria do Azure AD.
+Os eventos registrados para registro combinado estão no serviço de métodos de autenticação nos logs de auditoria do Azure AD.
 
 ![Interface de logs de auditoria do Azure AD mostrando eventos de registro](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 

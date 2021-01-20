@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 434917c1cee26a4a8eeb7f27808e3fcb487f3f55
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aac0139e09866ce44d25989119b2eafb31e76961
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350034"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610447"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acessando os logs de diagnóstico do Azure Data Lake Storage Gen1
 Saiba como habilitar o log de diagnósticos em sua conta do Azure Data Lake Storage Gen1 e como exibir os logs coletados em sua conta.
@@ -50,7 +50,7 @@ As organizações podem habilitar o log de diagnóstico para sua conta de Azure 
      
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
    * Especifique o número de dias que os dados devem ser mantidos. Retenção só é aplicável se você estiver usando a conta de armazenamento do Azure para arquivar dados de log.
-   * Clique em **Save** (Salvar).
+   * Clique em **Salvar**.
 
 Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico** .
 
@@ -115,7 +115,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 ```
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |A ID do recurso em que a operação ocorreu |
@@ -128,14 +128,16 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 | properties |JSON |Confira abaixo para obter os detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | HttpMethod |String |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |String |O caminho em que a operação foi executada |
-| RequestContentLength |INT |O comprimento do conteúdo da solicitação HTTP |
+| RequestContentLength |int |O comprimento do conteúdo da solicitação HTTP |
 | ClientRequestId |String |A ID que identifica esta solicitação exclusivamente |
 | StartTime |String |A hora em que o servidor recebeu a solicitação |
 | EndTime |String |A hora em que o servidor enviou uma resposta |
+| StoreIngressSize |long |Tamanho em bytes de entrada para Data Lake Store |
+| StoreEgressSize |long |Tamanho em bytes de saída de Data Lake Store |
 
 ### <a name="audit-logs"></a>Logs de auditoria
 Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blob tem um objeto raiz chamado **registros** que contém uma matriz de objetos de log
@@ -164,7 +166,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 ```
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |A ID do recurso em que a operação ocorreu |
@@ -177,7 +179,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 | properties |JSON |Confira abaixo para obter os detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | StreamName |String |O caminho em que a operação foi executada |
 

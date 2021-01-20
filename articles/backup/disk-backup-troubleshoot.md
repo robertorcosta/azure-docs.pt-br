@@ -3,12 +3,12 @@ title: Solucionando problemas de falhas de backup no backup em disco do Azure
 description: Saiba como solucionar problemas de falhas de backup no backup em disco do Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 0a2ef1ea20ee8d6b7a3f32e244d3e00f3add80a2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3e7c81d70fc898528532a841a484bf6fff8b83a7
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557439"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611229"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Solucionando problemas de falhas de backup no backup em disco do Azure (em versão prévia)
 
@@ -153,12 +153,30 @@ Mensagem de erro: os metadados de instantâneo de disco para este ponto de resta
 
 Ação recomendada: considere usar outro ponto de recuperação para restaurar. Para obter mais informações, consulte a [documentação de restauração](restore-managed-disks.md).
 
+### <a name="error-code-backupagentpluginhostvalidateprotectionerror"></a>Código de erro: BackupAgentPluginHostValidateProtectionError
+
+Mensagem de erro: o backup em disco ainda não está disponível na região do cofre de backup sob a qual a proteção de configuração está sendo tentada.
+
+Ação recomendada: o cofre de backup deve estar em uma região com suporte de visualização. Para disponibilidade de região, consulte a [matriz de suporte](disk-backup-support-matrix.md).
+
+### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Código de erro: UserErrorDppDatasourceAlreadyHasBackupInstance
+
+Mensagem de erro: o disco que você está tentando configurar o backup já está sendo protegido. O disco já está associado a uma instância de backup em um cofre de backup.
+
+Ação recomendada: este disco já está associado a uma instância de backup em um cofre de backup. Se você quiser proteger novamente esse disco, exclua a instância de backup do cofre de backup no qual ele está protegido e proteja novamente o disco em qualquer outro cofre.
+
+### <a name="error-code-usererrordppdatasourcealreadyprotected"></a>Código de erro: UserErrorDppDatasourceAlreadyProtected
+
+Mensagem de erro: o disco que você está tentando configurar o backup já está sendo protegido. O disco já está associado a uma instância de backup em um cofre de backup.
+
+Ação recomendada: este disco já está associado a uma instância de backup em um cofre de backup. Se você quiser proteger novamente esse disco, exclua a instância de backup do cofre de backup no qual ele está protegido e proteja novamente o disco em qualquer outro cofre.
+
 ### <a name="error-code-usererrormaxconcurrentoperationlimitreached"></a>Código de erro: UserErrorMaxConcurrentOperationLimitReached
 
-Mensagem de erro: não é possível iniciar a operação porque o número máximo de operações simultâneas permitidas foi atingido para esse tipo de operação.
+Mensagem de erro: não é possível iniciar a operação porque o número máximo de backups simultâneos permitidos foi atingido.
 
-Ação recomendada: Aguarde até que as operações anteriores sejam concluídas.
+Ação recomendada: Aguarde até que o backup anterior em execução seja concluído.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Matriz de suporte do backup em disco do Azure](disk-backup-support-matrix.md)
+- [Matriz de suporte de Backup de Disco do Azure](disk-backup-support-matrix.md)
