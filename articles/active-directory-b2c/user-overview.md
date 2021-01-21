@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a8e08d0045d0520241341cc08fb800468ed6897
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c3e6c1d6bfa83ef238ef38b25b189510cf142a38
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928606"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661078"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas de usuários no Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Ao adicionar uma nova conta corporativa, será necessário considerar as seguint
 
 - **Nome** e **Nome de usuário** - A propriedade **Nome** contém o nome e sobrenome do usuário. O **Nome de usuário** é o identificador que o usuário insere para entrar. O nome de usuário inclui o domínio completo. A parte do nome de domínio do nome de usuário deve ser o nome de domínio padrão inicial *seu-domínio.onmicrosoft.com* ou um nome de domínio personalizado [não federado verificado,](../active-directory/fundamentals/add-custom-domain.md) como *contoso.com*.
 - **Perfil** - A conta é configurada com um perfil de dados do usuário. É possível inserir um nome, sobrenome, cargo e nome do departamento. É possível editar o perfil depois que a conta é criada.
-- **Grupos** - Use um grupo para executar tarefas de gerenciamento como atribuir licenças ou permissões a vários usuários ou dispositivos de uma só vez. Você pode colocar a nova conta em um [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente no locatário.
+- **Grupos** – Use grupos para executar tarefas de gerenciamento, como atribuir licenças ou permissões a muitos usuários ou dispositivos de uma vez. Você pode colocar a nova conta em um [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente no locatário.
 - **Função do diretório** - É necessário especificar o nível de acesso que a conta de usuário tem aos recursos no locatário. Os níveis de permissão a seguir estão disponíveis:
 
     - **Usuário** - Os usuários podem acessar recursos atribuídos, mas não podem gerenciar a maioria dos recursos do locatário.
@@ -70,7 +70,7 @@ Ao adicionar uma nova conta corporativa, será necessário considerar as seguint
 
 É possível convidar usuários externos para o locatário como usuário convidado. Um cenário típico para convidar um usuário convidado para o locatário do Azure AD B2C é compartilhar responsabilidades de administração. Para um exemplo de uso de uma conta Convidado, consulte [Propriedades de um usuário de colaboração do Azure Active Directory B2C](../active-directory/external-identities/user-properties.md).
 
-Ao convidar um usuário convidado para o locatário, você fornece o endereço de email do destinatário e uma mensagem descrevendo o convite. O link de convite leva o usuário à página de consentimento, onde o botão **Iniciar** é selecionado e a revisão de permissões é aceita. Se uma caixa de entrada não estiver anexada ao endereço de email, o usuário poderá navegar até a página de consentimento, acessando uma página da Microsoft usando as credenciais de convidado. O usuário é forçado a resgatar o convite da mesma maneira que clicar no link no email. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
+Ao convidar um usuário convidado para o locatário, você fornece o endereço de email do destinatário e uma mensagem descrevendo o convite. O link do convite leva o usuário para a página de consentimento. Se uma caixa de entrada não estiver anexada ao endereço de email, o usuário poderá navegar até a página de consentimento, acessando uma página da Microsoft usando as credenciais de convidado. O usuário é forçado a resgatar o convite da mesma maneira que clicar no link no email. Por exemplo: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
 Também é possível usar a [API do Microsoft Graph](/graph/api/invitation-post?view=graph-rest-beta) para convidar um usuário convidado.
 
@@ -78,7 +78,7 @@ Também é possível usar a [API do Microsoft Graph](/graph/api/invitation-post?
 
 O usuário consumidor pode entrar em aplicativos protegidos pelo Azure AD B2C, mas não pode acessar recursos do Azure, como o portal do Azure. O usuário consumidor pode usar uma conta local ou contas federadas como Facebook ou Twitter. Uma conta de consumidor é criada usando um [fluxo de usuário de inscrição ou de entrada](user-flow-overview.md), usando a API de Microsoft Graph ou usando o portal do Azure.
 
-É possível especificar os dados que são coletados quando uma conta de usuário Consumidor é criada, usando atributos de usuário personalizados. Para obter mais informações, consulte [Definir atributos personalizados no Azure Active Directory B2C](user-flow-custom-attributes.md).
+Você pode especificar os dados que são coletados quando uma conta de usuário do consumidor é criada. Para obter mais informações, consulte [adicionar atributos de usuário e personalizar entrada do usuário](configure-user-input.md).
 
 Para obter mais informações sobre como gerenciar contas de consumidor, consulte [gerenciar contas de usuário Azure ad B2C com Microsoft Graph](manage-user-accounts-graph-api.md).
 

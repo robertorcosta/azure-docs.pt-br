@@ -3,12 +3,12 @@ title: Glossário do backup do Azure
 description: Este artigo define os termos úteis para uso com o backup do Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 1e28f0c2ad5d14ea2a8dc6ce8d5fa2b21c7e65ac
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 121258665ab275fdcffd618e7c0cf1b3e0537e70
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935063"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661469"
 ---
 # <a name="azure-backup-glossary"></a>Glossário do backup do Azure
 
@@ -246,7 +246,7 @@ Uma cópia dos dados originais que estão sendo submetidos a backup. Um ponto de
 
 Um recurso de Azure Resource Manager do tipo *Microsoft. recoveryservices/cofres*. Atualmente, os cofres dos serviços de recuperação são usados para fazer backup das seguintes cargas de trabalho: VMs do Azure, SQL em VMs do Azure, SAP HANA em VMs do Azure e compartilhamentos de arquivos do Azure. Ele também é usado para fazer backup de cargas de trabalho locais usando MARS, Servidor de Backup do Azure (MABS) e System Center DPM. [Saiba mais sobre os cofres dos serviços de recuperação](backup-azure-recovery-services-vault-overview.md).
 
-## <a name="resource-group"></a>Grupo de recursos
+## <a name="resource-group"></a>Resource group
 
 Consulte a [documentação do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group).
 
@@ -286,7 +286,7 @@ Um instantâneo é uma cópia completa e somente leitura de um disco rígido vir
 
 Consulte a [documentação da conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-## <a name="subscription"></a>Subscription
+## <a name="subscription"></a>Assinatura
 
 Uma assinatura do Azure é um contêiner lógico usado para provisionar recursos no Azure. Ele contém os detalhes de todos os seus recursos, como VMs (máquinas virtuais), bancos de dados e muito mais.
 

@@ -1,5 +1,5 @@
 ---
-title: Gerenciar as contas de administrador de acesso de emergência - Azure AD | Microsoft Docs
+title: Gerenciar contas de administrador de acesso de emergência-Azure AD
 description: Este artigo descreve como usar contas de acesso de emergência para ajudar a evitar ser inadvertidamente bloqueado da sua organização do Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6ef8e7ed662d8c0acfc7c43112d6d7edb1cb9a94
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834431"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660640"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerenciar contas de acesso de emergência no Microsoft Azure Active Directory
 
@@ -60,7 +60,7 @@ Durante uma emergência, não é desejável uma política para bloquear o acesso
 
 ## <a name="federation-guidance"></a>Diretrizes de federação
 
-Uma opção adicional para organizações que usam os serviços de domínio do domínio do aplicativo (AD) e do Sistema de Arquivos Distribuído do Azure (ADFS) ou o provedor de identidade semelhante para federar ao Microsoft Azure Active Directory, é configurar uma conta de acesso de emergência cuja declaração da MFA pode ser fornecida por ser um provedor de identidade.  Por exemplo, a conta de acesso de emergência pode ser feita por um certificado e um par de chaves como uma armazenada em um cartão inteligente.  Quando o usuário é autenticado para o AD, o ADFS pode fornecer uma declaração ao Microsoft Azure Active Directory que indica que o usuário atende aos requisitos da MFA.  Mesmo com essa abordagem, as organizações ainda devem ter contas de acesso de emergência baseadas em nuvem no caso da federação não poder ser estabelecida. 
+Algumas organizações usam os serviços de domínio do AD e o ADFS ou o provedor de identidade semelhante para federar ao Azure AD. [Não deve haver contas locais com privilégios administrativos](../fundamentals/protect-m365-from-on-premises-attacks.md). A autenticação de mestre e ou de fornecimento para contas com privilégio administrativo fora do Azure AD adiciona risco desnecessário no caso de uma interrupção ou comprometimento desses sistemas.
 
 ## <a name="store-account-credentials-safely"></a>Armazenar com segurança as credenciais da conta
 

@@ -3,16 +3,16 @@ title: Link privado-CLI do Azure-banco de dados do Azure para MariaDB
 description: Saiba como configurar o link privado para o banco de dados do Azure para MariaDB do CLI do Azure
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7ba8a5ded1d83ffdf153724c5e76b27e10bccfcb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 693fe5820894de38a5b43fc700d517cdcb27233e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015461"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660116"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Criar e gerenciar o link privado para o banco de dados do Azure para MariaDB usando a CLI
 
@@ -177,7 +177,7 @@ Conecte-se à VM *myVm* da Internet da seguinte forma:
     | ------- | ----- |
     | Nome da Conexão| Selecione o nome de conexão de sua escolha.|
     | Nome do host | Selecionar *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
-    | Nome de usuário | Insira o nome de usuário como *username@servername* fornecido durante a criação do servidor MariaDB. |
+    | Nome de Usuário | Insira o nome de usuário como *username@servername* fornecido durante a criação do servidor MariaDB. |
     | Senha | Insira uma senha fornecida durante a criação do servidor MariaDB. |
     ||
 

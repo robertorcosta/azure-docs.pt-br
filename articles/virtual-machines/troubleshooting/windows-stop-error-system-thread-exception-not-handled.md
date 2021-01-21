@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/04/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 1ce594d9e3ffddf781c61717ae4534f0c7bd40f8
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: beb658474e49f9b47900d8481dab0424dae8c5be
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681883"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661384"
 ---
 # <a name="windows-stop-error---0x0000007e-system-thread-exception-not-handled"></a>Erro de parada do Windows-exceção de thread do sistema 0x0000007E não tratada
 
@@ -34,6 +34,10 @@ Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir u
 A causa não pode ser determinada até que um arquivo de despejo de memória seja analisado. Continue a coletar o arquivo de despejo de memória.
 
 ## <a name="solution"></a>Solução
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 
 Para resolver esse problema, primeiro você precisa coletar o arquivo de despejo de memória para a falha e, em seguida, enviar o arquivo para o suporte da Microsoft. Para coletar o arquivo de despejo, siga as instruções nas duas próximas seções.
 
