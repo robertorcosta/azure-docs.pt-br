@@ -3,12 +3,12 @@ title: Usar uma função no Azure como um manipulador de eventos para eventos da
 description: Descreve como você pode usar funções criadas no e hospedadas pelo Azure Functions como manipuladores de eventos para eventos de grade de eventos.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 5a1ec575b58829a422e4d263ae0324e0343d5ad3
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034961"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632505"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Usar uma função como um manipulador de eventos para eventos de grade de eventos
 
@@ -75,7 +75,7 @@ Você pode atualizar esses valores para uma assinatura existente na guia **recur
 Você pode definir **maxEventsPerBatch** e **preferredBatchSizeInKilobytes** em um modelo de Azure Resource Manager. Para obter mais informações, consulte [referência de modelo do Microsoft. EventGrid eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions).
 
 ### <a name="azure-cli"></a>CLI do Azure
-Você pode usar o comando [AZ eventgrid Event-Subscription Create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) ou [AZ eventgrid Event-Subscription Update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) para definir configurações relacionadas ao lote usando os seguintes parâmetros: `--max-events-per-batch` ou `--preferred-batch-size-in-kilobytes` .
+Você pode usar o comando [AZ eventgrid Event-Subscription Create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create&preserve-view=true) ou [AZ eventgrid Event-Subscription Update](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_update&preserve-view=true) para definir configurações relacionadas ao lote usando os seguintes parâmetros: `--max-events-per-batch` ou `--preferred-batch-size-in-kilobytes` .
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Você pode usar o cmdlet [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) ou [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) para definir configurações relacionadas ao lote usando os seguintes parâmetros: `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes` .

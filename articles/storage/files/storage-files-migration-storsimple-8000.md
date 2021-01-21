@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 76a244810042adf3cec64b15fe847c5b684527c2
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134340"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631177"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração do StorSimple 8100 e 8600 para Sincronização de Arquivos do Azure
 
@@ -133,7 +133,7 @@ Esta seção discute considerações sobre a implantação de diferentes tipos d
 
 Provavelmente, você precisará implantar várias contas de armazenamento do Azure. Cada um deles manterá um número menor de compartilhamentos de arquivos do Azure, de acordo com seu plano de implantação, concluído na seção anterior deste artigo. Vá para o portal do Azure para [implantar suas contas de armazenamento planejadas](../common/storage-account-create.md#create-a-storage-account). Considere obedecer às configurações básicas a seguir para qualquer nova conta de armazenamento.
 
-#### <a name="subscription"></a>Subscription
+#### <a name="subscription"></a>Assinatura
 
 Você pode usar a mesma assinatura usada para sua implantação do StorSimple ou outra. A única limitação é que sua assinatura deve estar no mesmo locatário Azure Active Directory que a assinatura do StorSimple. Considere mover a assinatura do StorSimple para o locatário correto antes de iniciar uma migração. Você só pode mover a assinatura inteira. Os recursos individuais do StorSimple não podem ser movidos para um locatário ou assinatura diferente.
 
@@ -145,7 +145,7 @@ Os grupos de recursos estão ajudando com a organização de recursos e permiss�
 
 O nome da sua conta de armazenamento se tornará parte de uma URL e terá determinadas limitações de caracteres. Em sua Convenção de nomenclatura, considere que os nomes de conta de armazenamento devem ser exclusivos no mundo, permitir apenas letras minúsculas e números, exigir entre 3 e 24 caracteres e não permitir caracteres especiais como hifens ou sublinhados. Para obter mais informações, consulte [regras de nomenclatura de recursos de armazenamento do Azure](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
-#### <a name="location"></a>Location
+#### <a name="location"></a>Local
 
 O local ou a região do Azure de uma conta de armazenamento é muito importante. Se você usar Sincronização de Arquivos do Azure, todas as suas contas de armazenamento deverão estar na mesma região que o recurso do serviço de sincronização de armazenamento. A região do Azure que você escolher deve ser próxima ou central para seus servidores e usuários locais. Depois que o recurso tiver sido implantado, você não poderá alterar sua região.
 
@@ -160,7 +160,7 @@ Você tem a opção de escolher o armazenamento Premium (SSD) para compartilhame
 
 Ainda não tem certeza?
 
-* Escolha armazenamento Premium se você precisar do [desempenho de um compartilhamento de arquivos premium do Azure](understanding-billing.md#provisioned-billing).
+* Escolha armazenamento Premium se você precisar do [desempenho de um compartilhamento de arquivos premium do Azure](understanding-billing.md#provisioned-model).
 * Escolha o armazenamento padrão para cargas de trabalho de servidor de arquivos de uso geral, que inclui dados dinâmicos e dados de arquivo. Escolha também armazenamento padrão se a única carga de trabalho no compartilhamento na nuvem for Sincronização de Arquivos do Azure.
 
 #### <a name="account-kind"></a>Tipo de conta
@@ -244,7 +244,7 @@ Esta seção descreve como configurar um trabalho de migração e mapear cuidado
         ![Trabalho de migração da série StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Uma captura de tela do novo formulário de criação de trabalho para um trabalho do serviço de transformação de dados.")
     :::column-end:::
     :::column:::
-        **Nome da definição do trabalho**</br>Esse nome deve indicar o conjunto de arquivos que você está movendo. Dar um nome semelhante ao compartilhamento de arquivos do Azure é uma boa prática. </br></br>**Local onde o trabalho é executado**</br>Ao selecionar uma região, você deve selecionar a mesma região da sua conta de armazenamento do StorSimple ou, se isso não estiver disponível, depois uma região próxima a ela. </br></br><h3>Fonte</h3>**Assinatura de origem**</br>Selecione a assinatura na qual você armazena o recurso de Device Manager do StorSimple. </br></br>**Recurso do StorSimple**</br>Selecione seu StorSimple Device Manager seu dispositivo está registrado. </br></br>**Chave de criptografia de dados de serviço**</br>Marque esta [seção anterior neste artigo](#storsimple-service-data-encryption-key) caso não seja possível localizar a chave em seus registros. </br></br>**Dispositivo**</br>Selecione o dispositivo StorSimple que contém o volume onde você deseja migrar. </br></br>**Volume**</br>Selecione o volume de origem. Posteriormente, você decidirá se deseja migrar todo o volume ou subdiretórios para o compartilhamento de arquivos de destino do Azure. </br></br><h3>Destino</h3>Selecione a assinatura, a conta de armazenamento e o compartilhamento de arquivos do Azure como o destino deste trabalho de migração.
+        **Nome da definição do trabalho**</br>Esse nome deve indicar o conjunto de arquivos que você está movendo. Dar um nome semelhante ao compartilhamento de arquivos do Azure é uma boa prática. </br></br>**Local onde o trabalho é executado**</br>Ao selecionar uma região, você deve selecionar a mesma região da sua conta de armazenamento do StorSimple ou, se isso não estiver disponível, depois uma região próxima a ela. </br></br><h3>Fonte</h3>**Assinatura de origem**</br>Selecione a assinatura na qual você armazena o recurso de Gerenciador de Dispositivos do StorSimple. </br></br>**Recurso do StorSimple**</br>Selecione seu StorSimple Gerenciador de Dispositivos seu dispositivo está registrado. </br></br>**Chave de criptografia de dados de serviço**</br>Marque esta [seção anterior neste artigo](#storsimple-service-data-encryption-key) caso não seja possível localizar a chave em seus registros. </br></br>**Dispositivo**</br>Selecione o dispositivo StorSimple que contém o volume onde você deseja migrar. </br></br>**Volume**</br>Selecione o volume de origem. Posteriormente, você decidirá se deseja migrar todo o volume ou subdiretórios para o compartilhamento de arquivos de destino do Azure. </br></br><h3>Destino</h3>Selecione a assinatura, a conta de armazenamento e o compartilhamento de arquivos do Azure como o destino deste trabalho de migração.
     :::column-end:::
 :::row-end:::
 
@@ -567,7 +567,7 @@ Antes de começar, é uma prática recomendada observar sua nova implantação d
 
 1. Desprovisione seu recurso de Gerenciador de Dados do StorSimple por meio do portal do Azure. Todos os trabalhos do DTS serão excluídos com ele. Você não poderá recuperar facilmente os logs de cópia. Se eles forem importantes para seus registros, recupere-os antes de desprovisionar.
 1. Verifique se os dispositivos físicos do StorSimple foram migrados e cancele seu registro. Se você não tiver certeza de que eles foram migrados, não continue. Se você desprovisionar esses recursos enquanto eles ainda são necessários, não será possível recuperar os dados ou sua configuração.<br>Opcionalmente, você pode primeiro desprovisionar o recurso de volume do StorSimple, que limpará os dados no dispositivo. Isso pode levar vários dias e **, de forma forense,** zera os dados no dispositivo. Se isso for importante para você, manipule a zero do disco separadamente do desprovisionamento de recursos e de acordo com suas políticas.
-1. Se não houver mais dispositivos registrados deixados em um Device Manager StorSimple, você poderá continuar a remover esse recurso Device Manager em si.
+1. Se não houver mais dispositivos registrados deixados em um Gerenciador de Dispositivos StorSimple, você poderá continuar a remover esse recurso Gerenciador de Dispositivos em si.
 1. Agora é hora de excluir a conta de armazenamento do StorSimple no Azure. Novamente, pare e confirme se a migração foi concluída e se nada e não depende desses dados antes de continuar.
 1. Desconecte o dispositivo físico StorSimple do seu data center.
 1. Se você possui o dispositivo StorSimple, você está livre para o PC reciclá-lo. Se o dispositivo for concedido, informe o menor e retorne o dispositivo conforme apropriado.

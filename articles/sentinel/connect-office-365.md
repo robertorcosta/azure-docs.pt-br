@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 05848eb2761284669e659b3875e96acdfa71f90f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655363"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632175"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Conectar logs do Office 365 ao Azure Sentinel
 
 O conector de log do [Office 365](/office/) traz para o Azure Sentinel informações sobre atividades de usuário e administrador em andamento no **Exchange** e no **SharePoint** (incluindo o **onedrive**), e agora também em **equipes** . Essas informações incluem detalhes de ações como downloads de arquivos, solicitações de acesso enviadas, alterações em eventos de grupo, operações de caixa de correio, eventos de equipes (como eventos de chat, equipe, membro e canal), bem como os detalhes do usuário que realizou as ações. Conectar logs do Office 365 ao Azure Sentinel permite exibir e analisar esses dados em suas pastas de trabalho, consultá-los para criar alertas personalizados e incorporá-los para melhorar o processo de investigação, fornecendo mais informações sobre a segurança do Office 365.
-
-> [!IMPORTANT]
-> A extensão do conector de log do Office 365 **para logs do Microsoft Teams** está atualmente em visualização pública.
-> Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

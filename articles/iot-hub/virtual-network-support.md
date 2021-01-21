@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 08f033cbe121135e281379a013e11a33ae962dfb
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703799"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630286"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte do Hub IoT para redes virtuais com Link Privado e Identidade Gerenciada
 
@@ -70,6 +70,9 @@ O [ponto de extremidade compatível com o Hub de eventos interno](iot-hub-devgui
 
 :::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Imagem mostrando dois pontos de extremidade privados, considerando cada link privado do Hub IoT":::
 
+O [filtro IP](iot-hub-ip-filtering.md) do Hub IOT pode, opcionalmente, controlar o acesso público ao ponto de extremidade interno. 
+
+Para bloquear completamente o acesso à rede pública ao seu hub IoT, [desative o acesso à rede pública](iot-hub-public-network-access.md) ou use o filtro IP para bloquear todo o IP e selecione a opção para aplicar regras ao ponto de extremidade interno.
 
 ### <a name="pricing-for-private-link"></a>Preços para o Link Privado
 

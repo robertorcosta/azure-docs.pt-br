@@ -3,12 +3,12 @@ title: Análise de vídeo ao vivo em notas de versão IoT Edge – Azure
 description: Este tópico fornece notas de versão de análise de vídeo ao vivo sobre versões IoT Edge, melhorias, correções de bugs e problemas conhecidos.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 328fe97c4e03f039a1224d13ce6712ccff06b3b7
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121236"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629769"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Análise de vídeo ao vivo em notas de versão IoT Edge
 
@@ -51,9 +51,12 @@ Esta versão é a versão de atualização de visualização pública da anális
 * Adicionado suporte para gerenciamento de espaço em disco para nós do coletor.
 * `MediaGraphGrpcExtension` o nó agora dá suporte à propriedade [extensionConfiguration](grpc-extension-protocol.md) para usar vários modelos de ia em um único servidor gRPC.
 * Adição de suporte à coleta de métricas do módulo análise de vídeo ao vivo no [formato Prometheus](https://prometheus.io/docs/practices/naming/). Saiba mais sobre como [coletar métricas e exibições no Azure monitor.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
+* Adicionada a capacidade de filtrar a seleção de saída. Você pode transmitir **somente áudio** ou **somente vídeo** ou **áudio e vídeo** com a ajuda de `outputSelectors` para qualquer nó do grafo. 
 * O processador do filtro de taxa de quadros foi **preterido**.  
     * O gerenciamento de taxa de quadros agora está disponível dentro dos nós do processador de extensão do grafo.
 
+### <a name="visual-studio-code-extension"></a>Extensão Visual Studio Code
+* Lançada a [análise de vídeo ao vivo em IOT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) -uma extensão Visual Studio Code para ajudá-lo a gerenciar grafos de mídia LVA. Essa extensão funciona com o **módulo LVA 2,0** e oferece edição e gerenciamento de grafos de mídia com uma interface gráfica muito elegante e fácil de usar.
 ## <a name="september-22-2020"></a>22 de setembro de 2020
 
 Esta marca de versão destina-se à atualização de setembro de 2020 do módulo:

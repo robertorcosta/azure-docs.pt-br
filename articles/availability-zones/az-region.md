@@ -1,5 +1,5 @@
 ---
-title: Serviços do Azure que dão suporte ao Zonas de Disponibilidade
+title: Serviços do Azure compatíveis com as zonas de disponibilidade
 description: Para criar aplicativos altamente disponíveis e resilientes no Azure, as Zonas de Disponibilidade oferecem locais fisicamente separados que você pode usar para executar seus recursos.
 author: cynthn
 ms.service: azure
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 0365a60317538ba31f39928cd30a57e2c969c832
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: ea21a56249c8eaa7c6b329b755e96b21b91ebaa1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723024"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632301"
 ---
-# <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que dão suporte ao Zonas de Disponibilidade
+# <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure compatíveis com as zonas de disponibilidade
 
 Zonas de Disponibilidade é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. Para obter a lista de regiões existentes e futuras que dão suporte a Zonas de Disponibilidade, consulte [regiões e zonas de disponibilidade no Azure](az-overview.md).  
 
@@ -52,7 +52,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 
 | **Produtos** | **Centro dos EUA** | **Leste dos EUA** | **Leste dos EUA 2** | **Oeste dos EUA 2** | **Canadá Central** |
 |--|--|--|--|--|--|
-| **Computação** |  |  |  |  |  |
+| **Compute** |  |  |  |  |  |
 | [Ambientes do serviço de aplicativo (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -97,7 +97,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 
 | **Produtos** | **França Central** | **Norte da Europa** | **Sul do Reino Unido** | **Oeste da Europa** |
 |--|--|--|--|--|
-| **Computação** |  |  |  |  |
+| **Compute** |  |  |  |  |
 | [Ambientes do serviço de aplicativo (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [AKS (Serviço de Kubernetes do Azure)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -124,7 +124,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Banco de dados do Azure para MySQL-servidor flexível](../mysql/flexible-server/concepts-high-availability.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Servidor Flexível do Banco de Dados do Azure para PostgreSQL](../postgresql/flexible-server/overview.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Banco de dados SQL do Azure (Uso Geral camada)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | : heavy_check_mark: (visualização) | :x: | : heavy_check_mark: (visualização) |
+| [Banco de dados SQL do Azure (Uso Geral camada)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (visualização) | : heavy_check_mark: (visualização) | :x: | : heavy_check_mark: (visualização) |
 | [Banco de dados SQL do Azure (Premium & camadas de Comercialmente Crítico)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Análise** |  |  |  |  |
 | [Hubs de Evento](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -140,9 +140,9 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 
 
 
-| **Produtos** | **Leste do Japão** | **Sudeste Asiático** | **Leste da Austrália** |
+| **Produtos** | **Japan East** | **Sudeste Asiático** | **Leste da Austrália** |
 |--|--|--|--|
-| **Computação** |  |  |  |
+| **Compute** |  |  |  |
 | [Ambientes do serviço de aplicativo (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [AKS (Serviço de Kubernetes do Azure)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -169,7 +169,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Banco de dados do Azure para MySQL-servidor flexível](../mysql/flexible-server/concepts-high-availability.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Servidor Flexível do Banco de Dados do Azure para PostgreSQL](../postgresql/flexible-server/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Banco de dados SQL do Azure (Uso Geral camada)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | : heavy_check_mark: (visualização) | : heavy_check_mark: (visualização) |
+| [Banco de dados SQL do Azure (Uso Geral camada)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (visualização) | : heavy_check_mark: (visualização) | : heavy_check_mark: (visualização) |
 | [Banco de dados SQL do Azure (Premium & camadas de Comercialmente Crítico)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Análise** |  |  |  |
 | [Hubs de Evento](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

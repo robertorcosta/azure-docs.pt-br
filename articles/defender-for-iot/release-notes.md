@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2021
+ms.date: 01/06/2021
 ms.author: shhazam
-ms.openlocfilehash: 0281ebcdf1da27513e9b9256b508d911ec7697b5
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 72a6e50134647194679055a886b50b01f42e212d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937553"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629972"
 ---
-# <a name="whats-new"></a>O que há de novo
+# <a name="whats-new"></a>Novidades
 
 O defender para IoT 10,0 fornece aprimoramentos de recursos que melhoram a segurança, o gerenciamento e a usabilidade.
 

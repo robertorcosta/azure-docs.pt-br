@@ -4,12 +4,12 @@ description: Como fornecer o máximo de disponibilidade e consistência com os H
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81bacd5507396352bb814310979498234ee35347
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7b97d76f29ee8b7e44373c865baa09ba5ea4dd23
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902894"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631912"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência nos Hubs de Eventos
 
@@ -30,10 +30,10 @@ Os Hubs de Eventos são criados sobre um modelo de dados particionado. Você pod
 A maneira mais simples de começar com os Hubs de Eventos é usar o comportamento padrão. 
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 ou posterior)](#tab/latest)
-Se você criar um novo objeto **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient?view=azure-dotnet)** e usar o método **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync?view=azure-dotnet)** , seus eventos serão automaticamente distribuídos entre partições em seu hub de eventos. Esse comportamento permite a maior quantidade possível de tempo de atividade.
+Se você criar um novo objeto **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient)** e usar o método **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync)** , seus eventos serão automaticamente distribuídos entre partições em seu hub de eventos. Esse comportamento permite a maior quantidade possível de tempo de atividade.
 
 #### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft. Azure. EventHubs (4.1.0 ou anterior)](#tab/old)
-Se você criar um novo objeto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** e usar o método **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**, os eventos serão distribuídos automaticamente entre as partições do seu hub de eventos. Esse comportamento permite a maior quantidade possível de tempo de atividade.
+Se você criar um novo objeto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** e usar o método **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**, os eventos serão distribuídos automaticamente entre as partições do seu hub de eventos. Esse comportamento permite a maior quantidade possível de tempo de atividade.
 
 ---
 
@@ -145,4 +145,4 @@ O exemplo envia seu evento para uma das partições disponíveis em seu hub de e
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão geral do serviço dos Hubs de Eventos](./event-hubs-about.md)
-* [Criar um Hub de Evento](event-hubs-create.md)
+* [Criar um hub de eventos](event-hubs-create.md)

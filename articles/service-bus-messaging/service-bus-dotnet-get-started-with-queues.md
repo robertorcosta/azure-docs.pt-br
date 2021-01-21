@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f55af61a061bf3a3897569058aace728f7465b64
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: ec3f53e6f69614028c013efa5f0e6852cbc3f8ae
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862115"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631633"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Enviar e receber mensagens em filas do Barramento de Serviço do Azure (.NET)
 Neste tutorial, você criará um aplicativo de console .NET Core para enviar e receber mensagens em uma fila do Barramento de Serviço usando o pacote **Azure.Messaging.ServiceBus**. 
@@ -272,4 +272,4 @@ Confira os seguintes exemplos e a documentação:
 
 - [Biblioteca de clientes do Barramento de Serviço do Azure para .NET – Leiame](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Exemplos no GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Referência da API REST](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)
+- [Referência da API REST](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

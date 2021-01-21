@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 7f72d703e5377f725addc4aa8c52e1cdb0fa571d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724792"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630744"
 ---
 # <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 Para criar um compartilhamento de arquivos do Azure, você precisa responder a três perguntas sobre como você irá usá-lo:
@@ -84,7 +84,7 @@ A seção avançado contém várias configurações importantes para compartilha
 
 As outras configurações disponíveis na guia Avançado (exclusão reversível de BLOB, namespace hierárquico para Azure Data Lake armazenamento Gen 2 e NFSv3 para armazenamento de BLOB) não se aplicam aos arquivos do Azure.
 
-#### <a name="tags"></a>Marcações
+#### <a name="tags"></a>Marcas
 Marcas são pares nome/valor que permitem categorizar recursos e exibir a cobrança consolidada por meio da aplicação da mesma marca a vários recursos e grupos de recursos. Eles são opcionais e podem ser aplicados após a criação da conta de armazenamento.
 
 #### <a name="review--create"></a>Examinar + criar
@@ -172,7 +172,7 @@ A propriedade **quota** significa algo ligeiramente diferente entre compartilham
 
 - Para compartilhamentos de arquivos padrão, ele é um limite superior do compartilhamento de arquivos do Azure, além do qual os usuários finais não podem ir. O objetivo principal da cota de um compartilhamento de arquivos padrão é o orçamentário: "não quero que esse compartilhamento de arquivos cresça além desse ponto". Se uma cota não for especificada, o compartilhamento de arquivos padrão poderá abranger até 100 TiB (ou 5 TiB se a propriedade compartilhamentos de arquivos grandes não estiver definida para uma conta de armazenamento).
 
-- Para compartilhamentos de arquivos premium, a cota é sobrecarregada para significar o **tamanho provisionado**. O tamanho provisionado é o valor para o qual você será cobrado, independentemente do uso real. Ao provisionar um compartilhamento de arquivos premium, você deve considerar dois fatores: 1) o crescimento futuro do compartilhamento de uma perspectiva de utilização de espaço e 2) o IOPS necessário para sua carga de trabalho. Cada GiB provisionada lhe dá direito a IOPS reservada e de intermitência adicional. Para obter mais informações sobre como planejar um compartilhamento de arquivos premium, consulte [Provisionando compartilhamentos de arquivos Premium](understanding-billing.md#provisioned-billing).
+- Para compartilhamentos de arquivos premium, a cota é sobrecarregada para significar o **tamanho provisionado**. O tamanho provisionado é o valor para o qual você será cobrado, independentemente do uso real. Ao provisionar um compartilhamento de arquivos premium, você deve considerar dois fatores: 1) o crescimento futuro do compartilhamento de uma perspectiva de utilização de espaço e 2) o IOPS necessário para sua carga de trabalho. Cada GiB provisionada lhe dá direito a IOPS reservada e de intermitência adicional. Para obter mais informações sobre como planejar um compartilhamento de arquivos premium, consulte [Provisionando compartilhamentos de arquivos Premium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 Se você acabou de criar sua conta de armazenamento, poderá navegar até ela na tela de implantação selecionando **ir para o recurso**. Se você já tiver criado a conta de armazenamento, poderá navegar para ela por meio do grupo de recursos que a contém. Uma vez na conta de armazenamento, selecione o bloco rotulado **compartilhamentos de arquivos** (você também pode navegar até **compartilhamentos de arquivos** por meio do Sumário da conta de armazenamento).

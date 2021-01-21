@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: cbded0a9c905bb488e1bae0f92d777e2e7ed7441
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724809"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630846"
 ---
 # <a name="smb-multichannel-performance"></a>Desempenho do SMB Multichannel
 
 O SMB de arquivos do Azure Multichannel (versão prévia) permite que um cliente SMB 3. x estabeleça várias conexões de rede com os compartilhamentos de arquivos Premium em uma conta de armazenamento de arquivo. O protocolo SMB 3,0 introduziu o recurso de Fibre Channel SMB nos clientes do Windows Server 2012 e Windows 8. Por isso, qualquer cliente SMB 3. x de arquivos do Azure que dá suporte a SMB multicanal pode aproveitar o recurso para seus compartilhamentos de arquivos premium do Azure. Não há nenhum custo adicional para habilitar o SMB multicanal em uma conta de armazenamento.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 O SMB Multichannel do Azure files permite que os clientes usem várias conexões de rede que fornecem maior desempenho, ao mesmo tempo que reduz o custo de propriedade. O aumento do desempenho é obtido por meio da agregação de largura de banda em várias NICs e o uso do suporte RSS (Receive Side Scaling) para que as NICs distribuam a carga de e/s entre várias CPUs.
 
@@ -119,7 +119,7 @@ As dicas a seguir podem ajudá-lo a otimizar seu desempenho:
 - Verifique se sua conta de armazenamento e seu cliente estão colocalizados na mesma região do Azure para reduzir a latência de rede.
 - Use aplicativos multi-threaded e espalhe a carga em vários arquivos.
 - Benefícios de desempenho de aumento de vários canais do SMB com o número de arquivos de distribuição de carga.
-- O desempenho de compartilhamento Premium é associado pelo tamanho do compartilhamento provisionado (IOPS/egresso/entrada) e limites de arquivo único. Para obter detalhes, consulte [noções básicas sobre provisionamento de compartilhamentos de arquivos Premium](understanding-billing.md#provisioned-billing).
+- O desempenho de compartilhamento Premium é associado pelo tamanho do compartilhamento provisionado (IOPS/egresso/entrada) e limites de arquivo único. Para obter detalhes, consulte [noções básicas sobre provisionamento de compartilhamentos de arquivos Premium](understanding-billing.md#provisioned-model).
 - O desempenho máximo de um único cliente de VM ainda está associado aos limites de VM. Por exemplo, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) pode dar suporte a uma largura de banda máxima de 16.000 Mbps (ou 2 Gbps), a saída da VM (gravações no armazenamento) é medida, a entrada (leituras do armazenamento) não é. O desempenho do compartilhamento de arquivos está sujeito a limites de rede do computador, CPUs, largura de banda de rede disponível para armazenamento interno, tamanhos de e/s, paralelismo, bem como outros fatores.
 - O teste inicial é geralmente um aquecimento, descarta seus resultados e repete o teste.
 - Se o desempenho for limitado por um único cliente e a carga de trabalho ainda estiver abaixo dos limites de compartilhamento provisionados, um melhor desempenho poderá ser obtido pela distribuição da carga em vários clientes.

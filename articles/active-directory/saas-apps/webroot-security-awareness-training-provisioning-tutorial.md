@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: d374043235d6c09243ea5ecdacccf141a2d4f8b4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 143c1a183ba697cbf5d9b19d7e0868a638650bc8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181319"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631971"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: Configurar o Webroot Security Awareness Training para o provisionamento automático de usuário
 
@@ -38,7 +38,7 @@ Este tutorial descreve as etapas que você precisa executar no Webroot Security 
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md). 
+* [Um locatário do Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Uma conta de usuário no Azure AD com [permissão](../roles/permissions-reference.md) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global).
 * Um Console de Provedor de Serviços Gerenciados com o Webroot Security Awareness Training habilitado para pelo menos um de seus sites.
 
@@ -120,7 +120,8 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
    |Atributo|Type|Com suporte para filtragem|
    |---|---|---|
-   |externalId|String|&check;|
+   |userName|String|&check;|
+   |externalId|String|
    |name.givenName|String|
    |name.familyName|String|
    |emails[type eq "work"].value|String|

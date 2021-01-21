@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: a91add684d7b7aaee67e7dd4f4f2d0c6df078132
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657117"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632217"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Solucionar problemas do Gerenciador de Inicialização do Windows – 0xC0000225 "Status não encontrado"
  
@@ -79,6 +79,9 @@ Uma corrupção do hive de registro pode ocorrer devido a:
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. Criar e acessar uma VM de reparo.
 1. Selecionar uma solução:

@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 01/20/2021
+ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741041"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629667"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados em repouso para ambientes de serviço de integração (ISEs) em aplicativos lógicos do Azure
 
 Os aplicativos lógicos do Azure dependem do armazenamento do Azure para armazenar e [criptografar automaticamente os dados em repouso](../storage/common/storage-service-encryption.md). Essa criptografia protege seus dados e ajuda a atender aos compromissos de segurança e conformidade da organização. Por padrão, o armazenamento do Azure usa chaves gerenciadas pela Microsoft para criptografar seus dados. Para obter mais informações sobre como funciona a criptografia de armazenamento do Azure, consulte [criptografia de armazenamento do Azure para dados em repouso](../storage/common/storage-service-encryption.md) e [criptografia de dados do Azure em repouso](../security/fundamentals/encryption-atrest.md).
 
-Quando você cria um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar seus aplicativos lógicos e deseja obter mais controle sobre as chaves de criptografia usadas pelo armazenamento do Azure, você pode configurar, usar e gerenciar sua própria chave usando [Azure Key Vault](../key-vault/general/overview.md). Esse recurso também é conhecido como "Bring Your Own Key" (BYOK) e sua chave é chamada de "chave gerenciada pelo cliente".
+Quando você cria um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) para hospedar seus aplicativos lógicos e deseja obter mais controle sobre as chaves de criptografia usadas pelo armazenamento do Azure, você pode configurar, usar e gerenciar sua própria chave usando [Azure Key Vault](../key-vault/general/overview.md). Esse recurso é conhecido como "Bring Your Own Key" (BYOK) e sua chave é chamada de "chave gerenciada pelo cliente". Com esse recurso, o armazenamento do Azure habilita automaticamente a criptografia [dupla ou a *criptografia de infraestrutura* usando chaves gerenciadas por plataforma](../security/fundamentals/double-encryption.md) para sua chave. Para saber mais, confira [criptografar dados duplicados com criptografia de infraestrutura](../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).
 
 Este tópico mostra como configurar e especificar sua própria chave de criptografia a ser usada ao criar o ISE usando a API REST de aplicativos lógicos. Para ver as etapas gerais para criar um ISE por meio da API REST de aplicativos lógicos, consulte [criar um ambiente de serviço de integração (ISE) usando a API REST de aplicativos lógicos](../logic-apps/create-integration-service-environment-rest-api.md).
 
@@ -51,7 +51,7 @@ Este tópico mostra como configurar e especificar sua própria chave de criptogr
   |----------|-------|
   | **Tipo de Chave** | RSA |
   | **Tamanho da chave RSA** | 2.048 |
-  | **Habilitado** | Sim |
+  | **Enabled** | Yes |
   |||
 
   ![Criar sua chave de criptografia gerenciada pelo cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)

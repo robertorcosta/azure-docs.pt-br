@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/19/2021
+ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196581"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630269"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular seus dados automaticamente no Azure alcance
 
@@ -32,10 +32,9 @@ No alcance, as classificações são semelhantes às marcas de assunto e são us
 
 O alcance usa as mesmas classificações, também conhecidas como tipos de informações confidenciais, como Microsoft 365.  Os rótulos de sensibilidade MIP são criados no Microsoft 365 Security and Compliance Center (SCC). Isso permite que você estenda os rótulos de sensibilidade existentes nos ativos de alcance do Azure.
 
-> [!NOTE]
-> As classificações são correspondidas diretamente, como um número do seguro social, que tem uma classificação de número do seguro **social**. 
->
-> Por outro lado, os rótulos de sensibilidade são aplicados quando uma ou mais classificações e condições são encontradas em conjunto. Nesse contexto, as [condições](/microsoft-365/compliance/apply-sensitivity-label-automatically) se referem a todos os parâmetros que você pode definir para dados não estruturados, como **proximidade a outra classificação** e **% de confiança**. 
+As **classificações** são correspondidas diretamente, como um número do seguro social, que tem uma classificação de número do seguro **social**. 
+
+Por outro lado, os **Rótulos de sensibilidade** são aplicados quando uma ou mais classificações e condições são encontradas em conjunto. Nesse contexto, as [condições](/microsoft-365/compliance/apply-sensitivity-label-automatically) se referem a todos os parâmetros que você pode definir para dados não estruturados, como *proximidade a outra classificação* e *% de confiança*. 
 
 Os rótulos de sensibilidade no Azure alcance podem ser usados para aplicar rótulos automaticamente a arquivos e colunas de banco de dados.
 
@@ -44,6 +43,7 @@ Para obter mais informações, consulte:
 - [Saiba mais sobre rótulos de sensibilidade](/microsoft-365/compliance/sensitivity-labels) na documentação do Microsoft 365
 - [O que são regras de rotulação de nome?](#what-are-autolabeling-rules)
 - [Tipos de dados com suporte para rótulos de sensibilidade no Azure alcance](#supported-data-types-for-sensitivity-labels-in-azure-purview)
+- [Rotulação de colunas do banco de dados SQL](#labeling-for-sql-database-columns)
 
 #### <a name="what-are-autolabeling-rules"></a>O que são regras de rotulação de nome?
 
@@ -54,7 +54,6 @@ As regras de rotulação de rótulo são condições que você especifica, infor
 Ao criar seus rótulos, certifique-se de definir regras de rotulação automática para [arquivos](#define-autolabeling-rules-for-files) e [colunas de banco de dados](#define-autolabeling-rules-for-database-columns) para aplicar os rótulos automaticamente a cada verificação de dados. 
 
 Depois de verificar os dados no alcance, você pode exibir os rótulos aplicados automaticamente no catálogo do alcance e nos relatórios de insights.
-
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Tipos de dados com suporte para rótulos de sensibilidade no Azure alcance
 
 Os rótulos de sensibilidade têm suporte no Azure alcance para os seguintes tipos de dados:
@@ -62,8 +61,16 @@ Os rótulos de sensibilidade têm suporte no Azure alcance para os seguintes tip
 |Tipo de dados  |Origens  |
 |---------|---------|
 |Rotulamento automático de arquivos     |      – Armazenamento de Blobs do Azure  </br>-Azure Data Lake Storage Gen 1 e Gen 2  |
-|Rotulamento automático para colunas de banco de dados     |  -SQL Server </br>-Banco de dados SQL do Azure </br>-Instância Gerenciada do Banco de Dados SQL do Azure   <br> -Synapse do Azure  <br> – Azure Cosmos DB   |
+|Rotulamento automático para colunas de banco de dados     |  -SQL Server </br>-Banco de dados SQL do Azure </br>-Instância Gerenciada do Banco de Dados SQL do Azure   <br> -Synapse do Azure  <br> – Azure Cosmos DB <br><br>Para obter mais informações, consulte [rotulando para colunas do banco de dados SQL](#labeling-for-sql-database-columns) abaixo.  |
 | | |
+
+#### <a name="labeling-for-sql-database-columns"></a>Rotulação de colunas do banco de dados SQL
+
+Além de rotular alcance para colunas de banco de dados, a Microsoft também dá suporte a rótulos de colunas de banco de dados SQL usando a classificação de SQL data no [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Embora alcance use os [Rótulos de sensibilidade MIP](/microsoft-365/compliance/sensitivity-labels)globais, o SSMS usa apenas rótulos definidos localmente.
+
+Rotular em alcance e rotular no SSMS são processos separados que atualmente não interagem entre si. Portanto, os rótulos aplicados no SSMS não são mostrados em alcance e vice-versa. Recomendamos o Azure alcance para rotular bancos de dados SQL, pois ele usa rótulos MIP globais que podem ser aplicados em várias plataformas.
+
+Para obter mais informações, consulte a [documentação de classificação e descoberta de dados SQL](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 ## <a name="how-to-create-sensitivity-labels-in-microsoft-365"></a>Como criar rótulos de sensibilidade no Microsoft 365
 
@@ -123,7 +130,7 @@ Depois de estender o rótulo para ativos no Azure alcance, você pode selecionar
 
     Para obter mais informações sobre as opções do assistente, consulte [o que os rótulos de sensibilidade podem fazer](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) na documentação do Microsoft 365.
 
-1. Repita as etapas listadas acima para criar rótulos adicionais. 
+1. Repita as etapas listadas acima para criar mais rótulos. 
 
     Para criar um subrótulo, selecione o rótulo pai > **...**  >  **Mais ações**  >  **Adicionar subrótulo**.
 

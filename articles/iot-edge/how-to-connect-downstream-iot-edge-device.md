@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187826"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629396"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Conectar um dispositivo de IoT Edge downstream a um gateway de Azure IoT Edge (versão prévia)
 
@@ -118,7 +118,7 @@ Para habilitar a descoberta de gateway, cada dispositivo de gateway IoT Edge pre
 
 Para habilitar conexões seguras, cada dispositivo de IoT Edge em um cenário de gateway precisa ser configurado com um certificado de autoridade de certificação de dispositivo exclusivo e uma cópia do certificado de autoridade de certificação raiz compartilhado por todos os dispositivos na hierarquia de gateway.
 
-Você já deve ter IoT Edge instalado em seu dispositivo. Caso contrário, siga as etapas para [instalar o Azure IOT Edge Runtime](how-to-install-iot-edge.md) e provisionar seu dispositivo com a [autenticação de chave simétrica](how-to-manual-provision-symmetric-key.md) ou a [autenticação de certificado X. 509](how-to-manual-provision-x509.md).
+Você já deve ter IoT Edge instalado em seu dispositivo. Caso contrário, siga as etapas para [registrar um dispositivo IOT Edge no Hub IOT](how-to-register-device.md) e, em seguida, [Instale o Azure IOT Edge Runtime](how-to-install-iot-edge.md).
 
 As etapas nesta seção fazem referência ao **certificado de autoridade de certificação raiz** e ao certificado de AC do dispositivo e à **chave privada** que foram discutidos anteriormente neste artigo. Se você criou esses certificados em um dispositivo diferente, disponibilize-os neste dispositivo. Você pode transferir os arquivos fisicamente, como com uma unidade USB, com um serviço como [Azure Key Vault](../key-vault/general/overview.md)ou com uma função como uma [cópia de arquivo segura](https://www.ssh.com/ssh/scp/).
 
@@ -206,7 +206,7 @@ Embora esse recurso esteja em visualização pública, você precisa configurar 
 
 1. Configure as seguintes variáveis de ambiente para o módulo edgeHub:
 
-   | Nome | Valor |
+   | Name | Valor |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |

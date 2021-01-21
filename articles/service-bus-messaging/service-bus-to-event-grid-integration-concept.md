@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5cc112767b2204d019cb1b7bd23b1603cefdf416
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 71ee21c971b71c4000a123d1561e7e93d21203e1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882510"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629140"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Visão geral da integração do Barramento de Serviço com a Grade de Eventos
 
@@ -186,7 +186,7 @@ Para criar uma nova assinatura da Grade de Eventos, faça o seguinte:
 
 ## <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
-Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](/cli/azure/install-azure-cli?view=azure-cli-latest). Selecione **Windows + X** e, em seguida, abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
+Primeiro, certifique-se de que tenha a CLI do Azure versão 2.0 ou posterior instalada. [Baixe o instalador](/cli/azure/install-azure-cli). Selecione **Windows + X** e, em seguida, abra um novo console do PowerShell com permissões de administrador. Como alternativa, use um shell de comando dentro do Portal do Azure.
 
 Execute o seguinte código:
 

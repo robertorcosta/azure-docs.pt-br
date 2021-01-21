@@ -4,22 +4,22 @@ description: Saiba como interpretar os modelos de cobrança provisionados e pago
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/1/2020
+ms.date: 01/20/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 880ec90ce1cf0efffce0cfd6800bdbaed23f8dd0
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831458"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632471"
 ---
 # <a name="understanding-azure-files-billing"></a>Noções básicas sobre a cobrança de arquivos do Azure
 Os arquivos do Azure fornecem dois modelos de cobrança distintos: provisionados e pagos conforme o uso. O modelo provisionado só está disponível para compartilhamentos de arquivos premium, que são compartilhamentos de arquivos implantados no tipo de conta de armazenamento **FileStorage** . O modelo pago conforme o uso está disponível somente para compartilhamentos de arquivos padrão, que são compartilhamentos de arquivos implantados no tipo de conta de armazenamento **GPv2 (de uso geral 2)** . Este artigo explica como os dois modelos funcionam para ajudá-lo a entender sua fatura mensal dos arquivos do Azure.
 
 Os preços atuais dos arquivos do Azure podem ser encontrados na [página de preços dos arquivos do Azure](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="provisioned-billing"></a>Cobrança provisionada
+## <a name="provisioned-model"></a>Modelo provisionado
 Os arquivos do Azure usam um modelo provisionado para compartilhamentos de arquivos premium. Em um modelo de negócios provisionado, você especifica de forma proativa o serviço de arquivos do Azure quais são seus requisitos de armazenamento, em vez de serem cobrados com base no que você usa. Isso é semelhante à compra de hardware local, quando você provisiona um compartilhamento de arquivos do Azure com uma determinada quantidade de armazenamento, você paga pelo armazenamento, independentemente de usá-lo ou não, assim como não começa a pagar os custos de mídia física local quando você começa a usar o espaço. Ao contrário da compra de mídia física local, os compartilhamentos de arquivos provisionados podem ser dimensionados ou reduzidos dinamicamente, dependendo de suas características de desempenho de e/s de armazenamento.
 
 Ao provisionar um compartilhamento de arquivos premium, você especifica quantas GiBs sua carga de trabalho exige. Cada GiB que você provisiona fornece direito a IOPS e taxa de transferência adicionais em uma taxa fixa. Além do IOPS de linha de base para o qual você está garantido, cada compartilhamento de arquivos Premium dá suporte à intermitência em uma base de melhor esforço. As fórmulas para IOPS e taxa de transferência são as seguintes:
@@ -63,7 +63,7 @@ Os créditos de compartilhamento têm três Estados:
 
 Novos compartilhamentos de arquivos começam com o número total de créditos em seu Bucket de intermitência. Os créditos de intermitência não serão acumulados se o IOPS de compartilhamento cair abaixo do IOPS de linha de base devido à limitação pelo servidor.
 
-## <a name="pay-as-you-go-billing"></a>Cobrança paga conforme o uso
+## <a name="pay-as-you-go-model"></a>Modelo pago conforme o uso
 Os arquivos do Azure usam um modelo de negócios pago conforme o uso para compartilhamentos de arquivos padrão. Em um modelo de negócios pago conforme o uso, o valor pago é determinado pelo quanto você realmente usa, em vez de com base em um valor provisionado. Em um alto nível, você paga um custo para a quantidade de dados armazenados em disco e, em seguida, um conjunto adicional de transações com base no uso desses dados. Um modelo pago conforme o uso pode ser econômico, pois você não precisa provisionar para considerar os requisitos futuros de crescimento ou desempenho ou desprovisionar se a carga de trabalho for de dados varia ao longo do tempo. Por outro lado, um modelo pago conforme o uso também pode ser difícil de planejar como parte de um processo de orçamento, pois o modelo de cobrança pré-pago é orientado pelo consumo do usuário final do.
 
 ### <a name="differences-in-standard-tiers"></a>Diferenças nas camadas padrão
@@ -92,7 +92,7 @@ Há cinco categorias de transação básicas: gravação, lista, leitura, outras
 > [!Note]  
 > O NFS 4,1 está disponível somente para compartilhamentos de arquivos premium, que usam o modelo de cobrança provisionado, as transações não afetam a cobrança de compartilhamentos de arquivos premium.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 - [Página de preços dos arquivos do Azure](https://azure.microsoft.com/pricing/details/storage/files/).
 - [Planejamento de uma implantação de arquivos do Azure](./storage-files-planning.md) e [planejamento para uma implantação de sincronização de arquivos do Azure](./storage-sync-files-planning.md).
 - [Crie um compartilhamento de arquivos](./storage-how-to-create-file-share.md) e [implante sincronização de arquivos do Azure](./storage-sync-files-deployment-guide.md).

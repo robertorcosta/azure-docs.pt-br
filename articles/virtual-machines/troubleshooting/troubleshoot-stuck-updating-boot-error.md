@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: fe2d444bbdc09ed5ab0205d4139591e3288e3358
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 3090b7b889d914fc0cdb598b8bf29a73c81f50cb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734558"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631996"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Inicialização de VM do Azure presa no Windows Update
 
@@ -37,6 +37,8 @@ Este artigo ajuda a resolver o problema de quando sua VM (Máquina Virtual) fica
 
 
 ## <a name="solution"></a>Solução
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 Dependendo do número de atualizações que estão sendo instaladas ou revertidas, o processo de atualização pode levar algum tempo. Deixe a VM nesse estado por 8 horas. Se a VM ainda estiver nesse estado após esse período, reinicie-a pelo portal do Azure e veja se ela consegue iniciar normalmente. Se essa etapa não funcionar, tente a solução a seguir.
 

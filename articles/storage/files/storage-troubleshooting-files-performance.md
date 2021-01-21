@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 960b3c29f97c43e1247018a60f6c6310c7cf02de
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724656"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632488"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -46,7 +46,7 @@ Para confirmar se o compartilhamento está sendo limitado, você pode acessar e 
 ### <a name="solution"></a>Solução
 
 - Se você estiver usando um compartilhamento de arquivos padrão, habilite [grandes compartilhamentos de arquivos](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) em sua conta de armazenamento. Compartilhamentos de arquivos grandes dão suporte a até 10.000 IOPS por compartilhamento.
-- Se você estiver usando um compartilhamento de arquivos premium, aumente o tamanho do compartilhamento de arquivos provisionado para aumentar o limite de IOPS. Para saber mais, confira [noções básicas sobre provisionamento para compartilhamentos de arquivos Premium](./understanding-billing.md#provisioned-billing).
+- Se você estiver usando um compartilhamento de arquivos premium, aumente o tamanho do compartilhamento de arquivos provisionado para aumentar o limite de IOPS. Para saber mais, confira [noções básicas sobre provisionamento para compartilhamentos de arquivos Premium](./understanding-billing.md#provisioned-model).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Causa 2: metadados ou carga de trabalho pesada de namespace
 

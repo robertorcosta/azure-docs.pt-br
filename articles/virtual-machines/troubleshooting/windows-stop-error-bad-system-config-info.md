@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cbfdb9a73f53e194b43010c0b2d84357aa3e2e5b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977024"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631978"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Erro de parada do Windows-informações de configuração do sistema inadequadas do 0x00000074
 
@@ -30,7 +30,7 @@ Este artigo fornece etapas para resolver problemas em que o Windows não pode in
 Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir a captura de tela da VM, você verá que a captura de tela exibe o código de parada do Windows **#0x00000074** ou **BAD_SYSTEM_CONFIG_INFO**.
 
 *Seu PC encontrou um problema e precisa ser reiniciado. Você pode reiniciar o.* 
- *Para obter mais informações sobre esse problema e as possíveis correções, visite http://windows.com/stopcode * 
+ *Para obter mais informações sobre esse problema e as possíveis correções, visite http://windows.com/stopcode* 
  *Se você chamar uma pessoa de suporte, forneça estas informações:* 
  *Código de parada: BAD_SYSTEM_CONFIG_INFO*
 
@@ -47,6 +47,9 @@ O código de **BAD_SYSTEM_CONFIG_INFO** Stop ocorrerá se o hive do registro do 
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo:
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. Criar e acessar uma VM de reparo.
 1. Verifique se há danos no hive.
