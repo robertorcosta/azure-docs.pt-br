@@ -210,6 +210,8 @@
           items:
             - name: Recuperar arquivos do Azure para o Windows Server
               href: backup-azure-restore-windows-server.md
+            - name: Restaurar todos os arquivos em um volume
+              href: restore-all-files-volume-mars.md
             - name: Restaurar o Estado do Sistema do Windows Server
               href: backup-azure-restore-system-state.md
         - name: Gerenciar
