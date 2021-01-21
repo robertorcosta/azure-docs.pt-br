@@ -17,19 +17,19 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4c7d02b48d30fa558f8fd12f92705046dab74057
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600738"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624228"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
 A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos seguintes componentes:
 
 - **Atividade** 
-    - **Entradas** – Informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
+    - **Entradas** – informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
     - **Logs**  -  de auditoria [Os logs de auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
     - **Logs de provisionamento** – forneça a atividade do sistema sobre usuário, grupos e funções que são provisionadas pelo serviço de provisionamento do Azure AD. 
 
@@ -37,7 +37,11 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
     - **Entradas arriscadas** -uma [entrada arriscada](../identity-protection/overview-identity-protection.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário.
     - **Usuários sinalizados para risco** – um [usuário arriscado](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
 
-Este tópico fornece uma visão geral do relatório de provisionamento.
+Este tópico fornece uma visão geral dos logs de provisionamento. Eles fornecem respostas para perguntas como: 
+
+* Quais grupos foram criados com êxito no ServiceNow?
+* Quais usuários foram removidos com êxito da Adobe?
+* Quais usuários do workday foram criados com êxito no Active Directory? 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,14 +56,16 @@ Este tópico fornece uma visão geral do relatório de provisionamento.
 
 Seu locatário deve ter uma licença de Azure AD Premium associada a ele para ver o relatório de atividade de provisionamento. Consulte [Introdução ao Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para fazer upgrade da edição do Azure Active Directory. 
 
-## <a name="provisioning-logs"></a>Provisionando logs
 
-Os logs de provisionamento fornecem respostas para as seguintes perguntas:
+## <a name="ways-of-interacting-with-the-provisioning-logs"></a>Maneiras de interagir com os logs de provisionamento 
+Os clientes têm quatro maneiras de interagir com os logs de provisionamento:
 
-* Quais grupos foram criados com êxito no ServiceNow?
-* Quais usuários foram removidos com êxito da Adobe?
-* Quais usuários não foram criados com êxito no DropBox?
+1. Acessando os logs do portal do Azure conforme descrito abaixo.
+1. Transmitir os logs de provisionamento para [Azure monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), permitindo a retenção estendida de dados, criando painel, alertas e consultas personalizados.
+1. Consultando a [API de Microsoft Graph](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para os logs de provisionamento.
+1. Baixar os logs de provisionamento como um arquivo CSV ou JSON.
 
+## <a name="access-the-logs-from-the-azure-portal"></a>Acessar os logs do portal do Azure
 Você pode acessar os logs de provisionamento selecionando **logs de provisionamento** na seção **monitoramento** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registros de provisionamento sejam exibidos no Portal.
 
 ![Provisionando logs](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisionando logs")
@@ -205,10 +211,57 @@ A guia **solucionar problemas e recomendações** fornece o código de erro e o 
 
 As **propriedades modificadas** mostram o valor antigo e o novo valor. Nos casos em que não há nenhum valor antigo, a coluna valor antigo fica em branco. 
 
-
 ### <a name="summary"></a>Resumo
 
 A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores para o objeto no sistema de origem e de destino. 
+
+## <a name="download-logs-as-csv-or-json"></a>Baixar logs como CSV ou JSON
+
+Você pode baixar os logs de provisionamento para uso posterior navegando até os logs na portal do Azure e clicando em baixar. O arquivo será filtrado com base nos critérios de filtro que você selecionou. Talvez você queira tornar os filtros o mais específicos possível para reduzir o tempo necessário para baixar e o tamanho do download. O download do CSV é dividido em três arquivos:
+
+* ProvisioningLogs: baixa todos os logs, exceto as etapas de provisionamento e as propriedades modificadas.
+* ProvisioningLogs_ProvisioningSteps: contém as etapas de provisionamento e a ID de alteração. A ID de alteração pode ser usada para ingressar no evento com os outros dois arquivos.
+* ProvisioningLogs_ModifiedProperties: contém os atributos que foram alterados e a ID de alteração. A ID de alteração pode ser usada para ingressar no evento com os outros dois arquivos.
+
+#### <a name="opening-the-json-file"></a>Abrindo o arquivo JSON
+Para abrir o arquivo JSON, use um editor de texto como [Microsoft Visual Studio código](https://aka.ms/vscode). Visual Studio Code facilita a leitura fornecendo realce de sintaxe. O arquivo JSON também pode ser aberto usando navegadores em um formato não editável, por exemplo, [Microsoft Edge](https://aka.ms/msedge) 
+
+#### <a name="prettifying-the-json-file"></a>Prettifying o arquivo JSON
+O arquivo JSON é baixado no formato reduzidos para reduzir o tamanho do download. Isso, por sua vez, pode dificultar a leitura do conteúdo. Confira duas opções para melhorar o arquivo:
+
+1. Usar Visual Studio Code para formatar o JSON
+
+Siga as instruções definidas [aqui](https://code.visualstudio.com/docs/languages/json#_formatting) para formatar o arquivo JSON usando Visual Studio Code.
+
+2. Usar o PowerShell para formatar o JSON
+
+Esse script produzirá o JSON em um formato Prettified com tabulações e espaços. 
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+`$JSONContent | ConvertTo-Json > <PATH TO OUTPUT THE JSON FILE>`
+
+#### <a name="parsing-the-json-file"></a>Analisando o arquivo JSON
+
+Aqui estão alguns comandos de exemplo para trabalhar com o arquivo JSON usando o PowerShell. Você pode usar qualquer linguagem de programação com a qual esteja familiarizado.  
+
+Primeiro, [Leia o arquivo JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) executando:
+
+` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
+
+Agora você pode analisar os dados por seu cenário. Aqui estão alguns exemplos: 
+
+1. Saída de todos os jobIDs no Jsonfile
+
+`foreach ($provitem in $JSONContent) { $provitem.jobId }`
+
+2. Saída de todos os changeIds para eventos em que a ação foi "criar"
+
+`foreach ($provitem in $JSONContent) { `
+`   if ($provItem.action -eq 'Create') {`
+`       $provitem.changeId `
+`   }`
+`}`
 
 ## <a name="what-you-should-know"></a>O que você deve saber
 
@@ -234,14 +287,14 @@ Use a tabela a seguir para entender melhor como resolver erros que podem ser enc
 |InsufficientRights, MethodNotAllowed, não permitido, não autorizado| O Azure AD foi capaz de autenticar com o aplicativo de destino, mas não foi autorizado a executar a atualização. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](../saas-apps/tutorial-list.md)de aplicativo.|
 |UnprocessableEntity|O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo de destino pode não estar correta, ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione.|
 |WebExceptionProtocolError |Ocorreu um erro de protocolo HTTP durante a conexão com o aplicativo de destino. Não há nada a fazer. Essa tentativa será desativada automaticamente em 40 minutos.|
-|InvalidAnchor|Um usuário que foi criado ou correspondido anteriormente pelo serviço de provisionamento não existe mais. Verifique se o usuário existe. Para forçar uma nova correspondência de todos os usuários, use o MS API do Graph para [reiniciar o trabalho](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Observe que a reinicialização do provisionamento disparará um ciclo inicial, o que pode levar tempo para ser concluído. Ele também exclui o cache que o serviço de provisionamento usa para operar, o que significa que todos os usuários e grupos no locatário terão que ser avaliados novamente e determinados eventos de provisionamento poderão ser descartados.|
-|NotImplemented | O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo pode não estar correta ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](../saas-apps/tutorial-list.md)de aplicativo. |
+|InvalidAnchor|Um usuário que foi criado ou correspondido anteriormente pelo serviço de provisionamento não existe mais. Verifique se o usuário existe. Para forçar uma nova correspondência de todos os usuários, use o MS API do Graph para [reiniciar o trabalho](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Reiniciar o provisionamento irá disparar um ciclo inicial, o que pode levar tempo para ser concluído. Ele também exclui o cache que o serviço de provisionamento usa para operar, o que significa que todos os usuários e grupos no locatário terão que ser avaliados novamente e determinados eventos de provisionamento poderão ser descartados.|
+|NotImplemented | O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo pode não estar correta ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione. Examine todas as instruções fornecidas pelo aplicativo de destino e o respectivo [tutorial](../saas-apps/tutorial-list.md)de aplicativo. |
 |MandatoryFieldsMissing, MissingValues |Não foi possível criar o usuário porque os valores necessários estão ausentes. Corrija os valores de atributo ausentes no registro de origem ou examine a configuração de atributo correspondente para garantir que os campos obrigatórios não sejam omitidos. [Saiba mais](../app-provisioning/customize-application-attributes.md) sobre como configurar atributos correspondentes.|
 |SchemaAttributeNotFound |Não foi possível executar a operação porque foi especificado um atributo que não existe no aplicativo de destino. Consulte a [documentação](../app-provisioning/customize-application-attributes.md) sobre personalização de atributo e verifique se a configuração está correta.|
 |InternalError |Ocorreu um erro de serviço interno no serviço de provisionamento do Azure AD. Não há nada a fazer. Essa tentativa será repetida automaticamente em 40 minutos.|
 |InvalidDomain |A operação não pôde ser executada devido a um valor de atributo que contém um nome de domínio inválido. Atualize o nome de domínio no usuário ou adicione-o à lista de permitidos no aplicativo de destino. |
 |Tempo limite |A operação não pôde ser concluída porque o aplicativo de destino demorou muito tempo para responder. Não há nada a fazer. Essa tentativa será repetida automaticamente em 40 minutos.|
-|LicenseLimitExceeded|Não foi possível criar o usuário no aplicativo de destino porque não há licenças disponíveis para esse usuário. Adquira licenças adicionais para o aplicativo de destino ou examine as atribuições de usuário e a configuração de mapeamento de atributo para garantir que os usuários corretos sejam atribuídos com os atributos corretos.|
+|LicenseLimitExceeded|Não foi possível criar o usuário no aplicativo de destino porque não há licenças disponíveis para esse usuário. Adquira mais licenças para o aplicativo de destino ou examine as atribuições de usuário e a configuração de mapeamento de atributo para garantir que os usuários corretos sejam atribuídos com os atributos corretos.|
 |DuplicateTargetEntries  |A operação não pôde ser concluída porque mais de um usuário no aplicativo de destino foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado do aplicativo de destino ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](../app-provisioning/customize-application-attributes.md).|
 |DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um usuário foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando cada usuário é avaliado, tentamos importar o usuário do sistema de origem. Esse erro geralmente ocorre quando o usuário que está sendo importado não tem a propriedade correspondente definida em seus mapeamentos de atributo. Sem um valor presente no objeto de usuário para o atributo correspondente, não podemos avaliar as alterações de escopo, correspondência ou exportação. Observação: a presença desse erro não indica que o usuário está no escopo, pois ainda não avaliamos o escopo do usuário.|

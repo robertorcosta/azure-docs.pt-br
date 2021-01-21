@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 68fa3ea15199ec1d9cc99f92f497847fb029acd6
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539570"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621207"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
 
@@ -315,7 +315,7 @@ Para converter certificados e chaves em formatos diferentes para torná-los comp
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>Conectar um sensor ao console de gerenciamento
 
-Esta seção descreve como garantir a conexão entre o sensor e o console de gerenciamento local. Faça isso se você estiver trabalhando em uma rede de ar-gapped e quiser enviar informações de ativo e alerta para o console de gerenciamento do sensor. Essa conexão também permite que o console de gerenciamento envie por push as configurações do sistema para o sensor e execute outras tarefas de gerenciamento no sensor.
+Esta seção descreve como garantir a conexão entre o sensor e o console de gerenciamento local. Você precisa fazer isso se estiver trabalhando em uma rede gapped e desejar enviar informações de dispositivo e de alerta para o console de gerenciamento do sensor. Essa conexão também permite que o console de gerenciamento envie por push as configurações do sistema para o sensor e execute outras tarefas de gerenciamento no sensor.
 
 Para se conectar:
 
@@ -562,7 +562,7 @@ Para acessar as propriedades do sistema:
 
 3. Selecione **Propriedades do sistema** na seção **geral** .
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Pesquisa e pacotes de inteligência contra ameaças](how-to-work-with-threat-intelligence-packages.md)
 

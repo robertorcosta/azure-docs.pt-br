@@ -8,17 +8,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398208"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621871"
 ---
 # <a name="configure-private-link"></a>Configurar link privado
-
-> [!IMPORTANT]
-> Essa versão preliminar está na versão prévia pública, e é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho em produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O link privado permite que você acesse a API do Azure para FHIR em um ponto de extremidade privado, uma interface de rede que conecta você de forma privada e segura usando um endereço IP privado de sua rede virtual. Com o link privado, você pode acessar nossos serviços com segurança de sua vnet como um serviço de terceiros sem precisar passar por um DNS público. Este artigo explica como criar, testar e gerenciar seu ponto de extremidade privado para a API do Azure para FHIR.
 
@@ -90,6 +87,6 @@ Pontos de extremidade privados e a NIC associada são visíveis no portal do Azu
 
 ### <a name="delete"></a>Excluir
 
-Os pontos de extremidade privados só podem ser excluídos de portal do Azure por meio da folha de visão geral (como abaixo) ou por meio da opção Excluir na guia "conexões de ponto de extremidade privadas" da rede (visualização). Clicar no botão excluir excluirá o ponto de extremidade privado e a NIC associada. Se você excluir todos os pontos de extremidade privados para o recurso FHIR e o acesso à rede pública estiver desabilitado, nenhuma solicitação irá torná-lo ao servidor FHIR. Todos os pontos de extremidade privados devem ser excluídos do recurso FHIR para que o recurso FHIR possa ser excluído ou movido.
+Os pontos de extremidade privados só podem ser excluídos de portal do Azure por meio da folha de visão geral (como abaixo) ou por meio da opção Excluir na guia "conexões de ponto de extremidade privadas" da rede (visualização). Clicar no botão excluir excluirá o ponto de extremidade privado e a NIC associada. Se você excluir todos os pontos de extremidade privados para o recurso FHIR e o acesso à rede pública estiver desabilitado, nenhuma solicitação irá torná-lo ao servidor FHIR.
 
 ![Excluir ponto de extremidade privado](media/private-link/private-link-delete.png)

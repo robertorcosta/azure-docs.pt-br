@@ -2,13 +2,13 @@
 title: Visão geral de modelos
 description: Descreve os benefícios usando modelos de Azure Resource Manager (modelos ARM) para a implantação de recursos.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c4995791b784351219458c546442d082e2396315
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 01/20/2021
+ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657304"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621832"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos ARM?
 
@@ -126,10 +126,16 @@ Ao prever suas camadas com ciclos de vida separados, você pode implantar os tr�
 
 Para obter informações sobre modelos aninhados, confira [Usando modelos vinculados com o Azure Resource Manager](linked-templates.md).
 
+## <a name="share-templates"></a>Compartilhar modelos
+
+Depois de criar seu modelo, talvez você queira compartilhá-lo com outros usuários em sua organização. As [especificações de modelo](template-specs.md) permitem que você armazene um modelo como um tipo de recurso. Você usa o controle de acesso baseado em função para gerenciar o acesso à especificação do modelo. Os usuários com acesso de leitura à especificação do modelo podem implantá-lo, mas não alterar o modelo.
+
+Essa abordagem significa que você pode compartilhar com segurança modelos que atendam aos padrões da sua organização.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira [Tutorial: criar e implantar seu primeiro modelo do ARM](template-tutorial-create-first-template.md).
-* Para saber mais sobre os modelos do ARM por meio de um conjunto guiado de módulos no Microsoft Learn, consulte [implantar e gerenciar recursos no Azure usando modelos do ARM](/learn/paths/deploy-manage-resource-manager-templates/).
+* Para saber mais sobre os modelos do ARM por meio de um conjunto guiado de módulos no Microsoft Learn, confira [Implantar e gerenciar recursos no Azure usando modelos do ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 * Para obter informações sobre as propriedades em arquivos de modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 * Para saber mais sobre como exportar modelos, consulte [início rápido: criar e implantar modelos de ARM usando o portal do Azure](quickstart-create-templates-use-the-portal.md).
 * Para obter respostas a perguntas comuns, consulte perguntas frequentes [sobre modelos de ARM](frequently-asked-questions.md).

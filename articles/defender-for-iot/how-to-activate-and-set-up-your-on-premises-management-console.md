@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538577"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623747"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Ativar e configurar seu console de gerenciamento local 
 
@@ -147,13 +147,13 @@ Para configurar o túnel no sensor:
 
 ## <a name="set-up-a-site"></a>Configurar um site
 
-O Enterprise map padrão fornece uma visão geral de seus ativos de acordo com vários níveis de locais geográficos.
+O mapa Enterprise padrão fornece uma visão geral de seus dispositivos de acordo com vários níveis de locais geográficos.
 
-A exibição de seus ativos pode ser necessária onde a estrutura organizacional e as permissões de usuário são complexas. Nesses casos, a configuração do site pode ser determinada por uma estrutura organizacional global, além da estrutura padrão do site ou da zona.
+A exibição de seus dispositivos pode ser necessária onde a estrutura organizacional e as permissões de usuário são complexas. Nesses casos, a configuração do site pode ser determinada por uma estrutura organizacional global, além da estrutura padrão do site ou da zona.
 
 Para dar suporte a esse ambiente, você precisa criar uma topologia de negócios global com base nas unidades de negócios, regiões, sites e zonas de sua organização. Você também precisa definir permissões de acesso de usuário em relação a essas entidades usando grupos de acesso.
 
-Os grupos de acesso permitem um melhor controle sobre onde os usuários gerenciam e analisam ativos na plataforma defender para IoT.
+Os grupos de acesso permitem um melhor controle sobre onde os usuários gerenciam e analisam dispositivos na plataforma defender para IoT.
 
 ### <a name="how-it-works"></a>Como ele funciona
 
@@ -215,7 +215,7 @@ Para excluir um site:
 
 ## <a name="create-enterprise-zones"></a>Criar zonas corporativas
 
-As zonas são entidades lógicas que permitem dividir ativos dentro de um site em grupos de acordo com várias características. Por exemplo, você pode criar grupos para linhas de produção, subestações, áreas de site ou tipos de ativos. Você pode definir zonas com base em qualquer característica adequada à sua organização.
+As zonas são entidades lógicas que permitem dividir dispositivos dentro de um site em grupos de acordo com várias características. Por exemplo, você pode criar grupos para linhas de produção, subestações, áreas de site ou tipos de dispositivos. Você pode definir zonas com base em qualquer característica adequada à sua organização.
 
 Você configura zonas como parte do processo de configuração do site.
 
@@ -225,13 +225,13 @@ A tabela a seguir descreve os parâmetros na janela de **Gerenciamento do site**
 
 | Parâmetro | Descrição |
 |--|--|
-| Name | O nome do sensor. Você pode alterar esse nome somente do sensor. Para obter mais informações, consulte o guia do usuário do defender para IoT. |
+| Nome | O nome do sensor. Você pode alterar esse nome somente do sensor. Para obter mais informações, consulte o guia do usuário do defender para IoT. |
 | IP | O endereço IP do sensor. |
 | Versão | A versão do sensor. |
 | Conectividade | O status de conectividade do sensor. O status pode ser **conectado** ou **desconectado**. |
 | Última atualização | A data da última atualização. |
 | Andamento da atualização | A barra de progresso mostra o status do processo de atualização, da seguinte maneira:<br />-Carregando pacote<br />-Preparando para instalar<br />-Parando processos<br />-Fazendo backup de dados<br />-Tirando instantâneo<br />-Atualizando configuração<br />-Atualizando dependências<br />-Atualizando bibliotecas<br />-Aplicação de patches em bancos de dados<br />-Iniciando processos<br />-Validando a sanidade do sistema<br />-Validação bem-sucedida<br />-Êxito<br />-Falha<br />-Atualização iniciada<br />-Iniciando a instalaçãoogress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >Para obter detalhes sobre como atualizar, consulte [suporte da Microsoft](https://support.microsoft.com/) para obter ajuda. |
-| Ativos | O número de ativos de OT que o sensor monitora. |
+| Dispositivos | O número de dispositivos em que o sensor monitora. |
 | Alertas | O número de alertas no sensor. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Habilita a atribuição de um sensor a zonas. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::| Habilita a exclusão de um sensor desconectado do site. |
@@ -316,6 +316,6 @@ Para cancelar a atribuição e excluir um sensor:
 
 3. Para excluir o sensor não atribuído do site, selecione o sensor na lista de sensores não atribuídos e selecione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Solucionar problemas do sensor e do console de gerenciamento local](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

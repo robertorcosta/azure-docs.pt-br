@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538569"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623582"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar seu sensor
 
@@ -134,9 +134,9 @@ Depois de entrar, o console do Azure defender para IoT é aberto.
 
 ## <a name="initial-setup-and-learning-for-administrators"></a>Instalação inicial e aprendizagem (para administradores)
 
-Após sua primeira entrada, o sensor do Azure defender para IoT começa a monitorar sua rede automaticamente. Os ativos de rede serão exibidos nas seções mapa de ativos e inventário de ativos. O Azure defender para IoT começará a detectar e alertar você sobre todos os incidentes operacionais e de segurança que ocorrem em sua rede. Em seguida, você pode criar relatórios e consultas com base nas informações detectadas.
+Após sua primeira entrada, o sensor do Azure defender para IoT começa a monitorar sua rede automaticamente. Os dispositivos de rede aparecerão nas seções mapa do dispositivo e inventário do dispositivo. O Azure defender para IoT começará a detectar e alertar você sobre todos os incidentes operacionais e de segurança que ocorrem em sua rede. Em seguida, você pode criar relatórios e consultas com base nas informações detectadas.
 
-Inicialmente, essa atividade é executada no modo de aprendizado, que instrui seu sensor a aprender a atividade usual da sua rede. Por exemplo, o sensor aprende os ativos descobertos em sua rede, os protocolos detectados na rede e as transferências de arquivos que ocorrem entre ativos específicos. Essa atividade torna-se a atividade de linha de base da sua rede.
+Inicialmente, essa atividade é executada no modo de aprendizado, que instrui seu sensor a aprender a atividade usual da sua rede. Por exemplo, o sensor aprende os dispositivos descobertos em sua rede, os protocolos detectados na rede e as transferências de arquivos que ocorrem entre dispositivos específicos. Essa atividade torna-se a atividade de linha de base da sua rede.
 
 ### <a name="review-and-update-basic-system-settings"></a>Examinar e atualizar as configurações básicas do sistema
 
@@ -214,7 +214,7 @@ Você acessa as ferramentas do console no menu lateral.
 |----|---|---|
 | Suporte | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contate a [suporte da Microsoft](https://support.microsoft.com/) para obter ajuda. |
 
-### <a name="see-also"></a>Confira também
+### <a name="see-also"></a>Veja também
 
 [Integrar um sensor](getting-started.md#4-onboard-a-sensor)
 

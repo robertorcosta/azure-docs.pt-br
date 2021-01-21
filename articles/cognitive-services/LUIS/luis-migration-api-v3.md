@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018779"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624296"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -66,9 +66,6 @@ Esta API não tem suporte no ponto de extremidade de previsão v3-continue a usa
 
 Continue a usar o ponto de extremidade de previsão da API v2 até que a V 4.7 da estrutura de bot seja lançada.
 
-## <a name="v2-api-deprecation"></a>Reprovação da API v2
-
-A API de previsão v2 não será preterida por pelo menos 9 meses após a visualização v3, 8 de junho de 2020.
 
 ## <a name="endpoint-url-changes"></a>Alterações de URL de ponto de extremidade
 
@@ -103,7 +100,7 @@ Se desejar consultar por versão, primeiro você precisará [publicar via API](h
 }
 ```
 
-|Propriedade|Tipo|Versão|Padrão|Finalidade|
+|Propriedade|Type|Versão|Padrão|Finalidade|
 |--|--|--|--|--|
 |`dynamicLists`|matriz|Somente V3|Não necessário.|As [listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem que você estenda uma entidade de lista treinada e publicada existente, já no aplicativo Luis.|
 |`externalEntities`|matriz|Somente V3|Não necessário.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão ao seu aplicativo Luis a capacidade de identificar e rotular entidades durante o tempo de execução, que pode ser usado como recursos para entidades existentes. |
@@ -268,9 +265,6 @@ Em v3, o mesmo resultado com o `verbose` sinalizador para retornar os metadados 
 
 Aprenda [conceitos](schema-change-prediction-runtime.md) sobre como estender o aplicativo no tempo de execução de previsão.
 
-## <a name="deprecation"></a>Reprovação
-
-A API v2 não será preterida por pelo menos 9 meses após a visualização v3.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 01/19/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9442489efd2a84ac8a31dfb2efb5718e1fd4f594
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743897"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621786"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registro de informações de segurança combinado para Azure Active Directory visão geral
 
@@ -30,18 +30,18 @@ Este artigo descreve o que é o registro de segurança combinado. Para começar 
 > [!div class="nextstepaction"]
 > [Habilitar o registro de segurança combinado](howto-registration-mfa-sspr-combined.md)
 
-![Meu perfil mostrando informações de segurança registradas para um usuário](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Minha conta mostrando informações de segurança registradas para um usuário](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
 Antes de habilitar a nova experiência, examine esta documentação voltada para o administrador e a documentação voltada para o usuário para garantir que você compreenda a funcionalidade e o efeito desse recurso. Baseie seu treinamento na [documentação do usuário](../user-help/security-info-setup-signin.md) para preparar seus usuários para a nova experiência e para ajudar a garantir uma distribuição bem-sucedida.
 
 O registro de informações de segurança combinadas do Azure AD não está disponível atualmente para nuvens nacionais como o Azure Alemanha ou o Azure China 21Vianet. Ele está disponível para o governo dos EUA do Azure.
 
 > [!IMPORTANT]
-> Os usuários que estão habilitados para a versão prévia original e a experiência avançada de registro combinado veem o novo comportamento. Os usuários que estão habilitados para ambas as experiências veem apenas a nova experiência meu perfil. O novo *meu perfil* se alinha com a aparência do registro combinado e fornece uma experiência direta para os usuários. Os usuários podem ver meu perfil acessando [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+> Os usuários que estão habilitados para a versão prévia original e a experiência avançada de registro combinado veem o novo comportamento. Os usuários que estão habilitados para as duas experiências veem apenas a experiência da minha conta. A *minha conta* está alinhada com a aparência do registro combinado e fornece uma experiência direta para os usuários. Os usuários podem ver minha conta acessando [https://myaccount.microsoft.com](https://myaccount.microsoft.com) .
 >
 > Você pode encontrar uma mensagem de erro ao tentar acessar a opção de informações de segurança, como "Desculpe, não é possível conectá-lo". Confirme que você não tem nenhuma configuração ou objeto de política de grupo que bloqueia cookies de terceiros no navegador da Web.
 
-*Minhas* páginas de perfil são localizadas com base nas configurações de idioma do computador que está acessando a página. A Microsoft armazena a linguagem mais recente usada no cache do navegador, portanto, as tentativas subsequentes de acessar as páginas continuam a ser renderizadas no último idioma usado. Se você limpar o cache, as páginas são renderizadas novamente.
+As páginas da *minha conta* são localizadas com base nas configurações de idioma do computador que está acessando a página. A Microsoft armazena a linguagem mais recente usada no cache do navegador, portanto, as tentativas subsequentes de acessar as páginas continuam a ser renderizadas no último idioma usado. Se você limpar o cache, as páginas são renderizadas novamente.
 
 Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language>` ao final da URL, em que `<language>` é o código do idioma que você deseja renderizar.
 
@@ -51,7 +51,7 @@ Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language
 
 O registro combinado dá suporte aos seguintes métodos e ações de autenticação:
 
-| Método | Registro | Alterar | Excluir |
+| Método | Registrar | Alterar | Excluir |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sim (no máximo 5) | Não | Sim |
 | Outro aplicativo autenticador | Sim (no máximo 5) | Não | Sim |
@@ -116,7 +116,7 @@ Se a política de SSPR exigir que os usuários revisem suas informações de seg
 
 ### <a name="manage-mode"></a>Modo de gerenciamento
 
-Os usuários podem acessar o modo de gerenciamento acessando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) ou selecionando **informações de segurança** em meu perfil. A partir daí, os usuários podem adicionar métodos, excluir ou alterar métodos existentes, alterar o método padrão e muito mais.
+Os usuários podem acessar o modo de gerenciamento acessando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) ou selecionando **informações de segurança** em minha conta. A partir daí, os usuários podem adicionar métodos, excluir ou alterar métodos existentes, alterar o método padrão e muito mais.
 
 ## <a name="key-usage-scenarios"></a>Principais cenários de uso
 
@@ -126,17 +126,17 @@ Um administrador impôs o registro.
 
 Um usuário não configurou todas as informações de segurança necessárias e vai para a portal do Azure. Depois de inserir o nome de usuário e a senha, o usuário será solicitado a configurar as informações de segurança. Em seguida, o usuário segue as etapas mostradas no Assistente para configurar as informações de segurança necessárias. Se suas configurações permitirem, o usuário poderá optar por configurar métodos diferentes daqueles mostrados por padrão. Depois de concluir o assistente, os usuários examinam os métodos que eles configuram e seu método padrão para a autenticação multifator. Para concluir o processo de instalação, o usuário confirma as informações e continua a portal do Azure.
 
-### <a name="set-up-security-info-from-my-profile"></a>Configurar informações de segurança do meu perfil
+### <a name="set-up-security-info-from-my-account"></a>Configurar informações de segurança de minha conta
 
 Um administrador não impô o registro.
 
-Um usuário que ainda não configurou todas as informações de segurança necessárias vai para [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . O usuário seleciona **informações de segurança** no painel esquerdo. A partir daí, o usuário opta por adicionar um método, seleciona qualquer um dos métodos disponíveis e segue as etapas para configurar esse método. Quando terminar, o usuário verá o método que foi configurado na página informações de segurança.
+Um usuário que ainda não configurou todas as informações de segurança necessárias vai para [https://myaccount.microsoft.com](https://myaccount.microsoft.com) . O usuário seleciona **informações de segurança** no painel esquerdo. A partir daí, o usuário opta por adicionar um método, seleciona qualquer um dos métodos disponíveis e segue as etapas para configurar esse método. Quando terminar, o usuário verá o método que foi configurado na página informações de segurança.
 
-### <a name="delete-security-info-from-my-profile"></a>Excluir informações de segurança do meu perfil
+### <a name="delete-security-info-from-my-account"></a>Excluir informações de segurança da minha conta
 
 Um usuário que tenha configurado anteriormente pelo menos um método navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . O usuário escolhe excluir um dos métodos registrados anteriormente. Quando terminar, o usuário não verá mais esse método na página informações de segurança.
 
-### <a name="change-the-default-method-from-my-profile"></a>Alterar o método padrão do meu perfil
+### <a name="change-the-default-method-from-my-account"></a>Alterar o método padrão de minha conta
 
 Um usuário que configurou anteriormente pelo menos um método que pode ser usado para a autenticação multifator navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . O usuário altera o método padrão atual para um método padrão diferente. Quando terminar, o usuário verá o novo método padrão na página informações de segurança.
 

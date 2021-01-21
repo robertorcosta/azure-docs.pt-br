@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573132"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621305"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre a configuração de rede do Azure Defender para IoT
 
@@ -94,35 +94,36 @@ Os navegadores a seguir têm suporte para os sensores e os aplicativos Web do co
 
 Verifique se a política de segurança organizacional permite o acesso ao seguinte:
 
-| **Finalidade** | **Protocolo** | **Transport** | **Entrada ou saída** | **Porta** | **Categoria** |
-| ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Acesso ao console Web** | HTTPS | TCP | Entrada ou saída | 443 | Console de gerenciamento local para a plataforma defender para IoT |
-| **Acesso à CLI** | SSH | TCP | Entrada ou saída | 22 | CLI |
-| **Conexão entre a plataforma defender para IoT e o console de gerenciamento local** | SSL | TCP | Entrada ou saída | 443 | Sensor e console de gerenciamento local|
-| **Console de gerenciamento local usado como NTP para o sensor** | NTP | UDP| In para CM | 123 | Sincronização do tempo | 
-| **Sensor conectado ao servidor NTP externo (se relevante)** | NTP | UDP | Entrada ou saída| 123 | Sincronização do tempo |
-| **Conexão entre a plataforma do defender para IoT e a plataforma de gerenciamento e o servidor de email (se relevante)** | SMTP | TCP | Fora do gerenciamento do sensor | 25 | Email |
-| **Logs que enviam do console de gerenciamento local para o servidor syslog (se relevante)** | syslog | UDP | Fora do gerenciamento do sensor| 514 | LEEF |
-| **Porta do servidor DNS (se relevante)** | DNS | N/D | Entrada ou saída| 53 | DNS |
-| **Conexão entre a plataforma defender para IoT e o console de gerenciamento local para Active Directory (se relevante)** | LDAPS | TCP | Entrada ou saída | 636 <br />389 | Active Directory |
-| **Coletores SNMP remotos (se relevante)** | SNMP | UDP | Fora do gerenciamento do sensor| 161 | Monitoramento |
-| **Monitoramento de ponto de extremidade do Windows (se relevante)** | WMI | UDP | Fora do gerenciamento do sensor| 135 | Monitoramento |
-| **Monitoramento de ponto de extremidade do Windows (se relevante)** | WMI | TCP | Fora do gerenciamento do sensor| 1024 e acima | Monitoramento |
-| **Túnel (se relevante)** | Túnel | TCP | IN para CM | 9000<br />Além da porta 443<br />Do usuário final ao console de gerenciamento local <br />Porta 22 do sensor para o console de gerenciamento local | Monitoramento |
-| **Saída para o defender para Hub IoT** | HTTPS | TCP | Fora do gerenciamento do sensor| **URL**<br />*. azure-devices.net:443<br />ou se não houver suporte a caracteres curinga<br />{o nome do Hub IoT}. Azure-devices.net:443 |
+| Protocolo | Transport | Entrada/saída | Porta | Usado | Finalidade | Fonte | Destino |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | ENTRADA/SAÍDA | 443 | Console Web do console de gerenciamento local e do sensor | Acesso ao console Web | Cliente | Sensor e console de gerenciamento local |
+| SSH | TCP | ENTRADA/SAÍDA | 22 | CLI | Acesso à CLI | Cliente | Sensor e console de gerenciamento local |
+| SSL | TCP | ENTRADA/SAÍDA | 443 | Sensor e console de gerenciamento local | Conexão entre a plataforma CyberX e a plataforma de gerenciamento central | sensor | Console de gerenciamento local |
+| NTP | UDP | IN | 123 | Sincronização de horário | O console de gerenciamento local é usado como NTP para sensor | sensor | console de gerenciamento local |
+| NTP | UDP | ENTRADA/SAÍDA | 123 | Sincronização de horário | Sensor conectado ao servidor NTP externo, quando não há um console de gerenciamento local instalado | sensor | NTP |
+| SMTP | TCP | OUT | 25 | Email | A conexão entre a plataforma CyberX e a plataforma de gerenciamento e o servidor de email | Sensor e console de gerenciamento local | Servidor de email |
+| syslog | UDP | OUT | 514 | LEEF | Logs que enviam do console de gerenciamento local para o servidor syslog | Console de gerenciamento local e sensor | Servidor syslog |
+| DNS |  | ENTRADA/SAÍDA | 53 | DNS | Porta do servidor DNS | Console de gerenciamento local e sensor | Servidor DNS |
+| LDAP | TCP | ENTRADA/SAÍDA | 389 | Active Directory | A conexão entre a plataforma CyberX e a plataforma de gerenciamento para o Active Directory | Console de gerenciamento local e sensor | Servidor LDAP |
+| LDAPS | TCP | ENTRADA/SAÍDA | 636 | Active Directory | A conexão entre a plataforma CyberX e a plataforma de gerenciamento para o Active Directory | Console de gerenciamento local e sensor | Servidor LDAPs |
+| SNMP | UDP | OUT | 161 | Monitoramento | Coletores SNMP remotos. | Console de gerenciamento local e sensor | Servidor SNMP |
+| WMI | UDP | OUT | 135 | monitoramento | Monitoramento de ponto de extremidade do Windows | Sensor | Elemento de rede relevante |
+| Túnel | TCP | IN | 9000 <br /><br />-acima da porta 443 <br /><br />Do usuário final ao console de gerenciamento local. <br /><br />-Porta 22 do sensor para o console de gerenciamento local  | monitoramento | Túnel | Sensor | Console de gerenciamento local |
 
 ### <a name="planning-rack-installation"></a>Planejando a instalação do rack
 
 Para planejar a instalação do rack:
 
 1. Prepare um monitor e um teclado para as configurações de rede do seu dispositivo.
-2. Aloque o espaço em rack para o dispositivo.
-3. Ter energia CA disponível para o dispositivo.
-4. Prepare o cabo da LAN para conectar o gerenciamento ao comutador de rede.
-5. Prepare os cabos de LAN para conectar portas de switch SPAN (espelho) e ou toques de rede para o dispositivo defender para IoT. 
-6. Configure, conecte e valide portas SPAN nos comutadores espelhados, conforme descrito na sessão de revisão da arquitetura.
-7. Conecte a porta de SPAN configurada a um computador executando o Wireshark e verifique se a porta está configurada corretamente.
-8. Abra todas as portas de firewall relevantes.
+
+1. Aloque o espaço em rack para o dispositivo.
+
+1. Ter energia CA disponível para o dispositivo.
+1. Prepare o cabo da LAN para conectar o gerenciamento ao comutador de rede.
+1. Prepare os cabos de LAN para conectar portas de switch SPAN (espelho) e ou toques de rede para o dispositivo defender para IoT. 
+1. Configure, conecte e valide portas SPAN nos comutadores espelhados, conforme descrito na sessão de revisão da arquitetura.
+1. Conecte a porta de SPAN configurada a um computador executando o Wireshark e verifique se a porta está configurada corretamente.
+1. Abra todas as portas de firewall relevantes.
 
 ## <a name="about-passive-network-monitoring"></a>Sobre o monitoramento de rede passiva
 
@@ -141,6 +142,7 @@ As seções a seguir descrevem os níveis de Purdue.
 O nível 0 consiste em uma ampla variedade de sensores, atuadores e dispositivos envolvidos no processo de fabricação básico. Esses dispositivos executam as funções básicas do sistema de automação e controle industrial, como:
 
 - Impulsionando um motor.
+
 - Medindo variáveis.
 - Definindo uma saída.
 - Executar funções-chave, como pintura, soldagem e dobra.
@@ -227,7 +229,7 @@ Aqui estão algumas recomendações para implantar vários sensores:
 |--|--|--|--|
 | A distância máxima entre as opções | 80 metros | Cabo Ethernet preparado | Mais de 1 |
 | Número de redes de OT | Mais de 1 | Sem conectividade física | Mais de 1 |
-| Número de opções | Pode usar a configuração do RSPAN | Até 8 comutadores com span local perto do sensor por distância do cabeamento | Mais de 1 |
+| Número de opções | Pode usar a configuração do RSPAN | Até oito comutadores com span local perto do sensor por distância do cabeamento | Mais de 1 |
 
 #### <a name="traffic-mirroring"></a>Espelhamento de tráfego  
 
@@ -364,10 +366,10 @@ Os agregadores TAP também podem ser usados para o monitoramento de porta. Esses
 Esses modelos foram testados quanto à compatibilidade. Outros fornecedores e modelos também podem ser compatíveis.
 
 | Imagem | Modelo |
-| -- | -- |
-| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Captura de tela de Garland P1GCCAS.":::  | Garland P1GCCAS  |
-| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Captura de tela de IXIA TPA2-CU3.":::  | IXIA TPA2-CU3  |
-| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Captura de tela de US Robotics USR 4503.":::  | US Robotics USR 4503  |
+|--|--|
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Captura de tela de Garland P1GCCAS."::: | Garland P1GCCAS |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Captura de tela de IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Captura de tela de US Robotics USR 4503."::: | US Robotics USR 4503 |
 
 ##### <a name="special-tap-configuration"></a>Configuração especial de toque
 
@@ -425,7 +427,7 @@ Informações relevantes:
 
 - Se o dispositivo defender para IoT deve estar conectado a esse comutador, há espaço físico disponível no rack nesse gabinete?
 
-#### <a name="additional-considerations"></a>Considerações adicionais
+#### <a name="other-considerations"></a>Outras considerações
 
 A finalidade do dispositivo defender para IoT é monitorar o tráfego das camadas 1 e 2.
 
@@ -547,7 +549,7 @@ Examine esta lista antes da implantação do site:
 | 14 | Rack e cabeamento dos dispositivos. | ☐ |  |
 | 15 | Aloque recursos do site para dar suporte à implantação. | ☐ |  |
 | 16 | Crie grupos de Active Directory ou usuários locais. | ☐ |  |
-| 17 | Configure o treinamento (auto-learning). | ☐ |  |
+| 17 | Treinamento de configuração (auto-learning). | ☐ |  |
 | 18 | Ir ou não ir. | ☐ |  |
 | 19 | Agendar a data de implantação. | ☐ |  |
 
@@ -671,7 +673,7 @@ Forneça detalhes de endereço para a NIC do sensor que será conectada na rede 
 | Chave secreta | |
 | Cadeia de caracteres da comunidade SNMP v2 |
 
-### <a name="cm-ssl-certificate"></a>Certificado SSL CM
+### <a name="on-premises-management-console-ssl-certificate"></a>Certificado SSL do console de gerenciamento local
 
 Você está planejando usar um certificado SSL? Sim ou não
 
@@ -694,6 +696,6 @@ Contate um administrador de Active Directory para criar um grupo de usuários de
 | Câmera | |
 | Computador com Ray X | |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Sobre a instalação do defender para IoT](how-to-install-software.md)
