@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 36781e7f975ee9d4a03cf899650701bf2d3940ac
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739783"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555943"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrar e examinar um Banco de Dados SQL do Azure
 
@@ -28,7 +28,7 @@ A fonte de dados do Banco de Dados SQL do Azure dá suporte às seguintes funcio
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-O Azure Purview não dá suporte à verificação de [exibições](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) no Banco de Dados SQL do Azure. 
+O Azure Purview não dá suporte à verificação de [exibições](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) no Banco de Dados SQL do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ Autenticação para examinar um Banco de Dados SQL do Azure. Caso precise criar 
 > [!Note]
 > Somente o logon da entidade de segurança no nível do servidor (criado pelo processo de provisionamento) ou membros da função de banco de dados `loginmanager` no banco de dados mestre podem criar novos logons. Isso leva cerca de **15 minutos** depois de conceder a permissão. A conta do Purview deverá ter as permissões apropriadas para examinar os recursos.
 
-Siga as instruções descritas em [CRIAR LOGON](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um logon para o Banco de Dados SQL do Azure caso você não tenha isso disponível. Você precisará do **nome de usuário** e da **senha** nas próximas etapas.
+Siga as instruções descritas em [CRIAR LOGON](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um logon para o Banco de Dados SQL do Azure caso você não tenha isso disponível. Você precisará do **nome de usuário** e da **senha** nas próximas etapas.
 
 1. Navegue até o seu cofre de chaves no portal do Azure
 1. Selecione **Configurações > Segredos**
@@ -100,7 +100,7 @@ A entidade de serviço ou a identidade gerenciada precisa ter permissão para ob
     ```
 
     > [!Note]
-    > O `Username` é a sua entidade de serviço ou identidade gerenciada do Purview. É possível ler mais sobre [funções de banco de dados fixas e respectivas funcionalidades](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > O `Username` é a sua entidade de serviço ou identidade gerenciada do Purview. É possível ler mais sobre [funções de banco de dados fixas e respectivas funcionalidades](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Adicionar a entidade de serviço ao cofre de chaves e à credencial do Purview
 

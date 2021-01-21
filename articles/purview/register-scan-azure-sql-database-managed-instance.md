@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 6eb17537fd64b192f64c36b38bab57e11d751328
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3513ba0cd1a894b55da604d54964affa79b6adf4
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400770"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555960"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registrar e examinar uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -28,19 +28,19 @@ A fonte de dados da Instância Gerenciada do Banco de Dados SQL do Azure dá sup
 
 ### <a name="known-limitations"></a>Limitações conhecidas
 
-O Azure Purview não dá suporte à verificação de [exibições](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) na Instância Gerenciada de SQL do Azure.
+O Azure Purview não dá suporte à verificação de [exibições](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) na Instância Gerenciada de SQL do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Crie uma conta do Purview caso ainda não tenha uma.
 
-- [Configurar um ponto de extremidade público na Instância Gerenciada de SQL do Azure](https://docs.microsoft.com/azure/azure-sql/managed-instance/public-endpoint-configure)
+- [Configurar um ponto de extremidade público na Instância Gerenciada de SQL do Azure](/azure/azure-sql/managed-instance/public-endpoint-configure)
     > [!Note]
     > Sua organização precisa conseguir permitir o ponto de extremidade público, pois **ainda não há suporte ao ponto de extremidade privado** no Purview. Se você usar o ponto de extremidade privado, a verificação não será bem-sucedida.
 
 ### <a name="setting-up-authentication-for-a-scan"></a>Configurar a autenticação para uma verificação
 
-Autenticação para examinar uma Instância Gerenciada do Banco de Dados SQL do Azure. Caso precise criar uma autenticação, [autorize o acesso de banco de dados à Instância Gerenciada do Banco de Dados SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). Há três métodos de autenticação aos quais o Purview atualmente dá suporte:
+Autenticação para examinar uma Instância Gerenciada do Banco de Dados SQL do Azure. Caso precise criar uma autenticação, [autorize o acesso de banco de dados à Instância Gerenciada do Banco de Dados SQL](/azure/azure-sql/database/logins-create-manage). Há três métodos de autenticação aos quais o Purview atualmente dá suporte:
 
 - Autenticação SQL
 - Entidade de Serviço
@@ -51,7 +51,7 @@ Autenticação para examinar uma Instância Gerenciada do Banco de Dados SQL do 
 > [!Note]
 > Somente o logon da entidade de segurança no nível do servidor (criado pelo processo de provisionamento) ou membros da função de banco de dados `loginmanager` no banco de dados mestre podem criar novos logons. Isso leva cerca de **15 minutos** depois de conceder a permissão. A conta do Purview deverá ter as permissões apropriadas para examinar os recursos.
 
-Siga as instruções descritas em [CRIAR LOGON](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um logon para a Instância Gerenciada do Banco de Dados SQL do Azure caso você não tenha isso disponível. Você precisará do **nome de usuário** e da **senha** nas próximas etapas.
+Siga as instruções descritas em [CRIAR LOGON](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) para criar um logon para a Instância Gerenciada do Banco de Dados SQL do Azure caso você não tenha isso disponível. Você precisará do **nome de usuário** e da **senha** nas próximas etapas.
 
 1. Navegue até o seu cofre de chaves no portal do Azure
 1. Selecione **Configurações > Segredos**
@@ -85,8 +85,8 @@ Para usar uma entidade de serviço, use uma existente ou crie uma.
 ##### <a name="configure-azure-ad-authentication-in-the-database-account"></a>Configurar a autenticação do Azure AD na conta do banco de dados
 
 A entidade de serviço ou a identidade gerenciada precisa ter permissão para obter metadados para o banco de dados, esquemas e tabelas. Ela também precisa conseguir consultar as tabelas para obter uma amostragem de classificação.
-- [Configurar e gerenciar a autenticação do Azure AD com o Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Crie um usuário do Azure AD na Instância Gerenciada do Banco de Dados SQL do Azure seguindo os pré-requisitos e o tutorial descritos em [Criar usuários independentes mapeados para identidades do Azure AD](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- [Configurar e gerenciar a autenticação do Azure AD com o Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
+- Crie um usuário do Azure AD na Instância Gerenciada do Banco de Dados SQL do Azure seguindo os pré-requisitos e o tutorial descritos em [Criar usuários independentes mapeados para identidades do Azure AD](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Atribua a permissão `db_owner` (**recomendado**) à identidade
 
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Adicionar a entidade de serviço ao cofre de chaves e à credencial do Purview

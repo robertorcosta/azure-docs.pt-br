@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: e219531a88787f19197a2e8c2a80040497c6dc1e
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: f3b0c5f1487951d05bc83973e5b4b9f3634a694b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901412"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222251"
 ---
 # <a name="tutorial-train-a-machine-learning-model-without-code"></a>Tutorial: Treinar um modelo de machine learning sem código
 
-É possível enriquecer seus dados em tabelas do Spark com novos modelos de machine learning que você treina usando o [machine learning automatizado](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml). No Azure Synapse Analytics, você pode selecionar uma tabela do Spark no workspace do para ser usada como um conjunto de dados de treinamento para criar modelos de machine learning, o que pode ser feito em uma experiência sem código.
+É possível enriquecer seus dados em tabelas do Spark com novos modelos de machine learning que você treina usando o [machine learning automatizado](../../machine-learning/concept-automated-ml.md). No Azure Synapse Analytics, você pode selecionar uma tabela do Spark no workspace do para ser usada como um conjunto de dados de treinamento para criar modelos de machine learning, o que pode ser feito em uma experiência sem código.
 
 Neste tutorial, você aprenderá a treinar modelos de machine learning usando uma experiência sem código no Azure Synapse Analytics Studio. Você usa o machine learning automatizado no Azure Machine Learning, em vez de codificar a experiência manualmente. O tipo de modelo que você treina depende do problema que está tentando resolver.
 

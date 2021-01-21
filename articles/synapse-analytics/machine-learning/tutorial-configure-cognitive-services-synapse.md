@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: cf76a3d09da83693791873feb9e6ab03c432e47f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: eef65db05ab94b5b8de5ff82c2c51dba0730f170
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463368"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222166"
 ---
 # <a name="tutorial-pre-requisites-for-using-cognitive-services-in-azure-synapse"></a>Tutorial: Pré-requisitos para usar Serviços Cognitivos no Azure Synapse
 
@@ -38,7 +38,7 @@ Entre no [Portal do Azure](https://portal.azure.com/)
 
 ## <a name="create-a-cognitive-services-resource"></a>Criar um Recurso dos Serviços Cognitivos
 
-Os [Serviços Cognitivos do Azure](https://go.microsoft.com/fwlink/?linkid=2147492) incluem muitos tipos diferentes de serviços. Veja abaixo alguns exemplos que são usados nos tutoriais do Azure Synapse.
+Os [Serviços Cognitivos do Azure](../../cognitive-services/index.yml) incluem muitos tipos diferentes de serviços. Veja abaixo alguns exemplos que são usados nos tutoriais do Azure Synapse.
 
 ### <a name="create-an-anomaly-detector-resource"></a>Criar um recurso do Detector de Anomalias
 Criar um [Detector de Anomalias](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) no portal do Azure.
@@ -53,7 +53,7 @@ Crie um recurso de [Análise de Texto](https://ms.portal.azure.com/#create/Micro
 ## <a name="create-key-vault-and-configure-secrets-and-access"></a>Criar Key Vault e configurar segredos e acesso
 
 1. Crie um [Key Vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) no portal do Azure.
-2. Acesse **Key Vault -> Políticas de acesso** e conceda as permissões [MSI do workspace do Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-managed-identity) para ler os segredos do Azure Key Vault.
+2. Acesse **Key Vault -> Políticas de acesso** e conceda as permissões [MSI do workspace do Azure Synapse](../security/synapse-workspace-managed-identity.md) para ler os segredos do Azure Key Vault.
 
 >Verifique se as alterações da política foram salvas. É fácil deixar essa etapa passar.
 

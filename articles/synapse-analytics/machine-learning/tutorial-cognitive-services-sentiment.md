@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 1b407cbee5218149f794ab125ac058e32b422558
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6a4833cf0d73939e01fd3e3e7263c6cba3c0a28a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463612"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222183"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Tutorial: Análise de sentimento com os Serviços Cognitivos (versão prévia)
 
-Neste tutorial, você aprenderá a enriquecer facilmente seus dados no Azure Synapse com os [Serviços Cognitivos](https://go.microsoft.com/fwlink/?linkid=2147492). Usaremos os recursos de [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) para executar a análise de sentimento. Um usuário no Azure Synapse pode simplesmente selecionar uma tabela que contém uma coluna de texto para enriquecimento com sentimentos. Esses sentimentos podem ser positivos, negativos, mistos ou neutros, e uma probabilidade também será retornada.
+Neste tutorial, você aprenderá a enriquecer facilmente seus dados no Azure Synapse com os [Serviços Cognitivos](../../cognitive-services/index.yml). Usaremos os recursos de [Análise de Texto](../../cognitive-services/text-analytics/index.yml) para executar a análise de sentimento. Um usuário no Azure Synapse pode simplesmente selecionar uma tabela que contém uma coluna de texto para enriquecimento com sentimentos. Esses sentimentos podem ser positivos, negativos, mistos ou neutros, e uma probabilidade também será retornada.
 
 Este tutorial abrange:
 
@@ -98,7 +98,7 @@ O notebook que você acabou de abrir está usando a [Biblioteca MMLSpark](https:
 
 Os detalhes do Azure Key Vault fornecidos permitem que você referencie com segurança seus segredos dessa experiência sem revelá-los.
 
-Agora, você pode **Executar todas** as células para enriquecer os dados com sentimentos. Os sentimentos serão retornados como positivo/negativo/neutro/misto e você também obterá as probabilidades por sentimento. Saiba mais sobre os [Serviços Cognitivos – Análise de sentimento](https://go.microsoft.com/fwlink/?linkid=2147792).
+Agora, você pode **Executar todas** as células para enriquecer os dados com sentimentos. Os sentimentos serão retornados como positivo/negativo/neutro/misto e você também obterá as probabilidades por sentimento. Saiba mais sobre os [Serviços Cognitivos – Análise de sentimento](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
 
 ![Executar a Análise de Sentimento](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 
