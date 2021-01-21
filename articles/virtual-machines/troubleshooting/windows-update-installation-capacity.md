@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0c0ec45eee86031e1533b97ccf352de0ecf70e38
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635698"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633147"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Solucionar problemas de inicialização do sistema operacional – capacidade de instalação do Windows Update
 
@@ -39,6 +39,9 @@ Nessa situação, o sistema operacional (SO) não consegue concluir uma instala�
 
 ### <a name="process-overview"></a>Visão geral do processo:
 
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 1. Criar e acessar uma VM de reparo.
 1. Liberar espaço em disco.
 1. Habilitar o console serial e a coleção de despejo de memória.
@@ -49,7 +52,7 @@ Nessa situação, o sistema operacional (SO) não consegue concluir uma instala�
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e acessar uma VM de reparo
 
-1. Use as [etapas 1-3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
+1. Use as [etapas 1 a 3 dos comandos de reparo da VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar uma VM de reparo.
 1. Use a conexão de área de trabalho remota para conectar-se à VM de reparo.
 
 ### <a name="free-up-space-on-the-disk"></a>Liberar espaço em disco
@@ -73,12 +76,12 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>Habilitar o console serial e a coleção de despejo de memória
 
-**Recomendado** : Antes de recompilar a VM, o console serial e a coleção de despejo de memória deverão ser habilitados ao executar o seguinte script:
+**Recomendado**: Antes de recompilar a VM, o console serial e a coleção de despejo de memória deverão ser habilitados ao executar o seguinte script:
 
 1. Abra uma sessão de prompt de comandos com privilégios elevados como um Administrador.
 1. Execute os seguintes comandos:
 
-   **Habilite o console serial** :
+   **Habilite o console serial**:
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
@@ -97,7 +100,7 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
    ```
    
-   **Habilitar em ControlSet001** :
+   **Habilitar em ControlSet001**:
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -105,7 +108,7 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Habilitar em ControlSet002** :
+   **Habilitar em ControlSet002**:
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -113,7 +116,7 @@ Dependendo do nível de fragmentação, a desfragmentação poderá levar vária
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Descarregar disco do sistema operacional danificado** :
+   **Descarregar disco do sistema operacional danificado**:
 
    ```
    REG UNLOAD HKLM\BROKENSYSTEM

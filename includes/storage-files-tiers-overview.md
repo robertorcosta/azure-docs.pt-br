@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3ba7baf79ee972ed7289a1aab93484108da70cf
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 6d06a46d2eaaad362890f1e3e44dbc746fa10898
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724215"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633441"
 ---
 Os Arquivos do Azure oferecem quatro camadas diferentes de armazenamento: premium, transação otimizada, quente e fria para permitir que você personalize seus compartilhamentos conforme os requisitos de desempenho e preço de seu cenário:
 
@@ -22,7 +22,7 @@ Os Arquivos do Azure oferecem quatro camadas diferentes de armazenamento: premiu
 - **Frequente**: os compartilhamentos de arquivo frequentes oferecem armazenamento otimizado para cenários de compartilhamento de arquivos de uso geral, como compartilhamentos de equipe. Os compartilhamentos de arquivo quentes são oferecidos no hardware de armazenamento padrão apoiado por HDs.
 - **Esporádico**: Os compartilhamentos de arquivos frios oferecem armazenamento econômico otimizado para cenários de armazenamento de arquivos online. Os compartilhamentos de arquivo frios são oferecidos no hardware de armazenamento padrão apoiado por HDs.
 
-Os compartilhamentos de arquivo Premium são implantados no tipo de **conta de armazenamento do FileStorage** e só estão disponíveis em um modelo de cobrança provisionado. Para obter mais informações sobre o modelo de cobrança provisionado para compartilhamentos de arquivos premium, confira [Noções básicas sobre provisionamento de compartilhamentos de arquivos premium](../articles/storage/files/understanding-billing.md#provisioned-billing). Os compartilhamentos de arquivo padrão, incluindo compartilhamentos de arquivo com transação otimizada, quentes e frios, são implantados no tipo de **conta de armazenamento GPv2 (uso geral versão 2)** e estão disponíveis por meio da cobrança de pagamento conforme o uso. Os compartilhamentos de arquivo quentes e frios estão disponíveis em todas as regiões públicas do Azure e do Azure Government. Os compartilhamentos de arquivo com transação otimizada estão disponíveis em todas as regiões do Azure, incluindo Azure China e Azure Alemanha.
+Os compartilhamentos de arquivo Premium são implantados no tipo de **conta de armazenamento do FileStorage** e só estão disponíveis em um modelo de cobrança provisionado. Para obter mais informações sobre o modelo de cobrança provisionado para compartilhamentos de arquivos premium, confira [Noções básicas sobre provisionamento de compartilhamentos de arquivos premium](../articles/storage/files/understanding-billing.md#provisioned-model). Os compartilhamentos de arquivo padrão, incluindo compartilhamentos de arquivo com transação otimizada, quentes e frios, são implantados no tipo de **conta de armazenamento GPv2 (uso geral versão 2)** e estão disponíveis por meio da cobrança de pagamento conforme o uso. Os compartilhamentos de arquivo quentes e frios estão disponíveis em todas as regiões públicas do Azure e do Azure Government. Os compartilhamentos de arquivo com transação otimizada estão disponíveis em todas as regiões do Azure, incluindo Azure China e Azure Alemanha.
 
 Ao selecionar uma camada de armazenamento para sua carga de trabalho, considere seus requisitos de desempenho e uso. Se a sua carga de trabalho exigir uma latência de dígito único ou se você estiver usando uma mídia de armazenamento SSD local, a camada Premium provavelmente será a melhor opção. Se a baixa latência não for muito importante, por exemplo, com compartilhamentos de equipe montados localmente no Azure ou armazenados em cache no local usando a Sincronização de Arquivos do Azure, o armazenamento padrão poderá ser uma melhor opção da perspectiva de custo.
 

@@ -3,17 +3,19 @@ title: Exportar fluxos da energia automatizada para o aplicativo lógico do Azur
 description: Migrar fluxos da Power mate para o aplicativo lógico do Azure exportando-os como modelos de Azure Resource Manager
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 2192ae5f3de551cb8ff2b6c36e233804c3c56bf1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014407"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633240"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
+
+> Para os fluxos criados após outubro de 2020, você não pode mais exportar do Power Automate e implantar no aplicativo lógico do Azure.
 
 Para estender e expandir os recursos do seu fluxo, você pode migrar esse fluxo de [Power mate](https://flow.microsoft.com) para [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md). Você pode exportar seu fluxo como um modelo de Azure Resource Manager para um aplicativo lógico, implantar esse modelo de aplicativo lógico em um grupo de recursos do Azure e, em seguida, abrir esse aplicativo lógico no designer de aplicativo lógico.
 
@@ -70,7 +72,7 @@ Para obter mais informações, consulte [aumentar até os aplicativos lógicos d
       |----------|-------------|
       | **Assinatura** | A assinatura do Azure a ser usada para cobrança |
       | **Grupo de recursos** | O grupo de recursos do Azure a ser usado para seu aplicativo lógico. Você pode usar um grupo existente ou criar um novo grupo. |
-      | **Localidade** | A região do Azure a ser usada se você criar um novo grupo de recursos |
+      | **Localização** | A região do Azure a ser usada se você criar um novo grupo de recursos |
       | **Nome do Aplicativo Lógico** | O nome a ser usado para o recurso do aplicativo lógico |
       | **Local do aplicativo lógico** | A região do Azure em que você deseja criar o recurso de aplicativo lógico, se for diferente do grupo de recursos do Azure |
       | <*nome da conexão*> | Um ou vários nomes para todas as conexões criadas anteriormente que o aplicativo lógico pode reutilizar <p><p>**Observação**: se esse aplicativo lógico for o primeiro, todas as conexões serão criadas como novas, para que você possa aceitar os nomes padrão. Caso contrário, você pode especificar os nomes para as conexões criadas anteriormente, que podem ser usadas em vários aplicativos lógicos. |

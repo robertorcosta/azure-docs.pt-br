@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 145d58013b259bf14c26d0840b8cd4299cfe85f0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200712"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632615"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>A VM não está respondendo com o erro "C01A001D" ao aplicar Windows Update
 
@@ -38,6 +38,9 @@ Um arquivo de núcleo não pode ser criado no sistema de arquivos. O sistema ope
 ## <a name="resolution"></a>Resolução
 
 ### <a name="process-overview"></a>Visão geral do processo
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. [Crie e acesse uma VM de reparo](#create-and-access-a-repair-vm).
 2. [Libere espaço no disco rígido](#free-up-space-on-the-hard-disk).

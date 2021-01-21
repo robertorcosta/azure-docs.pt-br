@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/28/2020
 ms.author: juliako
-ms.openlocfilehash: b25341fb58c1e758d807e3c7b4345fd0ab1baa53
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 07e4b05e12a5994c707a171c5736aea04a9c9723
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610413"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632919"
 ---
 # <a name="add-video-clips-to-your-projects"></a>Adicionar clipes de vídeo aos seus projetos
 
-O site [Video indexer](https://www.videoindexer.ai/) permite que você use os aprofundamentos de seus vídeos para: localizar o conteúdo de mídia correto, localizar as partes das quais você está interessado e usar os resultados para criar um projeto totalmente novo. 
+O site [Video indexer](https://www.videoindexer.ai/) permite que você use as informações aprofundadas do vídeo para: localizar o conteúdo de mídia correto, localizar as partes das quais você está interessado e usar os resultados para criar um projeto totalmente novo. 
 
 Depois de criado, o projeto pode ser renderizado e baixado de Video Indexer e ser usado em seus próprios aplicativos de edição ou fluxos de trabalho downstream.
 

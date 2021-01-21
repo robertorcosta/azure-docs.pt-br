@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 8af8d7695c48c6ac682109bb38935e98921fa9e4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: fc3bd5d2590e969db07e9dffa61b4902ea4604c3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681900"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632539"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager-service"></a>A VM não está respondendo ao aguardar o serviço Gerenciador de sessão local
 
@@ -34,6 +34,9 @@ Ao usar o [diagnóstico de inicialização](./boot-diagnostics.md) para exibir u
 Pode haver várias razões para uma VM ficar paralisada aguardando o Gerenciador de sessão local. Se esse problema persistir, você precisará coletar um despejo de memória para análise.
 
 ## <a name="solution"></a>Solução
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 Em alguns casos, simplesmente esperar que o processo seja concluído resolverá o problema. Se sua VM não responder e permanecer na tela de espera por mais de uma hora, você deverá coletar um despejo de memória e entrar em contato com o suporte da Microsoft.
 

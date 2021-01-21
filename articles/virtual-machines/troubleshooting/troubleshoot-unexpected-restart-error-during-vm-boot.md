@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: cfeb040893ae2be5842959ed8458bd713bebe6ee
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d8d2ab2bb3f24e1faa4791ebdc1ce3852f6a790e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512130"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632683"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Inicialização do sistema operacional – o computador foi reiniciado inesperadamente ou encontrou um erro inesperado
 
@@ -53,6 +53,9 @@ Esse problema é criado com mais frequência enquanto você está usando o Syspr
 
 ### <a name="do-not-use-unattendxml"></a>Não usar Unattend.xml
 
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
+
 Para corrigir esse problema, siga [as diretrizes do Azure sobre como preparar/capturar uma imagem](../windows/upload-generalized-managed.md) e preparar uma nova imagem generalizada. Durante o Sysprep, não **use o `/unattend:<your file’s name>` sinalizador**. Em vez disso, use apenas os sinalizadores abaixo:
 
 `sysprep /oobe /generalize /shutdown`
@@ -63,6 +66,6 @@ Você também pode usar a **GUI da ferramenta de preparação do sistema** para 
 
 - Entrar na experiência de entrada
 - Generalizar
-- Shutdown
+- Desligar
  
 ![Janela da ferramenta de preparação do sistema com opções de OOBE, generalize e Shutdown selecionadas.](./media/unexpected-restart-error-during-vm-boot/3.png)

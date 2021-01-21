@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3f56fc1b321396c5cc6aa93e3f47fcaafcbe4ae4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 0fbd7cda4723b62863d7d9bb0fe6aa2fac32dcd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202327"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633096"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança do Azure para hubs de eventos
 
@@ -293,9 +293,9 @@ Como integrar o Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quicks
 
 **Diretrizes**: o Azure Active Directory (AD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos. 
 
-Como obter uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Como obter uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
-Como obter membros de uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Como obter membros de uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -633,7 +633,7 @@ Como criar alertas para eventos do log de atividades do Azure: https://docs.micr
 
 Como criar consultas com o Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Como exibir suas assinaturas do Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Como exibir suas assinaturas do Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Entenda o RBAC do Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -779,7 +779,7 @@ Como configurar o acesso condicional para bloquear o acesso ao Azure Resource Ma
 
 Política interna do Azure para namespace de hubs de eventos: https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-Como exibir os aliases do Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como exibir os aliases do Azure Policy disponíveis: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -820,9 +820,9 @@ Para obter mais informações sobre os efeitos de Azure Policy:  https://docs.mi
 
 **Orientação**: se você estiver usando definições de Azure Policy personalizadas para seus hubs de eventos ou recursos relacionados, use Azure Repos para armazenar e gerenciar seu código com segurança.
 
-Como armazenar código no Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Como armazenar código no Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow
 
-Documentação do Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Documentação do Azure Repos: https://docs.microsoft.com/azure/devops/repos/index
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -986,7 +986,7 @@ Como fazer backup de Key Vault segredos: https://docs.microsoft.com/powershell/m
 
  
 
-Como restaurar chaves do Key Vault no Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+Como restaurar chaves do Key Vault no Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

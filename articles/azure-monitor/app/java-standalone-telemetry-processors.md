@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165783"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632573"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (visualização)-Azure Monitor Application Insights para Java
 
@@ -38,7 +38,7 @@ Uma extensão é um termo geral para qualquer uma destas três coisas:
 
 Para a finalidade dos processadores de telemetria, os componentes importantes de um Span são:
 
-* Nome
+* Name
 * Atributos
 
 O nome do span é a exibição primária usada para solicitações e dependências no portal do Azure.
@@ -241,7 +241,7 @@ Para a `hash` ação, os itens a seguir são necessários
 ### `extract`
 
 > [!NOTE]
-> Este recurso está apenas no 3.0.1 e posterior
+> Esse recurso só está no 3.0.2 e posterior
 
 Extrai valores usando uma regra de expressão regular da chave de entrada para chaves de destino especificadas na regra. Se uma chave de destino já existir, ela será substituída. Ele se comporta de forma semelhante à configuração do [processador span](#extract-attributes-from-span-name) `toAttributes` com o atributo existente como a origem.
 

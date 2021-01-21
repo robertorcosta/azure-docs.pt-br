@@ -3,12 +3,12 @@ title: Autenticar a entrega de eventos para manipuladores de eventos (grade de e
 description: Este artigo descreve diferentes maneiras de autenticar a entrega para manipuladores de eventos na grade de eventos do Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 8360aa49e3d83879499af79448ff9f85082f47ac
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015531"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633113"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticar a entrega de eventos para manipuladores de eventos (grade de eventos do Azure)
 Este artigo fornece informações sobre como autenticar a entrega de eventos para manipuladores de eventos. Ele também mostra como proteger os pontos de extremidade do webhook que são usados para receber eventos da grade de eventos usando Azure Active Directory (Azure AD) ou um segredo compartilhado.
@@ -16,7 +16,7 @@ Este artigo fornece informações sobre como autenticar a entrega de eventos par
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>Usar identidades atribuídas pelo sistema para entrega de eventos
 Você pode habilitar uma identidade gerenciada atribuída pelo sistema para um tópico ou domínio e usar a identidade para encaminhar eventos para destinos com suporte, como filas e tópicos do barramento de serviço, hubs de eventos e contas de armazenamento.
 
-Aqui estão as etapas para fazer isso: 
+Siga estas etapas: 
 
 1. Crie um tópico ou domínio com uma identidade atribuída pelo sistema ou atualize um tópico ou domínio existente para habilitar a identidade. 
 1. Adicione a identidade a uma função apropriada (por exemplo, remetente de dados do barramento de serviço) no destino (por exemplo, uma fila do barramento de serviço).
@@ -35,7 +35,7 @@ Você pode proteger o ponto de extremidade do webhook que é usado para receber 
 ### <a name="using-client-secret-as-a-query-parameter"></a>Usando o segredo do cliente como um parâmetro de consulta
 Também é possível proteger o ponto de extremidade do webhook adicionando parâmetros de consulta à URL de destino do webhook como parte da criação de uma Assinatura de Evento. Defina um dos parâmetros de consulta como o segredo do cliente; por exemplo, um [token de acesso](https://en.wikipedia.org/wiki/Access_token) ou um segredo compartilhado. O serviço da Grade de Eventos inclui todos esses parâmetros de consulta em cada solicitação de entrega de evento para o webhook. O serviço de webhook pode recuperar e validar o segredo. Se o segredo do cliente for atualizado, a assinatura do evento também precisará de atualização. Para evitar falhas na entrega durante essa rotação de segredo, faça com que o webhook aceite segredos novos e antigos por um período limitado antes de atualizar a assinatura do evento com o novo segredo. 
 
-Como os parâmetros de consulta podem conter segredos do cliente, eles são tratados com cuidado extra. Eles são armazenados criptografados e não ficam acessíveis a operadores de serviço. Eles não são registrados como parte dos logs/rastreamentos do serviço. Ao recuperar as propriedades da Assinatura do Evento, os parâmetros de consulta de destino não são retornados por padrão. Por exemplo: o parâmetro [--include-Full-Endpoint-URL](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) deve ser usado na [CLI](/cli/azure?view=azure-cli-latest) do Azure.
+Como os parâmetros de consulta podem conter segredos do cliente, eles são tratados com cuidado extra. Eles são armazenados criptografados e não ficam acessíveis a operadores de serviço. Eles não são registrados como parte dos logs/rastreamentos do serviço. Ao recuperar as propriedades da Assinatura do Evento, os parâmetros de consulta de destino não são retornados por padrão. Por exemplo: o parâmetro [--include-Full-Endpoint-URL](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-show) deve ser usado na [CLI](/cli/azure) do Azure.
 
 Para obter mais informações sobre como entregar eventos a webhooks, confira [Entrega de eventos do webhook](webhook-event-delivery.md)
 

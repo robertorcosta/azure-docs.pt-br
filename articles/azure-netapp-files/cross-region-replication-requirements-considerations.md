@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 4a4fff18d21ccb0c729ecb1f79df17225c8086bc
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243130"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632666"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos e considerações para usar a replicação entre regiões 
 
@@ -31,6 +31,7 @@ Observe os seguintes requisitos e considerações sobre [o uso da funcionalidade
 * Azure NetApp Files replicação só está disponível em determinados pares de regiões fixas. Consulte [pares de regiões com suporte](cross-region-replication-introduction.md#supported-region-pairs). 
 * Os volumes SMB têm suporte junto com volumes NFS. A replicação de volumes SMB requer uma conexão Active Directory nas contas do NetApp de origem e de destino. A conexão do AD de destino deve ter acesso aos servidores DNS ou ao adicionar controladores de domínio que podem ser acessados da sub-rede delegada na região de destino. Para obter mais informações, consulte [Requirements for Active Directory Connections](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * A conta de destino deve estar em uma região diferente da região do volume de origem. Você também pode selecionar uma conta existente do NetApp em uma região diferente.  
+* O volume de destino de replicação é somente leitura até que você faça [failover para a região de destino](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) para habilitar o volume de destino para leitura e gravação. 
 * Atualmente, a replicação do Azure NetApp Files não dá suporte a várias assinaturas; todas as replicações devem ser executadas em uma única assinatura.
 * Você pode configurar um máximo de cinco volumes para replicação em uma única assinatura por região. Você pode abrir um tíquete de suporte para solicitar um aumento na cota padrão de cinco volumes de destino de replicação (por assinatura em uma região). 
 * Pode haver um atraso de até cinco minutos para que a interface reflita um instantâneo recém-adicionado no volume de origem.  

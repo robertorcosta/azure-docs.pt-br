@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 7ddc13306f4adb1730169c4811b9d2227dedca33
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914239"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632759"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizar o gerenciamento com a extensão SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -115,7 +115,7 @@ Há três maneiras de se registrar com a extensão:
 
 ### <a name="named-instance-support"></a>Suporte à instância nomeada
 
-A extensão do agente IaaS SQL Server funciona com uma instância nomeada do SQL Server se é a única instância SQL Server disponível na máquina virtual. A extensão não é instalada em VMs que têm várias instâncias de SQL Server. 
+A extensão do agente IaaS SQL Server funciona com uma instância nomeada do SQL Server se ela for a única SQL Server instância disponível na máquina virtual. A extensão não será instalada em VMs que têm várias instâncias nomeadas SQL Server se não houver nenhuma instância padrão na VM. 
 
 Para usar uma instância nomeada do SQL Server, implante uma máquina virtual do Azure, instale uma única instância nomeada do SQL Server e registre-a com a [extensão IaaS do SQL](sql-agent-extension-manually-register-single-vm.md).
 
@@ -173,7 +173,7 @@ Não. A Microsoft registra automaticamente as VMs provisionadas usando imagens d
 
 **A extensão do agente IaaS do SQL está disponível para todos os clientes?** 
 
-Sim. Os clientes devem registrar suas VMs SQL Server com a extensão se não usavam uma imagem de SQL Server do Azure Marketplace e, em vez disso, o SQL Server autoinstalado, ou se eles trouxeram seu VHD personalizado. As VMs de propriedade de todos os tipos de assinaturas (direta, Enterprise Agreement e provedor de soluções na nuvem) podem se registrar com a extensão do SQL IaaS Agent.
+Sim. Os clientes devem registrar suas VMs SQL Server com a extensão se não usavam uma imagem de SQL Server do Azure Marketplace e, em vez disso, o SQL Server autoinstalado, ou se eles trouxeram seu VHD personalizado. As VMs de propriedade de todos os tipos de assinaturas (direta, Contrato Enterprise e provedor de soluções na nuvem) podem se registrar com a extensão do SQL IaaS Agent.
 
 **Qual é o modo de gerenciamento padrão ao registrar com a extensão do agente IaaS do SQL?**
 
@@ -228,7 +228,7 @@ Não. Uma VM deve ter pelo menos uma instância de SQL Server (Mecanismo de Banc
 
 **Posso registrar uma VM com a extensão do agente IaaS do SQL se houver várias instâncias de SQL Server?**
 
-Sim. A extensão do agente IaaS do SQL registrará apenas uma instância do SQL Server (Mecanismo de Banco de Dados). A extensão do agente IaaS do SQL registrará a instância de SQL Server padrão no caso de várias instâncias. Se não houver instância padrão, haverá suporte apenas para o registro no modo leve. Para atualizar do modo de gerenciamento leve para o completo, a instância do SQL Server padrão deve existir ou a VM deve ter apenas uma instância nomeada do SQL Server.
+Sim, desde que haja uma instância padrão na VM. A extensão do agente IaaS do SQL registrará apenas uma instância do SQL Server (Mecanismo de Banco de Dados). A extensão do agente IaaS do SQL registrará a instância de SQL Server padrão no caso de várias instâncias.
 
 **Posso registrar uma instância de cluster de failover SQL Server com a extensão do agente IaaS do SQL?**
 

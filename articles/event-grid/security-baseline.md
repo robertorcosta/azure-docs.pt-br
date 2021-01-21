@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 575742ab0d886a69dc5acccf4a65ac8c91b5a871
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e085c5c2dbb608692ff7e766744743d3f640387b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96341028"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633198"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança do Azure para a grade de eventos
 
@@ -293,9 +293,9 @@ O Azure RBAC (controle de acesso baseado em função) do Azure permite que você
 
 - [Autorizando o acesso aos recursos da grade de eventos](security-authorization.md)
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -696,7 +696,7 @@ Além disso, use o Azure Resource Graph para consultar/descobrir recursos em sua
 
 Azure Resource Manager tem a capacidade de exportar o modelo no JavaScript Object Notation (JSON), que deve ser revisado para garantir que as configurações atendam aos requisitos de segurança da sua organização antes das implantações.
 
-- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -738,9 +738,9 @@ Azure Resource Manager tem a capacidade de exportar o modelo no JavaScript Objec
 
 **Orientação**: se você estiver usando definições de Azure Policy personalizadas para sua grade de eventos ou recursos relacionados, use Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentação do Azure Repos](/azure/devops/repos/index?view=azure-devops)
+- [Documentação do Azure Repos](/azure/devops/repos/index)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 

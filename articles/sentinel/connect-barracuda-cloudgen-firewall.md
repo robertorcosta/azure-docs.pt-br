@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: dd0115fa34b10805570b6e9d8d09ae96fc169dfc
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 9e0aa186e742318ab5793fa8390251d94327bf08
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621124"
+ms.locfileid: "98632700"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Conectar Firewall do Barracuda CloudGen
 
@@ -35,15 +35,14 @@ O conector CGFW (Barracuda CloudGen firewall) permite que você conecte facilmen
 
 1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >   e selecione o conector de **Firewall do Barracuda CloudGen** .
 
-2. Selecione a **página abrir conector**.
+1. Selecione a **página abrir conector**.
 
-3. Siga as instruções na página do **Firewall do Barracuda CloudGen** .
-
+1. Siga as instruções na página do **Firewall do Barracuda CloudGen** .
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Neste documento, você aprendeu a conectar o firewall CloudGen do Barracuda ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+
 - Saiba como [obter visibilidade dos seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Comece a [detectar ameaças com o Azure Sentinel](tutorial-detect-threats-built-in.md).
 - [Use pastas de trabalho](tutorial-monitor-your-data.md) para monitorar seus dados.
-
-
