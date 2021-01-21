@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: f3058953e702f40fa1500441e382898b0314ddbb
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837633"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625424"
 ---
-# <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigar detecções de sensor em um inventário de dispositivos
+# <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigar as detecções do sensor em um inventário de dispositivos
 
 O inventário de dispositivos exibe uma ampla gama de atributos de dispositivo que um sensor detecta. As opções estão disponíveis para:
 
@@ -33,7 +33,7 @@ Os atributos a seguir aparecem na tabela de inventário do dispositivo.
 | Parâmetro | Descrição |
 |--|--|
 | Nome | O nome do dispositivo como o sensor o descobriu. |
-| Tipo | O tipo de dispositivo. |
+| Type | O tipo de dispositivo. |
 | Fornecedor | O nome do fornecedor do dispositivo, conforme definido no endereço MAC. |
 | Sistema operacional | O sistema operacional do dispositivo. |
 | Firmware | O firmware do dispositivo. |
@@ -223,8 +223,8 @@ Para exportar um arquivo CSV:
 
 - No menu superior direito do inventário de dispositivos, selecione :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false"::: . O relatório CSV é gerado e baixado.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
-[Investigar todas as detecções do sensor Enterprise em um inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+[Investigar todas as detecções do sensor corporativo em um inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 
 [Trabalhar com exibições de mapa do site](how-to-gain-insight-into-global-regional-and-local-threats.md#work-with-site-map-views)

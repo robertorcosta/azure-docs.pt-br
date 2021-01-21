@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977058"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624677"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Controlar qual tráfego é monitorado
 
@@ -90,7 +90,7 @@ Para configurar sub-redes:
 
 10. Para exportar sub-redes configuradas, selecione **Exportar**. A tabela de sub-rede é baixada para sua estação de trabalho.
 
-11. Selecione **Salvar**.
+11. Clique em **Salvar**.
 
 ### <a name="importing-information"></a>Importando informações 
 
@@ -182,15 +182,15 @@ Para definir um intervalo de endereços DHCP:
     > [!NOTE]
     > Os intervalos que você importa de um arquivo CSV substituem as configurações de intervalo existentes.
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Configurar servidores DNS para resolução de pesquisa inversa
 
-Para aprimorar o enriquecimento de ativos, você pode configurar vários servidores DNS para postergar pesquisas inversas. Você pode resolver nomes de host ou FQDNs associados aos endereços IP detectados em sub-redes de rede. Por exemplo, se um sensor descobre um endereço IP, ele pode consultar vários servidores DNS para resolver o nome do host.
+Para aprimorar o enriquecimento do dispositivo, você pode configurar vários servidores DNS para realizar pesquisas inversas. Você pode resolver nomes de host ou FQDNs associados aos endereços IP detectados em sub-redes de rede. Por exemplo, se um sensor descobre um endereço IP, ele pode consultar vários servidores DNS para resolver o nome do host.
 
 Todos os formatos CIDR têm suporte.
 
-O nome do host aparece no inventário de ativos e no mapa do ativo, bem como em relatórios.
+O nome do host aparece no inventário do dispositivo e no mapa do dispositivo e em relatórios.
 
 Você pode agendar agendas de resolução de pesquisa inversa para intervalos específicos por hora, como a cada 12 horas. Ou você pode agendar uma hora específica.
 
@@ -212,7 +212,7 @@ Para definir servidores DNS:
 
 5. No campo **porta do servidor DNS** , insira a porta DNS.
 
-6. Resolva os endereços IP de rede para FQDNs de ativo. No campo **número de rótulos** , adicione o número de rótulos de domínio a serem exibidos. Até 30 caracteres são exibidos da esquerda para a direita.
+6. Resolva os endereços IP de rede para FQDNs de dispositivo. No campo **número de rótulos** , adicione o número de rótulos de domínio a serem exibidos. Até 30 caracteres são exibidos da esquerda para a direita.
 
 7. No campo **sub-redes** , insira as sub-redes que você deseja que o servidor DNS consulte.
 
@@ -220,7 +220,7 @@ Para definir servidores DNS:
 
 ### <a name="test-the-dns-configuration"></a>Testar a configuração de DNS 
 
-Usando um ativo de teste, verifique se as configurações definidas funcionam corretamente:
+Usando um dispositivo de teste, verifique se as configurações definidas funcionam corretamente:
 
 1. Habilite a alternância de **pesquisa de DNS** .
 
@@ -277,7 +277,7 @@ Para configurar uma verificação automática:
 
 7. Para remover um intervalo, selecione :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: ao lado do intervalo.
 
-8. Selecione **Salvar**. A caixa de diálogo **Editar configuração de intervalos de verificação** fecha e o número de intervalos é exibido no painel **intervalos de digitalização** .
+8. Clique em **Salvar**. A caixa de diálogo **Editar configuração de intervalos de verificação** fecha e o número de intervalos é exibido no painel **intervalos de digitalização** .
 
 Para executar uma verificação manual:
 

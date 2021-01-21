@@ -3,12 +3,12 @@ title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eve
 description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736707"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624482"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
@@ -73,7 +73,7 @@ As conexões, os canais e as sessões são efêmeros. Se a conexão subjacente f
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisitos de porta de saída do AMQP
 
-Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) estiver habilitado. `EnableLinkRedirect` é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
+Os clientes que usam conexões AMQP sobre TCP exigem que as portas 5671 e 5672 sejam abertas no firewall local. Junto com essas portas, pode ser necessário abrir portas adicionais se o recurso [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) estiver habilitado. `EnableLinkRedirect` é um novo recurso de mensagens que ajuda a ignorar um salto durante o recebimento de mensagens, ajudando a aumentar a taxa de transferência. O cliente começaria a se comunicar diretamente com o serviço de back-end por meio do intervalo de portas 104XX, conforme mostrado na imagem a seguir. 
 
 ![Lista de portas de destino][4]
 
@@ -223,7 +223,7 @@ Toda propriedade que o aplicativo precisa definir deve ser mapeada para o mapa d
 | message-id |Identificador de forma livre definido pelo aplicativo para esta mensagem. Usado para detecção de duplicidade. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificador de usuário definido pelo aplicativo, não interpretado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
 | para |Identificador de destino definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Rotular](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Chamada](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Identificador reply-path definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificador de correlação definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Identificador content-type definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -240,14 +240,14 @@ Há algumas outras propriedades de mensagem do barramento de serviço que não f
 
 | Chave do mapa de anotação | Uso | Nome da API |
 | --- | --- | --- |
-| x-opt-scheduled-enqueue-time | Declara a hora em que a mensagem deve aparecer na entidade |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partition-key | Chave definida pelo aplicativo que determina em qual partição a mensagem deve chegar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partition-key | Valor de chave da partição definido pelo aplicativo quando uma transação deve ser usada para enviar mensagens por meio de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-enqueued-time | Hora UTC definida pelo serviço que representa a hora real do enfileiramento da mensagem. Ignorado na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-sequence-number | Número exclusivo definido pelo serviço atribuído a uma mensagem. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| x-opt-offset | Número de sequência da mensagem enfileirada definido pelo serviço. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
-| x-opt-locked-until | Definido pelo serviço. A data e hora até quando a mensagem ficará bloqueada na fila/assinatura. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-deadletter-source | Definido pelo serviço. A origem da mensagem original se a mensagem for recebida da fila de mensagens mortas. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-scheduled-enqueue-time | Declara a hora em que a mensagem deve aparecer na entidade |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
+| x-opt-partition-key | Chave definida pelo aplicativo que determina em qual partição a mensagem deve chegar. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
+| x-opt-via-partition-key | Valor de chave da partição definido pelo aplicativo quando uma transação deve ser usada para enviar mensagens por meio de uma fila de transferência. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
+| x-opt-enqueued-time | Hora UTC definida pelo serviço que representa a hora real do enfileiramento da mensagem. Ignorado na entrada. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
+| x-opt-sequence-number | Número exclusivo definido pelo serviço atribuído a uma mensagem. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
+| x-opt-offset | Número de sequência da mensagem enfileirada definido pelo serviço. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
+| x-opt-locked-until | Definido pelo serviço. A data e hora até quando a mensagem ficará bloqueada na fila/assinatura. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
+| x-opt-deadletter-source | Definido pelo serviço. A origem da mensagem original se a mensagem for recebida da fila de mensagens mortas. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>Recurso de transação
 
@@ -360,7 +360,7 @@ A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 | Chave | Opcional | Tipo do Valor | Conteúdo de valor |
 | --- | --- | --- | --- |
 | operation |Não |string |**put-token** |
-| type |Não |string |O tipo do token colocado. |
+| tipo |Não |string |O tipo do token colocado. |
 | name |Não |string |O "público" ao qual o token se aplica. |
 | expiração |Sim | timestamp |A hora de expiração do token. |
 

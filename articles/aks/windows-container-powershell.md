@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 97741423fa8b689a92bd9db78b810e6b86aefcbd
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 56fc11583bcdd271d0225de90ef7ab06bcf87cbf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247056"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625107"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Criar um contêiner do Windows Server em um cluster AKS (Serviço de Kubernetes do Azure) usando o PowerShell
 
@@ -97,7 +97,7 @@ Após alguns minutos, o comando será concluído e retornará informações sobr
 Por padrão, um cluster AKS é criado com um pool de nós que pode executar contêineres do Linux. Use o cmdlet `New-AzAksNodePool` para adicionar um pool de nós que pode executar contêineres do Windows Server juntamente ao pool de nós do Linux.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
 ```
 
 O comando acima cria um pool de nós chamado **npwin** e o adiciona ao **myAKSCluster**. Ao criar um pool de nós para executar contêineres do Windows Server, o valor padrão de **VmSize** é **Standard_D2s_v3**. Se você optar por definir o parâmetro **VmSize**, confira a lista de [tamanhos de VM restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é **Standard_D2s_v3**. O comando anterior também usa a sub-rede padrão na vnet padrão criada durante a execução de `New-AzAks`.

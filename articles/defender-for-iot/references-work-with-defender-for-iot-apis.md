@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com o defender para APIs de IoT
+title: Trabalhar com o Defender para APIs de IoT
 description: Use uma API REST externa para acessar os dados descobertos por sensores e consoles de gerenciamento e execute ações com esses dados.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: d49aa50b1b8843dfb5c3d32983ff0bb129543bb0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 44ea6e8343203a9cb18947f31f45aa0b023178b0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97838006"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624567"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Sensor do defender para IoT e APIs do console de gerenciamento
 
@@ -44,7 +44,7 @@ Para gerar um token:
 
 5. Selecione **Concluir**. Os tokens que você cria aparecem na caixa de diálogo **tokens de acesso** .
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Captura de tela da caixa de diálogo tokens de ativo com tokens preenchidos":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Captura de tela da caixa de diálogo tokens de dispositivo com tokens preenchidos":::
 
    **Usado** indica a última vez em que uma chamada externa com esse token foi recebida.
 
@@ -110,31 +110,31 @@ Matriz de objetos JSON que representam dispositivos.
 
 #### <a name="device-fields"></a>Campos de dispositivo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **id** | Numérico | Não | - |
-| **ipAddresses** | Matriz JSON | Sim | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
+| **ipAddresses** | Matriz JSON | Yes | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
 | **name** | String | Não | - |
-| **tipo** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
-| **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
+| **type** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
+| **macAddresses** | Matriz JSON | Yes | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
 | **operatingSystem** | String | Sim | - |
 | **engineeringStation** | Boolean | Não | Verdadeiro ou falso |
 | **detector** | Boolean | Não | Verdadeiro ou falso |
 | **autorizado** | Boolean | Não | Verdadeiro ou falso |
 | **fabricante** | String | Sim | - |
-| **protocolos** | Matriz JSON | Sim | Objeto de protocolo |
-| **firmware** | Matriz JSON | Sim | Objeto firmware |
+| **protocolos** | Matriz JSON | Yes | Objeto de protocolo |
+| **firmware** | Matriz JSON | Yes | Objeto firmware |
 
 #### <a name="protocol-fields"></a>Campos de protocolo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **Nome** | String | Não |  |
-| **Endereços** | Matriz JSON | Sim | Valores mestre ou numéricos |
+| **Endereços** | Matriz JSON | Yes | Valores mestre ou numéricos |
 
 #### <a name="firmware-fields"></a>Campos de firmware
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **série** | String | Não | N/A ou o valor real |
 | **modelo** | String | Não | N/A ou o valor real |
@@ -331,7 +331,7 @@ Matriz de objetos JSON que representam conexões de dispositivo.
 
 #### <a name="fields"></a>Campos
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **firstDeviceId** | Numérico | Não | - |
 | **secondDeviceId** | Numérico | Não | - |
@@ -342,7 +342,7 @@ Matriz de objetos JSON que representam conexões de dispositivo.
 
 #### <a name="protocol-field"></a>Campo de protocolo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **name** | String | Não | - |
 | **comandos** | Matriz de cadeia de caracteres | Não | - |
@@ -489,7 +489,7 @@ Matriz de objetos JSON que representam CVEs identificados em endereços IP.
 
 #### <a name="fields"></a>Campos
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **cveId** | String | Não | - |
 | **IP** | String | Não | Endereço IP |
@@ -603,7 +603,7 @@ Matriz de objetos JSON que representam alertas.
 
 #### <a name="alert-fields"></a>Campos de alerta
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **ID** | Numérico | Não | - |
 | **time** | Numérico | Não | Época (UTC) |
@@ -611,13 +611,13 @@ Matriz de objetos JSON que representam alertas.
 | **message** | String | Não | - |
 | **severity** | String | Não | Aviso, secundário, principal ou crítico |
 | **motores** | String | Não | Violação de protocolo, violação de política, malware, anomalia ou operacional |
-| **sourceDevice** | Numérico | Sim | ID do Dispositivo |
-| **destinationDevice** | Numérico | Sim | ID do Dispositivo |
-| **additionalInformation** | Objeto de informações adicionais | Sim | - |
+| **sourceDevice** | Numérico | Yes | ID do Dispositivo |
+| **destinationDevice** | Numérico | Yes | ID do Dispositivo |
+| **additionalInformation** | Objeto de informações adicionais | Yes | - |
 
 #### <a name="additional-information-fields"></a>Campos de informações adicionais
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **descrição** | String | Não | - |
 | **divulgação** | Matriz JSON | Não | String |
@@ -721,7 +721,7 @@ Matriz de objetos JSON que representam alertas.
 
 #### <a name="event-fields"></a>Campos de evento
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|--|
 | **timestamp** | Numérico | Não | Época (UTC) |
 | **title** | String | Não | - |
@@ -830,7 +830,7 @@ O objeto de dispositivo contém:
 
 #### <a name="device-fields"></a>Campos de dispositivo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **name** | String | Não | - |
 | **ipAddresses** | Matriz JSON | Não | - |
@@ -839,12 +839,12 @@ O objeto de dispositivo contém:
 | **firmwareVersion** | String | Sim | - |
 | **modelo** | String | Sim | - |
 | **isWirelessAccessPoint** | Boolean | Não | Verdadeiro ou falso |
-| **operatingSystem** | Objeto do sistema operacional | Sim | - |
-| **vulnerabilidades** | Objeto de vulnerabilidades | Sim | - |
+| **operatingSystem** | Objeto do sistema operacional | Yes | - |
+| **vulnerabilidades** | Objeto de vulnerabilidades | Yes | - |
 
 #### <a name="operating-system-fields"></a>Campos do sistema operacional
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **Nome** | String | Sim | - |
 | **Tipo** | String | Sim | - |
@@ -853,23 +853,23 @@ O objeto de dispositivo contém:
 
 #### <a name="vulnerabilities-fields"></a>Campos de vulnerabilidades
  
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
-| **antivírus** | Matriz JSON | Sim | Nomes de antivírus |
-| **plainTextPasswords** | Matriz JSON | Sim | Objetos de senha |
-| **remoteAccess** | Matriz JSON | Sim | Objetos de acesso remoto |
+| **antivírus** | Matriz JSON | Yes | Nomes de antivírus |
+| **plainTextPasswords** | Matriz JSON | Yes | Objetos de senha |
+| **remoteAccess** | Matriz JSON | Yes | Objetos de acesso remoto |
 | **isBackupServer** | Boolean | Não | Verdadeiro ou falso |
-| **openedPorts** | Matriz JSON | Sim | Objetos de porta abertos |
+| **openedPorts** | Matriz JSON | Yes | Objetos de porta abertos |
 | **isEngineeringStation** | Boolean | Não | Verdadeiro ou falso |
 | **isKnownScanner** | Boolean | Não | Verdadeiro ou falso |
-| **cves** | Matriz JSON | Sim | Objetos de CVE |
+| **cves** | Matriz JSON | Yes | Objetos de CVE |
 | **isUnauthorized** | Boolean | Não | Verdadeiro ou falso |
 | **malwareIndicationsDetected** | Boolean | Não | Verdadeiro ou falso |
-| **weakAuthentication** | Matriz JSON | Sim | Aplicativos detectados que estão usando autenticação fraca |
+| **weakAuthentication** | Matriz JSON | Yes | Aplicativos detectados que estão usando autenticação fraca |
 
 #### <a name="password-fields"></a>Campos de senha
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **password** | String | Não | - |
 | **protocol** | String | Não | - |
@@ -877,7 +877,7 @@ O objeto de dispositivo contém:
 
 #### <a name="remote-access-fields"></a>Campos de acesso remoto
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **port** | Numérico | Não | - |
 | **porta** | String | Não | TCP ou UDP |
@@ -886,7 +886,7 @@ O objeto de dispositivo contém:
 
 #### <a name="open-port-fields"></a>Abrir campos de porta
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **port** | Numérico | Não | - |
 | **porta** | String | Não | TCP ou UDP |
@@ -895,7 +895,7 @@ O objeto de dispositivo contém:
 
 #### <a name="cve-fields"></a>Campos de CVE
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **ID** | String | Não | - |
 | **placar** | Numérico | Não | Double |
@@ -1078,7 +1078,7 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 **unauthorizedDevices**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 | ---------- | ---- | -------------- |
 | **address** | String | Endereço IP |
 | **name** | String | - |
@@ -1087,7 +1087,7 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 **illegalTrafficByFirewallRules**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 | ---------- | ---- | -------------- |
 | **server** | String | Endereço IP |
 | **cliente** | String | Endereço IP |
@@ -1096,7 +1096,7 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 **weakFirewallRules**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 | ---------- | ---- | -------------- |
 | **sources** | Matriz JSON de fontes. Cada fonte pode estar em qualquer um dos quatro formatos. | "Qualquer", "endereço IP (host)", "de IP para IP (intervalo)", "endereço IP, máscara de sub-rede (rede)" |
 | **destinos** | Matriz JSON de destinos. Cada destino pode estar em qualquer um dos quatro formatos. | "Qualquer", "endereço IP (host)", "de IP para IP (intervalo)", "endereço IP, máscara de sub-rede (rede)" |
@@ -1104,7 +1104,7 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 **Acesso**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 | ---------- | ---- | -------------- |
 | **macAddress** | String | Endereço MAC |
 | **fabricante** | String | Nome do fornecedor |
@@ -1114,14 +1114,14 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 **connectionsBetweenSubnets**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 | ---------- | ---- | -------------- |
 | **server** | String | Endereço IP |
 | **cliente** | String | Endereço IP |
 
 **industrialMalwareIndicators**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 | ---------- | ---- | -------------- |
 | **detecçãotime** | Numérico | Época (UTC) |
 | **alertMessage** | String | - |
@@ -1130,7 +1130,7 @@ Objeto JSON que representa resultados avaliados. Cada chave pode ser anulável. 
 
 **internetConnections**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 | ---------- | ---- | -------------- |
 | **internalAddress** | String | Endereço IP |
 | **autorizado** | Boolean | Sim ou não | 
@@ -1319,7 +1319,7 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma matriz J
 
 **backupServer**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 |--|--|--|
 | **source** | String | Endereço IP |
 | **destination** | String | Endereço IP |
@@ -1330,7 +1330,7 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma matriz J
 
 **ipNetworks**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 |--|--|--|
 | **endereçar** s | Numérico | - |
 | **rede** | String | Endereço IP |
@@ -1338,7 +1338,7 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma matriz J
 
 **protocolProblems**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 |--|--|--|
 | **protocol** | String | - |
 | **atende** | Matriz JSON | Endereços IP |
@@ -1347,14 +1347,14 @@ Objeto JSON que representa resultados avaliados. Cada chave contém uma matriz J
 
 **protocolDataVolumes**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 |--|--|--|
 | protocolo | String | - |
 | volume | String | "número de volume MB" |
 
 **desconexões**
 
-| Nome do campo | Tipo | Lista de valores |
+| Nome do campo | Type | Lista de valores |
 |--|--|--|
 | **assetAddress** | String | Endereço IP |
 | **assetName** | String | - |
@@ -1782,33 +1782,33 @@ Matriz de objetos JSON que representam dispositivos.
 
 #### <a name="device-fields"></a>Campos de dispositivo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **sensorId** | Numérico | Não | - |
-| **zonaid** | Numérico | Sim | - |
-| **siteId** | Numérico | Sim | - |
-| **ipAddresses** | Matriz JSON | Sim | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
+| **zonaid** | Numérico | Yes | - |
+| **siteId** | Numérico | Yes | - |
+| **ipAddresses** | Matriz JSON | Yes | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
 | **name** | String | Não | - |
-| **tipo** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
-| **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
+| **type** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
+| **macAddresses** | Matriz JSON | Yes | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
 | **operatingSystem** | String | Sim | - |
 | **engineeringStation** | Boolean | Não | Verdadeiro ou falso |
 | **detector** | Boolean | Não | Verdadeiro ou falso |
 | **autorizado** | Boolean | Não | Verdadeiro ou falso |
 | **fabricante** | String | Sim | - |
-| **Protocolos** | Matriz JSON | Sim | Objeto de protocolo |
-| **firmware** | Matriz JSON | Sim | Objeto firmware |
+| **Protocolos** | Matriz JSON | Yes | Objeto de protocolo |
+| **firmware** | Matriz JSON | Yes | Objeto firmware |
 
 #### <a name="protocol-fields"></a>Campos de protocolo
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | Nome | String | Não | - |
-| Endereços | Matriz JSON | Sim | Valores mestre ou numéricos |
+| Endereços | Matriz JSON | Yes | Valores mestre ou numéricos |
 
 #### <a name="firmware-fields"></a>Campos de firmware
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **série** | String | Não | N/A ou o valor real |
 | **modelo** | String | Não | N/A ou o valor real |
@@ -1999,7 +1999,7 @@ Use essa API para recuperar todos os alertas ou filtros filtrados de um console 
 
 #### <a name="alert-fields"></a>Campos de alerta
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **ID** | Numérico | Não | - |
 | **time** | Numérico | Não | Época (UTC) |
@@ -2007,13 +2007,13 @@ Use essa API para recuperar todos os alertas ou filtros filtrados de um console 
 | **message** | String | Não | - |
 | **severity** | String | Não | Aviso, secundário, principal ou crítico |
 | **motores** | String | Não | Violação de protocolo, violação de política, malware, anomalia ou operacional |
-| **sourceDevice** | Numérico | Sim | ID do Dispositivo |
-| **destinationDevice** | Numérico | Sim | ID do Dispositivo |
-| **additionalInformation** | Objeto de informações adicionais | Sim | - |
+| **sourceDevice** | Numérico | Yes | ID do Dispositivo |
+| **destinationDevice** | Numérico | Yes | ID do Dispositivo |
+| **additionalInformation** | Objeto de informações adicionais | Yes | - |
 
 #### <a name="additional-information-fields"></a>Campos de informações adicionais
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **descrição** | String | Não | - |
 | **divulgação** | Matriz JSON | Não | String |
@@ -2154,7 +2154,7 @@ Objeto JSON que representa a ação a ser executada no alerta que contém o UUID
 
 #### <a name="action-fields"></a>Campos de ação
 
-| Nome | Tipo | Nullable | Lista de valores |
+| Nome | Type | Nullable | Lista de valores |
 |--|--|--|--|
 | **action** | String | Não | identificador ou handleAndLearn |
 
@@ -2178,7 +2178,7 @@ Matriz de objetos JSON que representam dispositivos.
 #### <a name="response-fields"></a>Campos de resposta
 
 
-| Nome | Tipo | Nullable | Descrição |
+| Nome | Type | Nullable | Descrição |
 |--|--|--|--|
 | **conteúdo/erro** | String | Não | Se a solicitação for bem-sucedida, a propriedade Content será exibida. Caso contrário, a Propriedade Error será exibida. |
 
@@ -2356,7 +2356,7 @@ Matriz de objetos JSON que representam operações de janela de manutenção.
 
 #### <a name="response-structure"></a>Estrutura de resposta
 
-| Nome | Tipo | Comentário | Nullable |
+| Nome | Type | Comentário | Nullable |
 |--|--|--|--|
 | **dateTime** | String | Exemplo: "2012-04-23T18:25:43.511 Z" | não |
 | **TicketID** | String | Exemplo: "9a5fe99c-D914-4bda-9332-307384fe40bf" | não |
@@ -2364,7 +2364,7 @@ Matriz de objetos JSON que representam operações de janela de manutenção.
 | **mecanismo** | Matriz de cadeia de caracteres | - | sim |
 | **sensorIds** | Matriz de cadeia de caracteres | - | sim |
 | **sub-redes** | Matriz de cadeia de caracteres | - | sim |
-| **igual** | Numérico | - | sim |
+| **ttl** | Numérico | - | sim |
 | **operationType** | String | Os valores são "OPEN", "UPDATE" e "CLOSE" | não |
 
 ### <a name="authenticate-user-credentials"></a>Autenticar credenciais de usuário

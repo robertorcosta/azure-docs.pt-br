@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: de3ff6ead1f0dd86e07c86b992a720a676a2095c
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837929"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624635"
 ---
 # <a name="define-global-access-control"></a>Definir o controle de acesso global
 
@@ -20,7 +20,7 @@ Em grandes organizações, as permissões de usuário podem ser complexas e pode
 
 Para dar suporte à demanda de permissões de acesso de usuário que são globais e mais complexas, você pode criar uma topologia de negócios global baseada em unidades de negócios, regiões e sites. Em seguida, você pode definir permissões de acesso de usuário em relação a essas entidades.
 
-Trabalhar com as ferramentas de acesso para topologia de negócios ajuda as organizações a implementar estratégias de confiança zero, controlando melhor onde os usuários gerenciam e analisam ativos na plataforma Azure defender para IoT.
+Trabalhar com as ferramentas de acesso para topologia de negócios ajuda as organizações a implementar estratégias de confiança zero, controlando melhor onde os usuários gerenciam e analisam dispositivos na plataforma Azure defender para IoT.
 
 ## <a name="about-access-groups"></a>Sobre grupos de acesso
 
@@ -88,6 +88,6 @@ Quando você estiver criando regras, esteja ciente das seguintes informações:
 
 - Se nenhuma unidade de negócios ou região for selecionada, os usuários terão acesso a todas as regiões e unidades de negócios definidas.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Sobre os usuários do console do defender para IoT](how-to-create-and-manage-users.md)

@@ -8,20 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905716"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625008"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutorial: Usar o Criador (versão prévia) para criar mapas do interior
 
 > [!IMPORTANT]
 > Os serviços do Criador do Azure Mapas estão em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 
 Este tutorial mostra como criar mapas internos. Neste tutorial, você aprenderá como usar a API para:
 
@@ -411,6 +409,10 @@ Um conjunto de peças é um conjunto de peças de vetor que são renderizadas no
 A [API de obtenção de estados do recurso](/rest/api/maps/featurestate/getstatespreview) permite que você recupere o estado de um recurso usando seu recurso `ID`. Você também pode excluir o conjunto de estados e seus recursos usando a [API de exclusão de estado do recurso](/rest/api/maps/featurestate/deletestatesetpreview).
 
 Para saber mais sobre os diferentes serviços do Criador do Azure Mapas (versão prévia) discutidos neste artigo, confira [Criador de Mapas do Interior](creator-indoor-maps.md).
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Próximas etapas
 

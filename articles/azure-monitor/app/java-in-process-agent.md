@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 32d906bf96a0ad5cf798f68bf83f2d6af1064361
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 931189a6740009bd26472c186057fa0e6ef5fddf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98231733"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624885"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
@@ -34,11 +34,11 @@ O agente 3,0 dá suporte a Java 8 e superior.
 >
 > Examine todas as [Opções de configuração](./java-standalone-config.md) com cuidado, pois a estrutura JSON foi completamente alterada, além do próprio nome de arquivo, que ficou com todas as letras minúsculas.
 
-Baixar o [applicationinsights-Agent-3.0.1. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.1/applicationinsights-agent-3.0.1.jar)
+Baixe o [applicationinsights-Agent-3.0.2. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.2/applicationinsights-agent-3.0.2.jar)
 
 **2. aponte a JVM para o agente**
 
-Adicionar `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` aos argumentos JVM de seu aplicativo
+Adicionar `-javaagent:path/to/applicationinsights-agent-3.0.2.jar` aos argumentos JVM de seu aplicativo
 
 Os argumentos de JVM típicos incluem `-Xmx512m` e `-XX:+UseG1GC` . Portanto, se você souber onde adicioná-los, já saberá onde adicioná-los.
 
@@ -54,7 +54,7 @@ Aponte o agente para o recurso de Application Insights, definindo uma variável 
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Ou criando um arquivo de configuração chamado `applicationinsights.json` e colocando-o no mesmo diretório que `applicationinsights-agent-3.0.1.jar` o, com o seguinte conteúdo:
+Ou criando um arquivo de configuração chamado `applicationinsights.json` e colocando-o no mesmo diretório que `applicationinsights-agent-3.0.2.jar` o, com o seguinte conteúdo:
 
 ```json
 {
@@ -143,12 +143,12 @@ A tabela a seguir representa os tipos de telemetria personalizados com suporte n
 
 |                     | Micrometer | Log4J, logback, JUL | SDK 2. x |
 |---------------------|------------|---------------------|---------|
-| **Eventos personalizados**   |            |                     |  Sim    |
+| **Eventos personalizados**   |            |                     |  Yes    |
 | **Métricas personalizadas**  |  Sim       |                     |  Sim    |
-| **Dependências**    |            |                     |  Sim    |
+| **Dependências**    |            |                     |  Yes    |
 | **Exceções**      |            |  Sim                |  Sim    |
-| **Exibições de página**      |            |                     |  Sim    |
-| **Solicitações**        |            |                     |  Sim    |
+| **Exibições de página**      |            |                     |  Yes    |
+| **Solicitações**        |            |                     |  Yes    |
 | **Rastreamentos**          |            |  Sim                |  Sim    |
 
 Não estamos planejando lançar um SDK com o Application Insights 3,0 no momento.
@@ -255,7 +255,7 @@ try {
 ### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>Adicionar dimensões personalizadas de solicitação usando o SDK 2. x
 
 > [!NOTE]
-> Este recurso está apenas no 3.0.1 e posterior
+> Esse recurso só está no 3.0.2 e posterior
 
 Adicione `applicationinsights-web-2.6.2.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
 
@@ -279,7 +279,7 @@ requestTelemetry.getProperties().put("mydimension", "myvalue");
 ### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>Definir o user_Id de telemetria de solicitação usando o SDK 2. x
 
 > [!NOTE]
-> Este recurso está apenas no 3.0.1 e posterior
+> Esse recurso só está no 3.0.2 e posterior
 
 Adicione `applicationinsights-web-2.6.2.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
 
@@ -303,7 +303,7 @@ requestTelemetry.getContext().getUser().setId("myuser");
 ### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>Substituir o nome da telemetria de solicitação usando o SDK 2. x
 
 > [!NOTE]
-> Este recurso está apenas no 3.0.1 e posterior
+> Esse recurso só está no 3.0.2 e posterior
 
 Adicione `applicationinsights-web-2.6.2.jar` ao seu aplicativo (todas as versões 2. x têm suporte pelo Application insights Java 3,0, mas vale a pena usar a mais recente se você tiver uma opção):
 

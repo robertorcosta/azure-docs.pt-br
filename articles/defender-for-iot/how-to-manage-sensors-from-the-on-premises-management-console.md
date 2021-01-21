@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 36db1b23d8fb17cec4fe981c938f8c7003543b4d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837656"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624584"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gerenciar sensores do console de gerenciamento
 
@@ -72,7 +72,7 @@ Você pode atualizar vários sensores simultaneamente no console de gerenciament
 
 Para atualizar vários sensores:
 
-1. Vá para o [Portal do Azure](https://portal.azure.com/).
+1. Acesse o [portal do Azure](https://portal.azure.com/).
 
 2. Vá para Azure defender para IoT.
 
@@ -150,7 +150,7 @@ Os sensores são protegidos por cinco defender para mecanismos de IoT. Você pod
 | Mecanismo de violação de política | Uma violação de política ocorre com um desvio do comportamento de linha de base definido na política aprendida ou configurada. | Alerta "agente de usuário HTTP não autorizado". Esse alerta indica que um aplicativo que não foi aprendido ou aprovado pela política é usado como um cliente HTTP em um dispositivo. Esse pode ser um novo navegador da Web ou aplicativo nesse dispositivo. |
 | Mecanismo de malware | O mecanismo de malware detecta uma atividade de rede mal-intencionada. | Alerta "suspeita de atividade mal-intencionada (Stuxnet)". Esse alerta indica que o sensor encontrou uma atividade de rede suspeita conhecida por estar relacionada ao malware Stuxnet, que é uma ameaça persistente avançada voltada para o controle industrial e para as redes SCADA. |
 | Mecanismo de anomalias | O mecanismo de malware detecta uma anomalia no comportamento de rede. | "Comportamento periódico no canal de comunicação." Esse é um componente que inspeciona as conexões de rede e localiza o comportamento periódico ou cíclico da transmissão de dados, que é comum em redes industriais. |
-| Mecanismo operacional | Esse mecanismo detecta incidentes operacionais ou entidades com defeito. | Alerta "o ativo tem a suspeita de ser desconectado (sem resposta)". Esse alerta é disparado quando um dispositivo não está respondendo a nenhuma solicitação por um período predefinido. Isso pode indicar um desligamento, desconexão ou mau funcionamento do dispositivo.
+| Mecanismo operacional | Esse mecanismo detecta incidentes operacionais ou entidades com defeito. | `Device is Suspected to be Disconnected (Unresponsive)` alerta. Esse alerta é disparado quando um dispositivo não está respondendo a nenhuma solicitação por um período predefinido. Isso pode indicar um desligamento, desconexão ou mau funcionamento do dispositivo.
 |
 
 Para habilitar ou desabilitar mecanismos para sensores conectados:
@@ -315,6 +315,6 @@ Para configurar um servidor SMB para que você possa salvar um backup de sensor 
 
 9. Defina `Backup.shared_location` como `<backup_folder_name_on_cyberx_server>`.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Gerenciar sensores individuais](how-to-manage-individual-sensors.md)

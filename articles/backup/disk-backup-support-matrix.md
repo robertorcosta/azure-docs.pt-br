@@ -1,15 +1,15 @@
 ---
-title: Matriz de suporte do backup em disco do Azure
+title: Matriz de suporte de Backup de Disco do Azure
 description: Fornece um resumo das configurações de suporte e limitações do backup em disco do Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 950651148237c7b9374c378e27ef5cd76697ae9e
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 099e83d8a2fb109da862657265dad8be8143f608
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557230"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624927"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte do backup em disco do Azure (em versão prévia)
 
@@ -55,6 +55,8 @@ Mais regiões serão anunciadas quando forem disponibilizadas.
 - Atualmente, a política de backup não pode ser modificada e o grupo de recursos de instantâneo atribuído a uma instância de backup quando você configura o backup de um disco não pode ser alterado.
 
 - Atualmente, a experiência de portal do Azure para configurar o backup de discos é limitada a um máximo de 20 discos da mesma assinatura.
+
+- No momento (durante a versão prévia), o uso do PowerShell e do CLI do Azure para configurar o backup e a restauração de discos não é suportado.
 
 - Ao configurar o backup, o disco selecionado para backup e o grupo de recursos de instantâneo em que os instantâneos devem ser armazenados deve fazer parte da mesma assinatura. Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Saiba mais sobre [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) do disco gerenciado. Para obter mais informações sobre como escolher um grupo de recursos de instantâneo, consulte  [Configurar backup](backup-managed-disks.md#configure-backup).
 
