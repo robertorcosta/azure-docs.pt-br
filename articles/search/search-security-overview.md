@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 49364681f0c5b4b6cc4d5f20778edb61e9f6f5b3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563442"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695773"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança no Azure Pesquisa Cognitiva-visão geral
 
-Este artigo descreve os principais recursos de segurança do Azure Pesquisa Cognitiva que podem proteger o conteúdo e as operações.
+Este artigo descreve os recursos de segurança do Azure Pesquisa Cognitiva que protegem o conteúdo e as operações.
 
-+ Na camada de armazenamento, a criptografia em repouso é interna para todo o conteúdo gerenciado pelo serviço salvo em disco, incluindo índices, mapas de sinônimos e as definições de indexadores, fontes de dados e habilidades. O Azure Pesquisa Cognitiva também dá suporte à adição de chaves gerenciadas pelo cliente (CMK) para criptografia complementar de conteúdo indexado. Para serviços criados após 1 2020 de agosto, a criptografia CMK se estende aos dados em discos temporários, para criptografia dupla completa de conteúdo indexado.
++ Na camada de armazenamento, a criptografia de dados é interna para todo o conteúdo gerenciado pelo serviço salvo em disco, incluindo índices, mapas de sinônimos e as definições de indexadores, fontes de dados e habilidades. Opcionalmente, você pode adicionar chaves gerenciadas pelo cliente (CMK) para criptografia complementar de conteúdo indexado. Para serviços criados após 1 2020 de agosto, a criptografia CMK se estende aos dados em discos temporários, para "criptografia dupla" completa de conteúdo indexado.
 
-+ A segurança de entrada protege o ponto de extremidade do serviço de pesquisa em níveis crescentes de segurança: de chaves de API na solicitação, às regras de entrada no firewall, para pontos de extremidade privados que protegem totalmente o serviço da Internet pública.
++ A segurança de entrada refere-se a proteções no ponto de extremidade do serviço de pesquisa em níveis crescentes de segurança: de chaves de API na solicitação, às regras de entrada no firewall, para pontos de extremidade privados que protegem totalmente o serviço da Internet pública.
 
-+ A segurança de saída se aplica a indexadores que efetuam pull de conteúdo de fontes externas. Para solicitações de saída, configure uma identidade gerenciada para tornar a pesquisa um serviço confiável ao acessar dados do armazenamento do Azure, SQL do Azure, Cosmos DB ou outras fontes de dados do Azure. Uma identidade gerenciada é um substituto de credenciais ou chaves de acesso na conexão. A segurança de saída não é abordada neste artigo. Para obter mais informações sobre esse recurso, consulte [conectar-se a uma fonte de dados usando uma identidade gerenciada](search-howto-managed-identities-data-sources.md).
++ A segurança de saída está relacionada aos indexadores que efetuam pull do conteúdo de fontes externas. Para solicitações de saída, configure uma identidade gerenciada para tornar a pesquisa um serviço confiável ao acessar dados do armazenamento do Azure, SQL do Azure, Cosmos DB ou outras fontes de dados do Azure. Uma identidade gerenciada é um substituto de credenciais ou chaves de acesso na conexão. A segurança de saída não é abordada neste artigo. Para obter mais informações sobre esse recurso, consulte [conectar-se a uma fonte de dados usando uma identidade gerenciada](search-howto-managed-identities-data-sources.md).
 
 Assista a este vídeo rápido do ritmo para obter uma visão geral da arquitetura de segurança e de cada categoria de recurso.
 
@@ -150,7 +150,7 @@ Azure Policy é um recurso interno do Azure que ajuda a gerenciar a conformidade
 
 Para o Azure Pesquisa Cognitiva, há atualmente uma definição interna. É para o log de diagnóstico. Com esse interno, você pode atribuir uma política que identifica qualquer serviço de pesquisa que não tem o log de diagnóstico e, em seguida, ativa-o. Para obter mais informações, consulte [Azure Policy controles de conformidade regulatória para o pesquisa cognitiva do Azure](security-controls-policy.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Conceitos básicos de segurança do Azure](../security/fundamentals/index.yml)
 + [Segurança do Azure](https://azure.microsoft.com/overview/security)

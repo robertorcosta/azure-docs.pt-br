@@ -2,13 +2,13 @@
 title: Perguntas frequentes - Hubs de Eventos | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os Hubs de Eventos do Azure e suas respostas.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: e7a34fe0f2ef04fffeeddc5615d3ac1749467902
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.date: 01/20/2021
+ms.openlocfilehash: e6fd4814e771d03827e51f1cd5ee182c9e432cc5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955409"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696101"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -55,8 +55,8 @@ Você pode configurar o período de retenção para os dados capturados em sua c
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como monitorar meus Hubs de Eventos?
 Os Hubs de Eventos emitem métricas exaustivas que fornecem o estado de seus recursos ao [Azure Monitor](../azure-monitor/overview.md). Eles também permitem a avaliação da integridade geral do serviço do Hubs de Eventos, não apenas no nível do namespace, mas também no nível da entidade. Saiba qual monitoramento é oferecido para os [Hubs de Eventos do Azure](event-hubs-metrics-azure-monitor.md).
 
-### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Onde os hubs de eventos do Azure armazenam dados do cliente?
-Os hubs de eventos do Azure armazenam dados do cliente. Esses dados são armazenados automaticamente por hubs de eventos em uma única região, portanto, esse serviço atende automaticamente aos requisitos de residência de dados de região, incluindo aqueles especificados na [central de confiabilidade](https://azuredatacentermap.azurewebsites.net/).
+### <a name="where-does-azure-event-hubs-store-data"></a><a name="in-region-data-residency"></a>Onde os hubs de eventos do Azure armazenam dados?
+As camadas padrão e os hubs de eventos do Azure armazenam metadados e dados em regiões que você seleciona. Quando a recuperação de desastre geográfico é configurada para um namespace de hubs de eventos do Azure, os metadados são copiados para a região secundária que você selecionar. Portanto, esse serviço atende automaticamente aos requisitos de residência de dados de região, incluindo aqueles especificados na [central de confiabilidade](https://azuredatacentermap.azurewebsites.net/).
 
 [!INCLUDE [event-hubs-connectivity](../../includes/event-hubs-connectivity.md)]
 

@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 09ee98bf8bbe0067f9c79ce4767f3cf68b83fb43
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bb13df0f87cd10719f33afe4ec080c4c785df720
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016795"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695553"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Adicionar uma origem de evento do Hub IoT ao seu ambiente do Azure Time Series Insight
 
@@ -74,7 +74,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
        | Propriedade | Descrição |
        | --- | --- |
-       | Subscription | A assinatura à qual o Hub IOT desejado pertence. |
+       | Assinatura | A assinatura à qual o Hub IOT desejado pertence. |
        | Nome do Hub IoT | O nome do Hub IOT selecionado. |
        | Nome da política do Hub IoT | Selecione a política de acesso compartilhado. Você pode encontrar a política de acesso compartilhado na guia Configurações do Hub IoT. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **conexão de serviço**. |
        | Chave de política do Hub IoT | A chave é preenchida previamente. |

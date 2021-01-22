@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695788"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695663"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
 
@@ -43,16 +43,16 @@ Há vários pré-requisitos a serem considerados antes de tentar habilitar o aut
 
 - Somente VMs do Windows Server
 - As VMs devem estar em execução
-- As VMs devem estar em uma região com suporte
+- As VMs devem estar em uma região com suporte (consulte o parágrafo abaixo)
 - O usuário deve ter as permissões corretas (consulte o parágrafo abaixo)
 - O autogerenci não dá suporte a assinaturas de área restrita no momento
 
-Você deve ter a função de **colaborador** no grupo de recursos que contém suas VMs para habilitar o autogerenciamento em VMs usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões em sua assinatura: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** . 
+Também é importante observar que o autogerenci só dá suporte a VMs do Windows localizadas nas seguintes regiões: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central, leste do Japão.
+
+Você deve ter a função de **colaborador** no grupo de recursos que contém suas VMs para habilitar o autogerenciamento em VMs usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões em sua assinatura: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
 
 > [!NOTE]
 > Se você quiser usar o autogerenci em uma VM que esteja conectada a um espaço de trabalho em uma assinatura diferente, deverá ter as permissões descritas acima em cada assinatura.
-
-Também é importante observar que o autogerenci só dá suporte a VMs do Windows localizadas nas seguintes regiões: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central, leste do Japão.
 
 ## <a name="participating-services"></a>Serviços participantes
 
@@ -102,12 +102,20 @@ Você pode ajustar as configurações de um perfil de configuração padrão por
 
 ## <a name="automanage-account"></a>Autogerenciar conta
 
-A conta de autogerenciamento é o contexto de segurança ou a identidade sob a qual ocorrem as operações automatizadas. Normalmente, a opção autogerenciar conta é desnecessária para você selecionar, mas se houvesse um cenário de delegação em que você quisesse dividir o gerenciamento automatizado (talvez entre dois administradores do sistema), essa opção permite que você defina uma identidade do Azure para cada um desses administradores.
+A conta de autogerenciamento é o contexto de segurança ou a identidade sob a qual ocorrem as operações automatizadas. Normalmente, a opção autogerenciar conta é desnecessária para você selecionar, mas se houvesse um cenário de delegação em que você quisesse dividir o gerenciamento automatizado de seus recursos (talvez entre dois administradores do sistema), essa opção permite que você defina uma identidade do Azure para cada um desses administradores.
 
 Na experiência de portal do Azure, quando você está habilitando o autogerenciamento em suas VMs, há uma lista suspensa avançada na folha **habilitar a prática recomendada de VM do Azure** que permite atribuir ou criar manualmente a conta de autogerenciamento.
 
+A conta de autogerenciamento receberá as funções de **colaborador de política de recurso** e **colaborador** para as assinaturas que contêm o (s) computador (es) que você carregará para autogerenciar. Você pode usar a mesma conta de autogerenciar em máquinas em várias assinaturas, o que concederá a você permissões de colaborador de conta de recurso e **colaborador** de **política de recursos** em todas as assinaturas.
+
+Se sua VM estiver conectada a um espaço de trabalho Log Analytics em outra assinatura, a conta de autogerenciamento receberá o **colaborador de política de recurso** e **colaborador** nessa outra assinatura também.
+
+Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões em sua assinatura: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
+
+Se você estiver habilitando o autogerenciamento com uma conta de autogerenciamento existente, precisará ter a função de **colaborador** no grupo de recursos que contém suas VMs.
+
 > [!NOTE]
-> Você precisa ter a função de **colaborador** no grupo de recursos que contém suas VMs para habilitar o autogerenciamento em VMs usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões em sua assinatura: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
+> Quando você desabilita as práticas recomendadas de gerenciamento autogerencio, as permissões da conta de autogerenciar em todas as assinaturas associadas permanecerão. Remova manualmente as permissões acessando a página IAM da assinatura ou exclua a conta de autogerenciamento. A conta de autogerenciamento não poderá ser excluída se ainda estiver gerenciando qualquer computador.
 
 
 ## <a name="status-of-vms"></a>Status das VMs
@@ -122,6 +130,7 @@ A coluna **status** pode exibir os seguintes Estados:
 - *Em andamento* -a VM acabou de ser habilitada e está sendo configurada
 - *Configurado* -a VM está configurada e nenhum descompasso foi detectado
 - *Falha* -a VM foi descartada e não foi possível corrigi-la
+- *Pendente* -a VM não está em execução no momento e o autogerenci tentará carregar ou corrigir a VM quando ela estiver em execução
 
 Se você vir o **status** como *com falha*, poderá solucionar problemas de implantação por meio do grupo de recursos em que sua VM está localizada. Vá para **grupos de recursos**, selecione o grupo de recursos, clique em **implantações** e veja o status com *falha* , junto com os detalhes do erro.
 
@@ -145,7 +154,6 @@ Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desab
 
 
 Primeiro, nós não desativamos a máquina virtual de nenhum dos serviços que a integramos e configuramos. Portanto, qualquer cobrança incorrida por esses serviços continuará a permanecer faturável. Se necessário, você precisará fazer a integração. Qualquer comportamento de autogerenciamento será interrompido imediatamente. Por exemplo, não Monitoraremos mais a VM para descompasso.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

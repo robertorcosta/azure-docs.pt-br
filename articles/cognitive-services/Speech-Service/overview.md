@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: 3b20773de62f036b507f1612f2b38d613d54ba2f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d3d9f41876cf1310fe25a275624f609031c05b00
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485188"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601885"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -36,7 +36,7 @@ Os recursos a seguir fazem parte do serviço de Fala. Use os links nesta tabela 
 | [Conversão de texto em fala](text-to-speech.md) | Conversão de texto em fala | A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana usando [Linguagem de marcação de síntese de fala (SSML)](speech-synthesis-markup.md). Escolha entre as vozes padrão e vozes neurais (consulte [Suporte para idiomas](language-support.md)). | [Sim](./speech-sdk.md) | [Sim](#reference-docs) |
 | | [Criar Vozes Personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não | [Sim](#reference-docs) |
 | [Tradução de Fala](speech-translation.md) | Tradução de fala | A tradução de fala possibilita a tradução em tempo real e em vários idiomas de fala para seus aplicativos, suas ferramentas e seus dispositivos. Use esse serviço para tradução de fala em fala e fala em texto. | [Sim](./speech-sdk.md) | Não |
-| [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Assistentes de voz que usam o serviço de Fala capacitam os desenvolvedores a criarem interfaces de conversação natural, semelhante à humana, para seus aplicativos e suas experiências. O serviço de assistente de voz fornece interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o Canal de Fala de Linha Direta do Bot Framework ou o serviço integrado de Comandos Personalizados (versão prévia) para a conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
+| [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Assistentes de voz que usam o serviço de Fala capacitam os desenvolvedores a criarem interfaces de conversação natural, semelhante à humana, para seus aplicativos e suas experiências. O serviço de assistente de voz fornece interação rápida e confiável entre um dispositivo e uma implementação de assistente que usa o canal Direct Line Speech do Bot Framework ou o serviço integrado de Comandos Personalizados para conclusão da tarefa. | [Sim](voice-assistants.md) | Não |
 | [Reconhecimento do Locutor](speaker-recognition-overview.md) | Identificação e verificação do locutor | O serviço de Reconhecimento do Locutor fornece algoritmos que verificam e identificam os locutores por suas características de voz exclusivas. O Reconhecimento do Locutor é usado para responder à pergunta "quem está falando?". | Sim | [Sim](/rest/api/speakerrecognition/) |
 
 

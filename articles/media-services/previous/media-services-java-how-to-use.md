@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-java
-ms.openlocfilehash: 3c86689681aa99f60c4345e92f7f5c426795a69e
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: f05b78c777fdfa633e07bc03266c862f9e85ee0c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586696"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695714"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introdução ao SDK de cliente Java para Serviços de Mídia do Azure
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Este tutorial orienta você ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de vídeo com o Serviços de Mídia do Azure usando o SDK de cliente Java.
 

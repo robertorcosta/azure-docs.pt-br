@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: inhenkel
-ms.openlocfilehash: c6f889963e87d900040d1fe77031f943ab368837
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 08a419f021e0315468cb6fa5917b30bb2977d958
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348736"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695502"
 ---
 # <a name="azure-media-services-overview"></a>Visão geral dos Serviços de Mídia do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "93348736"
 > * [Versão 2](media-services-overview.md)
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 O AMS (Serviços de Mídia do Microsoft Azure) trata-se de uma plataforma extensível baseada em nuvem que permite aos desenvolvedores compilar aplicativos de gerenciamento e entrega de mídia escalonável. Os serviços de mídia se baseiam em APIs REST que permitem que você carregue com segurança, armazene, codifique e empacote o conteúdo de áudio ou vídeo para entrega de streaming sob demanda e ao vivo para vários clientes (por exemplo, TV, PCs e dispositivos móveis).
 
@@ -78,7 +78,7 @@ Para compilar soluções de serviços de mídia, você pode usar:
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Localize vários exemplos de código na galeria **Exemplos de Código do Azure** : [exemplos de código dos Serviços de Mídia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Localize vários exemplos de código na galeria **Exemplos de Código do Azure**: [exemplos de código dos Serviços de Mídia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts"></a>Conceitos
 

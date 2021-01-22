@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2b6ea68d069b90293ab35024bebf3fbdc8acb592
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: f275064bd4accd0ca12acf3e71713f39d3860be2
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197669"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696448"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos Apache Hadoop de terceiros no Azure HDInsight
 
@@ -25,7 +25,7 @@ A lista a seguir mostra os aplicativos publicados:
 
 |Aplicativo |Tipo(s) de cluster | Descrição |
 |---|---|---|
-|[Plataforma de inteligência AtScale](https://azuremarketplace.microsoft.com/marketplace/apps/atscaleinc.atscale) |O Hadoop |O AtScale transforma seu cluster HDInsight em um servidor OLAP de expansão, permitindo que você consulte bilhões de linhas de dados interativamente usando as ferramentas de BI que você já conhece, tem e adora – do Microsoft Excel, Power BI, Software Tableau para QlikView. |
+|[Plataforma de inteligência AtScale](https://aws.amazon.com/marketplace/pp/AtScale-AtScale-Intelligence-Platform/B07BWWHH18) |O Hadoop |O AtScale transforma seu cluster HDInsight em um servidor OLAP de expansão, permitindo que você consulte bilhões de linhas de dados interativamente usando as ferramentas de BI que você já conhece, tem e adora – do Microsoft Excel, Power BI, Software Tableau para QlikView. |
 |[CDAP para HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP é a primeira plataforma de integração unificada para Big Data que acelera o tempo de implantação para o Hadoop e permite que ele forneça dados de autoatendimento. Software livre e extensível, o CDAP remove as barreiras para a inovação. Requisitos: 4 nós de região, mín. D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |O Hadoop |A plataforma escalável de autoatendimento do Datameer para preparar, explorar e governar seus dados para acelerações de análise, transformando dados complexos de múltiplas fontes em informações úteis e prontas para o negócio, fornecendo insights mais rápidos e inteligentes em escala corporativa. |
 |[Dataiku DSS no HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS em uma plataforma de ciência de dados corporativos que permite que cientistas de dados e analistas de dados colaborem para projetar e executar novos produtos de dados e serviços com mais eficiência, transformando dados brutos em previsões impactantes. |

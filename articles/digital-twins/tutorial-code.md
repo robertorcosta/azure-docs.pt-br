@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: fd958c09a14334d8230e52413c590febb2148851
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048939"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602130"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs dos Gêmeos Digitais do Azure
 
@@ -57,9 +57,12 @@ Isso criará vários arquivos dentro do diretório, incluindo um chamado *Progra
 
 Mantenha a janela Comando aberta, pois você continuará usando-a em todo o tutorial.
 
-Depois, **adicione duas dependências ao seu projeto**, que serão necessárias para trabalhar com os Gêmeos Digitais do Azure. Você pode usar os links abaixo para navegar até os pacotes no NuGet, onde encontrará os comandos de console (inclusive da CLI do .NET) para adicionar a versão mais recente de cada um ao seu projeto.
-* [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Este é o pacote para o [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-* [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Esta biblioteca fornece ferramentas para ajudar com a autenticação no Azure.
+Depois, **adicione duas dependências ao seu projeto**, que serão necessárias para trabalhar com os Gêmeos Digitais do Azure. A primeira é o pacote do [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), e a segunda fornece ferramentas para ajudar com a autenticação no Azure.
+
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
+```
 
 ## <a name="get-started-with-project-code"></a>Introdução ao código do projeto
 

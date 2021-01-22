@@ -10,16 +10,31 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 11/24/2020
-ms.openlocfilehash: c18cb1cef9b46b4b3cd2f614945f98abf9de7c58
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e078fb91b3279b6f4321cd51dfb094f82bbe5f14
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704343"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696372"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de versão do Azure SQL Edge 
 
 Este artigo descreve as novidades e o que mudou em todas as novas compilações do Azure SQL Edge.
+
+## <a name="azure-sql-edge-102"></a>1.0.2 de borda do SQL do Azure
+
+15.0.2000.1554 de Build do mecanismo SQL
+
+### <a name="fixes"></a>Correções
+
+- Streaming T-SQL  
+   - Correção na propriedade e permissões para objetos de streaming
+   - Aprimoramentos de log com a rotação de log e a prefixação de log
+   - Azure Stream Analytics: melhorias de log, melhorar o código de erro/mensagens de erro em adaptadores 
+
+- ONNX
+    - Correções de bugs para cenários de consulta paralela e falhas de limpeza de modelo
+    - Tempo de execução do ONNX atualizado para 1.5.1
 
 ## <a name="azure-sql-edge-101"></a>1.0.1 do Azure SQL Edge
 

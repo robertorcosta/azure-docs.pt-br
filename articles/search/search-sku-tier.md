@@ -9,24 +9,27 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1a1fc0ce634282ffd4fcf374138fe97a04f32062
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539596"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693444"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
-Ao [criar um serviço de pesquisa](search-create-service-portal.md), você escolhe um tipo de preço (ou SKU) que é corrigido durante o tempo de vida do serviço. Os custos mensais estimados são mostrados na página **Selecionar tipo de preço** no Portal. Se você estiver criando um serviço por meio do PowerShell ou CLI do Azure em vez disso, a camada será especificada por meio do **`-Sku`** parâmetro.
+Parte da [criação de um serviço de pesquisa](search-create-service-portal.md) significa escolher um tipo de preço (ou SKU) que é corrigido para o tempo de vida do serviço. Os preços ou o custo mensal estimado de execução do serviço-são mostrados na página **Selecionar tipo de preço** do portal quando você cria o serviço. Se você estiver Provisionando por meio do PowerShell ou CLI do Azure em vez disso, a camada será especificada por meio do **`-Sku`** parâmetro e você deverá verificar o [preço do serviço](https://azure.microsoft.com/pricing/details/search/) para saber mais sobre os custos estimados.
 
 A camada selecionada determina:
 
-+ Número máximo de índices e outros objetos que você pode criar no serviço
++ Número máximo de índices e outros objetos permitidos no serviço
 + Tamanho e velocidade de partições (armazenamento físico)
 + Taxa Faturável como um custo mensal fixo, mas também um custo incremental se você adicionar capacidade
 
 Em algumas instâncias, a camada escolhida determina a disponibilidade dos [recursos premium](#premium-features).
+
+> [!NOTE]
+> Procurando informações sobre "SKUs do Azure"? Comece com os [preços do Azure](https://azure.microsoft.com/pricing/) e role para baixo para obter links para as páginas de preços por serviço.
 
 ## <a name="tier-descriptions"></a>Descrições da camada
 
@@ -67,7 +70,7 @@ As camadas determinam o armazenamento máximo do serviço em si, bem como o núm
 
 ## <a name="partition-size-and-speed"></a>Tamanho e velocidade da partição
 
-Os preços de camada incluem detalhes sobre o armazenamento por partição que varia de 2 GB para básico, até 2 TB para camadas de armazenamento otimizado (L2). Outras características de hardware, como velocidade de operações, latência e taxas de transferência, não são publicadas, mas as camadas projetadas para arquiteturas de solução específicas são criadas em hardware que tem os recursos para dar suporte a esses cenários.
+Os preços de camada incluem detalhes sobre o armazenamento por partição que varia de 2 GB para básico, até 2 TB para camadas de armazenamento otimizado (L2). Outras características de hardware, como velocidade de operações, latência e taxas de transferência, não são publicadas, mas as camadas projetadas para arquiteturas de solução específicas são criadas em hardware que tem os recursos para dar suporte a esses cenários. Para obter mais informações sobre partições, consulte [estimar e gerenciar a capacidade](search-capacity-planning.md) e [a escala de desempenho](search-performance-optimization.md).
 
 ## <a name="billing-rates"></a>Taxas de cobrança
 

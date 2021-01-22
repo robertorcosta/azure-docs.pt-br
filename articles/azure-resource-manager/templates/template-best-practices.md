@@ -3,12 +3,12 @@ title: Práticas recomendadas para modelos
 description: Descreve as abordagens recomendadas para a criação de modelos de Azure Resource Manager (modelos ARM). Oferece sugestões para evitar problemas comuns ao usar os modelos.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 85d58098508d5ac7cad6c1cb3cb68ad6c7f179f9
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724979"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696339"
 ---
 # <a name="arm-template-best-practices"></a>Práticas recomendadas do modelo ARM
 
@@ -26,9 +26,9 @@ Você também está limitado a:
 * 64 valores de saída
 * 24.576 caracteres em uma expressão de modelo
 
-Você pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [usando modelos vinculados e aninhados ao implantar recursos do Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Você pode exceder alguns limites de modelo usando um modelo aninhado. Para obter mais informações, consulte [usando modelos vinculados e aninhados ao implantar recursos do Azure](linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
-## <a name="resource-group"></a>Grupo de recursos
+## <a name="resource-group"></a>Resource group
 
 Quando você implanta recursos em um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados no local do grupo de recursos.
 

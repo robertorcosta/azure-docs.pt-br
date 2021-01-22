@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: cf84e45ff43643c7e9a983b867194a7920aa1b57
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 458927afc78c46ad365d437a574d0b40b32fc11e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351859"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695790"
 ---
 # <a name="media-services-regional-availability"></a>Disponibilidade regional dos serviços de mídia
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. Confira a versão mais recente, [Serviços de Mídia v3](../latest/media-services-overview.md). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. Confira a versão mais recente, [Serviços de Mídia v3](../latest/media-services-overview.md). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Os Serviços de Mídia do Microsoft Azure (AMS) permitem que você carregue com segurança, armazene, codifique e empacote o conteúdo de áudio ou vídeo para a entrega de streaming sob demanda e ao vivo para vários clientes (por exemplo, TV, PCs e dispositivos móveis).
 
@@ -42,7 +42,7 @@ Use os [produtos do Azure por região](https://azure.microsoft.com/global-infras
 
 Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de streaming **Standard** ou do streaming **Premium**.
 
-|Nome|Status|Região
+|Name|Status|Região
 |---|---|---|
 |Standard|GA|Tudo|
 |Premium|GA|Tudo|

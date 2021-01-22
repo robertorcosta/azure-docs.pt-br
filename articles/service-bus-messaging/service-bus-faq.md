@@ -2,13 +2,13 @@
 title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o barramento de serviço do Azure.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: e5bc9aae081868c92e0968c88c8cb6dcfb8ee57c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 01/20/2021
+ms.openlocfilehash: 3a96cf94ca4a7edd115f12b3e2eded11a5894e04
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676367"
+ms.locfileid: "98693386"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Barramento de serviço do Azure-perguntas frequentes (FAQ)
 
@@ -35,8 +35,11 @@ A ordenação não é garantida ao usar entidades particionadas. Se uma partiç�
 
  As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
 
-### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>Onde o barramento de serviço do Azure armazena dados do cliente?
-O barramento de serviço do Azure armazena dados do cliente. Esses dados são armazenados automaticamente pelo barramento de serviço em uma única região, portanto, esse serviço atende automaticamente aos requisitos de residência de dados de região, incluindo aqueles especificados na [central de confiabilidade](https://azuredatacentermap.azurewebsites.net/).
+### <a name="where-does-azure-service-bus-store-data"></a><a name="in-region-data-residency"></a>Onde o barramento de serviço do Azure armazena dados?
+Camada standard do barramento de serviço do Azure utiliza o banco de dados SQL do Azure para sua camada de armazenamento de back-end. Para todas as regiões, exceto sul do Brasil e sudeste asiático, o backup do banco de dados é hospedado em uma região diferente (geralmente a região emparelhada do Azure). Para as regiões do Sul do Brasil e do Sudeste Asiático, os backups de banco de dados são armazenados na mesma região para acomodar os requisitos de residências para essas regiões.
+
+A camada Premium do barramento de serviço do Azure armazena metadados e dados em regiões que você seleciona. Quando a recuperação de desastre geográfico é configurada para um namespace Premium do barramento de serviço do Azure, os metadados são copiados para a região secundária que você selecionar.
+
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir no firewall? 
 Você pode usar os seguintes protocolos com o Barramento de Serviço do Azure para enviar e receber mensagens:

@@ -11,16 +11,16 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43573b54be6884e01121e404370d2e1d85a3c4e8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d9430066ad92b4d0b69bd07c763e3f7b5d6e889a
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660874"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693529"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configurar e habilitar usuários para autenticação baseada em SMS usando Azure Active Directory 
 
-Para simplificar e proteger a entrada em aplicativos e serviços, Azure Active Directory (Azure AD) fornece várias opções de autenticação. A autenticação baseada em SMS permite que os usuários entrem sem fornecer, nem mesmo saber, seu nome de usuário e senha. Depois que sua conta é criada por um administrador de identidade, ela pode inserir seu número de telefone no prompt de entrada. Eles recebem um código de autenticação por mensagem de texto que eles podem fornecer para concluir a entrada. Esse método de autenticação simplifica o acesso a aplicativos e serviços, especialmente para profissionais de linha de frente.
+Para simplificar e proteger a entrada em aplicativos e serviços, Azure Active Directory (Azure AD) fornece várias opções de autenticação. A autenticação baseada em SMS permite que os usuários entrem sem fornecer, nem mesmo saber, seu nome de usuário e senha. Depois que sua conta é criada por um administrador de identidade, ela pode inserir seu número de telefone no prompt de entrada. Eles recebem um código de autenticação por mensagem de texto que eles podem fornecer para concluir a entrada. Esse método de autenticação simplifica o acesso a aplicativos e serviços, especialmente para trabalhadores frentes.
 
 Este artigo mostra como habilitar a autenticação baseada em SMS para usuários ou grupos selecionados no Azure AD.
 

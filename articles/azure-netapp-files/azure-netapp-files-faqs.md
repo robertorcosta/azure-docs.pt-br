@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f680b1ec76200cb4d3bfc90cd83a2c134f379245
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913491"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696118"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -258,6 +258,16 @@ Não. Azure Data Box não oferece suporte a Azure NetApp Files no momento.
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Há suporte para a migração com o serviço de importação/exportação do Azure?
 
 Não. O serviço de importação/exportação do Azure não oferece suporte a Azure NetApp Files no momento.
+
+## <a name="product-faqs"></a>Perguntas frequentes sobre o produto
+
+### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Posso usar Azure NetApp Files volumes de NFS ou SMB com a AVS (solução VMware do Azure)?
+
+Você pode montar Azure NetApp Files volumes do NFS em VMs do Windows da AVS ou VMs do Linux. Você pode mapear Azure NetApp Files compartilhamentos SMB em VMs do Windows AVS. Para obter mais detalhes, consulte [Azure NetApp files com a solução VMware do Azure]( ../azure-vmware/net-app-files-with-azure-vmware-solution.md).  
+
+### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Quais regiões têm suporte para usar Azure NetApp Files volumes NFS ou SMB com a solução VMware do Azure (AVS)?
+
+Usar Azure NetApp Files volumes de NFS ou SMB com AVS tem suporte nas seguintes regiões – leste dos EUA, oeste dos EUA, Europa Ocidental e leste da Austrália.
 
 ## <a name="next-steps"></a>Próximas etapas  
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc08e23b6ef040ba5833ffa97f71d8cd1da3bb8a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 3f9fc9fd1bacce8733949969b496dc03d6c10901
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019793"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695808"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -135,4 +135,4 @@ Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-co
 
 * [Início rápido de transmissão ao vivo](live-events-wirecast-quickstart.md)
 * [Tutorial de live streaming](stream-live-tutorial-with-api.md)
-* [Diretrizes de migração dos Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md)
+* [Diretrizes de migração dos Serviços de Mídia v2 para v3](migrate-v-2-v-3-migration-introduction.md)

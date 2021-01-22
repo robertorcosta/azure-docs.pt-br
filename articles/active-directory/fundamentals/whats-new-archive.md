@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8166a77b4e3090619aa4c7fdc3fe4d94af6cddc
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b83d798d00df674fd4b0502a24681c07875bc3b0
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196360"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694318"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar as Novidades no Azure Active Directory?
 
@@ -1111,7 +1111,7 @@ A nova experiência do usuário final da minha conta atualizará sua URL para `h
 
 ---
 
-## <a name="january-2020"></a>janeiro de 2020
+## <a name="january-2020"></a>Janeiro de 2020
  
 ### <a name="the-new-my-apps-portal-is-now-generally-available"></a>O novo portal meus aplicativos agora está disponível para o público geral
 
@@ -1166,7 +1166,7 @@ Para obter mais informações para proteger melhor sua organização com o provi
  
 Em janeiro de 2020, adicionamos esses 33 novos aplicativos com suporte de Federação à galeria de aplicativos: 
 
-[Josa](../saas-apps/josa-tutorial.md), [nuvem de ponta rápida](../saas-apps/fastly-edge-cloud-tutorial.md), [Terraform Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [upshoty](../saas-apps/upshotly-tutorial.md), [LeaveBot](https://appsource.microsoft.com/en-us/product/office/WA200001175), [Datacamp](../saas-apps/datacamp-tutorial.md), [TripActions](../saas-apps/tripactions-tutorial.md), [inteligente](https://www.intumit.com/teams-smartwork/), [Dotcom-monitor](../saas-apps/dotcom-monitor-tutorial.md), [SSOGEN-gateway de SSO do Azure ad para Oracle E-Business Suite-EBS, PeopleSoft e JDE](../saas-apps/ssogen-tutorial.md), [hospedagem MYCIRQA SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [Yuhu plataforma de gerenciamento de propriedade](../saas-apps/yuhu-property-management-platform-tutorial.md), [LumApps](https://sites.lumapps.com/login), [trabalho corporativo](../saas-apps/upwork-enterprise-tutorial.md), [Talentsoft](../saas-apps/talentsoft-tutorial.md), [SmartDB para Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe Saml2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxient conduzindo o software Manager](../saas-apps/maxient-conduct-manager-software-tutorial.md), [Helpshift](../saas-apps/helpshift-tutorial.md), PortalTalk [365](https://www.portaltalk.com/), [coreview](https://portal.coreview.com/), silenciar [Cloud Office365 Connector](https://laxmi.squelch.io/login), [autenticação PingFlow](https://app-staging.pingview.io/), [ PrinterLogic SaaS](../saas-apps/printerlogic-saas-tutorial.md), [tarefa Connect](../saas-apps/taskize-connect-tutorial.md), [Sandwai](https://app.sandwai.com/) [, EZRentOut](../saas-apps/ezrentout-tutorial.md), [AssetSonar](../saas-apps/assetsonar-tutorial.md), [Akari assistente virtual](https://akari.io/akari-virtual-assistant/)
+[Josa](../saas-apps/josa-tutorial.md), [nuvem de ponta rápida](../saas-apps/fastly-edge-cloud-tutorial.md), [Terraform Enterprise](../saas-apps/terraform-enterprise-tutorial.md), [Spintr SSO](../saas-apps/spintr-sso-tutorial.md), [Abibot Netlogistik](https://azuremarketplace.microsoft.com/marketplace/apps/aad.abibotnetlogistik), [SkyKick](https://login.skykick.com/login?state=g6Fo2SBTd3M5Q0xBT0JMd3luS2JUTGlYN3pYTE1remJQZnR1c6N0aWTZIDhCSkwzYVQxX2ZMZjNUaWxNUHhCSXg2OHJzbllTcmYto2NpZNkgM0h6czk3ZlF6aFNJV1VNVWQzMmpHeFFDbDRIMkx5VEc&client=3Hzs97fQzhSIWUMUd32jGxQCl4H2LyTG&protocol=oauth2&audience=https://papi.skykick.com&response_type=code&redirect_uri=https://portal.skykick.com/callback&scope=openid%20profile%20offline_access), [upshoty](../saas-apps/upshotly-tutorial.md), [LeaveBot](https://appsource.microsoft.com/en-us/product/office/WA200001175), [Datacamp](../saas-apps/datacamp-tutorial.md), [TripActions](../saas-apps/tripactions-tutorial.md), [inteligente](https://www.intumit.com/teams-smartwork/), [Dotcom-monitor](../saas-apps/dotcom-monitor-tutorial.md), [SSOGEN-gateway de SSO do Azure ad para Oracle E-Business Suite-EBS, PeopleSoft e JDE](../saas-apps/ssogen-tutorial.md), [hospedagem MYCIRQA SSO](../saas-apps/hosted-mycirqa-sso-tutorial.md), [Yuhu plataforma de gerenciamento de propriedade](../saas-apps/yuhu-property-management-platform-tutorial.md), [LumApps](https://sites.lumapps.com/login), [trabalho corporativo](../saas-apps/upwork-enterprise-tutorial.md), [Talentsoft](../saas-apps/talentsoft-tutorial.md), [SmartDB para Microsoft Teams](http://teams.smartdb.jp/login/), [PressPage](../saas-apps/presspage-tutorial.md), [ContractSafe Saml2 SSO](../saas-apps/contractsafe-saml2-sso-tutorial.md), [Maxient conduzindo o software Manager](../saas-apps/maxient-conduct-manager-software-tutorial.md), [Helpshift](../saas-apps/helpshift-tutorial.md), PortalTalk [365](https://www.portaltalk.com/), [coreview](https://portal.coreview.com/), silenciar Cloud Office365 Connector, [autenticação PingFlow](https://app-staging.pingview.io/), [ PrinterLogic SaaS](../saas-apps/printerlogic-saas-tutorial.md), [tarefa Connect](../saas-apps/taskize-connect-tutorial.md), [Sandwai](https://app.sandwai.com/) [, EZRentOut](../saas-apps/ezrentout-tutorial.md), [AssetSonar](../saas-apps/assetsonar-tutorial.md), [Akari assistente virtual](https://akari.io/akari-virtual-assistant/)
 
 Para obter mais informações sobre os aplicativos, consulte [integração de aplicativos SaaS com o Active Directory do Azure](../saas-apps/tutorial-list.md). Para obter mais informações sobre como listar seu aplicativo na galeria de aplicativos do Azure AD, consulte [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 

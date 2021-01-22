@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns ao implantar recursos no Azure 
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: bb701baf164cfd6ba1dd5c670a406343e83c5c70
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 61a306cd36c55a005ee9ebd897fcfc9a6c88d7c9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622804"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696389"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -37,7 +37,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | DeploymentJobSizeExceeded | Simplifique seu modelo para reduzir o tamanho. | [Resolver erros de tamanho do modelo](error-job-size-exceeded.md) |
 | DnsRecordInUse | O nome do registro DNS deve ser exclusivo. Insira um nome diferente. | |
 | ImageNotFound | Verifique as configurações de imagem da VM. |  |
-| InUseSubnetCannotBeDeleted | Você pode receber esse erro ao tentar atualizar um recurso, e a solicitação é processada excluindo e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | Você pode receber esse erro ao tentar atualizar um recurso, e a solicitação é processada excluindo e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Obtenha o token de acesso do locatário correto. Você só pode obter o token do locatário a que sua conta pertence. | |
 | InvalidContentLink | Você provavelmente tentou vincular a um modelo aninhado que não está disponível. Verifique uma segunda vez o URI que você forneceu para o modelo aninhado. Caso o modelo exista em uma conta de armazenamento, verifique se o URI está acessível. Talvez seja necessário passar um token SAS. No momento, não é possível vincular a um modelo que está em uma conta de armazenamento por trás de um [Firewall de armazenamento do Azure](../../storage/common/storage-network-security.md). Considere mover o modelo para outro repositório, como o GitHub. | [Modelos vinculados](linked-templates.md) |
 | InvalidDeploymentLocation | Ao implantar no nível de assinatura, você forneceu um local diferente para um nome de implantação usado anteriormente. | [Implantações de nível de assinatura](deploy-to-subscription.md) |
@@ -64,7 +64,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | PasswordTooLong | Você pode ter selecionado uma senha com muitos caracteres ou convertido o valor da senha em uma cadeia de caracteres segura antes de passá-lo como um parâmetro. Se o modelo inclui um parâmetro **cadeia de caracteres segura**, não é necessário converter o valor em uma cadeia de caracteres segura. Forneça o valor da senha como texto. |  |
 | PrivateIPAddressInReservedRange | O endereço IP especificado contém um intervalo de endereços exigido pelo Azure. Altere o endereço IP para evitar o intervalo reservado. | [Endereços IP](../../virtual-network/public-ip-addresses.md) |
 | PrivateIPAddressNotInSubnet | O endereço IP especificado está fora do intervalo da sub-rede. Altere o endereço IP para que ele fique dentro do intervalo de sub-rede. | [Endereços IP](../../virtual-network/public-ip-addresses.md) |
-| PropertyChangeNotAllowed | Algumas propriedades não podem ser alteradas em um recurso implantado. Ao atualizar um recurso, limite suas alterações às propriedades permitidas. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| PropertyChangeNotAllowed | Algumas propriedades não podem ser alteradas em um recurso implantado. Ao atualizar um recurso, limite suas alterações às propriedades permitidas. | [Atualizar recurso](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | RequestDisallowedByPolicy | Sua assinatura inclui uma política de recursos que impede uma ação que você está tentando executar durante a implantação. Localize a política que bloqueia a ação. Se possível, altere a implantação para atender às limitações da política. | [Resolver políticas](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Forneça um nome de recurso que não inclua um nome reservado. | [Nomes de recurso reservados](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Aguarde a conclusão da exclusão. | |

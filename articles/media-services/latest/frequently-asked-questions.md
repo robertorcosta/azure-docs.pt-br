@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9e48d14419e2cd24251f1b00a09fd0289c50c55f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426876"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693800"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia v3
 
@@ -60,7 +60,7 @@ Quando você estiver usando a paginação, sempre deverá usar o link seguinte p
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quais recursos ainda não estão disponíveis nos serviços de mídia do Azure v3?
 
-Para obter detalhes, confira [lacunas de recursos em relação às APIs v2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+Para obter detalhes, consulte [o guia de migração](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual é o processo de mover uma conta de serviços de mídia entre assinaturas?  
 
@@ -169,7 +169,7 @@ Para todas as outras tarefas de gerenciamento (por exemplo, [transformações e 
 
 O `AssetFile` conceito foi removido da API dos serviços de mídia para separar os serviços de mídia da dependência do SDK de armazenamento. Agora, o armazenamento do Azure, não os serviços de mídia, mantém as informações que pertencem ao SDK de armazenamento. 
 
-Para obter mais informações, confira [Migrar para os Serviços de Mídia v3](media-services-v2-vs-v3.md).
+Para obter mais informações, confira [Migrar para os Serviços de Mídia v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Onde está a criptografia de armazenamento do lado do cliente?
 
