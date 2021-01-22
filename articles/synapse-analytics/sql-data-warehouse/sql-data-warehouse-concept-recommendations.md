@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6510a7143e78c054130a1f1dddba78342a6785fe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121185"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685269"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Recomendações do Azure Advisor para o pool SQL dedicado no Azure Synapse Analytics
 
@@ -73,4 +73,4 @@ O desempenho da consulta pode diminuir quando há uma contenção de tempdb alta
 
 ## <a name="data-loading-misconfiguration"></a>Carregamento de dados de configuração incorreta
 
-Você sempre deve carregar dados de uma conta de armazenamento na mesma região que o pool SQL dedicado para minimizar a latência. Use a [instrução de cópia para a ingestão de dados de alta taxa de transferência](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e divida os arquivos de preparo em sua conta de armazenamento para maximizar a taxa de transferência. Se você não puder usar a instrução de cópia, poderá usar a API SqlBulkCopy ou o bcp com um tamanho de lote alto para obter uma melhor taxa de transferência. Para obter diretrizes adicionais de carregamento de dados, visite a [documentação](./guidance-for-loading-data.md)a seguir.
+Você sempre deve carregar dados de uma conta de armazenamento na mesma região que o pool SQL dedicado para minimizar a latência. Use a [instrução de cópia para a ingestão de dados de alta taxa de transferência](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) e divida os arquivos de preparo em sua conta de armazenamento para maximizar a taxa de transferência. Se você não puder usar a instrução de cópia, poderá usar a API SqlBulkCopy ou o bcp com um tamanho de lote alto para obter uma melhor taxa de transferência. Para obter diretrizes adicionais de carregamento de dados, visite a [documentação](./guidance-for-loading-data.md)a seguir.

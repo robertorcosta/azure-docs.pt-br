@@ -4,16 +4,19 @@ description: Este artigo fornece uma visão geral do processamento de transaçõ
 ms.topic: article
 ms.date: 10/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9162b8578fe4f48cc3740b38d9d84ffaa2f260de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a95a200b57d348109884a319b5433f0ffd5dde1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023594"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684784"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Visão geral do processamento de transações do Barramento de Serviço
 
 Este artigo aborda as funcionalidades de transação do Barramento de Serviço do Microsoft Azure. Grande parte da discussão é ilustrada pelo [exemplo transações de AMQP com o barramento de serviço](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). Este artigo é limitado a uma visão geral do processamento de transações e ao recurso *Enviar por* do Barramento de Serviço, enquanto a amostra Transações atômicas tem um escopo mais amplo e complexo.
+
+> [!NOTE]
+> A camada básica do barramento de serviço não oferece suporte a transações. As camadas Standard e Premium dão suporte a transações. Para conferir as diferenças entre essas camadas, consulte [preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="transactions-in-service-bus"></a>Transações no Barramento de Serviço
 

@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2dd91e5c506f229d653fdf98bc0549c173cec793
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351857"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684767"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Criar e configurar um cluster AKS (serviços Kubernetess do Azure) para usar nós virtuais
 
@@ -48,6 +48,7 @@ A funcionalidade de Nós Virtuais é altamente dependente do conjunto de recurso
 * Nós virtuais com clusters privados.
 * Usando intervalos de IP autorizados do servidor de API para AKS.
 * O compartilhamento de arquivos do Azure de montagem de volume oferece suporte [a uso geral v1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Siga as instruções para montar [um volume com o compartilhamento de arquivos do Azure](azure-files-volume.md)
+* Não há suporte para o uso de IPv6.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311039"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683333"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Usar identidades gerenciadas com Azure Machine Learning (versão prévia)
 
@@ -38,7 +38,7 @@ Neste artigo, você aprenderá a usar identidades gerenciadas para:
 - Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 - A [extensão de CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md)
 - O [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro?view=azure-ml-py).
-- Para atribuir funções, o logon da sua assinatura do Azure deve ter a função de [operador de identidade gerenciada](../role-based-access-control/built-in-roles.md#managed-identity-operator) ou outra função que conceda as ações necessárias (como o __proprietário__ ).
+- Para atribuir funções, o logon da sua assinatura do Azure deve ter a função de [operador de identidade gerenciada](../role-based-access-control/built-in-roles.md#managed-identity-operator) ou outra função que conceda as ações necessárias (como o __proprietário__).
 - Você deve estar familiarizado com a criação e o trabalho com [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="configure-managed-identities"></a>Configurar identidades gerenciadas
@@ -59,7 +59,7 @@ Se o usuário administrador do ACR não for permitido pela política de assinatu
 [Crie um ACR de CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md) sem definir o ```--admin-enabled``` argumento ou de portal do Azure sem habilitar o usuário administrador. Em seguida, ao criar Azure Machine Learning espaço de trabalho, especifique a ID de recurso do Azure do ACR. O exemplo a seguir demonstra como criar um novo espaço de trabalho do Azure ML que usa um ACR existente:
 
 > [!TIP]
-> Para obter o valor do `--container-registry` parâmetro, use o comando [AZ ACR show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) para mostrar informações de seu ACR. O `id` campo contém a ID de recurso para o ACR.
+> Para obter o valor do `--container-registry` parâmetro, use o comando [AZ ACR show](/cli/azure/acr#az_acr_show) para mostrar informações de seu ACR. O `id` campo contém a ID de recurso para o ACR.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -90,7 +90,7 @@ Se você não trazer seu próprio ACR, Azure Machine Learning serviço criará u
 
     Esse comando retorna um valor semelhante ao texto a seguir. Você quer apenas a última parte do texto, que é o nome da instância do ACR:
 
-    ```text
+    ```output
     /subscriptions/<subscription id>/resourceGroups/<my resource group>/providers/MicrosoftContainerReggistry/registries/<ACR instance name>
     ```
 

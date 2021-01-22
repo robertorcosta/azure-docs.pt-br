@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a735817f59e43e1a9e5d2a513f1ad397f18aab8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232311"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683803"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerenciar identidades de dispositivo usando o portal do Azure
 
@@ -132,7 +132,7 @@ Anteriormente, você podia filtrar apenas a lista de dispositivos por atividade 
 - Estado de conformidade
 - Tipo de junção (ingressado no Azure AD, ingressado no Azure AD híbrido, Azure AD registrado)
 - Carimbo de data/hora da atividade
-- SO
+- Sistema operacional
 - Tipo de dispositivo (impressoras, VMs seguras, dispositivos compartilhados, dispositivos registrados)
 
 Para habilitar a funcionalidade de filtragem de visualização na exibição **todos os dispositivos** :
@@ -168,7 +168,7 @@ Você deve receber uma das seguintes funções para exibir ou gerenciar as confi
 - Os **dispositivos que devem ser ingressados no Azure ad ou no Azure ad registrados exigem autenticação multifator** – você pode escolher se os usuários devem fornecer um fator de autenticação adicional para ingressar ou registrar seu dispositivo no Azure AD. O padrão é **No**. É recomendável exigir a autenticação multifator ao registrar ou ingressar em um dispositivo. Antes de habilitar a autenticação multifator para este serviço, você deve garantir que a autenticação multifator esteja configurada para os usuários que registram seus dispositivos. Para obter mais informações sobre os diferentes serviços de autenticação multifator do Azure AD, consulte [introdução à autenticação multifator do Azure ad](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> Os **dispositivos que devem ser ingressados no Azure ad ou no Azure ad registrados exigem a configuração de autenticação multifator** se aplicam a dispositivos que são associados ao Azure AD (com algumas exceções) ou ao AD do Azure registrado. Essa configuração não se aplica a dispositivos adicionados ao Azure AD híbrido, [VMs Unidas do Azure AD no Azure](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) e dispositivos ingressados no Azure ad usando o [modo de Autoimplantação do Windows AutoPilot](/mem/autopilot/self-deploying).
+> Os **dispositivos que devem ser ingressados no Azure ad ou no Azure ad registrados exigem a configuração de autenticação multifator** se aplicam a dispositivos que são associados ao Azure AD (com algumas exceções) ou ao AD do Azure registrado. Essa configuração não se aplica a dispositivos adicionados ao Azure AD híbrido, [VMs Unidas do Azure AD no Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e dispositivos ingressados no Azure ad usando o [modo de Autoimplantação do Windows AutoPilot](/mem/autopilot/self-deploying).
 
 - **Número máximo de dispositivos** – essa configuração permite que você selecione o número máximo de dispositivos registrados no Azure ad ou do AD do Azure que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos. O valor padrão é **50**.
 

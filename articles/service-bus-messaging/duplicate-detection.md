@@ -3,12 +3,12 @@ title: Detecção de mensagens duplicadas do Barramento de Serviço do Azure | M
 description: Este artigo explica como você pode detectar duplicatas em mensagens do barramento de serviço do Azure. A mensagem duplicada pode ser ignorada e descartada.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 29972f756c66f524cc2e4684fcb7afd1ca628820
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184672"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684801"
 ---
 # <a name="duplicate-detection"></a>Detecção de duplicidade
 
@@ -17,6 +17,9 @@ Se um aplicativo falhar devido a um erro fatal imediatamente após enviar uma me
 Também é possível que um erro no nível do cliente ou da rede ocorra um momento antes e que uma mensagem enviada seja confirmada na fila, com a confirmação não retornada com êxito ao cliente. Este cenário deixa o cliente em dúvida quanto ao resultado da operação de envio.
 
 A detecção duplicada elimina a dúvida dessas situações, permitindo que o remetente reenvie a mesma mensagem, e a fila ou o tópico descarta qualquer cópia duplicada.
+
+> [!NOTE]
+> A camada básica do barramento de serviço não dá suporte à detecção de duplicidades. As camadas Standard e Premium dão suporte à detecção de duplicidades. Para conferir as diferenças entre essas camadas, consulte [preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="how-it-works"></a>Como ele funciona? 
 Habilitar detecção de duplicidades ajuda a controlar a *MessageId* controlada pelo aplicativo de todas as mensagens enviadas para uma fila ou tópico durante um intervalo especificado. Se qualquer nova mensagem for enviada com *MessageId* que foi registrada durante a janela de tempo, a mensagem será relatada como aceita (a operação de envio será com êxito), mas a mensagem enviada recentemente será imediatamente ignorada e descartada. Nenhuma outra parte da mensagem além de *MessageId* é considerada.

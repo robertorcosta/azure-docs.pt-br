@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: e6dc4656e33b55a2cc695874376baf1cd816a838
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 6fb17ead2546875c0f334aae322f8fb070e8f1ea
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796288"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684895"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -276,6 +276,8 @@ As seguintes opções não podem ser modificadas:
 - `RESTRICTED_USER`
 - `SINGLE_USER`
 - `WITNESS`
+
+Algumas `ALTER DATABASE` instruções (por exemplo, [set contenção](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) podem falhar transitóriamente, por exemplo, durante o backup automatizado do banco de dados ou logo após a criação de um banco de dados. Nesse caso, a `ALTER DATABASE` instrução deve ser repetida. Para obter mais detalhes e informações sobre mensagens de erro relacionadas, consulte a [seção comentários](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
 
 Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 

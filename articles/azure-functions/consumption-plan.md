@@ -3,12 +3,12 @@ title: Hospedagem do plano de consumo Azure Functions
 description: Saiba como a hospedagem do plano de consumo de funções do Azure permite que você execute seu código em um ambiente que é dimensionado dinamicamente, mas você paga apenas pelos recursos usados durante a execução.
 ms.date: 8/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: c0619def4687935cd9e403563966b35b84f13c7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: ffb556ce48f18702e06fcdb02dda84f41ae5f906
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937573"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684684"
 ---
 # <a name="azure-functions-consumption-plan-hosting"></a>Hospedagem do plano de consumo Azure Functions
 
@@ -33,10 +33,10 @@ Quando você cria um aplicativo de funções no portal do Azure, o plano de cons
 Use os links a seguir para saber como criar um aplicativo de funções sem servidor em um plano de consumo, seja de forma programática ou na portal do Azure:
 
 + [CLI do Azure](./scripts/functions-cli-create-serverless.md)
-+ [Azure portal](functions-create-first-azure-function.md)
++ [Azure portal](./functions-get-started.md)
 + [Modelo do Azure Resource Manager](functions-create-first-function-resource-manager.md)
 
-Você também pode criar aplicativos de funções em um plano de consumo ao publicar um projeto do Functions do [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) ou do [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
+Você também pode criar aplicativos de funções em um plano de consumo ao publicar um projeto do Functions do [Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) ou do [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## <a name="multiple-apps-in-the-same-plan"></a>Vários aplicativos no mesmo plano
 

@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1f1100c27bb3c02e3d1a5040942509c24bab0e65
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399359"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683981"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -175,7 +175,7 @@ O suporte ao provisionamento do [scim](https://aka.ms/scimoverview) é uma etapa
 Para saber mais sobre os padrões e benefícios do SCIM para seus clientes, consulte [Provisionando com o scim-introdução](https://aka.ms/scimoverview).
 
 ### <a name="understand-the-azure-ad-scim-implementation"></a>Entender a implementação de SCIM do Azure AD
-Para saber mais sobre a implementação do Azure AD SCIM, consulte [criar um ponto de extremidade scim e configurar o provisionamento de usuário com o Azure ad](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+Para saber mais sobre a implementação do Azure AD SCIM, consulte [criar um ponto de extremidade scim e configurar o provisionamento de usuário com o Azure ad](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ### <a name="implement-scim"></a>Implementar SCIM
 O Azure AD fornece o [código de referência](https://aka.ms/scimoverview) para ajudá-lo a criar um ponto de extremidade SCIM. Também há muitas referências/bibliotecas de terceiros que você pode encontrar no GitHub.  
@@ -186,7 +186,7 @@ Você precisará de um locatário do Azure AD para testar seu aplicativo. Para c
 
 Como alternativa, um locatário do Azure AD vem com cada assinatura Microsoft 365. Para configurar um ambiente de desenvolvimento de Microsoft 365 gratuito, consulte [ingressar no Microsoft 365 programa de desenvolvedor](/office/developer-program/microsoft-365-developer-program).
 
-Depois de ter um locatário, você precisa testar o logon único e o [provisionamento](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Depois de ter um locatário, você precisa testar o logon único e o [provisionamento](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **Para aplicativos OIDC ou Oath**, [Registre seu aplicativo](quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte.
 
@@ -274,7 +274,7 @@ Se você quiser adicionar seu aplicativo para listar na Galeria usando o SSO de 
 
 ![Listando um aplicativo SSO de senha na Galeria](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se você estiver implementando um ponto de extremidade [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 para provisionamento de usuário, selecione a opção conforme mostrado. Ao fornecer o esquema na solicitação de integração, siga as instruções [aqui](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) para baixar seu esquema. Usaremos o esquema que você configurou ao testar o aplicativo inexistente na galeria para compilar o aplicativo da galeria. 
+Se você estiver implementando um ponto de extremidade [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 para provisionamento de usuário, selecione a opção conforme mostrado. Ao fornecer o esquema na solicitação de integração, siga as instruções [aqui](../app-provisioning/export-import-provisioning-configuration.md) para baixar seu esquema. Usaremos o esquema que você configurou ao testar o aplicativo inexistente na galeria para compilar o aplicativo da galeria. 
 
    ![Solicitação de provisionamento de usuário](./media/howto-app-gallery-listing/user-provisioning.png)
 

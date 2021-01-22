@@ -2,14 +2,14 @@
 title: Executar o Linux em nós de computação de máquina virtual
 description: Saiba como processar cargas de trabalho de computação paralelas em pools de máquinas virtuais do Linux no lote do Azure.
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 01/21/2021
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 0a9c801a13af05f077b87f296992da7f50742e4b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c711ec0d035b9b59ec7628a51fe3cff26de358bc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533490"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683693"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Provisionar os nós de computação do Linux em pools do Lote
 
@@ -17,9 +17,7 @@ Você pode usar o Lote do Azure para executar cargas de trabalho de computação
 
 ## <a name="virtual-machine-configuration"></a>Configuração de Máquina Virtual
 
-Ao criar um pool de nós de computação no Lote, você tem duas opções das quais pode selecionar o tamanho do nó e o sistema operacional: Configuração de Serviços de Nuvem e Configuração de Máquina Virtual. A maioria dos pools de nós de computação do Windows usa a [configuração de serviços de nuvem](nodes-and-pools.md#cloud-services-configuration), que especifica que o pool é composto por nós de serviços de nuvem do Azure. Esses pools fornecem apenas nós de computação do Windows.
-
-Por outro lado, a [configuração de máquina virtual](nodes-and-pools.md#virtual-machine-configuration) especifica que o pool é composto por VMS do Azure, que podem ser criadas a partir de imagens do Linux ou do Windows. Ao criar um pool com a configuração de máquina virtual, você deve especificar um [tamanho de nó de computação disponível](../virtual-machines/sizes.md), a referência de imagem de máquina virtual e a SKU do agente de nó de lote (um programa que é executado em cada nó e fornece uma interface entre o nó e o serviço de lote) e a referência de imagem de máquina virtual que será instalada nos nós.
+Ao criar um pool de nós de computação no Lote, você tem duas opções das quais pode selecionar o tamanho do nó e o sistema operacional: Configuração de Serviços de Nuvem e Configuração de Máquina Virtual. Os pools de [configuração de máquina virtual](nodes-and-pools.md#virtual-machine-configuration) são compostos de VMs do Azure, que podem ser criadas a partir de imagens do Linux ou do Windows. Ao criar um pool com a configuração de máquina virtual, você especifica um [tamanho de nó de computação disponível](../virtual-machines/sizes.md), a referência de imagem de máquina virtual a ser instalada nos nós e o SKU do agente de nó de lote (um programa que é executado em cada nó e fornece uma interface entre o nó e o serviço de lote).
 
 ### <a name="virtual-machine-image-reference"></a>Referência da imagem da máquina virtual
 
@@ -35,7 +33,11 @@ Ao criar uma referência de imagem de máquina virtual, você deve especificar a
 | Versão |mais recente |
 
 > [!TIP]
-> Você pode saber mais sobre essas propriedades e como especificar imagens do Marketplace em [Localizar imagens de VM do Linux no Azure Marketplace com o CLI do Azure](../virtual-machines/linux/cli-ps-findimage.md). Observe que nem todas as imagens do Marketplace são compatíveis com o Lote no momento.
+> Você pode saber mais sobre essas propriedades e como especificar imagens do Marketplace em [Localizar imagens de VM do Linux no Azure Marketplace com o CLI do Azure](../virtual-machines/linux/cli-ps-findimage.md). Observe que algumas imagens do Marketplace não são atualmente compatíveis com o lote.
+
+### <a name="list-of-virtual-machine-images"></a>imagens da Lista de máquinas virtuais
+
+Nem todas as imagens do Marketplace são compatíveis com os agentes de nó do lote disponíveis no momento. Para listar todas as imagens de máquina virtual do Marketplace com suporte para o serviço de lote e suas SKUs de agente de nó correspondentes, use [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (.net do lote) ou a API correspondente em outro SDK de linguagem.
 
 ### <a name="node-agent-sku"></a>SKU do agente do nó
 
@@ -44,10 +46,6 @@ O [agente de nó de lote](https://github.com/Azure/Batch/blob/master/changelogs/
 - batch.node.ubuntu 18.04
 - batch.node.centos 7
 - batch.node.windows amd64
-
-### <a name="list-of-virtual-machine-images"></a>imagens da Lista de máquinas virtuais
-
-Nem todas as imagens do Marketplace são compatíveis com os agentes de nó do lote disponíveis no momento. Para listar todas as imagens de máquina virtual do Marketplace com suporte para o serviço de lote e suas SKUs de agente de nó correspondentes, use [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (.net do lote) ou a API correspondente em outro SDK de linguagem.
 
 ## <a name="create-a-linux-pool-batch-python"></a>Crie um pool do Linux: Python no Lote
 
@@ -269,7 +267,7 @@ Em vez de uma senha, você pode especificar uma chave pública SSH ao criar um u
 
 ## <a name="pricing"></a>Preços
 
-O Lote do Azure baseia-se na tecnologia de Serviços de Nuvem do Azure e Máquinas Virtuais do Azure. O serviço de Lote em si é oferecido sem custos, o que significa que você é cobrado apenas pelos recursos de computação (e os custos associados envolvidos) que as soluções do Lote consomem. Ao escolher a **Configuração da Máquina Virtual** , você é cobrado com base na estrutura de [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
+O Lote do Azure baseia-se na tecnologia de Serviços de Nuvem do Azure e Máquinas Virtuais do Azure. O serviço de Lote em si é oferecido sem custos, o que significa que você é cobrado apenas pelos recursos de computação (e os custos associados envolvidos) que as soluções do Lote consomem. Ao escolher a **Configuração da Máquina Virtual**, você é cobrado com base na estrutura de [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 Se você implantar aplicativos para os nós do Lote usando [pacotes de aplicativos](batch-application-packages.md), você também será cobrado pelos recursos de Armazenamento do Azure que consomem seus pacotes de aplicativos.
 

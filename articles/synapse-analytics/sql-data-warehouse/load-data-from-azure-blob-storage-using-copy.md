@@ -11,16 +11,16 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ec577e2a70e2b354b8d2013fe259aa9ea622c50e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b305a07997ccd2cbab0d963ced2bd23ab7a97690
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120131"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683400"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: carregar o conjunto de dos táxis de Nova York
 
-Este tutorial usa a [instrução Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) para carregar o conjunto de dos táxis New York de uma conta de armazenamento de BLOBs do Azure. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio) para:
+Este tutorial usa a [instrução Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) para carregar o conjunto de dos táxis New York de uma conta de armazenamento de BLOBs do Azure. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SQL Server Management Studio) para:
 
 > [!div class="checklist"]
 >
@@ -33,7 +33,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio).  
+Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SQL Server Management Studio).  
 
 Este tutorial pressupõe que você já criou um pool SQL dedicado do [tutorial](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)a seguir.
 
@@ -251,7 +251,7 @@ Execute os seguintes scripts SQL e especifique as informações sobre os dados q
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Carregar os dados em seu data warehouse
 
-Esta seção usa a [instrução de cópia para carregar](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) os dados de exemplo de Azure Storage BLOB.  
+Esta seção usa a [instrução de cópia para carregar](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) os dados de exemplo de Azure Storage BLOB.  
 
 > [!NOTE]
 > Este tutorial carrega os dados diretamente na tabela final. Normalmente, você carregaria em uma tabela de preparo para suas cargas de trabalho de produção. Enquanto os dados estão na tabela de preparo, você pode executar todas as transformações necessárias. 
@@ -393,7 +393,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu como criar um data warehouse e um usuário para carregar dados. Você usou a [instrução de cópia](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) simples para carregar dados em seu data warehouse.
+Neste tutorial, você aprendeu como criar um data warehouse e um usuário para carregar dados. Você usou a [instrução de cópia](/sql/t-sql/statements/copy-into-transact-sql&preserve-view=true?view=azure-sqldw-latest&preserve-view=true#examples) simples para carregar dados em seu data warehouse.
 
 Você fez essas coisas:
 > [!div class="checklist"]
@@ -413,6 +413,6 @@ Avance para a visão geral de desenvolvimento para saber como migrar um banco de
 
 Para obter mais exemplos de carregamento e referências, veja a seguinte documentação:
 
-- [Documentação de referência de instrução de cópia](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax)
+- [Documentação de referência de instrução de cópia](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax)
 - [COPIAR exemplos para cada método de autenticação](./quickstart-bulk-load-copy-tsql-examples.md)
 - [COPIAR guia de início rápido para uma única tabela](./quickstart-bulk-load-copy-tsql.md)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f1277972480f504d9d2df67930d9385cbe8c06b4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9ffb77db4f7bcd5a07e25085eed17e8972aa9a33
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063188"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683752"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
@@ -175,7 +175,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` em todos os outros casos (para [tokens de acesso](access-tokens.md)v 1.0).
 > Para obter detalhes, consulte [código-fonte](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83)Microsoft. Identity. Web.
 
-O trecho de código anterior é extraído do [tutorial ASP.NET Core Web API incremental](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Os detalhes do **AddMicrosoftIdentityWebApiAuthentication** estão disponíveis em [Microsoft. Identity. Web](microsoft-identity-web.md). Esse método chama [AddMicrosoftIdentityWebAPI](https://docs.microsoft.com/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?view=azure-dotnet-preview&preserve-view=true), que, por sua vez, instrui o middleware sobre como validar o token.
+O trecho de código anterior é extraído do [tutorial ASP.NET Core Web API incremental](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). Os detalhes do **AddMicrosoftIdentityWebApiAuthentication** estão disponíveis em [Microsoft. Identity. Web](microsoft-identity-web.md). Esse método chama [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?preserve-view=true&view=azure-dotnet-preview), que, por sua vez, instrui o middleware sobre como validar o token.
 
 ## <a name="token-validation"></a>Validação de token
 

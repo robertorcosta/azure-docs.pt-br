@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6f74f973abc33d809624bd8abd5a514a52ccfe70
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 04ca8d515dbc5a28a7d3a30369d97877928c9dc1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602703"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683822"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conectar aplicativos de funções no Azure para processamento de dados
 
@@ -36,7 +36,7 @@ Aqui está uma visão geral das etapas que ela contém:
 
 ## <a name="create-a-function-app-in-visual-studio"></a>Criar um aplicativo de funções no Visual Studio
 
-No Visual Studio 2019, selecione _arquivo > novo projeto de >_ e procure o modelo de _Azure Functions_ , selecione _Avançar_.
+No Visual Studio 2019, selecione _arquivo > novo projeto de >_ e pesquise o modelo de _Azure Functions_ . Selecione _Avançar_.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
 
@@ -44,11 +44,11 @@ Especifique um nome para o aplicativo de funções e selecione _criar_.
 
 :::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: configurar novo projeto":::
 
-Selecione o tipo de *gatilho de grade de eventos* do aplicativo de funções e selecione _criar_.
+Selecione o tipo de aplicativo de função do *gatilho de grade de eventos* e selecione _criar_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: caixa de diálogo gatilho de projeto de Azure Functions":::
+:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Visual Studio: caixa de diálogo gatilho de projeto de Azure Functions":::
 
-Depois que seu aplicativo de funções for criado, seu Visual Studio terá o exemplo de código preenchido automaticamente no arquivo **Function.cs** na pasta do projeto. Essa função curta é usada para registrar eventos.
+Depois que seu aplicativo de funções for criado, o Visual Studio gerará um exemplo de código em um arquivo **function1.cs** na pasta do projeto. Essa função curta é usada para registrar eventos.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: janela do projeto com código de exemplo":::
 
@@ -56,11 +56,11 @@ Depois que seu aplicativo de funções for criado, seu Visual Studio terá o exe
 
 Você pode escrever uma função adicionando o SDK ao seu aplicativo de funções. O aplicativo de funções interage com o gêmeos digital do Azure usando o [SDK do gêmeos digital do Azure para .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
-Para usar o SDK, você precisará incluir os pacotes a seguir em seu projeto. Você pode instalar os pacotes usando o Gerenciador de pacotes NuGet do Visual Studio ou adicionar os pacotes usando a `dotnet` ferramenta de linha de comando. Escolha um destes métodos: 
+Para usar o SDK, você precisará incluir os pacotes a seguir em seu projeto. Você pode instalar os pacotes usando o Gerenciador de pacotes NuGet do Visual Studio ou adicionar os pacotes usando o `dotnet` em uma ferramenta de linha de comando. Siga as etapas abaixo para o seu método preferido.
 
 **Opção 1. Adicionar pacotes usando o Gerenciador de pacotes do Visual Studio:**
     
-Você pode fazer isso selecionando o projeto com o botão direito do mouse e selecionando _gerenciar pacotes NuGet_ na lista. Em seguida, na janela que é aberta, selecione a guia _procurar_ e procure os pacotes a seguir. Selecione _instalar_ e _aceite_ o contrato de licença para instalar os pacotes.
+Selecione o projeto com o botão direito do mouse e selecione _gerenciar pacotes NuGet_ na lista. Em seguida, na janela que é aberta, selecione a guia _procurar_ e procure os pacotes a seguir. Selecione _instalar_ e _aceite_ o contrato de licença para instalar os pacotes.
 
 * `Azure.DigitalTwins.Core`
 * `Azure.Identity`
@@ -78,15 +78,15 @@ dotnet add package System.Net.Http
 dotnet add package Azure.Core
 ```
 
-Em seguida, no Gerenciador de Soluções do Visual Studio, abra o arquivo _Function.cs_ em que você tem um código de exemplo e adicione as instruções _using_ a seguir à sua função. 
+Em seguida, no Gerenciador de Soluções do Visual Studio, abra o arquivo _function1.cs_ em que você tem um código de exemplo e adicione as instruções a seguir `using` à sua função. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## <a name="add-authentication-code-to-the-function"></a>Adicionar código de autenticação à função
 
-Agora, você declarará variáveis de nível de classe e adicionará o código de autenticação que permitirá que a função acesse o Azure digital gêmeos. Você adicionará o seguinte à sua função no arquivo {seu nome de função}. cs.
+Agora, você declarará variáveis de nível de classe e adicionará o código de autenticação que permitirá que a função acesse o Azure digital gêmeos. Você adicionará o seguinte à sua função no arquivo _function1.cs_ .
 
-* Leia a URL do serviço ADT como uma variável de ambiente. É uma boa prática ler a URL do serviço de uma variável de ambiente, em vez de codificá-la embutidamente na função.
+* Código para ler a URL do serviço gêmeos do Azure digital como uma variável de ambiente. É uma boa prática ler a URL do serviço de uma variável de ambiente, em vez de codificá-la embutidamente na função.
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
@@ -97,43 +97,24 @@ Agora, você declarará variáveis de nível de classe e adicionará o código d
 * Você pode usar as credenciais de identidade gerenciadas no Azure Functions.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
 
-* Adicione uma variável local _DigitalTwinsClient_ dentro de sua função para manter a instância do cliente gêmeos do Azure digital para o projeto de função. Não *torne essa* variável estática dentro de sua classe.
+* Adicione uma variável local _DigitalTwinsClient_ dentro de sua função para manter a instância do cliente gêmeos do Azure digital. Não *torne essa* variável estática dentro de sua classe.
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
 
-* Adicione uma verificação nula para _adtInstanceUrl_ e empacote sua lógica de função em um bloco try catch para capturar quaisquer exceções.
+* Adicione uma verificação nula para _adtInstanceUrl_ e empacote sua lógica de função em um bloco try/catch para capturar quaisquer exceções.
 
 Após essas alterações, o código de função será semelhante ao seguinte:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
 
+Agora que seu aplicativo foi escrito, você pode publicá-lo no Azure usando as etapas na próxima seção.
+
 ## <a name="publish-the-function-app-to-azure"></a>Publicar o aplicativo de funções no Azure
 
-Para publicar o projeto em um aplicativo de funções no Azure, selecione o projeto de função (não a solução) em Gerenciador de Soluções e escolha **publicar**.
-
-> [!IMPORTANT] 
-> A publicação em um aplicativo de funções no Azure incorre em encargos adicionais em sua assinatura, independentemente do gêmeos digital do Azure.
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publicar função no Azure":::
-
-Selecione **Azure** como o destino de publicação e selecione **Avançar**.
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: caixa de diálogo Publicar Azure Functions, selecione Azure ":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: caixa de diálogo Publicar função, selecione Azure Aplicativo de funções (Windows) ou (Linux) com base em seu computador":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: caixa de diálogo Publicar função, criar uma nova função do Azure":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: caixa de diálogo Publicar função, preencha os campos e selecione criar":::
-
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: caixa de diálogo Publicar função, selecione seu aplicativo de funções na lista e conclua":::
-
-Na página a seguir, insira o nome desejado para o novo aplicativo de funções, um grupo de recursos e outros detalhes.
-Para que seu aplicativo de funções possa acessar o Azure digital gêmeos, ele precisa ter uma identidade gerenciada pelo sistema e ter permissões para acessar sua instância do gêmeos digital do Azure.
-
-Em seguida, você pode configurar o acesso de segurança para a função usando a CLI ou portal do Azure. Escolha um destes métodos:
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
 ## <a name="set-up-security-access-for-the-function-app"></a>Configurar o acesso de segurança para o aplicativo de funções
-Você pode configurar o acesso de segurança para o aplicativo de funções usando uma destas opções:
+
+Você pode configurar o acesso de segurança para o aplicativo de funções usando o CLI do Azure ou o portal do Azure. Siga as etapas para sua opção preferida abaixo.
 
 ### <a name="option-1-set-up-security-access-for-the-function-app-using-cli"></a>Opção 1: configurar o acesso de segurança para o aplicativo de funções usando a CLI
 
@@ -169,7 +150,7 @@ Uma identidade gerenciada atribuída pelo sistema permite que os recursos do Azu
 
 Na [portal do Azure](https://portal.azure.com/), pesquise por _aplicativo de funções_ na barra de pesquisa com o nome do aplicativo de funções que você criou anteriormente. Selecione o *aplicativo de funções* na lista. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Portal do Azure: Pesquisar aplicativo de função":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Portal do Azure: Pesquisar aplicativo de função":::
 
 Na janela do aplicativo de funções, selecione _identidade_ na barra de navegação à esquerda para habilitar a identidade gerenciada.
 Na guia _atribuído pelo sistema_ , alterne o _status_ para ativado e _salve_ -o. Você verá um pop-up para _habilitar a identidade gerenciada atribuída pelo sistema_.
@@ -206,25 +187,23 @@ Em seguida, Salve seus detalhes pressionando o botão _salvar_ .
 
 Você pode tornar a URL da sua instância do gêmeos digital do Azure acessível para sua função definindo uma variável de ambiente. Para obter mais informações sobre isso, consulte [*variáveis de ambiente*](/sandbox/functions-recipes/environment-variables). As configurações do aplicativo são expostas como variáveis de ambiente para acessar a instância digital gêmeos. 
 
-Você precisará de ADT_INSTANCE_URL para criar uma configuração de aplicativo.
-
-Você pode obter ADT_INSTANCE_URL acrescentando **_https://_** ao nome do host da instância. No portal do Azure, você pode encontrar o nome do host da instância gêmeos digital pesquisando sua instância na barra de pesquisa. Em seguida, selecione _visão geral_ na barra de navegação à esquerda para exibir o _nome do host_. Copie esse valor para criar uma configuração de aplicativo.
+Para definir uma variável de ambiente com a URL de sua instância, primeiro obtenha a URL encontrando o nome de host da instância do gêmeos digital do Azure. Pesquise sua instância na barra de pesquisa [portal do Azure](https://portal.azure.com) . Em seguida, selecione _visão geral_ na barra de navegação à esquerda para exibir o _nome do host_. Copie esse valor.
 
 :::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Portal do Azure: visão geral – > copiar nome do host para usar no campo _Value_.":::
 
 Agora você pode criar uma configuração de aplicativo seguindo as etapas abaixo:
 
-* Pesquise seu aplicativo usando o nome do aplicativo de funções na barra de pesquisa e selecione o aplicativo de funções na lista
-* Selecione _configuração_ na barra de navegação à esquerda para criar uma nova configuração de aplicativo
-* Na guia _configurações do aplicativo_ , selecione _+ nova configuração de aplicativo_
+1. Pesquise seu aplicativo usando o nome do aplicativo de funções na barra de pesquisa e selecione o aplicativo de funções na lista
+1. Selecione _configuração_ na barra de navegação à esquerda para criar uma nova configuração de aplicativo
+1. Na guia _configurações do aplicativo_ , selecione _+ nova configuração de aplicativo_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Portal do Azure: Pesquisar um aplicativo de funções existente":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Portal do Azure: Pesquisar um aplicativo de funções existente" lightbox="media/how-to-create-azure-function/search-for-azure-function.png":::
 
 :::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Portal do Azure: definir configurações de aplicativo":::
 
-Na janela que é aberta, use o valor copiado acima para criar uma configuração de aplicativo. \
-_Nome_  : ADT_SERVICE_URL \
-_Valor_ : https://{Your-Azure-digital-gêmeos-nome_do_host}
+Na janela que é aberta, use o valor nome de host copiado acima para criar uma configuração de aplicativo.
+* _Nome_ : ADT_SERVICE_URL
+* _Valor_: https://{Your-Azure-digital-gêmeos-Host-Name}
 
 Selecione _OK_ para criar uma configuração de aplicativo.
 
@@ -244,10 +223,7 @@ Você pode exibir que as configurações do aplicativo são atualizadas selecion
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você seguiu as etapas para configurar um aplicativo de funções no Azure para uso com o gêmeos digital do Azure. Em seguida, você pode assinar sua função à grade de eventos para escutar em um ponto de extremidade. Esse ponto de extremidade pode ser:
-* Um ponto de extremidade de grade de eventos anexado ao Azure digital gêmeos para processar mensagens provenientes do Azure digital gêmeos em si (como mensagens de alteração de propriedade, mensagens de telemetria geradas por [gêmeos digital](concepts-twins-graph.md) no grafo de entrelaçamento ou mensagens de ciclo de vida)
-* Os tópicos do sistema IoT usados pelo Hub IoT para enviar telemetria e outros eventos de dispositivo
-* Um ponto de extremidade de grade de eventos que recebe mensagens de outros serviços
+Neste artigo, você seguiu as etapas para configurar um aplicativo de funções no Azure para uso com o gêmeos digital do Azure.
 
 Em seguida, consulte como criar sua função básica para ingerir dados do Hub IoT no gêmeos digital do Azure:
 * [*Como: telemetria de ingestão do Hub IoT*](how-to-ingest-iot-hub-data.md)

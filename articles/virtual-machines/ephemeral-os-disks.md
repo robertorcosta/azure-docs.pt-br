@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 52071b964412071d820745b173e8835c6f9e7d0e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 62f89106538ab7f57047e211fc8715878f889af1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510984"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684552"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Discos do sistema operacional efêmero para VMs do Azure
 
@@ -26,7 +26,7 @@ Os principais recursos dos discos efêmeras são:
 - Menor latência, semelhante a um disco temporário. 
 - Discos do sistema operacional efêmero são gratuitos, você não incorre em nenhum custo de armazenamento para o disco do sistema operacional.
 - Eles estão disponíveis em todas as regiões do Azure. 
-- O disco do so efêmero tem suporte pela [Galeria de imagens compartilhadas](./linux/shared-image-galleries.md). 
+- O disco do so efêmero tem suporte pela [Galeria de imagens compartilhadas](./shared-image-galleries.md). 
  
 
  
@@ -35,7 +35,7 @@ Principais diferenças entre discos do sistema operacional persistentes e efême
 |                             | Disco do so persistente                          | Disco do SO Efêmero                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | **Limite de tamanho para o disco do sistema operacional**      | 2 TiB                                                                                        | Tamanho do cache para o tamanho da VM ou 2TiB, o que for menor. Para o **tamanho do cache em GIB**, consulte [DS](sizes-general.md), [es](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md)e [GS](sizes-previous-gen.md#gs-series)              |
-| **Tamanhos de VM com suporte**          | Todos                                                                                          | Tamanhos de VM que dão suporte ao armazenamento Premium, como DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
+| **Tamanhos de VM com suporte**          | Tudo                                                                                          | Tamanhos de VM que dão suporte ao armazenamento Premium, como DSv1, DSv2, DSv3, Esv3, FS, FsV2, GS, M                                               |
 | **Suporte a tipo de disco**           | Disco do sistema operacional gerenciado e não gerenciado                                                                | Somente disco do sistema operacional gerenciado                                                               |
 | **Suporte de regiões**              | Todas as regiões                                                                                  | Todas as regiões                              |
 | **Persistência de dados**            | Os dados do disco do sistema operacional gravados no disco do sistema operacional são armazenados no armazenamento do Azure                                  | Os dados gravados no disco do sistema operacional são armazenados no armazenamento da VM local e não são persistidos no armazenamento do Azure. |

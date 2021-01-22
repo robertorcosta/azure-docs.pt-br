@@ -9,15 +9,14 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: ffc9c8f3143824dd099aaad3e743398eea4e0f43
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e6cf097e927c4606885dd3f885de6ab8235bf6be
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602528"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682574"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Economize custos com instâncias de VM reservadas do Azure
-
 
 
 Ao se comprometer com uma instância de VM reservada do Azure, você pode economizar dinheiro. O desconto da reserva é aplicado automaticamente ao número de máquinas virtuais em execução que correspondem ao escopo e atributos da reserva. Você não precisa atribuir uma reserva a uma máquina virtual para obter os descontos. Uma compra de instância reservada abrange apenas a parte de computação do uso da VM. Para VMs do Windows, o medidor de uso é dividido em dois medidores separados. Há um medidor de computação, que é o mesmo que o medidor do Linux e um medidor de IP do Windows. Os encargos que você vê quando faz a compra são apenas para os custos de computação. Os encargos não incluem os custos de software do Windows. Para obter mais informações sobre os custos de software, consulte [custos de software não incluídos com instâncias de VM reservadas do Azure](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
@@ -30,10 +29,10 @@ Antes de comprar uma reserva, você deve determinar o tamanho da VM de que preci
 
 Você pode usar recomendações de reserva para ajudar a determinar as reservas que devem ser compradas.
 
-- As recomendações de compra e a quantidade recomendada são mostradas quando você adquire uma instância reservada de VM no portal do Azure.
+- As recomendações de compra e as quantidades recomendadas são mostradas quando você adquire uma instância reservada de VM no portal do Azure.
 - O Azure Advisor fornece recomendações de compra para assinaturas individuais.  
 - Você pode usar as APIs para obter recomendações de compra para o escopo compartilhado e o escopo de assinatura única. Para obter mais informações, consulte [APIs de recomendação de compra de instância reservada para clientes empresariais](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
-- Para clientes Enterprise Agreement (EA) e Microsoft Customer Agreement (MCA), as recomendações de compra para escopos de assinatura compartilhada e única estão disponíveis com o [Azure consumption insights pacote de conteúdo do Power bi](/power-bi/service-connect-to-azure-consumption-insights).
+- Para clientes Contrato Enterprise (EA) e Microsoft Customer Agreement (MCA), as recomendações de compra para escopos de assinatura compartilhada e única estão disponíveis com o [Azure consumption insights pacote de conteúdo do Power bi](/power-bi/service-connect-to-azure-consumption-insights).
 
 ### <a name="services-that-get-vm-reservation-discounts"></a>Serviços que têm descontos de reserva de VM
 
@@ -136,7 +135,7 @@ Você não pode fazer os seguintes tipos de alterações após a compra, diretam
 - Uma região de reserva existente
 - SKU
 - Quantidade
-- Duration
+- Duração
 
 No entanto, você pode *trocar* uma reserva se desejar fazer alterações.
 

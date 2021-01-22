@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usar o GitOps para configurar um cluster kubernetes habilitado para arco do Azure (versão prévia)
 keywords: GitOps, kubernetes, K8s, Azure, Arc, serviço do Azure kubernetes, AKS, contêineres
-ms.openlocfilehash: 906021377cbfd6960769f98f9dbd15a5c430c71f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 751b274a9cae68f6bc9b1adc45804f2dd2ef4c72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955324"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684750"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implantar configurações usando o GitOps no cluster do Kubernetes habilitado para Arc (versão prévia)
 
@@ -48,7 +48,7 @@ Se você estiver associando um repositório privado com o `sourceControlConfigur
 
 Use a extensão CLI do Azure para `k8sconfiguration` para vincular um cluster conectado ao [repositório git de exemplo](https://github.com/Azure/arc-k8s-demo). Daremos a essa configuração o nome `cluster-config`, instruiremos o agente a implantar o operador no namespace `cluster-config` e concederemos ao operador permissões de `cluster-admin`.
 
-```console
+```azurecli
 az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
@@ -179,7 +179,7 @@ Para obter mais informações, consulte a [documentação do fluxo](https://aka.
 
 Como usar a CLI do Azure para validar a criação do `sourceControlConfiguration` com sucesso.
 
-```console
+```azurecli
 az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
@@ -351,7 +351,7 @@ Exclua um `sourceControlConfiguration` usando o CLI do Azure ou portal do Azure.
 > Depois que um sourceControlConfiguration com escopo de namespace é criado, é possível que os usuários com `edit` Associação de função no namespace implantem cargas de trabalho nesse namespace. Quando isso `sourceControlConfiguration` com o escopo do namespace é excluído, o namespace é deixado intacto e não será excluído para evitar a interrupção dessas outras cargas de trabalho.  Se necessário, você pode excluir esse namespace manualmente com kubectl.
 > As alterações no cluster que foram o resultado de implantações do repositório git rastreado não são excluídas quando o `sourceControlConfiguration` é excluído.
 
-```console
+```azurecli
 az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 

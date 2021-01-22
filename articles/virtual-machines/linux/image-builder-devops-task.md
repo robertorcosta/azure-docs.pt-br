@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196496"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684535"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa DevOps do serviço do construtor de imagem do Azure
 
@@ -71,10 +71,10 @@ Use o grupo de recursos em que o artefato do modelo de imagem temporária será 
  
 ### <a name="location"></a>Location
 
-O local é a região em que o construtor de imagem será executado. Há suporte apenas para um número definido de [regiões](../windows/image-builder-overview.md#regions) . As imagens de origem devem estar presentes neste local. Por exemplo, se você estiver usando a Galeria de imagens compartilhadas, uma réplica deverá existir nessa região.
+O local é a região em que o construtor de imagem será executado. Há suporte apenas para um número definido de [regiões](../image-builder-overview.md#regions) . As imagens de origem devem estar presentes neste local. Por exemplo, se você estiver usando a Galeria de imagens compartilhadas, uma réplica deverá existir nessa região.
 
 ### <a name="managed-identity-required"></a>Identidade gerenciada (obrigatória)
-O Image Builder requer uma identidade gerenciada, que ela usa para ler imagens personalizadas de origem, conectar-se ao armazenamento do Azure e criar imagens personalizadas. Veja [aqui](./image-builder-overview.md#permissions) para obter mais detalhes.
+O Image Builder requer uma identidade gerenciada, que ela usa para ler imagens personalizadas de origem, conectar-se ao armazenamento do Azure e criar imagens personalizadas. Veja [aqui](../image-builder-overview.md#permissions) para obter mais detalhes.
 
 ### <a name="vnet-support"></a>Suporte VNET
 
@@ -335,4 +335,4 @@ O artefato de recurso do modelo de imagem está no grupo de recursos especificad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](image-builder-overview.md).
+Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](../image-builder-overview.md).

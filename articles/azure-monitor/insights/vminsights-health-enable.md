@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 78ce082c6e90cfc9c67ddcfa00926d292b9ed7ea
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 902bcaa97658802b35fb523a1213e6bbd47f357f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740463"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684501"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Habilitar a integridade de convidado do Azure Monitor para VMs (versão prévia)
 Azure Monitor para VMs integridade de convidado permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como habilitar esse recurso em sua assinatura e como habilitar o monitoramento de convidado para cada máquina virtual.
@@ -35,7 +35,7 @@ A máquina virtual deve estar localizada em uma das seguintes regiões:
 
 - Austrália Central
 - Leste da Austrália
-- Sudeste da Austrália
+- Australia Southeast
 - Índia Central
 - Centro dos EUA
 - Leste da Ásia
@@ -43,7 +43,7 @@ A máquina virtual deve estar localizada em uma das seguintes regiões:
 - Leste dos EUA 2
 - Leste dos EUA 2 EUAP
 - Centro-Oeste da Alemanha
-- Leste do Japão
+- Japan East
 - Centro-Norte dos EUA
 - Norte da Europa
 - Centro-Sul dos Estados Unidos
@@ -127,9 +127,9 @@ Implante o modelo usando qualquer [método de implantação para modelos do Reso
 New-AzResourceGroupDeployment -Name GuestHealthDataCollectionRule -ResourceGroupName my-resource-group -TemplateFile Health.DataCollectionRule.template.json -TemplateParameterFile Health.DataCollectionRule.template.parameters.json
 ```
 
-# <a name="cli"></a>[CLI](#tab/cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-```cli
+```azurecli
 az deployment group create --name GuestHealthDataCollectionRule --resource-group my-resource-group --template-file Health.DataCollectionRule.template.json --parameters Health.DataCollectionRule.template.parameters.json
 ```
 
@@ -267,9 +267,9 @@ Por exemplo, use os comandos a seguir para implantar o modelo e o arquivo de par
 New-AzResourceGroupDeployment -Name GuestHealthDeployment -ResourceGroupName my-resource-group -TemplateFile azure-monitor-deploy.json -TemplateParameterFile azure-monitor-deploy.parameters.json
 ```
 
-# <a name="cli"></a>[CLI](#tab/cli)
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-```cli
+```azurecli
 az deployment group create --name GuestHealthDeployment --resource-group my-resource-group --template-file Health.VirtualMachine.template.json --parameters Health.VirtualMachine.template.parameters.json
 ```
 

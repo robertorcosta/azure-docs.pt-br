@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 4ebb16186e613affdb886a8819240d47f944c42f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763533"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684603"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -49,7 +49,7 @@ O orquestrador de atualização do sistema operacional do conjunto de dimensiona
 >A atualização automática do sistema operacional não atualiza o SKU da imagem de referência no conjunto de dimensionamento. Para alterar a SKU (como Ubuntu 16, 4-LTS para 18, 4-LTS), você deve atualizar o [modelo do conjunto de dimensionamento](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) diretamente com a SKU da imagem desejada. O Publicador de imagens e a oferta não podem ser alterados para um conjunto de dimensionamento existente.  
 
 ## <a name="supported-os-images"></a>Imagens do sistema operacional com suporte
-No momento, há suporte apenas determinadas imagens de plataforma do sistema operacional. Imagens personalizadas [têm suporte](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) se o conjunto de dimensionamento usar imagens personalizadas por meio da [Galeria de imagens compartilhadas](shared-image-galleries.md).
+No momento, há suporte apenas determinadas imagens de plataforma do sistema operacional. Imagens personalizadas [têm suporte](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) se o conjunto de dimensionamento usar imagens personalizadas por meio da [Galeria de imagens compartilhadas](../virtual-machines/shared-image-galleries.md).
 
 Atualmente, há suporte para as seguintes SKUs de plataforma (e mais são adicionadas periodicamente):
 
@@ -89,11 +89,11 @@ Verifique se as configurações de durabilidade não são correspondentes no Clu
 
 ## <a name="automatic-os-image-upgrade-for-custom-images"></a>Atualização automática da imagem do sistema operacional para imagens personalizadas
 
-A atualização automática de imagem do sistema operacional tem suporte para imagens personalizadas implantadas por meio da [Galeria de imagens compartilhada](shared-image-galleries.md). Outras imagens personalizadas não têm suporte para atualizações automáticas de imagem do sistema operacional.
+A atualização automática de imagem do sistema operacional tem suporte para imagens personalizadas implantadas por meio da [Galeria de imagens compartilhada](../virtual-machines/shared-image-galleries.md). Outras imagens personalizadas não têm suporte para atualizações automáticas de imagem do sistema operacional.
 
 ### <a name="additional-requirements-for-custom-images"></a>Requisitos adicionais para imagens personalizadas
 - O processo de instalação e configuração da atualização automática da imagem do sistema operacional é o mesmo para todos os conjuntos de dimensionamento, conforme detalhado na [seção de configuração](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) desta página.
-- As instâncias de conjuntos de dimensionamento configuradas para atualizações automáticas de imagem do sistema operacional serão atualizadas para a versão mais recente da imagem da Galeria de imagens compartilhada quando uma nova versão da imagem for publicada e [replicada](shared-image-galleries.md#replication) para a região desse conjunto de dimensionamento. Se a nova imagem não for replicada para a região em que a escala é implantada, as instâncias do conjunto de dimensionamento não serão atualizadas para a versão mais recente. A replicação de imagem regional permite que você controle a distribuição da nova imagem para seus conjuntos de dimensionamento.
+- As instâncias de conjuntos de dimensionamento configuradas para atualizações automáticas de imagem do sistema operacional serão atualizadas para a versão mais recente da imagem da Galeria de imagens compartilhada quando uma nova versão da imagem for publicada e [replicada](../virtual-machines/shared-image-galleries.md#replication) para a região desse conjunto de dimensionamento. Se a nova imagem não for replicada para a região em que a escala é implantada, as instâncias do conjunto de dimensionamento não serão atualizadas para a versão mais recente. A replicação de imagem regional permite que você controle a distribuição da nova imagem para seus conjuntos de dimensionamento.
 - A nova versão da imagem não deve ser excluída da versão mais recente para essa imagem da galeria. As versões de imagem excluídas da versão mais recente da imagem da Galeria não são distribuídas para o conjunto de dimensionamento por meio da atualização automática da imagem do sistema operacional.
 
 > [!NOTE]

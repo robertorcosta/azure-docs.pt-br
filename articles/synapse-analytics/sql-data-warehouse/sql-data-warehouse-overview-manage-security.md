@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: ce09488e2323aada5f99494ef3920681b685ec0b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7e2d4b47f8f37a8e6d69a7846b8b0f92247121da
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453639"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685184"
 ---
 # <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Proteger um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics
 
@@ -81,9 +81,9 @@ A conta de administrador do servidor com a qual você está se conectando é um 
 
 Há maneiras de limitar ainda mais o que um usuário pode fazer no banco de dados:
 
-* [Permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) granulares permitem controlar quais operações você pode fazer em colunas, tabelas, exibições, esquemas, procedimentos e outros objetos individuais no banco de dados. Use permissões granulares para ter maior controle e conceder as permissões mínimas necessárias.
-* As [funções de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) que não sejam db_datareader e db_datawriter podem ser usadas para criar contas de usuário de aplicativo mais poderosas ou contas de gerenciamento menos poderosas. As funções internas de banco de dados fixo fornecem uma maneira fácil para conceder permissões, mas podem resultar na concessão de mais permissões do que o necessário.
-* [Procedimentos armazenados](/sql/relational-databases/stored-procedures/stored-procedures-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) podem ser usados para limitar as ações que podem ser executadas no banco de dados.
+* [Permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) granulares permitem controlar quais operações você pode fazer em colunas, tabelas, exibições, esquemas, procedimentos e outros objetos individuais no banco de dados. Use permissões granulares para ter maior controle e conceder as permissões mínimas necessárias.
+* As [funções de banco de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) que não sejam db_datareader e db_datawriter podem ser usadas para criar contas de usuário de aplicativo mais poderosas ou contas de gerenciamento menos poderosas. As funções internas de banco de dados fixo fornecem uma maneira fácil para conceder permissões, mas podem resultar na concessão de mais permissões do que o necessário.
+* [Procedimentos armazenados](/sql/relational-databases/stored-procedures/stored-procedures-database-engine?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) podem ser usados para limitar as ações que podem ser executadas no banco de dados.
 
 O exemplo a seguir concede acesso de leitura a um esquema definido pelo usuário.
 
@@ -98,7 +98,7 @@ O gerenciamento de bancos de dados e servidores do portal do Azure ou do uso da 
 
 A Transparent Data Encryption (TDE) ajuda a proteger contra a ameaça de atividades mal-intencionadas Criptografando e descriptografando seus dados em repouso. Quando você criptografa seus banco de dados, os arquivos de log de transações e backups associados são criptografados sem exigir nenhuma alteração em seus aplicativos. A TDE criptografa o armazenamento de um banco de dados inteiro usando uma chave simétrica chamada de chave de criptografia de banco de dados.
 
-No Banco de Dados SQL, a chave de criptografia do banco de dados é protegida por um certificado do servidor interno. O certificado do servidor interno é exclusivo para cada servidor do Azure. A Microsoft gira automaticamente esses certificados pelo menos a cada 90 dias. O algoritmo de criptografia usado é o AES-256. Para obter uma descrição geral da TDE, consulte [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+No Banco de Dados SQL, a chave de criptografia do banco de dados é protegida por um certificado do servidor interno. O certificado do servidor interno é exclusivo para cada servidor do Azure. A Microsoft gira automaticamente esses certificados pelo menos a cada 90 dias. O algoritmo de criptografia usado é o AES-256. Para obter uma descrição geral da TDE, consulte [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Você pode criptografar o banco de dados usando o [portal do Azure](sql-data-warehouse-encryption-tde.md) ou o [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
