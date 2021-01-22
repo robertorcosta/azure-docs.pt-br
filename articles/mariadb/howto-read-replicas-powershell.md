@@ -3,16 +3,16 @@ title: Gerenciar réplicas de leitura-Azure PowerShell-banco de dados do Azure p
 description: Saiba como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o PowerShell.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 713f99f67706caded0694d88ece220373920e555
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 43f0de153a19c0ee7ef44539407c0af4fda61c72
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250509"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664980"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MariaDB usando o PowerShell
 
@@ -57,7 +57,7 @@ O comando `New-AzMariaDbServerReplica` exige os seguintes parâmetros:
 | Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  O grupo de recursos em que o servidor de réplica é criado.  |
-| Name | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
+| Nome | mydemoreplicaserver | O nome do novo servidor de réplica criado. |
 
 Para criar uma réplica de leitura entre regiões, use o parâmetro **Location** . O exemplo a seguir cria uma réplica na região **oeste dos EUA** .
 

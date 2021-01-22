@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1667c21b9a35b8e93feffb8cf1b37d4409da73c3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 1552401953a8cba9dda787a0f0e461adb7972920
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044298"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664445"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -29,11 +29,13 @@ Esta versão deste artigo conclui essas etapas executando um exemplo de [ **scri
 
 ## <a name="prerequisites-download-the-script"></a>Pré-requisitos: baixar o script
 
-O script de exemplo é escrito no PowerShell. Ele faz parte dos [**exemplos de ponta a ponta do Azure digital gêmeos**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *baixar zip* abaixo do título.
+O script de exemplo é escrito no PowerShell. Ele faz parte dos [**exemplos de ponta a ponta do Azure digital gêmeos**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *Procurar código* abaixo do título. Isso o levará para o repositório do GitHub para os exemplos que você pode baixar como um *. ZIP* selecionando o botão de *código* e *baixando o zip*.
 
-Isso baixará o projeto de exemplo em seu computador como _**Azure_Digital_Twins_end_to_end_samples.zip**_. Navegue até a pasta em seu computador e descompacte-a para extrair os arquivos.
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Exibição do repositório digital-gêmeos-Samples no GitHub. O botão código é selecionado, produzindo uma pequena caixa de diálogo na qual o botão baixar ZIP é realçado." lightbox="media/includes/download-repo-zip.png":::
 
-Na pasta descompactada, o script de implantação está localizado em _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_.
+Isso fará o download de um *. Pasta ZIP* em seu computador como **digital-twins-samples-master.zip**. Navegue até a pasta em seu computador e descompacte-a para extrair os arquivos.
+
+Na pasta descompactada, o script de implantação está localizado em _digital-gêmeos-Samples-master > scripts > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +58,7 @@ Aqui estão as etapas para executar o script de implantação no Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção do ícone carregar":::
 
-    Navegue até o arquivo de _**deploy.ps1**_ em seu computador (em _Azure_Digital_Twins_end_to_end_samples scripts de > > **deploy.ps1**_) e pressione "abrir". Isso carregará o arquivo para Cloud Shell para que você possa executá-lo na janela Cloud Shell.
+    Navegue até o arquivo de _**deploy.ps1**_ em seu computador (em _digital-gêmeos-Samples-master > scripts > **deploy.ps1**_) e pressione "abrir". Isso carregará o arquivo para Cloud Shell para que você possa executá-lo na janela Cloud Shell.
 
 4. Execute o script enviando o `./deploy.ps1` comando na janela Cloud Shell. Você pode copiar o comando abaixo (Lembre-se de que para colar em Cloud Shell, você pode usar **Ctrl + Shift + v** no Windows e Linux ou **cmd + shift + v** no MacOS. Você também pode usar o menu do botão direito do mouse.
 

@@ -3,15 +3,15 @@ title: Análise de Desempenho de Consultas-banco de dados do Azure para MariaDB
 description: Este artigo descreve o recurso Análise de Desempenho de Consultas no banco de dados do Azure para MariaDB
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9e8e4527ba1717b4d152f501a38c3c8f65faf70e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536325"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664224"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Análise de Desempenho de Consultas no Banco de Dados do Azure para MariaDB
 
@@ -56,7 +56,7 @@ Você pode clicar e arrastar no gráfico para restringi-lo a uma janela de tempo
 ### <a name="wait-statistics"></a>Estatísticas de espera 
 
 > [!NOTE]
-> As estatísticas de espera servem para solucionar problemas de desempenho da consulta. É recomendável que elas sejam ativadas apenas para fins de solução de problemas. <br>Se você receber a mensagem de erro no portal do Azure " *o problema encontrado para ' Microsoft. DBforMariaDB '; Não é possível atender à solicitação. Se esse problema continuar ou for inesperado, entre em contato com o suporte com essas informações.* " ao exibir as estatísticas de espera, use um período de tempo menor.
+> As estatísticas de espera servem para solucionar problemas de desempenho da consulta. É recomendável que elas sejam ativadas apenas para fins de solução de problemas. <br>Se você receber a mensagem de erro no portal do Azure "*o problema encontrado para ' Microsoft. DBforMariaDB '; Não é possível atender à solicitação. Se esse problema continuar ou for inesperado, entre em contato com o suporte com essas informações.*" ao exibir as estatísticas de espera, use um período de tempo menor.
 
 As estatísticas de espera fornecem uma exibição dos eventos de espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de evento de espera na [documentação do mecanismo MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

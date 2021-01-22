@@ -3,15 +3,15 @@ title: Servidores-Banco de dados do Azure para MariaDB
 description: Este tópico fornece considerações e diretrizes para trabalhar com o Banco de Dados do Azure para servidores MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4d8293258083ea3e8d0172f510e5b41e91328736
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: abe17556d9ff62c44a33bfe4c4546a284785522e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541055"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664122"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceitos de servidor no banco de dados do Azure para MariaDB
 Este artigo fornece considerações e diretrizes para trabalhar com o Banco de Dados do Azure para servidores MariaDB.
@@ -63,6 +63,6 @@ Você pode gerenciar o Banco de Dados do Azure para servidores MariaDB usando o 
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter uma visão geral do serviço, consulte [Banco de Dados do Azure para Visão Geral do MariaDB](./overview.md)
-- Para obter informações sobre cotas e limitações de recursos específicas com base em sua **camada de serviço** , consulte [camadas de serviço](./concepts-pricing-tiers.md)
+- Para obter informações sobre cotas e limitações de recursos específicas com base em sua **camada de serviço**, consulte [camadas de serviço](./concepts-pricing-tiers.md)
 
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

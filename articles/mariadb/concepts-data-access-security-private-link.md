@@ -3,15 +3,15 @@ title: Link privado-banco de dados do Azure para MariaDB
 description: Saiba como o link privado funciona para o banco de dados do Azure para MariaDB.
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: ec43fa995fc9772964db399baa0b6f8c2a7db1db
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 12f52cd497d606fda6bbea9b54f467522373eeb7
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241490"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665133"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Link privado para o banco de dados do Azure para MariaDB
 
@@ -114,9 +114,9 @@ As seguintes situações e resultados são possíveis quando você usa o Link Pr
 
 ## <a name="deny-public-access-for-azure-database-for-mariadb"></a>Negar acesso público para o banco de dados do Azure para MariaDB
 
-Se você quiser contar completamente apenas com pontos de extremidade privados para acessar o banco de dados do Azure para MariaDB, você pode desabilitar a configuração de todos os pontos de extremidade públicos ( [regras de firewall](concepts-firewall-rules.md) e pontos de extremidade de [serviço de VNet](concepts-data-access-security-vnet.md)) definindo a configuração de **acesso de rede pública Deny** no servidor de banco de dados. 
+Se você quiser contar completamente apenas com pontos de extremidade privados para acessar o banco de dados do Azure para MariaDB, você pode desabilitar a configuração de todos os pontos de extremidade públicos ([regras de firewall](concepts-firewall-rules.md) e pontos de extremidade de [serviço de VNet](concepts-data-access-security-vnet.md)) definindo a configuração de **acesso de rede pública Deny** no servidor de banco de dados. 
 
-Quando essa configuração é definida como *Sim* , somente as conexões por meio de pontos de extremidade privados são permitidas para o banco de dados do Azure para MariaDB. Quando essa configuração é definida como *não* , os clientes podem se conectar ao banco de dados do Azure para MariaDB com base em suas configurações de firewall ou ponto de extremidade de serviço de VNet. Além disso, quando o valor do acesso à rede privada é definido, os clientes não podem adicionar e/ou atualizar as existentes ' regras de firewall ' e ' regras de ponto de extremidade de serviço de VNet '.
+Quando essa configuração é definida como *Sim*, somente as conexões por meio de pontos de extremidade privados são permitidas para o banco de dados do Azure para MariaDB. Quando essa configuração é definida como *não*, os clientes podem se conectar ao banco de dados do Azure para MariaDB com base em suas configurações de firewall ou ponto de extremidade de serviço de VNet. Além disso, quando o valor do acesso à rede privada é definido, os clientes não podem adicionar e/ou atualizar as existentes ' regras de firewall ' e ' regras de ponto de extremidade de serviço de VNet '.
 
 > [!Note]
 > Esse recurso está disponível em todas as regiões do Azure em que o banco de dados do Azure para PostgreSQL-o servidor único dá suporte a tipos de preço Uso Geral e com otimização de memória.

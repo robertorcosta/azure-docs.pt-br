@@ -3,15 +3,15 @@ title: Configurar parâmetros do servidor-portal do Azure-banco de dados do Azur
 description: Este artigo descreve como configurar os parâmetros do servidor MariaDB no Banco de Dados do Azure para MariaDB usando o portal do Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 7081535bb709e6731a9a15436334e8742e7bdd08
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: cda6b2bd3d49bd71b4c57d5d459c07b61addb493
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539449"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664793"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mariadb-using-the-azure-portal"></a>Configurar parâmetros de servidor no banco de dados do Azure para MariaDB usando o portal do Azure
 
@@ -23,7 +23,7 @@ O Banco de Dados do Azure para o MariaDB suporta a configuração de alguns par�
 ## <a name="configure-server-parameters"></a>Configurar parâmetros do servidor
 
 1. Entre no portal do Azure e localize o banco de dados do Azure para o servidor MariaDB.
-2. Na seção **CONFIGURAÇÕES** , clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor do Banco de Dados do Azure para o servidor MariaDB.
+2. Na seção **CONFIGURAÇÕES**, clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor do Banco de Dados do Azure para o servidor MariaDB.
 ![Página de parâmetros do servidor do Portal do Azure](./media/howto-server-parameters/azure-portal-server-parameters.png)
 3. Localize as configurações que você precisa ajustar. Examine a coluna **Descrição** para entender a finalidade e os valores permitidos.
 ![Enumerar a lista suspensa](./media/howto-server-parameters/3-toggle_parameter.png)
@@ -36,7 +36,7 @@ O Banco de Dados do Azure para o MariaDB suporta a configuração de alguns par�
 
 Se o parâmetro de servidor que você deseja atualizar não estiver listado no portal do Azure, você poderá, opcionalmente, definir o parâmetro no nível de conexão usando `init_connect` . Isso define os parâmetros de servidor para cada cliente que se conecta ao servidor. 
 
-1. Na seção **CONFIGURAÇÕES** , clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor do Banco de Dados do Azure para o servidor MariaDB.
+1. Na seção **CONFIGURAÇÕES**, clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor do Banco de Dados do Azure para o servidor MariaDB.
 2. Pesquisar por `init_connect`
 3. Adicione os parâmetros de servidor no formato: `SET parameter_name=YOUR_DESIRED_VALUE` em valor, a coluna valor.
 

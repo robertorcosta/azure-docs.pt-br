@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7ddc13306f4adb1730169c4811b9d2227dedca33
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 481a4ff21c361e4cf82a21d9e98357a4c8b7b1b4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632759"
+ms.locfileid: "98663665"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizar o gerenciamento com a extensão SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Este artigo fornece uma visão geral da extensão. Para instalar a extensão SQL
 
 ## <a name="overview"></a>Visão geral
 
-A extensão do agente IaaS SQL Server fornece vários benefícios para SQL Server em VMs do Azure: 
+A extensão do agente IaaS SQL Server permite a integração com o portal do Azure e, dependendo do modo de gerenciamento, o desbloqueia uma série de benefícios de recursos para SQL Server em VMs do Azure: 
 
 - **Benefícios do recurso**: a extensão desbloqueia vários benefícios de recursos de automação, como gerenciamento de portal, flexibilidade de licença, backup automatizado, aplicação de patch automatizada e muito mais. Consulte os [benefícios do recurso](#feature-benefits) mais adiante neste artigo para obter detalhes. 
 
@@ -74,12 +74,13 @@ A tabela a seguir detalha esses benefícios:
 
 | Recurso | Descrição |
 | --- | --- |
-| **Gerenciamento de Portal** | O desbloqueia [o gerenciamento no portal](manage-sql-vm-portal.md), para que você possa exibir todas as suas VMs SQL Server em um único local, para que você possa habilitar e desabilitar recursos específicos do SQL diretamente do Portal. 
-| **Backup automatizado** |Automatiza o agendamento de backups para todos os bancos de dados, seja da instância padrão ou então de uma instância nomeada [corretamente instalada](frequently-asked-questions-faq.md#administration) do SQL Server na VM. Para obter mais informações, confira [Backup automatizado para SQL Server em Máquinas Virtuais do Azure (Resource Manager)](automated-backup-sql-2014.md). |
-| **Aplicação de patch automatizada** |Configura uma janela de manutenção durante a qual as atualizações importantes do Windows e SQL Server segurança para sua VM podem ocorrer, para que você possa evitar atualizações durante horários de pico para sua carga de trabalho. Para saber mais, veja [Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure (Resource Manager)](automated-patching.md). |
-| **Integração do Azure Key Vault** |Permite a instalação e configuração automática do Cofre de Chaves do Azure em sua VM do SQL Server. Para saber mais, confira [Configurar a integração do Azure Key Vault para SQL Server em Máquinas Virtuais do Azure (Resource Manager)](azure-key-vault-integration-configure.md). |
-| **Licenciamento flexível** | Economize em custos por meio da [transição direta](licensing-model-azure-hybrid-benefit-ahb-change.md) da licença traga seu próprio (também conhecida como o benefício híbrido do Azure) para o modelo de licenciamento pago conforme o uso e de volta. | 
-| **Versão/edição flexível** | Se você decidir alterar a [versão](change-sql-server-version.md) ou a [edição](change-sql-server-edition.md) do SQL Server, poderá atualizar os metadados no portal do Azure sem precisar reimplantar toda a VM do SQL Server.  | 
+| **Gerenciamento de Portal** | O desbloqueia [o gerenciamento no portal](manage-sql-vm-portal.md), para que você possa exibir todas as suas VMs SQL Server em um único local, para que você possa habilitar e desabilitar recursos específicos do SQL diretamente do Portal. <br/> Modo de gerenciamento: leve & completo|  
+| **Backup automatizado** |Automatiza o agendamento de backups para todos os bancos de dados, seja da instância padrão ou então de uma instância nomeada [corretamente instalada](frequently-asked-questions-faq.md#administration) do SQL Server na VM. Para obter mais informações, confira [Backup automatizado para SQL Server em Máquinas Virtuais do Azure (Resource Manager)](automated-backup-sql-2014.md). <br/> Modo de gerenciamento: completo|
+| **Aplicação de patch automatizada** |Configura uma janela de manutenção durante a qual as atualizações importantes do Windows e SQL Server segurança para sua VM podem ocorrer, para que você possa evitar atualizações durante horários de pico para sua carga de trabalho. Para saber mais, veja [Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure (Resource Manager)](automated-patching.md). <br/> Modo de gerenciamento: completo|
+| **Integração do Azure Key Vault** |Permite a instalação e configuração automática do Cofre de Chaves do Azure em sua VM do SQL Server. Para saber mais, confira [Configurar a integração do Azure Key Vault para SQL Server em Máquinas Virtuais do Azure (Resource Manager)](azure-key-vault-integration-configure.md). <br/> Modo de gerenciamento: completo|
+| **Exibir a utilização de disco no portal** | Permite exibir uma representação gráfica da utilização de disco de seus arquivos de dados SQL no portal do Azure.  <br/> Modo de gerenciamento: completo | 
+| **Licenciamento flexível** | Economize em custos por meio da [transição direta](licensing-model-azure-hybrid-benefit-ahb-change.md) da licença traga seu próprio (também conhecida como o benefício híbrido do Azure) para o modelo de licenciamento pago conforme o uso e de volta. <br/> Modo de gerenciamento: leve & completo| 
+| **Versão/edição flexível** | Se você decidir alterar a [versão](change-sql-server-version.md) ou a [edição](change-sql-server-edition.md) do SQL Server, poderá atualizar os metadados no portal do Azure sem precisar reimplantar toda a VM do SQL Server.  <br/> Modo de gerenciamento: leve & completo| 
 
 
 ## <a name="management-modes"></a>Modos de gerenciamento

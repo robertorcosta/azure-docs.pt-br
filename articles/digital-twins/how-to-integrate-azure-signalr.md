@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d84acc5501b3d40f6db85d0ee6ee369aec5a6aa4
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 71e74789654d2df91d9a087eaaf8d8f2a2664f7b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051098"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664105"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrar o gêmeos digital do Azure ao serviço de Signaler do Azure
 
@@ -40,7 +40,11 @@ Você estará anexando o serviço de Signalr do Azure ao gêmeos digital do Azur
 
 Primeiro, baixe os aplicativos de exemplo necessários. Você precisará dos seguintes itens:
 * [**Exemplos de ponta a ponta do Azure digital gêmeos**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Este exemplo contém um *AdtSampleApp* que mantém duas funções do Azure para mover dados em uma instância do Azure digital gêmeos (você pode aprender sobre esse cenário mais detalhadamente no [*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)). Ele também contém um aplicativo de exemplo *DeviceSimulator* que simula um dispositivo IOT, gerando um novo valor de temperatura a cada segundo. 
-    - Navegue até o link de exemplo e clique no botão *baixar zip* para baixar uma cópia do exemplo em seu computador, como _**Azure_Digital_Twins_end_to_end_samples.zip**_. Descompacte a pasta.
+    - Se você ainda não baixou o exemplo como parte do tutorial em [*pré-requisitos*](#prerequisites), navegue até o link de exemplo e selecione o botão *Procurar código* abaixo do título. Isso o levará para o repositório do GitHub para os exemplos que você pode baixar como um *. ZIP* selecionando o botão de *código* e *baixando o zip*.
+
+    :::image type="content" source="media/includes/download-repo-zip.png" alt-text="Exibição do repositório digital-gêmeos-Samples no GitHub. O botão código é selecionado, produzindo uma pequena caixa de diálogo na qual o botão baixar ZIP é realçado." lightbox="media/includes/download-repo-zip.png":::
+
+    Isso baixará uma cópia do repositório de exemplo em seu computador, como **digital-twins-samples-master.zip**. Descompacte a pasta.
 * [**Exemplo de aplicativo Web de integração do signalr**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): Este é um aplicativo Web de reação de exemplo que consumirá dados de telemetria do gêmeos digital do Azure de um serviço de Signaler do Azure.
     -  Navegue até o link de exemplo e clique no botão *baixar zip* para baixar uma cópia do exemplo em seu computador, como _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Descompacte a pasta.
 
@@ -63,7 +67,7 @@ Primeiro, vá para o navegador em que o portal do Azure está aberto e conclua a
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Captura de tela da portal do Azure que mostra a página de chaves para a instância do Signalr. O ícone ' copiar para área de transferência ' ao lado da cadeia de conexão primária é realçado." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-Em seguida, inicie o Visual Studio (ou outro editor de código de sua escolha) e abra a solução de código na pasta *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp* . Em seguida, execute as seguintes etapas para criar as funções:
+Em seguida, inicie o Visual Studio (ou outro editor de código de sua escolha) e abra a solução de código na pasta *digital-gêmeos-Samples-master > ADTSampleApp* . Em seguida, execute as seguintes etapas para criar as funções:
 
 1. Crie uma nova classe Sharp C# chamada **SignalRFunctions.cs** no projeto *SampleFunctionsApp* .
 
@@ -71,7 +75,7 @@ Em seguida, inicie o Visual Studio (ou outro editor de código de sua escolha) e
     
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/signalRFunction.cs":::
 
-1. Na janela do *console do Gerenciador de pacotes* do Visual Studio ou em qualquer janela de comando em seu computador na pasta *Azure_Digital_Twins_end_to_end_samples \adtsampleapp\samplefunctionsapp* , execute o seguinte comando para instalar o `SignalRService` pacote NuGet no projeto:
+1. Na janela do *console do Gerenciador de pacotes* do Visual Studio ou em qualquer janela de comando em seu computador na pasta *digital-Twins-Samples-master\AdtSampleApp\SampleFunctionsApp* , execute o seguinte comando para instalar o `SignalRService` pacote NuGet no projeto:
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
@@ -126,7 +130,7 @@ Nesta seção, você verá o resultado em ação. Primeiro, você iniciará o **
 
 Durante o pré-requisito do tutorial de ponta a ponta, você [configurou o simulador de dispositivo](tutorial-end-to-end.md#configure-and-run-the-simulation) para enviar dados por meio de um hub IOT e para sua instância de gêmeos digital do Azure.
 
-Agora, tudo o que você precisa fazer é iniciar o projeto de simulador, localizado em *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator. sln*. Se você estiver usando o Visual Studio, poderá abrir o projeto e executá-lo com esse botão na barra de ferramentas:
+Agora, tudo o que você precisa fazer é iniciar o projeto de simulador, localizado em *digital-gêmeos-Samples-master > DeviceSimulator > DeviceSimulator. sln*. Se você estiver usando o Visual Studio, poderá abrir o projeto e executá-lo com esse botão na barra de ferramentas:
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="O botão de início do Visual Studio (projeto DeviceSimulator)":::
 
@@ -188,7 +192,7 @@ Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os
 az group delete --name <your-resource-group>
 ```
 
-Por fim, exclua as pastas de exemplo do projeto que você baixou para o computador local (*Azure_Digital_Twins_end_to_end_samples.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
+Por fim, exclua as pastas de exemplo do projeto que você baixou para o computador local (*digital-twins-samples-master.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
 
 ## <a name="next-steps"></a>Próximas etapas
 

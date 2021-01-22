@@ -3,15 +3,15 @@ title: Configurar alertas de métrica-portal do Azure-banco de dados do Azure pa
 description: Este artigo descreve como configurar e acessar os alertas de métricas para o Banco de Dados do Azure para MariaDB usando o portal do Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: e108ca3aa346af20b31ff446130014e1250f49c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1e7dafaba6b6792afdec1f1866629fac9ba5a577
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541072"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664411"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usar o portal do Azure para configurar alertas de métricas no Banco de Dados do Azure para MariaDB
 
@@ -42,19 +42,19 @@ Você pode configurar e obter informações sobre as regras de alerta usando:
 
    ![Formulário Adicionar alerta de métrica](./media/howto-alert-metric/4-add-rule-form.png)
 
-5. Dentro da seção **Condição** , selecione **Adicionar condição**.
+5. Dentro da seção **Condição**, selecione **Adicionar condição**.
 
 6. Selecione uma métrica da lista de sinais sobre a qual deseja ser alertado. Neste exemplo, selecione "Porcentagem de armazenamento".
    
    ![Selecionar métrica](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo** , o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência**.
+7. Configure a lógica de alerta, incluindo a **Condição** (por exemplo, "Maior que"), o **Limite** (por exemplo, 85%), a **Agregação de Tempo**, o **Período** durante o qual a regra de métrica deverá ser atendida antes de o alerta disparar (por exemplo, "Nos últimos 30 minutos") e **frequência**.
    
    Selecione **Concluído** ao concluir.
 
    ![Selecionar métrica 2](./media/howto-alert-metric/7-set-threshold-time.png)
 
-8. Dentro da seção **Grupos de Ações** , selecione **Criar Novo** para criar um novo grupo para receber notificações sobre o alerta.
+8. Dentro da seção **Grupos de Ações**, selecione **Criar Novo** para criar um novo grupo para receber notificações sobre o alerta.
 
 9. Preencha o formulário "Adicionar grupo de ações" com um nome, o nome curto, a assinatura e o grupo de recursos.
 

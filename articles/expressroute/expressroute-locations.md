@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/05/2021
+ms.date: 01/21/2021
 ms.author: duau
-ms.openlocfilehash: c68d9654c673b75742205853ec186caa5d6a3ce5
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 589f8bef7e5023a3667ce0ebf9a14637b007223d
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916143"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664054"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros de conectividade do ExpressRoute
 
@@ -93,7 +93,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Chief Telecom](https://www.chief.com.tw/)** |Com suporte |Com suporte |Hong Kong, Taipé |
 | **China Mobile International** |Com suporte |Com suporte | Hong Kong, Hong Kong2, Cingapura |
 | **China Telecom Global** |Com suporte |Com suporte |Hong Kong, Hong Kong2 |
-| **China Unicom Global** |Com suporte |Com suporte | Singapura 2 |
+| **China Unicom Global** |Com suporte |Com suporte | Hong Kong, Cingapura2 |
 | **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Com suporte |Com suporte |Taipé |
 | **[Claro](https://www.usclaro.com/enterprise-mnc/connectivity/mpls/)** |Com suporte |Com suporte |Miami |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Com suporte |Com suporte |Chicago, Dallas, Minneapolis, Montreal, Toronto, Vancouver, Washington, D.c. |
@@ -121,6 +121,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Internet Initiative Japan Inc. - IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Com suporte |Com suporte |Osaka, Tóquio |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Com suporte |Com suporte |Cidade do Cabo, Joanesburgo, Londres |
 | **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Com suporte |Com suporte |Amsterdã, Amsterdam2, Copenhague, Dublin, Frankfurt, Londres, Marselha, Paris, Zurique |
+| **[IRIDEOS](https://irideos.it/)** |Com suporte |Com suporte |Milão |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Com suporte |Com suporte | Amsterdã, Londres 2, Vale do Silício, Toronto, Washington D.C. |
 | **Jaguar Network** |Com suporte |Com suporte |Marselha, Paris |
 | **[Jisc](https://www.jisc.ac.uk/microsoft-azure-expressroute)** |Com suporte |Com suporte |Londres, Newport (Gales) |
@@ -159,7 +160,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | Com suporte | Com suporte | Zurique |
 | **[Tata Communications](https://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Com suporte |Com suporte |Amsterdã, Chennai, RAE de Hong Kong, Londres, Mumbai, São Paulo, Vale do Silício, Singapura, Washington D.C. |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Com suporte |Com suporte |Amsterdã, São Paulo |
-| **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Com suporte |Com suporte |Londres, London2 |
+| **[Telehouse - KDDI](https://www.telehouse.net/solutions/cloud-services/cloud-link)** |Com suporte |Com suporte |Londres, London2, Cingapura2 |
 | **Telenor** |Com suporte |Com suporte |Amsterdã, Londres, Oslo |
 | **[Telia Carrier](https://www.teliacarrier.com/)** | Com suporte | Com suporte |Amsterdã, Chicago, Dallas, Frankfurt, Hong Kong, Londres, Oslo, Paris, Vale do Silício, Estocolmo, Washington D.C. |
 | **[Telin](https://www.telin.net/)** | Com suporte | Com suporte |Jacarta |
@@ -168,16 +169,16 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Telus](https://www.telus.com)** |Com suporte |Com suporte |Montreal, Seattle, Toronto, Vancouver |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Com suporte |Com suporte |Cidade do Cabo, Joanesburgo |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Com suporte | Com suporte | Kuala Lumpur |
-| **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | Suportado | Suportado | Osaka, Tokyo2 |
-| **[Transtelco](https://transtelco.net/enterprise-services/)** |Com suporte |Suportado |Dallas, Queretaro (México)|
+| **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | Com suporte | Com suporte | Osaka, Tokyo2 |
+| **[Transtelco](https://transtelco.net/enterprise-services/)** |Com suporte |Com suporte |Dallas, Queretaro (México)|
 | **T-Systems** |Com suporte |Com suporte |Frankfurt|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Com suporte |Com suporte |São Paulo |
-| **[UIH](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)** | Suportado | Com suporte | Bancoc |
+| **[UIH](https://www.uih.co.th/en/network-solutions/global-network/cloud-direct-for-microsoft-azure-expressroute)** | Com suporte | Com suporte | Bancoc |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, RAE de Hong Kong, Londres, Mumbai, Vale do Silício, Singapura, Sydney, Tóquio, Toronto, Washington D.C. |
 | **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Com suporte | Com suporte | Washington D.C. 2 |
 | **[Vocus Group NZ](https://www.vocus.co.nz/business/cloud-data-centres)** | Com suporte | Com suporte | Auckland, Sydney |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Com suporte |Com suporte |Amsterdam2, Londres, Singapura |
-| **[Vodafone Idea](https://www.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Com suporte | Suportado | Mumbai2 |
+| **[Vodafone Idea](https://www.vodafone.in/business/enterprise-solutions/connectivity/vpn-extended-connect)** | Com suporte | Com suporte | Mumbai2 |
 | **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Denver, Londres, Los Angeles, Montreal, Nova York, Paris, Seattle, Vale do Silício, Toronto, Washington D.C., Washington D.C. 2 |
 
  **+** indica que haverá em breve

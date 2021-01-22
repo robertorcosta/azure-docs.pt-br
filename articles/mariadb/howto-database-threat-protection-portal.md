@@ -3,15 +3,15 @@ title: Proteção avançada contra ameaças-portal do Azure-banco de dados do Az
 description: A proteção contra ameaças do banco de dados do Azure para MariaDB detecta atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 7734feddabb1a4a86e7932da3ef4adc57352637e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 33bc93c62c32010e28cc8bb783bcef6f40700ca0
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542687"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665099"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Proteção avançada contra ameaças para o banco de dados do Azure para MariaDB
 
@@ -28,10 +28,10 @@ A Proteção Avançada contra Ameaças faz parte da oferta de Segurança Avança
 ## <a name="set-up-threat-detection"></a>Configurar detecção de ameaças
 1. Inicie o portal do Azure em [https://portal.azure.com](https://portal.azure.com) .
 2. Navegue até a página de configuração do banco de dados do Azure para o servidor MariaDB que você deseja proteger. Nas configurações de segurança, selecione **Proteção Avançada contra Ameaças (versão prévia)**.
-3. Na página de configuração de **Proteção Avançada contra Ameaças (versão prévia)** :
+3. Na página de configuração de **Proteção Avançada contra Ameaças (versão prévia)**:
 
    - Habilite a Proteção Avançada contra Ameaças no servidor.
-   - Em **Configurações de Proteção Avançada contra Ameaças** , na caixa de texto **Enviar alertas para** , forneça a lista de endereços de email para receber alertas de segurança em caso de detecção de atividades anômalas em banco de dados.
+   - Em **Configurações de Proteção Avançada contra Ameaças**, na caixa de texto **Enviar alertas para**, forneça a lista de endereços de email para receber alertas de segurança em caso de detecção de atividades anômalas em banco de dados.
   
    ![Configurar detecção de ameaças](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 

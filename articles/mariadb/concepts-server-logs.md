@@ -3,15 +3,15 @@ title: Logs de consulta lentos-banco de dados do Azure para MariaDB
 description: Descreve os logs disponíveis no Banco de Dados do Azure para MariaDB para os parâmetros disponíveis para habilitar níveis de log diferentes.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: a5acf3b6447b2e3722a27951700138f756a99251
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 2d3c3c92cc4d0da38f18c7895f4f7f3f3385c653
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541106"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664156"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Logs de consulta lentos no banco de dados do Azure para MariaDB
 No Banco de Dados do Azure para MariaDB, o log de consultas lentas está disponível para os usuários. No entanto, não há suporte para acesso ao log de transação. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
@@ -25,11 +25,11 @@ Por padrão, o log de consultas lentas está desabilitado. Para habilitá-lo, de
 
 Outros parâmetros que você pode ajustar incluem:
 
-- **long_query_time** : se uma consulta demorar mais do que long_query_time (em segundos), essa consulta será registrada. O padrão é 10 segundos.
-- **log_slow_admin_statements** : se ON inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas para o slow_query_log.
-- **log_queries_not_using_indexes** : determina se as consultas que não usam índices são ou não registradas para o slow_query_log
-- **log_throttle_queries_not_using_indexes** : este parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro tem efeito quando log_queries_not_using_indexes está definido como ON.
-- **log_output** : se "File", permite que o log de consultas lentas seja gravado no armazenamento do servidor local e em Azure monitor logs de diagnóstico. Se for "None", o log de consultas lentas só será gravado em logs de diagnóstico do Azure Monitor. 
+- **long_query_time**: se uma consulta demorar mais do que long_query_time (em segundos), essa consulta será registrada. O padrão é 10 segundos.
+- **log_slow_admin_statements**: se ON inclui instruções administrativas como ALTER_TABLE e ANALYZE_TABLE nas instruções gravadas para o slow_query_log.
+- **log_queries_not_using_indexes**: determina se as consultas que não usam índices são ou não registradas para o slow_query_log
+- **log_throttle_queries_not_using_indexes**: este parâmetro limita o número de consultas que não são de índice que podem ser gravadas no log de consultas lentas. Esse parâmetro tem efeito quando log_queries_not_using_indexes está definido como ON.
+- **log_output**: se "File", permite que o log de consultas lentas seja gravado no armazenamento do servidor local e em Azure monitor logs de diagnóstico. Se for "None", o log de consultas lentas só será gravado em logs de diagnóstico do Azure Monitor. 
 
 > [!IMPORTANT]
 > Se as tabelas não estiverem indexadas, definir `log_queries_not_using_indexes` os `log_throttle_queries_not_using_indexes` parâmetros e como on pode afetar o desempenho do MariaDB, pois todas as consultas em execução nessas tabelas não indexadas serão gravadas no log de consultas lentas.<br><br>
@@ -40,7 +40,7 @@ Consulte a [documentação de log de consulta lenta](https://mariadb.com/kb/en/l
 ## <a name="access-slow-query-logs"></a>Acessar logs de consulta lentos
 Há duas opções para acessar logs de consulta lentos no banco de dados do Azure para MariaDB: armazenamento de servidor local ou logs de diagnóstico de Azure Monitor. Isso é definido usando o `log_output` parâmetro.
 
-Para o armazenamento do servidor local, você pode listar e baixar logs de consulta lentos usando o portal do Azure ou o CLI do Azure. Na portal do Azure, navegue até o servidor na portal do Azure. Sob o título **Monitoramento** , selecione a página **Logs do Servidor**. Para obter mais informações sobre a CLI do Azure, consulte [Configurar e acessar logs de servidor usando a CLI do Azure](howto-configure-server-logs-cli.md). 
+Para o armazenamento do servidor local, você pode listar e baixar logs de consulta lentos usando o portal do Azure ou o CLI do Azure. Na portal do Azure, navegue até o servidor na portal do Azure. Sob o título **Monitoramento**, selecione a página **Logs do Servidor**. Para obter mais informações sobre a CLI do Azure, consulte [Configurar e acessar logs de servidor usando a CLI do Azure](howto-configure-server-logs-cli.md). 
 
 Azure Monitor logs de diagnóstico permite canalizar logs de consulta lentos para Azure Monitor logs (Log Analytics), armazenamento do Azure ou hubs de eventos. Consulte [abaixo](concepts-server-logs.md#diagnostic-logs) para obter mais informações.
 

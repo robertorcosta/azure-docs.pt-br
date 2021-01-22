@@ -3,15 +3,15 @@ title: Backup e restauração-portal do Azure-banco de dados do Azure para Maria
 description: Este artigo descreve como restaurar um servidor no Banco de Dados do Azure para MariaDB usando o Portal do Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 4a5f2cc4cbf73f5c13533a94f1454022d3538880
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 06da58b5c82af39abbaa1cbc15a217c25d7808f9
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539618"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664810"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MariaDB usando o Portal do Azure
 
@@ -30,14 +30,14 @@ Escolha entre configurar o servidor para backups com redundância local ou backu
 > Depois que um servidor é criado, o tipo de redundância que ele tem, geográfica ou local, não pode ser alternado.
 >
 
-Ao criar um servidor por meio do portal do Azure, a janela **Tipo de Preço** é onde você seleciona backups **Com Redundância Local** ou **Com Redundância Geográfica** para o servidor. Essa janela também é onde você seleciona o **Período de Retenção de Backup** : quanto tempo (em número de dias) você deseja que os backups de servidor sejam armazenados.
+Ao criar um servidor por meio do portal do Azure, a janela **Tipo de Preço** é onde você seleciona backups **Com Redundância Local** ou **Com Redundância Geográfica** para o servidor. Essa janela também é onde você seleciona o **Período de Retenção de Backup**: quanto tempo (em número de dias) você deseja que os backups de servidor sejam armazenados.
 
    ![Tipo de preço - Escolher redundância de backup](./media/howto-restore-server-portal/pricing-tier.png)
 
 Para saber mais sobre como definir esses valores de durante a criação, confira [início rápido do servidor do Banco de Dados do Azure para MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 O período de retenção de backup pode ser alterado em um servidor por meio das seguintes etapas:
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione o servidor do Banco de Dados do Azure para MariaDB. Essa ação abre a página **Visão geral** do runbook.
 
@@ -64,10 +64,10 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 3. Preencha o formulário Restaurar com as informações necessárias:
 
    ![Banco de Dados do Azure para MariaDB – Informações sobre restauração](./media/howto-restore-server-portal/3-restore.png)
-   - **Ponto de restauração** : selecione o ponto para o qual você deseja restaurar.
-   - **Servidor de destino** : forneça um nome para o novo servidor.
-   - **Local** : não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
-   - **Tipo de preço** : você não pode alterar esses parâmetros ao fazer uma restauração pontual. Ele é igual ao servidor de origem. 
+   - **Ponto de restauração**: selecione o ponto para o qual você deseja restaurar.
+   - **Servidor de destino**: forneça um nome para o novo servidor.
+   - **Local**: não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
+   - **Tipo de preço**: você não pode alterar esses parâmetros ao fazer uma restauração pontual. Ele é igual ao servidor de origem. 
 
 4. Clique em **OK** para restaurar o servidor em um ponto anterior. 
 
@@ -89,7 +89,7 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
 
 3. Selecione **backup** como a **fonte de dados**. Essa ação carrega um menu suspenso que fornece uma lista de servidores que têm backups com redundância geográfica habilitada.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selecione a fonte de dados.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selecione uma fonte de dados.":::
     
    > [!NOTE]
    > Quando um servidor é criado pela primeira vez, talvez não fique imediatamente disponível para restauração geográfica. Pode demorar algumas horas para que os metadados necessários sejam preenchidos.
@@ -103,13 +103,13 @@ Se você configurou seu servidor para backups com redundância geográfica, um n
    
    :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selecione backup.":::
 
-6. O servidor usará como padrão os valores para o número de **vCores** , o **período de retenção de backup** , a opção de redundância de **backup** , a **versão do mecanismo** e **as credenciais de administrador**. Selecione **Continuar**. 
+6. O servidor usará como padrão os valores para o número de **vCores**, o **período de retenção de backup**, a opção de redundância de **backup**, a **versão do mecanismo** e **as credenciais de administrador**. Selecione **Continuar**. 
    
    :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continue com o backup.":::
 
 7. Preencha o restante do formulário com suas preferências. Você pode selecionar qualquer **Local**.
 
-    Depois de selecionar o local, você pode selecionar **Configurar servidor** para atualizar **a geração de computação** (se disponível na região que você escolheu), o número de **VCores** , o período de retenção de **backup** e a opção de **redundância de backup**. Não há suporte para a alteração do **Tipo de Preço** (Básico, Uso Geral ou Otimizado para Memória) ou do tamanho de **Armazenamento** durante a restauração.
+    Depois de selecionar o local, você pode selecionar **Configurar servidor** para atualizar **a geração de computação** (se disponível na região que você escolheu), o número de **VCores**, o período de retenção de **backup** e a opção de **redundância de backup**. Não há suporte para a alteração do **Tipo de Preço** (Básico, Uso Geral ou Otimizado para Memória) ou do tamanho de **Armazenamento** durante a restauração.
 
    :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Preencher formulário."::: 
 

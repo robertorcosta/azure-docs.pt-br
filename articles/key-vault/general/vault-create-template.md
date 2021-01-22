@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 24fef1680c5660a70a20ae727833b045f6c5aa88
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933924"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664343"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Como criar um cofre de chaves do Azure e uma política de acesso do cofre usando um modelo do Resource Manager
 
@@ -150,7 +150,7 @@ Você pode implantar políticas de acesso a um cofre de chaves existente sem rei
             "permissions": {
               "keys": "[parameters('keysPermissions')]",
               "secrets": "[parameters('secretsPermissions')]",
-              "certificates": [parameters('certificatesPermissions')]
+              "certificates": "[parameters('certificatesPermissions')]"
             }
           }
         ]
@@ -160,6 +160,7 @@ Você pode implantar políticas de acesso a um cofre de chaves existente sem rei
 }
 
 ```
+
 Para obter mais informações sobre Key Vault configurações de modelo, consulte [referência de modelo do ARM Key Vault](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Mais modelos do Key Vault Resource Manager
@@ -186,7 +187,7 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-
 az deployment group create --resource-group ExampleGroup --template-file key-vault-template.json
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você planeja continuar com os tutoriais e guias de início rápido subsequentes, poderá deixar esses recursos em vigor. Quando você não precisar mais dos recursos, exclua o grupo de recursos. Se você excluir o grupo, o cofre de chaves e os recursos relacionados também serão excluídos. Para excluir o grupo de recursos usando o CLI do Azure ou Azure PowerShell, conclua estas etapas:
 
@@ -213,10 +214,10 @@ Write-Host "Press [ENTER] to continue..."
 
 - Leia uma [visão geral do Azure Key Vault](../general/overview.md).
 - Saiba mais sobre [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Examinar a [visão geral da segurança do Azure Key Vault](security-overview.md)
+- Examine a [Visão geral de segurança do Azure Key Vault](security-overview.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Proteger o acesso a um cofre de chaves](secure-your-key-vault.md)
 - [Autenticar em um cofre de chaves](authentication.md)
-- [Guia do desenvolvedor do Cofre da Chave do Azure](developers-guide.md)
+- [Guia do desenvolvedor de Azure Key Vault](developers-guide.md)
