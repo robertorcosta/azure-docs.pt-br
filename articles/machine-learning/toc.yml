@@ -70,10 +70,6 @@
         - name: Rotular dados de imagem
           displayName: 'tag, tagging, images'
           href: tutorial-labeling.md
-    - name: SDK do R
-      items:
-        - name: Criar seu primeiro experimento do ML (R)
-          href: tutorial-1st-r-experiment.md
     - name: CLI
       items:
         - name: Treinar e implantar com a CLI
