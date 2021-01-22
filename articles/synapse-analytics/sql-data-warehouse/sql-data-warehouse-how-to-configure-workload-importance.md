@@ -11,12 +11,12 @@ ms.date: 05/15/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 067551d198f717dd40995cb8bc3e1345e82f078f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 38fb842cf90c110266f53b79a9ab2ef6157025b4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461909"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681278"
 ---
 # <a name="configure-workload-importance-in-dedicated-sql-pool-for-azure-synapse-analytics"></a>Configurar a importância da carga de trabalho no pool de SQL dedicado para o Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ A definição da importância no pool SQL dedicado para o Azure Synapse permite 
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Criar um Classificador de Carga de Trabalho com Importância
 
-Normalmente, em um cenário de data warehouse, há usuários em um sistema ocupado que precisam realizar consultas com rapidez.  O usuário pode ser um executivo da empresa que precisa fazer relatórios ou um analista fazendo uma consulta adhoc. Para atribuir importância, você cria um classificador de carga de trabalho e a importância é atribuída a uma consulta.  Os exemplos abaixo usam a sintaxe [criar classificador de força de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar dois classificadores. `Membername` pode ser um único usuário ou um grupo.  Para localizar usuários do pool SQL dedicados existentes, execute:
+Normalmente, em um cenário de data warehouse, há usuários em um sistema ocupado que precisam realizar consultas com rapidez.  O usuário pode ser um executivo da empresa que precisa fazer relatórios ou um analista fazendo uma consulta adhoc. Para atribuir importância, você cria um classificador de carga de trabalho e a importância é atribuída a uma consulta.  Os exemplos abaixo usam a sintaxe [criar classificador de força de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para criar dois classificadores. `Membername` pode ser um único usuário ou um grupo.  Para localizar usuários do pool SQL dedicados existentes, execute:
 
 ```sql
 Select name from sys.sysusers

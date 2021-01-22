@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: b033fd9c0a7f752cf08d6e679facc9fa27b44037
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d8c680ec30dcecc56c064f08e4690cbbde9c2377
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120199"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679906"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e restauração no pool SQL dedicado do Azure Synapse
 
@@ -88,7 +88,7 @@ Para obter mais informações sobre os preços do Azure Synapse, consulte [preç
 
 Cada instantâneo cria um ponto de restauração que representa a hora em que o instantâneo é iniciado. Para restaurar um data warehouse, escolha um ponto de restauração e emita um comando de restauração.  
 
-É possível manter o data warehouse restaurado e o atual ou excluir um deles. Se desejar substituir o data warehouse atual pelo data warehouse restaurado, você poderá renomeá-lo usando [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) com a opção Modify Name.
+É possível manter o data warehouse restaurado e o atual ou excluir um deles. Se desejar substituir o data warehouse atual pelo data warehouse restaurado, você poderá renomeá-lo usando [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) com a opção Modify Name.
 
 Para restaurar um data warehouse, consulte [restaurar um pool SQL dedicado](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 

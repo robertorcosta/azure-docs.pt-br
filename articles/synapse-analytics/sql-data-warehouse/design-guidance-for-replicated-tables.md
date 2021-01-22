@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7dcb884d8eafdfa5218e96d63f62a5d462d20cf8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456487"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679923"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Diretrizes de design para usar tabelas replicadas no pool de SQL do Synapse
 
@@ -46,8 +46,8 @@ As tabelas replicadas funcionam bem nas tabelas de dimensões em um esquema em e
 
 Considere usar uma tabela replicada quando:
 
-- O tamanho da tabela no disco for menor que 2 GB, independentemente do número de linhas. Para localizar o tamanho de uma tabela, você pode usar o comando [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
-- A tabela é usada em junções que normalmente exigiriam a movimentação de dados. Ao unir tabelas que não são distribuídas na mesma coluna, como uma tabela distribuída em hash a uma tabela round robin, a movimentação de dados é necessária para concluir a consulta.  Se uma das tabelas é pequena, considere uma tabela replicada. É recomendável usar tabelas replicadas em vez de tabelas round robin na maioria dos casos. Para exibir as operações de movimentação de dados em planos de consulta, use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  O BroadcastMoveOperation é a operação de movimentação de dados típica que pode ser eliminada por meio de uma tabela replicada.  
+- O tamanho da tabela no disco for menor que 2 GB, independentemente do número de linhas. Para localizar o tamanho de uma tabela, você pode usar o comando [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
+- A tabela é usada em junções que normalmente exigiriam a movimentação de dados. Ao unir tabelas que não são distribuídas na mesma coluna, como uma tabela distribuída em hash a uma tabela round robin, a movimentação de dados é necessária para concluir a consulta.  Se uma das tabelas é pequena, considere uma tabela replicada. É recomendável usar tabelas replicadas em vez de tabelas round robin na maioria dos casos. Para exibir as operações de movimentação de dados em planos de consulta, use [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  O BroadcastMoveOperation é a operação de movimentação de dados típica que pode ser eliminada por meio de uma tabela replicada.  
 
 As tabelas replicadas poderão não render o melhor desempenho de consulta quando:
 
@@ -78,7 +78,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 
 Se você já tiver tabelas round robin, é recomendável convertê-las em tabelas replicadas se elas atenderem aos critérios descritos neste artigo. As tabelas replicadas melhoram o desempenho em tabelas round robin porque elas eliminam a necessidade da movimentação de dados.  Uma tabela round robin sempre requer a movimentação de dados para as junções.
 
-Este exemplo usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para alterar a tabela DimSalesTerritory para uma tabela replicada. Este exemplo funciona independentemente de DimSalesTerritory ser distribuído por hash ou por round robin.
+Este exemplo usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para alterar a tabela DimSalesTerritory para uma tabela replicada. Este exemplo funciona independentemente de DimSalesTerritory ser distribuído por hash ou por round robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
@@ -99,7 +99,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Exemplo de desempenho de consulta de round-robin versus replicado
 
-Uma tabela replicada não requer nenhuma movimentação de dados para as junções porque a tabela completa já está presente em cada nó de computação. Se as tabelas de dimensões forem distribuídas por round robin, uma união copiará a tabela de dimensões na íntegra para cada nó de computação. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Esse tipo de operação de movimentação de dados reduz o desempenho da consulta e é eliminada usando tabelas replicadas. Para exibir as etapas do plano de consulta, use a exibição de catálogo do sistema [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+Uma tabela replicada não requer nenhuma movimentação de dados para as junções porque a tabela completa já está presente em cada nó de computação. Se as tabelas de dimensões forem distribuídas por round robin, uma união copiará a tabela de dimensões na íntegra para cada nó de computação. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Esse tipo de operação de movimentação de dados reduz o desempenho da consulta e é eliminada usando tabelas replicadas. Para exibir as etapas do plano de consulta, use a exibição de catálogo do sistema [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 
 Por exemplo, na consulta a seguir em relação ao esquema AdventureWorks, a tabela `FactInternetSales` é distribuída em hash. As tabelas `DimDate` e `DimSalesTerritory` são tabelas de dimensões menores. Esta consulta retorna o total de vendas na América do Norte, do ano fiscal de 2004:
 
@@ -170,7 +170,7 @@ Por exemplo, esse padrão de carga carrega dados de quatro fontes, mas invoca ap
 
 Para garantir tempos de execução de consulta consistentes, considere forçar a compilação das tabelas replicadas após um carregamento em lote. Caso contrário, a primeira consulta ainda usará a movimentação de dados para concluir a consulta.
 
-Essa consulta usa o DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para listar as tabelas replicadas que foram modificadas, mas não foram recompiladas.
+Essa consulta usa o DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para listar as tabelas replicadas que foram modificadas, mas não foram recompiladas.
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
@@ -193,7 +193,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 Para criar uma tabela replicada, use uma dessas instruções:
 
-- [CREATE TABLE (pool de SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (pool de SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (pool de SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE AS SELECT (pool de SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 Para obter uma visão geral das tabelas distribuídas, consulte [Tabelas distribuídas](sql-data-warehouse-tables-distribute.md).

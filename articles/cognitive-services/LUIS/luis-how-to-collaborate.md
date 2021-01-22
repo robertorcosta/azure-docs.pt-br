@@ -3,18 +3,20 @@ title: Colaborar com outras pessoas – LUIS
 titleSuffix: Azure Cognitive Services
 description: Um proprietário de aplicativo pode adicionar colaboradores ao recurso de criação. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo.
 services: cognitive-services
+author: aahill
+ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.openlocfilehash: d4bde21dd13b562ffbb51b27ef083ee53685397a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 01/21/2021
+ms.openlocfilehash: ea95b2097c611635eb937498c6f1d87cb544bcd1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007952"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681087"
 ---
 # <a name="add-contributors-to-your-app"></a>Adicionar colaboradores ao seu aplicativo
 
@@ -66,9 +68,7 @@ LUIS usa o fluxo de autorização padrão do Azure Active Directory (Azure AD).
 O administrador do locatário deverá trabalhar diretamente com o usuário que precisa de ter o acesso concedido para usar LUIS no Azure AD.
 
 * Primeiro, o usuário faz logon no LUIS e verá a caixa de diálogo pop-up que necessita de aprovação do administrador. O usuário entra em contato com o administrador do locatário antes de continuar.
-* Segundo, o administrador do locatário faz logon no LUIS e verá uma caixa de diálogo de pop-up de fluxo de autorização. Esta é a caixa de diálogo que o administrador deve conceder permissão para o usuário. Depois que o administrador aceita a permissão, o usuário pode continuar com o LUIS. Se o administrador do locatário não fizer logon no LUIS, o administrador pode acessar [consentimento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS, mostrado na captura de tela a seguir. Observe que a lista é filtrada para itens que incluem o nome `LUIS`.
-
-![Permissão do Azure Active Directory pelo website do aplicativo](./media/luis-how-to-collaborate/tenant-permissions.png)
+* Segundo, o administrador do locatário faz logon no LUIS e verá uma caixa de diálogo de pop-up de fluxo de autorização. Esta é a caixa de diálogo que o administrador deve conceder permissão para o usuário. Depois que o administrador aceita a permissão, o usuário pode continuar com o LUIS. Se o administrador do locatário não fizer logon no LUIS, o administrador pode acessar [consentimento](https://account.activedirectory.windowsazure.com/r#/applications) para LUIS. Nessa página, você pode filtrar a lista para itens que incluem o nome `LUIS` .
 
 Se o administrador de locatários desejar que somente determinados usuários usem o LUIS, haverá duas soluções possíveis:
 * Fornecer o "consentimento do administrador" (consentimento a todos os usuários do Azure AD), mas, em seguida, definir como "Sim" a opção "Atribuição de usuário obrigatória" em Propriedades do Aplicativo Empresarial e, por fim, atribuir/adicionar somente os usuários desejados ao Aplicativo. Com esse método, o Administrador ainda fornece o "consentimento do administrador" ao Aplicativo, mas é possível controlar os usuários que podem acessá-lo.

@@ -3,12 +3,12 @@ title: Recuperação de desastre geográfico – Hubs de Eventos do Azure | Micr
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8824334e762237c3f18cb763d5b39fa55d6415a3
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 0e0a207630898eb7fe7613acb311364a64f9b38b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108444"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681676"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
 
@@ -43,8 +43,10 @@ Os seguintes termos são usados neste artigo:
 
 -  *Alias*: o nome para uma configuração de recuperação de desastre que você configurou. O alias fornece uma única cadeia de conexão estável do FQDN (Nome de Domínio Totalmente Qualificado). Aplicativos usam essa cadeia de conexão de alias para conectarem-se a um namespace. 
 
--  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
+-  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias.
 
+    > [!IMPORTANT]
+    > O recurso de recuperação de desastres geograficamente exige que a assinatura e o grupo de recursos sejam os mesmos para namespaces primários e secundários. 
 -  *Metadados*: entidades, como hubs de eventos e os grupos de consumidores; e suas propriedades do serviço que são associadas ao namespace. Somente entidades e suas configurações são replicadas automaticamente. Mensagens e eventos não são replicados. 
 
 -  *Failover*: o processo de ativação do namespace secundário.
@@ -73,12 +75,12 @@ A seção a seguir é uma visão geral do processo de failover e explica como co
 Primeiro crie ou use um namespace primário existente e um novo namespace secundário, depois emparelhe os dois. Esse emparelhamento fornece um alias que você pode usar para se conectar. Como você usa um alias, não precisa alterar cadeias de conexão. Somente novos namespaces podem ser adicionados ao emparelhamento de failover. 
 
 1. Crie o namespace primário.
-1. Crie o namespace secundário. Esta etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
+1. Crie o namespace secundário na assinatura e o grupo de recursos que tem o namespace principal. Esta etapa é opcional. Você pode criar o namespace secundário ao criar o emparelhamento na próxima etapa. 
 1. No portal do Azure, navegue até o namespace primário.
 1. Selecione **recuperação geográfica** no menu à esquerda e selecione **Iniciar emparelhamento** na barra de ferramentas. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar emparelhamento a partir do namespace primário":::    
-1. Na página **Iniciar emparelhamento** , selecione um namespace secundário existente ou crie um e, em seguida, selecione **criar**. No exemplo a seguir, um namespace secundário existente está selecionado. 
+1. Na página **Iniciar emparelhamento** , selecione um namespace secundário existente ou crie um na assinatura e o grupo de recursos que tem o namespace principal. Em seguida, selecione **Criar**. No exemplo a seguir, um namespace secundário existente está selecionado. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selecionar o namespace secundário":::        
 1. Agora, ao selecionar a **recuperação geográfica** para o namespace primário, você deverá ver a página de **alias do geo-Dr** semelhante à imagem a seguir:

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tisande
-ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019169"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681643"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,6 +35,17 @@ O Azure Cosmos DB dá suporte a dois modos de indexação:
 > O Azure Cosmos DB também dá suporte a um modo de indexação lento. A indexação lenta faz atualizações no índice em um nível de prioridade muito menor quando o mecanismo não executa outros trabalhos. Isso pode resultar em resultados de consultas **inconsistentes ou incompletas**. Caso você planeje consultar um contêiner Cosmos, não selecione a indexação lenta. Os novos contêineres não podem selecionar a indexação lenta. Você pode solicitar uma isenção entrando em contato com o [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se você estiver usando uma conta do Azure Cosmos no modo sem [servidor](serverless.md) que não dá suporte à indexação lenta).
 
 Por padrão, a política de indexação é definida como `automatic` . É possível definir a `automatic` Propriedade na política de indexação como `true` . Definir essa propriedade como `true` permite que o Azure CosmosDB indexe automaticamente os documentos conforme eles são gravados.
+
+## <a name="index-size"></a><a id="index-size"></a>Tamanho do índice
+
+No Azure Cosmos DB, o armazenamento consumido total é a combinação do Tamanho dos dados e do Tamanho do índice. A seguir estão alguns recursos do tamanho do índice:
+
+* O tamanho do índice depende da política de indexação. Se todas as propriedades forem indexadas, o tamanho do índice poderá ser maior que o tamanho dos dados.
+* Quando os dados são excluídos, os índices são compactados em uma base quase contínua. No entanto, para exclusões de dados pequenas, você pode não observar imediatamente uma diminuição no tamanho do índice.
+* O tamanho do índice pode crescer nos seguintes casos:
+
+  * Duração da divisão da partição-o espaço do índice é liberado depois que a divisão da partição é concluída.
+  * Quando uma partição estiver sendo dividida, o espaço de índice será aumentado temporariamente durante a divisão da partição. 
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Incluindo e excluindo caminhos de propriedade
 
@@ -91,7 +102,7 @@ Ao incluir e excluir caminhos, você pode encontrar os seguintes atributos:
 
 Quando não for especificado, essas propriedades terão os seguintes valores padrão:
 
-| **Nome da propriedade**     | **Valor padrão** |
+| **Nome da Propriedade**     | **Valor padrão** |
 | ----------------------- | -------------------------------- |
 | `kind`   | `range` |
 | `precision`   | `-1`  |
@@ -103,7 +114,7 @@ Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-example
 
 Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminho mais preciso terá precedência.
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 **Caminho incluído**: `/food/ingredients/nutrition/*`
 

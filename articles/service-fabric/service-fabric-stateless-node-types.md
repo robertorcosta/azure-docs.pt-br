@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683197"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680596"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implantar um cluster de Service Fabric do Azure com tipos de nó somente sem estado (versão prévia)
 Service Fabric tipos de nó vêm com pressuposição inerente que, em algum momento, os serviços com estado podem ser colocados em nós. Os tipos de nó sem monitoração de estado relaxar essa suposição para um tipo de nó, permitindo que o tipo de nó use outros recursos, como operações de expansão mais rápidas, suporte para atualizações automáticas do so na durabilidade de bronze e dimensionamento para mais de 100 nós em um único conjunto de dimensionamento de máquinas virtuais.
@@ -253,8 +253,10 @@ Para começar, será necessário adicionar os novos recursos ao modelo do Resour
 
 Depois que os recursos terminarem de implantar, você poderá começar a desabilitar os nós no tipo de nó que deseja remover do cluster original.
 
+>[!NOTE]
+> Ao usar o dimensionamento automático com NodeTypes sem estado com durabilidade de bronze, após a operação reduzir verticalmente, o estado do nó não é limpo automaticamente. Para limpar o Nodestate de nós inferiores durante o dimensionamento automático, é recomendável usar [Service Fabric auxiliar de dimensionamento automático](https://github.com/Azure/service-fabric-autoscale-helper) .
 
 ## <a name="next-steps"></a>Próximas etapas 
-* [Reliable Services](service-fabric-reliable-services-introduction.md)
+* [Serviços confiáveis](service-fabric-reliable-services-introduction.md)
 * [Tipos de nó e conjuntos de dimensionamento de máquinas virtuais](service-fabric-cluster-nodetypes.md)
 

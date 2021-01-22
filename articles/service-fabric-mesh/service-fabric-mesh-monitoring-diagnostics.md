@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: eda0b62729343b0a138d027548d8750b1e0fc74f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844396"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682064"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
 A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Monitoramento e diagnóstico para a malha de Service Fabric é categorizado em três principais tipos de dados de diagnóstico:
@@ -26,7 +26,7 @@ Este artigo discute as opções de monitoramento e diagnóstico para a versão d
 
 Você pode exibir os logs de docker de seus contêineres implantados, em uma base por contêiner. No modelo de aplicativo de Malha do Service Fabric, cada contêiner é um pacote de código em seu aplicativo. Para ver os logs associados com um pacote de códigos, use o seguinte comando:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> --service-name <nameOfService> --replica-name <nameOfReplica> --code-package-name <nameOfCodePackage>
 ```
 
@@ -35,7 +35,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 
 Aqui é com o que isso se parece para ver os logs do contêiner do aplicativo de votação VotingWeb.Code:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
 ```
 
@@ -74,7 +74,7 @@ Cada dimensão corresponde a diferentes componentes do [modelo de aplicativo Ser
 
 ### <a name="azure-monitor-cli"></a>CLI do Azure Monitor
 
-Uma lista completa de comandos está disponível nos [documentos da CLI do Azure monitor](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , mas incluímos alguns exemplos úteis abaixo 
+Uma lista completa de comandos está disponível nos [documentos da CLI do Azure monitor](/cli/azure/monitor/metrics#az-monitor-metrics-list) , mas incluímos alguns exemplos úteis abaixo 
 
 Em cada exemplo, a ID de recurso segue esse padrão
 
@@ -83,21 +83,21 @@ Em cada exemplo, a ID de recurso segue esse padrão
 
 * Utilização da CPU dos contêineres em um aplicativo
 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization"
 ```
 * Utilização de memória para cada réplica de serviço
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "MemoryUtilization" --dimension "ServiceReplicaName"
 ``` 
 
 * Reinicializações para cada contêiner em uma janela de 1 hora 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "RestartCount" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z
 ``` 
 
 * Utilização média da CPU entre serviços denominados "VotingWeb" em uma janela de 1 hora
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
@@ -118,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre Malha do Service Fabric, leia [visão geral sobre Malha do Service Fabric](service-fabric-mesh-overview.md).
-* Para saber mais sobre os comandos de métricas Azure Monitor, confira os [documentos Azure monitor CLI](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* Para saber mais sobre os comandos de métricas Azure Monitor, confira os [documentos Azure monitor CLI](/cli/azure/monitor/metrics#az-monitor-metrics-list).

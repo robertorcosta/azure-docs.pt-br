@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: da6c9f6df0e9e74de297cf6c8f655b62e3446bad
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462706"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679611"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura do SQL do Azure Synapse 
 
@@ -67,7 +67,7 @@ No pool SQL sem servidor, o mecanismo DQP é executado no nó de controle para o
 
 Os nós de computação fornecem capacidade de computação. 
 
-No pool SQL dedicado, as distribuições são mapeadas para nós de computação para processamento. À medida que você paga por mais recursos de computação, o pool remapeia as distribuições para os nós de computação disponíveis. O número de nós de computação varia de 1 a 60 e é determinado pelo nível de serviço para o pool SQL dedicado. Cada nó de computação tem uma ID de nó que está visível nas exibições do sistema. Você pode ver a ID do nó de Computação olhando para a coluna node_id nas exibições do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista dessas exibições do sistema, consulte [exibições do sistema SQL do Synapse](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+No pool SQL dedicado, as distribuições são mapeadas para nós de computação para processamento. À medida que você paga por mais recursos de computação, o pool remapeia as distribuições para os nós de computação disponíveis. O número de nós de computação varia de 1 a 60 e é determinado pelo nível de serviço para o pool SQL dedicado. Cada nó de computação tem uma ID de nó que está visível nas exibições do sistema. Você pode ver a ID do nó de Computação olhando para a coluna node_id nas exibições do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista dessas exibições do sistema, consulte [exibições do sistema SQL do Synapse](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest&preserve-view=true).
 
 No pool SQL sem servidor, cada nó de computação recebe a tarefa e o conjunto de arquivos nos quais executar a tarefa. A tarefa é uma unidade de execução de consulta distribuída, que na verdade faz parte do usuário de consulta enviada. O dimensionamento automático está em vigor para garantir que nós de computação suficientes sejam utilizados para executar a consulta do usuário.
 

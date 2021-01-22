@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: ea99c2ce1963ec58649fd4c2fbb4d98768da8c6f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8b23a3634b34277b732d4ba18bef7e71c783ebd5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447968"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681179"
 ---
 # <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool-formerly-sql-dw"></a>Solucionando problemas de conectividade no pool dedicado do SQL (antigo SQL DW)
 
@@ -51,7 +51,7 @@ Caso contrário, peça ao administrador de TI para verificar se essa manutençã
 
 ## <a name="check-your-firewall-settings"></a>Verificar as configurações de firewall
 
-O banco de dados dedicado do pool SQL (anteriormente SQL DW) se comunica pela porta 1433.  Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Nesse caso, você não pode se conectar ao [servidor lógico](../../azure-sql/database/logical-servers.md) , a menos que o departamento de ti Abra a porta 1433. Outras informações sobre as configurações de firewall podem ser encontradas [aqui](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+O banco de dados dedicado do pool SQL (anteriormente SQL DW) se comunica pela porta 1433.Se você estiver tentando se conectar de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não seja permitido pelo firewall da rede. Nesse caso, você não pode se conectar ao [servidor lógico](../../azure-sql/database/logical-servers.md) , a menos que o departamento de ti Abra a porta 1433. Outras informações sobre as configurações de firewall podem ser encontradas [aqui](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Verificar as configurações do ponto de extremidade de serviço/rede virtual
 
@@ -71,10 +71,10 @@ Verifique se você está usando as ferramentas mais recentes para se conectar ao
 
 Verifique se está usando as versões mais recentes do driver.  O uso de uma versão mais antiga dos drivers pode resultar em comportamentos inesperados, pois os drivers mais antigos podem não dar suporte aos novos recursos.
 
-- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [PHP](/sql/connect/php/download-drivers-php-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [PHP](/sql/connect/php/download-drivers-php-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="check-your-connection-string"></a>Verificar a cadeia de conexão
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: 00cd97ada1a458f13225961566a99aa79d724558
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707462"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679973"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -114,9 +114,9 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 | Nome | Limite | Observações |
 | ---- | ----- | ----- |
-| Itens da matriz de foreach | 100.000 | Esse limite descreve o maior número de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](logic-apps-perform-data-operations.md#filter-array-action). |
-| Simultaneidade de foreach | Com simultaneidade desativada: 20 <p><p>Com simultaneidade em: <p><p>-Padrão: 20 <br>-Mín.: 1 <br>-Máx.: 50 | Esse limite é o maior número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar esse limite, consulte [alterar "para cada" limite de simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "para cada loop" em sequência](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Iterações Until | - Padrão: 60 <br>-Mín.: 1 <br>-Máx.: 5.000 | O número mais alto de ciclos que um loop "until" pode ter durante uma execução de aplicativo lógico. <p><p>Para alterar esse limite, na forma de loop "until", selecione **alterar limites** e especifique o valor para a propriedade **Count** . |
+| Itens da matriz de foreach | 100.000 | Esse limite descreve o número máximo de itens de matriz que um loop "para cada" pode processar. <p><p>Para filtrar matrizes maiores, você pode usar o [ação de consulta](logic-apps-perform-data-operations.md#filter-array-action). |
+| Simultaneidade de foreach | Com simultaneidade desativada: 20 <p><p>Com simultaneidade em: <p><p>-Padrão: 20 <br>-Mín.: 1 <br>-Máx.: 50 | Esse limite é o número máximo de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>Para alterar esse limite, consulte [alterar "para cada" limite de simultaneidade](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar "para cada loop" em sequência](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| Iterações Until | - Padrão: 60 <br>-Mín.: 1 <br>-Máx.: 5.000 | O número máximo de ciclos que um loop "until" pode ter durante uma execução de aplicativo lógico. <p><p>Para alterar esse limite, na forma de loop "until", selecione **alterar limites** e especifique o valor para a propriedade **Count** . |
 | Até o tempo limite | -Padrão: PT1H (1 hora) | A maior quantidade de tempo que o loop "until" pode ser executado antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor de tempo limite é avaliado para cada ciclo de loop. Se qualquer ação no loop demorar mais do que o tempo limite, o ciclo atual não parará. No entanto, o próximo ciclo será iniciado porque a condição de limite não foi atendida. <p><p>Para alterar esse limite, na forma de loop "until", selecione **alterar limites** e especifique o valor para a propriedade **Timeout** . |
 ||||
 
@@ -124,8 +124,8 @@ Estes são os limites de execução de um único aplicativo lógico:
 
 | Nome | Limite | Observações |
 | ---- | ----- | ----- |
-| Simultaneidade do gatilho | Com simultaneidade desativada: ilimitada <p><p>Com simultaneidade ativada, que não pode ser desfeita após habilitar: <p><p>-Padrão: 25 <br>-Mín.: 1 <br>-Máx.: 50 | Esse limite é o número mais alto de instâncias de aplicativo lógico que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>**Observação**: Quando a simultaneidade é ativada, o limite SplitOn é reduzido para 100 itens para [desfazer o lote nas matrizes](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar esse limite, consulte [alterar o limite de simultaneidade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [instâncias de gatilho sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Execuções de espera máximo | Com simultaneidade desativada: <p><p>-Mín.: 1 <br>-Máx.: 50 <p><p>Com simultaneidade em: <p><p>-Min: 10 mais o número de execuções simultâneas (disparo de simultaneidade) <br>-Máx.: 100 | Esse limite é o número mais alto de instâncias de aplicativo lógico que podem esperar para serem executadas quando seu aplicativo lógico já estiver executando o máximo de instâncias simultâneas. <p><p>Para alterar esse limite, confira [alterar limite de execuções em espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Simultaneidade do gatilho | Com simultaneidade desativada: ilimitada <p><p>Com simultaneidade ativada, que não pode ser desfeita após habilitar: <p><p>-Padrão: 25 <br>-Mín.: 1 <br>-Máx.: 50 | Esse limite é o número máximo de instâncias de aplicativo lógico que podem ser executadas ao mesmo tempo ou em paralelo. <p><p>**Observação**: Quando a simultaneidade é ativada, o limite SplitOn é reduzido para 100 itens para [desfazer o lote nas matrizes](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar esse limite, consulte [alterar o limite de simultaneidade de gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [instâncias de gatilho sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Execuções de espera máximo | Com simultaneidade desativada: <p><p>-Mín.: 1 <br>-Máx.: 50 <p><p>Com simultaneidade em: <p><p>-Min: 10 mais o número de execuções simultâneas (disparo de simultaneidade) <br>-Máx.: 100 | Esse limite é o número máximo de instâncias de aplicativo lógico que podem esperar para serem executadas quando seu aplicativo lógico já estiver executando o máximo de instâncias simultâneas. <p><p>Para alterar esse limite, confira [alterar limite de execuções em espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Itens SplitOn | Com simultaneidade desativada: 100.000 <p><p>Com simultaneidade em: 100 | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que usa uma propriedade 'SplitOn' que [divide ou retira de lote os itens da matriz em várias instâncias de fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) para processamento, em vez de usar um loop "Foreach". Essa expressão referencia a matriz a ser usada para criar e executar uma instância de fluxo de trabalho para cada item da matriz. <p><p>**Observação**: Quando a simultaneidade é ativada, o limite SplitOn é reduzido para 100 itens. |
 ||||
 

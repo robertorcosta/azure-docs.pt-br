@@ -4,12 +4,12 @@ description: Conheça as diferentes maneiras como você pode implantar código p
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 51a76adcf25d5d1bc4025eab12073df0886fde3d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936950"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681823"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
@@ -181,7 +181,7 @@ Você pode usar o FTP para transferir arquivos diretamente para o Azure Function
 
 No editor baseado em portal, você pode editar diretamente os arquivos que estão em seu aplicativo de funções (essencialmente implantando sempre que você salvar suas alterações).
 
->__Como usá-lo:__ Para poder editar suas funções no portal do Azure, você deve ter [criado suas funções no portal](functions-create-first-azure-function.md). Para preservar uma única fonte de verdade, usar qualquer outro método de implantação torna sua função somente leitura e impede a edição continuada do Portal. Para retornar a um estado no qual você pode editar os arquivos na portal do Azure, você pode ativar manualmente o modo de edição para `Read/Write` e remover quaisquer configurações de aplicativo relacionadas à implantação (como `WEBSITE_RUN_FROM_PACKAGE` ).
+>__Como usá-lo:__ Para poder editar suas funções no portal do Azure, você deve ter [criado suas funções no portal](./functions-get-started.md). Para preservar uma única fonte de verdade, usar qualquer outro método de implantação torna sua função somente leitura e impede a edição continuada do Portal. Para retornar a um estado no qual você pode editar os arquivos na portal do Azure, você pode ativar manualmente o modo de edição para `Read/Write` e remover quaisquer configurações de aplicativo relacionadas à implantação (como `WEBSITE_RUN_FROM_PACKAGE` ).
 
 >__Quando usá-lo:__ O portal é uma boa maneira de começar a usar o Azure Functions. Para um trabalho de desenvolvimento mais intenso, recomendamos que você use uma das seguintes ferramentas de cliente:
 >
@@ -191,7 +191,7 @@ No editor baseado em portal, você pode editar diretamente os arquivos que estã
 
 A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à edição do portal:
 
-| Idioma | Consumo do Windows | Windows Premium | Windows dedicado | Consumo do Linux | Linux Premium | Linux dedicado |
+| Language | Consumo do Windows | Windows Premium | Windows dedicado | Consumo do Linux | Linux Premium | Linux dedicado |
 |-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | Script do C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|

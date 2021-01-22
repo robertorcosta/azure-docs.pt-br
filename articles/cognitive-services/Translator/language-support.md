@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 6163f059581c2699d0b2780545c3ad5ec80f2907
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 60da61d094316b29c8fbc5454472bb898d693937
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882408"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681576"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -191,28 +191,42 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 [Exibir a documentação de referência de operação de transliteração](reference/v3-0-translate.md)
 
 
-| Linguagem    | Código de idioma | Script | Para/De | Script|
+| Linguagem    | Código de idioma | script | Para/De | script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
+|Bielorrusso| `be` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
+|Búlgaro| `bg` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Latim `Latn` |
 | Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
+|Grego| `el` | Grego `Grek`  | <--> | Latim `Latn` |
 | Guzerate | `gu`  | Guzerate `Gujr` | <--> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
-| Hindi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
+| Híndi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
 | canarim | `kn` | Canarim `Knda` | <--> | Latim `Latn` |
+|Cazaque| `kk` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
+|Kyrgyz| `ky` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
+|Macedônio| `mk` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 | Malaiala | `ml` | Malaiala `Mlym` | <--> | Latim `Latn` |
 | Marati | `mr` | Devanagari `Deva` | <--> | Latim `Latn` |
+|Mongol| `mn` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 | Oriá | `or` | Oriya `Orya` | <--> | Latim `Latn` |
+|Persa| `fa` | Árabe `Arab`  | <--> | Latim `Latn` |
 | Panjabi | `pa` | Gurmukhi `Guru`  | <--> | Latim `Latn`  |
+|Russo| `ru` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 | Sérvio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (latino) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
+|Sindhi| `sd` | Árabe `Arab`  | <--> | Latim `Latn` |
+|Tajik| `tg` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 | Tâmil | `ta` | Tâmil `Taml` | <--> | Latim `Latn` |
-| Telugu | `te` | Télugo `Telu` | <--> | Latim `Latn` |
+|Tártaro| `tt` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
+| Télugo | `te` | Télugo `Telu` | <--> | Latim `Latn` |
 | Tailandês | `th` | Tailandês `Thai` | --> | Latim `Latn` |
+|Ucraniano| `uk` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
+|Urdu| `ur` | Árabe `Arab`  | <--> | Latim `Latn` |
 
 ### <a name="dictionary"></a>Dictionary
 
@@ -352,7 +366,7 @@ A tradução de fala está disponível usando o tradutor com o serviço de fala 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A conversão de fala em texto é usada para a tradução de fala para texto ou para tradução de fala para fala quando usada em conjunto com a síntese de fala.
 
-| Linguagem    |
+| Language    |
 |:----------- |
 |Árabe|
 |Cantonês (tradicional)|
@@ -367,7 +381,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 |Francês (Canadá)|
 |Alemão|
 |Guzerate|
-|Hindi|
+|Híndi|
 |Italiano|
 |Japonês|
 |Coreano|
@@ -387,7 +401,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 Converter texto em fala. A conversão de texto em fala é usada para adicionar saída audível de resultados de tradução ou para tradução de fala a fala quando usada com a fala em texto. 
 
-| Linguagem |
+| Language |
 |:-|
 | Árabe |
 | Búlgaro |

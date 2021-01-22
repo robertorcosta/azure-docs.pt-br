@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c91310d9d1e67dd77098ee13a87190ee6d411607
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 10e43332728ea70d27c08cf4d3dfe116c83b3f1f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120097"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679797"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Práticas recomendadas para carregar dados usando pools de SQL dedicados no Azure Synapse Analytics
 
@@ -47,7 +47,7 @@ Este exemplo cria um usuário de carregamento classificado para um grupo de carg
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Conecte-se ao pool do SQL dedicado e crie um usuário. O código a seguir pressupõe que você esteja conectado ao banco de dados chamado mySampleDataWarehouse. Ele mostra como criar um usuário chamado Loader e fornece permissões de usuário para criar tabelas e carregar usando a [instrução Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Em seguida, ele classifica o usuário para o grupo de cargas de trabalho de carregamentos de carga com recursos máximos. 
+Conecte-se ao pool do SQL dedicado e crie um usuário. O código a seguir pressupõe que você esteja conectado ao banco de dados chamado mySampleDataWarehouse. Ele mostra como criar um usuário chamado Loader e fornece permissões de usuário para criar tabelas e carregar usando a [instrução Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). Em seguida, ele classifica o usuário para o grupo de cargas de trabalho de carregamentos de carga com recursos máximos. 
 
 ```sql
    -- Connect to the dedicated SQL pool
@@ -79,7 +79,7 @@ Para executar uma carga com recursos para o grupo de carga de trabalho de carreg
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>Permitindo que vários usuários carreguem (polybase)
 
-Geralmente, é necessário que vários usuários carreguem dados em um pool SQL dedicado. O carregamento com o [CREATE TABLE como SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (polybase) requer permissões de controle do banco de dados.  A permissão CONTROL dá acesso de controle para todos os esquemas.
+Geralmente, é necessário que vários usuários carreguem dados em um pool SQL dedicado. O carregamento com o [CREATE TABLE como SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (polybase) requer permissões de controle do banco de dados.  A permissão CONTROL dá acesso de controle para todos os esquemas.
 
 Talvez você não queira que todos os usuários de carregamento tenham acesso de controle em todos os esquemas. Para limitar as permissões, use a instrução DENY CONTROL.
 
@@ -114,7 +114,7 @@ Quando há pressão de memória, o índice columnstore pode não ser capaz de al
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentar o tamanho do lote ao usar a API SqLBulkCopy ou o bcp
 
-O carregamento com a instrução de cópia fornecerá a taxa de transferência mais alta com pools SQL dedicados. Se você não pode usar a cópia para carregar e deve usar a [API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), considere aumentar o tamanho do lote para obter uma melhor taxa de transferência.
+O carregamento com a instrução de cópia fornecerá a taxa de transferência mais alta com pools SQL dedicados. Se você não pode usar a cópia para carregar e deve usar a [API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), considere aumentar o tamanho do lote para obter uma melhor taxa de transferência.
 
 > [!TIP]
 > Um tamanho de lote entre 100 K a 1M de linhas é a linha de base recomendada para determinar a capacidade de tamanho de lote ideal.
@@ -130,11 +130,11 @@ Um registro de dados é considerado sujo se ele atender a uma das seguintes cond
 
 Para corrigir os registros sujos, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições.
 
-Se um subconjunto de registros de dados externos estiver sujo, você poderá optar por rejeitar esses registros para suas consultas usando as opções de rejeição em [criar tabela externa (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Se um subconjunto de registros de dados externos estiver sujo, você poderá optar por rejeitar esses registros para suas consultas usando as opções de rejeição em [criar tabela externa (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="inserting-data-into-a-production-table"></a>Inserindo dados em uma tabela de produção
 
-Uma única carga para uma pequena tabela com uma [instrução INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), ou mesmo uma recarga periódica de uma pesquisa pode ser boa o suficiente com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Porém, inserções únicas de toneladas não são tão eficientes como executar um carregamento em massa.
+Uma única carga para uma pequena tabela com uma [instrução INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), ou mesmo uma recarga periódica de uma pesquisa pode ser boa o suficiente com uma instrução como `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Porém, inserções únicas de toneladas não são tão eficientes como executar um carregamento em massa.
 
 Se você tiver milhares ou mais de inserções únicas ao longo do dia, crie lotes para as inserções para que possa carregá-las em massa.  Desenvolva seus processos para acrescentar as inserções únicas para um arquivo e depois crie outro processo que periodicamente carrega o arquivo.
 
@@ -158,7 +158,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 Para girar chaves de conta de armazenamento do Azure:
 
-Para cada conta de armazenamento cuja chave foi alterada, execute [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Para cada conta de armazenamento cuja chave foi alterada, execute [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Exemplo:
 

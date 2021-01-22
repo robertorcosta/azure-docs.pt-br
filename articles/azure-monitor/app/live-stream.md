@@ -4,12 +4,12 @@ description: Monitore seu aplicativo Web em tempo real usando métrica personali
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c50f7e57c520321d752d6d46e36c45c615b5e785
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803571"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679459"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorar e diagnosticar com latência de um segundo
 
@@ -36,7 +36,7 @@ Atualmente, há suporte para métricas em tempo real para aplicativos ASP.NET, A
    * As métricas de [ASP.NET Core](./asp-net-core.md)ao vivo são habilitadas por padrão.
    * [.Net/.NET Core console/Worker](./worker-service.md)-as métricas ao vivo estão habilitadas por padrão.
    * [Aplicativos .net – habilite usando código](#enable-livemetrics-using-code-for-any-net-application).
-    * As métricas [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) -Live são habilitadas por padrão.
+    * As métricas [Java](./java-in-process-agent.md) -Live são habilitadas por padrão.
    * [Node.js](./nodejs.md#live-metrics)
 
 2. No [Portal do Azure](https://portal.azure.com), abra o recurso Application Insights para o aplicativo e abra o Live Stream.
@@ -239,7 +239,7 @@ No entanto, caso reconheça e confie em todos os servidores conectados, você po
 
 ## <a name="supported-features-table"></a>Tabela de recursos com suporte
 
-| Linguagem                         | Métricas básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de exemplo    | Divisão de CPU por processo |
+| Language                         | Métricas básicas       | Métricas de desempenho | Filtragem personalizada    | Telemetria de exemplo    | Divisão de CPU por processo |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
 | .NET Framework                   | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +) | Com suporte (V 2.7.2 +)  |
 | .NET Core (Target =. NET Framework)| Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +) | Com suporte (V 2.4.1 +)  |

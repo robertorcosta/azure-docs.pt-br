@@ -8,24 +8,24 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: eacd1426b856de11a18b0da6c509d281b3bca94c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 53fb11216e65ebead43c02a7153d937c37b841a0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655162"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681053"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem gerenciada de uma máquina virtual ou um VHD
 
 Para criar várias cópias de uma VM (máquina virtual) para uso no Azure para desenvolvimento e teste, capture uma imagem gerenciada da VM ou do VHD do sistema operacional. Para criar, armazenar e compartilhar imagens em escala, confira as [Galerias de Imagens Compartilhadas](../shared-images-cli.md).
 
-Uma imagem gerenciada dá suporte a até 20 implantações simultâneas. A tentativa de criar simultaneamente mais de 20 VMs a partir da mesma imagem gerenciada pode exceder os tempos limite de provisionamento devido às limitações de desempenho de armazenamento de um único VHD. Para criar simultaneamente mais de 20 VMs, use uma imagem das [Galerias de Imagens Compartilhadas](shared-image-galleries.md), configurada com uma réplica para cada 20 implantações simultâneas de VM.
+Uma imagem gerenciada dá suporte a até 20 implantações simultâneas. A tentativa de criar simultaneamente mais de 20 VMs a partir da mesma imagem gerenciada pode exceder os tempos limite de provisionamento devido às limitações de desempenho de armazenamento de um único VHD. Para criar simultaneamente mais de 20 VMs, use uma imagem das [Galerias de Imagens Compartilhadas](../shared-image-galleries.md), configurada com uma réplica para cada 20 implantações simultâneas de VM.
 
 Para criar uma imagem gerenciada, você precisará remover informações pessoais da conta. Nas etapas a seguir, desprovisione uma VM existente, desaloque e crie uma imagem. Você pode usar essa imagem para criar VMs em qualquer grupo de recursos dentro da sua assinatura.
 
 Para criar uma cópia da VM Linux existente para backup ou depuração ou então carregar um VHD Linux especializado de uma VM local, consulte [Carregar e criar uma VM Linux com base em uma imagem de disco personalizada](upload-vhd.md).  
 
-Você pode usar o serviço de **Construtor de Imagens de VM do Azure (Visualização Pública)** para criar sua imagem personalizada, sem necessidade de aprender nenhuma ferramenta ou instalar pipelines de build, basta apenas fornecer uma configuração da imagem e o Construtor de Imagens a criará. Para saber mais, consulte [Introdução ao Construtor de Imagens de VM do Azure](./image-builder-overview.md).
+Você pode usar o serviço de **Construtor de Imagens de VM do Azure (Visualização Pública)** para criar sua imagem personalizada, sem necessidade de aprender nenhuma ferramenta ou instalar pipelines de build, basta apenas fornecer uma configuração da imagem e o Construtor de Imagens a criará. Para saber mais, consulte [Introdução ao Construtor de Imagens de VM do Azure](../image-builder-overview.md).
 
 Você precisará dos seguintes itens antes de criar uma imagem:
 

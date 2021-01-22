@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13756be041f88883d84f9558308c7fe5c9be2d0e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: da21359b56b9e5b9d6e971032d06f8bae94efce0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116000"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682131"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planejar uma implantação de acesso condicional
 
@@ -67,7 +67,7 @@ Se forem necessários recursos adicionais, talvez você também precise obter li
 Os recursos a seguir podem ser úteis à medida que você aprende sobre o acesso condicional:
 
 
-#### <a name="videos"></a>Vídeos
+#### <a name="videos"></a>vídeos
 
 * [O que é Acesso Condicional?](https://youtu.be/ffMAw2IVO7A)
 * [Como implantar acesso condicional?](https://youtu.be/c_izIRNJNuk)
@@ -485,4 +485,4 @@ Após recolher as informações, consulte os recursos a seguir:
 
 [Saiba mais sobre Proteção de identidade](../identity-protection/overview-identity-protection.md)
 
-[Gerenciar políticas de acesso condicional com a API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)
+[Gerenciar políticas de acesso condicional com a API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy)
