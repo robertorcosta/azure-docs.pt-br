@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022557"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673680"
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Os compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando o [cliente de kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas maneiras de montar um compartilhamento de arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
@@ -24,7 +24,7 @@ A maneira recomendada para montar um compartilhamento de arquivos do Azure no Li
 | Ubuntu | 14.04+ | 16.04+ |
 | Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | Mais de 8 | 10+ |
+| Debian | Mais de 8 | Mais de 10 |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP2+ |
 
@@ -67,7 +67,7 @@ uname -r
 
     Em outras distribuições, use o gerenciador de pacotes apropriado ou [compile do código-fonte](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **A versão mais recente da CLI (interface de linha de comando) do Azure.** Para obter mais informações sobre como instalar o CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) e selecionar o sistema operacional. Se preferir usar o módulo Azure PowerShell no PowerShell 6 +, você pode, no entanto, as instruções a seguir são apresentadas para o CLI do Azure.
+* **A versão mais recente da CLI (interface de linha de comando) do Azure.** Para obter mais informações sobre como instalar o CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli) e selecionar o sistema operacional. Se preferir usar o módulo Azure PowerShell no PowerShell 6 +, você pode, no entanto, as instruções a seguir são apresentadas para o CLI do Azure.
 
 * **Verifique se a porta 445 está aberta**: o SMB se comunica pela porta TCP 445, por isso confira se o firewall não está bloqueando as portas TCP 445 do computador cliente.  Substitua `<your-resource-group>` e `<your-storage-account>` Execute o seguinte script:
     ```bash
@@ -87,7 +87,7 @@ uname -r
 
     Se a conexão tiver sido bem-sucedida, você verá algo semelhante à seguinte saída:
 
-    ```
+    ```ouput
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
@@ -250,22 +250,22 @@ A partir do kernel do Linux 4,18, o módulo kernel SMB, chamado `cifs` por motiv
 
 | Distribuição | Pode desabilitar o SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04 – 16.04 | No |
-| Ubuntu 18.04 | Yes |
-| Ubuntu 19.04 + | Yes |
-| Debian 8-9 | No |
-| Debian 10 + | Yes |
-| Fedora 29 + | Yes |
-| CentOS 7 | No | 
-| CentOS 8 + | Yes |
-| Red Hat Enterprise Linux 6. x-7. x | No |
-| Red Hat Enterprise Linux 8 + | Yes |
-| openSUSE Leap 15,0 | No |
-| openSUSE Leap 15.1 + | Yes |
-| openSUSE Tumbleweed | Yes |
-| SUSE Linux Enterprise 11. x-12. x | No |
-| SUSE Linux Enterprise 15 | No |
-| SUSE Linux Enterprise 15,1 | No |
+| Ubuntu 14.04 – 16.04 | Não |
+| Ubuntu 18.04 | Sim |
+| Ubuntu 19.04 + | Sim |
+| Debian 8-9 | Não |
+| Debian 10 + | Sim |
+| Fedora 29 + | Sim |
+| CentOS 7 | Não | 
+| CentOS 8 + | Sim |
+| Red Hat Enterprise Linux 6. x-7. x | Não |
+| Red Hat Enterprise Linux 8 + | Sim |
+| openSUSE Leap 15,0 | Não |
+| openSUSE Leap 15.1 + | Sim |
+| openSUSE Tumbleweed | Sim |
+| SUSE Linux Enterprise 11. x-12. x | Não |
+| SUSE Linux Enterprise 15 | Não |
+| SUSE Linux Enterprise 15,1 | Não |
 
 Você pode verificar se sua distribuição do Linux dá suporte ao `disable_legacy_dialects` parâmetro de módulo por meio do comando a seguir.
 

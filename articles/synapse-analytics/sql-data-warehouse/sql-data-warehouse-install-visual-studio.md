@@ -12,12 +12,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 56a2cbf88cec47417e992990c16a76ec84c6433d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 093193b8d74b443b4ff4b15da16c610cabb23b3b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117802"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676214"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Guia de Introdução ao Visual Studio
 
@@ -40,7 +40,7 @@ Há ocasiões em que as versões de recursos do Synapse SQL podem não incluir s
 
 
 - [Gerenciamento de carga](sql-data-warehouse-workload-management.md) de trabalho-grupos de carga de trabalho e classificadores
-- [Segurança em nível de linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (incluindo funções com valor de tabela)
+- [Segurança em nível de linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (incluindo funções com valor de tabela)
   - Envie um [tíquete de suporte ou vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) para obter o recurso com suporte.
   - Envie um [tíquete de suporte ou vote](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) para obter o recurso com suporte.
 - Tabelas com uma [coluna de identidade](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)

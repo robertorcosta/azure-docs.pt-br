@@ -11,12 +11,12 @@ ms.date: 04/02/2019
 ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: cc6a58b4ef78aca60d2a26870980e032c0b11a52
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e28eeac131c737d673cac947a3fda30239180a62
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463224"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673579"
 ---
 # <a name="using-stored-procedures-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Usando procedimentos armazenados para pools dedicados do SQL no Azure Synapse Analytics
 
@@ -73,7 +73,7 @@ GO
 EXEC prc_nesting
 ```
 
-No momento, o pool SQL dedicado não dá suporte a [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Assim, você precisa acompanhar o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento. Mas, se você fizer isso, precisará retrabalhar seu código para se ajustar aos níveis de aninhamento dentro desse limite.
+No momento, o pool SQL dedicado não dá suporte a [@ @NESTLEVEL ](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Assim, você precisa acompanhar o nível de aninhamento. É improvável que você exceda o limite de oito níveis de aninhamento. Mas, se você fizer isso, precisará retrabalhar seu código para se ajustar aos níveis de aninhamento dentro desse limite.
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 

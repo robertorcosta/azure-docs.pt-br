@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/21/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1886a0308f32ed53a1c9f0974715f20823e8bdd5
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 67870a458138101f3b8a009f7c96c74991396284
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660345"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675179"
 ---
 # <a name="register-a-microsoft-graph-application"></a>Registrar um aplicativo Microsoft Graph
 
@@ -94,4 +94,4 @@ Agora que você registrou seu aplicativo de gerenciamento e concedeu a ele as pe
 
 <!-- LINKS -->
 [ms-graph]: /graph/
-[ms-graph-api]: https://docs.microsoft.com/graph/api/overview
+[ms-graph-api]: /graph/api/overview

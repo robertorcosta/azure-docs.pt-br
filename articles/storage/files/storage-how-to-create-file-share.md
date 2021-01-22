@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 7f72d703e5377f725addc4aa8c52e1cdb0fa571d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 3ff7b3cd29740461a4f94f3c1d433086db119a09
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630744"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673799"
 ---
 # <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 Para criar um compartilhamento de arquivos do Azure, você precisa responder a três perguntas sobre como você irá usá-lo:
@@ -129,7 +129,7 @@ Para criar uma conta de armazenamento usando o CLI do Azure, usaremos o comando 
 
 Para simplificar a criação da conta de armazenamento e o compartilhamento de arquivos subsequente, armazenaremos vários parâmetros em variáveis. Você pode substituir o conteúdo da variável por quaisquer valores que desejar. no entanto, observe que o nome da conta de armazenamento deve ser globalmente exclusivo.
 
-```bash
+```azurecli
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="westus2"
@@ -137,7 +137,7 @@ region="westus2"
 
 Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos padrão do Azure, usaremos o comando a seguir. O `--sku` parâmetro está relacionado ao tipo de redundância desejado; se desejar uma conta de armazenamento com redundância geográfica ou com redundância de zona geográfica, você também deverá remover o `--enable-large-file-share` parâmetro.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -149,7 +149,7 @@ az storage account create \
 
 Para criar uma conta de armazenamento capaz de armazenar compartilhamentos de arquivos premium do Azure, usaremos o comando a seguir. Observe que o `--sku` parâmetro foi alterado para incluir `Premium` e o nível de redundância desejado de localmente redundante ( `LRS` ). O `--kind` parâmetro é `FileStorage` , em vez de, `StorageV2` porque os compartilhamentos de arquivos Premium devem ser criados em uma conta de armazenamento de armazenamento em vez de uma conta de armazenamento GPv2.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -233,7 +233,7 @@ A funcionalidade para criar ou mover um compartilhamento de arquivos para uma ca
 > [!Important]  
 > Para compartilhamentos de arquivos premium, o `--quota` parâmetro refere-se ao tamanho provisionado do compartilhamento de arquivos. O tamanho provisionado do compartilhamento de arquivos é o valor que será cobrado, independentemente do uso. Os compartilhamentos de arquivos padrão são cobrados com base no uso em vez do tamanho provisionado.
 
-```bash
+```azurecli
 shareName="myshare"
 
 az storage share-rm create \
@@ -285,7 +285,7 @@ Update-AzRmStorageShare `
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 O comando a seguir CLI do Azure pressupõe que você definiu `$resourceGroupName` as `$storageAccountName` variáveis, e `$shareName` conforme descrito nas seções anteriores deste documento.
 
-```bash
+```azurecli
 az storage share-rm update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \

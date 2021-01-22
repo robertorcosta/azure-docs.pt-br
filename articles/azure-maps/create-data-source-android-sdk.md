@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 2f383876963e3e1d310e7d93f7dc99bb58b189d3
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681401"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674636"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Criar uma fonte de dados (SDK do Android)
 
@@ -136,7 +136,7 @@ Feature feature = Feature.fromJson(GeoJSON_STRING);
 String featureString = feature.toJson();
 ```
 
-### <a name="import-geojson-data-from-web-or-assets-folder"></a>Importar dados geojson da pasta Web ou de ativos
+### <a name="import-geojson-data-from-web-or-assets-folder"></a>Importar dados GeoJSON da pasta de ativos ou da Web
 
 A maioria dos arquivos geojson contém uma Featurecollection. Ler arquivos geojson como cadeias de caracteres e usar o `FeatureCollection.fromJson` método para desserializá-lo.
 
@@ -355,10 +355,10 @@ Uma fonte de bloco de vetor descreve como acessar uma camada de bloco de vetor. 
 
 O mapas do Azure segue a [especificação de bloco de vetor Mapbox](https://github.com/mapbox/vector-tile-spec), um padrão aberto. O mapas do Azure fornece os seguintes serviços de blocos de vetor como parte da plataforma:
 
-- Detalhes do [](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)  |  [formato de dados](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) da documentação dos blocos de estrada
-- Detalhes do [](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de documentação de incidentes de tráfego
-- Detalhes do [](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de documentação do fluxo de tráfego
-- O criador do mapas do Azure também permite que blocos de vetor personalizados sejam criados e acessados por meio da [renderização de bloco Get v2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)
+- Detalhes do [](/rest/api/maps/renderv2/getmaptilepreview)  |  [formato de dados](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) da documentação dos blocos de estrada
+- Detalhes do [](/rest/api/maps/traffic/gettrafficincidenttile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) de documentação de incidentes de tráfego
+- Detalhes do [](/rest/api/maps/traffic/gettrafficflowtile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de documentação do fluxo de tráfego
+- O criador do mapas do Azure também permite que blocos de vetor personalizados sejam criados e acessados por meio da [renderização de bloco Get v2](/rest/api/maps/renderv2/getmaptilepreview)
 
 Para exibir dados de uma fonte de bloco de vetor no mapa, conecte a origem a uma das camadas de renderização de dados. Todas as camadas que usam uma fonte de vetor devem especificar um `sourceLayer` valor nas opções. O código a seguir carrega o serviço de bloco de vetor do fluxo de tráfego do Azure Maps como uma fonte de bloco de vetor e, em seguida, o exibe em um mapa usando uma camada de linha. Essa fonte de bloco vetorial tem um único conjunto de dados na camada de origem chamada "fluxo de tráfego". Os dados de linha nesse conjunto de dados têm uma propriedade chamada `traffic_level` que é usada neste código para selecionar a cor e dimensionar o tamanho das linhas.
 
@@ -523,4 +523,4 @@ Consulte os artigos a seguir para obter mais exemplos de código para adicionar 
 > [Adicionar um mapa de calor](map-add-heat-map-layer-android.md)
 
 > [!div class="nextstepaction"]
-> [Exemplos de código do SDK Web](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Exemplos de código do SDK Web](/samples/browse/?products=azure-maps)

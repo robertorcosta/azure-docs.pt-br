@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cffa6b1200b7236b3c0a3e48b50c58275cf4c57b
-ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
+ms.openlocfilehash: 01ac42cce29f941a90631936ece025f02afedeaf
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95316613"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673613"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configurações de proxy e firewall da Sincronização de arquivos do Azure
 A Sincronização de arquivos do Azure se conecta seus servidores locais para arquivos do Azure, permitindo camadas de recursos de nuvem e sincronização de vários locais. Como tal, um servidor local deve estar conectado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor acessar os serviços de nuvem do Azure.
@@ -133,6 +133,8 @@ Por motivos de BCDR (continuidade dos negócios e recuperação de desastres), v
 | Público | Centro-Sul dos Estados Unidos | https: \/ /southcentralus01.AFS.Azure.net | Centro-Norte dos EUA | https: \/ /TM-southcentralus01.AFS.Azure.net |
 | Público | Sul da Índia | https: \/ /southindia01.AFS.Azure.net<br>https: \/ /Kailani-Sin.One.Microsoft.com | Índia Central | https: \/ /TM-southindia01.AFS.Azure.net<br>https: \/ /TM-Kailani-Sin.One.Microsoft.com |
 | Público | Sudeste Asiático | https: \/ /southeastasia01.AFS.Azure.net<br>https: \/ /kailani10.One.Microsoft.com | Leste da Ásia | https: \/ /TM-southeastasia01.AFS.Azure.net<br>https: \/ /TM-kailani10.One.Microsoft.com |
+| Público | Norte da Suíça | https: \/ /switzerlandnorth01.AFS.Azure.net<br>https: \/ /TM-switzerlandnorth01.AFS.Azure.net | Oeste da Suíça | https: \/ /switzerlandwest01.AFS.Azure.net<br>https: \/ /TM-switzerlandwest01.AFS.Azure.net |
+| Público | Oeste da Suíça | https: \/ /switzerlandwest01.AFS.Azure.net<br>https: \/ /TM-switzerlandwest01.AFS.Azure.net | Norte da Suíça | https: \/ /switzerlandnorth01.AFS.Azure.net<br>https: \/ /TM-switzerlandnorth01.AFS.Azure.net |
 | Público | Sul do Reino Unido | https: \/ /uksouth01.AFS.Azure.net<br>https: \/ /Kailani-UKs.One.Microsoft.com | Oeste do Reino Unido | https: \/ /TM-uksouth01.AFS.Azure.net<br>https: \/ /TM-Kailani-UKs.One.Microsoft.com |
 | Público | Oeste do Reino Unido | https: \/ /ukwest01.AFS.Azure.net<br>https: \/ /Kailani-UKW.One.Microsoft.com | Sul do Reino Unido | https: \/ /TM-ukwest01.AFS.Azure.net<br>https: \/ /TM-Kailani-UKW.One.Microsoft.com |
 | Público | Centro-Oeste dos EUA | https: \/ /westcentralus01.AFS.Azure.net | Oeste dos EUA 2 | https: \/ /TM-westcentralus01.AFS.Azure.net |

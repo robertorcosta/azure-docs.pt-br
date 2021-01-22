@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a20c19c3da89801570ca4d74a646e3cf0d8434b6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197992"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675895"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usar ferramentas de automação de infraestrutura com máquinas virtuais no Azure
 
@@ -87,8 +87,8 @@ Os scripts podem ser baixados do armazenamento do Azure ou de qualquer local pú
 
 Saiba como:
 
-- [Criar uma VM Linux com a CLI do Azure e usar a Extensão de Script Personalizado](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Criar uma VM Windows com o Azure PowerShell e usar a Extensão de Script Personalizado](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md).
+- [Criar uma VM Linux com a CLI do Azure e usar a Extensão de Script Personalizado](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json).
+- [Criar uma VM Windows com o Azure PowerShell e usar a Extensão de Script Personalizado](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
 ## <a name="packer"></a>Packer
@@ -144,7 +144,7 @@ Saiba como:
 
 - [Implante VMs pontuais usando um modelo do Resource Manager](./linux/spot-template.md).
 - [Crie uma máquina virtual do Windows a partir de um modelo do Resource Manager](./windows/ps-template.md).
-- [Baixe o modelo para uma VM](./windows/download-template.md).
+- [Baixe o modelo para uma VM](/previous-versions/azure/virtual-machines/windows/download-template).
 - [Crie um modelo do Azure Image Builder](./linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>Próximas etapas

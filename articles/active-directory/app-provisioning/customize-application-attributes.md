@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 012038399796a0f2dc87acfb350043542268379a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: efdbec10c74a6b1892df13b8308538e61f42f679
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936974"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673494"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial – Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -115,7 +115,7 @@ Os aplicativos e sistemas que dão suporte à personalização da lista de atrib
 
 
 > [!NOTE]
-> Editar a lista de atributos com suporte é recomendado apenas para os administradores que personalizaram o esquema de seus aplicativos e sistemas e que tenham conhecimento de antemão de como seus atributos personalizados foram definidos. Às vezes, isso requer familiaridade com as APIs e as ferramentas dos desenvolvedores fornecidas por um aplicativo ou sistema. A capacidade de editar a lista de atributos compatíveis está bloqueada por padrão, mas os clientes podem habilitar a funcionalidade navegando até a seguinte URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Em seguida, acesse seu aplicativo para ver a lista de atributos, conforme descrito [acima](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes). 
+> Editar a lista de atributos com suporte é recomendado apenas para os administradores que personalizaram o esquema de seus aplicativos e sistemas e que tenham conhecimento de antemão de como seus atributos personalizados foram definidos. Às vezes, isso requer familiaridade com as APIs e as ferramentas dos desenvolvedores fornecidas por um aplicativo ou sistema. A capacidade de editar a lista de atributos compatíveis está bloqueada por padrão, mas os clientes podem habilitar a funcionalidade navegando até a seguinte URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Em seguida, acesse seu aplicativo para ver a lista de atributos, conforme descrito [acima](#editing-the-list-of-supported-attributes). 
 
 Ao editar a lista de atributos com suporte, as seguintes propriedades são fornecidas:
 

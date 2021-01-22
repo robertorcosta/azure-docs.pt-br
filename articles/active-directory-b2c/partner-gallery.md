@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 9aca01bae7911d2b6234d48bedc14b116e911a79
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070857"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675363"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros ISV Azure Active Directory B2C
 
@@ -40,6 +40,7 @@ A Microsoft faz parceria com os seguintes ISVs para verificação de identidade 
 |![Captura de tela de um logotipo do Experian.](./media/partner-gallery/experian-logo.png) | O [Experian](./partner-experian.md) é um provedor de verificação de identidade e de provação que executa avaliações de risco com base em atributos de usuário para evitar fraudes. |
 |![Captura de tela de um logotipo do IDology.](./media/partner-gallery/idology-logo.png) | O [IDology](./partner-idology.md) é um provedor de verificação de identidade e de provação com soluções de verificação de ID, soluções de prevenção de fraudes, soluções de conformidade e outras.|
 |![Captura de tela de um logotipo do Jumio.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) é um serviço de verificação de ID, que permite a verificação de ID automatizada em tempo real, protegendo os dados do cliente. |
+|![Captura de tela de um logotipo sem Key.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) é um serviço de verificação de ID que fornece autenticação na forma de uma varredura biométrica facial e elimina a fraude, phishing e reutilização de credenciais.
 | ![Captura de tela de um logotipo do LexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | O [LexisNexis](./partner-lexisnexis.md) é um provedor de validação de identidade e criação de perfil que verifica a identificação do usuário e fornece uma avaliação de risco abrangente com base no dispositivo do usuário. |
 | ![Captura de tela de um logotipo do Onfido](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) é uma ID de documento e uma solução de verificação de biometria facial que permite que as empresas atendam aos requisitos de *clientes* e de identidade em tempo real.  |
 
@@ -78,9 +79,9 @@ A Microsoft faz parceria com os seguintes ISVs para segurança.
 
 ## <a name="additional-information"></a>Informações adicionais
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
 
 ## <a name="next-steps"></a>Próximas etapas
 

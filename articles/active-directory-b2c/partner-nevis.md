@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629384"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674986"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutorial para configurar o Nevis com Azure Active Directory B2C para autenticação sem senha
 
@@ -30,9 +30,9 @@ Para começar, você precisará de:
 
 - Uma assinatura do Azure AD. Se você não tiver uma, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
 
-- Um [locatário Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) que está vinculado à sua assinatura do Azure.
+- Um [locatário Azure ad B2C](./tutorial-create-tenant.md) que está vinculado à sua assinatura do Azure.
 
-- Configurado Azure AD B2C ambiente para usar [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), se você quiser integrar o Nevis ao seu fluxo de política de inscrição.
+- Configurado Azure AD B2C ambiente para usar [políticas personalizadas](./custom-policy-get-started.md), se você quiser integrar o Nevis ao seu fluxo de política de inscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -104,7 +104,7 @@ Você receberá dois emails:
 
 ### <a name="integrate-azure-ad-b2c-with-nevis"></a>Integre Azure AD B2C com Nevis
 
-1. Abra o [Portal do Azure](https://portal.azure.com/).
+1. Abra o [portal do Azure](https://portal.azure.com/).
 
 2. Alterne para o locatário do Azure AD B2C. Verifique se você selecionou o locatário correto, pois o locatário de Azure AD B2C geralmente está em um locatário separado.
 
@@ -134,9 +134,9 @@ Você receberá dois emails:
 
 4. **Salve** as alterações no arquivo.
 
-5. Siga as [instruções](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) e carregue o arquivo **nevis.html** no armazenamento de BLOBs do Azure.
+5. Siga as [instruções](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account) e carregue o arquivo **nevis.html** no armazenamento de BLOBs do Azure.
 
-6. Siga as [instruções](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) e habilite o compartilhamento de recursos entre origens (CORS) para este arquivo.
+6. Siga as [instruções](./customize-ui-with-html.md#3-configure-cors) e habilite o compartilhamento de recursos entre origens (CORS) para este arquivo.
 
 7. Quando o upload for concluído e o CORS estiver habilitado, selecione o arquivo **nevis.html** na lista.
 
@@ -202,7 +202,7 @@ Você receberá dois emails:
 4. Selecione o arquivo de **TrustFrameworkBase.xml** que você modificou.
 
 5. Marque a caixa de seleção **substituir a política personalizada se ela já existir** .
-6. Escolha **Carregar**.
+6. Selecione **Carregar**.
 
 7. Repita as etapas 5 e 6 para **TrustFrameworkExtensions.xml**.
 
@@ -268,6 +268,6 @@ Você receberá dois emails:
 
 Para obter informações adicionais, examine os artigos a seguir
 
-- [Políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Políticas personalizadas no Azure AD B2C](./custom-policy-overview.md)
 
-- [Introdução às políticas personalizadas no Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introdução às políticas personalizadas no Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

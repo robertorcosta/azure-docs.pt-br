@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 644192de74a888daa0391b31dd42eb6028403fd8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387030"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674467"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Visão geral da política personalizada Azure AD B2C
 
@@ -53,7 +53,7 @@ As [transformações de declarações](claimstransformations.md) são funções 
 
 ### <a name="customize-and-localize-your-ui"></a>Personalizar e localizar sua interface do usuário
 
-Quando você quiser coletar informações de seus usuários apresentando uma página em seu navegador da Web, use o [perfil técnico autodeclarado](self-asserted-technical-profile.md). Você pode editar seu perfil técnico autodeclarado para [adicionar declarações e personalizar a entrada do usuário](custom-policy-configure-user-input.md).
+Quando você quiser coletar informações de seus usuários apresentando uma página em seu navegador da Web, use o [perfil técnico autodeclarado](self-asserted-technical-profile.md). Você pode editar seu perfil técnico autodeclarado para [adicionar declarações e personalizar a entrada do usuário](./configure-user-input.md).
 
 Para [Personalizar a interface do usuário](customize-ui-with-html.md) para seu perfil técnico autodeclarado, ESPECIFIQUE uma URL no elemento de [definição de conteúdo](contentdefinitions.md) com conteúdo HTML personalizado. No perfil técnico autodeclarado, você aponta para essa ID de definição de conteúdo.
 
@@ -133,11 +133,11 @@ Dentro de uma Azure AD B2C política personalizada, você pode integrar sua pró
 
 - Crie sua lógica na **política de extensão** ou na **política da parte de retransmissão**. Você pode adicionar novos elementos, que substituirão a política base referenciando a mesma ID. Isso permitirá que você Escale horizontalmente seu projeto enquanto torna mais fácil atualizar a política base posteriormente, se a Microsoft lançar novos pacotes de início.
 - Na **política de base**, é altamente recomendável evitar fazer qualquer alteração.  Quando necessário, faça comentários onde as alterações são feitas.
-- Quando você estiver substituindo um elemento, como metadados de perfil técnico, evite copiar o perfil técnico inteiro da política de base. Em vez disso, copie apenas a seção necessária do elemento. Consulte [desabilitar a verificação de email](custom-policy-disable-email-verification.md) para obter um exemplo de como fazer a alteração.
+- Quando você estiver substituindo um elemento, como metadados de perfil técnico, evite copiar o perfil técnico inteiro da política de base. Em vez disso, copie apenas a seção necessária do elemento. Consulte [desabilitar a verificação de email](./disable-email-verification.md) para obter um exemplo de como fazer a alteração.
 - Para reduzir a duplicação de perfis técnicos, onde a funcionalidade principal é compartilhada, use a [inclusão de perfil técnico](technicalprofiles.md#include-technical-profile).
 - Evite gravar no diretório do AD do Azure durante a entrada, o que pode levar à limitação de problemas.
 - Se sua política tiver dependências externas, como a API REST, verifique se elas estão altamente disponíveis.
-- Para uma melhor experiência de usuário, verifique se seus modelos HTML personalizados são implantados globalmente usando a [distribuição de conteúdo online](https://docs.microsoft.com/azure/cdn/). A CDN (rede de distribuição de conteúdo) do Azure permite reduzir os tempos de carregamento, economizar largura de banda e acelerar a capacidade de resposta.
+- Para uma melhor experiência de usuário, verifique se seus modelos HTML personalizados são implantados globalmente usando a [distribuição de conteúdo online](../cdn/index.yml). A CDN (rede de distribuição de conteúdo) do Azure permite reduzir os tempos de carregamento, economizar largura de banda e acelerar a capacidade de resposta.
 - Se você quiser fazer uma alteração no percurso do usuário. Copie toda a jornada do usuário da política de base para a política de extensão. Forneça uma ID de jornada do usuário exclusiva para o percurso do usuário que você copiou. Em seguida, na política de terceira parte [confiável](relyingparty.md), altere o elemento de [jornada do usuário padrão](relyingparty.md#defaultuserjourney) para apontar para o novo percurso do usuário.
 
 ## <a name="troubleshooting"></a>Solução de problemas
@@ -168,9 +168,9 @@ Você começa a usar Azure AD B2C política personalizada:
 
 Depois de configurar e testar sua política de Azure AD B2C, você pode começar a personalizar sua política. Siga os artigos a seguir para saber como:
 
-- [Adicione declarações e personalize a entrada do usuário](custom-policy-configure-user-input.md) usando políticas personalizadas. Saiba como definir uma declaração, adicionar uma declaração à interface do usuário Personalizando alguns dos perfis técnicos do pacote inicial.
+- [Adicione declarações e personalize a entrada do usuário](./configure-user-input.md) usando políticas personalizadas. Saiba como definir uma declaração, adicionar uma declaração à interface do usuário Personalizando alguns dos perfis técnicos do pacote inicial.
 - [Personalize a interface do usuário](customize-ui-with-html.md) do seu aplicativo usando uma política personalizada. Saiba como criar seu próprio conteúdo HTML e personalizar a definição de conteúdo.
-- [Localize a interface do usuário](custom-policy-localization.md) do seu aplicativo usando uma política personalizada. Saiba como configurar a lista de idiomas com suporte e fornecer rótulos específicos do idioma, adicionando o elemento recursos localizados.
-- Durante o desenvolvimento e o teste de sua política, você pode [desabilitar a verificação de email](custom-policy-disable-email-verification.md). Saiba como substituir os metadados de um perfil técnico.
-- [Configure a entrada com uma conta do Google](identity-provider-google-custom.md) usando políticas personalizadas. Saiba como criar um novo provedor de declarações com o perfil técnico do OAuth2. Em seguida, personalize a jornada do usuário para incluir a opção de entrada do Google.
+- [Localize a interface do usuário](./language-customization.md) do seu aplicativo usando uma política personalizada. Saiba como configurar a lista de idiomas com suporte e fornecer rótulos específicos do idioma, adicionando o elemento recursos localizados.
+- Durante o desenvolvimento e o teste de sua política, você pode [desabilitar a verificação de email](./disable-email-verification.md). Saiba como substituir os metadados de um perfil técnico.
+- [Configure a entrada com uma conta do Google](./identity-provider-google.md) usando políticas personalizadas. Saiba como criar um novo provedor de declarações com o perfil técnico do OAuth2. Em seguida, personalize a jornada do usuário para incluir a opção de entrada do Google.
 - Para diagnosticar problemas com suas políticas personalizadas, você pode [coletar logs de Azure Active Directory B2C com Application insights](troubleshoot-with-application-insights.md). Saiba como adicionar novos perfis técnicos e configurar a política da parte de retransmissão.

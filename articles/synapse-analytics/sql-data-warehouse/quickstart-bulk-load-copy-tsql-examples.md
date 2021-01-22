@@ -9,16 +9,16 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 25c692ea9a2dce4723472f6812ac46d82b2b318d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 1551e85bd45d4d64861b43bf53dd0c155520861f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120981"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673630"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar dados com segurança usando o SQL do Synapse
 
-Este artigo realça e fornece exemplos sobre os mecanismos de autenticação segura para a [Instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). A instrução COPY é a maneira mais flexível e segura de carregar dados em massa no SQL do Synapse.
+Este artigo realça e fornece exemplos sobre os mecanismos de autenticação segura para a [Instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). A instrução COPY é a maneira mais flexível e segura de carregar dados em massa no SQL do Synapse.
 ## <a name="supported-authentication-mechanisms"></a>Mecanismos de autenticação compatíveis
 
 A matriz a seguir descreve os métodos de autenticação compatíveis com cada tipo de arquivo e conta de armazenamento. Isso se aplica ao local de armazenamento de origem e ao local do arquivo de erros.
@@ -176,5 +176,5 @@ A autenticação de identidade gerenciada é obrigatória quando sua conta de ar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Conferir o artigo [Instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) para ver a sintaxe detalhada
+- Conferir o artigo [Instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) para ver a sintaxe detalhada
 - Conferir o artigo [Visão geral de carregamento de dados](./design-elt-data-loading.md#what-is-elt) para ver as melhores práticas de carregamento
