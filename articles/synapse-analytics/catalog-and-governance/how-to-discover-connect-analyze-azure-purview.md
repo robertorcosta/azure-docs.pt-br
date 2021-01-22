@@ -8,24 +8,21 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c6b25fd3615fa76bc76e6d360f4c76a21a9ad02
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 817f9a88bd3536e9c0ec8a1057098e6b4a96716e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918073"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676350"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Descobrir, conectar e explorar dados no Synapse usando o Azure alcance 
-
-> [!IMPORTANT]
-> A integração entre o Azure Synapse Analytics e o Azure alcance está atualmente em versão prévia. Se você estiver interessado em experimentar o Azure alcance no Synapse, conecte-se com seu representante de vendas da Microsoft. 
 
 Neste documento, você aprenderá o tipo de interações que pode executar ao registrar uma conta do Azure alcance no Synapse. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- [Conta do Azure alcance](../../purview/create-catalog-portal.md) 
-- [Espaço de trabalho Synapse](../quickstart-create-workspace.md) 
+- [Conta do Azure Purview](../../purview/create-catalog-portal.md) 
+- [Workspace do Azure Synapse](../quickstart-create-workspace.md) 
 - [Conectar uma conta do Azure alcance ao Synapse](quickstart-connect-azure-purview.md) 
 
 ## <a name="using-azure-purview-in-synapse"></a>Usando o Azure alcance no Synapse 
@@ -71,5 +68,5 @@ Com o **novo fluxo de dados**, você pode criar um conjunto de dado de integraç
 
 ##  <a name="nextsteps"></a>Próximas etapas 
 
-- [Registrar e verificar ativos Synapse do Azure no Azure alcance](../../purview/register-scan-azure-synapse-analytics.md)
+- [Registrar e examinar ativos do Azure Synapse no Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 - [Como pesquisar dados no catálogo de dados do Azure alcance](../../purview/how-to-search-catalog.md)

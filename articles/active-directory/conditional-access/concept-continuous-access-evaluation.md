@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: fd14c7911676768a61d2b2c0e366d2c227455be8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860296"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678197"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -28,7 +28,7 @@ A resposta oportuna a violações de política ou problemas de segurança realme
 
 A implementação inicial da avaliação de acesso contínuo se concentra no Exchange, nas equipes e no SharePoint Online.
 
-Para preparar seus aplicativos para usar o CAE, consulte [como usar APIs habilitadas para avaliação de acesso contínuo em seus aplicativos](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
+Para preparar seus aplicativos para usar o CAE, consulte [como usar APIs habilitadas para avaliação de acesso contínuo em seus aplicativos](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Principais benefícios
 
@@ -128,7 +128,7 @@ No exemplo a seguir, um administrador de acesso condicional configurou uma polí
 ## <a name="enable-or-disable-cae-preview"></a>Habilitar ou desabilitar CAE (versão prévia)
 
 1. Entre no **portal do Azure** como administrador de acesso condicional, administrador de segurança ou administrador global
-1. Navegue até **Azure Active Directory**  >  **Security**  >  **avaliação de acesso contínuo à** segurança.
+1. Navegue até **Azure Active Directory**  >    >  **avaliação de acesso contínuo à** segurança.
 1. Escolha **habilitar visualização**.
 
 Nessa página, você pode, opcionalmente, limitar os usuários e grupos que estarão sujeitos à versão prévia.

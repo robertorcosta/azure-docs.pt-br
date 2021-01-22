@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: d4abc9e1bba151f46adf71dd0185ddddad916a38
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5087278e5c89514cd43b7ca871a58f18e0fa98f2
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216454"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678139"
 ---
 # <a name="authentication-vs-authorization"></a>Autenticação versus autorização
 
@@ -51,7 +51,7 @@ Este vídeo explica a plataforma de identidade da Microsoft e os conceitos bási
 Aqui está uma comparação dos protocolos que a plataforma Microsoft Identity usa:
 
 * **OAuth versus OpenID Connect**: a plataforma usa OAuth para autorização e OpenID Connect (OIDC) para autenticação. O OpenID Connect é desenvolvido com base no OAuth 2.0, portanto, a terminologia e o fluxo são semelhantes entre os dois. Você pode até mesmo autenticar um usuário (por meio do OpenID Connect) e obter autorização para acessar um recurso protegido que o usuário possui (por meio do OAuth 2,0) em uma solicitação. Para saber mais, confira [Protocolos OAuth 2.0 e OpenID Connect](active-directory-v2-protocols.md) e [Protocolo OpenID Connect](v2-protocols-oidc.md).
-* **OAuth versus SAML**: a plataforma usa o OAuth 2,0 para autorização e SAML para autenticação. Para obter mais informações sobre como usar esses protocolos em conjunto para autenticar um usuário e obter autorização para acessar um recurso protegido, consulte [plataforma de identidade da Microsoft e fluxo de declaração de portador SAML 2,0 do OAuth](v2-saml-bearer-assertion.md).
+* **OAuth versus SAML**: a plataforma usa o OAuth 2,0 para autorização e SAML para autenticação. Para obter mais informações sobre como usar esses protocolos em conjunto para autenticar um usuário e obter autorização para acessar um recurso protegido, consulte [plataforma de identidade da Microsoft e fluxo de declaração de portador SAML 2,0 do OAuth](./scenario-token-exchange-saml-oauth.md).
 * **OpenID Connect versus SAML**: a plataforma usa o OpenID Connect e o SAML para autenticar um usuário e habilitar o logon único. A autenticação SAML é comumente usada com provedores de identidade, como Serviços de Federação do Active Directory (AD FS) (AD FS) federado ao Azure AD, para que ele seja usado com frequência em aplicativos empresariais. O OpenID Connect é normalmente usado para aplicativos que são puramente na nuvem, como aplicativos móveis, sites e APIs da Web.
 
 ## <a name="next-steps"></a>Próximas etapas

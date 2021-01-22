@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 761976741bf794a21182e8f962b274ae32925060
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5640c1e254c4738ab53881544a09808b4894a462
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324475"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676962"
 ---
 # <a name="what-is-workload-management"></a>O que é o gerenciamento de carga de trabalho?
 
@@ -44,7 +44,7 @@ Por exemplo, conceder uma associação da função de usuário ad hoc ao smallrc
 
 O gerenciamento de carga de trabalho do pool SQL dedicado no Azure Synapse consiste em três conceitos de alto nível: [classificação de carga de trabalho](sql-data-warehouse-workload-classification.md), importância da [carga](sql-data-warehouse-workload-importance.md)de trabalho e [isolamento da carga](sql-data-warehouse-workload-isolation.md)de trabalho  Esses recursos oferecem mais controle sobre como sua carga de trabalho utiliza os recursos do sistema.
 
-A classificação da carga de trabalho é o conceito de atribuir uma solicitação a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, essa atribuição foi feita por meio de associação da função usando [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Agora essa ação pode ser feita por meio do [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  O recurso de classificação fornece um conjunto mais avançado de opções, como rótulo, sessão e tempo para classificar solicitações.
+A classificação da carga de trabalho é o conceito de atribuir uma solicitação a um grupo de carga de trabalho e definir níveis de importância.  Historicamente, essa atribuição foi feita por meio de associação da função usando [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Agora essa ação pode ser feita por meio do [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  O recurso de classificação fornece um conjunto mais avançado de opções, como rótulo, sessão e tempo para classificar solicitações.
 
 A importância da carga de trabalho influencia a ordem em que uma solicitação obtém acesso aos recursos.  Em um sistema ocupado, uma solicitação com maior importância acessa os recursos primeiro.  A importância também pode garantir o acesso ordenado a bloqueios.
 

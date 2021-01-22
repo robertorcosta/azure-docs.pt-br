@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 54a4a938be18d39993652cecb87b3604e268fcef
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762904"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678945"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implantar VMs no dispositivo de GPU Azure Stack Edge Pro usando a CLI do Azure e o Python
 
@@ -123,7 +123,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
 
     Veja uma saída de exemplo do comando acima:
 
-    ```powershell
+    ```output
     PS C:\windows\system32> az --version
     azure-cli                         2.0.80
     
@@ -147,7 +147,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
     PS C:\windows\system32>
     ```
 
-    Caso você não tenha a CLI do Azure, baixe-a e [instale-a no Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Execute a CLI do Azure usando o prompt de comando do Windows ou por meio do Windows PowerShell.
+    Caso você não tenha a CLI do Azure, baixe-a e [instale-a no Windows](/cli/azure/install-azure-cli-windows). Execute a CLI do Azure usando o prompt de comando do Windows ou por meio do Windows PowerShell.
 
 2. Anote a localização do Python da CLI. Você precisará disso para determinar a localização do repositório de certificados raiz confiáveis da CLI do Azure.
 
@@ -171,7 +171,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
 
     A seguinte saída de exemplo mostra a instalação do Haikunator:
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install haikunator
 
     Collecting haikunator
@@ -187,7 +187,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
 
     A seguinte saída de exemplo mostra a instalação do Pip para `msrestazure`: 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install msrestazure==0.6.2
     Requirement already satisfied: msrestazure==0.6.2 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (0.6.2)
     Requirement already satisfied: msrest<2.0.0,>=0.6.0 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (from msrestazure==0.6.2) (0.6.10)
@@ -211,7 +211,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
     
     O cmdlet retorna a localização do certificado, conforme mostrado abaixo:  
         
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python -c "import certifi; print(certifi.where())"
     C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
@@ -323,7 +323,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
 
    Veja uma saída de exemplo de uma conexão bem-sucedida após o fornecimento da senha:  
    
-   ```powershell
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [

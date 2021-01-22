@@ -3,12 +3,12 @@ title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Doc
 description: Este artigo fornece respostas para algumas das perguntas frequentes sobre o barramento de serviço do Azure.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 576df12a9d53ec3585f8691016cd250bf1ba4be3
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e5bc9aae081868c92e0968c88c8cb6dcfb8ee57c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623100"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676367"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Barramento de serviço do Azure-perguntas frequentes (FAQ)
 
@@ -168,6 +168,8 @@ Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
 $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
+## <a name="is-it-possible-to-disable-tls-10-or-11-on-service-bus-namespaces"></a>É possível desabilitar o TLS 1,0 ou 1,1 nos namespaces do barramento de serviço?
+Não. Não é possível desabilitar o TLS 1,0 ou 1,1 nos namespaces do barramento de serviço. Nos aplicativos cliente que se conectam ao barramento de serviço, use o TLS 1,2 ou superior. Para obter mais informações, consulte [impondo o TLS 1,2 Use com o barramento de serviço do Azure-Microsoft Tech Community](https://techcommunity.microsoft.com/t5/messaging-on-azure/enforcing-tls-1-2-use-with-azure-service-bus/ba-p/370912).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Barramento de Serviço, consulte os seguintes artigos:

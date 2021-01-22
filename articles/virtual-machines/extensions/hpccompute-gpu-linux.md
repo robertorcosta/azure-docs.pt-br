@@ -12,14 +12,14 @@ ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/11/2019
-ms.author: akjosh
-ms.openlocfilehash: c06d8e4ab368934182ed67b91dedb9ba9bcfc199
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 01/21/2021
+ms.author: amverma
+ms.openlocfilehash: a241086e6a590096cf40cbdb7a84838b14889f73
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965316"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678281"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de Driver NVIDIA GPU para Linux
 
@@ -39,8 +39,8 @@ Esta extensão é compartível com as seguintes distribuições do sistema opera
 | Distribuição | Versão |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7,3, 7,4, 7,5, 7,6, 7,7 |
-| Linux: CentOS | 7,3, 7,4, 7,5, 7,6, 7,7 |
+| Linux: Red Hat Enterprise Linux | 7,3, 7,4, 7,5, 7,6, 7,7, 7,8 |
+| Linux: CentOS | 7,3, 7,4, 7,5, 7,6, 7,7, 7,8 |
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
@@ -86,7 +86,7 @@ Todas as configurações são opcionais. O comportamento padrão é não atualiz
 | Nome | Descrição | Valor Padrão | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualize o kernel, mesmo que não seja necessário para instalação do driver | false | verdadeiro, falso | booleano |
-| driverVersion | NV: versão do driver GRID<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: versão do driver GRID<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | [Lista](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) de versões de driver com suporte | string |
 | installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | true | verdadeiro, falso | booleano |
 
 

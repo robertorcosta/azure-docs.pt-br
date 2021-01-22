@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 404103caf376b792d363996664a69f655d5bd202
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2ed19846209d098d9eba8dba991e08d1fc57f185
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326005"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678002"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurar chaves gerenciadas pelo cliente para sua conta do lote do Azure com Azure Key Vault e identidade gerenciada
 
@@ -39,7 +39,7 @@ Depois que a conta é criada, você pode encontrar um GUID exclusivo no campo **
 
 Ao criar uma nova conta do lote, especifique `SystemAssigned` para o `--identity` parâmetro.
 
-```powershell
+```azurecli
 resourceGroupName='myResourceGroup'
 accountName='mybatchaccount'
 
@@ -52,7 +52,7 @@ az batch account create \
 
 Depois que a conta for criada, você poderá verificar se a identidade gerenciada atribuída pelo sistema foi habilitada nessa conta. Lembre-se de anotar o `PrincipalId` , pois esse valor será necessário para conceder a essa conta do lote acesso ao key Vault.
 
-```powershell
+```azurecli
 az batch account show \
     -n $accountName \
     -g $resourceGroupName \
@@ -72,7 +72,7 @@ Ao criar uma instância de Azure Key Vault com chaves gerenciadas pelo cliente p
 
 ### <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Adicionar uma política de acesso à sua instância do Azure Key Vault
 
-No portal do Azure, depois que o Key Vault for criado, na configuração **política** de acesso **Setting** em, adicione o acesso à conta do lote usando a identidade gerenciada. Em **permissões de chave**, **selecione obter**, **encapsular chave** e **desencapsular chave**. 
+No portal do Azure, depois que o Key Vault for criado, na configuração **política** de acesso em, adicione o acesso à conta do lote usando a identidade gerenciada. Em **permissões de chave**, **selecione obter**, **encapsular chave** e **desencapsular chave**. 
 
 ![Adicionar política de acesso](./media/batch-customer-managed-key/key-permissions.png)
 
@@ -100,7 +100,7 @@ Na [portal do Azure](https://portal.azure.com/), vá para a página conta do lot
 
 Depois que a conta do lote for criada com a identidade gerenciada atribuída pelo sistema e o acesso a Key Vault for concedido, atualize a conta do lote com a `{Key Identifier}` URL em `keyVaultProperties` parâmetro. Também defina **encryption_key_source** como `Microsoft.KeyVault` .
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -114,11 +114,11 @@ Ao criar uma nova versão de uma chave, atualize a conta do lote para usar a nov
 
 1. Navegue até sua conta do lote em portal do Azure e exiba as configurações de criptografia.
 2. Insira o URI para a nova versão de chave. Como alternativa, você pode selecionar o cofre de chaves e a chave novamente para atualizar a versão.
-3. Salve suas alterações.
+3. Salve as alterações.
 
 Você também pode usar CLI do Azure para atualizar a versão.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -130,11 +130,11 @@ Para alterar a chave usada para criptografia em lote, siga estas etapas:
 
 1. Navegue até sua conta do lote e exiba as configurações de criptografia.
 2. Insira o URI para a nova chave. Como alternativa, você pode selecionar o cofre de chaves e escolher uma nova chave.
-3. Salve suas alterações.
+3. Salve as alterações.
 
 Você também pode usar CLI do Azure para usar uma chave diferente.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \

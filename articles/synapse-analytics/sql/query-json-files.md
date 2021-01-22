@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5703e4ac3d4a545041c7d258f0b1f0e7c79a33b5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8dc07a3aa954a74ba594eb99da1ea3ee59610c9b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462610"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678314"
 ---
 # <a name="query-json-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar arquivos JSON usando o pool SQL sem servidor no Azure Synapse Analytics
 
@@ -126,7 +126,7 @@ Os exemplos de consulta lêem arquivos *JSON* contendo documentos com a seguinte
 
 ### <a name="query-json-files-using-json_value"></a>Consultar arquivos JSON usando JSON_VALUE
 
-A consulta a seguir mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalares (título, editor) de documentos JSON:
+A consulta a seguir mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalares (título, editor) de documentos JSON:
 
 ```sql
 select
@@ -146,7 +146,7 @@ order by JSON_VALUE(doc, '$.geo_id') desc
 
 ### <a name="query-json-files-using-openjson"></a>Consultar arquivos JSON usando OPENJSON
 
-A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Ele recuperará as estatísticas de COVID relatadas na Sérvia:
+A consulta a seguir usa [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Ele recuperará as estatísticas de COVID relatadas na Sérvia:
 
 ```sql
 select

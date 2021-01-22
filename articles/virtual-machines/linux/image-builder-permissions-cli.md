@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: f598ed3e2aef2f53b90b213d0bd1b002f56bd30c
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 19320b8b497202c473f72f4751daf2110a347080
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517743"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676743"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configurar permissões de serviço do construtor de imagem do Azure usando CLI do Azure
 
@@ -230,7 +230,7 @@ Substitua as seguintes configurações de espaço reservado:
 | Configuração | Descrição |
 |---------|-------------|
 | \<Region\> | Região do modelo |
-| \<Resource group\> | Grupo de recursos |
+| \<Resource group\> | Resource group |
 | \<Storage account container\> | Nome do contêiner da conta de armazenamento |
 | \<Subscription ID\> | Assinatura do Azure |
 
@@ -238,4 +238,4 @@ Para obter mais informações sobre como usar uma identidade gerenciada atribuí
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](image-builder-overview.md).
+Para obter mais informações, consulte [visão geral do construtor de imagens do Azure](../image-builder-overview.md).

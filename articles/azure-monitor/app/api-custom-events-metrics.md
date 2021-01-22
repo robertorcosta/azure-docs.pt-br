@@ -4,12 +4,12 @@ description: Insira algumas linhas de código em seu aplicativo da área de trab
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 8fecca4875ba291da093bf1eea596eef290f80c8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233739"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678105"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -534,7 +534,7 @@ Se a [amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCou
 Use a chamada a TrackDependency para acompanhar os tempos de resposta e taxas de êxito de chamadas a uma parte externa do código. Os resultados são exibidos nos gráficos de dependência no portal. O trecho de código abaixo precisa ser adicionado sempre que uma chamada de dependência é feita.
 
 > [!NOTE]
-> Para .NET e .NET Core, você pode, como alternativa, usar o `TelemetryClient.StartOperation` método (extensão) que preenche as `DependencyTelemetry` Propriedades que são necessárias para a correlação e algumas outras propriedades, como a hora de início e a duração, para que você não precise criar um temporizador personalizado como com os exemplos abaixo. Para obter mais informações, consulte a [seção deste artigo sobre acompanhamento de dependência de saída](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
+> Para .NET e .NET Core, você pode, como alternativa, usar o `TelemetryClient.StartOperation` método (extensão) que preenche as `DependencyTelemetry` Propriedades que são necessárias para a correlação e algumas outras propriedades, como a hora de início e a duração, para que você não precise criar um temporizador personalizado como com os exemplos abaixo. Para obter mais informações, consulte a [seção deste artigo sobre acompanhamento de dependência de saída](./custom-operations-tracking.md#outgoing-dependencies-tracking).
 
 *C#*
 
@@ -1115,7 +1115,7 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 * *Que exceções podem ser lançadas por chamadas Track_()?*
 
-    nenhuma. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
+    Nenhum. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
 * *Há uma API REST para obter dados do portal?*
 
     Sim, a [API de acesso a dados](https://dev.applicationinsights.io/). Outras maneiras de extrair dados incluem [exportar do Analytics para o Power BI](./export-power-bi.md) e a [exportação contínua](./export-telemetry.md).

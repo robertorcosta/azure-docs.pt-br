@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 343ddb109de41a0959533b16b11762841b5b1105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127134"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676752"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Solucionando problemas de falhas da extensão da VM do Windows no Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -85,7 +85,7 @@ Esse certificado será regenerado automaticamente reiniciando o agente convidado
 - Clique com o botão direito do mouse e selecione "Finalizar tarefa". O processo será reiniciado automaticamente
 
 
-Você também pode disparar uma nova metastate para a VM, executando uma "VM reapply". [Reaplicar](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply) VM é uma API introduzida em 2020 para reaplicar o estado de uma VM. É recomendável fazer isso por vez, quando você puder tolerar um curto tempo de inatividade da VM. Embora a reaplicação em si não cause uma reinicialização da VM e a grande maioria dos tempos que chamam a reaplicação não reinicia a VM, há um risco muito pequeno de que alguma outra atualização pendente para o modelo de VM seja aplicada quando reaplicar dispara um novo estado de meta e que outra alteração pode exigir uma reinicialização. 
+Você também pode disparar uma nova metastate para a VM, executando uma "VM reapply". [Reaplicar](/rest/api/compute/virtualmachines/reapply) VM é uma API introduzida em 2020 para reaplicar o estado de uma VM. É recomendável fazer isso por vez, quando você puder tolerar um curto tempo de inatividade da VM. Embora a reaplicação em si não cause uma reinicialização da VM e a grande maioria dos tempos que chamam a reaplicação não reinicia a VM, há um risco muito pequeno de que alguma outra atualização pendente para o modelo de VM seja aplicada quando reaplicar dispara um novo estado de meta e que outra alteração pode exigir uma reinicialização. 
 
 Portal do Azure:
 

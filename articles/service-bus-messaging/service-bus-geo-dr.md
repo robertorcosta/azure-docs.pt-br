@@ -3,12 +3,12 @@ title: Recuperação de desastre em área geográfica do Barramento de Serviço 
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre no Barramento de Serviço do Azure
 ms.topic: article
 ms.date: 01/04/2021
-ms.openlocfilehash: c07721c07923a40da9fe28e0e3116bfd6a52210f
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b25fd1befded253c79267b1b016cef979005d01e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862360"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676448"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -48,6 +48,8 @@ Os seguintes termos são usados neste artigo:
 
 -  *Namespace primário/secundário*: os namespaces que correspondem ao alias. O namespace primário é "ativo" e recebe mensagens (pode ser um namespace existente ou novo). O namespace secundário "passivo" e não recebe mensagens. Os metadados entre os dois estão sincronizados, para que ambos possam aceitar mensagens continuamente sem quaisquer alterações no código do aplicativo ou na cadeia de conexão. Para garantir que apenas o namespace ativo receba mensagens, você deve usar o alias. 
 
+    > [!IMPORTANT]
+    > O recurso de recuperação de desastres geograficamente exige que a assinatura e o grupo de recursos sejam os mesmos para namespaces primários e secundários.
 -  *Metadados*: Entidades como filas, tópicos e assinaturas; e suas propriedades do serviço que são associadas ao namespace. Observe que somente entidades e suas configurações são replicadas automaticamente. Mensagens não são replicadas.
 
 -  *Failover*: o processo de ativação do namespace secundário.

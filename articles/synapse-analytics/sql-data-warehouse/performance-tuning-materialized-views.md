@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick; azure-synapse
-ms.openlocfilehash: 902f0ac96349cf3e30ec12aeda02130afc2b800c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e137611809e2d2beefecfeaea11b4295bf6ba141
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460759"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678484"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Ajuste de desempenho com exibições materializadas
 
@@ -29,7 +29,7 @@ Uma exibição padrão calcula os dados sempre que a exibição é usada.  Não 
 
 Uma exibição materializada pré-calcula, armazena e mantém seus dados no pool de SQL como uma tabela.  Não é necessário recálculo sempre que uma exibição materializada é usada.  É por isso que as consultas que usam todos ou criam subconjuntos dos dados em exibições materializadas podem obter desempenho mais rápido.  Melhor ainda, as consultas podem usar uma exibição materializada sem fazer referência direta a ela. Portanto, não há necessidade de alterar o código do aplicativo.  
 
-A maioria dos requisitos em uma exibição padrão ainda se aplica a uma exibição materializada. Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, confira [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+A maioria dos requisitos em uma exibição padrão ainda se aplica a uma exibição materializada. Para obter detalhes sobre a sintaxe de exibição materializada e outros requisitos, confira [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 | Comparação                     | Visualizar                                         | Exibição Materializada
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -55,8 +55,8 @@ As exibições materializadas implementadas no pool de SQL também fornecem os s
 Comparando com outros provedores de data warehouse, as exibições materializadas implementadas no Azure Synapse Analytics também fornecem os seguintes benefícios adicionais:
 
 - atualização automática e síncrona de dados com alterações de dados em tabelas base. Não é necessária nenhuma ação do usuário.
-- Amplo suporte à função de agregação. Confira [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-- O suporte para recomendação de exibição materializada específica de consulta.  Confira [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Amplo suporte à função de agregação. Confira [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- O suporte para recomendação de exibição materializada específica de consulta.  Confira [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Cenários comuns  
 

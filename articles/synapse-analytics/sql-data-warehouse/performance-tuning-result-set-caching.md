@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2b54277d0306244dc4ab6740fdd30e52668dd63c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d8c6c8d22c059c63fb4f84c84a02a70de30d4ebe
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460772"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678518"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste de desempenho com cache de conjunto de resultados
 
@@ -24,13 +24,13 @@ Quando o cache do conjunto de resultados estiver habilitado, o pool SQL dedicado
 
 ## <a name="key-commands"></a>Comandos de chave
 
-[Ativar/desativar o armazenamento em cache do conjunto de resultados para um banco de dados de usuário](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Ativar/desativar o armazenamento em cache do conjunto de resultados para um banco de dados de usuário](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-[Ativar/desativar o armazenamento em cache do conjunto de resultados para uma sessão](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Ativar/desativar o armazenamento em cache do conjunto de resultados para uma sessão](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-[Verificar o tamanho do conjunto de resultados em cache](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+[Verificar o tamanho do conjunto de resultados em cache](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)  
 
-[Limpar o cache](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Limpar o cache](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="whats-not-cached"></a>O que não é armazenado em cache  
 
@@ -74,7 +74,7 @@ O conjunto de resultados armazenado em cache será reutilizado em uma consulta s
 - Há uma correspondência exata entre a nova consulta e a anterior que gerou o armazenamento em cache do conjunto de resultados.
 - Não há alterações de dados ou esquemas nas tabelas em que o conjunto de resultados armazenado em cache foi gerado.
 
-Execute esse comando para verificar se uma consulta foi executada com uma perda ou ocorrência no cache de resultado. A coluna result_cache_hit retorna 1 para a ocorrência no cache, 0 para a perda no cache e valores negativos para motivos pelos quais o cache do conjunto de resultados não foi usado. Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para obter detalhes.
+Execute esse comando para verificar se uma consulta foi executada com uma perda ou ocorrência no cache de resultado. A coluna result_cache_hit retorna 1 para a ocorrência no cache, 0 para a perda no cache e valores negativos para motivos pelos quais o cache do conjunto de resultados não foi usado. Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para obter detalhes.
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests

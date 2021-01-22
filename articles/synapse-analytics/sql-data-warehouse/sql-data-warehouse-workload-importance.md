@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 06d1957d182f2cabc336afcfc47a790442a3cb9a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322129"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678399"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importância da carga de trabalho do Azure Synapse Analytics
 
@@ -38,7 +38,7 @@ Além do cenário de importância básica descrito acima com dados de vendas e c
 
 ### <a name="locking"></a>Bloqueio
 
-O acesso a bloqueios para atividade de leitura e gravação é uma área de contenção natural. Atividades como [troca de partição](sql-data-warehouse-tables-partition.md) ou [renomear objeto](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) exigem bloqueios elevados.  Sem importância de carga de trabalho, o pool SQL dedicado no Azure Synapse otimiza para a taxa de transferência. Otimizar para taxa de transferência significa que, quando as solicitações em execução e em fila tiverem as mesmas necessidades de bloqueio e os recursos estiverem disponíveis, as solicitações enfileiradas poderão ignorar as solicitações com maiores necessidades de bloqueio que chegaram na fila de solicitações anteriormente. Quando a importância da carga de trabalho é aplicada a solicitações com mais necessidades de bloqueio. A solicitação com maior importância será executada antes da solicitação com menor importância.
+O acesso a bloqueios para atividade de leitura e gravação é uma área de contenção natural. Atividades como [troca de partição](sql-data-warehouse-tables-partition.md) ou [renomear objeto](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) exigem bloqueios elevados.  Sem importância de carga de trabalho, o pool SQL dedicado no Azure Synapse otimiza para a taxa de transferência. Otimizar para taxa de transferência significa que, quando as solicitações em execução e em fila tiverem as mesmas necessidades de bloqueio e os recursos estiverem disponíveis, as solicitações enfileiradas poderão ignorar as solicitações com maiores necessidades de bloqueio que chegaram na fila de solicitações anteriormente. Quando a importância da carga de trabalho é aplicada a solicitações com mais necessidades de bloqueio. A solicitação com maior importância será executada antes da solicitação com menor importância.
 
 Considere o seguinte exemplo:
 
@@ -62,8 +62,8 @@ Como P5 é mediumrc, ele requer dois slots de simultaneidade. O P5 precisa aguar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre como criar um classificador, consulte [criar classificação de carga de trabalho (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+- Para obter mais informações sobre como criar um classificador, consulte [criar classificação de carga de trabalho (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 - Para obter mais informações sobre a classificação da carga de trabalho, confira [Classificação da carga de trabalho](sql-data-warehouse-workload-classification.md).  
 - Consulte o [classificador início rápido criar carga de trabalho](quickstart-create-a-workload-classifier-tsql.md) para saber como criar um classificador de carga de trabalho.
 - Confira os artigos de instruções [Configurar a importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md) e como [Gerenciar e monitorar o gerenciamento de carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para exibir consultas e a importância atribuída.
+- Confira [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para exibir consultas e a importância atribuída.

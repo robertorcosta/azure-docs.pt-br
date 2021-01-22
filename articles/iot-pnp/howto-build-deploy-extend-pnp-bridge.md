@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ece9f62e64eb64b1f34af46b42d57ec583f8f214
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 43c89b0fac08bf9f2c72f885fbf4788371876b17
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97675800"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678569"
 ---
 # <a name="build-deploy-and-extend-the-iot-plug-and-play-bridge"></a>Criar, implantar e estender a ponte de Plug and Play IoT
 
@@ -188,7 +188,7 @@ Para concluir esta seção, você precisa instalar o seguinte software em seu co
 
 Clone o repositório de [ponte de plug and Play IOT](https://github.com/Azure/iot-plug-and-play-bridge) para seu computador local:
 
-```cmd/sh
+```console
 git clone https://github.com/Azure/iot-plug-and-play-bridge.git
 
 cd iot-plug-and-play-bridge
@@ -205,7 +205,7 @@ Espere que o comando anterior demore alguns minutos para ser executado.
 
 Abra o **prompt de comando do desenvolvedor para VS 2019** e navegue até a pasta que contém o repositório clonado e execute os seguintes comandos:
 
-```cmd
+```console
 cd pnpbridge\scripts\windows
 
 build.cmd
@@ -279,7 +279,7 @@ Examine o restante do arquivo de configuração para ver quais componentes de in
 
 Inicie a ponte executando-a no prompt de comando:
 
-```cmd
+```console
 cd iot-plug-and-play-bridge\pnpbridge\cmake\pnpbridge_x86\src\pnpbridge\samples\console
 
 Debug\pnpbridge_bin.exe
@@ -330,13 +330,13 @@ Os comandos aqui criam um dispositivo IoT Edge em execução em uma máquina vir
 
 Para criar um registro de dispositivo IoT Edge no Hub IoT, execute os seguintes comandos em seu ambiente WSL 2. Use o `az login` comando para entrar em sua assinatura do Azure:
 
-```bash
+```azurecli
 az iot hub device-identity create --device-id bridge-edge-device --edge-enabled true --hub-name {your IoT hub name}
 ```
 
 Para criar uma máquina virtual do Azure com o IoT Edge Runtime instalado, execute os comandos a seguir. Atualize os espaços reservados com valores adequados:
 
-```bash
+```azurecli
 az group create --name bridge-edge-resources --location eastus
 az deployment group create \
 --resource-group bridge-edge-resources \
@@ -350,7 +350,7 @@ az deployment group create \
 
 Agora você tem o tempo de execução IoT Edge em execução em uma máquina virtual. Você pode usar o comando a seguir para verificar se o **$edgeAgent** e **$edgeHub** estão em execução no dispositivo:
 
-```bash
+```azurecli
 az iot hub module-identity list --device-id bridge-edge-device -o table --hub-name {your IoT hub name}
 ```
 
@@ -405,7 +405,7 @@ Um dispositivo IoT Edge baixa suas imagens de módulo de um registro de contêin
 
 Crie um registro de contêiner do Azure no grupo de recursos **Bridge-Edge-Resources** . Em seguida, habilite o acesso de administrador ao seu registro de contêiner e obtenha as credenciais de que seu dispositivo IoT Edge precisa para baixar as imagens de módulo:
 
-```bash
+```azurecli
 az acr create -g bridge-edge-resources --sku Basic -n {your container registry name}
 az acr update --admin-enabled true -n {your container registry name}
 az acr credential show -n {your container registry name}
@@ -517,7 +517,7 @@ Em VS Code, clique com o botão direito do mouse em *pnpbridge/config/deployment
 
 Para exibir o status dos módulos em seu dispositivo, execute o seguinte comando:
 
-```bash
+```azurecli
 az iot hub module-identity list --device-id bridge-edge-device -o table --hub-name {your IoT hub name}
 ```
 
@@ -527,7 +527,7 @@ A lista de módulos em execução agora inclui o módulo **ModulePnpBridge** con
 
 Para remover a máquina virtual e o registro de contêiner da sua assinatura do Azure, execute o seguinte comando:
 
-```bash
+```azurecli
 az group delete -n bridge-edge-resources
 ```
 

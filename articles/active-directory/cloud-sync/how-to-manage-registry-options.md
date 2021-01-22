@@ -16,12 +16,12 @@ ms.subservice: hybrid
 ms.reviewer: chmutali
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4cdda52271bc7b9e9d854e0af181e2c8f22ad9a
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 1f39ef611e2ea15ef3bc3dbfcf09e9624cbcf8b3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612993"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678214"
 ---
 # <a name="manage-agent-registry-options"></a>Gerenciar opções de registro do agente
 
@@ -34,7 +34,7 @@ Ao executar operações LDAP em Active Directory controladores de domínio confi
 System.DirectoryServices.Protocols.LdapException: The operation was aborted because the client side timeout limit was exceeded.
 `
 
-As operações de pesquisa LDAP podem levar mais tempo se o atributo de pesquisa não estiver indexado. Como uma primeira etapa, se você receber o erro acima, primeiro verifique se o atributo de pesquisa/pesquisa está [indexado](https://docs.microsoft.com/windows/win32/ad/indexed-attributes). Se os atributos de pesquisa forem indexados e o erro persistir, você poderá aumentar o tempo limite de conexão LDAP usando as seguintes etapas: 
+As operações de pesquisa LDAP podem levar mais tempo se o atributo de pesquisa não estiver indexado. Como uma primeira etapa, se você receber o erro acima, primeiro verifique se o atributo de pesquisa/pesquisa está [indexado](/windows/win32/ad/indexed-attributes). Se os atributos de pesquisa forem indexados e o erro persistir, você poderá aumentar o tempo limite de conexão LDAP usando as seguintes etapas: 
 
 1. Faça logon como administrador no Windows Server que executa o agente de provisionamento do Azure AD Connect.
 1. Use o item de menu *executar* para abrir o editor do registro (regedit.exe) 
@@ -48,7 +48,7 @@ As operações de pesquisa LDAP podem levar mais tempo se o atributo de pesquisa
 1. Se você tiver implantado vários agentes de provisionamento, aplique essa alteração de registro a todos os agentes para fins de consistência. 
 
 ## <a name="configure-referral-chasing"></a>Configurar a caça de referência
-Por padrão, o agente de provisionamento do Azure AD Connect não procura [referências](https://docs.microsoft.com/windows/win32/ad/referrals). Talvez você queira habilitar a busca de referência, para dar suporte a determinados cenários de provisionamento de entrada de RH, como: 
+Por padrão, o agente de provisionamento do Azure AD Connect não procura [referências](/windows/win32/ad/referrals). Talvez você queira habilitar a busca de referência, para dar suporte a determinados cenários de provisionamento de entrada de RH, como: 
 * Verificando a exclusividade do UPN em vários domínios
 * Resolvendo referências do Gerenciador de domínio cruzado
 
@@ -95,5 +95,5 @@ Nesse cenário, você ainda pode atualizar os binários do agente e ignorar a co
 ## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
+- [O que é a sincronização de nuvem do Azure AD Connect?](what-is-cloud-sync.md)
 
