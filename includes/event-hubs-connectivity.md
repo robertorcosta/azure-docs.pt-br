@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 11/19/2020
+ms.date: 01/21/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 7ebb9dbce020086a716872c86221b97b4b7a6653
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 44afd8ea4ef2ab06ec31b7528e9776faebc3b4dc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97978851"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689795"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir no firewall? 
 Você pode usar os seguintes protocolos com os hubs de eventos do Azure para enviar e receber eventos:
@@ -34,12 +34,12 @@ A porta HTTPS é necessária para a comunicação de saída também quando AMQP 
 
 Os SDKs oficiais do Azure geralmente usam o protocolo AMQP para enviar e receber eventos dos hubs de eventos. A opção de protocolo AMQP-over-WebSockets é executada pela porta TCP 443 assim como a API HTTP, mas, de outra forma, funcionalmente idêntica com AMQP simples. Essa opção tem uma latência de conexão inicial mais alta devido a viagens de ida e volta extras de handshake e um pouco mais de sobrecarga como uma compensação para compartilhar a porta HTTPS. Se esse modo estiver selecionado, a porta TCP 443 será suficiente para comunicação. As opções a seguir permitem selecionar o modo de WebSockets AMQP ou AMQP simples:
 
-| Idioma | Opção   |
+| Language | Opção   |
 | -------- | ----- |
-| .NET     | Propriedade [EventHubConnectionOptions. TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype?view=azure-dotnet&preserve-view=true) com [EventHubsTransportType. AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) ou [EventHubsTransportType. AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype?view=azure-dotnet&preserve-view=true) |
-| Java     | [com. Microsoft. Azure. Eventhubs. EventProcessorClientBuilder. TransportType](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype?view=azure-java-stable&preserve-view=true) com [AmqpTransportType. AMQP](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) ou [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype?view=azure-java-stable&preserve-view=true) |
-| Nó  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions?view=azure-node-latest&preserve-view=true) tem uma `webSocketOptions` propriedade. |
-| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient?view=azure-python&preserve-view=true) com [TransportType. AMQP](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python) ou [TransportType. AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype?view=azure-python&preserve-view=true) |
+| .NET     | Propriedade [EventHubConnectionOptions. TransportType](/dotnet/api/azure.messaging.eventhubs.eventhubconnectionoptions.transporttype) com [EventHubsTransportType. AmqpTcp](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype) ou [EventHubsTransportType. AmqpWebSockets](/dotnet/api/azure.messaging.eventhubs.eventhubstransporttype) |
+| Java     | [com. Microsoft. Azure. Eventhubs. EventProcessorClientBuilder. TransportType](/java/api/com.azure.messaging.eventhubs.eventprocessorclientbuilder.transporttype) com [AmqpTransportType. AMQP](/java/api/com.azure.core.amqp.amqptransporttype) ou [AmqpTransportType.AMQP_WEB_SOCKETS](/java/api/com.azure.core.amqp.amqptransporttype) |
+| Nó  | [EventHubConsumerClientOptions](/javascript/api/@azure/event-hubs/eventhubconsumerclientoptions) tem uma `webSocketOptions` propriedade. |
+| Python | [EventHubConsumerClient.transport_type](/python/api/azure-eventhub/azure.eventhub.eventhubconsumerclient) com [TransportType. AMQP](/python/api/azure-eventhub/azure.eventhub.transporttype) ou [TransportType. AmqpOverWebSocket](/python/api/azure-eventhub/azure.eventhub.transporttype) |
 
 ### <a name="what-ip-addresses-do-i-need-to-allow"></a>Quais endereços IP preciso permitir?
 Quando você estiver trabalhando com o Azure, às vezes terá que permitir intervalos de endereços IP específicos ou URLs em seu firewall corporativo ou proxy para acessar todos os serviços do Azure que você está usando ou tentando usar. Verifique se o tráfego é permitido em endereços IP usados pelos hubs de eventos. Para endereços IP usados pelos hubs de eventos do Azure: consulte [intervalos de IP e marcas de serviço do Azure – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519).

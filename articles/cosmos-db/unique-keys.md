@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 165fb2937db5edfa4f51f62033afaf87cfff83ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9eb2b916bfe6c73a1535afb077b04fbb081dd5f1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353095"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685713"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restrições de chaves exclusivas no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Chaves exclusivas adicionam uma camada de integridade dos dados a um contêiner 
 
 Depois de criar um contêiner com uma política de chave exclusiva, a criação de uma nova ou de uma atualização de um item existente, resultando em uma duplicata dentro de uma partição lógica, é impedida, conforme especificado pela restrição UNIQUE KEY. A chave de partição combinada com a chave exclusiva garante a exclusividade de um item dentro do escopo do contêiner.
 
-Por exemplo, considere um contêiner do Azure Cosmos com endereço de email como a restrição de chave exclusiva e `CompanyID` como a chave de partição. Ao configurar o endereço de email do usuário com uma chave exclusiva, cada item terá um endereço de email exclusivo dentro de um determinado `CompanyID`. Não é possível criar dois itens com endereços de e-mail duplicados e com o mesmo valor de chave de partição. Na API do SQL (núcleo) do Azure Cosmos DB, os itens são armazenados como valores JSON. Esses valores JSON diferenciam maiúsculas de minúsculas. Quando você escolhe uma propriedade como uma chave exclusiva, pode inserir valores diferenciados de maiúsculas e minúsculas para essa propriedade. Por exemplo, se você tiver uma chave exclusiva definida na propriedade Name, "Gaby" será diferente de "Gaby" e você poderá inserir ambas no contêiner.
+Por exemplo, considere um contêiner Cosmos do Azure com `Email address` como a restrição de chave exclusiva e `CompanyID` como a chave de partição. Ao configurar o endereço de email do usuário com uma chave exclusiva, cada item terá um endereço de email exclusivo dentro de um determinado `CompanyID`. Não é possível criar dois itens com endereços de e-mail duplicados e com o mesmo valor de chave de partição. Na API do SQL (núcleo) do Azure Cosmos DB, os itens são armazenados como valores JSON. Esses valores JSON diferenciam maiúsculas de minúsculas. Quando você escolhe uma propriedade como uma chave exclusiva, pode inserir valores diferenciados de maiúsculas e minúsculas para essa propriedade. Por exemplo, se você tiver uma chave exclusiva definida na propriedade Name, "Gaby" será diferente de "Gaby" e você poderá inserir ambas no contêiner.
 
 Para criar itens com o mesmo endereço de email, mas não com o mesmo nome, sobrenome e endereço de email, adicione mais caminhos à política de chave exclusiva. Em vez de criar uma chave exclusiva com base apenas no endereço de email, você também pode criar uma chave exclusiva com uma combinação de nome, sobrenome e endereço de email. Essa chave é conhecida como uma chave exclusiva composta. Nesse caso, cada combinação exclusiva dos três valores dentro de um determinado `CompanyID` é permitido. 
 

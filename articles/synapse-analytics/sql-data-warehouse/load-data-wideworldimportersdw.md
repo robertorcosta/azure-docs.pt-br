@@ -11,16 +11,16 @@ ms.date: 01/12/2021
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: c492ec930cea000e45f7b6f09cc5e9c7a6a0db22
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: bd9d477ed20122b0706e7997ab8922dcce7a59ba
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134493"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685418"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: carregar dados no pool do SQL do Azure Synapse Analytics
 
-Este tutorial usa o polybase para carregar o data warehouse WideWorldImportersDW do armazenamento de BLOBs do Azure para seu data warehouse no pool SQL do Azure Synapse Analytics. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio) para:
+Este tutorial usa o polybase para carregar o data warehouse WideWorldImportersDW do armazenamento de BLOBs do Azure para seu data warehouse no pool SQL do Azure Synapse Analytics. Este tutorial usa o [Portal do Azure](https://portal.azure.com) e o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SQL Server Management Studio) para:
 
 > [!div class="checklist"]
 >
@@ -35,7 +35,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SQL Server Management Studio).
+Antes de iniciar este tutorial, baixe e instale a versão mais recente do [SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SQL Server Management Studio).
 
 Este tutorial pressupõe que você já criou um pool SQL dedicado do [tutorial](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)a seguir. 
 
@@ -111,7 +111,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     CREATE MASTER KEY;
     ```
 
-4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para definir o local do blob do Azure. Este é o local dos dados externos de importadores mundiais.  Para executar um comando que você acrescentou à janela de consulta, realce os comandos que deseja executar e clique em **Executar**.
+4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para definir o local do blob do Azure. Este é o local dos dados externos de importadores mundiais.  Para executar um comando que você acrescentou à janela de consulta, realce os comandos que deseja executar e clique em **Executar**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -122,7 +122,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     );
     ```
 
-5. Execute a seguinte instrução T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para especificar as características e opções de formatação para o arquivo de dados externo. Essa instrução especifica que os dados externos são armazenados como texto e que os valores são separados pelo caractere barra vertical ('|').  
+5. Execute a seguinte instrução T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para especificar as características e opções de formatação para o arquivo de dados externo. Essa instrução especifica que os dados externos são armazenados como texto e que os valores são separados pelo caractere barra vertical ('|').  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat
@@ -137,7 +137,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     );
     ```
 
-6. Execute a seguinte instrução [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para criar um esquema para o formato de arquivo externo. O esquema ext fornece uma maneira de organizar as tabelas externas que você está prestes a criar. O esquema wwi organiza as tabelas padrão que conterão os dados.
+6. Execute a seguinte instrução [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para criar um esquema para o formato de arquivo externo. O esquema ext fornece uma maneira de organizar as tabelas externas que você está prestes a criar. O esquema wwi organiza as tabelas padrão que conterão os dados.
 
     ```sql
     CREATE SCHEMA ext;
@@ -431,7 +431,7 @@ Esta seção usa as tabelas externas que você definiu para carregar os dados de
 > [!NOTE]
 > Este tutorial carrega os dados diretamente na tabela final. Em um ambiente de produção, você normalmente usará CREATE TABLE AS SELECT para carregar em uma tabela de preparo. Enquanto os dados estão na tabela de preparo, você pode executar todas as transformações necessárias. Para acrescentar os dados na tabela de preparo a uma tabela de produção, você pode usar a instrução INSERT...SELECT. Para saber mais, confira [Inserindo dados em uma tabela de produção](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 
-O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para carregar os dados do Azure Storage Blob para novas tabelas no data warehouse. A CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select. Quando a instrução SELECT seleciona de uma tabela externa, os dados são importados para uma tabela relacional no data warehouse.
+O script usa a instrução T-SQL [CTAS (CREATE TABLE AS SELECT)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para carregar os dados do Azure Storage Blob para novas tabelas no data warehouse. A CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados que os resultados da instrução select. Quando a instrução SELECT seleciona de uma tabela externa, os dados são importados para uma tabela relacional no data warehouse.
 
 Esse script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. Essas tabelas são geradas em uma etapa posterior para que elas tenham um número considerável de linhas.
 

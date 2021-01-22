@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 243f6f26be592e2db82d8f46df3de9aafcd2078b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b0760b86012504ea86e4a0cde36ae878e8ff3b26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996977"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685730"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -77,7 +77,7 @@ Depois de identificar qual chave de partição está causando a distorção na d
 
 ## <a name="compare-data-size-against-index-size"></a>Compare o tamanho de dados em relação ao tamanho do índice
 
-No Azure Cosmos DB, o armazenamento consumido total é a combinação do Tamanho dos dados e do Tamanho do índice. Normalmente, o tamanho do índice é uma fração do tamanho dos dados. Na folha Métricas no [Portal do Azure](https://portal.azure.com), a guia Armazenamento apresenta a divisão do consumo de armazenamento com base nos dados e no índice.
+No Azure Cosmos DB, o armazenamento consumido total é a combinação do Tamanho dos dados e do Tamanho do índice. Normalmente, o tamanho do índice é uma fração do tamanho dos dados. Para saber mais, confira o artigo [tamanho do índice](index-policy.md#index-size) . Na folha Métricas no [Portal do Azure](https://portal.azure.com), a guia Armazenamento apresenta a divisão do consumo de armazenamento com base nos dados e no índice.
 
 ```csharp
 // Measure the document size usage (which includes the index size)  

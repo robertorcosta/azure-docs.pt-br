@@ -1,16 +1,15 @@
 ---
 ms.topic: include
-ms.date: 04/17/2019
-author: dbradish-microsoft
-ms.author: dbradish
+ms.date: 01/15/2021
+author: mikefrobbins
+ms.author: mirobb
 manager: barbkess
-ms.openlocfilehash: be2242e22ad2815a70be1a56cb77696afbd9a8d3
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8dbfb60d64123f16dc5198b04ed372e575d9080f
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "95975337"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98250019"
 ---
 > [!NOTE]
-> Este artigo foi atualizado para usar o novo módulo Az do Azure PowerShell. Você ainda pode usar o módulo AzureRM, que continuará a receber as correções de bugs até pelo menos dezembro de 2020.
-> Para saber mais sobre o novo módulo Az e a compatibilidade com o AzureRM, confira [Apresentação do novo módulo Az do Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azps-3.3.0). Para obter instruções de instalação do módulo Az, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0).
+> Este artigo foi atualizado para usar o módulo Az PowerShell do Azure. O módulo Az PowerShell é o módulo do PowerShell recomendado para interagir com o Azure. Para começar a usar o módulo do Az PowerShell, confira [Instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para saber como migrar para o módulo Az PowerShell, confira [Migrar o Azure PowerShell do AzureRM para o Az](https://aka.ms/azpsmigrate).

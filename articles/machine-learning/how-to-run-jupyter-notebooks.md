@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: cdd8783daf9e1e1458f47e773eb3b6ccedfbae83
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d6832238b0c76059079e2a1330d31eed3212b242
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624550"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685571"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar Jupyter Notebooks em seu workspace
 
@@ -230,6 +230,7 @@ O notebook localizará automaticamente todos os kernels do Jupyter instalados na
     conda install -y ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+1. Depois de instalar o kernel, atualize a página e abra um bloco de anotações. Agora, você verá o novo kernel na lista kernel.
 
 > [!NOTE]
 > Para o gerenciamento de pacotes em um notebook, use as funções mágicas **% Pip** ou **% Conda** para instalar pacotes automaticamente no **kernel em execução no momento**, em vez de **! Pip** ou **! Conda** que se refere a todos os pacotes (incluindo pacotes fora do kernel em execução no momento)

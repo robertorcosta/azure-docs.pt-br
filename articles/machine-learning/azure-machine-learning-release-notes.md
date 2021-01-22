@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 117bc71ba304445e3186b4e633f5888647be9223
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127610"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685622"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -703,7 +703,7 @@ Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-lab
       + O valor padrão para process_count_per_node é alterado para 1. O usuário deve ajustar esse valor para melhorar o desempenho. A prática recomendada é definir como o número de GPU ou o nó de CPU tem.
       + O ParallelRunStep não injeta nenhum pacote, o usuário precisa incluir pacotes **azureml-Core** e **azureml-dataprep [pandas, fusível]** na definição de ambiente. Se a imagem personalizada do Docker for usada com user_managed_dependencies, o usuário precisará instalar o Conda na imagem.
       
-+ **Alterações da falha**
++ **Alterações interruptivas**
   + **azureml-pipeline-steps**
     + Preterido o uso de azureml. dprep. Dataflow como um tipo válido de entrada para AutoMLConfig
   + **azureml-train-automl-client**
@@ -907,7 +907,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
   + Os clusters AmlCompute agora dão suporte à configuração de uma identidade gerenciada no cluster no momento do provisionamento. Basta especificar se você deseja usar uma identidade atribuída pelo sistema ou uma identidade atribuída pelo usuário e passar uma identityid para a última. Em seguida, você pode configurar permissões para acessar vários recursos, como armazenamento ou ACR, de uma forma que a identidade da computação seja usada para acessar os dados com segurança, em vez de uma abordagem baseada em token que o AmlCompute emprega hoje. Confira nossa referência de SDK para obter mais informações sobre os parâmetros.
   
 
-+ **Alterações da falha**
++ **Alterações interruptivas**
   + Os clusters AmlCompute suportavam um recurso de visualização em relação à criação baseada em execução, que estamos planejando para substituir em duas semanas. Você pode continuar criando destinos de computação persistentes como sempre usando a classe Amlcompute, mas a abordagem específica de especificar o identificador "Amlcompute" como o destino de computação na configuração de execução não terá suporte em um futuro próximo. 
 
 + **Correções de bugs e melhorias**
@@ -978,7 +978,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>Azure Machine Learning SDK para Python v 1.2.0
 
-+ **Alterações da falha**
++ **Alterações interruptivas**
   + Descartar suporte para Python 2,7
 
 + **Correções de bugs e melhorias**
@@ -1013,7 +1013,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
   + **Python 2,7**
     + Última versão para dar suporte ao Python 2,7
 
-+ **Alterações da falha**
++ **Alterações interruptivas**
   + **Controle de versão semântico 2.0.0**
     + A partir da versão 1,1, o SDK do Python do Azure ML adota o controle de versão semântico 2.0.0. [Leia mais aqui](https://semver.org/). Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de controle de versão semântico. 
 
@@ -1176,7 +1176,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>SDK do Azure Machine Learning para Python v 1.1.0 RC0 (pré-lançamento)
 
-+ **Alterações da falha**
++ **Alterações interruptivas**
   + **Controle de versão semântico 2.0.0**
     + A partir da versão 1,1, o SDK do Python do Azure ML adota o controle de versão semântico 2.0.0. [Leia mais aqui](https://semver.org/). Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de controle de versão semântico. 
   
@@ -1306,7 +1306,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>Azure Machine Learning SDK para Python v 1.0.76
 
-+ **Alterações da falha**
++ **Alterações interruptivas**
   + Problemas de atualização do Azureml-Train-AutoML
     + Atualizando para o azureml-Train-automl>= 1.0.76 do azureml-Train-automl<1.0.76 pode causar instalações parciais, fazendo com que algumas importações de AutoML falhem. Para resolver isso, você pode executar o script de instalação encontrado em https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . Ou, se você estiver usando o Pip diretamente, poderá:
       + "instalação de Pip--atualizar o azureml-Train-automl"
@@ -1421,7 +1421,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
 ### <a name="r-sdk"></a>SDK do R 
  
-Os cientistas de dados e os desenvolvedores de ia usam o [SDK do Azure Machine Learning para R](tutorial-1st-r-experiment.md) para criar e executar fluxos de trabalho de aprendizado de máquina com Azure Machine Learning.
+Os cientistas de dados e os desenvolvedores de ia usam o [SDK do Azure Machine Learning para R](https://github.com/Azure/azureml-sdk-for-r) para criar e executar fluxos de trabalho de aprendizado de máquina com Azure Machine Learning.
 
 O SDK do Azure Machine Learning para R usa o `reticulate` pacote para associar ao SDK do Python. Ligando diretamente ao Python, o SDK para R permite que você acesse os principais objetos e métodos implementados no SDK do Python de qualquer ambiente de R que você escolher.
 
@@ -1597,13 +1597,13 @@ Azure Machine Learning agora é um provedor de recursos para a grade de eventos,
   + **azureml-Train-automl**
     + Criar um objeto de [teste](/python/api/azureml-core/azureml.core.experiment.experiment) Obtém ou cria o experimento no espaço de trabalho Azure Machine Learning para acompanhamento do histórico de execução. A ID do experimento e o tempo arquivado são populados no objeto experimento na criação. Exemplo:
 
-        ```py
+        ```python
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
         [arquivo morto ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) e [reativar ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) são funções que podem ser chamadas em um experimento para ocultar e restaurar o experimento de ser mostrado na UX ou retornado por padrão em uma chamada para experimentos de lista. Se um novo experimento for criado com o mesmo nome de um experimento arquivado, você poderá renomear o teste arquivado ao reativar o passando um novo nome. Só pode haver um experimento ativo com um determinado nome. Exemplo:
 
-        ```py
+        ```python
         experiment1 = Experiment(workspace, "Active Experiment")
         experiment1.archive()
         # Create new active experiment with the same name as the archived.
@@ -1612,7 +1612,7 @@ Azure Machine Learning agora é um provedor de recursos para a grade de eventos,
         ```
         A lista de métodos estáticos [()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) no experimento pode usar um filtro de nome e um filtro ViewType. Os valores ViewType são "ACTIVE_ONLY", "ARCHIVED_ONLY" e "ALL". Exemplo:
 
-        ```py
+        ```python
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
@@ -1768,7 +1768,7 @@ A guia experimento no [novo portal de espaço de trabalho](https://ml.azure.com)
     + Adicionado suporte a dockerfile no `environment_definition` parâmetro em estimadores.
     + Parâmetros de treinamento distribuídos simplificados em estimadores.
 
-         ```py
+         ```python
         from azureml.train.dnn import TensorFlow, Mpi, ParameterServer
         ```
 
@@ -1820,14 +1820,14 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
   + **azureml-core**
     + Introduza Dataset.get_all (Workspace), que retorna um dicionário de `TabularDataset` e `FileDataset` objetos com chave pelo nome de registro.
 
-    ```py
+    ```python
     workspace = Workspace.from_config()
     all_datasets = Dataset.get_all(workspace)
     mydata = all_datasets['my-data']
     ```
 
     + Introduza `parition_format` como argumento para `Dataset.Tabular.from_delimited_files` e `Dataset.Tabular.from_parquet.files` . As informações de partição de cada caminho de dados serão extraídas em colunas com base no formato especificado. ' {column_name} ' cria uma coluna de cadeia de caracteres e ' {column_name: YYYY/MM/DD/HH/mm/ss} ' cria a coluna DateTime, onde ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' e ' ss ' são usados para extrair ano, mês, dia, hora, minuto e segundo para o tipo DateTime. O partition_format deve começar da posição da primeira chave de partição até o final do caminho do arquivo. Por exemplo, considerando o caminho '.. /USA/2019/01/01/data.csv ', em que a partição é por país e hora, partition_format = '/{Country}/{PartitionDate: YYYY/MM/DD}/data.csv ' cria a coluna de cadeia de caracteres ' Country ' com o valor ' EUA ' e a coluna DateTime ' PartitionDate ' com o valor ' 2019-01-01 '.
-        ```py
+        ```python
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']

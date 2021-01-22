@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 72caeb60fc058b88158979d211a0bc38985975c7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 444b514dfb1798ff810e84fc4e9d50001dbaee1c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968850"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685781"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. 
@@ -164,6 +164,7 @@ Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITS
 
 > [!NOTE]
 > Usar a ação de webhook requer que o ponto de extremidade de webhook de destino não exija que os detalhes do alerta funcionem com êxito ou seja capaz de analisar as informações de contexto de alerta fornecidas como parte da operação de POSTAgem. Se o ponto de extremidade do webhook não puder manipular as informações de contexto de alerta por conta própria, você poderá usar uma solução como uma [ação de aplicativo lógico](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+> O usuário deve ser o **proprietário** da entidade de serviço de webhook para garantir que a segurança não seja violada. Como qualquer cliente do Azure pode acessar todas as IDs de objeto por meio do portal, sem verificar o proprietário, qualquer pessoa pode adicionar o webhook seguro a seu próprio grupo de ação para a notificação de alerta do Azure monitor que viola a segurança.
 
 A ação de webhook dos grupos de ações permite que você aproveite o Azure Active Directory para proteger a conexão entre o grupo de ações e a API Web protegida (ponto de extremidade do webhook). O fluxo de trabalho geral para aproveitar essa funcionalidade é descrito abaixo. Para obter uma visão geral dos aplicativos do Azure AD e das entidades de serviço, confira a [Visão geral da plataforma de identidade da Microsoft (v2.0)](../../active-directory/develop/v2-overview.md).
 
@@ -318,11 +319,7 @@ Os preços de países/regiões com suporte são listados na [página de preços 
 ### <a name="webhook"></a>webhook
 
 > [!NOTE]
-> Usar a ação de webhook requer que o ponto de extremidade de webhook de destino não exija que os detalhes do alerta funcionem com êxito ou seja capaz de analisar as informações de contexto de alerta fornecidas como parte da operação de POSTAgem. 
-
-> O usuário deve ser o **proprietário** da entidade de serviço de webhook para garantir que a segurança não seja violada. Como qualquer cliente do Azure pode acessar todas as IDs de objeto por meio do portal, sem verificar o proprietário, qualquer pessoa pode adicionar o webhook seguro a seu próprio grupo de ação para a notificação de alerta do Azure monitor que viola a segurança.
-
-> Se o ponto de extremidade do webhook não puder manipular as informações de contexto de alerta por conta própria, você poderá usar uma solução como uma [ação de aplicativo lógico](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
+> Usar a ação de webhook requer que o ponto de extremidade de webhook de destino não exija que os detalhes do alerta funcionem com êxito ou seja capaz de analisar as informações de contexto de alerta fornecidas como parte da operação de POSTAgem. Se o ponto de extremidade do webhook não puder manipular as informações de contexto de alerta por conta própria, você poderá usar uma solução como uma [ação de aplicativo lógico](./action-groups-logic-app.md) para uma manipulação personalizada das informações de contexto de alerta para corresponder ao formato de dados esperado do webhook.
 
 WebHooks são processados usando as seguintes regras
 - Uma chamada de webhook é tentada no máximo três vezes.

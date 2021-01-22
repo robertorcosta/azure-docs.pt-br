@@ -6,18 +6,18 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c6160d36240b59c60fafa955b916fb6167c2648e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701595"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685747"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
 
 Este artigo fornece os detalhes necessários que permitem proteger o tráfego de saída do seu AKS (serviço kubernetes do Azure). Ele contém os requisitos de cluster para uma implantação de AKS de base e requisitos adicionais para Complementos e recursos opcionais. [Um exemplo será fornecido no final de como configurar esses requisitos com o Firewall do Azure](#restrict-egress-traffic-using-azure-firewall). No entanto, você pode aplicar essas informações a qualquer método ou dispositivo de restrição de saída.
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
 Os clusters AKS são implantados em uma rede virtual. Essa rede pode ser gerenciada (criada por AKS) ou personalizada (previamente configurada pelo usuário com antecedência). Em ambos os casos, o cluster tem dependências de **saída** em serviços fora dessa rede virtual (o serviço não tem dependências de entrada).
 
@@ -180,7 +180,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado pelo omsagent, que é usado para autenticar o serviço do log Analytics. |
 | *.monitoring.azure.com | **`HTTPS:443`** | Esse ponto de extremidade é usado para enviar dados de métricas para Azure Monitor. |
 
-### <a name="azure-dev-spaces"></a>Azure Dev Spaces
+### <a name="azure-dev-spaces"></a>Espaços de Desenvolvimento do Azure
 
 Atualize o firewall ou a configuração de segurança para permitir o tráfego de rede de e para todos os FQDNs e [serviços de infraestrutura de Azure dev Spaces][dev-spaces-service-tags]a seguir.
 
@@ -745,7 +745,7 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 
 Obtenha o IP do serviço executando:
 ```bash
-SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Adicione a regra NAT executando:

@@ -4,15 +4,15 @@ description: Descreve as fontes de fonte de dados e os conectores com suporte pa
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 01/21/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 61efc7719b071ff4e8e5c0e07534b72a2883aff1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b778cf55ea485d7b3b4d3730d3659750f27b2697
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458865"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685588"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -117,6 +117,14 @@ Para fontes de dados locais:
 Para fontes de dados de nuvem:
 
 * Se estiver usando a autenticação SQL, a representação deverá ser a Conta de serviço.
+
+## <a name="service-principal-authentication"></a>Autenticação de entidade de serviço
+
+Quando especificado como uma fonte de dados de *provedor* , o Azure Analysis Services dá suporte à autenticação de entidade de serviço do [MSOLEDBSQL](/sql/connect/oledb/release-notes-for-oledb-driver-for-sql-server) Azure Active Directory para o banco de dados SQL do Azure e as fontes de dado Synapse
+
+`
+Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authentication=ActiveDirectoryServicePrincipal;User ID=[Application (client) ID];Password=[Application (client) secret];Use Encryption for Data=true
+`
 
 ## <a name="oauth-credentials"></a>Credenciais OAuth
 
