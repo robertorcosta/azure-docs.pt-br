@@ -18,38 +18,32 @@
   expanded: true
 - name: Tutoriais
   items:
-    - name: 1 - Criar / gerenciar uma VM
+    - name: Criar/gerenciar uma VM
       href: tutorial-manage-vm.md
-    - name: 1 - Criar / gerenciar discos
+    - name: Criar/gerenciar discos
       href: tutorial-manage-data-disk.md
-    - name: 3 - Automatizar a configuração
+    - name: Automatizar a configuração
       href: tutorial-automate-vm-deployment.md
-    - name: 4 - Criar imagens da VM
+    - name: Criar imagens da VM
       href: tutorial-custom-images.md
-    - name: 5 - VMs altamente disponíveis
+    - name: VMs altamente disponíveis
       href: tutorial-availability-sets.md
-    - name: 6 – Criar um conjunto de dimensionamento
+    - name: Criar um conjunto de escala
       href: tutorial-create-vmss.md
-    - name: 7 - VMs de balanceamento de carga
+    - name: VMs de balanceamento de carga
       href: tutorial-load-balancer.md
-    - name: 8 - Gerenciar a rede
+    - name: Como gerenciar a rede
       href: tutorial-virtual-network.md
-    - name: 9 - Fazer o backup de máquinas virtuais
-      href: tutorial-backup-vms.md
-    - name: 10 – Habilitar a recuperação de desastre
+    - name: Habilitar a recuperação de desastre
       href: tutorial-disaster-recovery.md
-    - name: 11 – Gerenciar VMs
+    - name: Gerenciar VMs
       displayName: scope policy Azure RBAC lock tag
       href: tutorial-govern-resources.md
-    - name: 12 – Rastrear e atualizar VMs
+    - name: Acompanhar e atualizar VMs
       href: tutorial-config-management.md
-    - name: 13 – Monitorar VMs
+    - name: Monitorar VMs
       href: tutorial-monitor.md
-    - name: 14 – Gerenciar a segurança da VM
-      href: ../tutorial-azure-security.md
-    - name: 15 – Instalar uma pilha SQL\IIS\.NET
-      href: tutorial-iis-sql.md
-    - name: 16 - Proteger servidor Web com SSL
+    - name: Proteger servidor Web com SSL
       href: tutorial-secure-web-server.md
 - name: Conceitos
   items:
@@ -758,8 +752,6 @@
           href: ../custom-data.md
         - name: Chef
           href: /azure/developer/chef/windows-vm-configure
-        - name: Publicar aplicativo Web a partir do Visual Studio
-          href: publish-web-app-from-visual-studio.md
     - name: Executar aplicativos
       items:
         - name: SQL Server

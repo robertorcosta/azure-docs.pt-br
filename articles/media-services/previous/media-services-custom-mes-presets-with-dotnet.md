@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a300345749351a360a16dc00424ee41ece7a17c9
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6c1c74f86a9cf0e4bcd73844222f256a715cbfe5
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652958"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695883"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizando as predefinições do Media Encoder Standard
 
@@ -33,7 +33,7 @@ Este artigo mostra como executar a codificação avançada com o MES (Media Enco
 Este artigo mostra a você como personalizar uma predefinição usando a predefinição a [H264 Taxas de Bits Múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) e reduzindo o número de camadas. O artigo [Personalizando as predefinições do Media Encoder Standard](media-services-advanced-encoding-with-mes.md) demonstra as predefinições personalizadas que podem ser usadas para executar tarefas avançadas de codificação.
 
 > [!NOTE]
-> As predefinições personalizadas descritas neste artigo não podem ser usadas nas transformações do [Media Services V3](../latest/index.yml) ou nos comandos da CLI. Consulte as [diretrizes de migração de v2 a V3](../latest/migrate-from-v2-to-v3.md) para obter mais detalhes.
+> As predefinições personalizadas descritas neste artigo não podem ser usadas nas transformações do [Media Services V3](../latest/index.yml) ou nos comandos da CLI. Consulte as [diretrizes de migração de v2 a V3](../latest/migrate-v-2-v-3-migration-introduction.md) para obter mais detalhes.
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personalizando uma predefinição do MES
 
@@ -269,7 +269,7 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Como codificar com uma transformação personalizada usando a CLI](../latest/custom-preset-cli-howto.md)
 - [Codificação com os Serviços de Mídia v3](../latest/encoding-concept.md)

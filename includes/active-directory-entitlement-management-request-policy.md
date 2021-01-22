@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: b7029c5cdd004910caa83425536bbe481e4b01f3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95555754"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698067"
 ---
 ## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
 
@@ -191,6 +191,8 @@ Por exemplo, se você tiver listado Alice e Bob como os primeiros Aprovadores, l
 1. Clique em **Adicionar aprovadores alternativos** e selecione os aprovadores alternativos na lista.
 
     ![Pacote de acesso-política-adicionar aprovadores alternativos](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+    Se você selecionar gerente como Aprovador para o primeiro aprovador, terá uma opção adicional, gerente de **segundo nível como Aprovador alternativo**, disponível para escolher no campo aprovador alternativo. Se você selecionar essa opção, será necessário adicionar um Aprovador de fallback para encaminhar a solicitação para, caso o sistema não possa encontrar o gerente de segundo nível.
 
 1. Na caixa **Avançar para aprovadores alternativos após a quantidade de dias** , coloque o número de dias que os aprovadores precisam aprovar ou negar uma solicitação. Se nenhum aprovador tiver aprovado ou negado a solicitação antes da duração da solicitação, a solicitação expirará (tempo limite) e o usuário precisará enviar outra solicitação para o pacote de acesso. 
 

@@ -18,49 +18,45 @@
   expanded: true
 - name: Tutoriais
   items:
-    - name: 1 - Criar / gerenciar VMs
+    - name: Criar/gerenciar VMs
       href: tutorial-manage-vm.md
-    - name: 1 - Criar / gerenciar discos
+    - name: Criar/gerenciar discos
       href: tutorial-manage-disks.md
-    - name: 3 - Automatizar a configuração
+    - name: Automatizar a configuração
       href: tutorial-automate-vm-deployment.md
-    - name: 4 - Criar imagens da VM
+    - name: Criar imagens da VM
       href: tutorial-custom-images.md
-    - name: 5 - VMs altamente disponíveis
+    - name: VMs altamente disponíveis
       href: tutorial-availability-sets.md
-    - name: 6 – Criar um conjunto de dimensionamento
+    - name: Criar um conjunto de escala
       href: tutorial-create-vmss.md
-    - name: 7 - VMs de balanceamento de carga
+    - name: VMs de balanceamento de carga
       href: tutorial-load-balancer.md
-    - name: 8 - Gerenciar a rede
+    - name: Como gerenciar a rede
       href: tutorial-virtual-network.md
-    - name: 9 - Fazer o backup de máquinas virtuais
-      href: tutorial-backup-vms.md
-    - name: 10 – Habilitar a recuperação de desastre
+    - name: Habilitar a recuperação de desastre
       href: tutorial-disaster-recovery.md
-    - name: 11 – Gerenciar VMs
+    - name: Gerenciar VMs
       href: tutorial-govern-resources.md
-    - name: 12 – Rastrear e atualizar VMs
+    - name: Acompanhar e atualizar VMs
       href: tutorial-config-management.md
-    - name: 13 – Monitorar VMs
+    - name: Monitorar VMs
       href: tutorial-monitor.md
-    - name: 14 – Gerenciar a segurança da VM
-      href: ../tutorial-azure-security.md
-    - name: 15a – Criar com o Jenkins
+    - name: Criar com o Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: 15b – Integrar o Jenkins com o Azure DevOps
+    - name: Integrar o Jenkins com o Azure DevOps
       href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: 16a – Configurar estratégia de implantação sem interrupção
+    - name: Configurar a estratégia de implantação distribuída
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 16b – Configurar estratégia de implantação canário
+    - name: Configurar a estratégia de implantação canário
       href: tutorial-azure-devops-canary-strategy.md
-    - name: 16c – Configurar estratégia de implantação azul-verde
+    - name: Configurar estratégia de implantação azul-verde
       href: tutorial-azure-devops-blue-green-strategy.md
-    - name: 16d – CI/CD com o Azure Pipelines (YAML)
+    - name: CI/CD com o Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: 17 – Criar pilha LAMP
+    - name: Criar pilha LAMP
       href: tutorial-lamp-stack.md
-    - name: 18 – Proteger o servidor Web com SSL
+    - name: Proteger servidor Web com SSL
       href: tutorial-secure-web-server.md
 - name: Conceitos
   items:
