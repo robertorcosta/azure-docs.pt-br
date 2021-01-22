@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c30d8a66cf9deffaa32e5ec0356a9067575b77e8
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503186"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660695"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Logon único baseado em cabeçalho para aplicativos locais com Aplicativo Azure AD proxy (versão prévia)
 
@@ -88,6 +88,10 @@ Quando você concluir todas essas etapas, seu aplicativo deverá estar em execu�
 1. Abra um novo navegador ou janela particular do navegador para garantir que os cabeçalhos armazenados em cache anteriormente sejam apagados. Em seguida, navegue até a **URL externa**   nas configurações de proxy de aplicativo.
 2. Entre com a conta de teste que você atribuiu ao aplicativo. Se você puder carregar e entrar no aplicativo usando o SSO, você estará bom! 
 
+## <a name="considerations"></a>Considerações
+
+- O proxy de aplicativo é usado para fornecer acesso remoto a aplicativos locais ou na nuvem privada. O proxy de aplicativo não é recomendado para lidar com o tráfego originado internamente da rede corporativa.
+- O acesso a aplicativos de autenticação baseada em cabeçalho deve ser restrito somente ao tráfego do conector ou outra solução de autenticação baseada em cabeçalho permitida. Normalmente, isso é feito por meio da restrição de acesso à rede para o aplicativo usando uma limitação de firewall ou IP no servidor de aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

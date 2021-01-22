@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178799"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661146"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrar usuários para Azure AD B2C
 
-Migrar de outro provedor de identidade para Azure Active Directory B2C (Azure AD B2C) também pode exigir a migração de contas de usuário existentes. Dois *métodos de migração* são discutidos aqui, pré-migração migração e *migração ininterrupta*. Com qualquer abordagem, você precisa escrever um aplicativo ou script que usa a [API Microsoft Graph](manage-user-accounts-graph-api.md) para criar contas de usuário no Azure ad B2C.
+Migrar de outro provedor de identidade para Azure Active Directory B2C (Azure AD B2C) também pode exigir a migração de contas de usuário existentes. Dois *métodos de migração* são discutidos aqui, pré-migração migração e *migração ininterrupta*. Com qualquer abordagem, você precisa escrever um aplicativo ou script que usa a [API Microsoft Graph](microsoft-graph-operations.md) para criar contas de usuário no Azure ad B2C.
 
 ## <a name="pre-migration"></a>Pré-migração
 
@@ -34,7 +34,7 @@ Use o fluxo de pré-migração em uma destas duas situações:
 - Você tem acesso às credenciais de texto não criptografado de um usuário (seu nome e senha).
 - As credenciais são criptografadas, mas você pode descriptografá-las.
 
-Para obter informações sobre como criar contas de usuário programaticamente, consulte [gerenciar contas de usuário Azure ad B2C com Microsoft Graph](manage-user-accounts-graph-api.md).
+Para obter informações sobre como criar contas de usuário programaticamente, consulte [gerenciar contas de usuário Azure ad B2C com Microsoft Graph](microsoft-graph-operations.md).
 
 ## <a name="seamless-migration"></a>Migração direta
 

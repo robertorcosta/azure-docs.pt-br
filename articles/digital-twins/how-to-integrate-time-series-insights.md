@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 24b4f56e5798acc4d9bd0962be7059a359958645
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 97f1f5d0f1f351164e05d18b9f80c7f26450f31b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573234"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661579"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrar o gêmeos digital do Azure ao Azure Time Series Insights
 
@@ -65,7 +65,7 @@ O tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*
 4. Crie um [ponto de extremidade](concepts-route-events.md#create-an-endpoint) de gêmeos digital do Azure que vincula seu hub de eventos à instância do gêmeos digital do Azure.
 
     ```azurecli-interactive
-    az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
+    az dt endpoint create eventhub -n <your Azure Digital Twins instance name> --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above>
     ```
 
 5. Crie uma [rota](concepts-route-events.md#create-an-event-route) nos Gêmeos Digitais do Azure para enviar eventos de atualização do gêmeo para seu ponto de extremidade. O filtro nessa rota permitirá que somente as mensagens de atualização de entrelaçamento sejam passadas para o ponto de extremidade.
@@ -89,11 +89,16 @@ Essa função converterá esses eventos de atualização de alto% do formulário
 
 Para obter mais informações sobre como usar os hubs de eventos com Azure Functions, consulte [*gatilho de hubs de eventos do Azure para Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-Dentro de seu aplicativo de funções publicado, substitua o código de função pelo código a seguir.
+Dentro de seu aplicativo de funções publicado, adicione uma nova função chamada **ProcessDTUpdatetoTSI** com o código a seguir.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
-A partir daqui, a função enviará os objetos JSON que ele cria para um segundo Hub de eventos, ao qual você se conectará ao Time Series Insights.
+>[!NOTE]
+>Talvez seja necessário adicionar os pacotes ao seu projeto usando o `dotnet add package` comando ou o Gerenciador de pacotes NuGet do Visual Studio.
+
+Em seguida, **publique** a nova função do Azure. Para obter instruções sobre como fazer isso, consulte [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md#publish-the-function-app-to-azure).
+
+Olhando adiante, essa função enviará os objetos JSON que ele cria para um segundo Hub de eventos, ao qual você se conectará ao Time Series Insights. Você criará esse Hub de eventos na próxima seção.
 
 Posteriormente, você também definirá algumas variáveis de ambiente que esta função usará para se conectar aos seus hubs de eventos próprios.
 
@@ -130,7 +135,7 @@ Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de
     az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name from earlier> --name <Twins auth rule from earlier>
     ```
 
-2. Use a cadeia de conexão que você receber como resultado para criar uma configuração de aplicativo em seu aplicativo de funções que contém a cadeia de conexão:
+2. Use o valor *primaryConnectionString* do resultado para criar uma configuração de aplicativo em seu aplicativo de funções que contém a cadeia de conexão:
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
@@ -152,15 +157,15 @@ Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Criar e conectar uma instância do Time Series Insights
 
-Em seguida, você irá configurar uma instância de Time Series Insights para receber os dados do segundo Hub de eventos. Siga as etapas abaixo e para obter mais detalhes sobre esse processo, consulte [*tutorial: configurar um ambiente de Azure Time Series insights Gen2 PAYG*](../time-series-insights/tutorials-set-up-tsi-environment.md).
+Em seguida, você irá configurar uma instância de Time Series Insights para receber os dados do seu segundo Hub de eventos (TSI). Siga as etapas abaixo e para obter mais detalhes sobre esse processo, consulte [*tutorial: configurar um ambiente de Azure Time Series insights Gen2 PAYG*](../time-series-insights/tutorials-set-up-tsi-environment.md).
 
-1. Na portal do Azure, comece a criar um recurso de Time Series Insights. 
+1. Na portal do Azure, comece a criar um ambiente de Time Series Insights. 
     1. Selecione o tipo de preço **Gen2 (L1)** .
     2. Será necessário escolher uma ID de **série temporal** para esse ambiente. Sua ID de série temporal pode ter até três valores que você usará para pesquisar seus dados em Time Series Insights. Para este tutorial, você pode usar **$dtId**. Leia mais sobre como selecionar um valor de ID nas [*práticas recomendadas para escolher uma ID de série temporal*](../time-series-insights/how-to-select-tsid.md).
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="O UX do portal de criação para um ambiente de Time Series Insights. O tipo de preço Gen2 (L1) é selecionado e o nome da propriedade ID da série temporal é $dtId" lightbox="media/how-to-integrate-time-series-insights/create-twin-id.png":::
 
-2. Selecione **Avançar: origem do evento** e selecione as informações dos hubs de eventos acima. Você também precisará criar um novo grupo de consumidores de hubs de eventos.
+2. Selecione **Avançar: origem do evento** e selecione as informações do hub de eventos TSI anteriores. Você também precisará criar um novo grupo de consumidores de hubs de eventos.
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/event-source-twins.png" alt-text="O UX do portal de criação para uma fonte de evento de Time Series Insights ambiente. Você está criando uma origem do evento com as informações do hub de eventos acima. Você também está criando um novo grupo de consumidores." lightbox="media/how-to-integrate-time-series-insights/event-source-twins.png":::
 
@@ -174,7 +179,7 @@ Se você estiver usando o tutorial de ponta a ponta ([*tutorial: conectar uma so
 
 Agora, os dados devem estar fluindo para sua instância de Time Series Insights, prontos para serem analisados. Siga as etapas abaixo para explorar os dados recebidos.
 
-1. Abra sua instância do Time Series Insights no [portal do Azure](https://portal.azure.com) (você pode pesquisar o nome da sua instância na barra de pesquisa do Portal). Acesse a *URL do Gerenciador do Time Series Insights* mostrada na visão geral da instância.
+1. Abra seu ambiente de Time Series Insights no [portal do Azure](https://portal.azure.com) (você pode pesquisar o nome do seu ambiente na barra de pesquisa do Portal). Acesse a *URL do Gerenciador do Time Series Insights* mostrada na visão geral da instância.
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Selecione a URL do Time Series Insights Explorer na guia Visão geral do ambiente de Time Series Insights":::
 

@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c4db7bf989a0062f87a5c3e6303ba64224996554
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2956f0ffb562214477249da3198ebbe42ef9bb45
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224426"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660362"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de entrada no Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ A política de entrada permite que os usuários:
 * Os usuários podem entrar com uma conta local Azure AD B2C
 * Inscrever-se ou entrar com uma conta social
 * Redefinição de senha
-* Os usuários não podem se inscrever em uma conta local Azure AD B2C-para criar uma conta, um administrador pode usar o [MS API do Graph](manage-user-accounts-graph-api.md).
+* Os usuários não podem se inscrever em uma conta local Azure AD B2C-para criar uma conta, um administrador pode usar o [MS API do Graph](microsoft-graph-operations.md).
 
 ![Fluxo de edição de perfil](./media/add-sign-in-policy/sign-in-user-flow.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 18622d60f3a33658fadfd28c53c93a07b4b438a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 89faa5b29e0a972f31ad51a7354635a53176541a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488639"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661350"
 ---
 # <a name="windows-stop-error---hardware-malfunction"></a>Erro de parada do Windows – Problema de hardware
 
@@ -48,6 +48,9 @@ Esta tela será exibida quando o sistema operacional convidado não tiver sido c
 ## <a name="solution"></a>Solução
 
 ### <a name="process-overview"></a>Visão geral do processo 
+
+> [!TIP]
+> Se você tiver um backup recente da VM, poderá tentar [restaurar a VM do backup](../../backup/backup-azure-arm-restore-vms.md) para corrigir o problema de inicialização.
 
 1. Configurar a chave do registro de interrupção não Maskável (NMI) 
 2. Criar e acessar uma VM de reparo 

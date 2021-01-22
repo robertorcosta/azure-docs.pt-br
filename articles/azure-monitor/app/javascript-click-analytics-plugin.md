@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: 7af26be91ff129e4c968bcb131cc98290cd8d7b9
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610073"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660446"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Clique em plug-in de coleta automática de análise para Application Insights SDK do JavaScript
 
@@ -69,7 +69,7 @@ appInsights.loadAppInsights();
     2. Para melhorar a eficiência, o plug-in usa essa marca como um sinalizador, quando ela for encontrada, interromperá ainda mais o processamento do DOM (Modelo de Objeto do Documento) para cima.
     
     > [!CAUTION]
-    > Uma vez `parentDataTag` usado, ele tem um efeito persistente em todo o aplicativo e não apenas no elemento HTML em que você o usou.
+    > Uma vez `parentDataTag` usado, o SDK começará a procurar marcas pai em todo o seu aplicativo e não apenas no elemento HTML onde você o utilizou.
 4. `customDataPrefix` fornecido pelo usuário sempre deve começar com `data-` , por exemplo `data-sample-` . Em HTML, os `data-*` atributos globais formam uma classe de atributos chamada atributos de dados personalizados, que permitem que informações proprietárias sejam trocadas entre o HTML e sua representação dom por scripts. Os navegadores mais antigos (Internet Explorer, Safari) descartarão os atributos que ele não entende, a menos que comecem com `data-` .
 
     O `*` no `data-*`  pode ser substituído por qualquer nome após a [regra de produção de nomes XML](https://www.w3.org/TR/REC-xml/#NT-Name) com as seguintes restrições:
@@ -83,7 +83,7 @@ appInsights.loadAppInsights();
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Captura de           | booleano                            | true    | Configuração de captura automática.                                                                                                         |
 | retorno de chamada              | [IValueCallback](#ivaluecallback)  | null    | Configuração de retornos de chamada.                                                                                                                 |
-| pageTags              | cadeia de caracteres                             | null    | Marcas de página.                                                                                                                               |
+| pageTags              | string                             | null    | Marcas de página.                                                                                                                               |
 | Marcas de datatags              | [ICustomDataTags](#icustomdatatags)| null    | Marcas de dados personalizadas fornecidas para substituir as marcas padrão usadas para capturar dados de clique.                                                           |
 | urlCollectHash        | booleano                            | false   | Habilita o log de valores após um caractere "#" da URL.                                                                          |
 | urlCollectQuery       | booleano                            | false   | Habilita o log da cadeia de caracteres de consulta da URL.                                                                                      |
@@ -104,12 +104,12 @@ appInsights.loadAppInsights();
 | Nome                      | Type    | Padrão   | Marca padrão a ser usada no HTML |   Descrição                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | booleano | false     | N/D         |Coleta o atributo HTML padrão para contentname quando um determinado elemento não está marcado com customDataPrefix padrão ou quando customDataPrefix não é fornecido pelo usuário. |
-| customDataPrefix          | cadeia de caracteres  | `data-`   | `data-*`| Nome e valor de conteúdo de captura automática de elementos que são marcados com o prefixo fornecido. Por exemplo, `data-*-id` , `data-<yourcustomattribute>` pode ser usado nas marcas HTML.   |
-| aiBlobAttributeTag        | cadeia de caracteres  | `ai-blob` |  `data-ai-blob`| O plug-in dá suporte a um atributo de blob JSON em vez de `data-*` atributos individuais. |
-| metaDataPrefix            | cadeia de caracteres  | null      | N/D  | Nome do metaelemento e conteúdo do cabeçalho HTML da captura automática com o prefixo fornecido durante a captura. Por exemplo, `custom-` pode ser usado na marca meta de HTML. |
+| customDataPrefix          | string  | `data-`   | `data-*`| Nome e valor de conteúdo de captura automática de elementos que são marcados com o prefixo fornecido. Por exemplo, `data-*-id` , `data-<yourcustomattribute>` pode ser usado nas marcas HTML.   |
+| aiBlobAttributeTag        | string  | `ai-blob` |  `data-ai-blob`| O plug-in dá suporte a um atributo de blob JSON em vez de `data-*` atributos individuais. |
+| metaDataPrefix            | string  | null      | N/D  | Nome do metaelemento e conteúdo do cabeçalho HTML da captura automática com o prefixo fornecido durante a captura. Por exemplo, `custom-` pode ser usado na marca meta de HTML. |
 | captureAllMetaDataContent | booleano | false     | N/D   | Capturar automaticamente todos os nomes de elementos e conteúdo do cabeçalho HTML. O padrão é false. Se habilitado, isso substituirá o metaDataPrefix fornecido. |
-| parentDataTag             | cadeia de caracteres  | null      |  N/D  | Interrompe a passagem do DOM para capturar o nome do conteúdo e o valor dos elementos quando encontrados com essa marca. Por exemplo, `data-<yourparentDataTag>` pode ser usado nas marcas HTML.|
-| dntDataTag                | cadeia de caracteres  | `ai-dnt`  |  `data-ai-dnt`| Elementos HTML com este atributo serão ignorados pelo plug-in para capturar dados de telemetria.|
+| parentDataTag             | string  | null      |  N/D  | Interrompe a passagem do DOM para capturar o nome do conteúdo e o valor dos elementos quando encontrados com essa marca. Por exemplo, `data-<yourparentDataTag>` pode ser usado nas marcas HTML.|
+| dntDataTag                | string  | `ai-dnt`  |  `data-ai-dnt`| Elementos HTML com este atributo serão ignorados pelo plug-in para capturar dados de telemetria.|
 
 ### <a name="behaviorvalidator"></a>behaviorValidator
 
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - Confira o [repositório do GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e o [pacote NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) para o plug-in do clique de coleção de análise automática.
 - Use a [análise de eventos na experiência de uso](usage-segmentation.md) para analisar os principais cliques e a fatia por dimensões disponíveis.
-- Localize clique em dados no campo conteúdo no atributo customDimensions na tabela CustomEvents em [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query).
+- Localize clique em dados no campo conteúdo no atributo customDimensions na tabela CustomEvents em [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query). Consulte [aplicativo de exemplo](https://go.microsoft.com/fwlink/?linkid=2152871) para obter diretrizes adicionais.
 - Crie uma [pasta de trabalho](../platform/workbooks-overview.md) para criar visualizações personalizadas de clicar em dados.
