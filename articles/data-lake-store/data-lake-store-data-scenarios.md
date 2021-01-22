@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 702a59f768bfe978e1a7708d91c6b6b1bb9c92fe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0bd895b0c19293a199b2a9b135915b7dc45b9e5e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452245"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702490"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Usar o Azure Data Lake Storage Gen1 para exigências de big data
 
@@ -38,7 +38,7 @@ Esta seção destaca as diferentes fontes de dados e as diferentes maneiras que 
 ### <a name="ad-hoc-data"></a>Dados ad hoc
 Representam conjuntos de dados menores que são usados para criar protótipos de um aplicativo de big data. Há diferentes maneiras de ingerir dados ad hoc, dependendo da fonte dos dados.
 
-| Fonte de dados | Ingeri-la usando |
+| fonte de dados | Ingeri-la usando |
 | --- | --- |
 | Computador local |<ul> <li>[Azure portal](data-lake-store-get-started-portal.md)</li> <li>[PowerShell do Azure](data-lake-store-get-started-powershell.md)</li> <li>[CLI do Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usando as ferramentas do Data Lake para o Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Blob de Armazenamento do Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp em execução no cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
@@ -62,7 +62,7 @@ Você também pode originar dados nos bancos de dados relacionais. Durante um pe
 Esse tipo de conjunto de dados é especificamente chamado porque a análise dos dados do log do servidor Web é um caso de uso comum para aplicativos de Big Data e requer que grandes volumes de arquivos de log sejam carregados no Data Lake Storage Gen1. Você pode usar qualquer uma das ferramentas a seguir para escrever seus próprios scripts ou aplicativos para carregar esses dados.
 
 * [CLI do Azure](data-lake-store-get-started-cli-2.0.md)
-* [PowerShell do Azure](data-lake-store-get-started-powershell.md)
+* [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [SDK do .NET do Azure Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
@@ -88,7 +88,7 @@ A maioria dos tipos de cluster HDInsight (Hadoop, HBase, Storm) é compatível c
 Carregar conjuntos de dados que incluem vários terabytes usando os métodos descritos acima, às vezes, pode ser uma tarefa lenta e onerosa. Nesses casos, você pode usar as opções a seguir.
 
 * **Usando o ExpressRoute do Azure**. O Azure ExpressRoute permite criar conexões privadas entre os datacenters do Azure e a infraestrutura presente em seu local. Isso proporciona uma opção confiável para transferir grandes quantidades de dados. Para obter mais informações, confira a [documentação do ExpressRoute do Azure](../expressroute/expressroute-introduction.md).
-* **Carregamento de dados "offline"**. Se o uso do ExpressRoute do Azure não for possível por qualquer motivo, você poderá usar o [serviço de Importação/Exportação do Azure](../storage/common/storage-import-export-service.md) para enviar unidades de disco rígido com seus dados para um datacenter do Azure. Seus dados são carregados pela primeira vez nos Blobs de Armazenamento do Azure. Em seguida, é possível usar o [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) ou a [ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Storage Gen1.
+* **Carregamento de dados "offline"**. Se o uso do ExpressRoute do Azure não for possível por qualquer motivo, você poderá usar o [serviço de Importação/Exportação do Azure](../import-export/storage-import-export-service.md) para enviar unidades de disco rígido com seus dados para um datacenter do Azure. Seus dados são carregados pela primeira vez nos Blobs de Armazenamento do Azure. Em seguida, é possível usar o [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) ou a [ferramenta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md) para copiar dados dos Blobs de Armazenamento do Azure para o Data Lake Storage Gen1.
 
   > [!NOTE]
   > Ao usar o serviço Importação/Exportação, os tamanhos dos arquivos nos discos que você envia ao datacenter do Azure não devem ultrapassar 195 GB.
@@ -122,7 +122,7 @@ Nesses casos, você pode usar qualquer uma das opções a seguir:
 Você também pode usar os métodos a seguir para escrever seu próprio script/aplicativo e baixar dados do Data Lake Storage Gen1.
 
 * [CLI do Azure](data-lake-store-get-started-cli-2.0.md)
-* [PowerShell do Azure](data-lake-store-get-started-powershell.md)
+* [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [SDK do .NET do Azure Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
 
 ## <a name="visualize-data-in-data-lake-storage-gen1"></a>Visualizar dados no Data Lake Storage Gen1

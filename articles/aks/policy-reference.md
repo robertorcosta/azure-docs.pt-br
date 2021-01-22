@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para o Serviço de Kubernetes do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Serviço de Kubernetes do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c754e394b8f59be750d5cadf7dd358ad455b2ce5
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 800a3226deb097cd8b798eb3cb37deeea40460cb
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045420"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98699456"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Definições internas do Azure Policy para o Serviço de Kubernetes do Azure
 

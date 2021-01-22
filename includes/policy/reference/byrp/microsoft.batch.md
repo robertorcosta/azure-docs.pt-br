@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 6b622d1c22dd9481881d2d68eb26ef34a1e5ca5c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: c2cfb368f40fa43879c69c54f7b630206cd8edd4
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045728"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704179"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[A conta do lote do Azure deve usar chaves gerenciadas pelo cliente para criptografar dados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F99e9ccd8-3db9-4592-b0d1-14b1715a4d8a) |Use chaves gerenciadas pelo cliente (CMKs) para gerenciar a criptografia em repouso dos dados da sua conta do lote. Por padrão, os dados do cliente são criptografados com chaves gerenciadas pelo serviço, mas os CMKs normalmente são necessários para atender aos padrões de conformidade regulatória. CMKs habilite os dados a serem criptografados com uma chave Azure Key Vault criada e de sua propriedade. Você tem total controle e responsabilidade pelo ciclo de vida da chave, incluindo rotação e gerenciamento. Saiba mais sobre a criptografia CMK em [https://aka.ms/Batch-CMK](https://aka.ms/Batch-CMK) . |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Batch/Batch_CustomerManagedKey_Audit.json) |
+|[A conta do Lote do Azure deve usar chaves gerenciadas pelo cliente para criptografar dados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F99e9ccd8-3db9-4592-b0d1-14b1715a4d8a) |Use CMKs (chaves gerenciadas pelo cliente) para gerenciar a criptografia em repouso dos dados da sua conta do Lote. Por padrão, os dados do cliente são criptografados com chaves gerenciadas pelo serviço, mas as CMK normalmente são necessárias para atender aos padrões de conformidade regulatória. CMKs permitem que os dados sejam criptografados com uma chave do Azure Key Vault criada por você e de sua propriedade. Você tem total controle e responsabilidade pelo ciclo de vida da chave, incluindo rotação e gerenciamento. Saiba mais sobre a criptografia CMK em [https://aka.ms/Batch-CMK](https://aka.ms/Batch-CMK). |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Batch/Batch_CustomerManagedKey_Audit.json) |
 |[Implantar as Configurações de Diagnóstico da Conta do Lote no Hub de Eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdb51110f-0865-4a6e-b274-e2e07a5b2cd7) |Implanta as configurações de diagnóstico da Conta do Lote a serem transmitidas para um Hub de Eventos regional em qualquer Conta do Lote criada ou atualizada que não tenha essas configurações de diagnóstico. |DeployIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Batch_DeployDiagnosticLog_Deploy_EventHub.json) |
 |[Implantar as Configurações de Diagnóstico para a Conta do Lote no workspace do Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc84e5349-db6d-4769-805e-e14037dab9b5) |Implanta as configurações de diagnóstico da Conta do Lote a serem transmitidas para um workspace do Log Analytics regional em qualquer Conta do Lote criada ou atualizada que não tenha essas configurações de diagnóstico. |DeployIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Batch_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[Os logs de diagnóstico em contas do Lote devem ser habilitados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F428256e6-1fac-4f48-a757-df34c2b3336d) |Habilitação da auditoria de logs de diagnóstico. Permite recriar trilhas de atividades a serem usadas para fins de investigação; quando ocorrer um incidente de segurança ou quando sua rede estiver comprometida |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Batch/Batch_AuditDiagnosticLog_Audit.json) |
