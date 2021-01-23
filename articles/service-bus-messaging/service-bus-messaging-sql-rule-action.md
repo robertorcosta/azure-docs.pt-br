@@ -1,14 +1,14 @@
 ---
 title: Sintaxe da ação SQL da regra de assinatura do barramento de serviço do Azure | Microsoft Docs
-description: Este artigo fornece uma referência para a sintaxe de ação de regra SQL. As ações são gravadas na sintaxe baseada em linguagem SQL que é executada em uma mensagem.
+description: Este artigo fornece uma referência para a sintaxe de ação de regra SQL. As ações são gravadas na sintaxe baseada em linguagem SQL executada em uma mensagem.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 606281d42d5598d7f73312990d3a19775a202c08
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: f7b8cdfcccc22508b98a42391d2a0ef9955232d0
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632804"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742668"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintaxe da ação SQL da regra de assinatura
 
@@ -53,11 +53,11 @@ Uma *ação SQL* é usada para manipular metadados de mensagem depois que uma me
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
+-   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` escopo será o escopo padrão se `<scope>` não for especificado.  
   
 ### <a name="remarks"></a>Comentários  
 
-Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao passo que uma tentativa de acessar uma propriedade de usuário inexistente não é um erro. Em vez disso, uma propriedade de usuário inexistente é internamente avaliada como um valor desconhecido. Um valor desconhecido é tratado especialmente durante a avaliação de operador.  
+Uma tentativa de acessar uma propriedade de sistema inexistente é um erro, enquanto uma tentativa de acessar uma propriedade de usuário não existente não é um erro. Em vez disso, uma propriedade de usuário inexistente é internamente avaliada como um valor desconhecido. Um valor desconhecido é tratado especialmente durante a avaliação de operador.  
   
 ## <a name="property_name"></a>property_name  
   
@@ -94,7 +94,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ```  
   
- `<quoted_identifier>` é qualquer cadeia de caracteres entre aspas duplas. Aspas duplas no identificador são representadas como duas aspas duplas. Não é recomendável usar identificadores entre aspas, porque pode ser confundido facilmente por uma constante de cadeia de caracteres. Use um identificador delimitado, se possível. Este é um exemplo de `<quoted_identifier>`:  
+ `<quoted_identifier>` é qualquer cadeia de caracteres entre aspas duplas. Aspas duplas no identificador são representadas como duas aspas duplas. Não é recomendável usar identificadores entre aspas porque ele pode ser facilmente confundido com uma constante de cadeia de caracteres. Use um identificador delimitado, se possível. Este é um exemplo de `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -137,7 +137,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ### <a name="arguments"></a>Argumentos  
   
--   `<integer_constant>` é uma cadeia de números que não são incluídos em aspas e que não contêm pontos decimais. Os valores são armazenados como `System.Int64` internamente e seguem o mesmo intervalo.  
+-   `<integer_constant>` é uma cadeia de números que não está entre aspas e não contém pontos decimais. Os valores são armazenados como `System.Int64` internamente e seguem o mesmo intervalo.  
   
      Estes são exemplos de constantes longas:  
   
@@ -146,9 +146,9 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
     2  
     ```  
   
--   `<decimal_constant>` é uma cadeia de números que não são incluídos em aspas e que contêm um ponto decimal. Os valores são armazenados como `System.Double` internamente e seguem o mesmo intervalo e a mesma precisão.  
+-   `<decimal_constant>` é uma cadeia de números que não está entre aspas e que contém um ponto decimal. Os valores são armazenados como `System.Double` internamente e seguem o mesmo intervalo e a mesma precisão.  
   
-     Em uma versão futura, esse número poderá ser armazenado em outro tipo de dados para dar suporte à semântica de número exato; portanto, você não deve se basear no fato de que o tipo de dados subjacente é `System.Double` para `<decimal_constant>`.  
+     Em uma versão futura, esse número pode ser armazenado em um tipo de dados diferente para dar suporte à semântica numérica exata, portanto, você não deve contar com o fato de que o tipo de dados subjacente é `System.Double` para `<decimal_constant>` .  
   
      Estes são exemplos de constantes decimais:  
   
@@ -195,9 +195,11 @@ Constantes de cadeia de caracteres são incluídas em aspas simples e incluem ca
   
 ### <a name="remarks"></a>Comentários  
 
-A função `newid()` retorna um **System.Guid** gerado pelo método `System.Guid.NewGuid()`.  
+A `newid()` função retorna um `System.Guid` gerado pelo `System.Guid.NewGuid()` método.  
   
 A função `property(name)` retorna o valor da propriedade referenciada por `name`. O valor `name` pode ser qualquer expressão válida que retorna um valor de cadeia de caracteres.  
+
+[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
   
 ## <a name="considerations"></a>Considerações
 
@@ -205,7 +207,7 @@ A função `property(name)` retorna o valor da propriedade referenciada por `nam
 - REMOVE é usado para remover uma propriedade.
 - SET executa uma conversão implícita, se possível, quando o tipo de expressão e o tipo de propriedade existente são diferentes.
 - A ação falhará se propriedades do sistema inexistentes forem referenciadas.
-- A ação não falhará se propriedades de usuário inexistentes forem referenciadas.
+- A ação não falhará se Propriedades de usuário inexistentes forem referenciadas.
 - Uma propriedade de usuário inexistente é avaliada como “Desconhecida” internamente, seguindo a mesma semântica de [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar operadores.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -214,5 +216,5 @@ A função `property(name)` retorna o valor da propriedade referenciada por `nam
 - [Classe sqlruleaction (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
 - [Classe sqlruleaction (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
 - [Sqlruleaction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
-- [regra de assinatura do tópico AZ ServiceBus](/cli/azure/servicebus/topic/subscription/rule)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

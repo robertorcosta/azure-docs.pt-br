@@ -2,23 +2,23 @@
 title: Criar um grupo para atribuir funções no Azure Active Directory | Microsoft Docs
 description: Saiba como criar um grupo de funções atribuíveis no Azure AD. Gerencie funções do Azure no portal do Azure, no PowerShell ou na API do Graph.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3f06a1e9ea83fc7ad758ad17245ffa5d7ca973f6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378611"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742091"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo de funções atribuídas no Azure Active Directory
 

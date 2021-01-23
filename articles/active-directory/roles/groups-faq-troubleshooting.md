@@ -2,23 +2,23 @@
 title: Perguntas frequentes sobre solução de problemas de funções atribuídas a grupos de nuvem-Azure Active Directory | Microsoft Docs
 description: Aprenda algumas perguntas comuns e dicas de solução de problemas para atribuir funções a grupos no Azure Active Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 0ff906654dc91c7b1980292efd2a737503e684e9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861928"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742906"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Solução de problemas de funções atribuídas a grupos de nuvem
 
@@ -53,15 +53,15 @@ Aqui estão algumas perguntas comuns e dicas de solução de problemas para atri
 
 Função do diretório do Azure Active Directory | Função de gerenciamento de direitos | Pode adicionar grupo de segurança\* | Pode adicionar Microsoft 365 grupo\* | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
-Administrador global | N/D | ✔️ | ✔️ | ✔️  | ✔️
-Administrador de usuários  | N/D  | ✔️  | ✔️  | ✔️
+Administrador global | n/a | ✔️ | ✔️ | ✔️  | ✔️
+Administrador de usuários  | n/a  | ✔️  | ✔️  | ✔️
 Administrador do Intune | Proprietário do catálogo | ✔️  | ✔️  | &nbsp;  | &nbsp;
 Administradores do Exchange  | Proprietário do catálogo  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
 Administrador de serviços de equipes | Proprietário do catálogo  | &nbsp; | ✔️  | &nbsp;  | &nbsp;
 Administrador do SharePoint | Proprietário do catálogo | &nbsp; | ✔️  | &nbsp;  | ✔️ 
 Administrador de aplicativos | Proprietário do catálogo  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
 Administrador de aplicativos de nuvem | Proprietário do catálogo  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
-Usuário | Proprietário do catálogo | Somente se o proprietário do grupo | Somente se o proprietário do grupo | Somente se o proprietário do aplicativo  | &nbsp;
+User | Proprietário do catálogo | Somente se o proprietário do grupo | Somente se o proprietário do grupo | Somente se o proprietário do aplicativo  | &nbsp;
 
 \*O grupo não pode ser atribuído à função; ou seja, isAssignableToRole = false. Se um grupo for de função atribuível, a pessoa que criar o pacote de acesso também deverá ser proprietária do grupo de funções de atribuição.
 

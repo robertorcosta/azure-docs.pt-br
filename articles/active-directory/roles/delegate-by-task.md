@@ -3,23 +3,23 @@ title: Delegar funções por tarefa de administrador-Azure Active Directory | Mi
 description: Funções para delegar para tarefas de identidade no Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379087"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742923"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administrador no Azure Active Directory
 
@@ -44,14 +44,14 @@ Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Criar diretórios do Azure AD B2C | Todos os usuários não convidados ([consulte a documentação](../fundamentals/users-default-permissions.md)) | 
 Criar aplicativos B2C | Administrador global | 
-Criar aplicativos corporativos | Administrador de Aplicativos de Nuvem | Administrador de Aplicativos
+Criar aplicativos corporativos | Administrador de Aplicativos de Nuvem | Administrador de aplicativos
 Criar, ler, atualizar e excluir políticas de B2C | Administrador de Política do IEF B2C | 
 Criar, ler, atualizar e excluir provedores de identidade | Administrador do Provedor de Identidade Externa | 
-Criar, ler, atualizar e excluir fluxos de usuários de redefinição de senha | Administrador de fluxo de usuário de ID externa | 
-Criar, ler, atualizar e excluir fluxos de usuários de edição de perfil | Administrador de fluxo de usuário de ID externa | 
-Criar, ler, atualizar e excluir fluxos de usuários de entrada | Administrador de fluxo de usuário de ID externa | 
-Criar, ler, atualizar e excluir fluxo de usuários de entrada |Administrador de fluxo de usuário de ID externa | 
-Criar, ler, atualizar e excluir atributos de usuário | Administrador de atributo de fluxo de usuário de ID externa | 
+Criar, ler, atualizar e excluir fluxos de usuários de redefinição de senha | Administrador de fluxo do usuário de ID externa | 
+Criar, ler, atualizar e excluir fluxos de usuários de edição de perfil | Administrador de fluxo do usuário de ID externa | 
+Criar, ler, atualizar e excluir fluxos de usuários de entrada | Administrador de fluxo do usuário de ID externa | 
+Criar, ler, atualizar e excluir fluxo de usuários de entrada |Administrador de fluxo do usuário de ID externa | 
+Criar, ler, atualizar e excluir atributos de usuário | Administrador de atributo de fluxo do usuário de ID externa | 
 Criar, ler, atualizar e excluir usuários | Administrador de usuários
 Ler todas as configurações | Leitor global | 
 Ler os logs de auditoria do B2C | Leitor global ([consulte a documentação](../../active-directory-b2c/faq.md)) | 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 720d25079e1350315c9f403a8215f650db49ceb7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200916"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743076"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Redefinir os Serviços de Área de Trabalho Remota ou a senha de administrador em uma VM do Windows
 Se você não conseguir conectar-se a uma VM (máquina virtual) do Windows, poderá redefinir a senha de administrador local ou redefinir a configuração dos Serviços de Área de Trabalho Remota (sem suporte nos controladores de domínio do Windows). Para redefinir a senha, use o portal do Azure ou a extensão de acesso da VM no Azure PowerShell. Depois de entrar na VM, redefina a senha desse administrador local.  
@@ -90,10 +90,14 @@ Primeiro, verifique se você tem o [módulo do PowerShell mais recente instalado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se a extensão de acesso à VM do Azure não responder e você não conseguir redefinir a senha, será possível [redefinir a senha do Windows local offline](reset-local-password-without-agent.md). Esse método é mais avançado e exige que você conecte o disco rígido virtual da VM problemática a outra VM. Primeiro siga as etapas documentadas neste artigo e somente se essas etapas não funcionarem tente o método de redefinição de senha offline.
+
+- Se a extensão de acesso à VM do Azure não for instalada, você poderá [solucionar problemas de extensão de VM](../extensions/troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
+- Se não for possível redefinir a senha usando a extensão de acesso à VM, você poderá [redefinir a senha do Windows local offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esse método é mais avançado e exige que você conecte o disco rígido virtual da VM problemática a outra VM. Primeiro siga as etapas documentadas neste artigo e somente se essas etapas não funcionarem tente o método de redefinição de senha offline.
 
 - [Saiba mais sobre os recursos e extensões de VM do Azure](../extensions/features-windows.md).
 
 - [Conecte-se a uma máquina virtual do Azure com RDP ou SSH](/previous-versions/azure/dn535788(v=azure.100)).
 
-- [Solucionar problemas de conexões área de trabalho remota a uma máquina virtual do Azure baseada no Windows](troubleshoot-rdp-connection.md).
+
+- [Solucionar problemas de conexões área de trabalho remota a uma máquina virtual do Azure baseada no Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
