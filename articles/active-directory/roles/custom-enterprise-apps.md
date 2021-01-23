@@ -2,23 +2,23 @@
 title: Permissões de função personalizada para atribuições de acesso do aplicativo empresarial-Azure Active Directory | Microsoft Docs
 description: Criar e atribuir funções personalizadas do Azure AD para acesso de aplicativos empresariais no Azure Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: d3cb65503ffab610f9545acb313f7284ffb11ed1
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378543"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741138"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Atribuir funções personalizadas para gerenciar aplicativos empresariais no Azure Active Directory
 
@@ -46,7 +46,7 @@ A concessão da permissão Atualizar é feita em duas etapas:
 > As funções personalizadas são criadas e gerenciadas em um nível de toda a organização e estão disponíveis somente na página de visão geral da organização.
 
 1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com permissões de administrador de função privilegiada ou de administrador global em sua organização.
-1. Selecione **Azure Active Directory** , selecione **Funções e administradores** e, em seguida, selecione **Nova função personalizada**.
+1. Selecione **Azure Active Directory**, selecione **Funções e administradores** e, em seguida, selecione **Nova função personalizada**.
 
     ![Adicionar uma nova função personalizada da lista de funções no Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -58,7 +58,7 @@ A concessão da permissão Atualizar é feita em duas etapas:
 
     ![Adicionar as permissões à função personalizada](./media/custom-enterprise-apps/role-custom-permissions.png)
 
-1. Na guia **Examinar + criar** , examine as permissões e selecione **Criar**.
+1. Na guia **Examinar + criar**, examine as permissões e selecione **Criar**.
 
     ![Agora você pode criar a função personalizada](./media/custom-enterprise-apps/role-custom-create.png)
 
@@ -70,7 +70,7 @@ A concessão da permissão Atualizar é feita em duas etapas:
 
     ![Abra funções e administradores e pesquise a função personalizada](./media/custom-enterprise-apps/select-custom-role.png)
 
-1. Selecione **Adicionar atribuição** , selecione o usuário desejado e, em seguida, clique em **selecionar** para adicionar a atribuição de função ao usuário.
+1. Selecione **Adicionar atribuição**, selecione o usuário desejado e, em seguida, clique em **selecionar** para adicionar a atribuição de função ao usuário.
 
     ![Adicionar uma atribuição para a função personalizada ao usuário](./media/custom-enterprise-apps/assign-user-to-role.png)
 

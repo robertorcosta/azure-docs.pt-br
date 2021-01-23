@@ -3,23 +3,23 @@ title: Adicionar, remover e listar usuários em uma unidade administrativa-Azure
 description: Gerenciar usuários e suas permissões de função em uma unidade administrativa no Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b490e03ea7ac0a3bc780fa731629217126b6828a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d3dc7b37c96d2d82ae42d9bce32a97beab2d91e9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395522"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740509"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerenciar usuários em uma unidade administrativa no Azure Active Directory
 
@@ -29,7 +29,7 @@ Para se preparar para usar o PowerShell e Microsoft Graph para o gerenciamento d
 
 ## <a name="add-users-to-an-administrative-unit"></a>Adicionar usuários a uma unidade administrativa
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Você pode atribuir usuários a unidades administrativas individualmente ou como uma operação em massa.
 
@@ -49,7 +49,7 @@ Você pode atribuir usuários a unidades administrativas individualmente ou como
 
    1. Entre no centro de [Administração do Azure ad](https://portal.azure.com) com permissões de administrador de função privilegiada.
    1. Selecione **unidades administrativas** e, em seguida, selecione a unidade administrativa na qual o usuário deve ser atribuído.
-   1. Selecione **todos os usuários** , selecione **Adicionar membro** e, em seguida, no painel **Adicionar membro** , selecione um ou mais usuários que você deseja atribuir à unidade administrativa.
+   1. Selecione **todos os usuários**, selecione **Adicionar membro** e, em seguida, no painel **Adicionar membro** , selecione um ou mais usuários que você deseja atribuir à unidade administrativa.
 
         ![Captura de tela do painel "usuários" da unidade administrativa para atribuir um usuário a uma unidade administrativa.](./media/admin-units-add-manage-users/assign-to-admin-unit.png)
 
@@ -99,7 +99,7 @@ Exemplo:
 
 ## <a name="view-a-list-of-administrative-units-for-a-user"></a>Exibir uma lista de unidades administrativas para um usuário
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 No portal do Azure, você pode abrir o perfil de um usuário fazendo o seguinte:
 
@@ -131,7 +131,7 @@ https://graph.microsoft.com/v1.0/users/{id}/memberOf/$/Microsoft.Graph.Administr
 
 ## <a name="remove-a-single-user-from-an-administrative-unit"></a>Remover um único usuário de uma unidade administrativa
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Você pode remover um usuário de uma unidade administrativa de uma das duas maneiras: 
 

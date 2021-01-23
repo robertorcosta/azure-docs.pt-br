@@ -3,25 +3,25 @@ title: Atribuir e listar funções com escopo de unidade administrativa-Azure Ac
 description: Use unidades administrativas para restringir o escopo de atribuições de função no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: ecfa9186ef42d4822c9b3053d76b7c0160841621
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393431"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740390"
 ---
-# <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções com escopo a uma unidade administrativa
+# <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções a uma unidade administrativa
 
 No Azure Active Directory (AD do Azure), para controle administrativo mais granular, você pode atribuir usuários a uma função do Azure AD com um escopo limitado a uma ou mais unidades administrativas.
 
@@ -50,7 +50,7 @@ As entidades de segurança a seguir podem ser atribuídas a uma função com um 
 
 Você pode atribuir uma função com escopo usando o portal do Azure, o PowerShell ou o Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Na portal do Azure, vá para **Azure ad**.
 
@@ -101,7 +101,7 @@ Request body
 
 Você pode exibir uma lista de administradores com escopo usando o portal do Azure, o PowerShell ou o Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Você pode exibir todas as atribuições de função criadas com um escopo de unidade administrativa na [seção unidades administrativas do Azure ad](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 

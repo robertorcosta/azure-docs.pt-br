@@ -3,23 +3,23 @@ title: Adicionar, remover e listar grupos em uma unidade administrativa-Azure Ac
 description: Gerencie grupos e suas permissões de função em uma unidade administrativa no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092604429cf5a527d7ee62b412e879ad9991eace
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d628903f98f96fc205c9a6c9196a90b251e52af2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394740"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740543"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerenciar grupos em uma unidade administrativa no Azure Active Directory
 
@@ -31,7 +31,7 @@ Para se preparar para usar o PowerShell e Microsoft Graph para o gerenciamento d
 
 Você pode adicionar grupos a uma unidade administrativa usando o portal do Azure, o PowerShell ou o Microsoft Graph.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Você pode atribuir apenas grupos individuais a uma unidade administrativa. Não há nenhuma opção para atribuir grupos como uma operação em massa. No portal do Azure, você pode atribuir um grupo a uma unidade administrativa de uma das duas maneiras:
 
@@ -95,7 +95,7 @@ Exemplo:
 
 ## <a name="view-a-list-of-groups-in-an-administrative-unit"></a>Exibir uma lista de grupos em uma unidade administrativa
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Na portal do Azure, vá para **Azure ad**.
 
@@ -139,7 +139,7 @@ Request body
 
 ## <a name="view-a-list-of-administrative-units-for-a-group"></a>Exibir uma lista de unidades administrativas para um grupo
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Na portal do Azure, vá para **Azure ad**.
 
@@ -169,7 +169,7 @@ https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.Ad
 
 ## <a name="remove-a-group-from-an-administrative-unit"></a>Remover um grupo de uma unidade administrativa
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 Você pode remover um grupo de uma unidade administrativa na portal do Azure de uma das duas maneiras:
 

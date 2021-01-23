@@ -3,22 +3,22 @@ title: Usar minha equipe para delegar o gerenciamento de usuários (visualizaç�
 description: Delegar o gerenciamento de usuários usando minha equipe e unidades administrativas
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.date: 05/08/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 927d1f6dff9a24fb8427bb9c353e6cc61ac6a1f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374251"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740135"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gerenciar seus usuários com minha equipe (versão prévia)
 

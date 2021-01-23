@@ -3,7 +3,7 @@ title: Entenda a delegação de função de administrador - Azure Active Directo
 description: Modelos de delegação, exemplos e segurança de função no Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.subservice: roles
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f4512bea533b6394fcef025ddc19bb7989292a4
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 77ba93b9017fa75f7247bda639880415eda1d280
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378356"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740305"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegar administração no Azure Active Directory
 
@@ -66,8 +66,8 @@ Cada tarefa deve ser avaliada por frequência, importância e dificuldade. Esses
 
 A proliferação de aplicativos dentro de sua organização pode sobrecarregar o modelo de delegação. Se a organização coloca a responsabilidade sobre o gerenciamento do acesso de aplicativos no Administrador Global, é provável que esse modelo aumente sua sobrecarga com o passar do tempo. Caso tenha concedido a função de Administrador Global para algo como configurar aplicativos corporativos a pessoas, agora você pode descarregá-las para as seguintes funções com menos privilégios. Isso ajuda a melhorar sua postura de segurança e reduz a probabilidade de erros inconvenientes. As funções de administrador de aplicativos com mais privilégios são:
 
-* A função **Administrador de Aplicativos** , que concede a capacidade de gerenciar todos os aplicativos no diretório, incluindo registros, configurações de logon único, licenciamento e atribuições de usuários e grupos, configurações do Proxy de Aplicativo e o consentimento. Ela não concede a capacidade de gerenciar o Acesso Condicional.
-* A função **Administrador de Aplicativos de Nuvem** , que concede todas as capacidades do Administrador de aplicativos, exceto que não permite acesso às configurações do Proxy de Aplicativo (porque ele não tem nenhuma permissão local).
+* A função **Administrador de Aplicativos**, que concede a capacidade de gerenciar todos os aplicativos no diretório, incluindo registros, configurações de logon único, licenciamento e atribuições de usuários e grupos, configurações do Proxy de Aplicativo e o consentimento. Ela não concede a capacidade de gerenciar o Acesso Condicional.
+* A função **Administrador de Aplicativos de Nuvem**, que concede todas as capacidades do Administrador de aplicativos, exceto que não permite acesso às configurações do Proxy de Aplicativo (porque ele não tem nenhuma permissão local).
 
 ## <a name="delegate-app-registration"></a>Delegar o registro do aplicativo
 

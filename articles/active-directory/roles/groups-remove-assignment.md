@@ -2,23 +2,23 @@
 title: Remover atribuições de função de um grupo no Azure Active Directory | Microsoft Docs
 description: Visualize funções personalizadas do Azure AD para delegar o gerenciamento de identidades. Gerencie funções do Azure no portal do Azure, no PowerShell ou na API do Graph.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58465c56be310d3f9d500ab551c7d2b19ffaa83
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 89fa3bb94f72ab04c2ea68641b8d1dff7695aa53
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378373"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741019"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Remover atribuições de função de um grupo no Azure Active Directory
 
@@ -28,7 +28,7 @@ Este artigo descreve como um administrador de ti pode remover funções do Azure
 
 1. Entre no centro de [Administração do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
 
-1. Selecione **funções e administradores** > * *_nome da função_* _.
+1. Selecione **funções e administradores** > **_nome da função_* _.
 
 1. Selecione o grupo do qual você deseja remover a atribuição de função e selecione _ * remover atribuição * *.
 

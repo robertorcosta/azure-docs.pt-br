@@ -3,23 +3,23 @@ title: Adicionar e remover unidades administrativas-Azure Active Directory | Mic
 description: Use unidades administrativas para restringir o escopo das permissões de função no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395386"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740441"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gerenciar unidades administrativas no Azure Active Directory
 
@@ -44,7 +44,7 @@ Para um controle administrativo mais granular no Azure Active Directory (AD do A
 
 Você pode adicionar uma unidade administrativa usando o portal do Azure ou o PowerShell.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. No portal do Azure, vá para o AD do Azure. Em seguida, no painel esquerdo, selecione **unidades administrativas**.
 
@@ -83,7 +83,7 @@ Request body
 
 No Azure AD, você pode remover uma unidade administrativa que não é mais necessária como uma unidade de escopo para funções administrativas.
 
-### <a name="use-the-azure-portal"></a>Use o Portal do Azure
+### <a name="use-the-azure-portal"></a>Usar o portal do Azure
 
 1. Na portal do Azure, vá para **Azure ad** e, em seguida, selecione **unidades administrativas**. 
 1. Selecione a unidade administrativa a ser excluída e, em seguida, selecione **excluir**. 
