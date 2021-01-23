@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0a462c7d713ea9285096db48b4a3bb5c5b0d9874
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98699507"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737363"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -508,15 +508,14 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 ### <a name="subnet"></a>Sub-rede
 -  Não é possível inserir outros recursos (por exemplo, máquinas virtuais) na sub-rede em que você implantou o SQL Instância Gerenciada. Implante esses recursos usando uma sub-rede diferente.
-- A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis. O mínimo é 16, enquanto a recomendação é ter pelo menos 32 endereços IP na sub-rede.
-- [Os pontos de extremidade de serviço não podem ser associados à sub-rede do SQL instância gerenciada](connectivity-architecture-overview.md#network-requirements). Certifique-se de que a opção de pontos de extremidade de serviço esteja desabilitada ao criar a rede virtual.
+- A sub-rede deve ter um número suficiente de [endereços IP](connectivity-architecture-overview.md#network-requirements)disponíveis. O mínimo é ter pelo menos 32 endereços IP na sub-rede.
 - O número de vCores e tipos de instâncias que podem ser implantadas em uma região têm algumas [restrições e limites](resource-limits.md#regional-resource-limitations).
-- Há algumas [regras de segurança que devem ser aplicadas na](connectivity-architecture-overview.md#network-requirements) sub-rede.
+- Há uma [configuração de rede](connectivity-architecture-overview.md#network-requirements) que deve ser aplicada na sub-rede.
 
 ### <a name="vnet"></a>VNET
 - A VNet pode ser implantada usando modelo de recurso - modelo clássico para VNet sem suporte.
 - Após a criação de um Instância Gerenciada SQL, não há suporte para a movimentação do SQL Instância Gerenciada ou VNet para outro grupo de recursos ou assinatura.
-- Alguns serviços, como ambientes de serviço de aplicativo, aplicativos lógicos e SQL Instância Gerenciada (usados para replicação geográfica, replicação transacional ou por meio de servidores vinculados) não poderão acessar o SQL Instância Gerenciada em regiões diferentes se seus VNets estiverem conectados usando o [emparelhamento global](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
+- Para instâncias gerenciadas do SQL hospedadas em clusters virtuais que são criados antes de 9/22/2020 o [emparelhamento global](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) não tem suporte. Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
 
 ### <a name="failover-groups"></a>Grupos de failover
 Os bancos de dados do sistema não são replicados para a instância secundária em um grupo de failover. Portanto, os cenários que dependem de objetos dos bancos de dados do sistema serão impossíveis na instância secundária, a menos que os objetos sejam criados manualmente no secundário.

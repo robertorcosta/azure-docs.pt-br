@@ -3,12 +3,12 @@ title: Versões de cluster com suporte no Azure Service Fabric
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: c2ea2b53649cf148a19df46835c8936345aa20e5
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 82b90d6b0acf5d83f9509abd9ee4b34cb74d1b48
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234334"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736777"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
@@ -39,7 +39,7 @@ Atualize para as Service Fabric versões com suporte listadas abaixo para evitar
   ###### <a name="supported-service-fabric-runtime-versions"></a>Versões de tempo de execução Service Fabric com suporte
    Se você não estiver nas versões do Service Fabric com suporte listadas abaixo, atualize para uma dessas versões que já contêm as alterações necessárias para evitar o tempo de inatividade para o cluster. **Observação:** Todas as versões de lançamento do 7,2 incluem as alterações necessárias.
   
-  | SO | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
+  | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
@@ -56,17 +56,20 @@ Para melhorar a segurança e a disponibilidade, a infraestrutura do Azure fará 
  #### <a name="impact-if-not-upgraded-to-supported-versions"></a>Impacto se não for atualizado para versões com suporte
   Os clusters Service Fabric do Azure que **usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) e execuções em versões superiores a 6,3** que não incluem alterações terão perda de funcionalidade ou interrupções de serviço se não forem atualizados para uma das versões abaixo com suporte até o **dia 19 de janeiro de 2021**.
  
-  - **Para clusters que executam uma versão do Service Fabric maior que 6,3 não usando o recurso de rede aberta**, o cluster permanecerá, no entanto, o recurso de rede aberta para clusters de contêineres deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
+  - **Para clusters que executam uma versão do Service Fabric maior que 6,3 não usando o recurso de rede aberta**, o cluster permanecerá ativo.
 
  - **Para clusters que executam uma versão do Service Fabric maior que 6,3 e usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , o cluster pode se tornar indisponível e deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
-  
+ 
+ -   **Para clusters que executam [versões do windows entre 7,0 e 7.0.466 (ambas as versões incluídas)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) e o sistema operacional Windows tem o recurso de contêineres do Windows habilitado. Observação: as versões do Linux 7.0.457, 7.0.464 e 7.0.465 não são afetadas**.
+    - **Impacto**: o cluster deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
+       
 #### <a name="required-action"></a>Ação necessária
 Atualize para as Service Fabric versões com suporte listadas abaixo para evitar o tempo de inatividade ou a perda de funcionalidade relacionada a essa alteração. Verifique se os clusters estão executando pelo menos essas versões para evitar problemas em seu ambiente. 
  
  ###### <a name="supported-service-fabric-runtime-versions"></a>Versões de tempo de execução Service Fabric com suporte
  Se você não estiver nas versões do Service Fabric com suporte listadas abaixo, atualize para uma dessas versões que já contêm as alterações necessárias para evitar a perda de funcionalidade.  **Observação:** Todas as versões de lançamento do 7,2 incluem as alterações necessárias.
  
-  | SO | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
+  | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |

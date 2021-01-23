@@ -3,12 +3,12 @@ title: Melhorar o desempenho de aplicativos do Azure com o Advisor
 description: Use as recomendações de desempenho no Azure Advisor para melhorar a velocidade e a capacidade de resposta de seus aplicativos críticos para os negócios.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: d7d4e87670ca529f38465e928c4067daec802b8f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f546527011402b9ea33321d56356d8aabe2412c1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98248421"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735521"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure usando o Azure Advisor
 
@@ -179,7 +179,7 @@ Saiba mais sobre o [SDK do leitor de imersão](../cognitive-services/immersive-r
 
 O Advisor detecta que você tem um pool de hosts que tem profundidade primeiro definido como o algoritmo de balanceamento de carga e que o limite máximo de sessão do pool de hosts é maior ou igual a 999999. O balanceamento de carga em profundidade usa o limite máximo de sessão para determinar o número máximo de usuários que podem ter sessões simultâneas em um único host de sessão. Se o limite máximo de sessão for muito alto, todas as sessões de usuário serão direcionadas para o mesmo host de sessão e isso causará problemas de desempenho e confiabilidade. Portanto, ao definir um pool de hosts para ter o primeiro balanceamento de carga, você deve definir um limite de sessão máximo apropriado de acordo com a configuração de sua implantação e capacidade de suas VMs. 
 
-Para saber mais sobre o balanceamento de carga na área de trabalho virtual do Windows, consulte [Configurar o método de balanceamento de carga de área de trabalho virtual do Windows](/azure/virtual-desktop/troubleshoot-set-up-overview).
+Para saber mais sobre o balanceamento de carga na área de trabalho virtual do Windows, consulte [Configurar o método de balanceamento de carga de área de trabalho virtual do Windows](../virtual-desktop/troubleshoot-set-up-overview.md).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 

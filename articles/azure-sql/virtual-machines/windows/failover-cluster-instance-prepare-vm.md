@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223152"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737788"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ As definições de configuração para sua máquina virtual variam de acordo com
 
 ## <a name="configure-vm-availability"></a>Configurar a disponibilidade da VM 
 
-O recurso de cluster de failover requer que as máquinas virtuais sejam colocadas em um [conjunto de disponibilidade](../../../virtual-machines/linux/tutorial-availability-sets.md) ou em uma [zona de disponibilidade](../../../availability-zones/az-overview.md#availability-zones). Se você escolher conjuntos de disponibilidade, poderá usar [grupos de posicionamento de proximidade](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) para localizar as VMs de perto. Na verdade, os grupos de posicionamento de proximidade são um pré-requisito para usar os discos compartilhados do Azure. 
+O recurso de cluster de failover requer que as máquinas virtuais sejam colocadas em um [conjunto de disponibilidade](../../../virtual-machines/linux/tutorial-availability-sets.md) ou em uma [zona de disponibilidade](../../../availability-zones/az-overview.md#availability-zones). Se você escolher conjuntos de disponibilidade, poderá usar [grupos de posicionamento de proximidade](../../../virtual-machines/co-location.md#proximity-placement-groups) para localizar as VMs de perto. Na verdade, os grupos de posicionamento de proximidade são um pré-requisito para usar os discos compartilhados do Azure. 
 
 Selecione cuidadosamente a opção de disponibilidade de VM que corresponde à configuração de cluster pretendida: 
 

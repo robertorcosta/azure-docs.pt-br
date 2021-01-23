@@ -3,12 +3,12 @@ title: Solucionar problemas de recuperação de arquivos de VM do Azure
 description: Solucionar problemas ao recuperar arquivos e pastas de um backup de VM do Azure.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: aec69b91ad1dae5864e5e8fba61c53e6d15887f4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624499"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735870"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Solucionar problemas na recuperação de arquivo de um backup de VM do Azure
 
@@ -46,7 +46,7 @@ Esta seção fornece etapas para solucionar problemas comuns que podem ocorrer d
 
 ### <a name="you-cant-download-the-script"></a>Não é possível baixar o script
 
-1. Verifique se você tem as [permissões necessárias para baixar o script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script).
+1. Verifique se você tem as [permissões necessárias para baixar o script](./backup-azure-restore-files-from-vm.md#select-recovery-point-who-can-generate-script).
 1. Verifique a conexão com os IPs de destino do Azure. Execute um dos seguintes comandos em um prompt de comando elevado:
 
    `nslookup download.microsoft.com`
@@ -67,7 +67,7 @@ Quando você executa o script Python para ILR (recuperação em nível de item) 
 
 Você pode ver uma mensagem de erro "exceção detectada ao conectar-se ao destino".
 
-1. Verifique se o computador onde o script é executado atende aos [requisitos de acesso](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
+1. Verifique se o computador onde o script é executado atende aos [requisitos de acesso](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script).
 1. Verifique a conexão com os IPs de destino do Azure. Execute um dos seguintes comandos em um prompt de comando elevado:
 
    `nslookup download.microsoft.com`

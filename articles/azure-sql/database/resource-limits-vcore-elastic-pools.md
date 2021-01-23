@@ -10,13 +10,13 @@ ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
-ms.date: 01/15/2021
-ms.openlocfilehash: 2daa07315be85e1fcd543480cd30a57c118d8547
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: 619f4deee81c97f2d7a0b4359e2b999c476b1ae2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251481"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737550"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para pools elásticos usando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -218,7 +218,7 @@ Você pode definir a camada de serviço, o tamanho da computação (objetivo do 
 |Tamanho máximo de dados de TempDB (GB)|83,25|92,5|111|148|166,5|333|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo por pool <sup>2</sup>|5760|6400|7680|10240|11520|23040|
+|IOPS de dados máximo por pool <sup>2</sup>|5760|6400|7680|10240|11520|12800|
 |Taxa máxima de log por pool (MBps)|48|48|48|48|48|48|
 |Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
@@ -456,8 +456,8 @@ Se todos os vCores de um pool elástico estiverem ocupados, cada banco de dados 
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de dados máximo por pool <sup>2</sup>|31.248|37.497|49.996|99.993|160.000|
 |Taxa máxima de log por pool (MBps)|120|144|192|264|264|
-|Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|2\.000|2.400|3\.200|6.400|12.800|
-|Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|2\.000|2.400|3\.200|6.400|12.800|
+|Máximo de trabalhos simultâneos por pool (solicitações) <sup>3</sup>|2.000|2.400|3\.200|6.400|12.800|
+|Máximo de logons simultâneos por pool (solicitações) <sup>3</sup>|2.000|2.400|3\.200|6.400|12.800|
 |Máximo de sessões simultâneas|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|
 |Multi-AZ|Não|Não|Não|Não|Não|

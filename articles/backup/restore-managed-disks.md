@@ -3,12 +3,12 @@ title: Restaurar Managed Disks do Azure
 description: Saiba como restaurar Managed Disks do Azure do portal do Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 848a7476b1c5095d4e4d3156d4c7ce33da777090
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611127"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737369"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Restaurar Managed Disks do Azure (em versão prévia)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98611127"
 >
 >[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever na versão prévia.
 
-Este artigo explica como restaurar [Managed disks do Azure](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) de um ponto de restauração criado pelo backup do Azure.
+Este artigo explica como restaurar [Managed disks do Azure](../virtual-machines/managed-disks-overview.md) de um ponto de restauração criado pelo backup do Azure.
 
 Atualmente, a opção de recuperação de Original-Location (OLR) de restauração substituindo o disco de origem existente do qual os backups foram feitos não tem suporte. Você pode restaurar de um ponto de recuperação para criar um novo disco no mesmo grupo de recursos do disco de origem do qual os backups foram feitos ou em qualquer outro grupo de recursos. Isso é conhecido como ALR (recuperação de Alternate-Location) e isso ajuda a manter o disco de origem e o disco restaurado (novo).
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a:
 
 O cofre de backup usa identidade gerenciada para acessar outros recursos do Azure. Para restaurar do backup, a identidade gerenciada do cofre de backup requer um conjunto de permissões no grupo de recursos em que o disco deve ser restaurado.
 
-O cofre de backup usa uma identidade gerenciada atribuída pelo sistema, que é restrita a um por recurso e está vinculada ao ciclo de vida deste recurso. Você pode conceder permissões para a identidade gerenciada usando o controle de acesso baseado em função do Azure (RBAC do Azure). A identidade gerenciada é uma entidade de serviço de um tipo especial que pode ser usada apenas com recursos do Azure. Saiba mais sobre [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+O cofre de backup usa uma identidade gerenciada atribuída pelo sistema, que é restrita a um por recurso e está vinculada ao ciclo de vida deste recurso. Você pode conceder permissões para a identidade gerenciada usando o controle de acesso baseado em função do Azure (RBAC do Azure). A identidade gerenciada é uma entidade de serviço de um tipo especial que pode ser usada apenas com recursos do Azure. Saiba mais sobre [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md).
 
 Os pré-requisitos a seguir são necessários para executar uma operação de restauração:
 
@@ -89,7 +89,7 @@ Depois que os pré-requisitos forem atendidos, siga estas etapas para executar a
     ![Restaurar parâmetros](./media/restore-managed-disks/restore-parameters.png)
 
     >[!TIP]
-    >Os discos cujo backup foi feito pelo backup do Azure usando a solução de backup em disco também podem ser submetidos a backup pelo backup do Azure usando a solução de backup de VM do Azure com o cofre dos serviços de recuperação. Se você tiver configurado a proteção da VM do Azure à qual esse disco está anexado, também poderá usar a operação de restauração de VM do Azure. Você pode optar por restaurar a VM, ou discos e arquivos ou pastas do ponto de recuperação da instância de backup de VM do Azure correspondente. Para obter mais informações, consulte [backup de VM do Azure](https://docs.microsoft.com/azure/backup/about-azure-vm-restore).
+    >Os discos cujo backup foi feito pelo backup do Azure usando a solução de backup em disco também podem ser submetidos a backup pelo backup do Azure usando a solução de backup de VM do Azure com o cofre dos serviços de recuperação. Se você tiver configurado a proteção da VM do Azure à qual esse disco está anexado, também poderá usar a operação de restauração de VM do Azure. Você pode optar por restaurar a VM, ou discos e arquivos ou pastas do ponto de recuperação da instância de backup de VM do Azure correspondente. Para obter mais informações, consulte [backup de VM do Azure](./about-azure-vm-restore.md).
 
 1. Depois que a validação for bem-sucedida, selecione **restaurar** para iniciar a operação de restauração.
 
@@ -109,9 +109,9 @@ A restauração criará um novo disco do ponto de recuperação selecionado no g
 
     ![Trocar discos do sistema operacional](./media/restore-managed-disks/swap-os-disks.png)
 
-- Para máquinas virtuais do Windows, se o disco restaurado for um disco de dados, siga as instruções para [desanexar o disco de dados original](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) da máquina virtual. Em seguida, [anexe o disco restaurado](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) à máquina virtual. Siga as instruções para [trocar o disco do sistema operacional](https://docs.microsoft.com/azure/virtual-machines/windows/os-disk-swap) da máquina virtual pelo disco restaurado.
+- Para máquinas virtuais do Windows, se o disco restaurado for um disco de dados, siga as instruções para [desanexar o disco de dados original](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-the-portal) da máquina virtual. Em seguida, [anexe o disco restaurado](../virtual-machines/windows/attach-managed-disk-portal.md) à máquina virtual. Siga as instruções para [trocar o disco do sistema operacional](../virtual-machines/windows/os-disk-swap.md) da máquina virtual pelo disco restaurado.
 
-- Para máquinas virtuais do Linux, se o disco restaurado for um disco de dados, siga as instruções para [desanexar o disco de dados original](https://docs.microsoft.com/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) da máquina virtual. Em seguida, [anexe o disco restaurado](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) à máquina virtual. Siga as instruções para [trocar o disco do sistema operacional](https://docs.microsoft.com/azure/virtual-machines/linux/os-disk-swap) da máquina virtual pelo disco restaurado.
+- Para máquinas virtuais do Linux, se o disco restaurado for um disco de dados, siga as instruções para [desanexar o disco de dados original](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) da máquina virtual. Em seguida, [anexe o disco restaurado](../virtual-machines/linux/attach-disk-portal.md#attach-an-existing-disk) à máquina virtual. Siga as instruções para [trocar o disco do sistema operacional](../virtual-machines/linux/os-disk-swap.md) da máquina virtual pelo disco restaurado.
 
 É recomendável revogar a atribuição de função do **operador de restauração de disco** da identidade gerenciada do cofre de backup no grupo de recursos de **destino** após a conclusão bem-sucedida da operação de restauração.
 

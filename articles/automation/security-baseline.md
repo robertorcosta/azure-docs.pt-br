@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1626ee074d51048dbf45c629f261a550822d746c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: ea984e527eb526e49c87ce5385ba5715803cc72d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200831"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737245"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
@@ -556,7 +556,7 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 * [Entender a criptografia em trânsito com o Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Imposição de TLS 1,2 da automação do Azure](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
+* [Imposição de TLS 1,2 da automação do Azure](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -938,7 +938,7 @@ Ao usar o recurso Hybrid Runbook Worker, há várias opções para manter uma co
 
 Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com a configuração de estado de automação do Azure podem ajudar a atender e a manter os requisitos de segurança.
 
-* [Informações sobre como baixar o modelo de VM](../virtual-machines/windows/download-template.md)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informações sobre a criação de modelos do ARM](../virtual-machines/windows/ps-template.md)
 

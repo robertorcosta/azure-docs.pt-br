@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: dc9f7dfdf33411f11d51734b48105be200874d02
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071724"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738111"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de inicialização do Azure
 
@@ -45,7 +45,7 @@ Ao criar uma VM no portal do Azure, a configuração padrão é ter o diagnósti
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Captura de tela habilitando o diagnóstico de inicialização gerenciado durante a criação da VM.":::
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>Habilitar o diagnóstico de inicialização gerenciado usando a CLI
-O diagnóstico de inicialização com uma conta de armazenamento gerenciada tem suporte no CLI do Azure 2.12.0 e posterior. Se você não inserir um nome ou URI para uma conta de armazenamento, uma conta gerenciada será usada. Para obter mais informações e exemplos de código, consulte a [documentação da CLI para o diagnóstico de inicialização](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest).
+O diagnóstico de inicialização com uma conta de armazenamento gerenciada tem suporte no CLI do Azure 2.12.0 e posterior. Se você não inserir um nome ou URI para uma conta de armazenamento, uma conta gerenciada será usada. Para obter mais informações e exemplos de código, consulte a [documentação da CLI para o diagnóstico de inicialização](/cli/azure/vm/boot-diagnostics).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Habilitar o diagnóstico de inicialização gerenciado usando modelos de Azure Resource Manager (ARM)
 Tudo depois da versão da API 2020-06-01 dá suporte ao diagnóstico de inicialização gerenciado. Para obter mais informações, consulte [exibição da instância de diagnóstico de inicialização](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).

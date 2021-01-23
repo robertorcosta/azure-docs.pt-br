@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6538243cf8fc12131e1480c8578bfa8739c4f561
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e3ebd83646353e34c239e7d1812e380b9e9d2e26
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676282"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737516"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-release-notes"></a>Pool de SQL dedicado (anteriormente conhecido como SQL DW) nas notas de versão do Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Para melhorias de ferramentas, a versão instalada correta deve estar especifica
 | Melhorias nos serviços | Detalhes |
 | --- | --- |
 |**Funções de Table-Valued embutidas do T-SQL (versão prévia)**|Com esta versão, agora você pode criar funções com valor de tabela embutidas com o Transact-SQL e consultar seus resultados como faria com uma tabela. Este recurso está atualmente em visualização e terá suporte em ferramentas na GA. Para obter mais informações, consulte [criar função (Azure Synapse Analytics)](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true).|
-|**Comando MERGE (visualização)**|Agora você pode executar operações de inserção, atualização ou exclusão em uma tabela de destino dos resultados de uma junção com uma tabela de origem. Por exemplo, você pode sincronizar duas tabelas inserindo, atualizando ou excluindo linhas em uma tabela com base nas diferenças encontradas na outra tabela.  Marque [mesclar](/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) para obter detalhes.|
+|**Comando MERGE (visualização)**|Agora você pode executar operações de inserção, atualização ou exclusão em uma tabela de destino dos resultados de uma junção com uma tabela de origem. Por exemplo, você pode sincronizar duas tabelas inserindo, atualizando ou excluindo linhas em uma tabela com base nas diferenças encontradas na outra tabela.  Marque [mesclar](/sql/t-sql/statements/merge-transact-sql??view=azure-sqldw-latest&preserve-view=true) para obter detalhes.|
 
 ## <a name="aug-2020"></a>2020 de agosto
 
@@ -68,7 +68,7 @@ Para melhorias de ferramentas, a versão instalada correta deve estar especifica
 |**Criptografia em nível de coluna (visualização pública)**|Proteja informações confidenciais em sua análise de Synapse do Azure aplicando criptografia simétrica a uma coluna de dados usando o Transact-SQL. A criptografia em nível de coluna tem funções internas que você pode usar para criptografar dados usando chaves simétricas que estão ainda mais protegidas com um certificado, senha, chave simétrica ou chave assimétrica. Para obter mais informações, visite [criptografar uma coluna de dados](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest&preserve-view=true).|
 |**Suporte de nível de compatibilidade (GA)**|Agora, com essa versão, os usuários podem definir o nível de compatibilidade de um banco de dados para obter a linguagem Transact-SQL e os comportamentos de processamento de consulta de uma versão específica do mecanismo SQL do Synapse. Para obter mais informações, consulte [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [Alterar a configuração no escopo do banco de dados](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).|
 |**Segurança em Nível de Linha**|Esta versão inclui uma melhoria para operações de atualização e exclusão em linhas com RLS imposta nelas. Com esta versão, as operações de atualização e exclusão com funções intrínsecas como ' is_rolemember ' terão sucesso se o intrínseco não fizer referência a nenhuma coluna na tabela de destino DML. Antes dessa melhoria, essas operações falharam devido à limitação nas operações DML subjacentes.|
-|**DBCC SHRINKDATABASE (GA)**|Agora você pode reduzir o tamanho dos arquivos de dados e de log no banco de dado especificado. Para obter mais informações, consulte a [documentação](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|
+|**DBCC SHRINKDATABASE (GA)**|Agora você pode reduzir o tamanho dos arquivos de dados e de log no banco de dado especificado. Para obter mais informações, consulte a [documentação](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=azure-sqldw-latest&preserve-view=true).|
 
 ## <a name="may-2020"></a>Maio de 2020
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: dbff136ac5787ef9549cca9dc8f946c56a138986
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 293245d6778a40e234cdca177905c15dc88dd04f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900494"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737754"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral de imagens de Red Hat Enterprise Linux
 
@@ -60,8 +60,8 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> Em geral, a comparação de versões para determinar a versão mais recente segue as regras do [método CompareTo](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
-Essa comparação de versão de imagem é feita comparando os valores como um objeto de [versão](/dotnet/api/system.version.-ctor?view=netframework-4.8) , não como uma cadeia de caracteres.
+> Em geral, a comparação de versões para determinar a versão mais recente segue as regras do [método CompareTo](/dotnet/api/system.version.compareto#system_version_compareto_system_version_).
+Essa comparação de versão de imagem é feita comparando os valores como um objeto de [versão](/dotnet/api/system.version.-ctor) , não como uma cadeia de caracteres.
 
 ## <a name="rhel-6-image-types"></a>Tipos de imagem RHEL 6
 

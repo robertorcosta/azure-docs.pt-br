@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: b065b36103b69f0601daa1388b45865856543d2b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1abb857c9f03be502db02099383c6fe0b5110461
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540511"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736811"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte a idiomas para Pesquisa Visual Computacional
 
@@ -58,7 +58,7 @@ As APIs de OCR do Pesquisa Visual Computacional dão suporte a vários idiomas. 
 
 Algumas ações da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) podem retornar resultados em outras linguagens, especificadas com o parâmetro de `language` consulta. Outras ações retornam resultados em inglês, independentemente do idioma especificado, e outras geram uma exceção para idiomas sem suporte. As ações são especificadas com `visualFeatures` os `details` parâmetros de consulta e. consulte a [visão geral](overview.md) para obter uma lista de todas as ações que você pode fazer com a análise de imagem.
 
-|Linguagem | Código de idioma | Categorias | Marcações | Description | Adulto | Marcas | Color | Faces | ImageType | Objetos | Celebridades | Pontos de referência |
+|Linguagem | Código de idioma | Categorias | Marcações | Descrição | Adulto | Marcas | Color | Faces | ImageType | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglês | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
@@ -70,5 +70,5 @@ Algumas ações da API de [análise de imagem](https://westcentralus.dev.cogniti
 
 Comece a usar os recursos de Pesquisa Visual Computacional mencionados neste guia.
 
-* [Analisar uma imagem local (REST)](./quickstarts/csharp-analyze.md)
-* [Extrair texto impresso (REST)](./quickstarts/csharp-print-text.md)
+* [Analisar uma imagem local (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
+* [Extrair texto impresso (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

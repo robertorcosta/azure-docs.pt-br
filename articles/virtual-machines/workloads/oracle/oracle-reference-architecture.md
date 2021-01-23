@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 83da8cbf3a87570cfb967e0a6c8da3f0f2ed1766
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bbaf34c977546891c6ac05fbd4b5feb15f333e04
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486735"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737805"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition no Azure
 
@@ -207,7 +207,7 @@ Durante a solicitação inicial, o servidor de aplicativos se conecta ao diretor
 
 Ao implantar suas cargas de trabalho do Oracle no Azure, a Microsoft cuida de toda a aplicação de patch no nível do sistema operacional do host. Qualquer manutenção planejada no nível do sistema operacional é comunicada aos clientes com antecedência para permitir que o cliente tenha essa manutenção planejada. Dois servidores de duas Zonas de Disponibilidade diferentes nunca são corrigidos simultaneamente. Consulte [gerenciar a disponibilidade de máquinas virtuais](../../manage-availability.md) para obter mais detalhes sobre a manutenção da VM e aplicação de patches. 
 
-A aplicação de patch no sistema operacional da máquina virtual pode ser automatizada usando a [Gerenciamento de atualizações de automação do Azure](../../../automation/update-management/overview.md). Aplicar patches e manter seu banco de dados Oracle pode ser automatizado e agendado usando [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) ou a [automação do Azure gerenciamento de atualizações](../../../automation/update-management/overview.md) para minimizar o tempo de inatividade. Veja [entrega contínua e implantações azuis/verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como elas podem ser usadas no contexto de seus bancos de dados Oracle.
+A aplicação de patch no sistema operacional da máquina virtual pode ser automatizada usando a [Gerenciamento de atualizações de automação do Azure](../../../automation/update-management/overview.md). Aplicar patches e manter seu banco de dados Oracle pode ser automatizado e agendado usando [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) ou a [automação do Azure gerenciamento de atualizações](../../../automation/update-management/overview.md) para minimizar o tempo de inatividade. Veja [entrega contínua e implantações azuis/verdes](/azure/devops/learn/what-is-continuous-delivery) para entender como elas podem ser usadas no contexto de seus bancos de dados Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Considerações sobre arquitetura e design
 

@@ -4,12 +4,12 @@ description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cf1d8f89de61a548f6c542d6d8a73fde93675e95
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: a13b4463d2a9c32a3487f839c0bf53b4c5bd2963
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895403"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735836"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -366,7 +366,7 @@ O Azure Functions dá suporte às seguintes versões do Python:
 
 | Versão do Functions | Versões do<sup>*</sup> Python |
 | ----- | ----- |
-| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 3.x | 3,9 (versão prévia) <br/> 3.8<br/>3.7<br/>3.6 |
 | 2. x | 3.7<br/>3.6 |
 
 <sup>*</sup>Distribuições oficiais do CPython
@@ -588,6 +588,7 @@ Para exibir os detalhes completos da lista dessas bibliotecas, visite os links a
 * [Biblioteca padrão do Python 3,6](https://docs.python.org/3.6/library/)
 * [Biblioteca padrão do Python 3,7](https://docs.python.org/3.7/library/)
 * [Biblioteca padrão do Python 3,8](https://docs.python.org/3.8/library/)
+* [Biblioteca padrão do Python 3,9](https://docs.python.org/3.9/library/)
 
 ### <a name="azure-functions-python-worker-dependencies"></a>Azure Functions dependências de trabalho do Python
 
@@ -615,7 +616,7 @@ Para obter uma lista de bibliotecas do sistema pré-instalado em imagens do Dock
 |  runtime do Functions  | Versão do Debian | Versões do Python |
 |------------|------------|------------|
 | Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile) |
+| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3,9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## <a name="cross-origin-resource-sharing"></a>Compartilhamento de recursos entre origens
 

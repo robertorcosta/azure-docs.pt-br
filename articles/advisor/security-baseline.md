@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4b737c570f7f4b56f387b60fad180ddd89b84ebe
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 2887b12e7ce24e9c5a881a2b3edeebb258532a49
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196020"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736483"
 ---
 # <a name="azure-security-baseline-for-azure-advisor"></a>Linha de base de segurança do Azure para o Azure Advisor
 
@@ -143,7 +143,7 @@ Observe que alguns serviços do Azure dão suporte a usuários e funções locai
 
 - [Criar uma revisão de acesso das funções de recurso do Azure no Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
-- [Como usar as revisões de identidade e acesso do Azure AD](/azure/active-directory/governance/access-reviews-overview)
+- [Como usar as revisões de identidade e acesso do Azure AD](../active-directory/governance/access-reviews-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -159,7 +159,7 @@ Gerencie centralmente as estações de trabalho protegidas para impor configura�
 
 - [Entender as estações de trabalho com acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
  
-- [Implantar uma estação de trabalho com acesso privilegiado](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implantar uma estação de trabalho com acesso privilegiado](/security/compass/privileged-access-deployment)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -219,7 +219,7 @@ Use o acesso condicional do Azure para limitar a capacidade do usuário de inter
 
 ## <a name="logging-and-threat-detection"></a>Log e detecção de ameaças
 
-*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection).*
+*Para obter mais informações, confira o [Azure Security Benchmark: log e detecção de ameaças](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
 ### <a name="lt-4-enable-logging-for-azure-resources"></a>LT-4: habilitar o registro em log para recursos do Azure
 
@@ -370,7 +370,7 @@ Além disso, marque os recursos usando marcas e crie um sistema de nomenclatura 
 
 ## <a name="posture-and-vulnerability-management"></a>Gerenciamento de postura e vulnerabilidades
 
-*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de postura e vulnerabilidades](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management).*
+*Para obter mais informações, confira o [Azure Security Benchmark: gerenciamento de postura e vulnerabilidades](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: realizar uma simulação de ataque regular
 
@@ -420,9 +420,9 @@ Para saber mais, consulte as referências a seguir:
 
 - [Cloud Adoption Framework – Melhores práticas de segurança e criptografia de dados do Azure](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark – Gerenciamento de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Azure Security Benchmark – Gerenciamento de ativos](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Azure Security Benchmark – Proteção de dados](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Azure Security Benchmark – Proteção de dados](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -450,7 +450,7 @@ Certifique-se de que a estratégia de segmentação seja implementada consistent
 
 **Diretriz**: Meça e atenue continuamente os riscos para seus ativos individuais e o ambiente no qual eles estão hospedados. Priorize os ativos de alto valor e as superfícies de ataque altamente expostas, como aplicativos publicados, pontos de entrada e saída de rede, pontos de extremidade de usuário e administrador etc.
 
-- [Azure Security Benchmark – Gerenciamento de postura e vulnerabilidade](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security Benchmark – Gerenciamento de postura e vulnerabilidade](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -491,7 +491,7 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 Para saber mais, consulte as referências a seguir:
 - [Melhor prática de segurança do Azure 11 – Arquitetura: uma estratégia de segurança unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark – Segurança de rede](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Azure Security Benchmark – Segurança de rede](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Visão geral da segurança de rede do Azure](../security/fundamentals/network-overview.md)
 
@@ -519,9 +519,9 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 Examine os links referenciados para obter mais informações.
 
-- [Azure Security Benchmark – Gerenciamento de identidades](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Azure Security Benchmark – Gerenciamento de identidades](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Azure Security Benchmark – Acesso privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Azure Security Benchmark – Acesso privilegiado](../security/benchmarks/security-controls-v2-privileged-access.md)
 
 - [Melhor prática de segurança do Azure 11 – Arquitetura: uma estratégia de segurança unificada](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -553,9 +553,9 @@ Essa estratégia deve incluir diretrizes documentadas, políticas e padrões par
 
 Para saber mais, consulte as referências a seguir:
 
-- [Azure Security Benchmark – Log e detecção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark – Log e detecção de ameaças](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark – Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark – Resposta a incidentes](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Melhor prática de segurança do Azure 4 – Processo: atualizar processos de resposta a incidentes para a nuvem](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 

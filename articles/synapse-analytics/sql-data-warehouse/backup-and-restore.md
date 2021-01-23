@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: d8c680ec30dcecc56c064f08e4690cbbde9c2377
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 842f2f92133664f58ca60d6d30181d48d63271eb
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679906"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736298"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e restauração no pool SQL dedicado do Azure Synapse
 
@@ -71,8 +71,16 @@ Quando você remove um pool SQL dedicado, um instantâneo final é criado e salv
 
 Um backup geográfico é criado uma vez por dia para um [Data Center emparelhado](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). O RPO de uma restauração geográfica é de 24 horas. Você pode restaurar o backup geográfico para um servidor em qualquer outra região em que o pool SQL dedicado tenha suporte. Um backup geográfico garante que você possa restaurar um data warehouse caso não seja possível acessar os pontos de restauração em sua região primária.
 
+Se você não precisar de backups geográficos para seu pool SQL dedicado, poderá desabilitá-los e economizar em custos de armazenamento de recuperação de desastre. Para fazer isso, consulte [como guiar: desabilitar backups geográficos para um pool de SQL dedicado (anteriormente conhecido como SQL DW)](disable-geo-backup.md). Observe que, se você desabilitar os backups geográficos, não será possível recuperar seu pool SQL dedicado para sua região do Azure emparelhada se sua data center primária do Azure não estiver disponível. 
+
 > [!NOTE]
 > Se precisar de um RPO mais curto para backups geográficos, escolha esta funcionalidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Você também pode criar um ponto de restauração definido pelo usuário e restaurar com base no ponto de restauração criado recentemente para um novo data warehouse em uma região diferente. Após a restauração, seu data warehouse estará online e será possível pausá-lo indefinidamente para em economizar custos de computação. O banco de dados em pausa tem encargos de armazenamento com a taxa de armazenamento Premium do Azure. Caso você precise de uma cópia ativa do data warehouse, poderá retomar, o que deve levar apenas alguns minutos.
+
+## <a name="data-residency"></a>Residência de dadosResidência de dados 
+
+Se o data center emparelhado estiver localizado fora do seu limite geográfico, você poderá garantir que seus dados permaneçam dentro de seu limite geográfico, recusando o armazenamento com redundância geográfica. Isso pode ser feito ao provisionar seu pool SQL dedicado (anteriormente SQL DW) por meio da opção de armazenamento com redundância geográfica ao criar ou restaurar um pool SQL dedicado (anteriormente conhecido como SQL DW). 
+
+Para confirmar se o data center emparelhado está em um país diferente, consulte [regiões emparelhadas do Azure](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="backup-and-restore-costs"></a>Custos de backup e restauração
 

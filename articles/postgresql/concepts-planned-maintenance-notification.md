@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920246"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735734"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notificação de manutenção planejada no Banco de Dados do Azure para PostgreSQL – Servidor Único
 
@@ -25,7 +25,7 @@ Uma manutenção planejada é uma janela de manutenção quando essas atualizaç
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenção planejada-duração e impacto sobre o cliente
 
-Uma manutenção planejada para uma determinada região do Azure normalmente deve ser executada 15 h. A janela também inclui o tempo de buffer para executar um plano de reversão, se necessário. Durante a manutenção planejada, pode haver reinicializações ou failovers do servidor de banco de dados, o que pode levar a uma breve indisponibilidade dos servidores de banco de dados para os usuários finais. Os servidores do banco de dados do Azure para PostgreSQL estão em execução em contêineres, portanto, as reinicializações do servidor de banco de dados normalmente são rápidas, esperadas normalmente em 60-120 segundos. Todo o evento de manutenção planejada, incluindo cada reinicialização do servidor, é cuidadosamente monitorado pela equipe de engenharia. O tempo de failover do servidor depende do tempo de recuperação do banco de dados, o que pode fazer com que o banco de dados fique online mais tempo se você tiver atividade transacional pesada no servidor no momento do failover. Para evitar tempo de reinício mais longo, é recomendável evitar todas as transações de longa execução (cargas em massa) durante os eventos de manutenção planejada.
+Uma manutenção planejada para uma determinada região do Azure normalmente deve ser concluída dentro de 15 horas. Essa janela de tempo também inclui o tempo de buffer para executar um plano de reversão, se necessário. Os servidores do banco de dados do Azure para PostgreSQL estão em execução em contêineres, de modo que as reinicializações do servidor de banco de dados normalmente levam 60-120 segundos para serem concluídas, mas não há nenhuma maneira determinística de saber quando nessa janela de 15 horas o servidor será afetado. Todo o evento de manutenção planejada, incluindo cada reinicialização do servidor, é cuidadosamente monitorado pela equipe de engenharia. O tempo de failover do servidor depende da recuperação do banco de dados, o que pode fazer com que o banco de dados fique online mais tempo se você tiver atividade transacional pesada no servidor no momento do failover. Para evitar tempo de reinício mais longo, é recomendável evitar todas as transações de longa execução (cargas em massa) durante os eventos de manutenção planejada.
 
 Em resumo, enquanto o evento de manutenção planejada é executado por 15 horas, o impacto do servidor individual geralmente dura 60 segundos, dependendo da atividade transacional no servidor. Uma notificação é enviada 72 horas de calendário antes do início da manutenção planejada e outra, enquanto a manutenção está em andamento para uma determinada região.
 

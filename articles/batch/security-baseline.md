@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c27ef1af3e439b22f00f9247b5270118bbe9ca89
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197703"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737228"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança do Azure para lote
 
@@ -62,9 +62,9 @@ Quando aplicável, desabilite o acesso à rede pública usando o link privado do
 
 **Orientação**: habilitar a proteção padrão do DDoS do Azure (negação de serviço distribuído) na rede virtual, protegendo seu pool do lote do Azure para proteção contra ataques de DDoS. Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados.
 
-- [Como configurar a proteção contra DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
-- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](/azure/security-center/security-center-alerts-service-layer)
+- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -126,7 +126,7 @@ Use qualquer uma das definições de Azure Policy internas relacionadas à marca
 
 Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 - [Como criar uma rede virtual](../virtual-network/quick-create-portal.md)
 
@@ -140,7 +140,7 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados aos seus pools do lote do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view) 
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
 - [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -188,7 +188,7 @@ Se necessário, você pode se conectar a seus nós de pool individuais via SSH (
 
 - [Como coletar logs de diagnóstico de sua conta do lote do Azure](batch-diagnostics.md#batch-diagnostics)
 
-- [Como se conectar remotamente aos nós do pool do lote do Azure](/azure/batch/batch-api-basics#error-handling)
+- [Como se conectar remotamente aos nós do pool do lote do Azure](./batch-service-workflow-features.md#basic-workflow)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -260,9 +260,9 @@ Se necessário, você pode se conectar a seus nós de pool individuais via SSH (
 
 Além disso, você pode usar as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure.
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [Como monitorar a identidade e o acesso à central de segurança do Azure](../security-center/security-center-identity-access.md)
 
@@ -324,7 +324,7 @@ Além disso, você pode usar as recomendações de gerenciamento de acesso e ide
 
 **Orientação**: se você tiver a autenticação integrada para aplicativos do lote do Azure com Azure Active Directory, use Azure Active Directory relatórios de segurança para a geração de logs e alertas quando ocorrer atividade suspeita ou insegura no ambiente. Use a Central de Segurança do Azure para monitorar a atividade de identidade e acesso.
 
-- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como monitorar a atividade de identidade e acesso dos usuários na central de segurança do Azure](../security-center/security-center-identity-access.md)
 
@@ -378,7 +378,7 @@ Além disso, você pode usar as recomendações de gerenciamento de acesso e ide
 
 **Diretrizes**: Use Azure Active Directory recurso de detecção de riscos e de proteção de identidade para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. Além disso, você pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -406,7 +406,7 @@ Além disso, você pode usar as recomendações de gerenciamento de acesso e ide
 
 **Diretriz**: Use marcas para ajudar a controlar os recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -418,7 +418,7 @@ Além disso, você pode usar as recomendações de gerenciamento de acesso e ide
 
 - [Como criar um pool do lote do Azure em uma rede virtual](batch-virtual-network.md)
 
-- [Como proteger contas de armazenamento do Azure](/azure/storage/common/storage-security-guide)
+- [Como proteger contas de armazenamento do Azure](../storage/blobs/security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -434,7 +434,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 - [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
-- [Como proteger contas de armazenamento do Azure](/azure/storage/common/storage-security-guide)
+- [Como proteger contas de armazenamento do Azure](../storage/blobs/security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -462,7 +462,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 - [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
-- [Como proteger contas de armazenamento do Azure](/azure/storage/common/storage-security-guide)
+- [Como proteger contas de armazenamento do Azure](../storage/blobs/security-recommendations.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -498,9 +498,9 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 O Azure Disk Encryption pode ser usado para ajudar a proteger e proteger seus dados para atender aos compromissos de conformidade e segurança organizacional. Todos os discos gerenciados, instantâneos, imagens e dados gravados em discos existentes são automaticamente criptografados em repouso com chaves gerenciadas pela plataforma.
 
-- [Como gerenciar chaves de criptografia para contas de armazenamento do Azure](/azure/storage/common/storage-encryption-keys-portal)
+- [Como gerenciar chaves de criptografia para contas de armazenamento do Azure](../storage/common/customer-managed-keys-configure-key-vault.md)
 
-- [Como configurar chaves de criptografia gerenciadas pelo cliente](/azure/storage/common/storage-encryption-keys-portal)
+- [Como configurar chaves de criptografia gerenciadas pelo cliente](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Como criar um pool com a criptografia de disco habilitada](disk-encryption.md)
 
@@ -580,7 +580,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Gerenc
 
 - [Como criar consultas com o Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -592,7 +592,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Gerenc
 
 **Diretriz**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -602,11 +602,11 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Gerenc
 
 **Orientação**: use marcação, grupos de gerenciamento e assinaturas separadas, quando apropriado, para organizar e acompanhar ativos. Reconcilie o inventário regularmente e garanta que os recursos não autorizados sejam excluídos da assinatura em tempo hábil.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -701,7 +701,7 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 **Orientação**: use aliases de Azure Policy no namespace "Microsoft.Batch" para criar políticas personalizadas para auditar ou impor a configuração de suas contas e pools do lote do Azure.
 
-- [Como exibir os aliases de Azure Policy disponíveis](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -747,9 +747,9 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 **Diretrizes**: se você estiver usando definições de Azure Policy personalizadas para suas contas do lote do Azure, pools ou recursos relacionados, use Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentação do Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -791,7 +791,7 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 - As sub-redes devem ser associadas a um grupo de segurança de rede-as contas de armazenamento devem usar um ponto de extremidade de serviço de rede virtual
 - Os logs de diagnóstico em contas do Lote devem ser habilitados
 
-- [Como exibir os aliases de Azure Policy disponíveis](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -884,7 +884,7 @@ Pré-examinar todos os arquivos que estão sendo carregados em recursos que não
 
 - [Como configurar a redundância de armazenamento para contas de armazenamento do Azure](../storage/common/storage-redundancy.md)
 
-- [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -894,9 +894,9 @@ Pré-examinar todos os arquivos que estão sendo carregados em recursos que não
 
 **Orientação**: se você estiver gerenciando suas próprias chaves para contas de armazenamento do Azure ou qualquer outro recurso relacionado à sua implementação do lote do Azure, teste periodicamente a restauração de chaves de backup.
 
-- [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
-- [Como restaurar uma chave gerenciada pelo cliente com o PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como restaurar uma chave gerenciada pelo cliente com o PowerShell](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -906,7 +906,7 @@ Pré-examinar todos os arquivos que estão sendo carregados em recursos que não
 
 **Orientação**: se Azure Key Vault estiver sendo usada para manter as chaves relacionadas às contas de armazenamento do pool do lote do Azure, habilite Soft-Delete no Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
-- [Como habilitar a exclusão reversível no Azure Key Vault](/azure/key-vault/key-vault-soft-delete-powershell)
+- [Como habilitar a exclusão reversível no Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -994,5 +994,5 @@ Você pode encontrar mais informações sobre a estratégia e a execução da Mi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

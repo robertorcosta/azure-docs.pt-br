@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4681039f60154b95eeb7e40196ca33055a192c74
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2059608faa8ce148e5823e48eff6abf9e71c9b01
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222098"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735426"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB com um pool SQL sem servidor na visualização do link Synapse do Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "98222098"
 
 Um pool SQL sem servidor permite analisar dados em seus contêineres de Azure Cosmos DB que são habilitados com o [link Synapse do Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe T-SQL familiar para consultar dados do [armazenamento analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma grande variedade de ferramentas de consulta de Business Intelligence (BI) e ad hoc por meio da interface T-SQL.
 
-Para consultar Azure Cosmos DB, a área de superfície de [seleção](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa é suportada por meio da função [OPENROWSET](develop-openrowset.md) , que inclui a maioria dos [operadores e funções SQL](overview-features.md). Você também pode armazenar os resultados da consulta que lê dados de Azure Cosmos DB juntamente com os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage usando [criar tabela externa como SELECT](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). Atualmente, não é possível armazenar os resultados da consulta do pool SQL sem servidor para Azure Cosmos DB usando CETAS.
+Para consultar Azure Cosmos DB, a área de superfície de [seleção](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa é suportada por meio da função [OPENROWSET](develop-openrowset.md) , que inclui a maioria dos [operadores e funções SQL](overview-features.md). Você também pode armazenar os resultados da consulta que lê dados de Azure Cosmos DB juntamente com os dados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage usando [criar tabela externa como SELECT](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). Atualmente, não é possível armazenar os resultados da consulta do pool SQL sem servidor para Azure Cosmos DB usando CETAS.
 
 Neste artigo, você aprenderá a escrever uma consulta com um pool SQL sem servidor que consultará dados de contêineres Azure Cosmos DB que são habilitados com o link Synapse do Azure. Em seguida, você pode saber mais sobre como criar exibições de pool de SQL sem servidor em Azure Cosmos DB contêineres e conectá-las a modelos de Power BI neste [tutorial](./tutorial-data-analyst.md).
 
@@ -340,10 +340,10 @@ Azure Cosmos DB contas da API do SQL (Core) dão suporte a tipos de propriedade 
 | Booliano | bit |
 | Integer | BIGINT |
 | Decimal | FLOAT |
-| Cadeia de caracteres | varchar (agrupamento de banco de dados UTF-8) |
+| String | varchar (agrupamento de banco de dados UTF-8) |
 | Data e hora (cadeia de caracteres formatada em ISO) | varchar (30) |
 | Data e hora (carimbo de hora do UNIX) | BIGINT |
-| Null | `any SQL type` 
+| Nulo | `any SQL type` 
 | Objeto ou matriz aninhada | varchar (max) (agrupamento de banco de dados UTF-8), serializado como texto JSON |
 
 ## <a name="full-fidelity-schema"></a>Esquema de fidelidade total

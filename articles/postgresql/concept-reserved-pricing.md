@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8343c06992c896986ba26a90171e25f9c8c4f2f8
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9b8dafa4a69358b3f6f09551ac426b908750e2f4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600098"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735465"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para PostgreSQL-recursos de computação de servidor único com capacidade reservada
 
@@ -35,7 +35,7 @@ Os detalhes sobre como clientes corporativos e clientes pagos conforme o uso sã
 
 O tamanho da reserva deve ser baseado na quantidade total de computação usada pelos servidores existentes ou em breve para serem implantados em uma região específica e usando o mesmo nível de desempenho e geração de hardware.</br>
 
-Por exemplo, suponhamos que você esteja executando um banco de dados PostgreSQL de uso geral Gen5 – 32 vCore de Gen5 e dois bancos de dados PostgreSQL com otimização de memória – 16. Além disso, vamos pretender que você planeja implantar no próximo mês um servidor de banco de dados vCore Gen5 – 32 de uso geral e um servidor de banco de dados de Gen5 com otimização de memória – 16 do vCore. Vamos supor que você saiba que precisará desses recursos por pelo menos um ano. Nesse caso, você deve comprar um vCores de 64 (2x32), reserva de um ano para o banco de dados único de uso geral-Gen5 e um 48 (2x16 + 16) vCore de um ano para a memória de banco de dados individual otimizada-Gen5
+Por exemplo, suponhamos que você esteja executando um banco de dados PostgreSQL de uso geral Gen5 – 32 vCore de Gen5 e dois bancos de dados PostgreSQL com otimização de memória – 16. Além disso, vamos pretender que você planeja implantar no próximo mês um servidor de banco de dados vCore Gen5 – 8 de uso geral e um servidor de banco de dados vCore Gen5 com otimização de memória – 32. Vamos supor que você saiba que precisará desses recursos por pelo menos um ano. Nesse caso, você deve comprar um 40 (32 + 8) vCores, reserva de um ano para o único banco de dados de uso geral-Gen5 e um 64 (2x16 + 32) de reserva de um ano para a memória de banco de dados individual otimizada-Gen5
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Comprar a capacidade reservada do banco de dados do Azure para PostgreSQL
@@ -67,7 +67,8 @@ A tabela a seguir descreve os campos obrigatórios.
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidade de tamanho do vCore
 
-A flexibilidade de tamanho do vCore ajuda você a aumentar ou diminuir dentro de uma região e nível de desempenho sem perder o benefício de capacidade reservada. 
+A flexibilidade de tamanho do vCore ajuda você a aumentar ou diminuir dentro de uma região e nível de desempenho sem perder o benefício de capacidade reservada. Se você dimensionar para vCores maiores do que a capacidade reservada, você será cobrado pelo excesso de vCores usando o preço pago conforme o uso.
+
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 

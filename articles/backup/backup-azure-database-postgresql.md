@@ -4,12 +4,12 @@ description: Saiba mais sobre o backup do banco de dados do Azure para PostgreSQ
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 1e2d83d4a5e21ed747ec9d4dcf2fa03d1e3935cc
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569480"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737565"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Banco de dados do Azure para PostgreSQL backup com retenção de longo prazo (versão prévia)
 
@@ -31,7 +31,7 @@ Você pode usar essa solução independentemente ou além da solução de backup
 
 |Suporte  |Detalhes  |
 |---------|---------|
-|Implantações com suporte   |  [Banco de Dados do Azure para PostgreSQL – Servidor Único](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
+|Implantações com suporte   |  [Banco de Dados do Azure para PostgreSQL – Servidor Único](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Regiões do Azure com suporte |  Leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central, sul do Brasil, central do Canadá, Europa Setentrional, Europa Ocidental, Sul do Reino Unido, Oeste do Reino Unido, Centro-oeste da Alemanha, Norte da Suíça, Oeste da Suíça, Ásia Oriental, Sul Ásia Oriental, leste do Japão, oeste do Japão, centro da Coreia, sul da Coreia, Índia central, leste da Austrália, Austrália Central  |
 |Versões do Azure PostgreSQL com suporte    |   9,5, 9,6, 10, 11      |
 

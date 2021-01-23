@@ -3,12 +3,12 @@ title: Solucionando problemas de falhas de backup no backup em disco do Azure
 description: Saiba como solucionar problemas de falhas de backup no backup em disco do Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 3e7c81d70fc898528532a841a484bf6fff8b83a7
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611229"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737720"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Solucionando problemas de falhas de backup no backup em disco do Azure (em versão prévia)
 
@@ -115,7 +115,7 @@ Ação recomendada: conceda à identidade gerenciada do cofre de backup as permi
 
 Mensagem de erro: a operação falhou porque o limite máximo de cota de disco foi atingido na assinatura.
 
-Ação recomendada: consulte a [assinatura do Azure e os limites de serviço e a documentação da cota](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) ou entre em contato com suporte da Microsoft para obter mais diretrizes.
+Ação recomendada: consulte a [assinatura do Azure e os limites de serviço e a documentação da cota](../azure-resource-manager/management/azure-subscription-service-limits.md) ou entre em contato com suporte da Microsoft para obter mais diretrizes.
 
 ### <a name="error-code-usererrordiskbackuprestorergormsipermissionsnotpresent"></a>Código de erro: UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 

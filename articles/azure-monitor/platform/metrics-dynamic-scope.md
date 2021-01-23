@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
 ms.subservice: metrics
-ms.openlocfilehash: 4c895b287f72929e2a0571ccc2cae8cc4f673388
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 5f5f75e63a0b201144329a6e2b7c0d503de54692
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250478"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736466"
 ---
 # <a name="view-multiple-resources-in-the-azure-metrics-explorer"></a>Exibir vários recursos no Gerenciador de métricas do Azure
 
@@ -33,7 +33,7 @@ Alguns tipos de recursos podem consultar métricas em vários recursos. As métr
 ![Captura de tela que mostra um menu de recursos que são compatíveis com vários recursos.](./media/metrics-charts/020.png)
 
 > [!WARNING] 
-> Você deve ter a permissão de leitor de monitoramento no nível da assinatura para visualizar as métricas em vários recursos, grupos de recursos ou uma assinatura. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+> Você deve ter a permissão de leitor de monitoramento no nível da assinatura para visualizar as métricas em vários recursos, grupos de recursos ou uma assinatura. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Para visualizar as métricas em vários recursos, comece selecionando vários recursos no seletor de escopo de recurso. 
 
@@ -81,13 +81,12 @@ Neste exemplo, filtramos por TailspinToysDemo. Aqui, o filtro remove as métrica
 
 ## <a name="pin-multiple-resource-charts"></a>Fixar gráficos de vários recursos 
 
-Gráficos de vários recursos que visualizam métricas entre grupos de recursos e assinaturas exigem que o usuário tenha a permissão de *leitor de monitoramento* no nível da assinatura. Verifique se todos os usuários dos painéis para os quais você está fixando gráficos de vários recursos têm permissões suficientes. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Gráficos de vários recursos que visualizam métricas entre grupos de recursos e assinaturas exigem que o usuário tenha a permissão de *leitor de monitoramento* no nível da assinatura. Verifique se todos os usuários dos painéis para os quais você está fixando gráficos de vários recursos têm permissões suficientes. Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
-Para fixar o gráfico de vários recursos em um painel, consulte [fixação em painéis](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#pinning-to-dashboards). 
+Para fixar o gráfico de vários recursos em um painel, consulte [fixação em painéis](./metrics-charts.md#pinning-to-dashboards). 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Solucionar problemas do Metrics Explorer](metrics-troubleshoot.md)
 * [Veja uma lista das métricas disponíveis para os serviços do Azure](metrics-supported.md)
 * [Veja exemplos de gráficos configurados](metric-chart-samples.md)
-

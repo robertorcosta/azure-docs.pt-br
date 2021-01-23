@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: efe24b3d1f6e22cc7f054691cb75a4ccede7aa4b
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: eb7db3c95fb56ebbd62d6cf882a75ce03baeb75d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912437"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736047"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs Linux
 
@@ -42,11 +42,11 @@ O Azure Disk Encryption pode ser habilitado e gerenciado por meio da [CLI do Azu
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta de linha de comando para gerenciar recursos do Azure. A CLI é projetada para consultar dados com flexibilidade, dar suporte a operações de longa execução como processos desbloqueados e facilitar o script. Você pode instalá-la localmente seguindo as etapas em [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta de linha de comando para gerenciar recursos do Azure. A CLI é projetada para consultar dados com flexibilidade, dar suporte a operações de longa execução como processos desbloqueados e facilitar o script. Você pode instalá-la localmente seguindo as etapas em [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
  
 
-Para [Entrar na assinatura do Azure com a CLI do Azure](/cli/azure/authenticate-azure-cli), use o comando [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
+Para [Entrar na assinatura do Azure com a CLI do Azure](/cli/azure/authenticate-azure-cli), use o comando [az login](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -72,13 +72,13 @@ O [módulo az do Azure PowerShell](/powershell/azure/new-azureps-module-az) forn
 
 Se você já tiver instalado localmente, verifique se que você usar a versão mais recente do SDK do Azure PowerShell para configurar o Azure Disk Encryption. Baixe a última versão do [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-Para [Entrar em sua conta do Azure com o Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), use o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0).
+Para [Entrar em sua conta do Azure com o Azure PowerShell](/powershell/azure/authenticate-azureps), use o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ```powershell
 Connect-AzAccount
 ```
 
-Se você tiver várias assinaturas e quiser especificar uma, use o cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) para listá-las, seguido pelo cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0):
+Se você tiver várias assinaturas e quiser especificar uma, use o cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) para listá-las, seguido pelo cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext):
 
 ```powershell
 Set-AzContext -Subscription -Subscription <SubscriptionId>
@@ -86,7 +86,7 @@ Set-AzContext -Subscription -Subscription <SubscriptionId>
 
 A execução do cmdlet [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) verificará se a assinatura correta foi selecionada.
 
-Para confirmar que os cmdlets do Azure Disk Encryption estão instalados, use o cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6):
+Para confirmar que os cmdlets do Azure Disk Encryption estão instalados, use o cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command):
      
 ```powershell
 Get-command *diskencryption*
@@ -104,9 +104,9 @@ Nesse cenário, é possível habilitar a criptografia usando o modelo do Resourc
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-using-azure-cli"></a>Habilitar criptografia em uma VM Linux existente ou em execução usando a CLI do Azure 
 
-É possível habilitar a criptografia de disco no VHD criptografado, instalando e usando a ferramenta de linha de comando da [CLI do Azure](/cli/azure/?view=azure-cli-latest). Você pode usá-lo em seu navegador com o [Azure Cloud Shell](../../cloud-shell/overview.md), ou você pode instalá-lo em seu computador local e usá-lo em qualquer sessão do PowerShell. Para habilitar a criptografia em VMs Linux existentes ou em execução no Azure, use os seguintes comandos da CLI:
+É possível habilitar a criptografia de disco no VHD criptografado, instalando e usando a ferramenta de linha de comando da [CLI do Azure](/cli/azure/). Você pode usá-lo em seu navegador com o [Azure Cloud Shell](../../cloud-shell/overview.md), ou você pode instalá-lo em seu computador local e usá-lo em qualquer sessão do PowerShell. Para habilitar a criptografia em VMs Linux existentes ou em execução no Azure, use os seguintes comandos da CLI:
 
-Use o comando [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-show) para habilitar a criptografia em uma máquina virtual em execução no Azure.
+Use o comando [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_show) para habilitar a criptografia em uma máquina virtual em execução no Azure.
 
 - **Criptografar uma VM em execução:**
 
@@ -283,7 +283,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
     echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
     ```
     
-1. Execute o cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0&preserve-view=true) do Azure PowerShell com -EncryptFormatAll para criptografar esses discos.
+1. Execute o cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) do Azure PowerShell com -EncryptFormatAll para criptografar esses discos.
 
     ```azurepowershell-interactive
     $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"

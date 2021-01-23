@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usar o GitOps para configurar um cluster kubernetes habilitado para arco do Azure (versão prévia)
 keywords: GitOps, kubernetes, K8s, Azure, Arc, serviço do Azure kubernetes, AKS, contêineres
-ms.openlocfilehash: 751b274a9cae68f6bc9b1adc45804f2dd2ef4c72
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a068ed90ea53b3b25a1f41cebd9a5b8e607afa54
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684750"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737177"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implantar configurações usando o GitOps no cluster do Kubernetes habilitado para Arc (versão prévia)
 
@@ -138,7 +138,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > A autenticação privada de versão Helm HTTPS tem suporte apenas com o gráfico do operador Helm versão >= 1.2.0.  A versão 1.2.0 é usada por padrão.
 > A autenticação privada de versão Helm HTTPS não tem suporte atualmente para clusters gerenciados dos serviços Kubernetess do Azure.
-> Se precisar de fluxo para acessar o repositório git por meio do proxy, você precisará atualizar os agentes Arc do Azure com as configurações de proxy. [Mais informações](https://docs.microsoft.com/azure/azure-arc/kubernetes/connect-cluster#connect-using-an-outbound-proxy-server)
+> Se precisar de fluxo para acessar o repositório git por meio do proxy, você precisará atualizar os agentes Arc do Azure com as configurações de proxy. [Mais informações](./connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 #### <a name="additional-parameters"></a>Parâmetros Adicionais
 

@@ -3,12 +3,12 @@ title: Usar a biblioteca de clientes do Lote do Azure para Node.js
 description: Aprenda os conceitos básicos do Lote do Azure e crie uma solução simples usando o Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 8d34d5bbb302e3781aabdd697de11d3d492b879a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106692"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737279"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do lote para o Node.js
 
@@ -38,7 +38,7 @@ O cliente do Node.js implanta um trabalho em lote com uma tarefa de preparação
 
 > [!TIP]
 > O cliente do Node.js no link especificado não contém código específico para ser implantado como um aplicativo de função do Azure. Você pode consultar os links a seguir para obter instruções para criar um.
-> - [Como criar um aplicativo de função](../azure-functions/functions-create-first-azure-function.md)
+> - [Como criar um aplicativo de função](../azure-functions/functions-get-started.md)
 > - [Como criar uma função de gatilho de temporizador](../azure-functions/functions-bindings-timer.md)
 
 ## <a name="build-the-application"></a>Compilar o aplicativo

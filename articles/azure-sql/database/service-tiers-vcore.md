@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 6589f451d4db8f2ed77ce70a2bdfa9d76927c1e2
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 35cdfdbdc04d0c88bc49c024ea7465537583e0d7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251209"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735504"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Visão geral do modelo vCore-banco de dados SQL do Azure e Azure SQL Instância Gerenciada 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -94,7 +94,7 @@ A série M só tem suporte na camada de Comercialmente Crítico e não oferece s
 
 #### <a name="azure-offer-types-supported-by-m-series"></a>Tipos de oferta do Azure com suporte da série M
 
-Para acessar a série M, a assinatura deve ser um tipo de oferta paga, incluindo pré-pago ou Enterprise Agreement (EA).  Para obter uma lista completa dos tipos de oferta do Azure com suporte da série M, consulte [ofertas atuais sem limites de gastos](https://azure.microsoft.com/support/legal/offer-details).
+Para acessar a série M, a assinatura deve ser um tipo de oferta paga, incluindo pré-pago ou Contrato Enterprise (EA).  Para obter uma lista completa dos tipos de oferta do Azure com suporte da série M, consulte [ofertas atuais sem limites de gastos](https://azure.microsoft.com/support/legal/offer-details).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -106,7 +106,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 > A série DC está atualmente em **Visualização pública**.
 
 - O hardware da série DC usa processadores Intel com a tecnologia Intel SGX (software Guard Extensions).
-- A série DC é necessária para [Always Encrypted com o Secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), que não tem suporte com outras configurações de hardware.
+- A série DC é necessária para [Always Encrypted com o Secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves), que não tem suporte com outras configurações de hardware.
 - A série DC foi projetada para cargas de trabalho que processam dados confidenciais e exigem recursos de processamento de consulta confidencial, fornecidos por Always Encrypted com enclaves seguro.
 - O hardware da série DC fornece recursos de computação e memória equilibrados.
 
@@ -114,7 +114,7 @@ A série DC só tem suporte para a computação provisionada (sem suporte para s
 
 #### <a name="azure-offer-types-supported-by-dc-series"></a>Tipos de oferta do Azure com suporte da série DC
 
-Para acessar a série DC, a assinatura deve ser um tipo de oferta paga, incluindo pré-pago ou Enterprise Agreement (EA).  Para obter uma lista completa dos tipos de oferta do Azure com suporte da série DC, consulte [ofertas atuais sem limites de gastos](https://azure.microsoft.com/support/legal/offer-details).
+Para acessar a série DC, a assinatura deve ser um tipo de oferta paga, incluindo pré-pago ou Contrato Enterprise (EA).  Para obter uma lista completa dos tipos de oferta do Azure com suporte da série DC, consulte [ofertas atuais sem limites de gastos](https://azure.microsoft.com/support/legal/offer-details).
 
 ### <a name="compute-and-memory-specifications"></a>Especificações de memória e computação
 

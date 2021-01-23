@@ -5,13 +5,13 @@ author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: f1c394bb1a568d59e0821b61e7acfcf8f25290f7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 01/22/2021
+ms.openlocfilehash: fd08dc98fa47617bbc7c8d1fff895377837a7327
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020752"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736727"
 ---
 # <a name="time-series-model-variables"></a>Variáveis de modelo de série temporal
 
@@ -29,7 +29,7 @@ A tabela a seguir exibe quais propriedades são relevantes para cada tipo de var
 
 ## <a name="numeric-variables"></a>Variáveis numéricas
 
-| Propriedade Variable | Description |
+| Propriedade Variable | Descrição |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
 | Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo ou sensores ou transformados usando expressões de série temporal. Variáveis de tipo numérico devem ser do tipo *Double*.|
@@ -59,7 +59,7 @@ As variáveis estão em conformidade com o seguinte exemplo de JSON:
 
 ## <a name="categorical-variables"></a>Variáveis categóricas
 
-| Propriedade Variable | Description |
+| Propriedade Variable | Descrição |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
 | Valor da variável | Valores de telemetria usados para computação provenientes do dispositivo ou dos sensores. As variáveis de tipo categórico devem ser *longas* ou de *cadeia de caracteres*. |
@@ -99,7 +99,7 @@ As variáveis estão em conformidade com o seguinte exemplo de JSON:
 
 ## <a name="aggregate-variables"></a>Variáveis de agregação
 
-| Propriedade Variable | Description |
+| Propriedade Variable | Descrição |
 | --- | ---|
 | Filtro de variável | Os filtros são cláusulas condicionais opcionais para restringir o número de linhas que estão sendo consideradas para computação. |
 | Agregação de variáveis | Execute computações por meio das [funções de agregação com suporte para tipos de variáveis de agregação](/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |

@@ -139,7 +139,7 @@
         - name: Explorar um aplicativo de processamento de imagens
           href: Tutorials/CSharpTutorial.md
         - name: Outras amostras de Pesquisa Visual Computacional
-          href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=computer-vision'
+          href: /samples/browse/?products=azure&terms=computer-vision
     - name: Perguntas frequentes
       href: FAQ.md
     - name: Taxonomia de categoria

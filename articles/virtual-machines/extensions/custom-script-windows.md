@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: b0502fb05043a54d81d768a7809d19b108cc6248
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: d336d38465d601c1cbd4c1e88c0928ab17a1a18f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976836"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735706"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -287,7 +287,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 ```
 ## <a name="virtual-machine-scale-sets"></a>Conjuntos de Dimensionamento de Máquinas Virtuais
 
-Para implantar a extensão de script personalizado em um conjunto de dimensionamento, confira [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
+Para implantar a extensão de script personalizado em um conjunto de dimensionamento, confira [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)
 
 ## <a name="classic-vms"></a>VMs clássicas
 

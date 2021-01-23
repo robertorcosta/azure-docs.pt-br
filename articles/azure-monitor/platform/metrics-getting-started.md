@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e31eb8deb3102ab03809f01e33b1e6548113dae4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250393"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736382"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Azure Metrics Explorer
 
@@ -29,7 +29,7 @@ O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure q
 
 Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatura ou Azure Monitor exibição, abra a guia **métricas** e siga estas etapas:
 
-1. Clique no botão "selecionar um escopo" para abrir o seletor de escopo de recurso. Isso permitirá que você selecione os recursos para os quais deseja ver as métricas. O recurso já deve estar preenchido se você tiver aberto o Metrics Explorer no menu do recurso. Para saber como exibir as métricas em vários recursos, [Leia este artigo](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+1. Clique no botão "selecionar um escopo" para abrir o seletor de escopo de recurso. Isso permitirá que você selecione os recursos para os quais deseja ver as métricas. O recurso já deve estar preenchido se você tiver aberto o Metrics Explorer no menu do recurso. Para saber como exibir as métricas em vários recursos, [Leia este artigo](./metrics-dynamic-scope.md).
     > ![Selecionar um recurso](./media/metrics-getting-started/scope-picker.png)
 
 2. Para alguns recursos, você deve escolher um namespace. O namespace é apenas uma maneira de organizar as métricas para que você possa encontrá-las com facilidade. Por exemplo, as contas de armazenamento têm namespaces separados para armazenar métricas de arquivos, tabelas, blobs e filas. Muitos tipos de recursos têm apenas um namespace.

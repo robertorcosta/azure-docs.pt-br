@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: tamram
 ms.reviewer: twooley
-ms.openlocfilehash: 8de395e34b43a4edad2affa591adb8ab34ff9e66
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 002e8650a5555b70caf09179e03ce1bad1acdef5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921700"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737533"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse
 
@@ -28,9 +28,9 @@ Este guia mostra como usar o blobfuse e montar um contêiner de Armazenamento de
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Instalar o blobfuse no Linux
-Os binários do Blobfuse estão disponíveis em [repositórios de software da Microsoft para Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) para distribuições Ubuntu e RHEL. Para instalar o blobfuse nessas distribuições, configure um dos repositórios da lista. Você também pode criar os binários a partir do código-fonte seguindo as [etapas de instalação do Armazenamento do Microsoft Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source), se não houver binários disponíveis para sua distribuição.
+Os binários do Blobfuse estão disponíveis nos [repositórios de software da Microsoft para](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) as distribuições do Linux para Ubuntu, Debian, Suse, CentoOS, Oracle Linux e RHEL. Para instalar o blobfuse nessas distribuições, configure um dos repositórios da lista. Você também pode criar os binários a partir do código-fonte seguindo as [etapas de instalação do Armazenamento do Microsoft Azure](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source), se não houver binários disponíveis para sua distribuição.
 
-O Blobfuse dá suporte à instalação no Ubuntu 14, 4, 16, 4, 18, 4 e 20, 4. Execute este comando para garantir que uma dessas versões seja implementada:
+O Blobfuse dá suporte à instalação em versões do Ubuntu: 16, 4, 18, 4 e 20, 4, RHELversions: 7,5, 7,8, 8,0, 8,1, 8,2, versões CentOS: 7,0, 8,0, Debian versões: 9,0, 10,0, versão SUSE: 15, OracleLinux 8,1. Execute este comando para garantir que uma dessas versões seja implementada:
 ```
 lsb_release -a
 ```
@@ -38,16 +38,16 @@ lsb_release -a
 ### <a name="configure-the-microsoft-package-repository"></a>Configurar o repositório de pacotes da Microsoft
 Configure o [Repositório de Pacotes do Linux para Produtos da Microsoft](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
-Como exemplo, em uma distribuição Enterprise Linux 6:
+Por exemplo, em uma distribuição Enterprise Linux 8:
 ```bash
-sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
+sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 ```
 
 Da forma similar, altere a URL para `.../rhel/7/...` a fim de apontar para uma distribuição Enterprise Linux 7.
 
-Outro exemplo em uma distribuição Ubuntu 14.04:
+Outro exemplo em uma distribuição do Ubuntu 20, 4:
 ```bash
-wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```

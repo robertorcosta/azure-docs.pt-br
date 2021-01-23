@@ -4,12 +4,12 @@ description: Encontre respostas para perguntas comuns sobre como fazer backup de
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 56dcf29a5c703a72fd137a5f1bf129f568a03b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734106"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735802"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
 
@@ -108,7 +108,7 @@ Sim, o backup do Azure dá suporte ao backup de bancos de dados SQL Server ou se
 
 ## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>O backup do Azure executa uma operação de soma de verificação no fluxo de dados?
 
-Realizamos uma operação de soma de verificação no fluxo de dados. No entanto, isso não deve ser confundido com a [soma de verificação SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Realizamos uma operação de soma de verificação no fluxo de dados. No entanto, isso não deve ser confundido com a [soma de verificação SQL](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 O backup de carga de trabalho do Azure computa a soma de verificação no fluxo de dados e a armazena explicitamente durante a operação de backup. Esse fluxo de soma de verificação é então obtido como uma referência e verificada de forma cruzada com a soma de verificação do fluxo de dados durante a operação de restauração para garantir que os dados sejam consistentes.
 
 ## <a name="next-steps"></a>Próximas etapas

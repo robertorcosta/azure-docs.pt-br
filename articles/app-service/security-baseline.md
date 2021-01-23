@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ea8f3bccd97e1aaa15a21ae605a163b11c8ae39
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197924"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736081"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança do Azure para o serviço de aplicativo
 
@@ -71,7 +71,7 @@ Use o Firewall do Azure para enviar tráfego e criar, impor e registrar polític
 
 - [Entender a segurança de rede fornecida pela central de segurança do Azure](../security-center/security-center-network-recommendations.md)
 
-- [Como habilitar o monitoramento e a proteção do serviço de aplicativo](/azure/security-center/defender-for-app-service-introduction)
+- [Como habilitar o monitoramento e a proteção do serviço de aplicativo](../security-center/defender-for-app-service-introduction.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -168,7 +168,7 @@ Examine os links referenciados para obter informações adicionais.
 
 - [Como configurar o TLS de ponta a ponta usando o gateway de aplicativo com o portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteger o ASE conforme descrito em bloqueando um serviço de aplicativo](/azure/app-service/environment/firewall-integration)
+- [Proteger o ASE conforme descrito em bloqueando um serviço de aplicativo](./environment/firewall-integration.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -205,7 +205,7 @@ Examine os links referenciados para obter informações adicionais.
 
 - [Como configurar o TLS de ponta a ponta usando o gateway de aplicativo com o portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteger o ASE conforme descrito em bloqueando um serviço de aplicativo](/azure/app-service/environment/firewall-integration)
+- [Proteger o ASE conforme descrito em bloqueando um serviço de aplicativo](./environment/firewall-integration.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -221,7 +221,7 @@ Aplique qualquer uma das definições de Azure Policy internas relacionadas a ef
 
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure App restrições de acesso de serviço](/azure/app-service/app-service-ip-restrictions)
+- [Azure App restrições de acesso de serviço](./app-service-ip-restrictions.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -397,7 +397,7 @@ Crie um processo para monitorar as configurações de recursos de rede e detecta
 
 Os aplicativos do serviço de aplicativo usam a identidade federada, na qual um provedor de identidade de terceiros gerencia as identidades de usuário e o fluxo de autenticação para você. Esses provedores de identidade estão disponíveis por padrão:
 
-- Azure AD
+- AD do Azure
 - Conta da Microsoft
 
 - Facebook
