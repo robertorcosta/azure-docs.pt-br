@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 9dcabe10822fd09c8f7a0da6259d81a089c1a042
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4a817f386d68c144968540dd05f3fa6859bb0acc
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936287"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704162"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -43,7 +43,7 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 | --- | --- |
 |Serviço de implantação de Máquinas Virtuais do Microsoft Azure|[Implanta certificados para VMs a partir do Key Vault gerenciado pelo cliente](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Serviço de implantação de modelo do Azure Resource Manager|[Transmite valores seguros durante a implantação](../../azure-resource-manager/templates/key-vault-parameter.md).|
-|SKU do Aplicativo Azure gateway v2|[Terminação de TLS com certificados de Key Vault](../../application-gateway/key-vault-certs.md)|
+|SKU do Aplicativo Azure gateway v2|[Terminação TLS com os certificados do Key Vault](../../application-gateway/key-vault-certs.md)|
 |Serviço de criptografia de volume do Azure Disk Encryption|Permite acesso à Chave do BitLocker (VM do Windows) ou à Frase Secreta de DM (VM do Linux) e à Chave de Criptografia de Chave durante a implantação da máquina virtual. Isso habilita o [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).|
 |Serviço de Backup do Azure|Permite backup e restauração de chaves e segredos relevantes durante o backup de Máquinas Virtuais do Azure, usando o [Backup do Azure](../../backup/backup-overview.md).|
 |Exchange Online e SharePoint Online|Permite acesso à chave de cliente para Criptografia do Serviço de Armazenamento do Azure com [Chave de Cliente](/microsoft-365/compliance/customer-key-overview).|
@@ -57,7 +57,7 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Fábrica de dados do Azure|[Buscar credenciais de armazenamento de dados no Key Vault de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Hubs de eventos do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](../../event-hubs/configure-customer-managed-key.md)|
 |Barramento de Serviço do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
-|Importação/Exportação do Azure| [Usar chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação](../../storage/common/storage-import-export-encryption-key-portal.md)
+|Importação/Exportação do Azure| [Usar chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação](../../import-export/storage-import-export-encryption-key-portal.md)
 |Registro de Contêiner do Azure|[Criptografia do registro usando chaves gerenciadas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)
 
 > [!NOTE]

@@ -1,14 +1,14 @@
 ---
-title: Visão geral do backup em disco do Azure
+title: Visão geral do Backup de Disco do Azure
 description: Saiba mais sobre a solução de backup em disco do Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: fea0dd9d01bdc7c31d724cedd89d1fe6891c650a
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: d73c431fdc2b2906dc1d3d9485bded9449b2f2ba
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557232"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733023"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Visão geral do backup em disco do Azure (em versão prévia)
 
@@ -19,15 +19,15 @@ ms.locfileid: "98557232"
 
 O backup em disco do Azure é uma solução de backup nativa baseada em nuvem que protege seus dados em discos gerenciados. É uma solução simples, segura e econômica que permite configurar a proteção de discos gerenciados em algumas etapas. Garante que você possa recuperar seus dados em um cenário de desastre.
 
-O backup em disco do Azure oferece uma solução completa que fornece gerenciamento de ciclo de vida de instantâneos para discos gerenciados automatizando a criação periódica de instantâneos e retendo-o para duração configurada usando a política de backup. Você pode gerenciar os instantâneos de disco sem custo de infraestrutura zero e sem a necessidade de script personalizado ou qualquer sobrecarga de gerenciamento. Esta é uma solução de backup consistente com falhas que faz backup pontual de um disco gerenciado usando [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) com suporte para vários backups por dia. Ela também é uma solução sem agente e não afeta o desempenho do aplicativo de produção. Ele dá suporte a backup e restauração de sistemas operacionais e de discos de dados (incluindo discos compartilhados), independentemente de estarem ou não conectados a uma máquina virtual do Azure em execução.
+O backup em disco do Azure oferece uma solução completa que fornece gerenciamento de ciclo de vida de instantâneos para discos gerenciados automatizando a criação periódica de instantâneos e retendo-o para duração configurada usando a política de backup. Você pode gerenciar os instantâneos de disco sem custo de infraestrutura zero e sem a necessidade de script personalizado ou qualquer sobrecarga de gerenciamento. Esta é uma solução de backup consistente com falhas que faz backup pontual de um disco gerenciado usando [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md) com suporte para vários backups por dia. Ela também é uma solução sem agente e não afeta o desempenho do aplicativo de produção. Ele dá suporte a backup e restauração de sistemas operacionais e de discos de dados (incluindo discos compartilhados), independentemente de estarem ou não conectados a uma máquina virtual do Azure em execução.
 
-Se você precisar de backup consistente com o aplicativo de máquina virtual, incluindo os discos de dados, ou uma opção para restaurar uma máquina virtual inteira do backup, restaurar um arquivo ou uma pasta ou restaurar para uma região secundária, use a solução de [backup da VM do Azure](backup-azure-vms-introduction.md) . O backup do Azure oferece suporte lado a lado para backup de discos gerenciados usando o backup em disco além das soluções de [backup de VM do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) . Isso é útil quando você precisa de backups consistentes do aplicativo uma vez por dia de máquinas virtuais e também de backups mais frequentes de discos do sistema operacional ou de um disco de dados específico que são consistentes com falha e não afetam o desempenho do aplicativo de produção.
+Se você precisar de backup consistente com o aplicativo de máquina virtual, incluindo os discos de dados, ou uma opção para restaurar uma máquina virtual inteira do backup, restaurar um arquivo ou uma pasta ou restaurar para uma região secundária, use a solução de [backup da VM do Azure](backup-azure-vms-introduction.md) . O backup do Azure oferece suporte lado a lado para backup de discos gerenciados usando o backup em disco além das soluções de [backup de VM do Azure](./backup-azure-vms-introduction.md) . Isso é útil quando você precisa de backups consistentes do aplicativo uma vez por dia de máquinas virtuais e também de backups mais frequentes de discos do sistema operacional ou de um disco de dados específico que são consistentes com falha e não afetam o desempenho do aplicativo de produção.
 
 O backup em disco do Azure é integrado ao centro de backup, que fornece uma **única experiência de gerenciamento unificada** no Azure para empresas para controlar, monitorar, operar e analisar backups em escala.
 
 ## <a name="key-benefits-of-disk-backup"></a>Principais benefícios do backup em disco
 
-O backup em disco do Azure é uma solução consistente sem agente e com falha que usa [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) e oferece as seguintes vantagens:
+O backup em disco do Azure é uma solução consistente sem agente e com falha que usa [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md) e oferece as seguintes vantagens:
 
 - Backups mais frequentes e rápidos sem interromper a máquina virtual.
 - Não afeta o desempenho do aplicativo de produção.
@@ -59,13 +59,13 @@ Considere o backup em disco do Azure em cenários em que:
 
 - Para configurar o backup, vá para o cofre de backup, atribua uma política de backup, selecione o disco gerenciado que precisa ser armazenado em backup e forneça um grupo de recursos no qual os instantâneos devem ser armazenados e gerenciados. O backup do Azure dispara automaticamente os trabalhos de backup agendados que criam um instantâneo incremental do disco de acordo com a frequência de backup. Os instantâneos mais antigos são excluídos de acordo com a duração da retenção especificada pela política de backup.
 
-- O backup do Azure usa [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) do disco gerenciado. Instantâneos incrementais são um backup pontual e econômico de discos gerenciados que são cobrados pelas alterações delta no disco desde o último instantâneo. Eles são sempre armazenados no armazenamento mais econômico, armazenamento de HDD padrão, independentemente do tipo de armazenamento dos discos pai. O primeiro instantâneo do disco ocupará o tamanho usado do disco e os instantâneos incrementais consecutivos armazenarão as alterações delta no disco desde o último instantâneo.
+- O backup do Azure usa [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) do disco gerenciado. Instantâneos incrementais são um backup pontual e econômico de discos gerenciados que são cobrados pelas alterações delta no disco desde o último instantâneo. Eles são sempre armazenados no armazenamento mais econômico, armazenamento de HDD padrão, independentemente do tipo de armazenamento dos discos pai. O primeiro instantâneo do disco ocupará o tamanho usado do disco e os instantâneos incrementais consecutivos armazenarão as alterações delta no disco desde o último instantâneo.
 
 - Depois de configurar o backup de um disco gerenciado, uma instância de backup será criada no cofre de backup. Usando a instância de backup, você pode encontrar a integridade das operações de backup, disparar backups sob demanda e executar operações de restauração. Você também pode exibir a integridade de backups em vários cofres e instâncias de backup usando o centro de backup, que fornece um único painel de exibição de vidro.
 
 - Para restaurar, basta selecionar o ponto de recuperação do qual você deseja restaurar o disco. Forneça o grupo de recursos em que o disco restaurado deve ser criado a partir do instantâneo. O backup do Azure fornece uma experiência de restauração instantânea, já que os instantâneos são armazenados localmente em sua assinatura.
 
-- O cofre de backup usa identidade gerenciada para acessar outros recursos do Azure. Para configurar o backup de um disco gerenciado e restaurar do backup anterior, a identidade gerenciada do cofre de backup requer um conjunto de permissões no disco de origem, o grupo de recursos de instantâneo em que os instantâneos são criados e gerenciados e o grupo de recursos de destino no qual você deseja restaurar o backup. Você pode conceder permissões para a identidade gerenciada usando o controle de acesso baseado em função do Azure (RBAC do Azure). A identidade gerenciada é uma entidade de serviço de um tipo especial que pode ser usada apenas com recursos do Azure. Saiba mais sobre [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- O cofre de backup usa identidade gerenciada para acessar outros recursos do Azure. Para configurar o backup de um disco gerenciado e restaurar do backup anterior, a identidade gerenciada do cofre de backup requer um conjunto de permissões no disco de origem, o grupo de recursos de instantâneo em que os instantâneos são criados e gerenciados e o grupo de recursos de destino no qual você deseja restaurar o backup. Você pode conceder permissões para a identidade gerenciada usando o controle de acesso baseado em função do Azure (RBAC do Azure). A identidade gerenciada é uma entidade de serviço de um tipo especial que pode ser usada apenas com recursos do Azure. Saiba mais sobre [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md).
 
 - Atualmente, o backup em disco do Azure dá suporte ao backup operacional de discos gerenciados e não copia os backups para o armazenamento do cofre de backup. Consulte a [matriz de suporte](disk-backup-support-matrix.md)para obter uma lista detalhada de cenários com e sem suporte e disponibilidade de região.
 
@@ -75,4 +75,4 @@ O backup do Azure oferece uma solução de gerenciamento de ciclo de vida de ins
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Matriz de suporte do backup em disco do Azure](disk-backup-support-matrix.md)
+- [Matriz de suporte de Backup de Disco do Azure](disk-backup-support-matrix.md)

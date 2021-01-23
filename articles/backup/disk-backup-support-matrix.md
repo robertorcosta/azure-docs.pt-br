@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações do 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 099e83d8a2fb109da862657265dad8be8143f608
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 447283ba1d63267722e4167e0727a827e63d2e0d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624927"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732972"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte do backup em disco do Azure (em versão prévia)
 
@@ -18,7 +18,7 @@ ms.locfileid: "98624927"
 >
 >[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever na versão prévia.
 
-Você pode usar o [backup do Azure](https://docs.microsoft.com/azure/backup/backup-overview) para proteger os discos do Azure. Este artigo resume a disponibilidade da região, os cenários com suporte e as limitações.
+Você pode usar o [backup do Azure](./backup-overview.md) para proteger os discos do Azure. Este artigo resume a disponibilidade da região, os cenários com suporte e as limitações.
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
@@ -36,9 +36,9 @@ Mais regiões serão anunciadas quando forem disponibilizadas.
 
 - Atualmente, a opção de recuperação de Original-Location (OLR) para restaurar substituindo os discos de origem existentes de onde os backups foram feitos não tem suporte. Você pode restaurar do ponto de recuperação para criar um novo disco no mesmo grupo de recursos do disco de origem do qual os backups foram feitos ou em qualquer outro grupo de recursos. Isso é conhecido como ALR (recuperação de Alternate-Location).
 
-- O backup do Azure para Managed Disks usa instantâneos incrementais, que são limitados a 200 instantâneos por disco. Para permitir que você faça backup sob demanda com exceção de backups agendados, a política de backup limita o total de backups a 180. Saiba mais sobre o [instantâneo incremental](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) para discos gerenciados.
+- O backup do Azure para Managed Disks usa instantâneos incrementais, que são limitados a 200 instantâneos por disco. Para permitir que você faça backup sob demanda com exceção de backups agendados, a política de backup limita o total de backups a 180. Saiba mais sobre o [instantâneo incremental](../virtual-machines/disks-incremental-snapshots.md#restrictions) para discos gerenciados.
 
-- [Os limites de serviço e assinatura](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits) do Azure se aplicam ao número total de instantâneos de disco por região por assinatura.
+- [Os limites de serviço e assinatura](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machine-disk-limits) do Azure se aplicam ao número total de instantâneos de disco por região por assinatura.
 
 - Não há suporte para instantâneos de ponto no tempo de vários discos anexados a uma máquina virtual.
 
@@ -58,13 +58,13 @@ Mais regiões serão anunciadas quando forem disponibilizadas.
 
 - No momento (durante a versão prévia), o uso do PowerShell e do CLI do Azure para configurar o backup e a restauração de discos não é suportado.
 
-- Ao configurar o backup, o disco selecionado para backup e o grupo de recursos de instantâneo em que os instantâneos devem ser armazenados deve fazer parte da mesma assinatura. Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Saiba mais sobre [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) do disco gerenciado. Para obter mais informações sobre como escolher um grupo de recursos de instantâneo, consulte  [Configurar backup](backup-managed-disks.md#configure-backup).
+- Ao configurar o backup, o disco selecionado para backup e o grupo de recursos de instantâneo em que os instantâneos devem ser armazenados deve fazer parte da mesma assinatura. Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Saiba mais sobre [instantâneos incrementais](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) do disco gerenciado. Para obter mais informações sobre como escolher um grupo de recursos de instantâneo, consulte  [Configurar backup](backup-managed-disks.md#configure-backup).
 
 - Para operações de backup e restauração bem-sucedidas, as atribuições de função são exigidas pela identidade gerenciada do cofre de backup. Use apenas as definições de função fornecidas na documentação do. O uso de outras funções, como Owner, Contributor e assim por diante, não tem suporte. Você pode enfrentar problemas de permissão se começar a configurar operações de backup ou restauração logo após atribuir funções. Isso ocorre porque as atribuições de função levam alguns minutos para entrar em vigor.
 
-- Os discos gerenciados permitem alterar o nível de desempenho na implantação ou posteriormente sem alterar o tamanho do disco. A solução de backup em disco do Azure dá suporte às alterações de nível de desempenho no disco de origem que está sendo submetido a backup. Durante a restauração, o nível de desempenho do disco restaurado será o mesmo do disco de origem no momento do backup. Siga a documentação [aqui](https://docs.microsoft.com/azure/virtual-machines/disks-performance-tiers-portal) para alterar o nível de desempenho do disco após a operação de restauração.
+- Os discos gerenciados permitem alterar o nível de desempenho na implantação ou posteriormente sem alterar o tamanho do disco. A solução de backup em disco do Azure dá suporte às alterações de nível de desempenho no disco de origem que está sendo submetido a backup. Durante a restauração, o nível de desempenho do disco restaurado será o mesmo do disco de origem no momento do backup. Siga a documentação [aqui](../virtual-machines/disks-performance-tiers-portal.md) para alterar o nível de desempenho do disco após a operação de restauração.
 
-- O suporte a [links privados](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal) para discos gerenciados permite que você restrinja a exportação e a importação de discos gerenciados para que ele ocorra apenas dentro de sua rede virtual do Azure. O backup em disco do Azure dá suporte ao backup de discos que têm pontos de extremidade privados habilitados. Isso não inclui os dados de backup ou instantâneos para serem acessíveis por meio do ponto de extremidade privado.
+- O suporte a [links privados](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) para discos gerenciados permite que você restrinja a exportação e a importação de discos gerenciados para que ele ocorra apenas dentro de sua rede virtual do Azure. O backup em disco do Azure dá suporte ao backup de discos que têm pontos de extremidade privados habilitados. Isso não inclui os dados de backup ou instantâneos para serem acessíveis por meio do ponto de extremidade privado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

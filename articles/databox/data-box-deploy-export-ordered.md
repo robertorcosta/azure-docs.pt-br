@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac86dfba02b54730773a1d243981e85d563517e7
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: aac1fb8e2da7a3c84b3abff47c8f476b9fb9049c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183823"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704331"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutorial: criar ordem de exportação para Azure Data Box
 
@@ -100,7 +100,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     |---------|---------|
     |Conta de armazenamento     | A conta de armazenamento do Azure de onde você deseja exportar dados. |
     |Tipo de exportação     | Especifica o tipo de dados a serem exportados de **todos os objetos** e **usam o arquivo XML**.<ul><li> **Todos os objetos** – especifica que o trabalho exporta todos os dados dependendo da sua seleção para **Opções de transferência**.</li><li> **Usar arquivo XML** – especifica um arquivo XML que contém um conjunto de caminhos e prefixos para BLOBs e/ou arquivos a serem exportados da conta de armazenamento. O arquivo XML precisa estar no contêiner da conta de armazenamento selecionada e não há suporte para a seleção de compartilhamentos de arquivos. O arquivo precisa ser um arquivo. xml não vazio.</li></ul>        |
-    |Opções de transferência     |  Especifica as opções de transferência de dados de **selecionar tudo**, **todos os BLOBs** e **todos os arquivos**. <ul><li> **Selecionar tudo** -especifica que todos os BLOBs e arquivos do Azure são exportados. Se você estiver usando uma conta de armazenamento que dá suporte apenas a BLOBs (conta de armazenamento de BLOB), a opção **todos os arquivos** não será selecionável.</li><li> **Todos os BLOBs** -especifica que somente os blobs de bloco e de página são exportados.</li><li> **Todos os arquivos** -especifica que todos os arquivos são exportados, excluindo BLOBs. O tipo de conta de armazenamento que você tem (GPv1 e GPv2, armazenamento Premium ou armazenamento de BLOBs) determina os tipos de dados que você pode exportar. Para obter mais informações, consulte [supported Storage accounts for Export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opções de transferência     |  Especifica as opções de transferência de dados de **selecionar tudo**, **todos os BLOBs** e **todos os arquivos**. <ul><li> **Selecionar tudo** -especifica que todos os BLOBs e arquivos do Azure são exportados. Se você estiver usando uma conta de armazenamento que dá suporte apenas a BLOBs (conta de armazenamento de BLOB), a opção **todos os arquivos** não será selecionável.</li><li> **Todos os BLOBs** -especifica que somente os blobs de bloco e de página são exportados.</li><li> **Todos os arquivos** -especifica que todos os arquivos são exportados, excluindo BLOBs. O tipo de conta de armazenamento que você tem (GPv1 e GPv2, armazenamento Premium ou armazenamento de BLOBs) determina os tipos de dados que você pode exportar. Para obter mais informações, consulte [supported Storage accounts for Export](../import-export/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Incluir log detalhado     | Indica se você deseja um arquivo de log detalhado que contenha uma lista de todos os arquivos que foram exportados com êxito.        |
 
     > [!NOTE]
@@ -181,7 +181,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
     Uma identidade gerenciada atribuída pelo usuário é um recurso do Azure autônomo que pode ser usado para gerenciar vários recursos. Para obter mais informações, confira [Tipos de identidade gerenciada](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    Se você precisar criar uma nova identidade gerenciada, siga as orientações em [criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    Se você precisar criar uma identidade gerenciada, siga as diretrizes em [Criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Selecionar uma identidade de usuário](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 
@@ -254,7 +254,7 @@ Se você selecionar **usar arquivo XML**, poderá especificar contêineres e blo
 
    ![Exibir detalhes do contêiner](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
-6. Clicar duas vezes no contêiner abrirá a exibição Propriedades do contêiner. Agora você deseja anexar (ou procurar) seu arquivo XML que contém a lista de BLOBs e/ou arquivos do Azure que você deseja exportar. Escolha **Carregar**.
+6. Clicar duas vezes no contêiner abrirá a exibição Propriedades do contêiner. Agora você deseja anexar (ou procurar) seu arquivo XML que contém a lista de BLOBs e/ou arquivos do Azure que você deseja exportar. Selecione **Carregar**.
 
    ![Carregar blob no contêiner](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 

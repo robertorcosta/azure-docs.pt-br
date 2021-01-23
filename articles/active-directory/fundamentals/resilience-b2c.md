@@ -13,16 +13,16 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba7b8ff2555fd7014cf16f66745721c6425ff868
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: b40918db03c260f899c36d306c892b787cc6371c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029516"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724884"
 ---
 # <a name="build-resilience-in-your-customer-identity-and-access-management-with-azure-active-directory-b2c"></a>Crie resiliência em sua identidade do cliente e gerenciamento de acesso com Azure Active Directory B2C
 
-O [Azure Active Directory (AD) B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) é uma plataforma de CIAM (gerenciamento de identidades e acesso do cliente) projetada para ajudá-lo a iniciar seus aplicativos críticos voltados para o cliente com êxito. Temos muitos recursos internos para [resiliência](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) que foram projetados para ajudar nossos serviços a dimensionar suas necessidades e melhorar a resiliência diante de possíveis situações de interrupção. Além disso, ao iniciar um aplicativo de missão crítica, é importante considerar vários elementos de design e configuração em seu aplicativo, além de como o aplicativo é configurado dentro de Azure AD B2C para garantir que você obtenha um comportamento resiliente em resposta a cenários de falha ou interrupção. Neste artigo, discutiremos algumas das práticas recomendadas para ajudá-lo a aumentar a resiliência.
+O [Azure Active Directory (AD) B2C](../../active-directory-b2c/overview.md) é uma plataforma de CIAM (gerenciamento de identidades e acesso do cliente) projetada para ajudá-lo a iniciar seus aplicativos críticos voltados para o cliente com êxito. Temos muitos recursos internos para [resiliência](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) que foram projetados para ajudar nossos serviços a dimensionar suas necessidades e melhorar a resiliência diante de possíveis situações de interrupção. Além disso, ao iniciar um aplicativo de missão crítica, é importante considerar vários elementos de design e configuração em seu aplicativo, além de como o aplicativo é configurado dentro de Azure AD B2C para garantir que você obtenha um comportamento resiliente em resposta a cenários de falha ou interrupção. Neste artigo, discutiremos algumas das práticas recomendadas para ajudá-lo a aumentar a resiliência.
 
 Um serviço resiliente é aquele que continua funcionando apesar das interrupções. Você pode ajudar a melhorar a resiliência em seu serviço:
 
@@ -49,3 +49,6 @@ Ao desenvolver seu aplicativo, recomendamos considerar como aumentar a [resiliê
 - [Crie resiliência em sua infraestrutura de autenticação](resilience-in-infrastructure.md)
 
 - [Aumentar a resiliência de autenticação e autorização em seus aplicativos](resilience-app-development-overview.md)
+
+Assista a este vídeo para saber como criar fluxos resilientes e escalonáveis usando o Azure AD B2C.
+>[!Video https://www.youtube.com/embed/8f_Ozpw9yTs]

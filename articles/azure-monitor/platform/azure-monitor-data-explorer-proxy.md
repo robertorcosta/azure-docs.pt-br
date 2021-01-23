@@ -7,15 +7,15 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5671ec68901be289a87c23b6883160f9cda2b651
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060445"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733176"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Consulta entre recursos do Azure Data Explorer usando Azure Monitor
-O Azure Monitor dá suporte a consultas entre serviços entre o Azure Data Explorer, o [Application insights](/azure/azure-monitor/app/app-insights-overview)e o [log Analytics](/azure/azure-monitor/platform/data-platform-logs). Em seguida, você pode consultar o cluster de Data Explorer do Azure usando ferramentas de Log Analytics/Application Insights e consultá-lo em uma consulta entre serviços. O artigo mostra como fazer uma consulta entre serviços.
+O Azure Monitor dá suporte a consultas entre serviços entre o Azure Data Explorer, o [Application insights](../app/app-insights-overview.md)e o [log Analytics](./data-platform-logs.md). Em seguida, você pode consultar o cluster de Data Explorer do Azure usando ferramentas de Log Analytics/Application Insights e consultá-lo em uma consulta entre serviços. O artigo mostra como fazer uma consulta entre serviços.
 
 O diagrama a seguir mostra o Azure Monitor fluxo entre serviços:
 
@@ -62,8 +62,8 @@ Não há suporte para consultas entre locatários entre os serviços. Você est�
 
 Se o recurso de Data Explorer do Azure estiver no locatário A e o espaço de trabalho Log Analytics estiver no locatário B, use um dos seguintes métodos:
 
-*  O Azure Data Explorer permite que você adicione funções para entidades de segurança em locatários diferentes. Adicione sua ID de usuário no locatário B como um usuário autorizado no cluster Data Explorer do Azure. Valide se a propriedade [TrustedExternalTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster) no cluster data Explorer do Azure contém o locatário b. Execute a consulta cruzada totalmente no locatário b.
-*  Use [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) para projetar o recurso Azure monitor no locatário a.
+*  O Azure Data Explorer permite que você adicione funções para entidades de segurança em locatários diferentes. Adicione sua ID de usuário no locatário B como um usuário autorizado no cluster Data Explorer do Azure. Valide se a propriedade [TrustedExternalTenant](/powershell/module/az.kusto/update-azkustocluster) no cluster data Explorer do Azure contém o locatário b. Execute a consulta cruzada totalmente no locatário b.
+*  Use [Lighthouse](../../lighthouse/index.yml) para projetar o recurso Azure monitor no locatário a.
 
 ## <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Conectar-se aos clusters do Azure Data Explorer de diferentes locatários
 
@@ -72,6 +72,6 @@ O Kusto Explorer entra automaticamente no locatário ao qual a conta de usuário
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Gravar consultas](https://docs.microsoft.com/azure/data-explorer/write-queries)
-* [Consultar dados em Azure Monitor usando o Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
-* [Executar consultas entre logs de recursos no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
+* [Gravar consultas](/azure/data-explorer/write-queries)
+* [Consultar dados em Azure Monitor usando o Azure Data Explorer](/azure/data-explorer/query-monitor-data)
+* [Executar consultas entre logs de recursos no Azure Monitor](../log-query/cross-workspace-query.md)

@@ -5,20 +5,23 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/22/2021
 ms.author: victorh
-ms.openlocfilehash: 2ff61d06885c182454c99ee7e982a3a1a1f5013c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2c89eb19025212490d29c97a061da52e779ecf42
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690269"
+ms.locfileid: "98704390"
 ---
 # <a name="azure-firewall-active-ftp-support"></a>Suporte a FTP ativo do firewall do Azure
 
 Com o FTP ativo, o servidor FTP inicia a conexão de dados com a porta de dados do cliente FTP designado. Os firewalls na rede do lado do cliente normalmente bloqueiam uma solicitação de conexão externa a uma porta interna do cliente. Para obter mais informações, consulte [FTP ativo versus FTP passivo, uma explicação definitiva](https://slacksite.com/other/ftp.html).
 
 Por padrão, o suporte a FTP ativo é desabilitado no firewall do Azure para proteger contra ataques de retorno de FTP usando o `PORT` comando FTP. No entanto, você pode habilitar o FTP ativo ao implantar usando Azure PowerShell, o CLI do Azure ou um modelo do Azure ARM.
+
+> [!NOTE]
+> Atualmente, o FTP ativo tem suporte apenas para firewalls implantados em uma rede virtual. O suporte de WAN virtual será adicionado posteriormente.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
