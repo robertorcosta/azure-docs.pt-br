@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5942d208fa3859d0a4a80de5f072f2e798fe040f
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028923"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728230"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e corrigir erros de sincronização de atributos duplicados
 
@@ -139,7 +139,7 @@ O usuário com atributo conflitante no Azure AD deve ser excluído antes de apli
 O usuário baseado em nuvem no Azure AD não deve ter uma âncora de origem. Nesse caso, não há suporte para atualizar âncora de origem. É necessária a correção manual no local. 
 
 **O processo de correção não pôde atualizar os valores.**
-Não há suporte para as configurações específicas, como [UserWriteback em Azure ad Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback) . Desabilite nas configurações. 
+Não há suporte para as configurações específicas, como [UserWriteback em Azure ad Connect](./how-to-connect-preview.md#user-writeback) . Desabilite nas configurações. 
 
 ## <a name="faq"></a>Perguntas frequentes
 **P.:** O que acontece se a execução do **Apply Fix** falhar?  

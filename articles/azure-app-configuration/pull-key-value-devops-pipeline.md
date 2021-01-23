@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914953"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728084"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Configurações de pull para configuração de aplicativo com Azure Pipelines
 
@@ -47,7 +47,7 @@ Agora que a conexão de serviço foi criada, localize o nome da entidade de serv
 
 Atribua a função de configuração de aplicativo apropriada à conexão de serviço que está sendo usada na tarefa para que a tarefa possa acessar o repositório de configurações de aplicativo.
 
-1. Navegue até o repositório de configuração do aplicativo de destino. Para obter instruções sobre como configurar um repositório de configuração de aplicativo, consulte [criar um repositório de configuração de aplicativo](/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store) em um dos guias de início rápido de configuração de Azure app.
+1. Navegue até o repositório de configuração do aplicativo de destino. Para obter instruções sobre como configurar um repositório de configuração de aplicativo, consulte [criar um repositório de configuração de aplicativo](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) em um dos guias de início rápido de configuração de Azure app.
 1. À esquerda, selecione **controle de acesso (iam)**.
 1. Na parte superior, selecione **+ Adicionar** e escolha **Adicionar atribuição de função**.
 1. Em **função**, selecione **leitor de dados de configuração de aplicativo**. Essa função permite que a tarefa seja lida no repositório de configuração do aplicativo. 

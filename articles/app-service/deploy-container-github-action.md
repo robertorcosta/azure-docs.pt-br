@@ -7,12 +7,12 @@ ms.date: 12/04/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: 4f5deb33218c336da7a477b4f39cd45f7386debf
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fec4ba8cba33a1d52d8f330308645fb616921ba4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97604967"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726790"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Implantar um contêiner personalizado no Serviço de Aplicativo usando as GitHub Actions
 
@@ -25,7 +25,7 @@ Para um fluxo de trabalho de contêiner de serviço Azure App, o arquivo tem tr�
 |Seção  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. recupere uma entidade de serviço ou um perfil de publicação. <br /> 2. Criar um segredo do GitHub. |
-|**Compilar** | 1. Crie o ambiente. <br /> 2. Crie a imagem de contêiner. |
+|**Build** | 1. Crie o ambiente. <br /> 2. Crie a imagem de contêiner. |
 |**Implantar** | 1. implante a imagem de contêiner. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -50,7 +50,7 @@ Um perfil de publicação é uma credencial no nível do aplicativo. Configure s
 1. Na página **visão geral** , selecione **obter perfil de publicação**.
 
     > [!NOTE]
-    > A partir de outubro de 2020, os aplicativos Web do Linux precisarão da configuração do aplicativo `WEBSITE_WEBDEPLOY_USE_SCM` definida como `true` **antes de baixar o arquivo**. Esse requisito será removido no futuro. Consulte [configurar um aplicativo do serviço de aplicativo no portal do Azure](/azure/app-service/configure-common)para saber como definir configurações comuns do aplicativo Web.  
+    > A partir de outubro de 2020, os aplicativos Web do Linux precisarão da configuração do aplicativo `WEBSITE_WEBDEPLOY_USE_SCM` definida como `true` **antes de baixar o arquivo**. Esse requisito será removido no futuro. Consulte [configurar um aplicativo do serviço de aplicativo no portal do Azure](./configure-common.md)para saber como definir configurações comuns do aplicativo Web.  
 
 1. Salve o arquivo baixado. Você usará o conteúdo do arquivo para criar um segredo do GitHub.
 

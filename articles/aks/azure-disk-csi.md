@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 2dba9fbcbddbc7a66763636986f3d98f4f95332c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: b75f4c85831fe66158da875c21af60ee73531026
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683124"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728249"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usar os drivers da interface de armazenamento de contêiner de disco do Azure (CSI) no serviço kubernetes do Azure (AKS) (visualização)
 O driver CSI (Azure Disk contêiner Storage interface) é um driver compatível com a [especificação CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)usado pelo AKs (serviço kubernetes do Azure) para gerenciar o ciclo de vida dos discos do Azure.
@@ -101,7 +101,7 @@ storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 
 ## <a name="volume-snapshots"></a>Instantâneos de volume
 
-O driver do Azure Disk CSI dá suporte à criação [de instantâneos de volumes persistentes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Como parte desse recurso, o driver pode executar instantâneos *completos* ou [ *incrementais*](../virtual-machines/windows/disks-incremental-snapshots.md) , dependendo do valor definido no `incremental` parâmetro (por padrão, é true).
+O driver do Azure Disk CSI dá suporte à criação [de instantâneos de volumes persistentes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Como parte desse recurso, o driver pode executar instantâneos *completos* ou [ *incrementais*](../virtual-machines/disks-incremental-snapshots.md) , dependendo do valor definido no `incremental` parâmetro (por padrão, é true).
 
 Para obter detalhes sobre todos os parâmetros, consulte [parâmetros de classe de instantâneo de volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md#volumesnapshotclass).
 

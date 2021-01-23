@@ -3,12 +3,12 @@ title: Atualizar a política de backup de VM existente usando a CLI
 description: Saiba como atualizar a política de backup de VM existente usando CLI do Azure.
 ms.topic: conceptual
 ms.date: 12/31/2020
-ms.openlocfilehash: ba4ded4c82a1eaea7c20ea94da580a8702467b85
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 33083d6585d2b9296cd184ba258b8d2143d685b4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858825"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728571"
 ---
 # <a name="update-the-existing-vm-backup-policy-using-cli"></a>Atualizar a política de backup de VM existente usando a CLI
 
@@ -18,7 +18,7 @@ Você pode usar CLI do Azure para atualizar uma política de backup de VM existe
 
 Para modificar uma política de backup de VM existente, siga estas etapas:
 
-1. Execute o comando [AZ backup Policy show](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_show) para recuperar os detalhes da política que você deseja atualizar.
+1. Execute o comando [AZ backup Policy show](/cli/azure/backup/policy#az_backup_policy_show) para recuperar os detalhes da política que você deseja atualizar.
 
     Exemplo:
 
@@ -101,14 +101,14 @@ Para modificar uma política de backup de VM existente, siga estas etapas:
     ```
 
 1. Salve as alterações.
-1. Execute o comando [AZ backup Policy Set](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_set) e passe o caminho completo do arquivo JSON atualizado como o valor para o parâmetro **--Policy** .
+1. Execute o comando [AZ backup Policy Set](/cli/azure/backup/policy#az_backup_policy_set) e passe o caminho completo do arquivo JSON atualizado como o valor para o parâmetro **--Policy** .
 
     ```azurecli
     az backup policy set --resource-group rg1234 --vault-name testvault --policy C:\temp2\Policy.json --name testing123
     ```
 
 >[!NOTE]
->Você também pode recuperar a política JSON de exemplo executando o comando [AZ backup Policy Get-default-for-VM](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_get_default_for_vm) .
+>Você também pode recuperar a política JSON de exemplo executando o comando [AZ backup Policy Get-default-for-VM](/cli/azure/backup/policy#az_backup_policy_get_default_for_vm) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

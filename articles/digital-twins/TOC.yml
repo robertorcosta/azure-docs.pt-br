@@ -243,8 +243,10 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: Especificação do DTMI
           href: 'https://github.com/Azure/digital-twin-model-identifier'
-        - name: Solicitações de dados do cliente
+    - name: Solicitações de dados do cliente
       href: resources-customer-data-requests.md
+    - name: Limites de serviço dos Gêmeos Digitais
+      href: reference-service-limits.md
     - name: Preços e disponibilidade
       items:
         - name: Preços
@@ -253,8 +255,6 @@
           href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
         - name: Regiões e disponibilidade
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
-        - name: Limites de serviço dos Gêmeos Digitais
-          href: reference-service-limits.md
     - name: Relatos de clientes
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
     - name: Vídeos do Channel 9

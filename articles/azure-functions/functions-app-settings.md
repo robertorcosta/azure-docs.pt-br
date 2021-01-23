@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 80b2daebbd64f08dd4f5d728b2a9a4ee04b8952f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937103"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728985"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -229,11 +229,13 @@ O valor dessa chave é fornecido no formato `<DESTINATION>:<VERBOSITY>` , que é
 
 ## <a name="website_contentazurefileconnectionstring"></a>CONTENTAZUREFILECONNECTIONSTRING do site \_
 
-Para consumo & apenas planos Premium. Cadeia de conexão para a conta de armazenamento na qual o código do aplicativo de funções e a configuração são armazenados. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
+Cadeia de conexão para a conta de armazenamento em que o código e a configuração do aplicativo de funções são armazenados em planos de dimensionamento orientados a eventos em execução no Windows. Para obter mais informações, consulte [criar um aplicativo de funções](functions-infrastructure-as-code.md#windows).
 
 |Chave|Valor de exemplo|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+Usado somente ao implantar em um consumo ou planos Premium em execução no Windows. Sem suporte para Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
 
 ## <a name="website_contentovervnet"></a>CONTENTOVERVNET do site \_
 
@@ -245,11 +247,15 @@ Somente para planos Premium. Um valor `1` permite que seu aplicativo de funçõe
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Para consumo & apenas planos Premium. O caminho do arquivo para o código do aplicativo de funções e a configuração. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome do aplicativo de funções. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#create-a-function-app).
+O caminho do arquivo para o código do aplicativo de funções e a configuração em um plano de dimensionamento controlado por eventos no Windows. Usado com WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. O padrão é uma cadeia única que começa com o nome do aplicativo de funções. Consulte [Criar um aplicativo de funções](functions-infrastructure-as-code.md#windows).
 
 |Chave|Valor de exemplo|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
+
+Usado somente por aplicativos de funções em um consumo ou planos Premium em execução no Windows. Sem suporte para Linux. Alterar ou remover essa configuração pode fazer com que seu aplicativo de funções não seja iniciado. Para saber mais, confira [Este artigo de solução de problemas](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+Ao usar um Azure Resource Manager para criar um aplicativo de funções durante a implantação, não inclua WEBSITE_CONTENTSHARE no modelo. Essa configuração de aplicativo é gerada durante a implantação. Para saber mais, confira [automatizar a implantação de recursos para seu aplicativo de funções](functions-infrastructure-as-code.md#windows).   
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
