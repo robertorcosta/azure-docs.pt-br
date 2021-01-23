@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: d1ba9445441f38c55b40a8f8ca55471ea8b0a06d
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008581"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732672"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Pools elásticos ajudam a gerenciar e dimensionar vários bancos de dados no Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -156,7 +156,7 @@ Quando tiver concluído a configuração do pool, você poderá clicar em "Aplic
 
 No Portal do Azure, é possível monitorar a utilização de um pool elástico e os bancos de dados no pool. Você também pode criar um conjunto de alterações para o pool elástico e enviar todas as alterações ao mesmo tempo. Essas alterações incluem adicionar ou remover bancos de dados, alterar as configurações de pool elástico ou alterar suas configurações de banco de dados.
 
-Você pode usar as ferramentas internas de [monitoramento](https://docs.microsoft.com/azure/azure-sql/database/performance-guidance) e [alerta](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal)de desempenho, combinadas com as classificações de desempenho.  Além disso, o Banco de Dados SQL pode [emitir métrica e logs de recursos](https://docs.microsoft.com/azure/azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal) para facilitar o monitoramento.
+Você pode usar as ferramentas internas de [monitoramento](./performance-guidance.md) e [alerta](./alerts-insights-configure-portal.md)de desempenho, combinadas com as classificações de desempenho.  Além disso, o Banco de Dados SQL pode [emitir métrica e logs de recursos](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) para facilitar o monitoramento.
 
 ## <a name="customer-case-studies"></a>Estudos de caso de cliente
 

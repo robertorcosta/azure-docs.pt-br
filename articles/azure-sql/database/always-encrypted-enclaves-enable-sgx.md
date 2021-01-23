@@ -1,5 +1,5 @@
 ---
-title: Habilitar o SGX Intel para seu banco de dados SQL do Azure
+title: Habilitar o SGX Intel para seu Banco de Dados SQL do Azure
 description: Saiba como habilitar o SGX Intel para Always Encrypted com o Secure enclaves no banco de dados SQL do Azure selecionando uma geração de hardware habilitada para SGX.
 keywords: criptografar dados, criptografia do SQL, criptografia de banco de dados, informações confidenciais, Always Encrypted, enclaves seguro, SGX, atestado
 services: sql-database
@@ -11,21 +11,21 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 4c77103dbb043ef9d6af9a4078b3e574ab5f953f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: ded1406c47bb3f00c366da7a5b28319f3712f8a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253303"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733749"
 ---
-# <a name="enable-intel-sgx-for-your-azure-sql-database"></a>Habilitar o SGX Intel para seu banco de dados SQL do Azure 
+# <a name="enable-intel-sgx-for-your-azure-sql-database"></a>Habilitar o SGX Intel para seu Banco de Dados SQL do Azure 
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
 > O Always Encrypted com Secure enclaves para o banco de dados SQL do Azure está atualmente em **Visualização pública**.
 
-[Always Encrypted com Secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) no banco de dados SQL do Azure usa o ENCLAVES [Intel SGX (extensões de software Intel)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) . Para que o Intel SGX esteja disponível, o banco de dados deve usar o [modelo vCore](service-tiers-vcore.md) e a geração de hardware da [série DC](service-tiers-vcore.md#dc-series) .
+[Always Encrypted com Secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) no banco de dados SQL do Azure usa o ENCLAVES [Intel SGX (extensões de software Intel)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) . Para que o Intel SGX esteja disponível, o banco de dados deve usar o [modelo vCore](service-tiers-vcore.md) e a geração de hardware da [série DC](service-tiers-vcore.md#dc-series) .
 
 Configurar a geração de hardware da série DC para habilitar o enclaves de SGX Intel é a responsabilidade do administrador do banco de dados SQL do Azure. Consulte [funções e responsabilidades ao configurar o enclaves e o atestado de SGX](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
 
@@ -43,4 +43,4 @@ Para obter instruções detalhadas sobre como configurar um banco de dados novo 
 
 ## <a name="see-also"></a>Confira também
 
-- [Tutorial: introdução ao Always Encrypted com o Secure enclaves no banco de dados SQL do Azure](always-encrypted-enclaves-getting-started.md)
+- [Tutorial: Introdução ao Always Encrypted com enclaves seguros no Banco de Dados SQL do Azure](always-encrypted-enclaves-getting-started.md)

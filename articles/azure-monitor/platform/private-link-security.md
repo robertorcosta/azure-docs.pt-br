@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: e8d0dcae81944d5799841c22093585b942934b79
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732097"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734959"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor
 
@@ -149,7 +149,7 @@ Agora que os recursos estão conectados a seu AMPLS, crie um ponto de extremidad
  
    b.    Na opção **Integrar à zona DNS privada**, escolha **Sim** e aguarde enquanto ela cria automaticamente uma Zona DNS Privada. As zonas DNS reais podem ser diferentes do que é mostrado na captura de tela abaixo. 
    > [!NOTE]
-   > Se você escolher **não** e preferir gerenciar manualmente os registros DNS, primeiro conclua a configuração de seu link privado, incluindo esse ponto de extremidade privado e a configuração AMPLS. Em seguida, configure o DNS de acordo com as instruções em [configuração de DNS do ponto de extremidade privado do Azure](../../private-link/private-endpoint-dns.md). Certifique-se de não criar registros vazios como preparação para a configuração do seu link privado. Os registros DNS que você cria podem substituir as configurações existentes e impactar a conectividade com Azure Monitor.
+   > Se você escolher **não** e preferir gerenciar manualmente os registros DNS, primeiro conclua a configuração de seu link privado, incluindo esse ponto de extremidade privado e a configuração AMPLS. Em seguida, configure o DNS de acordo com as instruções em [configuração de DNS do ponto de extremidade privado do Azure](../../private-link/private-endpoint-dns.md). Certifique-se de não criar registros vazios como preparação para a configuração do seu link privado. Os registros DNS que você cria podem substituir as configurações existentes e impactar a conectividade com o Azure Monitor.
  
    c.    Clique em **Revisar + Criar**.
  
@@ -217,7 +217,7 @@ Essa restrição de acesso se aplica apenas aos dados no recurso Application Ins
 
 Você pode automatizar o processo descrito anteriormente usando modelos de Azure Resource Manager, REST e interfaces de linha de comando.
 
-Para criar e gerenciar escopos de link privado, use a [API REST](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) ou [CLI do Azure (AZ monitor privado-link-Scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+Para criar e gerenciar escopos de link privado, use a [API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) ou [CLI do Azure (AZ monitor privado-link-Scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 Para gerenciar o acesso à rede, use os sinalizadores `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` nos [Workspaces do Log Analytics](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) ou [Componentes do Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 

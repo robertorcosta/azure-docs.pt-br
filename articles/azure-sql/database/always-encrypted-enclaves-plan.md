@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: c41856c394166f2e3b8fd3bde794f0f294ef6af9
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4448ce051b0c9e73865e8057cc4f224c9cbeb571
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253302"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732737"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Planejar o enclaves e o atestado do Intel SGX no banco de dados SQL do Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "98253302"
 > [!NOTE]
 > O Always Encrypted com Secure enclaves para o banco de dados SQL do Azure está atualmente em **Visualização pública**.
 
-[Always Encrypted com Secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) no banco de dados SQL do Azure usa o ENCLAVES [Intel SGX (Intel Extensions)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) e requer [atestado de Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
+[Always Encrypted com Secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) no banco de dados SQL do Azure usa o ENCLAVES [Intel SGX (Intel Extensions)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) e requer [atestado de Microsoft Azure](/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
 
 ## <a name="plan-for-intel-sgx-in-azure-sql-database"></a>Planejar o Intel SGX no banco de dados SQL do Azure
 
@@ -55,7 +55,7 @@ Configurar seu ambiente para dar suporte a Intel SGX enclaves e atestado para Al
 - Administrador do banco de dados SQL do Azure – habilita a enclaves de SGX em bancos de dados selecionando a geração de hardware da série DC e fornece ao administrador de atestado a identidade do servidor lógico do SQL do Azure que precisa acessar o provedor de atestado.
 - Administrador de aplicativos – configura aplicativos com a URL de atestado obtida do administrador de atestado.
 
-Em ambientes de produção (tratando dados confidenciais reais), é importante que sua organização obedeça à separação de funções ao configurar o atestado, em que cada função distinta é assumida por pessoas diferentes. Em particular, se o objetivo da implantação de Always Encrypted em sua organização é reduzir a área da superfície de ataque, garantindo que os administradores do banco de dados SQL do Azure não possam acessar informações confidenciais, os administradores do banco de dados SQL do Azure não devem controlar as políticas de atestado.
+Em ambientes de produção (manipulando dados confidenciais reais), é importante que sua organização obedeça à separação de funções ao configurar o atestado, em que cada função distinta é assumida por pessoas diferentes. Em particular, se o objetivo da implantação de Always Encrypted em sua organização é reduzir a área da superfície de ataque, garantindo que os administradores do banco de dados SQL do Azure não possam acessar informações confidenciais, os administradores do banco de dados SQL do Azure não devem controlar as políticas de atestado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -63,4 +63,4 @@ Em ambientes de produção (tratando dados confidenciais reais), é importante q
 
 ## <a name="see-also"></a>Confira também
 
-- [Tutorial: introdução ao Always Encrypted com o Secure enclaves no banco de dados SQL do Azure](always-encrypted-enclaves-getting-started.md)
+- [Tutorial: Introdução ao Always Encrypted com enclaves seguros no Banco de Dados SQL do Azure](always-encrypted-enclaves-getting-started.md)

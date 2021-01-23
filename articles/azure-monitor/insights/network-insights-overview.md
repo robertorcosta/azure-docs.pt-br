@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: e4b555f4727d2d1fb5b64814ae07aa15b78da42c
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 4a273170a1f3842a9a11a61d41d4150eb98eace4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510916"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734133"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 
-O Azure Monitor para redes fornece uma visão abrangente da [integridade](../../service-health/resource-health-checks-resource-types.md) e das [métricas](../platform/metrics-supported.md) para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../../network-watcher/connection-monitor-preview.md), o [log de fluxo para NSGs (grupos de segurança de rede)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../../network-watcher/traffic-analytics.md). E fornece outros recursos de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de rede.
+O Azure Monitor para redes fornece uma visão abrangente da [integridade](../../service-health/resource-health-checks-resource-types.md) e das [métricas](../platform/metrics-supported.md) para todos os recursos de rede implantados, sem a necessidade de nenhuma configuração. Ele também fornece acesso a recursos de monitoramento de rede, como o [Monitor de conexão](../../network-watcher/connection-monitor-overview.md), o [log de fluxo para NSGs (grupos de segurança de rede)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [análise de tráfego](../../network-watcher/traffic-analytics.md). E fornece outros recursos de [diagnóstico](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) de rede.
 
 Azure Monitor para redes é estruturada com base nesses principais componentes do monitoramento:
 - [Métricas e integridade da rede](#networkhealth)

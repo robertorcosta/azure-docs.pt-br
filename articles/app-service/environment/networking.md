@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0a1221a8de10fd18768a1a0f0ac08277dc2901d6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013474"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735026"
 ---
 # <a name="app-service-environment-networking"></a>Ambiente do Serviço de Aplicativo rede
 
@@ -52,7 +52,7 @@ Ao contrário do ASEv2, com ASEv3, você pode definir grupos de segurança de re
 
 ## <a name="dns"></a>DNS
 
-Os aplicativos em seu ASE usarão o DNS com o qual sua VNet está configurada. Siga as instruções em [usando um ambiente do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) para configurar o servidor DNS para apontar para o ase. Se desejar que alguns aplicativos usem um servidor DNS diferente do qual a VNet está configurada, você poderá defini-lo manualmente por aplicativo com as configurações do aplicativo WEBSITE_DNS_SERVER e WEBSITE_DNS_ALT_SERVER. A configuração do aplicativo WEBSITE_DNS_ALT_SERVER configura o servidor DNS secundário. O servidor DNS secundário é usado somente quando não há resposta do servidor DNS primário. 
+Os aplicativos em seu ASE usarão o DNS com o qual sua VNet está configurada. Siga as instruções em [usando um ambiente do serviço de aplicativo](./using.md#dns-configuration) para configurar o servidor DNS para apontar para o ase. Se desejar que alguns aplicativos usem um servidor DNS diferente do qual a VNet está configurada, você poderá defini-lo manualmente por aplicativo com as configurações do aplicativo WEBSITE_DNS_SERVER e WEBSITE_DNS_ALT_SERVER. A configuração do aplicativo WEBSITE_DNS_ALT_SERVER configura o servidor DNS secundário. O servidor DNS secundário é usado somente quando não há resposta do servidor DNS primário. 
 
 ## <a name="preview-limitation"></a>Limitação de visualização
 
@@ -61,4 +61,3 @@ Há alguns recursos de rede que não estão disponíveis com o ASEv3.  As coisas
 • FTP • depuração remota • implantação do balanceador externo de carga • capacidade de acessar um registro de contêiner privado para implantações de contêineres • capacidade de fazer chamadas para Vnets globalmente emparelhadas • capacidade de fazer backup/restauração com um ponto de extremidade de serviço ou armazenamento protegido de ponto de extremidade privado Account • capacidade de ter configurações do aplicativo referências do keyvault no ponto de extremidade do serviço ou nas contas protegidas do ponto de extremidade protegido • capacidade de usar o BYOS para um ponto de extremidade de serviço ou uma conta de armazenamento protegida por ponto de extremidade particular • uso do observador de rede ou do fluxo de NSG no tráfego
     
     
-

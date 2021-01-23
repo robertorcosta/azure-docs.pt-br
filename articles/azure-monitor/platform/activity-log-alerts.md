@@ -4,12 +4,12 @@ description: Seja notificado por SMS, webhook, email e mais quando ocorrerem det
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: e0d71c014780637b490c745ed829078d138df675
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 8a30c0a0527f98cc00f7888299c09f1f26c3dd09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708425"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735207"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no log de atividades
 
@@ -19,7 +19,7 @@ Alertas do log de atividades são alertas que são ativados quando ocorre um nov
 
 > [!NOTE]
 > * **Não é possível** criar alertas para eventos na categoria de alerta do log de atividades.
-> * Os alertas do log de atividades com a categoria de segurança também podem ser definidos em um [novo fluxo atualizado](https://docs.microsoft.com/azure/security-center/continuous-export?tabs=azure-portal) para o [ServiceNow](https://docs.microsoft.com/azure/security-center/export-to-siem)
+> * Os alertas do log de atividades com a categoria de segurança também podem ser definidos em um [novo fluxo atualizado](../../security-center/continuous-export.md?tabs=azure-portal) para o [ServiceNow](../../security-center/export-to-siem.md)
 
 Normalmente, você cria alertas de log de atividade para receber notificações quando:
 

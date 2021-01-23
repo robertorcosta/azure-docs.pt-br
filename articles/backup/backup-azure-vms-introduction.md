@@ -3,12 +3,12 @@ title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 291c50d4ac52d34a218b1b7cc76d625da3119d25
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 691fe991ad141696c0c68e915d7225001a1befd0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968986"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733563"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -121,7 +121,7 @@ Quando você está configurando backups da VM, sugerimos seguir estas práticas:
 - Se você estiver restaurando VMs de um único cofre, é altamente recomendável usar [contas de armazenamento v2 de finalidade geral](../storage/common/storage-account-upgrade.md) diferentes para garantir que a conta de armazenamento de destino não seja limitada. Por exemplo, cada VM deve ter uma conta de armazenamento diferente. Por exemplo, se 10 VMs forem restauradas, use 10 contas de armazenamento diferentes.
 - Para o backup de VMs que estão usando o armazenamento Premium com restauração instantânea, é recomendável alocar *50%* de espaço livre do espaço de armazenamento total alocado, o que é necessário **apenas** para o primeiro backup. O espaço livre de 50% não é um requisito para backups após a conclusão do primeiro backup
 - O limite no número de discos por conta de armazenamento é relativo ao número de acessos nos discos por aplicativos em execução em uma VM de infraestrutura como serviço (IaaS). Como prática geral, se 5 a 10 discos ou mais estiverem presentes em uma única conta de armazenamento, equilibre a carga movendo alguns discos para contas de armazenamento separadas.
-- Para restaurar VMs com discos gerenciados usando o PowerShell, forneça o parâmetro adicional **_TargetResourceGroupName_* _ para especificar o grupo de recursos para o qual os discos gerenciados serão restaurados, [saiba mais aqui](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks).
+- Para restaurar VMs com discos gerenciados usando o PowerShell, forneça o parâmetro adicional **_TargetResourceGroupName_* _ para especificar o grupo de recursos para o qual os discos gerenciados serão restaurados, [saiba mais aqui](./backup-azure-vms-automation.md#restore-managed-disks).
 
 ## <a name="backup-costs"></a>Custos de backup
 

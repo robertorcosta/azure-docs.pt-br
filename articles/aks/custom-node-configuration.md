@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1e9d65baacb9c712b92ef6f00abda169031b47e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581518"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735257"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personalizar a configuração de nó para pools de nó do AKS (serviço de kubernetes do Azure) (versão prévia)
 
@@ -132,7 +132,7 @@ As configurações abaixo podem ser usadas para ajustar a operação do subsiste
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | Esse valor controla se o kernel deve fazer uso agressivo da compactação de memória para tornar mais `hugepages` disponível. | 
 
 > [!IMPORTANT]
-> Para facilitar a pesquisa e a legibilidade, as configurações do sistema operacional são exibidas neste documento por seu nome, mas devem ser adicionadas ao arquivo JSON de configuração ou à API AKS usando a [Convenção de capitalização CamelCase](https://docs.microsoft.com/dotnet/standard/design-guidelines/capitalization-conventions).
+> Para facilitar a pesquisa e a legibilidade, as configurações do sistema operacional são exibidas neste documento por seu nome, mas devem ser adicionadas ao arquivo JSON de configuração ou à API AKS usando a [Convenção de capitalização CamelCase](/dotnet/standard/design-guidelines/capitalization-conventions).
 
 Crie um `kubeletconfig.json` arquivo com o seguinte conteúdo:
 

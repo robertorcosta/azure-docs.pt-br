@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ad663b345d3d150b55e0e018afd1430775d77162
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452916"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733462"
 ---
 # <a name="features"></a>Recursos
 
@@ -29,7 +29,7 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 
 | API                            | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| leitura                           | Sim       | Sim       | Sim       |                                                     |
+| ler                           | Sim       | Sim       | Sim       |                                                     |
 | vread                          | Sim       | Sim       | Sim       |                                                     |
 | atualizar                         | Sim       | Sim       | Sim       |                                                     |
 | atualizar com bloqueio otimista | Sim       | Sim       | Sim       |                                                     |
@@ -86,7 +86,7 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 | `_id`                   | Sim       | Sim       | Sim       |         |
 | `_lastUpdated`          | Sim       | Sim       | Sim       |         |
 | `_tag`                  | Sim       | Sim       | Sim       |         |
-| `_profile`              | Sim       | Sim       | Sim       |         |
+| `_profile`              | Parcial   | Parcial   | Parcial   | Com suporte apenas em STU3, sem suporte em R4 |
 | `_security`             | Sim       | Sim       | Sim       |         |
 | `_text`                 | Não        | Não        | Não        |         |
 | `_content`              | Não        | Não        | Não        |         |
@@ -127,7 +127,7 @@ Atualmente, o código-fonte aberto do servidor FHIR inclui uma implementação p
 
 Cosmos DB é um banco de dados multimodelo distribuído globalmente (API do SQL, API do MongoDB, etc.). Ele dá suporte a diferentes [níveis de consistência](../cosmos-db/consistency-levels.md). O modelo de implantação padrão configura o servidor FHIR com `Strong` consistência, mas a política de consistência pode ser modificada (geralmente relaxada) em uma solicitação pela base da solicitação usando o `x-ms-consistency-level` cabeçalho de solicitação.
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 
 O servidor FHIR usa [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para controle de acesso. Especificamente, o RBAC (controle de acesso baseado em função) é imposto, se o `FhirServer:Security:Enabled` parâmetro de configuração for definido como `true` , e todas as solicitações (exceto `/metadata` ) para o servidor FHIR devem ter o `Authorization` cabeçalho de solicitação definido como `Bearer <TOKEN>` . O token deve conter uma ou mais funções, conforme definido na `roles` declaração. Uma solicitação será permitida se o token contiver uma função que permita a ação especificada no recurso especificado.
 
@@ -137,7 +137,7 @@ Atualmente, as ações permitidas para uma determinada função são aplicadas *
 
 * [**Unidades de solicitação (RUs)**](../cosmos-db/concepts-limits.md) – você pode configurar até 10.000 RUs no portal para a API do Azure para FHIR. Será necessário um mínimo de 400 RUs ou 10 RUs/GB, o que for maior. Se você precisar de mais de 10.000 RUs, poderá colocar em um tíquete de suporte para que isso seja aumentado. O máximo disponível é 1 milhão.
 
-* **Conexões simultâneas** e **instâncias** – por Dafault, você tem cinco conexões simultâneas em duas instâncias no cluster (para um total de 10 solicitações simultâneas). Se você acreditar que precisa de mais solicitações simultâneas, abra um tíquete de suporte com detalhes sobre suas necessidades.
+* **Conexões simultâneas** e **instâncias** -por padrão, você tem cinco conexões simultâneas em duas instâncias no cluster (para um total de 10 solicitações simultâneas). Se você acreditar que precisa de mais solicitações simultâneas, abra um tíquete de suporte com detalhes sobre suas necessidades.
 
 * **Tamanho do pacote** -cada pacote é limitado a 500 itens.
 

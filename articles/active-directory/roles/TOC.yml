@@ -11,9 +11,10 @@
     - name: Criar registros de aplicativo ilimitados
       href: quickstart-app-registration-limits.md
 - name: Tutoriais
+  expanded: true
   items:
-    - name: Criar um grupo dinâmico
-      href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Atribuir usuários a funções de administrador
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Conceitos
   expanded: true
   items:
@@ -28,18 +29,6 @@
 - name: Guias de instruções
   expanded: true
   items:
-    - name: Usuários e funções
-      items:
-        - name: Atribuir usuários a funções de administrador
-          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Revogar o acesso de um usuário
-          href: ../enterprise-users/users-revoke-access.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Atribuir função ao usuário convidado
-          href: ../external-identities/add-guest-to-role.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Restringir o acesso do usuário convidado
-          href: ../enterprise-users/users-restrict-guest-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-        - name: Grupos e convidados dinâmicos
-          href: ../external-identities/use-dynamic-groups.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Funções e permissões
       expanded: true
       items:
@@ -119,7 +108,7 @@
     - name: Documentação da função do Microsoft 365
       href: m365-workload-docs.md
     - name: API do Graph
-      href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+      href: /graph/api/resources/directoryrole?view=graph-rest-1.0
     - name: CLI do Azure AD
       href: /cli/azure/ad
     - name: PowerShell do Azure AD para Graph

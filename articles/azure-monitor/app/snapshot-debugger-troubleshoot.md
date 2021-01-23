@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3e45b5a48f9a7fb66d7539e83f385203ae371ad7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673545"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732720"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
 Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas.
@@ -272,4 +272,4 @@ Se você ainda não vir uma exceção com essa ID de instantâneo, o registro de
 
 Se seu aplicativo se conectar à Internet por meio de um proxy ou um firewall, talvez seja necessário atualizar as regras para se comunicar com o serviço de Depurador de Instantâneos.
 
-Os IPs usados pelo Application Insights Depurador de Instantâneos são incluídos na Azure Monitor marca de serviço. Para obter mais informações, consulte a [documentação de marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+Os IPs usados pelo Application Insights Depurador de Instantâneos são incluídos na Azure Monitor marca de serviço. Para obter mais informações, consulte a [documentação de marcas de serviço](../../virtual-network/service-tags-overview.md).

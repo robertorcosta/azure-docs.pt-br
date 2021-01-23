@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 01ac59ec435b19f5da56ca345840628964263a47
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f66395b1e0f45f1e80cd0ac93bf8c9ae8674a0f2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147021"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732938"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar um Aplicativo de funções do Azure como uma API no Gerenciamento de API do Azure
 
@@ -38,7 +38,7 @@ Você saberá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclua o início rápido [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
-* Verifique se que você tem um aplicativo do Azure Functions em sua assinatura. Para obter mais informações, consulte [Criar um Aplicativo de funções do Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Ele deve conter o Functions com gatilho HTTP e a configuração de nível de autorização definida como *Anônimo* ou *Função*.
+* Verifique se que você tem um aplicativo do Azure Functions em sua assinatura. Para obter mais informações, consulte [Criar um Aplicativo de funções do Azure](../azure-functions/functions-get-started.md). Ele deve conter o Functions com gatilho HTTP e a configuração de nível de autorização definida como *Anônimo* ou *Função*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,7 +48,7 @@ Siga as etapas abaixo para criar uma nova API a partir de um Aplicativo de funç
 
 1. Navegue até o serviço de Gerenciamento de API no portal do Azure e selecione **APIs** no menu.
 
-2. Na lista **Adicionar nova API** , selecione **Aplicativo de funções**.
+2. Na lista **Adicionar nova API**, selecione **Aplicativo de funções**.
 
     ![Captura de tela que mostra o bloco Aplicativo de funções.](./media/import-function-app-as-api/add-01.png)
 
@@ -78,7 +78,7 @@ Siga as etapas abaixo para criar uma nova API a partir de um Aplicativo de funç
 
 Siga as etapas abaixo para acrescentar o Aplicativo de funções do Azure a uma API existente.
 
-1. Em sua instância de serviço do **Gerenciamento de API do Azure** , selecione **APIs** no menu à esquerda.
+1. Em sua instância de serviço do **Gerenciamento de API do Azure**, selecione **APIs** no menu à esquerda.
 
 2. Escolha uma API para a qual você deseja importar um Aplicativo de funções. Clique em **...**  e selecione **Importar** no menu de contexto.
 
@@ -112,8 +112,8 @@ Siga as etapas abaixo para acrescentar o Aplicativo de funções do Azure a uma 
 
 A importação de um Aplicativo de funções do Azure gera automaticamente:
 
-* A chave de host dentro do Aplicativo de funções com o nome apim-{ *nome da instância de serviço do Gerenciamento de API do Azure* };
-* Valor nomeado dentro da instância do Gerenciamento de API do Azure com o nome { *nome da instância do Aplicativo de funções do Azure* }-key, que contém a chave de host criada.
+* A chave de host dentro do Aplicativo de funções com o nome apim-{*nome da instância de serviço do Gerenciamento de API do Azure*};
+* Valor nomeado dentro da instância do Gerenciamento de API do Azure com o nome {*nome da instância do Aplicativo de funções do Azure*}-key, que contém a chave de host criada.
 
 Para as APIs criadas após 4 de abril de 2019, a chave de host é passada em solicitações HTTP do Gerenciamento de API para o Aplicativo de funções em um cabeçalho. As APIs mais antigas passam a chave de host como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Esse comportamento pode ser alterado por meio da `PATCH Backend` [chamada à API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) na entidade *Back-end* associada ao Aplicativo de funções.
 
@@ -150,7 +150,7 @@ Você pode chamar as operações diretamente do portal do Azure. Usar o portal d
 
 3. Selecione uma operação.
 
-    A página exibe os campos dos parâmetros de consulta e os campos dos cabeçalhos. Um dos cabeçalhos é **Ocp-Apim-Subscription-Key** , para a chave de assinatura do produto que está associada a essa API. Se você criou a instância do Gerenciamento de API, já é um administrador e, portanto, a chave é preenchida automaticamente. 
+    A página exibe os campos dos parâmetros de consulta e os campos dos cabeçalhos. Um dos cabeçalhos é **Ocp-Apim-Subscription-Key**, para a chave de assinatura do produto que está associada a essa API. Se você criou a instância do Gerenciamento de API, já é um administrador e, portanto, a chave é preenchida automaticamente. 
 
 4. Selecione **Enviar**.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9500d682a99e6345289a83b4b3b2fc29ffe18457
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676877"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735373"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Consultar os arquivos de armazenamento com o pool de SQL sem servidor no Azure Synapse Analytics
 
@@ -184,7 +184,7 @@ Por padrão, a função `OPENROWSET` corresponde ao nome e ao caminho do campo d
 - A função retorna um valor escalar como int, decimal e varchar, do elemento especificado e no caminho especificado, para todos os tipos de Parquet que não estão no grupo Tipo Aninhado.
 - Se o caminho aponta para um elemento que é de um Tipo Aninhado, a função retorna um fragmento JSON começando do elemento superior no caminho especificado. O fragmento JSON é do tipo varchar (8000).
 - Se a propriedade não puder ser encontrada na column_name especificada, a função retornará um erro.
-- Se a propriedade não puder ser encontrada no column_path especificado, dependendo do [Modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), a função retornará um erro quando estiver no modo estrito ou nulo quando estiver no modo lax.
+- Se a propriedade não puder ser encontrada no column_path especificado, dependendo do [Modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE), a função retornará um erro quando estiver no modo estrito ou nulo quando estiver no modo lax.
 
 Para obter exemplos de consulta, examine a seção Elementos de acesso de colunas aninhadas no artigo [Consultar tipos aninhados de Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 

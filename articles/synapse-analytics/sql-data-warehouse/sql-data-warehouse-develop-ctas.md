@@ -11,12 +11,12 @@ ms.date: 03/26/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 6750f010e3992a2b76cc688449ad44efa7ec76d0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 68bab754142538fc6067cf2593ae6244a03a48d1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683266"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734807"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 
@@ -208,7 +208,7 @@ DROP TABLE CTAS_acs;
 
 ## <a name="ansi-join-replacement-for-merge"></a>Substituição de junção ANSI para MESCLAgem 
 
-No Azure Synapse Analytics, a [mesclagem](/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) (visualização) com não correspondente pelo destino requer que o destino seja uma tabela distribuída por hash.  Os usuários podem usar a junção ANSI com [Update](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) ou [delete](/sql/t-sql/statements/delete-transact-sql?view=sql-server-ver15) como uma solução alternativa para modificar os dados da tabela de destino com base no resultado da junção com outra tabela.  Veja um exemplo.
+No Azure Synapse Analytics, a [mesclagem](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true) (visualização) com não correspondente pelo destino requer que o destino seja uma tabela distribuída por hash.  Os usuários podem usar a junção ANSI com [Update](/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest&preserve-view=true) ou [delete](/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest&preserve-view=true) como uma solução alternativa para modificar os dados da tabela de destino com base no resultado da junção com outra tabela.  Veja um exemplo.
 
 ```sql
 CREATE TABLE dbo.Table1   

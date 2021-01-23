@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 40ea367c1298a916df541d362b85e8d485d193f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505266"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734925"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
@@ -91,7 +91,7 @@ Para exibir e exportar solicitações de dados, a [API de consulta do Log Analyt
 Disponibilizamos como parte de uma privacidade que trata um caminho de API de *limpeza*. Esse caminho deve ser utilizado com moderação devido ao risco associado, o potencial impacto no desempenho e o potencial para distorcer agregações, medidas e outros aspectos dos dados do Log Analytics. Consulte a seção [Estratégia para tratamento de dados pessoais](#strategy-for-personal-data-handling) para obter abordagens alternativas para tratar dados privados.
 
 > [!NOTE]
-> Depois que a operação de limpeza for executada, os dados não poderão ser acessados enquanto o [status da operação de limpeza](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) estiver *pendente*. 
+> Depois que a operação de limpeza for executada, os dados não poderão ser acessados enquanto o [status da operação de limpeza](/rest/api/loganalytics/workspacepurge/getpurgestatus) estiver *pendente*. 
 
 A limpeza é uma operação altamente privilegiada que nenhum aplicativo ou usuário no Azure (incluindo até mesmo o proprietário do recurso) terá permissões para executar sem que seja concedida explicitamente uma função no Azure Resource Manager. Essa função é _Limpador de Dados_ e deve ser cuidadosamente delegada devido ao potencial de perda de dados. 
 
@@ -129,4 +129,3 @@ Depois que a função do Azure Resource Manager for atribuída, dois novos camin
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre como os dados do Log Analytcs são coletados, processados e protegidos, veja [Segurança de dados do Log Analytics](./data-security.md).
 - Para saber mais sobre como os dados do Application Insights são coletados, processados e protegidos, confira [Segurança de dados do Application Insights](../app/data-retention-privacy.md).
-

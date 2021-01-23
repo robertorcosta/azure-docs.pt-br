@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre o backup em disco do Azure
 description: Obtenha respostas para perguntas frequentes sobre o backup em disco do Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 4c4c9f4b8388fed95a19c49b705981b9b9bce2e0
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3ef18a7d178075194e24889477768583f05f0cdd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557218"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734555"
 ---
 # <a name="frequently-asked-questions-about-azure-disk-backup-in-preview"></a>Perguntas frequentes sobre o backup em disco do Azure (em versão prévia)
 
@@ -37,23 +37,23 @@ O backup em disco do Azure oferece backup de camada operacional para o disco ger
 
 ### <a name="why-must-the-snapshot-resource-group-be-in-same-subscription-as-that-of-the-disk-being-backed-up"></a>Por que o grupo de recursos de instantâneo deve estar na mesma assinatura que o backup do disco?
 
-Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Portanto, escolha o grupo de recursos na mesma assinatura do disco do qual será feito o backup. Saiba mais sobre o [instantâneo incremental](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) para discos gerenciados.
+Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Portanto, escolha o grupo de recursos na mesma assinatura do disco do qual será feito o backup. Saiba mais sobre o [instantâneo incremental](../virtual-machines/disks-incremental-snapshots.md#restrictions) para discos gerenciados.
 
 ### <a name="why-do-i-need-to-provide-role-assignments-to-be-able-to-configure-backups-perform-scheduled-and-on-demand-backups-and-restore-operations"></a>Por que preciso fornecer atribuições de função para poder configurar backups, executar backups agendados e sob demanda e operações de restauração?
 
-O backup em disco do Azure usa a abordagem de privilégios mínimos para descobrir, proteger e restaurar os discos gerenciados em suas assinaturas. Para conseguir isso, o backup do Azure usa a identidade gerenciada do [cofre de backup](backup-vault-overview.md) para acessar outros recursos do Azure. Uma identidade gerenciada atribuída pelo sistema é restrita a uma por recurso e está vinculada ao ciclo de vida deste recurso. Você pode conceder permissões para a identidade gerenciada usando o controle de acesso baseado em função do Azure (RBAC do Azure). A identidade gerenciada é uma entidade de serviço de um tipo especial que pode ser usada apenas com recursos do Azure. Saiba mais sobre as [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Por padrão, o cofre de backup não terá permissão para acessar o disco do qual será feito backup, criar instantâneos periódicos, excluir instantâneos após o período de retenção e restaurar um disco do backup. Ao conceder explicitamente atribuições de função à identidade gerenciada do cofre de backup, você está no controle do gerenciamento de permissões para os recursos nas assinaturas.
+O backup em disco do Azure usa a abordagem de privilégios mínimos para descobrir, proteger e restaurar os discos gerenciados em suas assinaturas. Para conseguir isso, o backup do Azure usa a identidade gerenciada do [cofre de backup](backup-vault-overview.md) para acessar outros recursos do Azure. Uma identidade gerenciada atribuída pelo sistema é restrita a uma por recurso e está vinculada ao ciclo de vida deste recurso. Você pode conceder permissões para a identidade gerenciada usando o controle de acesso baseado em função do Azure (RBAC do Azure). A identidade gerenciada é uma entidade de serviço de um tipo especial que pode ser usada apenas com recursos do Azure. Saiba mais sobre as [identidades gerenciadas](../active-directory/managed-identities-azure-resources/overview.md). Por padrão, o cofre de backup não terá permissão para acessar o disco do qual será feito backup, criar instantâneos periódicos, excluir instantâneos após o período de retenção e restaurar um disco do backup. Ao conceder explicitamente atribuições de função à identidade gerenciada do cofre de backup, você está no controle do gerenciamento de permissões para os recursos nas assinaturas.
 
 ### <a name="why-does-backup-policy-limit-the-retention-duration"></a>Por que a política de backup limita a duração da retenção?
 
-O backup em disco do Azure usa instantâneos incrementais, que são limitados a 200 instantâneos por disco. Para permitir que você faça backups sob demanda além dos backups agendados, a política de backup limita o total de backups a 180. Saiba mais sobre [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) para discos gerenciados.
+O backup em disco do Azure usa instantâneos incrementais, que são limitados a 200 instantâneos por disco. Para permitir que você faça backups sob demanda além dos backups agendados, a política de backup limita o total de backups a 180. Saiba mais sobre [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) para discos gerenciados.
 
 ### <a name="how-does-the-hourly-and-daily-backup-frequency-work-in-the-backup-policy"></a>Como funciona a frequência de backup por hora e diária na política de backup?
 
-O backup em disco do Azure oferece vários backups por dia. Se você precisar de backups mais frequentes, escolha a frequência de backup por **hora** . Os backups são agendados com base no intervalo de **tempo** selecionado. Por exemplo, se você selecionar a **cada 4 horas**, os backups serão feitos a aproximadamente a cada 4 horas para que os backups sejam distribuídos igualmente ao longo do dia. Se uma vez por dia o backup for suficiente, escolha a frequência de backup **diária** . Na frequência de backup diário, você pode especificar a hora do dia em que os backups serão feitos. É importante observar que a hora do dia indica a hora de início do backup e não a hora em que o backup foi concluído. O tempo necessário para concluir a operação de backup depende de vários fatores, incluindo a taxa de rotatividade entre backups consecutivos. No entanto, o backup em disco do Azure é um backup sem agente que usa [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal) que não afetam o desempenho do aplicativo de produção.
+O backup em disco do Azure oferece vários backups por dia. Se você precisar de backups mais frequentes, escolha a frequência de backup por **hora** . Os backups são agendados com base no intervalo de **tempo** selecionado. Por exemplo, se você selecionar a **cada 4 horas**, os backups serão feitos a aproximadamente a cada 4 horas para que os backups sejam distribuídos igualmente ao longo do dia. Se uma vez por dia o backup for suficiente, escolha a frequência de backup **diária** . Na frequência de backup diário, você pode especificar a hora do dia em que os backups serão feitos. É importante observar que a hora do dia indica a hora de início do backup e não a hora em que o backup foi concluído. O tempo necessário para concluir a operação de backup depende de vários fatores, incluindo a taxa de rotatividade entre backups consecutivos. No entanto, o backup em disco do Azure é um backup sem agente que usa [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md) que não afetam o desempenho do aplicativo de produção.
 
 ### <a name="why-does-the-backup-vaults-redundancy-setting-not-apply-to-the-backups-stored-in-operational-tier-the-snapshot-resource-group"></a>Por que a configuração de redundância do cofre de backup não se aplica aos backups armazenados na camada operacional (o grupo de recursos de instantâneo)?
 
-O backup do Azure usa [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) de discos gerenciados que armazenam apenas as alterações delta em discos desde o último instantâneo no armazenamento HDD Standard, independentemente do tipo de armazenamento do disco pai. Para obter mais confiabilidade, os instantâneos incrementais são armazenados no armazenamento com redundância de zona (ZRS) por padrão em regiões que dão suporte a ZRS. Atualmente, o backup em disco do Azure dá suporte a backups operacionais de discos gerenciados que não copiam os backups no armazenamento do cofre de backup. Portanto, a configuração de redundância de armazenamento de backup do cofre de backup não se aplica aos pontos de recuperação.
+O backup do Azure usa [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) de discos gerenciados que armazenam apenas as alterações delta em discos desde o último instantâneo no armazenamento HDD Standard, independentemente do tipo de armazenamento do disco pai. Para obter mais confiabilidade, os instantâneos incrementais são armazenados no armazenamento com redundância de zona (ZRS) por padrão em regiões que dão suporte a ZRS. Atualmente, o backup em disco do Azure dá suporte a backups operacionais de discos gerenciados que não copiam os backups no armazenamento do cofre de backup. Portanto, a configuração de redundância de armazenamento de backup do cofre de backup não se aplica aos pontos de recuperação.
 
 ### <a name="can-i-use-backup-center-to-configure-backups-and-manage-backup-instances-for-azure-disks"></a>Posso usar o centro de backup para configurar backups e gerenciar instâncias de backup para discos do Azure?
 
@@ -61,7 +61,7 @@ Sim, o backup em disco do Azure é integrado ao [centro de backup](backup-center
 
 ### <a name="why-do-i-need-to-create-a-backup-vault-and-not-use-a-recovery-services-vault"></a>Por que preciso criar um cofre de backup e não usar um cofre dos serviços de recuperação?
 
-Um cofre de backup é uma entidade de armazenamento no Azure que hospeda dados de backup para determinadas cargas de trabalho mais recentes às quais o backup do Azure dá suporte. Você pode usar os cofres de backup para manter os dados de backup de vários serviços do Azure, como os servidores do Azure Database para PostgreSQL, os discos do Azure e as cargas de trabalho mais recentes para as quais o backup do Azure dará suporte. Os cofres de backup facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento. Consulte [cofres de backup](https://docs.microsoft.com/azure/backup/backup-vault-overview) para saber mais.
+Um cofre de backup é uma entidade de armazenamento no Azure que hospeda dados de backup para determinadas cargas de trabalho mais recentes às quais o backup do Azure dá suporte. Você pode usar os cofres de backup para manter os dados de backup de vários serviços do Azure, como os servidores do Azure Database para PostgreSQL, os discos do Azure e as cargas de trabalho mais recentes para as quais o backup do Azure dará suporte. Os cofres de backup facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento. Consulte [cofres de backup](./backup-vault-overview.md) para saber mais.
 
 ### <a name="can-the-disk-to-be-backed-up-and-the-backup-vault-be-in-different-subscriptions"></a>É possível fazer backup do disco e o cofre de backup estar em assinaturas diferentes?
 
@@ -132,4 +132,4 @@ A seguir estão as ações usadas na função de **operador de restauração de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Matriz de suporte do backup em disco do Azure](disk-backup-support-matrix.md)
+- [Matriz de suporte de Backup de Disco do Azure](disk-backup-support-matrix.md)

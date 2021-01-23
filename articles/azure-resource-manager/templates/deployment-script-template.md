@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 4d2a55355318a1bf916017fa77026a87a95b7f57
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809710"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733833"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usar scripts de implantação em modelos ARM
 
@@ -542,7 +542,7 @@ O ciclo de vida desses recursos é controlado pelas seguintes propriedades no mo
 > [!NOTE]
 > Não é recomendável usar a conta de armazenamento e a instância de contêiner que são geradas pelo serviço de script para outras finalidades. Os dois recursos podem ser removidos, dependendo do ciclo de vida do script.
 
-A instância de contêiner e a conta de armazenamento são excluídas de acordo com o `cleanupPreference` . No entanto, se o script falhar e `cleanupPreference` não estiver definido como **Always**, o processo de implantação manterá automaticamente o contêiner em execução por uma hora. Você pode usar essa hora para solucionar o problema do script. Se você quiser manter o contêiner em execução após implantações bem-sucedidas, adicione uma etapa de suspensão ao seu script. Por exemplo, adicione [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) ao final do seu script. Se você não adicionar a etapa de suspensão, o contêiner será definido como um estado de terminal e não poderá ser acessado mesmo que ainda não tenha sido excluído.
+A instância de contêiner e a conta de armazenamento são excluídas de acordo com o `cleanupPreference` . No entanto, se o script falhar e `cleanupPreference` não estiver definido como **Always**, o processo de implantação manterá automaticamente o contêiner em execução por uma hora. Você pode usar essa hora para solucionar o problema do script. Se você quiser manter o contêiner em execução após implantações bem-sucedidas, adicione uma etapa de suspensão ao seu script. Por exemplo, adicione [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) ao final do seu script. Se você não adicionar a etapa de suspensão, o contêiner será definido como um estado de terminal e não poderá ser acessado mesmo que ainda não tenha sido excluído.
 
 ## <a name="run-script-more-than-once"></a>Executar script mais de uma vez
 

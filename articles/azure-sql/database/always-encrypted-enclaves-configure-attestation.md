@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: e8cb423d4d700c4b6b6caa30a02eac3e7ef10cb6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253306"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733803"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configurar o atestado do Azure para seu servidor lógico do SQL Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "98253306"
 
 [Microsoft Azure atestado](../../attestation/overview.md) é uma solução para atestar TEEs (ambientes de execução confiáveis), incluindo o ENCLAVES Intel SGX (Intel® software Guard Extensions). 
 
-Para usar o atestado do Azure para atestado do Intel SGX enclaves usado para [Always Encrypted com Secure enclaves](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) no banco de dados SQL do Azure, você precisa:
+Para usar o atestado do Azure para atestado do Intel SGX enclaves usado para [Always Encrypted com Secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) no banco de dados SQL do Azure, você precisa:
 
 1. Crie um [provedor de atestado](../../attestation/basic-concepts.md#attestation-provider) e configure-o com a política de atestado recomendada.
 
@@ -114,7 +114,7 @@ Durante o fluxo de trabalho de atestado, o servidor lógico do SQL do Azure que 
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Usar portal do Azure para atribuir permissão
 
-Para atribuir a identidade de um SQL Server do Azure à função de leitor de atestado para um provedor de atestado, siga as instruções gerais em [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). Quando você estiver no painel **Adicionar atribuição de função** :
+Para atribuir a identidade de um SQL Server do Azure à função de leitor de atestado para um provedor de atestado, siga as instruções gerais em [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md). Quando você estiver no painel **Adicionar atribuição de função** :
 
 1. Na lista suspensa **função** , selecione a função **leitor de atestado** .
 1. No campo **selecionar** , insira o nome do seu servidor SQL do Azure para pesquisá-lo.
@@ -143,12 +143,12 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#add-a-role-assignment).
+Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Gerenciar chaves para Always Encrypted com enclaves seguros](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
+- [Gerenciar chaves para Always Encrypted com enclaves seguros](/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
 
 ## <a name="see-also"></a>Confira também
 
-- [Tutorial: introdução ao Always Encrypted com o Secure enclaves no banco de dados SQL do Azure](always-encrypted-enclaves-getting-started.md)
+- [Tutorial: Introdução ao Always Encrypted com enclaves seguros no Banco de Dados SQL do Azure](always-encrypted-enclaves-getting-started.md)

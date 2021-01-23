@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/15/2021
-ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/22/2021
+ms.openlocfilehash: a4be96d35116ed40ca61f00ed8f2ddd786760242
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251464"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735232"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra de vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -411,7 +411,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tamanho máximo de dados de TempDB (GB)|83,25|92,5|111|148|166,5|333|
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de dados máximo *|5760|6400|7680|10240|11520|23040|
+|IOPS de dados máximo *|5760|6400|7680|10240|11520|12800|
 |Taxa máxima de logs (MBps)|36|36|36|36|36|36|
 |Máximo de trabalhos simultâneos (solicitações)|900|1000|1200|1600|1800|3600|
 |Máximo de logons simultâneos|1800|2000|2400|3200|3600|7200|
@@ -468,7 +468,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tamanho máximo de log (GB)|307|307|307|307|307|307|
 |Tamanho máximo de dados de TempDB (GB)|32|64|96|128|160|192|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de dados máximo *|4.000|8,000|12.000|16.000|20,000|24.000|
+|IOPS de dados máximo *|4.000|8,000|12.000|16.000|20.000|24.000|
 |Taxa máxima de logs (MBps)|8|16|24|32|40|48|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|
 |Máximo de logons simultâneos|200|400|600|800|1000|1200|
@@ -607,8 +607,8 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de dados máximo *|31.248|37.497|49.996|99.993|160.000|
 |Taxa máxima de logs (MBps)|120|144|192|264|264|
-|Máximo de trabalhos simultâneos (solicitações)|2\.000|2.400|3\.200|6.400|12.800|
-|Máximo de logons simultâneos|2\.000|2.400|3\.200|6.400|12.800|
+|Máximo de trabalhos simultâneos (solicitações)|2.000|2.400|3\.200|6.400|12.800|
+|Máximo de logons simultâneos|2.000|2.400|3\.200|6.400|12.800|
 |Máximo de sessões simultâneas|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|
 |Multi-AZ|Não|Não|Não|Não|Não|
