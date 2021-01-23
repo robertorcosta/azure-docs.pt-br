@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 12b5c95b67f8fada29914d3a8de559280e6145f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132538"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724213"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -100,7 +100,7 @@ Agora você pode automatizar a criação, a atualização e a exclusão de conta
 - [BizAgi Studio para a Automação de Processos Digitais](../saas-apps/bizagi-studio-for-digital-process-automation-provisioning-tutorial.md)
 - [CybSafe](../saas-apps/cybsafe-provisioning-tutorial.md)
 - [GroupTalk](../saas-apps/grouptalk-provisioning-tutorial.md)
-- [PaperCut Cloud Print Management](/azure/active-directory/saas-apps/papercut-cloud-print-management-provisioning-tutorial)
+- [PaperCut Cloud Print Management](../saas-apps/papercut-cloud-print-management-provisioning-tutorial.md)
 - [Analisável](../saas-apps/parsable-provisioning-tutorial.md)
 - [Shopify Plus](../saas-apps/shopify-plus-provisioning-tutorial.md)
 
@@ -191,7 +191,7 @@ Para listar seu aplicativo na Galeria de aplicativos do Azure AD, leia os detalh
 **Categoria de serviço:** RBAC  
 **Funcionalidade do produto:** Controle de Acesso
  
- As [funções personalizadas de RBAC para o gerenciamento de aplicativos empresariais delegado](../users-groups-roles/roles-custom-available-permissions.md) agora estão em visualização pública. Essas novas permissões se baseiam nas funções personalizadas para o gerenciamento de registro de aplicativo, o que permite um controle refinado sobre o acesso dos seus administradores. Ao longo do tempo, serão lançadas permissões adicionais para delegar o gerenciamento do Azure AD.
+ As [funções personalizadas de RBAC para o gerenciamento de aplicativos empresariais delegado](../roles/custom-available-permissions.md) agora estão em visualização pública. Essas novas permissões se baseiam nas funções personalizadas para o gerenciamento de registro de aplicativo, o que permite um controle refinado sobre o acesso dos seus administradores. Ao longo do tempo, serão lançadas permissões adicionais para delegar o gerenciamento do Azure AD.
 
 Alguns cenários comuns de delegação:
 - atribuição de usuário e grupos que podem acessar aplicativos de logon único baseados em SAML
@@ -247,7 +247,7 @@ Agora você pode automatizar a criação, a atualização e a exclusão de conta
 - [Jogo – TAC Mobile](../saas-apps/tic-tac-mobile-provisioning-tutorial.md)
 - [Visibly](../saas-apps/visibly-provisioning-tutorial.md)
 
-Para obter mais informações, consulte [automatizar o provisionamento de usuário para aplicativos SaaS com o Azure ad](../manage-apps/user-provisioning.md).
+Para obter mais informações, consulte [automatizar o provisionamento de usuário para aplicativos SaaS com o Azure ad](../app-provisioning/user-provisioning.md).
  
 ---
 
@@ -301,7 +301,7 @@ O agente de provisionamento de nuvem foi lançado em visualização pública e a
  
 Anteriormente, você poderia recuperar as chaves do BitLocker por meio do ponto de extremidade/BitLocker. Eventualmente, vamos substituir esse ponto de extremidade, e os clientes devem começar a consumir a API que agora está em/informationProtection. 
 
-Consulte [API de recuperação do BitLocker](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) para obter atualizações na documentação para refletir essas alterações.
+Consulte [API de recuperação do BitLocker](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) para obter atualizações na documentação para refletir essas alterações.
 
 ---
 
@@ -1126,4 +1126,3 @@ Se sua organização estiver usando o SDK do Azure MFA, você precisará migrar 
 
 ---
 
- 

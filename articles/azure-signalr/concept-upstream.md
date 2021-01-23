@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: 33df4410b9dd82fd0b1c732eb03ab5e0e77e9869
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 6752a9564dc0d9351d1c21f5be14eb626186ac0d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763108"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724046"
 ---
 # <a name="upstream-settings"></a>Configurações de upstream
 
@@ -59,7 +59,7 @@ A URL de upstream não é criptografia em repouso. Se você tiver informações 
 
 1. Adicione uma identidade atribuída pelo sistema ou uma identidade atribuída pelo usuário. Veja [como adicionar identidade gerenciada no portal do Azure](./howto-use-managed-identity.md#add-a-system-assigned-identity)
 
-2. Conceda permissão de leitura de segredo para a identidade gerenciada nas políticas de acesso no Key Vault. Consulte [atribuir uma política de acesso de Key Vault usando o portal do Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+2. Conceda permissão de leitura de segredo para a identidade gerenciada nas políticas de acesso no Key Vault. Consulte [atribuir uma política de acesso de Key Vault usando o portal do Azure](../key-vault/general/assign-access-policy-portal.md)
 
 3. Substitua o texto confidencial pela sintaxe `{@Microsoft.KeyVault(SecretUri=<secret-identity>)}` no padrão de URL upstream.
 

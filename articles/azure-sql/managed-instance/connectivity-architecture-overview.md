@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 58563629b30e7be764732a9810162e1a0b1931e6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722395"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725829"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade de uma Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ Implante o SQL Instância Gerenciada em uma sub-rede dedicada dentro da rede vir
 - **Endereços IP suficientes:** A sub-rede do SQL Instância Gerenciada deve ter pelo menos 32 endereços IP. Para obter mais informações, consulte [determinar o tamanho da sub-rede para o SQL instância gerenciada](vnet-subnet-determine-size.md). Você pode implantar instâncias gerenciadas na [rede existente](vnet-existing-add-subnet.md) depois de configurá-las para atender aos [requisitos de rede do SQL instância gerenciada](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Quando você cria uma instância gerenciada, uma política de intenção de rede é aplicada na sub-rede para evitar alterações não compatíveis na configuração de rede. Depois que a última instância for removida da sub-rede, a política de intenção de rede também será removida. As regras a seguir são apenas para fins informativos e você não deve implantá-las usando o modelo ARM/PowerShell/CLI. Se você quiser usar o modelo oficial mais recente, sempre poderá [recuperá-lo no portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+> Quando você cria uma instância gerenciada, uma política de intenção de rede é aplicada na sub-rede para evitar alterações não compatíveis na configuração de rede. Depois que a última instância for removida da sub-rede, a política de intenção de rede também será removida. As regras a seguir são apenas para fins informativos e você não deve implantá-las usando o modelo ARM/PowerShell/CLI. Se você quiser usar o modelo oficial mais recente, sempre poderá [recuperá-lo no portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança de entrada obrigatórias com configuração de sub-rede auxiliada pelo serviço
 

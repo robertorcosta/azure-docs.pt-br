@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c96856c988cae891e64ddf460d61851102e4666c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 58ef522f5b048db0ef120625d9e894c8e14c070e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919262"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724400"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>Interfaces resilientes com processos externos
 
@@ -28,7 +28,7 @@ Neste artigo, fornecemos orientações sobre como planejar e implementar as APIs
 
 ## <a name="ensure-correct-placement-of-the-apis"></a>Garantir o posicionamento correto das APIs
 
-As políticas do IEF (Identity Experience Framework) permitem chamar um sistema externo usando um [perfil técnico da API RESTful](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile). Os sistemas externos não são controlados pelo ambiente de tempo de execução do IEF e são um ponto de falha potencial.
+As políticas do IEF (Identity Experience Framework) permitem chamar um sistema externo usando um [perfil técnico da API RESTful](../../active-directory-b2c/restful-technical-profile.md). Os sistemas externos não são controlados pelo ambiente de tempo de execução do IEF e são um ponto de falha potencial.
 
 ### <a name="how-to-manage-external-systems-using-apis"></a>Como gerenciar sistemas externos usando APIs
 
@@ -38,11 +38,11 @@ As políticas do IEF (Identity Experience Framework) permitem chamar um sistema 
 
 - Remova as chamadas de API do caminho previamente autenticado sempre que possível. Se não puder, você deve fazer proteções estritas para negação de serviço (DoS) e ataques de DDoS (negação de serviço distribuído) na frente de suas APIs. Os invasores podem carregar a página de entrada e tentar inundar sua API com ataques de DoS e inviável seu aplicativo. Por exemplo, usando CAPTCHA em sua entrada, o fluxo de inscrição pode ajudar.
 
-- Use [conectores de API do fluxo de usuário de inscrição interno](https://docs.microsoft.com/azure/active-directory-b2c/api-connectors-overview) sempre que possível para integrar com APIs Web depois de entrar com um provedor de identidade ou antes de criar o usuário. Como os fluxos de usuário já estão amplamente testados, é provável que você não precise executar testes funcionais, de desempenho ou de escala no nível de fluxo do usuário. Você ainda precisa testar seus aplicativos quanto à funcionalidade, ao desempenho e à escala.
+- Use [conectores de API do fluxo de usuário de inscrição interno](../../active-directory-b2c/api-connectors-overview.md) sempre que possível para integrar com APIs Web depois de entrar com um provedor de identidade ou antes de criar o usuário. Como os fluxos de usuário já estão amplamente testados, é provável que você não precise executar testes funcionais, de desempenho ou de escala no nível de fluxo do usuário. Você ainda precisa testar seus aplicativos quanto à funcionalidade, ao desempenho e à escala.
 
-- Os [perfis técnicos](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile) da API RESTFul do Azure ad não fornecem nenhum comportamento de Caching. Em vez disso, o perfil de API RESTFul implementa uma lógica de repetição e um tempo limite que é criado na política.
+- Os [perfis técnicos](../../active-directory-b2c/restful-technical-profile.md) da API RESTFul do Azure ad não fornecem nenhum comportamento de Caching. Em vez disso, o perfil de API RESTFul implementa uma lógica de repetição e um tempo limite que é criado na política.
 
-- Para APIs que precisam gravar dados, enfileirar uma tarefa para que essas tarefas sejam executadas por um trabalhador de segundo plano. Serviços como [filas do Azure](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction) podem ser usados. Isso fará com que a API retorne com eficiência aumentando o desempenho de execução da política.  
+- Para APIs que precisam gravar dados, enfileirar uma tarefa para que essas tarefas sejam executadas por um trabalhador de segundo plano. Serviços como [filas do Azure](../../storage/queues/storage-queues-introduction.md) podem ser usados. Isso fará com que a API retorne com eficiência aumentando o desempenho de execução da política.  
 
 ## <a name="api-error-handling"></a>Tratamento de erro de API
 
@@ -50,11 +50,11 @@ Como as APIs residem fora do sistema Azure AD B2C, é necessário ter um tratame
 
 ### <a name="how-to-gracefully-handle-api-errors"></a>Como lidar normalmente com erros de API
 
-- Uma API pode falhar por vários motivos, tornar seu aplicativo resiliente a tais falhas. [Retorne uma mensagem de erro http 4xx](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile#returning-validation-error-message) se a API não puder concluir a solicitação. Na política de Azure AD B2C, tente tratar normalmente a indisponibilidade da API e, talvez, gerar uma experiência reduzida.
+- Uma API pode falhar por vários motivos, tornar seu aplicativo resiliente a tais falhas. [Retorne uma mensagem de erro http 4xx](../../active-directory-b2c/restful-technical-profile.md#returning-validation-error-message) se a API não puder concluir a solicitação. Na política de Azure AD B2C, tente tratar normalmente a indisponibilidade da API e, talvez, gerar uma experiência reduzida.
 
-- [Manipule erros transitórios normalmente](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile#error-handling). O perfil de API RESTFul permite que você configure mensagens de erro para vários [disjuntores de circuito](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker).
+- [Manipule erros transitórios normalmente](../../active-directory-b2c/restful-technical-profile.md#error-handling). O perfil de API RESTFul permite que você configure mensagens de erro para vários [disjuntores de circuito](/azure/architecture/patterns/circuit-breaker).
 
-- Monitorar de forma proativa e usar a integração contínua/entrega contínua (CICD), girar as credenciais de acesso à API, como senhas e certificados usados pelo [mecanismo de perfil técnico](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile).
+- Monitorar de forma proativa e usar a integração contínua/entrega contínua (CICD), girar as credenciais de acesso à API, como senhas e certificados usados pelo [mecanismo de perfil técnico](../../active-directory-b2c/restful-technical-profile.md).
 
 ## <a name="api-management---best-practices"></a>Gerenciamento de API-práticas recomendadas
 
@@ -64,7 +64,7 @@ Enquanto você implanta as APIs REST e configura o perfil técnico RESTful, segu
 
 - O gerenciamento de API (APIM) publica, gerencia e analisa suas APIs. O APIM também manipula a autenticação para fornecer acesso seguro aos serviços de back-end e aos microservices. Use um gateway de API para expandir as implantações de API, o cache e o balanceamento de carga.
 
-- A recomendação é obter o token correto no início do percurso do usuário em vez de chamar várias vezes para cada API e [proteger uma API APIM do Azure](https://docs.microsoft.com/azure/active-directory-b2c/secure-api-management?tabs=app-reg-ga).
+- A recomendação é obter o token correto no início do percurso do usuário em vez de chamar várias vezes para cada API e [proteger uma API APIM do Azure](../../active-directory-b2c/secure-api-management.md?tabs=app-reg-ga).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8bfc3fb239f30911eddf0aa27496a465e36c486
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8fed78d7d2250d749ced7fe343689df76329b60d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919273"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724653"
 ---
 # <a name="build-resilience-in-application-access-with-application-proxy"></a>Crie resiliência no acesso do aplicativo com o proxy de aplicativo
 
@@ -27,7 +27,7 @@ O Proxy de Aplicativo é um recurso do Azure AD que permite que os usuários ace
 Os usuários acessam recursos locais por meio de uma URL publicada por meio do proxy de aplicativo. Eles são redirecionados para a página de entrada do Azure AD. O serviço de proxy de aplicativo no Azure AD envia um token para o conector de proxy de aplicativo na rede corporativa, que passa o token para o local Active Directory o usuário autenticado pode acessar o recurso local. No diagrama a seguir, os [conectores](../manage-apps/application-proxy-connectors.md) são mostrados em um [grupo de conectores](../manage-apps/application-proxy-connector-groups.md).
 
 > [!IMPORTANT]
-> Ao publicar seus aplicativos por meio do proxy de aplicativo, você deve implementar o [planejamento de capacidade e a redundância apropriada para os conectores de proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning).
+> Ao publicar seus aplicativos por meio do proxy de aplicativo, você deve implementar o [planejamento de capacidade e a redundância apropriada para os conectores de proxy de aplicativo](../manage-apps/application-proxy-connectors.md#capacity-planning).
 
 ![Diagrama de arquitetura do aplicativo y](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 

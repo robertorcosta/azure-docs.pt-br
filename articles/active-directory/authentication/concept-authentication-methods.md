@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562116"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725664"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quais métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -40,14 +40,14 @@ A tabela a seguir descreve as considerações de segurança para os métodos de 
 
 | Método de autenticação          | Segurança | Usabilidade | Disponibilidade |
 |--------------------------------|:--------:|:---------:|:------------:|
-| Windows Hello para Empresas     | Alta     | Alta      | Alta         |
-| Aplicativo Microsoft Authenticator    | Alta     | Alta      | Alta         |
-| Chave de segurança do FIDO2 (versão prévia)   | Alta     | Alta      | Alta         |
-| Tokens de hardware OATH (versão prévia) | Médio   | Médio    | Alta         |
-| Tokens de software OATH           | Médio   | Médio    | Alta         |
+| Windows Hello para Empresas     | Alto     | Alto      | Alto         |
+| Aplicativo Microsoft Authenticator    | Alto     | Alto      | Alto         |
+| Chave de segurança do FIDO2 (versão prévia)   | Alto     | Alto      | Alto         |
+| Tokens de hardware OATH (versão prévia) | Médio   | Médio    | Alto         |
+| Tokens de software OATH           | Médio   | Médio    | Alto         |
 | SMS                            | Médio   | Alto      | Médio       |
 | Voz                          | Médio   | Médio    | Médio       |
-| Senha                       | Baixo      | Alto      | Alta         |
+| Senha                       | Baixo      | Alto      | Alto         |
 
 Para obter as informações mais recentes sobre segurança, confira nossas postagens no blog:
 
@@ -70,7 +70,7 @@ A tabela a seguir descreve quando um método de autenticação pode ser usado du
 | Chave de segurança do FIDO2 (versão prévia)   | Sim                    | MFA                       |
 | Tokens de hardware OATH (versão prévia) | Não                     | MFA                       |
 | Tokens de software OATH           | Não                     | MFA                       |
-| SMS                            | Sim (versão prévia)          | MFA e o SSPR              |
+| SMS                            | Sim                    | MFA e o SSPR              |
 | Chamada de voz                     | Não                     | MFA e o SSPR              |
 | Senha                       | Sim                    |                           |
 
@@ -83,7 +83,7 @@ Para saber mais sobre como funciona cada método de autenticação, consulte os 
 * [Chave de segurança do FIDO2 (versão prévia)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Tokens de hardware OATH (versão prévia)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Tokens de software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
-* Entrada do SMS [(visualização)](howto-authentication-sms-signin.md) e [verificação](concept-authentication-phone-options.md#mobile-phone-verification)
+* Entrada e [verificação](concept-authentication-phone-options.md#mobile-phone-verification) [do SMS](howto-authentication-sms-signin.md)
 * [Verificação de chamada de voz](concept-authentication-phone-options.md)
 * Senha
 

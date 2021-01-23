@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c0d63df3e5525b200723db209d05e5eb5013e23
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 654e1c163a16f427958320ea081c38338e0ab4e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222353"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725385"
 ---
 # <a name="transition-to-governed-collaboration-with-azure-active-directory-b2b-collaboration"></a>Transição para colaboração regida com Azure Active Directory colaboração B2B 
 
@@ -100,7 +100,7 @@ Determine quem pode convidar usuários convidados a acessar recursos.
 
 Se você usar o gerenciamento de direitos do Azure AD, poderá configurar perguntas para que os usuários externos respondam. Em seguida, as perguntas serão mostradas aos aprovadores para ajudá-las a tomar uma decisão. Você pode configurar diferentes conjuntos de perguntas para cada [política de pacote de acesso](../governance/entitlement-management-access-package-approval-policy.md) para que os Aprovadores possam ter informações relevantes para o acesso que estão sendo aprovados. Por exemplo, se um pacote de acesso for destinado ao acesso do fornecedor, o solicitante poderá ser solicitado para o número do contrato do fornecedor. Um pacote de acesso diferente destinado a fornecedores pode solicitar seu país de origem.
 
-Se você usar um portal de autoatendimento, poderá usar [conectores de API](../external-identities/api-connectors-overview.md) para coletar atributos adicionais sobre os usuários à medida que eles se inscreverem. Você pode, potencialmente, usar esses atributos para atribuir acesso. Por exemplo, se durante o processo de inscrição você coletar sua ID de fornecedor, poderá usar esse atributo para atribuí-las dinamicamente a um grupo ou a um pacote de acesso para esse fornecedor. Você pode criar atributos personalizados no portal do Azure e usá-los nos seus fluxos dos usuários de inscrição por autoatendimento. Você também pode ler e gravar esses atributos usando a [API do Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). 
+Se você usar um portal de autoatendimento, poderá usar [conectores de API](../external-identities/api-connectors-overview.md) para coletar atributos adicionais sobre os usuários à medida que eles se inscreverem. Você pode, potencialmente, usar esses atributos para atribuir acesso. Por exemplo, se durante o processo de inscrição você coletar sua ID de fornecedor, poderá usar esse atributo para atribuí-las dinamicamente a um grupo ou a um pacote de acesso para esse fornecedor. Você pode criar atributos personalizados no portal do Azure e usá-los nos seus fluxos dos usuários de inscrição por autoatendimento. Você também pode ler e gravar esses atributos usando a [API do Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). 
 
 ### <a name="troubleshoot-invitation-redemption-to-azure-ad-users"></a>Solucionar problemas de resgate de convite para usuários do Azure AD
 
@@ -132,7 +132,7 @@ Recomendamos as seguintes restrições para usuários convidados.
 
 * **Bloquear o acesso ao portal do Azure. Você pode fazer exceções raras necessárias**. 
 
-   * Crie uma política de acesso condicional que inclua todos os usuários convidados e externos e, em seguida, [implemente uma política para bloquear o acesso](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management).
+   * Crie uma política de acesso condicional que inclua todos os usuários convidados e externos e, em seguida, [implemente uma política para bloquear o acesso](../../role-based-access-control/conditional-access-azure-management.md).
 
  
 
@@ -185,7 +185,7 @@ Por padrão, as equipes permitem acesso externo, o que significa que a organiza�
 
 ### <a name="direct-sharing-through-sharepoint-and-onedrive"></a>Compartilhamento direto por meio do SharePoint e do OneDrive
 
-O compartilhamento direto por meio do SharePoint e do OneDrive pode adicionar usuários fora do processo de gerenciamento de direitos. Para obter uma visão detalhada dessas configurações [, consulte Gerenciar o acesso com o Microsoft Teams, o SharePoint e o onedrive for Business,](9-secure-access-teams-sharepoint.md) você também pode [bloquear o uso do onedrive pessoal do usuário](https://docs.microsoft.com/office365/troubleshoot/group-policy/block-onedrive-use-from-office) , se desejado.
+O compartilhamento direto por meio do SharePoint e do OneDrive pode adicionar usuários fora do processo de gerenciamento de direitos. Para obter uma visão detalhada dessas configurações [, consulte Gerenciar o acesso com o Microsoft Teams, o SharePoint e o onedrive for Business,](9-secure-access-teams-sharepoint.md) você também pode [bloquear o uso do onedrive pessoal do usuário](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) , se desejado.
 
 ### <a name="sending-documents-through-email"></a>Enviando documentos por email
 
@@ -197,9 +197,9 @@ O panorama das ferramentas de colaboração é vasto. Os usuários provavelmente
 
 Para obter mais informações sobre como gerenciar aplicativos não aprovados, consulte:
 
-* [Controlando aplicativos conectados](https://docs.microsoft.com/cloud-app-security/governance-actions)
+* [Controlando aplicativos conectados](/cloud-app-security/governance-actions)
 
-* [Aprovar e desaprovar um aplicativo.](https://docs.microsoft.com/cloud-app-security/governance-discovery)
+* [Aprovar e desaprovar um aplicativo.](/cloud-app-security/governance-discovery)
 
  
 ### <a name="next-steps"></a>Próximas etapas

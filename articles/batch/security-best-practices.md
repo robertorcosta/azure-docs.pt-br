@@ -3,12 +3,12 @@ title: Práticas recomendadas de segurança e conformidade do lote
 description: Conheça as práticas recomendadas e dicas úteis para aprimorar a segurança com suas soluções de lote do Azure.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9732ffb810a1038a6f402a46fa8b809f180f0a8
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 6ec4a1d89ebaa9318986fc0d51e832652ba51683
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802279"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723805"
 ---
 # <a name="batch-security-and-compliance-best-practices"></a>Práticas recomendadas de segurança e conformidade do lote
 
@@ -137,8 +137,8 @@ Os nós de computação do lote têm dois discos por padrão: um disco do sistem
 
 Para segurança extra, criptografe esses discos usando um destes recursos de criptografia de disco do Azure:
 
-- [Criptografia de disco gerenciado em repouso com chaves gerenciadas pela plataforma](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Criptografia no host usando uma chave gerenciada por plataforma](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Criptografia de disco gerenciado em repouso com chaves gerenciadas pela plataforma](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Criptografia no host usando uma chave gerenciada por plataforma](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Criptografia de Disco do Azure](disk-encryption.md)
 
 ## <a name="securely-access-services-from-compute-nodes"></a>Acesse os serviços de nós de computação com segurança

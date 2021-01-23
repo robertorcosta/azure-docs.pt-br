@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18036644dc4df51bfacc5019f70ae7694757f753
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222234"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725071"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Proteja o acesso externo ao Microsoft Teams, SharePoint e OneDrive for Business 
 
@@ -77,7 +77,7 @@ Há três opções em restrições de colaboração. Seus requisitos de negócio
 
 ## <a name="govern-access-in-teams"></a>Controlar o acesso em equipes
 
-[As equipes diferenciam entre usuários externos (qualquer pessoa fora da sua organização) e os usuários convidados (aqueles com contas de convidado)](https://docs.microsoft.com/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH)). Você gerencia a configuração de colaboração no [portal de administração de equipes](https://admin.teams.microsoft.com/company-wide-settings/external-communications) em configurações de toda a organização. 
+[As equipes diferenciam entre usuários externos (qualquer pessoa fora da sua organização) e os usuários convidados (aqueles com contas de convidado)](/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH%e2%80%8b)). Você gerencia a configuração de colaboração no [portal de administração de equipes](https://admin.teams.microsoft.com/company-wide-settings/external-communications) em configurações de toda a organização. 
 
 > [!NOTE]
 > As configurações de colaboração de identidades externas no Azure Active Directory controlar as permissões efetivas. Você pode aumentar as restrições nas equipes, mas não diminuí-las do que está definido no Azure AD.
@@ -88,13 +88,13 @@ Há três opções em restrições de colaboração. Seus requisitos de negócio
 
 Para saber mais sobre como gerenciar o acesso externo em equipes, consulte os recursos a seguir.
 
-* [Gerenciar o acesso externo no Microsoft Teams](https://docs.microsoft.com/microsoftteams/manage-external-access)
+* [Gerenciar o acesso externo no Microsoft Teams](/microsoftteams/manage-external-access)
 
-* [Microsoft 365 modelos de identidade e Azure Active Directory](https://docs.microsoft.com/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Microsoft 365 modelos de identidade e Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
 
-* [Modelos de identidade e autenticação para o Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/identify-models-authentication)
+* [Modelos de identidade e autenticação para o Microsoft Teams](/MicrosoftTeams/identify-models-authentication)
 
-* [Rótulos de sensibilidade para o Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/sensitivity-labels)
+* [Rótulos de sensibilidade para o Microsoft Teams](/MicrosoftTeams/sensitivity-labels)
 
 ## <a name="govern-access-in-sharepoint-and-onedrive"></a>Controlar o acesso no SharePoint e no OneDrive
 
@@ -102,9 +102,9 @@ Os administradores do SharePoint têm muitas configurações disponíveis para c
 
 ### <a name="integrating-sharepoint-and-one-drive-with-azure-ad-b2b"></a>Integrando o SharePoint e um-drive ao Azure AD B2B
 
-Como parte de sua estratégia geral para administrar a colaboração externa, recomendamos que você [habilite a visualização da integração do SharePoint e do onedrive com o Azure ad B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview) .
+Como parte de sua estratégia geral para administrar a colaboração externa, recomendamos que você [habilite a visualização da integração do SharePoint e do onedrive com o Azure ad B2B](/sharepoint/sharepoint-azureb2b-integration-preview) .
 
-O Azure AD B2B fornece autenticação e gerenciamento de usuários convidados. Com a integração do SharePoint e do OneDrive, as senhas de uso [único do Azure ad B2B](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) são usadas para o compartilhamento externo de arquivos, pastas, itens de lista, bibliotecas de documentos e sites. Esse recurso fornece uma experiência atualizada da experiência de [destinatário de compartilhamento externo seguro](https://docs.microsoft.com/sharepoint/what-s-new-in-sharing-in-targeted-release)existente.
+O Azure AD B2B fornece autenticação e gerenciamento de usuários convidados. Com a integração do SharePoint e do OneDrive, as senhas de uso [único do Azure ad B2B](../external-identities/one-time-passcode.md) são usadas para o compartilhamento externo de arquivos, pastas, itens de lista, bibliotecas de documentos e sites. Esse recurso fornece uma experiência atualizada da experiência de [destinatário de compartilhamento externo seguro](/sharepoint/what-s-new-in-sharing-in-targeted-release)existente.
 
 > [!NOTE]
 > Se você habilitar a visualização para a integração B2B do Azure AD, o compartilhamento do SharePoint e do OneDrive estará sujeito às configurações de relações organizacionais do Azure AD, como **os membros podem convidar** e **convidados podem convidar**.
@@ -171,9 +171,9 @@ Não recomendamos habilitar links de qualquer pessoa. Se você fizer isso, é re
 
 Para saber mais sobre como governar o acesso externo ao SharePoint, consulte o seguinte:
 
-* [Visão geral do compartilhamento externo do SharePoint](https://docs.microsoft.com/sharepoint/external-sharing-overview)
+* [Visão geral do compartilhamento externo do SharePoint](/sharepoint/external-sharing-overview)
 
-* [Integração do SharePoint e do OneDrive com o Azure AD B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview)
+* [Integração do SharePoint e do OneDrive com o Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview)
 
 #### <a name="next-steps"></a>Próximas etapas
 

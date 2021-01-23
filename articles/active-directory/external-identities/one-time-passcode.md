@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aebfaa176992b7e20824518bc214a6688ae493
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a9a0668b3ea651d129dc076e5f2247e38f5ab7d0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703578"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725488"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticação de senha de uso único de email
 
@@ -102,7 +102,7 @@ Se você tiver optado anteriormente pela visualização pública de senha de uso
 
 ![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-No entanto, se você preferir recusar o recurso e permitir que ele seja habilitado automaticamente em março de 2021, você poderá reverter para as configurações padrão usando o tipo de recurso de [configuração do método de autenticação de email](https://aka.ms/exid-graphemailauth)Microsoft Graph API. Depois de reverter para as configurações padrão, as opções a seguir estarão disponíveis em **senha de uso único de email para convidados**:
+No entanto, se você preferir recusar o recurso e permitir que ele seja habilitado automaticamente em março de 2021, você poderá reverter para as configurações padrão usando o tipo de recurso de [configuração do método de autenticação de email](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Depois de reverter para as configurações padrão, as opções a seguir estarão disponíveis em **senha de uso único de email para convidados**:
 
 - **Habilite automaticamente a senha de uso único de email para convidados em março de 2021**. Os Se o recurso de senha de email de uso único já não estiver habilitado para seu locatário, ele será automaticamente ativado em março de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
 

@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: d3bd63566daaf6e1d3e3343b5956d8a8d5fc8ea5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224437"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725779"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Entender e resolver problemas de bloqueio do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -185,7 +185,7 @@ Consulte o documento que explica como usar o assistente para [nova sessão de ev
     -   Sql_batch_completed
     -   Sql_batch_starting
 
--   Lock
+-   Bloqueio
     -   Lock_deadlock
 
 -   Session
@@ -345,7 +345,7 @@ Os cenários a seguir se expandirão nesses cenários.
     Depois de enviar uma consulta para o servidor, todos os aplicativos devem buscar imediatamente todas as linhas de resultado para conclusão. Se um aplicativo não buscar todas as linhas de resultado, os bloqueios poderão ser deixados nas tabelas, bloqueando outros usuários. Se você estiver usando um aplicativo que envia de forma transparente instruções SQL para o servidor, o aplicativo deve buscar todas as linhas de resultado. Se não for (e se não puder ser configurado para fazer isso), talvez você não consiga resolver o problema de bloqueio. Para evitar o problema, você pode restringir aplicativos com mau desempenho para um relatório ou um banco de dados de suporte a decisões.
     
     > [!NOTE]
-    > Consulte as [diretrizes para lógica de repetição](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) para aplicativos que se conectam ao banco de dados SQL do Azure. 
+    > Consulte as [diretrizes para lógica de repetição](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) para aplicativos que se conectam ao banco de dados SQL do Azure. 
     
     **Resolução**: o aplicativo deve ser reescrito para buscar todas as linhas do resultado para conclusão. Isso não regra o uso de [offset e FETCH na cláusula order by](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) de uma consulta para executar a paginação do servidor.
 

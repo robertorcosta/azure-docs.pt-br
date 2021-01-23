@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928759"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723873"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como conectar Azure Data Factory e o Azure alcance
 
@@ -99,12 +99,12 @@ A integração entre Data Factory e alcance dá suporte apenas a um subconjunto 
 
 | Sistema de armazenamento de dados | Tem suporte como origem | Tem suporte como coletor |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (sem suporte a JSON) | Sim | Sim (somente cópia não binária) |
-| ADLS Gen2 (sem suporte a JSON) | Sim | Sim |
-| Blob do Azure (sem suporte a JSON) | Sim | Sim |
+| ADLS Gen1 | Sim | Sim (somente cópia não binária) |
+| ADLS Gen2 | Sim | Sim |
+| Blob do Azure | Sim | Sim |
 | Azure Cosmos DB (API do SQL) | Sim | Sim |
 | Azure Cosmos DB (API Mongo) | Sim | Sim |
-| Azure Cognitive Search | Sim | Sim |
+| Pesquisa Cognitiva do Azure | Sim | Sim |
 | Azure Data Explorer | Sim | Sim |
 | Banco de dados do Azure para Maria DB \* | Sim | Sim |
 | Banco de dados do Azure para MYSQL \* | Sim | Sim |

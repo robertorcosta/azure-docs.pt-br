@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa334c21e23ecddad287846d34aaf0d72af66cc
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 6d476be7a417cfc31cca76d3409074aaaa281a56
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602177"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724603"
 ---
 # <a name="build-resilience-with-device-states"></a>Crie resiliência com os Estados do dispositivo
 
@@ -40,11 +40,11 @@ Quando um PRT é usado para solicitar acesso a um aplicativo, suas declarações
 
   Se houver versões mais antigas do Windows em sua organização, atualize esses dispositivos para usar o Windows 10.
 
-* Padronize o acesso do navegador do usuário para usar o [Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-security-identity) ou o Google Chrome com [extensões](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [com suporte](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) que habilitaram o SSO contínuo para aplicativos Web usando o PRT.
+* Padronize o acesso do navegador do usuário para usar o [Microsoft Edge](/deployedge/microsoft-edge-security-identity) ou o Google Chrome com [extensões](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb) [com suporte](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji) que habilitaram o SSO contínuo para aplicativos Web usando o PRT.
 
-* Para dispositivos iOS e Android pessoais ou de propriedade da empresa, implante o [aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Além da autenticação multifator e recursos de entrada sem senha, o aplicativo Microsoft Authenticator habilitará o logon único entre aplicativos nativos por meio da [autenticação orientada](../develop/brokered-auth.md) com menos prompts de autenticação para os usuários finais.
+* Para dispositivos iOS e Android pessoais ou de propriedade da empresa, implante o [aplicativo Microsoft Authenticator](../user-help/user-help-auth-app-overview.md). Além da autenticação multifator e recursos de entrada sem senha, o aplicativo Microsoft Authenticator habilitará o logon único entre aplicativos nativos por meio da [autenticação orientada](../develop/msal-android-single-sign-on.md) com menos prompts de autenticação para os usuários finais.
 
-* Para dispositivos iOS e Android pessoais ou de propriedade da empresa, use o [Gerenciamento de aplicativos móveis](https://docs.microsoft.com/mem/intune/apps/app-management) para acessar com segurança os recursos da empresa com menos solicitações de autenticação. 
+* Para dispositivos iOS e Android pessoais ou de propriedade da empresa, use o [Gerenciamento de aplicativos móveis](/mem/intune/apps/app-management) para acessar com segurança os recursos da empresa com menos solicitações de autenticação. 
 
 * [Use o plug-in Microsoft Enterprise SSO para dispositivos Apple (versão prévia)](../develop/apple-sso-plugin.md). Isso registra o dispositivo e fornece SSO no navegador e em aplicativos nativos do Azure AD. 
 

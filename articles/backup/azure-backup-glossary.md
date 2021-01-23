@@ -3,12 +3,12 @@ title: Glossário do backup do Azure
 description: Este artigo define os termos úteis para uso com o backup do Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 121258665ab275fdcffd618e7c0cf1b3e0537e70
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 5b575e0f56c9cf39987e9e77850ab1d9b2e80d93
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661469"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723907"
 ---
 # <a name="azure-backup-glossary"></a>Glossário do backup do Azure
 
@@ -21,7 +21,7 @@ Este glossário de termos pode ser útil ao usar o backup do Azure.
 
 ## <a name="afs-azure-file-shares"></a>AFS (compartilhamentos de arquivos do Azure)
 
-Consulte a [documentação dos arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Consulte a [documentação dos arquivos do Azure](../storage/files/storage-files-introduction.md).
 
 ## <a name="alternate-location-recovery"></a>Recuperação em local alternativo
 
@@ -35,7 +35,7 @@ Backups consistentes com o aplicativo capturam conteúdo de memória e operaçõ
 
 ## <a name="azure-resource-manager-arm-templates"></a>Modelos do Azure Resource Manager (ARM)
 
-Consulte a [documentação de modelos ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+Consulte a [documentação de modelos ARM](../azure-resource-manager/templates/overview.md).
 
 ## <a name="autoprotection-for-databases"></a>Autoproteção (para bancos de dados)
 
@@ -49,38 +49,38 @@ O backup do Azure oferece três tipos de replicação para manter o armazenament
 
 ### <a name="lrs"></a>LRS
 
-O [LRS (armazenamento com redundância local)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#locally-redundant-storage) Replica seus dados de backup três vezes (ele cria três cópias dos dados de backup) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados de backup existem na mesma região. O LRS é uma opção de baixo custo para proteger seus dados de backup de falhas de hardware local.
+O [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md#locally-redundant-storage) Replica seus dados de backup três vezes (ele cria três cópias dos dados de backup) em uma unidade de escala de armazenamento em um datacenter. Todas as cópias dos dados de backup existem na mesma região. O LRS é uma opção de baixo custo para proteger seus dados de backup de falhas de hardware local.
 
 ### <a name="grs"></a>GRS
 
-O [GRS (armazenamento com redundância geográfica)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage) é a opção de replicação padrão e recomendada. O GRS Replica seus dados de backup para uma região secundária, a centenas de quilômetros de distância do local principal dos dados de origem. O GRS custa mais do que o LRS, mas o GRS fornece um nível mais alto de durabilidade para seus dados de backup, mesmo se houver uma interrupção regional.
+O [GRS (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md#geo-redundant-storage) é a opção de replicação padrão e recomendada. O GRS Replica seus dados de backup para uma região secundária, a centenas de quilômetros de distância do local principal dos dados de origem. O GRS custa mais do que o LRS, mas o GRS fornece um nível mais alto de durabilidade para seus dados de backup, mesmo se houver uma interrupção regional.
 
 >[!NOTE]
 >Para cofres GRS que têm o recurso de restauração entre regiões habilitado, o armazenamento de backup é atualizado de GRS para RA-GRS (armazenamento de Geo-Redundant de acesso de leitura).
 
 ### <a name="zrs"></a>ZRS
 
-O [ZRS (armazenamento com redundância de zona)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage) Replica seus dados de backup em [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantindo a residência e a resiliência dos dados de backup na mesma região. Portanto, é possível fazer backup de suas cargas de trabalho críticas que exigem [residência de dados](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) no ZRS.
+O [ZRS (armazenamento com redundância de zona)](../storage/common/storage-redundancy.md#zone-redundant-storage) Replica seus dados de backup em [zonas de disponibilidade](../availability-zones/az-overview.md#availability-zones), garantindo a residência e a resiliência dos dados de backup na mesma região. Portanto, é possível fazer backup de suas cargas de trabalho críticas que exigem [residência de dados](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) no ZRS.
 
 ## <a name="azure-command-line-interface-cli"></a>CLI (interface de linha de comando) do Azure
 
-Consulte a [documentação do CLI do Azure](https://docs.microsoft.com/cli/azure/what-is-azure-cli).
+Consulte a [documentação do CLI do Azure](/cli/azure/what-is-azure-cli).
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Consulte a [documentação do Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview).
+Consulte a [documentação do Azure Policy](../governance/policy/overview.md).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Consulte a [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Consulte a [documentação do Azure PowerShell](/powershell/azure/).
 
 ## <a name="azure-resource-manager-arm"></a>Azure Resource Manager (ARM)
 
-Consulte a [documentação do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+Consulte a [documentação do Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 ## <a name="azure-disk-encryption-ade"></a>Azure Disk Encryption (ADE)
 
-Consulte a [documentação do Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss).
+Consulte a [documentação do Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md).
 
 ## <a name="backend-storage--cloud-storage--backup-storage"></a>Armazenamento de back-end/armazenamento na nuvem/armazenamento de backup
 
@@ -124,11 +124,11 @@ Instantâneos com consistência de falhas normalmente ocorrem se uma VM do Azure
 
 ## <a name="cross-region-restore-crr"></a>CRR (restauração entre regiões)
 
-Como uma das [Opções de restauração](backup-azure-arm-restore-vms.md#restore-options), a CRR (restauração entre regiões) permite que você restaure itens de backup em uma região secundária, que é uma [região emparelhada do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).
+Como uma das [Opções de restauração](backup-azure-arm-restore-vms.md#restore-options), a CRR (restauração entre regiões) permite que você restaure itens de backup em uma região secundária, que é uma [região emparelhada do Azure](../best-practices-availability-paired-regions.md#what-are-paired-regions).
 
 ## <a name="data-box"></a>Caixa de dados
 
-Consulte a [documentação da caixa de dados](https://docs.microsoft.com/azure/databox/data-box-overview).
+Consulte a [documentação da caixa de dados](../databox/data-box-overview.md).
 
 ## <a name="datasource"></a>Fonte de dados
 
@@ -138,11 +138,11 @@ Um recurso (recurso do Azure, recurso de proxy ou recurso local) que é um candi
 
 (Termo específico da carga de trabalho)
 
-Consulte a [documentação do DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview).
+Consulte a [documentação do DPM](/system-center/dpm/dpm-overview).
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Consulte a [documentação do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Consulte a [documentação do ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="file-system-consistent-backup"></a>Backup consistente do sistema de arquivos
 
@@ -164,7 +164,7 @@ Uma política de backup do GFS (avô-pai-filho) é aquela que permite que você 
 
 ## <a name="iaas-vms--azure-vms"></a>VMs IaaS/VMs do Azure
 
-Consulte a [documentação da VM do Azure](https://docs.microsoft.com/azure/virtual-machines/).
+Consulte a [documentação da VM do Azure](../virtual-machines/index.yml).
 
 ## <a name="incremental-backup"></a>Backup incremental
 
@@ -196,7 +196,7 @@ Com o Servidor de Backup do Azure, você pode proteger cargas de trabalho do apl
 
 ## <a name="managed-disks"></a>Discos gerenciados
 
-Consulte a [documentação dos Managed disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+Consulte a [documentação dos Managed disks](../virtual-machines/managed-disks-overview.md).
 
 ## <a name="mars-agent"></a>Agente MARS
 
@@ -206,7 +206,7 @@ Também conhecido como **agente de backup do Azure** ou **agente de serviços de
 
 ## <a name="nsg-network-security-group"></a>NSG (grupo de segurança de rede)
 
-Consulte a [documentação do NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview).
+Consulte a [documentação do NSG](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="offline-seeding"></a>Propagação offline
 
@@ -228,7 +228,7 @@ Uma frase secreta é usada para criptografar e descriptografar dados durante o b
 
 ## <a name="private-endpoint"></a>Ponto de extremidade privado
 
-Consulte a [documentação do ponto de extremidade privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Consulte a [documentação do ponto de extremidade privado](../private-link/private-endpoint-overview.md).
 
 ## <a name="protected-instance"></a>Instância protegida
 
@@ -236,7 +236,7 @@ Uma instância protegida refere-se ao computador, servidor físico ou virtual qu
 
 ## <a name="rbac-role-based-access-control"></a>RBAC (controle de acesso baseado em função)
 
-Consulte a [documentação do RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Consulte a [documentação do RBAC](../role-based-access-control/overview.md).
 
 ## <a name="recovery-point-restore-point-retention-point--point-in-time-pit"></a>Ponto de recuperação/ponto de restauração/ponto de retenção/ponto no tempo (PIT)
 
@@ -246,13 +246,13 @@ Uma cópia dos dados originais que estão sendo submetidos a backup. Um ponto de
 
 Um recurso de Azure Resource Manager do tipo *Microsoft. recoveryservices/cofres*. Atualmente, os cofres dos serviços de recuperação são usados para fazer backup das seguintes cargas de trabalho: VMs do Azure, SQL em VMs do Azure, SAP HANA em VMs do Azure e compartilhamentos de arquivos do Azure. Ele também é usado para fazer backup de cargas de trabalho locais usando MARS, Servidor de Backup do Azure (MABS) e System Center DPM. [Saiba mais sobre os cofres dos serviços de recuperação](backup-azure-recovery-services-vault-overview.md).
 
-## <a name="resource-group"></a>Resource group
+## <a name="resource-group"></a>Grupo de recursos
 
-Consulte a [documentação do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group).
+Consulte a [documentação do Azure Resource Manager](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
 ## <a name="rest-api"></a>API REST
 
-Consulte a [documentação da API REST do Azure](https://docs.microsoft.com/rest/api/azure/).
+Consulte a [documentação da API REST do Azure](/rest/api/azure/).
 
 ## <a name="retention-rule"></a>Regra de retenção
 
@@ -272,7 +272,7 @@ Um trabalho de backup que é disparado automaticamente pela política de backup 
 
 ## <a name="secondary-region--paired-region"></a>Região secundária/região emparelhada
 
-Um par regional consiste em duas regiões na mesma geografia. Uma é a região primária e a outra é a região secundária. As regiões emparelhadas são usadas por alguns serviços do Azure (incluindo o backup do Azure com configurações de GRS) para garantir a continuidade dos negócios e proteger contra perda de dados. [Saiba mais](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Um par regional consiste em duas regiões na mesma geografia. Uma é a região primária e a outra é a região secundária. As regiões emparelhadas são usadas por alguns serviços do Azure (incluindo o backup do Azure com configurações de GRS) para garantir a continuidade dos negócios e proteger contra perda de dados. [Saiba mais](../best-practices-availability-paired-regions.md).
 
 ## <a name="soft-delete"></a>Exclusão reversível
 
@@ -280,11 +280,11 @@ A exclusão reversível é um recurso que ajuda a proteger contra a exclusão ac
 
 ## <a name="snapshot"></a>Instantâneo
 
-Um instantâneo é uma cópia completa e somente leitura de um disco rígido virtual (VHD) ou de um compartilhamento de arquivos do Azure. Saiba mais sobre instantâneos de [disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk) e [instantâneos de arquivo](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
+Um instantâneo é uma cópia completa e somente leitura de um disco rígido virtual (VHD) ou de um compartilhamento de arquivos do Azure. Saiba mais sobre instantâneos de [disco](../virtual-machines/windows/snapshot-copy-managed-disk.md) e [instantâneos de arquivo](../storage/files/storage-snapshots-files.md).
 
 ## <a name="storage-account"></a>Conta de armazenamento
 
-Consulte a [documentação da conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Consulte a [documentação da conta de armazenamento](../storage/common/storage-account-overview.md).
 
 ## <a name="subscription"></a>Assinatura
 
@@ -302,7 +302,7 @@ Um locatário é uma representação de uma organização. É uma instância ded
 
 ## <a name="unmanaged-disk"></a>Disco não gerenciado
 
-Consulte a [documentação discos não gerenciados](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance#azure-unmanaged-disks).
+Consulte a [documentação discos não gerenciados](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks).
 
 ## <a name="vault"></a>Cofre
 
@@ -314,11 +314,11 @@ O arquivo de credenciais do cofre é um certificado gerado pelo portal para cada
 
 ## <a name="vnet-virtual-network"></a>VNET (rede virtual)
 
-Consulte a [documentação da VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Consulte a [documentação da VNET](../virtual-network/virtual-networks-overview.md).
 
 ## <a name="vss-windows-volume-shadow-copy-service"></a>VSS (Windows Serviço de Cópias de Sombra de Volume)
 
-Consulte a [documentação do VSS](https://docs.microsoft.com/windows-server/storage/file-server/volume-shadow-copy-service).
+Consulte a [documentação do VSS](/windows-server/storage/file-server/volume-shadow-copy-service).
 
 ## <a name="next-steps"></a>Próximas etapas
 

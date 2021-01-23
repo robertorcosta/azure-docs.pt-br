@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6814cafcf6dafa6f007bdd9d3623d30ef079084
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 37c27e84f15a01a2d8832baae137518685de59a8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222438"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725434"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>Determinar sua postura de segurança para acesso externo 
 
@@ -69,7 +69,7 @@ Seja qual for sua aplicar para sua organização e cenários, você precisará:
 
 * **Controle o acesso a aplicativos, dados e conteúdo**. Isso pode ser feito por meio de uma variedade de métodos, dependendo de suas versões do [Azure ad](https://azure.microsoft.com/pricing/details/active-directory/) e [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
-* **Reduza a superfície de ataque**. O [Privileged Identity Management](../privileged-identity-management/pim-configure.md), a [DLP (prevenção de perda de dados)](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) e os [recursos de criptografia](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) reduzem a superfície de ataque.
+* **Reduza a superfície de ataque**. O [Privileged Identity Management](../privileged-identity-management/pim-configure.md), a [DLP (prevenção de perda de dados)](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) e os [recursos de criptografia](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) reduzem a superfície de ataque.
 
 * **Analise regularmente a atividade e o log de auditoria para confirmar a conformidade**. Ele pode delegar decisões de acesso a proprietários de negócios por meio do gerenciamento de direitos enquanto as revisões de acesso fornecem uma maneira de confirmar periodicamente o acesso contínuo. A classificação automatizada de dados com rótulos de sensibilidade ajuda a automatizar a criptografia de conteúdo confidencial, facilitando a conformidade dos usuários finais dos funcionários.
 
@@ -96,4 +96,3 @@ Consulte os artigos a seguir sobre como proteger o acesso externo aos recursos. 
 9. [Proteger o acesso ao Microsoft Teams, OneDrive e SharePoint](9-secure-access-teams-sharepoint.md)
  
 
- 
