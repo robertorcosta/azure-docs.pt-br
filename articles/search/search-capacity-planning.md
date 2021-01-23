@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4a9a6b61e392ed2efd68cdcb1cf7e53d6bde5ccd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249666"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702778"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Estimar e gerenciar a capacidade de um serviço de Pesquisa Cognitiva do Azure
 
 Antes de [provisionar um serviço de pesquisa](search-create-service-portal.md) e bloqueá-lo em um tipo de preço específico, reserve alguns minutos para entender como a capacidade funciona e como você pode ajustar réplicas e partições para acomodar a flutuação de carga de trabalho.
 
-A capacidade é uma função da [camada de serviço](search-sku-tier.md). As camadas são diferenciadas pelo armazenamento máximo, pelo armazenamento por partição e pelos limites máximos no número de objetos que você pode criar. A camada básica foi projetada para aplicativos com requisitos de armazenamento modestos (apenas uma partição), mas com a capacidade de executar em uma configuração de alta disponibilidade (3 réplicas). Outras camadas são projetadas para cargas de trabalho ou padrões específicos, como multilocação. Internamente, os serviços criados nessas camadas se beneficiam do hardware que ajuda esses cenários.
+A capacidade é uma função da [camada de serviço](search-sku-tier.md), estabelecendo o armazenamento máximo por serviço, por partição e os limites máximos no número de objetos que você pode criar. A camada básica foi projetada para aplicativos com requisitos de armazenamento modestos (apenas uma partição), mas com a capacidade de executar em uma configuração de alta disponibilidade (3 réplicas). Outras camadas são projetadas para cargas de trabalho ou padrões específicos, como multilocação. Internamente, os serviços criados nessas camadas se beneficiam do hardware que ajuda esses cenários.
 
 A arquitetura de escalabilidade no Azure Pesquisa Cognitiva baseia-se em combinações flexíveis de réplicas e partições para que você possa variar a capacidade dependendo se precisa de mais poder de consulta ou de indexação. Depois que um serviço é criado, você pode aumentar ou diminuir o número de réplicas ou partições de forma independente. Os custos aumentarão com cada recurso físico adicional, mas assim que grandes cargas de trabalho forem concluídas, você poderá reduzir a escala para reduzir sua fatura. Dependendo da camada e do tamanho do ajuste, adicionar ou reduzir a capacidade pode levar de 15 minutos a várias horas.
 

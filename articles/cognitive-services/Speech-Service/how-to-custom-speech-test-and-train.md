@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: ed79d9fb3be192d300587eda5198d9b153109241
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209773"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702195"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -46,9 +46,9 @@ Esta tabela lista os tipos de dados aceitos, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Usado para teste | Quantidade recomendada | Usado para treinamento | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Yes<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/D |
-| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Yes | 1-20 horas de áudio |
-| [Texto relacionado](#related-text-data-for-training) | No | N/A | Yes | 1-200 MB de texto relacionado |
+| [Sonoro](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | mais de 5 arquivos de áudio | Não | N/D |
+| [Áudio + transcrições com rótulo humano](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5 a 5 horas de áudio | Sim | 1-20 horas de áudio |
+| [Texto relacionado](#related-text-data-for-training) | Não | N/A | Sim | 1-200 MB de texto relacionado |
 
 Ao treinar um novo modelo, comece com o [texto relacionado](#related-text-data-for-training). Esses dados já melhorarão o reconhecimento de termos e frases especiais. O treinamento com texto é muito mais rápido do que o treinamento com áudio (minutos versus dias).
 
@@ -174,7 +174,7 @@ Use esta tabela para garantir que o arquivo de dados relacionado para declaraç�
 
 Além disso, você desejará considerar as seguintes restrições:
 
-* Evite repetir caracteres mais de quatro vezes. Por exemplo: "aaaa" ou "uuuu".
+* Evite repetir caracteres, palavras ou grupos de palavras mais de três vezes. Por exemplo: "aaaa", "Sim Sim Sim", ou "é isso é que isso é isso". O serviço de fala pode soltar as linhas com muitas repetições.
 * Não use caracteres especiais ou caracteres UTF-8 acima `U+00A1` .
 * Os URIs serão rejeitados.
 

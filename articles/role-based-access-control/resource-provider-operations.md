@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 01/15/2021
 ms.custom: generated
-ms.openlocfilehash: 36f266a8402721dffecc9e80c4f769bd51b0e172
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: a521623447f4415e35a06c5c60e3723a69b4aa15
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539089"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700594"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
@@ -1464,7 +1464,7 @@ Serviço do Azure: [Azure data Box](../databox/index.yml)
 
 ### <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
-Serviço do Azure: [importação/exportação do Azure](../storage/common/storage-import-export-service.md)
+Serviço do Azure: [importação/exportação do Azure](../import-export/storage-import-export-service.md)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -7255,7 +7255,7 @@ Serviço do Azure: [DevOps do Azure](/azure/devops/)
 > | Microsoft.VisualStudio/Project/Delete | Exclui o Projeto |
 > | Microsoft.VisualStudio/Project/Read | Lê o Projeto |
 
-## <a name="migrate"></a>Migrações
+## <a name="migrate"></a>Migrar
 
 ### <a name="microsoftmigrate"></a>Microsoft.Migrate
 
@@ -7730,7 +7730,7 @@ Serviço do Azure: [migrações para Azure](../migrate/migrate-services-overview
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | Obtém as propriedades de um vCenter VMware |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | Cria ou atualiza o vCenter VMware |
 
-## <a name="monitor"></a>Monitor
+## <a name="monitor"></a>Monitoramento
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 

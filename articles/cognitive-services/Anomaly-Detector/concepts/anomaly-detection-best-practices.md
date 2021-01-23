@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705142"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702719"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Práticas recomendadas para usar a API do detector de anomalias
 
@@ -25,7 +25,7 @@ A API do detector de anomalias é um serviço de detecção de anomalias sem est
 * Os parâmetros da API do detector de anomalias que foram usados.
 * O número de pontos de dados em sua solicitação de API. 
 
-Use este artigo para saber mais sobre as práticas recomendadas para usar a API obtendo os melhores resultados para seus dados. 
+Use este artigo para saber mais sobre as práticas recomendadas para usar a API para obter os melhores resultados para seus dados. 
 
 ## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Quando usar o lote (inteiro) ou a detecção de anomalias de ponto mais recente (último)
 
@@ -34,7 +34,7 @@ O ponto de extremidade de detecção de lote da API do detector de anomalias per
 * Uma série temporal sazonal, com anomalias ocasionais.
 * Uma série temporal de tendência simples, com picos ocasionais/DIPs. 
 
-Não é recomendável usar a detecção de anomalias em lote para monitoramento de dados em tempo real ou usá-la em dados de série temporal que não têm características acima. 
+Não é recomendável usar a detecção de anomalias em lote para monitoramento de dados em tempo real ou usá-la em dados de série temporal que não têm as características acima. 
 
 * A detecção de lote cria e aplica apenas um modelo, a detecção de cada ponto é feita no contexto da série inteira. Se as tendências de dados de série temporal estiverem para cima e para baixo sem sazonalidade, alguns pontos de alteração (DIPs e picos nos dados) poderão ser perdidos pelo modelo. Da mesma forma, alguns pontos de alteração que são menos significativos do que os mais tarde no conjunto de dados podem não ser contados como significativos o suficiente para serem incorporados ao modelo.
 
@@ -87,7 +87,7 @@ Os pontos de dados ausentes são comuns em conjuntos de dados de série temporal
 
 ### <a name="aggregate-distributed-data"></a>Agregar dados distribuídos
 
-A API do detector de anomalias funciona melhor em uma série temporal distribuída uniformemente. Se os dados forem distribuídos aleatoriamente, você deverá agregar-os por uma unidade de tempo, como por minuto, por hora ou por dia, por exemplo.
+A API do detector de anomalias funciona melhor em uma série temporal distribuída uniformemente. Se os dados forem distribuídos aleatoriamente, você deverá agregar-os por uma unidade de tempo, como por minuto, por hora ou por dia.
 
 ## <a name="anomaly-detection-on-data-with-seasonal-patterns"></a>Detecção de anomalias em dados com padrões sazonais
 
@@ -95,7 +95,7 @@ Se você sabe que os dados de série temporal têm um padrão sazonal (um que oc
 
 A especificação de um `period` quando você constrói sua solicitação JSON pode reduzir a latência de detecção de anomalias em até 50%. O `period` é um inteiro que especifica aproximadamente quantos pontos de dados a série temporal leva para repetir um padrão. Por exemplo, uma série temporal com um ponto de dados por dia teria um `period` as `7` , e uma série temporal com um ponto por hora (com o mesmo padrão semanal) teria um `period` de  `7*24` . Se você não tiver certeza dos padrões de seus dados, não precisará especificar esse parâmetro.
 
-Para obter melhores resultados, forneça `period` um ponto de dados de 4 dias, mais um adicional. Por exemplo, dados por hora com um padrão semanal, conforme descrito acima, devem fornecer 673 pontos de dados no corpo da solicitação ( `7 * 24 * 4 + 1` ).
+Para obter melhores resultados, forneça `period` um ponto de dados de quatro dias, mais um adicional. Por exemplo, dados por hora com um padrão semanal, conforme descrito acima, devem fornecer 673 pontos de dados no corpo da solicitação ( `7 * 24 * 4 + 1` ).
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Dados de amostragem para monitoramento em tempo real
 
@@ -104,4 +104,4 @@ Se os dados de streaming forem amostrados em um intervalo curto (por exemplo, se
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é a API do Detector de Anomalias?](../overview.md)
-* [Início rápido: detectar anomalias nos dados de série temporal usando o detector de anomalias](../quickstarts/client-libraries.md)
+* [Início Rápido: Detectar anomalias nos dados de série temporal usando o Detector de Anomalias](../quickstarts/client-libraries.md)

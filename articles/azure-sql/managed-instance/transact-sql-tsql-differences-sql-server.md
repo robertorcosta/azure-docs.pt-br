@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6fb17ead2546875c0f334aae322f8fb070e8f1ea
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684895"
+ms.locfileid: "98699507"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -168,7 +168,7 @@ O SQL Instância Gerenciada não pode acessar arquivos, portanto, os provedores 
     - Exportar um banco de dados do SQL Instância Gerenciada e importar para o banco de dados SQL dentro do mesmo domínio do Azure AD. 
     - Exporte um banco de dados do banco de dados SQL e importe para o SQL Instância Gerenciada no mesmo domínio do Azure AD.
     - Exporte um banco de dados do SQL Instância Gerenciada e importe para SQL Server (versão 2012 ou posterior).
-      - Nessa configuração, todos os usuários do Azure AD são criados como SQL Server entidades de banco de dados (usuários) sem logons. Os tipos de usuários são listados como `SQL` e são visíveis como `SQL_USER` em sys.database_principals). Suas permissões e funções permanecem nos metadados do banco de dados do SQL Server e podem ser usadas para representação. No entanto, eles não podem ser usados para acessar e fazer logon no SQL Server usando suas credenciais.
+      - Nessa configuração, todos os usuários do Azure AD são criados como SQL Server entidades de banco de dados (usuários) sem logons. O tipo de usuário é listado como `SQL` e é visível como `SQL_USER` em sys.database_principals). Suas permissões e funções permanecem nos metadados do banco de dados do SQL Server e podem ser usadas para representação. No entanto, eles não podem ser usados para acessar e fazer logon no SQL Server usando suas credenciais.
 
 - Somente o logon da entidade de segurança no nível do servidor, que é criado pelo processo de provisionamento do SQL Instância Gerenciada, os membros das funções de servidor, como `securityadmin` ou ou `sysadmin` outros logons com a permissão ALTER ANY login no nível do servidor, podem criar entidades de segurança do Azure Ad Server (logons) no banco de dados mestre para SQL instância gerenciada.
 - Se o logon for uma entidade de segurança SQL, somente os logons que fizerem parte da função `sysadmin` poderão usar o comando create para criar logons para uma conta do Azure AD.
@@ -277,7 +277,7 @@ As seguintes opções não podem ser modificadas:
 - `SINGLE_USER`
 - `WITNESS`
 
-Algumas `ALTER DATABASE` instruções (por exemplo, [set contenção](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) podem falhar transitóriamente, por exemplo, durante o backup automatizado do banco de dados ou logo após a criação de um banco de dados. Nesse caso, a `ALTER DATABASE` instrução deve ser repetida. Para obter mais detalhes e informações sobre mensagens de erro relacionadas, consulte a [seção comentários](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Algumas `ALTER DATABASE` instruções (por exemplo, [set contenção](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) podem falhar transitóriamente, por exemplo, durante o backup automatizado do banco de dados ou logo após a criação de um banco de dados. Nesse caso, a `ALTER DATABASE` instrução deve ser repetida. Para obter mais informações sobre mensagens de erro relacionadas, consulte a [seção comentários](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
 
 Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
@@ -305,7 +305,7 @@ Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-da
   - Ainda não há suporte para alertas.
   - Não há suporte para proxies.
 - Não há suporte para o EventLog.
-- O usuário deve ser mapeado diretamente para a entidade de segurança do servidor do Azure AD (logon) para criar, modificar ou executar trabalhos do SQL Agent. Os usuários que não são mapeados diretamente, por exemplo, usuários que pertencem a um grupo do Azure AD que tem os direitos de criar, modificar ou executar trabalhos do SQL Agent, não poderão executar essas ações efetivamente. Isso ocorre devido à Instância Gerenciada representação e [às limitações de executar como](#logins-and-users).
+- O usuário deve ser mapeado diretamente para a entidade de segurança do servidor do Azure AD (logon) para criar, modificar ou executar trabalhos do SQL Agent. Os usuários que não são mapeados diretamente, por exemplo, os usuários que pertencem a um grupo do Azure AD que tem os direitos de criar, modificar ou executar trabalhos do SQL Agent, não poderão executar essas ações efetivamente. Isso ocorre devido à Instância Gerenciada representação e [às limitações de executar como](#logins-and-users).
 
 Os seguintes recursos do SQL Agent atualmente não têm suporte:
 
@@ -400,12 +400,12 @@ Não há suporte para [Pesquisa semântica](/sql/relational-databases/search/sem
 Os servidores vinculados no SQL Instância Gerenciada dão suporte a um número limitado de destinos:
 
 - Os destinos com suporte são SQL Instância Gerenciada, banco de dados SQL, pools dedicados e sem SQL [Server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) do Azure Synapse e instâncias de SQL Server. 
-- Os servidores vinculados não dão suporte a transações graváveis distribuídas (MS DTC).
+- As transações graváveis distribuídas são possíveis somente entre instâncias gerenciadas. Para obter mais informações, consulte [transações distribuídas](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). No entanto, não há suporte para MS DTC.
 - Destinos sem suporte: arquivos, Analysis Services e outros RDBMS. Tente usar a importação de CSV nativo do armazenamento de BLOBs do Azure usando `BULK INSERT` `OPENROWSET` o ou como uma alternativa para importação de arquivo ou carregue arquivos usando um [pool SQL sem servidor no Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operações: 
 
-- Não há suporte para transações de gravação entre instâncias.
+- As transações de gravação [entre](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) instâncias são suportadas apenas para instância gerenciadas.
 - `sp_dropserver` é compatível com o descarte um servidor vinculado. Consulte [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - A função `OPENROWSET` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Consulte [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - A função `OPENDATASOURCE` pode ser usada para executar consultas somente em instâncias SQL Server. Eles podem ser gerenciados localmente ou em máquinas virtuais. Somente os valores `SQLNCLI`, `SQLNCLI11` e `SQLOLEDB` têm suporte como provedor. Um exemplo é `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consulte [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
@@ -413,7 +413,7 @@ Operações:
 
 ### <a name="polybase"></a>PolyBase
 
-Os únicos tipos de fonte externa disponíveis são RDBMS (em visualização pública) para o banco de dados SQL do Azure, instância gerenciada do SQL do Azure e pool Synapse do Azure. Você pode usar [uma tabela externa que faz referência a um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) como uma solução alternativa para tabelas externas do polybase que o lê diretamente do armazenamento do Azure. Na instância gerenciada do SQL do Azure, você pode usar servidores vinculados em [um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server para ler dados do armazenamento do Azure.
+O único tipo disponível de fonte externa é RDBMS (em visualização pública) para o banco de dados SQL do Azure, instância gerenciada do SQL do Azure e pool Synapse do Azure. Você pode usar [uma tabela externa que faz referência a um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) como uma solução alternativa para tabelas externas do polybase que o lê diretamente do armazenamento do Azure. Na instância gerenciada do SQL do Azure, você pode usar servidores vinculados em [um pool SQL sem servidor no Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) ou SQL Server para ler dados do armazenamento do Azure.
 Para obter informações sobre o Polybase, consulte [Polybase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicação

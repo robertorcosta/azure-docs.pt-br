@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779355"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703268"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -137,7 +137,7 @@ Ao usar um aplicativo móvel como um método para redefinição de senha, como o
 Os usuários não têm a opção de registrar seu aplicativo móvel ao se registrar para redefinição de senha de autoatendimento do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Os usuários podem registrar seu aplicativo móvel em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou no registro de informações de segurança combinadas em [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!IMPORTANT]
-> O aplicativo autenticador não pode ser selecionado como o único método de autenticação quando apenas o método é necessário. Da mesma forma, o aplicativo autenticador e apenas um método adicional não podem ser selecionados ao exigir dois métodos.
+> O aplicativo autenticador não pode ser selecionado como o único método de autenticação quando apenas um método é necessário. Da mesma forma, o aplicativo autenticador e apenas um método adicional não podem ser selecionados ao exigir dois métodos.
 >
 > Ao configurar políticas de SSPR que incluem o aplicativo autenticador como um método, pelo menos um método adicional deve ser selecionado quando um método é necessário e pelo menos dois métodos adicionais devem ser selecionados quando a configuração de dois métodos é necessária.
 >

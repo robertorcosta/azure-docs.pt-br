@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9aca01bae7911d2b6234d48bedc14b116e911a79
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6af68f51e76f60c807be2008ae61e27879ebbb11
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675363"
+ms.locfileid: "98703200"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros ISV Azure Active Directory B2C
 
@@ -40,7 +40,6 @@ A Microsoft faz parceria com os seguintes ISVs para verificação de identidade 
 |![Captura de tela de um logotipo do Experian.](./media/partner-gallery/experian-logo.png) | O [Experian](./partner-experian.md) é um provedor de verificação de identidade e de provação que executa avaliações de risco com base em atributos de usuário para evitar fraudes. |
 |![Captura de tela de um logotipo do IDology.](./media/partner-gallery/idology-logo.png) | O [IDology](./partner-idology.md) é um provedor de verificação de identidade e de provação com soluções de verificação de ID, soluções de prevenção de fraudes, soluções de conformidade e outras.|
 |![Captura de tela de um logotipo do Jumio.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) é um serviço de verificação de ID, que permite a verificação de ID automatizada em tempo real, protegendo os dados do cliente. |
-|![Captura de tela de um logotipo sem Key.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) é um serviço de verificação de ID que fornece autenticação na forma de uma varredura biométrica facial e elimina a fraude, phishing e reutilização de credenciais.
 | ![Captura de tela de um logotipo do LexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | O [LexisNexis](./partner-lexisnexis.md) é um provedor de validação de identidade e criação de perfil que verifica a identificação do usuário e fornece uma avaliação de risco abrangente com base no dispositivo do usuário. |
 | ![Captura de tela de um logotipo do Onfido](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) é uma ID de documento e uma solução de verificação de biometria facial que permite que as empresas atendam aos requisitos de *clientes* e de identidade em tempo real.  |
 
@@ -52,13 +51,14 @@ A Microsoft faz parceria com os seguintes ISVs para MFA e autenticação sem sen
 |:-------------------------|:--------------|
 | ![Captura de tela de um logotipo do hypr](./media/partner-gallery/hypr-logo.png) | O [Hypr](./partner-hypr.md) é um provedor de autenticação sem senha, que substitui senhas com criptografias de chave pública eliminando fraude, phishing e reutilização de credenciais. |
 | ![Captura de tela de um logotipo do ITSM](./media/partner-gallery/itsme-logo.png) | o [ITSM](./partner-itsme.md) é uma solução de identificação digital em conformidade com os serviços de autenticação e confiança (eiDAS) para permitir que os usuários se conectem com segurança sem leitores de cartão, senhas, autenticação de dois fatores e vários códigos de PIN. |
+|![Captura de tela de um logotipo sem Key.](./media/partner-gallery/keyless-logo.png) | Keyless é um provedor de autenticação [sem](./partner-keyless.md) senha que fornece autenticação na forma de uma varredura biométrica facial e elimina a fraude, phishing e reutilização de credenciais.
 | ![Captura de tela de um logotipo do Nevis](./media/partner-gallery/nevis-logo.png) | O [Nevis](./partner-nevis.md) habilita a autenticação sem senha e fornece uma experiência de usuário final totalmente marcada e móvel com identidade visual com o aplicativo de acesso de Névis para autenticação de cliente forte e para atender aos requisitos de transação PSD2. |
 | ![Captura de tela de um logotipo do trusona](./media/partner-gallery/trusona-logo.png) | A integração do [Trusona](./partner-trusona.md) ajuda você a entrar com segurança e permite a autenticação sem senha, MFA e verificação de licença digital. |
 | ![Captura de tela de um logotipo do twilio.](./media/partner-gallery/twilio-logo.png) | [Twilio Verify app](./partner-twilio.md) fornece várias soluções para habilitar a MFA por meio de OTP (senha de uso único) do SMS, uma senha de uso único baseada em tempo (TOTP) e notificações por push e para obedecer aos requisitos de SCA para PSD2. |
 | ![Captura de tela de um logotipo do typingDNA](./media/partner-gallery/typingdna-logo.png) | O [TypingDNA](./partner-typingdna.md) permite uma autenticação de cliente forte analisando o padrão de digitação de um usuário. Ele ajuda as empresas a habilitar uma MFA silenciosa e a cumprir os requisitos de SCA para PSD2. |
 | ![Captura de tela de um logotipo do whoiam](./media/partner-gallery/whoiam-logo.png) | O [WhoIAM](./partner-whoiam.md) é um aplicativo BRIMS (sistema de gerenciamento de identidades) que permite que as organizações verifiquem sua base de usuários por voz, SMS e email. |
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em função 
+## <a name="role-based-access-control"></a>Controle de acesso baseado em funções 
  
 A Microsoft faz parceria com os seguintes ISVs para controle de acesso baseado em função.
 

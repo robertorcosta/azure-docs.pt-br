@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 7e6f19e03eee6fb6ddf946ea79d197a231f5f113
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2ab1b5ae87cee6265c965c45b706c7fbf10dfe3f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690235"
+ms.locfileid: "98702947"
 ---
-# <a name="tutorial-for-configuring-keyless-with-azure-active-directory-b2c"></a>Tutorial para configuração de uma subunidade com Azure Active Directory B2C
+# <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutorial: configurar o mínimo com Azure Active Directory B2C
 
 Neste tutorial de exemplo, fornecemos orientações sobre como configurar o Azure Active Directory (AD) B2C com o [less](https://keyless.io/). Com o Azure AD B2C como um provedor de identidade, você pode integrar o sem qualquer um dos seus aplicativos de cliente para fornecer autenticação de senha verdadeira para seus usuários.
 
@@ -85,7 +85,7 @@ Para configurar um provedor de identidade, siga estas etapas:
 
    |Propriedade | Valor |
    |:-----| :-----------|
-   | Nome   | Sem chave |
+   | Nome   | Keyless |
    | URL de metadados | Insira o URI do aplicativo de autenticação de menos de hospedagem, seguido pelo caminho específico, como https://keyless.auth/.well-known/openid-configuration |
    | Segredo do cliente | O segredo associado à instância de autenticação sem chave – não o mesmo que foi configurado antes. Insira uma cadeia de caracteres complexa de sua escolha. Esse segredo será usado posteriormente na configuração de contêiner de chave menos.|
    | ID do Cliente | A ID do cliente. Essa ID será usada mais tarde na configuração do contêiner de subunidade.|
@@ -102,7 +102,7 @@ Para configurar um provedor de identidade, siga estas etapas:
    |Propriedade | Valor |
    |:-----| :-----------|
    | UserID    | Da assinatura |
-   | Nome para exibição | Da assinatura |
+   | Nome de exibição | Da assinatura |
    | Modo de resposta | Da assinatura |
 
 6. Selecione **salvar** para concluir a configuração para seu novo provedor de identidade do OIDC (Open ID Connect).

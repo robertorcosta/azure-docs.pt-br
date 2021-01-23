@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, contêiner
-ms.openlocfilehash: 829514637b72582dbb317970b0d23f92eb11bcad
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 79e53bf39e411569f87a46bfc275c784ce84babc
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862288"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703319"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalar e executar contêineres do Docker para as APIs do serviço de fala 
 
@@ -39,7 +39,7 @@ Os contêineres de Fala permitem que os clientes criem uma arquitetura de aplica
 >
 > Para usar os contêineres de fala, você deve enviar uma solicitação online e fazer com que ela seja aprovada. Consulte a seção **solicitar aprovação para executar o contêiner** abaixo para obter mais informações.
 
-| Contêiner | Recursos | Mais Recente |
+| Contêiner | Recursos | Última |
 |--|--|--|
 | Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.7.0 |
 | Conversão de fala em texto personalizada | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.7.0 |
@@ -373,13 +373,6 @@ Se você tiver várias frases a serem adicionadas, chame `.addPhrase()` para cad
 # <a name="custom-speech-to-text"></a>[Conversão de fala em texto personalizada](#tab/cstt)
 
 O contêiner de *fala personalizada para texto* depende de um modelo de fala personalizado. O modelo personalizado deve ter sido [treinado](how-to-custom-speech-train-model.md) usando o [portal de fala personalizado](https://speech.microsoft.com/customspeech).
-
-> [!IMPORTANT]
-> O modelo de Fala Personalizada precisa ser treinado a partir de uma das seguintes versões de modelo:
-> * **20181201 (v 3.3 unificado)**
-> * **20190520 (v 4.14 unificado)**
-> * **20190701 (v 4.17 unificado)**<br>
-> ![Modelo de contêiner do Fala Personalizada Train](media/custom-speech/custom-speech-train-model-container-scoped.png)
 
 A ID do **modelo** de fala personalizado é necessária para executar o contêiner. Ele pode ser encontrado na página de **treinamento** do portal de fala personalizado. No portal de fala personalizado, navegue até a página de **treinamento** e selecione o modelo.
 <br>

@@ -3,12 +3,12 @@ title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 5e89b2b7cf7c27a501d93f63c74d81d8fb40883c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c319a6d06cbbcf5d36178c37207cc13f295a5897
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033537"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702846"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -80,7 +80,7 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.DBforMariaDB | [Banco de Dados do Azure para MariaDB](../../mariadb/index.yml) |
 | Microsoft.DBforMySQL | [Banco de Dados do Azure para MySQL](../../mysql/index.yml) |
 | Microsoft.DBforPostgreSQL | [Banco de Dados do Azure para PostgreSQL](../../postgresql/index.yml) |
-| Microsoft.DeploymentManager | [Deployment Manager do Azure](../templates/deployment-manager-overview.md) |
+| Microsoft.DeploymentManager | [Gerenciador de Implantação do Azure](../templates/deployment-manager-overview.md) |
 | Microsoft.DesktopVirtualization | [Área de Trabalho Virtual do Windows](../../virtual-desktop/index.yml) |
 | Microsoft.Devices | [Hub IoT do Azure](../../iot-hub/index.yml)<br />[Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](../../iot-dps/index.yml) |
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
@@ -102,7 +102,7 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Zonas de borda privada](../../networking/edge-zones-overview.md) |
-| Microsoft.ImportExport | [Importação/Exportação do Azure](../../storage/common/storage-import-export-service.md) |
+| Microsoft.ImportExport | [Importação/Exportação do Azure](../../import-export/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Gêmeos Digitais do Azure](../../digital-twins/index.yml) |
@@ -138,7 +138,7 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Serviço de Emparelhamento do Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal- [registrado](#registration) | [Azure portal](../../azure-portal/index.yml) |
+| Microsoft. Portal- [registrado](#registration) | [Portal do Azure](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
@@ -164,10 +164,10 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.SoftwarePlan | Licença |
 | Microsoft.Solutions | [Aplicativos Gerenciados do Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Banco de Dados SQL do Azure](../../azure-sql/database/index.yml)<br /> [Instância Gerenciada do SQL do Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [SQL Server em máquinas virtuais do Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
-| Microsoft.Storage | [Storage](../../storage/index.yml) |
+| Microsoft.SqlVirtualMachine | [SQL Server em Máquinas Virtuais do Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
+| Microsoft.Storage | [Armazenamento](../../storage/index.yml) |
 | Microsoft.StorageCache | [Azure HPC Cache](../../hpc-cache/index.yml) |
-| Microsoft.StorageSync | [Storage](../../storage/index.yml) |
+| Microsoft.StorageSync | [Armazenamento](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 04ca8d515dbc5a28a7d3a30369d97877928c9dc1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1178b0ab5af3642026fe78c7de788f354691b13a
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683822"
+ms.locfileid: "98701146"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conectar aplicativos de funções no Azure para processamento de dados
 
@@ -38,19 +38,19 @@ Aqui está uma visão geral das etapas que ela contém:
 
 No Visual Studio 2019, selecione _arquivo > novo projeto de >_ e pesquise o modelo de _Azure Functions_ . Selecione _Avançar_.
 
-:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: caixa de diálogo novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Captura de tela do Visual Studio mostrando a caixa de diálogo novo projeto. O modelo de projeto Azure Functions é realçado.":::
 
 Especifique um nome para o aplicativo de funções e selecione _criar_.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: configurar novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Captura de tela do Visual Studio que mostra a caixa de diálogo para configurar um novo projeto, incluindo nome do projeto, local para salvar, escolha para criar uma nova solução e nome da solução.":::
 
 Selecione o tipo de aplicativo de função do *gatilho de grade de eventos* e selecione _criar_.
 
-:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Visual Studio: caixa de diálogo gatilho de projeto de Azure Functions":::
+:::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Captura de tela do Visual Studio que mostra a caixa de diálogo para criar um novo aplicativo Azure Functions. A opção de gatilho de grade de eventos está realçada.":::
 
 Depois que seu aplicativo de funções for criado, o Visual Studio gerará um exemplo de código em um arquivo **function1.cs** na pasta do projeto. Essa função curta é usada para registrar eventos.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: janela do projeto com código de exemplo":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Captura de tela do Visual Studio na janela do projeto para o novo projeto que foi criado. Há código para uma função de exemplo chamada function1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
 ## <a name="write-a-function-with-an-event-grid-trigger"></a>Escrever uma função com um gatilho de grade de eventos
 
@@ -150,27 +150,27 @@ Uma identidade gerenciada atribuída pelo sistema permite que os recursos do Azu
 
 Na [portal do Azure](https://portal.azure.com/), pesquise por _aplicativo de funções_ na barra de pesquisa com o nome do aplicativo de funções que você criou anteriormente. Selecione o *aplicativo de funções* na lista. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Portal do Azure: Pesquisar aplicativo de função":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de tela da portal do Azure: o nome do aplicativo de funções está sendo pesquisado na barra de pesquisa do portal e o resultado da pesquisa é realçado.":::
 
 Na janela do aplicativo de funções, selecione _identidade_ na barra de navegação à esquerda para habilitar a identidade gerenciada.
 Na guia _atribuído pelo sistema_ , alterne o _status_ para ativado e _salve_ -o. Você verá um pop-up para _habilitar a identidade gerenciada atribuída pelo sistema_.
 Selecione o botão _Sim_ . 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Portal do Azure: habilitar identidade gerenciada pelo sistema":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Captura de tela da portal do Azure: na página identidade do aplicativo de funções, a opção para habilitar a identidade gerenciada atribuída pelo sistema está sendo definida como Sim. A opção status é definida como on.":::
 
 Você pode verificar nas notificações de que sua função foi registrada com êxito com Azure Active Directory.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Portal do Azure: notificações":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Captura de tela da portal do Azure: a lista de notificações selecionando o ícone em forma de sino na barra superior do Portal. Há uma notificação de que o usuário habilitou a identidade gerenciada atribuída pelo sistema.":::
 
 Observe também a **ID de objeto** mostrada na página _identidade_ , pois ela será usada na próxima seção.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Copiar a ID de objeto a ser usada no futuro":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Captura de tela da portal do Azure: um realce ao contrário do campo ID do objeto da página identidade do Azure functions.":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Atribuir funções de acesso usando portal do Azure
 
 Selecione o botão _atribuições de função do Azure_ , que abrirá a página *atribuições de função do Azure* . Em seguida, selecione _+ Adicionar atribuição de função (versão prévia)_.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Portal do Azure: Adicionar atribuição de função":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Captura de tela da portal do Azure: um realce ao contrário do botão atribuições de função do Azure em permissões na página de identidade da função do Azure.":::
 
 Na página _Adicionar atribuição de função (versão prévia)_ que é aberta, selecione:
 
@@ -181,7 +181,7 @@ Na página _Adicionar atribuição de função (versão prévia)_ que é aberta,
 
 Em seguida, Salve seus detalhes pressionando o botão _salvar_ .
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Portal do Azure: Adicionar atribuição de função (visualização) ":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Captura de tela da caixa de diálogo portal do Azure: para adicionar uma nova atribuição de função (versão prévia). Há campos para o escopo, a assinatura, o grupo de recursos e a função.":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Definir configurações de aplicativo usando portal do Azure
 
@@ -189,37 +189,37 @@ Você pode tornar a URL da sua instância do gêmeos digital do Azure acessível
 
 Para definir uma variável de ambiente com a URL de sua instância, primeiro obtenha a URL encontrando o nome de host da instância do gêmeos digital do Azure. Pesquise sua instância na barra de pesquisa [portal do Azure](https://portal.azure.com) . Em seguida, selecione _visão geral_ na barra de navegação à esquerda para exibir o _nome do host_. Copie esse valor.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Portal do Azure: visão geral – > copiar nome do host para usar no campo _Value_.":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Captura de tela da portal do Azure: na página Visão geral da instância do gêmeos digital do Azure, o valor nome do host é realçado.":::
 
 Agora você pode criar uma configuração de aplicativo seguindo as etapas abaixo:
 
-1. Pesquise seu aplicativo usando o nome do aplicativo de funções na barra de pesquisa e selecione o aplicativo de funções na lista
+1. Pesquise seu aplicativo de funções na barra de pesquisa do portal e selecione-o nos resultados
 1. Selecione _configuração_ na barra de navegação à esquerda para criar uma nova configuração de aplicativo
 1. Na guia _configurações do aplicativo_ , selecione _+ nova configuração de aplicativo_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Portal do Azure: Pesquisar um aplicativo de funções existente" lightbox="media/how-to-create-azure-function/search-for-azure-function.png":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Captura de tela da portal do Azure: o nome do aplicativo de funções está sendo pesquisado na barra de pesquisa do portal e o resultado da pesquisa é realçado.":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Portal do Azure: definir configurações de aplicativo":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Captura de tela da portal do Azure: na página de configuração do aplicativo de funções, o botão para criar uma nova configuração de aplicativo é realçado.":::
 
 Na janela que é aberta, use o valor nome de host copiado acima para criar uma configuração de aplicativo.
-* _Nome_ : ADT_SERVICE_URL
-* _Valor_: https://{Your-Azure-digital-gêmeos-Host-Name}
+* **Nome**: ADT_SERVICE_URL
+* **Valor**: https://{Your-Azure-digital-gêmeos-Host-Name}
 
 Selecione _OK_ para criar uma configuração de aplicativo.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Portal do Azure: adicionar configurações de aplicativo.":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Captura de tela da portal do Azure: o botão OK é realçado depois de preencher os campos de nome e valor na página Adicionar/Editar configuração de aplicativo.":::
 
 Você pode exibir as configurações do aplicativo com o nome do aplicativo no campo _nome_ . Em seguida, salve as configurações do aplicativo selecionando o botão _salvar_ .
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Portal do Azure: exibir o aplicativo criado e reiniciar o aplicativo":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Captura de tela da portal do Azure: a página Configurações do aplicativo, com a nova configuração de ADT_SERVICE_URL realçada. O botão salvar também é realçado.":::
 
-As alterações nas configurações do aplicativo precisam de uma reinicialização do aplicativo. Selecione _continuar_ para reiniciar o aplicativo.
+As alterações nas configurações do aplicativo exigirão que a reinicialização do aplicativo entre em vigor. Selecione _continuar_ para reiniciar o aplicativo.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Portal do Azure: salvar configurações do aplicativo":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Captura de tela da portal do Azure: há um aviso de que há alterações nas configurações do aplicativo com a reinicialização do aplicativo. O botão continuar é realçado.":::
 
 Você pode exibir que as configurações do aplicativo são atualizadas selecionando o ícone de _notificações_ . Se a configuração do aplicativo não for criada, você poderá repetir a adição de uma configuração de aplicativo seguindo o processo acima.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Portal do Azure: notificações para atualizar as configurações do aplicativo":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Captura de tela da portal do Azure: a lista de notificações selecionando o ícone em forma de sino na barra superior do Portal. Há uma notificação de que as configurações do aplicativo Web foram atualizadas com êxito.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

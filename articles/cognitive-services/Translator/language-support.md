@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 60da61d094316b29c8fbc5454472bb898d693937
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e8e54a97c13a69fce2e80676fa68d6d795736a83
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681576"
+ms.locfileid: "98703115"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -194,6 +194,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Linguagem    | Código de idioma | script | Para/De | script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
+| Assamês | `as` | Bengalês `Beng` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
 |Bielorrusso| `be` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 |Búlgaro| `bg` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
@@ -208,6 +209,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
 | canarim | `kn` | Canarim `Knda` | <--> | Latim `Latn` |
 |Cazaque| `kk` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
+|Coreano| `ko` | Coreano `Kore`  | <--> | Latim `Latn` |
 |Kyrgyz| `ky` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 |Macedônio| `mk` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 | Malaiala | `ml` | Malaiala `Mlym` | <--> | Latim `Latn` |
@@ -220,6 +222,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Sérvio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (latino) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
 |Sindhi| `sd` | Árabe `Arab`  | <--> | Latim `Latn` |
+|Sinhala| `si` | Cingalês `Sinh`  | <--> | Latim `Latn` |
 |Tajik| `tg` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
 | Tâmil | `ta` | Tâmil `Taml` | <--> | Latim `Latn` |
 |Tártaro| `tt` | Cirílico `Cyrl`  | <--> | Latim `Latn` |
@@ -366,7 +369,7 @@ A tradução de fala está disponível usando o tradutor com o serviço de fala 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A conversão de fala em texto é usada para a tradução de fala para texto ou para tradução de fala para fala quando usada em conjunto com a síntese de fala.
 
-| Language    |
+| Idioma    |
 |:----------- |
 |Árabe|
 |Cantonês (tradicional)|
@@ -401,7 +404,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 ### <a name="text-to-speech"></a>Conversão de texto em fala
 Converter texto em fala. A conversão de texto em fala é usada para adicionar saída audível de resultados de tradução ou para tradução de fala a fala quando usada com a fala em texto. 
 
-| Language |
+| Idioma |
 |:-|
 | Árabe |
 | Búlgaro |

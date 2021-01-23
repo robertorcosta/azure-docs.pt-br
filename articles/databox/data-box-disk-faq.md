@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 103e4453ecf848822db0d82bc13e93b0c8c68331
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654618"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702127"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Perguntas frequentes
 
@@ -66,7 +66,7 @@ Por exemplo, se você quisesse mover dados em seu local no Canadá para uma cont
 
 ### <a name="option-1"></a>Opção 1: 
 
-Envie um [disco com suporte](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) contendo dados usando o [serviço de importação/exportação do Azure](../storage/common/storage-import-export-service.md) do local de origem no Canadá para o datacenter do oeste dos EUA do Azure.
+Envie um [disco com suporte](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) contendo dados usando o [serviço de importação/exportação do Azure](../import-export/storage-import-export-service.md) do local de origem no Canadá para o datacenter do oeste dos EUA do Azure.
 
 ### <a name="option-2"></a>Opção 2:
 
@@ -87,7 +87,7 @@ a.  Para obter Disco do Azure Data Box, entre no portal do Azure e crie um Disco
 ### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>Q. Não foi possível criar uma ordem de Disco do Data Box no portal do Azure. Por quê?
 a. Se você não puder criar uma ordem de Disco do Data Box, há um problema com o tipo de assinatura ou o acesso.
 
-Verifique sua assinatura. Disco do Data Box só está disponível para ofertas de assinatura de Enterprise Agreement (EA) e de provedor de soluções na nuvem (CSP). Se você não tiver nenhum desses tipos de assinatura, entre em contato com Suporte da Microsoft para atualizar sua assinatura.
+Verifique sua assinatura. Disco do Data Box só está disponível para ofertas de assinatura de Contrato Enterprise (EA) e de provedor de soluções na nuvem (CSP). Se você não tiver nenhum desses tipos de assinatura, entre em contato com Suporte da Microsoft para atualizar sua assinatura.
 
 Se você tiver um tipo de oferta compatível com a assinatura, verifique o nível de acesso da assinatura. Você precisa ser um colaborador ou proprietário em sua assinatura para criar um pedido.
 
