@@ -16,18 +16,18 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65fc0e84582c005c5796ceac86ee28fc46b2e1d8
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 36b7fce2e2ccb6f331e42e8052ef4fb75d35e831
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094209"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729983"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualização de uma versão anterior para a mais recente
 Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente.  Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
 
 >[!NOTE]
-> É importante que você mantenha seus servidores atualizados com as versões mais recentes do Azure AD Connect. Estamos constantemente fazendo atualizações para o AADConnect, e essas atualizações incluem correções para problemas de segurança e bugs, bem como melhorias na capacidade de manutenção, desempenho e escalabilidade. Para ver qual é a versão mais recente e saber quais alterações foram feitas entre versões, consulte o histórico de versões de [lançamento](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history)
+> É importante que você mantenha seus servidores atualizados com as versões mais recentes do Azure AD Connect. Estamos constantemente fazendo atualizações para o AADConnect, e essas atualizações incluem correções para problemas de segurança e bugs, bem como melhorias na capacidade de manutenção, desempenho e escalabilidade. Para ver qual é a versão mais recente e saber quais alterações foram feitas entre versões, consulte o histórico de versões de [lançamento](./reference-connect-version-history.md)
 
 >[!NOTE]
 > Atualmente, há suporte para atualização de qualquer versão do Azure AD Connect para a versão atual. Não há suporte para atualizações in-loco de DirSync ou ADSync e uma migração Swing é necessária.  Se você quiser atualizar do DirSync, consulte [Atualizar da ferramenta de sincronização do AD do Azure (DirSync)](how-to-dirsync-upgrade-get-started.md) ou da seção de [migração Swing](#swing-migration) .  </br>Na prática, os clientes em versões extremamente antigas podem encontrar problemas não relacionados diretamente ao Azure AD Connect. Os servidores que estão em produção há vários anos, normalmente tinham vários patches aplicados e nem todos eles podem ser contados.  Em geral, os clientes que não fizeram a atualização em 12-18 meses devem considerar uma atualização do swing, pois essa é a opção mais conservadora e menos arriscada.

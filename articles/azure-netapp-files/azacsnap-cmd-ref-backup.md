@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 1051859d514c77bad1aa5f14becc2218a923df44
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 17c29fdf88495f6ecc40963eda08858887173fd1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632594"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730931"
 ---
 # <a name="back-up-using-azure-application-consistent-snapshot-tool-preview"></a>Fazer backup usando Aplicativo Azure ferramenta de instantâneo consistente (versão prévia)
 
@@ -143,7 +143,7 @@ O nome do *arquivo de log* neste exemplo é `azacsnap-backup-bootVol.log` .
 > O nome do arquivo de log é composto de "(nome do comando-(a `-c` opção)-(o nome de arquivo config)".  Por exemplo, se estiver usando a `-c backup` opção com um nome de arquivo de log de `h80.json` , o arquivo de log será chamado `azacsnap-backup-h80.log` .  Ou, se estiver usando a `-c test` opção com o mesmo arquivo de configuração, o arquivo de log será chamado `azacsnap-test-h80.log` .
 
 - Tipo de instância grande do HANA: há dois valores válidos com `TYPEI` ou `TYPEII` dependentes da unidade de instância grande do Hana.
-- Consulte [SKUs disponíveis para instâncias grandes do Hana](/azure/virtual-machines/workloads/sap/hana-available-skus) para confirmar os SKUs disponíveis.
+- Consulte [SKUs disponíveis para instâncias grandes do Hana](../virtual-machines/workloads/sap/hana-available-skus.md) para confirmar os SKUs disponíveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 

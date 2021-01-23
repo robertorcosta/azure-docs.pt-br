@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c34ca08ae2ede9430804f6b8bb33f2bfcb0b39ab
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632548"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730863"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Recuperação de desastre usando Aplicativo Azure ferramenta de instantâneo consistente (versão prévia)
 
@@ -40,7 +40,7 @@ Os pré-requisitos a seguir devem ser atendidos antes de você planejar o failov
 - A replicação de armazenamento está funcionando. A equipe de operações da Microsoft executa a configuração de replicação de armazenamento no momento do provisionamento de recuperação de desastres automaticamente. Você pode monitorar a replicação de armazenamento usando o comando `azacsnap -c details --details replication` no site de recuperação de desastre.
 - Você configurou e configurou instantâneos de armazenamento no local principal.
 - Você tem uma instância do HANA instalada no site de DR para o primário com o mesmo SID que a instância primária.
-- Você lê e entende o procedimento de failover de DR descrito em [SAP Hana em instâncias grandes alta disponibilidade e recuperação de desastre no Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)
+- Você lê e entende o procedimento de failover de DR descrito em [SAP Hana em instâncias grandes alta disponibilidade e recuperação de desastre no Azure](../virtual-machines/workloads/sap/hana-failover-procedure.md)
 - Você configurou e configurou instantâneos de armazenamento no local de recuperação de desastre.
 - Um arquivo de configuração (por exemplo, `DR.json` ) foi criado com os volumes de armazenamento de recuperação de desastre e as informações associadas no servidor de recuperação de desastre.
 - Você concluiu as etapas no site de recuperação de desastre para:

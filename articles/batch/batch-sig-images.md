@@ -4,16 +4,16 @@ description: Os pools de imagens personalizadas são uma maneira eficiente de co
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327297"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731354"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
-Ao criar um pool no Lote do Azure usando a Configuração de Máquina Virtual, você especifica uma imagem de VM que fornece o sistema operacional para cada nó de computação no pool. Você pode criar um pool de máquinas virtuais com uma imagem do Azure Marketplace com suporte ou criar uma imagem personalizada com uma [imagem da Galeria de imagens compartilhada](../virtual-machines/windows/shared-image-galleries.md).
+Ao criar um pool no Lote do Azure usando a Configuração de Máquina Virtual, você especifica uma imagem de VM que fornece o sistema operacional para cada nó de computação no pool. Você pode criar um pool de máquinas virtuais com uma imagem do Azure Marketplace com suporte ou criar uma imagem personalizada com uma [imagem da Galeria de imagens compartilhada](../virtual-machines/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Benefícios da Galeria de Imagens Compartilhadas
 
@@ -31,7 +31,7 @@ Usar uma imagem compartilhada configurada para o seu cenário pode fornecer vár
 - **Copie grandes quantidades de dados de uma só vez.** Torne os dados estáticos parte da imagem compartilhada gerenciada copiando-os para os discos de dados de uma imagem gerenciada. Isso só precisa ser feito uma vez e disponibiliza dados para cada nó do pool.
 - **Expanda os pools para tamanhos maiores.** Com a Galeria de Imagens Compartilhadas, você pode criar pools maiores com suas imagens personalizadas juntamente com mais réplicas de imagem compartilhada.
 - **Melhor desempenho do que usar apenas uma imagem gerenciada como uma imagem personalizada.** Para um pool de imagens personalizadas de imagem compartilhada, o tempo para alcançar o estado estacionário é de até 25% mais rápido e a latência de ociosidade de VM é de até 30% menor.
-- **Agrupamento e controle de versão de imagem para facilitar o gerenciamento.** A definição de agrupamento de imagens contém informações sobre o motivo pelo qual a imagem foi criada, para qual sistema operacional e informações sobre como usar a imagem. O agrupamento de imagens permite um gerenciamento mais fácil das imagens. Para saber mais, confira [Definições de imagens](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+- **Agrupamento e controle de versão de imagem para facilitar o gerenciamento.** A definição de agrupamento de imagens contém informações sobre o motivo pelo qual a imagem foi criada, para qual sistema operacional e informações sobre como usar a imagem. O agrupamento de imagens permite um gerenciamento mais fácil das imagens. Para saber mais, confira [Definições de imagens](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -226,4 +226,4 @@ Se você planeja criar um pool com centenas ou milhares de VMs ou mais usando um
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral detalhada do Lote, confira [Recursos e fluxo de trabalho do serviço de Lote](batch-service-workflow-features.md).
-- Saiba mais sobre a [Galeria de Imagens Compartilhadas](../virtual-machines/windows/shared-image-galleries.md).
+- Saiba mais sobre a [Galeria de Imagens Compartilhadas](../virtual-machines/shared-image-galleries.md).

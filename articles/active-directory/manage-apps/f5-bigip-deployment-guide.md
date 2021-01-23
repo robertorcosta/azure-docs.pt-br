@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095178"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730649"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implantar a VM do BIG-IP Virtual Edition na IaaS do Azure para acesso híbrido seguro
 
@@ -79,7 +79,7 @@ Conclua as tarefas a seguir para implantar o BIG-IP VE do [Azure Marketplace](ht
 
  |  Detalhes do projeto     |  Valor     |
  |:-------|:--------|
- |Subscription|Assinatura de destino para a implantação de VM BIG-IP|
+ |Assinatura|Assinatura de destino para a implantação de VM BIG-IP|
  |Grupo de recursos | Grupo de recursos do Azure existente a VM BIG-IP será implantada ou criará uma. Deve ser o mesmo grupo de recursos do seu DC e VMs do IIS|
  | **Detalhes da instância**|  |
  |Nome da VM| Exemplo de BIG-IP-VM |
@@ -107,7 +107,7 @@ Conclua as tarefas a seguir para implantar o BIG-IP VE do [Azure Marketplace](ht
  |Grupo de segurança de rede NIC| Selecione nenhum se a sub-rede do Azure que você selecionou nas etapas anteriores já estiver associada a um NSG (grupo de segurança de rede); caso contrário, selecione básico|
  |Acelerar a rede| Desativado |
  |**Balanceamento de carga**|     |
- |VM de balanceamento de carga| No|
+ |VM de balanceamento de carga| Não|
 
 10. Selecione **Avançar: gerenciamento** e conclua essas configurações.
 
@@ -214,7 +214,7 @@ As etapas a seguir pressupõem que a zona DNS do domínio público usado para se
 
  | Campo | Valor |
  |:-------|:-----------|
- |Subscription| Mesma assinatura que o BIG-IP-VM|
+ |Assinatura| Mesma assinatura que o BIG-IP-VM|
  |Zona DNS| Zona DNS que é autoritativa para o sufixo de domínio verificado que seus sites publicados usarão, por exemplo, www.contoso.com |
  |Nome | O nome de host que você especificar será resolvido para o IP público que está associado ao IP secundário selecionado. Certifique-se de definir o DNS correto para mapeamentos de IP. Consulte a última imagem na seção Configurações de rede, por exemplo, intranet.contoso.com > 13.77.148.215|
  | TTL | 1 |
@@ -264,7 +264,7 @@ Um sistema BIG-IP é administrado por meio de sua interface do usuário de confi
 
 - De um cliente VPN conectado à rede interna da VM BIG-IP
 
-- Publicado por meio [do Azure proxy de aplicativo do AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+- Publicado por meio [do Azure proxy de aplicativo do AD](./application-proxy-add-on-premises-application.md)
 
 Você precisará decidir sobre o método mais adequado para poder prosseguir com as configurações restantes. Se necessário, você pode se conectar diretamente à configuração da Web pela Internet Configurando o IP primário do BIG-IP com um IP público. Em seguida, adicione uma regra NSG para permitir o tráfego 8443 para esse IP primário. Certifique-se de restringir a origem ao seu próprio IP confiável, caso contrário, qualquer pessoa poderá se conectar.
 
@@ -276,7 +276,7 @@ Quando estiver pronto, confirme se você pode se conectar à configuração da W
 
 Um sistema de grande IP também pode ser gerenciado por meio de seu ambiente SSH subjacente, que é normalmente usado para tarefas de linha de comando (CLI) e acesso de nível raiz. Existem várias opções para se conectar à CLI, incluindo:
 
-- [Serviço de bastiões do Azure](https://docs.microsoft.com/azure/bastion/bastion-overview): permite conexões rápidas e seguras com qualquer VM em uma vNET, de qualquer local
+- [Serviço de bastiões do Azure](../../bastion/bastion-overview.md): permite conexões rápidas e seguras com qualquer VM em uma vNET, de qualquer local
 
 - Conecte-se diretamente por meio de um cliente SSH como saída por meio da abordagem JIT
 
@@ -423,7 +423,7 @@ Com o sistema BIG-IP agora totalmente provisionado, recomendamos fazer um backup
 
 6. Salve o arquivo do conjunto de configuração do usuário (UCS) localmente, escolhendo o link do backup e selecione **baixar**.
 
-Como uma etapa opcional, você também pode fazer um backup de todo o disco do sistema usando [instantâneos do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk), o que, ao contrário do backup de configuração da Web, forneceria alguma contingência para o teste entre as versões do tmos ou revertendo para um sistema novo.
+Como uma etapa opcional, você também pode fazer um backup de todo o disco do sistema usando [instantâneos do Azure](../../virtual-machines/windows/snapshot-copy-managed-disk.md), o que, ao contrário do backup de configuração da Web, forneceria alguma contingência para o teste entre as versões do tmos ou revertendo para um sistema novo.
 
 ```PowerShell
 # Install modules

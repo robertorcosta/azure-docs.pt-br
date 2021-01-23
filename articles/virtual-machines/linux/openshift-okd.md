@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: ed74d0829a8372ea8391fcd331eef2ef3af3dae0
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: d0a10c6c700f11e540dc7edaa27baee35396d814
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704904"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732387"
 ---
 # <a name="deploy-okd-in-azure"></a>Implantar o OKD no Azure
 
@@ -119,7 +119,7 @@ Versões diferentes podem ter parâmetros diferentes, portanto, verifique os par
 
 
 > [!NOTE] 
-> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, consulte [Instalar o Azure CLI](/cli/azure/install-azure-cli).
 
 O exemplo a seguir implanta o cluster OKD e todos os recursos relacionados em um grupo de recursos denominado openshiftrg, com um nome de implantação myOpenShiftCluster. O modelo é referenciado diretamente no repositório do GitHub ao usar um arquivo de parâmetros local chamado azuredeploy.parameters.json.
 

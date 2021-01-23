@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 409ba7a954830bb2370ce83989b9e8b08b742fe7
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f2d844054e3744aafa01f43ded354a5b5d9f8b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631169"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732040"
 ---
 # <a name="assign-a-managed-identity-access-to-an-application-role-using-powershell"></a>Atribuir um acesso de identidade gerenciada a uma função de aplicativo usando o PowerShell
 
@@ -36,7 +36,7 @@ Neste artigo, você aprende a atribuir uma identidade gerenciada a uma função 
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para executar os scripts de exemplo, você tem duas opções:
     - Use o [Azure cloud Shell](../../cloud-shell/overview.md), que você pode abrir usando o botão **experimentar** no canto superior direito dos blocos de código.
-    - Execute os scripts localmente instalando a versão mais recente do [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+    - Execute os scripts localmente instalando a versão mais recente do [PowerShell do Azure ad](/powershell/azure/active-directory/install-adv2).
 
 ## <a name="assign-a-managed-identity-access-to-another-applications-app-role"></a>Atribuir um acesso de identidade gerenciada à função de aplicativo de outro aplicativo
 

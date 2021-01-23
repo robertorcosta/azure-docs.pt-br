@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 7ebe56b95b0c4b938c31c0ece04d27fd1b234b05
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861877"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729905"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -98,7 +98,7 @@ Veja a lista a seguir para usar uma identidade gerenciada com o [Azure Blueprint
 - [API REST – atribuição de blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 
-### <a name="azure-cognitive-search"></a>Azure Cognitive Search
+### <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -326,9 +326,9 @@ Veja a lista a seguir para configurar a identidade gerenciada para Máquinas Vir
 | Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | Atribuído pelo sistema | Não disponível | Não disponível | Não disponível | Não disponível |
-| Atribuído pelo usuário | [Disponível em regiões com suporte](../../virtual-machines/windows/image-builder-overview.md#regions) | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | [Disponível em regiões com suporte](../../virtual-machines/image-builder-overview.md#regions) | Não disponível | Não disponível | Não disponível |
 
-Para saber como configurar a identidade gerenciada para o construtor de imagem de VM do Azure (em regiões onde disponível), consulte a [visão geral do Image Builder](../../virtual-machines/windows/image-builder-overview.md#permissions).
+Para saber como configurar a identidade gerenciada para o construtor de imagem de VM do Azure (em regiões onde disponível), consulte a [visão geral do Image Builder](../../virtual-machines/image-builder-overview.md#permissions).
 ### <a name="azure-signalr-service"></a>Serviço Azure SignalR
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |

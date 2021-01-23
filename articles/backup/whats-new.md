@@ -3,12 +3,12 @@ title: Novidades no Backup do Azure
 description: Saiba mais sobre os novos recursos no backup do Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 935c2a806ed3b08f19e680bf1522d98a9ad67666
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569412"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730282"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novidades no Backup do Azure
 
@@ -37,7 +37,7 @@ Você pode saber mais sobre as novas versões ao marcar esta página ou [inscrev
 
 ## <a name="azure-disk-backup-in-preview"></a>Backup em disco do Azure (em versão prévia)
 
-O backup em disco do Azure oferece uma solução completa que fornece gerenciamento de ciclo de vida de instantâneo para o [Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) automatizando a criação periódica de instantâneos e retendo-o por uma duração configurada usando a política de backup. Você pode gerenciar os instantâneos de disco sem custo de infraestrutura zero e sem a necessidade de script personalizado ou qualquer sobrecarga de gerenciamento. Esta é uma solução de backup consistente com falhas que faz backup pontual de um disco gerenciado usando [instantâneos incrementais](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) com suporte para vários backups por dia. Ela também é uma solução sem agente e não afeta o desempenho do aplicativo de produção. Ele dá suporte a backup e restauração de sistemas operacionais e de discos de dados (incluindo discos compartilhados), independentemente de estarem ou não conectados a uma máquina virtual do Azure em execução.
+O backup em disco do Azure oferece uma solução completa que fornece gerenciamento de ciclo de vida de instantâneo para o [Azure Managed disks](../virtual-machines/managed-disks-overview.md) automatizando a criação periódica de instantâneos e retendo-o por uma duração configurada usando a política de backup. Você pode gerenciar os instantâneos de disco sem custo de infraestrutura zero e sem a necessidade de script personalizado ou qualquer sobrecarga de gerenciamento. Esta é uma solução de backup consistente com falhas que faz backup pontual de um disco gerenciado usando [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md) com suporte para vários backups por dia. Ela também é uma solução sem agente e não afeta o desempenho do aplicativo de produção. Ele dá suporte a backup e restauração de sistemas operacionais e de discos de dados (incluindo discos compartilhados), independentemente de estarem ou não conectados a uma máquina virtual do Azure em execução.
 
 Para obter mais informações, consulte [backup em disco do Azure (em versão prévia)](disk-backup-overview.md).
 

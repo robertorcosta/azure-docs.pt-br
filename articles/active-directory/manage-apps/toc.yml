@@ -51,8 +51,6 @@
           href: non-gallery-apps.md
         - name: Planejar uma implantação de Meus Aplicativos
           href: access-panel-deployment-plan.md
-        - name: Diretrizes para desenvolvedores
-          href: developer-guidance-for-integrating-applications.md
     - name: Logon único
       items:
         - name: Planejar uma implantação de logon único
