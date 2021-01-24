@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 906879c44a2d7a3248f3d3ac0c9fec7ced7f2a4f
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570075"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746536"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 no Azure NetApp Files para SAP HANA
 
@@ -62,7 +62,13 @@ Importante entender é a relação de desempenho do tamanho e se há limites fí
 
 A tabela a seguir demonstra que pode fazer sentido criar um volume "padrão" grande para armazenar backups e que não faz sentido criar um volume "ultra" maior que 12 TB porque a capacidade de largura de banda física de um único LIF seria excedida. 
 
-A taxa de transferência máxima para um LIF e uma única sessão do Linux é entre 1,2 e 1,4 GB/s. 
+A taxa de transferência máxima para um LIF e uma única sessão do Linux é entre 1,2 e 1,4 GB/s. Se precisar de mais taxa de transferência para/Hana/data, você poderá usar SAP HANA particionamento de volume de dados para distribuir a atividade de e/s durante o recarregamento de dados ou os pontos de salvamento do HANA em vários arquivos de dados do HANA localizados em vários compartilhamentos NFS. Para obter mais detalhes sobre a distribuição de volume de dados do HANA, leia estes artigos:
+
+- [O guia do administrador do HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sobre SAP HANA – Particionando volumes de dados](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [Observação SAP #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [Observação SAP #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
 
 | Tamanho  | Taxa de transferência padrão | Taxa de transferência Premium | Taxa de transferência Ultra |
 | --- | --- | --- | --- |

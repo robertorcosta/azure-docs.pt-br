@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 38f37ff2fe150a9e1998fbe5e963b8737a6e1533
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 11aa739beeb07c3de056d8a2430b556fcc40b178
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737958"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746723"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -493,8 +493,8 @@ Saiba mais sobre [rotulagem de segmentação de instância de imagem](how-to-lab
     + Os usuários agora podem especificar uma frequência de série temporal para tarefas de previsão usando o `freq` parâmetro.
   + **azureml-train-automl-runtime**
     + Saída de console aprimorada quando melhores explicações de modelo falham.
-    + Parâmetro de entrada "backlist_models" renomeado para "blocked_models".
-      + Parâmetro de entrada "whitelist_models" renomeado para "allowed_models".
+    + Parâmetro de entrada renomeado como "blocked_models" para remover um termo confidencial.
+      + Parâmetro de entrada renomeado como "allowed_models" para remover um termo confidencial.
     + Os usuários agora podem especificar uma frequência de série temporal para tarefas de previsão usando o `freq` parâmetro.
 
   

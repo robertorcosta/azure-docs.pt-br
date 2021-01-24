@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934893"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746097"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solucionar problemas de integridade de back-end no Gateway de Aplicativo
 ==================================================
@@ -21,9 +21,6 @@ ms.locfileid: "97934893"
 --------
 
 Por padrão, o Gateway de Aplicativo do Azure investiga os servidores back-end para verificar seu status de integridade e se eles estão prontos para atender a solicitações. Os usuários também podem criar investigações personalizadas para mencionar o nome do host, o caminho a ser investigado e os códigos de status a serem aceitos como íntegros. Em cada caso, se o servidor back-end não responder com êxito, o Gateway de Aplicativo marcará o servidor como Não íntegro e interromperá o encaminhamento de solicitações ao servidor. Depois que o servidor começa a responder com êxito, o Gateway de Aplicativo retoma o encaminhamento das solicitações.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *lista de permissões*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 
 ### <a name="how-to-check-backend-health"></a>Como verificar a integridade do back-end
 
@@ -245,7 +242,7 @@ Para saber mais sobre como extrair e fazer upload de certificados raiz confiáve
 
 #### <a name="trusted-root-certificate-mismatch"></a>Incompatibilidade de certificado raiz confiável
 
-**Mensagem:** o certificado raiz do certificado do servidor usado pelo back-end não corresponde ao certificado raiz confiável adicionado ao gateway de aplicativo. Adicione o certificado raiz correto à lista de permissões de back-end
+**Mensagem:** o certificado raiz do certificado do servidor usado pelo back-end não corresponde ao certificado raiz confiável adicionado ao gateway de aplicativo. Certifique-se de adicionar o certificado raiz correto para permitir alist de back-end.
 
 **Causa:** O SSL de ponta a ponta com o Gateway de Aplicativo v2 exige que o certificado do servidor de back-end seja verificado para considerar o servidor íntegro.
 Para que um certificado TLS/SSL seja confiável, o certificado do servidor back-end deve ser emitido por uma autoridade de certificação incluída no armazenamento confiável do Gateway de Aplicativo. Se o certificado não tiver sido emitido por uma autoridade de certificação confiável (por exemplo, certificados autoassinados), os usuários deverão carregar o certificado do emissor para o Gateway de Aplicativo.

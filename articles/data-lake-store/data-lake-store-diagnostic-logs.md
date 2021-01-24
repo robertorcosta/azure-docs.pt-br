@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: aac0139e09866ce44d25989119b2eafb31e76961
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 07bf22cfc683d8c6f2c765364334ed1594e2fdaa
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610447"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745877"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acessando os logs de diagnóstico do Azure Data Lake Storage Gen1
 Saiba como habilitar o log de diagnósticos em sua conta do Azure Data Lake Storage Gen1 e como exibir os logs coletados em sua conta.
@@ -50,7 +50,7 @@ As organizações podem habilitar o log de diagnóstico para sua conta de Azure 
      
    * Especifique se deseja obter os logs de auditoria, os logs de solicitação ou ambos.
    * Especifique o número de dias que os dados devem ser mantidos. Retenção só é aplicável se você estiver usando a conta de armazenamento do Azure para arquivar dados de log.
-   * Clique em **Salvar**.
+   * Clique em **Save** (Salvar).
 
 Depois de habilitar as configurações de diagnóstico, você poderá observar os logs na guia **Logs de Diagnóstico** .
 
@@ -106,7 +106,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
         "callerIpAddress": "::ffff:1.1.1.1",
         "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
         "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-        "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z"}
+        "properties": {"HttpMethod":"GET","Path":"/webhdfs/v1/Samples/Outputs/Drivers.csv","RequestContentLength":0,"StoreIngressSize":0 ,"StoreEgressSize":4096,"ClientRequestId":"3b7adbd9-3519-4f28-a61c-bd89506163b8","StartTime":"2016-07-07T21:02:52.472Z","EndTime":"2016-07-07T21:02:53.456Z","QueryParameters":"api-version=<version>&op=<operationName>"}
     }
     ,
     . . . .
@@ -115,7 +115,7 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 ```
 
 #### <a name="request-log-schema"></a>Esquema do log de solicitação
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |A ID do recurso em que a operação ocorreu |
@@ -128,16 +128,17 @@ Aqui está um exemplo de entrada no log de solicitação formatado em JSON. Cada
 | properties |JSON |Confira abaixo para obter os detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades do log de solicitação
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | HttpMethod |String |O método HTTP usado para a operação. Por exemplo, GET. |
 | Caminho |String |O caminho em que a operação foi executada |
-| RequestContentLength |int |O comprimento do conteúdo da solicitação HTTP |
+| RequestContentLength |INT |O comprimento do conteúdo da solicitação HTTP |
 | ClientRequestId |String |A ID que identifica esta solicitação exclusivamente |
 | StartTime |String |A hora em que o servidor recebeu a solicitação |
 | EndTime |String |A hora em que o servidor enviou uma resposta |
 | StoreIngressSize |long |Tamanho em bytes de entrada para Data Lake Store |
 | StoreEgressSize |long |Tamanho em bytes de saída de Data Lake Store |
+| QueryParameters |String |Descrição: esses são os parâmetros de consulta http. Exemplo 1: API-Version = 2014-01-01&op = getfilestatus exemplo 2: op = APPEND&Append = true&syncFlag = DATA&filesessionid = bee3355a-4925-4435-bb4d-ceea52811aeb&leaseid = bee3355a-4925-4435-bb4d-ceea52811aeb&deslocamento = 28313319&API-Version = 2017-08-01 |
 
 ### <a name="audit-logs"></a>Logs de auditoria
 Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blob tem um objeto raiz chamado **registros** que contém uma matriz de objetos de log
@@ -166,7 +167,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 ```
 
 #### <a name="audit-log-schema"></a>Esquema do log de auditoria
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | time |String |O carimbo de data/hora (em UTC) do log |
 | resourceId |String |A ID do recurso em que a operação ocorreu |
@@ -179,7 +180,7 @@ Aqui está um exemplo de entrada no log de auditoria formatado em JSON. Cada blo
 | properties |JSON |Confira abaixo para obter os detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades do log de auditoria
-| Nome | Type | Descrição |
+| Nome | Tipo | Descrição |
 | --- | --- | --- |
 | StreamName |String |O caminho em que a operação foi executada |
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b9a41f4d4bb10599d50e58ad6f08d61aaba7ecfc
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: cd41f740d3cdb8130199a5dda6e73209637d5142
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608775"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745927"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados de arco do Azure
 
@@ -54,7 +54,7 @@ Independentemente da opção que você escolher, durante o processo de criação
 - **Nome** de usuário do controlador de dados-qualquer nome de usuários do administrador do controlador de dados.
 - **Senha do controlador de dados** -uma senha para o usuário administrador do controlador de dados.
 - **Nome do seu namespace kubernetes** -o nome do namespace kubernetes no qual você deseja criar o controlador de dados.
-- **Modo de conectividade** -o [modo de conectividade](./connectivity.md) do cluster. Atualmente, apenas "indireto" tem suporte.
+- **Modo de conectividade** – o modo de conectividade determina o grau de conectividade de seu ambiente de serviços de dados habilitados para o Azure ARC para o Azure. Atualmente, a visualização só dá suporte a modos conectados indiretamente e conectados diretamente.  Para obter informações, consulte [modo de conectividade](./connectivity.md). 
 - **ID de assinatura do Azure** -a GUID de assinatura do Azure para onde você deseja que o recurso de controlador de dados no Azure seja criado.
 - **Nome do grupo de recursos do Azure** -o nome do grupo de recursos em que você deseja que o recurso de controlador de dados no Azure seja criado.
 - **Local do Azure** -o local do Azure onde os metadados de recurso do controlador de dados serão armazenados no Azure. Para obter uma lista de regiões disponíveis, consulte [infraestrutura global/produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).

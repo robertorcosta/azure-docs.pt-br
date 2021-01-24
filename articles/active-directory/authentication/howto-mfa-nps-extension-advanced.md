@@ -11,19 +11,16 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d436414393d77c83acc835110f17e55e491dce1
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 695261ceae9d64be9395e6de082f97be04292078
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503482"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745978"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para autenticação multifator
 
 A extensão NPS (servidor de políticas de rede) estende seus recursos de autenticação multifator do Azure AD baseados em nuvem para sua infraestrutura local. Este artigo pressupõe que você já tenha a extensão instalada e agora deseje saber como personalizá-la para as suas necessidades.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *lista* de permissões, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 ## <a name="alternate-login-id"></a>ID de logon alternativa
 
@@ -54,7 +51,7 @@ Para configurar uma lista de permissões de IP, vá para `HKLM\SOFTWARE\Microsof
 > [!NOTE]
 > Essa chave do registro não é criada por padrão pelo instalador e um erro aparece no log AuthZOptCh quando o serviço é reiniciado. Esse erro no log pode ser ignorado, mas se essa chave do registro for criada e deixada vazia se não for necessária, a mensagem de erro não será retornada.
 
-Quando uma solicitação chega de um endereço IP que existe no, a `IP_WHITELIST` verificação em duas etapas é ignorada. A lista de IPs é comparada ao endereço IP que é fornecido no atributo *ratNASIPAddress* da solicitação RADIUS. Se uma solicitação RADIUS chegar sem o atributo ratNASIPAddress, o seguinte aviso será registrado: "P_WHITE_LIST_WARNING::IP A lista de permissões está sendo ignorada, uma vez que o IP de origem está ausente na solicitação do RADIUS no atributo NasIpAddress."
+Quando uma solicitação chega de um endereço IP que existe no, a `IP_WHITELIST` verificação em duas etapas é ignorada. A lista de IPs é comparada ao endereço IP que é fornecido no atributo *ratNASIPAddress* da solicitação RADIUS. Se uma solicitação RADIUS entrar sem o atributo ratNASIPAddress, um aviso será registrado: "IP_WHITE_LIST_WARNING:: a lista de permissões de IP está sendo ignorada, pois o IP de origem está ausente no atributo NasIpAddress de solicitação RADIUS.
 
 ## <a name="next-steps"></a>Próximas etapas
 

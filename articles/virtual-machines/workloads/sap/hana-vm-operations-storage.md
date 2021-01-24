@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2020
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484270"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746740"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -63,10 +63,22 @@ Alguns princípios de orientação na seleção da configuração de armazenamen
 - Decida sobre o tipo de armazenamento com base nos [tipos de armazenamento do Azure para carga de trabalho SAP](./planning-guide-storage.md) e [Selecione um tipo de disco](../../disks-types.md)
 - A taxa de transferência de e/s de VM geral e os limites de IOPS em mente ao dimensionar ou decidir uma VM. A taxa de transferência geral do armazenamento de VM está documentada no artigo [tamanhos de máquina virtual com otimização de memória](../../sizes-memory.md)
 - Ao decidir pela configuração de armazenamento, tente ficar abaixo da taxa de transferência geral da VM com a configuração do volume **/Hana/data** . Escrevendo pontos de salvamento, SAP HANA pode ser a emissão agressiva de e/SS. É fácil enviar até limites de taxa de transferência do volume **/Hana/data** ao escrever um salvamento de pontos. Se os discos que criam o volume **/Hana/data** tiverem uma taxa de transferência maior do que a sua VM permitir, você poderá se deparar com situações em que a taxa de transferência utilizada pela gravação do ponto de salvamento está interferindo com as demandas de taxa de transferência das gravações de log de restauração. Uma situação que pode afetar a taxa de transferência do aplicativo
-- Se você estiver usando o armazenamento Premium do Azure, a configuração menos dispendiosa será usar gerenciadores de volume lógico para criar conjuntos de distribuição para criar os volumes **/Hana/data** e **/Hana/log**
+
 
 > [!IMPORTANT]
 > As sugestões para as configurações de armazenamento são destinadas como instruções para começar. Executando a carga de trabalho e analisando os padrões de utilização de armazenamento, você pode perceber que não está utilizando toda a largura de banda de armazenamento ou IOPS fornecidos. Em seguida, você pode considerar o downsizing no armazenamento. Ou, em contrário, sua carga de trabalho pode precisar de mais taxa de transferência de armazenamento do que o sugerido com essas configurações. Como resultado, talvez seja necessário implantar mais capacidade, IOPS ou taxa de transferência. No campo de tensão entre a capacidade de armazenamento necessária, a latência de armazenamento necessária, a taxa de transferência de armazenamento e o IOPS necessários e a configuração menos dispendiosa, o Azure oferece tipos de armazenamento diferentes suficientes com diferentes recursos e pontos de preço diferentes para localizar e ajustar para o comprometimento correto para você e sua carga de trabalho do HANA.
+
+
+## <a name="stripe-sets-versus-sap-hana-data-volume-partitioning"></a>Conjuntos de distribuição versus SAP HANA particionamento de volume de dados
+Usando o armazenamento Premium do Azure, você pode atingir a melhor taxa de preço/desempenho ao distribuir o volume de **/Hana/data** e/ou **/Hana/log** em vários discos do Azure. Em vez de implantar volumes de disco maiores que fornecem mais informações sobre IOPS ou taxa de transferência necessária. Até agora, isso foi feito com os gerenciadores de volumes LVM e MDADM que fazem parte do Linux. O método de distribuição de discos é décadas antigos e bem conhecidos. Tão benéfico quanto os volumes distribuídos para chegar aos recursos de IOPS ou de taxa de transferência que você pode precisar, ele adiciona complexidades ao gerenciamento desses volumes distribuídos. Especialmente em casos em que os volumes precisam ser estendidos na capacidade. Pelo menos para **/Hana/data**, o SAP introduziu um método alternativo que alcança a mesma meta que a distribuição entre vários discos do Azure. Desde SAP HANA 2,0 SPS03, o HANA indexserver é capaz de distribuir sua atividade de e/s em vários arquivos de dados do HANA que estão localizados em diferentes discos do Azure. A vantagem é que você não precisa cuidar da criação e do gerenciamento de um volume distribuído em diferentes discos do Azure. A funcionalidade SAP HANA do particionamento de volume de dados é descrita em detalhes em:
+
+- [O guia do administrador do HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sobre SAP HANA – Particionando volumes de dados](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [Observação SAP #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [Observação SAP #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+Lendo os detalhes, é aparente que aproveitar essa funcionalidade retira as complexidades dos conjuntos de distribuição baseados no Gerenciador de volumes. Você também percebe que o particionamento do volume de dados do HANA não está funcionando apenas para o armazenamento de blocos do Azure, como o armazenamento Premium do Azure. Você pode usar essa funcionalidade também para distribuir entre compartilhamentos NFS caso esses compartilhamentos tenham limitações de IOPS ou taxa de transferência.  
+
 
 ## <a name="linux-io-scheduler-mode"></a>Modo Agendador de E/S do Linux
 O Linux possui vários modos de agendamento de E/S diferentes. A recomendação comum por meio de fornecedores do Linux e do SAP é reconfigurar o modo de agendador de E/S para volumes de disco do modo **mq-deadline** ou **kyber** para o modo **noop** (não multifila) ou **none** (multifila). Detalhes são referenciados na [Nota SAP Nº 1984787](https://launchpad.support.sap.com/#/notes/1984787). 
@@ -148,7 +160,7 @@ Configuração do volume do SAP **/Hana/data** :
 | --- | --- | --- | --- | --- | --- | --- | 
 | M32ts | 192 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14.000 |
 | M32ls | 256 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14.000 |
-| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 | 400 MBps | 680 MBps | 2\.000 | 14.000 |
+| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 | 400 MBps | 680 MBps | 2.000 | 14.000 |
 | M64s | 1\.000 GiB | 1\.000 MBps | 4 x P15 | 500 MBps | 680 MBps | 4.400 | 14.000 |
 | M64ms | 1\.750 GiB | 1\.000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9.200 | 14.000 |  
 | M128s | 2\.000 GiB | 2.000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9.200| 14.000 | 
@@ -245,7 +257,7 @@ As recomendações geralmente estão excedendo os requisitos mínimos do SAP, co
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MBps | 2\.500 | 80 GB | 250 MB | 1.800 |
 | E32ds_v4 | 256 GiB | 768 MB/s | 300 GB | 400 MBps | 2\.500 | 128 GB | 250 MBps | 1.800 |
-| E48ds_v4 | 384 GiB | 1152 MB/s | 460 GB | 400 MBps | 3.000 | 192 GB | 250 MBps | 1.800 |
+| E48ds_v4 | 384 GiB | 1152 MB/s | 460 GB | 400 MBps | 3\.000 | 192 GB | 250 MBps | 1.800 |
 | E64ds_v4 | 504 GiB | 1200 MB/s | 610 GB | 400 MBps | 3\.500 |  256 GB | 250 MBps | 1.800 |
 | E64s_v3 | 432 GiB | 1\.200 MB/s | 610 GB | 400 MBps | 3\.500 | 220 GB | 250 MB | 1.800 |
 | M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 2\.500 | 96 GB | 250 MBps  | 1.800 |

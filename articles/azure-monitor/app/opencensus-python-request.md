@@ -6,21 +6,18 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4b88550ad489607bb66eb737067190d45a466a43
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 4abb795335bfcb2c9b335d4fb09ddc9fdb2476b4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607068"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746570"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Acompanhar solicitações de entrada com Python OpenCensus
 
 Os dados de solicitação de entrada são coletados usando Python OpenCensus e suas várias integrações. Acompanhe os dados de solicitação de entrada enviados aos seus aplicativos Web criados com base nas estruturas populares da Web `django` `flask` e no `pyramid` . Os dados são enviados para Application Insights em Azure Monitor como `requests` telemetria.
 
 Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./opencensus-python.md)mais recente.
-
-> [!NOTE]
-> Este artigo contém referências ao termo lista de *bloqueios*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 ## <a name="tracking-django-applications"></a>Acompanhamento de aplicativos Django
 
@@ -36,7 +33,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
     )
     ```
 
-3. Verifique se o AzureExporter está configurado corretamente no seu `settings.py` em `OPENCENSUS` . Para solicitações de URLs que você não deseja controlar, adicione-as ao `BLACKLIST_PATHS` .
+3. Verifique se o AzureExporter está configurado corretamente no seu `settings.py` em `OPENCENSUS` . Para solicitações de URLs que você não deseja controlar, adicione-as ao `EXCLUDELIST_PATHS` .
 
     ```python
     OPENCENSUS = {
@@ -45,7 +42,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -77,7 +74,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
     
     ```
 
-2. Você também pode configurar seu `flask` aplicativo por meio do `app.config` . Para solicitações de URLs que você não deseja controlar, adicione-as ao `BLACKLIST_PATHS` .
+2. Você também pode configurar seu `flask` aplicativo por meio do `app.config` . Para solicitações de URLs que você não deseja controlar, adicione-as ao `EXCLUDELIST_PATHS` .
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -86,7 +83,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>",
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -103,7 +100,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. Você pode configurar sua `pyramid` interpolação diretamente no código. Para solicitações de URLs que você não deseja controlar, adicione-as ao `BLACKLIST_PATHS` .
+2. Você pode configurar sua `pyramid` interpolação diretamente no código. Para solicitações de URLs que você não deseja controlar, adicione-as ao `EXCLUDELIST_PATHS` .
 
     ```python
     settings = {
@@ -113,7 +110,7 @@ Primeiro, instrumentar seu aplicativo Python com o [SDK do Python OpenCensus](./
                 'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                     connection_string="InstrumentationKey=<your-ikey-here>",
                 )''',
-                'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+                'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
             }
         }
     }
@@ -179,7 +176,7 @@ OpenCensus não tem uma extensão para FastAPI. Para escrever seu próprio middl
 
 * [Mapa do aplicativo](./app-map.md)
 * [Disponibilidade](./monitor-web-app-availability.md)
-* [Pesquisar](./diagnostic-search.md)
+* [Pesquisa](./diagnostic-search.md)
 * [Consulta de log (Analytics)](../log-query/log-query-overview.md)
 * [Diagnóstico da transação](./transaction-diagnostics.md)
 

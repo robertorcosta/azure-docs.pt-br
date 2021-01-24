@@ -1,5 +1,5 @@
 ---
-title: SDK do horizonte
+title: SDK do Horizon
 titleSuffix: Azure Defender for IoT
 description: O SDK do horizonte permite que os desenvolvedores do Azure defender para IoT projetem plugins de dessetor que decodifiquem o tráfego de rede para que possam ser processados por programas de análise de rede do defender para IoT.
 author: shhazam-ms
@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d6105f65508eff59164246020d9a3f286b68c5a1
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210489"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746012"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dessetor de protocolo proprietário do horizonte
 
@@ -315,10 +315,10 @@ Esta seção descreve os parâmetros básicos.
 
 | Rótulo de parâmetro | Descrição | Type |
 |--|--|--|
-| **ID** | O nome do protocolo. Exclua o padrão e adicione o nome do seu protocolo conforme ele for exibido. | Cadeia de caracteres |
-| **endianess** | Define como os dados de vários bytes são codificados. Use o termo "pequeno" ou "grande" apenas. Tirado da especificação de protocolo ou da gravação de tráfego | Cadeia de caracteres |
-| **sanity_failure_codes** | Esses são os códigos retornados do analisador quando há um conflito de sanidade em relação à identidade do código. Consulte validação do número mágico na seção C++. | Cadeia de caracteres |
-| **malformed_codes** | Esses são os códigos que foram identificados corretamente, mas um erro é detectado. Por exemplo, se o tamanho do campo for muito curto ou longo, ou um valor for inválido. | Cadeia de caracteres |
+| **ID** | O nome do protocolo. Exclua o padrão e adicione o nome do seu protocolo conforme ele for exibido. | String |
+| **endianess** | Define como os dados de vários bytes são codificados. Use o termo "pequeno" ou "grande" apenas. Tirado da especificação de protocolo ou da gravação de tráfego | String |
+| **sanity_failure_codes** | Esses são os códigos retornados do analisador quando há um conflito de sanidade em relação à identidade do código. Consulte validação do número mágico na seção C++. | String |
+| **malformed_codes** | Esses são os códigos que foram identificados corretamente, mas um erro é detectado. Por exemplo, se o tamanho do campo for muito curto ou longo, ou um valor for inválido. | String |
 | **dissect_as** | Uma matriz que define onde o tráfego de protocolo específico deve chegar. | TCP/UDP, porta etc. |
 | **campos** | A declaração de quais campos serão extraídos do tráfego. Cada campo tem sua própria ID (nome) e tipo (numérico, Cadeia de caracteres, bruto, matriz, complexo). Por exemplo, a [função](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) de campo que é extraída no arquivo do analisador de implementação. Os campos gravados no arquivo de configuração são os únicos que podem ser adicionados à camada. |  |
 
@@ -326,7 +326,7 @@ Esta seção descreve os parâmetros básicos.
 
 Esta seção descreve outros campos.
 
-| Rótulo de parâmetro | Description |
+| Rótulo de parâmetro | Descrição |
 |-----------------|--------|
 | **listas de permissões** | Você pode indexar os valores de protocolo e exibi-los em relatórios de mineração de dados. Esses relatórios refletem sua linha de base de rede. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="Um exemplo da exibição de Data Mining."::: <br /> Para obter mais informações, consulte [conectar-se a um serviço de indexação (linha de base)](#connect-to-an-indexing-service-baseline) para obter detalhes. |
 | **firmware** | Você pode extrair informações de firmware, definir valores de índice e disparar alertas de firmware para o protocolo de plug-in. Para obter mais informações, consulte [extrair dados de firmware](#extract-firmware-data) para obter detalhes. |
@@ -885,7 +885,7 @@ Você também pode usar valores de protocolos analisados anteriormente para extr
 
 Por exemplo, para o valor, que é baseado em TCP, você pode usar os valores da camada IPv4. Nessa camada, você pode extrair valores como a origem do pacote e o destino.
 
-Para conseguir isso, o arquivo de configuração JSON precisa ser atualizado usando a `whitelist` propriedade.
+Para conseguir isso, o arquivo de configuração JSON precisa ser atualizado usando a `whitelists` propriedade.
 
 ## <a name="allow-list-data-mining-fields"></a>Campos da lista de permissões (Data Mining)
 
@@ -1148,8 +1148,8 @@ As propriedades que podem ser configuradas neste arquivo são:
 
 | Campo | Descrição |
 |--|--|
-| chave | Indica a chave. |
-| valor | Indica o campo de implementação a ser usado para fornecer os dados. |
+| key | Indica a chave. |
+| value | Indica o campo de implementação a ser usado para fornecer os dados. |
 | is_static_key | Indica se o `key` campo é derivado como um valor do pacote ou é um valor predefinido. |
 
 ### <a name="working-with-static-keys-only"></a>Trabalhando somente com chaves estáticas
@@ -1606,7 +1606,7 @@ Para carregar:
 1.  Entre no sensor.
 
 
-2. Escolha **Carregar**.
+2. Selecione **Carregar**.
 
     :::image type="content" source="media/references-horizon-sdk/upload.png" alt-text="Carregue seus plugins.":::
 
@@ -1626,7 +1626,7 @@ A janela **visão geral** do console de horizonte fornece informações sobre o 
 | PPS | O número de pacotes por segundo. |
 | Largura de banda | A largura de banda média detectada nos últimos 5 segundos. |
 | Malforms | Validações malformadas são usadas depois que o protocolo tiver sido validado positivamente. Se houver uma falha ao processar os pacotes com base no protocolo, uma resposta de falha será retornada.   <br><br>Esta coluna indica o número de erros malform nos últimos 5 segundos. Para obter mais informações, consulte [validações de código malformado](#malformed-code-validations) para obter detalhes. |
-| Avisos | Os pacotes correspondem à estrutura e à especificação, mas há um comportamento inesperado com base na configuração de aviso do plug-in. |
+| Warnings | Os pacotes correspondem à estrutura e à especificação, mas há um comportamento inesperado com base na configuração de aviso do plug-in. |
 | Errors | O número de pacotes que falharam validações de protocolo básicas. Valida se o pacote corresponde às definições de protocolo. O número exibido aqui indica o número de erros detectados nos últimos 5 segundos. Para obter mais informações, consulte [validações de código de sanidade](#sanity-code-validations) para obter detalhes. |
 | :::image type="content" source="media/references-horizon-sdk/monitor.png" alt-text="O ícone de monitor."::: | Examine os detalhes sobre malform e avisos detectados para o plug-in. |
 

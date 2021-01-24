@@ -3,17 +3,17 @@ title: Ponte de Plug and Play IoT | Microsoft Docs
 description: Entenda a ponte de Plug and Play IoT e como usá-la para conectar dispositivos existentes conectados a um gateway Windows ou Linux como dispositivos de IoT Plug and Play.
 author: usivagna
 ms.author: ugans
-ms.date: 09/22/2020
+ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 34af380d057ad47811e394da1e7a29198e102920
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 05b9df2c5083d24ae6a78212bdd29cd1c740e1d1
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672773"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746485"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Ponte do IoT Plug and Play
 
@@ -34,9 +34,9 @@ A ponte de Plug and Play IoT dá suporte aos seguintes tipos de periféricos por
 |O [adaptador Modbus](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/modbus_adapters.md) conecta sensores em um dispositivo Modbus.              |Sim|Sim|
 |O [adaptador MQTT](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/mqtt_adapter.md) conecta dispositivos que usam um agente MQTT.                  |Sim|Sim|
 |O [adaptador SerialPnP](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/serialpnp/Readme.md) conecta dispositivos que se comunicam por meio de uma conexão serial.               |Sim|Sim|
-|Os [periféricos USB do Windows](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/coredevicehealth_adapter.md) usam uma lista de classes de interface de dispositivo com suporte a adaptador para conectar dispositivos que têm uma ID de hardware específica.  |Yes|Não Aplicável|
+|Os [periféricos USB do Windows](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/coredevicehealth_adapter.md) usam uma lista de classes de interface de dispositivo com suporte a adaptador para conectar dispositivos que têm uma ID de hardware específica.  |Sim|Não Aplicável|
 
-Para saber como estender a ponte de Plug and Play IoT para dar suporte a protocolos de dispositivo adicionais, consulte [criar, implantar e estender a ponte de plug and Play IOT](howto-build-deploy-extend-pnp-bridge.md).
+Para saber como estender a ponte de Plug and Play IoT para dar suporte a protocolos de dispositivo adicionais, consulte [estender a ponte de plug and Play IOT](howto-author-pnp-bridge-adapter.md). Para saber como criar e implantar a ponte de Plug and Play IoT, consulte [criar e implantar a ponte de plug and Play IOT](howto-build-deploy-extend-pnp-bridge.md).
 
 ## <a name="iot-plug-and-play-bridge-architecture"></a>Arquitetura de ponte de Plug and Play IoT
 
@@ -148,6 +148,7 @@ Você também pode baixar e exibir o código-fonte do [IoT plug and Play Bridge 
 
 Agora que você tem uma visão geral da arquitetura do IoT Plug and Play Bridge, as próximas etapas são para saber mais sobre:
 
-- [Como usar a ponte de Plug and Play IoT](./howto-use-iot-pnp-bridge.md)
-- [Criar, implantar e estender a ponte de Plug and Play IoT](howto-build-deploy-extend-pnp-bridge.md)
+- [Como conectar um exemplo de ponte IoT Plug and Play em execução no Linux ou Windows para o Hub IoT](./howto-use-iot-pnp-bridge.md)
+- [Criar e implantar a ponte de Plug and Play IoT](howto-build-deploy-extend-pnp-bridge.md)
+- [Estender a ponte de Plug and Play IoT](howto-build-deploy-extend-pnp-bridge.md)
 - [Ponte de Plug and Play IoT no GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

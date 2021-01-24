@@ -4,12 +4,12 @@ description: Este artigo aborda dúvidas comuns sobre o Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109548"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746468"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery
 
@@ -344,6 +344,14 @@ Sim, você pode usar a recuperação em uma localização alternativa para fazer
 
 * [Para máquinas virtuais VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Para máquinas virtuais Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
+
+### <a name="what-is-the-difference-between-complete-migration-commit-and-disable-replication"></a>Qual é a diferença entre migração completa, confirmar e desabilitar a replicação?
+
+Após o failover de um computador do local de origem para o local de destino, há três opções disponíveis para sua escolha. Todos os três servem para diferentes finalidades –
+
+1.  A **migração completa** significa que você não vai mais para o local de origem. Você migrou para a região de destino e agora está pronto. Clicar em concluir migração dispara a confirmação e, em seguida, desabilita a replicação internamente. 
+2.  **Confirmar** significa que esse não é o fim do processo de replicação. O item de replicação junto com todas as configurações permanecerá e você poderá clicar em **proteger novamente** em um momento posterior para habilitar a replicação de seus computadores de volta para a região de origem. 
+3.  **Desabilitar a replicação** desabilitará a replicação e removerá todas as configurações relacionadas. Ele não afetará a máquina já existente na região de destino.
 
 ## <a name="automation"></a>Automação
 

@@ -1,27 +1,26 @@
 ---
-title: Como criar, implantar e estender o IoT Plug and Play Bridge | Microsoft Docs
-description: Identifique os componentes da ponte de Plug and Play IoT. Saiba como estender a ponte e como executá-la em dispositivos IoT, gateways e como um módulo IoT Edge.
+title: Como criar e implantar a ponte de Plug and Play IoT | Microsoft Docs
+description: Identifique os componentes da ponte de Plug and Play IoT. Saiba como executá-lo em dispositivos IoT, gateways e como um módulo IoT Edge.
 author: usivagna
 ms.author: ugans
-ms.date: 12/11/2020
+ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 43c89b0fac08bf9f2c72f885fbf4788371876b17
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b7947eab93ebc8e523e163af601893522132e06a
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678569"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745660"
 ---
-# <a name="build-deploy-and-extend-the-iot-plug-and-play-bridge"></a>Criar, implantar e estender a ponte de Plug and Play IoT
+# <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Criar e implantar a ponte de Plug and Play IoT
 
-A ponte de Plug and Play IoT permite que você conecte os dispositivos existentes anexados a um gateway ao Hub IoT. Você usa a ponte para mapear as interfaces de Plug and Play de IoT para os dispositivos anexados. Uma interface de Plug and Play IoT define a telemetria que um dispositivo envia, as propriedades sincronizadas entre o dispositivo e a nuvem e os comandos que o dispositivo responde. Você pode instalar e configurar o aplicativo de ponte de software livre em gateways Windows ou Linux.
+A [ponte de plug and Play IOT](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) permite que você conecte os dispositivos existentes anexados a um gateway ao Hub IOT. Você usa a ponte para mapear as interfaces de Plug and Play de IoT para os dispositivos anexados. Uma interface de Plug and Play IoT define a telemetria que um dispositivo envia, as propriedades sincronizadas entre o dispositivo e a nuvem e os comandos que o dispositivo responde. Você pode instalar e configurar o aplicativo de ponte de software livre em gateways Windows ou Linux. Além disso, a ponte pode ser executada como um módulo Azure IoT Edge Runtime.
 
 Este artigo explica em detalhes como:
 
 - Configurar uma ponte.
-- Estenda uma ponte criando novos adaptadores.
 - Como compilar e executar a ponte em vários ambientes.
 
 Para obter um exemplo simples que mostra como usar a ponte, consulte [como conectar o exemplo de ponte de plug and Play de IOT que é executado no Linux ou Windows para o Hub IOT](howto-use-iot-pnp-bridge.md).
@@ -77,97 +76,6 @@ O [esquema do arquivo de configuração](https://github.com/Azure/iot-plug-and-p
 ### <a name="iot-edge-module-configuration"></a>Configuração do módulo IoT Edge
 
 Quando a ponte é executada como um módulo IoT Edge em um tempo de execução IoT Edge, o arquivo de configuração é enviado da nuvem como uma atualização para a `PnpBridgeConfig` propriedade desejada. A ponte aguarda essa atualização de propriedade antes de configurar os adaptadores e os componentes.
-
-## <a name="extend-the-bridge"></a>Estender a ponte
-
-Para estender os recursos da ponte, você pode criar seus próprios adaptadores de ponte.
-
-A ponte usa adaptadores para:
-
-- Estabeleça uma conexão entre um dispositivo e a nuvem.
-- Habilite o fluxo de dados entre um dispositivo e a nuvem.
-- Habilite o gerenciamento de dispositivos da nuvem.
-
-Cada adaptador de ponte deve:
-
-- Crie uma interface gêmeos digital.
-- Use a interface para associar a funcionalidade do lado do dispositivo a recursos baseados em nuvem, como telemetria, propriedades e comandos.
-- Estabeleça a comunicação de controle e de dados com o hardware ou firmware do dispositivo.
-
-Cada adaptador de ponte interage com um tipo específico de dispositivo com base em como o adaptador se conecta e interage com o dispositivo. Mesmo se a comunicação com um dispositivo usar um protocolo de handshake, um adaptador de ponte poderá ter várias maneiras de interpretar os dados do dispositivo. Nesse cenário, o adaptador de ponte usa informações para o adaptador no arquivo de configuração para determinar a *configuração de interface* que o adaptador deve usar para analisar os dados.
-
-Para interagir com o dispositivo, um adaptador de ponte usa um protocolo de comunicação com suporte do dispositivo e as APIs fornecidas pelo sistema operacional subjacente ou pelo fornecedor do dispositivo.
-
-Para interagir com a nuvem, um adaptador de ponte usa as APIs fornecidas pelo SDK do dispositivo IoT do Azure para enviar telemetria, criar interfaces de atualização digitais, enviar atualizações de propriedade e criar funções de retorno de chamada para atualizações de propriedade e comandos.
-
-### <a name="create-a-bridge-adapter"></a>Criar um adaptador de ponte
-
-A ponte espera que um adaptador de ponte implemente as APIs definidas na interface [_PNP_ADAPTER](https://github.com/Azure/iot-plug-and-play-bridge/blob/9964f7f9f77ecbf4db3b60960b69af57fd83a871/pnpbridge/src/pnpbridge/inc/pnpadapter_api.h#L296) :
-
-```c
-typedef struct _PNP_ADAPTER {
-  // Identity of the IoT Plug and Play adapter that is retrieved from the config
-  const char* identity;
-
-  PNPBRIDGE_ADAPTER_CREATE createAdapter;
-  PNPBRIDGE_COMPONENT_CREATE createPnpComponent;
-  PNPBRIDGE_COMPONENT_START startPnpComponent;
-  PNPBRIDGE_COMPONENT_STOP stopPnpComponent;
-  PNPBRIDGE_COMPONENT_DESTROY destroyPnpComponent;
-  PNPBRIDGE_ADAPTER_DESTOY destroyAdapter;
-} PNP_ADAPTER, * PPNP_ADAPTER;
-```
-
-Nesta interface:
-
-- `PNPBRIDGE_ADAPTER_CREATE` cria o adaptador e configura os recursos de gerenciamento de interface. Um adaptador também pode depender de parâmetros globais do adaptador para a criação do adaptador. Essa função é chamada uma vez para um único adaptador.
-- `PNPBRIDGE_COMPONENT_CREATE` cria as interfaces de cliente de "digital" e associa as funções de retorno de chamada. O adaptador inicia o canal de comunicação com o dispositivo. O adaptador pode configurar os recursos para habilitar o fluxo de telemetria, mas não inicia a telemetria de relatório até que `PNPBRIDGE_COMPONENT_START` seja chamado. Essa função é chamada uma vez para cada componente de interface no arquivo de configuração.
-- `PNPBRIDGE_COMPONENT_START` é chamado para permitir que o adaptador de ponte comece a encaminhar a telemetria do dispositivo para o cliente digital. Essa função é chamada uma vez para cada componente de interface no arquivo de configuração.
-- `PNPBRIDGE_COMPONENT_STOP` interrompe o fluxo de telemetria.
-- `PNPBRIDGE_COMPONENT_DESTROY` destrói o cliente de teledigital e os recursos de interface associados. Essa função é chamada uma vez para cada componente de interface no arquivo de configuração quando a ponte é interrompida ou quando ocorre um erro fatal.
-- `PNPBRIDGE_ADAPTER_DESTROY` limpa os recursos do adaptador de ponte.
-
-### <a name="bridge-core-interaction-with-bridge-adapters"></a>Interação de núcleo de ponte com adaptadores de ponte
-
-A lista a seguir descreve o que acontece quando a ponte é iniciada:
-
-1. Quando a ponte é iniciada, o Gerenciador do adaptador de ponte examina cada componente de interface definido no arquivo de configuração e chama `PNPBRIDGE_ADAPTER_CREATE` o adaptador apropriado. O adaptador pode usar parâmetros de configuração de adaptador global para configurar recursos para dar suporte a várias *configurações de interface*.
-1. Para cada dispositivo no arquivo de configuração, o Gerenciador de ponte inicia a criação da interface chamando `PNPBRIDGE_COMPONENT_CREATE` no adaptador de ponte apropriado.
-1. O adaptador recebe quaisquer definições de configuração de adaptador opcionais para o componente de interface e usa essas informações para configurar conexões com o dispositivo.
-1. O adaptador cria as interfaces de cliente de atualização digital e associa as funções de retorno de chamada para atualizações de propriedade e comandos. O estabelecimento de conexões de dispositivo não deve bloquear o retorno dos retornos de chamada após a criação da interface de migração de troca de digital. A conexão de dispositivo ativa é independente do cliente de interface ativa que a ponte cria. Se uma conexão falhar, o adaptador assumirá que o dispositivo está inativo. O adaptador de ponte pode optar por tentar fazer essa conexão novamente.
-1. Depois que o Gerenciador de adaptador de ponte cria todos os componentes de interface especificados no arquivo de configuração, ele registra todas as interfaces com o Hub IoT do Azure. O registro é uma chamada assíncrona e de bloqueio. Quando a chamada é concluída, ela dispara um retorno de chamada no adaptador de ponte que pode iniciar a manipulação de retornos de chamada de comando e propriedade da nuvem.
-1. Em seguida, o Gerenciador do adaptador de ponte chama `PNPBRIDGE_INTERFACE_START` em cada componente e o adaptador de ponte começa a reportar a telemetria para o cliente digital.
-
-### <a name="design-guidelines"></a>Diretrizes de design
-
-Siga estas diretrizes ao desenvolver um novo adaptador de ponte:
-
-- Determine quais recursos de dispositivo têm suporte e a aparência da definição de interface dos componentes que usam esse adaptador.
-- Determine qual interface e parâmetros globais seu adaptador precisa definir no arquivo de configuração.
-- Identifique a comunicação de dispositivo de nível baixo necessária para dar suporte às propriedades e aos comandos do componente.
-- Determine como o adaptador deve analisar os dados brutos do dispositivo e convertê-los nos tipos de telemetria que a definição de interface de IoT Plug and Play especifica.
-- Implemente a interface do adaptador de ponte descrita anteriormente.
-- Adicione o novo adaptador ao manifesto do adaptador e Compile a ponte.
-
-### <a name="enable-a-new-bridge-adapter"></a>Habilitar um novo adaptador de ponte
-
-Você habilita adaptadores na ponte adicionando uma referência em [adapter_manifest. c](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/shared/adapter_manifest.c):
-
-```c
-  extern PNP_ADAPTER MyPnpAdapter;
-  PPNP_ADAPTER PNP_ADAPTER_MANIFEST[] = {
-    .
-    .
-    &MyPnpAdapter
-  }
-```
-
-> [!IMPORTANT]
-> Os retornos de chamada do adaptador de ponte são invocados sequencialmente. Um adaptador não deve bloquear um retorno de chamada porque isso impede que o núcleo da ponte faça progressos.
-
-### <a name="sample-camera-adapter"></a>Adaptador de câmera de exemplo
-
-O [Leiame do adaptador de câmera](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/Camera/readme.md) descreve um adaptador de câmera de exemplo que você pode habilitar.
 
 ## <a name="build-and-run-the-bridge-on-an-iot-device-or-gateway"></a>Compilar e executar a ponte em um dispositivo ou gateway de IoT
 
@@ -378,7 +286,6 @@ Inicie o VS Code, abra a paleta de comandos, insira *WSL remota: Abra a pasta no
 Abra o arquivo *pnpbridge\Dockerfile.AMD64* . Edite as definições de variável de ambiente da seguinte maneira:
 
 ```dockerfile
-ENV IOTHUB_DEVICE_CONNECTION_STRING="{Add your device connection string here}"
 ENV PNP_BRIDGE_ROOT_MODEL_ID="dtmi:com:example:RootPnpBridgeSampleDevice;1"
 ENV PNP_BRIDGE_HUB_TRACING_ENABLED="false"
 ENV IOTEDGE_WORKLOADURI="something"
