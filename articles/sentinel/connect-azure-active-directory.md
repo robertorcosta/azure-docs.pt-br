@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: e84484990725b0c39b132aead51e9b01dbb7e7ef
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 409a316bd9c4222dd9b8ff30e42e37d23805c38b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632284"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757755"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Conectar dados de Azure Active Directory (Azure AD)
 
@@ -44,12 +44,12 @@ Você pode usar o conector interno do Sentinela do Azure para coletar dados de [
 
 1. Marque as caixas de seleção ao lado dos tipos de log que você deseja transmitir para o Azure Sentinel e clique em **conectar**. Estes são os tipos de log dos quais você pode escolher:
 
-    - Logs de entrada
-    - Logs de auditoria
-    - Logs de entrada do usuário não interativo
-    - Logs de entrada da entidade de serviço
-    - Logs de entrada de identidade gerenciada
-    - Provisionando logs
+    - **Logs de entrada**: informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
+    - **Logs de auditoria**: informações de atividade do sistema sobre gerenciamento de usuários e grupos, aplicativos gerenciados e atividades de diretório.
+    - **Logs de entrada de usuário não interativo**: informações sobre entradas executadas por um cliente em nome de um usuário, que não exigem nenhuma interação ou fator de autenticação do usuário.
+    - **Logs de entrada da entidade de serviço**: informações sobre entradas por aplicativos e entidades de serviço que não envolvem nenhum usuário. Nessas entradas, o aplicativo ou serviço fornece uma credencial em seu próprio nome para autenticar ou acessar recursos.
+    - **Logs de entrada de identidade gerenciada**: entradas por recursos do Azure que têm segredos gerenciados pelo Azure.
+    - **Logs de provisionamento**: informações sobre a atividade do sistema sobre usuários, grupos e funções provisionadas pelo serviço de provisionamento do Azure AD.
 
 ## <a name="find-your-data"></a>Encontre seus dados
 

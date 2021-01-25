@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d03177e3224bbd3f53320871efc6a0d6b3ea479d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922652"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757620"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizar grupos de gerenciamento, assinaturas e visibilidade em todo o locatário
 
@@ -81,7 +81,7 @@ Você consegue adicionar assinaturas a um grupo de gerenciamento que você criou
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Conceder permissões em todo o locatário para você mesmo
 
-Um usuário com a função Azure Active Directory do **administrador global** pode ter responsabilidades em todo o locatário, mas não tem as permissões do Azure para exibir as informações de toda a organização na central de segurança do Azure. 
+Um usuário com a função **Administrador global** no Azure Active Directory pode ter responsabilidades em todo o locatário, mas não ter as permissões do Azure para ver essas informações de toda a organização na Central de Segurança do Azure. 
 
 > [!TIP]
 > Se sua organização gerencia o acesso a recursos com [Azure ad Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)ou qualquer outra ferramenta PIM, a função de administrador global deve estar ativa para que o usuário faça essas alterações.
@@ -107,6 +107,36 @@ Para atribuir permissões em nível de locatário:
 
 1. Após elevar o acesso, abra ou atualize a Central de Segurança do Azure para verificar se você tem visibilidade de todas as assinaturas do locatário do Azure AD. 
 
+
+## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Solicitar permissões em todo o locatário quando as suas não forem suficientes
+
+Se você fizer logon na central de segurança e vir uma faixa informando que sua exibição é limitada, você pode clicar para enviar uma solicitação ao administrador global da sua organização. Na solicitação, você pode incluir a função que deseja atribuir e o administrador global tomará uma decisão sobre qual função conceder. 
+
+É a decisão do administrador global se você deve aceitar ou rejeitar essas solicitações. 
+
+> [!IMPORTANT]
+> Você só pode enviar uma solicitação a cada sete dias.
+
+Para solicitar permissões elevadas de seu administrador global:
+
+1. No portal do Azure, abra a central de segurança do Azure.
+
+1. Se você vir a faixa "você está vendo informações limitadas". Selecione-o.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Faixa informando um usuário ele pode solicitar permissões em todo o locatário.":::
+
+1. No formulário de solicitação detalhado, selecione a função desejada e a justificativa de por que você precisa dessas permissões.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Página de detalhes para solicitar permissões em todo o locatário do administrador global do Azure":::
+
+1. Selecione **Solicitar acesso**.
+
+    Um email é enviado para o administrador global. O email contém um link para a central de segurança onde eles podem aprovar ou rejeitar a solicitação.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Email para o administrador global para obter novas permissões":::
+
+    Depois que o administrador global selecionar **examinar a solicitação** e concluir o processo, a decisão será enviada por email para o usuário solicitante. 
+
 ## <a name="assign-azure-roles-to-other-users"></a>Atribuir funções do Azure a outros usuários
 
 ### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Atribua funções do Azure aos usuários por meio do portal do Azure: 
@@ -124,7 +154,7 @@ Para atribuir permissões em nível de locatário:
 
 ### <a name="assign-azure-roles-to-users-with-powershell"></a>Atribuir funções do Azure a usuários com o PowerShell: 
 1. Instale o [Azure PowerShell](/powershell/azure/install-az-ps).
-2. Execute os comandos a seguir: 
+2. Execute os seguintes comandos: 
 
     ```azurepowershell
     # Login to Azure as a Global Administrator user
@@ -149,6 +179,7 @@ Para atribuir permissões em nível de locatário:
     ```
 
 ## <a name="remove-elevated-access"></a>Remover acesso elevado 
+
 Depois que as funções do Azure tiverem sido atribuídas aos usuários, o administrador de locatários deverá se remover da função de administrador de acesso do usuário.
 
 1. Entre no [portal do Azure](https://portal.azure.com) ou no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com).

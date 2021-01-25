@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: f2807501b1e18d4cbffaa34d70bccf8d70565266
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747216"
+ms.locfileid: "98757535"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -126,7 +126,7 @@ Essas configurações podem ser atualizadas no Key Vault por meio da CLI e do Po
 ## <a name="create-cluster"></a>Criar cluster
 
 Os clusters dão suporte a dois [tipos de identidade gerenciados](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): atribuídos pelo sistema e atribuídos pelo usuário, enquanto uma única identidade pode ser definida em um cluster, dependendo do seu cenário. 
-- A identidade gerenciada atribuída pelo sistema é mais simples e gerada automaticamente com a criação do cluster quando a identidade `type` está definida como "*SystemAssigned*". Essa identidade pode ser usada posteriormente para conceder ao cluster acesso ao seu Key Vault. 
+- A identidade gerenciada atribuída pelo sistema é mais simples e gerada automaticamente com a criação do cluster quando a identidade `type` está definida como "*SystemAssigned*". Essa identidade pode ser usada posteriormente para conceder acesso de armazenamento à sua Key Vault para operações de encapsulamento e desencapsulamento. 
   
   Configurações de identidade no cluster para identidade gerenciada atribuída pelo sistema
   ```json
@@ -137,7 +137,7 @@ Os clusters dão suporte a dois [tipos de identidade gerenciados](../../active-d
   }
   ```
 
-- Se você quiser configurar a chave gerenciada pelo cliente na criação do cluster, você deverá ter uma identidade atribuída pelo usuário e uma chave concedidas em seu Key Vault antecipadamente e, em seguida, criar o cluster com estas configurações: Identity `type` como "*userassigned*", `UserAssignedIdentities` com a ID de recurso da identidade.
+- Se você quiser configurar a chave gerenciada pelo cliente na criação do cluster, você deverá ter uma identidade atribuída pelo usuário e uma chave concedidas em seu Key Vault antecipadamente e, em seguida, criar o cluster com estas configurações: Identity `type` como "*userassigned*", `UserAssignedIdentities` com a *ID de recurso* da sua identidade.
 
   Configurações de identidade no cluster para identidade gerenciada atribuída pelo usuário
   ```json
@@ -151,27 +151,7 @@ Os clusters dão suporte a dois [tipos de identidade gerenciados](../../active-d
   ```
 
 > [!IMPORTANT]
-> Você não poderá usar a chave gerenciada pelo cliente com identidade gerenciada atribuída pelo usuário se seu Key Vault estiver em Private-Link (vNet). Você pode usar a identidade gerenciada atribuída pelo sistema nesse cenário.
-
-```json
-{
-  "identity": {
-    "type": "SystemAssigned"
-}
-```
- 
-Com:
-
-```json
-{
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
-      }
-}
-```
-
+> Você não poderá usar a identidade gerenciada atribuída pelo usuário se seu Key Vault estiver em Private-Link (vNet). Você pode usar a identidade gerenciada atribuída pelo sistema nesse cenário.
 
 Siga o artigo procedimento ilustrado no [clusters dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 

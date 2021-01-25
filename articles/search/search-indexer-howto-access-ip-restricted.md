@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 12943d5d22a9e81c7e99522fa4728f4798549682
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01a88be9c54a2701130daace26c44159ee364e4c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499944"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757236"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Configurar regras de firewall IP para permitir conexões do indexador (Pesquisa Cognitiva do Azure)
 
@@ -30,7 +30,7 @@ Obtenha o FQDN (nome de domínio totalmente qualificado) do seu serviço de pesq
 
    ![Obter o FQDN do serviço](media\search-indexer-howto-secure-access\search-service-portal.png "Obter o FQDN do serviço")
 
-O endereço IP do serviço de pesquisa pode ser obtido executando um `nslookup` (ou um `ping` ) do FQDN. No exemplo a seguir, você adicionaria "10.50.10.50" a uma regra de entrada no firewall do armazenamento do Azure.
+O endereço IP do serviço de pesquisa pode ser obtido executando um `nslookup` (ou um `ping` ) do FQDN. No exemplo a seguir, você adicionaria "150.0.0.1" a uma regra de entrada no firewall do armazenamento do Azure. Pode levar até 15 minutos depois que as configurações do firewall forem atualizadas para que o indexador do serviço de pesquisa possa acessar a conta de armazenamento do Azure.
 
 ```azurepowershell
 
