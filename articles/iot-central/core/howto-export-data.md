@@ -8,12 +8,12 @@ ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 74de0481bf6786d245fb96f5d102ab72a00031c8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065381"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760892"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos de nuvem usando a exportação de dados
 
@@ -36,11 +36,13 @@ Por exemplo, você pode:
 
 Para usar os recursos de exportação de dados, você deve ter um [aplicativo v3](howto-get-app-info.md)e deve ter a permissão de [exportação de dados](howto-manage-users-roles.md) .
 
+Se você tiver um aplicativo v2, consulte [migrar seu aplicativo de IOT central v2 para v3](howto-migrate.md).
+
 ## <a name="set-up-export-destination"></a>Configurar o destino de exportação
 
 O destino de exportação deve existir antes de você configurar a exportação de dados. Os seguintes tipos de destino estão disponíveis no momento:
 
-- Hubs de Eventos do Azure
+- Hubs de eventos do Azure
 - Fila do Barramento de Serviço do Azure
 - Tópico do Barramento de Serviço do Azure
 - Armazenamento do Blobs do Azure
@@ -273,7 +275,7 @@ O exemplo a seguir mostra uma mensagem de alteração de propriedade exportada r
 
 A tabela a seguir mostra as diferenças entre a [exportação de dados herdados](howto-export-data-legacy.md) e os novos recursos de exportação de dados:
 
-| Capacidades  | Exportação de dados herdados | Nova exportação de dados |
+| Funcionalidades  | Exportação de dados herdados | Nova exportação de dados |
 | :------------- | :---------- | :----------- |
 | Tipos de dados disponíveis | Telemetria, dispositivos, modelos de dispositivo | Telemetria, alterações de propriedade |
 | Filtragem | Nenhum | Depende do tipo de dados exportado. Para telemetria, filtragem por telemetria, propriedades de mensagem, valores de propriedade |

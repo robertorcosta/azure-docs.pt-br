@@ -1,17 +1,17 @@
 ---
 title: Suporte de avaliação do VMware nas Migrações para Azure
 description: Saiba mais sobre o suporte para a avaliação de VM DO VMware com a Avaliação do Servidor de Migrações para Azure.
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: ce8a1d77ae74a3946174ef58abf9add2e81eb90b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567421"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762999"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 

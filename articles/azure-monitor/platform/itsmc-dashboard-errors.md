@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 9521c13b21317bb0a782b0bea0b08312ff24b113
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: c3e6408a6a3473380edbe2966eba41970bd73562
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610345"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762767"
 ---
-# <a name="errors-in-the-connector-status"></a>Erros no status do conector
+# <a name="errors-in-the-connector-status-section"></a>Erros na seção status do conector
 
-Na lista status do conector, você pode encontrar erros que podem ajudá-lo a corrigir problemas em seu conector ITSM.
+Na seção lista de status do conector no painel, você pode encontrar erros que podem ajudá-lo a corrigir problemas em seu conector ITSM.
 
 ## <a name="status-common-errors"></a>Erros comuns de status
 
-nesta seção, você pode encontrar os erros comuns apresentados na seção status do conector e como você deve resolvê-lo:
+Nesta seção, você pode encontrar os erros comuns apresentados na seção status do conector e como você deve resolvê-los:
 
 * **Erro**: "resposta inesperada do ServiceNow junto com o código de status de êxito. Resposta: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "resultado": [{"transform_map": "incidente do OMS", "tabela": "incidente", "status": "erro", "error_message": "{registro de destino não encontrado | Tabela inválida | Tabela de preparo inválida "}"
 
@@ -27,7 +27,7 @@ nesta seção, você pode encontrar os erros comuns apresentados na seção stat
   * Um script personalizado implantado na instância do ServiceNow faz com que os incidentes sejam ignorados.
   * O próprio código "aplicativo de integrador do OMS" foi modificado no ServiceNow, por exemplo, o script onbefore.
 
-  **Resolução**: Desabilite todos os scripts personalizados ou modificações de código do caminho de importação de dados.
+  **Resolução**: Desabilite todos os scripts personalizados ou modificações de código.
 
 * **Erro**: "{" erro ": {" Message ":" falha na operação "," Detail ":" falha na atualização da exceção de ACL devido a restrições de segurança "}"
 
@@ -58,7 +58,7 @@ nesta seção, você pode encontrar os erros comuns apresentados na seção stat
     **Causa**: conector ITSM foi excluído.
 
     **Resolução**: a conector ITSM foi excluída, mas ainda há grupos de ações de ITSM definidos associados a ela. Há duas opções para resolver esse problema:
-  * Localizar e desabilitar ou excluir essa ação
+  * Localizar e desabilitar ou excluir esses grupos de ações
   * [Reconfigure o grupo de ações](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) para usar um conector ITSM existente.
   * [Crie um novo conector ITSM](./itsmc-definition.md#create-an-itsm-connection) e [reconfigure o grupo de ações para usá-lo](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 

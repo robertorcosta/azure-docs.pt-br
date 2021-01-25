@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9ec8a5fe5de751e40ebaa17629ff72c5f6b2adca
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979973"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761381"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicativo
 
@@ -147,8 +147,20 @@ Para aplicativos de daemon, você não precisa especificar um URI de redireciona
 Esta opção especifica o segredo do cliente para o aplicativo cliente confidencial. Esse segredo (senha de aplicativo) é fornecido pelo portal de registro de aplicativo ou fornecido ao Azure AD durante o registro do aplicativo com o PowerShell AzureAD, PowerShell AzureRM ou CLI do Azure.
 
 ## <a name="logging"></a>Registrando em log
+Para ajudar em cenários de solução de problemas de falha de depuração e autenticação, a biblioteca de autenticação da Microsoft fornece suporte de log interno. O registro em log é cada biblioteca abordada nos seguintes artigos:
 
-As outras opções de configuração habilitam o registro em log e a solução de problemas. Consulte o artigo sobre [registro em log](msal-logging.md) para obter detalhes sobre como usá-los.
+:::row:::
+    :::column:::
+        - [Registro em log no MSAL.NET](msal-logging-dotnet.md)
+        - [Registrar em log em MSAL para Android](msal-logging-android.md)
+        - [Como fazer registro em log no MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Registrar em log em MSAL para iOS/macOS](msal-logging-ios.md)
+        - [Registrar em log em MSAL para Java](msal-logging-java.md)
+        - [Registrar em log em MSAL para Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 ## <a name="next-steps"></a>Próximas etapas
 

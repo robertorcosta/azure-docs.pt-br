@@ -10,12 +10,12 @@ ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178969"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762879"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicação de objeto para BLOBs de blocos
 
@@ -88,7 +88,9 @@ Quando você cria uma regra de replicação, por padrão, somente os novos blobs
 
 Você também pode especificar um ou mais filtros como parte de uma regra de replicação para filtrar blobs de blocos por prefixo. Quando você especifica um prefixo, somente os blobs que correspondem a esse prefixo no contêiner de origem serão copiados para o contêiner de destino.
 
-Os contêineres de origem e de destino devem existir para que você possa especificá-los em uma regra. Depois de criar a política de replicação, o contêiner de destino torna-se somente leitura. Qualquer tentativa de gravar no contêiner de destino falha com o código de erro 409 (conflito). No entanto, você pode chamar a operação [definir camada de blob](/rest/api/storageservices/set-blob-tier) em um blob no contêiner de destino para movê-lo para a camada de arquivo morto. Para obter mais informações sobre a camada de arquivo, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](storage-blob-storage-tiers.md#archive-access-tier).
+Os contêineres de origem e de destino devem existir para que você possa especificá-los em uma regra. Depois de criar a política de replicação, as operações de gravação para o contêiner de destino não são permitidas. Qualquer tentativa de gravar no contêiner de destino falha com o código de erro 409 (conflito). Para gravar em um contêiner de destino para o qual uma regra de replicação está configurada, você deve excluir a regra que está configurada para esse contêiner ou remover a política de replicação. As operações de leitura e exclusão para o contêiner de destino são permitidas quando a política de replicação está ativa.
+
+Você pode chamar a operação [definir camada de blob](/rest/api/storageservices/set-blob-tier) em um blob no contêiner de destino para movê-lo para a camada de arquivo morto. Para obter mais informações sobre a camada de arquivo, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="replication-status"></a>Status de replicação
 

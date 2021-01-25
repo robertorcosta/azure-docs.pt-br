@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247039"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762986"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
@@ -61,7 +61,10 @@ Os cenários a seguir têm suporte para distribuição em etapas. O recurso só 
 - Usuários que são provisionados no Azure AD ao usarem o Azure AD Connect. Ele não se aplica a usuários do tipo somente nuvem.
 
 - Tráfegos de entrada do usuário em navegadores e clientes de *autenticação moderna*. Aplicativos ou serviços de nuvem que usem autenticação herdada voltarão para os fluxos de autenticação federada. Como exemplos, podemos ter o Exchange Online com autenticação moderna desativada ou o Outlook 2010, o qual não tem suporte para autenticação moderna.
+
 - Atualmente, o tamanho do grupo está limitado a 50.000 usuários.  Caso tenha grupos maiores que 50.000 usuários, é recomendável dividir esses grupos em vários grupos para a distribuição em etapas.
+
+- A junção híbrida do Windows 10 ou o Azure AD ingressam no token de atualização principal sem linha de visão para o servidor de Federação para o Windows 10 versão 1903 e mais recente, quando o UPN do usuário é roteável e o sufixo do domínio é verificado no Azure AD.
 
 ## <a name="unsupported-scenarios"></a>Cenários sem suporte
 
@@ -87,6 +90,10 @@ Os cenários a seguir não têm suporte para distribuição em etapas.
 - Ao adicionar um grupo de segurança pela primeira vez para a distribuição em etapas, você tem um limite de 200 usuários para evitar um tempo limite de UX (experiência do usuário). Depois de adicionar o grupo, você poderá adicionar mais usuários diretamente a ele conforme necessário.
 
 - Enquanto os usuários estiverem em distribuição em etapas, quando EnforceCloudPasswordPolicyForPasswordSyncedUsers estiver habilitado, a política de expiração de senha será definida como 90 dias sem a opção de personalizá-la. 
+
+- Aquisição híbrida do Windows 10 ou ingresso no token de atualização principal do Azure AD para a versão do Windows 10 com mais de 1903. Esse cenário voltará ao ponto de extremidade WS-Trust do servidor de Federação, mesmo se o usuário entrar estiver no escopo da distribuição em etapas.
+
+- Aquisição híbrida do Windows 10 ou ingresso no token de atualização principal do Azure AD para todas as versões, quando o UPN local do usuário não é roteável. Esse cenário voltará ao ponto de extremidade WS-Trust enquanto estiver no modo de distribuição em etapas, mas deixará de funcionar quando a migração preparada for concluída e o logon do usuário não depender mais do servidor de Federação.
 
 
 ## <a name="get-started-with-staged-rollout"></a>Introdução à distribuição em etapas

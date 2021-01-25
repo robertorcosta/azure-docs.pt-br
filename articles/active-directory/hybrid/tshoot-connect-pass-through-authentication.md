@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/27/2020
+ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251f9a2b075189f19b9e943ff660baaba93ec33b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9a014bd5c8f1edbfb00019b8541cef552271d65b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652034"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762853"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -157,7 +157,7 @@ Para erros relacionados ao Agente de autenticação, abra o aplicativo Visualiza
 
 Para análises detalhadas, habilite o log de "Sessão" (botão direito do mouse dentro do aplicativo de Visualizador de eventos para encontrar essa opção). Não execute o Agente de Autenticação com esse log habilitado durante operações normais; use somente para solução de problemas. O conteúdo do log é visível somente depois que o log está desabilitado novamente.
 
-O manifesto de evento do agente PTA pode ser encontrado [aqui](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster).
+
 
 ### <a name="detailed-trace-logs"></a>Logs de rastreamento detalhados
 

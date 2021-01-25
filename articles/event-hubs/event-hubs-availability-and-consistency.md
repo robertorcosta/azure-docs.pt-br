@@ -2,14 +2,14 @@
 title: Disponibilidade e consistência – Hubs de Eventos do Azure | Microsoft Docs
 description: Como fornecer o máximo de disponibilidade e consistência com os Hubs de Eventos do Azure usando partições.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7b97d76f29ee8b7e44373c865baa09ba5ea4dd23
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 5ffa2df992eb0c22aafbbb7436250405998d8073
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631912"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762808"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência nos Hubs de Eventos
 
@@ -22,6 +22,11 @@ O teorema de Brewer define a consistência e a disponibilidade como a seguir:
 * Tolerância a partição: a capacidade de um sistema de processamento de dados continuar processando dados mesmo que ocorra uma falha de partição.
 * Disponibilidade: um nó sem falha retorna uma resposta razoável dentro de um período razoável (sem erros nem tempos limites).
 * Consistência: há garantia de que uma leitura retorne a gravação mais recente para um determinado cliente.
+
+> [!NOTE]
+> O termo **partição** é usado em diferentes contextos em hubs de eventos e teorema Cap. 
+> - Os **hubs de eventos** organizam eventos em uma ou mais partições. As partições são independentes e contêm sua própria sequência de dados, elas geralmente crescem em taxas diferentes. Para saber mais, confira [Partições](event-hubs-features.md#partitions).
+> - No **Cap teorema**, uma partição é uma quebra de comunicação entre nós em um sistema distribuído.
 
 ## <a name="partition-tolerance"></a>Tolerância a partição
 Os Hubs de Eventos são criados sobre um modelo de dados particionado. Você pode configurar o número de partições no seu hub de eventos durante a instalação, mas você não pode alterar este valor posteriormente. Já que você deve usar partições com Hubs de Eventos, você precisa tomar uma decisão quanto à disponibilidade e à consistência do seu aplicativo.

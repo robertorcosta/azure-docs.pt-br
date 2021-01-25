@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/22/2021
+ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936117"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760621"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: visualização de aplicativos lógicos do Azure
 
@@ -139,6 +139,8 @@ A visualização dos aplicativos lógicos do Azure inclui muitos recursos atuais
 
 * Habilite o log de diagnóstico e os recursos de rastreamento para seu aplicativo lógico usando [Application insights](../azure-monitor/app/app-insights-overview.md) quando houver suporte para suas configurações de aplicativo lógico e de assinatura do Azure.
 
+* Regenerar chaves de acesso para conexões gerenciadas usadas por fluxos de trabalho individuais em um recurso de **aplicativo lógico (versão prévia)** . Para essa tarefa, [siga as mesmas etapas para o recurso de **aplicativos lógicos** , mas no nível de fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não no nível de recurso do aplicativo lógico.
+
 > [!NOTE]
 > Para obter informações sobre os problemas atuais conhecidos, examine a [página problemas conhecidos da visualização pública de aplicativos lógicos no GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
@@ -165,7 +167,7 @@ Para obter mais informações sobre os modelos de preços que se aplicam a esse 
 
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>Recursos alterados, limitados, indisponíveis ou sem suporte
 
-Na visualização dos aplicativos lógicos do Azure, esses recursos têm alteração, ou atualmente são limitados, indisponíveis ou sem suporte:
+Na visualização dos aplicativos lógicos do Azure, esses recursos foram alterados, ou eles estão limitados, indisponíveis ou sem suporte:
 
 * **Gatilhos e ações**: alguns gatilhos internos não estão disponíveis, como janela deslizante e lote. Para iniciar o fluxo de trabalho, use a [recorrência interna, a solicitação, o http, o webhook http, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md). Gatilhos e ações internos são executados nativamente no tempo de execução de visualização dos aplicativos lógicos do Azure, enquanto os conectores gerenciados são implantados no Azure. No designer, gatilhos e ações internas aparecem sob a guia **interna** , enquanto os gatilhos e as ações do conector gerenciado aparecem na guia **Azure** .
 

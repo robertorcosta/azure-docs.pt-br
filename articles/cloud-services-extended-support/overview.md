@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cf7c4b881697b664403d8c817c3b9e48fb48944d
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 969f60cd92e8c1cbe93f1646cccd08c942ad9923
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746757"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762830"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Sobre os serviços de nuvem do Azure (suporte estendido)
 
@@ -27,9 +27,11 @@ Com essa alteração, o modelo de implantação baseado no Azure Service Manager
 
 ## <a name="what-does-not-change"></a>O que não é alterado 
 - Você cria o código, define as configurações e implanta-o no Azure. O Azure configura o ambiente de computação, executa o código e, em seguida, monitora e mantém isso para você.
-- Os serviços de nuvem (suporte estendido) também dão suporte a dois tipos de funções, [Web e trabalho](../cloud-services/cloud-services-choose-me.md). 
-- Os três componentes, a definição de serviço (. csdef), a configuração do serviço (. cscfg) e um pacote de serviço (. cspkg) de um serviço de nuvem são postergados e não há nenhuma alteração nos seus [formatos](cloud-services-model-and-package.md). 
-- Nenhuma alteração é necessária para o código de tempo de execução, pois o plano de dados é o mesmo e o plano de controle só é alterado.  
+- Os serviços de nuvem (suporte estendido) também dão suporte a dois tipos de funções, [Web e trabalho](../cloud-services/cloud-services-choose-me.md). Não há nenhuma alteração no design, na arquitetura ou nos componentes das funções Web e de trabalho. 
+- Os três componentes de um serviço de nuvem, a definição de serviço (. csdef), a configuração do serviço (. cscfg) e o pacote de serviço (. cspkg) são postergados e não há nenhuma alteração nos seus [formatos](cloud-services-model-and-package.md). 
+- Nenhuma alteração é necessária para o código de tempo de execução, pois o plano de dados é o mesmo e o plano de controle só é alterado. 
+- As versões do Azure GuestOS e as atualizações associadas estão alinhadas com os serviços de nuvem (clássicos)
+- Processo de atualização subjacente com relação aos domínios de atualização, como a atualização prossegue, a reversão e as alterações de serviço permitidas durante uma atualização não são alteradas
 
 ## <a name="changes-in-deployment-model"></a>Alterações no modelo de implantação
 

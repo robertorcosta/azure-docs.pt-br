@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a4a7b7a4008d5cc4636e2d533c225a618f35af05
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: e43c5fb36c5395e12fd0b9c2c67b787a1137f5d0
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611178"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761980"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Solução de problemas no Conector ITSM
 
@@ -43,24 +43,23 @@ Se você estiver usando Mapa do Serviço, poderá exibir os itens da central de 
 
 ![Captura de tela que mostra a exibição de Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## <a name="troubleshoot-itsm-connections"></a>Solução de problemas de conexões de ITSM
-
-- Se uma conexão falhar ao se conectar ao sistema ITSM e você receber um **erro ao salvar** a mensagem de conexão, execute as seguintes etapas:
-   - Para as conexões ServiceNow, Cherwell e Provance:  
-     - Certifique-se de que você inseriu corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
-     - Verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão.  
-   - Para conexões Service Manager:  
-     - Verifique se o aplicativo Web foi implantado com êxito e se a conexão híbrida foi criada. Para verificar se a conexão foi estabelecida com êxito com o computador Service Manager local, vá para a URL do aplicativo Web, conforme descrito na documentação para fazer a [conexão híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-
-- Se Log Analytics alertas forem acionados, mas os itens de trabalho não forem criados no produto de ITSM, se os itens de configuração não forem criados/vinculados a itens de trabalho ou para outras informações, consulte estes recursos:
-   -  ITSMC: a solução mostra um [Resumo de conexões](itsmc-dashboard.md), itens de trabalho, computadores e muito mais. Selecione o bloco que tem o rótulo **status do conector** . Isso o levará para a **pesquisa de logs** com a consulta relevante. Examine os registros de log com um `LogType_S` de `ERROR` para obter mais informações.
-   Você pode ver detalhes sobre as mensagens na tabela- [aqui](itsmc-dashboard-errors.md).
-   - Página **pesquisa de logs** : exiba os erros e as informações relacionadas diretamente usando a consulta `*ServiceDeskLog_CL*` .
-
 ## <a name="common-symptoms---how-should-it-be-resolved"></a>Sintomas comuns-como eles devem ser resolvidos?
 
 A lista abaixo contém sintomas comuns e como ele deve ser resolvido:
 
+* **Sintoma**: se uma conexão não conseguir se conectar ao sistema ITSM, você receberá um **erro ao salvar a mensagem de conexão** .
+
+    **Causa**: a causa pode ser uma das opções:
+    * Credenciais incorretas
+     * Privilégios insuficientes
+     * O aplicativo Web deve ser implantado corretamente
+
+    **Resolução**:
+    * Para as conexões ServiceNow, Cherwell e Provance:
+        * Certifique-se de que você inseriu corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
+        * Para o ServiceNow: Verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão, conforme [especificado](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
+  * Para conexões Service Manager:  
+      * Verifique se o aplicativo Web foi implantado com êxito e se a conexão híbrida foi criada. Para verificar se a conexão foi estabelecida com êxito com o computador Service Manager local, vá para a URL do aplicativo Web, conforme descrito na documentação para fazer a [conexão híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 * **Sintoma**: itens de trabalho duplicados são criados
 
     **Causa**: a causa pode ser uma das duas opções:

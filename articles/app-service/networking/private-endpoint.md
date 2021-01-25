@@ -9,14 +9,14 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bebc7dcbc18a25b0d6d0761a8ca3ac476e83e581
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183032"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763032"
 ---
-# <a name="using-private-endpoints-for-azure-web-app"></a>Usando pontos de extremidade privados para o aplicativo Web do Azure
+# <a name="using-private-endpoints-for-azure-web-app"></a>Uso de pontos de extremidade privados para Aplicativo Web do Azure
 
 > [!IMPORTANT]
 > O ponto de extremidade privado está disponível para aplicativos Web do Windows e Linux, em contêineres ou não, hospedados nesses planos do serviço de aplicativo: aplicativos **isolados**, **PremiumV2**, **PremiumV3**, **funções Premium** (às vezes chamados de plano Premium elástico). 
@@ -68,7 +68,7 @@ Quando você usa o ponto de extremidade privado para o aplicativo Web, a URL sol
 Por padrão, sem o ponto de extremidade privado, o nome público do seu aplicativo Web é um nome canônico para o cluster.
 Por exemplo, a resolução de nome será:
 
-|Nome |Tipo |Valor |
+|Nome |Type |Valor |
 |-----|-----|------|
 |mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
@@ -78,7 +78,7 @@ Por exemplo, a resolução de nome será:
 Quando você implanta um ponto de extremidade privado, atualizamos a entrada DNS para apontar para o nome canônico mywebapp.privatelink.azurewebsites.net.
 Por exemplo, a resolução de nome será:
 
-|Nome |Tipo |Valor |Comentário |
+|Nome |Type |Valor |Comentário |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
@@ -89,7 +89,7 @@ Você deve configurar um servidor DNS privado ou uma zona privada de DNS do Azur
 A zona DNS que você precisa criar é: **privatelink.azurewebsites.net**. Registre o registro para seu aplicativo Web com um registro a e o IP do ponto de extremidade privado.
 Por exemplo, a resolução de nome será:
 
-|Nome |Tipo |Valor |Comentário |
+|Nome |Type |Valor |Comentário |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--o Azure cria essa entrada no DNS público do Azure para apontar o serviço de aplicativo para o privatelink e isso é gerenciado por nós|
 |mywebapp.privatelink.azurewebsites.net|Um|10.10.10.8|<--você gerencia essa entrada em seu sistema DNS para apontar para seu endereço IP do ponto de extremidade privado|
@@ -101,7 +101,7 @@ Se você precisar usar um nome DNS personalizado, deverá adicionar o nome perso
 
 Para o console do kudu ou a API REST do kudu (implantação com agentes do Azure DevOps auto-hospedados, por exemplo), você deve criar dois registros em sua zona privada do DNS do Azure ou seu servidor DNS personalizado. 
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 |-----|-----|-----|
 | mywebapp.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | Um | PrivateEndpointIP | 
@@ -116,7 +116,7 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure][pricing
 
 Ao usar a Função do Azure no Elastic Premium Plan com ponto de extremidade privado, para executar ou executar a função no portal da Web do Azure, você deve ter acesso direto à rede ou receberá um erro HTTP 403. Em outras palavras, seu navegador deve ser capaz de acessar o ponto de extremidade privado para executar a função no portal da Web do Azure. 
 
-Você pode se conectar até 100 ponto de extremidade privado para um aplicativo Web específico.
+Você pode conectar até 100 pontos de extremidade privados a um aplicativo Web específico.
 
 Os slots não podem usar o ponto de extremidade privado.
 

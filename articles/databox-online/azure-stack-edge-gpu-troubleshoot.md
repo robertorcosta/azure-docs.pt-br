@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: d07d9dccb0aa273f79b251f2ffb4a920f3cac2e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0976dd9f3c4d0228ec0f170a755ec13800da435b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447610"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761561"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Solucionar problemas em seu dispositivo de GPU pro do Azure Stack Edge 
 
@@ -26,7 +26,7 @@ Este artigo descreve como solucionar problemas em seu dispositivo de GPU pro Azu
 
 Para diagnosticar e solucionar quaisquer erros de dispositivo, você pode executar os testes de diagnóstico. Execute as seguintes etapas na interface do usuário da Web local do seu dispositivo para executar testes de diagnóstico.
 
-1. Na interface do usuário da Web local, vá para **Solução de problemas > Testes de diagnóstico**. Selecione o teste que você deseja executar e selecione **Executar teste**. Isso executará os testes para diagnosticar quaisquer possíveis problemas com suas configurações de rede, dispositivo, proxy da Web, hora ou nuvem. Você é notificado de que o dispositivo está executando testes.
+1. Na interface do usuário da Web local, vá para **Solução de problemas > Testes de diagnóstico**. Selecione o teste que você deseja executar e selecione **Executar teste**. O teste diagnostica todos os possíveis problemas com a rede, o dispositivo, o proxy da Web, o horário ou as configurações de nuvem. Você é notificado de que o dispositivo está executando testes.
 
     ![Selecionar testes ](media/azure-stack-edge-gpu-troubleshoot/run-diag-1.png)
  
@@ -97,7 +97,7 @@ Para detectar qualquer invasão de hardware no dispositivo, atualmente, todos os
 
 - O log de eventos do sistema do dispositivo é lido usando o `racadm` cmdlet. Esses eventos são então filtrados para evento relacionado ao chassi em um `HWIntrusion.txt` arquivo.
 
-- Para obter apenas o log de intrusão de hardware no pacote de suporte, use `-Include HWSelLog` a opção ao criar o pacote de suporte. 
+- Para obter apenas o log de intrusão de hardware no pacote de suporte, use a `-Include HWSelLog` opção ao criar o pacote de suporte. 
 
 - Se nenhuma opção de inclusão específica for fornecida, o log de intrusão de hardware será incluído como um padrão no pacote de suporte.
 
@@ -187,7 +187,7 @@ Aqui estão os erros relacionados ao armazenamento de BLOBs no dispositivo Azure
 | **Problema/erros** |  **Resolução** | 
 |--------------------|-----------------|
 |Não é possível recuperar recursos filho. O valor de um dos cabeçalhos HTTP não está no formato correto.| No menu **Editar** , selecione **Azure Stack APIs de destino**. Em seguida, reinicie o Gerenciador de Armazenamento do Azure.|
-|getaddrinfo ENOTFOUND <accountname> . blob. <serialnumber> . microsoftdatabox.com|Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts neste caminho: `C:\Windows\System32\drivers\etc\hosts` no Windows ou `/etc/hosts` no Linux.|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts neste caminho: `C:\Windows\System32\drivers\etc\hosts` no Windows ou `/etc/hosts` no Linux.|
 |Não é possível recuperar recursos filho.<br> Detalhes: certificado autoassinado |Importe o certificado SSL para seu dispositivo no Gerenciador de Armazenamento do Azure: <ol><li>Baixe o certificado do portal do Azure. Para obter mais informações, consulte [baixar o certificado](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>No menu **Editar** , selecione certificados SSL e, em seguida, selecione **importar certificados**.</li></ol>|
 |O comando AzCopy parece parar de responder por um minuto antes de exibir este erro:<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verifique se o nome do ponto de extremidade `<accountname>.blob.<serialnumber>.microsoftdatabox.com` foi adicionado ao arquivo de hosts em: `C:\Windows\System32\drivers\etc\hosts` .|
 |O comando AzCopy parece parar de responder por um minuto antes de exibir este erro:<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |Importe o certificado SSL do seu dispositivo para o repositório de certificados do sistema. Para obter mais informações, consulte [baixar o certificado](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate).|
@@ -199,6 +199,9 @@ Aqui estão os erros relacionados ao armazenamento de BLOBs no dispositivo Azure
 |… [SSL: CERTIFICATE_VERIFY_FAILED]...| Antes de executar o Python, defina a variável de ambiente REQUESTS_CA_BUNDLE como o caminho do arquivo de certificado SSL codificado em Base64 (consulte como [baixar o certificado](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate). Por exemplo:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Como alternativa, adicione o certificado ao repositório de certificados do sistema e, em seguida, defina essa variável de ambiente como o caminho do repositório. Por exemplo, no Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |A conexão atinge o tempo limite.|Entre no Azure Stack Edge pro e, em seguida, verifique se ele está desbloqueado. Sempre que o dispositivo for reiniciado, ele permanecerá bloqueado até que alguém entre.|
 
+## <a name="troubleshoot-iot-edge-errors"></a>Solucionar erros IoT Edge
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
 
 
 ## <a name="next-steps"></a>Próximas etapas

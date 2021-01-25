@@ -16,21 +16,18 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504382"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762261"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory logon único contínuo: início rápido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implantar Logon Único Contínuo
 
 O SSO Contínuo (Logon Único Contínuo) do Azure Active Directory (Azure AD) conecta os usuários automaticamente quando estão nos respectivos desktops corporativos conectados à rede corporativa. O SSO Contínuo fornece aos usuários acesso fácil aos aplicativos baseados em nuvem, sem necessidade de componentes locais adicionais.
-
-> [!NOTE]
-> Este artigo contém referências ao termo *lista* de permissões, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
 
 Para implantar o SSO Contínuo, siga estas etapas.
 
@@ -40,7 +37,7 @@ Verifique se os seguintes pré-requisitos estão em vigor:
 
 * **Configurar seu servidor do Azure AD Connect**: se você usa a [Autenticação de Passagem](how-to-connect-pta.md) como seu método de entrada, não é necessária nenhuma verificação de pré-requisitos adicional. Se você usar a [sincronização de hash de senha](how-to-connect-password-hash-synchronization.md) como seu método de entrada e se houver um firewall entre Azure ad Connect e o Azure AD, verifique se:
    - Está usando a versão 1.1.644.0 ou superior do Azure AD Connect. 
-   - Se o firewall ou o proxy permitir, adicione as conexões à lista de permissões para URLs **\* . msappproxy.net** pela porta 443. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
+   - Se o firewall ou o proxy permitir, adicione as conexões à lista de permissões para URLs **\* . msappproxy.net** pela porta 443. Se você precisar de uma URL específica em vez de um curinga para a configuração de proxy, poderá configurar **tenantid.Registration.msappproxy.net**, em que tenantid é o GUID do locatário no qual você está configurando o recurso. Se as exceções de proxy baseadas em URL não forem possíveis em sua organização, você poderá, em vez disso, permitir o acesso aos [intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso. Não é obrigatório para logons de usuário real.
 
     >[!NOTE]
     >As versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 do Azure AD Connect têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a autenticação de passagem, leia as [notas de versão Azure ad Connect](./reference-connect-version-history.md) para saber mais.
