@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/24/2021
 ms.author: TomSh
-ms.openlocfilehash: b9770a43309f5471760dc2482833e4bab45c6f5b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c8fbb2f6d858b2f654ff404bef3b415bf170ab37
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409919"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747266"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
 
@@ -92,15 +92,15 @@ Os logs do Azure Monitor ajudam a entender com rapidez e facilidade a situação
 
 O painel de Segurança e Auditoria do Log Analytics é organizado em quatro categorias principais:
 
--   **Domínios de Segurança** : Permite explorar mais os registros de segurança ao longo do tempo; acessar avaliações de malware; atualizar avaliações; exibir informações de acesso, identidade e segurança de rede; exibir computadores com eventos de segurança e acessar rapidamente o painel da Central de Segurança do Azure.
+-   **Domínios de Segurança**: Permite explorar mais os registros de segurança ao longo do tempo; acessar avaliações de malware; atualizar avaliações; exibir informações de acesso, identidade e segurança de rede; exibir computadores com eventos de segurança e acessar rapidamente o painel da Central de Segurança do Azure.
 
--   **Problemas Importantes** : Permite identificar rapidamente o número de problemas ativos e sua gravidade.
+-   **Problemas Importantes**: Permite identificar rapidamente o número de problemas ativos e sua gravidade.
 
 -   **Detecções (Versão Prévia)** : Permite identificar padrões de ataque exibindo os alertas de segurança à medida que eles ocorrem nos recursos.
 
--   **Inteligência contra Ameaças** : Permite identificar padrões de ataque exibindo o número total de servidores com tráfego IP de saída mal-intencionado, o tipo de ameaça mal-intencionada e um mapa dos locais desses IPs.
+-   **Inteligência contra Ameaças**: Permite identificar padrões de ataque exibindo o número total de servidores com tráfego IP de saída mal-intencionado, o tipo de ameaça mal-intencionada e um mapa dos locais desses IPs.
 
--   **Consultas comuns de segurança** : Lista as consultas de segurança mais comuns que você pode usar para monitorar seu ambiente. Quando você seleciona qualquer consulta, o painel Pesquisa é aberto e exibe os resultados da consulta.
+-   **Consultas comuns de segurança**: Lista as consultas de segurança mais comuns que você pode usar para monitorar seu ambiente. Quando você seleciona qualquer consulta, o painel Pesquisa é aberto e exibe os resultados da consulta.
 
 ### <a name="insight-and-analytics"></a>Insight e análise
 No centro dos [logs do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) está o repositório que é hospedado pelo Azure.
@@ -135,21 +135,25 @@ Você pode criar e gerenciar recursos de DSC hospedados no Azure e aplicá-los a
 
 ## <a name="azure-security-center"></a>Central de Segurança do Azure
 
-A Central de Segurança do Azure ajuda a proteger os recursos do Azure. Ela fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Dentro do serviço, você pode definir políticas em relação às assinaturas e aos [grupos de recursos](../../azure-resource-manager/management/manage-resources-portal.md) do Azure para aumentar a granularidade.
+A central de segurança do Azure ajuda a proteger seu ambiente de nuvem híbrida. Ao executar avaliações de segurança contínuas de seus recursos conectados, é possível fornecer recomendações de segurança detalhadas para as vulnerabilidades descobertas.
 
-![Diagrama da Central de Segurança do Azure](./media/threat-detection/azure-threat-detection-fig8.png)
+As recomendações da central de segurança são baseadas no [benchmark de segurança do Azure](../benchmarks/introduction.md) – o conjunto de diretrizes criadas pela Microsoft e pelo Azure para práticas recomendadas de segurança e conformidade com base em estruturas de conformidade comuns. Esse benchmark amplamente respeitado se baseia nos controles do [centro de segurança da Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) e do [Instituto Nacional de normas e tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+
+A CWPP (plataforma de proteção de carga de trabalho de nuvem) integrada da central de segurança, o **Azure defender**, traz proteção avançada e inteligente de seus recursos e cargas de trabalho do Azure e híbridos. Habilitar o Azure defender traz uma variedade de recursos de segurança adicionais (consulte [introdução ao Azure defender](../../security-center/azure-defender.md)). O painel do Azure Defender na Central de Segurança fornece visibilidade e controle dos recursos de PCTN em seu ambiente:
+
+:::image type="content" source="../../security-center/media/azure-defender/sample-defender-dashboard.png" alt-text="Um exemplo do painel do Azure Defender" lightbox="../../security-center/media/azure-defender/sample-defender-dashboard.png":::
 
 Os pesquisadores de segurança da Microsoft estão constantemente à procura de ameaças. Eles têm acesso a um conjunto expansivo de telemetria obtida com a presença global da Microsoft na nuvem e localmente. Esta coleção diversa e abrangente de conjuntos de dados permite que a Microsoft descubra novos padrões de ataque e tendências em seus produtos de consumidor e empresariais no local, bem como em serviços on-line.
 
 Dessa forma, a Central de Segurança pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Isso ajuda a acompanhar o ritmo de um ambiente de ameaças que muda rapidamente.
 
-![Detecção de ameaças da Central de Segurança](./media/threat-detection/azure-threat-detection-fig9.jpg)
+:::image type="content" source="../../security-center/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de segurança da central de segurança do Azure":::
 
-A detecção de ameaças da Central de Segurança funciona coletando informações de segurança de seus recursos do Azure, de rede e de soluções de parceiros conectados automaticamente. Ele analisa essas informações, correlacionando informações de várias fontes para identificar ameaças.
+O Azure defender coleta automaticamente informações de segurança de seus recursos, da rede e das soluções de parceiros conectadas. Ele analisa essas informações, correlacionando informações de várias fontes para identificar ameaças.
 
-Os alertas de segurança são priorizados na Central de Segurança, juntamente com recomendações sobre como corrigir a ameaça.
+Os alertas do Azure defender são priorizados na central de segurança juntamente com recomendações sobre como corrigir as ameaças.
 
-A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. As inovações nas tecnologias de big data e de [aprendizado de máquina](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) são usadas para avaliar eventos em toda a malha de nuvem. As análises avançadas podem detectar ameaças que seriam impossíveis de serem identificadas com métodos manuais e prevendo a evolução dos ataques. Esses tipos de análise de segurança são abordados nas seções a seguir.
+A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. As inovações em tecnologias de Big Data e de [aprendizado de máquina](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) são usadas para avaliar eventos em toda a nuvem. A análise avançada pode detectar ameaças que seriam impossíveis de identificar por meio de abordagens manuais e prever a evolução dos ataques. Esses tipos de análise de segurança são abordados nas seções a seguir.
 
 ### <a name="threat-intelligence"></a>Inteligência contra ameaças
 
@@ -161,15 +165,15 @@ A telemetria flui de várias fontes, como Azure, Microsoft 365, Microsoft CRM On
 
 Os pesquisadores também recebem informações de inteligência contra ameaças que são compartilhadas entre os principais provedores de serviços de nuvem e assinam feeds de inteligência contra ameaças de terceiros. A Central de Segurança do Azure pode usar essas informações para alertá-lo de ameaças vindas de maus atores conhecidos. Alguns exemplos incluem:
 
--   **Aproveitando o poder do aprendizado de máquina** : A Central de Segurança do Azure tem acesso a uma grande quantidade de dados sobre a atividades de rede na nuvem, que pode ser usada para detectar ameaças direcionadas às suas implantações do Azure.
+-   **Aproveitando o poder do aprendizado de máquina**: A Central de Segurança do Azure tem acesso a uma grande quantidade de dados sobre a atividades de rede na nuvem, que pode ser usada para detectar ameaças direcionadas às suas implantações do Azure.
 
--   **Detecção de força bruta** : O aprendizado de máquina é usado para criar um padrão histórico de tentativas de acesso remoto, o que permite detectar ataques de força bruta contra portas SSH (Secure Shell), RDP (protocolo RDP) e SQL.
+-   **Detecção de força bruta**: O aprendizado de máquina é usado para criar um padrão histórico de tentativas de acesso remoto, o que permite detectar ataques de força bruta contra portas SSH (Secure Shell), RDP (protocolo RDP) e SQL.
 
--   **DDoS de saída e detecção de botnet** : Um objetivo comum dos ataques direcionados a recursos de nuvem é usar o poder de computação desses recursos para executar outros ataques.
+-   **DDoS de saída e detecção de botnet**: Um objetivo comum dos ataques direcionados a recursos de nuvem é usar o poder de computação desses recursos para executar outros ataques.
 
--   **Novos servidores e VMs de análise comportamental** : Depois que uma máquina virtual ou um servidor é comprometido, os invasores empregam uma grande variedade de técnicas para executar um código mal-intencionado no sistema evitando a detecção, garantindo a persistência e eliminando controles de segurança.
+-   **Novos servidores e VMs de análise comportamental**: Depois que uma máquina virtual ou um servidor é comprometido, os invasores empregam uma grande variedade de técnicas para executar um código mal-intencionado no sistema evitando a detecção, garantindo a persistência e eliminando controles de segurança.
 
--   **Detecção de Ameaças do Banco de Dados SQL do Azure** : Detecção de ameaças do Banco de Dados SQL do Azure, que identifica atividades anormais do banco de dados que indicam tentativas incomuns e possivelmente prejudiciais de acessar ou explorar bancos de dados.
+-   **Detecção de Ameaças do Banco de Dados SQL do Azure**: Detecção de ameaças do Banco de Dados SQL do Azure, que identifica atividades anormais do banco de dados que indicam tentativas incomuns e possivelmente prejudiciais de acessar ou explorar bancos de dados.
 
 ### <a name="behavioral-analytics"></a>Análise comportamental
 
@@ -182,33 +186,33 @@ Os padrões também são determinados pela análise cuidadosa de comportamentos 
 Além disso, os padrões são correlacionados com outros sinais para verificar se há evidências que indicam uma campanha generalizada. Essa correlação ajuda a identificar os eventos que são consistentes com os indicadores de comprometimento estabelecidos.
 
 Alguns exemplos incluem:
--   **Execução de processo suspeito** : Os invasores empregam várias técnicas para executar um software mal-intencionado sem detecção. Por exemplo, um invasor pode dar ao malware os mesmos nomes de arquivos legítimos do sistema, mas colocar esses arquivos em locais alternativos, usar um nome muito semelhante ao de um arquivo benigno ou mascarar a extensão verdadeira do arquivo. Os modelos da Central de Segurança processam comportamentos e monitoram execuções de processo para detectar exceções como essas.
+-   **Execução de processo suspeito**: Os invasores empregam várias técnicas para executar um software mal-intencionado sem detecção. Por exemplo, um invasor pode dar ao malware os mesmos nomes de arquivos legítimos do sistema, mas colocar esses arquivos em locais alternativos, usar um nome muito semelhante ao de um arquivo benigno ou mascarar a extensão verdadeira do arquivo. Os modelos da Central de Segurança processam comportamentos e monitoram execuções de processo para detectar exceções como essas.
 
--   **Malware oculto e tentativas de exploração** : Um malware sofisticado pode escapar dos produtos antimalware tradicionais nunca gravando em disco ou criptografando componentes de software armazenados em disco. No entanto, esse tipo de malware pode ser detectado usando a análise de memória, porque o malware precisa deixar rastros na memória para que funcione. Quando o software falha, um despejo de memória captura uma parte da memória no momento da falha. Analisando a memória no despejo, a Central de Segurança do Azure pode detectar técnicas usadas para explorar vulnerabilidades no software, acessar dados confidenciais e manter-se em um computador comprometido disfarçadamente sem afetar o desempenho do computador.
+-   **Malware oculto e tentativas de exploração**: Um malware sofisticado pode escapar dos produtos antimalware tradicionais nunca gravando em disco ou criptografando componentes de software armazenados em disco. No entanto, esse tipo de malware pode ser detectado usando a análise de memória, porque o malware precisa deixar rastros na memória para que funcione. Quando o software falha, um despejo de memória captura uma parte da memória no momento da falha. Analisando a memória no despejo, a Central de Segurança do Azure pode detectar técnicas usadas para explorar vulnerabilidades no software, acessar dados confidenciais e manter-se em um computador comprometido disfarçadamente sem afetar o desempenho do computador.
 
--   **Movimentação lateral e reconhecimento interno** : Para persistir em uma rede comprometida e localizar e coletar dados importantes, em geral, os invasores tentam se mover lateralmente do computador comprometido para outros da mesma rede. A Central de Segurança monitora as atividades de processo e de logon para detectar tentativas de expandir a presença do invasor dentro da rede, como sondagem de rede de execução de comando remoto e a enumeração de contas.
+-   **Movimentação lateral e reconhecimento interno**: Para persistir em uma rede comprometida e localizar e coletar dados importantes, em geral, os invasores tentam se mover lateralmente do computador comprometido para outros da mesma rede. A Central de Segurança monitora as atividades de processo e de logon para detectar tentativas de expandir a presença do invasor dentro da rede, como sondagem de rede de execução de comando remoto e a enumeração de contas.
 
--   **Scripts do PowerShell mal-intencionados** : O PowerShell pode ser usado por invasores para executar um código mal-intencionado em máquinas virtuais de destino com diversas finalidades. A Central de Segurança inspeciona a atividade do PowerShell para obter evidência de atividades suspeitas.
+-   **Scripts do PowerShell mal-intencionados**: O PowerShell pode ser usado por invasores para executar um código mal-intencionado em máquinas virtuais de destino com diversas finalidades. A Central de Segurança inspeciona a atividade do PowerShell para obter evidência de atividades suspeitas.
 
--   **Ataques de saída** : Os invasores costumam atacar os recursos de nuvem com a meta de usá-los para montar ataques adicionais. As máquinas virtuais comprometidas, por exemplo, podem ser usadas para iniciar ataques de força bruta contra outras máquinas virtuais, enviar spam ou verificar portas abertas e outros dispositivos na Internet. Aplicando o aprendizado de máquina ao tráfego de rede, a Central de Segurança pode detectar quando as comunicações de rede de saída excedem a norma. Quando o spam é detectado, a central de segurança também correlaciona o tráfego de email incomum com inteligência de Microsoft 365 para determinar se o email é provavelmente perigoso ou o resultado de uma campanha de email legítima.
+-   **Ataques de saída**: Os invasores costumam atacar os recursos de nuvem com a meta de usá-los para montar ataques adicionais. As máquinas virtuais comprometidas, por exemplo, podem ser usadas para iniciar ataques de força bruta contra outras máquinas virtuais, enviar spam ou verificar portas abertas e outros dispositivos na Internet. Aplicando o aprendizado de máquina ao tráfego de rede, a Central de Segurança pode detectar quando as comunicações de rede de saída excedem a norma. Quando o spam é detectado, a central de segurança também correlaciona o tráfego de email incomum com inteligência de Microsoft 365 para determinar se o email é provavelmente perigoso ou o resultado de uma campanha de email legítima.
 
 ### <a name="anomaly-detection"></a>Detecção de anomalias
 
 A Central de Segurança do Azure também usa detecção de anomalias para identificar ameaças. Ao contrário da análise de comportamento (que depende de padrões conhecidos derivados de grandes conjuntos de dados), a detecção de anomalias é mais "personalizada" e se concentra nas linhas de base que são específicas das suas implantações. O aprendizado de máquina é aplicado para determinar a atividade normal das implantações e, em seguida, são geradas regras para definir condições de exceção que possam representar um evento de segurança. Aqui está um exemplo:
 
--   **Ataques de força bruta vindos de RDP/SSH** : Suas implantações podem ter máquinas virtuais ocupadas com uma grande quantidade diária de logons e outras máquinas virtuais com poucos logons ou nenhum. A Central de Segurança do Azure pode determinar a linha de base da atividade de logon para essas máquinas virtuais e usar o aprendizado de máquina para definir o que há em torno das atividades de logon normal. Quando há alguma discrepância com a linha de base definida para as características relacionadas ao logon, um alerta pode ser gerado. Novamente, o aprendizado de máquina determina o que é relevante.
+-   **Ataques de força bruta vindos de RDP/SSH**: Suas implantações podem ter máquinas virtuais ocupadas com uma grande quantidade diária de logons e outras máquinas virtuais com poucos logons ou nenhum. A Central de Segurança do Azure pode determinar a linha de base da atividade de logon para essas máquinas virtuais e usar o aprendizado de máquina para definir o que há em torno das atividades de logon normal. Quando há alguma discrepância com a linha de base definida para as características relacionadas ao logon, um alerta pode ser gerado. Novamente, o aprendizado de máquina determina o que é relevante.
 
 ### <a name="continuous-threat-intelligence-monitoring"></a>Monitoramento contínuo de inteligência contra ameaças
 
 A Central de Segurança do Azure opera com equipes de pesquisas de segurança e de ciência de dados no mundo inteiro que monitoram continuamente em busca de alterações no panorama de ameaças. Isso inclui as seguintes iniciativas:
 
--   **Monitoramento de inteligência contra ameaças** : A inteligência contra ameaças inclui mecanismos, indicadores, implicações e recomendações acionáveis sobre ameaças existentes ou iminentes. Essas informações são compartilhadas na comunidade de segurança e a Microsoft monitora continuamente os feeds de inteligência contra ameaças de fontes internas e externas.
+-   **Monitoramento de inteligência contra ameaças**: A inteligência contra ameaças inclui mecanismos, indicadores, implicações e recomendações acionáveis sobre ameaças existentes ou iminentes. Essas informações são compartilhadas na comunidade de segurança e a Microsoft monitora continuamente os feeds de inteligência contra ameaças de fontes internas e externas.
 
--   **Compartilhamento de sinal** : Insights das equipes de segurança de todo o amplo portfólio da Microsoft de serviços locais e de nuvem, servidores e dispositivos de ponto de extremidade de cliente são compartilhados e analisados.
+-   **Compartilhamento de sinal**: Insights das equipes de segurança de todo o amplo portfólio da Microsoft de serviços locais e de nuvem, servidores e dispositivos de ponto de extremidade de cliente são compartilhados e analisados.
 
--   **Especialistas de segurança da Microsoft** : Participação contínua com as equipes da Microsoft que trabalham em campos de segurança especializados, como computação forense e detecção de ataques à Web.
+-   **Especialistas de segurança da Microsoft**: Participação contínua com as equipes da Microsoft que trabalham em campos de segurança especializados, como computação forense e detecção de ataques à Web.
 
--   **Ajuste de detecção** : Algoritmos são executados em conjuntos de dados do cliente reais e pesquisadores de segurança trabalham com os clientes para validar os resultados. Verdadeiros e falsos positivos são usados para refinar os algoritmos de aprendizado de máquina.
+-   **Ajuste de detecção**: Algoritmos são executados em conjuntos de dados do cliente reais e pesquisadores de segurança trabalham com os clientes para validar os resultados. Verdadeiros e falsos positivos são usados para refinar os algoritmos de aprendizado de máquina.
 
 Esses esforços combinados culminam em detecções novas e melhores, das quais você pode se beneficiar instantaneamente. Não há nenhuma ação a ser executada.
 
@@ -222,25 +226,25 @@ O [Microsoft Antimalware](antimalware.md) para Azure é uma solução de agente 
 
 Aqui estão os recursos do Azure que implantam e habilitam o Microsoft Antimalware para seus aplicativos:
 
--   **Proteção em tempo real** : Monitora a atividade em serviços de nuvem e em máquinas virtuais para detectar e bloquear a execução de malware.
+-   **Proteção em tempo real**: Monitora a atividade em serviços de nuvem e em máquinas virtuais para detectar e bloquear a execução de malware.
 
--   **Verificação programada** : Executa periodicamente uma verificação direcionada para detectar malware, incluindo programas ativamente em execução.
+-   **Verificação programada**: Executa periodicamente uma verificação direcionada para detectar malware, incluindo programas ativamente em execução.
 
--   **Remediação de malware** : Atua automaticamente no malware detectado, por exemplo, excluindo ou colocando arquivos mal-intencionados em quarentena e limpando entradas mal-intencionadas do Registro.
+-   **Remediação de malware**: Atua automaticamente no malware detectado, por exemplo, excluindo ou colocando arquivos mal-intencionados em quarentena e limpando entradas mal-intencionadas do Registro.
 
--   **Atualizações de assinatura** : Instala automaticamente as últimas assinaturas de proteção (definições de vírus) para garantir que a proteção fique atualizada em uma frequência predeterminada.
+-   **Atualizações de assinatura**: Instala automaticamente as últimas assinaturas de proteção (definições de vírus) para garantir que a proteção fique atualizada em uma frequência predeterminada.
 
--   **Atualizações do Antimalware Engine** : Atualiza automaticamente o Microsoft Antimalware Engine.
+-   **Atualizações do Antimalware Engine**: Atualiza automaticamente o Microsoft Antimalware Engine.
 
--   **Atualizações da plataforma antimalware** : Atualiza automaticamente a plataforma Microsoft Antimalware.
+-   **Atualizações da plataforma antimalware**: Atualiza automaticamente a plataforma Microsoft Antimalware.
 
--   **Proteção ativa** : Relata metadados telemétricos sobre ameaças detectadas e recursos suspeitos para o Microsoft Azure, a fim de garantir uma resposta rápida ao panorama de ameaças em constante evolução, habilitando a entrega de assinatura síncrona em tempo real por meio do sistema de proteção ativa da Microsoft.
+-   **Proteção ativa**: Relata metadados telemétricos sobre ameaças detectadas e recursos suspeitos para o Microsoft Azure, a fim de garantir uma resposta rápida ao panorama de ameaças em constante evolução, habilitando a entrega de assinatura síncrona em tempo real por meio do sistema de proteção ativa da Microsoft.
 
--   **Relatórios de exemplos** : Fornece e relata amostras ao serviço Microsoft Antimalware para ajudar a refinar o serviço e habilitar a solução de problemas.
+-   **Relatórios de exemplos**: Fornece e relata amostras ao serviço Microsoft Antimalware para ajudar a refinar o serviço e habilitar a solução de problemas.
 
--   **Exclusões** : Permite que os administradores de aplicativos e de serviços configurem determinados arquivos, processos e unidades para serem excluídos da proteção e da verificação por motivos de desempenho, entre outros.
+-   **Exclusões**: Permite que os administradores de aplicativos e de serviços configurem determinados arquivos, processos e unidades para serem excluídos da proteção e da verificação por motivos de desempenho, entre outros.
 
--   **Coleta de eventos de antimalware** : Registra a integridade do serviço antimalware, as atividades suspeitas e as ações de remediação realizadas no log de eventos do sistema operacional e coleta essas informações na conta de armazenamento do Azure do cliente.
+-   **Coleta de eventos de antimalware**: Registra a integridade do serviço antimalware, as atividades suspeitas e as ações de remediação realizadas no log de eventos do sistema operacional e coleta essas informações na conta de armazenamento do Azure do cliente.
 
 ### <a name="azure-sql-database-threat-detection"></a>Detecção de Ameaças do Banco de Dados SQL do Azure
 
@@ -262,9 +266,9 @@ Ao receber uma notificação de detecção de ameaças por email, os usuários p
 
 Os detectores de ameaças do Banco de Dados SQL usam uma das seguintes metodologias de detecção:
 
--   **Detecção determinística** : Detecta padrões suspeitos (baseados em regras) nas consultas de cliente SQL que correspondem a ataques conhecidos. Essa metodologia tem um índice alto de detecção e baixo de falsos positivos, mas tem uma cobertura limitada porque está na categoria de "detecções atômicas".
+-   **Detecção determinística**: Detecta padrões suspeitos (baseados em regras) nas consultas de cliente SQL que correspondem a ataques conhecidos. Essa metodologia tem um índice alto de detecção e baixo de falsos positivos, mas tem uma cobertura limitada porque está na categoria de "detecções atômicas".
 
--   **Detecção de comportamento** : Detecta uma atividade anormal, ou seja, um comportamento anormal no banco de dados não observado nos últimos 30 dias. Exemplos de atividade anormal de cliente SQL podem ser um pico de logons ou consultas com falha, um alto volume de dados sendo extraídos, consultas canônicas incomuns ou endereços IP usados desconhecidos para acessar o banco de dados.
+-   **Detecção de comportamento**: Detecta uma atividade anormal, ou seja, um comportamento anormal no banco de dados não observado nos últimos 30 dias. Exemplos de atividade anormal de cliente SQL podem ser um pico de logons ou consultas com falha, um alto volume de dados sendo extraídos, consultas canônicas incomuns ou endereços IP usados desconhecidos para acessar o banco de dados.
 
 ### <a name="application-gateway-web-application-firewall"></a>Firewall do Aplicativo Web do Gateway de Aplicativo
 
@@ -304,19 +308,19 @@ A API de Detecção de Anomalias é útil para detectar uma variedade de padrõe
 
 O [API de detecção de anomalias](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md) pode detectar os seguintes tipos de anomalias em dados de série temporal:
 
--   **Picos e quedas** : Quando você monitora o número de falhas de logon de um serviço ou o número de check-outs em um site de comércio eletrônico, picos ou quedas incomuns podem indicar ataques de segurança ou interrupções de serviço.
+-   **Picos e quedas**: Quando você monitora o número de falhas de logon de um serviço ou o número de check-outs em um site de comércio eletrônico, picos ou quedas incomuns podem indicar ataques de segurança ou interrupções de serviço.
 
--   **Tendências positivas e negativas** : Quando você monitora o uso de memória na computação, a redução do tamanho da memória livre indica uma possível perda de memória. Para o monitoramento do tamanho da fila do serviço, uma tendência de aumento persistente pode indicar um problema de software subjacente.
+-   **Tendências positivas e negativas**: Quando você monitora o uso de memória na computação, a redução do tamanho da memória livre indica uma possível perda de memória. Para o monitoramento do tamanho da fila do serviço, uma tendência de aumento persistente pode indicar um problema de software subjacente.
 
--   **Alterações de nível e alterações no intervalo dinâmico dos valores** : Pode ser interessante monitorar as alterações de nível nas latências de um serviço após uma atualização do serviço ou níveis mais baixos de exceções após a atualização.
+-   **Alterações de nível e alterações no intervalo dinâmico dos valores**: Pode ser interessante monitorar as alterações de nível nas latências de um serviço após uma atualização do serviço ou níveis mais baixos de exceções após a atualização.
 
 A API baseada em aprendizado de máquina permite:
 
--   **Detecção flexível e robusta** : Os modelos de detecção de anomalias permitem que os usuários definam configurações de confidencialidade e detectem anomalias entre conjuntos de dados sazonais e não sazonais. Os usuários podem ajustar o modelo de detecção de anomalias para tornar a API de detecção diferenciação menos ou mais de acordo com suas necessidades. Isso significaria detectar as anomalias visíveis menos ou mais nos dados com e sem padrões sazonais.
+-   **Detecção flexível e robusta**: Os modelos de detecção de anomalias permitem que os usuários definam configurações de confidencialidade e detectem anomalias entre conjuntos de dados sazonais e não sazonais. Os usuários podem ajustar o modelo de detecção de anomalias para tornar a API de detecção diferenciação menos ou mais de acordo com suas necessidades. Isso significaria detectar as anomalias visíveis menos ou mais nos dados com e sem padrões sazonais.
 
--   **Detecção escalonável e em tempo hábil** : A maneira tradicional de monitorar com os limites presentes definidos pelo conhecimento de especialistas na área é cara e não pode ser escalonável para milhões de conjuntos de dados com alteração dinâmica. Os modelos de detecção de anomalias nesta API são aprendidos e ajustados automaticamente por meio de dados históricos e em tempo real.
+-   **Detecção escalonável e em tempo hábil**: A maneira tradicional de monitorar com os limites presentes definidos pelo conhecimento de especialistas na área é cara e não pode ser escalonável para milhões de conjuntos de dados com alteração dinâmica. Os modelos de detecção de anomalias nesta API são aprendidos e ajustados automaticamente por meio de dados históricos e em tempo real.
 
--   **Detecção proativa e acionável** : A detecção de alteração lenta de nível e de tendência pode ser aplicada para a detecção de anomalias logo no início. Os primeiros sinais anormais detectados podem ser usados para permitir que pessoas investiguem e executem ações nas áreas com problema. Além disso, os modelos de análise de causas raiz e as ferramentas de alertas podem ser desenvolvidos com base nesse serviço de API de detecção de anomalias.
+-   **Detecção proativa e acionável**: A detecção de alteração lenta de nível e de tendência pode ser aplicada para a detecção de anomalias logo no início. Os primeiros sinais anormais detectados podem ser usados para permitir que pessoas investiguem e executem ações nas áreas com problema. Além disso, os modelos de análise de causas raiz e as ferramentas de alertas podem ser desenvolvidos com base nesse serviço de API de detecção de anomalias.
 
 A API de detecção de anomalias é uma solução efetiva e eficiente para uma ampla variedade de cenários, como monitoramento de integridade do serviço e de KPI, IoT, monitoramento de desempenho e monitoramento de tráfego de rede. Aqui estão alguns cenários comuns onde essa API pode ser útil:
 

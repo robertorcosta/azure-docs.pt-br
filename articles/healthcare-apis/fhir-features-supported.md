@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 43372eb0a9f7c08f6957627950769c1941580bd8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745860"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747518"
 ---
 # <a name="features"></a>Recursos
 
@@ -147,12 +147,14 @@ Atualmente, as ações permitidas para uma determinada função são aplicadas *
 
 O desempenho do sistema depende do número de RUs, conexões simultâneas e do tipo de operações que você está executando (put, post etc.). Abaixo estão alguns intervalos gerais do que você pode esperar com base no RUs configurado. Em geral, o desempenho é dimensionado linearmente com um aumento no RUs:
 
-| n º de RUs | Recursos/s |
-|----------|---------------|
-| 400      | 5-10          |
-| 1,000    | 100-150       |
-| 10.000   | 225-400       |
-| 100.000  | 2500 a 4.000   |
+| n º de RUs | Recursos/s |    Armazenamento máximo (GB) *    |
+|----------|---------------|--------|                 
+| 400      | 5-10          |     40   |
+| 1,000    | 100-150       |      100  |
+| 10.000   | 225-400       |      1,000  |
+| 100.000  | 2500 a 4.000   |      10.000  |
+
+Observação: por Cosmos DB requisito, há um requisito de uma taxa de transferência mínima de 10 RU/s por GB de armazenamento. Para obter mais informações, confira [Cosmos DB cotas de serviço](../cosmos-db/concepts-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

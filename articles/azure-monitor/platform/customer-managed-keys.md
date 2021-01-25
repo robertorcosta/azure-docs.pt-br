@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 6061980ec556fccde3de882a291bc390b88c5a24
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: f2807501b1e18d4cbffaa34d70bccf8d70565266
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611076"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747216"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -125,11 +125,53 @@ Essas configurações podem ser atualizadas no Key Vault por meio da CLI e do Po
 
 ## <a name="create-cluster"></a>Criar cluster
 
-> [!NOTE]
-> Os clusters dão suporte a dois [tipos de identidade gerenciados](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): atribuídos pelo sistema e atribuídos pelo usuário e cada um pode ser baseado, dependendo do seu cenário. A identidade gerenciada atribuída pelo sistema é mais simples e criada automaticamente com a criação do cluster quando a identidade `type` é definida como "*SystemAssigned*"--essa identidade pode ser usada posteriormente para conceder ao cluster acesso ao seu Key Vault. Se você quiser criar um cluster enquanto a chave gerenciada pelo cliente for definida no momento da criação do cluster, deverá ter uma identidade definida pelo usuário e uma chave concedida no seu Key Vault antecipadamente, em seguida, crie o cluster com essas configurações: Identity `type` como "*userassigned*", `UserAssignedIdentities` com a ID de recurso da identidade e `keyVaultProperties` com os detalhes da chave.
+Os clusters dão suporte a dois [tipos de identidade gerenciados](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): atribuídos pelo sistema e atribuídos pelo usuário, enquanto uma única identidade pode ser definida em um cluster, dependendo do seu cenário. 
+- A identidade gerenciada atribuída pelo sistema é mais simples e gerada automaticamente com a criação do cluster quando a identidade `type` está definida como "*SystemAssigned*". Essa identidade pode ser usada posteriormente para conceder ao cluster acesso ao seu Key Vault. 
+  
+  Configurações de identidade no cluster para identidade gerenciada atribuída pelo sistema
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned"
+      }
+  }
+  ```
+
+- Se você quiser configurar a chave gerenciada pelo cliente na criação do cluster, você deverá ter uma identidade atribuída pelo usuário e uma chave concedidas em seu Key Vault antecipadamente e, em seguida, criar o cluster com estas configurações: Identity `type` como "*userassigned*", `UserAssignedIdentities` com a ID de recurso da identidade.
+
+  Configurações de identidade no cluster para identidade gerenciada atribuída pelo usuário
+  ```json
+  {
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      }
+  }
+  ```
 
 > [!IMPORTANT]
-> No momento, não é possível definir a chave gerenciada pelo cliente com identidade gerenciada atribuída pelo usuário se o Key Vault estiver localizado em Private-Link (vNet) e você pode usar a identidade gerenciada atribuída pelo sistema nesse caso.
+> Você não poderá usar a chave gerenciada pelo cliente com identidade gerenciada atribuída pelo usuário se seu Key Vault estiver em Private-Link (vNet). Você pode usar a identidade gerenciada atribuída pelo sistema nesse cenário.
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+}
+```
+ 
+Com:
+
+```json
+{
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
+      }
+}
+```
+
 
 Siga o artigo procedimento ilustrado no [clusters dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -243,15 +285,13 @@ Siga o artigo procedimento ilustrado no [clusters dedicados](../log-query/logs-d
 
 ## <a name="key-revocation"></a>Revogação de chave
 
-Você pode revogar o acesso aos dados desabilitando sua chave ou excluindo a política de acesso do cluster em seu Key Vault. 
-
 > [!IMPORTANT]
-> - Se o cluster estiver definido com identidade gerenciada atribuída pelo usuário, a configuração `UserAssignedIdentities` com `None` suspende o cluster e impede o acesso aos seus dados, mas você não pode reverter a revogação e ativar o cluster sem abrir a solicitação de suporte. Essa limitação não é aplicada à identidade gerenciada atribuída pelo sistema.
-> - A ação de revogação de chave recomendada é desabilitar sua chave em seu Key Vault.
+> - A maneira recomendada para revogar o acesso aos seus dados é desabilitar a chave ou excluir a política de acesso em seu Key Vault.
+> - Definir o cluster `identity` `type` como "None" também revoga o acesso aos seus dados, mas essa abordagem não é recomendada, pois não é possível reverter a revogação ao reafirmar o `identity` no cluster sem abrir a solicitação de suporte.
 
-O armazenamento de cluster sempre respeitará as alterações nas permissões de chave em uma hora ou antes e o armazenamento ficará indisponível. Todos os novos dados ingeridos em espaços de trabalho vinculados ao cluster são ignorados e não são recuperáveis, os dados se tornam inacessíveis e as consultas nesses espaços de trabalho falham. Os dados anteriormente ingeridos permanecem no armazenamento, desde que seu cluster e seus espaços de trabalho não sejam excluídos. Os dados inacessíveis são administrados pela política de retenção de dados e serão limpos quando a retenção for alcançada. Os dados ingeridos nos últimos 14 dias também são mantidos no cache frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Ele é excluído na operação de revogação de chave e se torna inacessível também.
+O armazenamento de cluster sempre respeitará as alterações nas permissões de chave em uma hora ou antes e o armazenamento ficará indisponível. Todos os novos dados ingeridos em espaços de trabalho vinculados ao cluster são ignorados e não são recuperáveis, os dados se tornam inacessíveis e as consultas nesses espaços de trabalho falham. Os dados anteriormente ingeridos permanecem no armazenamento, desde que seu cluster e seus espaços de trabalho não sejam excluídos. Os dados inacessíveis são administrados pela política de retenção de dados e serão limpos quando a retenção for alcançada. Os dados ingeridos nos últimos 14 dias também são mantidos no cache frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Isso é excluído na operação de revogação de chave e torna-se inacessível.
 
-Periodicamente, o armazenamento do cluster sonda sua Key Vault para tentar desencapsular a chave de criptografia e, uma vez acessado, a ingestão de dados e a retomada de consulta dentro de 30 minutos.
+O armazenamento do cluster verifica periodicamente sua Key Vault para tentar desencapsular a chave de criptografia e, uma vez acessada, a ingestão de dados e a consulta são retomadas dentro de 30 minutos.
 
 ## <a name="key-rotation"></a>Alteração de chaves
 
@@ -259,7 +299,7 @@ A rotação de chaves gerenciada pelo cliente requer uma atualização explícit
 
 Todos os seus dados continuam acessíveis após a operação de revezamento de chaves, já que os dados são sempre criptografados com a AEK (Chave de Criptografia de Conta), embora a AEK seja agora criptografada com sua nova versão de KEK (Chave de Criptografia de Chave) no Key Vault.
 
-## <a name="customer-managed-key-for-queries"></a>Chave gerenciada pelo cliente para consultas
+## <a name="customer-managed-key-for-saved-queries"></a>Chave gerenciada pelo cliente para consultas salvas
 
 A linguagem de consulta usada em Log Analytics é expressiva e pode conter informações confidenciais em comentários que você adiciona a consultas ou na sintaxe de consulta. Algumas organizações exigem que essas informações sejam mantidas protegidas na política de chave gerenciada pelo cliente e você precisa salvar suas consultas criptografadas com sua chave. Azure Monitor permite armazenar *pesquisas salvas* e consultas *de alertas de log* criptografadas com sua chave em sua própria conta de armazenamento quando conectada ao seu espaço de trabalho. 
 
@@ -410,7 +450,7 @@ Customer-Managed chave é fornecida no cluster dedicado e essas operações são
 
   - Se o cluster estiver definido com identidade gerenciada atribuída pelo usuário, a configuração `UserAssignedIdentities` com `None` suspende o cluster e impede o acesso aos seus dados, mas você não pode reverter a revogação e ativar o cluster sem abrir a solicitação de suporte. Essa limitação não é aplicada à identidade gerenciada atribuída pelo sistema.
 
-  - No momento, não é possível definir a chave gerenciada pelo cliente com identidade gerenciada atribuída pelo usuário se o Key Vault estiver localizado em Private-Link (vNet) e você pode usar a identidade gerenciada atribuída pelo sistema nesse caso.
+  - Você não poderá usar a chave gerenciada pelo cliente com identidade gerenciada atribuída pelo usuário se seu Key Vault estiver em Private-Link (vNet). Você pode usar a identidade gerenciada atribuída pelo sistema nesse cenário.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

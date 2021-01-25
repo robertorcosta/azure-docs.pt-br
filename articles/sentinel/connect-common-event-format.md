@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655843"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747484"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conectar sua solução externa usando o formato de evento comum
 
@@ -42,7 +42,7 @@ Como alternativa, essa configuração existirá se você usar uma VM em outra nu
 
  ![CEF no local](./media/connect-cef/cef-syslog-onprem.png)
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. Você pode usar as seguintes instruções para melhorar sua configuração de segurança de computador:  [VM segura no Azure](../virtual-machines/security-policy.md), [práticas recomendadas para segurança de rede](../security/fundamentals/network-best-practices.md).
 
@@ -77,6 +77,12 @@ Verifique se o computador Linux que você usa como encaminhador de log está exe
   - Syslog RFC 5424
  
 Verifique se o computador também atende aos seguintes requisitos: 
+
+- Capacity
+  - Seu computador deve ter um mínimo de **4 núcleos de CPU e 8 GB de RAM**.
+
+    > [!NOTE]
+    > - Um único computador de encaminhador de log usando o daemon do **rsyslog** tem uma capacidade com suporte de **até 8500 de eventos por segundo (EPS)** coletados.
 
 - Permissões
   - Você deve ter permissões elevadas (sudo) em seu computador. 

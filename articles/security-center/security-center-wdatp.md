@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 9fde0ecd8b6670e43aa3970b2df27a402b9c1a5c
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126845"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747233"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -118,20 +118,22 @@ Para gerar um alerta de teste benigno do Microsoft defender for Endpoint:
 1. Para examinar o alerta na central de segurança, acesse **alertas de segurança aviso** de  >  **linha de comando do PowerShell suspeito**.
 1. Na janela investigação, selecione o link para acessar o portal do Microsoft defender para ponto de extremidade.
 
+    > [!TIP]
+    > O alerta é disparado com severidade **informativa** .
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Perguntas frequentes sobre o Microsoft defender para ponto de extremidade integrado da central de segurança
 
 - [Quais são os requisitos de licenciamento para o Microsoft defender para ponto de extremidade?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
-- [Se já tenho uma licença para o Microsoft defender for Endpoint, posso obter um desconto para o Azure defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [Se eu já tenho uma licença para o Microsoft Defender para ponto de extremidade, ganho desconto no Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [Como fazer mudar de uma ferramenta de EDR de terceiros?](#how-do-i-switch-from-a-third-party-edr-tool)
 
 ### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Quais são os requisitos de licenciamento para o Microsoft defender para ponto de extremidade?
 O defender for Endpoint está incluído sem custo adicional com o **Azure defender para servidores**. Como alternativa, ele pode ser adquirido separadamente para 50 computadores ou mais.
 
-### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Se já tenho uma licença para o Microsoft defender for Endpoint, posso obter um desconto para o Azure defender?
-Se você já tiver uma licença para o Microsoft defender for Endpoint, não precisará pagar por essa parte da sua licença do Azure defender.
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Se eu já tenho uma licença para o Microsoft Defender para ponto de extremidade, ganho desconto no Azure Defender?
+Se você já tem uma licença para o Microsoft Defender para ponto de extremidade, não precisa pagar por essa parte da sua licença do Azure Defender.
 
-Para confirmar seu desconto, entre em contato com a equipe de suporte da central de segurança e forneça a ID do espaço de trabalho, a região e as informações de licença relevantes para cada licença relevante.
+Para confirmar o desconto, entre em contato com a equipe de suporte da Central de Segurança e forneça a ID, a região e as informações de licença relevantes do workspace para cada licença relevante.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Como fazer mudar de uma ferramenta de EDR de terceiros?
 As instruções completas para alternar de uma solução de ponto de extremidade não Microsoft estão disponíveis na documentação do Microsoft defender para ponto de extremidade: [visão geral da migração](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

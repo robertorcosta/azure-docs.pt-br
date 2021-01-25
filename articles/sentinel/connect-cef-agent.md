@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 617599e3eb6dcca74324a7bdfd51e604904a2fa1
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 8261856598a155e97f90ea350cedcd4c10e6893c
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897494"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747299"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Etapa 1: implantar o encaminhador de log
 
@@ -42,6 +42,11 @@ Nesta etapa, você designará e configurará o computador Linux que encaminhará
 
 - O computador Linux não deve estar conectado a nenhum espaço de trabalho do Azure antes de instalar o agente de Log Analytics.
 
+- Seu computador Linux deve ter, no mínimo **, 4 núcleos de CPU e 8 GB de RAM**.
+
+    > [!NOTE]
+    > - Um único computador de encaminhador de log usando o daemon do **rsyslog** tem uma capacidade com suporte de **até 8500 de eventos por segundo (EPS)** coletados.
+
 - Talvez seja necessário a ID do espaço de trabalho e a chave primária do espaço de trabalho em algum momento nesse processo. Você pode encontrá-los no recurso de espaço de trabalho, em **Gerenciamento de agentes**.
 
 ## <a name="run-the-deployment-script"></a>Executar o script de implantação
@@ -51,7 +56,7 @@ Nesta etapa, você designará e configurará o computador Linux que encaminhará
 1. Em **1,2 Instale o coletor CEF no computador Linux**, copie o link fornecido em **executar o script a seguir para instalar e aplicar o coletor CEF** ou do texto abaixo (aplicando a ID do espaço de trabalho e a chave primária no lugar dos espaços reservados):
 
     ```bash
-    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]
+    sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]
     ```
 
 1. Enquanto o script estiver em execução, verifique se você não recebe mensagens de erro ou de aviso.
@@ -94,8 +99,8 @@ Escolha um daemon syslog para ver a descrição apropriada.
     - Baixa o script de instalação para o agente do Log Analytics (OMS) do Linux.
 
         ```bash
-        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
-            onboard_agent.sh
+        wget -O onboard_agent.sh https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/
+            master/installer/scripts/onboard_agent.sh
         ```
 
     - Instala o agente de Log Analytics.
@@ -160,8 +165,8 @@ Escolha um daemon syslog para ver a descrição apropriada.
     - Baixa o script de instalação para o agente do Log Analytics (OMS) do Linux.
 
         ```bash
-        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
-            onboard_agent.sh
+        wget -O onboard_agent.sh https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/
+            master/installer/scripts/onboard_agent.sh
         ```
 
     - Instala o agente de Log Analytics.

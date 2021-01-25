@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 557f53e39781406674b9903dcf0bb3cb536cd804
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f9fb1c917a0719cb9d250b997329d3415b5872eb
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897477"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747467"
 ---
 # <a name="step-3-validate-connectivity"></a>ETAPA 3: validar a conectividade
 
@@ -44,7 +44,7 @@ Lembre-se de que pode levar cerca de 20 minutos até que os logs comecem a apare
 1. Execute o script a seguir no encaminhador de log (aplicando a ID do espaço de trabalho no lugar do espaço reservado) para verificar a conectividade entre sua solução de segurança, o encaminhador de log e o Azure Sentinel. Esse script verifica se o daemon está escutando nas portas corretas, se o encaminhamento está configurado corretamente e se nada está bloqueando a comunicação entre o daemon e o agente de Log Analytics. Ele também envia as mensagens de simulação ' TestCommonEventFormat ' para verificar a conectividade de ponta a ponta. <br>
 
     ```bash
-    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
+    sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
     ```
 
    - Você pode receber uma mensagem direcionando para executar um comando para corrigir um problema com o **mapeamento do campo *computador***. Consulte a [explicação no script de validação](#mapping-command) para obter detalhes.

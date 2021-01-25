@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: 038f30ee186a5b3a9d87d64054726324051c37b4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842746"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747166"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de gerenciamento e monitoramento de segurança do Azure
 Este artigo fornece uma visão geral dos recursos de segurança e serviços que o Azure fornece para auxiliar no gerenciamento e no monitoramento de serviços de nuvem e máquinas virtuais do Azure.
@@ -61,8 +61,8 @@ A Autenticação Multifator ajuda a proteger o acesso a dados e aplicativos enqu
 Saiba mais:
 
 * [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é a autenticação multifator do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Como funciona a autenticação multifator do Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [O que é a Autenticação Multifator do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Como a Autenticação Multifator do Azure AD funciona](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
@@ -117,15 +117,18 @@ Saiba mais:
 
 ## <a name="security-center"></a>Central de Segurança
 
-A Central de Segurança do Azure ajuda você a evitar, detectar e responder a ameaças. A Central de Segurança proporciona a você maior visibilidade e controle da segurança de seus recursos do Azure. Ela fornece monitoramento de segurança integrado e gerenciamento de políticas em suas assinaturas do Azure. Ela ajuda a detectar ameaças que poderiam não ser notadas de outra forma e funciona com um amplo ecossistema de soluções de segurança.
+A Central de Segurança do Azure ajuda você a evitar, detectar e responder a ameaças. A central de segurança oferece maior visibilidade e controle sobre a segurança de seus recursos do Azure, bem como aquelas em seu ambiente de nuvem híbrida. 
+
+A central de segurança executa avaliações de segurança contínuas de seus recursos conectados e compara sua configuração e implantação com o [benchmark de segurança do Azure](../benchmarks/introduction.md) para fornecer recomendações de segurança detalhadas adaptadas para seu ambiente.
 
 A Central de Segurança ajuda a otimizar e monitorar a segurança de seus recursos do Azure:
 
-* Permitindo que você defina políticas para seus recursos de assinatura do Azure com:
-  * As necessidades de segurança da sua empresa.
-  * O tipo de aplicativos ou a confidencialidade dos dados em cada assinatura.
-* Monitorando o estado das máquinas virtuais, da redes e dos aplicativos do Azure.
-* Fornecendo uma lista priorizada de alertas de segurança, incluindo alertas de soluções integradas de parceiros. Ela também fornece as informações de que você precisa para investigar rapidamente um ataque e recomendações sobre como corrigi-lo.
+- Permitindo que você defina políticas para seus recursos de assinatura do Azure com:
+    - As necessidades de segurança de sua organização.
+    - O tipo de aplicativos ou a confidencialidade dos dados em cada assinatura.
+    - Quaisquer padrões da indústria ou normativos ou benchmarks aplicados às suas assinaturas. 
+- Monitorando o estado das máquinas virtuais, da redes e dos aplicativos do Azure.
+- Fornecendo uma lista priorizada de alertas de segurança, incluindo alertas de soluções integradas de parceiros. Ela também fornece as informações de que você precisa para investigar rapidamente um ataque e recomendações sobre como corrigi-lo.
 
 Saiba mais:
 
