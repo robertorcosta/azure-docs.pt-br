@@ -1,5 +1,6 @@
 ---
-title: Mover o aplicativo de desktop chamando APIs da Web para produção-plataforma de identidade da Microsoft | Azure
+title: Mover o aplicativo da área de trabalho chamando APIs da Web para produção | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como mover um aplicativo de área de trabalho que chama APIs da Web para produção
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 325f95f2830ef021a4ac79de48695dda570f7817
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 05b93848bff66adc49d2855ee98fff6c9b7a2d3d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629775"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756503"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Aplicativo de área de trabalho que chama APIs da Web: mover para produção
 
@@ -31,7 +32,7 @@ Nos fluxos diferentes, você aprendeu como lidar com os erros dos fluxos silenci
 > [!NOTE]
 > A obtenção de consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para o Azure Active Directory (Azure AD) B2C. O Azure AD B2C dá suporte apenas ao consentimento do administrador, não ao consentimento do usuário.
 
-Você não pode obter um token para vários recursos de uma vez com o ponto de extremidade da plataforma Microsoft Identity (v 2.0). O `scopes` parâmetro pode conter escopos para um único recurso. Você pode garantir que o usuário tenha o mesmo consentimento para vários recursos usando o `extraScopesToConsent` parâmetro.
+Você não pode obter um token para vários recursos de uma vez com a plataforma de identidade da Microsoft. O `scopes` parâmetro pode conter escopos para um único recurso. Você pode garantir que o usuário tenha o mesmo consentimento para vários recursos usando o `extraScopesToConsent` parâmetro.
 
 Por exemplo, você pode ter dois recursos que têm dois escopos cada:
 

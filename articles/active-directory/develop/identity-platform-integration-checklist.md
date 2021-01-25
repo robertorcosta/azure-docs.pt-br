@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063783"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755253"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Melhores práticas e recomendações da plataforma de identidade da Microsoft
 
@@ -94,7 +94,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 
 ![](./media/active-directory-integration-checklist/checkbox-two.svg)a caixa de seleção implementa uma [experiência de logoff único limpa](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Trata-se de uma privacidade e um requisito de segurança, e possibilita uma boa experiência do usuário.
 
-## <a name="testing"></a>Testando
+## <a name="testing"></a>Testes
 
 ![](./media/active-directory-integration-checklist/checkbox-two.svg)teste de caixa de seleção para [políticas de acesso condicional](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) que podem afetar a capacidade dos usuários de usar seu aplicativo.
 
@@ -104,7 +104,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 
 Explore informações detalhadas sobre a v2.0:
 
-* [Plataforma Microsoft Identity (visão geral do v 2.0)](v2-overview.md)
+* [Plataforma Microsoft Identity (visão geral)](v2-overview.md)
 * [Referência de protocolos da plataforma Microsoft Identity](active-directory-v2-protocols.md)
 * [Referência de tokens de acesso](access-tokens.md)
 * [Referência de tokens de ID](id-tokens.md)

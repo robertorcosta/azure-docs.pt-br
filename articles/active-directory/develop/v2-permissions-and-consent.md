@@ -12,16 +12,16 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 35499810ae13a8ddc5b7bb6306deafef0ef24e0f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246784"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756048"
 ---
-# <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
+# <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
 
-Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. A implementação do modelo de autorização foi atualizada no ponto de extremidade da plataforma de identidade da Microsoft. Ele altera como um aplicativo deve interagir com a plataforma de identidade da Microsoft. Este artigo aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
+Os aplicativos que se integram com a plataforma de identidade da Microsoft seguem um modelo de autorização que oferece aos usuários e administradores o controle sobre como os dados podem ser acessados. A implementação do modelo de autorização foi atualizada na plataforma de identidade da Microsoft. Ele altera como um aplicativo deve interagir com a plataforma de identidade da Microsoft. Este artigo aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
 
 ## <a name="scopes-and-permissions"></a>Permissões e escopos
 
@@ -128,7 +128,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 O parâmetro `scope` é uma lista de permissões delegadas separadas por espaço que o aplicativo está solicitando. Cada permissão é indicada acrescentando o valor de permissão ao identificador do recurso (o URI da ID do aplicativo). No exemplo de solicitação, o aplicativo precisa de permissão para ler o calendário e enviar emails como o usuário.
 
-Depois que o usuário inserir suas credenciais, o ponto de extremidade da plataforma de identidade da Microsoft verificará se há um registro correspondente de *consentimento do usuário*. Se o usuário não consentiu em nenhuma das permissões solicitadas no passado e se o administrador não consentiu essas permissões em nome de toda a organização, o ponto de extremidade da plataforma de identidade da Microsoft solicitará que o usuário conceda as permissões solicitadas.
+Depois que o usuário inserir suas credenciais, a plataforma de identidade da Microsoft verificará se há um registro correspondente de *consentimento do usuário*. Se o usuário não consentiu em nenhuma das permissões solicitadas no passado e se o administrador não consentiu essas permissões em nome de toda a organização, a plataforma de identidade da Microsoft solicitará que o usuário conceda as permissões solicitadas.
 
 Neste momento, a permissão `offline_access` ("manter o acesso aos dados que você concedeu acesso") e a `user.read` permissão ("entrar e ler seu perfil") são incluídas automaticamente no consentimento inicial para um aplicativo.  Essas permissões geralmente são necessárias para a funcionalidade de aplicativo adequada. A `offline_access` permissão concede ao aplicativo acesso para atualizar tokens que são essenciais para aplicativos nativos e aplicativos Web. A `user.read` permissão concede acesso à `sub` declaração. Ele permite que o cliente ou aplicativo identifique corretamente o usuário ao longo do tempo e acesse informações de usuário rudimentares.
 
@@ -219,11 +219,11 @@ https://graph.microsoft.com/mail.send
 
 | Parâmetro        | Condição        | Descrição                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Ele pode ser fornecido em um formato de nome amigável ou GUID. Ou pode ser referenciado genericamente com organizações, como visto no exemplo. Não use "comum", porque as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
-| `client_id` | Obrigatório | A ID do aplicativo (cliente) que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
+| `tenant` | Necessária | O locatário do diretório para o qual você deseja solicitar permissão. Ele pode ser fornecido em um formato de nome amigável ou GUID. Ou pode ser referenciado genericamente com organizações, como visto no exemplo. Não use "comum", porque as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
+| `client_id` | Necessária | A ID do aplicativo (cliente) que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `redirect_uri` | Necessária |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
 | `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-|`scope`        | Obrigatório        | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Os escopos podem ser estáticos (usando [`/.default`](#the-default-scope) ) ou dinâmicos.  Esse conjunto pode incluir os escopos do OpenID Connect ( `openid` , `profile` , `email` ). Se você precisar de permissões de aplicativo, deverá usar `/.default` para solicitar a lista de permissões configuradas estaticamente.  |
+|`scope`        | Necessária        | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Os escopos podem ser estáticos (usando [`/.default`](#the-default-scope) ) ou dinâmicos.  Esse conjunto pode incluir os escopos do OpenID Connect ( `openid` , `profile` , `email` ). Se você precisar de permissões de aplicativo, deverá usar `/.default` para solicitar a lista de permissões configuradas estaticamente.  |
 
 
 Neste ponto, o Azure AD requer um administrador de locatários para entrar e concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no `scope` parâmetro.  Se você usou um valor estático ( `/.default` ), ele funcionará como o ponto de extremidade de consentimento do administrador v 1.0 e solicitará o consentimento para todos os escopos encontrados nas permissões necessárias para o aplicativo.
@@ -335,7 +335,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 
 Este exemplo de código produz uma página de consentimento para todas as permissões registradas se as descrições anteriores de consentimento e `/.default` se aplicam ao cenário. Em seguida, o código retorna um `id_token` , em vez de um token de acesso.  
 
-Esse comportamento acomoda alguns clientes herdados que estão mudando da ADAL (biblioteca de autenticação do Azure AD) para a MSAL (biblioteca de autenticação da Microsoft). Essa configuração não *deve* ser usada por novos clientes que se destinam ao ponto de extremidade da plataforma Microsoft Identity.
+Esse comportamento acomoda alguns clientes herdados que estão mudando da ADAL (biblioteca de autenticação do Azure AD) para a MSAL (biblioteca de autenticação da Microsoft). Essa configuração não *deve* ser usada por novos clientes que se destinam à plataforma de identidade da Microsoft.
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Fluxo de concessão de credenciais de cliente e/.Default  
 
@@ -358,4 +358,4 @@ Para obter as etapas de solução de problemas, consulte [erro inesperado ao exe
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Tokens de ID na plataforma de identidade da Microsoft](id-tokens.md)
-* [Tokens de acesso na plataforma Microsoft Identity](access-tokens.md)
+* [Tokens de acesso na plataforma de identidade da Microsoft](access-tokens.md)

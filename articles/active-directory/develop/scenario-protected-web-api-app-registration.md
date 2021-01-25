@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443935"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756465"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
 
@@ -27,11 +27,11 @@ Para ver as etapas comuns para registrar um aplicativo, consulte [início rápid
 
 ## <a name="accepted-token-version"></a>Versão do token aceito
 
-O ponto de extremidade da plataforma de identidade da Microsoft pode emitir tokens v 1.0 e v 2.0. Para obter mais informações sobre esses tokens, consulte [tokens de acesso](access-tokens.md).
+A plataforma de identidade da Microsoft pode emitir tokens v 1.0 e tokens v 2.0. Para obter mais informações sobre esses tokens, consulte [tokens de acesso](access-tokens.md).
 
 A versão do token que sua API pode aceitar depende da seleção de **tipos de conta com suporte** ao criar o registro de aplicativo da API web no portal do Azure.
 
-- Se o valor de **tipos de conta com suporte** for **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** , a versão de token aceita deve ser v 2.0.
+- Se o valor de **tipos de conta com suporte** for **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão de token aceita deve ser v 2.0.
 - Caso contrário, a versão do token aceita pode ser v 1.0.
 
 Depois de criar o aplicativo, você pode determinar ou alterar a versão do token aceito seguindo estas etapas:
@@ -40,11 +40,11 @@ Depois de criar o aplicativo, você pode determinar ou alterar a versão do toke
 1. Localize a propriedade **accessTokenAcceptedVersion** no manifesto.
 1. O valor especifica para Azure Active Directory (AD do Azure) qual versão de token aceita pela API da Web.
     - Se o valor for 2, a API da Web aceitará tokens v 2.0.
-    - Se o valor for **NULL** , a API da Web aceitará tokens v 1.0.
+    - Se o valor for **NULL**, a API da Web aceitará tokens v 1.0.
 1. Se você alterou a versão do token, selecione **salvar**.
 
 > [!NOTE]
-> A API da Web especifica qual versão de token aceita. Quando um cliente solicita um token para sua API Web do ponto de extremidade da plataforma Microsoft Identity (v 2.0), o cliente obtém um token que indica qual versão de token a API da Web aceita.
+> A API da Web especifica qual versão de token aceita. Quando um cliente solicita um token para sua API Web da plataforma de identidade da Microsoft, o cliente obtém um token que indica qual versão de token a API da Web aceita.
 
 ## <a name="no-redirect-uri"></a>Nenhum URI de redirecionamento
 
@@ -132,7 +132,7 @@ A API da Web verifica a função do aplicativo. Essa função é uma maneira do 
 Para adicionar esse aumento de segurança:
 
 1. Vá para a página de **visão geral** do aplicativo para o registro do aplicativo.
-1. Em **aplicativo gerenciado no diretório local** , selecione o link com o nome do seu aplicativo. O rótulo dessa seleção pode ser truncado. Por exemplo, você pode ver o **aplicativo gerenciado no.** ..
+1. Em **aplicativo gerenciado no diretório local**, selecione o link com o nome do seu aplicativo. O rótulo dessa seleção pode ser truncado. Por exemplo, você pode ver o **aplicativo gerenciado no.** ..
 
    > [!NOTE]
    >
@@ -143,9 +143,9 @@ Para adicionar esse aumento de segurança:
 
    > [!IMPORTANT]
    >
-   > Se você definir a **atribuição de usuário necessária?** para **Sim** , o Azure ad verificará as atribuições de função de aplicativo de um cliente quando ele solicitar um token de acesso à API Web. Se o cliente não estiver atribuído a nenhuma função de aplicativo, o Azure AD retornará a mensagem de erro "invalid_client: AADSTS501051: \<application name\> o aplicativo não está atribuído a uma função para o \<web API\> ".
+   > Se você definir a **atribuição de usuário necessária?** para **Sim**, o Azure ad verificará as atribuições de função de aplicativo de um cliente quando ele solicitar um token de acesso à API Web. Se o cliente não estiver atribuído a nenhuma função de aplicativo, o Azure AD retornará a mensagem de erro "invalid_client: AADSTS501051: \<application name\> o aplicativo não está atribuído a uma função para o \<web API\> ".
    >
-   > Se você mantiver a **atribuição de usuário necessária?** definida como **não** , o Azure ad não verificará as atribuições de função de aplicativo quando um cliente solicitar um token de acesso para sua API Web. Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais do cliente, pode obter um token de acesso para a API apenas especificando seu público-alvo. Qualquer aplicativo pode acessar a API sem precisar solicitar permissões para ela.
+   > Se você mantiver a **atribuição de usuário necessária?** definida como **não**, o Azure ad não verificará as atribuições de função de aplicativo quando um cliente solicitar um token de acesso para sua API Web. Qualquer cliente daemon, ou seja, qualquer cliente que use o fluxo de credenciais do cliente, pode obter um token de acesso para a API apenas especificando seu público-alvo. Qualquer aplicativo pode acessar a API sem precisar solicitar permissões para ela.
    >
    > Mas, conforme explicado na seção anterior, sua API Web sempre pode verificar se o aplicativo tem a função certa, que é autorizada pelo administrador de locatários. A API executa essa verificação Validando se o token de acesso tem uma declaração de funções e se o valor dessa declaração está correto. No exemplo JSON anterior, o valor é `access_as_application` .
 

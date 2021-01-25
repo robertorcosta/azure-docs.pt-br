@@ -12,18 +12,18 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a8c9a15761a4b37dfcf5ba7cc4cf046390092145
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: bd2bd67774eb55051e55e4433984c0fd1fda5240
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672138"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755577"
 ---
-# <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Substituição de chave de assinatura na plataforma Microsoft Identity
+# <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Substituição de chave de assinatura na plataforma de identidade da Microsoft
 Este artigo discute o que você precisa saber sobre as chaves públicas que são usadas pela plataforma de identidade da Microsoft para assinar tokens de segurança. É importante observar que essas chaves passam periodicamente e, em uma emergência, podem ser transferidas imediatamente. Todos os aplicativos que usam a plataforma de identidade da Microsoft devem ser capazes de manipular programaticamente o processo de substituição de chave. Continue lendo para entender como funcionam as chaves, como avaliar o impacto de substituição no seu aplicativo e como atualizar seu aplicativo ou estabelecer um processo de substituição manual periódica para tratar a substituição de chave, se necessário.
 
-## <a name="overview-of-signing-keys-in-microsoft-identity-platform"></a>Visão geral das chaves de assinatura na plataforma de identidade da Microsoft
-A plataforma de identidade da Microsoft usa a criptografia de chave pública criada nos padrões do setor para estabelecer a confiança entre si mesmo e os aplicativos que o utilizam. Em termos práticos, isso funciona da seguinte maneira: a plataforma de identidade da Microsoft usa uma chave de assinatura que consiste em um par de chaves pública e privada. Quando um usuário entra em um aplicativo que usa a plataforma de identidade da Microsoft para autenticação, a plataforma de identidade da Microsoft cria um token de segurança que contém informações sobre o usuário. Esse token é assinado pela plataforma de identidade da Microsoft usando sua chave privada antes de ser enviado de volta para o aplicativo. Para verificar se o token é válido e originado da plataforma de identidade da Microsoft, o aplicativo deve validar a assinatura do token usando as chaves públicas expostas pela plataforma de identidade da Microsoft contidas no [documento de descoberta do OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do locatário ou no [documento de metadados de Federação](../azuread-dev/azure-ad-federation-metadata.md)SAML/WS-alimentado.
+## <a name="overview-of-signing-keys-in-the-microsoft-identity-platform"></a>Visão geral das chaves de assinatura na plataforma de identidade da Microsoft
+A plataforma de identidade da Microsoft usa criptografia de chave pública criada com base nos padrões do setor para estabelecer a confiança entre si mesmo e os aplicativos que o utilizam. Em termos práticos, isso funciona da seguinte maneira: a plataforma de identidade da Microsoft usa uma chave de assinatura que consiste em um par de chaves pública e privada. Quando um usuário entra em um aplicativo que usa a plataforma de identidade da Microsoft para autenticação, a plataforma de identidade da Microsoft cria um token de segurança que contém informações sobre o usuário. Esse token é assinado pela plataforma de identidade da Microsoft usando sua chave privada antes de ser enviado de volta para o aplicativo. Para verificar se o token é válido e originado da plataforma de identidade da Microsoft, o aplicativo deve validar a assinatura do token usando as chaves públicas expostas pela plataforma de identidade da Microsoft contidas no [documento de descoberta do OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) do locatário ou no [documento de metadados de Federação](../azuread-dev/azure-ad-federation-metadata.md)do SAML/WS-alimentado.
 
 Para fins de segurança, a chave de assinatura da plataforma de identidade da Microsoft é revertida periodicamente e, no caso de uma emergência, pode ser transferida imediatamente. Não há nenhum tempo definido ou garantido entre esses principais roll-qualquer aplicativo que se integre com a plataforma de identidade da Microsoft deve estar preparado para lidar com um evento de substituição de chave, independentemente da frequência que possa ocorrer. Se não tiver, e o aplicativo tentar usar uma chave expirada para verificar a assinatura em um token, a solicitação falhará.  A verificação de todas as 24 horas para atualizações é uma prática recomendada, com restrições (uma vez a cada cinco minutos no máximo), a atualização imediata do documento de chave se um token for encontrado com um identificador de chave desconhecido. 
 

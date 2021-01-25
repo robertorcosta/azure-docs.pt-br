@@ -1,7 +1,7 @@
 ---
 title: Modelo de aplicativo | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba mais sobre o processo de registro de seu aplicativo para que ele possa se integrar com a plataforma de identidade da Microsoft (v 2.0).
+description: Saiba mais sobre o processo de registro de seu aplicativo para que ele possa ser integrado à plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ba41e36d12b58da2e572cf870195716eacaddef
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117474"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755688"
 ---
 # <a name="application-model"></a>Modelo de aplicativo
 
@@ -41,7 +41,7 @@ A plataforma de identidade da Microsoft representa aplicativos que usam um model
 * Identificar o aplicativo pelos protocolos de autenticação aos quais ele dá suporte
 * Forneça todos os identificadores, URLs, segredos e informações relacionadas que são necessários para autenticar
 
-Plataforma de identidade da Microsoft:
+A plataforma Microsoft Identity:
 
 * Mantém todos os dados necessários para dar suporte à autenticação em tempo de execução
 * Mantém todos os dados para decidir quais recursos um aplicativo pode precisar acessar e em que circunstâncias uma determinada solicitação deve ser atendida
@@ -55,7 +55,7 @@ Plataforma de identidade da Microsoft:
 
 ## <a name="multi-tenant-apps"></a>Aplicativos multilocatário
 
-Na plataforma Microsoft Identity, um [objeto Application](developer-glossary.md#application-object) descreve um aplicativo. No momento da implantação, a plataforma de identidade da Microsoft usa o objeto Application como um plano gráfico para criar uma [entidade de serviço](developer-glossary.md#service-principal-object), que representa uma instância concreta de um aplicativo dentro de um diretório ou locatário. A entidade de serviço define o que o aplicativo pode realmente fazer em um diretório de destino específico, que pode usá-lo, a quais recursos ele tem acesso e assim por diante. A plataforma de identidade da Microsoft cria uma entidade de serviço com base em um objeto de aplicativo por meio do [consentimento](developer-glossary.md#consent).
+Na plataforma Microsoft Identity, um [objeto Application](developer-glossary.md#application-object) descreve um aplicativo. No momento da implantação, a plataforma de identidade da Microsoft usa o objeto Application como um plano gráfico para criar uma [entidade de serviço](developer-glossary.md#service-principal-object), que representa uma instância concreta de um aplicativo em um diretório ou locatário. A entidade de serviço define o que o aplicativo pode realmente fazer em um diretório de destino específico, que pode usá-lo, a quais recursos ele tem acesso e assim por diante. A plataforma de identidade da Microsoft cria uma entidade de serviço de um objeto de aplicativo por meio de [consentimento](developer-glossary.md#consent).
 
 O diagrama a seguir mostra um fluxo de provisionamento simplificado da plataforma de identidade da Microsoft orientado por consentimento. Ele mostra dois locatários: *A* e *B*.
 

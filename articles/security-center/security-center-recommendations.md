@@ -11,30 +11,39 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/25/2020
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 115d89783a849a9c4c7adb2fceceaf8d1575c785
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: dbda0aecdadd81da0f7681a5fc9b140157d5e8f3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97795965"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756819"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança na Central de Segurança do Azure 
+
 Este tópico explica como exibir e entender as recomendações na central de segurança do Azure para ajudá-lo a proteger seus recursos do Azure.
 
 
 ## <a name="what-are-security-recommendations"></a>O que são recomendações de segurança?
 
-As recomendações são ações a serem executadas para proteger seus recursos.
-
 A Central de Segurança analisa periodicamente o estado de segurança dos seus recursos do Azure para identificar possíveis vulnerabilidades na segurança. Em seguida, ela fornece recomendações sobre como corrigir essas vulnerabilidades.
+
+As recomendações são ações a serem executadas para proteger e proteger seus recursos. 
 
 Cada recomendação fornece:
 
 - Uma descrição breve do problema
 - As etapas de correção para executar a fim de implementar a recomendação
 - Os recursos afetados
+
+## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Como a Microsoft decide o que precisa de proteção e proteção?
+
+As recomendações da central de segurança são baseadas no benchmark de segurança do Azure. 
+
+O Azure Security Benchmark é um conjunto específico de diretrizes específicas do Azure criadas pela Microsoft com as melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. Esse benchmark amplamente respeitado se baseia nos controles do [centro de segurança da Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) e do [Instituto Nacional de normas e tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+
+Saiba mais sobre o [Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 ## <a name="monitor-recommendations"></a>Recomendações de monitor <a name="monitor-recommendations"></a>
 

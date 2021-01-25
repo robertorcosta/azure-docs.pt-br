@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 0183471db274bb7fca59ed8f24aa87b2bf997fb6
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063732"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754988"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração do ADAL para o MSAL para Java
 
@@ -29,7 +29,7 @@ Tanto a biblioteca de autenticação da Microsoft para Java (MSAL4J) quanto a bi
 
 O MSAL oferece os seguintes benefícios:
 
-- Como ele usa o ponto de extremidade mais recente da plataforma de identidade da Microsoft, você pode autenticar um conjunto mais amplo de identidades da Microsoft, como identidades do Azure AD, contas da Microsoft e contas sociais e locais por meio do Azure AD Business to Consumer (B2C).
+- Como ele usa a plataforma de identidade mais recente da Microsoft, você pode autenticar um conjunto mais amplo de identidades da Microsoft, como identidades do Azure AD, contas da Microsoft e contas sociais e locais por meio do Azure AD Business to Consumer (B2C).
 - Os usuários terão a melhor experiência de logon único.
 - Seu aplicativo pode habilitar o consentimento incremental e o suporte ao acesso condicional é mais fácil.
 
@@ -37,13 +37,13 @@ MSAL para Java é a biblioteca de autenticação que recomendamos que você use 
 
 ## <a name="differences"></a>Diferenças
 
-Se você esteve trabalhando com o ponto de extremidade do Azure AD para desenvolvedores (v 1.0) (e ADAL4J), talvez queira ler [o que há de diferente no ponto de extremidade da plataforma Microsoft Identity (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
+Se você esteve trabalhando com o ponto de extremidade do Azure AD para desenvolvedores (v 1.0) (e ADAL4J), talvez queira ler [o que há de diferente na plataforma de identidade da Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="scopes-not-resources"></a>Escopos não recursos
 
 O ADAL4J adquire tokens para recursos, enquanto MSAL para Java adquire tokens para escopos. Um número de MSAL para classes Java requer um parâmetro de escopos. Esse parâmetro é uma lista de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Consulte [escopos de Microsoft Graph](/graph/permissions-reference) para ver os escopos de exemplo.
 
-Você pode adicionar o `/.default` sufixo de escopo ao recurso para ajudar a migrar seus aplicativos do ponto de extremidade v 1.0 (Adal) para o ponto de extremidade da plataforma de identidade da Microsoft (MSAL). Por exemplo, para o valor do recurso de `https://graph.microsoft.com` , o valor de escopo equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formato de URL, mas uma ID de recurso do formulário `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , você ainda poderá usar o valor de escopo como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
+Você pode adicionar o `/.default` sufixo de escopo ao recurso para ajudar a migrar seus aplicativos do Adal para o MSAL. Por exemplo, para o valor do recurso de `https://graph.microsoft.com` , o valor de escopo equivalente é `https://graph.microsoft.com/.default` .  Se o recurso não estiver no formato de URL, mas uma ID de recurso do formulário `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , você ainda poderá usar o valor de escopo como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 Para obter mais detalhes sobre os diferentes tipos de escopos, consulte [permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md) e os [escopos para uma API Web aceitando os artigos de tokens v 1.0](./msal-v1-app-scopes.md) .
 

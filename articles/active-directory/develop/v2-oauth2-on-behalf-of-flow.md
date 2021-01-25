@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208841"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756095"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e o fluxo On-Behalf-Of de OAuth 2.0
 
@@ -60,7 +60,7 @@ Há dois casos que dependem se o aplicativo cliente escolhe ser protegido por um
 
 Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço para serviço contém estes parâmetros:
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Type | Descrição |
 | --- | --- | --- |
 | `grant_type` | Obrigatório | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obrigatório | A ID do aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
@@ -92,7 +92,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 Uma solicitação de token de acesso de serviço a serviço com um certificado contém os seguintes parâmetros:
 
-| Parâmetro | Tipo | Descrição |
+| Parâmetro | Type | Descrição |
 | --- | --- | --- |
 | `grant_type` | Obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obrigatório |  A ID do aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
@@ -130,7 +130,7 @@ Uma resposta de êxito é uma resposta JSON OAuth 2.0 com os parâmetros a segui
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `token_type` | Indica o valor do tipo de token. O único tipo com suporte da plataforma de identidade da Microsoft é `Bearer`. Para saber mais sobre os tokens de portador, confira o artigo [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| `token_type` | Indica o valor do tipo de token. O único tipo ao qual a plataforma Microsoft Identity dá suporte é `Bearer` . Para saber mais sobre os tokens de portador, confira o artigo [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | `scope` | O escopo do acesso concedido no token. |
 | `expires_in` | O tempo, em segundos, pelo qual o token de acesso é válido. |
 | `access_token` | O token de acesso solicitado. O serviço de chamada pode usar esse token para se autenticar no serviço de recebimento. |
@@ -151,7 +151,7 @@ O exemplo a seguir mostra uma resposta bem-sucedida a uma solicitação para um 
 }
 ```
 
-O token de acesso acima é um token formatado v 1.0 para Microsoft Graph. Isso ocorre porque o formato do token é baseado no **recurso** que está sendo acessado e não está relacionado aos pontos de extremidade usados para solicitá-lo. O Microsoft Graph está configurado para aceitar tokens v1.0. Portanto, a plataforma de identidade da Microsoft produz tokens de acesso v1.0 quando um cliente solicita tokens para o Microsoft Graph. Outros aplicativos podem indicar que desejam v 2.0-Format tokens, v 1.0-Format tokens ou até mesmo formatos de token de propriedade ou de proprietário.  Os pontos de extremidade v 1.0 e v 2.0 podem emitir um formato de token, dessa forma, o recurso sempre pode obter o formato correto do token, independentemente de como ou onde o token foi solicitado pelo cliente. 
+O token de acesso acima é um token formatado v 1.0 para Microsoft Graph. Isso ocorre porque o formato do token é baseado no **recurso** que está sendo acessado e não está relacionado aos pontos de extremidade usados para solicitá-lo. A Microsoft Graph está configurada para aceitar tokens v 1.0, portanto, a plataforma de identidade da Microsoft produz tokens de acesso v 1.0 quando um cliente solicita tokens para Microsoft Graph. Outros aplicativos podem indicar que desejam v 2.0-Format tokens, v 1.0-Format tokens ou até mesmo formatos de token de propriedade ou de proprietário.  Os pontos de extremidade v 1.0 e v 2.0 podem emitir um formato de token, dessa forma, o recurso sempre pode obter o formato correto do token, independentemente de como ou onde o token foi solicitado pelo cliente. 
 
 Somente os aplicativos devem examinar os tokens de acesso. Os clientes **não devem** inspecioná-los. Inspecionar tokens de acesso para outros aplicativos em seu código resultará na interrupção inesperada do aplicativo quando o aplicativo alterar o formato de seus tokens ou começar a criptografá-los. 
 
@@ -201,7 +201,7 @@ Dependendo da arquitetura ou do uso de seu aplicativo, você pode considerar est
 
 ### <a name="default-and-combined-consent"></a>/.default e consentimento combinado
 
-O aplicativo de camada intermediária adiciona o cliente à lista de aplicativos cliente conhecidos em seu manifesto e, em seguida, o cliente pode disparar um fluxo de consentimento combinado para ele mesmo e para o aplicativo de camada intermediária. No ponto de extremidade da plataforma de identidade da Microsoft, isso é feito usando o [`/.default` escopo](v2-permissions-and-consent.md#the-default-scope). Ao disparar uma tela de consentimento usando aplicativos clientes conhecidos e `/.default`, a tela de consentimento mostrará as permissões **tanto** para o cliente da API de camada intermediária e também solicitará todas as permissões necessárias para a API de camada intermediária. O usuário fornece o consentimento para ambos os aplicativos e, em seguida, o fluxo OBO funciona.
+O aplicativo de camada intermediária adiciona o cliente à lista de aplicativos cliente conhecidos em seu manifesto e, em seguida, o cliente pode disparar um fluxo de consentimento combinado para ele mesmo e para o aplicativo de camada intermediária. Na plataforma de identidade da Microsoft, isso é feito usando o [ `/.default` escopo](v2-permissions-and-consent.md#the-default-scope). Ao disparar uma tela de consentimento usando aplicativos clientes conhecidos e `/.default`, a tela de consentimento mostrará as permissões **tanto** para o cliente da API de camada intermediária e também solicitará todas as permissões necessárias para a API de camada intermediária. O usuário fornece o consentimento para ambos os aplicativos e, em seguida, o fluxo OBO funciona.
 
 ### <a name="pre-authorized-applications"></a>Aplicativos pré-autorizados
 

@@ -1,5 +1,6 @@
 ---
-title: Registrar um aplicativo Web que entra em usuários-plataforma de identidade da Microsoft | Azure
+title: Registrar um aplicativo Web que assina usuários | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como registrar um aplicativo Web que faz logon em usuários
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7ca294d3d7764737d4e2be55aae25bc8ff08a8d1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: b6240f88d309cbf4f26375c5f961d716b472755d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011519"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756271"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicativo Web que assina usuários: registro de aplicativo
 
@@ -41,7 +42,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
 > O portal a ser usado é diferente dependendo se o aplicativo é executado no Microsoft Azure nuvem pública ou em uma nuvem nacional ou soberanas. Para obter mais informações, consulte [nuvens nacionais](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. 
+1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. 
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
@@ -57,7 +58,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
    1. Na seção **da Web** , adicione `https://localhost:44321/signin-oidc` como um **URI de redirecionamento**.
    1. Adicione `https://localhost:44321/signout-oidc` como uma **URL de logoff**.
    1. Em **Concessão implícita**, selecione **Tokens de ID**.
-   1. Selecione **Salvar**.
+   1. Clique em **Salvar**.
    
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -68,7 +69,7 @@ Você pode usar esses links para inicializar a criação de seu aplicativo Web:
    1. Selecione **Registrar** para criar o aplicativo.
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Na seção **concessão implícita** , selecione **tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 # <a name="java"></a>[Java](#tab/java)
 
