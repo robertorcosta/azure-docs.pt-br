@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 349caa9a4fa34d87e0a4d99089a1063be66307f4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ae80ddd9efe8274a29a4b8dd91b7a3c391eefc3a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017554"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178679"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Início Rápido: Aplicativo Web ASP.NET Core que conecta usuários e chama o Microsoft Graph em nome deles
 
@@ -38,7 +38,7 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse o [portal do Azure – Registros de aplicativo](https://aka.ms/aspnetcore-webapp-calls-graph-quickstart-v2).
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
@@ -52,10 +52,10 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > 1. Pesquise **Azure Active Directory** e selecione-o.
 > 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
 > 1. Insira um **Nome** para seu aplicativo, por exemplo, `AspNetCoreWebAppCallsGraph-Quickstart`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
-> 1. Insira um **URI de redirecionamento** de `https://localhost:44321/signin-oidc`
+> 1. Insira um **URI de Redirecionamento** de `https://localhost:44321/signin-oidc`.
 > 1. Selecione **Registrar**.
 > 1. Em **Gerenciar**, selecione **Autenticação**.
-> 1. Insira uma **URL de Logoff** de `https://localhost:44321/signout-oidc`
+> 1. Insira uma **URL de Logoff** de `https://localhost:44321/signout-oidc`.
 > 1. Selecione **Salvar**.
 > 1. Em **Gerenciar**, selecione **Certificados e segredos** > **Novo segredo do cliente**.
 > 1. Insira uma **Descrição**, por exemplo, `clientsecret1`.

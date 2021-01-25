@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 946908bf28a50bc8b523c4efd853e8720b115c7b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063069"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753624"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obter um token para um aplicativo móvel que chama APIs da Web
 
@@ -243,7 +243,7 @@ A classe define as constantes a seguir:
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Use o `WithExtraScopeToConsent` modificador em um cenário avançado em que você deseja que o usuário forneça consentimento antecipado para vários recursos. Você pode usar esse modificador quando não quiser usar o consentimento incremental, que normalmente é usado com o MSAL.NET ou a plataforma de identidade da Microsoft 2,0. Para obter mais informações, consulte [Ter o consentimento de usuário antecipado para vários recursos](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Use o `WithExtraScopeToConsent` modificador em um cenário avançado em que você deseja que o usuário forneça consentimento antecipado para vários recursos. Você pode usar esse modificador quando não quiser usar o consentimento incremental, que normalmente é usado com o MSAL.NET ou a plataforma de identidade da Microsoft. Para obter mais informações, consulte [Ter o consentimento de usuário antecipado para vários recursos](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 Este é um exemplo de código:
 

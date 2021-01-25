@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2d2b65261e09d056ec76b25d6fcb6627bc54770b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 65794c695fa4b36586b23a308845b1f12a20b7cb
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165715"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569939"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Pontos de extremidade privados gerenciados do Azure Synapse
 
@@ -23,7 +23,7 @@ Este artigo explicará os Pontos de extremidade privados gerenciados no Azure Sy
 
 Pontos de extremidade privados gerenciados são pontos de extremidade privados criados em uma rede virtual gerenciada associada ao seu workspace do Azure Synapse. Pontos de extremidade privados gerenciados estabelecem um link privado para recursos do Azure. O Azure Synapse gerencia para você esses pontos de extremidade privados. Você pode criar pontos de extremidade privados gerenciados de seu workspace do Azure Synapse para acessar os serviços do Azure (como o Armazenamento do Azure ou o Azure Cosmos DB) e os serviços hospedados de cliente/parceiro do Azure.
 
-Quando você gerencia pontos de extremidade privados, o tráfego entre o workspace do Azure Synapse e outros recursos do Azure cruzam totalmente a rede de backbone da Microsoft. Os pontos de extremidade privados gerenciados protegem contra exfiltração dos dados. Um ponto de extremidade privado gerenciado usa o endereço IP privado de sua rede virtual gerenciada para efetivamente levar para sua rede virtual o serviço do Azure que seu workspace do Azure Synapse está comunicando. Os pontos de extremidade privados gerenciados são mapeados para um recurso específico no Azure e não para todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado por sua organização. 
+Quando você usa pontos de extremidade privados gerenciados, o tráfego entre o workspace do Azure Synapse e outros recursos do Azure cruzam totalmente a rede de backbone da Microsoft. Os pontos de extremidade privados gerenciados protegem contra exfiltração dos dados. Um ponto de extremidade privado gerenciado usa o endereço IP privado de sua rede virtual gerenciada para efetivamente levar para sua rede virtual o serviço do Azure que seu workspace do Azure Synapse está comunicando. Os pontos de extremidade privados gerenciados são mapeados para um recurso específico no Azure e não para todo o serviço. Os clientes podem limitar a conectividade a um recurso específico aprovado por sua organização. 
 
 Saiba mais sobre [links privados e pontos de extremidade privados](../../private-link/index.yml).
 

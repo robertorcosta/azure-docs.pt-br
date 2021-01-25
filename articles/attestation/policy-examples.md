@@ -7,40 +7,50 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 252026f7c59f73dfb37f69d7708a80be827ce104
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 51e8f01726c732604199ff08323f073d508da66e
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748783"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602308"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Exemplos de uma política de atestado
 
 A política de atestado é usada para processar as evidências do atestado e determinar se o Atestado do Azure emitirá um token de atestado. A geração de tokens de atestado pode ser controlada com políticas personalizadas. Veja abaixo alguns exemplos de uma política de atestado.
 
-## <a name="default-policy-for-an-sgx-enclave-with-policyformattext"></a>Política padrão para um enclave do SGX com PolicyFormat=Text
+## <a name="default-policy-for-an-sgx-enclave"></a>Política padrão para um enclave SGX 
 
 ```
-Version= 1.0;
+version= 1.0;
 authorizationrules
 {
-    c:[type==”$is-debuggable”] => permit();
+    c:[type=="$is-debuggable"] => permit();
 };
+
 issuancerules
 {
-    c:[type==”$is-debuggable”] => issue(type=”is-debuggable”, value=c.value);
-    c:[type==”$sgx-mrsigner”] => issue(type=”sgx-mrsigner”, value=c.value);
-    c:[type==”$sgx-mrenclave”] => issue(type=”sgx-mrenclave”, value=c.value);
-    c:[type==”$product-id”] => issue(type=”product-id”, value=c.value);
-    c:[type==”$svn”] => issue(type=”svn”, value=c.value);
-    c:[type==”$tee”] => issue(type=”tee”, value=c.value);
+    c:[type=="$is-debuggable"] => issue(type="is-debuggable", value=c.value);
+    c:[type=="$sgx-mrsigner"] => issue(type="sgx-mrsigner", value=c.value);
+    c:[type=="$sgx-mrenclave"] => issue(type="sgx-mrenclave", value=c.value);
+    c:[type=="$product-id"] => issue(type="product-id", value=c.value);
+    c:[type=="$svn"] => issue(type="svn", value=c.value);
+    c:[type=="$tee"] => issue(type="tee", value=c.value);
 };
 ```
 
-## <a name="default-policy-for-vbs-enclave"></a>Política padrão para o enclave da VBS
+## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Exemplo de política personalizada para um enclave SGX 
 
-Não há nenhuma política padrão para o enclave da VBS
-
+```
+version= 1.0;
+authorizationrules
+{
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
+    => permit();
+};
+```
 
 ## <a name="unsigned-policy-for-an-sgx-enclave-with-policyformatjwt"></a>Política não assinada para um enclave do SGX com PolicyFormat=JWT
 

@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: bd155ea3c98231cf20fa7c62325e3c2ecfb89920
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780596"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185913"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Criar assinaturas do Contrato Enterprise do Azure de modo programático com as APIs mais recentes
 
@@ -31,7 +31,9 @@ Quando você cria uma assinatura do Azure programaticamente, essa assinatura é 
 Você precisa ter uma função de Proprietário em uma Conta de Registro para criar uma assinatura. Há duas maneiras de obter a função:
 
 * O Administrador Corporativo do seu registro pode [fazer de você um Proprietário da Conta](https://ea.azure.com/helpdocs/addNewAccount) (é necessário entrar), o que faz de você um Proprietário da Conta de Registro.
-* Um proprietário existente da conta de inscrição pode [conceder acesso a você](grant-access-to-create-subscription.md). Do mesmo modo, para usar uma entidade de serviço com o objetivo de criar uma assinatura de EA, você deverá [conceder a essa entidade de serviço a capacidade de criar assinaturas](grant-access-to-create-subscription.md).
+* Um proprietário existente da conta de inscrição pode [conceder acesso a você](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Do mesmo modo, para usar uma entidade de serviço com o objetivo de criar uma assinatura de EA, você deverá [conceder a essa entidade de serviço a capacidade de criar assinaturas](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+  > [!NOTE]
+  > Lembre-se de usar a versão da API correta para dar permissões ao proprietário da conta de registro. Para este artigo e para as APIs documentadas nele, use a API [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Se estiver fazendo a migração para usar as APIs mais recentes, você precisará conceder ao proprietário a permissão novamente usando [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). A configuração anterior feita com a [versão 2015-07-01](grant-access-to-create-subscription.md) não é convertida automaticamente para uso com as APIs mais recentes.
 
 ## <a name="find-accounts-you-have-access-to"></a>Localize as contas às quais você tem acesso
 

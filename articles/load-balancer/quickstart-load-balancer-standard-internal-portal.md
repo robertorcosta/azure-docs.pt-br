@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 14203021846e97a53f59c3bc24a1586774613dec
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704326"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562345"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga interno para balancear a carga de VMs usando o portal do Azure
 
@@ -41,11 +41,13 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos do Standard Load Balancer criados para o guia de início rápido." border="false":::
-
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
 
 Quando você cria um balanceador de carga interno, uma rede virtual é configurada como a rede para o balanceador de carga. 
+
+O seguinte diagrama mostra os recursos criados neste guia de início rápido:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal.png" alt-text="Recursos do Standard Load Balancer criados para o guia de início rápido." border="false":::
 
 Um endereço IP privado na rede virtual é configurado como o front-end (chamado **LoadBalancerFrontend** por padrão) para o balanceador de carga. 
 
@@ -199,12 +201,8 @@ Nesta seção, você criará uma regra de balanceador de carga:
     | Investigação de integridade | Selecione **myHealthProbe**. |
     | Tempo limite de ociosidade (minutos) | Mova o controle deslizante para **15** minutos. |
     | Redefinição de TCP | Selecione **Habilitado**. |
-    | SNAT (conversão de endereços de rede de origem) de saída | Selecione **(Recomendado) Usar regras de saída para fornecer acesso à Internet aos membros do pool de back-ends.** |
-
+    
 4. Deixe o restante dos padrões e selecione **OK**.
-
->[!NOTE]
->As máquinas virtuais do pool de back-end não terão conectividade de saída com a Internet com essa configuração. </br> Para obter mais informações sobre como fornecer a conectividade de saída, confira: </br> **[Conexões de saída no Azure](load-balancer-outbound-connections.md)**</br> Opções para fornecer conectividade: </br> **[Configuração do balanceador de carga somente de saída](egress-only.md)** </br> **[O que é NAT de Rede Virtual?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
@@ -278,11 +276,13 @@ Essas VMs são adicionadas ao pool de back-end do balanceador de carga criado an
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção.  Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
 
-:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos do balanceador de carga básico criados no guia de início rápido." border="false":::
-
 Nesta seção, você criará um balanceador de carga que faz o balanceamento da carga de máquinas virtuais. 
 
 Quando você cria um balanceador de carga interno, uma rede virtual é configurada como a rede para o balanceador de carga. 
+
+O seguinte diagrama mostra os recursos criados neste guia de início rápido:
+
+:::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/resources-diagram-internal-basic.png" alt-text="Recursos do balanceador de carga básico criados no guia de início rápido." border="false":::
 
 Um endereço IP privado na rede virtual é configurado como o front-end (chamado **LoadBalancerFrontend** por padrão) para o balanceador de carga. 
 

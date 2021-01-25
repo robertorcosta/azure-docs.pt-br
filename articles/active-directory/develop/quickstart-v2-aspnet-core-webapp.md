@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 34af3a7b6c3dd9420c07b6b29ff114b8139fea39
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 293a8d8b8add37f78e5a900b093ec89e95851aec
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011961"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178629"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
@@ -38,7 +38,7 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registrar e configurar o aplicativo automaticamente e, em seguida, baixar seu exemplo de código
 >
-> 1. Acesse o [portal do Azure – Registros de aplicativo](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Acesse a experiência de início rápido do <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
@@ -52,11 +52,11 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > 1. Pesquise **Azure Active Directory** e selecione-o.
 > 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
 > 1. Insira um **Nome** para seu aplicativo, por exemplo, `AspNetCore-Quickstart`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
-> 1. Insira um **URI de redirecionamento** de `https://localhost:44321/`
+> 1. Insira um **URI de Redirecionamento** de `https://localhost:44321/`.
 > 1. Selecione **Registrar**.
 > 1. Em **Gerenciar**, selecione **Autenticação**.
-> 1. Em **URIs de Redirecionamento**, selecione **Adicionar URI** e insira `https://localhost:44321/signin-oidc`
-> 1. Insira uma **URL de Logoff** de `https://localhost:44321/signout-oidc`
+> 1. Em **URIs de Redirecionamento**, selecione **Adicionar URI** e insira `https://localhost:44321/signin-oidc`.
+> 1. Insira uma **URL de Logoff** de `https://localhost:44321/signout-oidc`.
 > 1. Em **Concessão implícita**, selecione **Tokens de ID**.
 > 1. Clique em **Salvar**.
 

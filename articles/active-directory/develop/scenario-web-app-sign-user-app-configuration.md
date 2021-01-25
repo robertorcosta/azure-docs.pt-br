@@ -1,5 +1,6 @@
 ---
-title: Configurar um aplicativo Web que conecta usuários-plataforma de identidade da Microsoft | Azure
+title: Configurar um aplicativo Web que assina usuários | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo Web que faz logon de usuários (configuração de código)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443646"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753269"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicativo Web que assina usuários: configuração de código
 
@@ -202,7 +203,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 ## <a name="initialization-code"></a>Código de inicialização
 
-O código de inicialização é diferente dependendo da plataforma. Para ASP.NET Core e ASP.NET, os usuários de entrada são delegados para o middleware OpenID Connect. O modelo ASP.NET ou ASP.NET Core gera aplicativos Web para o ponto de extremidade do Azure Active Directory (Azure AD) v 1.0. Algumas configurações são necessárias para adaptá-las ao ponto de extremidade da plataforma Microsoft Identity (v 2.0). No caso do Java, ele é tratado pelo Spring com a cooperação do aplicativo.
+O código de inicialização é diferente dependendo da plataforma. Para ASP.NET Core e ASP.NET, os usuários de entrada são delegados para o middleware OpenID Connect. O modelo ASP.NET ou ASP.NET Core gera aplicativos Web para o ponto de extremidade do Azure Active Directory (Azure AD) v 1.0. Algumas configurações são necessárias para adaptá-las à plataforma Microsoft Identity. No caso do Java, ele é tratado pelo Spring com a cooperação do aplicativo.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -245,7 +246,7 @@ Para adicionar autenticação com a plataforma de identidade da Microsoft (anter
      }).AddMicrosoftIdentityUI();
     ```
 
-3. No `Configure` método no *Startup.cs* , habilite a autenticação com uma chamada para `app.UseAuthentication();`
+3. No `Configure` método no *Startup.cs*, habilite a autenticação com uma chamada para `app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -262,7 +263,7 @@ No código acima:
 - O `AddMicrosoftIdentityWebAppAuthentication` método de extensão é definido em **Microsoft. Identity. Web**. Fosse
   - Adiciona o serviço de autenticação.
   - Configura opções para ler o arquivo de configuração (aqui na seção "AzureAD")
-  - Configura as opções do OpenID Connect para que a autoridade seja o ponto de extremidade da plataforma Microsoft Identity.
+  - Configura as opções do OpenID Connect para que a autoridade seja a plataforma de identidade da Microsoft.
   - Valida o emissor do token.
   - Garante que as declarações correspondentes ao nome sejam mapeadas a partir da `preferred_username` declaração no token de ID.
 
@@ -291,7 +292,7 @@ O código relacionado à autenticação em um aplicativo Web ASP.NET e APIs Web 
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
+     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
      // `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,
@@ -316,7 +317,7 @@ Para obter detalhes, consulte o `doFilter()` método em [AuthFilter. java](https
 > [!NOTE]
 > O código do `doFilter()` é escrito em uma ordem ligeiramente diferente, mas o fluxo é o descrito.
 
-Para obter detalhes sobre o fluxo de código de autorização que esse método dispara, consulte [plataforma de identidade da Microsoft e fluxo de código de autorização do OAuth 2,0](v2-oauth2-auth-code-flow.md).
+Para obter detalhes sobre o fluxo de código de autorização que esse método dispara, consulte a [plataforma de identidade da Microsoft e o fluxo de código de autorização do OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
 # <a name="python"></a>[Python](#tab/python)
 

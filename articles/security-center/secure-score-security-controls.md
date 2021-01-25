@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916364"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752224"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação segura na Central de Segurança do Azure
 
@@ -54,7 +54,7 @@ Você pode encontrar a pontuação segura geral, bem como sua pontuação por as
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Obtenha sua pontuação segura no portal
 
-A central de segurança exibe sua pontuação de forma proeminente no Portal: é o primeiro bloco principal da página Visão geral da central de segurança. Ao selecionar esse bloco, você será levado para a página de Pontuação segura dedicada, na qual verá a pontuação dividida por assinatura. Selecione uma única assinatura para ver a lista detalhada de recomendações priorizadas e o impacto potencial que a correção terá na pontuação da assinatura.
+A central de segurança exibe sua pontuação de forma proeminente no Portal: é o primeiro bloco principal da página Visão geral da central de segurança. Ao selecionar esse bloco, você será levado para a página de Pontuação segura dedicada, na qual verá a pontuação dividida por assinatura. Selecione uma única assinatura para ver a lista detalhada de recomendações priorizadas e o impacto potencial que a correção terá na pontuação da assinatura. 
 
 Para recapitular, sua pontuação segura é mostrada nos locais a seguir nas páginas do portal da central de segurança.
 
@@ -62,9 +62,14 @@ Para recapitular, sua pontuação segura é mostrada nos locais a seguir nas pá
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="A pontuação segura no painel da central de segurança":::
 
-- Na página **Pontuação segura** dedicada:
+- Na página **Pontuação segura** dedicada, você pode ver a pontuação de segurança para sua assinatura e seus grupos de gerenciamento:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="A pontuação de segurança na página de Pontuação segura da central de segurança":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="A pontuação de segurança para assinaturas na página de Pontuação segura da central de segurança":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="A pontuação de segurança para grupos de gerenciamento na página de Pontuação segura da central de segurança":::
+
+    > [!NOTE]
+    > Todos os grupos de gerenciamento para os quais você não tem permissões suficientes mostrarão sua pontuação como "restrito". 
 
 - Na parte superior da página de **recomendações** :
 
@@ -125,7 +130,7 @@ O painel contém os dois relatórios a seguir para ajudá-lo a analisar seu stat
 - **Resumo de recursos** -fornece dados resumidos sobre a integridade dos seus recursos.
 - **Resumo da Pontuação de segurança** – fornece dados resumidos sobre o andamento da pontuação. Use o gráfico "Pontuação segura ao longo do tempo por assinatura" para exibir as alterações na pontuação. Se você perceber uma alteração drástica na sua pontuação, marque a tabela "alterações detectadas que podem afetar sua pontuação segura" para possíveis alterações que possam ter causado a alteração. Esta tabela apresenta recursos excluídos, recursos implantados recentemente ou recursos que seu status de segurança alterou para uma das recomendações.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="O painel do PowerBI de Pontuação segura opcional ao longo do tempo para acompanhar sua pontuação segura ao longo do tempo e investigar as alterações":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="A pontuação segura opcional ao longo do tempo Power BI painel para acompanhar sua pontuação segura ao longo do tempo e investigar as alterações":::
 
 
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2021
+ms.date: 01/21/2021
 ms.author: memildin
-ms.openlocfilehash: 48e7093c30ffb135231f5843cb0767848f242d89
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: d171e3a7f1f0d63d0a5d130c6e19b246bf0cd795
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541369"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661807"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -35,27 +35,17 @@ Para saber mais sobre as alterações *planejadas* chegando em breve à Central 
 
 As atualizações de dezembro incluem:
 
+- [Avaliação de vulnerabilidades para computadores locais e multinuvem liberada para GA (Disponibilidade Geral)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [API de classificação de segurança liberada para GA (Disponibilidade Geral)](#secure-score-api-is-released-for-general-availability-ga)
 - [Exportação de CSV da lista de recomendações filtrada](#csv-export-of-filtered-list-of-recommendations)
-- [A avaliação de vulnerabilidade de computadores locais e multinuvem está em disponibilidade geral](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available)
+- [Recursos "não aplicáveis" que agora são relatados como "em conformidade" nas avaliações do Azure Policy](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
 
-### <a name="csv-export-of-filtered-list-of-recommendations"></a>Exportação de CSV da lista de recomendações filtrada 
-
-Em novembro de 2020, adicionamos filtros à página de recomendações ([a lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)). Em dezembro, expandimos esses filtros ([a página Recomendações tem novos filtros para o ambiente, a severidade e as respostas disponíveis](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
-
-Com este comunicado, estamos alterando o comportamento do botão **Baixar para CSV** para que a exportação de CSV inclua apenas as recomendações atualmente exibidas na lista filtrada. 
-
-Por exemplo, na imagem abaixo, você pode ver que a lista foi filtrada para duas recomendações. O arquivo CSV gerado inclui os detalhes de status de cada recurso afetado por essas duas recomendações.   
-
-:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Como exportar recomendações filtradas para um arquivo CSV":::
-
-Saiba mais em [Recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
-
-### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available"></a>A avaliação de vulnerabilidade de computadores locais e multinuvem está em disponibilidade geral
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>Avaliação de vulnerabilidades para computadores locais e multinuvem liberada para GA (Disponibilidade Geral)
 
 Em outubro, anunciamos uma versão prévia para a verificação de servidores habilitados para Azure Arc com um verificador de avaliação de vulnerabilidade integrado ao [Azure Defender para servidores](defender-for-servers-introduction.md)(da plataforma Qualys).
 
-Esse serviço já está em disponibilidade geral. 
+Ela já está liberada para GA (Disponibilidade Geral).
 
 Quando você tiver habilitado o Azure Arc em seus computadores que não são do Azure, a Central de Segurança oferecerá a implantação do verificador de vulnerabilidades integrado neles, manualmente e em escala.
 
@@ -71,6 +61,36 @@ Principais recursos:
 [Saiba mais sobre como implantar o verificador de vulnerabilidades integrado em computadores híbridos](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
 [Saiba mais sobre os servidores habilitados para Azure Arc](../azure-arc/servers/index.yml).
+
+
+### <a name="secure-score-api-is-released-for-general-availability-ga"></a>API de classificação de segurança liberada para GA (Disponibilidade Geral)
+
+Agora é possível acessar sua classificação por meio de uma [API de classificação de segurança](/rest/api/securitycenter/securescores/). Os métodos de API oferecem a flexibilidade para consultar os dados e criar seu mecanismo de relatório das suas classificações de segurança ao longo do tempo. Por exemplo, você pode usar a API **Classificações de Segurança** para obter a classificação de uma assinatura específica. Além disso, você pode usar a API **Controles de Classificação de Segurança** para listar os controles de segurança e a classificação atual das suas assinaturas.
+
+Para obter exemplos de ferramentas externas possibilitadas com a API de classificação de segurança, confira [a área de classificação de segurança da nossa comunidade do GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Saiba mais sobre os [controles de segurança e classificação de segurança na Central de Segurança do Azure](secure-score-security-controls.md).
+
+
+### <a name="csv-export-of-filtered-list-of-recommendations"></a>Exportação de CSV da lista de recomendações filtrada 
+
+Em novembro de 2020, adicionamos filtros à página de recomendações ([a lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)). Em dezembro, expandimos esses filtros ([a página Recomendações tem novos filtros para o ambiente, a severidade e as respostas disponíveis](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+
+Com este comunicado, estamos alterando o comportamento do botão **Baixar para CSV** para que a exportação de CSV inclua apenas as recomendações atualmente exibidas na lista filtrada. 
+
+Por exemplo, na imagem abaixo, você pode ver que a lista foi filtrada para duas recomendações. O arquivo CSV gerado inclui os detalhes de status de cada recurso afetado por essas duas recomendações.   
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Como exportar recomendações filtradas para um arquivo CSV":::
+
+Saiba mais em [Recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
+
+
+### <a name="not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments"></a>Recursos "não aplicáveis" que agora são relatados como "em conformidade" nas avaliações do Azure Policy
+
+Anteriormente, os recursos avaliados com o objetivo de obter uma recomendação e considerados **não aplicáveis** eram mostrados como "não compatíveis" no Azure Policy. Nenhuma ação do usuário poderia alterar o estado deles para "em conformidade". Com essa alteração, os recursos agora são relatados como "em conformidade" para maior clareza.
+
+O único impacto será visto no Azure Policy, em que o número de recursos em conformidade aumentará. Não haverá nenhum impacto na sua classificação de segurança na Central de Segurança do Azure.
+
 
 
 ## <a name="december-2020"></a>Dezembro de 2020

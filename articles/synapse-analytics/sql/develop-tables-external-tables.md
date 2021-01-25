@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02194bd6122cc97ac9dfd6887c6ae2161182c13a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0fbf5c07b2d8fd5d754a46484d6b072cc9b682d6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120420"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599840"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Usar tabelas externas com Synapse SQL
 
@@ -381,7 +381,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Criar e consultar tabelas externas de um arquivo no Azure Data Lake
 
-Usando as funcionalidades de exploração do Data Lake, agora você pode criar e consultar uma tabela externa usando o pool de SQL dedicado ou o pool de SQL sem servidor com um simples clique com o botão direito do mouse no arquivo.
+Usando as funcionalidades de exploração do Data Lake, agora você pode criar e consultar uma tabela externa usando o pool de SQL dedicado ou o pool de SQL sem servidor com um simples clique com o botão direito do mouse no arquivo. Só há suporte para o gesto de único clique para criar tabelas externas da conta de armazenamento do ADLS Gen2 para arquivos Parquet. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

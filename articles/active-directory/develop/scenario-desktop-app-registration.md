@@ -1,5 +1,6 @@
 ---
-title: Registrar aplicativos da área de trabalho que chamam APIs da Web-plataforma Microsoft Identity | Azure
+title: Registrar aplicativos da área de trabalho que chamam APIs da Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo de área de trabalho que chama APIs da Web (registro de aplicativo)
 services: active-directory
 author: jmprieur
@@ -11,18 +12,18 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c769fd86f432d135542c1f09b83ea5a01c6ab0a6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 46c8127a93cef8f662930fffd07a2fa3d22b8871
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250597"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753710"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de área de trabalho que chama APIs da Web: registro de aplicativo
 
 Este artigo aborda as especificações de registro do aplicativo para um aplicativo de área de trabalho.
 
-## <a name="supported-account-types"></a>Tipos de conta com suporte
+## <a name="supported-account-types"></a>Tipos de conta compatíveis
 
 Os tipos de conta com suporte em um aplicativo de área de trabalho dependem da experiência que você deseja acender. Devido a essa relação, os tipos de conta com suporte dependem dos fluxos que você deseja usar.
 

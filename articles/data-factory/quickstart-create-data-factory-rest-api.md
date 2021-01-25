@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 06/10/2019
+ms.date: 01/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 48928c5c4f3a2787e8f00e4084daacf6a64f1ea7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 34a2e423e06782b0d43766cccac9319ce68239d4
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461578"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569463"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Início Rápido: Crie um pipeline e um Azure Data Factory usando a API REST
 
@@ -303,7 +303,7 @@ Veja o exemplo de saída:
 ```
 ## <a name="create-pipeline"></a>Criar um pipeline
 
-Neste exemplo, este pipeline contém uma atividade e leva dois parâmetros – caminho do blob de entrada e caminho do blob de saída. Os valores para esses parâmetros são definidos quando o pipeline é disparado/executado. A atividade de cópia refere-se ao mesmo conjunto de dados de blob criado na etapa anterior como entrada e saída. Quando o conjunto de dados é usado como um conjunto de dados de entrada, o caminho de entrada é especificado. E quando o conjunto de dados é usado como um conjunto de dados de saída, o caminho de saída é especificado.
+Neste exemplo, esse pipeline contém uma atividade Copy. A atividade Copy refere-se ao "InputDataset" e ao "OutputDataset" criados na etapa anterior como entrada e saída.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
@@ -383,10 +383,7 @@ Veja o exemplo de saída:
 
 ## <a name="create-pipeline-run"></a>Criar uma execução de pipeline
 
-Nesta etapa, você define os valores dos parâmetros **inputPath** e **outputPath** especificados no pipeline com os valores reais dos caminhos de blob de origem e de coletor e então dispara uma execução de pipeline. A ID de execução de pipeline retornada no corpo da resposta é usado em monitoramento posterior de API.
-
-Substitua o valor de **inputPath** e **outputPath** pelo caminho de blob de origem e de coletor de/para o qual copiar dados antes de salvar o arquivo.
-
+Nesta etapa, você dispara uma execução de pipeline. A ID de execução de pipeline retornada no corpo da resposta é usado em monitoramento posterior de API.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"

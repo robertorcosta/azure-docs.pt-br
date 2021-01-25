@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee18edd563d94a85dedf48b7a4d6df394c09707
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b93addfe659847187dffe61f12f5a2bfac9dca21
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461391"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209620"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelas de metadados compartilhados do Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Como as tabelas são sincronizadas com o pool de SQL sem servidor de maneira ass
 
 Use o Spark para gerenciar bancos de dados criados pelo Spark. Por exemplo, exclua-o por meio de um trabalho do Pool do Apache Spark sem servidor e crie tabelas nele por meio do Spark.
 
-Se você criar objetos em um banco de dados no pool de SQL sem servidor ou tentar remover o banco de dados, a operação terá êxito, mas o banco de dados original do Spark não será alterado.
+Se você criar objetos nesse banco de dados de um pool de SQL sem servidor ou tentar remover o banco de dados, a operação falhará. O banco de dados Spark original não pode ser alterado pelo pool de SQL sem servidor.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Expor uma tabela do Spark no SQL
 

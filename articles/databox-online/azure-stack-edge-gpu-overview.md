@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 01/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 059aad8b45aa449f5cd28c97f4ba55e2204c04ce
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 31947ca4d5eb632998f5c50257c12ef9a52dfc66
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937059"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570092"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>O que é o Azure Stack Edge Pro com GPU?
 
@@ -71,7 +71,7 @@ A solução Azure Stack Edge Pro inclui o recurso Azure Stack Edge, o dispositiv
 
 O dispositivo físico Azure Stack Edge Pro, o recurso do Microsoft Azure e a conta de armazenamento de destino para a qual os dados são transferidos não precisam estar na mesma região.
 
-- **Disponibilidade de recursos**: nesta versão prévia, o recurso está disponível nas regiões Leste dos EUA, Oeste da Europa e Sudeste da Ásia.
+- **Disponibilidade de recursos**: nesta versão, o recurso está disponível nas regiões Leste dos EUA, Oeste da Europa e Sudeste da Ásia.
 
 - **Disponibilidade do dispositivo**: para obter uma lista de todos os países e as regiões em que o dispositivo Azure Stack Edge Pro está disponível, acesse a seção **Disponibilidade** na guia **Azure Stack Edge Pro** de [Preço do Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     

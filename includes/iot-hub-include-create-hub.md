@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 2144945647dc6b2e31e5593de3b6c8c0bf99a606
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993293"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98605291"
 ---
 Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://portal.azure.com).
 
@@ -31,26 +31,32 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
 
    - **Região**: Selecione a região na qual você deseja que o hub esteja localizado. Selecione a localização mais próxima de você. Alguns recursos, como os [Fluxos de dispositivo do Hub IoT](../articles/iot-hub/iot-hub-device-streams-overview.md), estão disponíveis apenas em regiões específicas. Para esses recursos limitados, você deve selecionar uma das regiões com suporte.
 
-   - **Nome do Hub IoT**: Digite um nome para o seu hub. Esse nome deve ser globalmente exclusivo. Caso o nome inserido esteja disponível, uma marca de seleção verde será exibida.
+   - **Nome do Hub IoT**: Digite um nome para o seu hub. Esse nome deve ser globalmente exclusivo.
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
    ![Criar um hub no portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
-1. Selecione **Avançar: Tamanho e escala** para continuar criando o hub IoT.
+1. Selecione **Avançar: Rede** para continuar criando o hub.
 
-   ![Definir o tamanho e a escala para um novo hub usando o portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
+   Escolha os pontos de extremidade que podem se conectar ao Hub IoT. Você pode selecionar a configuração padrão **Ponto de extremidade público (todas as redes)** ou escolher **Ponto de extremidade público (intervalos IP selecionados)** ou **Ponto de extremidade privado**. Aceite a configuração padrão para esse exemplo.
 
-   Você pode aceitar as configurações padrão aqui. Se desejar, você poderá modificar qualquer um dos seguintes campos: 
+   ![Escolha os pontos de extremidade que podem se conectar](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
 
-    - **Tipo e escala de preço**: Seu nível selecionado. É possível escolher entre várias camadas, dependendo de quantos recursos você quer e quantas mensagens você envia por dia usando sua solução. A camada gratuita destina-se a testes e avaliação. Ela permite que 500 dispositivos sejam conectados ao hub e até 8 mil mensagens por dia. Cada assinatura do Azure pode criar um hub IoT na Camada gratuita. 
+1. Selecione **Avançar: Gerenciamento** para continuar criando o hub.
+
+    ![Definir o tamanho e a escala para um novo hub usando o portal do Azure](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+
+    Você pode aceitar as configurações padrão aqui. Se desejar, você poderá modificar qualquer um dos seguintes campos:
+
+    - **Tipo e escala de preço**: Seu nível selecionado. É possível escolher entre várias camadas, dependendo de quantos recursos você quer e quantas mensagens você envia por dia usando sua solução. A camada gratuita destina-se a testes e avaliação. Ela permite que 500 dispositivos sejam conectados ao hub e até 8 mil mensagens por dia. Cada assinatura do Azure pode criar um hub IoT na Camada gratuita.
 
       Se você estiver trabalhando em um Início Rápido para fluxos de dispositivo do Hub IoT, selecione a camada gratuita.
 
     - **Unidades do Hub IoT**: O número de mensagens permitidas por unidade ao dia depende do tipo de preço do seu hub. Por exemplo, se você quiser que o hub dê suporte à entrada de 700 mil mensagens, escolha duas unidades do nível S1.
     Para obter detalhes sobre as outras opções da camada, consulte [Escolher a camada certa do Hub IoT](../articles/iot-hub/iot-hub-scaling.md).
 
-    - **Central de Segurança do Azure**: Ative essa opção para adicionar uma camada extra de proteção contra ameaças à IoT e aos seus dispositivos. Ela não está disponível para hubs na camada gratuita. Para mais informações sobre esse recurso, veja [Central de Segurança do Azure para IoT](/azure/asc-for-iot/).
+    - **Defender para IoT**: Ative essa opção para adicionar uma camada extra de proteção contra ameaças à IoT e aos seus dispositivos. Ela não está disponível para hubs na camada gratuita. Para mais informações sobre esse recurso, veja [Central de Segurança do Azure para IoT](/azure/asc-for-iot/).
 
     - **Configurações avançadas** > **Partições de dispositivo para nuvem**: Essa propriedade está relacionada a mensagens de dispositivo para nuvem para o número de leitores simultâneos das mensagens. A maioria dos hubs precisa apenas de quatro partições.
 
@@ -58,10 +64,10 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
 
     Marcas são pares nome/valor. Você pode atribuir a mesma marca a vários recursos e grupos de recursos para categorizá-los e consolidar a cobrança. Para obter mais informações, veja [Usar marcas para organizar os recursos do Azure](../articles/azure-resource-manager/management/tag-resources.md).
 
-    ![Atribuir marcas para o hub usando o portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
+    ![Atribuir marcas para o hub usando o portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
 
 1.  Selecione **Avançar: Analisar + criar** para examinar suas escolhas. Você verá algo semelhante a esta tela, mas com os valores que você selecionou ao criar o hub. 
 
-    ![Examinar informações para criar o hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
+    ![Examinar informações para criar o hub](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
 
 1.  Selecione **Criar** para criar o hub. Criar o hub leva alguns minutos.

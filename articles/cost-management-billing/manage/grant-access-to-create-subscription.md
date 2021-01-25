@@ -4,20 +4,23 @@ description: Aprenda a conferir a um usuário ou entidade de serviço a capacida
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: amberb
+ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 039e728f6518d21ddfb9c7c359a6cf2ec743f232
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844703"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185097"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso para criar assinaturas do Azure Enterprise (versão prévia)
 
 Como cliente do Azure no [EA (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/), você pode conceder a outro usuário ou entidade de serviço permissão para criar assinaturas cobradas de sua conta. Neste artigo, você aprenderá a usar o [RBAC (Controle de Acesso Baseado em Função) do Azure](../../role-based-access-control/role-assignments-portal.md) para compartilhar a capacidade de criar assinaturas e aprenderá a fazer auditoria das criações de assinatura. É necessário ter a função Proprietário na conta que deseja compartilhar.
+
+> [!NOTE]
+> Essa API funciona apenas com as [APIs de versão prévia para a criação de assinatura](programmatically-create-subscription-preview.md). Se você quiser usar a [versão de GA](programmatically-create-subscription-enterprise-agreement.md), use a versão da API mais recente em [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Se estiver fazendo a migração para usar as APIs mais recentes, você precisará conceder ao proprietário as permissões novamente usando [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Sua configuração anterior que usa as APIs a seguir não é convertida automaticamente para uso com APIs mais recentes.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

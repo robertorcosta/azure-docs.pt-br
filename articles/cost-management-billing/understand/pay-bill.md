@@ -8,14 +8,14 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: 2983f870d6ab20dac4da487ba03ebf84905f8dcc
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 8117f3ca70f51f2d9b11c479803ac33b49f416e7
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680320"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540052"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Como pagar sua fatura do Microsoft Azure
 
@@ -24,6 +24,8 @@ Este artigo se aplica aos clientes com um MCA (Contrato de Cliente da Microsoft)
 [Verificar seu acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 Há duas maneiras de pagar sua fatura do Azure. Você pode pagar com a forma de pagamento padrão do seu perfil de cobrança ou fazer o pagamento único chamado **Pagar agora**.
+
+Se você tiver se inscrito no Azure por meio de um representante da Microsoft, a forma de pagamento padrão será sempre definida como *cheque ou transferência eletrônica*.
 
 Se você tiver créditos Azure, eles serão aplicados automaticamente à sua fatura a cada período de cobrança.
 

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560484"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602049"
 ---
 # <a name="what-are-azure-reservations"></a>O que são Reservas do Azure?
 
@@ -56,7 +56,7 @@ Para obter mais informações, confira [Comprar uma reserva](prepare-buy-reser
 
 ## <a name="how-is-a-reservation-billed"></a>Como uma reserva é cobrada? 
 
-A reserva é cobrada no método de pagamento associado à assinatura. O custo de reserva é deduzido do saldo do seu compromisso monetário, se disponível. Quando o saldo do compromisso monetário não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura. 
+A reserva é cobrada no método de pagamento associado à assinatura. O custo de reserva é deduzido do saldo do seu Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário), se disponível. Quando o saldo do Pagamento antecipado do Azure não cobrir o custo da reserva, você será cobrado pelo excedente. Se você tiver uma assinatura de um plano individual com tarifas pagas conforme o uso, o cartão de crédito que você tem em sua conta será cobrado imediatamente para as compras antecipadas. Os pagamentos mensais aparecem em sua fatura e seu cartão de crédito é cobrado mensalmente. Quando for cobrado por fatura, você verá os encargos na sua próxima fatura. 
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Quem pode gerenciar uma reserva por padrão
 

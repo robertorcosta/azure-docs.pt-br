@@ -1,5 +1,6 @@
 ---
-title: Criar um aplicativo daemon que chama APIs da Web-plataforma de identidade da Microsoft | Azure
+title: Criar um aplicativo daemon que chama APIs Web | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo daemon que chama APIs da Web
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e63a948260863c93a92e4241044be5e0baf8afca
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443255"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753830"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicativo daemon que chama APIs Web
 
@@ -45,7 +46,7 @@ Aplicativos que adquirem um token para suas próprias identidades:
 
 > [!IMPORTANT]
 >
-> - Os usuários não podem interagir com um aplicativo daemon. Um aplicativo daemon requer sua própria identidade. Esse tipo de aplicativo solicita um token de acesso usando sua identidade de aplicativo e apresentando sua ID de aplicativo, credencial (senha ou certificado) e URI de ID do aplicativo para o Azure AD. Após a autenticação bem-sucedida, o daemon recebe um token de acesso (e um token de atualização) do ponto de extremidade da plataforma de identidade da Microsoft. Esse token é usado para chamar a API da Web (e é atualizado conforme necessário).
+> - Os usuários não podem interagir com um aplicativo daemon. Um aplicativo daemon requer sua própria identidade. Esse tipo de aplicativo solicita um token de acesso usando sua identidade de aplicativo e apresentando sua ID de aplicativo, credencial (senha ou certificado) e URI de ID do aplicativo para o Azure AD. Após a autenticação bem-sucedida, o daemon recebe um token de acesso (e um token de atualização) da plataforma de identidade da Microsoft. Esse token é usado para chamar a API da Web (e é atualizado conforme necessário).
 > - Como os usuários não podem interagir com aplicativos daemon, o consentimento incremental não é possível. Todas as permissões de API necessárias precisam ser configuradas no registro do aplicativo. O código do aplicativo apenas solicita permissões definidas estaticamente. Isso também significa que os aplicativos daemon não oferecerão suporte a consentimento incremental.
 
 Para os desenvolvedores, a experiência de ponta a ponta para esse cenário tem os seguintes aspectos:

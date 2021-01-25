@@ -1,5 +1,5 @@
 ---
-title: Fluxo de concessão implícita do OAuth 2,0 – plataforma de identidade da Microsoft | Azure
+title: Fluxo de concessão implícita do OAuth 2,0 – a plataforma Microsoft Identity | Azure
 description: Proteger aplicativos de página única usando o fluxo implícito da plataforma de identidade da Microsoft.
 services: active-directory
 author: hpsin
@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4b5465cc5c1c3447af5303a5c0bfe82874705362
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511178"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752749"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de concessão implícita
 
@@ -41,7 +41,7 @@ O diagrama a seguir mostra a aparência de todo o fluxo de entrada implícito e 
 
 ## <a name="send-the-sign-in-request"></a>Enviar a solicitação de conexão
 
-Para conectar inicialmente o usuário em seu aplicativo, você pode enviar uma solicitação de autenticação do [OpenID Connect](v2-protocols-oidc.md) e obter um `id_token` do ponto de extremidade da plataforma de identidade da Microsoft.
+Para conectar inicialmente o usuário em seu aplicativo, você pode enviar uma solicitação de autenticação do [OpenID Connect](v2-protocols-oidc.md) e obter uma `id_token` da plataforma de identidade da Microsoft.
 
 > [!IMPORTANT]
 > Para solicitar um token de ID e/ou um token de acesso com êxito, o registro do aplicativo na página de [portal do Azure registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) deve ter o fluxo de concessão implícito correspondente habilitado, selecionando **tokens de ID** e. ou **tokens de acesso** na seção **concessão implícita** . Se não estiver habilitado, um `unsupported_response` erro será retornado: **o valor fornecido para o parâmetro de entrada ' response_type ' não é permitido para este cliente. O valor esperado é ' code '**
@@ -63,7 +63,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Para testar a entrada usando o fluxo implícito, clique em <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize.. .</a> Depois de entrar, seu navegador deve ser redirecionado para `https://localhost/myapp/` com um `id_token` na barra de endereços.
 >
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `tenant` | obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | obrigatório | A ID do aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
@@ -73,13 +73,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | opcionais |Especifica o método que deve ser usado para enviar o token resultante de volta ao seu aplicativo. O padrão é consultar apenas um token de acesso, mas fragmentar se a solicitação incluir uma id_token. |
 | `state` | recomendável |Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente normalmente é usado para [impedir ataques de solicitação intersite forjada](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página ou a exibição em que ele estava. |
 | `nonce` | necessárias |Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id_token resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. O valor normalmente é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. Obrigatório somente quando um id_token é solicitado. |
-| `prompt` | opcional |Indica o tipo de interação do usuário que é necessário. Os únicos valores válidos no momento são 'login', 'none', 'select_account' e 'consent'. `prompt=login` forçará o usuário a inserir suas credenciais na solicitação, negando o logon único. `prompt=none` é o oposto: ele garantirá que o usuário não seja apresentado a nenhum prompt interativo. Se a solicitação não puder ser concluída silenciosamente por meio de logon único, o ponto de extremidade da plataforma de identidade da Microsoft retornará um erro. `prompt=select_account` envia o usuário para um seletor de conta em que todas as contas lembradas na sessão serão exibidas. `prompt=consent` irá disparar a caixa de diálogo de consentimento do OAuth depois que o usuário iniciar a sessão, solicitando que ele conceda permissões ao aplicativo. |
+| `prompt` | opcionais |Indica o tipo de interação do usuário que é necessário. Os únicos valores válidos no momento são 'login', 'none', 'select_account' e 'consent'. `prompt=login` forçará o usuário a inserir suas credenciais na solicitação, negando o logon único. `prompt=none` é o oposto: ele garantirá que o usuário não seja apresentado a nenhum prompt interativo. Se a solicitação não puder ser concluída silenciosamente por meio de logon único, a plataforma de identidade da Microsoft retornará um erro. `prompt=select_account` envia o usuário para um seletor de conta em que todas as contas lembradas na sessão serão exibidas. `prompt=consent` irá disparar a caixa de diálogo de consentimento do OAuth depois que o usuário iniciar a sessão, solicitando que ele conceda permissões ao aplicativo. |
 | `login_hint`  |opcionais |Pode ser usado para preencher previamente o campo de nome de usuário/endereço de email da página de entrada do usuário, caso você saiba o nome de usuário com antecedência. Com frequência, os aplicativos usarão esse parâmetro durante a reautenticação, já tendo extraído o nome de usuário de uma entrada anterior usando a `preferred_username` declaração.|
-| `domain_hint` | opcional |Se for incluído, ele ignorará o processo de descoberta baseado em email que o usuário passa na página de entrada, levando a uma experiência de usuário um pouco mais simplificada. Esse parâmetro é usado normalmente para aplicativos de linha de negócios que operam em um único locatário, no qual eles fornecerão um nome de domínio dentro de um determinado locatário, encaminhando o usuário para o provedor de Federação para esse locatário.  Observe que essa dica impede que os convidados entrem neste aplicativo e limita o uso de credenciais de nuvem como FIDO.  |
+| `domain_hint` | opcionais |Se for incluído, ele ignorará o processo de descoberta baseado em email que o usuário passa na página de entrada, levando a uma experiência de usuário um pouco mais simplificada. Esse parâmetro é usado normalmente para aplicativos de linha de negócios que operam em um único locatário, no qual eles fornecerão um nome de domínio dentro de um determinado locatário, encaminhando o usuário para o provedor de Federação para esse locatário.  Observe que essa dica impede que os convidados entrem neste aplicativo e limita o uso de credenciais de nuvem como FIDO.  |
 
-Nesse ponto, será solicitado que o usuário insira suas credenciais e conclua a autenticação. O ponto de extremidade da plataforma de identidade da Microsoft também garantirá que o usuário tenha consentido às permissões indicadas no parâmetro de consulta `scope`. Se o usuário não consentir a **nenhuma** dessas permissões, ele será solicitado a consentir às permissões necessárias. Para obter mais informações, consulte [permissões, consentimento e aplicativos multilocatários](v2-permissions-and-consent.md).
+Neste ponto, o usuário será solicitado a inserir suas credenciais e concluir a autenticação. A plataforma Microsoft Identity também garantirá que o usuário tenha consentido as permissões indicadas no parâmetro de `scope` consulta. Se o usuário não consentir a **nenhuma** dessas permissões, ele será solicitado a consentir às permissões necessárias. Para obter mais informações, consulte [permissões, consentimento e aplicativos multilocatários](v2-permissions-and-consent.md).
 
-Depois que o usuário se autentica e concede, o ponto de extremidade da plataforma de identidade da Microsoft retorna uma resposta ao aplicativo no `redirect_uri` indicado usando o método especificado no parâmetro `response_mode`.
+Depois que o usuário autenticar e conceder consentimento, a plataforma de identidade da Microsoft retornará uma resposta ao seu aplicativo no indicado `redirect_uri` , usando o método especificado no `response_mode` parâmetro.
 
 #### <a name="successful-response"></a>Resposta bem-sucedida
 
@@ -199,16 +199,16 @@ Em navegadores que não dão suporte a cookies de terceiros, isso resultará em 
 
 ## <a name="send-a-sign-out-request"></a>Enviar uma solicitação de desconexão
 
-O OpenID Connect `end_session_endpoint` permite que seu aplicativo envie uma solicitação ao ponto de extremidade da plataforma de identidade da Microsoft para encerrar a sessão de um usuário e limpar os cookies definidos pelo ponto de extremidade da plataforma Microsoft Identity. Para desconectar por completo um usuário de um aplicativo Web, seu aplicativo deve encerrar sua própria sessão com o usuário (normalmente, limpando o cache de token ou removendo cookies) e, depois, redirecionar o navegador para:
+O OpenID Connect `end_session_endpoint` permite que seu aplicativo envie uma solicitação para a plataforma de identidade da Microsoft para encerrar a sessão de um usuário e limpar os cookies definidos pela plataforma de identidade da Microsoft. Para desconectar por completo um usuário de um aplicativo Web, seu aplicativo deve encerrar sua própria sessão com o usuário (normalmente, limpando o cache de token ou removendo cookies) e, depois, redirecionar o navegador para:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `tenant` |obrigatório |O valor `{tenant}` no caminho da solicitação pode ser usado para controlar quem pode entrar no aplicativo. Os valores permitidos são `common`, `organizations`, `consumers` e identificadores de locatário. Para obter mais detalhes, consulte [noções básicas de protocolo](active-directory-v2-protocols.md#endpoints). |
-| `post_logout_redirect_uri` | recomendável | A URL para a qual o usuário deve retornar após a conclusão do logoff. Esse valor deve corresponder a um dos URIs de redirecionamento registrados no aplicativo. Se não estiver incluído, o usuário receberá uma mensagem genérica do ponto de extremidade da plataforma Microsoft Identity. |
+| `post_logout_redirect_uri` | recomendável | A URL para a qual o usuário deve retornar após a conclusão do logoff. Esse valor deve corresponder a um dos URIs de redirecionamento registrados no aplicativo. Se não estiver incluído, o usuário receberá uma mensagem genérica da plataforma Microsoft Identity. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -93,6 +93,11 @@
           href: export-data.md
         - name: Exportação não identificada
           href: de-identified-export.md
+    - name: Converter dados
+      expanded: false
+      items:
+        - name: Modelos de extensão do conversor FHIR e $convert-data
+          href: convert-data.md
     - name: Localizar IDs de objeto de identidade
       href: find-identity-object-ids.md
     - name: Log de diagnóstico e métrica

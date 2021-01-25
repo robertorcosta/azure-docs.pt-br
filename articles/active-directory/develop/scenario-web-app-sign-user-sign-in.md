@@ -1,5 +1,6 @@
 ---
-title: Gravar um aplicativo Web que entra/sai de usuários-plataforma de identidade da Microsoft | Azure
+title: Gravar um aplicativo Web que se conecta aos usuários | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo Web que entra/sai de usuários
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e7397f6d02d71a6344953b8210b0349b9ee26360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443544"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752992"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicativo Web que conecta usuários: entrar e sair
 
@@ -213,7 +214,7 @@ Depois que o usuário tiver entrado em seu aplicativo, você desejará habilitá
 Sair de um aplicativo Web envolve mais do que remover as informações sobre a conta conectada do estado do aplicativo Web.
 O aplicativo Web também deve redirecionar o usuário para o ponto de extremidade da plataforma Microsoft Identity `logout` para sair.
 
-Quando seu aplicativo Web redireciona o usuário para o ponto de `logout` extremidade, esse ponto de extremidade limpa a sessão do usuário no navegador. Se seu aplicativo não for para o `logout` ponto de extremidade, o usuário será autenticado novamente em seu aplicativo sem inserir suas credenciais novamente. O motivo é que eles terão uma sessão de logon único válida com o ponto de extremidade da plataforma Microsoft Identity.
+Quando seu aplicativo Web redireciona o usuário para o ponto de `logout` extremidade, esse ponto de extremidade limpa a sessão do usuário no navegador. Se seu aplicativo não for para o `logout` ponto de extremidade, o usuário será autenticado novamente em seu aplicativo sem inserir suas credenciais novamente. O motivo é que eles terão uma sessão de logon único válida com a plataforma de identidade da Microsoft.
 
 Para saber mais, consulte a seção [Enviar uma solicitação de saída](v2-protocols-oidc.md#send-a-sign-out-request) na plataforma de [identidade da Microsoft e a documentação do protocolo OpenID Connect](v2-protocols-oidc.md) .
 

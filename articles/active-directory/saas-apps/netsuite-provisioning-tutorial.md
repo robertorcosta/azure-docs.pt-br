@@ -10,21 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a5b995fd273fcfa231e101bc77b11d268be728fb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359128"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696482"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configuração do NetSuite para o provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que você precisa executar no NetSuite OneWorld e no Azure AD para provisionar e descontinuar automaticamente as contas de usuário do Azure AD para o NetSuite.
 
-> [!NOTE]
-> Atualmente, essa integração usa a autenticação Básica (nome de usuário e senha). O NetSuite implementou um requisito de autenticação multifator que impede que os clientes usem a integração a menos que tenham uma isenção desse requisito. Estamos trabalhando com o NetSuite para atualizar essa integração com um método de autenticação mais recente para permitir que clientes sem a isenção voltem a usá-lo. Atualizaremos este documento com uma ETA quando houver uma disponível.
-
-Ação recomendada: Aguarde até que lancemos uma atualização para o comportamento de autenticação dessa integração ou entre em contato com o suporte do NetSuite para consultar sobre uma isenção para o requisito de autenticação multifator.
+> [!WARNING]
+> Essa integração de provisionamento deixará de funcionar em fevereiro de 2020 devido a uma alteração nas APIs do NetSuite que são usadas pela Microsoft para provisionar usuários no NetSuite. Como resultado disso, a funcionalidade de provisionamento do aplicativo NetSuite na galeria de aplicativos empresariais do Azure Active Directory será removida em breve. A funcionalidade de SSO do aplicativo permanecerá intacta. A Microsoft está trabalhando com o NetSuite para criar uma nova integração de provisionamento modernizada, mas atualmente não há previsão de quando isso será concluído.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

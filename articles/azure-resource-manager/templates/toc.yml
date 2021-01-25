@@ -298,8 +298,6 @@
       href: template-best-practices.md
     - name: Perguntas frequentes
       href: frequently-asked-questions.md
-    - name: Especificações de Modelo
-      href: template-specs.md
     - name: Modelos de consistência de nuvem
       href: templates-cloud-consistency.md
     - name: Modos de implantação
@@ -423,6 +421,12 @@
           href: test-toolkit.md
         - name: Casos de teste
           href: test-cases.md
+    - name: Especificações de modelo
+      items:
+        - name: Criar e implantar especificações de modelo
+          href: template-specs.md
+        - name: Converter a galeria de modelos do portal
+          href: convert-to-template-spec.md
     - name: CI/CD
       items:
         - name: Modelos ARM com pipelines

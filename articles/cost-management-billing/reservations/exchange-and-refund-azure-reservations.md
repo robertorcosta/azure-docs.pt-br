@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560535"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601465"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Trocas e reembolsos realizados via autoatendimento nas Reservas do Azure
 
@@ -47,7 +47,7 @@ Primeiro, a Microsoft cancela a reserva existente e reembolsa o valor proporcion
 
 ### <a name="enterprise-agreement-customers"></a>Clientes do Contrato Enterprise
 
-Adiciona-se dinheiro ao compromisso monetário para trocas e reembolsos caso a compra original tenha sido feita usando tal. Se o termo de compromisso monetário que usa a reserva comprada não estiver mais ativo, o crédito será adicionado ao seu atual termo de compromisso monetário do Contrato Enterprise atual. O crédito é válido por 90 dias a partir da data do reembolso. Créditos não utilizados expiram no final dos 90 dias.
+Adiciona-se dinheiro ao Pagamento antecipado do Azure (anteriormente conhecido como compromisso monetário) para trocas e reembolsos caso a compra original tenha sido feita usando tal. Se o termo do Pagamento antecipado do Azure que usa a reserva foi comprado não estiver mais ativo, o crédito será adicionado ao termo do Pagamento antecipado do Azure do seu Contrato Enterprise atual. O crédito é válido por 90 dias a partir da data do reembolso. Créditos não utilizados expiram no final dos 90 dias.
 
 Se a compra original foi feita como excedente, a fatura original na qual a reserva foi adquirida e todas as notas fiscais posteriores serão reabertas e reajustadas. A Microsoft emite um memorando de crédito para os reembolsos.
 

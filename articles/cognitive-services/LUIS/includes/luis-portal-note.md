@@ -7,13 +7,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
-ms.date: 01/08/2021
-ms.openlocfilehash: e805725be3750639ab8560c09a52f9e62c8e8ddb
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.date: 01/21/2021
+ms.openlocfilehash: c386f78223006f63f5dc91fdff96f7df2a6aa842
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052997"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98690007"
 ---
 > [!NOTE]
-> A partir de 18 de janeiro, os portais regionais (au.luis.ai e eu.luis.ai) serão consolidados em um só portal e uma só URL. Se estiver usando um desses portais, você será automaticamente redirecionado para [luis.ai](https://luis.ai/). Você continuará usando os mesmos recursos regionais que criou e seus dados continuarão a ser salvos e processados na mesma região que o recurso.
+> A partir de 20 de janeiro, os portais regionais (eu.luis.ai e au.luis.ai) serão consolidados em um portal e uma URL. Se estiver usando um desses portais, você será automaticamente redirecionado para [luis.ai](https://luis.ai/). Você continuará usando os mesmos recursos regionais que criou e seus dados continuarão a ser salvos e processados na mesma região que o recurso.

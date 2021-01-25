@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8ae5bcf103bbb2d2b952fa647ba591e49002f2ff
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921612"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572809"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -28,9 +28,7 @@ A [JWK](https://tools.ietf.org/html/rfc7517) (Chave da Web JSON) é uma estrutur
 
 ## <a name="attestation-provider"></a>Provedor de atestado
 
-O provedor de atestado pertence ao provedor de recursos do Azure chamado Microsoft.Attestation. O provedor de recursos é um ponto de extremidade de serviço que fornece o contrato REST do Atestado do Azure e é implantado por meio do [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada provedor de atestado respeita uma política específica e detectável. 
-
-Os provedores de atestado são criados com uma política padrão para cada tipo de atestado (observe que o enclave da VBS não tem nenhuma política padrão). Confira os [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão do SGX.
+O provedor de atestado pertence ao provedor de recursos do Azure chamado Microsoft.Attestation. O provedor de recursos é um ponto de extremidade de serviço que fornece o contrato REST do Atestado do Azure e é implantado por meio do [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada provedor de atestado respeita uma política específica e detectável. Os provedores de atestado são criados com uma política padrão para cada tipo de atestado (observe que o enclave da VBS não tem nenhuma política padrão). Confira os [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão do SGX.
 
 ### <a name="regional-default-provider"></a>Provedor padrão regional
 
@@ -38,11 +36,16 @@ O Atestado do Azure fornece um provedor padrão em cada região. Os clientes pod
 
 | Região | URI do atestado | 
 |--|--|
+| Leste dos EUA | `https://sharedeus.eus.attest.azure.net` | 
+| Oeste dos EUA | `https://sharedwus.wus.attest.azure.net` | 
 | Sul do Reino Unido | `https://shareduks.uks.attest.azure.net` | 
+| Oeste do Reino Unido| `https://sharedukw.ukw.attest.azure.net  ` | 
+| Leste do Canadá | `https://sharedcae.cae.attest.azure.net` | 
+| Canadá Central | `https://sharedcac.cac.attest.azure.net` | 
+| Norte da Europa | `https://sharedneu.neu.attest.azure.net` | 
+| Europa Ocidental| `https://sharedweu.weu.attest.azure.net` | 
 | Leste dos EUA 2 | `https://sharedeus2.eus2.attest.azure.net` | 
 | Centro dos EUA | `https://sharedcus.cus.attest.azure.net` | 
-| Leste dos EUA| `https://sharedeus.eus.attest.azure.net` | 
-| Canadá Central | `https://sharedcac.cac.attest.azure.net` | 
 
 ## <a name="attestation-request"></a>Solicitação de atestado
 
@@ -58,7 +61,7 @@ A política de atestado é usada para processar as evidências de atestado e pod
 
 Se a política padrão no provedor de atestado não atender às necessidades, os clientes poderão criar políticas personalizadas em uma das regiões com suporte no Atestado do Azure. O gerenciamento de políticas é um recurso importante fornecido aos clientes pelo Atestado do Azure. As políticas serão específicas do tipo de atestado e podem ser usadas para identificar enclaves ou adicionar declarações ao token de saída ou modificar declarações em um token de saída. 
 
-Confira os [exemplos de uma política de atestado](policy-examples.md) para obter o conteúdo e os exemplos de política padrão.
+Confira [exemplos de uma política de atestado](policy-examples.md) para ver exemplos de política.
 
 ## <a name="benefits-of-policy-signing"></a>Benefícios da assinatura de política
 
@@ -80,25 +83,55 @@ Exemplo de JWT gerado para um enclave do SGX:
 
 ```
 {
-  “alg”: “RS256”,
-  “jku”: “https://tradewinds.us.attest.azure.net/certs”,
-  “kid”: “f1lIjBlb6jUHEUp1/Nh6BNUHc6vwiUyMKKhReZeEpGc=”,
-  “typ”: “JWT”
+  "alg": "RS256",
+  "jku": "https://tradewinds.us.attest.azure.net/certs",
+  "kid": <self signed certificate reference to perform signature verification of attestation token,
+  "typ": "JWT"
 }.{
-  “maa-ehd”: <input enclave held data>,
-  “exp”: 1568187398,
-  “iat”: 1568158598,
-  “is-debuggable”: false,
-  “iss”: “https://tradewinds.us.attest.azure.net”,
-  “nbf”: 1568158598,
-  “product-id”: 4639,
-  “sgx-mrenclave”: “”,
-  “sgx-mrsigner”: “”,
-  “svn”: 0,
-  “tee”: “sgx”
+  "aas-ehd": <input enclave held data>,
+  "exp": 1568187398,
+  "iat": 1568158598,
+  "is-debuggable": false,
+  "iss": "https://tradewinds.us.attest.azure.net",
+  "maa-attestationcollateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "maa-ehd": <input enclave held data>,
+  "nbf": 1568158598,
+  "product-id": 4639,
+  "sgx-mrenclave": <SGX enclave mrenclave value>,
+  "sgx-mrsigner": <SGX enclave msrigner value>,
+  "svn": 0,
+  "tee": "sgx"
+  "x-ms-attestation-type": "sgx", 
+  "x-ms-policy-hash": <>,
+  "x-ms-sgx-collateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "x-ms-sgx-ehd": <>, 
+  "x-ms-sgx-is-debuggable": true,
+  "x-ms-sgx-mrenclave": <SGX enclave mrenclave value>,
+  "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
+  "x-ms-sgx-product-id": 1, 
+  "x-ms-sgx-svn": 1,
+  "x-ms-ver": "1.0"
 }.[Signature]
 ```
-Declarações como “exp”, “iat”, “iss” e “nbf” são definidas pelo [RFC JWT](https://tools.ietf.org/html/rfc7517) e as restantes são geradas pelo Atestado do Azure. Confira as [declarações emitidas pelo Atestado do Azure](claim-sets.md) para obter mais informações.
+Algumas declarações usadas acima são consideradas preteridas, mas ainda têm suporte completo.  É recomendável que todos os códigos e ferramentas futuras usem os nomes de declaração não preteridos. Confira as [declarações emitidas pelo Atestado do Azure](claim-sets.md) para obter mais informações.
 
 ## <a name="encryption-of-data-at-rest"></a>Criptografia de dados em repouso
 

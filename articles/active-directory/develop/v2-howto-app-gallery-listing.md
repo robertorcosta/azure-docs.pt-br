@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1f1100c27bb3c02e3d1a5040942509c24bab0e65
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683981"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752859"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -89,7 +89,7 @@ Para listar um aplicativo na Galeria de aplicativos do Azure AD, você precisa i
 
 A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAuth 2,0) com OpenID Connect (OIDC), Security Assertion Markup Language (SAML) e especificação Web Services Federation (WS-alimentado).
 
-| Funcionalidade| OAuth/OIDC| SAML/WS-Fed |
+| Capacidade| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
@@ -148,7 +148,7 @@ Para saber mais sobre autenticação, consulte [o que é autenticação?](../azu
 
 Para o OpenID Connect, o aplicativo deve ter vários locatários e a [estrutura de consentimento do Azure ad](consent-framework.md) deve ser implementada corretamente para o aplicativo. O usuário pode enviar a solicitação de entrada para um ponto de extremidade comum para que qualquer cliente possa fornecer consentimento para o aplicativo. É possível controlar acesso de usuário com base na ID do locatário e o UPN do usuário recebido no token.
 
-Para examinar exemplos específicos, consulte [exemplos de código da plataforma de identidade da Microsoft](sample-v2-code.md). 
+Para examinar exemplos específicos, consulte os [exemplos de código da plataforma Microsoft Identity](sample-v2-code.md). 
 
 Para examinar os exemplos específicos de dispositivos móveis, consulte: 
 * [Android](quickstart-v2-android.md)

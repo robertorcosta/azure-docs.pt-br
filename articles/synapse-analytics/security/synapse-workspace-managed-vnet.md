@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 01/18/2021
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 949b7e55569cc6fceacc37677ed06a28bb85d7c2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f55251932c8aa8f632bd3b498943ac722f006dee
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116357"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569888"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network"></a>Rede virtual gerenciada do Azure Synapse Analytics
 
@@ -52,8 +52,21 @@ Se você deixar a caixa de seleção desmarcada, o workspace não terá uma Rede
 
 ![Habilitar Rede Virtual do workspace gerenciada](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
+Depois de optar por associar uma Rede Virtual do workspace gerenciado ao seu workspace, você pote fornecer proteção contra a exfiltração dos dados permitindo a conectividade de saída da Rede Virtual do workspace gerenciado somente para destinos aprovados usando os [Pontos de extremidade privados gerenciados](./synapse-workspace-managed-private-endpoints.md). Selecione **Sim** para limitar o tráfego de saída da Rede Virtual do workspace gerenciado a destinos por meio de pontos de extremidade privados gerenciados. 
 
-Você pode verificar se o workspace do Azure Synapse está associado a uma Rede Virtual de workspace gerenciada selecionando **Visão geral** no portal do Azure.
+
+>[!IMPORTANT]
+>O metastore está desabilitado em workspaces do Azure Synapse que têm uma Rede Virtual Gerenciada com proteção contra a exfiltração dos dados habilitada. Você não poderá usar o SQL Spark nesses workspaces.
+
+![Tráfego de saída usando pontos de extremidade privados gerenciados](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+
+Selecione **Não** para permitir o tráfego de saída do workspace para qualquer destino.
+
+Você também pode controlar os destinos para os quais os pontos de extremidade privados gerenciados são criados no workspace do Azure Synapse. Por padrão, são permitidos os pontos de extremidade privados gerenciados para recursos no mesmo locatário do AAD ao qual sua assinatura pertence. Se desejar criar um ponto de extremidade privado gerenciado para um recurso em um locatário do AAD diferente daquele ao qual sua assinatura pertence, poderá adicionar esse locatário do AAD selecionando **+ Adicionar**. Você pode selecionar o locatário do AAD na lista suspensa ou inserir manualmente a ID do locatário do AAD.
+
+![Adicionar locatários adicionais do AAD](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+
+Depois que o workspace é criado, você pode verificar se o workspace do Azure Synapse está associado a uma Rede Virtual de workspace gerenciada selecionando **Visão geral** no portal do Azure.
 
 ![Visão geral do workspace no portal do Azure](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 

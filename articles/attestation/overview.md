@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748766"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610141"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Atestado do Microsoft Azure (versão prévia)
 
@@ -39,6 +39,12 @@ Os aplicativos cliente podem ser criados para aproveitar os enclaves do SGX, del
 O [OE](https://openenclave.io/sdk/) (Open Enclave) é uma coleção de bibliotecas destinadas à criação de uma abstração unificada de enclaves para que os desenvolvedores criem aplicativos baseados em TEE. Ele oferece um modelo de aplicativo seguro universal que minimiza as especificidades de plataforma. A Microsoft o considera como uma base essencial para a democratização das tecnologias de enclave baseadas em hardware, como o SGX, e para a adoção delas no Azure.
 
 O OE padroniza os requisitos específicos para a verificação de uma evidência de enclave. Isso qualifica o OE como um consumidor de atestado altamente qualificado do Atestado do Azure.
+
+### <a name="tpm-attestation"></a>Atestado de TPM 
+
+O atestado baseado em TPM (Trusted Platform Module) é crítico para fornecer a prova do estado de uma plataforma. O TPM funciona como a raiz de confiança e o coprocessador de segurança para fornecer a validade de criptografia para measurements(evidence). Os dispositivos com um TPM podem contar com o atestado para provar que a integridade da inicialização não está comprometida com o uso das declarações para detectar as habilitações dos estados do recurso durante a inicialização. 
+
+Os aplicativos cliente podem ser criados para aproveitar o atestado TPM, delegando tarefas confidenciais de segurança para ocorrerem apenas depois que uma plataforma for validada para ser segura. Em seguida, esses aplicativos podem usar o Atestado do Azure para estabelecer a confiança rotineiramente na plataforma e a capacidade dela de acessar dados confidenciais.
 
 ## <a name="azure-attestation-can-run-in-a-tee"></a>O Atestado do Azure pode ser executado em um TEE
 

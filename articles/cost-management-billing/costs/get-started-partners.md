@@ -3,18 +3,18 @@ title: Introdução ao Gerenciamento de Custos do Azure para parceiros
 description: Este artigo explica como os parceiros usam os recursos do Gerenciamento de Custos do Azure e como eles habilitam o acesso do Gerenciamento de Custos para os clientes.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905663"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602170"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao Gerenciamento de Custos do Azure para parceiros
 
@@ -71,9 +71,9 @@ Depois que você integrar seus clientes a um Contrato de Cliente da Microsoft, o
 
 Use o escopo da conta de cobrança para ver os custos antes da dedução do imposto em todos os perfis de cobrança e clientes. Os custos de fatura são mostrados apenas para os produtos baseados em consumo do cliente no Contrato de Cliente da Microsoft. No entanto, os custos de fatura são mostrados para os produtos baseados em compra dos clientes no Contrato de Cliente da Microsoft e na oferta do CSP. Atualmente, a moeda padrão para ver os custos no escopo é o dólar americano. Os orçamentos definidos para o escopo também estão em USD.
 
-Independentemente das diferentes moedas cobradas pelo cliente, os parceiros usam o escopo da conta de cobrança para definir orçamentos e gerenciar os custos em USD de clientes, assinaturas, recursos e grupos de recursos.
+Independentemente das diferentes moedas cobradas, os parceiros usam o escopo da conta de cobrança para definir orçamentos e gerenciar os custos em dólares de clientes, assinaturas, recursos e grupos de recursos.
 
-Os parceiros também filtram os custos em uma moeda de cobrança específica de clientes na exibição de análise de custo. Selecione a lista **Custo real** para ver os custos nas moedas de cobrança do cliente compatíveis.
+Os parceiros também filtram os custos em uma moeda de cobrança específica de clientes na exibição de análise de custo. Selecione a lista **Custo real** para ver os custos nas moedas de cobrança compatíveis.
 
 ![Exemplo mostrando a seleção de Custo real para moedas](./media/get-started-partners/actual-cost-selector.png)
 
@@ -83,7 +83,7 @@ Use a [exibição de custo amortizado](quick-acm-cost-analysis.md#customize-cost
 
 Use o escopo do perfil de cobrança para ver os custos antes da dedução do imposto na moeda de cobrança em todos os clientes para todos os produtos e assinaturas incluídas em uma fatura. Filtre os custos em um perfil de cobrança para uma fatura específica usando o filtro **InvoiceID**. O filtro mostra os custos de consumo e compra de produto para uma fatura específica. Filtre também os custos de um cliente específico na fatura para ver os custos antes da dedução do imposto.
 
-Depois de integrar os clientes a um Contrato de Cliente da Microsoft, você receberá uma fatura que inclui todos os preços de todos os produtos (consumo, compras e direitos) referente a esses clientes no Contrato de Cliente da Microsoft. Quando cobradas na mesma moeda, essas faturas também incluem os preços de produtos comprados e de direitos, como SaaS, Azure Marketplace e reservas para clientes que ainda estão na oferta do CSP.
+Depois de integrar os clientes a um Contrato de Cliente da Microsoft, você receberá uma fatura que inclui todos os preços de todos os produtos (consumo, compras e direitos) referente a esses clientes no Contrato de Cliente da Microsoft. Quando cobradas na mesma moeda, essas faturas também incluem os preços de produtos comprados e de direitos, como SaaS, Azure Marketplace e reservas para clientes que ainda estão na oferta CSP clássica agora no plano do Azure.
 
 Para ajudar a reconciliar os preços na fatura do cliente, o escopo do perfil de cobrança permite que você veja todos os custos acumulados para uma fatura de seus clientes. Assim como a fatura, o escopo mostra os custos de cada cliente no novo Contrato de Cliente da Microsoft. O escopo também mostra cada preço para os produtos de direitos do cliente ainda na oferta atual do CSP.
 
@@ -91,7 +91,7 @@ Os escopos do perfil de cobrança e da conta de cobrança são os únicos escopo
 
 Os perfis de cobrança definem as assinaturas que são incluídas em uma fatura. Os perfis de cobrança são o equivalente funcional de um registro do Contrato Enterprise. Um perfil de cobrança é o escopo no qual as faturas são geradas.
 
-Atualmente, a moeda de cobrança do cliente é a moeda padrão ao exibir os custos no escopo do perfil de cobrança. Os orçamentos definidos no escopo do perfil de cobrança são apresentados na moeda de cobrança.
+No momento, a moeda de cobrança é a moeda padrão na exibição dos custos no escopo do perfil de cobrança. Os orçamentos definidos no escopo do perfil de cobrança são apresentados na moeda de cobrança.
 
 Os parceiros podem usar o escopo para reconciliação com as faturas. Além disso, eles usam o escopo para definir os orçamentos na moeda de cobrança para os seguintes itens:
 
@@ -220,7 +220,7 @@ Os campos de dados a seguir são encontrados em arquivos de detalhes de uso e na
 | Quantidade | Quantidade medida comprada ou consumida. O valor do medidor usado durante o período de cobrança. | Número de unidades. Verifique se ele corresponde às informações no sistema de cobrança durante a reconciliação. |
 | unitOfMeasure | Identifica a unidade em que o serviço é cobrado. Por exemplo, GB e horas. | Identifica a unidade em que o serviço é cobrado. Por exemplo, GB, horas e 10.000s. |
 | pricingCurrency | A moeda que define o preço unitário. | A moeda na lista de preços.|
-| billingCurrency | A moeda que define o custo cobrado. | A moeda da região geográfica do cliente. |
+| billingCurrency | A moeda que define o custo cobrado. | A moeda definida como a moeda cobrada na fatura. |
 | chargeType | Define o tipo de preço que o custo representa no Gerenciamento de Custos do Azure como compra e reembolso. | O tipo de preço ou ajuste. Não disponível para a atividade atual. |
 | costinBillingCurrency | ExtendedCost ou o custo combinado antes da dedução do imposto na moeda cobrada. | N/D |
 | costinPricingCurrency | ExtendedCost ou o custo combinado antes do imposto na moeda do preço a ser correlacionado com os preços. | N/D |
