@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/10/2020
+ms.date: 1/25/2021
 ms.author: kenwith
-ms.openlocfilehash: efdbec10c74a6b1892df13b8308538e61f42f679
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2a27124ea76d6e5aaa7ec4b8ca36c388718ffb94
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673494"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761306"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial – Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -75,7 +75,7 @@ Além dessa propriedade, os mapeamentos de atributos também dão suporte aos se
   - **Somente durante a criação** – aplicar esse mapeamento somente a ações de criação de usuário.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Usuários correspondentes nos sistemas de origem e destino
-O serviço de provisionamento do Azure AD pode ser implantado em cenários "greenfield" (em que os usuários não existem no sistema de destino) e em cenários "brownfield" (em que os usuários já existem no sistema de destino). Para dar suporte aos dois cenários, o serviço de provisionamento usa o conceito de atributos correspondentes. Os atributos correspondentes permitem que você determine como identificar de maneira exclusiva um usuário na origem e faça a correspondência com o usuário no destino. Como parte do planejamento de sua implantação, defina o atributo que pode ser usado para identificar de maneira exclusiva um usuário nos sistemas de origem e destino. Aspectos a considerar:
+O serviço de provisionamento do Azure AD pode ser implantado em cenários "green field" (em que os usuários não existem no sistema de destino) e em cenários "brownfield" (em que os usuários já existem no sistema de destino). Para dar suporte aos dois cenários, o serviço de provisionamento usa o conceito de atributos correspondentes. Os atributos correspondentes permitem que você determine como identificar de maneira exclusiva um usuário na origem e faça a correspondência com o usuário no destino. Como parte do planejamento de sua implantação, defina o atributo que pode ser usado para identificar de maneira exclusiva um usuário nos sistemas de origem e destino. Aspectos a considerar:
 
 - **Atributos correspondentes devem ser exclusivos:** os clientes costumam usar atributos como userPrincipalName, email ou a ID do objeto como o atributo correspondente.
 - **Vários atributos podem ser usados como atributos correspondentes:** você pode definir vários atributos a serem avaliados ao fazer a correspondência entre os usuários, bem como a ordem em que eles são avaliados (precedência de correspondência na interface do usuário). Se, por exemplo, você definir três atributos como correspondentes e um usuário for considerado correspondente com exclusividade após avaliar os dois primeiros atributos, o serviço não avaliará o terceiro. O serviço vai avaliar os atributos correspondentes na ordem especificada e interromper a avaliação quando uma correspondência for encontrada.  
@@ -156,6 +156,7 @@ Atributos personalizados não podem ser atributos de referência, nem atributos 
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "formatted":"Ms. Barbara J Jensen III",

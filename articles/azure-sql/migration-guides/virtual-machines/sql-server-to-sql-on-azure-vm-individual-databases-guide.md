@@ -3,28 +3,28 @@ title: SQL Server para SQL Server em VMs do Azure (guia de migração)
 description: Siga este guia para migrar seus bancos de dados SQL Server individuais para SQL Server em VMs (máquinas virtuais) do Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325903"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797882"
 ---
-# <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: SQL Server para SQL Server em VMs do Azure 
+# <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: do SQL Server para o SQL Server nas VMs do Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
 
 Este guia de migração ensina a **descobrir**, **avaliar** e **migrar** seus bancos de dados de usuário de SQL Server para uma instância do SQL Server em VMS (máquinas virtuais) do Azure usando o backup e restauração e o envio de logs utilizando o [DMA (banco de dados assistente de migração)](/sql/dma/dma-overview) para avaliação. 
 
 Você pode migrar SQL Server em execução no local ou em:
 
-- SQL Server em Máquinas Virtuais  
+- SQL Server em máquinas virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)
@@ -109,7 +109,7 @@ Para recursos preteridos, você pode optar por executar seus bancos de dados de 
 > Nem todas as versões do SQL Server dão suporte a todos os modos de compatibilidade. Verifique se a [versão de SQL Server de destino](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) dá suporte à compatibilidade de banco de dados escolhida. Por exemplo, SQL Server 2019 não oferece suporte a bancos de dados com compatibilidade de nível 90 (que é SQL Server 2005). Esses bancos de dados exigirão, pelo menos, uma atualização para o nível de compatibilidade 100.
 >
 
-## <a name="migrate"></a>Migrações
+## <a name="migrate"></a>Migrar
 
 Depois de concluir as etapas de pré-migração, você estará pronto para migrar os bancos de dados e componentes do usuário. Migre seus bancos de dados usando seu [método de migração](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)preferencial.  
 
@@ -152,7 +152,7 @@ A tabela a seguir fornece uma lista de componentes e métodos de migração reco
 
 | **Recurso** | **Componente** | **Método (s) de migração** |
 | --- | --- | --- |
-| **Bancos de dados** | Modelar  | Script com SQL Server Management Studio |
+| **Bancos de dados** | Modelo  | Script com SQL Server Management Studio |
 || TempDB | Planeje mover o TempDB para o [disco temporário da VM do Azure (SSD](../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk)) para obter o melhor desempenho. Certifique-se de escolher um tamanho de VM que tenha um SSD local suficiente para acomodar seu TempDB. |
 || Bancos de dados de usuário com FileStream |  Use os métodos de [backup e restauração](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) para a migração. O DMA não oferece suporte a bancos de dados com FileStream. |
 | **Segurança** | Logons SQL Server e do Windows | Use o DMA para [migrar logons de usuário](/sql/dma/dma-migrateserverlogins). |
@@ -172,7 +172,7 @@ A tabela a seguir fornece uma lista de componentes e métodos de migração reco
 | **Sistema operacional** | Arquivos, compartilhamentos de arquivos | Anote quaisquer arquivos ou compartilhamentos de arquivos adicionais usados pelos servidores SQL e replique-os no destino da VM do Azure. |
 
 
-## <a name="post-migration"></a>Após a migração
+## <a name="post-migration"></a>Pós-migração
 
 Depois de concluir com êxito o estágio de migração, passe por uma série de tarefas de pós-implantação para garantir que tudo esteja funcionando da maneira mais tranqüila e eficiente possível.
 

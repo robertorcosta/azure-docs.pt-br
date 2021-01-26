@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994971"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797780"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Inserir Video Indexer widgets em seus aplicativos
 
@@ -30,7 +30,7 @@ A partir da versão 2, a URL base do widget inclui a região da conta especifica
 
 Um widget Insights cognitivos inclui todos os insights visuais que foram extraídos do processo de indexação do seu vídeo. O widget cognitiva insights dá suporte aos seguintes parâmetros de URL opcionais:
 
-|Name|Definição|Descrição|
+|Nome|Definição|Descrição|
 |---|---|---|
 |`widgets` | Cadeias de caracteres separadas por vírgula | Permite que você controle as informações que deseja renderizar.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` renderiza apenas pessoas e palavras-chave da interface do usuário.<br/>Opções disponíveis: pessoas, animatedCharacters, palavras-chave, rótulos, sentimentos, emoções, tópicos, quadros chave, transcrição, OCR, alto-falantes, cenas e namedEntities.|
 |`controls`|Cadeias de caracteres separadas por vírgula|Permite que você controle os controles que deseja renderizar.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` renderiza apenas a opção de pesquisa e o botão de download.<br/>Opções disponíveis: Pesquisar, baixar, predefinições, idioma.|
@@ -43,7 +43,7 @@ Um widget Insights cognitivos inclui todos os insights visuais que foram extraí
 
 Você pode usar o widget Player para transmitir vídeo usando a taxa de bits adaptável. O widget Player dá suporte aos seguintes parâmetros de URL opcionais.
 
-|Name|Definição|Descrição|
+|Nome|Definição|Descrição|
 |---|---|---|
 |`t` | Segundos desde o início | Faz com que o Player comece a ser reproduzido do ponto de tempo especificado.<br/> Exemplo: `t=60`. |
 |`captions` | Um código de idioma | Busca a legenda no idioma especificado durante o carregamento do widget para estar disponível no menu **legendas** .<br/> Exemplo: `captions=en-US`. |
@@ -57,7 +57,7 @@ Você pode usar o widget Player para transmitir vídeo usando a taxa de bits ada
 
 Você pode usar o widget editor para criar novos projetos e gerenciar informações de um vídeo. O widget editor dá suporte aos seguintes parâmetros de URL opcionais.
 
-|Name|Definição|Descrição|
+|Nome|Definição|Descrição|
 |---|---|---|
 |`accessToken`<sup>*</sup> | String | Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o `accessToken` parâmetro. |
 |`language` | Um código de idioma | Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`. |
@@ -291,7 +291,7 @@ Por padrão, o Player começará a reproduzir o vídeo. Você pode optar por nã
 
 Consulte o repositório de [exemplos de código](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets) que contém exemplos para video indexer API e widgets:
 
-| Arquivo/pasta                       | Description                                |
+| Arquivo/pasta                       | Descrição                                |
 |-----------------------------------|--------------------------------------------|
 | `azure-media-player`              | Carregue vídeo do indexador de vídeo em um Player de Mídia do Azure personalizado.                        |
 | `azure-media-player-vi-insights`  | Inserir ideias do VI com um Player de Mídia do Azure personalizado.                             |
@@ -303,6 +303,10 @@ Consulte o repositório de [exemplos de código](https://github.com/Azure-Sample
 | `embed-both-widgets`              | Insira o VI Player e as informações e comunique-se entre eles.                      |
 | `url-generator`                   | Gera a URL de inserção personalizada de widgets com base nas opções especificadas pelo usuário.             |
 | `html5-player`                    | Inserir ideias do VI com um player de vídeo HTML5 padrão.                           |
+
+## <a name="supported-browsers"></a>Navegadores com suporte
+
+Para obter mais informações, consulte [navegadores com suporte](video-indexer-overview.md#supported-browsers).
 
 ## <a name="next-steps"></a>Próximas etapas
 

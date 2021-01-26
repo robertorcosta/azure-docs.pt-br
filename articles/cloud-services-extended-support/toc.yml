@@ -21,10 +21,10 @@
   expanded: true
 - name: Conceitos
   items:
+    - name: Extensões
+      href: extensions.md
     - name: Tamanhos de VM disponíveis
       href: available-sizes.md
-    - name: Perguntas frequentes
-      href: faq.md
     - name: Patches do SO convidado
       href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
     - name: Desativação do SO convidado
@@ -49,10 +49,10 @@
           href: schema-cscfg-role.md
         - name: Esquema NetworkConfiguration
           href: schema-cscfg-networkconfiguration.md
+    - name: Perguntas frequentes
+      href: faq.md
 - name: Instruções
   items:
-    - name: Visão geral das extensões
-      href: extensions.md
     - name: Aplicar a extensão da Área de Trabalho Remota
       href: enable-rdp.md
     - name: Aplicar a extensão WAD
@@ -83,6 +83,8 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+    - name: .
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
 - name: Recursos
   items:
     - name: Roteiro do Azure

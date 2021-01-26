@@ -9,3 +9,6 @@
         - name: Serviços de Nuvem
           tocHref: /azure/cloud-services/
           topicHref: /azure/cloud-services/index
+        - name: Implantar Visual Studio
+          tocHref: /visualstudio-docs/docs/
+          topicHref: /visualstudio-docs/docs/index
