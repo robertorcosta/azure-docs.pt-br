@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5c414a11085a6a37dee6be522dcf513e8990e5e2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883343"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786344"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de versão do Azure HDInsight
 
@@ -48,7 +48,7 @@ A partir de novembro de 16 2020, o HDInsight bloqueará novos clientes que criam
 
 ## <a name="behavior-changes"></a>Alterações de comportamento
 ### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Adicionar a verificação de regra NSG antes da operação de dimensionamento
-O HDInsight adicionou NSGs (grupos de segurança de rede) e a verificação de rotas definidas pelo usuário (UDRs) com a operação de dimensionamento. A mesma validação é feita para o dimensionamento de cluster, além da criação do cluster. Essa validação ajuda a evitar erros imprevisíveis. Se a validação não for aprovada, o dimensionamento falhará. Saiba mais sobre como configurar o NSGs e o UDRs corretamente, consulte [endereços IP de gerenciamento do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+O HDInsight adicionou NSGs (grupos de segurança de rede) e a verificação de rotas definidas pelo usuário (UDRs) com a operação de dimensionamento. A mesma validação é feita para o dimensionamento de cluster, além da criação do cluster. Essa validação ajuda a evitar erros imprevisíveis. Se a validação não for aprovada, o dimensionamento falhará. Saiba mais sobre como configurar o NSGs e o UDRs corretamente, consulte [endereços IP de gerenciamento do HDInsight](./hdinsight-management-ip-addresses.md).
 
 ## <a name="upcoming-changes"></a>Alterações futuras
 As alterações a seguir ocorrerão em versões futuras.
@@ -72,7 +72,7 @@ O HDInsight continua a fazer aprimoramentos de desempenho e confiabilidade do cl
 Nenhuma alteração de versão de componente para esta versão. Você pode encontrar as versões de componente atuais para HDInsight 4,0 e HDInsight 3,6 neste [documento](./hdinsight-component-versioning.md).
 
 ## <a name="known-issues"></a>Problemas conhecidos
-### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Impedir que VMs do cluster HDInsight reiniciem periodicamente
+### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Impedir que as VMs do cluster HDInsight reiniciem periodicamente
 
 A partir de meados de novembro de 2020, você pode ter notado que as VMs do cluster HDInsight estão sendo reinicializadas regularmente. Isso pode ser causado por:
 
@@ -84,4 +84,3 @@ O HDInsight está implantando correções e aplicando patch para todos os cluste
 https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
 https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
 ```
-

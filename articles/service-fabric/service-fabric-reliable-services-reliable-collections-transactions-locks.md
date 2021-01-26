@@ -3,12 +3,12 @@ title: Transações e modos de bloqueio em coleções confiáveis
 description: Gerenciador de estado confiável do Azure Service Fabric e Bloqueio e Transações de Coleções Confiáveis.
 ms.topic: conceptual
 ms.date: 5/1/2017
-ms.openlocfilehash: 57ca46047641b79d5e4c50ede4a27e16dcec5d89
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5d2cbb517ea5ca45697cd9124b82e9ef13dd32db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576716"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784335"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric
 
@@ -18,7 +18,7 @@ Uma transação é uma sequência de operações executadas como uma única unid
 
 * **Atomicidade**: uma transação deve ser uma unidade atômica de trabalho. Em outras palavras, todas as suas modificações de dados são realizadas ou nenhuma delas é realizada.
 * **Consistência**: quando concluída, uma transação deve deixar todos os dados em um estado consistente. Todas as estruturas de dados internos devem estar corretas ao final da transação.
-* **Isolamento**: as modificações feitas por transações simultâneas devem ser isoladas das modificações feitas por quaisquer outras transações simultâneas. O nível de isolamento usado para uma operação em um [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction?view=azure-dotnet) é determinado pelo [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate?view=azure-dotnet) que executa a operação.
+* **Isolamento**: as modificações feitas por transações simultâneas devem ser isoladas das modificações feitas por quaisquer outras transações simultâneas. O nível de isolamento usado para uma operação em um [ITransaction](/dotnet/api/microsoft.servicefabric.data.itransaction) é determinado pelo [IReliableState](/dotnet/api/microsoft.servicefabric.data.ireliablestate) que executa a operação.
 * **Durabilidade**: após uma transação ser concluída, seus efeitos ficam permanentemente vigentes no sistema. As modificações persistem até mesmo no caso de uma queda do sistema.
 
 ### <a name="isolation-levels"></a>Níveis de isolamento
@@ -67,9 +67,9 @@ Um Bloqueio de atualização é um bloqueio assimétrico usado para evitar uma f
 
 A matriz de compatibilidade de bloqueio pode ser encontrada na tabela a seguir:
 
-| Solicitação\concedida | Nenhum | Compartilhada | Atualizar | Exclusivo |
+| Solicitação\concedida | Nenhum | Compartilhado | Atualizar | Exclusivo |
 | --- |:--- |:--- |:--- |:--- |
-| Compartilhada |Sem conflito |Sem conflito |Conflito |Conflito |
+| Compartilhado |Sem conflito |Sem conflito |Conflito |Conflito |
 | Atualizar |Sem conflito |Sem conflito |Conflito |Conflito |
 | Exclusivo |Sem conflito |Conflito |Conflito |Conflito |
 
@@ -84,4 +84,4 @@ Nesse caso, uma ou ambas as operações atingirão o tempo limite. Nesse cenári
 * [Notificações do Reliable Services](service-fabric-reliable-services-notifications.md)
 * [Backup e restauração do Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
 * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
-* [Referência do desenvolvedor para Coleções Confiáveis](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+* [Referência do desenvolvedor para Coleções Confiáveis](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef7b6d9495b1431e03808b830671e839b90d436
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0da54bd28c1d9ea933e88b6c86cf6092c10d036a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613052"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785152"
 ---
 # <a name="accidental-delete-prevention"></a>Prevenção acidental de exclusão
 
@@ -26,7 +26,7 @@ O documento a seguir descreve o recurso de exclusão acidental para Azure AD Con
 - Definir o número de objetos (limite) Além do qual a configuração entrará em vigor 
 - Configure um endereço de email de notificação para que eles possam receber uma notificação por email depois que o trabalho de sincronização em questão for colocado em quarentena para esse cenário 
 
-Para usar esse recurso, defina o limite para o número de objetos que, se forem excluídos, a sincronização deverá parar.  Portanto, se esse número for atingido, a sincronização será interrompida e uma notificação será enviada para o email especificado.  Isso permite investigar o que está acontecendo.
+Para usar esse recurso, defina o limite para o número de objetos que, se forem excluídos, a sincronização deverá parar.  Portanto, se esse número for atingido, a sincronização será interrompida e uma notificação será enviada para o email especificado.  Essa notificação permitirá que você investigue o que está acontecendo.
 
 
 ## <a name="configure-accidental-delete-prevention"></a>Configurar prevenção acidental de exclusão
@@ -40,13 +40,53 @@ Para usar o novo recurso, siga as etapas abaixo.
 5. Em **configurações** , preencha o seguinte:
     - **Email de notificação** -email usado para notificações
     - **Impedir exclusões acidentais** -Marque esta caixa para habilitar o recurso
-    - **Limite de exclusão acidental** – Insira um número de objetos para disparar a interrupção de sincronização e a notificação
+    - **Limite de exclusão acidental** – Insira o número de objetos para interromper a sincronização e enviar uma notificação
 
 ![Exclusões acidentais](media/how-to-accidental-deletes/accident-1.png)
 
+## <a name="recovering-from-an-accidental-delete-instance"></a>Recuperando de uma instância de exclusão acidental
+Se você encontrar uma exclusão acidental, verá isso sobre o status da configuração do agente de provisionamento.  Ele dirá que o **limite de exclusão foi excedido**.
+ 
+![Status de exclusão acidental](media/how-to-accidental-deletes/delete-1.png)
+
+Ao clicar em **excluir limite excedido**, você verá as informações de status de sincronização.  Isso fornecerá detalhes adicionais. 
+ 
+ ![Status da sincronização](media/how-to-accidental-deletes/delete-2.png)
+
+Ao clicar com o botão direito do mouse nas reticências, você receberá as seguintes opções:
+ - Exibir log de provisionamento
+ - Exibir o agente
+ - Permitir exclusões
+
+ ![Clicar com o botão direito do mouse](media/how-to-accidental-deletes/delete-3.png)
+
+Usando **Exibir log de provisionamento**, você pode ver as entradas **StagedDelete** e examinar as informações fornecidas nos usuários que foram excluídos.
+ 
+ ![Provisionando logs](media/how-to-accidental-deletes/delete-7.png)
+
+### <a name="allowing-deletes"></a>Permitindo exclusões
+
+A ação **permitir exclusões** excluirá os objetos que dispararam o limite de exclusão acidental.  Use o procedimento a seguir para aceitar as exclusões.  
+
+1. Clique com o botão direito do mouse nas reticências e selecione **permitir exclusões**.
+2. Clique em **Sim** na confirmação para permitir as exclusões.
+ 
+ ![Sim ao confirmar](media/how-to-accidental-deletes/delete-4.png)
+
+3. Você verá a confirmação de que as exclusões foram aceitas e o status voltará a ser íntegro com o próximo ciclo. 
+ 
+ ![Aceitar exclusões](media/how-to-accidental-deletes/delete-8.png)
+
+### <a name="rejecting-deletions"></a>Rejeitando exclusões
+
+Se não quiser permitir as exclusões, você precisará fazer o seguinte:
+- investigar a origem das exclusões
+- Corrija o problema (por exemplo, a UO foi movida do escopo acidentalmente e você agora a adicionou novamente ao escopo)
+- Executar **reinicialização da sincronização** na configuração do agente
+
 ## <a name="next-steps"></a>Próximas etapas 
 
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
-- [Como instalar Azure AD Connect sincronização de nuvem](how-to-install.md)
+- [Solução de problemas de sincronização de nuvem Azure AD Connect?](how-to-troubleshoot.md)
+- [Azure AD Connect códigos de erro de sincronização de nuvem](reference-error-codes.md)
  
 

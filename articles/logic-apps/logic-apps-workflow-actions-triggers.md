@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7423f8d8f2a566801048457ad5f5c44f3c1097ec
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: ea4a4a47e91e88c00ca8a4e886d0372a24482907
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920056"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784301"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de esquema para tipos de ação e gatilho em aplicativos lógicos do Azure
 
@@ -819,18 +819,18 @@ Aqui estão alguns tipos de ação comumente usadas:
 
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
-| [**Compor**](#compose-action) | Cria uma única saída de entradas, que podem ter vários tipos. | 
+| [**Redigir**](#compose-action) | Cria uma única saída de entradas, que podem ter vários tipos. | 
 | [**Executar código JavaScript**](#run-javascript-code) | Executar trechos de código JavaScript que se enquadram dentro de critérios específicos. Para obter os requisitos de código e mais informações, consulte [Adicionar e executar trechos de código com código embutido](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Função**](#function-action) | Chama uma função do Azure. | 
 | [**HTTP**](#http-action) | Chama um ponto de extremidade HTTP. | 
 | [**Em**](#join-action) | Cria uma string de todos os itens em uma matriz e separa esses itens com um caractere delimitador especificado. | 
 | [**Analisar JSON**](#parse-json-action) | Cria conteúdo fácil de usar tokens de propriedades no JSON. Você pode fazer referência a essas propriedades, incluindo os tokens em seu aplicativo lógico. | 
-| [**Consulta**](#query-action) | Cria uma matriz de itens em outra matriz com base em uma condição ou filtro. | 
+| [**Consultá**](#query-action) | Cria uma matriz de itens em outra matriz com base em uma condição ou filtro. | 
 | [**Resposta**](#response-action) | Cria uma resposta a uma chamada de entrada ou a solicitação. | 
 | [**Não**](#select-action) | Cria uma matriz com objetos JSON, transformando itens de outra matriz com base no mapa especificado. | 
 | [**Tabela**](#table-action) | Cria uma tabela CSV ou HTML de uma matriz. | 
 | [**Encerrar**](#terminate-action) | Interrompe um fluxo de trabalho ativo. | 
-| [**Esperado**](#wait-action) | Pausa seu fluxo de trabalho por um período especificado ou até a data e a hora especificadas. | 
+| [**Aguardar**](#wait-action) | Pausa seu fluxo de trabalho por um período especificado ou até a data e a hora especificadas. | 
 | [**Fluxo de trabalho**](#workflow-action) | Aninha um fluxo de trabalho dentro de outro fluxo de trabalho. | 
 ||| 
 
@@ -853,9 +853,9 @@ Essas ações ajudam você a controlar a execução do fluxo de trabalho e inclu
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Execute as mesmas ações em um loop para cada item em uma matriz. | 
-| [**If**](#if-action) | Execute ações com base em se a condição especificada é verdadeira ou falsa. | 
-| [**Escopo**](#scope-action) | Execute ações com base no status do grupo de um conjunto de ações. | 
-| [**Alternar**](#switch-action) | Execute ações organizadas em casos em que valores de expressões, objetos ou tokens correspondam aos valores especificados por cada caso. | 
+| [**Que**](#if-action) | Execute ações com base em se a condição especificada é verdadeira ou falsa. | 
+| [**Com**](#scope-action) | Execute ações com base no status do grupo de um conjunto de ações. | 
+| [**Comutador**](#switch-action) | Execute ações organizadas em casos em que valores de expressões, objetos ou tokens correspondam aos valores especificados por cada caso. | 
 | [**Haja**](#until-action) | Execute ações em um loop até que a condição especificada seja verdadeira. | 
 |||  
 
@@ -1126,7 +1126,7 @@ O código extrai os endereços de email da Propriedade do gatilho `Body` e retor
 
 ### <a name="function-action"></a>Ação de função
 
-Essa ação chama criado anteriormente [função do Azure](../azure-functions/functions-create-first-azure-function.md).
+Essa ação chama criado anteriormente [função do Azure](../azure-functions/functions-get-started.md).
 
 ```json
 "<Azure-function-name>": {
@@ -2098,7 +2098,7 @@ Essa condição especifica que, quando a variável integer tiver um valor maior 
 
 Estes são alguns exemplos que mostram como você pode usar expressões em condições:
   
-| JSON | Resultado | 
+| JSON | Result | 
 |------|--------| 
 | "expressão": "@parameters('<*hasSpecialAction*>')" | Apenas para expressões booleanas, a condição passa para qualquer valor que seja avaliado como verdadeiro. <p>Para converter outros tipos em Boolean, use estas funções: `empty()` ou `equals()`. | 
 | "expressão": "@greater(actions('<*action*>').output.value, parâmetros ('<*limite*>'))" | Para funções de comparação, a ação é executada somente quando a saída do <*ação*> é mais do que <*limite*> valor. | 

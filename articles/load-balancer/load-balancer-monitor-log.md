@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: fcfd3da30ef9ace723b4204f5924591b1e2717f8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503158"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785813"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Logs de Azure Monitor do Azure Standard Load Balancer
 
@@ -74,7 +74,7 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
 
 ## <a name="view-and-analyze-the-activity-log"></a>Exibir e analisar o log de atividades
 
-O log de atividades é gerado por padrão. Você pode configurá-lo para ser exportado em um nível de assinatura seguindo [as instruções neste artigo](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
+O log de atividades é gerado por padrão. Você pode configurá-lo para ser exportado em um nível de assinatura seguindo [as instruções neste artigo](../azure-monitor/platform/activity-log.md). Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
 
 Você pode exibir e analisar os dados do log de atividades usando um dos seguintes métodos:
 
@@ -112,5 +112,5 @@ O recurso de exportação de métricas para logs para Azure Load Balancer tem as
 * As métricas para portas de SNAT usadas e portas SNAT alocadas não estão disponíveis no momento para exportação como logs.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Examinar as métricas disponíveis para o balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
-* [Criar e testar consultas seguindo as instruções de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* [Examinar as métricas disponíveis para o balanceador de carga](./load-balancer-standard-diagnostics.md)
+* [Criar e testar consultas seguindo as instruções de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

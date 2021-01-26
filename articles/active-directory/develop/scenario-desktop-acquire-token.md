@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: a2048a509bdbe11c948ac8eb2daa6e78013c2fa5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753772"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785118"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo da área de trabalho que chama as APIs Web: Adquirir um token
 
@@ -451,7 +451,7 @@ No MSAL.NET, você precisa usar:
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-Geralmente, você precisa de apenas um parâmetro (`scopes`). Dependendo de como o administrador do Windows configurou as políticas, os aplicativos em seu computador Windows podem não ter permissão para pesquisar o usuário conectado. Nesse caso, use um segundo método, `.WithUsername()`, e passe o nome de usuário conectado em um formato UPN, por exemplo, `joe@contoso.com`. No .NET Core, somente a sobrecarga que leva o nome de usuário está disponível porque a plataforma .NET Core não pode solicitar o nome de usuário ao SO.
+Geralmente, você precisa de apenas um parâmetro (`scopes`). Dependendo de como o administrador do Windows configurou as políticas, os aplicativos em seu computador Windows podem não ter permissão para pesquisar o usuário conectado. Nesse caso, use um segundo método, `.WithUsername()`, e passe o nome de usuário conectado em um formato UPN, por exemplo, `joe@contoso.com`.
 
 O exemplo a seguir apresenta o caso mais atual, com explicações dos tipos de exceções que você pode obter e suas atenuações.
 

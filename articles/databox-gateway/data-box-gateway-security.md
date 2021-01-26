@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 11122b57a1971f328a8a83c3dea136813426c060
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 13d3809611714992f24a66a96c22074e69fba9bd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581537"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786649"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Gateway do Azure Data Box segurança e proteção de dados
 
@@ -63,7 +63,7 @@ Você pode:
 [!INCLUDE [data-box-gateway-password-best-practices](../../includes/data-box-gateway-password-best-practices.md)]
 - Use a interface do usuário da Web local para [alterar a senha](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Se você alterar a senha, lembre-se de notificar todos os usuários de acesso remoto para que eles não tenham problemas de entrada.
 
-## <a name="protect-your-data"></a>Proteja seus dados
+## <a name="protect-your-data"></a>Proteger seus dados
 
 Esta seção descreve os Gateway do Data Box recursos de segurança que protegem dados armazenados e em trânsito.
 
@@ -85,7 +85,7 @@ Esta seção descreve os Gateway do Data Box recursos de segurança que protegem
 
 Para proteger os discos virtuais em sua máquina virtual Gateway do Data Box, recomendamos que você habilite o BitLocker. Por padrão, o BitLocker não fica habilitado. Para obter mais informações, consulte:
 
-- [Configurações de suporte para criptografia no Gerenciador do Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Configurações de suporte para criptografia no Gerenciador do Hyper-V](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
 - [Suporte para BitLocker em uma máquina virtual](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>Gerenciar informações pessoais

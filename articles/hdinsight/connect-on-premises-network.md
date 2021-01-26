@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2a7b686bb0aae0b35b25cdd724925bab3c0a2e10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005360"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786513"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conectar o HDInsight à sua rede local
 
@@ -52,7 +52,7 @@ No diagrama a seguir, linhas verdes são solicitações de recursos que terminam
 
 Use os documentos a seguir para aprender a criar uma Rede Virtual do Azure conectada à sua rede local:
 
-* [Usando o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Usando portal do Azure](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Usando o PowerShell do Azure](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Usando a CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
@@ -69,7 +69,7 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
 
     ![Criar uma máquina virtual do Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-1. Selecione **Compute**  >  **máquina virtual** de computação para ir para a página **criar uma máquina virtual** .
+1. Selecione   >  **máquina virtual** de computação para ir para a página **criar uma máquina virtual** .
 
 1. Na guia __Básico__, insira as seguintes informações:  
   

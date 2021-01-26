@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f6daee6d4cfc3c074e004fb3835f62218e48d9ff
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3bf137f968082e677f45c20947793232b9181220
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581543"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786605"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Casos de uso do Azure Data Box Gateway
 
@@ -40,7 +40,7 @@ Conforme o dispositivo é preenchido com os dados, ele começa a limitar da taxa
 
 Use o Data Box Gateway quando desejar manter seus dados por um longo período na nuvem. Use a camada Arquivo Morto do armazenamento para a retenção de longo prazo.
 
-A camada de arquivo morto é otimizada para armazenar dados raramente acessados por pelo menos 180 dias. A camada de Arquivo Morto oferece os custos de armazenamento mais baixos, mas tem os custos de acesso mais altos. Para saber mais, acesse [Camada de acesso ao Arquivo Morto](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
+A camada de arquivo morto é otimizada para armazenar dados raramente acessados por pelo menos 180 dias. A camada de Arquivo Morto oferece os custos de armazenamento mais baixos, mas tem os custos de acesso mais altos. Para saber mais, acesse [Camada de acesso ao Arquivo Morto](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
 ### <a name="move-data-to-the-archive-tier"></a>Mover dados para a camada de arquivo morto
 
@@ -48,14 +48,14 @@ Antes de começar, certifique-se de que o Data Box Gateway esteja em execução.
 
 - Use o Data Box Gateway para carregar os dados no Azure por meio do procedimento de transferência usual, conforme descrito no artigo [Transferir dados com o Data Box Gateway](data-box-gateway-deploy-add-shares.md).
 - Depois que os dados forem carregados, será necessário movê-los para a camada de Arquivo Morto. Você pode definir a camada de blob de duas maneiras: usando um script Azure PowerShell ou uma política de gerenciamento do ciclo de vida do armazenamento do Azure.  
-    - Se estiver usando Azure PowerShell, siga estas [etapas](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) para mover os dados para a camada de arquivo morto.
+    - Se estiver usando Azure PowerShell, siga estas [etapas](../databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) para mover os dados para a camada de arquivo morto.
     - Se estiver usando o gerenciamento do ciclo de vida do Azure, siga estas etapas para mover os dados para a camada de arquivo morto.
-        - [Registre-se](/azure/storage/common/storage-lifecycle-management-concepts) para a versão prévia do serviço de gerenciamento do ciclo de vida de BLOB para usar a camada de arquivo.
-        - Use a seguinte política para [Arquivar dados em ingestão](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
+        - [Registre-se](../storage/blobs/storage-lifecycle-management-concepts.md) para a versão prévia do serviço de gerenciamento do ciclo de vida de BLOB para usar a camada de arquivo.
+        - Use a seguinte política para [Arquivar dados em ingestão](../storage/blobs/storage-lifecycle-management-concepts.md#archive-data-after-ingest).
 - Depois que os BLOBs são marcados como arquivados, eles não podem mais ser modificados pelo gateway, a menos que sejam movidos para a camada quente ou frio. Se o arquivo estiver no armazenamento local, as alterações feitas na cópia local (incluindo exclusões) não serão carregadas na camada de arquivo morto.
 - Para ler dados no armazenamento de arquivo morto, você deve reidratar os dados alterando a camada de BLOB para quente ou esporádico. [Atualizar o compartilhamento](data-box-gateway-manage-shares.md#refresh-shares) no gateway não reidrata o blob.
 
-Para obter mais informações, saiba mais sobre como [gerenciar o ciclo de vida do armazenamento de blobs do Azure](/azure/storage/common/storage-lifecycle-management-concepts).
+Para obter mais informações, saiba mais sobre como [gerenciar o ciclo de vida do armazenamento de blobs do Azure](../storage/blobs/storage-lifecycle-management-concepts.md).
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Transferência inicial em massa seguida por transferência incremental
 
@@ -65,10 +65,10 @@ Use o Data Box e o Data Box Gateway juntos quando quiser fazer um carregamento e
 
 Siga estas etapas para copiar os dados para o Data Box e carregá-los no Armazenamento do Azure.
 
-1. [Solicite o Data Box](/azure/databox/data-box-deploy-ordered).
-2. [Configure o Data Box](/azure/databox/data-box-deploy-set-up).
-3. [Copie os dados para o Data Box por SMB](/azure/databox/data-box-deploy-copy-data).
-4. [Devolva o Data Box, verifique os dados carregados no Azure](/azure/databox/data-box-deploy-picked-up).
+1. [Solicite o Data Box](../databox/data-box-deploy-ordered.md).
+2. [Configure o Data Box](../databox/data-box-deploy-set-up.md).
+3. [Copie os dados para o Data Box por SMB](../databox/data-box-deploy-copy-data.md).
+4. [Devolva o Data Box, verifique os dados carregados no Azure](../databox/data-box-deploy-picked-up.md).
 5. Depois que o carregamento de dados no Azure for concluído, todos os dados devem estar nos contêineres de armazenamento do Azure. Na conta de armazenamento do Data Box, vá para o contêiner de Blob (e Arquivo) para certificar-se de que todos os dados foram copiados. Anote o nome do contêiner, pois você irá usá-lo posteriormente. Por exemplo, na seguinte captura de tela, o contêiner `databox` será usado para a transferência incremental.
 
     ![Contêiner com os dados no Data Box](media/data-box-gateway-use-cases/data-container.png)

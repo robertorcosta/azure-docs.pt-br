@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900885"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784788"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com UEBA (análise de comportamentos de usuário e entidade) no Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - Os recursos de páginas de UEBA e entidade agora estão em **disponibilidade geral** nas seguintes regiões e Geografia do Azure Sentinel:
->    - Geografia Estados Unidos
->    - Região oeste da Europa
->    - Geografia da Austrália
->
-> - Em todas as outras regiões e geografias, esses recursos permanecem no momento de serem **visualizados**. Consulte os [**termos de uso suplementares para Microsoft Azure visualizações**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+> - Os recursos de páginas de UEBA e entidade agora estão em **disponibilidade geral** em **_todas as_* regiões e Geografia do Azure Sentinel.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>O que é análise de comportamento de usuário e entidade (UEBA)?
 
@@ -50,7 +45,7 @@ O recurso UEBA no Azure Sentinel elimina o trabalho enfadonho das cargas de trab
 
 Inspirado pelo paradigma da Gartner para soluções UEBAs, o Azure Sentinel fornece uma abordagem "externa", com base em três quadros de referência:
 
-- **Casos de uso:** Com a priorização de vetores de ataque e cenários relevantes com base na pesquisa de segurança alinhada com a estrutura MITRE ATT&CK de táticas, técnicas e subtécnicas que coloca várias entidades como vítimas, criminosos ou pontos dinâmicos na cadeia de eliminação; O Azure Sentinel se concentra especificamente nos logs mais valiosos que cada fonte de dados pode fornecer.
+- _ *Casos de uso:** com a priorização de vetores de ataque e cenários relevantes com base na pesquisa de segurança alinhada com a estrutura de Mitre&ATT, técnicas e subtécnicas que coloca várias entidades como vítimas, criminosos ou pontos dinâmicos na cadeia de eliminação; O Azure Sentinel se concentra especificamente nos logs mais valiosos que cada fonte de dados pode fornecer.
 
 - **Fontes de dados:** Embora o suporte às fontes de dados do Azure seja o mais importante, o Azure Sentinel seleciona fontes de dados de terceiros para fornecer dados que correspondam aos nossos cenários de ameaça.
 
@@ -95,7 +90,7 @@ Os seguintes tipos de entidades estão atualmente identificados no Azure sentine
 - Processo
 - Aplicativo de nuvem (CloudApplication)
 - Nome de domínio (DNS)
-- Recurso do Azure
+- Recursos do Azure
 - Arquivo (FileHash)
 - Chave do Registro
 - Valor do Registro

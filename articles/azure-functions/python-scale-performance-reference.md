@@ -4,12 +4,12 @@ description: Saiba como desenvolver Azure Functions aplicativos usando Python qu
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e3bbdb8819062d45d071633e0208fb58a003da54
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935862"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786099"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Melhorar o desempenho da taxa de transferência de aplicativos Python no Azure Functions
 
@@ -22,10 +22,10 @@ Por padrão, o Azure Functions monitora automaticamente a carga em seu aplicativ
 
 As configurações padrão são adequadas para a maioria dos aplicativos Azure Functions. No entanto, você pode melhorar o desempenho da taxa de transferência de seus aplicativos empregando configurações com base em seu perfil de carga de trabalho. A primeira etapa é entender o tipo de carga de trabalho que você está executando.
 
-|| Carga de trabalho associada à e/s | Carga de trabalho associada à CPU |
-|--| -- | -- |
-|Características do aplicativo de funções| <ul><li>O aplicativo precisa lidar com muitas invocações simultâneas.</li> <li> O aplicativo processa um grande número de eventos de e/s, como chamadas de rede e leitura/gravação em disco.</li> </ul>| <ul><li>O aplicativo executa cálculos de execução longa, como o redimensionamento de imagem.</li> <li>O aplicativo faz a transformação de dados.</li> </ul> |
-|Exemplos| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de Machine Learning</li><ul>|
+| Tipo de carga de trabalho | Características do aplicativo de funções       | Exemplos                                          |
+| ------------- | ---------------------------------- | ------------------------------------------------- |
+| **Associado à e/s**     | • O aplicativo precisa lidar com muitas invocações simultâneas.<br>• O aplicativo processa um grande número de eventos de e/s, como chamadas de rede e leitura/gravação em disco. | • APIs Web                                          |
+| **Associado à CPU**     | • O aplicativo faz cálculos de execução longa, como o redimensionamento de imagem.<br>• O aplicativo faz a transformação de dados.                                                | • Processamento de dados<br>• Inferência de Machine Learning<br> |
 
  
 Como as cargas de trabalho de função do mundo real geralmente são uma combinação de e/s e CPU associada, você deve criar o perfil do aplicativo em cargas de produção realistas.
