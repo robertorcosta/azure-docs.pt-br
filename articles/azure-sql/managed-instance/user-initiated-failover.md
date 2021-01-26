@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/25/2021
-ms.openlocfilehash: c12e1f4b01b0e2dd7fa21808cf33f45f9a5be59b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/26/2021
+ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789965"
+ms.locfileid: "98806081"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário na Instância Gerenciada de SQL
 
@@ -125,7 +125,7 @@ O status da operação pode ser acompanhado por meio da revisão de respostas de
 
 ## <a name="monitor-the-failover"></a>Monitorar o failover
 
-Para monitorar o progresso do failover manual iniciado pelo usuário, execute a seguinte consulta T-SQL em seu cliente favorito (como o SSMS) no SQL Instância Gerenciada. Ele lerá o sys.dm_hadr_fabric_replica_states de exibição do sistema e as réplicas de relatório disponíveis na instância. Atualize a mesma consulta depois de iniciar o failover manual.
+Para monitorar o progresso do failover iniciado pelo usuário para sua instância de BC, execute a seguinte consulta T-SQL em seu cliente favorito (como o SSMS) no SQL Instância Gerenciada. Ele lerá o sys.dm_hadr_fabric_replica_states de exibição do sistema e as réplicas de relatório disponíveis na instância. Atualize a mesma consulta depois de iniciar o failover manual.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -133,7 +133,13 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 Antes de iniciar o failover, sua saída indicará a réplica primária atual na camada de serviço BC que contém um primário e três secundários no grupo de disponibilidade AlwaysOn. Após a execução de um failover, executar essa consulta novamente precisará indicar uma alteração do nó primário.
 
-Você não poderá ver a mesma saída com a camada de serviço GP como aquela acima mostrada para BC. Isso ocorre porque a camada de serviço de GP é baseada apenas em um único nó. A saída de consulta T-SQL para a camada de serviço do GP mostrará um único nó somente antes e depois do failover. A perda de conectividade do cliente durante o failover, normalmente duradoura em um minuto, será a indicação da execução do failover.
+Você não poderá ver a mesma saída com a camada de serviço GP como aquela acima mostrada para BC. Isso ocorre porque a camada de serviço de GP é baseada apenas em um único nó. Você pode usar a consulta T-SQL alternativa mostrando a hora em que o processo SQL foi iniciado no nó da instância da camada de serviço do GP:
+
+```T-SQL
+SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_info
+```
+
+A pequena perda de conectividade do cliente durante o failover, normalmente duradoura em um minuto, será a indicação da execução do failover, independentemente da camada de serviço.
 
 > [!NOTE]
 > A conclusão do processo de failover (não a indisponibilidade curta real) pode levar vários minutos por vez no caso de cargas de trabalho de **alta intensidade** . Isso ocorre porque o mecanismo de instância está tomando cuidado com todas as transações atuais no primário e acompanhe o nó secundário, antes de ser capaz de realizar o failover.

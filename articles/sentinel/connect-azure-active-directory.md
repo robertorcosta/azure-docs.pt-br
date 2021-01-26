@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 409a316bd9c4222dd9b8ff30e42e37d23805c38b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eb89d2a4e719e34ad5ea31656dc9e3c02472b07d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757755"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802248"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Conectar dados de Azure Active Directory (Azure AD)
 
@@ -28,7 +28,7 @@ Você pode usar o conector interno do Sentinela do Azure para coletar dados de [
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Qualquer licença do Azure AD (gratuito/O365/P1/P2) é suficiente para ingerir os logs de entrada no Sentinela do Azure. Encargos adicionais por gigabyte podem ser aplicados por Azure Monitor (Log Analytics) e pelo Azure Sentinel.
+- Você deve ter uma assinatura [Azure ad Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) para ingerir logs de entrada no Azure Sentinel. Encargos adicionais por gigabyte podem ser aplicados por Azure Monitor (Log Analytics) e pelo Azure Sentinel.
 
 - O usuário deve receber a função colaborador do Azure Sentinel no espaço de trabalho.
 
@@ -46,10 +46,6 @@ Você pode usar o conector interno do Sentinela do Azure para coletar dados de [
 
     - **Logs de entrada**: informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
     - **Logs de auditoria**: informações de atividade do sistema sobre gerenciamento de usuários e grupos, aplicativos gerenciados e atividades de diretório.
-    - **Logs de entrada de usuário não interativo**: informações sobre entradas executadas por um cliente em nome de um usuário, que não exigem nenhuma interação ou fator de autenticação do usuário.
-    - **Logs de entrada da entidade de serviço**: informações sobre entradas por aplicativos e entidades de serviço que não envolvem nenhum usuário. Nessas entradas, o aplicativo ou serviço fornece uma credencial em seu próprio nome para autenticar ou acessar recursos.
-    - **Logs de entrada de identidade gerenciada**: entradas por recursos do Azure que têm segredos gerenciados pelo Azure.
-    - **Logs de provisionamento**: informações sobre a atividade do sistema sobre usuários, grupos e funções provisionadas pelo serviço de provisionamento do Azure AD.
 
 ## <a name="find-your-data"></a>Encontre seus dados
 
@@ -57,10 +53,6 @@ Depois que uma conexão bem-sucedida é estabelecida, os dados aparecem nos **lo
 
 - `SigninLogs`
 - `AuditLogs`
-- `AADNonInteractiveUserSignInLogs`
-- `AADServicePrincipalSignInLogs`
-- `AADManagedIdentitySignInLogs`
-- `AADProvisioningLogs`
 
 Para consultar os logs do Azure AD, insira o nome da tabela relevante na parte superior da janela de consulta.
 

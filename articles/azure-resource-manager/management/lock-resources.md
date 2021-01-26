@@ -4,12 +4,12 @@ description: Impedir que os usuários atualizem ou excluam recursos do Azure apl
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 53054f89c992139fbbd4f087d2a0344e26d97efc
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610192"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802439"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para evitar alterações inesperadas
 
@@ -38,7 +38,7 @@ A aplicação de bloqueios pode gerar resultados inesperados porque algumas oper
 
 * Um bloqueio de não-exclusão em um **grupo de recursos** impede que Azure Resource Manager [exclua automaticamente as implantações](../templates/deployment-history-deletions.md) no histórico. Se você alcançar as implantações 800 no histórico, suas implantações falharão.
 
-* Um bloqueio do tipo não excluir no **grupo de recursos** criado pelo **Serviço de Backup do Azure** causa falha nos backups. O serviço dá suporte a um máximo de 18 pontos de restauração. Quando bloqueado, o serviço de backup não consegue limpar os pontos de restauração. Para obter mais informações, veja [Perguntas frequentes sobre Backup de VMs do Azure](../../backup/backup-azure-vm-backup-faq.md).
+* Um bloqueio do tipo não excluir no **grupo de recursos** criado pelo **Serviço de Backup do Azure** causa falha nos backups. O serviço dá suporte a um máximo de 18 pontos de restauração. Quando bloqueado, o serviço de backup não consegue limpar os pontos de restauração. Para obter mais informações, veja [Perguntas frequentes sobre Backup de VMs do Azure](../../backup/backup-azure-vm-backup-faq.yml).
 
 * Um bloqueio do tipo somente leitura em uma **assinatura** impede que **Assistente do Azure** funcione corretamente. O Assistente não consegue armazenar os resultados de suas consultas.
 
