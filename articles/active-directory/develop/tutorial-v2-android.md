@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1282c27378e6a088a600a3ab3105f3f548984d03
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 7bdb36566d7c501dc5ca5604f8c6963258aa951c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063137"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208532"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo Android
 
@@ -57,8 +57,7 @@ Esta amostra usa a MSAL (Biblioteca de Autenticação da Microsoft) para Android
 
 A MSAL automaticamente renovará tokens, fornecerá o SSO (logon único) entre outros aplicativos no dispositivo e ajudará a gerenciar as contas.
 
-> [!NOTE]
-> Este tutorial demonstra exemplos simplificados de como trabalhar com a MSAL para Android. Para simplificar, ele usa apenas o modo de conta única. Para explorar cenários mais complexos, confira um [exemplo de código funcional](https://github.com/Azure-Samples/ms-identity-android-java/) concluído no GitHub.
+Este tutorial demonstra exemplos simplificados de como trabalhar com a MSAL para Android. Para simplificar, ele usa apenas o modo de conta única. Para explorar cenários mais complexos, confira um [exemplo de código funcional](https://github.com/Azure-Samples/ms-identity-android-java/) concluído no GitHub.
 
 ## <a name="create-a-project"></a>Criar um projeto
 Se você ainda não tiver um aplicativo Android, siga estas etapas para configurar um novo projeto.
@@ -85,8 +84,8 @@ Se você ainda não tiver um aplicativo Android, siga estas etapas para configur
 1. Insira o nome do pacote do seu projeto. Se você baixou o código, esse valor é `com.azuresamples.msalandroidapp`.
 1. Na seção **Hash de assinatura** da página **Configurar seu aplicativo Android**, escolha **Como gerar um Hash de Assinatura de desenvolvimento.** e copie o comando KeyTool para usar para sua plataforma.
 
-   > [!Note]
-   > KeyTool.exe é instalado como parte do JDK (Java Development Kit). Você também precisará instalar a ferramenta OpenSSL para executar o comando KeyTool. Veja a [documentação do Android sobre como gerar uma chave](https://developer.android.com/studio/publish/app-signing#generate-key) para obter mais informações.
+
+     KeyTool.exe é instalado como parte do JDK (Java Development Kit). Você também precisará instalar a ferramenta OpenSSL para executar o comando KeyTool. Veja a [documentação do Android sobre como gerar uma chave](https://developer.android.com/studio/publish/app-signing#generate-key) para obter mais informações.
 
 1. Insira o **Hash de assinatura** gerado por KeyTool.
 1. Selecione **Configurar** e salve a **Configuração da MSAL** exibida na página **Configuração do Android**, de modo que você possa inseri-la quando configurar o aplicativo mais tarde.  
@@ -122,8 +121,7 @@ Se você ainda não tiver um aplicativo Android, siga estas etapas para configur
     }
    ```
 
-   >[!NOTE]
-   >Este tutorial demonstra apenas como configurar um aplicativo no modo de conta única. Exiba a documentação para obter mais informações sobre o [modo de conta única versus várias contas](./single-multi-account.md) e [como configurar seu aplicativo](./msal-configuration.md)
+     Este tutorial demonstra apenas como configurar um aplicativo no modo de conta única. Exiba a documentação para obter mais informações sobre o [modo de conta única versus várias contas](./single-multi-account.md) e [como configurar seu aplicativo](./msal-configuration.md)
 
 4. Em **app** > **src** > **main** > **AndroidManifest.xml**, adicione a atividade `BrowserTabActivity` abaixo ao corpo do aplicativo. Essa entrada permite que a Microsoft faça uma chamada de retorno ao aplicativo após concluir a autenticação:
 
@@ -144,8 +142,11 @@ Se você ainda não tiver um aplicativo Android, siga estas etapas para configur
 
     Substitua o nome do pacote que você registrou no portal do Azure para o valor `android:host=`.
     Substitua o hash da chave que você registrou no portal do Azure para o valor `android:path=`. O hash de assinatura **não** deve ser codificado por URL. Verifique se há um `/` inicial no começo do seu hash de assinatura.
-    >[!NOTE]
-    >O "Nome do pacote" com o qual você substituirá o valor de `android:host` deverá ser semelhante a: "com.azuresamples.msalandroidapp". O "Hash de assinatura" com o qual você que substituirá o valor de `android:path` deverá ser semelhante a: "/1wIqXSqBj7w+h11ZifsnqwgyKrY=". Você também será capaz de encontrar esses valores na folha de autenticação do registro do aplicativo. Observe que o URI de redirecionamento será semelhante a: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Embora o Hash de assinatura seja codificado por URL ao final desse valor, o Hash de assinatura **não** deve ser codificado por URL no valor de `android:path`.
+    
+    O "Nome do Pacote" pelo qual você substituirá o valor de `android:host` deve ser semelhante a: "com.azuresamples.msalandroidapp".
+    O "Hash de Assinatura" pelo qual você substituirá o valor de `android:path` deve ser semelhante a: "/1wIqXSqBj7w+h11ZifsnqwgyKrY=".
+    
+    Você também poderá encontrar esses valores na folha Autenticação do registro do aplicativo. Observe que o URI de redirecionamento será semelhante a: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". Embora o Hash de assinatura seja codificado por URL ao final desse valor, o Hash de assinatura **não** deve ser codificado por URL no valor de `android:path`.
 
 ## <a name="use-msal"></a>Usar a MSAL
 

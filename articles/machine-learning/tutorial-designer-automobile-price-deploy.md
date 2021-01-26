@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575951"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246461"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implantar um modelo de machine learning com o designer
 
@@ -97,11 +97,30 @@ Após o provisionamento do serviço do AKS, volte para o pipeline de inferência
 
 1. Selecione o cluster do AKS que você criou.
 
-1. Selecione **Implantar**.
-    
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real":::
 
+    Altere também a configuração **Avançada** do ponto de extremidade em tempo real.
+    
+    |Configuração avançada|Descrição|
+    |---|---|
+    |Habilitar o diagnóstico e a coleta de dados do Application Insights| Indica se o Azure Application Ingishts deve ser habilitado para coletar dados dos pontos de extremidade implantados. </br> Por padrão: falso |
+    |Tempo limite de pontuação| Um tempo limite em milissegundos para impor as chamadas de pontuação ao serviço Web.</br>Por padrão: 60000|
+    |Dimensionamento automático habilitado|   Habilitar o dimensionamento automático para o serviço Web.</br>Por padrão: verdadeiro|
+    |Número mínimo de réplicas| O número mínimo de contêineres a serem usados no dimensionamento automático desse serviço Web.</br>Por padrão: 1|
+    |Número máximo de réplicas| O número máximo de contêineres a serem usados no dimensionamento automático desse serviço Web.</br> Por padrão: 10|
+    |Utilização de destino|A utilização de destino (em percentual) que o dimensionador automático deve tentar manter para esse serviço Web.</br> Por padrão: 70|
+    |Período de atualização|A frequência (em segundos) com que o dimensionamento automático tenta escalar esse serviço Web.</br> Por padrão: 1|
+    |Capacidade reserva de CPU|O número de núcleos de CPU a serem alocados para esse serviço Web.</br> Por padrão: 0,1|
+    |Capacidade reserva de memória|A quantidade de memória (em GB) a ser alocada para esse serviço Web.</br> Por padrão: 0.5|
+        
+
+1. Selecione **Implantar**. 
+
     Uma notificação de êxito acima da tela é exibida após a conclusão da implantação. Isso pode levar alguns minutos.
+
+> [!TIP]
+> Implante também a **ACI** (Instância de Contêiner do Azure) se você selecionar **Instância de Contêiner do Azure** em **Tipo de computação** na caixa configuração de ponto de extremidade em tempo real.
+> A Instância de Contêiner do Azure é usada para teste ou desenvolvimento. Use a ACI para cargas de trabalho baseadas em CPU de baixa escala que exigem menos de 48 GB de RAM.
 
 ## <a name="view-the-real-time-endpoint"></a>Ver o ponto de extremidade em tempo real
 

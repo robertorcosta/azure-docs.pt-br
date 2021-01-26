@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
+ms.date: 01/15/2021
 ms.author: jingwang
-ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505981"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249476"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copiar dados com segurança do Armazenamento de Blobs do Azure para um Banco de Dados SQL usando pontos de extremidade privados
 
@@ -78,22 +78,22 @@ Nesta etapa, você cria um data factory e inicia a interface do usuário do Data
 
 1. No menu à esquerda, selecione **Criar um recurso** > **Analytics** > **Data Factory**.
 
-1. Na página **Novo data factory** , em **Nome** , insira **ADFTutorialDataFactory**.
+1. Na página **Novo data factory**, em **Nome**, insira **ADFTutorialDataFactory**.
 
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](./naming-rules.md).
 
 1. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
 
-1. Em **Grupo de Recursos** , use uma das seguintes etapas:
+1. Em **Grupo de Recursos**, use uma das seguintes etapas:
 
     - Selecione **Usar existente** e selecione um grupo de recursos existente na lista suspensa.
     - Selecione **Criar novo** e insira o nome de um grupo de recursos. 
      
     Para saber mais sobre grupos de recursos, confira [Usar grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/management/overview.md). 
 
-1. Em **Versão** , selecione **V2**.
+1. Em **Versão**, selecione **V2**.
 
-1. Em **Local** , informe uma localização para o data factory. Apenas os locais com suporte aparecem na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
+1. Em **Local**, informe uma localização para o data factory. Apenas os locais com suporte aparecem na lista suspensa. Os armazenamentos de dados (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e os serviços de computação (por exemplo, Azure HDInsight) usados pelo data factory podem estar em outras regiões.
 
 1. Selecione **Criar**.
 
@@ -107,7 +107,8 @@ Nesta etapa, você criará um Azure Integration Runtime e habilitará a Rede Vir
 1. No portal do Data Factory, acesse **Gerenciar** e selecione **Novo** para criar um Azure Integration Runtime.
 
    ![Captura de tela que mostra a criação de um Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Escolha criar um **Azure Integration Runtime**.
+1. Na página **Instalação do runtime de integração**, escolha o runtime de integração a ser criado com base nas funcionalidades necessárias. Neste tutorial, selecione **Azure, Auto-hospedado** e clique em **Continuar**. 
+1. Selecione **Azure** e clique em **Continuar** para criar um Azure Integration Runtime.
 
    ![Captura de tela que mostra um novo Azure Integration Runtime.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 1. Em **Configuração de rede virtual (versão prévia)** , selecione **Habilitar**.
@@ -124,19 +125,19 @@ Nesta etapa, você criará um pipeline com a atividade de cópia no data factory
 
 Neste tutorial, você começa pela criação de um pipeline. Em seguida, crie conjuntos de dados e serviços vinculados quando forem necessários para configurar o pipeline.
 
-1. Na página **Introdução** , selecione **Criar pipeline**.
+1. Na página **Introdução**, selecione **Criar pipeline**.
 
    ![Captura de tela que mostra a criação de um pipeline.](./media/doc-common-process/get-started-page.png)
 1. No painel de propriedades do pipeline, insira **CopyPipeline** como o nome do pipeline.
 
-1. Na caixa de ferramentas **Atividades** , expanda a categoria **Mover e Transformar** e arraste a atividade **Copiar dados** da caixa de ferramentas até a superfície do designer do pipeline. Insira **CopyFromBlobToSql** como o nome.
+1. Na caixa de ferramentas **Atividades**, expanda a categoria **Mover e Transformar** e arraste a atividade **Copiar dados** da caixa de ferramentas até a superfície do designer do pipeline. Insira **CopyFromBlobToSql** como o nome.
 
     ![Captura de tela que mostra a atividade de cópia.](./media/tutorial-copy-data-portal-private/drag-drop-copy-activity.png)
 
 ### <a name="configure-a-source"></a>Configurar uma origem
 
 >[!TIP]
->Neste tutorial, você usa **Chave de conta** como o tipo de autenticação para o armazenamento de dados de origem. Você também pode escolher outros métodos de autenticação compatíveis, como **URI de SAS** , **Entidade de Serviço** e **Identidade Gerenciada** se necessário. Para obter mais informações, confira as seções correspondentes em [Copiar e transformar dados no Armazenamento de Blobs do Azure usando o Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
+>Neste tutorial, você usa **Chave de conta** como o tipo de autenticação para o armazenamento de dados de origem. Você também pode escolher outros métodos de autenticação compatíveis, como **URI de SAS**, **Entidade de Serviço** e **Identidade Gerenciada** se necessário. Para obter mais informações, confira as seções correspondentes em [Copiar e transformar dados no Armazenamento de Blobs do Azure usando o Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
 >
 >Para armazenar segredos de armazenamentos de dados com segurança, também recomendamos que você use um Azure Key Vault. Para obter mais informações e ilustrações, confira [Armazenar credenciais no Azure Key Vault](./store-credentials-in-key-vault.md).
 
@@ -144,11 +145,11 @@ Neste tutorial, você começa pela criação de um pipeline. Em seguida, crie co
 
 1. Vá para a guia **Origem**. Selecione **+ Novo** para criar um conjunto de dados de origem.
 
-1. Na caixa de diálogo **Novo conjunto de dados** , selecione **Armazenamento de Blobs do Azure** e, em seguida, selecione **Continuar**. Os dados de origem estão em um Armazenamento de blobs e, portanto, você deve selecionar o **Armazenamento de Blobs do Azure** para o conjunto de dados de origem.
+1. Na caixa de diálogo **Novo conjunto de dados**, selecione **Armazenamento de Blobs do Azure** e, em seguida, selecione **Continuar**. Os dados de origem estão em um Armazenamento de blobs e, portanto, você deve selecionar o **Armazenamento de Blobs do Azure** para o conjunto de dados de origem.
 
-1. Na caixa de diálogo **Selecionar Formato** , selecione o tipo de formato dos seus dados e escolha **Continuar**.
+1. Na caixa de diálogo **Selecionar Formato**, selecione o tipo de formato dos seus dados e escolha **Continuar**.
 
-1. Na caixa de diálogo **Definir Propriedades** , insira **SourceBlobDataset** como o **Nome**. Marque a caixa de seleção de **Primeira linha como cabeçalho**. Na caixa de texto **Serviço vinculado** , selecione **+ Novo**.
+1. Na caixa de diálogo **Definir Propriedades**, insira **SourceBlobDataset** como o **Nome**. Marque a caixa de seleção de **Primeira linha como cabeçalho**. Na caixa de texto **Serviço vinculado**, selecione **+ Novo**.
 
 1. Na caixa de diálogo **Novo serviço vinculado (Armazenamento de Blobs do Azure)** , insira **AzureStorageLinkedService** como **Nome** e selecione sua conta de armazenamento na lista **Nome de conta de armazenamento**. 
 
@@ -166,11 +167,11 @@ Neste tutorial, você começa pela criação de um pipeline. Em seguida, crie co
 
 1. Volte à caixa de diálogo. Selecione novamente **Testar conectividade** e selecione **Criar** para implantar o serviço vinculado.
 
-1. Depois que o serviço vinculado for criado, você será levado de volta para a página **Definir propriedades**. Ao lado de **Caminho do arquivo** , selecione **Procurar**.
+1. Depois que o serviço vinculado for criado, você será levado de volta para a página **Definir propriedades**. Ao lado de **Caminho do arquivo**, selecione **Procurar**.
 
-1. Acesse a pasta **adftutorial/input** , selecione o arquivo **emp.txt** e clique em **OK**.
+1. Acesse a pasta **adftutorial/input**, selecione o arquivo **emp.txt** e clique em **OK**.
 
-1. Selecione **OK**. Isso navegará automaticamente para a página do pipeline. Na guia **Origem** , confirme se **SourceBlobDataset** está selecionado. Para visualizar os dados da página, selecione **Visualizar dados**.
+1. Selecione **OK**. Isso navegará automaticamente para a página do pipeline. Na guia **Origem**, confirme se **SourceBlobDataset** está selecionado. Para visualizar os dados da página, selecione **Visualizar dados**.
 
     ![Captura de tela que mostra o conjunto de dados de origem.](./media/tutorial-copy-data-portal-private/source-dataset-selected.png)
 
@@ -222,26 +223,26 @@ Se você não selecionou o hiperlink ao testar a conexão, siga o caminho. Agora
 #### <a name="create-a-sink-dataset-and-linked-service"></a>Criar um conjunto de dados de coletor e um serviço vinculado
 1. Alterne para a guia **Coletor** e selecione **+ Novo** para criar um conjunto de dados do coletor.
 
-1. Na caixa de diálogo **Novo Conjunto de Dados** , digite **SQL** na caixa de pesquisa para filtrar os conectores. Selecione **Banco de Dados SQL do Azure** e **Continuar**. Neste tutorial, você copia dados para um banco de dados SQL.
+1. Na caixa de diálogo **Novo Conjunto de Dados**, digite **SQL** na caixa de pesquisa para filtrar os conectores. Selecione **Banco de Dados SQL do Azure** e **Continuar**. Neste tutorial, você copia dados para um banco de dados SQL.
 
-1. Na caixa de diálogo **Definir Propriedades** , insira **OutputSqlDataset** como o **Nome**. Na lista suspensa **Serviço vinculado** , selecione **+ Novo**. Um conjunto de dados deve ser associado um serviço vinculado. O serviço vinculado tem a cadeia de conexão que o Data Factory usa para se conectar ao banco de dados SQL no runtime. O conjunto de dados especifica o contêiner, pasta e arquivo (opcional) para o qual os dados são copiados.
+1. Na caixa de diálogo **Definir Propriedades**, insira **OutputSqlDataset** como o **Nome**. Na lista suspensa **Serviço vinculado**, selecione **+ Novo**. Um conjunto de dados deve ser associado um serviço vinculado. O serviço vinculado tem a cadeia de conexão que o Data Factory usa para se conectar ao banco de dados SQL no runtime. O conjunto de dados especifica o contêiner, pasta e arquivo (opcional) para o qual os dados são copiados.
 
 1. Na caixa de diálogo **Novo serviço vinculado (Banco de Dados SQL do Azure)** , execute as seguintes etapas:
 
-    1. Em **Nome** , insira **AzureSqlDatabaseLinkedService**.
-    1. Em **Nome do servidor** , selecione sua instância do SQL Server.
+    1. Em **Nome**, insira **AzureSqlDatabaseLinkedService**.
+    1. Em **Nome do servidor**, selecione sua instância do SQL Server.
     1. Habilite a **Criação interativa**.
-    1. Em **Nome do banco de dados** , selecione seu banco de dados SQL.
-    1. Em **Nome de usuário** , insira o nome do usuário.
-    1. Em **Senha** , insira a senha do usuário.
+    1. Em **Nome do banco de dados**, selecione seu banco de dados SQL.
+    1. Em **Nome de usuário**, insira o nome do usuário.
+    1. Em **Senha**, insira a senha do usuário.
     1. Selecione **Testar conexão**. Ela deverá falhar, porque o SQL Server permite o acesso somente de **Redes selecionadas** e exige que o Data Factory crie um ponto de extremidade privado para ela, que deverá ser aprovado antes do uso. Na mensagem de erro, você verá um link para criar um ponto de extremidade privado que poderá seguir para criar um ponto de extremidade privado gerenciado. Uma alternativa é acessar diretamente a guia **Gerenciar** e seguir as instruções da próxima seção para criar um ponto de extremidade privado gerenciado.
     1. Mantenha a caixa de diálogo aberta e acesse o SQL Server selecionado.
     1. Siga as instruções [desta seção](#approval-of-a-private-link-in-sql-server) para aprovar o link privado.
     1. Volte à caixa de diálogo. Selecione novamente **Testar conectividade** e selecione **Criar** para implantar o serviço vinculado.
 
-1. Isso ocasionará a navegação automática até a caixa de diálogo **Definir propriedades**. Em **Tabela** , selecione **[dbo].[emp]** . Depois, selecione **OK**.
+1. Isso ocasionará a navegação automática até a caixa de diálogo **Definir propriedades**. Em **Tabela**, selecione **[dbo].[emp]** . Depois, selecione **OK**.
 
-1. Acesse a guia com o pipeline e, em **Conjunto de dados do Coletor** , confirme se **OutputSqlDataset** está selecionado.
+1. Acesse a guia com o pipeline e, em **Conjunto de dados do Coletor**, confirme se **OutputSqlDataset** está selecionado.
 
     ![Captura de tela que mostra a guia Pipeline.](./media/tutorial-copy-data-portal-private/pipeline-tab-2.png)
 

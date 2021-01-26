@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 639b810cbb99496f84b76fc96124145a019fb625
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 548cee262d874f5bc0f6024a857c2bb8a5466106
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705533"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541335"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: descobrir servidores físicos com a Avaliação de Servidor
 
@@ -40,7 +40,7 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 
 **Requisito** | **Detalhes**
 --- | ---
-**Dispositivo** | Você precisa de um computador no qual o dispositivo de Migrações para Azure será executado. O computador deve ter:<br/><br/> – Windows Server 2016 instalado. _(Atualmente, a implantação do dispositivo tem suporte apenas no Windows Server 2016.)_<br/><br/> – 16 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco<br/><br/> – Um endereço IP estático ou dinâmico com acesso à Internet, seja diretamente ou por meio de um proxy.
+**Dispositivo** | Você precisa de um computador no qual o dispositivo de Migrações para Azure será executado. O computador deve ter:<br/><br/> – Windows Server 2016 instalado.<br/> _(Atualmente, a implantação do dispositivo tem suporte apenas no Windows Server 2016.)_<br/><br/> – 16 GB de RAM, 8 vCPUs e cerca de 80 GB de armazenamento em disco<br/><br/> – Um endereço IP estático ou dinâmico com acesso à Internet, seja diretamente ou por meio de um proxy.
 **Servidores Windows** | Permite conexões de entrada na porta WinRM 5985 (HTTP) para que o dispositivo possa extrair metadados de configuração e desempenho.
 **Servidores Linux** | Permite conexões de entrada na porta 22 (TCP).
 
@@ -48,7 +48,7 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 
 Para criar um projeto das Migrações para Azure e registrar o dispositivo de Migrações para Azure, você precisa de uma conta com:
 - Permissões de Colaborador ou Proprietário em uma assinatura do Azure.
-- Permissões para registrar aplicativos do Azure Active Directory.
+- Permissões para registrar aplicativos do AAD (Azure Active Directory).
 
 Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da assinatura. Se você não for o proprietário da assinatura, trabalhe com o proprietário para atribuir as permissões da seguinte maneira:
 
@@ -67,19 +67,20 @@ Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da
 
     ![Abre a página Adicionar atribuição de função para atribuir uma função à conta](./media/tutorial-discover-physical/assign-role.png)
 
-7. No portal, pesquise por usuários e, em **Serviços**, selecione **Usuários**.
-8. Em **Configurações de usuário**, verifique se os usuários do Azure AD podem registrar aplicativos (definido como **Sim** por padrão).
+1. Para registrar o dispositivo, sua conta do Azure precisa ter **permissões para registrar aplicativos do AAD.**
+1. No portal do Azure, acesse **Azure Active Directory** > **Usuários** > **Configurações de Usuário**.
+1. Em **Configurações de usuário**, verifique se os usuários do Azure AD podem registrar aplicativos (definido como **Sim** por padrão).
 
     ![Verificar nas Configurações de Usuário se os usuários podem registrar aplicativos do Active Directory](./media/tutorial-discover-physical/register-apps.png)
 
-9. Como alternativa, o locatário/administrador global pode atribuir a função de **Desenvolvedor de Aplicativos** a uma conta para permitir o registro de Aplicativos do AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. Caso as configurações de 'Registros de aplicativo' estejam definidas como 'Não', solicite ao administrador global/de locatários a atribuição da permissão necessária. Como alternativa, o administrador global/de locatários pode atribuir a função **Desenvolvedor de aplicativos** a uma conta para permitir o registro do Aplicativo do AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-physical-servers"></a>Preparar servidores físicos
 
 Configure uma conta que o dispositivo possa usar para acessar os servidores físicos.
 
-- Para servidores Windows, use uma conta de domínio para computadores ingressados no domínio e uma conta local para computadores que não são ingressados no domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho.
-- Para os servidores Linux, você precisa de uma conta raiz nos servidores Linux que deseja descobrir. Como alternativa, é possível definir uma conta não raiz com as funcionalidades necessárias usando os seguintes comandos:
+- Para **servidores Windows**, use uma conta de domínio para os computadores conectados ao domínio e uma conta local para os computadores que não estão conectados ao domínio. A conta de usuário deve ser adicionada a estes grupos: Usuários de Gerenciamento Remoto, Usuários do Monitor de Desempenho e Usuários do Log de Desempenho.
+- Para **servidores Linux**, você precisará ter uma conta raiz nos servidores Linux que deseja descobrir. Como alternativa, é possível definir uma conta não raiz com as funcionalidades necessárias usando os seguintes comandos:
 
 **Comando** | **Finalidade**
 --- | --- |
@@ -102,23 +103,25 @@ Configure um novo projeto das Migrações para Azure.
    ![Caixas para nome e região do projeto](./media/tutorial-discover-physical/new-project.png)
 
 7. Selecione **Criar**.
-8. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado.
-
-A ferramenta **Migrações para Azure: Avaliação de Servidor** é adicionada por padrão ao novo projeto.
+8. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado. A ferramenta **Migrações para Azure: Avaliação de Servidor** é adicionada por padrão ao novo projeto.
 
 ![Página mostrando a ferramenta de Avaliação de Servidor adicionada por padrão](./media/tutorial-discover-physical/added-tool.png)
 
+> [!NOTE]
+> Se você já tiver criado um projeto, use o mesmo projeto para registrar dispositivos adicionais a fim de descobrir e avaliar um número maior de servidores.[Saiba mais](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurar o dispositivo
 
-Para configurar o dispositivo:
-- Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
-- Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
-- Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
-- Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
-- Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
+O dispositivo de Migrações para Azure executa a descoberta de servidores e envia os metadados de configuração e desempenho dos servidores às Migrações para Azure. Ele pode ser configurado pela execução de um script do PowerShell que pode ser baixado do projeto de Migrações para Azure.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
+Para configurar o dispositivo:
+1. Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
+2. Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
+3. Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
+4. Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
+5. Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
+
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto das Migrações para Azure
 
 1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, selecione **Descobrir**.
 2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Físico ou outro (AWS, GCP, Xen etc.)** .
@@ -127,10 +130,9 @@ Para configurar o dispositivo:
 1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
 1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
 
-### <a name="download-the-installer-script"></a>Baixe o script do instalador.
+### <a name="2-download-the-installer-script"></a>2. Baixe o script do instalador.
 
 Em **2: Baixar o dispositivo das Migrações para Azure**, clique em **Baixar**.
-
 
 ### <a name="verify-security"></a>Verificar a segurança
 
@@ -155,7 +157,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
         Físico (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
-### <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
+### <a name="3-run-the-azure-migrate-installer-script"></a>3. Executar o script de instalador de Migrações para Azure
 O script do instalador faz o seguinte:
 
 - Instala agentes e um aplicativo Web para avaliação e descoberta de servidor físico.
@@ -184,13 +186,11 @@ Crie o script da seguinte maneira:
 
 Se você encontrar algum problema, poderá acessar os logs do script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Carimbo de data/hora</em>.log para solucionar problemas.
 
-
-
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
 Verifique se a VM do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
 
-### <a name="configure-the-appliance"></a>Configurar o dispositivo
+### <a name="4-configure-the-appliance"></a>4. Configurar o dispositivo
 
 Configure o dispositivo pela primeira vez.
 

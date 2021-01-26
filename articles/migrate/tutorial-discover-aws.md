@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 935aa8297e8b244bfd05483f07aad3eadb485f1b
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 8fb17dc880b74da3ca4e96df10946878fde31909
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797070"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541403"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Descobrir instâncias da AWS com a Avaliação de Servidor
 
@@ -40,7 +40,7 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 
 **Requisito** | **Detalhes**
 --- | ---
-**Dispositivo** | Será necessário obter uma VM do EC2 na qual você executará o dispositivo das Migrações para Azure. O computador deverá ter:<br/><br/> – Windows Server 2016 instalado. Não há suporte para a execução do dispositivo em um computador com o Windows Server 2019.<br/><br/> – 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/><br/> – Um endereço IP estático ou dinâmico com acesso à Internet, de modo direto ou por meio de um proxy.
+**Dispositivo** | Será necessário obter uma VM do EC2 na qual você executará o dispositivo das Migrações para Azure. O computador deverá ter:<br/><br/> – Windows Server 2016 instalado.<br/> _Não há suporte para a execução do dispositivo em um computador com o Windows Server 2019_.<br/><br/> – 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/><br/> – Um endereço IP estático ou dinâmico com acesso à Internet, de modo direto ou por meio de um proxy.
 **Instâncias do Windows** | Permite obter conexões de entrada na porta 5985 (HTTP) do WinRM para que o dispositivo possa extrair metadados de configuração e desempenho.
 **Instâncias do Linux** | Permite obter conexões de entrada na porta 22 (TCP).<br/><br/> As instâncias deverão usar `bash` como o shell padrão. Caso contrário, haverá falha na descoberta.
 
@@ -48,7 +48,7 @@ Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vig
 
 Para criar um projeto das Migrações para Azure e registrar o dispositivo de Migrações para Azure, você precisa de uma conta com:
 - Permissões de Colaborador ou Proprietário em uma assinatura do Azure.
-- Permissões para registrar aplicativos do Azure Active Directory.
+- Permissões para registrar aplicativos do AAD (Azure Active Directory).
 
 Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da assinatura. Se você não for o proprietário da assinatura, trabalhe com o proprietário para atribuir as permissões da seguinte maneira:
 
@@ -67,18 +67,20 @@ Se você acaba de criar uma conta gratuita do Azure, você é o proprietário da
 
     ![Abre a página Adicionar atribuição de função para atribuir uma função à conta](./media/tutorial-discover-aws/assign-role.png)
 
-7. No portal, pesquise por usuários e, em **Serviços**, selecione **Usuários**.
-8. Em **Configurações de usuário**, verifique se os usuários do Azure AD podem registrar aplicativos (definido como **Sim** por padrão).
+1. Para registrar o dispositivo, sua conta do Azure precisa ter **permissões para registrar aplicativos do AAD.**
+1. No portal do Azure, acesse **Azure Active Directory** > **Usuários** > **Configurações de Usuário**.
+1. Em **Configurações de usuário**, verifique se os usuários do Azure AD podem registrar aplicativos (definido como **Sim** por padrão).
 
-    ![Verificar em Configurações de Usuário se os usuários podem registrar aplicativos do Active Directory](./media/tutorial-discover-aws/register-apps.png)
+    ![Verificar nas Configurações de Usuário se os usuários podem registrar aplicativos do Active Directory](./media/tutorial-discover-aws/register-apps.png)
 
+1. Caso as configurações de 'Registros de aplicativo' estejam definidas como 'Não', solicite ao administrador global/de locatários a atribuição da permissão necessária. Como alternativa, o administrador global/de locatários pode atribuir a função **Desenvolvedor de aplicativos** a uma conta para permitir o registro do Aplicativo do AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-aws-instances"></a>Preparar instâncias da AWS
 
 Configure uma conta que o dispositivo possa usar para acessar as instâncias da AWS.
 
-- Para servidores do Windows, configure uma conta de usuário local em todos os servidores do Windows que você deseja incluir na descoberta. Adicione a conta de usuário aos seguintes grupos: – Usuários de gerenciamento remoto – Usuários do Monitor de Desempenho – Usuários de Log de Desempenho.
- - Para os servidores Linux, você precisa de uma conta raiz nos servidores Linux que deseja descobrir.
+- Para **servidores do Windows**, configure uma conta de usuário local em todos os servidores do Windows que deseja incluir na descoberta. Adicione a conta de usuário aos seguintes grupos: – Usuários de gerenciamento remoto – Usuários do Monitor de Desempenho – Usuários de Log de Desempenho.
+ - Para **servidores Linux**, você precisará ter uma conta raiz nos servidores Linux que deseja descobrir. Veja as instruções na [matriz de suporte](migrate-support-matrix-physical.md#physical-server-requirements) para obter uma alternativa.
 - As Migrações para Azure usam a autenticação de senha ao descobrir instâncias da AWS. As instâncias da AWS não dão suporte para a autenticação de senha por padrão. Para descobrir a instância, habilite a autenticação de senha.
     - Para computadores Windows, permita a porta 5985 (HTTP) do WinRM. Isso autorizará as chamadas remotas do WMI.
     - Para computadores Linux:
@@ -105,11 +107,12 @@ Configure um novo projeto das Migrações para Azure.
    ![Caixas para nome e região do projeto](./media/tutorial-discover-aws/new-project.png)
 
 7. Selecione **Criar**.
-8. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado.
-
-A ferramenta **Migrações para Azure: Avaliação de Servidor** é adicionada por padrão ao novo projeto.
+8. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado. A ferramenta **Migrações para Azure: Avaliação de Servidor** é adicionada por padrão ao novo projeto.
 
 ![Página mostrando a ferramenta de Avaliação de Servidor adicionada por padrão](./media/tutorial-discover-aws/added-tool.png)
+
+> [!NOTE]
+> Se você já tiver criado um projeto, use o mesmo projeto para registrar dispositivos adicionais a fim de descobrir e avaliar um número maior de servidores.[Saiba mais](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurar o dispositivo
 
@@ -120,17 +123,14 @@ O dispositivo das Migrações para Azure é um dispositivo leve, usado pela Aval
 
 [Saiba mais](migrate-appliance.md) sobre o dispositivo das Migrações para Azure.
 
-
-## <a name="appliance-deployment-steps"></a>Etapas de implantação do dispositivo
-
 Para configurar o dispositivo:
-- Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
-- Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
-- Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
-- Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
-- Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
+1. Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
+1. Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
+1. Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
+1. Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
+1. Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto das Migrações para Azure
 
 1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, selecione **Descobrir**.
 2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Físico ou outro (AWS, GCP, Xen etc.)** .
@@ -139,10 +139,9 @@ Para configurar o dispositivo:
 1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
 1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
 
-### <a name="download-the-installer-script"></a>Baixe o script do instalador.
+### <a name="2-download-the-installer-script"></a>2. Baixe o script do instalador.
 
 Em **2: Baixar o dispositivo das Migrações para Azure**, clique em **Baixar**.
-
 
 ### <a name="verify-security"></a>Verificar a segurança
 
@@ -167,7 +166,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
         Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
  
 
-### <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
+### <a name="3-run-the-azure-migrate-installer-script"></a>3. Executar o script de instalador de Migrações para Azure
 O script do instalador faz o seguinte:
 
 - Instala agentes e um aplicativo Web para avaliação e descoberta de servidor físico.
@@ -196,13 +195,11 @@ Crie o script da seguinte maneira:
 
 Se você encontrar algum problema, poderá acessar os logs do script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Carimbo de data/hora</em>.log para solucionar problemas.
 
-
-
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
 Verifique se a VM do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
 
-### <a name="configure-the-appliance"></a>Configurar o dispositivo
+### <a name="4-configure-the-appliance"></a>4. Configurar o dispositivo
 
 Configure o dispositivo pela primeira vez.
 

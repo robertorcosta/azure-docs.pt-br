@@ -1,6 +1,6 @@
 ---
 title: Copiar uma tabela incrementalmente usando o PowerShell
-description: Neste tutorial, você cria um pipeline do Azure Data Factory que copia dados incrementalmente de um Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
+description: Neste tutorial, você criará um pipeline do Azure Data Factory que copia dados de maneira incremental de um Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 65a2d06acc3461d881ad6f100f3720b217ef7634
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 50608870fa397ad5586c626f1d1fe5c9d893b4ca
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510202"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222812"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando o PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
+Neste tutorial, você usará o Azure Data Factory para criar um pipeline que carrega dados delta de uma tabela no Banco de Dados SQL do Azure para um Armazenamento de Blobs do Azure.
 
 Neste tutorial, você realizará os seguintes procedimentos:
 

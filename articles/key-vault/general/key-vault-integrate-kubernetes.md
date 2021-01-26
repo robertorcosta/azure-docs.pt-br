@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f4981036ca92f6efe2d3e23ea1f507a3a1f3c70a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121355"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234249"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o provedor do Azure Key Vault para o driver da Secrets Store CSI no Kubernetes
 
@@ -37,6 +37,8 @@ Neste tutorial, você aprenderá como:
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 * Antes de iniciar este tutorial, instale a [CLI do Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+
+Este tutorial pressupõe que você esteja executando o Serviço de Kubernetes do Azure em nós do Linux.
 
 ## <a name="use-managed-identities"></a>Usar identidades gerenciadas
 
@@ -77,6 +79,8 @@ Conclua as seções "Criar um grupo de recursos", "Criar cluster do AKS" e "Cone
     ![Captura de tela da CLI do Azure com os valores de principalId e clientId realçados](../media/kubernetes-key-vault-2.png) ![Captura de tela da CLI do Azure com os valores de subscriptionId e nodeResourceGroup realçados](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-the-secrets-store-csi-driver"></a>Instalar o Helm e driver da Secrets Store CSI
+> [!NOTE]
+> A instalação abaixo funciona somente no AKS no Linux. Para obter mais informações sobre a instalação do driver do Secrets Store CSI, confira [Provedor do Azure Key Vault para o driver do Secrets Store CSI](https://github.com/Azure/secrets-store-csi-driver-provider-azure) 
 
 Para instalar o driver da Secrets Store CSI, primeiro você precisa instalar o [Helm](https://helm.sh/docs/intro/install/).
 

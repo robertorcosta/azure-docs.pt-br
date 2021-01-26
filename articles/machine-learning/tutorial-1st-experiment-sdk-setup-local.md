@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f33fe4fafbe194238fcfbd4942807ed2fc4d6ff
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0d099d31db3619e14da4fe66e26b25a0e36ee39c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183533"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250682"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Introdução ao Azure Machine Learning no seu ambiente de desenvolvimento (parte 1 de 4)
 
@@ -37,13 +37,14 @@ Na Parte 1 desta série de tutoriais, você vai:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente o [Azure Machine Learning](https://aka.ms/AMLFree).
-- [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://www.anaconda.com/download/) para gerenciar os ambientes virtuais Python e instalar pacotes.
+- [Anaconda](https://www.anaconda.com/download/) ou [Miniconda](https://www.anaconda.com/download/) para gerenciar os ambientes virtuais Python e instalar pacotes.  
+- Caso não esteja familiarizado com o uso do Conda, confira [Introdução ao Conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
 
 ## <a name="install-the-azure-machine-learning-sdk"></a>Instalar o SDK do Azure Machine Learning
 
 Neste tutorial, você usará o SDK do Python do Azure Machine Learning para Python. Para evitar problemas de dependência do Python, você criará um ambiente isolado. Esta série de tutoriais usa o Conda para criar esse ambiente. Se você preferir usar outras soluções, como `venv`, `virtualenv` ou Docker, use uma versão do Python >=3.5 e <3.9.
 
-Verifique se você tem o Conda instalado em seu sistema:
+Verifique se você tem o Conda instalado no sistema:
     
 ```bash
 conda --version

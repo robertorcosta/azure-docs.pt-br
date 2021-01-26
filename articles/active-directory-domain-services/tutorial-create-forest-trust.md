@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: faa46178262777454d4d67d23bbd0bb013974ab5
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618324"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208481"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Criar uma relação de confiança de floresta de saída com um domínio local no Azure Active Directory Domain Services
 
@@ -73,8 +73,8 @@ Antes de configurar uma relação de confiança de floresta no Azure AD DS, veri
 
 Para resolver corretamente o domínio gerenciado do ambiente local, talvez seja necessário adicionar encaminhadores aos servidores DNS existentes. Se você não configurou o ambiente local para se comunicar com o domínio gerenciado, conclua as seguintes etapas em uma estação de trabalho de gerenciamento para o domínio do AD DS local:
 
-1. Selecione **Iniciar | Ferramentas Administrativas | DNS**
-1. Selecione o servidor DNS com o botão direito do mouse, como *myAD01*, e escolha **Propriedades**
+1. Selecione **Iniciar** > **Ferramentas Administrativas** > **DNS**.
+1. Selecione o servidor DNS com o botão direito do mouse, como *myAD01*, e escolha **Propriedades**.
 1. Escolha **Encaminhadores** e **Editar** para adicionar encaminhadores adicionais.
 1. Adicione os endereços IP do domínio gerenciado, como *10.0.2.4* e *10.0.2.5*.
 
@@ -84,15 +84,15 @@ O domínio do AD DS local precisa de uma relação de confiança de floresta de 
 
 Para configurar a relação de confiança de entrada no domínio do AD DS local, conclua as seguintes etapas em uma estação de trabalho de gerenciamento para o domínio do AD DS local:
 
-1. Selecione **Iniciar | Ferramentas Administrativas | Domínios e Relações de Confiança do Active Directory**
-1. Selecione o domínio com o botão direito do mouse, como *onprem.contoso.com*, e escolha **Propriedades**
-1. Escolha **Relações de Confiança** e, em seguida, **Nova Relação de Confiança**
-1. Insira o nome de domínio do Azure AD DS, como *aaddscontoso.com*, e selecione **Avançar**
+1. Selecione **Iniciar | Ferramentas Administrativas | Domínios e Relações de Confiança do Active Directory**.
+1. Selecione o domínio com o botão direito do mouse, como *onprem.contoso.com*, e escolha **Propriedades**.
+1. Escolha a guia **Relações de Confiança** e **Nova Relação de Confiança**.
+1. Insira o nome de domínio do Azure AD DS, como *aaddscontoso.com*, e selecione **Avançar**.
 1. Selecione a opção para criar uma **Relação de confiança de floresta** e, em seguida, para criar uma relação de confiança **Unidirecional: entrada**.
 1. Escolha criar a relação de confiança para **Somente este domínio**. Na próxima etapa, você criará a relação de confiança no portal do Azure para o domínio gerenciado.
 1. Escolha usar a **Autenticação em toda a floresta**; em seguida, insira a senha da relação de confiança e confirme-a. Essa mesma senha também é inserida no portal do Azure na próxima seção.
 1. Percorra as próximas janelas com as opções padrão e, em seguida, escolha a opção **Não, não confirme a relação de confiança de saída**.
-1. Selecione **Concluir**
+1. Selecione **Concluir**.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Criar uma relação de confiança de floresta de saída no Azure AD DS
 
@@ -100,16 +100,16 @@ Com o domínio do AD DS local configurado para resolver o domínio gerenciado e 
 
 Para criar a relação de confiança de saída para o domínio gerenciado no portal do Azure, conclua as seguintes etapas:
 
-1. Na portal do Azure, pesquise e selecione **Azure AD Domain Services** e, em seguida, selecione seu domínio gerenciado, como *aaddscontoso.com*
+1. No portal do Azure, procure e selecione **Azure AD Domain Services** e escolha seu domínio gerenciado, como *aaddscontoso.com*.
 1. No menu esquerdo do domínio gerenciado, selecione **Relações de confiança** e, em seguida, escolha para **+ Adicionar** uma relação de confiança.
 
    > [!NOTE]
    > Se você não vir a opção de menu **Relações de confiança**, verifique em **Propriedades** o *Tipo de floresta*. Somente florestas de *recursos* podem criar relações de confiança. Se o tipo de floresta for *Usuário*, você não poderá criar relações de confiança. No momento, não há como alterar o tipo de floresta de um domínio gerenciado. Você precisa excluir e recriar o domínio gerenciado como uma floresta de recursos.
 
-1. Insira um nome de exibição que identifique sua relação de confiança e, em seguida, o nome DNS de floresta confiável local, como *onprem.contoso.com*
+1. Insira um nome de exibição que identifique sua relação de confiança e o nome DNS da floresta confiável local, como *onprem.contoso.com*.
 1. Forneça a mesma senha da relação de confiança que foi usada ao configurar a relação de confiança de floresta de entrada para o domínio do AD DS local na seção anterior.
-1. Forneça pelo menos dois servidores DNS para o domínio do AD DS local, como *10.1.1.4* e *10.1.1.5*
-1. Quando estiver pronto, **Salve** a relação de confiança de floresta de saída
+1. Forneça, no mínimo, dois servidores DNS para o domínio do AD DS local, como *10.1.1.4* e *10.1.1.5*.
+1. Quando estiver pronto, **Salve** a relação de confiança de floresta de saída.
 
     ![Criar relação de confiança de floresta de saída no portal do Azure](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
@@ -181,7 +181,7 @@ Usando o VM do Windows Server ingressado na floresta de recursos do Azure AD DS,
 1. Na caixa de diálogo *Permissões para CrossForestShare*, selecione **Adicionar**.
 1. Digite *FileServerAccess* em **Insira os nomes de objeto a serem selecionados** e, em seguida, selecione **OK**.
 1. Selecione *FileServerAccess* na lista **Grupos ou nomes de usuário**. Na lista **Permissões para FileServerAccess**, escolha *Permitir* para as permissões **Modificar** e **Gravar**; em seguida, selecione **OK**.
-1. Selecione a guia **Compartilhamento** e, em seguida, escolha **Compartilhamento Avançado…**
+1. Selecione a guia **Compartilhamento** e escolha **Compartilhamento Avançado…** .
 1. Escolha **Compartilhar esta pasta** e, em seguida, insira um nome fácil de memorizar para o compartilhamento de arquivo em **Nome do compartilhamento** como *CrossForestShare*.
 1. Selecione **Permissões**. Na lista **Permissões para Todos**, escolha **Permitir** para a permissão **Alterar**.
 1. Selecione **OK** duas vezes e, em seguida, **Fechar**.

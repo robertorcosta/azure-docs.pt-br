@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 892dad3963e9da3560acc2c782c3d14db246ea78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13130a7ea473b260ddc4f0ebca2ef5b496b34c66
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500582"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202973"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Usar a CLI do Azure e o portal do Azure para configurar o roteamento de mensagens do Hub IoT
 
@@ -140,13 +140,13 @@ Agora, configure o roteamento para a conta de armazenamento. Acesse o painel Rot
 
 2. Selecione o hub IoT na lista de recursos. Este tutorial usa **ContosoTestHub**.
 
-3. Selecione **Roteamento de Mensagens**. No painel **Roteamento de Mensagens**, selecione +**Adicionar**. No painel **Adicionar uma Rota**, selecione +**Adicionar** ao lado do campo de Ponto de Extremidade para mostrar os pontos de extremidade compatíveis, conforme exibido na figura a seguir:
+3. Selecione **Roteamento de Mensagens**. No painel **Roteamento de Mensagens**, selecione +**Adicionar**. No painel **Adicionar uma Rota**, selecione +**Adicionar ponto de extremidade** ao lado do campo Ponto de Extremidade para mostrar os pontos de extremidade compatíveis, conforme exibido na seguinte imagem:
 
-   ![Começar a adicionar um ponto de extremidade a uma rota](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Começar a adicionar um ponto de extremidade a uma rota](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-4. Selecione **Armazenamento de Blobs**. Você verá o painel **Adicionar um ponto de extremidade de armazenamento**.
+4. Selecione **Armazenamento**. Você verá o painel **Adicionar um ponto de extremidade de armazenamento**.
 
-   ![Adicionando um ponto de extremidade](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Adicionando um ponto de extremidade](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
 5. Insira um nome para o ponto de extremidade. Este tutorial usa **ContosoStorageEndpoint**.
 

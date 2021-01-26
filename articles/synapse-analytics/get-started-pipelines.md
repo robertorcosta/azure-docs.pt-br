@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 10/27/2020
-ms.openlocfilehash: af01d5b5e424dd5ea229115f7aa3570d0b7cd511
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 12/31/2020
+ms.openlocfilehash: 2ea7c3c440fcf95e4512464333efe8461788bceb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744924"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219395"
 ---
 # <a name="integrate-with-pipelines"></a>Fazer a integração a pipelines
 
@@ -26,14 +26,19 @@ Neste tutorial, você aprenderá a integrar pipelines e atividades usando o Syna
 Você pode integrar uma ampla variedade de tarefas no Azure Synapse.
 
 1. No Synapse Studio, acesse o hub **Integrar**.
-1. Selecione **+**  > **Pipeline** para criar um pipeline.
-1. Acesse o hub **Desenvolver** e selecione um dos notebooks que você criou anteriormente.
-1. Arraste esse notebook para o pipeline ( **Observação** : adicione a etapa importar módulos no notebook conforme especificado em [documento](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export#transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace) que são necessárias durante a execução do pipeline)
+1. Selecione **+**  > **Pipeline** para criar um pipeline. Clique no novo objeto de pipeline para abrir o Designer de Pipeline.
+1. Em **Atividades**, expanda a pasta **Synapse** e arraste um objeto **Notebook** para o designer.
+1. Selecione a guia **Configurações** das propriedades da atividade do Notebook. Use a lista suspensa para escolher qualquer notebook do workspace atual do Azure Synapse. 
 1. No pipeline, selecione **Adicionar gatilho** > **Novo/editar**.
-1. Em **Escolher gatilho** , selecione **Novo** e defina **Recorrência** como "a cada 1 hora".
+1. Em **Escolher gatilho**, selecione **Novo** e defina **Recorrência** como "a cada 1 hora".
 1. Selecione **OK**. 
-1. Selecione **Publicar Tudo**.
-1. Para fazer o pipeline ser executado imediatamente, sem esperar pela próxima hora, selecione **Adicionar gatilho** > **Disparar agora**.
+1. Selecione **Publicar Tudo**. 
+
+
+## <a name="monitor-pipeline"></a>Monitorar o pipeline
+
+1. Depois que o pipeline for publicado, para fazê-lo ser executado imediatamente sem esperar pela próxima hora, selecione **Adicionar gatilho** > **Disparar agora**.
+1. No Synapse Studio, acesse o hub **Monitor** e **Execuções de pipeline** para monitorar o andamento da execução do pipeline.
 
 
 
@@ -41,4 +46,3 @@ Você pode integrar uma ampla variedade de tarefas no Azure Synapse.
 
 > [!div class="nextstepaction"]
 > [Visualizar os dados com o Power BI](get-started-visualize-power-bi.md)
-                                 
