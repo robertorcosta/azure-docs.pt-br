@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 386e0051a64f73b18c1ff76ed33af5f9eebe8aa0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 90443a898ffdebf33a0c967719ba25a2ccc6f9a7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121406"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792092"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
 
@@ -35,7 +35,7 @@ O Azure Load Balancer fornece métricas multidimensionais por meio das métricas
 
 As várias configurações do Load Balancer Standard oferecem as seguintes métricas:
 
-| Metric | Tipo de recurso | Descrição | Agregação recomendada |
+| Métrica | Tipo de recurso | Descrição | Agregação recomendada |
 | --- | --- | --- | --- |
 | Disponibilidade do caminho de dados | Balanceador de carga público e interno | O Load Balancer Standard usa continuamente o caminho de dados de dentro de uma região para o front-end do balanceador de carga e até a pilha do SDN compatível com a sua VM. Contanto que instâncias íntegras permaneçam, a medição seguirá o mesmo caminho que o tráfego com balanceamento de carga do seu aplicativo. O caminho de dados que seus clientes usam também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.| Média |
 | Status de investigação de integridade | Balanceador de carga público e interno | O Load Balancer Standard usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade do aplicativo de acordo com as definições de configuração. Essa métrica fornece uma exibição agregada ou por ponto de extremidade filtrado de cada ponto de extremidade de instância no pool do balanceador de carga. É possível ver como o Load Balancer exibe a integridade de seu aplicativo conforme indicado pela configuração de sua investigação de integridade. |  Média |
@@ -239,8 +239,8 @@ O status de integridade para os recursos do Load Balancer Standard é exposto po
 | Status de integridade de recurso | Descrição |
 | --- | --- |
 | Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
-| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de solução de problemas do RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.
-| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. [Siga o guia de solução de problemas do RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se há eventos iniciados pelo usuário que afetam sua disponibilidade. |
+| Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de solução de problemas do RHC](./troubleshoot-rhc.md) para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.
+| Indisponível | O recurso padrão do Load Balancer não está íntegro. A métrica de disponibilidade do caminho de dado relatou menos a integridade de 25% por pelo menos dois minutos. Você terá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de usuário ou plataforma causando indisponibilidade. [Siga o guia de solução de problemas do RHC](./troubleshoot-rhc.md) para determinar se há eventos iniciados pelo usuário que afetam sua disponibilidade. |
 | Unknown | O status de integridade do recurso para o recurso de Load Balancer padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do caminho de dados dos últimos 10 minutos. Esse estado deve ser transitório e reflete o status correto assim que os dados são recebidos. |
 
 Para exibir a integridade dos seus recursos do Load Balancer Standard:

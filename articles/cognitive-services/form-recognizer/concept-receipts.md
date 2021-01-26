@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131434"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792075"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recebimento predefinido do reconhecedor de formulário
 
-O reconhecedor de formulários do Azure pode analisar e extrair informações de recibos de vendas usando seu modelo de recebimento predefinido. Ele combina nossos poderosos recursos de [OCR (reconhecimento óptico de caracteres)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) com recebimento, entendendo modelos de aprendizado profundo para extrair informações importantes dos recibos em inglês. A API de recebimento extrai informações de chave de recibos de vendas em inglês, como o nome do comerciante, a data da transação, o total da transação, os itens de linha e muito mais. 
+O reconhecedor de formulários do Azure pode analisar e extrair informações de recibos de vendas usando seu modelo de recebimento predefinido. Ele combina nossos poderosos recursos de [OCR (reconhecimento óptico de caracteres)](../computer-vision/concept-recognizing-text.md) com recebimento, entendendo modelos de aprendizado profundo para extrair informações importantes dos recibos em inglês. A API de recebimento extrai informações de chave de recibos de vendas em inglês, como o nome do comerciante, a data da transação, o total da transação, os itens de linha e muito mais. 
 
 ## <a name="understanding-receipts"></a>Entendendo os recibos 
 
@@ -64,7 +64,7 @@ A API de recebimento também retorna as seguintes informações:
 * Texto bruto de OCR (saída de texto extraído por OCR para o recebimento inteiro)
 * Caixa delimitadora para cada valor, linha e palavra
 
-## <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimente
 
 Para experimentar o serviço de recebimento do reconhecedor de formulário, vá para a ferramenta de interface do usuário de exemplo online:
 
