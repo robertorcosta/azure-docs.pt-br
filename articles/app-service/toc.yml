@@ -102,7 +102,7 @@
   items:
     - name: Planos do Serviço de Aplicativo
       href: overview-hosting-plans.md
-    - name: Gerenciamento de custo
+    - name: Gerenciamento de custos
       href: overview-manage-costs.md
     - name: Funcionalidade de SO
       href: operating-system-functionality.md
@@ -259,6 +259,8 @@
           href: troubleshoot-diagnostic-logs.md
         - name: Obter eventos de recurso
           href: get-resource-events.md
+        - name: Verificação de integridade
+          href: monitor-instances-health-check.md
         - name: Abrir sessão SSH para o contêiner do Linux
           href: configure-linux-open-ssh-session.md
     - name: Gerenciar aplicativo
