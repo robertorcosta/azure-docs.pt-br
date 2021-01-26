@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: a70571dcf380fc2186565a40778991ac70a218d6
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797206"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795326"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando backups automatizados de banco de dados-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -53,8 +53,8 @@ Para uma assinatura única, há limitações no número de solicitações de res
 
 | **Opção de implantação** | **Número máximo de solicitações simultâneas que estão sendo processadas** | **Número máximo de solicitações simultâneas que estão sendo enviadas** |
 | :--- | --: | --: |
-|**Banco de dados único (por assinatura)**|10|60|
-|**Pool Elástico (por pool)**|4|200|
+|**Banco de dados único (por assinatura)**|30|100|
+|**Pool Elástico (por pool)**|4|2000|
 
 
 Não há um método interno para restaurar o servidor inteiro. Para obter um exemplo de como realizar essa tarefa, consulte [banco de dados SQL do Azure: recuperação completa do servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).

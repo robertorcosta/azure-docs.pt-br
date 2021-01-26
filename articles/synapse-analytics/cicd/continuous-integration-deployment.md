@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223679"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797304"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração e entrega contínuas para o espaço de trabalho Synapse do Azure
 
@@ -134,3 +134,13 @@ Se você estiver usando a integração do git com seu espaço de trabalho do Syn
 -   **Preparar pools antes da migração de artefatos**. Se você tiver um script SQL ou um notebook anexado a pools no espaço de trabalho de desenvolvimento, será esperado o mesmo nome de pools em ambientes diferentes. 
 -   **Infraestrutura como código (IaC)**. Gerenciamento de infraestrutura (redes, máquinas virtuais, balanceadores de carga e topologia de conexão) em um modelo descritivo, use o mesmo controle de versão que a equipe do DevOps usa para o código-fonte. 
 -   **Outros**. Veja [as práticas recomendadas para artefatos do ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
+
+## <a name="troubleshooting-artifacts-deployment"></a>Solucionando problemas de implantação de artefatos 
+
+### <a name="use-the-synapse-workspace-deployment-task"></a>Usar a tarefa de implantação do espaço de trabalho Synapse
+
+No Synapse, todos os tipos de artefatos não são recursos de ARM, que são diferentes com o ADF. Não é possível usar a tarefa de implantação de modelo ARM para implantar artefatos Synapse
+ 
+### <a name="unexpected-token-error-in-release"></a>Erro de token inesperado na versão
+
+Quando o arquivo de parâmetro tem valores de parâmetro que não são de escape, o pipeline de liberação falha ao analisar o arquivo com o erro de token inesperado. Sugerimos que você substitua os parâmetros ou keyvault para obter parâmetros. Você também pode dobrar o escape como uma solução alternativa.

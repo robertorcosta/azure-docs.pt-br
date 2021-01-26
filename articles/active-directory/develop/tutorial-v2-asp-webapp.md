@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dcb8675350442274418920bb9439b65643f1b046
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8b12df62a7080e57e47b52cb79ed8a67e12bd526
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178238"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753094"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -119,7 +119,7 @@ As etapas a seguir são usadas para criar uma classe de Inicialização do middl
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed of the Microsoft identity platform and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -406,14 +406,13 @@ Quando estiver pronto para executar o teste, use uma conta do Azure AD (conta co
 <br/><br/>
 ![Entre na sua conta da Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft
-
-Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. Depois que um usuário se autenticar na plataforma de identidade da Microsoft para acessar esse aplicativo, ele deverá fornecer seu consentimento às permissões solicitadas pelo aplicativo ("Exibir seu perfil básico" e "Manter o acesso aos dados aos quais você permitiu acesso"). Depois de aceitar essas permissões, o usuário será direcionado aos resultados do aplicativo. No entanto, o usuário poderá receber uma página **Consentimento do administrador necessário** se ocorrer uma das seguintes ações:
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
+Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. Depois que um usuário se autenticar na plataforma de identidade da Microsoft para acessar esse aplicativo, ele deverá fornecer o consentimento às permissões solicitadas pelo aplicativo ("Exibir o seu perfil básico" e "Manter o acesso aos dados aos quais você permitiu acesso"). Depois de aceitar essas permissões, o usuário será direcionado aos resultados do aplicativo. No entanto, o usuário poderá receber uma página **Consentimento do administrador necessário** se ocorrer uma das seguintes ações:
 
 - O desenvolvedor de aplicativos adiciona permissões extras que exigem o **consentimento do administrador**.
 - Ou o locatário está configurado (em **Aplicativos Empresariais – > Configurações de Usuário**), em que os usuários não podem fornecer consentimento aos aplicativos que acessam os dados da empresa em seu nome.
 
-Para obter mais informações, veja [Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](./v2-permissions-and-consent.md).
+Para obter mais informações, veja [Permissões e consentimento na plataforma de identidade da Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Veja os resultados de aplicativo
 

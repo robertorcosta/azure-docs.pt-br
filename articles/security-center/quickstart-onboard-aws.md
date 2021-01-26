@@ -3,16 +3,16 @@ title: Conectar as contas da AWS à Central de Segurança do Azure
 description: Como monitorar seus recursos da AWS por meio da Central de Segurança do Azure
 author: memildin
 ms.author: memildin
-ms.date: 12/29/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814305"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755155"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Conectar as contas da AWS à Central de Segurança do Azure
 
@@ -33,13 +33,13 @@ A integração das contas da AWS à Central de Segurança integra o Hub de Segur
 
 Na captura de tela abaixo, você pode ver as contas da AWS exibidas no dashboard de visão geral da Central de Segurança.
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="3 projetos da GCP listados no dashboard de visão geral da Central de Segurança" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Três projetos da GCP listados no painel de visão geral da Central de Segurança" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## <a name="availability"></a>Disponibilidade
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** na assinatura relevante do Azure<br>O **Colaborador** também pode conectar uma conta da AWS se um proprietário fornecer os detalhes da entidade de serviço|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
@@ -138,7 +138,7 @@ O Gerenciador de Sistemas da AWS é necessário para automatizar tarefas nos rec
     1. Confirme se a assinatura está a correta. É a assinatura que incluirá as recomendações do Hub de Segurança da AWS e do conector.
     1. Dependendo da opção de autenticação escolhida na [Etapa 2. Configurar a autenticação da Central de Segurança na AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Selecione **Assumir Função** e cole o ARN de [Criar uma função do IAM para a Central de Segurança](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Colando o arquivo ARN no campo pertinente do assistente de conexão da AWS no portal do Azure":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Como colar o arquivo ARN no campo pertinente do assistente de conexão da AWS no portal do Azure":::
 
             OU
 

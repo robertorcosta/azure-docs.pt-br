@@ -10,14 +10,17 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: fd3c8a08e5512d15be4dfb26ca3eff151d08386f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651355"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797346"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Usar o Azure Sentinel watchlists
+
+> [!IMPORTANT]
+> O recurso watchlists está atualmente em **Visualização**. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
 O Azure Sentinel watchlists permite a coleta de dados de fontes de dados externas para correlação com os eventos em seu ambiente do Azure Sentinel. Depois de criado, você pode usar o watchlists em sua pesquisa, regras de detecção, busca de ameaças e guias estratégicos de resposta. Os Watchlists são armazenados em seu espaço de trabalho do Azure Sentinel como pares de nome-valor e são armazenados em cache para desempenho de consulta ideal e baixa latência.
 
@@ -33,7 +36,7 @@ Os cenários comuns para usar o watchlists incluem:
 
 ## <a name="create-a-new-watchlist"></a>Criar uma Nova inspeção
 
-1. No portal do Azure, navegue até a inspeção de configuração **do Azure Sentinel**  >  **Configuration**  >  **Watchlist** e, em seguida, selecione **Adicionar novo**.
+1. No portal do Azure, navegue até a inspeção de configuração **do Azure Sentinel**  >    >   e, em seguida, selecione **Adicionar novo**.
 
     > [!div class="mx-imgBorder"]
     > ![Nova inspeção](./media/watchlists/sentinel-watchlist-new.png)
@@ -62,7 +65,7 @@ Os cenários comuns para usar o watchlists incluem:
 
 ## <a name="use-watchlists-in-queries"></a>Usar watchlists em consultas
 
-1. No portal do Azure, navegue até a inspeção de configuração **do Azure Sentinel**  >  **Configuration**  >  **Watchlist**, selecione a inspeção que você deseja usar e, em seguida, selecione **Exibir no log Analytics**.
+1. No portal do Azure, navegue até a inspeção de configuração **do Azure Sentinel**  >    >  , selecione a inspeção que você deseja usar e, em seguida, selecione **Exibir no log Analytics**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="usar watchlists em consultas" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
 
@@ -73,15 +76,47 @@ Os cenários comuns para usar o watchlists incluem:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="consultas com campos Watchlist" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
+1. Você pode consultar dados em qualquer tabela em relação a dados de uma inspeção de observação tratando a inspeção como uma tabela para junções e pesquisas.
+
+    ```kusto
+    Heartbeat
+    | lookup kind=leftouter _GetWatchlist('IPlist') 
+     on $left.ComputerIP == $right.IPAddress
+    ```
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="consultas em Watchlist como pesquisa":::
+
 ## <a name="use-watchlists-in-analytics-rules"></a>Usar o watchlists em regras de análise
 
 Para usar o watchlists em regras de análise, no portal do Azure, navegue até **Azure Sentinel**  >  **Configuration**  >  **Analytics** e crie uma regra usando a `_GetWatchlist('<watchlist>')` função na consulta.
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="usar o watchlists em regras de análise" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
+1. Neste exemplo, crie uma Watchlist chamada "ipwatchlist" com os seguintes valores:
+
+    :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="lista de quatro itens para Watchlist":::
+
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="criar inspeção de observação com quatro itens":::
+
+1. Em seguida, crie a regra de análise.  Neste exemplo, incluímos apenas eventos de endereços IP na Watchlist:
+
+    ```kusto
+    //Watchlist as a variable
+    let watchlist = (_GetWatchlist('ipwatchlist') | project IPAddress);
+    Heartbeat
+    | where ComputerIP in (watchlist)
+    ```
+    ```kusto
+    //Watchlist inline with the query
+    Heartbeat
+    | where ComputerIP in ( 
+        (_GetWatchlist('ipwatchlist')
+        | project IPAddress)
+    )
+    ```
+
+:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-2.png" alt-text="usar o watchlists em regras de análise":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Exibir a lista de aliases do watchlists
 
-Para obter uma lista de aliases do Watchlist, na portal do Azure, navegue até logs **gerais do Sentinela do Azure**  >  **General**  >  **Logs** e execute a seguinte consulta: `_GetWatchlistAlias` . Você pode ver a lista de aliases na guia **resultados** .
+Para obter uma lista de aliases do Watchlist, na portal do Azure, navegue até logs **gerais do Sentinela do Azure**  >    >  e execute a seguinte consulta: `_GetWatchlistAlias` . Você pode ver a lista de aliases na guia **resultados** .
 
 > [!div class="mx-imgBorder"]
 > ![listar watchlists](./media/watchlists/sentinel-watchlist-alias.png)

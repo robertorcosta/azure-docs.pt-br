@@ -3,19 +3,19 @@ title: DB2 para SQL Server em VMs do Azure (guia de migração)
 description: Siga este guia para migrar seu servidor DB2 para SQL Server em VMs do Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 5312ee08bad9d0b84e13c53fe4b1de59fad896f1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: c3f3af6a1c114d6587992f79e95dcc0c1ccb41e6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326039"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797466"
 ---
 # <a name="migration-guide-db2-to-sql-server-on-azure-vms"></a>Guia de migração: DB2 para SQL Server em VMs do Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]

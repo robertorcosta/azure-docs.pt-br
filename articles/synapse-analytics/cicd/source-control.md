@@ -8,22 +8,18 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219735"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796966"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controle do código-fonte no Azure Synapse Studio
 
-Por padrão, os autores do Azure Synapse Studio diretamente no serviço Synapse. No entanto, essa experiência tem as seguintes limitações:
+Por padrão, os autores do Azure Synapse Studio diretamente no serviço Synapse. Se você tiver uma necessidade de colaboração usando o Git para controle do código-fonte, o Synapse Studio permitirá que você associe seu espaço de trabalho a um repositório git, Azure DevOps ou GitHub. 
 
-- O Synapse Studio não inclui um armazenamento temporário para armazenar suas alterações. A única maneira de salvar e compartilhar alterações é por meio da **publicação** e todas as alterações são publicadas diretamente no serviço Synapse.
-
-- O Synapse Studio não é otimizado para colaboração e controle de versão.
-
-Para fornecer o recurso de controle do código-fonte, o Synapse Studio permite que você associe seu espaço de trabalho a um repositório git, Azure DevOps ou GitHub. Este artigo descreverá como configurar e trabalhar em um espaço de trabalho do Synapse com o repositório git habilitado. Além disso, destacaremos algumas práticas recomendadas e um guia de solução de problemas.
+Este artigo descreverá como configurar e trabalhar em um espaço de trabalho do Synapse com o repositório git habilitado. Além disso, destacaremos algumas práticas recomendadas e um guia de solução de problemas.
 
 > [!NOTE]
 > A integração do git do Azure Synapse Studio não está disponível na nuvem do Azure governamental.
@@ -61,7 +57,7 @@ Ao conectar-se ao repositório git, primeiro selecione o tipo de repositório co
 
 O painel de configuração mostra as seguintes configurações do git DevOps do Azure:
 
-| Configuração | Descrição | Valor |
+| Setting | Descrição | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código do Azure Repos.<br/> | Git ou GitHub do Azure DevOps |
 | **Azure Active Directory** | Seu nome de locatário do Microsoft Azure AD. | `<your tenant name>` |

@@ -4,22 +4,21 @@ description: Este artigo lista as recomendações de segurança da Central de Se
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/12/2021
+ms.date: 01/24/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 11d4830908b4e86da12cd5e40cc26b1c1b1aecbd
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cd72e904f659b7bd9c7e2df86b46fe20bd26ec33
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133014"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757090"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança – um guia de referência
 
 Este artigo lista as recomendações que você pode ver na Central de Segurança do Azure. As recomendações mostradas em seu ambiente dependem dos recursos que você está protegendo e a configuração personalizada.
 
-As recomendações da Central de Segurança baseiam-se nas melhores práticas. Algumas delas estão alinhadas ao **Azure Security Benchmark**, as diretrizes específicas do Azure criadas pela Microsoft para melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns.
-[Saiba mais sobre o Azure Security Benchmark](../security/benchmarks/introduction.md).
+As recomendações da Central de Segurança baseiam-se no [Azure Security Benchmark](../security/benchmarks/introduction.md). O Azure Security Benchmark é um conjunto específico de diretrizes específicas do Azure criadas pela Microsoft com as melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. Esse parâmetro de comparação amplamente respeitado se baseia nos controles do [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) e do [NIST (National Institute of Standards and Technology)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
 
 Para saber mais sobre como responder a essas recomendações, confira [Recomendações de correção na Central de Segurança do Azure](security-center-remediate-recommendations.md).
 
