@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 80a6824edb92d8337481f592cbbf5eb23255b383
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e6b588ddea5bf4b4c92e89d9cebb37b09b9a86af
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185522"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791537"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Usar chaves gerenciadas pelo cliente no Azure Key Vault para Azure Data Box
 
@@ -95,7 +95,7 @@ Para habilitar uma chave gerenciada pelo cliente para sua ordem de Data Box exis
 
 7. Selecione o tipo de identidade a ser usado para gerenciar a chave gerenciada pelo cliente para este recurso. Você pode usar a identidade **atribuída pelo sistema** que foi gerada durante a criação do pedido ou escolher uma identidade atribuída pelo usuário.
 
-    Uma identidade atribuída pelo usuário é um recurso independente que você pode usar para gerenciar o acesso aos recursos. Para obter mais informações, confira [Tipos de identidade gerenciada](/azure/active-directory/managed-identities-azure-resources/overview).
+    Uma identidade atribuída pelo usuário é um recurso independente que você pode usar para gerenciar o acesso aos recursos. Para obter mais informações, confira [Tipos de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md).
 
     ![Selecione o tipo de identidade](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
 
@@ -103,7 +103,7 @@ Para habilitar uma chave gerenciada pelo cliente para sua ordem de Data Box exis
 
     ![Selecione uma identidade a ser usada](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
 
-    Você não pode criar uma nova identidade de usuário aqui. Para saber como criar um, consulte [criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Você não pode criar uma nova identidade de usuário aqui. Para saber como criar um, consulte [criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
     A identidade de usuário selecionada é mostrada nas configurações de **tipo de criptografia** .
 
@@ -141,7 +141,7 @@ Para alterar o cofre de chaves, a chave e/ou a versão de chave para a chave ger
 
     ![Escolha a opção de criptografia-2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17.png)
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
     ![Salvar configurações de criptografia atualizadas-1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
 
@@ -161,7 +161,7 @@ Para alterar a identidade usada para gerenciar o acesso à chave gerenciada pelo
 
      ![Opção para alterar para um atribuído pelo sistema para uma chave gerenciada pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
     ![Salvar configurações de criptografia atualizadas-2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
 
@@ -175,7 +175,7 @@ Para alterar o uso de uma chave gerenciada pelo cliente para a chave gerenciada 
 
     ![Tela de visão geral de um Data Box ordem-5](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
     ![Salvar configurações de criptografia atualizadas para uma chave gerenciada da Microsoft](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21.png)
 
@@ -187,9 +187,9 @@ Se você receber erros relacionados à chave gerenciada pelo cliente, use a tabe
 |-------------|--------------|---------|
 | SsemUserErrorEncryptionKeyDisabled| Não foi possível obter a chave de acesso porque a chave gerenciada pelo cliente está desabilitada.| Sim, habilitando a versão da chave.|
 | SsemUserErrorEncryptionKeyExpired| Não foi possível buscar a chave de acesso, pois a chave gerenciada pelo cliente expirou.| Sim, habilitando a versão da chave.|
-| SsemUserErrorKeyDetailsNotFound| Não foi possível buscar a chave de acesso porque a chave gerenciada pelo cliente não pôde ser encontrada.| Se você excluiu o cofre de chaves, não é possível recuperar a chave gerenciada pelo cliente.  Se você migrou o cofre de chaves para um locatário diferente, consulte [alterar uma ID de locatário do cofre de chaves após a movimentação de uma assinatura](../key-vault/general/move-subscription.md). Se você excluiu o cofre de chaves:<ol><li>Sim, se estiver na duração da proteção de limpeza, usando as etapas em [recuperar um cofre de chaves](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault).</li><li>Não, se estiver além da duração da proteção de limpeza.</li></ol><br>Caso contrário, se o cofre de chaves sofreu uma migração de locatário, sim, ele poderá ser recuperado usando uma das etapas a seguir: <ol><li>Reverter o cofre de chaves de volta para o locatário antigo.</li><li>Defina `Identity = None` e, em seguida, defina o valor de volta para `Identity = SystemAssigned` . Isso exclui e recria a identidade depois que a nova identidade é criada. Habilite `Get` `Wrap` `Unwrap` as permissões, e para a nova identidade na política de acesso do Key Vault.</li></ol> |
+| SsemUserErrorKeyDetailsNotFound| Não foi possível buscar a chave de acesso porque a chave gerenciada pelo cliente não pôde ser encontrada.| Se você excluiu o cofre de chaves, não é possível recuperar a chave gerenciada pelo cliente.  Se você migrou o cofre de chaves para um locatário diferente, consulte [alterar uma ID de locatário do cofre de chaves após a movimentação de uma assinatura](../key-vault/general/move-subscription.md). Se você excluiu o cofre de chaves:<ol><li>Sim, se estiver na duração da proteção de limpeza, usando as etapas em [recuperar um cofre de chaves](../key-vault/general/key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell).</li><li>Não, se estiver além da duração da proteção de limpeza.</li></ol><br>Caso contrário, se o cofre de chaves sofreu uma migração de locatário, sim, ele poderá ser recuperado usando uma das etapas a seguir: <ol><li>Reverter o cofre de chaves de volta para o locatário antigo.</li><li>Defina `Identity = None` e, em seguida, defina o valor de volta para `Identity = SystemAssigned` . Isso exclui e recria a identidade depois que a nova identidade é criada. Habilite `Get` `Wrap` `Unwrap` as permissões, e para a nova identidade na política de acesso do Key Vault.</li></ol> |
 | SsemUserErrorKeyVaultBadRequestException | Uma chave gerenciada pelo cliente foi aplicada, mas o acesso à chave não foi concedido ou foi revogado ou não é possível acessar o cofre de chaves devido ao firewall estar habilitado. | Adicione a identidade selecionada ao cofre de chaves para habilitar o acesso à chave gerenciada pelo cliente. Se o Key Vault tiver o firewall habilitado, alterne para uma identidade atribuída pelo sistema e adicione uma chave gerenciada pelo cliente. Para obter mais informações, consulte como [habilitar a chave](#enable-key). |
-| SsemUserErrorKeyVaultDetailsNotFound| Não foi possível buscar a chave de acesso porque o cofre de chaves associado à chave gerenciada pelo cliente não foi encontrado. | Se você excluiu o cofre de chaves, não é possível recuperar a chave gerenciada pelo cliente.  Se você migrou o cofre de chaves para um locatário diferente, consulte [alterar uma ID de locatário do cofre de chaves após a movimentação de uma assinatura](../key-vault/general/move-subscription.md). Se você excluiu o cofre de chaves:<ol><li>Sim, se estiver na duração da proteção de limpeza, usando as etapas em [recuperar um cofre de chaves](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault).</li><li>Não, se estiver além da duração da proteção de limpeza.</li></ol><br>Caso contrário, se o cofre de chaves sofreu uma migração de locatário, sim, ele poderá ser recuperado usando uma das etapas a seguir: <ol><li>Reverter o cofre de chaves de volta para o locatário antigo.</li><li>Defina `Identity = None` e, em seguida, defina o valor de volta para `Identity = SystemAssigned` . Isso exclui e recria a identidade depois que a nova identidade é criada. Habilite `Get` `Wrap` `Unwrap` as permissões, e para a nova identidade na política de acesso do Key Vault.</li></ol> |
+| SsemUserErrorKeyVaultDetailsNotFound| Não foi possível buscar a chave de acesso porque o cofre de chaves associado à chave gerenciada pelo cliente não foi encontrado. | Se você excluiu o cofre de chaves, não é possível recuperar a chave gerenciada pelo cliente.  Se você migrou o cofre de chaves para um locatário diferente, consulte [alterar uma ID de locatário do cofre de chaves após a movimentação de uma assinatura](../key-vault/general/move-subscription.md). Se você excluiu o cofre de chaves:<ol><li>Sim, se estiver na duração da proteção de limpeza, usando as etapas em [recuperar um cofre de chaves](../key-vault/general/key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell).</li><li>Não, se estiver além da duração da proteção de limpeza.</li></ol><br>Caso contrário, se o cofre de chaves sofreu uma migração de locatário, sim, ele poderá ser recuperado usando uma das etapas a seguir: <ol><li>Reverter o cofre de chaves de volta para o locatário antigo.</li><li>Defina `Identity = None` e, em seguida, defina o valor de volta para `Identity = SystemAssigned` . Isso exclui e recria a identidade depois que a nova identidade é criada. Habilite `Get` `Wrap` `Unwrap` as permissões, e para a nova identidade na política de acesso do Key Vault.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | Não foi possível buscar a chave de acesso porque a chave gerenciada pelo cliente não pôde ser encontrada.| Sim, verifique se: <ol><li>O cofre de chaves ainda tem o MSI na política de acesso.</li><li>A identidade é do tipo atribuído pelo sistema.</li><li>Habilite as permissões obter, encapsular e desencapsular para a identidade na política de acesso do cofre de chaves.</li></ol>|
 | SsemUserErrorUserAssignedLimitReached | Falha ao Adicionar nova identidade atribuída ao usuário, pois você atingiu o limite do número total de identidades atribuídas ao usuário que podem ser adicionadas. | Repita a operação com menos identidades de usuário ou remova algumas identidades atribuídas pelo usuário do recurso antes de tentar novamente. |
 | SsemUserErrorCrossTenantIdentityAccessForbidden | Falha na operação de acesso de identidade gerenciada. <br> Observação: isso é para o cenário quando a assinatura é movida para um locatário diferente. O cliente precisa mover manualmente a identidade para o novo locatário. PFA mail para obter mais detalhes. | Mova a identidade selecionada para o novo locatário no qual a assinatura está presente. Para obter mais informações, consulte como [habilitar a chave](#enable-key). |
@@ -201,5 +201,5 @@ Se você receber erros relacionados à chave gerenciada pelo cliente, use a tabe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [O que é o Azure Key Vault?](../key-vault/general/overview.md)
+- [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
 - [Início Rápido: definir e recuperar um segredo do Azure Key Vault usando o portal do Azure](../key-vault/secrets/quick-create-portal.md)

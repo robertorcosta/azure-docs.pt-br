@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359839"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790420"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -101,7 +101,7 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
 > Ao criar seu aplicativo Web, você também pode configurar a autorização/autenticação. Isso não é necessário para começar. 
 
 > [!IMPORTANT]
-> Talvez seja necessário habilitar o TLS para seu aplicativo Web a fim de exibi-lo em seu `https` endereço. Siga as instruções em [habilitar um ponto de extremidade TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) para configurar um contêiner sidecar do que permite o TLS/SSL para seu aplicativo Web.
+> Talvez seja necessário habilitar o TLS para seu aplicativo Web a fim de exibi-lo em seu `https` endereço. Siga as instruções em [habilitar um ponto de extremidade TLS](../../container-instances/container-instances-container-group-ssl.md) para configurar um contêiner sidecar do que permite o TLS/SSL para seu aplicativo Web.
 
 ### <a name="azure-cli"></a>CLI do Azure
 

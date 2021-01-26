@@ -3,15 +3,15 @@ title: Use uma galeria de imagens compartilhadas no Azure Lab Services | Microso
 description: Saiba como configurar uma conta de laboratório para usar uma galeria de imagens compartilhadas para que um usuário possa compartilhar uma imagem com outra e outro usuário possa usar a imagem para criar uma VM modelo no laboratório.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: d9f4e75163f591680cc8f85ac42c1b6ada5f2365
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 984cb4c47099928ffab327895a728cbe8a8f9604
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647759"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791383"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usar uma galeria de imagens compartilhadas no Azure Lab Services
-Este artigo mostra como educadores/administradores de laboratório podem salvar um modelo de imagem de máquina virtual em uma [galeria de imagens compartilhada](../virtual-machines/windows/shared-image-galleries.md) para que ela possa ser usada por outras pessoas para criar laboratórios. 
+Este artigo mostra como educadores/administradores de laboratório podem salvar um modelo de imagem de máquina virtual em uma [galeria de imagens compartilhada](../virtual-machines/shared-image-galleries.md) para que ela possa ser usada por outras pessoas para criar laboratórios. 
 
 > [!IMPORTANT]
 > Ao usar uma galeria de imagens compartilhadas, o Azure Lab Services dá suporte apenas a imagens com menos de 128 GB de espaço em disco do sistema operacional. Imagens com mais de 128 GB de espaço em disco ou vários discos não serão mostradas na lista de imagens de máquina virtual durante a criação do laboratório.
@@ -48,7 +48,7 @@ Depois que uma galeria de imagens compartilhadas é anexada, um administrador de
     Depois de salvar a imagem na galeria de imagens compartilhadas, você poderá usar essa imagem na galeria para criar outro laboratório. Você também pode carregar uma imagem na galeria de imagens compartilhadas fora do contexto de um laboratório. Para obter mais informações, consulte [Visão geral da galeria de imagens compartilhadas](../virtual-machines/shared-images-powershell.md). 
 
     > [!IMPORTANT]
-    > Quando você [salva uma imagem de modelo de um laboratório](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) no Azure Lab Services em uma galeria de imagens compartilhada, a imagem é carregada na galeria como uma **imagem especializada**. [Imagens especializadas](../virtual-machines/windows/shared-image-galleries.md#generalized-and-specialized-images) mantêm informações específicas do computador e perfis de usuário. Você ainda pode carregar diretamente uma imagem generalizada para a Galeria fora do Azure Lab Services.    
+    > Quando você [salva uma imagem de modelo de um laboratório](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) no Azure Lab Services em uma galeria de imagens compartilhada, a imagem é carregada na galeria como uma **imagem especializada**. [Imagens especializadas](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) mantêm informações específicas do computador e perfis de usuário. Você ainda pode carregar diretamente uma imagem generalizada para a Galeria fora do Azure Lab Services.    
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Salvar uma imagem da galeria de imagens compartilhadas
 Um educador pode escolher uma imagem personalizada disponível na galeria de imagens compartilhadas para usar como modelo durante a criação do novo laboratório.
@@ -60,4 +60,4 @@ Um educador pode escolher uma imagem personalizada disponível na galeria de ima
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre galerias de imagens compartilhadas, consulte [galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md).
+Para obter mais informações sobre galerias de imagens compartilhadas, consulte [galeria de imagens compartilhadas](../virtual-machines/shared-image-galleries.md).

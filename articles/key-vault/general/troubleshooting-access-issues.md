@@ -7,19 +7,19 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 8e4e64cd872794354479c29d4aaa000cee45c5a3
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: c5fab8b856ff9c82a0de887dc9c322dbf541348b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901208"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791400"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solucionar problemas de política de acesso do Azure Key Vault
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
 ### <a name="i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error"></a>Não consigo listar ou obter segredos/chaves/certificado. Estou vendo "algo deu errado..." Erro.
-Se tiver problemas ao listar/obter/criar ou acessar o segredo, verifique se você tem a política de acesso definida para realizar essa operação: [Políticas de acesso ao Key Vault](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+Se tiver problemas ao listar/obter/criar ou acessar o segredo, verifique se você tem a política de acesso definida para realizar essa operação: [Políticas de acesso ao Key Vault](./assign-access-policy-cli.md)
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>Como identificar como e quando os cofres de chaves são acessados?
 

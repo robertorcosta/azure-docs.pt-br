@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e92b17a5743e983ca3e77ad18c0973b9f056dfbd
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 40ce5f55b4109fee0099110c17f02b33c3eff808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611161"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791417"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -74,7 +74,7 @@ Para obter mais informações sobre o Libarary do cliente de identidade do Azure
 |[SDK .NET do Azure Identity](/dotnet/api/overview/azure/identity-readme)|[Python do SDK do Azure Identity](/python/api/overview/azure/identity-readme)|[SDK do Azure Identity do Java](/java/api/overview/azure/identity-readme)|[JavaScript do SDK de identidade do Azure](/javascript/api/overview/azure/identity-readme)|     
 
 >[!Note]
-> [Biblioteca de autenticação de aplicativo](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication) recomendada para Key Vault SDK do .NET versão 3, que atualmente é preterida. Siga as [diretrizes de migração do AppAuthentication para o Azure. Identity](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration) para migrar para Key Vault o SDK do .NET versão 4.
+> [Biblioteca de autenticação de aplicativo](/dotnet/api/overview/azure/service-to-service-authentication) recomendada para Key Vault SDK do .NET versão 3, que atualmente é preterida. Siga as [diretrizes de migração do AppAuthentication para o Azure. Identity](/dotnet/api/overview/azure/app-auth-migration) para migrar para Key Vault o SDK do .NET versão 4.
 
 Para obter tutoriais sobre como se autenticar no Key Vault em aplicativos, consulte:
 - [Autenticar para Key Vault no aplicativo hospedado na VM no .NET](./tutorial-net-virtual-machine.md)
@@ -89,7 +89,7 @@ O acesso a chaves, segredos e certificados é controlado pelo plano de dados. O 
 
 | CLI do Azure | PowerShell | API REST | Gerenciador de Recursos | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Referência](/cli/azure/keyvault/key)<br>[Início rápido](../keys/quick-create-cli.md)|[Referência](/powershell/module/az.keyvault/)<br>[Início rápido](../keys/quick-create-powershell.md)|[Referência](/rest/api/keyvault/#key-operations)|[Referência](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[Início rápido](../keys/quick-create-template.md)|[Referência](/dotnet/api/azure.security.keyvault.keys)<br>[Início rápido](../keys/quick-create-net.md)|[Referência](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Início rápido](../keys/quick-create-python.md)|[Referência](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Início rápido](../keys/quick-create-java.md)|[Referência](/javascript/api/@azure/keyvault-keys/)<br>[Início rápido](../keys/quick-create-node.md)|
+|[Referência](/cli/azure/keyvault/key)<br>[Início rápido](../keys/quick-create-cli.md)|[Referência](/powershell/module/az.keyvault/)<br>[Início rápido](../keys/quick-create-powershell.md)|[Referência](/rest/api/keyvault/#key-operations)|[Referência](/azure/templates/microsoft.keyvault/vaults/keys)<br>[Início rápido](../keys/quick-create-template.md)|[Referência](/dotnet/api/azure.security.keyvault.keys)<br>[Início rápido](../keys/quick-create-net.md)|[Referência](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Início rápido](../keys/quick-create-python.md)|[Referência](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Início rápido](../keys/quick-create-java.md)|[Referência](/javascript/api/@azure/keyvault-keys/)<br>[Início rápido](../keys/quick-create-node.md)|
 
 **APIs e SDKs de certificados**
 

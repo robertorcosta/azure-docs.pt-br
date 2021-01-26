@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d881394391b7967fe602155eefc9844e013de34e
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724741"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790284"
 ---
-# <a name="moving-an-azure-key-vault-to-another-subscription"></a>Movendo um Azure Key Vault para outra assinatura
+# <a name="moving-an-azure-key-vault-to-another-subscription"></a>Como migrar um Azure Key Vault para outra assinatura
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -29,7 +29,7 @@ ms.locfileid: "97724741"
 > Verifique se você entendeu o impacto dessa alteração e siga as orientações neste artigo cuidadosamente antes de decidir mover o cofre de chaves para uma nova assinatura.
 > Se você estiver usando o MSI (identidades de serviço gerenciado), leia as instruções de pós-atualização no final do documento. 
 
-[Azure Key Vault](overview.md) é automaticamente vinculado à ID de locatário de [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) padrão para a assinatura na qual ela é criada. Você pode encontrar a ID de locatário associada à sua assinatura seguindo este [guia](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant). Todas as entradas de política de acesso e atribuições de funções também estão ligadas a essa ID de locatário.  Se você mover sua assinatura do Azure do locatário A para o locatário B, seus cofres de chaves existentes ficarão inacessíveis pelas entidades de serviço (usuários e aplicativos) no locatário B. Para corrigir esse problema, você precisa:
+[Azure Key Vault](overview.md) é automaticamente vinculado à ID de locatário de [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) padrão para a assinatura na qual ela é criada. Você pode encontrar a ID de locatário associada à sua assinatura seguindo este [guia](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). Todas as entradas de política de acesso e atribuições de funções também estão ligadas a essa ID de locatário.  Se você mover sua assinatura do Azure do locatário A para o locatário B, seus cofres de chaves existentes ficarão inacessíveis pelas entidades de serviço (usuários e aplicativos) no locatário B. Para corrigir esse problema, você precisa:
 
 * Alterar a ID do locatário associada a todos os cofres de chaves existentes na assinatura para o locatário B.
 * Remover todas as entradas de política de acesso existentes.
@@ -37,8 +37,8 @@ ms.locfileid: "97724741"
 
 Para obter mais informações sobre Azure Key Vault e Azure Active Directory, consulte
 - [Sobre o Azure Key Vault](overview.md)
-- [O que é Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-- [Como localizar a ID do locatário](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant)
+- [O que é Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Como localizar a ID do locatário](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
 
 ## <a name="limitations"></a>Limitações
 
@@ -49,11 +49,11 @@ Algumas entidades de serviço (usuários e aplicativos) estão associadas a um l
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Acesso de nível de [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ou superior à assinatura atual em que o cofre de chaves existe. Você pode atribuir função usando [portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)ou [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Acesso de nível de [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) ou superior à assinatura em que você deseja mover o cofre de chaves. Você pode atribuir função usando [portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)ou [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Um grupo de recursos na nova assinatura. Você pode criar um usando [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell)ou [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli).
+* Acesso de nível de [colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou superior à assinatura atual em que o cofre de chaves existe. Você pode atribuir função usando [portal do Azure](../../role-based-access-control/role-assignments-portal.md), [CLI do Azure](../../role-based-access-control/role-assignments-cli.md)ou [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Acesso de nível de [colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou superior à assinatura em que você deseja mover o cofre de chaves. Você pode atribuir função usando [portal do Azure](../../role-based-access-control/role-assignments-portal.md), [CLI do Azure](../../role-based-access-control/role-assignments-cli.md)ou [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Um grupo de recursos na nova assinatura. Você pode criar um usando [portal do Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md), [PowerShell](../../azure-resource-manager/management/manage-resource-groups-powershell.md)ou [CLI do Azure](../../azure-resource-manager/management/manage-resource-groups-cli.md).
 
-Você pode verificar as funções existentes usando [portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal), [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell), [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli)ou [API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest).
+Você pode verificar as funções existentes usando [portal do Azure](../../role-based-access-control/role-assignments-list-portal.md), [PowerShell](../../role-based-access-control/role-assignments-list-powershell.md), [CLI do Azure](../../role-based-access-control/role-assignments-list-cli.md)ou [API REST](../../role-based-access-control/role-assignments-list-rest.md).
 
 
 ## <a name="moving-a-key-vault-to-a-new-subscription"></a>Movendo um cofre de chaves para uma nova assinatura
@@ -96,7 +96,7 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 ### <a name="update-access-policies-and-role-assignments"></a>Atualizar políticas de acesso e atribuições de função
 
 > [!NOTE]
-> Se Key Vault estiver usando o modelo de permissão [RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) . Você também precisa remover as atribuições de função do cofre de chaves. Você pode remover atribuições de função usando o [portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), [CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)ou [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell). 
+> Se Key Vault estiver usando o modelo de permissão [RBAC do Azure](../../role-based-access-control/overview.md) . Você também precisa remover as atribuições de função do cofre de chaves. Você pode remover atribuições de função usando o [portal do Azure](../../role-based-access-control/role-assignments-portal.md), [CLI do Azure](../../role-based-access-control/role-assignments-cli.md)ou [PowerShell](../../role-based-access-control/role-assignments-powershell.md). 
 
 Agora que seu cofre está associado à ID de locatário correta e às entradas de política de acesso antigas ou a atribuições de função foram removidas, defina novas entradas de política de acesso ou atribuições de função.
 
@@ -106,9 +106,9 @@ Para atribuir políticas, consulte:
 - [Atribuir uma política de acesso usando o PowerShell](assign-access-policy-powershell.md)
 
 Para adicionar atribuições de função, consulte:
-- [Adicionar atribuição de função usando o portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Adicionar atribuição de função usando CLI do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Adicionar atribuição de função usando o PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+- [Adicionar atribuição de função usando o portal](../../role-based-access-control/role-assignments-portal.md)
+- [Adicionar atribuição de função usando CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Adicionar atribuição de função usando o PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>Atualizar identidades gerenciadas

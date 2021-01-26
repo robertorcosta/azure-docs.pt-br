@@ -8,12 +8,12 @@ ms.author: mbaldwin
 author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a6b3e4c6354c292d000a307bc25f8532aa9a096
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: a8e8e791f0dbe18322ad43364ae4ffd09b430caf
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250784"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790377"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gerenciamento de recuperação do Azure Key Vault com exclusão reversível e proteção de limpeza
 
@@ -26,10 +26,15 @@ Para obter mais informações sobre Key Vault, consulte
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/dotnet)
-* [Módulo do PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+* [Módulo do PowerShell](/powershell/azure/install-az-ps).
 * [CLI do Azure](/cli/azure/install-azure-cli)
 * Um Key Vault – crie um usando o [portal do Azure](../general/quick-create-portal.md), a [CLI do Azure](../general/quick-create-cli.md) ou o [Azure PowerShell](../general/quick-create-powershell.md)
-* O usuário precisará das seguintes permissões (no nível da assinatura) para executar operações em cofres excluídos de forma reversível: | Microsoft. keyvault/Locations/deletedVaults/Read | Exibir as propriedades de um cofre de chaves com exclusão reversível | | Microsoft. keyvault/Locations/deletedVaults/limpeza/ação | Limpar um cofre de chaves com exclusão reversível |
+* O usuário precisará das seguintes permissões (no nível da assinatura) para executar operações em cofres excluídos de forma reversível:
+
+  | Permissão | Descrição |
+  |---|---|
+  |Microsoft.KeyVault/locations/deletedVaults/read|Exibir as propriedades de um cofre de chaves com exclusão reversível|
+  |Microsoft.KeyVault/locations/deletedVaults/purge/action|Limpar um cofre de chaves com exclusão reversível|
 
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>O que é exclusão reversível e limpar a proteção
@@ -50,7 +55,7 @@ A **proteção de limpeza** é projetada para impedir a exclusão de seu cofre d
 
 Para obter mais informações sobre a exclusão reversível, consulte [visão geral da exclusão de Azure Key Vault reversível](soft-delete-overview.md)
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 ## <a name="verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete"></a>Verifique se a exclusão reversível está habilitada em um cofre de chaves e habilite a exclusão reversível
 
@@ -390,8 +395,8 @@ Para obter mais informações sobre a exclusão reversível, consulte [visão ge
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Azure Key Vault cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault)
-- [Comandos de CLI do Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault)
+- [Azure Key Vault cmdlets do PowerShell](/powershell/module/az.keyvault)
+- [Comandos de CLI do Azure Key Vault](/cli/azure/keyvault)
 - [Backup do Azure Key Vault](backup.md)
 - [Como habilitar o registro em log do Key Vault](howto-logging.md)
 - [Proteger o acesso a um cofre de chaves](secure-your-key-vault.md)

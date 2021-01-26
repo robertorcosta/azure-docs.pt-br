@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511722"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790979"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: investigar incidentes com o Azure Sentinel
 
 > [!IMPORTANT]
-> O grafo de investigação está atualmente em **Visualização**. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
-
+> O grafo de investigação agora está em **disponibilidade geral**. 
 
 Este tutorial ajuda você a investigar incidentes com o Azure Sentinel. Depois de conectar suas fontes de dados ao Azure Sentinel, você deseja ser notificado quando algo suspeito acontecer. Para permitir que você faça isso, o Azure Sentinel permite que você crie regras de alerta avançadas, que geram incidentes que você pode atribuir e investigar.
 
@@ -113,10 +112,10 @@ Para usar o grafo de investigação:
 
 Depois de resolver um incidente específico (por exemplo, quando sua investigação tiver atingido sua conclusão), defina o status do incidente como **fechado**. Ao fazer isso, você será solicitado a classificar o incidente especificando o motivo pelo qual está fechando-o. Esta etapa é obrigatória. Clique em **selecionar classificação** e escolha uma das opções a seguir na lista suspensa:
 
-- Verdadeiro positivo – atividade suspeita
-- Benigno positivo-suspeito, mas esperado
-- Falso positivo – lógica de alerta incorreta
-- Falsos positivos-dados incorretos
+- Verdadeiro Positivo – atividade suspeita
+- Benigno Positivo – suspeito, mas esperado
+- Falso Positivo – lógica do alerta incorreta
+- Falso Positivo – dados incorretos
 - Indeterminado
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Captura de tela que realça as classificações disponíveis na lista Selecionar classificação.":::

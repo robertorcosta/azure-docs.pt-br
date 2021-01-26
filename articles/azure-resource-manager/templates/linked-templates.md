@@ -2,13 +2,13 @@
 title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo de Azure Resource Manager (modelo ARM) para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: dd810167e07f1bb23f9563936cb481652953ccd1
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 01/25/2021
+ms.openlocfilehash: 7d4df67b7f69b3e58799f45ad72bd9ed68540dc2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624851"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790928"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -111,6 +111,10 @@ Você define o escopo por meio da `expressionEvaluationOptions` propriedade. Por
   },
   ...
 ```
+
+> [!NOTE]
+>
+> Quando o escopo é definido como `outer` , não é possível usar a `reference` função na seção de saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, use `inner` Scope ou Converta seu modelo aninhado em um modelo vinculado.
 
 O modelo a seguir demonstra como as expressões de modelo são resolvidas de acordo com o escopo. Ele contém uma variável chamada `exampleVar` que é definida no modelo pai e no modelo aninhado. Ele retorna o valor da variável.
 
@@ -399,10 +403,6 @@ O trecho a seguir mostra quais valores são seguros e quais não são seguros.
   ]
 }
 ```
-
-> [!NOTE]
->
-> Quando o escopo é definido como `outer` , não é possível usar a `reference` função na seção de saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, use `inner` Scope ou Converta seu modelo aninhado em um modelo vinculado.
 
 ## <a name="linked-template"></a>Modelo vinculado
 

@@ -4,12 +4,12 @@ description: Saiba como usar ASP.NET Core em aplicativos com e sem estado do Azu
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a125c6a1972b51f518175a4c69248119f71ada7c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576784"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791587"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core no Service Fabric do Azure Reliable Services
 
@@ -190,7 +190,7 @@ Uma porta dinâmica alocada por uma `Endpoint` configuração fornece apenas uma
 ## <a name="kestrel-in-reliable-services"></a>Kestrel em Serviços Confiáveis
 Você pode usar o Kestrel em Reliable Services importando o pacote NuGet **Microsoft. Microsoft. AspNetCore. Kestrel** . Este pacote contém `KestrelCommunicationListener` , uma implementação do `ICommunicationListener` . `KestrelCommunicationListener` permite que você crie um Webhost ASP.NET Core dentro de um serviço confiável usando o Kestrel como o servidor Web.
 
-O Kestrel é um servidor Web multiplataforma para o ASP.NET Core. Ao contrário de HTTP.sys, Kestrel não usa um Gerenciador de ponto de extremidade centralizado. Além disso, ao contrário de HTTP.sys, o Kestrel não dá suporte ao compartilhamento de porta entre vários processos. Cada instância do Kestrel deve usar uma porta exclusiva. Para obter mais informações sobre Kestrel, consulte os [detalhes da implementação](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
+O Kestrel é um servidor Web multiplataforma para o ASP.NET Core. Ao contrário de HTTP.sys, Kestrel não usa um Gerenciador de ponto de extremidade centralizado. Além disso, ao contrário de HTTP.sys, o Kestrel não dá suporte ao compartilhamento de porta entre vários processos. Cada instância do Kestrel deve usar uma porta exclusiva. Para obter mais informações sobre Kestrel, consulte os [detalhes da implementação](/aspnet/core/fundamentals/servers/kestrel).
 
 ![Diagrama de Kestrel][4]
 

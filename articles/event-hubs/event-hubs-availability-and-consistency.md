@@ -4,12 +4,12 @@ description: Como fornecer o máximo de disponibilidade e consistência com os H
 ms.topic: article
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5ffa2df992eb0c22aafbbb7436250405998d8073
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 884fe878b9524dcf8d97d1123dce35e02af34a24
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762808"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790742"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência nos Hubs de Eventos
 
@@ -26,7 +26,7 @@ O teorema de Brewer define a consistência e a disponibilidade como a seguir:
 > [!NOTE]
 > O termo **partição** é usado em diferentes contextos em hubs de eventos e teorema Cap. 
 > - Os **hubs de eventos** organizam eventos em uma ou mais partições. As partições são independentes e contêm sua própria sequência de dados, elas geralmente crescem em taxas diferentes. Para saber mais, confira [Partições](event-hubs-features.md#partitions).
-> - No **Cap teorema**, uma partição é uma quebra de comunicação entre nós em um sistema distribuído.
+> - No **Cap teorema**, uma partição é uma interrupção de comunicação entre os nós em um sistema distribuído.
 
 ## <a name="partition-tolerance"></a>Tolerância a partição
 Os Hubs de Eventos são criados sobre um modelo de dados particionado. Você pode configurar o número de partições no seu hub de eventos durante a instalação, mas você não pode alterar este valor posteriormente. Já que você deve usar partições com Hubs de Eventos, você precisa tomar uma decisão quanto à disponibilidade e à consistência do seu aplicativo.

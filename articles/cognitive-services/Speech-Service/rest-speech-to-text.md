@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1577d63822bdb21eff7fcbb3e1343243a3004409
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70c5593f29b5e83d5d3f318179d365a9235849ca
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033635"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790606"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
 A conversão de fala em texto tem duas APIs REST diferentes. Cada API atende a sua finalidade especial e usa conjuntos diferentes de pontos de extremidade.
 
 As APIs REST de conversão de fala em texto são:
-- [A API REST de fala em texto v 3.0](#speech-to-text-rest-api-v30) é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . o v 3.0 é um [sucessor da v 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+- [A API REST de fala em texto v 3.0](#speech-to-text-rest-api-v30) é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . o v 3.0 é um [sucessor da v 2.0](./migrate-v2-to-v3.md).
 - A [API REST de conversão de fala em texto para áudio curto](#speech-to-text-rest-api-for-short-audio) é usada para a transcrição online como uma alternativa ao [SDK de fala](speech-sdk.md). As solicitações que usam essa API podem transmitir apenas até 60 segundos de áudio por solicitação. 
 
 ## <a name="speech-to-text-rest-api-v30"></a>API REST de conversão de fala em texto v 3.0
@@ -45,7 +45,7 @@ A API REST v 3.0 inclui recursos como:
 
 Veja exemplos sobre como usar a API REST v 3.0 com a transcrição do lote [neste artigo](batch-transcription.md).
 
-Se você estiver usando a API REST de fala em texto v 2.0, veja como migrar para o v 3.0 neste [guia](/azure/cognitive-services/speech-service/migrate-v2-to-v3).
+Se você estiver usando a API REST de fala em texto v 2.0, veja como migrar para o v 3.0 neste [guia](./migrate-v2-to-v3.md).
 
 Consulte a referência completa da API REST de fala em texto v 3.0 [aqui](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
@@ -86,7 +86,7 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 
 | Parâmetro | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Obrigatório |
+| `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Necessária |
 | `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem quatro representações diferentes de texto de exibição. A configuração padrão é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked` , que substitui profanação por asteriscos, `removed` , que remove toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
 | `cid` | Ao usar o [portal de fala personalizada](./custom-speech-overview.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o argumento para o `cid` parâmetro de cadeia de caracteres de consulta. | Opcional |
@@ -100,7 +100,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações d
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
 | `Pronunciation-Assessment` | Especifica os parâmetros para mostrar as pontuações de pronúncia nos resultados de reconhecimento, que avaliam a qualidade de pronúncia da entrada de fala, com indicadores de precisão, fluência, integridade, etc. Esse parâmetro é um JSON codificado em base64 contendo vários parâmetros detalhados. Consulte [parâmetros de avaliação de pronúncia](#pronunciation-assessment-parameters) para saber como criar esse cabeçalho. | Opcional |
-| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obrigatório |
+| `Content-type` | Descreve o formato e o codec dos dados de áudio fornecidos. Os valores aceitos são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessária |
 | `Transfer-Encoding` | Especifica que os dados de áudio em partes estão sendo enviados, em vez de um único arquivo. Use este cabeçalho somente se agrupar dados de áudio. | Opcional |
 | `Expect` | Se usar transferência em partes, envie `Expect: 100-continue`. O serviço de Fala reconhece a solicitação inicial e aguarda os dados adicionais.| Necessário se enviar dados de áudio em partes. |
 | `Accept` | Se fornecido, deve ser `application/json`. O serviço de fala fornece resultados em JSON. Algumas estruturas de solicitação fornecem um valor padrão incompatível. É uma boa prática sempre incluir `Accept` . | Opcional, mas recomendado. |
@@ -123,7 +123,7 @@ Esta tabela lista os parâmetros obrigatórios e opcionais para avaliação de p
 
 | Parâmetro | Descrição | Necessário? |
 |-----------|-------------|---------------------|
-| ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Obrigatório |
+| ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Necessária |
 | GradingSystem | O sistema de ponto para a calibragem de pontuação. O `FivePoint` sistema fornece uma pontuação de ponto flutuante de 0-5 e `HundredMark` fornece uma pontuação de ponto flutuante de 0-100. Padrão: `FivePoint`. | Opcional |
 | Granularidade | A granularidade da avaliação. Os valores aceitos são `Phoneme` , que mostra a pontuação no nível de texto completo, Word e fonema, `Word` , que mostra a pontuação no texto completo e no nível de palavra, `FullText` , que mostra a pontuação somente no nível de texto completo. A configuração padrão é `Phoneme`. | Opcional |
 | Dimensão | Define os critérios de saída. Os valores aceitos são `Basic` , que mostram apenas a pontuação de precisão, `Comprehensive` mostra pontuações em mais dimensões (por exemplo, Pontuação fluência e pontuação de integridade no nível de texto completo, tipo de erro no nível de palavra). Verifique os [parâmetros de resposta](#response-parameters) para ver as definições de diferentes dimensões de Pontuação e tipos de erro do Word. A configuração padrão é `Basic`. | Opcional |

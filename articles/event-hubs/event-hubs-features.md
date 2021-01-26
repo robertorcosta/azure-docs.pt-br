@@ -3,12 +3,12 @@ title: Visão geral dos recursos - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece detalhes sobre os recursos e a terminologia dos Hubs de Eventos do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 60dc964d1b827eec75ee4f65a5776710e57fd6eb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195782"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791939"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
@@ -56,7 +56,7 @@ Os eventos publicados são removidos de um hub de eventos com base em uma polít
 >
 > A [captura de hubs de eventos](event-hubs-capture-overview.md) integra-se diretamente com o armazenamento de BLOBs do azure e Azure data Lake Storage e, por meio dessa integração, também permite o fluxo de [eventos diretamente no Azure Synapse](store-captured-data-data-warehouse.md).
 >
-> Se você quiser usar o padrão de [fornecimento do evento](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) para seu aplicativo, você deve alinhar sua estratégia de instantâneo com os limites de retenção dos hubs de eventos. Não se desempenhe para recompilar exibições materializadas de eventos brutos a partir do início do tempo. Com certeza, você teria de alterar essa estratégia depois que seu aplicativo estiver em produção por um tempo e estiver bem utilizado, e seu construtor de projeção precisará fazer a variação por anos de eventos de alteração ao tentar obter as alterações mais recentes e em andamento. 
+> Se você quiser usar o padrão de [fornecimento do evento](/azure/architecture/patterns/event-sourcing) para seu aplicativo, você deve alinhar sua estratégia de instantâneo com os limites de retenção dos hubs de eventos. Não se desempenhe para recompilar exibições materializadas de eventos brutos a partir do início do tempo. Com certeza, você teria de alterar essa estratégia depois que seu aplicativo estiver em produção por um tempo e estiver bem utilizado, e seu construtor de projeção precisará fazer a variação por anos de eventos de alteração ao tentar obter as alterações mais recentes e em andamento. 
 
 
 ### <a name="publisher-policy"></a>Política de editor

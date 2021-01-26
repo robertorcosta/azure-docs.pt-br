@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: fd04e5a7f084de7a95f20b54b99a9e4590f10cd7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7df9f7d072af7c5f6523fd1be0432ce51954fa10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034757"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791872"
 ---
 # <a name="call-functions-from-azure-logic-apps"></a>Chamar funções de aplicativos lógicos do Azure
 
@@ -31,7 +31,7 @@ Para executar trechos de código sem usar Azure Functions, saiba como [Adicionar
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Um aplicativo de funções, que é um contêiner para uma função que é criada no Azure Functions, juntamente com a função que você cria. Se você não tiver um aplicativo de funções, [crie primeiro o aplicativo de função](../azure-functions/functions-create-first-azure-function.md). Em seguida, você pode criar sua função fora do seu aplicativo lógico no portal do Azure ou [de dentro de seu aplicativo lógico](#create-function-designer) no Designer do Aplicativo Lógico.
+* Um aplicativo de funções, que é um contêiner para uma função que é criada no Azure Functions, juntamente com a função que você cria. Se você não tiver um aplicativo de funções, [crie primeiro o aplicativo de função](../azure-functions/functions-get-started.md). Em seguida, você pode criar sua função fora do seu aplicativo lógico no portal do Azure ou [de dentro de seu aplicativo lógico](#create-function-designer) no Designer do Aplicativo Lógico.
 
 * Ao trabalhar com aplicativos lógicos, os mesmos requisitos se aplicam aos aplicativos de funções e às funções, existentes ou novos:
 
@@ -102,9 +102,9 @@ Agora que você criou sua função no Azure, siga as etapas para [adicionar fun�
 
 ## <a name="create-functions-inside-logic-apps"></a>Criar funções dentro de aplicativos lógicos
 
-Você pode criar funções diretamente do fluxo de trabalho do seu aplicativo lógico usando a ação de Azure Functions interna no designer do aplicativo lógico, mas você pode usar esse método somente para funções escritas em JavaScript. Para outros idiomas, você pode criar funções por meio da experiência de Azure Functions no portal do Azure. Para obter mais informações, consulte [Criar sua primeira função no portal do Azure](../azure-functions/functions-create-first-azure-function.md).
+Você pode criar funções diretamente do fluxo de trabalho do seu aplicativo lógico usando a ação de Azure Functions interna no designer do aplicativo lógico, mas você pode usar esse método somente para funções escritas em JavaScript. Para outros idiomas, você pode criar funções por meio da experiência de Azure Functions no portal do Azure. Para obter mais informações, consulte [Criar sua primeira função no portal do Azure](../azure-functions/functions-get-started.md).
 
-No entanto, antes de poder criar sua função no Azure, você já deve ter um aplicativo de funções, que é um contêiner para suas funções. Se você não tiver um aplicativo de funções, crie primeiro o aplicativo de função. Veja [Crie sua primeira função no portal do Azure](../azure-functions/functions-create-first-azure-function.md).
+No entanto, antes de poder criar sua função no Azure, você já deve ter um aplicativo de funções, que é um contêiner para suas funções. Se você não tiver um aplicativo de funções, crie primeiro o aplicativo de função. Veja [Crie sua primeira função no portal do Azure](../azure-functions/functions-get-started.md).
 
 1. No [portal do Azure](https://portal.azure.com), abra o aplicativo lógico no Designer do aplicativo lógico.
 

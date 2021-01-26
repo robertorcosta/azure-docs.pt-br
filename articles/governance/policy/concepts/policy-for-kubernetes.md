@@ -3,12 +3,12 @@ title: Saiba Azure Policy para kubernetes
 description: Saiba como o Azure Policy usa o Rego e o Open Policy Agent para gerenciar clusters que executam o Kubernetes no Azure ou localmente.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: e2b9253d8ce60d5dc77d406e3c9d0469539f2c77
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: f25b64bc28535d125c7883f16c9e747d6250ca96
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511324"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789731"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Noções básicas sobre clusters do Azure Policy para Kubernetes
 
@@ -463,7 +463,7 @@ Para obter mais informações, confira [Depuração do Gatekeeper](https://githu
 
 ## <a name="troubleshooting-the-add-on"></a>Solução de problemas do complemento
 
-Para obter mais informações sobre como solucionar problemas do complemento para kubernetes, consulte a [seção kubernetes](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors) do artigo Azure Policy solução de problemas.
+Para obter mais informações sobre como solucionar problemas do complemento para kubernetes, consulte a [seção kubernetes](../troubleshoot/general.md#add-on-for-kubernetes-general-errors) do artigo Azure Policy solução de problemas.
 
 ## <a name="remove-the-add-on"></a>Remover o complemento
 

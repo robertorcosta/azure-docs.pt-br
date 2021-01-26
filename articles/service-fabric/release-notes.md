@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: bb7708514de6a1d68ecad0c142d68c321293d728
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 41aa7f251bc12fd889a71f65da83c4730ebda9a7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219616"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789626"
 ---
 # <a name="service-fabric-releases"></a>Versões Service Fabric
 
@@ -117,7 +117,7 @@ Também atualizaremos nossas datas de lançamento planejadas para indicar que le
 #### <a name="key-announcements"></a>Principais anúncios
  - [**Suporte KeyVaultReference para segredos do aplicativo (versão prévia)**](./service-fabric-keyvault-references.md): Service Fabric aplicativos que habilitaram [identidades gerenciadas](./concepts-managed-identity.md) agora podem fazer referência diretamente a uma URL secreta Key Vault como uma variável de ambiente, um parâmetro de aplicativo ou uma credencial de repositório de contêiner. Service Fabric resolverá automaticamente o segredo usando a identidade gerenciada do aplicativo. 
      
-- **Segurança de atualização aprimorada para serviços sem estado**: para garantir a disponibilidade durante uma atualização de aplicativo, introduzimos novas configurações para definir o [número mínimo de instâncias para que os serviços sem estado](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) sejam considerados disponíveis. Anteriormente, esse valor era 1 para todos os serviços e não era possível alterá-lo. Com essa nova verificação de segurança por serviço, você pode garantir que seus serviços mantenham um número mínimo de instâncias acima durante atualizações de aplicativos, atualizações de cluster e outras manutenções que se baseiam em verificações de integridade e segurança de Service Fabric.
+- **Segurança de atualização aprimorada para serviços sem estado**: para garantir a disponibilidade durante uma atualização de aplicativo, introduzimos novas configurações para definir o [número mínimo de instâncias para que os serviços sem estado](/dotnet/api/system.fabric.description.statelessservicedescription) sejam considerados disponíveis. Anteriormente, esse valor era 1 para todos os serviços e não era possível alterá-lo. Com essa nova verificação de segurança por serviço, você pode garantir que seus serviços mantenham um número mínimo de instâncias acima durante atualizações de aplicativos, atualizações de cluster e outras manutenções que se baseiam em verificações de integridade e segurança de Service Fabric.
   
 - [**Limites de recursos para serviços de usuário**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): os usuários podem configurar limites de recursos para os serviços de usuário em um nó para evitar cenários como esgotamento de recursos dos serviços do sistema Service Fabric. 
   
