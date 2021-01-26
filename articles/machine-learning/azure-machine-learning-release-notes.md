@@ -9,16 +9,45 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 11aa739beeb07c3de056d8a2430b556fcc40b178
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 6e92fb39845944898bebf6446c35f0932e13b5b8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746723"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788868"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
+
+ ## <a name="2021-01-25"></a>2021-01-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Azure Machine Learning SDK para Python v 1.21.0
++ **Correções de bugs e melhorias**
+  + **azure-cli-ml**
+    + Corrigido o texto de ajuda da CLI ao usar o AmlCompute com a identidade do userassigned
+  + **azureml-contrib-automl-DNN-Vision**
+    + Os botões implantar e baixar ficarão visíveis para as execuções da visão AutoML, e os modelos poderão ser implantados ou baixados de forma semelhante a outras execuções do AutoML. Há dois novos arquivos (scoring_file_v_1_0_0. py e conda_env_v_1_0_0. yml) que contêm um script para executar inferência e um arquivo yml para recriar o ambiente Conda. O arquivo ' Model. PTH ' também foi renomeado para usar a extensão '. pt '.
+  + **azureml-core**
+    + Suporte a MSI para Azure-CLI-ml
+    + Suporte à identidade gerenciada atribuída pelo usuário.
+    + Com essa alteração, os clientes devem ser capazes de fornecer uma identidade atribuída pelo usuário que possa ser usada para buscar a chave do cofre de chaves do cliente para criptografia em repouso.
+    +  corrigir row_count = 0 para o perfil de arquivos muito grandes – correção de erro na conversão dupla para valores delimitados com preenchimento de espaço em branco
+    + Remover sinalizador experimental da GA do conjunto de resultados de saída
+    + Atualizar a documentação sobre como buscar uma versão específica de um modelo
+    + Permitir atualização de espaço de trabalho para acesso de modo misto no caso de link privado
+    + Correção para remover o registro adicional no repositório de armazenamento para o recurso de retomada de execução
+    + Adicionado suporte de CLI/SDK para atualizar a identidade de espaço de trabalho atribuída ao usuário principal
+  + **azureml-interpret**
+    + atualizado o azureml-interpretar para o 0.16.0 da comunidade de interpretação
+    + otimizações de memória para o cliente de explicação no azureml-interpret
+  + **azureml-train-automl-runtime**
+    + Streaming habilitado para execuções de ADB
+  + **azureml-train-core**
+    + Correção para remover o registro adicional no repositório de armazenamento para o recurso de retomada de execução
+  + **azureml-widgets**
+    + Os clientes não devem ver alterações na visualização de dados de execução existente usando o widget e agora terão suporte se usarem opcionalmente hiperparâmetros condicionais.
+    + O widget executar usuário agora inclui uma explicação detalhada de por que uma execução está no estado enfileirado.
 
 
  ## <a name="2021-01-11"></a>2021-01-11
@@ -118,7 +147,7 @@ Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obte
 ## <a name="2020-11-30"></a>2020-11-30
 ### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de novembro)
 + **Novos recursos**
-   + Terminal nativo. Agora, os usuários terão acesso a um terminal integrado, bem como a uma operação git por meio do [terminal integrado.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+   + Terminal nativo. Agora, os usuários terão acesso a um terminal integrado, bem como a uma operação git por meio do [terminal integrado.](./how-to-run-jupyter-notebooks.md#terminal)
   + Duplicar pasta 
   + Lista suspensa de custos para computação 
   + Pylance de computação offline 

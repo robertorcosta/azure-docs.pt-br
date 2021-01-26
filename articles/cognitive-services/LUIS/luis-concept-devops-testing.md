@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561215"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788444"
 ---
 # <a name="testing-for-luis-devops"></a>Teste para DevOps do LUIS
 
@@ -28,7 +28,7 @@ Há dois tipos diferentes de teste para um aplicativo LUIS que você precisa exe
 Esse tipo de teste é semelhante ao [teste interativo](./luis-concept-test.md) que você pode fazer no [portal do Luis](https://www.luis.ai/).
 
 - **Testes em lote** -o teste em lote é um teste abrangente de seu modelo treinado atual para medir seu desempenho. Diferentemente dos testes de unidade, os testes em lote não são aprovados | falha no teste. A expectativa de teste em lote não é que cada teste retornará a intenção esperada e as entidades esperadas. Em vez disso, um teste em lote ajuda a exibir a precisão de cada tentativa e entidade em seu aplicativo e ajuda a comparar ao longo do tempo à medida que você faz melhorias.  
-Esse tipo de teste é o mesmo que o [teste em lotes](./luis-concept-batch-test.md) que você pode executar interativamente no portal do Luis.
+Esse tipo de teste é o mesmo que o [teste em lotes](./luis-how-to-batch-test.md) que você pode executar interativamente no portal do Luis.
 
 Você pode empregar testes de unidade desde o início do projeto. O teste em lote é realmente um valor assim que você desenvolveu o esquema do seu aplicativo LUIS e está trabalhando para melhorar sua precisão.
 
@@ -42,7 +42,7 @@ Quando você escreve um conjunto de testes, para cada teste, precisa definir:
 * Intenção esperada
 * Entidades esperadas.
 
-Use a [sintaxe do arquivo de lote](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) Luis para definir um grupo de testes em um arquivo formatado em JSON. Por exemplo:
+Use a [sintaxe do arquivo de lote](./luis-how-to-batch-test.md#batch-syntax-template-for-intents-with-entities) Luis para definir um grupo de testes em um arquivo formatado em JSON. Por exemplo:
 
 ```JSON
 [
@@ -85,7 +85,7 @@ Em testes de unidade, é uma boa ideia testar se as entidades-chave foram retorn
 
 #### <a name="designing-batch-tests"></a>Criando testes em lote
 
-Os conjuntos de teste em lotes devem conter um grande número de casos de teste, projetados para teste em todas as intenções e todas as entidades em seu aplicativo LUIS. Confira [teste em lote no portal do Luis](./luis-concept-batch-test.md) para obter informações sobre como definir um conjunto de teste em lotes.
+Os conjuntos de teste em lotes devem conter um grande número de casos de teste, projetados para teste em todas as intenções e todas as entidades em seu aplicativo LUIS. Confira [teste em lote no portal do Luis](./luis-how-to-batch-test.md) para obter informações sobre como definir um conjunto de teste em lotes.
 
 ### <a name="running-tests"></a>Executando testes
 
@@ -93,7 +93,7 @@ O portal do LUIS oferece recursos para ajudar no teste interativo:
 
 * Os [**testes interativos**](./luis-concept-test.md) permitem que você envie um exemplo de expressão e obtenha uma resposta de intenções e entidades reconhecidas por Luis. Você verifica o sucesso do teste por inspeção visual.
 
-* O [**teste em lotes**](./luis-concept-batch-test.md) usa um arquivo de teste em lotes como entrada para validar sua versão treinada ativa para medir sua precisão de previsão. Um teste em lote ajuda a exibir a precisão de cada tentativa e entidade em sua versão ativa, exibindo os resultados com um gráfico.
+* O [**teste em lotes**](./luis-how-to-batch-test.md) usa um arquivo de teste em lotes como entrada para validar sua versão treinada ativa para medir sua precisão de previsão. Um teste em lote ajuda a exibir a precisão de cada tentativa e entidade em sua versão ativa, exibindo os resultados com um gráfico.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>Executando testes em um fluxo de trabalho de compilação automatizada
 

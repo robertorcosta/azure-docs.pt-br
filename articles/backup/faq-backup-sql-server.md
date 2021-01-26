@@ -4,12 +4,12 @@ description: Encontre respostas para perguntas comuns sobre como fazer backup de
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 56dcf29a5c703a72fd137a5f1bf129f568a03b4b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ca785e217da4355a44ffbb26b813d55d942c5c14
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735802"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787613"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
 
@@ -101,7 +101,10 @@ Você pode selecionar o banco de dados, que agora é renomeado e configurar a pr
 Um banco de dados que você [adiciona a uma instância autoprotegida](backup-sql-server-database-azure-vms.md#enable-auto-protection) pode não aparecer imediatamente em itens protegidos. Isso ocorre porque a descoberta normalmente é executada a cada 8 horas. No entanto, você pode descobrir e proteger novos bancos de dados imediatamente se executar uma descoberta manualmente, selecionando **redescobrir bancos**, conforme mostrado na imagem a seguir:
 
   ![Descobrir manualmente um banco de dados recém-adicionado](./media/backup-azure-sql-database/view-newly-added-database.png)
-  
+
+## <a name="can-i-protect-databases-on-virtual-machines-that-have-azure-disk-encryption-ade-enabled"></a>Posso proteger bancos de dados em máquinas virtuais que têm o Azure Disk Encryption (ADE) habilitado?
+Sim, você pode proteger bancos de dados em máquinas virtuais que tenham o Azure Disk Encryption (ADE) habilitado.
+
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Posso proteger os bancos de dados que têm o TDE (Transparent Data Encryption) ativado e que ele continuará criptografado por todo o processo de backup?
 
 Sim, o backup do Azure dá suporte ao backup de bancos de dados SQL Server ou servidor com TDE habilitado. O backup dá suporte a [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption) com chaves gerenciadas pelo Azure ou com chaves gerenciadas pelo cliente (BYOK).  O backup não executa nenhuma criptografia SQL como parte do processo de backup, de modo que o banco de dados permanecerá criptografado quando o backup for feito.

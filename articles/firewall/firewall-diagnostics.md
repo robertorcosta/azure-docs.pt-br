@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 2dd1b51c6bcdbc531661d9ecf45d3d0282eb5b45
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 52c6ef9edfc42bf1ad3b3279e0fa4e19b4cf502c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358840"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788257"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorar os logs e as métricas do Firewall do Azure
 
@@ -33,7 +33,7 @@ Antes de começar, você deve ler [os logs e as métricas do firewall do Azure](
 Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois de concluir este procedimento para ativar o log de diagnósticos. Se você não vir algo a princípio, verifique novamente depois de alguns minutos.
 
 1. No portal do Azure, abra o grupo de recursos de firewall e selecione o firewall.
-2. Em **Monitoramento** , selecione **Configurações de diagnóstico**.
+2. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 
    Para o Firewall do Azure, quatro logs específicos do serviço estão disponíveis:
 
@@ -45,10 +45,10 @@ Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois d
 
 3. Selecione **Adicionar configuração de diagnóstico**. A página **Configurações de diagnóstico** fornece as configurações dos logs de diagnóstico.
 5. Neste exemplo, os logs do Azure Monitor armazenam os logs; portanto, digite **Log Analytics do Firewall** para o nome.
-6. Em **log** , selecione **AzureFirewallApplicationRule** , **AzureFirewallNetworkRule** , **AzureFirewallThreatIntelLog** e **AzureFirewallDnsProxy** para coletar os logs.
+6. Em **log**, selecione **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog** e **AzureFirewallDnsProxy** para coletar os logs.
 7. Selecione **Enviar para log Analytics** para configurar seu espaço de trabalho.
 8. Selecione sua assinatura.
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 
 ## <a name="enable-diagnostic-logging-by-using-powershell"></a>Habilitar o log de diagnóstico usando o PowerShell
 
@@ -104,15 +104,15 @@ Para habilitar o log de diagnóstico com o CLI do Azure, use as seguintes etapas
 
 Você pode exibir e analisar os dados do log de atividades usando um dos seguintes métodos:
 
-* **Ferramentas do Azure** : recupere informações do log de atividades por meio do Azure PowerShell, da CLI do Azure, da API REST do Azure ou do portal do Azure. As instruções passo a passo para cada método são detalhadas no artigo [Activity operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) (Operações de atividade com o Resource Manager).
-* **Power BI** : se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), experimente uma gratuitamente. Com o [pacote de conteúdo dos Logs de Atividades do Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados que podem ser usados no estado em que se encontram ou ser personalizados.
-* **Azure Sentinel** : você pode conectar os logs de firewall do Azure ao Azure Sentinel, permitindo que você exiba dados de log em pastas de trabalho, use-os para criar alertas personalizados e incorporá-los para melhorar sua investigação. O conector de dados do firewall do Azure no Azure Sentinel está atualmente em visualização pública. Para obter mais informações, consulte [conectar dados do firewall do Azure](../sentinel/connect-azure-firewall.md).
+* **Ferramentas do Azure**: recupere informações do log de atividades por meio do Azure PowerShell, da CLI do Azure, da API REST do Azure ou do portal do Azure. As instruções passo a passo para cada método são detalhadas no artigo [Activity operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) (Operações de atividade com o Resource Manager).
+* **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), experimente uma gratuitamente. Com o [pacote de conteúdo dos Logs de Atividades do Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados que podem ser usados no estado em que se encontram ou ser personalizados.
+* **Azure Sentinel**: você pode conectar os logs de firewall do Azure ao Azure Sentinel, permitindo que você exiba dados de log em pastas de trabalho, use-os para criar alertas personalizados e incorporá-los para melhorar sua investigação. O conector de dados do firewall do Azure no Azure Sentinel está atualmente em visualização pública. Para obter mais informações, consulte [conectar dados do firewall do Azure](../sentinel/connect-azure-firewall.md).
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Exibir e analisar os logs de regra de aplicativo e de rede
 
 Os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) coletam os arquivos de log de eventos e de contador. Ele inclui visualizações e funcionalidades de pesquisa avançadas para analisar os logs.
 
-Para consultas de exemplo do Log Analytics do Firewall do Azure, confira [Amostras do Log Analytics do Firewall do Azure](log-analytics-samples.md).
+Para consultas de exemplo do Log Analytics do Firewall do Azure, confira [Amostras do Log Analytics do Firewall do Azure](./firewall-workbook.md).
 
 A [pasta de trabalho do firewall do Azure](firewall-workbook.md) fornece uma tela flexível para análise de dados do firewall do Azure. Você pode usá-lo para criar relatórios visuais avançados dentro do portal do Azure. Você pode aproveitar vários firewalls implantados no Azure e combiná-los em experiências interativas unificadas.
 

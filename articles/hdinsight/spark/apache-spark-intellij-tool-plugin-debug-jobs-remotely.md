@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: 2e6da1783c3bec4958783494cb6928f5a6a69a58
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 63d46298de2f480d97d25de2ec7e1ec78fbebd8d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822345"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789456"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usar o Azure Toolkit for IntelliJ para depurar aplicativos Apache Spark remotamente no HDInsight por meio de VPN
 
@@ -41,7 +41,7 @@ Este artigo oferece diretrizes passo a passo sobre como usar as Ferramentas do H
 
 Siga as instruções dos links a seguir para criar uma rede virtual do Azure e então verifique a conectividade entre a área de trabalho e a rede virtual:
 
-* [Criar uma VNet com uma conexão VPN site a site usando o portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Criar uma VNet com uma conexão VPN site a site usando o portal do Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Criar uma VNet com uma conexão VPN site a site usando o PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Configurar uma conexão ponto a site com uma rede virtual usando o PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: e803fa393d85f7f0b4849aed96356b7a4e77d83f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e4de77a8a56ce21511ad099af59a77e10ab1815d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96000123"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787529"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -83,7 +83,7 @@ Confira [Recursos do Azure Active Directory](luis-how-to-collaborate.md#azure-ac
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>Ponto de extremidade
+## <a name="endpoint"></a>Ponto de Extremidade
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de status de erro HTTP 403. Como corrigi-la?
 
@@ -177,7 +177,7 @@ Os erros indicam que há alguma discrepância entre os rótulos e as previsões 
 * Para ajudar o LUIS a melhorar a discriminação entre intenções, adicione mais rótulos.
 * Para ajudar o LUIS a aprender mais rápido, adicione recursos de lista de frases que introduzam vocabulário específico do domínio.
 
-Veja o tutorial [Teste em lote](luis-tutorial-batch-testing.md).
+Veja o tutorial [Teste em lote](./luis-how-to-batch-test.md).
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Quando um aplicativo é exportado e reimportado em um novo aplicativo (com uma nova ID do aplicativo), as pontuações de previsão de LUIS são diferentes. Por que isso acontece?
 

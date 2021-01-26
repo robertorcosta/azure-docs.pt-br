@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: b305a07997ccd2cbab0d963ced2bd23ab7a97690
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 398cbd49f79cbeb5f486e3f8ca33987d5357add6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683400"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789439"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: carregar o conjunto de dos táxis de Nova York
 

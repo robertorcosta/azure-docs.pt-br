@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 2758c75e27eb1e00368b51a932723ba1bd7c675a
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 8a6bfb1c6aa268914e6dd1157115067b15bfa404
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96581438"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786903"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Use o portal do Azure para gerenciar compartilhamentos em seu Azure Data Box Gateway 
 
@@ -50,7 +50,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 5. Escolha o **Serviço de armazenamento** entre blob de blocos, blobs de página ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nessa instância, queremos que os dados residam como blocos de blob no Azure, portanto, selecionamos **blob de blocos**. Se estiver escolhendo **Blob de Páginas**, você precisará fazer com que seus dados sejam alinhados com 512 bytes. Por exemplo, um VHDX sempre é alinhado com 512 bytes.
 
    > [!IMPORTANT]
-   > Certifique-se de que a conta de armazenamento do Azure que você usa não tenha políticas de imutabilidade configuradas se você a estiver usando com um dispositivo Gateway do Data Box. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Verifique se a conta do Armazenamento do Azure que você usa não tem políticas de imutabilidade definidas se você estiver a usando com um dispositivo do Data Box Gateway. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 6. Esta etapa depende do tipo de compartilhamento criado, SMB ou NFS.
     - **Se estiver criando compartilhamento SMB**: no campo **Todos os usuários locais com privilégios**, escolha **Criar novo** ou **Usar existente**. Se a criação for de um novo usuário local, forneça o **nome de usuário**, a **senha** e então confirme a senha. Isso atribui as permissões ao usuário local. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.

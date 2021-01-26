@@ -1,6 +1,6 @@
 ---
-title: Dados de exemplo no armazenamento de blobs do Azure – Processo de Ciência de Dados de Equipe
-description: Os dados de exemplo vão para o armazenamento de blobs do Azure por download realizado via programação e, em seguida, é feita a sua amostragem usando procedimentos escritos em Python.
+title: Dados de exemplo no armazenamento de BLOBs do Azure – processo de ciência de dados da equipe
+description: Dados de amostragem armazenados no armazenamento de BLOBs do Azure baixando-os programaticamente e, em seguida, fazendo amostragem usando procedimentos escritos em Python.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5827a0e07e537b66684f852d8f3e1500cd9febb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321896"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788834"
 ---
-# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Dados de exemplo no armazenamento de blobs do Azure
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Dados de exemplo no armazenamento de BLOBs do Azure
 
-Este artigo aborda os dados armazenados no armazenamento de blobs do Azure fazendo o download por meio de programação e, em seguida, amostrando-os usando procedimentos escritos em Python.
+Este artigo aborda os dados de amostragem armazenados no armazenamento de BLOBs do Azure baixando-os programaticamente e, em seguida, fazendo amostragem usando os procedimentos escritos em Python.
 
 **Por que fazer amostragem dos dados?**
 Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. A amostragem facilita a compreensão dos dados, a exploração e a engenharia de recursos. Sua função no Processo de Análise do Cortana é habilitar a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.

@@ -4,12 +4,12 @@ description: Saiba como configurar uma criptografia baseada em host em um cluste
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 6b23bf285d89a5f3285825feef849b3d168ed62f
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 531d1dc4169b5f4adecfb29c3e116049cb99c3c9
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762036"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787817"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Criptografia baseada em host no serviço kubernetes do Azure (AKS) (visualização)
 
@@ -28,7 +28,7 @@ Esse recurso só pode ser definido na criação do cluster ou no momento da cria
 - Verifique se você tem a `aks-preview` extensão da CLI v 0.4.55 ou superior instalada
 - Verifique se você tem o `EnableEncryptionAtHostPreview` sinalizador de recurso em `Microsoft.ContainerService` habilitado.
 
-Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com suas IDs de assinatura para obter o recurso habilitado para suas assinaturas.
+Para poder usar a criptografia no host para suas VMs ou conjuntos de dimensionamento de máquinas virtuais, você deve obter o recurso habilitado em sua assinatura. Envie um email para encryptionAtHost@microsoft.com com as suas IDs de assinatura para habilitar o recurso para suas assinaturas.
 
 ### <a name="register-encryptionathost--preview-features"></a>Registrar `EncryptionAtHost`  recursos de visualização
 

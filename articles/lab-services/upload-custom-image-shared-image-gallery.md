@@ -3,12 +3,12 @@ title: Azure Lab Services-carregar uma imagem personalizada na Galeria de imagen
 description: Descreve como carregar uma imagem personalizada na Galeria de imagens compartilhadas. Os departamentos de ti da Universidade encontrarão imagens de importação especialmente úteis.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b4141636b629168e9bb7a73e71a9fe4bfc39f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3e2f38b0cab87eab27181ddef79d0c02bd8c9bdb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654636"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787156"
 ---
 # <a name="upload-a-custom-image-to-shared-image-gallery"></a>Carregar uma imagem personalizada na Galeria de Imagens Compartilhadas
 
@@ -46,7 +46,7 @@ Existem muitas opções para a criação de um VHD de um ambiente de laboratóri
     As etapas acima criarão uma imagem especializada. Se estiver criando uma imagem generalizada, você também precisará executar o [Sysprep](../virtual-machines/windows/prepare-for-upload-vhd-image.md#determine-when-to-use-sysprep). <br/>
         Você deve criar uma imagem especializada se desejar manter o diretório de usuário (que pode conter arquivos, informações de conta de usuário, etc.) necessário para o software incluído na imagem.
 1. Como o **Hyper-V** cria um arquivo **VHDX** por padrão, é necessário convertê-lo em um arquivo VHD.
-    1. Navegue até a ação do **Gerenciador do Hyper-V**  ->  **Action**  ->  **Editar disco**.
+    1. Navegue até a ação do **Gerenciador do Hyper-V**  ->    ->  **Editar disco**.
     1. Aqui, você terá a opção de **converter** o disco de um VHDX para um VHD
     1. Ao tentar expandir o tamanho do disco, certifique-se de não exceder 128 GB.        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Escolher ação":::   
@@ -66,5 +66,5 @@ Existem muitas opções para a criação de um VHD de um ambiente de laboratóri
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral da galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md)
+* [Visão geral da Galeria de imagens compartilhadas](../virtual-machines/shared-image-galleries.md)
 * [Como usar a Galeria de imagens compartilhadas](how-to-use-shared-image-gallery.md)

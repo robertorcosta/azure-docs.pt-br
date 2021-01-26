@@ -1,5 +1,5 @@
 ---
-title: Player de Mídia do Azure configuração completa
+title: Configuração completa do Player de Mídia do Azure
 description: Saiba como configurar o Player de Mídia do Azure.
 author: IngridAtMicrosoft
 ms.author: inhenkel
@@ -7,21 +7,26 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13abe333bcf3f67ea1a1ba823c693deaa60bc723
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296239"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788800"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuração completa do Player de Mídia do Azure #
 
 O Player de Mídia do Azure é fácil de configurar. Leva apenas alguns minutos para obter a reprodução básica do conteúdo de mídia diretamente da sua conta dos serviços de mídia do Azure. Os [exemplos](https://github.com/Azure-Samples/azure-media-player-samples) também são fornecidos no diretório de exemplos da versão.
 
+<!--//aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest-->
+
+Aqui está um exemplo de um vídeo do AMS.
+
+> [!VIDEO https://aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest]
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Etapa 1: incluir os arquivos JavaScript e CSS no cabeçalho da página ##
 
-Com Player de Mídia do Azure, você pode acessar os scripts da versão hospedada da CDN. Geralmente, é recomendável colocar o JavaScript antes da marca do corpo final `<body>` em vez de `<head>` , mas player de mídia do Azure inclui um ' HTML5 Shiv ', que precisa estar no cabeçalho das versões mais antigas do IE para respeitar a marca de vídeo como um elemento válido.
+Com Player de Mídia do Azure, você pode acessar os scripts da versão hospedada da CDN. Geralmente, é recomendável colocar o JavaScript antes da marca do corpo final `<body>` em vez de `<head>` , mas o Azure meia Player inclui um ' HTML5 Shiv ', que precisa estar no cabeçalho das versões mais antigas do IE para respeitar a marca de vídeo como um elemento válido.
 
 > [!NOTE]
 > Se você já estiver usando um HTML5 Shiv como o [Modernizr](https://modernizr.com/) , poderá incluir o player de mídia do Azure JavaScript em qualquer lugar. No entanto, verifique se sua versão do Modernizr inclui o Shiv para vídeo.
@@ -61,7 +66,7 @@ Com Player de Mídia do Azure, você pode usar uma marca de vídeo HTML5 para in
 1. O `<source>` inclui dois atributos necessários
     - `src` o atributo pode incluir um arquivo **. ISM/manifest* dos serviços de mídia do Azure é adicionado, player de mídia do Azure adiciona automaticamente as URLs para traço, Smooth e HLS ao Player
     - `type` o atributo é o tipo MIME necessário do fluxo. O tipo MIME associado a *". ISM/Manifest"* é *"application/vnd. ms-SSTR + XML"*
-1. O *optional* `<data-setup>` atributo opcional no `<source>` informa player de mídia do Azure se há alguma política de entrega exclusiva para o fluxo dos serviços de mídia do Azure, incluindo, mas não se limitando a, tipo de criptografia (AES ou PlayReady, Widevine ou Fairplay) e token.
+1. O  `<data-setup>` atributo opcional no `<source>` informa player de mídia do Azure se há alguma política de entrega exclusiva para o fluxo dos serviços de mídia do Azure, incluindo, mas não se limitando a, tipo de criptografia (AES ou PlayReady, Widevine ou Fairplay) e token.
 
 Inclua/exclua atributos, configurações, fontes e faixas exatamente como você faria para o vídeo do HTML5.
 

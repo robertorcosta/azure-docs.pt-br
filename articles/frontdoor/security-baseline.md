@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 77fccf8b2480232debb88136394013941af796c8
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: c922ae19c496d9f377b47ec43d38807f494593bc
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197261"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789121"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Linha de base de segurança do Azure para a porta frontal do Azure
 
@@ -88,7 +88,7 @@ Use estações de trabalho de usuário altamente protegidas com a bastiões do A
 
 - [Entender as estações de trabalho com acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
-- [Implantar uma estação de trabalho com acesso privilegiado](../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implantar uma estação de trabalho com acesso privilegiado](/security/compass/privileged-access-deployment)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: 61be4b45df94c902c0473b94a6dd83237c72da3c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196105"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786835"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Usar os serviços de fala por meio de um ponto de extremidade privado
 
@@ -39,7 +39,7 @@ Pontos de extremidade privados exigem um [nome de subdomínio personalizado para
 >
 > Se o seu recurso de fala tiver muitos modelos personalizados e projetos associados criados por meio do [Speech Studio](https://speech.microsoft.com/), é altamente recomendável tentar a configuração com um recurso de teste antes de modificar o recurso usado na produção.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para criar um nome de domínio personalizado usando o portal do Azure, siga estas etapas:
 
@@ -293,7 +293,7 @@ Os serviços de fala têm APIs REST para [conversão de fala em texto](rest-spee
 A conversão de fala em texto tem duas APIs REST. Cada API atende a uma finalidade diferente, usa pontos de extremidade diferentes e requer uma abordagem diferente quando você o estiver usando no cenário particular-habilitado para ponto de extremidade.
 
 As APIs REST de conversão de fala em texto são:
-- [API REST de conversão de fala em texto v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), que é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . v 3.0 é um [sucessor da v 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3)
+- [API REST de conversão de fala em texto v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), que é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . v 3.0 é um [sucessor da v 2.0](./migrate-v2-to-v3.md)
 - [API REST de conversão de fala em texto para áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), que é usado para transcrição online 
 
 O uso da API REST de conversão de fala em texto para áudio curto e a API REST de conversão de texto em fala no cenário do ponto de extremidade privado é o mesmo. É equivalente ao caso do [SDK de fala](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) descrito posteriormente neste artigo. 

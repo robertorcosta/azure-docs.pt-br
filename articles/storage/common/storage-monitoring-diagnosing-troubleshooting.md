@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 18d36e37554a5d2b37488b7a1525f8290dc03da0
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763261"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787953"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -767,7 +767,7 @@ Você também pode escolher exibir os dados de TCP conforme vistos pela camada d
 >
 
 ### <a name="appendix-4-using-excel-to-view-metrics-and-log-data"></a><a name="appendix-4"></a>Apêndice 4: Usando o Excel para exibir as métricas e os dados de log
-Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de blob do Azure já estão em um formato delimitado que pode ser carregado no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no [Formato de Log Analítico de Armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) e no [Esquema de Tabela de Métricas Analíticas de Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
+Muitas ferramentas permitem que você baixe os dados de métricas de armazenamento a partir do armazenamento de tabela do Azure em um formato delimitado que o torna fácil para se carregado no Excel para exibição e análise. Os dados de log de armazenamento do armazenamento de BLOBs do Azure já estão em um formato delimitado que você pode carregar no Excel. Entretanto, você precisará adicionar cabeçalhos apropriados às colunas com base na informação no [Formato de Log Analítico de Armazenamento](/rest/api/storageservices/Storage-Analytics-Log-Format) e no [Esquema de Tabela de Métricas Analíticas de Armazenamento](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema).
 
 Para importar os dados de log de armazenamento para o Excel após ter baixado do armazenamento de blob:
 

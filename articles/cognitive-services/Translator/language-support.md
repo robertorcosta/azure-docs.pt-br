@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: e8e54a97c13a69fce2e80676fa68d6d795736a83
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: a359c4f0de6dab70b334da7e7d29ad4b273385ab
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703115"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789272"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -91,7 +91,7 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 | Pashto | `ps` |
 | Persa | `fa` |
 | Polonês | `pl` |
-| Português (Brasil) | `pt-br` |
+| Português (Brasil) | `pt` |
 | Português (Portugal) | `pt-pt` |
 | Panjabi | `pa` |
 | Queretaro Otomi | `otq` |
@@ -343,7 +343,7 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
 | Polonês      | `pl`          |
-| Português (Brasil) | `pt-br` |
+| Português (Brasil) | `pt` |
 | Panjabi|`pa`|
 | Romeno      | `ro`          |
 | Russo      | `ru`          |

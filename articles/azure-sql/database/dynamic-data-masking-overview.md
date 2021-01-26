@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/04/2020
+ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532221"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787681"
 ---
 # <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,15 +26,11 @@ O banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synap
 
 A Máscara de dados dinâmica ajuda a impedir o acesso não autorizado a dados confidenciais, permitindo que os clientes especifiquem qual a quantidade de dados confidenciais revelar, com impacto mínimo sobre a camada de aplicativo. É um recurso de segurança baseado em políticas que oculta os dados confidenciais no conjunto de resultados de uma consulta em relação aos campos do banco de dados designados, sendo que os dados no banco de dados não são alterados.
 
-Por exemplo, um representante de serviço em um centro de chamada pode identificar os chamadores por vários dígitos do seu número de cartão de crédito, mas os itens de dados não devem ser totalmente expostos para o representante de serviço. Uma regra de mascaramento pode ser definida para mascarar tudo menos os quatro últimos dígitos de qualquer número de cartão de crédito no conjunto de resultados de qualquer consulta. Como outro exemplo, uma máscara de dados apropriada pode ser definida para proteger dados pessoais, para que um desenvolvedor possa consultar ambientes de produção para fins de solução de problemas sem violar os regulamentos de conformidade.
+Por exemplo, um representante de serviço em um Call Center pode identificar chamadores por vários dígitos de seu endereço de email, mas esses itens de dados não devem ser totalmente expostos ao representante de serviço. Uma regra de mascaramento pode ser definida para mascarar todo o endereço de email no conjunto de resultados de qualquer consulta. Como outro exemplo, uma máscara de dados apropriada pode ser definida para proteger dados pessoais, para que um desenvolvedor possa consultar ambientes de produção para fins de solução de problemas sem violar os regulamentos de conformidade.
 
 ## <a name="dynamic-data-masking-basics"></a>Aspectos básicos do mascaramento de dados dinâmicos
 
 Você configura uma política de mascaramento de dados dinâmicos na portal do Azure selecionando a folha **máscara de dados dinâmicos** em **segurança** no painel configuração do SQL Database. Este recurso não pode ser definido usando o portal para SQL Instância Gerenciada (use o PowerShell ou a API REST). Para obter mais informações, consulte [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
-
-### <a name="dynamic-data-masking-permissions"></a>Permissões de mascaramento de dados dinâmico
-
-A Máscara de Dados Dinâmicos pode ser configurada por meio do administrador do Banco de Dados SQL do Azure, do administrador do servidor ou de funções do [Gerenciador de Segurança do SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Política de mascaramento de dados dinâmico
 
@@ -83,3 +79,11 @@ Você pode usar a API REST para gerenciar programaticamente a política e as reg
 
 - [Criar ou Atualizar](/rest/api/sql/datamaskingrules/createorupdate): Cria ou atualiza uma regra de mascaramento de dados de banco de dados.
 - [Listar por banco de dados](/rest/api/sql/datamaskingrules/listbydatabase): Obtém uma lista de regras de mascaramento de dados do banco de dados.
+
+## <a name="permissions"></a>Permissões
+
+A máscara de dados dinâmicos pode ser configurada pela função de administrador, administrador do servidor ou controle de acesso baseado em função (RBAC) do [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) .
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Mascaramento de dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking)

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955205"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787005"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Testes em lote com um conjunto de exemplos de enunciados
 
@@ -99,7 +99,7 @@ O JSON de exemplo inclui um enunciado com uma entidade rotulada para ilustrar a 
 
 Para examinar os resultados de teste de lote, selecione **Ver resultados**. Os resultados de teste mostram graficamente como os enunciados de teste foram previstos em relação à versão ativa.
 
-O gráfico do lote exibe quatro quadrantes dos resultados. À direita do gráfico, há um filtro. O filtro contém intenções e entidades. Ao selecionar uma [seção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto dentro do gráfico, os enunciados associados são exibidos abaixo do gráfico.
+O gráfico do lote exibe quatro quadrantes dos resultados. À direita do gráfico, há um filtro. O filtro contém intenções e entidades. Ao selecionar uma [seção do gráfico](#review-batch-results-for-intents) ou um ponto dentro do gráfico, os enunciados associados são exibidos abaixo do gráfico.
 
 Ao passar o mouse sobre o gráfico, um botão de rolagem do mouse pode ampliar ou reduzir a exibição no gráfico. Isso é útil quando há muitos pontos no gráfico agrupados em conjunto.
 
@@ -166,7 +166,7 @@ As duas seções do gráfico em verde corresponderam à previsão esperada.
 
 ## <a name="batch-testing-using-the-rest-api"></a>Teste de lote usando a API REST 
 
-O LUIS permite que você teste em lote usando o portal do LUIS e a API REST. Os pontos de extremidade para a API REST estão listados abaixo. Para obter informações sobre testes em lotes usando o portal do LUIS, consulte [tutorial: conjuntos de dados de teste em lotes](luis-tutorial-batch-testing.md). Use as URLs completas abaixo, substituindo os valores de espaço reservado por sua própria chave de previsão LUIS e ponto de extremidade. 
+O LUIS permite que você teste em lote usando o portal do LUIS e a API REST. Os pontos de extremidade para a API REST estão listados abaixo. Para obter informações sobre testes em lotes usando o portal do LUIS, consulte [tutorial: conjuntos de dados de teste em lotes](). Use as URLs completas abaixo, substituindo os valores de espaço reservado por sua própria chave de previsão LUIS e ponto de extremidade. 
 
 Lembre-se de adicionar a chave LUIS ao `Ocp-Apim-Subscription-Key` no cabeçalho e definir `Content-Type` como `application/json` .
 
@@ -265,5 +265,3 @@ Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entida
 
 * [Rotular enunciados sugeridos com o LUIS](luis-how-to-review-endpoint-utterances.md)
 * [Usar recursos para melhorar o desempenho do aplicativo de LUIS](luis-how-to-add-features.md)
-* [Noções básicas sobre o teste de lote com esse tutorial](luis-tutorial-batch-testing.md)
-* [Aprenda conceitos de teste de lote](luis-concept-batch-test.md).

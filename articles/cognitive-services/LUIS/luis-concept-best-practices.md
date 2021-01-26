@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.openlocfilehash: fc4475eb64744688e901d2b37e30632d044b0115
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019306"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788478"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Práticas recomendadas para a criação de um aplicativo de reconhecimento de linguagem (LUIS)
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS:
@@ -141,7 +141,7 @@ Use **Examinar declarações de ponto de extremidade** do [aprendizado ativo](lu
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Monitore o desempenho do seu aplicativo
 
-Monitore a precisão da previsão usando um [conjunto de teste em lote](luis-concept-batch-test.md).
+Monitore a precisão da previsão usando um [conjunto de teste em lote](./luis-how-to-batch-test.md).
 
 Mantenha um conjunto separado de declarações que não são usados como [exemplo declarações](luis-concept-utterance.md) ou Endpoint declarações. Continue melhorando o aplicativo para seu conjunto de testes. Adapte o conjunto de teste para refletir declarações de usuário real. Use este conjunto de teste para avaliar cada iteração ou versão do aplicativo.
 

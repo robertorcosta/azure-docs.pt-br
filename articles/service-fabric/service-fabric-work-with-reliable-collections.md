@@ -3,12 +3,12 @@ title: Trabalhando com Reliable Collections
 description: Conheça as práticas recomendadas para trabalhar com coleções confiáveis em um aplicativo Service Fabric do Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 908f24cc22c969a34a513ff3fd3ceaa788420620
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651899"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787868"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhando com Reliable Collections
 O Service Fabric oferece um modelo de programação com estado disponível para desenvolvedores .NET por meio das Reliable Collections. Especificamente, o Service Fabric fornece as classes de dicionário confiável e fila confiável. Quando você usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos examinar um uso típico de um objeto Dictionary confiável e ver o que ele está realmente fazendo.
@@ -226,4 +226,4 @@ Para aprender as práticas recomendadas sobre o controle de versão de contratos
 
 Para saber como implementar contratos de dados tolerantes a versões, consulte [retornos de chamada de serialização tolerantes à versão](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-Para saber como fornecer uma estrutura de dados que possa interoperar em várias versões, consulte [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)
+Para saber como fornecer uma estrutura de dados que possa interoperar em várias versões, consulte [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject)

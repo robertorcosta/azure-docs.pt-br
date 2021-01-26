@@ -3,18 +3,18 @@ title: Gerenciar projetos de migração em escala com as migrações para Azure
 description: Saiba como usar efetivamente as migrações para Azure em recursos de cliente delegados.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095382"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788936"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Gerenciar projetos de migração em escala com as migrações para Azure
 
 Como um provedor de serviços, você pode ter integrado vários locatários de clientes ao [Azure Lighthouse](../overview.md). O Azure Lighthouse permite que os provedores de serviços executem operações em escala em vários locatários Azure Active Directory (Azure AD) de uma vez, tornando as tarefas de gerenciamento mais eficientes.
 
-As [migrações para Azure](../../migrate/migrate-services-overview.md) fornecem um hub centralizado para avaliar e migrar para servidores, infraestrutura, aplicativos e dados locais do Azure. Normalmente, os parceiros que executam avaliações e migração em escala para vários clientes devem acessar cada assinatura de cliente individualmente usando o [modelo de assinatura CSP (provedor de soluções na nuvem)](/partner-center/customers-revoke-admin-privileges) ou [criando um usuário convidado no locatário do cliente](/azure/active-directory/external-identities/what-is-b2b).
+As [migrações para Azure](../../migrate/migrate-services-overview.md) fornecem um hub centralizado para avaliar e migrar para servidores, infraestrutura, aplicativos e dados locais do Azure. Normalmente, os parceiros que executam avaliações e migração em escala para vários clientes devem acessar cada assinatura de cliente individualmente usando o [modelo de assinatura CSP (provedor de soluções na nuvem)](/partner-center/customers-revoke-admin-privileges) ou [criando um usuário convidado no locatário do cliente](../../active-directory/external-identities/what-is-b2b.md).
 
 A integração do Azure Lighthouse com o Azure Migrations permite que os provedores de serviços descubram, avaliem e migrem cargas de trabalho para diferentes clientes em escala, permitindo que os clientes tenham visibilidade e controle totais de seus ambientes. Por meio do gerenciamento de recursos delegado do Azure, os provedores de serviços têm uma exibição única de todos os projetos de migrações para Azure que eles gerenciam em vários locatários de clientes.
 
@@ -39,7 +39,7 @@ Essa abordagem minimiza a alternância de contexto para provedores de serviço q
 O fluxo de trabalho para esse modelo será semelhante ao seguinte:
 
 1. O cliente está [integrado ao Azure Lighthouse](onboard-customer.md). A função interna colaborador é necessária para a identidade que será usada com as migrações para Azure. Consulte o modelo de exemplo [delegado-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) para obter um exemplo usando essa função.
-1. O usuário designado entra no locatário de gerenciamento na portal do Azure e, em seguida, vai para migrações para Azure. Este usuário [cria um projeto de migrações para Azure](/azure/migrate/create-manage-projects), selecionando a assinatura de cliente delegada apropriada.
+1. O usuário designado entra no locatário de gerenciamento na portal do Azure e, em seguida, vai para migrações para Azure. Este usuário [cria um projeto de migrações para Azure](../../migrate/create-manage-projects.md), selecionando a assinatura de cliente delegada apropriada.
 1. Em seguida, o usuário [executa as etapas para descoberta e avaliação](../../migrate/tutorial-discover-vmware.md).
 
    Para VMs VMware, antes de configurar o dispositivo, você pode limitar a descoberta para vCenter Server data centers, clusters, uma pasta de clusters, hosts, uma pasta de hosts ou VMs individuais. Para definir o escopo, atribua permissões na conta que o dispositivo usa para acessar o vCenter Server. Isso será útil se as VMs de vários clientes estiverem hospedadas no hipervisor. Não é possível limitar o escopo de descoberta do Hyper-V.
@@ -61,7 +61,7 @@ Essa abordagem permite que os provedores de serviços iniciem projetos de avalia
 O fluxo de trabalho para esse modelo será semelhante ao seguinte:
 
 1. O cliente está [integrado ao Azure Lighthouse](onboard-customer.md). A função interna colaborador é necessária para a identidade que será usada com as migrações para Azure. Consulte o modelo de exemplo [delegado-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) para obter um exemplo usando essa função.
-1. O usuário designado entra no locatário de gerenciamento na portal do Azure e, em seguida, vai para migrações para Azure. Este usuário [cria um projeto de migrações para Azure](/azure/migrate/create-manage-projects) em uma assinatura que pertence ao locatário de gerenciamento.
+1. O usuário designado entra no locatário de gerenciamento na portal do Azure e, em seguida, vai para migrações para Azure. Este usuário [cria um projeto de migrações para Azure](../../migrate/create-manage-projects.md) em uma assinatura que pertence ao locatário de gerenciamento.
 1. Em seguida, o usuário [executa as etapas para descoberta e avaliação](../../migrate/tutorial-discover-vmware.md). As VMs locais serão descobertas e avaliadas no projeto de migração criado no locatário de gerenciamento e, em seguida, migradas a partir daí.
 
    Se você estiver gerenciando vários clientes no mesmo host do Hyper-V, poderá descobrir todas as cargas de trabalho ao mesmo tempo. As VMs específicas do cliente podem ser selecionadas no mesmo grupo, então uma avaliação pode ser criada e a migração pode ser executada selecionando a assinatura do cliente apropriada como destino de destino. Não é necessário limitar o escopo de descoberta e você pode manter uma visão geral completa de todas as cargas de trabalho do cliente em um projeto de migração.
@@ -80,4 +80,3 @@ Para obter mais informações, confira [Vincular a ID de parceiro para acompanha
 
 - Saiba mais sobre as [migrações para Azure](../../migrate/migrate-services-overview.md).
 - Saiba mais sobre as [experiências de gerenciamento entre locatários](../concepts/cross-tenant-management-experience.md).
-

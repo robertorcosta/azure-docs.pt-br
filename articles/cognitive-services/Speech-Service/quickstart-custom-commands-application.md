@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
 ms.custom: references_regions
-ms.openlocfilehash: 2cc37cc66c06dc9e6997c6a031a9c60ad050c01a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ea32358aa86a6093cd72adf959d5fe731cf1e125
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601772"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786869"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Criar um assistente de voz usando comandos personalizados
 
@@ -104,7 +104,7 @@ Antes de poder acessar esse aplicativo de fora do Speech Studio, você precisa p
 
 1. Selecione **configurações** no painel esquerdo e selecione  **recursos do Luis** no painel central.
 1. Selecione um recurso de previsão ou crie um selecionando **criar novo recurso**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
     
     > [!div class="mx-imgBorder"]
     > ![Definir recursos do LUIS](media/custom-commands/set-luis-resources.png)
@@ -136,4 +136,4 @@ No escopo deste artigo, usaremos o cliente do assistente de voz do Windows que v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você usou um aplicativo existente. Em seguida, nas [seções de instruções](how-to-custom-commands-create-application-with-simple-commands.md), você aprende a projetar, desenvolver, depurar, testar e integrar um aplicativo de comandos personalizados do zero.
+Neste artigo, você usou um aplicativo existente. Em seguida, nas [seções de instruções](./how-to-develop-custom-commands-application.md), você aprende a projetar, desenvolver, depurar, testar e integrar um aplicativo de comandos personalizados do zero.

@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 086bc17938064571e8759ecda633fb5f87d1060f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 3ff48ff5a3f46d8ec0fbf81b4cd20d20c217344b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616806"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787630"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
 
@@ -81,7 +81,7 @@ Um `*` símbolo será exibido ao lado do nome do aplicativo se você tiver um re
    > ![Exporte seus aplicativos.](./media/migrate-authoring-key/migration-export-apps.png)
 
 
-4. Na janela para migrar regiões, você será solicitado a migrar seus aplicativos para um recurso do Azure na mesma região em que foram criados. LUIS tem três regiões de criação [e portais](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions). A janela mostrará as regiões em que seus aplicativos de propriedade foram criados. As regiões de migração exibidas podem ser diferentes dependendo do portal regional que você usa e dos aplicativos que você criou. 
+4. Na janela para migrar regiões, você será solicitado a migrar seus aplicativos para um recurso do Azure na mesma região em que foram criados. LUIS tem três regiões de criação [e portais](./luis-reference-regions.md#luis-authoring-regions). A janela mostrará as regiões em que seus aplicativos de propriedade foram criados. As regiões de migração exibidas podem ser diferentes dependendo do portal regional que você usa e dos aplicativos que você criou. 
 
    > [!div class="mx-imgBorder"]
    > ![Migração de várias regiões.](./media/migrate-authoring-key/migration-regional-flow.png)
