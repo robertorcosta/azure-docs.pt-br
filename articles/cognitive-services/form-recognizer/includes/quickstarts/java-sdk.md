@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 93552d203508fb893bd2e85d27a3a991fc539472
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 01ac7c01d449cfe794fcdb6c26a8162d3cffd695
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132253"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98697882"
 ---
 > [!IMPORTANT]
 > O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade.
@@ -122,7 +122,7 @@ Na classe **FormRecognizer** do aplicativo, crie variáveis para a chave e o pon
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_creds)]
 
 > [!IMPORTANT]
-> Acesse o portal do Azure. Se o recurso do [Nome do produto] que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Acessar o Recurso** em **Próximas Etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
+> Acesse o portal do Azure. Se o recurso do Reconhecimento de Formulários que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para o Recurso** em **Próximas etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
 >
 > Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](../../../cognitive-services-security.md) de Serviços Cognitivos para obter mais informações.
 
