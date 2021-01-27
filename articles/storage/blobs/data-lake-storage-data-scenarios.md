@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: eea7fb073cdf99ee1f4257f6824375a6502a4fad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bffa7894f7603f95c4840019be5e5670797881df
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913616"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873239"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando o Azure Data Lake Storage Gen2 para exigências de big data
 
@@ -41,7 +41,7 @@ Representam conjuntos de dados menores que são usados para criar protótipos de
 
 Aqui está uma lista de ferramentas que você pode usar para a ingestão de dados ad hoc.
 
-| Fonte de dados | Ingeri-la usando |
+| fonte de dados | Ingeri-la usando |
 | --- | --- |
 | Computador local |[PowerShell do Azure](data-lake-storage-directory-file-acl-powershell.md)<br><br>[CLI do Azure](data-lake-storage-directory-file-acl-cli.md)<br><br>[Gerenciador de Armazenamento](https://azure.microsoft.com/features/storage-explorer/)<br><br>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)|
 | Blob de Armazenamento do Azure |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[Ferramenta AzCopy](../common/storage-use-azcopy-v10.md)<br><br>[DistCp em execução no cluster HDInsight](data-lake-storage-use-distcp.md)|
@@ -77,7 +77,7 @@ Aqui está uma lista de ferramentas que você pode usar para a ingestão de dado
 |---|--|
 |Fábrica de dados do Azure | [Atividade Copiar no Azure Data Factory](../../data-factory/copy-activity-overview.md)  |
 |CLI do Azure|[CLI do Azure](data-lake-storage-directory-file-acl-cli.md)|
-|Azure PowerShell|[PowerShell do Azure](data-lake-storage-directory-file-acl-powershell.md)|
+|Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
 Para carregar dados de log do servidor Web, e também para carregar outros tipos de dados (por exemplo, dados de sentimentos sociais), é uma boa abordagem escrever seus próprios scripts/aplicativos personalizados, pois eles proporcionam a flexibilidade para incluir seus dados carregando o componente como parte do aplicativo maior de big data. Em alguns casos, esse código pode assumir a forma de um script ou um utilitário simples de linha de comando. Em outros casos, o código pode ser usado para integrar o processamento de big data em um aplicativo ou uma solução de negócios.
 
@@ -142,4 +142,4 @@ Aqui está uma lista de ferramentas que você pode usar para baixar dados do Dat
 |Fábrica de dados do Azure | [Atividade Copiar no Azure Data Factory](../../data-factory/copy-activity-overview.md) |
 |Apache DistCp | [Use o DistCp para copiar dados entre os Azure Storage Blobs e o Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
 |Gerenciador de Armazenamento do Azure|[Use o Gerenciador de Armazenamento do Azure para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
-|Ferramenta AzCopy|[Transferir dados com o armazenamento de BLOBs e AzCopy](../common/storage-use-azcopy-blobs.md)|
+|Ferramenta AzCopy|[Transferir dados com o armazenamento de BLOBs e AzCopy](../common/storage-use-azcopy-v10.md#transfer-data)|

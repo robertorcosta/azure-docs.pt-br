@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: a952bfa45515b9d35549d03d18fd94103679344d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349462"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873562"
 ---
 # <a name="cognitive-services-development-options"></a>Opções de desenvolvimento dos Serviços Cognitivos
 
@@ -103,7 +103,7 @@ O [ia Builder](/ai-builder/overview) é um recurso da plataforma de energia da M
 * **Ferramentas de interface do usuário**: Sim – somente interface do usuário
 * **Assinatura (s)**: Construtor de ia
 
-### <a name="continuous-integration-and-deployment"></a>Integração contínua e implantação
+### <a name="continuous-integration-and-deployment"></a>Integração e implantação contínuas
 
 Você pode usar as ações do Azure DevOps e do GitHub para gerenciar suas implantações. Na [seção abaixo](#continuous-integration-and-delivery-with-devops-and-github-actions) abordada, temos dois exemplos de integrações de CI/CD para treinar e implantar modelos personalizados de fala e o serviço de reconhecimento vocal (Luis). 
 
@@ -122,10 +122,10 @@ Conforme você progride em sua jornada criando um aplicativo ou um fluxo de trab
 
 As ferramentas que você usará para treinar e configurar modelos são diferentes daquelas que serão usadas para chamar os serviços cognitivas. Em muitos casos, os serviços cognitivas que dão suporte à personalização fornecem portais e ferramentas de interface do usuário projetadas para ajudá-lo a treinar, avaliar e implantar modelos. Vamos dar uma olhada rapidamente em algumas opções:<br><br>
 
-| Pilar | Serviço | UI de personalização | Início Rápido |
+| Pilar | Serviço | UI de personalização | Guia de Início Rápido |
 |--------|---------|------------------|------------|
 | Visão | Visão Personalizada | https://www.customvision.ai/ | [Início rápido](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Visão | Reconhecimento de Formulários | Ferramenta de rotulagem de exemplo | [Início rápido](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Visão | Reconhecimento de Formulários | [Ferramenta de rotulagem de exemplo](https://fott-preview.azurewebsites.net/) | [Início rápido](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
 | Decisão | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Início rápido](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decisão | Assistente de Métricas | https://metricsadvisor.azurewebsites.net/  | [Início rápido](./metrics-advisor/quickstarts/web-portal.md) |
 | Decisão | Personalizador | A interface do usuário está disponível no portal do Azure em seu recurso personalizador. | [Início rápido](./personalizer/quickstart-personalizer-sdk.md) |

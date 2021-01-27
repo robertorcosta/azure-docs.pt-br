@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 878e6f11645a6478c0d536e9d6d6dac4518c5349
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7c5544ec5f89cfbf2451c19430a99b64825f90bc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740956"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872597"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento com Azure Databricks e AutoML no Azure Machine Learning 
 
@@ -119,7 +119,7 @@ Experimente:
 + Importe esses exemplos diretamente do seu espaço de trabalho. Veja abaixo: ![ selecionar importar ](./media/how-to-configure-environment/azure-db-screenshot.png)
  ![ painel importar](./media/how-to-configure-environment/azure-db-import.png)
 
-+ Saiba como [criar um pipeline com o databricks como a computação de treinamento](how-to-create-your-first-pipeline.md).
++ Saiba como [criar um pipeline com o databricks como a computação de treinamento](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 60cf97c4cb650120a4b6e2989b93d96ea120d040
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: a096375e32e3d8a6760da88fe5ec86a70d364aff
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360115"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872088"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opções de ingestão de dados para fluxos de trabalho de Azure Machine Learning
 
@@ -60,7 +60,7 @@ Saiba como criar um pipeline de ingestão de dados para Machine Learning com [Az
 
 ## <a name="azure-machine-learning-python-sdk"></a>SDK do Python do Azure Machine Learning 
 
-Com o [SDK do Python](/python/api/overview/azure/ml), você pode incorporar tarefas de ingestão de dados em uma etapa [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) .
+Com o [SDK do Python](/python/api/overview/azure/ml), você pode incorporar tarefas de ingestão de dados em uma etapa [Azure Machine Learning pipeline](./how-to-create-machine-learning-pipelines.md) .
 
 A tabela a seguir resume os prós e con para usar o SDK e uma etapa de pipelines do ML para tarefas de ingestão de dados.
 

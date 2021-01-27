@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 817f9a88bd3536e9c0ec8a1057098e6b4a96716e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a3ed7979584787627c97cfec3bb2e19c147f7152
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676350"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872648"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Descobrir, conectar e explorar dados no Synapse usando o Azure alcance 
 
@@ -32,6 +32,8 @@ O uso do Azure alcance no Synapse exige que você tenha acesso a essa conta do a
 ### <a name="data-discovery-search-datasets"></a>Data Discovery: pesquisar conjuntos de dados 
 
 Para descobrir os dados registrados e verificados pelo Azure alcance, você pode usar a barra de pesquisa no centro superior do espaço de trabalho Synapse. Certifique-se de selecionar alcance do Azure para pesquisar todos os dados da sua organização. 
+
+[![Pesquisar ativos alcance do Azure](./media/purview-access.png)](./media/purview-access.png#lightbox)
 
 ## <a name="azure-purview-actions"></a>Ações do Azure alcance 
 

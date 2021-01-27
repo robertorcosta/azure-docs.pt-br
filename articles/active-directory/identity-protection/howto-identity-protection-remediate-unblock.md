@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 01/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e322f78468c89a549955a01f73952e8cde7a13c8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835791"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872817"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Corrigir riscos e desbloquear usuários
 
@@ -91,7 +91,9 @@ Para desbloquear uma conta com base no risco de entrada, os administradores têm
 
 ## <a name="powershell-preview"></a>Visualização do PowerShell
 
-Usando o módulo SDK do Microsoft Graph PowerShell Preview, as organizações podem gerenciar riscos usando o PowerShell. Os módulos de visualização e o código de exemplo podem ser encontrados no [repositório GitHub do Azure ad](https://github.com/AzureAD/IdentityProtectionTools).
+Usando o módulo SDK do Microsoft Graph PowerShell Preview, as organizações podem gerenciar riscos usando o PowerShell. Os módulos de visualização e o código de exemplo podem ser encontrados no [repositório GitHub do Azure ad](https://github.com/AzureAD/IdentityProtectionTools). 
+
+O `Invoke-AzureADIPDismissRiskyUser.ps1` script incluído no repositório permite que as organizações descartam todos os usuários arriscados em seu diretório.
 
 ## <a name="next-steps"></a>Próximas etapas
 

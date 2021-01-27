@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe0280e302882fd5e50830950b531ea9ca169618
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660535"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872393"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma conexão de gateway de VPN de VNet para VNet usando o portal do Azure
 
@@ -44,7 +44,7 @@ Quando você cria uma conexão de VNet a VNet, o espaço de endereço de gateway
 
 ### <a name="site-to-site-ipsec"></a>Site a Site (IPsec)
 
-Se você estiver trabalhando com uma configuração de rede complicada, talvez prefira conectar suas VNets usando uma [Conexão Site a Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Quando você segue as etapas de IPsec Site a Site, cria e configura os gateways de rede local manualmente. O gateway de rede local para cada VNet trata a outra VNet como um site local. Estas etapas permitem que você especifique os espaços de endereço adicionais para o gateway de rede local para rotear o tráfego. Se o espaço de endereço para uma VNet mudar, você deverá atualizar manualmente o gateway de rede local correspondente.
+Se você estiver trabalhando com uma configuração de rede complicada, talvez prefira conectar suas VNets usando uma [Conexão Site a Site](./tutorial-site-to-site-portal.md). Quando você segue as etapas de IPsec Site a Site, cria e configura os gateways de rede local manualmente. O gateway de rede local para cada VNet trata a outra VNet como um site local. Estas etapas permitem que você especifique os espaços de endereço adicionais para o gateway de rede local para rotear o tráfego. Se o espaço de endereço para uma VNet mudar, você deverá atualizar manualmente o gateway de rede local correspondente.
 
 ### <a name="vnet-peering"></a>Emparelhamento VNet
 
@@ -76,7 +76,7 @@ Este artigo mostra como conectar VNets usando o tipo de conexão VNet a VNet. Ao
 * **Configurações de rede virtual**
   * **Nome**: VNet1
   * **Espaço de endereço**: 10.1.0.0/16
-  * **Assinatura**: selecione a assinatura que você deseja usar.
+  * **Assinatura**: Selecione a assinatura que você deseja usar.
   * **Grupo de recursos**: TestRG1
   * **Local**: leste dos EUA
   * **Sub-rede**
@@ -104,7 +104,7 @@ Este artigo mostra como conectar VNets usando o tipo de conexão VNet a VNet. Ao
 * **Configurações de rede virtual**
   * **Nome**: VNet4
   * **Espaço de endereço**: 10.41.0.0/16
-  * **Assinatura**: selecione a assinatura que você deseja usar.
+  * **Assinatura**: Selecione a assinatura que você deseja usar.
   * **Grupo de recursos**: TestRG4
   * **Local**: oeste dos EUA
   * **Sub-rede**
@@ -200,7 +200,7 @@ Em seguida, crie uma conexão de VNet4 para VNet1. No portal, localize o gateway
 
 ## <a name="add-additional-connections"></a>Adicionar conexões extras
 
-Se desejar adicionar conexões extras, navegue até o gateway de rede virtual do qual deseja criar a conexão e selecione **Conexões**. Você pode criar outra conexão de rede virtual a rede virtual ou criar uma conexão Site a site (IPsec) para um lugar local. Verifique se você ajustou o **Tipo de conexão** para que corresponda ao tipo de conexão que deseja criar. Antes de criar conexões adicionais, verifique se o espaço de endereço para sua rede virtual não se sobrepõe nenhum dos espaços de endereço aos quais você deseja se conectar. Para obter as etapas para criar uma conexão Site a site, consulte [Criar uma conexão Site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Se desejar adicionar conexões extras, navegue até o gateway de rede virtual do qual deseja criar a conexão e selecione **Conexões**. Você pode criar outra conexão de rede virtual a rede virtual ou criar uma conexão Site a site (IPsec) para um lugar local. Verifique se você ajustou o **Tipo de conexão** para que corresponda ao tipo de conexão que deseja criar. Antes de criar conexões adicionais, verifique se o espaço de endereço para sua rede virtual não se sobrepõe nenhum dos espaços de endereço aos quais você deseja se conectar. Para obter as etapas para criar uma conexão Site a site, consulte [Criar uma conexão Site a site](./tutorial-site-to-site-portal.md).
 
 ## <a name="vnet-to-vnet-faq"></a>Perguntas Frequentes sobre VNet a VNet
 
