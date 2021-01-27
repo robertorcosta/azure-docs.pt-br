@@ -7,12 +7,12 @@ author: cynthn
 ms.service: virtual-machines
 ms.date: 11/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 7c3e779c152a967452f86b55f06d38076102085c
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 9c220814ae1f714e9eac0c0c11a50d9cf68a621d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594908"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897401"
 ---
 # <a name="tagging-a-vm-using-the-portal"></a>Marcando uma VM usando o portal
 
@@ -20,7 +20,7 @@ Este artigo descreve como adicionar marcas a uma VM usando o Portal. As marcas s
 
 
 1. Navegue até sua VM no Portal.
-1. Em **Essentials** , selecione **clique aqui para adicionar marcas**.
+1. Em **Essentials**, selecione **clique aqui para adicionar marcas**.
 
     :::image type="content" source="media/tag/azure-portal-tag.png" alt-text="Captura de tela da seção Essentials da página da VM.":::
 
@@ -28,9 +28,7 @@ Este artigo descreve como adicionar marcas a uma VM usando o Portal. As marcas s
 
     :::image type="content" source="media/tag/key-value.png" alt-text="Captura de tela da página para adicionar um par chave-valor como uma marca.":::
 
-
-
-**Próximas etapas**
+### <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como marcar seus recursos do Azure, consulte [Visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md) e [Usando marcas para organizar os Recursos do Azure](../azure-resource-manager/management/tag-resources.md).
-- Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [Noções básicas de sua fatura do Azure](../cost-management-billing/understand/review-individual-bill.md) e [Obtenha informações sobre o consumo de recursos do Microsoft Azure](../cost-management-billing/manage/usage-rate-card-overview.md).
+- Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [noções básicas sobre sua fatura do Azure](../cost-management-billing/understand/review-individual-bill.md).

@@ -1,5 +1,5 @@
 ---
-title: Etapa 1-entender os benefícios da migração para a API do Media Services V3 | Microsoft Docs
+title: Etapa 1-entender os benefícios da migração para a API do Media Services V3
 description: Este artigo lista os benefícios da migração dos serviços de mídia v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: c1e3fae35ff249b4435cf2fdcd2bf691bc393d56
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5980da900cd1394d5d9a9ddf99063662cad3c88b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690263"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898368"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Etapa 1-entender os benefícios da migração para a API do Media Services V3
 
@@ -34,7 +34,7 @@ Houve melhorias significativas nos serviços de mídia com v3.
 
 | **Recurso v3** | **Benefício** |
 | --- | --- |
-| **Portal do Azure** | |
+| **Azure portal** | |
 | Atualizações de portal do Azure | O portal do Azure foi atualizado para incluir o gerenciamento de entidades da API v3. Ele permite que os clientes usem o portal para iniciar a transmissão ao vivo, enviar trabalhos de transformação v3, gerenciar políticas de proteção de conteúdo, pontos de extremidade de streaming, obter acesso à API, gerenciar contas de armazenamento vinculadas e executar tarefas de monitoramento. |
 | **Contas e armazenamento** | |
 | RBAC (controle de acesso baseado em função) do Azure | Agora, os clientes podem definir suas próprias funções e controlar o acesso a cada entidade na API ARM dos serviços de mídia. Isso ajuda a controlar o acesso a recursos por contas do AAD. |
@@ -57,7 +57,7 @@ Houve melhorias significativas nos serviços de mídia com v3.
 | [Modo de espera](live-events-outputs-concept.md#standby-mode) em eventos ao vivo | Eventos ao vivo que estão no estado de espera são menos caros do que a execução de eventos ao vivo. Isso permite que os clientes mantenham um conjunto de eventos ao vivo que estão prontos para começar em segundos a um custo menor do que manter um conjunto de eventos ao vivo em execução. Os preços reduzidos para eventos de espera ativa entrarão em vigor em fevereiro de 2021 para a maioria das regiões, com o restante a seguir em abril de 2021.
 |**Proteção de conteúdo** ||
 | [Proteção](content-key-policy-concept.md)   de conteúdo dá suporte a recursos de várias chaves. | Agora, os clientes podem usar várias chaves de criptografia de conteúdo em seus localizadores de streaming. |
-| **Monitoramento** | |
+| **Monitoring** | |
 | Suporte à notificação [do Azure EventGrid](reacting-to-media-services-events.md) | As notificações do EventGrid são mais ricas em recursos. Há mais tipos de notificações, suporte mais amplo ao SDK para receber as notificações em seu próprio aplicativo e mais serviços do Azure existentes que podem atuar como manipuladores de eventos. |
 | [Suporte a Azure Monitor e integração no portal do Azure](monitor-events-portal-how-to.md) | Isso permite que os clientes visualizem o uso de cota de contas dos serviços de mídia, estatísticas em tempo real de pontos de extremidade de streaming e ingestão e arquivamento de estatísticas para eventos ao vivo. Agora, os clientes podem definir alertas e executar as ações necessárias com base em dados de métrica em tempo real. |
 

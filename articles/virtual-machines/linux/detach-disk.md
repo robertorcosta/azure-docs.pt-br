@@ -8,12 +8,12 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 96586be8be466acf09121518fb71ea1b8ba9d983
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e618475d7d0160bce5aee39c267bb191a3a9f0a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203194"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897132"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Linux
 
@@ -119,3 +119,4 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 ## <a name="next-steps"></a>Próximas etapas
 Se deseja reutilizar o disco de dados, basta [anexá-lo a outra VM](add-disk.md).
 
+Se você quiser excluir o disco, para que não incorra mais nos custos de armazenamento, consulte [Localizar e excluir discos gerenciados e não-portal do Azure do Azure desconectados](../disks-find-unattached-portal.md).

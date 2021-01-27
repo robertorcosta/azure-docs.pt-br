@@ -7,17 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 1efb512923caed97126bdb4ee6267c6a9b57f251
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: bf13d5c0caeb0bf31a383cd23155a6856c81c53b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594907"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897384"
 ---
 # <a name="how-to-tag-a-virtual-machine-in-azure-using-powershell"></a>Como marcar uma máquina virtual no Azure usando o PowerShell
 
 Este artigo descreve como marcar uma VM no Azure usando o PowerShell. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure dá suporte a até 50 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Se você quiser marcar uma máquina virtual usando o CLI do Azure, consulte [como marcar uma máquina virtual no Azure usando o CLI do Azure](tag-cli.md).
-
 
 Use o `Get-AzVM` cmdlet para exibir a lista atual de marcas para sua VM.
 
@@ -84,8 +83,7 @@ Environment   Production
 Location      MyLocation
 ```
 
-
-**Próximas etapas**
+### <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como marcar seus recursos do Azure, consulte [Visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md) e [Usando marcas para organizar os Recursos do Azure](../azure-resource-manager/management/tag-resources.md).
-- Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [Noções básicas de sua fatura do Azure](../cost-management-billing/understand/review-individual-bill.md) e [Obtenha informações sobre o consumo de recursos do Microsoft Azure](../cost-management-billing/manage/usage-rate-card-overview.md).
+- Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [noções básicas sobre sua fatura do Azure](../cost-management-billing/understand/review-individual-bill.md).

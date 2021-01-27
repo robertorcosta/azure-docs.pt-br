@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 07e79dbde142400677901ee02903144f9a42cd6b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740684"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879554"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizar dados de Azure Time Series Insights no Power BI
 
@@ -112,10 +112,10 @@ Agora que você importou os dados para Power BI, é hora de criar um relatório 
 Depois de criar o relatório, você poderá publicá-lo no Power BI Reporting Services e compartilhá-lo com outras pessoas em sua organização.
 
 ## <a name="advanced-editing"></a>Edição avançada
-Se você já carregou um conjunto de dados em Power BI mas deseja modificar a consulta (como os parâmetros de ID de ambiente ou de data/hora ou), você pode fazer isso por meio da funcionalidade de Editor Avançado do Power BI. Consulte a [documentação do Power bi](https://docs.microsoft.com/power-bi/desktop-query-overview) para saber mais sobre como fazer alterações usando o **Editor de Power Query**. 
+Se você já carregou um conjunto de dados em Power BI mas deseja modificar a consulta (como os parâmetros de ID de ambiente ou de data/hora ou), você pode fazer isso por meio da funcionalidade de Editor Avançado do Power BI. Consulte a [documentação do Power bi](/power-bi/desktop-query-overview) para saber mais sobre como fazer alterações usando o **Editor de Power Query**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre o [Power bi desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Saiba mais sobre o [Power bi desktop](/power-bi/desktop-query-overview).
 
 * Saiba mais sobre como [consultar dados](concepts-query-overview.md) no Azure Time Series insights Gen2.

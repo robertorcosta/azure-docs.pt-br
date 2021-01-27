@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 28b7419dfc889d1149765b884f1a5990a1e28f03
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880568"
+ms.locfileid: "98898097"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -186,7 +186,7 @@ O clustering de failover do Windows Server tem suporte pela Sincronização de A
 
 ### <a name="data-deduplication"></a>Eliminação de duplicação de dados
 **Windows Server 2016 e Windows Server 2019**   
-A eliminação de duplicação de dados tem suporte em volumes com a camada de nuvem habilitada no Windows Server 2016 e Windows Server 2019. Habilitar a Eliminação de Duplicação de Dados em um volume com camada de nuvem habilitada permite armazenar em cache mais arquivos localmente sem ter que provisionar mais armazenamento. 
+A eliminação de duplicação de dados tem suporte, independentemente de a disposição da nuvem estar habilitada ou desabilitada em um ou mais pontos de extremidade do servidor no volume para o Windows Server 2016 e o Windows Server 2019. Habilitar a Eliminação de Duplicação de Dados em um volume com camada de nuvem habilitada permite armazenar em cache mais arquivos localmente sem ter que provisionar mais armazenamento. 
 
 Quando a Eliminação de Duplicação de Dados é habilitada em um volume com camada de nuvem habilitada, os arquivos otimizados para eliminação de duplicação na localização do ponto de extremidade do servidor serão colocados em camadas semelhantes a um arquivo normal com base nas configurações de política de camada de nuvem. Depois que os arquivos otimizados para eliminação de duplicação estiverem em camadas, o trabalho de coleta de lixo da Eliminação de Duplicação de Dados será executado automaticamente para recuperar espaço em disco removendo partes desnecessárias que não são mais referenciadas por outros arquivos no volume.
 

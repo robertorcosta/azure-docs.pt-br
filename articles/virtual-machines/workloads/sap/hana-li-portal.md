@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827505"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882477"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controle do HANA em Instâncias Grandes do Azure por meio do portal do Azure
 
@@ -94,7 +94,7 @@ Dados adicionais no lado inferior direito é a revisão do carimbo de instância
 - Revisão 4
 
 A revisão 4 é a arquitetura mais recente liberada de instâncias grandes HANA com grandes melhorias na latência de rede entre as VMs do Azure e as unidades de instância grande do HANA implantadas na revisão 4 carimbos ou linhas.
-Outra informação muito importante é encontrada no canto inferior direito da visão geral com o nome do grupo de posicionamento de proximidade do Azure criado automaticamente para cada unidade de instância grande do HANA implantada. Esse grupo de posicionamento de proximidade precisa ser referenciado ao implantar as VMs do Azure que hospedam a camada de aplicativo SAP. Usando o [grupo de posicionamento de proximidade do Azure](../../linux/co-location.md) associado à unidade de instância grande do Hana, certifique-se de que as VMs do Azure sejam implantadas de perto à unidade de instância grande do Hana. O modo como os grupos de posicionamento de proximidade podem ser usados para localizar a camada de aplicativo SAP no mesmo datacenter do Azure, pois a revisão 4 unidades de instância grande do HANA hospedadas é descrita em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
+Outra informação muito importante é encontrada no canto inferior direito da visão geral com o nome do grupo de posicionamento de proximidade do Azure criado automaticamente para cada unidade de instância grande do HANA implantada. Esse grupo de posicionamento de proximidade precisa ser referenciado ao implantar as VMs do Azure que hospedam a camada de aplicativo SAP. Usando o [grupo de posicionamento de proximidade do Azure](../../co-location.md) associado à unidade de instância grande do Hana, certifique-se de que as VMs do Azure sejam implantadas de perto à unidade de instância grande do Hana. O modo como os grupos de posicionamento de proximidade podem ser usados para localizar a camada de aplicativo SAP no mesmo datacenter do Azure, pois a revisão 4 unidades de instância grande do HANA hospedadas é descrita em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
 
 Um campo adicional na coluna à direita do cabeçalho informa sobre o estado de energia da unidade de instância grande do HANA.
 

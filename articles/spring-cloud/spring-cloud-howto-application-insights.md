@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: fb1c6f2b541e537bcb52c55fcfd87bbebe37b8e5
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: c4871c3de8028eec1b6184c1d03ac2180b50f57d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831934"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881343"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Application Insights o agente de In-Process Java no Azure Spring Cloud (versão prévia)
 
@@ -83,7 +83,7 @@ No painel de navegação esquerdo, clique em **Application insights** para ir pa
 
   [![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
-* No painel de navegação esquerdo, clique em **disponibilidade** para monitorar a disponibilidade e a capacidade de resposta dos aplicativos Web Criando [testes de disponibilidade no Application insights](/azure/azure-monitor/app/monitor-web-app-availability).
+* No painel de navegação esquerdo, clique em **disponibilidade** para monitorar a disponibilidade e a capacidade de resposta dos aplicativos Web Criando [testes de disponibilidade no Application insights](../azure-monitor/app/monitor-web-app-availability.md).
 
   [![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
@@ -140,7 +140,7 @@ az spring-cloud app-insights update --disable –name "assignedName" –resource
 
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Usar o rastreamento distribuído com o Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md)
 * [Analisar logs e métricas](diagnostic-services.md)
 * [Transmitir logs em tempo real](spring-cloud-howto-log-streaming.md)

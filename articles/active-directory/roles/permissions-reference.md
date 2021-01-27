@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40269f6b1553d73af43b4cf86127eaa97524dd57
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 535b49cb20d60bd9ab294543b82bdb24b040eb7b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740900"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879470"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -429,7 +429,7 @@ Os usuários com essa função podem gerenciar alertas e ter acesso global somen
 No | O que ele pode fazer
 --- | ---
 [Central de segurança do Microsoft 365](https://protection.office.com) | Todas as permissões da função Leitor de Segurança<br>Exibir, investigar e responder a ameaças de segurança
-Identity Protection Center | Todas as permissões da função Leitor de Segurança<br>Além disso, a habilidade de executar todas as operações do Centro de Proteção de Identidade, exceto redefinir senhas
+Azure AD Identity Protection | Todas as permissões da função Leitor de Segurança<br>Além disso, a capacidade de executar todas as operações da central de proteção de identidade, exceto para redefinir senhas e configurar emails de alerta.
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Todas as permissões da função Leitor de Segurança
 [Centro de Conformidade e Segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Todas as permissões da função Leitor de Segurança<br>Exibir, investigar e responder a alertas de segurança
 Windows Defender ATP e EDR | Todas as permissões da função Leitor de Segurança<br>Exibir, investigar e responder a alertas de segurança

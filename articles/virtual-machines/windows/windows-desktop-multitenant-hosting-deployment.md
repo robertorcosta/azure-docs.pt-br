@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: mimckitt
-ms.openlocfilehash: 444c6a9c131916a2a07f41fd5c1ff38fc1e7bfb2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 8268e305946a19f4f74ff790e680d6bd3faa2b29
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210317"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881428"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implantar o Windows 10 no Azure com direitos de hospedagem multilocatário 
 Para clientes com Windows 10 Enterprise E3/E5 por usuário ou por Acesso de Área de Trabalho Virtual do Windows por usuário (licenças de assinatura do usuário ou licenças complementares de assinatura do usuário), os direitos de hospedagem multilocatário para Windows 10 permitem que você coloque suas licenças do Windows 10 na nuvem e execute máquinas virtuais do Windows 10 no Azure sem necessidade de pagar por outra licença. Para obter mais informações, consulte [Hospedagem multilocatário para Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -39,7 +39,7 @@ rs5-pro                     Windows-10 MicrosoftWindowsDesktop eastus
 rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
 ```
 
-Para obter mais informações sobre imagens disponíveis, consulte [Localizar e usar imagens de VM do Azure Marketplace com Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)
+Para obter mais informações sobre imagens disponíveis, consulte [Localizar e usar imagens de VM do Azure Marketplace com Azure PowerShell](./cli-ps-findimage.md)
 
 ## <a name="qualify-for-multi-tenant-hosting-rights"></a>Qualificar para direitos de Hospedagem de vários locatários 
 Para se qualificar para direitos de hospedagem multilocatários e executar imagens do Windows 10 em usuários do Azure, é necessário ter uma das seguintes assinaturas: 

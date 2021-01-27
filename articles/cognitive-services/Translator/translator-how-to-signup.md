@@ -3,19 +3,19 @@ title: Introdução-Tradutor
 titleSuffix: Azure Cognitive Services
 description: Este artigo mostrará como se inscrever no Tradutor de serviços cognitivas do Azure e obter uma chave de assinatura.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 6773c6b29ecfd8354c54a6214cfe0b4050edcd38
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.author: lajanuar
+ms.openlocfilehash: 8932c389138c1fb86509a59bc055a2ce147c51a3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602645"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896707"
 ---
 # <a name="how-to-sign-up-for-translator"></a>Como se inscrever no Tradutor
 

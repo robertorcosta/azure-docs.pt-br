@@ -1,6 +1,5 @@
 ---
 title: Conceitos e terminologia dos serviços de mídia
-titleSuffix: Azure Media Services
 description: Saiba mais sobre a terminologia e os conceitos dos serviços de mídia do Azure.
 services: media-servicesgit
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5564051ae11a1237cc924ee6bf557e3c85d8866a
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: b425cd9268b336a8926e4fad9cb1f288f4fe3e87
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696406"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897910"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Conceitos e terminologia dos serviços de mídia
 

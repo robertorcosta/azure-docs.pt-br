@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017229"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879166"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usar o Firewall do Azure para inspecionar o tráfego destinado a um ponto de extremidade privado
 
@@ -92,7 +92,7 @@ Há algumas limitações na implementação: uma migração para uma arquitetura
 Essa arquitetura pode ser implementada se você tiver configurado a conectividade com sua rede local usando: 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
-* [VPN site a site](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+* [VPN site a site](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 Se seus requisitos de segurança exigirem tráfego de cliente para serviços expostos por meio de pontos de extremidade privados a serem roteados por meio de um dispositivo de segurança, implante esse cenário.
 
@@ -257,7 +257,7 @@ Nesta seção, você habilita os logs no firewall.
     | Subscription | Selecione sua assinatura. |
     | Espaço de trabalho do Log Analytics | Selecione seu espaço de trabalho do Log Analytics. |
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="create-azure-sql-database"></a>Criar um Banco de Dados SQL do Azure
 
@@ -279,7 +279,7 @@ Nesta seção, você criará um banco de dados SQL privado.
     | Logon de administrador do servidor | Insira um nome de sua escolha. |
     | Senha    |    Insira uma senha de sua escolha.    |
     | Confirmar Senha | Insira novamente a senha    |
-    | Localização    | Marque **(US) EUA Central do Sul**.    |
+    | Location    | Marque **(US) EUA Central do Sul**.    |
     | Deseja usar o pool elástico do SQL    | Deixe o padrão **Não**. |
     | Computação + armazenamento | Deixe o padrão **uso geral Gen5, 2 vCores, 32 GB de armazenamento**. |
     |||
@@ -345,7 +345,7 @@ Nesta seção, você cria um ponto de extremidade privado para o banco de dados 
 
 13. Em **firewalls e redes virtuais**, selecione **Sim** ao lado de **permitir que os serviços e recursos do Azure acessem este servidor**.
 
-14. Clique em **Salvar**.
+14. Selecione **Salvar**.
 
 ## <a name="connect-the-virtual-networks-using-virtual-network-peering"></a>Conectar as redes virtuais usando o emparelhamento de rede virtual
 
@@ -461,12 +461,12 @@ Essa regra permite a comunicação por meio do firewall que criamos nas etapas a
     | Ação | Digite **permitir**. |
     | **Regras** |  |
     | **Marcas de FQDN** | |
-    | Name  | Deixe em branco.  |
+    | Nome  | Deixe em branco.  |
     | Tipo de origem | Deixe o **endereço IP** padrão.    |
     | Fonte | Deixe em branco. |
     | Marcas de FQDN | Deixe o padrão **0 selecionado**. |
     | **FQDNs de destino** | |
-    | Name | Insira **SQLPrivateEndpoint**.    |
+    | Nome | Insira **SQLPrivateEndpoint**.    |
     | Tipo de origem | Deixe o **endereço IP** padrão. |
     | Fonte | Insira **10.1.0.0/16**. |
     | Protocolo: porta | Digite **MSSQL: 1433**. |
@@ -483,7 +483,7 @@ Nesta seção, criaremos uma tabela de rotas com uma rota personalizada.
 
 A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede virtual **myPEVNet**, por meio do firewall do Azure.
 
-1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página inicial**, selecione **Criar um recurso**.
 
 2. Digite **tabela de rotas** na caixa de pesquisa e pressione **Enter**.
 
@@ -498,7 +498,7 @@ A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede
     | Resource group | Selecione **myResourceGroup**.  |
     | **Detalhes da instância** |  |
     | Região | Selecione **EUA Central do Sul**. |
-    | Name | Insira **VMsubnet-to-AzureFirewall**. |
+    | Nome | Insira **VMsubnet-to-AzureFirewall**. |
     | Propagar rotas de gateway | Selecione **Não**. |
 
 5. Selecione **Examinar + criar**. Você é levado até a página **Examinar + criar**, na qual o Azure valida sua configuração.
@@ -545,7 +545,7 @@ Conecte-se à VM **myVm** da Internet da seguinte forma:
 
 3. Copie ou anote o valor em **endereço IP**.
 
-4. Se você estiver usando o Windows 10, execute o comando a seguir usando o PowerShell. Para outras versões de cliente do Windows, use um cliente [Putty](https://www.putty.org/)SSH como reversão:
+4. Se você estiver usando o Windows 10, execute o comando a seguir usando o PowerShell. Para outras versões de cliente do Windows, use um cliente [](https://www.putty.org/)SSH como reversão:
 
 * Substitua **username** pelo nome de usuário do administrador que você inseriu durante a criação da VM.
 

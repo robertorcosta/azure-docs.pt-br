@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b44ea6f55717712cfba4045205e02bd9f2b851df
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202650"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878114"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de base de segurança do Azure para o Firewall do aplicativo Web do Azure
 
@@ -406,7 +406,7 @@ Siga as recomendações da central de segurança para criptografia em repouso e 
 
 O WAF do Azure, no modo de prevenção, bloqueia invasões e ataques detectados pelas regras. O invasor recebe uma exceção "403 acesso não autorizado" e a conexão é encerrada. O modo de Prevenção registra tais ataques nos logs do WAF.
 
-- [Visão geral da integração entre o Gateway de Aplicativo e a Central de Segurança do Azure](../application-gateway/application-gateway-integration-security-center.md#overview)
+- [Visão geral da integração entre o Gateway de Aplicativo e a Central de Segurança do Azure](../security-center/security-center-partner-integration.md)
 
 - [Modos de WAF no gateway de aplicativo](ag/ag-overview.md#waf-modes)
 

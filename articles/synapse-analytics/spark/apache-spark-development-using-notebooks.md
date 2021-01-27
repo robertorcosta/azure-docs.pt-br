@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 7bb0b9b4645be7e548fe116d9e9a2c92fae7dc96
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120947"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898487"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter blocos de anotações do Synapse Studio no Azure Synapse Analytics
 
@@ -303,6 +303,8 @@ Não há suporte.
 # <a name="preview-notebook"></a>[Visualizar bloco de notas](#tab/preview)
 
 Você pode usar o ```%run <notebook path>``` comando mágico para fazer referência a outro bloco de anotações no contexto do bloco de anotações atual. Todas as variáveis definidas no bloco de anotações de referência estão disponíveis no bloco de anotações atual. ```%run``` o comando mágico dá suporte a chamadas aninhadas, mas não oferece suporte a chamadas recursivas. Você receberá uma exceção se a profundidade da instrução for maior que cinco. ```%run``` Atualmente, o comando só dá suporte para passar um caminho de bloco de anotações como parâmetro. 
+
+Exemplo: ``` %run /path/notebookA ```.
 
 ---
 

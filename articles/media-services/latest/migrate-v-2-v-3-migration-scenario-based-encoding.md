@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de migração baseadas em cenário de codificação | Microsoft Docs
+title: Diretrizes de migração baseadas em cenário de codificação
 description: Este artigo fornece orientação baseada em cenário de codificação que ajudará você a migrar dos serviços de mídia do Azure v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d122bdeb98de624d9053852b9bee4595b0ef8c8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8d25a14593c3c4a26ecafa33f7cc9fe6c4d580a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690229"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898351"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Diretrizes de migração baseadas em cenário de codificação
 
@@ -43,7 +43,7 @@ Clique na imagem abaixo para ver uma versão maior.
 
 [![Fluxo de trabalho de codificação para v2 ](./media/migration-guide/V2-pretty.svg)](./media/migration-guide/V2-pretty.svg#lightbox)
 
-1. Instalação
+1. Configuração
     1. Crie um ativo ou use um ativo existente. Se estiver usando um novo ativo, carregue o conteúdo para esse ativo. Se estiver usando um ativo existente, você deve estar codificando arquivos que já existem no ativo.
     2. Obter os valores dos seguintes itens:
         - ID ou objeto do processador de mídia

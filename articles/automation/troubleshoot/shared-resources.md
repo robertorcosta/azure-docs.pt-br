@@ -2,18 +2,15 @@
 title: Solucionar problemas com recursos compartilhados de Automação do Azure
 description: Este artigo informa como solucionar problemas com os recursos compartilhados de Automação do Azure.
 services: automation
-author: mgoedtel
-ms.author: magoedte
+ms.subservice: ''
 ms.date: 03/12/2019
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
-ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: c4ede0bffedc256f4af621d4945ebbbea0f8a4b6
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187159"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896284"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Solucionar problemas de recursos compartilhados
 
@@ -33,7 +30,7 @@ Como a importação de módulos do PowerShell é um processo complexo e de vári
 
 #### <a name="resolution"></a>Resolução
 
-Para resolver esse problema, você deve remover o módulo que está preso usando o cmdlet [Remove-AzureRmAutomationModule.](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) Você pode, em seguida, tente importar novamente o módulo.
+Para resolver esse problema, você deve remover o módulo que está preso usando o cmdlet [Remove-AzureRmAutomationModule.](/powershell/module/Az.Automation/Remove-AzAutomationModule) Você pode, em seguida, tente importar novamente o módulo.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -70,7 +67,7 @@ Algumas razões comuns para que um módulo não pode importar com êxito à auto
 * A estrutura não corresponde à estrutura em que a Automação precisa.
 * O módulo depende de outro módulo que não tenha sido implantado em sua conta de Automação.
 * O módulo não tem suas dependências na pasta.
-* O cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) está sendo usado para carregar o módulo, e você não forneceu o caminho de armazenamento completo ou não carregou o módulo usando uma URL acessível publicamente.
+* O cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule) está sendo usado para carregar o módulo, e você não forneceu o caminho de armazenamento completo ou não carregou o módulo usando uma URL acessível publicamente.
 
 #### <a name="resolution"></a>Resolução
 

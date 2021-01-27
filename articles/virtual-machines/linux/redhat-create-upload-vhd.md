@@ -8,15 +8,15 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: d5caacc7ebbb39a5d6d4fa3d4e9757e8e83420f9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: c6a3385b4347f76d83963ca33fa8485974d3c62a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202684"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881275"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada no Red Hat para o Azure
-Neste artigo, você aprenderá como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. Neste artigo, abordamos as versões 6.7+ e 7.1+ do RHEL. Neste artigo, abordamos os seguintes hipervisores de preparação: Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para saber mais informações sobre os requisitos de qualificação para participação no programa Red Hat Cloud Access, confira o [site Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o artigo[Como executar o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para obter maneiras de automatizar a criação de imagens RHEL, consulte o [Construtor de imagens do Azure](./image-builder-overview.md).
+Neste artigo, você aprenderá como preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para usar no Azure. Neste artigo, abordamos as versões 6.7+ e 7.1+ do RHEL. Neste artigo, abordamos os seguintes hipervisores de preparação: Hyper-V, máquina virtual baseada em kernel (KVM) e VMware. Para saber mais informações sobre os requisitos de qualificação para participação no programa Red Hat Cloud Access, confira o [site Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e o artigo[Como executar o RHEL no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para obter maneiras de automatizar a criação de imagens RHEL, consulte o [Construtor de imagens do Azure](../image-builder-overview.md).
 
 ## <a name="hyper-v-manager"></a>Gerenciador do Hyper-V
 
@@ -30,7 +30,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
 * O Azure não oferece suporte para o formato VHDX. O Azure suporta apenas VHD fixo. Você pode usar o Gerenciador do Hyper-V para converter o disco em formato VHD, ou pode usar o cmdlet convert-vhd. Quando criar o disco, se você usar o VirtualBox, selecione **Tamanho fixo** em vez da opção padrão alocada dinamicamente.
 * O Azure dá suporte a máquinas virtuais Gen1 (inicialização do BIOS) & Gen2 (inicialização UEFI).
 * O tamanho máximo permitido para o VHD é 1.023 GB.
-* Gerenciador de Volume lógico (LVM) tem suporte e pode ser usado no disco do sistema operacional ou discos de dados em máquinas virtuais do Azure. No entanto, em geral é recomendável usar partições padrão em disco do sistema operacional em vez de LVM. Essa prática evitará conflitos de nome LVM entre máquinas virtuais clonadas, especialmente se você precisar anexar um disco do sistema operacional em outra máquina virtual idêntica para solução de problemas. Consulte também [LVM](configure-lvm.md) e [RAID](configure-raid.md) documentação.
+* Gerenciador de Volume lógico (LVM) tem suporte e pode ser usado no disco do sistema operacional ou discos de dados em máquinas virtuais do Azure. No entanto, em geral é recomendável usar partições padrão em disco do sistema operacional em vez de LVM. Essa prática evitará conflitos de nome LVM entre máquinas virtuais clonadas, especialmente se você precisar anexar um disco do sistema operacional em outra máquina virtual idêntica para solução de problemas. Consulte também [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) e [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) documentação.
 * **É necessário suporte de kernel para montar sistemas de arquivos de formato de disco universal (UDF)**. Na primeira inicialização no Azure, a configuração de provisionamento é transmitida à máquina virtual do Linux por meio de mídia formatada para UDF, a qual é anexada ao convidado. O agente Linux do Azure deve ser capaz de montar o sistema de arquivos UDF para ler sua configuração e provisionar a máquina virtual, sem isso, o provisionamento falhará!
 * Não configure uma partição de permuta no disco do sistema operacional. Verifique as etapas a seguir para obter mais informações sobre esse assunto.
 
@@ -395,7 +395,7 @@ Esta seção pressupõe que você já baixou um arquivo ISO do site do Red Hat e
     GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
     ```
    
-   Isso também garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial e habilitam a interação com o console serial, o que pode auxiliar o suporte do Azure com problemas de depuração. Essa configuração também desliga as novas convenções de nomenclatura do RHEL 7 para NICs.
+   Isso também garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial e habilitam a interação com o console serial, o que pode auxiliar o suporte do Azure com problemas de depuração. Essa configuração também desativa as novas convenções de nomenclatura para NICs.
    
    1. Além disso, recomendamos que você remova os seguintes parâmetros:
 

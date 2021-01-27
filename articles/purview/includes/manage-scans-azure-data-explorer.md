@@ -1,16 +1,16 @@
 ---
-author: hophanms
-ms.author: hophan
+author: amberz
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 1/20/2021
-ms.openlocfilehash: ac83f455d2af82c3f6970077fccb17f07e53cccc
+ms.author: amberz
+ms.openlocfilehash: bf872feae9c3a7ca94e5252872adee2b653f5524
 ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900763"
+ms.locfileid: "98896081"
 ---
 ## <a name="creating-and-running-a-scan"></a>Criando e executando uma verificação
 
@@ -27,19 +27,19 @@ Para criar e executar uma nova verificação, faça o seguinte:
 
 1. Selecione a credencial para se conectar à fonte de dados. 
 
-   :::image type="content" source="media/manage-scans/set-up-scan.png" alt-text="Configurar verificação":::
+   :::image type="content" source="media/manage-scans/set-up-scan-data-explorer.png" alt-text="Configurar verificação":::
 
 1. Você pode delimitar o escopo da sua verificação para partes específicas da fonte de dados, como pastas, coleções ou esquemas, verificando os itens apropriados na lista.
 
-   :::image type="content" source="media/manage-scans/scope-your-scan.png" alt-text="Escopo da verificação":::
+   :::image type="content" source="media/manage-scans/scope-your-scan-data-explorer.png" alt-text="Escopo da verificação":::
 
 1. Selecione um conjunto de regras de verificação para a sua verificação. Você pode escolher entre o padrão do sistema, os personalizados que já existem ou criar outro embutido.
 
-   :::image type="content" source="media/manage-scans/scan-rule-set.png" alt-text="Verificar conjunto de regras":::
+   :::image type="content" source="media/manage-scans/scan-rule-set-data-explorer.png" alt-text="Verificar conjunto de regras":::
 
 1. Escolha o gatilho da verificação. Você pode configurar um agendamento ou executar a verificação uma vez.
 
-   :::image type="content" source="media/manage-scans/trigger-scan.png" alt-text="trigger":::
+   :::image type="content" source="media/manage-scans/trigger-scan-data-explorer.png" alt-text="trigger":::
 
 1. Examine a verificação e selecione **Salvar e executar**.
 

@@ -3,19 +3,19 @@ title: Migrar para v3-Translator
 titleSuffix: Azure Cognitive Services
 description: Este artigo fornece as etapas para ajudá-lo a migrar de v2 para V3 do tradutor de serviços cognitivas do Azure.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: baaf907d2fafe23805e6b49582ecc7592ee05e0b
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.author: lajanuar
+ms.openlocfilehash: 13c4d39284fad293c945f8b7e31076dccee84fda
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028226"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896826"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Conversor v2 para migração v3
 
@@ -114,7 +114,7 @@ Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como t
 
 A tradução neural com a API de texto V3 não dá suporte ao uso de categorias padrão (SMT, fala, texto, generalnn).
 
-| Versão | Ponto de extremidade | Conformidade de processador do RGPD | Usar o Hub do Tradutor | Usar o Tradutor Personalizado (Versão Prévia) |
+| Versão | Ponto de Extremidade | Conformidade de processador do RGPD | Usar o Hub do Tradutor | Usar o Tradutor Personalizado (Versão Prévia) |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
 |Tradutor versão 2|    api.microsofttranslator.com|    Não    |Sim    |Não|
 |Tradutor versão 3|    api.cognitive.microsofttranslator.com|    Sim|    Não|    Sim|
