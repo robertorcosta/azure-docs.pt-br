@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Azure Cosmos DB
 description: Lista as definições de políticas internas do Azure Policy para o Azure Cosmos DB. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: reference
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ca937818e06b8aab349ab24213569f52c1228bb3
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 587b301e7e92603f83aaed1a8e1e7099cd277b1c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702355"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806223"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Definições internas do Azure Policy para o Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 0542d7e0ea204d1e9279e89c9f36b9bc6c6c88fa
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c34410fcb5e1992f8b7a358801a354a1e1cf190c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165851"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808017"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,13 @@ Os clientes serão notificados por email e na portal do Azure bem antes de qualq
 ## <a name="status-updates"></a>Atualizações de status
 
 # <a name="in-progress"></a>[Em Andamento](#tab/in-progress-ip)
+## <a name="february-2021"></a>Fevereiro de 2021
+Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+
+- EUA Central: 13.89.169.20
+
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 28 de fevereiro de 2021.
+
 ## <a name="january-2021"></a>Janeiro de 2021
 Novos gateways do SQL estão sendo adicionados às seguintes regiões:
 
@@ -41,7 +48,7 @@ Novos gateways do SQL estão sendo adicionados às seguintes regiões:
 - Coreia central: 52.231.17.22, 52.231.17.23
 - Índia ocidental: 104.211.144.4
 
-Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 31 de janeiro de 2021
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 31 de janeiro de 2021.
 
 # <a name="completed"></a>[Concluído](#tab/completed-ip)
 As seguintes migrações de gateway estão concluídas: 

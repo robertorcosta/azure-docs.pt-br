@@ -6,24 +6,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: fd55110bbfaed72051bfc388692421cd8209609d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0985779aeb14fd4f3d6a12cf152e4c63c909d613
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763731"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806675"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Criar imagens de VM personalizadas para o dispositivo Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Para implantar VMs no dispositivo Azure Stack Edge Pro, você precisará conseguir criar imagens de VM personalizadas que possam ser usadas para criar VMs. Este artigo descreve as etapas necessárias para criar imagens de VM personalizadas do Linux ou do Windows que você poderá usar para implantar VMs no dispositivo Azure Stack Edge Pro.
+Para implantar VMs no dispositivo Azure Stack Edge Pro, você precisará conseguir criar imagens de VM personalizadas que possam ser usadas para criar VMs. Este artigo descreve as etapas necessárias para criar imagens personalizadas de VM do Windows ou Linux que você pode usar para implantar VMs em seu dispositivo Azure Stack Edge pro.
 
 ## <a name="vm-image-workflow"></a>Fluxo de trabalho de imagem de VM
 
-O fluxo de trabalho exige que você crie uma máquina virtual no Azure, personalize a VM, generalize-a e baixe o VHD correspondente a ela. Esse VHD generalizado é carregado no Azure Stack Edge Pro, o disco gerenciado é criado com base nesse VHD, a imagem é criada com base no disco gerenciado e, por fim, as VMs são criadas com base nessa imagem.   
+O fluxo de trabalho exige que você crie uma máquina virtual no Azure, personalize a VM, generalize-a e baixe o VHD correspondente a ela. Esse VHD generalizado é carregado no Azure Stack Edge pro. Um disco gerenciado é criado a partir desse VHD. Uma imagem é criada a partir do disco gerenciado. E, finalmente, as VMs são criadas a partir dessa imagem.
 
 Para obter mais informações, acesse [Implantar uma VM no dispositivo Azure Stack Edge Pro usando o Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
@@ -76,7 +76,7 @@ Agora use este VHD para criar e implantar uma VM no dispositivo Azure Stack Edge
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |O Ubuntu Server é a distribuição do Linux mais popular do mundo para ambientes em nuvem.|Canônico|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |O Debian GNU/Linux é uma das distribuições mais populares do Linux.     |credativ|
 
-Para obter uma lista completa das imagens do Azure Marketplace que podem funcionar (atualmente não testadas), acesse [Itens do Azure Marketplace disponíveis para o Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+Para obter uma lista completa das imagens do Azure Marketplace que podem funcionar (atualmente não testadas), acesse [Itens do Azure Marketplace disponíveis para o Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
 
 ## <a name="next-steps"></a>Próximas etapas

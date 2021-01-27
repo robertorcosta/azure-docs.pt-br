@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 12/04/2020
 ms.author: baanders
-ms.openlocfilehash: e06e660a43aaa0ff5eb79bc00bd8a5d2c61c6580
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d93f484e318c10489eb1db3e9c65c6e0c7479c90
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045301"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98859831"
 ---
 | Nome do filtro | Descrição | Filtrar esquema de texto | Valores com suporte | 
 | --- | --- | --- | --- |
@@ -22,10 +22,6 @@ ms.locfileid: "98045301"
 | Tipo de conteúdo | Tipo de conteúdo do valor de dados | `datacontenttype = '<contentType>'` | O tipo de conteúdo é `application/json` |
 | Versão de especificação | A versão do esquema de evento que você está usando | `specversion = '<version>'` | A versão deve ser `1.0` . Isso indica o esquema CloudEvents versão 1,0 |
 | Corpo da notificação | Referenciar qualquer propriedade no `data` campo de uma notificação | `$body.<property>` | Consulte [*como: entender os dados do evento*](../articles/digital-twins/how-to-interpret-event-data.md) para obter exemplos de notificações. Qualquer propriedade no `data` campo pode ser referenciada usando `$body`
-
-Observe que você pode adicionar vários filtros a uma solicitação como esta: 
-
-:::code language="json" source="~/digital-twins-docs-samples/api-requests/filter-multiple.json":::
 
 Os tipos de dados a seguir têm suporte como valores retornados por referências aos dados acima:
 
@@ -39,7 +35,7 @@ Os tipos de dados a seguir têm suporte como valores retornados por referências
 
 Os seguintes operadores têm suporte ao definir filtros de rota:
 
-|Family|Operadores|Exemplo|
+|Família|Operadores|Exemplo|
 |-|-|-|
 |Lógico|AND, OR, ()|`(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')`|
 |Comparação|<, <=, >, >=, =,! =|`$body.temperature <= 5.5`

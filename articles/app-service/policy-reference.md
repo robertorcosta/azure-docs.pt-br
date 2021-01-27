@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para o Serviço de Aplicativo do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Serviço de Aplicativo do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f77008ced0e24bd813a15a6677738a5900217331
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: bf946cbab42c7394a640f6e257b69d6eab0d05a2
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98700611"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808207"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-service"></a>Definições internas do Azure Policy para o Serviço de Aplicativo do Azure
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: da04e7704274336f7f92237c1d7c30459caa7bc8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a7361dafce30b07e76d971bdcda41cf4b3cd9e6e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936474"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806165"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implantação da plataforma SAP BusinessObjects BI para Linux no Azure
 
@@ -37,7 +37,7 @@ Neste exemplo, a versão do produto e o layout do sistema de arquivos são usado
 - Banco de dados do Azure para MySQL (versão: 8.0.15)
 - Conector da API do MySQL C-libmysqlclient (versão: 6.1.11)
 
-| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Agrupar  | Armazenamento                    |
+| Sistema de Arquivos        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Grupo  | Armazenamento                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | O sistema de arquivos para instalação da instância do SAP BOBI, aplicativo Web Tomcat padrão e drivers de banco de dados (se necessário) | Diretrizes de dimensionamento do SAP | bl1adm | sapsys | Disco Premium gerenciado-SSD |
 | /usr/sap/frsinput  | O diretório de montagem é para os arquivos compartilhados em todos os hosts BOBI que serão usados como diretório de repositório do arquivo de entrada  | Necessidade comercial         | bl1adm | sapsys | Azure NetApp Files         |
@@ -555,7 +555,7 @@ A seção a seguir descreve como implementar a estratégia de backup e restaura�
 
 No Azure, a maneira mais simples de fazer backup de servidores de aplicativos e de todos os discos anexados é usando o serviço de [backup do Azure](../../../backup/backup-overview.md) . Ele fornece backups independentes e isolados para proteger a destruição não intencional dos dados em suas VMs. Os backups são armazenados em um cofre dos Serviços de Recuperação com gerenciamento interno de pontos de recuperação. A configuração e o dimensionamento são simples, os backups são otimizados e podem ser restaurados facilmente quando necessário.
 
-Como parte do processo de backup, o instantâneo é obtido e os dados são transferidos para o cofre do serviço de recuperação sem afetar as cargas de trabalho de produção. O instantâneo fornece um nível de consistência diferente, conforme descrito no artigo de [consistência do instantâneo](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) . Você também pode optar por fazer backup do subconjunto dos discos de dados na VM usando a funcionalidade de backup e restauração de discos seletivos. Para obter mais informações, consulte documento de [backup de VM do Azure](../../../backup/backup-azure-vms-introduction.md) e [perguntas frequentes-backup de VMs do Azure](../../../backup/backup-azure-vm-backup-faq.md).
+Como parte do processo de backup, o instantâneo é obtido e os dados são transferidos para o cofre do serviço de recuperação sem afetar as cargas de trabalho de produção. O instantâneo fornece um nível de consistência diferente, conforme descrito no artigo de [consistência do instantâneo](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) . Você também pode optar por fazer backup do subconjunto dos discos de dados na VM usando a funcionalidade de backup e restauração de discos seletivos. Para obter mais informações, consulte documento de [backup de VM do Azure](../../../backup/backup-azure-vms-introduction.md) e [perguntas frequentes-backup de VMs do Azure](../../../backup/backup-azure-vm-backup-faq.yml).
 
 #### <a name="backup--restore-for-file-repository-server"></a>Backup & restauração do servidor de repositório de arquivos
 
