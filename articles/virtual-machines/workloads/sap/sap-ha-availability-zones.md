@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7418e5578450367e9fa37a87adb6e7036619877b
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: e098256a43add6df026ab136bcd6a6b549c147e7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827441"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871308"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho do SAP com Zonas de Disponibilidade do Azure
 Além da implantação das diferentes camadas de arquitetura do SAP nos conjuntos de disponibilidade do Azure, a [zonas de disponibilidade do Azure](../../../availability-zones/az-overview.md) introduzida mais recentemente também pode ser usada para implantações de carga de trabalho do SAP. Uma zona de disponibilidade do Azure é definida como: "locais físicos exclusivos em uma região. Cada zona é composta por um ou mais data centers equipados com energia, resfriamento e rede independentes. Zonas de Disponibilidade do Azure não estão disponíveis em todas as regiões. Para regiões do Azure que fornecem Zonas de Disponibilidade, verifique o [mapa de regiões do Azure](https://azure.microsoft.com/global-infrastructure/geographies/). Esse mapa vai mostrar quais regiões fornecem ou são anunciadas para fornecer Zonas de Disponibilidade. 
@@ -56,7 +56,7 @@ Ao implantar VMs do Azure em Zonas de Disponibilidade e estabelecer soluções d
 
 - Use o [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) ao implantar em Zonas de Disponibilidade do Azure. 
 - O mapeamento de enumerações de zona para as zonas físicas é fixado por assinatura do Azure. Se você estiver usando assinaturas diferentes para implantar seus sistemas de SAP, precisará definir as zonas ideais para cada assinatura.
-- Você não pode implantar conjuntos de disponibilidade do Azure em uma zona de disponibilidade do Azure, a menos que use o [grupo de posicionamento de proximidade do Azure](../../linux/co-location.md). A maneira como você pode implantar a camada do DBMS do SAP e os serviços centrais entre as zonas e, ao mesmo tempo, implantar a camada de aplicativo SAP usando conjuntos de disponibilidade e ainda atingir a proximidade das VMs está documentada no artigo [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md). Se não estiver usando grupos de posicionamento de proximidade do Azure, você precisará escolher um ou outro como uma estrutura de implantação para máquinas virtuais.
+- Você não pode implantar conjuntos de disponibilidade do Azure em uma zona de disponibilidade do Azure, a menos que use o [grupo de posicionamento de proximidade do Azure](../../co-location.md). A maneira como você pode implantar a camada do DBMS do SAP e os serviços centrais entre as zonas e, ao mesmo tempo, implantar a camada de aplicativo SAP usando conjuntos de disponibilidade e ainda atingir a proximidade das VMs está documentada no artigo [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md). Se não estiver usando grupos de posicionamento de proximidade do Azure, você precisará escolher um ou outro como uma estrutura de implantação para máquinas virtuais.
 - Não é possível usar um [Azure Basic Load Balancer](../../../load-balancer/load-balancer-overview.md) para criar soluções de cluster de failover baseadas no Cluster de Failover do Windows Server ou no Linux Pacemaker. Em vez disso, você precisa usar o [SKU Standard Load Balancer do Azure](../../../load-balancer/load-balancer-standard-availability-zones.md).
 
 
@@ -119,7 +119,7 @@ As regiões do Azure em que essa arquitetura de implantação SAP entre zonas n�
 - França Central 
 - Norte da África do Sul
 - Canadá Central
-- Leste do Japão
+- Japan East
 
 Dependendo do que você está disposto a tolerar nas diferenças de tempo de execução, outras regiões não listadas também podem ser qualificadas.
 
@@ -130,7 +130,7 @@ Um esquema simplificado de implantação ativa/ativa entre duas zonas pode ser s
 
 As seguintes considerações se aplicam a essa configuração:
 
-- Não usando o [grupo de posicionamento de proximidade do Azure](../../linux/co-location.md), você trata o zonas de disponibilidade do Azure como domínios de falha e atualização para todas as VMs porque os conjuntos de disponibilidade não podem ser implantados no zonas de disponibilidade do Azure.
+- Não usando o [grupo de posicionamento de proximidade do Azure](../../co-location.md), você trata o zonas de disponibilidade do Azure como domínios de falha e atualização para todas as VMs porque os conjuntos de disponibilidade não podem ser implantados no zonas de disponibilidade do Azure.
 - Se você quiser combinar implantações zonais para a camada DBMS e os serviços centrais, mas quiser usar os conjuntos de disponibilidade do Azure para a camada de aplicativo, você precisará usar os grupos de proximidade do Azure, conforme descrito no artigo [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
 - Para os balanceadores de carga dos clusters de failover do SAP Central Services e da camada do DBMS, você precisa usar a [SKU padrão do Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). O Load Balancer básico não funciona entre as zonas.
 - A rede virtual do Azure que você implantou para hospedar o sistema SAP com suas sub-redes é ampliada entre as zonas. Não é necessário ter redes virtuais separadas para cada zona.
@@ -156,12 +156,12 @@ As regiões do Azure em que esse tipo de arquitetura de implantação em diferen
 
 - Sudeste Asiático
 - Leste da Austrália
-- Sul do Brasil
+- Brazil South
 - Centro-Oeste da Alemanha
 - Norte da África do Sul
 - França Central 
 - Canadá Central
-- Leste do Japão
+- Japan East
 
 
 O layout básico da arquitetura é semelhante a este:

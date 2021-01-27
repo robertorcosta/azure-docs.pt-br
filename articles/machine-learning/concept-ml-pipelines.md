@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 01/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: a6ee4c08a7ecf9bcfcbc9cf6f630efe126248e9f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e3f92f445068b98c12069577ddf61a71568e403b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185699"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871546"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -118,7 +118,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-O trecho de código começa com objetos Azure Machine Learning comuns, a `Workspace` , a `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)e um `Experiment` . Em seguida, o código cria os objetos a serem guardados `input_data` e `output_data` . O `input_data` é uma instância de [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e `output_data` é uma instância de  [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Para `OutputFileDatasetConfig` o comportamento padrão é copiar a saída para o `workspaceblobstore` repositório de armazenamento no caminho `/dataset/{run-id}/{output-name}` , em que `run-id` é a ID da execução e `output-name` é um valor gerado automaticamente se não for especificado pelo desenvolvedor.
+O trecho de código começa com objetos Azure Machine Learning comuns, a `Workspace` , a `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)e um `Experiment` . Em seguida, o código cria os objetos a serem guardados `input_data` e `output_data` . O `input_data` é uma instância de [filedataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) e `output_data` é uma instância de  [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Para `OutputFileDatasetConfig` o comportamento padrão é copiar a saída para o `workspaceblobstore` repositório de armazenamento no caminho `/dataset/{run-id}/{output-name}` , em que `run-id` é a ID da execução e `output-name` é um valor gerado automaticamente se não for especificado pelo desenvolvedor.
 
 A matriz `steps` contém um único elemento, um `PythonScriptStep` que usará os objetos de dados e será executado no `compute_target` . Em seguida, o código instancia o `Pipeline` objeto em si, passando o espaço de trabalho e a matriz de etapas. A chamada para `experiment.submit(pipeline)` começa a execução do pipeline do Azure ml. A chamada para `wait_for_completion()` blocos até que o pipeline seja concluído. 
 
@@ -149,7 +149,7 @@ As principais vantagens de usar pipelines para seus fluxos de trabalho de aprend
 
 Azure Machine Learning pipelines são um recurso poderoso que começa a fornecer valor nos primeiros estágios de desenvolvimento. O valor aumenta conforme a equipe e o projeto crescem. Este artigo explicou como pipelines são especificados com o SDK Azure Machine Learning Python e orquestrados no Azure. Você viu um código-fonte simples e foi introduzido em algumas das `PipelineStep` classes disponíveis. Você deve ter uma noção de quando usar Azure Machine Learning pipelines e como o Azure os executa. 
 
-+ Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md).
++ Saiba como [criar seu primeiro pipeline](./how-to-create-machine-learning-pipelines.md).
 
 + Saiba como [executar previsões em lote em dados grandes](tutorial-pipeline-batch-scoring-classification.md ).
 

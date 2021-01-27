@@ -3,12 +3,12 @@ title: Usar identidade gerenciada com um aplicativo
 description: Como usar identidades gerenciadas no Azure Service Fabric código do aplicativo para acessar os serviços do Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: bec640077a17ccef822afb85fc104728aabb13b1
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: e26a29020f26583f7e4aa16434c7e8647ba9a5a3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791315"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871054"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Como aproveitar a identidade gerenciada de um aplicativo Service Fabric para acessar os serviços do Azure
 
@@ -30,7 +30,7 @@ O SDK de identidade do Azure agora dá suporte a Service Fabric. Usar o Azure. I
 Service Fabric suporte está disponível nas seguintes versões para estes idiomas: 
 - [C# na versão 1.3.0](https://www.nuget.org/packages/Azure.Identity). Veja um [exemplo em C#](https://github.com/Azure-Samples/service-fabric-managed-identity).
 - [Python na versão 1.5.0](https://pypi.org/project/azure-identity/). Consulte um [exemplo de Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md).
-- [Java na versão 1.2.0](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
+- [Java na versão 1.2.0](/java/api/overview/azure/identity-readme).
 
 Exemplo em C# de inicialização de credenciais e uso das credenciais para buscar um segredo de Azure Key Vault:
 

@@ -85,7 +85,7 @@
         - name: Gerenciamento do ciclo de vida de VMs
           href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Azure NetApp Files
-          href: net-app-files-with-azure-vmware-solution.md
+          href: netapp-files-with-azure-vmware-solution.md
         - name: Gateway de Aplicativo
           href: protect-azure-vmware-solution-with-application-gateway.md
         - name: Gerenciador de Tráfego

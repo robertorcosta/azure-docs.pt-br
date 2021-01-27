@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca2a844364d11dbb5ac2a244945e07d8ca725c1c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 944e687c27d46a9cf3250cb21024b4e5a52dc62c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728433"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871512"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -137,7 +137,7 @@ Recomendamos que você configure e valide uma solução HADR completa e um desig
         - Teste e avalie a latência de rede entre as VMs da camada de aplicativo SAP e as VMs do DBMS de acordo com as notas de suporte do SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados em relação às diretrizes de latência de rede no [#1100926 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/1100926/E). A latência de rede deve estar no intervalo moderado ou bom. As exceções se aplicam ao tráfego entre as VMs e as unidades de instância grande do HANA, conforme documentado neste [artigo](./hana-network-architecture.md#networking-architecture-for-hana-large-instance).
         - Verifique se as implantações ILB estão configuradas para usar o retorno de servidor direto. Essa configuração reduzirá a latência quando ILBs do Azure forem usadas para configurações de alta disponibilidade na camada do DBMS.
         - Se você estiver usando Azure Load Balancer junto com os sistemas operacionais convidados do Linux, verifique se o parâmetro de rede do Linux **net.IPv4.tcp_timestamps** está definido como **0**. Essa recomendação entra em conflito com recomendações em versões mais antigas do [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). A nota SAP agora é atualizada para declarar que esse parâmetro precisa ser definido como **0** para funcionar com os balanceadores de carga do Azure.
-        - Considere usar [grupos de posicionamento de proximidade do Azure](../../linux/co-location.md) para obter a latência de rede ideal. Para obter mais informações, consulte [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
+        - Considere usar [grupos de posicionamento de proximidade do Azure](../../co-location.md) para obter a latência de rede ideal. Para obter mais informações, consulte [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
    4. Implantações de alta disponibilidade e recuperação de desastres.
         - Se você implantar a camada de aplicativo SAP sem definir uma zona de disponibilidade do Azure específica, certifique-se de que todas as VMs que executam instâncias de diálogo do SAP ou instâncias de middleware de um único sistema SAP sejam implantadas em um [conjunto de disponibilidade](../../manage-availability.md).
         - Se você não precisar de alta disponibilidade para os serviços centrais do SAP e o DBMS, poderá implantar essas VMs no mesmo conjunto de disponibilidade que a camada de aplicativo SAP.
@@ -209,7 +209,7 @@ Durante essa fase, normalmente você implanta sistemas de desenvolvimento, siste
 8.  Verifique [o site do SAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) para obter novos SKUs com certificação do Hana no Azure. Compare os preços de novos SKUs com aqueles que você planejou usar. Eventualmente, faça as alterações necessárias para usar aquelas que têm a melhor taxa de preço/desempenho.
 9.  Adapte seus scripts de implantação para usar novos tipos de VM e incorpore novos recursos do Azure que você deseja usar.
 10. Após a implantação da infraestrutura, teste e avalie a latência de rede entre as VMs da camada de aplicativo SAP e as VMs do DBMS, de acordo com as notas de suporte do SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados em relação às diretrizes de latência de rede no [#1100926 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/1100926/E). A latência de rede deve estar no intervalo moderado ou bom. As exceções se aplicam ao tráfego entre as VMs e as unidades de instância grande do HANA, conforme documentado neste [artigo](./hana-network-architecture.md#networking-architecture-for-hana-large-instance). Certifique-se de que nenhuma das restrições mencionadas em [considerações para a implantação de DBMS de máquinas virtuais do Azure para cargas de trabalho do SAP](./dbms_guide_general.md#azure-network-considerations) e [SAP Hana configurações de infraestrutura e operações no Azure](./hana-vm-operations.md) se aplicam à sua implantação.
-11. Verifique se suas VMs estão implantadas no [grupo correto de posicionamento de proximidade do Azure](../../linux/co-location.md), conforme descrito em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
+11. Verifique se suas VMs estão implantadas no [grupo correto de posicionamento de proximidade do Azure](../../co-location.md), conforme descrito em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
 11. Execute todas as outras verificações listadas para a fase de prova de conceito antes de aplicar a carga de trabalho.
 12. À medida que a carga de trabalho se aplica, registre o consumo de recursos dos sistemas no Azure. Compare esse consumo com registros de sua plataforma antiga. Ajuste o dimensionamento de VM de implantações futuras se você vir que tem grandes diferenças. Tenha em mente que, quando você diminuir, o armazenamento e as larguras de banda de rede das VMs também serão reduzidas.
     - [Tamanhos das máquinas virtuais do Windows no Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -251,7 +251,7 @@ Nesta fase, colete o que você experimentou e aprendeu durante suas implantaçõ
     - Não há soluções de [virtualização de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de sistemas SAP com base no SAP NetWeaver, Hybris ou S/4HANA.
     - As regras de grupo de segurança de aplicativos e de grupos de segurança de rede permitem a comunicação conforme desejado e planejada e bloqueiam a comunicação quando necessário.
     - As configurações de tempo limite são definidas corretamente, conforme descrito anteriormente.
-    - As VMs são implantadas no grupo correto de [posicionamento de proximidade do Azure](../../linux/co-location.md), conforme descrito em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
+    - As VMs são implantadas no grupo correto de [posicionamento de proximidade do Azure](../../co-location.md), conforme descrito em [grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP](sap-proximity-placement-scenarios.md).
     - A latência de rede entre as VMs da camada de aplicativo SAP e as VMs do DBMS é testada e validada, conforme descrito nas notas de suporte do SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Avalie os resultados em relação às diretrizes de latência de rede no [#1100926 de observação de suporte SAP](https://launchpad.support.sap.com/#/notes/1100926/E). A latência de rede deve estar no intervalo moderado ou bom. As exceções se aplicam ao tráfego entre as VMs e as unidades de instância grande do HANA, conforme documentado neste [artigo](./hana-network-architecture.md#networking-architecture-for-hana-large-instance).
     - A criptografia foi implementada quando necessário e com o método de criptografia apropriado.
     - Interfaces e outros aplicativos podem se conectar à infraestrutura implantada recentemente.
