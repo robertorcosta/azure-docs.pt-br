@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356167"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879149"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -37,7 +37,7 @@ Para obter mais informações, consulte a seção exemplos deste artigo.
 ## <a name="related-conceptual-articles"></a>Artigos conceituais relacionados
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-- [Transferir dados com o armazenamento de BLOBs e AzCopy](storage-use-azcopy-blobs.md)
+- [Transferir dados com o armazenamento de BLOBs e AzCopy](./storage-use-azcopy-v10.md#transfer-data)
 - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 - [Configurar, otimizar e solucionar problemas do AzCopy](storage-use-azcopy-configure.md)
 
@@ -284,7 +284,7 @@ Transfira arquivos e diretórios para a conta de armazenamento do Azure e defina
 
 **--include-a cadeia de caracteres de padrão** inclui apenas esses arquivos ao copiar. Essa opção dá suporte a caracteres curinga (*). Separe arquivos usando um `;` .
 
-**--a cadeia de caracteres da lista de versões** especifica um arquivo onde cada ID de versão é listada em uma linha separada. Verifique se a origem deve apontar para um único BLOB e se todas as IDs de versão especificadas no arquivo usando esse sinalizador devem pertencer somente ao blob de origem. O AzCopy baixará as versões especificadas na pasta de destino fornecida. Para obter mais informações, consulte [baixar versões anteriores de um blob](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+**--a cadeia de caracteres da lista de versões** especifica um arquivo onde cada ID de versão é listada em uma linha separada. Verifique se a origem deve apontar para um único BLOB e se todas as IDs de versão especificadas no arquivo usando esse sinalizador devem pertencer somente ao blob de origem. O AzCopy baixará as versões especificadas na pasta de destino fornecida. Para obter mais informações, consulte [baixar versões anteriores de um blob](./storage-use-azcopy-v10.md#transfer-data).
 
 **--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: informações (todas as solicitações/respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (padrão `INFO` ). 
 
@@ -324,6 +324,6 @@ Transfira arquivos e diretórios para a conta de armazenamento do Azure e defina
 
 **--a cadeia de caracteres Trusted-Microsoft-suffixs** especifica sufixos de domínio adicionais onde Azure Active Directory tokens de logon podem ser enviados.  O padrão é `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`. Todos listados aqui são adicionados ao padrão. Por segurança, você só deve colocar Microsoft Azure domínios aqui. Separe várias entradas com ponto e vírgula.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 - [azcopy](storage-ref-azcopy.md)

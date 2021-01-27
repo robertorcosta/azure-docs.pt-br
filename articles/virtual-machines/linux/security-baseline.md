@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f0ae4ac4cf50eb6e54d41ff25e1cc671e76819ee
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 62030d1c208fc778476f49e5b3165e46e6aa0d66
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200797"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878843"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de base de segurança do Azure para Máquinas Virtuais do Linux
 
@@ -852,7 +852,7 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 * [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Informações sobre como baixar o modelo de VM](../windows/download-template.md)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -896,7 +896,7 @@ Além de usar Controle de Alterações para o monitoramento de aplicativos de so
 
 Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com a configuração de estado desejado da automação do Azure podem ajudar na reunião e manutenção dos requisitos de segurança.
 
-* [Informações sobre como baixar o modelo de VM](../windows/download-template.md)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informações sobre a criação de modelos do ARM](../windows/ps-template.md)
 

@@ -8,12 +8,12 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: a504969d23fce8000119aadf9e45d599da0894f0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918053"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879268"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Como planejar uma oferta de serviço gerenciado para o Marketplace comercial da Microsoft
 
@@ -25,7 +25,7 @@ Os serviços gerenciados são ofertas do Azure Marketplace que habilitam o geren
 
 Para publicar um serviço gerenciado, você deve ter conquistado uma competência Gold ou prata da Microsoft na plataforma de nuvem. Essa competência demonstra sua experiência com os clientes. Para obter mais informações, consulte [competências de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).
 
-As ofertas devem atender a todas as [políticas de certificação do Marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies) aplicáveis a serem publicadas no Azure Marketplace.
+As ofertas devem atender a todas as [políticas de certificação do Marketplace comercial](/legal/marketplace/certification-policies) aplicáveis a serem publicadas no Azure Marketplace.
 
 ## <a name="customer-leads"></a>Clientes potenciais
 
@@ -50,7 +50,7 @@ Ao criar sua oferta de serviço gerenciado no Partner Center, você inserirá te
 1. Descrição breve
 1. Categorias
 1. Contratos legais e política de privacidade
-1. Description
+1. Descrição
 1. Capturas de tela/vídeos
 1. Links úteis
 
@@ -60,7 +60,7 @@ Veja um exemplo de como a listagem da oferta aparece no portal do Azure:
 
 **Descrições de chamada**
 
-1. Name
+1. Nome
 2. Descrição
 3. Links úteis
 4. Capturas de tela/vídeos

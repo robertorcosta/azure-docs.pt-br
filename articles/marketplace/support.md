@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602597"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879234"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Suporte para o programa do Marketplace comercial no Partner Center
 
 A Microsoft fornece suporte para uma ampla variedade de produtos e serviços. Encontrar a equipe de suporte correta é importante para garantir uma resposta apropriada e oportuna. Considere os seguintes cenários, que podem ajudá-lo a rotear sua consulta para a equipe apropriada:
 
 - Se você for um Publicador e tiver uma pergunta de um cliente, peça ao cliente para solicitar suporte usando os links de suporte no [portal do Azure](https://portal.azure.com/).
-- Se você for um Publicador e tiver detectado um problema de segurança com um aplicativo em execução no Azure, consulte [como registrar um tíquete de suporte de evento de segurança](/azure/security/fundamentals/event-support-ticket). Os editores devem relatar eventos de segurança suspeitos, incluindo incidentes e vulnerabilidades de segurança das ofertas de serviço e de software do Microsoft Azure Marketplace na primeira oportunidade.
+- Se você for um Publicador e tiver detectado um problema de segurança com um aplicativo em execução no Azure, consulte [como registrar um tíquete de suporte de evento de segurança](../security/fundamentals/event-support-ticket.md). Os editores devem relatar eventos de segurança suspeitos, incluindo incidentes e vulnerabilidades de segurança das ofertas de serviço e de software do Microsoft Azure Marketplace na primeira oportunidade.
 - Se você for um Publicador e tiver uma pergunta relacionada ao seu aplicativo ou serviço, examine as opções de suporte a seguir.
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Obter ajuda ou abrir um tíquete de suporte

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: e188c74c6eba5e4182f7b72277db8dd8e08db8d4
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 714b7bccea9b1e0c18ad78a4d98ed3526a279f5f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913917"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879251"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planejar uma oferta de SaaS para o Marketplace comercial
 
@@ -150,7 +150,7 @@ Ao [criar uma nova oferta de SaaS](create-new-saas-offer.md) no Partner Center, 
 6. Política de privacidade
 7. Nome da oferta
 8. Resumo
-9. Description
+9. Descrição
 10. Capturas de tela/vídeos
 11. Documentos
 
@@ -202,7 +202,7 @@ Para ajudar a criar sua oferta com mais facilidade, prepare alguns desses itens 
   - arquivo. png
   - Deve incluir uma legenda
 - **Mídia-vídeos** (opcional): você pode adicionar até quatro vídeos com os seguintes requisitos, que demonstram sua oferta:
-  - Name
+  - Nome
   - URL: deve ser hospedada somente no YouTube ou Vimeo.
   - Miniatura: 1280 x 720. arquivo PNG
 
@@ -250,7 +250,7 @@ O exemplo a seguir mostra uma divisão de exemplo de custos e pagamentos para de
 | A Microsoft paga para você 80% do seu custo de licença<br>`*` Para aplicativos SaaS qualificados, a Microsoft paga 90% do seu custo de licença| US $80,00 por mês<br>``*`` US $90,00 por mês |
 |||
 
-**`*` Redução da taxa de serviço do Marketplace** – para determinadas ofertas de SaaS que você publicou no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida. Depois que a qualificação for atendida, a taxa de serviço reduzida será concedida a todas as transações efetivas no primeiro dia do mês seguinte e continuará a ser aplicada até que o status de incentivados de covenda de IP do Azure seja perdido. Para obter detalhes sobre a qualificação de venda de IP, consulte [requisitos para o status de venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). A taxa reduzida de serviço do Marketplace também se aplica ao IP do Azure para venda de VMs incentivadoss, aplicativos gerenciados e qualquer outra oferta de IaaS pagamente qualificada disponibilizada por meio do Marketplace comercial.
+**`*` Redução da taxa de serviço do Marketplace** – para determinadas ofertas de SaaS que você publicou no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do fim de cada mês civil para receber a taxa de serviço do Marketplace reduzida. Depois que a qualificação for atendida, a taxa de serviço reduzida será concedida a todas as transações efetivas no primeiro dia do mês seguinte e continuará a ser aplicada até que o status de incentivados de covenda de IP do Azure seja perdido. Para obter detalhes sobre a qualificação de venda de IP, consulte [requisitos para o status de venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). A taxa reduzida de serviço do Marketplace também se aplica ao IP do Azure para venda de VMs incentivadoss, aplicativos gerenciados e qualquer outra oferta de IaaS pagamente qualificada disponibilizada por meio do Marketplace comercial.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de vendas adicionais
 
@@ -258,7 +258,7 @@ Você pode optar por aceitar os canais de marketing e vendas com suporte da Micr
 
 - **Revenda por meio de CSPs**: Use esta opção para permitir que os parceiros de CSP (provedores de soluções) Microsoft Cloud revendam sua solução como parte de uma oferta agrupada. Para saber mais sobre esse programa, confira [programa do provedor de soluções na nuvem](cloud-solution-providers.md).
 
-- **Covenda com a Microsoft**: essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Para obter detalhes sobre a qualificação para venda conjunta, consulte [requisitos para o status de televenda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Para obter informações detalhadas sobre como preparar sua oferta para avaliação, confira [a opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md).
+- **Covenda com a Microsoft**: essa opção permite que as equipes de vendas da Microsoft considerem sua solução qualificada de venda conjunta de IP ao avaliar as necessidades dos clientes. Para obter detalhes sobre a qualificação para venda conjunta, consulte [requisitos para o status de televenda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Para obter informações detalhadas sobre como preparar sua oferta para avaliação, confira [a opção de venda conjunta no Partner Center](commercial-marketplace-co-sell.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

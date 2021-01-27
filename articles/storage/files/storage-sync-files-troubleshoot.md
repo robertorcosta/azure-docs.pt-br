@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 49184778c7d6592f074e04df535b9bc221f3162e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539244"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878792"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -206,8 +206,8 @@ No servidor que está sendo exibido como "Aparece offline" no portal, examine a 
     - Se o servidor estiver atrás de um proxy, defina as configurações de proxy específicas do aplicativo ou para todo o computador seguindo as etapas na [documentação](./storage-sync-files-firewall-and-proxy.md#proxy) do Proxy.
     - Use o cmdlet Test-StorageSyncNetworkConnectivity para verificar a conectividade de rede para os pontos de extremidade de serviço. Para saber mais, confira [Testar conectividade de rede para pontos de extremidade de serviço](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
     - Se a ordem do conjunto de criptografia TLS estiver configurada no servidor, você poderá usar a política de grupo ou os cmdlets TLS para adicionar conjuntos de codificação:
-        - Para usar a política de grupo, consulte [Configurando a ordem do conjunto de codificação TLS usando política de grupo](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
-        - Para usar os cmdlets TLS, consulte [Configurando o TLS Cipher Suite Order usando cmdlets do PowerShell do TLS](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+        - Para usar a política de grupo, consulte [Configurando a ordem do conjunto de codificação TLS usando política de grupo](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Para usar os cmdlets TLS, consulte [Configurando o TLS Cipher Suite Order usando cmdlets do PowerShell do TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         O Sincronização de Arquivos do Azure atualmente dá suporte aos seguintes conjuntos de codificação para o protocolo TLS 1,2:  
         - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
@@ -931,7 +931,7 @@ Esse erro ocorre se o diretório usado como o caminho do ponto de extremidade do
 Se o diretório foi excluído, execute as seguintes etapas para remover o ponto de extremidade do servidor existente e criar um novo ponto de extremidade do servidor usando um novo caminho:
 
 1. Remova o ponto de extremidade do servidor no grupo de sincronização seguindo as etapas documentadas em [remover um ponto de extremidade do servidor](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
-2. Crie um novo ponto de extremidade do servidor no grupo de sincronização seguindo as etapas documentadas em [Adicionar um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
+2. Crie um novo ponto de extremidade do servidor no grupo de sincronização seguindo as etapas documentadas em [Adicionar um ponto de extremidade do servidor](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Etapas de solução de problemas comuns
 <a id="troubleshoot-storage-account"></a>**Verifique se que a conta de armazenamento existe.**  

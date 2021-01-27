@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015972"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878809"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
 
@@ -35,7 +35,7 @@ O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *my
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-As definições de imagem criam um agrupamento lógico para as imagens. Elas são usadas para gerenciar informações sobre as versões da imagem que são criadas dentro delas. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions).
+As definições de imagem criam um agrupamento lógico para as imagens. Elas são usadas para gerenciar informações sobre as versões da imagem que são criadas dentro delas. Os nomes das definições de imagem podem ser compostos por letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. Para obter mais informações sobre os valores que pode especificar para uma definição de imagem, confira [Definições de imagem](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
 
 Crie a definição de imagem da Galeria dentro da sua galeria. Neste exemplo, a imagem da galeria é denominada *myImageDefinition*.
 
@@ -44,7 +44,7 @@ Crie a definição de imagem da Galeria dentro da sua galeria. Neste exemplo, a 
 1. Para **nome da definição da imagem**, digite *myImageDefinition*.
 1. Para **sistema operacional**, selecione a opção correta com base em sua VM de origem.  
 1. Para **geração de VM**, selecione a opção com base na VM de origem. Na maioria dos casos, essa será a *Gen 1*. Para obter mais informações, consulte [suporte para VMs de geração 2](../articles/virtual-machines/generation-2.md).
-1. Para **estado do sistema operacional**, selecione a opção com base na VM de origem. Para obter mais informações, consulte [generalizado e especializado](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
+1. Para **estado do sistema operacional**, selecione a opção com base na VM de origem. Para obter mais informações, consulte [generalizado e especializado](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
 1. Para o **Publicador**, digite *mypublisher*. 
 1. Para **oferta**, digite *myoffer*.
 1. Para **SKU**, digite *mySKU*.
@@ -93,7 +93,7 @@ Pode levar algum tempo para replicar a imagem para todas as regiões de destino.
 
 Recomendamos que você compartilhe o acesso no nível da galeria de imagens. O seguinte guia você pelo compartilhamento da galeria que você acabou de criar.
 
-1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Abra o [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione grupos de **recursos**. 
 1. Na lista de grupos de recursos, selecione **myGalleryRG**. A folha do seu grupo de recursos será aberta.
 1. No menu à esquerda da página **myGalleryRG** , selecione **controle de acesso (iam)**. 
