@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2af4f5467cb0f604f16d1faf841618a14d292806
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585727"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875137"
 ---
 # <a name="monitoring-azure-files"></a>Monitorando arquivos do Azure
 
@@ -69,7 +69,7 @@ Você pode criar uma configuração de diagnóstico usando o portal do Azure, o 
 
 Para obter diretrizes gerais, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-### <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
+### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 1. Entre no portal do Azure.
 
@@ -677,6 +677,6 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 - [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Migração de métricas do armazenamento do Azure](../common/storage-metrics-migration.md)
 - [Como planejar uma implantação de Arquivos do Azure](./storage-files-planning.md)
-- [Como implantar Arquivos do Azure](./storage-files-deployment-guide.md)
+- [Como implantar Arquivos do Azure](./storage-how-to-create-file-share.md)
 - [Solucionar Problemas dos Arquivos do Azure no Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 - [Solucionar Problemas dos Arquivos do Azure no Linux](./storage-troubleshoot-linux-file-connection-problems.md)

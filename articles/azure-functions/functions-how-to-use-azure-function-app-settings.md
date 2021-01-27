@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 4db6abeb3e6f4a07780268a6455177e0ca237205
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598489"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875442"
 ---
 # <a name="manage-your-function-app"></a>Gerenciar seu aplicativo de funções 
 
@@ -37,6 +37,8 @@ As configurações do aplicativo podem ser gerenciadas no [portal do Azure](func
 Essas configurações são armazenadas criptografadas. Para saber mais, consulte [segurança de configurações de aplicativo](security-concepts.md#application-settings).
 
 # <a name="portal"></a>[Portal](#tab/portal)
+
+Para localizar as configurações do aplicativo, consulte Introdução ao [portal do Azure](#get-started-in-the-azure-portal). 
 
 A guia **configurações do aplicativo** mantém as configurações que são usadas pelo seu aplicativo de funções. Você deve selecionar **Mostrar valores** para ver os valores no Portal. Para adicionar uma configuração no portal, selecione **nova configuração de aplicativo** e adicione o novo par chave-valor.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900647"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875729"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -70,13 +70,13 @@ Para outros tipos de recursos, atualmente não temos uma solução relacionada a
 ### <a name="recommended-azure-built-in-roles"></a>Funções internas do Azure recomendadas
 
 Há várias funções internas do Azure que podem fornecer as permissões necessárias para usar Gerenciador de Armazenamento. Algumas dessas funções são:
-- [Proprietário](/azure/role-based-access-control/built-in-roles#owner): gerencie tudo, incluindo o acesso aos recursos.
-- [Colaborador](/azure/role-based-access-control/built-in-roles#contributor): gerenciar tudo, excluindo o acesso aos recursos.
-- [Leitor](/azure/role-based-access-control/built-in-roles#reader): ler e listar recursos.
-- [Colaborador da conta de armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-contributor): gerenciamento completo de contas de armazenamento.
-- [Proprietário de dados do blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): acesso completo aos dados e contêineres de blob do armazenamento do Azure.
-- [Colaborador de dados de blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): ler, gravar e excluir contêineres e blobs de armazenamento do Azure.
-- [Leitor de dados de blob de armazenamento](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Leia e liste contêineres e blobs de armazenamento do Azure.
+- [Proprietário](../../role-based-access-control/built-in-roles.md#owner): gerencie tudo, incluindo o acesso aos recursos.
+- [Colaborador](../../role-based-access-control/built-in-roles.md#contributor): gerenciar tudo, excluindo o acesso aos recursos.
+- [Leitor](../../role-based-access-control/built-in-roles.md#reader): ler e listar recursos.
+- [Colaborador da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor): gerenciamento completo de contas de armazenamento.
+- [Proprietário de dados do blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): acesso completo aos dados e contêineres de blob do armazenamento do Azure.
+- [Colaborador de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): ler, gravar e excluir contêineres e blobs de armazenamento do Azure.
+- [Leitor de dados de blob de armazenamento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Leia e liste contêineres e blobs de armazenamento do Azure.
 
 > [!NOTE]
 > As funções de colaborador de conta de armazenamento, proprietário e colaborador concedem acesso à chave da conta.
@@ -150,7 +150,7 @@ Devido a uma limitação na biblioteca do Azure AD usada pelo Gerenciador de Arm
 
     ![Ícone de cadeado](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
-5. Abra o Explorer do Armazenamento.
+5. Abra o Gerenciador de Armazenamento.
 6. Você receberá uma mensagem como "o Hub de serviço deseja acessar o conjunto de chaves". Insira sua senha da conta de administrador do Mac e selecione **sempre permitir** (ou **permitir** se **sempre permitir** não estiver disponível).
 7. Tente entrar.
 

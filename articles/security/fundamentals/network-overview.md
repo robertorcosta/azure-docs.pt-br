@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489761"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874376"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -178,7 +178,7 @@ Uma maneira de fazer isso é usar uma [VPN site a site](https://www.techopedia.c
 
 Saiba mais:
 
-* [Criar uma VNet do Resource Manager com uma conexão VPN site a site usando o portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Criar uma VNet do Resource Manager com uma conexão VPN site a site usando o portal do Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Sobre o Gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Conectar a rede local a uma rede virtual com uma conexão WAN dedicada
@@ -391,7 +391,7 @@ Saiba mais:
 
 * [TAP de rede virtual](../../virtual-network/virtual-network-tap-overview.md)
 
-### <a name="logging"></a>Registro em log
+### <a name="logging"></a>Registrando em log
 
 O log em um nível de rede é uma função essencial em qualquer cenário de segurança de rede. No Azure, é possível registrar as informações obtidas dos NSGs para obter informações de log no nível de rede. Com o log do NSG, você obtém informações dos seguintes:
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3370215e9a69e62596f214ba4330fc4914a2837f
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539682"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874899"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrar e verificar um locatário Power BI (versão prévia)
 
@@ -26,7 +26,7 @@ Este artigo mostra como usar o portal alcance do Azure para registrar e verifica
 Para configurar a autenticação, crie um grupo de segurança e adicione a identidade gerenciada do catálogo a ele.
 
 1. Na [portal do Azure](https://portal.azure.com), procure **Azure Active Directory**.
-1. Crie um novo grupo de segurança em seu Azure Active Directory, seguindo [criar um grupo básico e adicionar membros usando Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+1. Crie um novo grupo de segurança em seu Azure Active Directory, seguindo [criar um grupo básico e adicionar membros usando Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     > [!Tip]
     > Você pode ignorar esta etapa se já tiver um grupo de segurança que deseja usar.

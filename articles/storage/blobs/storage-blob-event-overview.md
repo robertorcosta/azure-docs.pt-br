@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 00a7a081f29458ae81d8d8ea4dd8f7abef42f78f
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 31b2d562d4d0c53b23e8e3f454057b4e26e41ba9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519001"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875239"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -96,7 +96,7 @@ Aplicativos que manipulam eventos de Armazenamento de Blobs devem seguir algumas
 > [!div class="checklist"]
 > * Como várias assinaturas podem ser configuradas para eventos de rota para o mesmo manipulador de eventos, é importante não supor que os eventos sejam de uma fonte específica, mas para verificar o tópico de mensagem a fim de garantir que ela venha da conta de armazenamento que você está esperando.
 > * Da mesma forma, verifique se o eventType é do tipo que você está preparado para processar, e não suponha que todos os eventos recebidos serão os tipos esperados.
-> * À medida que as mensagens podem chegar após algum atraso, use os campos ETag para entender se suas informações sobre objetos ainda estão atualizadas. Para saber como usar o campo ETag, consulte [Gerenciando a simultaneidade no armazenamento de BLOBs](../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
+> * À medida que as mensagens podem chegar após algum atraso, use os campos ETag para entender se suas informações sobre objetos ainda estão atualizadas. Para saber como usar o campo ETag, consulte [Gerenciando a simultaneidade no armazenamento de BLOBs](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
 > * À medida que as mensagens podem chegar fora de ordem, use os campos do Sequencer para entender a ordem dos eventos em qualquer objeto específico. O campo Sequencer é um valor de cadeia de caracteres que representa a sequência lógica de eventos para qualquer nome de blob específico. Você pode usar a comparação de cadeia de caracteres padrão para entender a sequência relativa de dois eventos no mesmo nome de BLOB.
 > * Os eventos de armazenamento garantem a entrega pelo menos uma vez aos assinantes, o que garante que todas as mensagens sejam emitidas. No entanto, devido a novas tentativas ou à disponibilidade de assinaturas, ocasionalmente podem ocorrer mensagens duplicadas. Para saber mais sobre a entrega e a repetição de mensagens, confira [entrega e repetição de mensagem da grade de eventos](../../event-grid/delivery-and-retry.md).
 > * Use o campo blobType para entender os tipos de operações permitidos no blob, e quais tipos de biblioteca de cliente você deve usar para acessar o blob. Os valores válidos são `BlockBlob` ou `PageBlob`. 

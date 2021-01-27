@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 37753265afa7e76e87dbcdc5893595bea66798f4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 4e9c84efe7b96cf61a69c54e3f5ecbc469ac7d8d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610243"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874135"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo para implantação no Azure Spring Cloud
 
@@ -151,7 +151,7 @@ Versão do Spring Boot | Versão do Spring Cloud
 2.4.1 + | 2020.0.0
 
 > [!NOTE]
-> Identificamos um problema com o Spring boot 2.4.0 na autenticação TLS entre seus aplicativos e Eureka, use 2.4.1 ou superior. Consulte nossas [perguntas frequentes](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) para obter a solução alternativa se você insistir em usar o 2.4.0.
+> Identificamos um problema com o Spring boot 2.4.0 na autenticação TLS entre seus aplicativos e Eureka, use 2.4.1 ou superior. Consulte nossas [perguntas frequentes](./spring-cloud-faq.md?pivots=programming-language-java#development) para obter a solução alternativa se você insistir em usar o 2.4.0.
 
 ### <a name="dependencies-for-spring-boot-version-2223"></a>Dependências para o Spring boot versão 2.2/2.3
 

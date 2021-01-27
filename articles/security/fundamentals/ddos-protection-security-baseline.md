@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814492"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873953"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança do Azure para a proteção contra DDoS do Azure Standard
 
@@ -164,7 +164,7 @@ Além disso, para ajudá-lo a controlar as contas administrativas dedicadas, voc
 
 **Diretrizes**: Use uma estação de trabalho segura e gerenciada pelo Azure com a autenticação multifator (MFA) do Azure ad habilitada para fazer logon e configurar suas solicitações de sistema de proteção de dados do cliente do Azure.
 
-- [Implantar uma estação de trabalho segura e gerenciada pelo Azure](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implantar uma estação de trabalho segura e gerenciada pelo Azure](/security/compass/privileged-access-deployment)
 
 - [Planejar uma implantação da Autenticação Multifator do Azure AD baseada em nuvem](../../active-directory/authentication/howto-mfa-getstarted.md)
 
