@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f37341233eec45a22fe92450e69d486e61f26eb4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 6428f3eafc9d19060fb065082ea3cbe06bb74d81
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585302"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916992"
 ---
 # <a name="nd-series"></a>Série ND
 
@@ -23,6 +23,7 @@ As máquinas virtuais da série ND são uma nova adição à família de GPU pro
 [Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): sem suporte<br>
 Interconexão NVIDIA NVLink: sem suporte<br>
 
 > [!IMPORTANT]

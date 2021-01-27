@@ -1,27 +1,22 @@
 ---
-title: Criar um ponto de extremidade SCIM para provisionamento de usuário para aplicativos do Azure AD
-description: O sistema para SCIM (Sistema de Gerenciamento de Usuários entre Domínios) padroniza o provisionamento automático de usuários. Saiba como desenvolver um ponto de extremidade do SCIM, integrar sua API do SCIM com Azure Active Directory e começar a automatizar o provisionamento de usuários e grupos em seus aplicativos de nuvem.
+title: Criar um ponto de extremidade SCIM para provisionamento de usuário para aplicativos de Azure Active Directory
+description: O sistema para SCIM (Sistema de Gerenciamento de Usuários entre Domínios) padroniza o provisionamento automático de usuários. Saiba como desenvolver um ponto de extremidade do SCIM, integrar sua API do SCIM com Azure Active Directory e começar a automatizar o provisionamento de usuários e grupos em seus aplicativos de nuvem com Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2020
-ms.author: mimart
+ms.date: 01/27/2021
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: aaddev;it-pro;seohack1
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae36af981b113d44ac1b8fd45a1d084760b0294
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 34fa76197c4e08cffd1d8c66d6877b3e427e9fd6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900091"
+ms.locfileid: "98918137"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: desenvolver um ponto de extremidade SCIM de exemplo
 
@@ -30,68 +25,8 @@ Ninguém quer criar um novo ponto de extremidade a partir do zero, portanto, cri
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Baixar o código de referência
 > * Implantar seu ponto de extremidade do SCIM no Azure
 > * Testar seu ponto de extremidade do SCIM
-
-Os recursos do ponto de extremidade, incluídos são:
-
-|Ponto de extremidade|Descrição|
-|---|---|
-|`/User`|Executar operações CRUD em um recurso de usuário: **criar**, **Atualizar**, **excluir**, **obter**, **listar**, **Filtrar**|
-|`/Group`|Executar operações CRUD em um recurso de Grupo: **criar**, **Atualizar**, **excluir**, **obter**, **listar**, **Filtrar**|
-|`/Schemas`|Recupere um ou mais esquemas com suporte.<br/><br/>O conjunto de atributos de um recurso com suporte de cada provedor de serviços pode variar, por exemplo, o provedor de serviços A, que dá suporte A "nome", "título" e "emails", enquanto o provedor de serviços B dá suporte A "nome", "título" e "phoneNumbers" para os usuários.|
-|`/ResourceTypes`|Recuperar tipos de recursos com suporte.<br/><br/>O número e os tipos de recursos suportados por cada provedor de serviços podem variar, por exemplo, o provedor de serviços A oferece suporte A usuários enquanto o provedor de serviços B dá suporte A usuários e grupos.|
-|`/ServiceProviderConfig`|Recuperar a configuração de SCIM do provedor de serviços<br/><br/>Os recursos SCIM com suporte de cada provedor de serviços podem variar, por exemplo, o provedor de serviços A oferece suporte A operações de patch enquanto o provedor de serviços B dá suporte a operações de patch e descoberta de esquema.|
-
-## <a name="download-the-reference-code"></a>Baixar o código de referência
-
-O [código de referência](https://github.com/AzureAD/SCIMReferenceCode) a ser baixado inclui os seguintes projetos:
-
-- **Microsoft.SystemForCrossDomainIdentityManagement**, a API Web MVC do .NET Core para compilar e provisionar uma API scim
-- **Microsoft. scim. WebHostSample**, um exemplo de trabalho de um ponto de extremidade scim
-
-Os projetos contêm as seguintes pastas e arquivos:
-
-|Arquivo/pasta|Descrição|
-|-|-|
-|Pasta de **esquemas**| Os modelos para os recursos de **usuário** e **grupo** , juntamente com algumas classes abstratas, como esquematizados para funcionalidade compartilhada.<br/><br/> Uma pasta de **atributos** que contém as definições de classe para atributos complexos de **usuários** e **grupos** , como endereços.|
-|Pasta de **serviço** | Contém a lógica para ações relacionadas à maneira como os recursos são consultados e atualizados.<br/><br/> O código de referência tem serviços para retornar usuários e grupos.<br/><br/>A pasta **Controllers** contém os vários pontos de extremidade SCIM. Os controladores de recursos incluem verbos HTTP para executar operações CRUD no recurso (**Get**, **post**, **Put**, **patch** e **delete**). Os controladores dependem de serviços para executar as ações.|
-|Pasta de **protocolo**|Contém a lógica para ações relacionadas à maneira como os recursos são retornados de acordo com a RFC SCIM, como:<br/><ul><li>Retornando vários recursos como uma lista.</li><li>Retornando apenas recursos específicos com base em um filtro.</li><li>Transformar uma consulta em uma lista de listas vinculadas de filtros únicos.</li><li>Transformar uma solicitação de PATCH em uma operação com atributos pertencentes ao caminho de valor.</li><li>Definindo o tipo de operação que pode ser usado para aplicar alterações a objetos de recurso.</li></ul>|
-|`Microsoft.SystemForCrossDomainIdentityManagement`| Código-fonte de exemplo.|
-|`Microsoft.SCIM.WebHostSample`| Exemplo de implementação da biblioteca SCIM.|
-|*. gitignore*|Defina o que ignorar no momento da confirmação.|
-|*CHANGELOG.md*|Lista de alterações no exemplo.|
-|*CONTRIBUTING.md*|Diretrizes para contribuir com o exemplo.|
-|*README.md*|Este arquivo **Leiame** .|
-|*CARTEIRA*|A licença para o exemplo.|
-
-> [!NOTE]
-> Esse código destina-se a ajudar a iniciar a compilação de um ponto de extremidade SCIM e é fornecido **como está**. As referências incluídas não têm nenhuma garantia de manutenção ou suporte ativos.
->
-> Este projeto adotou o [Código de Conduta de Software Livre da Microsoft](https://opensource.microsoft.com/codeofconduct/). Como tais [contribuições](https://github.com/AzureAD/SCIMReferenceCode/wiki/Contributing-Overview) da Comunidade são boas-vindas para ajudar a criar e manter o repositório e, como outras contribuições de software livre, você concorda com um cla (contrato de licença de colaborador). Este contrato declara que você tem e concede aos direitos para usar sua contribuição, para obter detalhes, consulte [Microsoft Open Source](https://cla.opensource.microsoft.com).
->
-> Para saber mais, confira as [Perguntas frequentes sobre o Código de Conduta](https://opensource.microsoft.com/codeofconduct/faq/) ou contate o [opencode@microsoft.com](mailto:opencode@microsoft.com) caso tenha outras dúvidas ou comentários.
-
-###  <a name="use-multiple-environments"></a>Usar vários ambientes
-
-O código SCIM incluído usa um ambiente de ASP.NET Core para controlar a autorização para uso no desenvolvimento e após a implantação, consulte [usar vários ambientes em ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments?view=aspnetcore-3.1).
-
-```csharp
-private readonly IWebHostEnvironment _env;
-...
-
-public void ConfigureServices(IServiceCollection services)
-{
-    if (_env.IsDevelopment())
-    {
-        ...
-    }
-    else
-    {
-        ...
-    }
-```
 
 ## <a name="deploy-your-scim-endpoint-in-azure"></a>Implantar seu ponto de extremidade do SCIM no Azure
 
@@ -164,7 +99,7 @@ O código de validação de token padrão é configurado para usar um token emit
 
 ### <a name="use-postman-to-test-endpoints"></a>Usar o postmaster para testar pontos de extremidade
 
-Depois que o ponto de extremidade SCIM for implantado, você poderá testar para garantir que ele seja compatível com o RFC do SCIM. Este exemplo fornece um conjunto de testes no **postmaster** para validar as operações CRUD em usuários e grupos, filtrar, atualizar a associação de grupo e desabilitar os usuários.
+Depois que o ponto de extremidade SCIM for implantado, você poderá testar para garantir que ele seja compatível com RFC SCIM. Este exemplo fornece um conjunto de testes no **postmaster** para validar as operações CRUD em usuários e grupos, filtrar, atualizar a associação de grupo e desabilitar os usuários.
 
 Os pontos de extremidade estão localizados no `{host}/scim/` diretório e podem ser interagindo com o uso de solicitações HTTP padrão. Para modificar a `/scim/` rota, consulte *ControllerConstant.cs* em **AzureADProvisioningSCIMreference**  >  **ScimReferenceApi**  >  **Controllers**.
 

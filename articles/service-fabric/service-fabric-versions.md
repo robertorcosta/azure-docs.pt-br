@@ -3,12 +3,12 @@ title: Atualizar sua versão do cluster de Service Fabric do Azure
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: cd9c4be285c68e5482f7276429dd5514c72ae135
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a99b38a33a5bb83345898769b466ce0cab0a4d4d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881543"
+ms.locfileid: "98918102"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Atualizar sua versão do cluster de Service Fabric do Azure
 
@@ -118,10 +118,12 @@ A tabela a seguir lista as versões do Service Fabric e suas datas de término d
 | 7.1.458.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
 | 7.1.459.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
 | 7.1.503.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
+| 7.1.510.* | 7.0.466.* |Menor ou igual à versão 4,1 |31 de março de 2021 |
 | 7.2.413.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 | 7.2.432.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 | 7.2.433.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 | 7.2.445.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
+| 7.2.452.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
@@ -198,7 +200,9 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 | 7,1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7,1 CU6 | 7.1.459.9590 | 7.1.455.1 |
 | 7,1 CU8 | 7.1.503.9590 | 7.1.508.1 |
-| RTO DE 7,2 | 7.2.413.9590 | Não aplicável|
+| 7,1 CU10 | 7.1.510.9590 | NA |
+| RTO DE 7,2 | 7.2.413.9590 | NA |
 | 7,2 CU2 | 7.2.432.9590 | 7.2.431.1 |
 | 7,2 CU3 | 7.2.433.9590 | Não aplicável|
 | 7,2 CU4 | 7.2.445.9590 | 7.2.447.1 |
+| 7,2 CU5 | 7.2.452.9590 | 7.2.454.1 |

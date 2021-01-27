@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757535"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917825"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -30,9 +30,6 @@ A chave gerenciada pelo cliente é entregue em [clusters dedicados](../log-query
 Os dados ingeridos nos últimos 14 dias também são mantidos no cache de acesso frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Esses dados permanecem criptografados com chaves da Microsoft independentemente da configuração de chave gerenciada pelo cliente, mas seu controle sobre os dados SSD adere à [revogação de chave](#key-revocation). Estamos trabalhando para ter dados SSD criptografados com chave gerenciada pelo cliente no primeiro semestre de 2021.
 
 Log Analytics clusters dedicados usam um modelo de [preços](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) de reserva de capacidade a partir de 1000 GB/dia.
-
-> [!IMPORTANT]
-> Devido a restrições de capacidade temporária, exigimos que você registre previamente antes de criar um cluster. Use seus contatos na Microsoft ou abra a solicitação de suporte para registrar suas IDs de assinaturas.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Como funciona a chave gerenciada pelo cliente no Azure Monitor
 
@@ -68,7 +65,6 @@ As seguintes regras se aplicam:
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Customer-Managed etapas de provisionamento de chave
 
-1. Registrando sua assinatura para permitir a criação do cluster
 1. Criar o Azure Key Vault e armazenar a chave
 1. Criando cluster
 1. Conceder permissões ao Key Vault
@@ -81,7 +77,7 @@ A configuração de chave gerenciada pelo cliente não tem suporte no portal do 
 
 Algumas das etapas de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. O `status` em resposta pode ser um dos seguintes: ' InProgress ', ' atualizando ', ' excluindo ', ' Succeeded ou ' Failed ' com código de erro.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -107,10 +103,6 @@ Authorization: Bearer <token>
 ```
 
 ---
-
-### <a name="allowing-subscription"></a>Permitindo assinatura
-
-Use seus contatos na Microsoft ou abra a solicitação de suporte no Log Analytics para fornecer suas IDs de assinaturas.
 
 ## <a name="storing-encryption-key-kek"></a>Armazenamento da chave de criptografia (KEK)
 
@@ -180,7 +172,7 @@ Atualize keyvaultproperties no cluster com detalhes do identificador de chave.
 
 A operação é assíncrona e pode demorar um pouco para ser concluída.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -301,7 +293,7 @@ Quando você coloca seu próprio armazenamento (BYOS) e o vincula ao seu espaço
 
 Vincular uma conta de armazenamento para *consulta* ao seu espaço de trabalho-- *salvas* as consultas de pesquisas são salvas em sua conta de armazenamento. 
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -345,7 +337,7 @@ Após a configuração, qualquer nova consulta de *pesquisa salva* será salva n
 
 Vincular uma conta de armazenamento para *alertas* ao seu espaço de trabalho-as consultas de *alertas de log* são salvas em sua conta de armazenamento. 
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 

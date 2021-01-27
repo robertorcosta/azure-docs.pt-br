@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: ab173f47ed09dbe77c12cad844d8a1f3654f4a9b
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 90f0cd913a191f345afd8acc3f3449b87e4cbfaf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734752"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918599"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na central de segurança do Azure
 Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central de segurança do Azure usando este passo a passos.
@@ -28,7 +28,7 @@ Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Requer o [Azure defender para servidores](defender-for-servers-introduction.md).<br>O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.|
 |Funções e permissões necessárias:|O **proprietário do espaço de trabalho** pode habilitar/desabilitar o fim (para obter mais informações, consulte [funções do Azure para log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>O **leitor** pode exibir os resultados.|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim ](./media/icons/yes-icon.png) nacional/soberanas (US gov, China gov, outros gov)<br>Com suporte apenas em regiões em que a solução de controle de alterações da automação do Azure está disponível.<br>Consulte [regiões com suporte para o espaço de trabalho log Analytics vinculado](../automation/how-to/region-mappings.md).<br>[Saiba mais sobre o controle de alterações](../automation/change-tracking/overview.md).|
@@ -236,7 +236,7 @@ Em **Editar para Controle de Alterações** você pode:
 
    ![Definir Habilitado como false][19]
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>Pasta e o caminho de monitoramento usando caracteres curinga
 

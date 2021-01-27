@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 65aab240dd0be97aafa370883aa953f8eb766cf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3419b54fa18058583d81909f7fca0f20dc4b0dd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650741"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917126"
 ---
 # <a name="av2-series"></a>Série Av2
 
@@ -24,6 +24,7 @@ As VMs da série Av2 podem ser implantadas em uma variedade de tipos de hardware
 [Migração ao vivo](maintenance-and-updates.md): com suporte <br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte <br>
 [Suporte à geração de VM](generation-2.md): geração 1 <br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): sem suporte<br>
 <br>
 
 | Tamanho | vCore | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Máximo de discos de dados/taxa de transferência: IOPS | Máximo de NICs | Largura de banda de rede esperada (Mbps)

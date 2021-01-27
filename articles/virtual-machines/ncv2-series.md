@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 97fa5148d7de7cac67a69c8d9c21721cb57951d3
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 2b37b69390c75b30575377dddf7ffb1d2cf5b9cf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585370"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917354"
 ---
 # <a name="ncv2-series"></a>Série NCv2
 
@@ -25,6 +25,7 @@ A configuração NC24rs v2 fornece um adaptador de rede de alta taxa de transfer
 [Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): sem suporte<br>
 Interconexão NVIDIA NVLink: sem suporte
 
 > [!IMPORTANT]

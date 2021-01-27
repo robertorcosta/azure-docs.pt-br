@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787681"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918070"
 ---
 # <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ O banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synap
 
 A Máscara de dados dinâmica ajuda a impedir o acesso não autorizado a dados confidenciais, permitindo que os clientes especifiquem qual a quantidade de dados confidenciais revelar, com impacto mínimo sobre a camada de aplicativo. É um recurso de segurança baseado em políticas que oculta os dados confidenciais no conjunto de resultados de uma consulta em relação aos campos do banco de dados designados, sendo que os dados no banco de dados não são alterados.
 
-Por exemplo, um representante de serviço em um Call Center pode identificar chamadores por vários dígitos de seu endereço de email, mas esses itens de dados não devem ser totalmente expostos ao representante de serviço. Uma regra de mascaramento pode ser definida para mascarar todo o endereço de email no conjunto de resultados de qualquer consulta. Como outro exemplo, uma máscara de dados apropriada pode ser definida para proteger dados pessoais, para que um desenvolvedor possa consultar ambientes de produção para fins de solução de problemas sem violar os regulamentos de conformidade.
+Por exemplo, um representante de serviço em um Call Center pode identificar um chamador confirmando vários caracteres de seu endereço de email, mas o endereço de email completo não deve ser revelado para o representante de serviço. Uma regra de mascaramento pode ser definida para mascarar todo o endereço de email no conjunto de resultados de qualquer consulta. Como outro exemplo, uma máscara de dados apropriada pode ser definida para proteger dados pessoais, para que um desenvolvedor possa consultar ambientes de produção para fins de solução de problemas sem violar os regulamentos de conformidade.
 
 ## <a name="dynamic-data-masking-basics"></a>Aspectos básicos do mascaramento de dados dinâmicos
 

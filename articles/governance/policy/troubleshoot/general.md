@@ -1,14 +1,14 @@
 ---
 title: Solução de problemas comuns
 description: Saiba como solucionar problemas com a criação de definições de política, os vários SDKs e o complemento para kubernetes.
-ms.date: 12/01/2020
+ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6f31f6e6f8d24f83f44dc14112f1bdc90c8af859
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897064"
+ms.locfileid: "98917736"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Solucionar erros com o uso de Azure Policy
 
@@ -36,13 +36,14 @@ Um alias incorreto ou inexistente é usado em uma definição de política.
 
 #### <a name="resolution"></a>Resolução
 
-Primeiro, valide se a propriedade do Gerenciador de recursos tem um alias. Para pesquisar os aliases disponíveis, acesse [Azure Policy extensão para Visual Studio Code](../how-to/extension-for-vscode.md) ou o SDK. Se o alias de uma propriedade do Gerenciador de recursos não existir, crie um tíquete de suporte.
+Primeiro, valide se a propriedade do Gerenciador de recursos tem um alias. Para pesquisar os aliases disponíveis, acesse [Azure Policy extensão para Visual Studio Code](../how-to/extension-for-vscode.md) ou o SDK.
+Se o alias de uma propriedade do Gerenciador de recursos não existir, crie um tíquete de suporte.
 
 ### <a name="scenario-evaluation-details-arent-up-to-date"></a>Cenário: os detalhes de avaliação não estão atualizados
 
 #### <a name="issue"></a>Problema
 
-Um recurso está no estado *não iniciado* ou os detalhes de conformidade não são atuais.
+Um recurso está no estado _não iniciado_ ou os detalhes de conformidade não são atuais.
 
 #### <a name="cause"></a>Causa
 
@@ -90,7 +91,8 @@ Um recurso que você espera que Azure Policy atue não esteja sendo executado, e
 
 #### <a name="cause"></a>Causa
 
-A atribuição de política foi configurada para uma configuração de [**imposiçãomode**](../concepts/assignment-structure.md#enforcement-mode) _desabilitada_. Embora o **imposiçãomode** seja desabilitado, o efeito da política não é imposto e não há nenhuma entrada no log de atividades.
+A atribuição de política foi configurada para uma configuração de [**imposiçãomode**](../concepts/assignment-structure.md#enforcement-mode) _desabilitada_.
+Embora o **imposiçãomode** seja desabilitado, o efeito da política não é imposto e não há nenhuma entrada no log de atividades.
 
 #### <a name="resolution"></a>Resolução
 
@@ -186,7 +188,7 @@ As definições de política que foram usadas anteriormente nas definições de 
 
 #### <a name="resolution"></a>Resolução
 
-As definições que anteriormente causaram esse problema aparecem como *[preterido]* e são substituídas por definições de política que gerenciam os pré-requisitos sem remover identidades gerenciadas atribuídas pelo usuário. Uma etapa manual é necessária. Exclua as atribuições de política existentes marcadas como *[preteridas]* e substitua-as pela iniciativa de política de pré-requisito atualizada e definições de política que têm o mesmo nome que o original.
+As definições que anteriormente causaram esse problema aparecem como _\[ preteridas \]_ e são substituídas por definições de política que gerenciam os pré-requisitos sem remover identidades gerenciadas atribuídas pelo usuário. Uma etapa manual é necessária. Exclua as atribuições de política existentes marcadas como _\[ preteridas \]_ e substitua-as pela iniciativa de política de pré-requisito atualizada e definições de política que têm o mesmo nome que o original.
 
 Para obter uma narração detalhada, consulte a postagem de blog [importante alteração lançada para políticas de auditoria de configuração de convidado](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316).
 
@@ -226,11 +228,11 @@ O complemento não pode acessar o ponto de extremidade do serviço Azure Policy 
 Esse erro ocorre quando _Add-Pod-Identity_ está instalado no cluster e os pods _Kube do sistema_ não são excluídos no _AAD-Pod-Identity_.
 
 O pods da NMI (identidade gerenciada de nó de componente) do _AAD-Pod-Identity_ modifica os iptables dos nós para interceptar chamadas para o ponto de extremidade de metadados da instância do Azure. Essa configuração significa que qualquer solicitação feita ao ponto de extremidade de metadados é interceptada por NMI, mesmo que o Pod não use o _AAD-Pod-Identity_.
-O CRD ( *AzurePodIdentityException* CustomResourceDefinition) pode ser configurado para informar ao _AAD-Pod-Identity_ que qualquer solicitação para um ponto de extremidade de metadados originado de um pod correspondente aos rótulos definidos no CRD deve ser proxyada sem nenhum processamento em NMI.
+O CRD ( _AzurePodIdentityException_ CustomResourceDefinition) pode ser configurado para informar ao _AAD-Pod-Identity_ que qualquer solicitação para um ponto de extremidade de metadados originado de um pod correspondente aos rótulos definidos no CRD deve ser proxyada sem nenhum processamento em NMI.
 
 #### <a name="resolution"></a>Resolução
 
-Exclua os pods do sistema que têm o `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube_ no _AAD-Pod-Identity_ Configurando o *AzurePodIdentityException* CRD.
+Exclua os pods do sistema que têm o `kubernetes.azure.com/managedby: aks` rótulo no namespace _Kube_ no _AAD-Pod-Identity_ Configurando o _AzurePodIdentityException_ CRD.
 
 Para obter mais informações, consulte [desabilitar a identidade do Pod do Azure Active Directory (Azure AD) para um pod/aplicativo específico](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
 
@@ -264,11 +266,11 @@ spec:
 O complemento pode alcançar o ponto de extremidade de serviço Azure Policy, mas os logs de complemento exibem um dos seguintes erros:
 
 - `The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
-https://aka.ms/policy-register-subscription for how to register subscriptions.`
+  https://aka.ms/policy-register-subscription for how to register subscriptions.`
 
 - `policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
-StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
-Code="InternalServerError" Message="Encountered an internal server error.`
+  StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+  Code="InternalServerError" Message="Encountered an internal server error.`
 
 #### <a name="cause"></a>Causa
 

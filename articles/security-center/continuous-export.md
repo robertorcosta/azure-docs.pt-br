@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832702"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916770"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente os dados da Central de Segurança
 
@@ -25,6 +25,8 @@ A **exportação contínua** permite que você personalize totalmente *o que* se
 - Todas as conclusões de severidade médias ou mais altas das verificações de avaliação de vulnerabilidade de seus SQL Servers são enviadas para um espaço de trabalho específico do Log Analytics
 - Recomendações específicas são entregues a um hub de eventos ou Log Analytics espaço de trabalho sempre que são geradas 
 - A pontuação segura de uma assinatura é enviada para um espaço de trabalho Log Analytics sempre que a pontuação de um controle é alterada por 0, 1 ou mais 
+
+Embora o recurso seja chamado de *contínuo*, também há uma opção para exportar instantâneos semanais de Pontuação segura ou dados de conformidade regulatória.
 
 Este artigo descreve como configurar a exportação contínua para Log Analytics espaços de trabalho ou hubs de eventos do Azure.
 
@@ -39,7 +41,7 @@ Este artigo descreve como configurar a exportação contínua para Log Analytics
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **proprietário** no grupo de recursos</li><li>Permissões de gravação para o recurso de destino</li><li>Se você estiver usando as Azure Policy políticas ' DeployIfNotExist ' descritas abaixo, também precisará de permissões para atribuir políticas</li></ul>|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, outros governos<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos)|
@@ -78,19 +80,23 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
     Aqui você vê as opções de exportação. Há uma guia para cada destino de exportação disponível. 
 
 1. Selecione o tipo de dados que você deseja exportar e escolha um dos filtros em cada tipo (por exemplo, exportar somente alertas de severidade alta).
+1. Selecione a frequência de exportação apropriada:
+    - **Streaming** – as avaliações serão enviadas em tempo real quando o estado de integridade de um recurso for atualizado (se nenhuma atualização ocorrer, nenhum dado será enviado).
+    - **Instantâneos** – um instantâneo do estado atual de todas as avaliações de conformidade regulatória será enviado toda semana (esse é um recurso de visualização para instantâneos semanais de pontuações seguras e dados de conformidade regulatória).
+
 1. Opcionalmente, se sua seleção incluir uma dessas recomendações, você poderá incluir as descobertas de avaliação de vulnerabilidade junto com elas:
     - As descobertas de avaliação de vulnerabilidade em seus bancos de dados SQL devem ser corrigidas
     - As descobertas de avaliação de vulnerabilidade em seus SQL Servers em computadores devem ser corrigidas (visualização)
     - As vulnerabilidades nas imagens do Registro de Contêiner do Azure devem ser corrigidas (da plataforma Qualys)
     - As vulnerabilidades nas suas máquinas virtuais devem ser corrigidas
-    - As atualizações do sistema devem ser instaladas em seus computadores
+    - As atualizações do sistema devem ser instaladas em suas máquinas
 
     Para incluir as conclusões com essas recomendações, habilite a opção **incluir conclusões de segurança** .
 
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua" :::
 
 1. Na área "destino de exportação", escolha onde você deseja que os dados sejam salvos. Os dados podem ser salvos em um destino em uma assinatura diferente (por exemplo, em uma instância central de Hub de eventos ou em um espaço de trabalho central Log Analytics).
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="use-the-rest-api"></a>[**Usar a API REST**](#tab/rest-api)
 

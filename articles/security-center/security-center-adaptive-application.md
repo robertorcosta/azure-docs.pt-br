@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 473353c3f61d1096beb11c521c08ac723d54b780
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071588"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916126"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -50,7 +50,7 @@ Definindo listas de aplicativos conhecidos e gerando alertas quando qualquer out
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)|
 |Computadores com suporte:|![Sim ](./media/icons/yes-icon.png) computadores Azure e não Azure executando Windows e Linux<br>![Sim, ](./media/icons/yes-icon.png) computadores [do Arc do Azure](../azure-arc/index.yml)|
 |Funções e permissões necessárias:|O **leitor de segurança** e as funções de **leitor** podem exibir grupos e as listas de aplicativos conhecidos confiáveis<br>As funções de administrador de **colaborador** e de **segurança** podem editar grupos e as listas de aplicativos conhecidos confiáveis|
@@ -209,7 +209,7 @@ Quando você move um computador de um grupo para outro, a política de controle 
 
 1. Selecione o grupo de destino e selecione **mover computador**.
 
-1. Para salvar as alterações, selecione **salvar**.
+1. Selecione **Salvar** para salvar as alterações.
 
 
 
