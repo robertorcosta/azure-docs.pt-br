@@ -3,12 +3,12 @@ title: Desenvolver e implantar um servidor de inferência gRPC-Azure
 description: Este artigo fornece orientação sobre como desenvolver e implantar um servidor de inferência gRPC.
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: 3f732a7432dacebeeefddd1822fec7d95dfbaa97
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425717"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881645"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>Guia de instruções – desenvolver e implantar um servidor de inferência de gRPC
 
@@ -26,9 +26,9 @@ Este artigo mostra como você pode encapsular os modelos de ia de sua escolha em
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um dispositivo x86-64 ou ARM64 que executa um dos [sistemas operacionais Linux com suporte](https://docs.microsoft.com/azure/iot-edge/support#operating-systems) ou um computador Windows.
+* Um dispositivo x86-64 ou ARM64 que executa um dos [sistemas operacionais Linux com suporte](../../iot-edge/support.md#operating-systems) ou um computador Windows.
 * [Instale o Docker](https://docs.docker.com/desktop/#download-and-install) em seu computador.
-* Instale o [IOT Edge Runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?tabs=linux).
+* Instale o [IOT Edge Runtime](../../iot-edge/how-to-install-iot-edge.md?tabs=linux).
 
 ## <a name="grpc-implementation-steps"></a>etapas de implementação do gRPC
 
@@ -197,7 +197,7 @@ Agora que configuramos e inicializamos as conexões de porta do servidor gRPC, v
         1. Converta a imagem em uma matriz de bytes para processamento. Consulte o método: `GetBytes(Bitmap image)`
         
             O processador de exemplo que estamos usando oferece suporte apenas ao quadro de imagem codificada JPG e nenhum como formato de pixel. Caso o processador personalizado dê suporte a uma codificação e/ou formato diferente, atualize o `IsMediaFormatSupported` método da classe Processor.
-        1. Usando a [classe ColorMatrix](https://docs.microsoft.com/dotnet/api/system.drawing.imaging.colormatrix?redirectedfrom=MSDN&view=dotnet-plat-ext-3.1&preserve-view=true), converta a imagem em escala de cinza. Consulte o método: `ToGrayScale(Image source)` .
+        1. Usando a [classe ColorMatrix](/dotnet/api/system.drawing.imaging.colormatrix?preserve-view=true&view=dotnet-plat-ext-3.1), converta a imagem em escala de cinza. Consulte o método: `ToGrayScale(Image source)` .
         1. Assim que obtivermos a imagem de escala cinza, calcularemos a média dos bytes de escala cinza.
         1. Se o valor médio < 127, então classificamos a imagem como "Dark", senão classificaremos como "Light" com o valor de confiança como 1,0. Consulte o método: `ProcessImage(List<Image> images)` .
 
@@ -213,7 +213,7 @@ Agora que configuramos e inicializamos as conexões de porta do servidor gRPC, v
 
 Agora que você criou o módulo de extensão gRPC, agora criaremos e implantaremos a topologia de mídia gráfica.
 
-1. Usando o Visual Studio Code, siga [estas instruções](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux#build-and-push-your-solution) para entrar no Docker.
+1. Usando o Visual Studio Code, siga [estas instruções](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) para entrar no Docker.
 1. No Visual Studio Code, vá até src/edge. Você verá seu arquivo .env e alguns arquivos do modelo de implantação.
 
     O modelo de implantação se refere ao manifesto de implantação do dispositivo de borda. Ele inclui alguns valores de espaço reservado. O arquivo .env inclui os valores dessas variáveis.
@@ -309,4 +309,3 @@ Nesta fase, a implantação dos módulos de borda em seu dispositivo do IoT Edge
 ## <a name="next-steps"></a>Próximas etapas
 
 Siga as etapas de **preparação para monitorar eventos** mencionadas no [vídeo de análise ao vivo com seu modelo](use-your-model-quickstart.md) de início rápido para executar o exemplo e interpretar os resultados. Além disso, confira nossas gRPC topologias de exemplo: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension e [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).
-

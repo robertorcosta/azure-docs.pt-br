@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: 36593efd4f2583f28dffbb4f5b491fbeec7ba21d
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916313"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882239"
 ---
 # <a name="azure-storage-accounts"></a>Contas de armazenamento do Azure
 
@@ -47,7 +47,7 @@ Nos serviços de mídia v3, as APIs de armazenamento são usadas para carregar a
 
 Para proteger seus ativos em repouso, os ativos devem ser criptografados pela criptografia do lado do armazenamento. A tabela a seguir mostra como a criptografia do armazenamento funciona nos Serviços de Mídia v3:
 
-|Opção de criptografia|Description|Serviços de Mídia v3|
+|Opção de criptografia|Descrição|Serviços de Mídia v3|
 |---|---|---|
 |Criptografia de armazenamento dos serviços de mídia| Criptografia AES-256, chave gerenciada pelos serviços de mídia. |Sem suporte. <sup>(1)</sup>|
 |[Criptografia do serviço de armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Com suporte.|
@@ -56,7 +56,7 @@ Para proteger seus ativos em repouso, os ativos devem ser criptografados pela cr
 <sup>1</sup> no Media Services V3, a criptografia de armazenamento (criptografia AES-256) tem suporte apenas para compatibilidade com versões anteriores quando seus ativos foram criados com os serviços de mídia v2, o que significa que o V3 funciona com ativos criptografados de armazenamento existentes, mas não permitirá a criação de novos.
 
 ## <a name="double-encryption"></a>Criptografia dupla
-Os serviços de mídia oferecem suporte à criptografia dupla.  Para saber mais sobre a criptografia dupla, confira [criptografia dupla do Azure](https://docs.microsoft.com/azure/security/fundamentals/double-encryption).
+Os serviços de mídia oferecem suporte à criptografia dupla.  Para saber mais sobre a criptografia dupla, confira [criptografia dupla do Azure](../../security/fundamentals/double-encryption.md).
 
 ## <a name="storage-account-errors"></a>Erros de conta de armazenamento
 

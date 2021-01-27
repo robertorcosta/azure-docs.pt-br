@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: bbaf34c977546891c6ac05fbd4b5feb15f333e04
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737805"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882290"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition no Azure
 
@@ -216,7 +216,7 @@ A aplicação de patch no sistema operacional da máquina virtual pode ser autom
 - Use zonas de disponibilidade para obter alta disponibilidade na região.
 - Considere o uso de discos ultra (quando disponíveis) ou Premium para seu banco de dados Oracle.
 - Considere configurar um banco de dados Oracle em espera em outra região do Azure usando o Oracle Data Guard.
-- Considere o uso de [grupos de posicionamento de proximidade](../../../virtual-machines/linux/co-location.md#proximity-placement-groups) para reduzir a latência entre o aplicativo e a camada de banco de dados.
+- Considere o uso de [grupos de posicionamento de proximidade](../../co-location.md#proximity-placement-groups) para reduzir a latência entre o aplicativo e a camada de banco de dados.
 - Configure o [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager/) para gerenciamento, monitoramento e registro em log.
 - Considere o uso do ASM (gerenciamento automático de armazenamento) da Oracle para o gerenciamento de armazenamento simplificado para seu banco de dados.
 - Use [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) para gerenciar patches e atualizações para seu banco de dados sem nenhum tempo de inatividade.

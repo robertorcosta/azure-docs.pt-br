@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: bb49523858f07e54887a67d9df68eb894e27ad34
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029686"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881241"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado TLS do Azure  
 
@@ -30,7 +30,7 @@ Detalhes específicos do serviço:
 - O [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub) e o [DPS](../../iot-dps/index.yml) permanecerão na AC Baltimore CyberTrust Root, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - O [Armazenamento do Azure](../../storage/index.yml) permanecerá na AC Raiz Baltimore CyberTrust, mas as ACs intermediárias deles serão alteradas. [Clique aqui para obter detalhes](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - O [cache do Azure para Redis](../../azure-cache-for-redis/index.yml) permanecerá na AC raiz Baltimore Cybertrust, mas suas CAs intermediárias serão alteradas. [Clique aqui para obter detalhes](../../azure-cache-for-redis/cache-whats-new.md).
-- O serviço de metadados de instância do Azure permanecerá na AC raiz Baltimore CyberTrust, mas suas CAs intermediárias serão alteradas. [Clique aqui para obter detalhes](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
+- O serviço de metadados de instância do Azure permanecerá na AC raiz Baltimore CyberTrust, mas suas CAs intermediárias serão alteradas. [Clique aqui para obter detalhes](/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
 > É possível que os clientes precisem atualizar os respectivos aplicativos após essa alteração para evitar falhas de conectividade durante a tentativa de se conectarem aos serviços do Azure.

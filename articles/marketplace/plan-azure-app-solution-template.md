@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 3e4d0513808cdc44fc71e182a07fa6b050d182ee
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aab856b1e1d2d991cc4964d061a990dbedbeddb7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452516"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876504"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Planejar um modelo de solução para uma oferta de aplicativo do Azure
 
@@ -28,7 +28,7 @@ O tipo de plano de modelo de solução requer um [modelo de Azure Resource Manag
 | Cobrança e medição | Os planos de modelo de solução não são pagos, mas podem ser usados para implantar ofertas de VM pagas que são cobradas pelo Microsoft Commercial Marketplace. Os recursos que o modelo ARM da solução implanta são configurados na assinatura do Azure do cliente. As máquinas virtuais pagas conforme o uso são transacionadas com o cliente pela Microsoft e cobradas por meio da assinatura do Azure do cliente. <br><br> Para cobrança de BYOL (traga sua própria licença), embora a Microsoft Bille os custos de infraestrutura incorridos na assinatura do cliente, você leva suas tarifas de licenciamento de software com o cliente diretamente. |
 | VHD (disco rígido virtual) compatível com Azure | As VMs devem ser criadas em Windows ou Linux. Para obter mais informações, consulte:<ul><li>[Criar um ativo técnico de VM do Azure](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (para VHDs do Windows)</li><li>[Distribuições do Linux endossadas no Azure](../virtual-machines/linux/endorsed-distros.md) (para VHDs do Linux).</li></ul> |
 | Atribuição de uso do cliente | É necessário habilitar a atribuição de uso do cliente em todos os modelos de solução publicados no Azure Marketplace. Para obter mais informações sobre a atribuição de uso do cliente e como habilitá-la, consulte [atribuição de uso do cliente do parceiro do Azure](azure-partner-customer-usage-attribution.md). |
-| Usar discos gerenciados | O [Managed disks](../virtual-machines/managed-disks-overview.md) é a opção padrão para discos persistentes de VMs de IaaS (infraestrutura como serviço) no Azure. Você deve usar discos gerenciados em modelos de solução.<ul><li>Para atualizar seus modelos de solução, siga as orientações em [usar discos gerenciados em Azure Resource Manager modelos](../virtual-machines/using-managed-disks-template-deployments.md)e use os [exemplos](https://github.com/Azure/azure-quickstart-templates)fornecidos.</li><li>Para publicar o VHD como uma imagem no Azure Marketplace, importe o VHD subjacente dos discos gerenciados para uma conta de armazenamento usando o [Azure PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md) ou o [CLI do Azure](../virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)</ul> |
+| Usar discos gerenciados | O [Managed disks](../virtual-machines/managed-disks-overview.md) é a opção padrão para discos persistentes de VMs de IaaS (infraestrutura como serviço) no Azure. Você deve usar discos gerenciados em modelos de solução.<ul><li>Para atualizar seus modelos de solução, siga as orientações em [usar discos gerenciados em Azure Resource Manager modelos](../virtual-machines/using-managed-disks-template-deployments.md)e use os [exemplos](https://github.com/Azure/azure-quickstart-templates)fornecidos.</li><li>Para publicar o VHD como uma imagem no Azure Marketplace, importe o VHD subjacente dos discos gerenciados para uma conta de armazenamento usando o [Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) ou o [CLI do Azure](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)</ul> |
 | Pacote de implantação | Você precisará de um pacote de implantação que permitirá que os clientes implantem seu plano. Se você criar vários planos que exigem a mesma configuração técnica, poderá usar o mesmo pacote de plano. Para obter detalhes, consulte a próxima seção: pacote de implantação. |
 |||
 

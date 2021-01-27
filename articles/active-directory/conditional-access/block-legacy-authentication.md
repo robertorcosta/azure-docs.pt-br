@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8bc1a96109eda9cc2ee1f86cec892cc5ce9308d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 769460d5dab7311eb2940d101df6f4996a3ad355
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860313"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876572"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como fazer: Bloquear autenticação herdada para Azure AD com Acesso Condicional   
 
@@ -126,4 +126,4 @@ Para bloquear o acesso de usuário B2B por meio da autenticação herdada ao Sha
 - [Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-insights-reporting.md)
 - Se você ainda não estiver familiarizado com a configuração de políticas de Acesso Condicional, confira [Exigir MFA para aplicativos específicos com Acesso Condicional do Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md), para obter um exemplo.
 - Para saber mais sobre suporte de autenticação moderna, veja [Como funciona a autenticação moderna para os aplicativos cliente do Office 2013 e do Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
-- [Como configurar um dispositivo ou aplicativo multifuncional para enviar email usando Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [Como configurar um dispositivo ou aplicativo multifuncional para enviar email usando Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)

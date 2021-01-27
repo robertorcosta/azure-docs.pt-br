@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9038d6bc9cd061200ef4553242889776f30d2dc1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964551"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881730"
 ---
 # <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Disparar pipelines do Machine Learning com Azure Machine Learning SDK para Python
 
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a agendar programaticamente um pipeline para ser 
 
 * Um ambiente do Python no qual o SDK do Azure Machine Learning para Python está instalado. Para obter mais informações, consulte [criar e gerenciar ambientes reutilizáveis para treinamento e implantação com o Azure Machine Learning.](how-to-use-environments.md)
 
-* Um espaço de trabalho Machine Learning com um pipeline publicado. Você pode usar aquela criada para [criar e executar pipelines de Machine Learning com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
+* Um espaço de trabalho Machine Learning com um pipeline publicado. Você pode usar aquela criada para [criar e executar pipelines de Machine Learning com Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="initialize-the-workspace--get-data"></a>Inicializar o espaço de trabalho & obter dados
 
@@ -142,7 +142,7 @@ Se você executar `Schedule.list(ws)` novamente, deverá obter uma lista vazia.
 
 Regras de gatilho mais complexas ou comportamento podem ser criados usando um [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md).
 
-Para usar um aplicativo lógico do Azure para disparar um pipeline de Machine Learning, você precisará do ponto de extremidade REST para um pipeline de Machine Learning publicado. [Crie e publique seu pipeline](how-to-create-your-first-pipeline.md). Em seguida, localize o ponto de extremidade REST de seu `PublishedPipeline` usando a ID do pipeline:
+Para usar um aplicativo lógico do Azure para disparar um pipeline de Machine Learning, você precisará do ponto de extremidade REST para um pipeline de Machine Learning publicado. [Crie e publique seu pipeline](./how-to-create-machine-learning-pipelines.md). Em seguida, localize o ponto de extremidade REST de seu `PublishedPipeline` usando a ID do pipeline:
 
 ```python
 # You can find the pipeline ID in Azure Machine Learning studio

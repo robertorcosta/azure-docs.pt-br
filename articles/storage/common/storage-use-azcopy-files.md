@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 050e6b5007b9fbaedc412d8062430f1c2c1691fd
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7bca683ea075710aa6fc677fcf457ceb2e0e5098
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923946"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881004"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o Armazenamento de Arquivos 
 
@@ -236,7 +236,7 @@ Para referência detalhada, consulte os documentos de referência de [cópia do 
 
 #### <a name="download-from-a-share-snapshot"></a>Baixar de um instantâneo de compartilhamento
 
-Você pode baixar uma versão específica de um arquivo ou diretório referenciando o valor **DateTime** de um instantâneo de compartilhamento. Para saber mais sobre instantâneos de compartilhamento, confira [visão geral de instantâneos de compartilhamento para arquivos do Azure](/azure/storage/files/storage-snapshots-files). 
+Você pode baixar uma versão específica de um arquivo ou diretório referenciando o valor **DateTime** de um instantâneo de compartilhamento. Para saber mais sobre instantâneos de compartilhamento, confira [visão geral de instantâneos de compartilhamento para arquivos do Azure](../files/storage-snapshots-files.md). 
 
 |    |     |
 |--------|-----------|
@@ -251,7 +251,7 @@ Você pode usar o AzCopy para copiar arquivos para outras contas de armazenament
 
 O AzCopy usa [APIs](/rest/api/storageservices/put-page-from-url)de [servidor para servidor](/rest/api/storageservices/put-block-from-url) , portanto, os dados são copiados diretamente entre os servidores de armazenamento. Essas operações de cópia não usam a largura de banda de rede do seu computador. Você pode aumentar a taxa de transferência dessas operações definindo o valor da `AZCOPY_CONCURRENCY_VALUE` variável de ambiente. Para saber mais, consulte [otimizar a taxa de transferência](storage-use-azcopy-configure.md#optimize-throughput).
 
-Você também pode copiar versões específicas de um arquivo referenciando o valor **DateTime** de um instantâneo de compartilhamento. Para saber mais sobre instantâneos de compartilhamento, confira [visão geral de instantâneos de compartilhamento para arquivos do Azure](/azure/storage/files/storage-snapshots-files). 
+Você também pode copiar versões específicas de um arquivo referenciando o valor **DateTime** de um instantâneo de compartilhamento. Para saber mais sobre instantâneos de compartilhamento, confira [visão geral de instantâneos de compartilhamento para arquivos do Azure](../files/storage-snapshots-files.md). 
 
 Esta seção contém os seguintes exemplos:
 

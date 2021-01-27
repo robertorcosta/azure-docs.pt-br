@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 80b2daebbd64f08dd4f5d728b2a9a4ee04b8952f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728985"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881916"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -239,7 +239,7 @@ Usado somente ao implantar em um consumo ou planos Premium em execução no Wind
 
 ## <a name="website_contentovervnet"></a>CONTENTOVERVNET do site \_
 
-Somente para planos Premium. Um valor `1` permite que seu aplicativo de funções seja dimensionado quando você tiver sua conta de armazenamento restrita a uma rede virtual. Você deve habilitar essa configuração ao restringir sua conta de armazenamento a uma rede virtual. Para saber mais, confira [restringir sua conta de armazenamento a uma rede virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+Somente para planos Premium. Um valor `1` permite que seu aplicativo de funções seja dimensionado quando você tiver sua conta de armazenamento restrita a uma rede virtual. Você deve habilitar essa configuração ao restringir sua conta de armazenamento a uma rede virtual. Para saber mais, confira [restringir sua conta de armazenamento a uma rede virtual](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Chave|Valor de exemplo|
 |---|------------|

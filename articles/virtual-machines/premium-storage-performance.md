@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201953"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882375"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 
@@ -35,8 +35,8 @@ Fornecemos estas diretrizes especificamente para Armazenamento Premium porque as
 >
 > Se você pretende avaliar o benchmark de seu disco, consulte nossos artigos sobre benchmarking de um disco:
 >
-> * Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](linux/disks-benchmarks.md)
-> * Para Windows: [benchmarking de um disco](windows/disks-benchmarks.md).
+> * Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](./disks-benchmarks.md)
+> * Para Windows: [benchmarking de um disco](./disks-benchmarks.md).
 >
 > Se sua VM oferecer suporte a rede acelerada, verifique se ela está ativada. Se não estiver ativado, você poderá ativá-lo em VMs já implementadas nos [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -380,8 +380,8 @@ O Armazenamento Premium do Azure provisiona um número especificado de IOPS e Ta
 
 Se você pretende avaliar o benchmark de seu disco, consulte nossos artigos sobre benchmarking de um disco:
 
-* Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](linux/disks-benchmarks.md)
-* Para Windows: [benchmarking de um disco](windows/disks-benchmarks.md).
+* Para o Linux: [avaliar o aplicativo no armazenamento em disco do Azure](./disks-benchmarks.md)
+* Para Windows: [benchmarking de um disco](./disks-benchmarks.md).
 
 Saiba mais sobre os tipos de disco disponíveis:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 380aa826030df14b4b88b86ac2962c988796c0f9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 025a94cf7d163d41486ef218e70d9eb48e93d31c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202633"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881309"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Linha de base de segurança do Azure para Azure Machine Learning
 
@@ -879,9 +879,9 @@ Observe que as imagens de máquina virtual do Azure Marketplace publicadas pela 
 
 - [Criar uma máquina virtual do Windows no portal do Azure ](../virtual-machines/windows/quick-create-portal.md)
 
-- [Informações sobre como baixar o modelo de VM](../virtual-machines/windows/download-template.md)
+- [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -911,7 +911,7 @@ Azure Machine Learning dá suporte total a repositórios git para acompanhamento
 
 - [Como configurar o RBAC do Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Visão geral da Galeria de imagens compartilhadas](../virtual-machines/windows/shared-image-galleries.md)
+- [Visão geral da Galeria de imagens compartilhadas](../virtual-machines/shared-image-galleries.md)
 
 - [Usar o RBAC do Azure para autorização kubernetes](../aks/manage-azure-rbac.md)
 

@@ -4,12 +4,12 @@ description: Saiba como proteger seu cluster usando um intervalo de endereços I
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682495"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890622"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Proteger o acesso ao servidor de API usando intervalos de endereços IP autorizados no serviço de kubernetes do Azure (AKS)
 
@@ -130,6 +130,23 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
+## <a name="find-existing-authorized-ip-ranges"></a>Localizar intervalos de IP autorizados existentes
+
+Para localizar intervalos de IP que foram autorizados, use [AZ AKs show][az-aks-show] e especifique o nome do cluster e o grupo de recursos. Por exemplo:
+
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query apiServerAccessProfile.authorizedIpRanges'
+```
+
+## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Atualizar, desabilitar e localizar intervalos de IP autorizados usando o portal do Azure
+
+As operações acima de adicionar, atualizar, localizar e desabilitar intervalos de IP autorizados também podem ser executadas no portal do Azure. Para acessar o, navegue até **rede** em **configurações** na folha do menu do recurso de cluster.
+
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="Em um navegador, mostra a página de portal do Azure de configurações de rede do recurso de cluster. As opções ' definir intervalo de IP especificado ' e ' intervalos de IP especificados ' são realçadas.":::
+
 ## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Como encontrar meu IP para incluir em `--api-server-authorized-ip-ranges` ?
 
 Você deve adicionar seus computadores de desenvolvimento, ferramentas ou endereços IP de automação à lista de clusters do AKS de intervalos de IP aprovados para acessar o servidor de API a partir daí. 
@@ -170,6 +187,7 @@ Para obter mais informações, consulte [conceitos de segurança para aplicativo
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md

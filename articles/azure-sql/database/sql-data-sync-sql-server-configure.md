@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: f5192176a6a0e174d5878c51defce70d949c1eb1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: d6b5bab1c1b6c8db4821fdf84728eb66eb55b899
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922314"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882222"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar a Sincronização de Dados SQL entre bancos de dados no Banco de Dados SQL do Azure e o SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -178,10 +178,6 @@ Depois que os novos membros do grupo de sincronização forem criados e implanta
     ![Sincronização manual](./media/sql-data-sync-sql-server-configure/datasync-sync.png)
 
 ## <a name="faq"></a>Perguntas frequentes
-
-**Com que frequência a Sincronização de Dados pode sincronizar meus dados?**
-
-A duração mínima entre as sincronizações é de cinco minutos.
 
 **A Sincronização de Dados SQL cria completamente as tabelas?**
 

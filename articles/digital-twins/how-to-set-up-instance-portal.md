@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: aa6429e27faf92f047c580986d5b434c9a418730
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044366"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882426"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
@@ -71,13 +71,13 @@ Agora você tem uma instância de gêmeos digital do Azure pronta para uso. Em s
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Primeiro, abra a página da instância do gêmeos digital do Azure no portal do Azure. No menu da instância, selecione *controle de acesso (iam)*. Selecione o botão  *Adicionar* em *Adicionar uma atribuição de função*.
+Primeiro, abra a página da instância do gêmeos digital do Azure no portal do Azure. No menu da instância, selecione *controle de acesso (iam)*. Selecione o botão  **+ Adicionar** para adicionar uma nova atribuição de função.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando para adicionar uma atribuição de função da página ' controle de acesso (IAM) '":::
 
 Na página *Adicionar atribuição de função* a seguir, preencha os valores (deve ser concluído por um usuário com [permissões suficientes](#prerequisites-permission-requirements) na assinatura do Azure):
 * **Função**: selecione *Azure digital gêmeos proprietário dos dados* no menu suspenso
-* **Atribuir acesso a**: selecione *usuário, grupo ou entidade de serviço do Azure ad* no menu suspenso
+* **Atribuir acesso a**: usar *usuário, grupo ou entidade de serviço*
 * **Selecione**: Procure o nome ou endereço de email do usuário a ser atribuído. Quando você seleciona o resultado, o usuário aparecerá em uma seção de *Membros selecionados* .
 
 :::row:::

@@ -4,12 +4,12 @@ description: Saiba como solucionar problemas do agente Java para Azure Monitor A
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 788eea17cabbea46578d0f59919ae95a59f2223f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 90e0ceb6ba9d696eb446d607ed2f2f134733618e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625340"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881105"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guia de solução de problemas: Azure Monitor Application Insights para Java
 
@@ -49,36 +49,66 @@ Consulte a [configuração de log coletada automaticamente](./java-standalone-co
 
 ## <a name="import-ssl-certificates"></a>Importar certificados SSL
 
-Se você estiver usando o repositório de chaves Java padrão, ele já terá todos os certificados raiz da autoridade de certificação. Você não deve precisar importar mais certificados SSL.
+Esta seção ajuda você a solucionar problemas e possivelmente corrigir as exceções relacionadas a certificados SSL ao usar o agente Java.
 
-Se você estiver usando um repositório de chaves Java personalizado, talvez seja necessário importar os Application Insights de certificados SSL do ponto de extremidade para ele.
+Há dois caminhos diferentes para solucionar esse problema.
 
-### <a name="key-terminology"></a>Terminologia principal
-Um *keystore* é um repositório de certificados, chaves públicas e chaves privadas. Normalmente, as distribuições do Java Development Kit têm um executável para gerenciá-las: `keytool` .
+### <a name="if-using-a-default-java-keystore"></a>Se estiver usando um repositório de chaves Java padrão:
 
-O exemplo a seguir é um comando simples para importar um certificado SSL para o keystore:
+Normalmente, o repositório de chaves Java padrão já terá todos os certificados raiz da autoridade de certificação. No entanto, pode haver algumas exceções, como o certificado de ponto de extremidade de ingestão pode ser assinado por um certificado raiz diferente. Portanto, recomendamos as três etapas a seguir para resolver esse problema:
 
-`keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name".cer -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
+1.  Verifique se o certificado raiz que foi usado para assinar o ponto de extremidade de Application Insights já está presente no keystore padrão. Os certificados de autoridade de certificação confiáveis, por padrão, são armazenados em `$JAVA_HOME/jre/lib/security/cacerts` . Para listar certificados em um repositório de chaves Java, use o seguinte comando:
+    > `keytool -list -v -keystore $PATH_TO_KEYSTORE_FILE`
+ 
+    Você pode redirecionar a saída para um arquivo temporário como este (será fácil pesquisar mais tarde)
+    > `keytool -list -v -keystore $JAVA_HOME/jre/lib/security/cacerts > temp.txt`
 
-### <a name="steps-to-download-and-add-an-ssl-certificate"></a>Etapas para baixar e adicionar um certificado SSL
+2. Depois de ter a lista de certificados, siga estas [etapas](#steps-to-download-ssl-certificate) para baixar o certificado raiz que foi usado para assinar o ponto de extremidade de Application insights.
+
+    Depois que o certificado for baixado, gere um hash SHA-1 no certificado usando o comando abaixo:
+    > `keytool -printcert -v -file "your_downloaded_root_certificate.cer"`
+ 
+    Copie o valor SHA-1 e verifique se esse valor está presente no arquivo "temp.txt" que você salvou anteriormente.  Se você não conseguir localizar o valor SHA-1 no arquivo temporário, isso indica que o certificado raiz baixado está ausente no repositório de chaves Java padrão.
+
+
+3. Importe o certificado raiz para o armazenamento de chaves Java padrão usando o seguinte comando:
+    >   `keytool -import -file "the cert file" -alias "some meaningful name" -keystore "path to cacerts file"`
+ 
+    Nesse caso, será
+ 
+    > `keytool -import -file "your downloaded root cert file" -alias "some meaningful name" $JAVA_HOME/jre/lib/security/cacerts`
+
+
+### <a name="if-using-a-custom-java-keystore"></a>Se estiver usando um repositório de chaves Java personalizado:
+
+Se você estiver usando um repositório de chaves Java personalizado, talvez seja necessário importar os certificados SSL (s) raiz do ponto de extremidade do Application Insights para ele.
+Recomendamos as duas etapas a seguir para resolver esse problema:
+1. Siga estas [etapas](#steps-to-download-ssl-certificate) para baixar o certificado raiz do ponto de extremidade Application insights.
+2. Use o seguinte comando para importar o certificado SSL raiz para o repositório de chaves Java personalizado:
+    > `keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name.cer" -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
+
+### <a name="steps-to-download-ssl-certificate"></a>Etapas para baixar o certificado SSL
 
 1.  Abra seu navegador favorito e vá para a `IngestionEndpoint` URL presente na cadeia de conexão que é usada para instrumentar seu aplicativo.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-url.png" alt-text="Captura de tela que mostra uma cadeia de conexão Application Insights.":::
+    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-snippet.png" alt-text="Captura de tela que mostra uma cadeia de conexão Application Insights." lightbox="media/java-ipa/troubleshooting/ingestion-endpoint-snippet.png":::
 
 2.  Selecione o ícone **Exibir informações do site** (bloquear) no navegador e, em seguida, selecione a opção **certificado** .
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Captura de tela da opção de certificado nas informações do site.":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Captura de tela da opção de certificado nas informações do site." lightbox="media/java-ipa/troubleshooting/certificate-icon-capture.png":::
 
-3.  Vá para a guia **detalhes** e selecione **copiar para arquivo**.
-4.  Selecione o botão **Avançar** , selecione **X. 509 codificado em base-64 (. CER)** e, em seguida, selecione **Avançar** novamente.
+3.  Em vez de baixar o certificado ' folha ', você deve baixar o certificado ' raiz ', conforme mostrado abaixo. Posteriormente, você precisa clicar no "caminho do certificado"-> selecionar o certificado raiz-> clique em ' Exibir certificado '. Isso exibirá um novo menu de certificado e você poderá baixar o certificado no menu novo.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Captura de tela do assistente para exportação de certificados, com um formato selecionado.":::
+    :::image type="content" source="media/java-ipa/troubleshooting/root-certificate-selection.png" alt-text="Captura de tela de como selecionar o certificado raiz." lightbox="media/java-ipa/troubleshooting/root-certificate-selection.png":::
 
-5.  Especifique o arquivo no qual você deseja salvar o certificado SSL. Em seguida, selecione **próxima**  >  **conclusão**. Você deve ver uma mensagem "a exportação foi bem-sucedida".
-6.  Depois de ter o certificado, é hora de importar o certificado para um repositório de chaves Java. Use o [comando anterior](#key-terminology) para importar certificados.
+4.  Vá para a guia **detalhes** e selecione **copiar para arquivo**.
+5.  Selecione o botão **Avançar** , selecione **X. 509 codificado em base-64 (. CER)** e, em seguida, selecione **Avançar** novamente.
+
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="Captura de tela do assistente para exportação de certificados, com um formato selecionado." lightbox="media/java-ipa/troubleshooting/certificate-export-wizard.png":::
+
+6.  Especifique o arquivo no qual você deseja salvar o certificado SSL. Em seguida, selecione **próxima**  >  **conclusão**. Você deve ver uma mensagem "a exportação foi bem-sucedida".
 
 > [!WARNING]
 > Você precisará repetir essas etapas para obter o novo certificado antes que o certificado atual expire. Você pode encontrar as informações de expiração na guia **detalhes** da caixa de diálogo **certificado** .
 >
-> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="Captura de tela que mostra os detalhes do certificado SSL.":::
+> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="Captura de tela que mostra os detalhes do certificado SSL." lightbox="media/java-ipa/troubleshooting/certificate-details.png":::

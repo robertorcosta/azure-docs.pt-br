@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
-ms.openlocfilehash: f16e34f372016f284d4af79443e84d9d5cdea957
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 373fd26c36bf2f77de6a376f738bd3caaf735f00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523392"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881865"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Como mapear discos do Azure para discos convidados da VM do Windows
 
@@ -29,11 +29,11 @@ Para nosso exercício, você só precisa usar o LUN.
 
 ## <a name="finding-the-lun"></a>Encontrando o LUN
 
-Há dois métodos para localizar o LUN, que você escolher dependerá se você estiver usando [espaços de armazenamento](https://docs.microsoft.com/windows-server/storage/storage-spaces/overview) ou não.
+Há dois métodos para localizar o LUN, que você escolher dependerá se você estiver usando [espaços de armazenamento](/windows-server/storage/storage-spaces/overview) ou não.
 
 ### <a name="disk-management"></a>Gerenciamento de disco
 
-Se você não estiver usando pools de armazenamento, poderá usar o [Gerenciamento de disco](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management) para localizar o LUN.
+Se você não estiver usando pools de armazenamento, poderá usar o [Gerenciamento de disco](/windows-server/storage/disk-management/overview-of-disk-management) para localizar o LUN.
 
 1. Conecte-se à VM e abra o gerenciamento de disco a. Clique com o botão direito do mouse no botão Iniciar e escolha "gerenciamento de disco" a. Você também pode digitar `diskmgmt.msc` na caixa Iniciar pesquisa
 1. No painel inferior, clique com o botão direito do mouse em qualquer um dos discos e escolha "Propriedades"
@@ -55,7 +55,7 @@ Você pode localizar o LUN para um disco do Azure usando o portal do Azure, CLI 
 1. Selecione a Máquina Virtual
 1. Selecione "discos"
 1. Selecione um disco de dados na lista de discos anexados.
-1. O LUN do disco será exibido no painel detalhes do disco. O LUN exibido aqui se correlaciona com os LUNs que foram pesquisados no convidado usando Device Manager ou Gerenciador do Servidor.
+1. O LUN do disco será exibido no painel detalhes do disco. O LUN exibido aqui se correlaciona com os LUNs que foram pesquisados no convidado usando Gerenciador de Dispositivos ou Gerenciador do Servidor.
 
 ### <a name="finding-an-azure-disks-lun-using-azure-cli-or-azure-powershell"></a>Localizando um LUN do disco do Azure usando CLI do Azure ou Azure PowerShell
 

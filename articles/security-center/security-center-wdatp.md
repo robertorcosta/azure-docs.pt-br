@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 4b8141d99d654705450a14767b04ae6265766af9
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807091"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876386"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -62,7 +62,7 @@ O Microsoft defender for Endpoint fornece:
 
 Ao integrar o defender for Endpoint à central de segurança, você se beneficiará dos seguintes recursos adicionais:
 
-- **Integração automatizada**. A central de segurança habilita automaticamente o sensor Microsoft defender for Endpoint para todos os servidores Windows monitorados pela central de segurança. Exceto aqueles que executam o Windows Server 2019, que deve ser integrado por meio de script local, objeto de Política de Grupo (GPO) ou [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (anteriormente SCCM).
+- **Integração automatizada**. A central de segurança habilita automaticamente o sensor Microsoft defender for Endpoint para todos os servidores Windows monitorados pela central de segurança. Exceto aqueles que executam o Windows Server 2019, que deve ser integrado por meio de script local, objeto de Política de Grupo (GPO) ou [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (anteriormente SCCM).
 
 - **Painel único de vidro**. O console da central de segurança exibe o Microsoft defender para alertas de ponto de extremidade. Para investigar ainda mais, use as páginas do portal da própria Microsoft defender para o ponto de extremidade, em que você verá informações adicionais, como a árvore de processo de alerta e o grafo de incidentes. Você também pode ver uma linha do tempo detalhada do computador, mostrando cada comportamento por um período de histórico de até seis meses.
 

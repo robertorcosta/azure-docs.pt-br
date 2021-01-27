@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 31398a49de871ad44499a796adfef1be618ccab9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ae07f51a91745acdaf2601d3a50bf282129dac71
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685167"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881798"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights origens de eventos do Gen2
 
@@ -59,7 +59,7 @@ Além das práticas recomendadas acima, recomendamos que você implemente o segu
 
 - Aumente o tempo de retenção de dados do Hub IoT ou do hub de eventos para o máximo de 7 dias.
 
-- Crie alertas de ambiente no portal do Azure. Alertas baseados em [métricas](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) de plataforma permitem validar o comportamento de pipeline de ponta a ponta. As instruções para criar e gerenciar alertas estão [aqui](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts). Condições de alerta sugeridas:
+- Crie alertas de ambiente no portal do Azure. Alertas baseados em [métricas](./how-to-monitor-tsi-reference.md#metrics) de plataforma permitem validar o comportamento de pipeline de ponta a ponta. As instruções para criar e gerenciar alertas estão [aqui](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts). Condições de alerta sugeridas:
 
   - IngressReceivedMessagesTimeLag é maior que 5 minutos
   - IngressReceivedBytes é 0

@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: f2de6dbba2548f0c281df35edf2883d0c00af667
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 4fc92146d6f076287fe37f64734bb07e8250792b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571906"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882205"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Comparar opções de transferência de dados do StorSimple com a Sincronização de Arquivos do Azure e Data Box Edge 
 
@@ -39,5 +39,5 @@ Este documento fornece uma visão geral das opções de transferência de dados 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) e [Azure Data Box Gateway](../databox-online/data-box-gateway-overview.md)
+- Saiba mais sobre [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) e [Azure Data Box Gateway](../databox-gateway/data-box-gateway-overview.md)
 - Saiba mais sobre a [Sincronização de arquivos do Azure](../storage/files/storage-sync-files-deployment-guide.md)
