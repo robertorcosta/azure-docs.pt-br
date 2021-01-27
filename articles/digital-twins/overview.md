@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400600"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664020"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
 
@@ -33,6 +33,8 @@ Aqui está um resumo dos recursos fornecidos pelos Gêmeos Digitais do Azure.
 Nos Gêmeos Digitais do Azure, você define as entidades digitais que representam as pessoas, os lugares e as coisas do seu ambiente físico usando tipos de gêmeos personalizados chamados de [**modelos**](concepts-models.md). 
 
 Você pode considerar essas definições de modelo como um vocabulário especializado para descrever seus negócios. Para uma solução de gerenciamento de edifício, por exemplo, você pode definir modelos como "edifício", "andar" e "elevador". Em seguida, você pode criar **gêmeos digitais** com base nesses modelos a fim de representar seu ambiente específico.
+
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 Os modelos são definidos em uma linguagem semelhante à JSON chamada [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) e descrevem os gêmeos em termos de suas propriedades de estado, eventos de telemetria, comandos, componentes e relações.
 * Os modelos definem **relações** semânticas entre as entidades para que você possa conectar os gêmeos a um grafo de conhecimento que reflita as interações deles. Em uma analogia com o mundo real, você pode considerar os modelos como substantivos e as relações como verbos.
