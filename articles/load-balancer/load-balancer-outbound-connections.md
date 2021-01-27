@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: d30998e0d99ba7b1eeb55bdc47cd5cc54690156f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032908"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878215"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Usando SNAT para conexões de saída
 
@@ -22,7 +22,7 @@ Os IPs de front-end de um balanceador de carga público do Azure podem ser usado
 O SNAT permite a **representação de IP** da instância de back-end. Essa representação impede que fontes externas tenham um endereço direto para as instâncias de back-end. O compartilhamento de um endereço IP entre instâncias de back-end reduz o custo de IPs públicos estáticos e dá suporte a cenários como a simplificação de listas de permissões de IP com tráfego de IPs públicos conhecidos. 
 
 >[!Note]
-> Para aplicativos com que exigem um grande número de conexões de saída ou clientes empresariais que exigem um único conjunto de IPs a serem usados de uma determinada rede virtual, o [NAT da rede virtual](../virtual-network/nat-overview.md) é a solução recomendada. A alocação dinâmica permite uma configuração simples e > o uso mais eficiente de portas SNAT de cada endereço IP. Ele também permite que todos os recursos na rede virtual compartilhem um conjunto de endereços IP sem a necessidade de compartilharem > um balanceador de carga.
+> Para aplicativos que exigem um grande número de conexões de saída ou clientes empresariais que exigem um único conjunto de IPs a serem usados de uma determinada rede virtual, o [NAT da rede virtual](../virtual-network/nat-overview.md) é a solução recomendada. A alocação dinâmica permite uma configuração simples e > o uso mais eficiente de portas SNAT de cada endereço IP. Ele também permite que todos os recursos na rede virtual compartilhem um conjunto de endereços IP sem a necessidade de compartilharem > um balanceador de carga.
 
 >[!Important]
 > Mesmo sem o SNAT de saída configurado, as contas de armazenamento do Azure na mesma região ainda estarão acessíveis e os recursos de back-end ainda terão acesso aos serviços da Microsoft, como atualizações do Windows.

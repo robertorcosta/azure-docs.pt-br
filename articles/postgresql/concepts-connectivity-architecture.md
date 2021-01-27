@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d5476bf1bfe2e222e115146c13f46e776d4bb497
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 23847c164ba59a8c46c2fdd5fb954b76ea251148
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657185"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877672"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade no banco de dados do Azure para PostgreSQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para PostgreSQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para PostgreSQL de clientes dentro e fora do Azure.
@@ -28,7 +28,7 @@ A conexão com o banco de dados do Azure para PostgreSQL é estabelecida por mei
 
 O serviço de gateway é hospedado em um grupo de nós de computação sem monitoração de estado situadas atrás de um endereço IP, o qual o cliente primeiro alcançaria ao tentar se conectar a um banco de dados do Azure para o servidor PostgreSQL. 
 
-Como parte da manutenção contínua do serviço, atualizaremos periodicamente o hardware de computação que hospeda os gateways para garantir que forneceremos a experiência mais segura e de alto desempenho. Quando o hardware de gateway é atualizado, um novo anel dos nós de computação é criado primeiro. Esse novo anel serve o tráfego para todos os servidores do banco de dados do Azure recém-criados para PostgreSQL e ele terá um endereço IP diferente dos anéis de gateway mais antigos na mesma região para diferenciar o tráfego. Quando o novo anel estiver totalmente funcional, o hardware de gateway mais antigo que atende aos servidores existentes será planejado para encerramento. Antes de encerrar um hardware de gateway, os clientes que executam seus servidores e se conectarem a anéis de gateway mais antigos serão notificados por email e na portal do Azure, três meses de antecedência antes do encerramento. O encerramento de gateways pode afetar a conectividade com seus servidores se 
+Como parte da manutenção contínua do serviço, atualizaremos periodicamente o hardware de computação que hospeda os gateways para garantir que forneceremos a experiência de conectividade mais segura e de alto desempenho. Quando o hardware de gateway é atualizado, um novo anel dos nós de computação é criado primeiro. Esse novo anel serve o tráfego para todos os servidores do banco de dados do Azure recém-criados para PostgreSQL e ele terá um endereço IP diferente dos anéis de gateway mais antigos na mesma região para diferenciar o tráfego. O hardware de gateway mais antigo continua atendendo a servidores existentes, mas está planejado para encerramento no futuro. Antes de encerrar um hardware de gateway, os clientes que executam seus servidores e se conectarem a anéis de gateway mais antigos serão notificados por email e na portal do Azure, três meses de antecedência antes do encerramento. O encerramento de gateways pode afetar a conectividade com seus servidores se 
 
 * Você codifica os endereços IP do gateway na cadeia de conexão do seu aplicativo. Não é **recomendável**. Você deve usar o FQDN (nome de domínio totalmente qualificado) do servidor no formato <servername> . Postgres.Database.Azure.com, na cadeia de conexão do seu aplicativo. 
 * Você não atualiza os endereços IP de gateway mais recentes no firewall do lado do cliente para permitir que o tráfego de saída seja capaz de alcançar nossos novos anéis de gateway.

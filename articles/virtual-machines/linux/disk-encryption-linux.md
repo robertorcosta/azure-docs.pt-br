@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: eb7db3c95fb56ebbd62d6cf882a75ce03baeb75d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736047"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878131"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Cenários do Azure Disk Encryption em VMs Linux
 
@@ -412,6 +412,7 @@ O Azure Disk Encryption não funciona para os seguintes cenários, recursos e te
 - Os discos NVMe das VMs da série Lsv2 (consulte: [Lsv2-Series](../lsv2-series.md)).
 - Uma VM com "pontos de montagem aninhados"; ou seja, vários pontos de montagem em um só caminho (como "/1stmountpoint/data/2stmountpoint").
 - Uma VM com uma unidade de dados montada na parte superior de uma pasta do sistema operacional.
+- Uma VM na qual um volume lógico (disco do sistema operacional) foi estendido usando um disco de dados.
 - VMs da série M com discos Acelerador de Gravação.
 - Aplicando ADE a uma VM que tem discos criptografados com [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md) (SSE + CMK). A aplicação de SSE + CMK a um disco de dados em uma VM criptografada com ADE também é um cenário sem suporte.
 - Migrar uma VM criptografada com ADE ou **já** foi criptografada com Ade, para a [criptografia do lado do servidor com chaves gerenciadas pelo cliente](../disk-encryption.md).

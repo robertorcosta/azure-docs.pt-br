@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 24640254f32270b8c96c790dca7db31e285cc27f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973704"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895281"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueio da autenticação herdada
  
@@ -37,6 +37,7 @@ Antes de poder bloquear a autenticação herdada em seu diretório, primeiro voc
 1. Filtrar por **aplicativo cliente** > verificar todas as opções de **clientes de autenticação herdadas** apresentadas.
 1. Filtrar por **status** de  >  **êxito**. 
 1. Expanda seu intervalo de datas, se necessário, usando o filtro de **Data** .
+1. Se você ativou a [nova visualização de relatórios de atividade de entrada](../reports-monitoring/concept-all-sign-ins.md), repita as etapas acima também na guia entradas de **usuário (não interativa)** .
 
 A filtragem mostrará apenas as tentativas de entrada bem-sucedidas feitas pelos protocolos de autenticação herdados selecionados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. A coluna aplicativo cliente ou o campo aplicativo cliente na guia informações básicas, depois de selecionar uma linha individual de dados, indicará qual protocolo de autenticação herdado foi usado. Esses logs indicarão quais usuários ainda estão dependendo da autenticação herdada e quais aplicativos estão usando protocolos herdados para fazer solicitações de autenticação. Para usuários que não aparecem nesses logs e são confirmados para não usar a autenticação herdada, implemente uma política de acesso condicional ou habilite a política de linha de base: bloquear a autenticação herdada somente para esses usuários.
 

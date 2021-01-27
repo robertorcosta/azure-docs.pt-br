@@ -3,12 +3,12 @@ title: Monitoramento e registro em log – Azure
 description: Este artigo fornece uma visão geral do monitoramento e registro em log na análise de vídeo ao vivo no IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6a7251b62421642ad9f5dba4f4c2a15ce74cd5cf
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900868"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878097"
 ---
 # <a name="monitoring-and-logging"></a>Monitoramento e registro em log
 
@@ -269,7 +269,7 @@ Siga estas etapas para habilitar a coleta de métricas da análise de vídeo ao 
 
 1. Use comandos da CLI do Docker para criar o arquivo do Docker e publicar a imagem no registro de contêiner do Azure.
     
-   Para obter mais informações sobre como usar a CLI do Docker para enviar por push para um registro de contêiner, confira [imagens do Docker de push e pull](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli). Para obter outras informações sobre o registro de contêiner do Azure, consulte a [documentação](https://docs.microsoft.com/azure/container-registry/).
+   Para obter mais informações sobre como usar a CLI do Docker para enviar por push para um registro de contêiner, confira [imagens do Docker de push e pull](../../container-registry/container-registry-get-started-docker-cli.md). Para obter outras informações sobre o registro de contêiner do Azure, consulte a [documentação](../../container-registry/index.yml).
 
 
 1. Após a conclusão do push para o registro de contêiner do Azure, adicione o seguinte nó ao seu arquivo de manifesto de implantação:
@@ -311,7 +311,7 @@ Siga estas etapas para habilitar a coleta de métricas da análise de vídeo ao 
 
    Nesse caso, na portal do Azure, vá para o Hub IoT e selecione **métricas** no painel esquerdo. Você deve ver as métricas ali.
 
-## <a name="logging"></a>Log
+## <a name="logging"></a>Registrando em log
 
 Assim como ocorre com outros módulos IoT Edge, você também pode [examinar os logs de contêiner](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) no dispositivo de borda. Você pode configurar as informações gravadas nos logs usando as seguintes propriedades de [mymódulo](module-twin-configuration-schema.md) :
 

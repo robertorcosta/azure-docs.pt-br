@@ -1,5 +1,5 @@
 ---
-title: Monitorar eventos dos Serviços de Mídia do Azure com a Grade de Eventos usando a CLI | Microsoft Docs
+title: Monitorar eventos dos serviços de mídia do Azure com a grade de eventos usando a CLI
 description: Este artigo mostra como assinar a grade de eventos para monitorar os eventos dos serviços de mídia do Azure usando CLI do Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b646965be03b5d3f57483887e256d33262192375
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d7148841083cccf4197fe353d077e5149e4afac5
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013280"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895315"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Criar e monitorar eventos dos Serviços de Mídia com a Grade de Eventos usando a CLI do Azure
 
@@ -29,7 +29,7 @@ Neste artigo, você usará a CLI do Azure para assinar eventos da sua conta de S
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura ativa do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
+- Uma assinatura ativa do Azure. Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - Instalar e usar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` descobrir a versão que você tem. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
     Atualmente, nem todos os comandos da [CLI V3 dos Serviços de Mídia](/cli/azure/ams) funcionam no Azure Cloud Shell. É recomendável usar a CLI localmente.

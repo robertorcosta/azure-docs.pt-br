@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 68dc7c36159523bcc46e93a4784e9d038037a919
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b5ce8e3d6482c13a8ba02065f2a97074610c25bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201205"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877707"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança do Azure para conjuntos de dimensionamento de máquinas virtuais
 
@@ -848,7 +848,7 @@ Atualmente, os controles de aplicativo adaptáveis não estão disponíveis para
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informações sobre como baixar o modelo de VM](../virtual-machines/windows/download-template.md)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -892,7 +892,7 @@ Atualmente, os controles de aplicativo adaptáveis não estão disponíveis para
 
 Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com a configuração de estado desejado da automação do Azure podem ajudar na reunião e manutenção dos requisitos de segurança.
 
-* [Informações sobre como baixar o modelo de VM](../virtual-machines/windows/download-template.md)
+* [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informações sobre a criação de modelos do ARM](../virtual-machines/windows/ps-template.md)
 

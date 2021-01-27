@@ -7,19 +7,19 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 346536f5797841a850ef97dc4667110eafa721a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4ad05281f13885327c855a261a3101388f38af83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656949"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878046"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma conexão Site a Site usando o portal do Azure (clássico)
 
 Este artigo mostra como usar o portal do Azure para criar uma conexão de gateway de VPN Site a Site de sua rede local para a rede virtual. As etapas neste artigo se aplicam ao modelo de implantação clássico e não se aplicam ao modelo de implantação atual, Resource Manager. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure portal](./tutorial-site-to-site-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -33,7 +33,7 @@ Uma conexão de gateway de VPN Site a Site é usada para conectar a rede local a
 
 Verifique se você atende aos seguintes critérios antes de iniciar a configuração:
 
-* Verifique se você deseja trabalhar no modelo de implantação clássico. Se você deseja trabalhar no modelo de implantação do Gerenciador de Recursos, confira [Criar uma conexão Site a Site (Gerenciador de Recursos)](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Recomendamos que você use o modelo de implantação do Gerenciador de recursos, pois o modelo clássico é herdado.
+* Verifique se você deseja trabalhar no modelo de implantação clássico. Se você deseja trabalhar no modelo de implantação do Gerenciador de Recursos, confira [Criar uma conexão Site a Site (Gerenciador de Recursos)](./tutorial-site-to-site-portal.md). Recomendamos que você use o modelo de implantação do Gerenciador de recursos, pois o modelo clássico é herdado.
 * Verifique se você possui um dispositivo VPN compatível e alguém que possa configurá-lo. Para obter mais informações sobre dispositivos VPN compatíveis e a configuração de dispositivo, confira [Sobre dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 * Verifique se você possui um endereço IPv4 público voltado para o exterior para seu dispositivo VPN.
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede local, você precisará trabalhar em conjunto com alguém que possa lhe fornecer os detalhes. Ao criar essa configuração, você deve especificar os prefixos de intervalo de endereços IP que o Azure roteará para seu local. Nenhuma das sub-redes da rede local podem se sobrepor às sub-redes de rede virtual às quais você deseja se conectar.
@@ -94,9 +94,9 @@ O site local normalmente se refere ao seu site local. Ele contém o endereço IP
 
 1. Selecione **examinar + criar** na parte inferior da página para validar suas configurações. Selecione **criar** para implantar. Pode levar até 45 minutos para criar um gateway de rede virtual, dependendo do SKU de gateway que você selecionou.
 
-## <a name="configure-your-vpn-device"></a><a name="vpndevice"></a>Configurar seu dispositivo VPN
+## <a name="configure-your-vpn-device"></a><a name="vpndevice"></a>Configurar o dispositivo VPN
 
-As conexões Site a Site para uma rede local exigem um dispositivo VPN. Nesta etapa, você deve configurar seu dispositivo VPN. Ao configurar seu dispositivo VPN, você precisa dos seguintes valores:
+As conexões Site a Site para uma rede local exigem um dispositivo VPN. Nesta etapa, você deve configurar seu dispositivo VPN. Ao configurar seu dispositivo VPN, você precisará dos seguintes valores:
 
 * Uma chave compartilhada. Essa é a mesma chave compartilhada especificada ao criar a conexão VPN Site a Site. Em nossos exemplos, usamos uma chave compartilhada básica. Recomendamos gerar uma chave mais complexa para uso.
 * O endereço IP público do seu gateway de rede virtual. Você pode exibir o endereço IP público usando o portal do Azure, o PowerShell ou a CLI.
