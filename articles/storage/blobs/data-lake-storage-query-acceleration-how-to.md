@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc63a9787a3611f28e6466564735d029bf65b757
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0340ab0a13d7c639d5e5bba49b3cdd445bad5a83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968391"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879874"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrar dados usando a aceleração de consulta Azure Data Lake Storage
 
@@ -152,7 +152,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ---
 
-## <a name="set-up-your-environment"></a>Configure seu ambiente
+## <a name="set-up-your-environment"></a>Configurar seu ambiente
 
 ### <a name="step-1-install-packages"></a>Etapa 1: instalar pacotes 
 
@@ -437,7 +437,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
 
 ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Este exemplo envia a consulta para a API de aceleração de consulta e, em seguida, transmite os resultados de volta. O `blob` objeto passado para a `queryHemingway` função auxiliar é do tipo [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient). Para saber mais sobre como obter um objeto [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient) , consulte [início rápido: gerenciar BLOBs com o SDK do JavaScript V12 no Node.js](storage-quickstart-blobs-nodejs.md).
+Este exemplo envia a consulta para a API de aceleração de consulta e, em seguida, transmite os resultados de volta. O `blob` objeto passado para a `queryHemingway` função auxiliar é do tipo [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). Para saber mais sobre como obter um objeto [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) , consulte [início rápido: gerenciar BLOBs com o SDK do JavaScript V12 no Node.js](storage-quickstart-blobs-nodejs.md).
 
 ```javascript
 async function queryHemingway(blob)

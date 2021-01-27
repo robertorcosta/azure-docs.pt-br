@@ -1,5 +1,5 @@
 ---
-title: Mudanças de terminologia e de entidade entre os serviços de mídia do Azure v2 para v3 | Microsoft Docs
+title: Mudanças de terminologia e de entidade entre os serviços de mídia do Azure v2 para v3
 description: Este artigo descreve as diferenças de terminologia entre os serviços de mídia do Azure v2 a v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9f657b853298cf0065da931835ea56ef2e0e0fe7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b53fbcb62004a8af9b2470c76f64f1ace845c1a8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690230"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898385"
 ---
 # <a name="terminology-and-entity-changes-between-media-services-v2-and-v3"></a>Mudanças de terminologia e de entidade entre os serviços de mídia V2 e v3
 
@@ -40,7 +40,7 @@ Examine as convenções de nomenclatura que são aplicadas aos recursos dos serv
 - Uma *tarefa* agora é chamada de *JobOutput*, que faz parte de um trabalho.
 
 ## <a name="entity-changes"></a>Alterações de entidade
-| **Entidade v2**<!-- row --> | **Entidade v3** | **Orientação** | **Acessível para v3** | **Atualizado por v3** |
+| **Entidade v2**<!-- row --> | **Entidade v3** | **Diretrizes** | **Acessível para v3** | **Atualizado por v3** |
 |--|--|--|--|--|
 | `AccessPolicy`<!-- row --> | <!-- empty --> |  A entidade `AccessPolicies` não existe na v3. | Não | Não |
 | `Asset`<!-- row --> | `Asset` | <!-- empty --> | Sim | Sim |

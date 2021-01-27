@@ -3,12 +3,12 @@ title: Perguntas comuns sobre a recuperação de desastres do Hyper-V com o Azur
 description: Este artigo resume perguntas comuns sobre a configuração da recuperação de desastre de VMs do Hyper-V locais para o Azure usando o site do Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4f5ee71fc56cad247b57f94bf08a68bed8775f9
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 649bd69f14cdf8d81fe05d3a5f5cac3389419fc3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754344"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879437"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Recuperação de desastre do Hyper-V para o Azure
 
@@ -167,7 +167,7 @@ As VMs do Hyper-V podem ser replicadas a cada 30 segundos (exceto para armazenam
 
 ### <a name="can-azure-site-recovery-and-hyper-v-replica-be-configured-together-on-a-hyper-v-machine"></a>O Azure Site Recovery e a réplica do Hyper-V podem ser configurados juntos em uma máquina Hyper-V?
 
-Sim, as réplicas Azure Site Recovery e Hyper-V podem ser configuradas em conjunto para um computador. Mas o computador precisará ser protegido como um computador físico e será replicado para o Azure usando um servidor de configuração/processo. Saiba mais sobre como proteger computadores físicos [aqui](https://docs.microsoft.com/azure/site-recovery/physical-azure-architecture).
+Sim, as réplicas Azure Site Recovery e Hyper-V podem ser configuradas em conjunto para um computador. Mas o computador precisará ser protegido como um computador físico e será replicado para o Azure usando um servidor de configuração/processo. Saiba mais sobre como proteger computadores físicos [aqui](./physical-azure-architecture.md).
 
 ### <a name="can-i-extend-replication"></a>É possível estender replicação?
 Esse tipo de replicação estendida ou encadeada não tem suporte. Solicite esse recurso no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7ebe56b95b0c4b938c31c0ece04d27fd1b234b05
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729905"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880786"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -98,7 +98,7 @@ Veja a lista a seguir para usar uma identidade gerenciada com o [Azure Blueprint
 - [API REST – atribuição de blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 
-### <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -159,8 +159,6 @@ Veja a lista a seguir para configurar a identidade gerenciada para Azure Data Fa
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-
-
 ### <a name="azure-event-grid"></a>Grade de Eventos do Azure
 
 Tipo de identidade gerenciada |Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
@@ -168,13 +166,12 @@ Tipo de identidade gerenciada |Todos Disponíveis ao Público Geral<br>Regiões 
 | Atribuído pelo sistema | Visualização | Visualização | Não disponível | Visualização |
 | Atribuído pelo usuário | Não disponível | Não disponível  | Não disponível  | Não disponível |
 
+### <a name="azure-firewall-policy"></a>Política de firewall do Azure
 
-
-
-
-
-
-
+Tipo de identidade gerenciada |Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | Não disponível | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Visualização | Não disponível  | Não disponível  | Não disponível |
 
 ### <a name="azure-functions"></a>Funções do Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Migrar dos serviços de mídia do Azure v2 para a introdução do v3 | Microsoft Docs
+title: Migrar dos serviços de mídia do Azure v2 para a introdução do v3
 description: Este artigo é uma introdução à migração dos serviços de mídia v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb9abd8f3186405edc31b4af48ee98482e080c68
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: d96644b4df5475192c3b7d90bd055e63bf869faa
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690228"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898334"
 ---
 # <a name="migrate-from-media-services-v2-to-v3-introduction"></a>Migrar da introdução dos serviços de mídia v2 para v3
 
@@ -36,7 +36,7 @@ A etapa em que você está será indicada por uma alteração de cor no número 
 
 No final de cada página, você verá links para o restante dos documentos de migração que podem ser lidos abaixo do título **próximas etapas** .
 
-### <a name="guidance"></a>Orientação
+### <a name="guidance"></a>Diretrizes
 
 As diretrizes fornecidas aqui são *gerais*. Ele inclui conteúdo para melhorar a conscientização do que agora está disponível na v3, bem como o que mudou nos fluxos de trabalho dos serviços de mídia.
 
@@ -78,7 +78,7 @@ Seu aplicativo dos serviços de mídia V2 pode ser exclusivo. Portanto, fornecem
 - [Transmissão ao vivo](migrate-v-2-v-3-migration-scenario-based-live-streaming.md)
 - [Empacotamento e entrega](migrate-v-2-v-3-migration-scenario-based-publishing.md)
 - [Proteção de conteúdo](migrate-v-2-v-3-migration-scenario-based-content-protection.md)
-- [Unidades reservadas de mídia (MRU)](migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)
+- [MRU (unidades reservadas para mídia)](migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 

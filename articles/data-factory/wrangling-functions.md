@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: a88f9fab2b10271aa7856a6d0b5ee114f46cfb49
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633767"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896656"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funções de transformação no Power Query para Wrangling de dados
 
@@ -24,7 +24,7 @@ O Wrangling de dados no Azure Data Factory permite que você faça a preparaçã
 
 Atualmente, não há suporte para todas as funções Power Query M para Wrangling de dados, apesar de estarem disponíveis durante a criação. Ao criar seus mashups, a seguinte mensagem de erro será exibida se não houver suporte para uma função:
 
-`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
+`UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
 Abaixo está uma lista de funções de Power Query M com suporte.
 
@@ -89,14 +89,14 @@ Manter e remover Top, manter o intervalo (funções de M correspondentes, soment
 
 | Função | Status |
 | -- | -- |
-| Table.PromoteHeaders | Sem suporte. O mesmo resultado pode ser obtido com a configuração "primeira linha como cabeçalho" no conjunto de resultados. |
+| Table.PromoteHeaders | Não há suporte. O mesmo resultado pode ser obtido com a configuração "primeira linha como cabeçalho" no conjunto de resultados. |
 | Table.CombineColumns | Esse é um cenário comum que não tem suporte direto, mas pode ser obtido com a adição de uma nova coluna que concatena duas colunas especificadas.  Por exemplo, Table. AddColumn (RemoveEmailColumn, "Name", cada [FirstName] & "" & [LastName]) |
 | Table.TransformColumnTypes | Isso tem suporte na maioria dos casos. Os cenários a seguir não têm suporte: transformando cadeia de caracteres para tipo de moeda, transformando cadeia de caracteres em tipo de hora, transformando cadeia de caracteres para tipo de porcentagem. |
 | Table.NestedJoin | Apenas fazer uma junção resultará em um erro de validação. As colunas devem ser expandidas para que funcionem. |
 | Table.Distinct | Não há suporte para a remoção de linhas duplicadas. |
 | Table.RemoveLastN | Não há suporte para remover linhas inferiores. |
 | Table.RowCount | Sem suporte, mas pode ser obtido com a adição de uma coluna personalizada contendo o valor 1 e, em seguida, a agregação dessa coluna com list. Sum. Table. Group tem suporte. | 
-| Tratamento de erros em nível de linha | No momento, não há suporte para o tratamento de erros em nível de linha. Por exemplo, para filtrar valores não numéricos de uma coluna, uma abordagem seria transformar a coluna de texto em um número. Todas as células que não forem transformadas na transformação estarão em um estado de erro e precisarão ser filtradas. Esse cenário não é possível no fluxo de dados Wrangling. |
+| Tratamento de erros em nível de linha | No momento, não há suporte para o tratamento de erros em nível de linha. Por exemplo, para filtrar valores não numéricos de uma coluna, uma abordagem seria transformar a coluna de texto em um número. Todas as células que não forem transformadas na transformação estarão em um estado de erro e precisarão ser filtradas. Esse cenário não é possível em M escalado horizontalmente. |
 | Table.Transpose | Sem suporte |
 | Table.Pivot | Sem suporte |
 

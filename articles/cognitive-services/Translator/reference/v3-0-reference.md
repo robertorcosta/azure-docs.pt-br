@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: c93b8254e1fc80865d9889072b33cbf3fc94326d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024493"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880769"
 ---
 # <a name="translator-v30"></a>Tradutor v 3.0
 
@@ -39,9 +39,9 @@ O Microsoft Translator é distribuído a partir de vários locais de datacenter.
 
 As solicitações para o Microsoft Translator estão na maioria dos casos manipulados pelo datacenter mais próximo de onde a solicitação foi originada. No caso de uma falha de datacenter, a solicitação pode ser roteada para fora da geografia do Azure.
 
-Para forçar a manipulação da solicitação por uma geografia do Azure específica, altere o ponto de extremidade global na solicitação de API para o ponto de extremidade regional desejado:
+Para forçar a manipulação da solicitação por uma geografia do Azure específica, altere o ponto de extremidade global na solicitação de API para o ponto de extremidade geográfico desejado:
 
-|Description|Geografia do Azure|URL base|
+|Descrição|Geografia do Azure|URL base (ponto de extremidade geográfico)|
 |:--|:--|:--|
 |Azure|Global (não regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
@@ -236,7 +236,7 @@ As métricas permitem que você exiba as informações de uso e disponibilidade 
 
 Esta tabela lista as métricas disponíveis com a descrição de como elas são usadas para monitorar chamadas à API de tradução.
 
-| Métricas | Description |
+| Métricas | Descrição |
 |:----|:-----|
 | TotalCalls| Número total de chamadas de API.|
 | TotalTokenCalls| Número total de chamadas à API por meio do serviço de token usando o token de autenticação.|

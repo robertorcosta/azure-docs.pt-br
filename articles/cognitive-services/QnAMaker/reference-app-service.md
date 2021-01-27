@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: e7dfc6db50432b19d515671fabe26edf9cfb45ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c35306d3e0d874218b9ea03fbfeaaff722eacf76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345661"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896453"
 ---
 # <a name="service-configuration"></a>Configuração de serviço
 
@@ -26,7 +26,7 @@ Essas configurações estão disponíveis no portal do Azure, para o serviço de
 
 Você pode definir uma configuração individual por meio da lista de configurações do aplicativo ou modificar várias configurações selecionando **edição avançada**.
 
-|Recurso|Configuração|
+|Resource|Configuração|
 |--|--|
 |AzureSearchAdminKey|Pesquisa Cognitiva-usado para o armazenamento e o classificador do QnA Pair #1|
 |AzureSearchName|Pesquisa Cognitiva-usado para o armazenamento e o classificador do QnA Pair #1|
@@ -34,6 +34,7 @@ Você pode definir uma configuração individual por meio da lista de configura�
 |UserAppInsightsAppId|Log de chat e telemetria|
 |UserAppInsightsKey|Log de chat e telemetria|
 |UserAppInsightsName|Log de chat e telemetria|
+|QNAMAKER_EXTENSION_VERSION|Sempre definido como _mais recente_. Essa configuração inicializará a extensão de site QnAMaker no serviço de aplicativo.|
 
 Você precisa **reiniciar** o serviço na página **visão geral** do portal do Azure, quando terminar de fazer alterações.
 

@@ -1,26 +1,11 @@
 ---
-title: Métricas dos serviços de mídia e logs de diagnóstico com Azure Monitor
-titleSuffix: Azure Media Services
-description: Saiba como monitorar as métricas dos serviços de mídia do Azure e os logs de diagnóstico por meio de Azure Monitor.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 11/02/2020
-ms.author: inhenkel
-ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685164"
+Título: métricas dos serviços de mídia e logs de diagnóstico com Azure Monitor: descrição dos serviços de mídia do Azure: saiba como monitorar as métricas dos serviços de mídia do Azure e os logs de diagnóstico via Azure Monitor.
+serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
+
+MS. Service: Media-Services MS. Workload: Media ms.tgt_pltfrm: na MS. DevLang: na MS. tópico: conceitual MS. Date: 11/02/2020 MS. Author: inhenkel
+
 ---
+
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorar as métricas dos serviços de mídia e os logs de diagnóstico com Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -98,7 +83,7 @@ Os serviços de mídia oferecem suporte aos seguintes logs de diagnóstico:
 
 ### <a name="key-delivery"></a>Entrega de chave
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |Solicitação do serviço de distribuição de chaves|Logs que mostram as informações de solicitação de serviço de entrega de chave. Para obter mais informações, consulte [esquemas](media-services-diagnostic-logs-schema.md).|
 

@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 1ee179efbe936c742f1eb51b998c10f9349c14fb
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 29dbdb896d1a6063fec277afa33327c84cb2f0cd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763380"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880920"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>Usar a detecção de caracteres animados (versão prévia) com o portal e a API 
 
@@ -35,7 +35,7 @@ Se você possui uma conta paga Video Indexer, você precisa conectar uma conta d
 > [!NOTE]
 > Ambas as contas precisam estar na mesma região. Atualmente, não há suporte para a integração do Visão Personalizada na região do Japão.
 
-Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). 
+Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). 
 
 Observe que o treinamento do modelo deve ser feito somente via Video Indexer, e não por meio do site Visão Personalizada. 
 
@@ -50,7 +50,7 @@ Siga estas etapas para se conectar Visão Personalizada conta para Video Indexer
     > Para fornecer todas as chaves, você precisa ter dois recursos separados no Visão Personalizada, um para treinamento e outro para previsão.
 1. Forneça outras informações:
 
-    * Ponto de extremidade 
+    * Ponto de Extremidade 
     * ID do recurso de previsão
 1. Navegue e entre no [Video indexer](https://vi.microsoft.com/).
 1. Clique no ponto de interrogação no canto superior direito da página e escolha referência de **API**.
@@ -108,7 +108,7 @@ Antes de marcar e treinar o modelo, todos os caracteres animados serão nomeados
 1. Somente contas pagas: examine os grupos em Visão Personalizada 
 
     > [!NOTE]
-    > Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier). É importante observar que o treinamento do modelo deve ser feito somente por meio de Video Indexer (conforme descrito nesta topid), e não por meio do site Visão Personalizada. 
+    > Contas pagas que têm acesso à sua conta de Visão Personalizada podem ver os modelos e imagens marcadas ali. Saiba mais sobre como [melhorar seu classificador em visão personalizada](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md). É importante observar que o treinamento do modelo deve ser feito somente por meio de Video Indexer (conforme descrito nesta topid), e não por meio do site Visão Personalizada. 
 
     1. Vá para a página **modelos personalizados** em video indexer e escolha a guia **caracteres animados** . 
     1. Clique no botão Editar para o modelo no qual você está trabalhando para gerenciá-lo no Visão Personalizada. 

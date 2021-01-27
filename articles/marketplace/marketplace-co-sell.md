@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 3693ff8ea213d0823237956c532e65d5094bf1ce
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746311"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880280"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
 
@@ -49,14 +49,14 @@ Esta tabela lista as etapas e os requisitos para que sua oferta do Marketplace o
 ||Dynamics|<ul><li>Você tem um registro ativo na camada Premium do ISV Connect.</li></ul>|Business Applications covenda incentivados|
 |||
 
-Para obter mais informações sobre os requisitos para as ofertas da solução de venda conjunta, consulte [requisitos para o status de venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+Para obter mais informações sobre os requisitos para as ofertas da solução de venda conjunta, consulte [requisitos para o status de venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Como enviar materiais de vendas em conjunto no Partner Center
 
 Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as etapas abaixo. Para obter mais detalhes, consulte [a opção de venda conjunta no Marketplace comercial](commercial-marketplace-co-sell.md).
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. No painel esquerdo, selecione **Commercial Marketplace**  >  **visão geral** do Marketplace comercial e, em seguida, selecione a oferta que você deseja vender.
+1. No painel esquerdo, selecione   >  **visão geral** do Marketplace comercial e, em seguida, selecione a oferta que você deseja vender.
 
     > [!NOTE]
     > Você pode participar do programa de venda conjunta com uma nova oferta ainda não publicada ou com uma oferta já publicada.

@@ -3,19 +3,19 @@ title: Método de detecção de Tradutor
 titleSuffix: Azure Cognitive Services
 description: Identifique o idioma de um pedaço de texto com o método de detecção do tradutor de serviços cognitivas do Azure.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
-ms.openlocfilehash: 12029d7a77eb7cbbb10cb5330eb18d6316520a2d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: cb6660585b5f2b9ab56eaf863f1ec431e5e85109
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021313"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895519"
 ---
 # <a name="translator-30-detect"></a>Tradutor 3,0: detectar
 
@@ -138,7 +138,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
 
 <table width="100%">
   <th width="20%">Código de status</th>
-  <th>Description</th>
+  <th>Descrição</th>
   <tr>
     <td>200</td>
     <td>Êxito.</td>

@@ -3,19 +3,19 @@ title: Impedir tradução de conteúdo-Tradutor
 titleSuffix: Azure Cognitive Services
 description: Impedir tradução de conteúdo com o tradutor. O tradutor permite que você marque o conteúdo para que ele não seja traduzido.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: bf8923c1090669caa46ef51a26418933b1cda023
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.author: lajanuar
+ms.openlocfilehash: e89ff3f4c1f54d9e137d3dd51e325b908c826b03
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563425"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897469"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>Como impedir a tradução de conteúdo com o tradutor
 

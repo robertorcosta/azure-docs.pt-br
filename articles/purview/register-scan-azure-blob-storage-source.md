@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 9fc5c115486c7cbf84fc0bd98ff7996c674f2e24
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b27b46c68d018d2ddf79d284b20cc05b51640891
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694822"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880634"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Registrar e examinar o Armazenamento de Blobs do Azure
 
@@ -45,7 +45,7 @@ Ao escolher a **identidade gerenciada**, para configurar a conexão, primeiro vo
 1. Defina a **função** para o **leitor de dados de blob de armazenamento** e insira o nome da conta do Azure alcance em **selecionar** caixa de entrada. Em seguida, selecione **Salvar** para fornecer essa atribuição de função à sua conta do Purview.
 
 > [!Note]
-> Para obter mais detalhes, consulte as etapas em [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
+> Para obter mais detalhes, consulte as etapas em [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](../storage/common/storage-auth-aad.md)
 
 ### <a name="account-key"></a>Chave de conta
 

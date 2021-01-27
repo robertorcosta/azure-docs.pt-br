@@ -3,19 +3,19 @@ title: Método de conversão de Tradutor
 titleSuffix: Azure Cognitive Services
 description: Entenda os parâmetros, os cabeçalhos e as mensagens de corpo do método translate do tradutor de serviços cognitivas do Azure para traduzir texto.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 15f20bab91a4feab056a9f8cd6b012792f036be2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: d46fef0159b983f2685be40e2a0ab5471b96883b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016540"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895434"
 ---
 # <a name="translator-30-translate"></a>Tradutor 3,0: traduzir
 
@@ -43,7 +43,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
     <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>para</td>
+    <td>como</td>
     <td><em>Parâmetro obrigatório</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos <a href="./v3-0-languages.md">idiomas com suporte</a> incluídos no escopo <code>translation</code>. Por exemplo, use <code>to=de</code> para traduzir para alemão.<br/>É possível traduzir para vários idiomas simultaneamente, repetindo o parâmetro na cadeia de caracteres de consulta. Por exemplo, use <code>to=de&to=it</code> para traduzir para alemão e italiano.</td>
   </tr>
 </table>
@@ -199,7 +199,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
 
 <table width="100%">
   <th width="20%">Código de status</th>
-  <th>Description</th>
+  <th>Descrição</th>
   <tr>
     <td>200</td>
     <td>Êxito.</td>

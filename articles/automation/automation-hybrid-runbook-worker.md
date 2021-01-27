@@ -3,14 +3,14 @@ title: Visão geral do Hybrid Runbook Worker da Automação do Azure
 description: Este artigo fornece uma visão geral do Hybrid Runbook Worker, que você pode usar para executar runbooks em computadores no seu datacenter ou provedor de nuvem local.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/11/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: a23d30047a13b1d176b086a9923e140e7f8d3e45
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 7cf18b6b677daaf97d425c86a0cad91b3abcb225
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072132"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896945"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Visão geral do Hybrid Runbook Worker
 
@@ -20,7 +20,7 @@ Os runbooks na Automação do Azure talvez não tenham acesso aos recursos em ou
 
 Há dois tipos de runbook Workers-System e User. A tabela a seguir descreve a diferença entre eles.
 
-|Type | Descrição |
+|Tipo | Descrição |
 |-----|-------------|
 |**System** |O oferece suporte a um conjunto de runbooks ocultos usados pelo recurso de Gerenciamento de Atualizações que foram criados para instalar atualizações especificadas pelo usuário em computadores Windows e Linux.<br> Esse tipo de Hybrid Runbook Worker não é um membro de um grupo de Hybrid Runbook Worker e, portanto, não executa runbooks direcionados a um grupo de runbook Worker. |
 |**Usuário** |Dá suporte a runbooks definidos pelo usuário destinados a serem executados diretamente no computador Windows e Linux que são membros de um ou mais grupos do runbook Worker. |
@@ -54,16 +54,7 @@ O método de instalação recomendado para um computador Windows é usar um runb
 
 ## <a name="network-planning"></a><a name="network-planning"></a>Planejamento de rede
 
-Para um Hybrid Runbook Worker de sistema e de usuário para se conectar e registrar com a automação do Azure, ele deve ter acesso ao número da porta e às URLs descritas nesta seção. O trabalho também deve ter acesso às [portas e URLs necessárias para que o agente do Log Analytics](../azure-monitor/platform/agent-windows.md) se conecte ao workspace do Log Analytics do Azure Monitor.
-
-A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Worker:
-
-* Porta: Somente a TCP 443 é necessária para acesso à Internet de saída
-* URL global: `*.azure-automation.net`
-* URL global de US Gov-Virgínia: `*.azure-automation.us`
-* Serviço do agente: `https://<workspaceId>.agentsvc.azure-automation.net`
-
-Se você tiver uma conta da Automação definida para uma região específica, você pode restringir a comunicação do Hybrid Runbook Worker para esse centro de dados regional. Examine os [registros DNS usados pela automação do Azure](how-to/automation-region-dns-records.md) para os registros DNS necessários.
+Verifique a [configuração da rede de automação do Azure](automation-network-configuration.md#network-planning-for-hybrid-runbook-worker) para obter informações detalhadas sobre as portas, URLs e outros detalhes de rede necessários para o Hybrid runbook Worker.
 
 ### <a name="proxy-server-use"></a>Uso do servidor proxy
 
@@ -94,7 +85,7 @@ A Hybrid Runbook Worker de automação do Azure pode ser usada no Azure governam
 * Os [hosts dedicados do Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host), que fornecem servidores físicos capazes de hospedar uma ou mais máquinas virtuais, dedicados a uma assinatura do Azure.
 
 >[!NOTE]
->O isolamento de computação por meio da função Hybrid Runbook Worker está disponível para nuvens comerciais do Azure e do governo dos EUA. 
+>O isolamento de computação por meio da função Hybrid Runbook Worker está disponível para nuvens comerciais do Azure e do governo dos EUA.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Endereços de Gerenciamento de Atualizações para Hybrid Runbook Worker
 

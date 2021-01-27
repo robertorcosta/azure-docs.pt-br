@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: f112d0e96c6ff0caf3c5e3762304158f70963f14
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 42416b1fc06ff59a68a6f5044b8bcca5dc7f035f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787022"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880179"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de serviços de nuvem do Azure (suporte estendido)
 
@@ -126,3 +126,4 @@ Key Vault é usado para armazenar certificados associados aos serviços de nuvem
 - Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para serviços de nuvem (suporte estendido).
 - Implantar um serviço de nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
 - Examine as [perguntas](faq.md) frequentes sobre os serviços de nuvem (suporte estendido).
+- Visite o [repositório de exemplos dos serviços de nuvem (suporte estendido)](https://github.com/Azure-Samples/cloud-services-extended-support)

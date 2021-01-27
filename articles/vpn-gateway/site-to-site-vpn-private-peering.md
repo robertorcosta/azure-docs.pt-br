@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657883"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880518"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Configurar uma conexão VPN site a site por meio do emparelhamento privado do ExpressRoute
 
@@ -72,7 +72,7 @@ Em ambos os exemplos, o Azure enviará tráfego para 10.0.1.0/24 pela conexão V
 
 ## <a name="portal-steps"></a><a name="portal"></a>Etapas do portal
 
-1. Configure uma conexão site a site. Para obter as etapas, consulte o artigo [configuração site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) . Certifique-se de escolher um SKU de gateway com redundância de zona para o gateway. 
+1. Configure uma conexão site a site. Para obter as etapas, consulte o artigo [configuração site a site](./tutorial-site-to-site-portal.md) . Certifique-se de escolher um SKU de gateway com redundância de zona para o gateway. 
 
    Os SKUs com redundância de zona têm "AZ" no final da SKU. Por exemplo, **VpnGw1AZ**. Gateways com redundância de zona só estão disponíveis em regiões em que o serviço de zona de disponibilidade está disponível. Para obter informações sobre as regiões nas quais damos suporte a zonas de disponibilidade, consulte [regiões que dão suporte a zonas de disponibilidade](../availability-zones/az-region.md).
 
@@ -89,7 +89,7 @@ Em ambos os exemplos, o Azure enviará tráfego para 10.0.1.0/24 pela conexão V
 
 ## <a name="powershell-steps"></a><a name="powershell"></a>etapas do PowerShell
 
-1. Configure uma conexão site a site. Para obter as etapas, consulte o artigo [Configurar uma VPN site a site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) . Certifique-se de escolher um SKU de gateway com redundância de zona para o gateway. Os SKUs com redundância de zona têm "AZ" no final da SKU. Por exemplo, VpnGw1AZ.
+1. Configure uma conexão site a site. Para obter as etapas, consulte o artigo [Configurar uma VPN site a site](./tutorial-site-to-site-portal.md) . Certifique-se de escolher um SKU de gateway com redundância de zona para o gateway. Os SKUs com redundância de zona têm "AZ" no final da SKU. Por exemplo, VpnGw1AZ.
 1. Defina o sinalizador para usar o IP privado no gateway usando os seguintes comandos do PowerShell:
 
    ```azurepowershell-interactive

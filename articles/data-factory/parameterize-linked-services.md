@@ -10,12 +10,12 @@ ms.date: 01/15/2021
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: e463328df195b5a91db8ce272d138f980d000e79
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c3c126a96c0eb2214f63a56120d0966b9a97efed
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232039"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895383"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços vinculados no Azure Data Factory
 
@@ -27,6 +27,9 @@ Você pode usar a interface do usuário do Data Factory no portal do Azure ou um
 
 > [!TIP]
 > É recomendável não parametrizar senhas ou segredos. Armazene todas as cadeias de conexão no Azure Key Vault e defina o *Nome secreto*.
+
+> [!Note]
+> Há um bug aberto para usar "-" em nomes de parâmetro, recomendamos usar nomes sem "-" até que o bug seja resolvido.
 
 Para uma introdução de sete minutos e uma demonstração desse recurso, assista ao vídeo a seguir:
 
@@ -42,7 +45,7 @@ Ao criar o serviço vinculado na interface do usuário, o Data Factory fornece u
 - Azure Cosmos DB (API do SQL)
 - Banco de Dados do Azure para MySQL
 - Azure Databricks
-- Azure Key Vault
+- Cofre de Chave do Azure
 - Banco de Dados SQL do Azure
 - Instância Gerenciada de SQL do Azure
 - Azure Synapse Analytics 

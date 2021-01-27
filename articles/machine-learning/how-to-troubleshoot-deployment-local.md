@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: a879a81ae2bcb4e659c69a801f7c299c10ab3d77
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 473b2e4ac3443d204b39331d9cefaa6c71122439
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740633"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881662"
 ---
 # <a name="troubleshooting-with-a-local-model-deployment"></a>Solução de problemas com uma implantação de modelo local
 
@@ -28,7 +28,7 @@ Experimente uma implantação de modelo local como uma primeira etapa para soluc
 * O [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 * O [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * A [Extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* Para depurar localmente, você pode implantar o modelo para [Azure Machine Learning instância de computação](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-local-container-notebook-vm) ou ter uma instalação funcional do Docker em seu sistema local.
+* Para depurar localmente, você pode implantar o modelo para [Azure Machine Learning instância de computação](./how-to-deploy-local-container-notebook-vm.md) ou ter uma instalação funcional do Docker em seu sistema local.
 
     Para verificar a instalação do Docker, use o comando `docker run hello-world` em um terminal ou prompt de comando. Para obter informações sobre a instalação do Docker ou solução de erros do Docker, confira a [Documentação do Docker](https://docs.docker.com/).
 

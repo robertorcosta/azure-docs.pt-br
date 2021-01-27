@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 5a2a7abf0227812826428557b86c4468f7693c82
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600394"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880735"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Recursos de transação do marketplace comercial
 
@@ -90,7 +90,7 @@ Essa opção permite um estabelecer um preço mais alto ou mais baixo do que a o
 
 Cobramos uma taxa de serviço de loja padrão de 20% quando os clientes compram sua oferta de transação do mercado comercial. Para obter detalhes dessa taxa, consulte a seção 5C do [contrato do Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-Para determinadas ofertas que você publica no Marketplace comercial, você pode se qualificar para uma taxa de serviço de armazenamento reduzida de 10%. Para que uma oferta seja qualificada, ela deve ter sido designada pela Microsoft como o Azure IP co-revenda incentivados. A qualificação deve ser atendida pelo menos cinco dias úteis antes do término de cada mês do calendário para receber a taxa de serviço do Marketplace reduzida. Depois que a qualificação for atendida, a taxa de serviço reduzida será concedida a todas as transações efetivas no primeiro dia do mês seguinte até que o status do incentivados de venda de IP do Azure seja perdido. Para obter detalhes sobre a qualificação de venda de IP, consulte [requisitos para o status de venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+Para determinadas ofertas que você publica no Marketplace comercial, você pode se qualificar para uma taxa de serviço de armazenamento reduzida de 10%. Para que uma oferta seja qualificada, ela deve ter sido designada pela Microsoft como o Azure IP co-revenda incentivados. A qualificação deve ser atendida pelo menos cinco dias úteis antes do término de cada mês do calendário para receber a taxa de serviço do Marketplace reduzida. Depois que a qualificação for atendida, a taxa de serviço reduzida será concedida a todas as transações efetivas no primeiro dia do mês seguinte até que o status do incentivados de venda de IP do Azure seja perdido. Para obter detalhes sobre a qualificação de venda de IP, consulte [requisitos para o status de venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 A taxa reduzida de serviço do Marketplace se aplica ao IP do Azure covenda de incentivados SaaS, VMs, aplicativos gerenciados e quaisquer outras soluções de IaaS pagas qualificadas disponibilizadas por meio do Marketplace comercial. As ofertas de SaaS pagas associadas a um aplicativo Microsoft Teams ou pelo menos dois suplementos Microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint) e publicadas em Microsoft AppSource também recebem esse desconto.
 
@@ -160,7 +160,7 @@ Nesse cenário, a Microsoft cobra US$ 100,00 pela sua licença de software e pag
 
 **Cartões de crédito e fatura mensal** – Os clientes também podem pagar usando um cartão de crédito e uma nota fiscal mensal. Nesse caso, os valores de licença de software serão cobrados da mesma forma que o cenário do Enterprise Agreement, como um custo discriminado, separado dos custos de uso específicos do Azure.
 
-**Créditos gratuitos e pagamentos antecipados do Azure** – alguns clientes optam por pagar o Azure com o pagamento antecipado do Azure (anteriormente chamado de compromisso monetário) no Enterprise Agreement ou foram fornecidos créditos gratuitos para uso com o Azure. Embora esses créditos possam ser usados para pagar pelo uso do Azure, eles não podem ser usados para pagar valores de licença de software do editor.
+**Créditos gratuitos e pagamentos antecipados do Azure** – alguns clientes optam por pagar o Azure com o pagamento antecipado do Azure (anteriormente chamado de compromisso monetário) no contrato Enterprise ou foram fornecidos créditos gratuitos para uso com o Azure. Embora esses créditos possam ser usados para pagar pelo uso do Azure, eles não podem ser usados para pagar valores de licença de software do editor.
 
 **Cobrança e coleções** – a cobrança de licença de software do Publicador é apresentada usando o método de faturamento selecionado pelo cliente e segue a linha do tempo de faturamento. Clientes sem um Contrato Enterprise em vigor são cobrados mensalmente pelas licenças de software do mercado. Os clientes com um Contrato Enterprise são faturados mensalmente por meio de uma fatura apresentada trimestralmente.
 

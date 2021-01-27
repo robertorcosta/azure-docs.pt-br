@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 598f925d939694ea47605b0e8ea2e63872db7811
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3f16589765752a2a635ccd055e7d55de8b9ce330
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201239"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880009"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Linha de base de segurança do Azure para observador de rede
 
@@ -429,7 +429,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 * [Parâmetros de IPSec com suporte para o gateway de VPN do Azure](./network-watcher-diagnose-on-premises-connectivity.md)
 
-* [Como configurar uma conexão site a site no portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Como configurar uma conexão site a site no portal do Azure](../vpn-gateway/tutorial-site-to-site-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

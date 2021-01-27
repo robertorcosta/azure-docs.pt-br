@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7721100d902948364c9e4b1373f1fa805c680a50
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 619f2c2670d8e376ad0bca7cf8b93b971be067a0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202208"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880718"
 ---
 # <a name="security-control-v2-privileged-access"></a>Controle de segurança v2: acesso privilegiado
 
@@ -159,7 +159,7 @@ Estações de trabalho seguras e isoladas são extremamente importantes para a s
 
 - [Entender as estações de trabalho com acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Implantar uma estação de trabalho com acesso privilegiado](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Implantar uma estação de trabalho com acesso privilegiado](/security/compass/privileged-access-deployment)
 
 **Responsabilidade**: Cliente
 
@@ -217,4 +217,3 @@ Em cenários de suporte em que a Microsoft precisa acessar dados do cliente, Sis
 - [Gerenciamento de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 
 - [Gerenciamento de identidades e chaves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
-

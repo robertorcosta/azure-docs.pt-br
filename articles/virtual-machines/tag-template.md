@@ -7,15 +7,14 @@ ms.workload: infrastructure-services
 ms.author: cynthn
 author: cynthn
 ms.date: 10/26/2018
-ms.openlocfilehash: d1acbe82a086574a102e7897bbd3b99683c1185e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e7dd75a025b76773a0bf1e3b4f752b5a77db6786
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594909"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897367"
 ---
 # <a name="tagging-a-vm-using-a-template"></a>Marcando uma VM usando um modelo
-
 
 Este artigo descreve como marcar uma VM no Azure usando um modelo do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure dá suporte a até 50 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente.
 
@@ -25,7 +24,7 @@ Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/A
 
 ![Implantação simples com marcas](./media/tag/deploy-to-azure-tags.png)
 
-Esse modelo inclui as seguintes marcas: *Departamento* , *Aplicativo* e *Criado por*. Você pode adicionar/editar essas marcas diretamente no modelo se desejar diferentes nomes de marca.
+Esse modelo inclui as seguintes marcas: *Departamento*, *Aplicativo* e *Criado por*. Você pode adicionar/editar essas marcas diretamente no modelo se desejar diferentes nomes de marca.
 
 ![Marcas do Azure em um modelo](./media/tag/azure-tags-in-a-template.png)
 
@@ -46,8 +45,7 @@ Em seguida, na seção **Editar Parâmetros** , você pode preencher os valores 
 
 Clique em **Criar** para implantar esse modelo com seus valores de marca.
 
-
-**Próximas etapas**
+### <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como marcar seus recursos do Azure, consulte [Visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md) e [Usando marcas para organizar os Recursos do Azure](../azure-resource-manager/management/tag-resources.md).
-- Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [Noções básicas de sua fatura do Azure](../cost-management-billing/understand/review-individual-bill.md) e [Obtenha informações sobre o consumo de recursos do Microsoft Azure](../cost-management-billing/manage/usage-rate-card-overview.md).
+- Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [noções básicas sobre sua fatura do Azure](../cost-management-billing/understand/review-individual-bill.md).

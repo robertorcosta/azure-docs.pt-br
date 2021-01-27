@@ -3,14 +3,14 @@ title: Visão geral do Controle de Alterações e Inventário da Automação do 
 description: Este artigo descreve o Controle de Alterações e o recurso de inventário, que ajuda a identificar alterações de software e serviço da Microsoft em seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/10/2020
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445414"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896622"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Visão geral do Controle de Alterações e Inventário
 
@@ -32,7 +32,7 @@ Controle de Alterações e inventário fazem uso do [fim (monitoramento de integ
 - Serviços Microsoft
 - Daemons Linux
 
-Habilitar todos os recursos incluídos no Controle de Alterações e no inventário pode causar encargos adicionais. Antes de continuar, examine [preços de automação](https://azure.microsoft.com/pricing/details/automation/) e [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). 
+Habilitar todos os recursos incluídos no Controle de Alterações e no inventário pode causar encargos adicionais. Antes de continuar, examine [preços de automação](https://azure.microsoft.com/pricing/details/automation/) e [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 Controle de Alterações e o inventário encaminha os dados para Azure Monitor logs, e esses dados coletados são armazenados em um espaço de trabalho Log Analytics. O recurso de monitoramento de integridade de arquivo (FIM) está disponível somente quando o **Azure defender para servidores** está habilitado. Confira [preços](../../security-center/security-center-pricing.md) da central de segurança do Azure para saber mais. O FIM carrega dados no mesmo espaço de trabalho Log Analytics que aquele criado para armazenar dados de Controle de Alterações e inventário. Recomendamos que você monitore seu espaço de trabalho do Log Analytics vinculado para controlar seu uso exato. Para obter mais informações sobre como analisar o uso de dados de logs de Azure Monitor, consulte [gerenciar o uso e o custo](../../azure-monitor/platform/manage-cost-storage.md).
 
@@ -74,16 +74,7 @@ O executável python2 deve ter um alias para *Python*.
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
-Os endereços a seguir são necessários especificamente para Controle de Alterações e inventário. A comunicação para esses endereços ocorre pela porta 443.
-
-|Público do Azure  |Azure Government  |
-|---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|*.azure-automation.net | *.Azure automation.us|
-
-Quando você cria regras de segurança de grupo de rede ou configura o Firewall do Azure para permitir o tráfego para o serviço de automação e o espaço de trabalho Log Analytics, use a [marca de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isso simplifica o gerenciamento contínuo de suas regras de segurança de rede. Para se conectar ao serviço de automação de suas VMs do Azure de forma segura e privada, examine [usar o link privado do Azure](../how-to/private-link-security.md). Para obter a marca de serviço e as informações de intervalo atuais para incluir como parte de suas configurações de firewall local, consulte [arquivos JSON para download](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Verifique a [configuração de rede da automação do Azure](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory) para obter informações detalhadas sobre as portas, URLs e outros detalhes de rede necessários para controle de alterações e inventário.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitar Controle de Alterações e Inventário
 
@@ -129,7 +120,7 @@ O Controle de Alterações e o inventário permitem o monitoramento de alteraç�
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. Semelhante à seção [drivers] no arquivo **system.ini**.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados com wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc para aplicativos de 32 bits executados em computadores de 64 bits. Semelhante à seção [drivers] no arquivo **system.ini**.
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora a lista de DLLs de sistema conhecidas ou comumente usadas. O monitoramento impede que as pessoas explorem as permissões de diretório de aplicativo fracas descartando as versões do cavalo de Troia das DLLs do sistema.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora a lista de pacotes que pode receber notificações de eventos do **winlogon.exe** , o modelo de suporte de logon interativo para o Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora a lista de pacotes que pode receber notificações de eventos do **winlogon.exe**, o modelo de suporte de logon interativo para o Windows.
 
 ## <a name="recursion-support"></a>Suporte à recursão
 

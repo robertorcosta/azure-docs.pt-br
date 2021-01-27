@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 29f7f241f119ca7fab50409881b517961b00cf20
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610464"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880568"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -387,6 +387,6 @@ Se você preferir usar uma solução de backup local, os backups devem ser execu
 ## <a name="next-steps"></a>Próximas etapas
 * [Considere as configurações de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
-* [Implantar os Arquivos do Azure](storage-files-deployment-guide.md)
+* [Implantar os Arquivos do Azure](./storage-how-to-create-file-share.md)
 * [Implantar a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 * [Monitorar a Sincronização de Arquivos do Azure](storage-sync-files-monitoring.md)

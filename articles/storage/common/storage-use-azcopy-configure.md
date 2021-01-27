@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897851"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881037"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -22,7 +22,7 @@ AzCopy é um utilitário de linha de comando que você pode usar para copiar blo
 > [!NOTE]
 > Se você estiver procurando conteúdo para ajudá-lo a começar a usar o AzCopy, consulte qualquer um dos seguintes artigos:
 > - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
-> - [Transferir dados com o AzCopy e o Armazenamento de Blobs](storage-use-azcopy-blobs.md)
+> - [Transferir dados com o AzCopy e o Armazenamento de Blobs](./storage-use-azcopy-v10.md#transfer-data)
 > - [Transferir dados com o AzCopy e o Armazenamento de Arquivos](storage-use-azcopy-files.md)
 > - [Transferir dados com o AzCopy e os buckets do Amazon S3](storage-use-azcopy-s3.md)
 
@@ -220,5 +220,3 @@ Os níveis de log disponíveis são: `NONE` , `DEBUG` , `INFO` ,, `WARNING` `ERR
 Se você quiser remover todos os arquivos de plano e de log do computador local para economizar espaço em disco, use o `azcopy jobs clean` comando.
 
 Para remover o plano e os arquivos de log associados a apenas um trabalho, use `azcopy jobs rm <job-id>` . Substitua o `<job-id>` espaço reservado neste exemplo pela ID do trabalho.
-
-

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 46bcfd48d8fdfb228670b87df166c1ad8de61e52
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626343"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879975"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migre do Linux para uma implantação de nuvem híbrida com Sincronização de Arquivos do Azure
 
@@ -205,7 +205,7 @@ Você pode tentar executar algumas dessas cópias em paralelo. É recomendável 
 
 A política de espaço livre no volume de camadas de nuvem atua em um nível de volume com potencialmente vários pontos de extremidade de servidor sincronizando a partir dele. Se você se esquecer de ajustar o espaço livre em um ponto de extremidade de servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter o espaço livre em disco em 99%. O cache local pode não ser executado conforme o esperado. O desempenho poderá ser aceitável se o objetivo for ter o namespace para um volume que contenha apenas dados de arquivamento acessados raramente, e você estiver reservando o restante do espaço de armazenamento para outro cenário.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 O problema mais comum é que o comando Robocopy falha com **volume cheio** no lado do Windows Server. A camada de nuvem age uma vez a cada hora para evacuar o conteúdo do disco do Windows Server local que foi sincronizado. Seu objetivo é atingir o espaço livre de 99 por cento no volume.
 
@@ -220,5 +220,5 @@ Verifique o link na seção a seguir para solucionar problemas de Sincronizaçã
 Há mais a descobrir sobre compartilhamentos de arquivos do Azure e Sincronização de Arquivos do Azure. Os artigos a seguir contêm opções avançadas, práticas recomendadas e ajuda para solução de problemas. Estes artigos se vinculam à [documentação do compartilhamento de arquivos do Azure](storage-files-introduction.md) , conforme apropriado.
 
 * [Visão geral de Sincronização de Arquivos do Azure](./storage-sync-files-planning.md)
-* [Guia de implantação do Sincronização de Arquivos do Azure](storage-files-deployment-guide.md)
+* [Guia de implantação do Sincronização de Arquivos do Azure](./storage-how-to-create-file-share.md)
 * [Solução de problemas da Sincronização de Arquivos do Azure](storage-sync-files-troubleshoot.md)

@@ -3,14 +3,14 @@ title: Visão geral do Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo fornece uma visão geral do recurso Gerenciamento de Atualizações que implementa atualizações para seus computadores com Windows e com Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: d66d4d32c788317d8b0781f9f24120fbce2f6f8f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 718e812a8193797ad350fa61444bb05fe5a4b724
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185607"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896894"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -94,7 +94,7 @@ A tabela a seguir lista os sistemas operacionais sem suporte pelo Gerenciamento 
 |Windows Server 2016 Nano Server     | Sem suporte.       |
 |Nós do Serviço de Kubernetes do Azure | Sem suporte. Use o processo de aplicação de patch descrito em [Aplicar atualizações de segurança e kernel a nós do Linux no AKS (Serviço de Kubernetes do Azure)](../../aks/node-updates-kured.md)|
 
-### <a name="system-requirements"></a>Requisitos do sistema
+### <a name="system-requirements"></a>Requisitos de sistema
 
 As informações a seguir descrevem os requisitos específicos do sistema operacional. Para obter diretrizes adicionais, confira [Planejamento de rede](#ports). Para entender os requisitos do TLS 1,2, consulte [imposição tls 1,2 para a automação do Azure](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -185,16 +185,7 @@ A média de uso de dados por logs do Azure Monitor para um computador usando o G
 
 ## <a name="network-planning"></a><a name="ports"></a>Planejamento de rede
 
-Os endereços a seguir são necessários especificamente para gerenciamento de atualizações. A comunicação para esses endereços ocorre pela porta 443.
-
-|Público do Azure  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`    | `*.ods.opinsights.azure.us`        |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
-|`*.azure-automation.net` | `*.azure-automation.us`|
-
-Quando você cria regras de segurança de grupo de rede ou configura o Firewall do Azure para permitir o tráfego para o serviço de automação e o espaço de trabalho Log Analytics, use a [marca de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isso simplifica o gerenciamento contínuo de suas regras de segurança de rede. Para se conectar ao serviço de automação de suas VMs do Azure de forma segura e privada, examine [usar o link privado do Azure](../how-to/private-link-security.md). Para obter a marca de serviço e as informações de intervalo atuais para incluir como parte de suas configurações de firewall local, consulte [arquivos JSON para download](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Verifique a [configuração de rede da automação do Azure](../automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) para obter informações detalhadas sobre as portas, URLs e outros detalhes de rede necessários para gerenciamento de atualizações.
 
 Para computadores Windows, você também precisa permitir o tráfego para os ponto de extremidade exigidos pelo Windows Update. Você pode encontrar uma lista atualizada de pontos de extremidade necessários em [Problemas relacionados a HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se você tiver um [Servidor do Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) local, também precisará permitir o tráfego para o servidor especificado em sua [chave do WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -227,11 +218,14 @@ A tabela a seguir define as classificações compatíveis para atualizações do
 |Outras atualizações     | Todas as outras atualizações que não são críticas nem de segurança.        |
 
 >[!NOTE]
->A classificação de atualização para computadores Linux só está disponível quando usada nas regiões de nuvem pública do Azure com suporte. Ao usar Gerenciamento de Atualizações nas seguintes regiões de nuvem nacional:
+>A classificação de atualização para computadores Linux só está disponível quando usada em regiões de nuvem pública do Azure com suporte. Não há nenhuma classificação de atualizações do Linux ao usar Gerenciamento de Atualizações nas seguintes regiões de nuvem nacional:
+>
 >* Azure US Government
 >* 21Vianet na China
 >
-> Não há nenhuma classificação de atualizações do Linux e elas são relatadas na categoria **outras atualizações** . Gerenciamento de Atualizações usa os dados publicados pelas distribuições com suporte, especificamente seus arquivos de [oval](https://oval.mitre.org/) (linguagem de avaliação e de vulnerabilidade aberta) lançados. Como o acesso à Internet é restrito a essas nuvens nacionais, Gerenciamento de Atualizações não pode acessar e consumir esses arquivos.
+> Em vez de serem classificados, as atualizações são relatadas na categoria **outras atualizações** .
+>
+> Gerenciamento de Atualizações usa os dados publicados pelas distribuições com suporte, especificamente seus arquivos de [oval](https://oval.mitre.org/) (linguagem de avaliação e de vulnerabilidade aberta) lançados. Como o acesso à Internet é restrito a essas nuvens nacionais, Gerenciamento de Atualizações não pode acessar os arquivos.
 
 Para o Linux, Gerenciamento de Atualizações pode distinguir entre atualizações críticas e atualizações de segurança na nuvem em **segurança** de classificação e **outras**, ao mesmo tempo em que exibe dados de avaliação devido ao enriquecimento de dados na nuvem. Para aplicação de patch, o Gerenciamento de Atualizações se baseia em dados de classificação disponíveis no computador. Ao contrário de outras distribuições, o CentOS não tem essas informações disponíveis na versão RTM. Se você tiver computadores CentOS configurados para retornar dados de segurança para o comando a seguir, o Gerenciamento de Atualizações poderá aplicar patch com base em classificações.
 

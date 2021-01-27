@@ -2,19 +2,15 @@
 title: Solucionar problemas do Hybrid Runbook Worker da Automação do Azure
 description: Este artigo informa como solucionar e resolver problemas que surgem com os Hybrid Runbook Workers da Automação do Azure.
 services: automation
-ms.service: automation
 ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/25/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.topic: troubleshooting
+ms.openlocfilehash: 214501c447632232dc00b61643ea21083bd0e4ac
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428403"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896487"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solucionar problemas do Hybrid Runbook Worker
 
@@ -46,7 +42,7 @@ Estas são as possíveis causas:
 
 #### <a name="resolution"></a>Resolução
 
-Verifique se o computador tem acesso de saída para ** \* . Azure-Automation.net** na porta 443.
+Verifique se o computador tem acesso de saída para **\* . Azure-Automation.net** na porta 443.
 
 Os computadores que executam o Hybrid Runbook Worker devem atender aos requisitos mínimos de hardware antes de o trabalho ser configurado para hospedar esse recurso. Os Runbooks e o processo em segundo plano que eles usam podem fazer com que o sistema se sobrecarregue e cause atrasos ou tempos limite de trabalho de runbook.
 
@@ -58,7 +54,7 @@ Verifique o log de eventos do **Microsoft SMA** para ver um evento correspondent
 
 #### <a name="issue"></a>Problema
 
-O Hybrid Runbook Worker recebe o evento 15011, indicando que um resultado da consulta não é válido. O erro a seguir é exibido quando o trabalho tenta abrir uma conexão com o [servidor SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+O Hybrid Runbook Worker recebe o evento 15011, indicando que um resultado da consulta não é válido. O erro a seguir é exibido quando o trabalho tenta abrir uma conexão com o [servidor SignalR](/aspnet/core/signalr/introduction).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -226,7 +222,7 @@ No log de eventos **Application and Services Logs\Operations Manager**, você v�
 
 #### <a name="cause"></a>Causa
 
-Esse problema poderá ocorrer se seu proxy ou firewall de rede estiver bloqueando a comunicação com o Microsoft Azure. Verifique se o computador tem acesso de saída para ** \* . Azure-Automation.net** na porta 443.
+Esse problema poderá ocorrer se seu proxy ou firewall de rede estiver bloqueando a comunicação com o Microsoft Azure. Verifique se o computador tem acesso de saída para **\* . Azure-Automation.net** na porta 443.
 
 #### <a name="resolution"></a>Resolução
 
@@ -238,7 +234,7 @@ Os Hybrid Workers enviam [saída de runbook e mensagens](../automation-runbook-o
 
 #### <a name="issue"></a>Problema
 
-Um script em execução em um Hybrid Runbook Worker do Windows não pode se conectar conforme o esperado para Microsoft 365 em uma área restrita do Orchestrator. O script está usando [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para se conectar. 
+Um script em execução em um Hybrid Runbook Worker do Windows não pode se conectar conforme o esperado para Microsoft 365 em uma área restrita do Orchestrator. O script está usando [Connect-MsolService](/powershell/module/msonline/connect-msolservice) para se conectar. 
 
 Se você ajustar **Orchestrator.Sandbox.exe.config** para definir o proxy e a lista de bypass, a área restrita ainda não se conectará corretamente. Um arquivo **Powershell_ise.exe.config** com as mesmas configurações de lista de proxies e de bypass parece funcionar conforme o esperado. Os logs do Service Management Automation (SMA) e os logs do PowerShell não fornecem nenhuma informação sobre o proxy.
 
@@ -250,7 +246,7 @@ A conexão com Serviços de Federação do Active Directory (AD FS) no servidor 
 
 Você pode resolver o problema para a área restrita do Orchestrator migrando seu script para usar os módulos do Azure Active Directory em vez do módulo MSOnline para cmdlets do PowerShell. Para obter mais informações, consulte [Migrar do Orchestrator para a Automação do Azure (versão beta)](../automation-orchestrator-migration.md).
 
-Se você quiser continuar a usar os cmdlets do módulo MSOnline, altere seu script para usar [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Especifique valores para os parâmetros `ComputerName` e `Credential`. 
+Se você quiser continuar a usar os cmdlets do módulo MSOnline, altere seu script para usar [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Especifique valores para os parâmetros `ComputerName` e `Credential`. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential

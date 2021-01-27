@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: da136c1f3ce36bf85592c3c73c9e8f92c41c7442
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357901"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879823"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual do SQL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Há três modelos de licença para uma VM do Azure que está hospedando SQL Serv
 
 O Benefício Híbrido do Azure permite o uso de licenças do SQL Server com o Software Assurance ("Licença Qualificada") em máquinas virtuais do Azure. Com o Benefício Híbrido do Azure, os clientes não são cobrados pelo uso de uma licença do SQL Server em uma VM. Mas eles ainda precisam pagar pelo custo da computação em nuvem subjacente (ou seja, a taxa base), o armazenamento e os backups. Também devem pagar pela E/S associada ao uso dos serviços (conforme aplicável).
 
-De acordo com os Termos de Produto da Microsoft: "Os clientes devem indicar que estão usando o Banco de Dados SQL do Azure (Instância Gerenciada, Pool Elástico e Banco de Dados Individual), o Azure Data Factory, o SQL Server Integration Services ou as Máquinas Virtuais do SQL Server no Benefício Híbrido do Azure para SQL Server ao configurar cargas de trabalho no Azure."
+De acordo com os [termos de produto](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzureServices/EAEAS)da Microsoft: "os clientes devem indicar que estão usando o banco de dados SQL do Azure (Instância Gerenciada, Pool Elástico e banco de dados individual), Azure Data Factory, SQL Server Integration Services ou SQL Server máquinas virtuais em Benefício Híbrido do Azure para SQL Server ao configurar cargas de trabalho no Azure."
 
 Existem três opções para indicar o uso do Benefício Híbrido do Azure para SQL Server em uma VM do Azure e ficar em conformidade:
 

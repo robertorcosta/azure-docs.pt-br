@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c0cb4527349b09ed8e794cc55dee6f9e54f8a7d4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e451e55a9a73022f9c90ba4adae91b520840481e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937358"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880752"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Coletar arquivos de log do pipeline do Machine Learning no Application Insights para alertas e depuração
 
@@ -26,7 +26,7 @@ Ter seus logs em vigor fornecerá um histórico de exceções e mensagens de err
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Siga as etapas para criar um espaço de trabalho [Azure Machine Learning](./how-to-manage-workspace.md) e [criar seu primeiro pipeline](./how-to-create-your-first-pipeline.md)
+* Siga as etapas para criar um espaço de trabalho [Azure Machine Learning](./how-to-manage-workspace.md) e [criar seu primeiro pipeline](./how-to-create-machine-learning-pipelines.md)
 * [Configure seu ambiente de desenvolvimento](./how-to-configure-environment.md) para instalar o SDK do Azure Machine Learning.
 * Instale o pacote de [exportador do OpenCensus Azure monitor](https://pypi.org/project/opencensus-ext-azure/) localmente:
   ```python

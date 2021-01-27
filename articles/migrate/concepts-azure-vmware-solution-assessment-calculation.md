@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: a489902372b0b88a0ffec07fa685ee745ec59c50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567719"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880450"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação do servidor (migrar para a solução VMware do Azure)
 
@@ -207,7 +207,7 @@ Depois que o valor de utilização efetivo é determinado, o armazenamento, a re
 
 Se você usar *como dimensionamento local*, a avaliação do servidor não considerará o histórico de desempenho das VMs e dos discos. Em vez disso, ele aloca nós de AVS com base no tamanho alocado no local. O tipo de armazenamento padrão é vSAN na AVS.
 
-[Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) sobre como examinar uma avaliação de solução do Azure VMware.
+[Saiba mais](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) sobre como examinar uma avaliação de solução do Azure VMware.
 
 ## <a name="confidence-ratings"></a>Classificações de confiança
 

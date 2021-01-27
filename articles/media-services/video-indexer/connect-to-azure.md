@@ -8,16 +8,16 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 8e110ba9818b48d66c5f17bb524bada567d808ab
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702593"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897149"
 ---
-# <a name="create-a-video-indexer-account-connected-to-azure"></a>Crie uma conta do Video Indexer conectada ao Azure
+# <a name="create-a-video-indexer-account"></a>Criar uma conta de Video Indexer
 
 Quando cria uma conta do Video Indexer, você pode escolher uma conta de avaliação gratuita (em que você obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (em que você não está limitado pela cota). O Video Indexer fornece até 600 minutos de indexação gratuita para usuários do site e até 2400 minutos de indexação gratuita para usuários da API com uma conta de avaliação gratuita. Com a opção pago, você cria uma conta de Video Indexer que está conectada à sua assinatura do Azure. Você paga pelos minutos indexados. Para obter mais informações, confira [Preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).
 
@@ -25,7 +25,9 @@ Este artigo mostra como criar uma conta do Video Indexer vinculada a uma assinat
 
 Se você estiver mudando de uma *versão de avaliação* para conta de video indexer *paga* , poderá optar por copiar todos os vídeos e a personalização do modelo para a nova conta, conforme discutido na seção [importar o conteúdo da conta de avaliação](#import-your-content-from-the-trial-account) .
 
-## <a name="prerequisites"></a>Pré-requisitos
+O artigo também aborda a [vinculação de uma conta de video indexer ao Azure governamental](#video-indexer-in-azure-government).
+
+## <a name="prerequisites-for-connecting-to-azure"></a>Pré-requisitos para se conectar ao Azure
 
 * Uma assinatura do Azure.
 
@@ -37,7 +39,7 @@ Se você estiver mudando de uma *versão de avaliação* para conta de video ind
 
     Esse usuário deve ser um usuário do Azure AD com uma conta corporativa ou de estudante. Não use uma conta pessoal, como outlook.com, live.com ou hotmail.com.
 
-    ![todos os usuários do AAD](./media/create-account/all-aad-users.png)
+    ![todos os usuários do Azure AD](./media/create-account/all-aad-users.png)
 
 ### <a name="additional-prerequisites-for-automatic-flow"></a>Pré-requisitos adicionais para fluxo automático
 
@@ -59,7 +61,7 @@ Se você estiver mudando de uma *versão de avaliação* para conta de video ind
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="create-a-new-account"></a>Criar uma nova conta
+## <a name="create-a-new-account-on-azure"></a>Criar uma nova conta no Azure 
 
 > [!NOTE]
 > Se sua assinatura do Azure usa a autenticação multifator baseada em certificado, é crucial que você execute as etapas a seguir em um dispositivo que tenha os certificados necessários instalados.
@@ -155,7 +157,7 @@ Na caixa de diálogo, forneça as informações a seguir:
 |ID do aplicativo|O ID do aplicativo do Azure AD (com permissões para a conta de Serviços de Mídia especificada) que você criou na seção anterior.|
 |Chave do aplicativo|A chave de aplicativo do Azure AD que você criou na seção anterior. |
 
-## <a name="import-your-content-from-the-trial-account"></a>Importar seu conteúdo da conta de *avaliação*
+### <a name="import-your-content-from-the-trial-account"></a>Importar seu conteúdo da conta de *avaliação*
 
 Ao criar uma nova conta, você tem a opção de importar o conteúdo da conta de *avaliação* para a nova conta. Se você marcar a opção de *importação* na caixa de diálogo **criar uma nova conta em uma assinatura do Azure** , todas as personalizações do modelo de conteúdo e mídia serão copiadas da conta de *avaliação* para a nova conta.
 
@@ -163,16 +165,10 @@ A capacidade de importar o conteúdo é válida para abordagens automatizadas e 
 
 > [!NOTE]
 > O conteúdo só pode ser importado uma vez de cada conta.
+>
+> A conta de *avaliação* não é availagle na nuvem do Azure governamental.
 
-## <a name="delete-the-account"></a>Excluir a conta
-
-Se posteriormente você quiser excluir a conta, poderá excluir a conta do site Video Indexer. Para excluir a conta, você deve ser o proprietário.
-
-Selecione a conta-> **configurações**  ->  **excluir esta conta**. 
-
-A conta será excluída permanentemente em 90 dias.
-
-## <a name="considerations"></a>Considerações
+## <a name="azure-media-services-considerations"></a>Considerações sobre os serviços de mídia do Azure
 
 As seguintes considerações relacionadas aos Serviços de Mídia do Azure se aplicam:
 
@@ -201,9 +197,52 @@ A automatização da criação da conta é um processo de duas etapas:
     Consulte um exemplo do [modelo de criação de conta dos serviços de mídia](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 1. Chame [Create-Account com os serviços de mídia e o aplicativo do Azure ad](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
 
+## <a name="video-indexer-in-azure-government"></a>Video Indexer no Azure governamental
+
+### <a name="prerequisites-for-connecting-to-azure-government"></a>Pré-requisitos para se conectar ao Azure governamental
+
+-   Uma assinatura do Azure no [Azure governamental](https://docs.microsoft.com/azure/azure-government/).
+- Uma conta do Azure AD no Azure governamental.
+- Todos os pré-requisitos de permissões e recursos, conforme descrito acima, em pré-requisitos [para se conectar ao Azure](#prerequisites-for-connecting-to-azure).
+
+### <a name="create-new-account-via-the-azure-government-portal"></a>Criar nova conta por meio do portal do Azure governamental
+
+> [!NOTE]
+> A nuvem do Azure governamental não inclui uma experiência de *avaliação* do video indexer.
+
+Para criar uma conta paga por meio do portal de Video Indexer:
+
+1. Ir para https://videoindexer.ai.azure.us 
+1. Faça logon com sua conta do Azure AD governamental do Azure.
+1.  Se você não tiver contas de Video Indexer no Azure governamental das quais você é proprietário ou colaborador, obterá uma experiência vazia na qual você pode começar a criar sua conta. 
+
+    O restante do fluxo é como descrito acima, somente as regiões a serem selecionadas serão regiões do governo nas quais o video indexer está disponível 
+
+    Se você já for um colaborador ou um administrador de uma ou mais contas de Video Indexer no Azure governamental, você será levado para essa conta e, a partir daí, poderá iniciar as etapas a seguir para criar uma conta adicional, se necessário, conforme descrito acima.
+    
+### <a name="create-new-account-via-the-api-on-azure-government"></a>Criar nova conta por meio da API no Azure governamental
+
+Para criar uma conta paga no Azure governamental, siga as instruções em [Create-pagou-Account](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). Esse ponto de extremidade da API inclui apenas regiões de nuvem do governo.
+
+### <a name="limitations-of-video-indexer-on-azure-government"></a>Limitações de Video Indexer no Azure governamental
+
+*   Nenhuma moderação de conteúdo manual disponível na nuvem governamental. 
+
+    Na nuvem pública quando o conteúdo é considerado ofensivo com base em uma moderação de conteúdo, o cliente pode pedir para um humano examinar esse conteúdo e possivelmente reverter essa decisão.  
+*   Nenhuma conta de avaliação. 
+* Descrição do Bing-na nuvem gov, não apresentaremos uma descrição de celebridades e entidades nomeadas identificadas. Essa é apenas uma funcionalidade de interface do usuário. 
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de concluir este tutorial, exclua os recursos que você não está planejando usar.
+
+### <a name="delete-a-video-indexer-account"></a>Excluir uma conta de Video Indexer
+
+Se você quiser excluir uma conta de Video Indexer, poderá excluir a conta do site do Video Indexer. Para excluir a conta, você deve ser o proprietário.
+
+Selecione a conta-> **configurações**  ->  **excluir esta conta**. 
+
+A conta será excluída permanentemente em 90 dias.
 
 ## <a name="next-steps"></a>Próximas etapas
 
