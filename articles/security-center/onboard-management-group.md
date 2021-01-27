@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027560"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796076"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Habilitar a Central de Segurança em todas as assinaturas de um grupo de gerenciamento
 
@@ -25,7 +25,7 @@ Você pode usar o Azure Policy para habilitar a Central de Segurança do Azure e
 
 Para integrar um grupo de gerenciamento e todas as respectivas assinaturas:
 
-1. Como um usuário com permissões de **Administrador de Segurança** , abra o Azure Policy e pesquise a definição **Habilitar a Central de Segurança do Azure na sua assinatura**.
+1. Como um usuário com permissões de **Administrador de Segurança**, abra o Azure Policy e pesquise a definição **Habilitar a Central de Segurança do Azure na sua assinatura**.
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="A definição do Azure Policy Habilitar a Central de Segurança do Azure na sua assinatura":::
 
@@ -98,4 +98,4 @@ Há várias opções para você modificar a definição do Azure Policy:
 Agora que você integrou um grupo de gerenciamento inteiro, habilite as proteções avançadas do Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Habilitar o Azure Defender](security-center-pricing.md)
+> [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)

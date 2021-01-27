@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 349f0b72ad7f3cb98e8f4ae9105efa9718f0b11b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752251"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784924"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -39,6 +39,7 @@ As atualizações em janeiro incluem:
 - [Avaliação de vulnerabilidades para computadores locais e multinuvem liberada para GA (Disponibilidade Geral)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
 - [A classificação de segurança para grupos de gerenciamento agora está disponível na versão prévia](#secure-score-for-management-groups-is-now-available-in-preview)
 - [API de classificação de segurança liberada para GA (Disponibilidade Geral)](#secure-score-api-is-released-for-general-availability-ga)
+- [Proteções de DNS pendentes e adicionadas ao Azure Defender para o Serviço de Aplicativo](#dangling-dns-protections-added-to-azure-defender-for-app-service)
 - [Conectores de várias nuvens são liberados para GA (Disponibilidade Geral)](#multi-cloud-connectors-are-released-for-general-availability-ga)
 - [Isente recomendações inteiras da sua classificação de segurança para assinaturas e grupos de gerenciamento](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
 - [Os usuários agora podem solicitar visibilidade em todo o locatário no administrador global](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
@@ -94,7 +95,7 @@ Principais recursos:
 
 A página de classificação de segurança agora mostra as classificações de segurança agregadas dos seus grupos de gerenciamento, além do nível de assinatura. Agora, você pode ver a lista de grupos de gerenciamento na sua organização e a pontuação de cada grupo de gerenciamento.
 
-:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Exibindo as classificações de segurança dos seus grupos de gerenciamento.":::
+:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Como exibir as classificações de segurança de seus grupos de gerenciamento.":::
 
 Saiba mais sobre os [controles de segurança e classificação de segurança na Central de Segurança do Azure](secure-score-security-controls.md).
 
@@ -107,13 +108,28 @@ Para obter exemplos de ferramentas externas possibilitadas com a API de classifi
 Saiba mais sobre os [controles de segurança e classificação de segurança na Central de Segurança do Azure](secure-score-security-controls.md).
 
 
+### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Proteções de DNS pendentes e adicionadas ao Azure Defender para o Serviço de Aplicativo
+
+As tomadas de controle de subdomínios são uma ameaça comum de gravidade alta para as organizações. Uma tomada de controle de subdomínio poderá ocorrer quando um registro DNS indicar um site desprovisionado. Esses registros DNS também são conhecidos como entradas "DNS pendentes". Os registros CNAME são particularmente vulneráveis a essa ameaça. 
+
+As tomadas de controle de subdomínios permitem que agentes de ameaça redirecionem o tráfego destinado ao domínio de uma organização para um site que executa atividades mal-intencionadas.
+
+O Azure Defender para o Serviço de Aplicativo agora detecta entradas DNS pendentes quando um site do Serviço de Aplicativo é encerrado. Nesse momento, a entrada DNS indicará um recurso inexistente e seu site estará vulnerável a uma tomada de controle de subdomínio. Essas proteções estarão disponíveis caso seus domínios sejam gerenciados usando o DNS do Azure ou um registrador de domínios externo. Além disso, elas se aplicam ao Serviço de Aplicativo no Windows e ao Serviço de Aplicativo no Linux.
+
+Saiba mais:
+
+- [Tabela de referência de alertas do Serviço de Aplicativo](alerts-reference.md#alerts-azureappserv) – Inclui dois novos alertas do Azure Defender que disparam quando uma entrada DNS pendente é detectada
+- [Impedir a ocorrência de entradas DNS pendentes e evitar a tomada de controle de subdomínio](../security/fundamentals/subdomain-takeover.md) – Saiba mais sobre aspectos da ameaça de tomada de controle de subdomínio e de um DNS pendente
+- [Introdução ao Azure Defender para Serviço de Aplicativo](defender-for-app-service-introduction.md)
+
+
 ### <a name="multi-cloud-connectors-are-released-for-general-availability-ga"></a>Conectores de várias nuvens são liberados para GA (Disponibilidade Geral)
 
 Com as cargas de trabalho de nuvem normalmente abrangendo plataformas de várias nuvens, os serviços de segurança de nuvem precisam fazer o mesmo.
 
 A Central de Segurança do Azure protege as cargas de trabalho no Azure, na AWS (Amazon Web Services) e no GCP (Google Cloud Platform).
 
-Conectar as suas contas da GCP ou da AWS integra as ferramentas de segurança nativas deles, como o Hub de Segurança da AWS e o Security Command Centre da GCP à Central de Segurança do Azure.
+Conectar suas contas da AWS ou da GCP integrará ferramentas de segurança nativas, como o AWS Security Hub e o Centro de Comando de Segurança da GCP, à Central de Segurança do Azure.
 
 Essa funcionalidade significa que a Central de Segurança fornece visibilidade e proteção em todos os principais ambientes de nuvem. Alguns dos benefícios dessa integração:
 
@@ -153,7 +169,7 @@ Saiba mais em [Isentando recursos e recomendações da sua classificação de se
 
 ### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>Os usuários agora podem solicitar visibilidade em todo o locatário no administrador global
 
-Se um usuário não tiver permissões para ver os dados da Central de Segurança, agora ele verá as permissões de solicitação de link do administrador global da organização. A solicitação inclui a função que ele deseja e a justificativa do por que ela é necessária.
+Caso não tenham permissões para conferir os dados da Central de Segurança, os usuários agora podem acessar um link para solicitar permissões ao administrador global da organização. A solicitação inclui a função que ele deseja e a justificativa do por que ela é necessária.
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Faixa informando a um usuário que ele pode solicitar permissões em todo o locatário.":::
 
@@ -331,7 +347,7 @@ A recomendação "Os aplicativos Web devem solicitar um certificado SSL para tod
 
 Garantir que seus aplicativos Web solicitem um certificado certamente os tornarão mais seguros. No entanto, para aplicativos Web voltados para o público, é irrelevante. se você acessar seu site por HTTP e não por HTTPS, você não receberá nenhum certificado do cliente. Por isso, se o aplicativo exigir certificados de cliente, você não deverá permitir solicitações ao seu aplicativo via HTTP. Saiba mais em [Como configurar a autenticação mútua TLS para o Serviço de Aplicativo do Azure](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Com essa alteração, a recomendação agora é uma melhor prática que não afeta sua pontuação. 
+Com essa alteração, a recomendação agora é uma prática recomendada que não afetará sua classificação. 
 
 Saiba quais recomendações estão em cada controle de segurança em [Controles de segurança e suas recomendações](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
@@ -369,7 +385,7 @@ Essas ferramentas foram aprimoradas e expandidas das seguintes maneiras:
 
 - **Aprimoramento das políticas deployifnotexist da exportação contínua**. As políticas agora:
 
-    - **Verificam se a configuração está habilitada.** Se não estiver, a política será mostrada como não compatível e criará um recurso compatível. Saiba mais sobre os modelos do Azure Policy fornecidos na guia "Implantar em escala com o Azure Policy" em [Configurar uma exportação contínua](continuous-export.md#set-up-a-continuous-export).
+    - **Verificam se a configuração está habilitada.** Se não estiver, a política será mostrada como não compatível e criará um recurso compatível. Saiba mais sobre os modelos do Azure Policy fornecidos na guia "Implantar em escala usando o Azure Policy" da opção [Configurar uma exportação contínua](continuous-export.md#set-up-a-continuous-export).
 
     - **Dão suporte à exportação de descobertas de segurança.** Ao usar os modelos do Azure Policy, você pode configurar sua exportação contínua para incluir descobertas. Isso é relevante ao exportar recomendações com "sub" recomendações, como as descobertas de verificações de avaliação de vulnerabilidade ou atualizações de sistema específicas para a recomendação "pai" "As atualizações do sistema devem ser instaladas em seus computadores".
     
@@ -389,7 +405,7 @@ As atualizações de novembro incluem:
 - [A lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)
 - [Experiência de provisionamento automático aprimorada e expandida](#auto-provisioning-experience-improved-and-expanded)
 - [A classificação de segurança já está disponível na exportação contínua (versão prévia)](#secure-score-is-now-available-in-continuous-export-preview)
-- [A recomendação "As atualizações do sistema devem ser instaladas nos computadores" agora inclui sub-recomendações](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- [A recomendação "Atualizações do sistema deverão ser instaladas em seus computadores" agora inclui sub-recomendações](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
 - [A página de gerenciamento de política no portal do Azure agora mostra o status das atribuições de política padrão](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 recomendações de versão prévia adicionadas para aumentar a cobertura do Parâmetro de Comparação de Segurança do Azure
@@ -468,13 +484,13 @@ Com a exportação contínua da classificação de segurança, você pode transm
 Saiba mais sobre como [Exportar continuamente dados da Central de Segurança](continuous-export.md).
 
 
-### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations"></a>A recomendação "As atualizações do sistema devem ser instaladas nos computadores" agora inclui sub-recomendações
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>A recomendação "Atualizações do sistema deverão ser instaladas em seus computadores" agora inclui sub-recomendações
 
-A recomendação **As atualizações do sistema devem ser instaladas nos computadores** foi aprimorada. A nova versão inclui sub-recomendações para cada atualização ausente e traz os seguintes aprimoramentos:
+A recomendação **As atualizações do sistema devem ser instaladas nos computadores** foi aprimorada. A nova versão inclui sub-recomendações para cada atualização ausente e fornece os seguintes aprimoramentos:
 
 - Uma experiência reformulada nas páginas da Central de Segurança do Azure do portal do Azure. A página de detalhes da recomendação para **As atualizações do sistema devem ser instaladas nos computadores** inclui a lista de conclusões, conforme mostrado abaixo. Quando você seleciona uma localização individual, o painel de detalhes é aberto com um link para as informações de correção e uma lista de recursos afetados.
 
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Abrindo uma das sub-recomendações na experiência do portal para a recomendação atualizada":::
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Como abrir uma das sub-recomendações na experiência de portal para obter uma recomendação atualizada":::
 
 - Dados aprimorados para a recomendação do ARG (Azure Resource Graph). O ARG é um serviço do Azure que foi projetado para oferecer uma exploração eficiente de recursos. Você pode usar o ARG para consultar em escala um determinado conjunto de assinaturas a fim de controlar seu ambiente de maneira eficaz. 
 
@@ -560,7 +576,7 @@ Para a Central de Segurança do Azure, você pode usar ARG e [KQL (Kusto Query L
 - Utilizações de inventário de ativos (ARG)
 - Documentamos um exemplo de consulta do ARG para saber como [Identificar contas sem a MFA (autenticação multifator) habilitada](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
-Dentro do ARG, há tabelas de dados que você pode usar em suas consultas.
+Há tabelas de dados no ARG que poderão ser usadas em suas consultas.
 
 :::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer e as tabelas disponíveis":::
 
@@ -716,7 +732,7 @@ O **Azure Defender para Armazenamento** detecta atividades potencialmente prejud
 
 O suporte para os [Arquivos do Azure](../storage/files/storage-files-introduction.md) e o [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) já está em disponibilidade geral.
 
-Desde 1º de outubro de 2020, começamos a cobrar pela proteção dos recursos nesses serviços.
+Desde 1º de outubro de 2020, começamos a cobrar pela proteção de recursos nesses serviços.
 
 Saiba mais em [Azure Defender para Armazenamento](defender-for-storage-introduction.md).
 
@@ -826,7 +842,7 @@ As recomendações de segurança a seguir relacionadas aos grupos de segurança 
 
 A recomendação de versão prévia "As Políticas de Segurança de Pods devem ser definidas nos Serviços de Kubernetes" está sendo preterida, conforme descrito na documentação do [Serviço de Kubernetes do Azure](../aks/use-pod-security-policies.md).
 
-O recurso de política de segurança de pods (versão prévia) está definido para reprovação e não estará mais disponível após 15 de outubro de 2020 em favor do Azure Policy para AKS.
+O recurso da política de segurança de pods (versão prévia) foi configurado para ser substituído e não está mais disponível desde 15 de outubro de 2020 a fim de beneficiar o Azure Policy para AKS.
 
 Depois que a política de segurança de pods (versão prévia) for preterida, você precisará desabilitar o recurso em todos os clusters existentes usando o recurso preterido para realizar futuras atualizações de cluster e permanecer dentro do suporte do Azure.
 
@@ -973,4 +989,4 @@ A fase inicial deste projeto inclui uma versão prévia privada e a adição de 
 Você poderá ignorar essas políticas com segurança e não haverá nenhum impacto no seu ambiente. Se você quiser habilitá-las, inscreva-se na versão prévia em https://aka.ms/SecurityPrP e escolha uma das seguintes opções:
 
 1. **Versão prévia única**: para ingressar somente nessa versão prévia privada. Mencione explicitamente “Verificação contínua do ASC” como a versão prévia na qual deseja ingressar.
-1. **Programas em andamento** – para ser adicionado a esta e às futuras versões prévias privadas. Será necessário preencher um perfil e um contrato de privacidade.
+1. **Programas em andamento** – para ser adicionado a esta e às futuras versões prévias privadas. Você precisará preencher um perfil e assinar um contrato de privacidade.

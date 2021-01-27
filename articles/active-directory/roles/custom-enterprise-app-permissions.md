@@ -2,22 +2,22 @@
 title: Permissões de aplicativo para funções personalizadas no Azure Active Directory | Microsoft Docs
 description: Veja uma versão prévia das permissões de aplicativo empresarial para as funções personalizadas do Azure AD no portal do Azure, no PowerShell ou na API do Graph.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 39d9cf9ed87c8a8f45cb2a6239292562035d31e3
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 110da0a12336415d9d9c781e24684d7e2af8bc9d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379631"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741648"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de aplicativo empresarial para funções personalizadas no Azure Active Directory
 

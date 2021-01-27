@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: d95c96e76a3463a77cc64234a909cc1e3d093837
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: a910f61389183b77af1f73f8d3553f6c5bbc8452
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630217"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881577"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Enviar e receber mensagens em filas do Barramento de Serviço do Azure (Java)
 Neste guia de início rápido, você criará um aplicativo Java para enviar e receber mensagens em uma fila do Barramento de Serviço do Azure. 
@@ -220,7 +220,7 @@ Selecione a fila nesta página **Visão geral** para acessar a página **Fila do
 Confira os seguintes exemplos e a documentação:
 
 - [Biblioteca de clientes do Barramento de Serviço do Azure para Java – Leiame](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
-- [Exemplos no GitHub](https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Exemplos no GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Referência da API Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started

@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5594e8225b615bf6e1af5077bd68422edbbeec19
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9591dae058a19cea73d88513b7c4ff4ab8f88045
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905444"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797744"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introdução ao Azure Defender para Resource Manager
 
@@ -75,4 +75,4 @@ Neste artigo, você aprendeu sobre o Azure Defender para Resource Manager. Para 
 - Os alertas de segurança podem ser gerados pela Central de Segurança ou recebidos pela Central de Segurança de produtos de segurança diferentes. Para exportar esses alertas para o Azure Sentinel, qualquer SIEM de terceiros ou qualquer outra ferramenta externa, siga as instruções em [Exportar alertas para um SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Habilitar o Azure Defender](security-center-pricing.md)
+    > [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)

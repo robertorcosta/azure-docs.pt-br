@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 249f124dc7d4d789ca4396a67fba63fbdd144ba6
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6fbc4179bcfc36f094b36966c8e5dd0acac66075
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120046"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683014"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos do SQL do Synapse
 
@@ -38,7 +38,7 @@ O desempenho de unidades de data warehouse baseia-se nestas métricas de carga d
 
 - A velocidade com a qual uma consulta de data warehouse padrão verifica um grande número de linhas e executa uma agregação complexa. Essa operação tem uso intensivo de E/S e CPU.
 - A velocidade com a qual o data warehouse pode ingerir dados do Azure Storage Blobs ou do Azure Data Lake. Essa operação tem uso intensivo de rede e CPU.
-- A velocidade com a qual o comando T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) pode copiar uma tabela. Essa operação envolve a leitura de dados do armazenamento, distribuindo-os em todos os nós do dispositivo e gravando novamente no armazenamento. Essa operação é de uso intensivo de CPU, rede e E/S.
+- A velocidade com a qual o comando T-SQL [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) pode copiar uma tabela. Essa operação envolve a leitura de dados do armazenamento, distribuindo-os em todos os nós do dispositivo e gravando novamente no armazenamento. Essa operação é de uso intensivo de CPU, rede e E/S.
 
 Aumento de DWUs:
 
@@ -98,7 +98,7 @@ O pool de SQL é um sistema de expansão que pode provisionar várias quantidade
 
 ### <a name="permissions"></a>Permissões
 
-Alterar as unidades de data warehouse exige as permissões descritas em [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Alterar as unidades de data warehouse exige as permissões descritas em [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Funções internas do Azure, como Colaborador do BD SQL e Colaborador do SQL Server, podem alterar as configurações da DWU.
 
@@ -150,7 +150,7 @@ Com o T-SQL, você pode ver as configurações atuais de DWU, alterar as configu
 Para alterar as DWUs:
 
 1. Conecte-se ao banco de dados mestre associado ao servidor.
-2. Use a instrução TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). O exemplo a seguir define o objetivo de nível de serviço como DW1000c para o banco de dados MySQLDW.
+2. Use a instrução TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). O exemplo a seguir define o objetivo de nível de serviço como DW1000c para o banco de dados MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -160,7 +160,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 
 #### <a name="rest-apis"></a>APIs REST
 
-Para alterar as DWUs, use a API REST [Criar ou Atualizar Banco de Dados](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). O exemplo a seguir define o objetivo de nível de serviço como DW1000c para o banco de dados MySQLDW, que está hospedado no servidor MyServer. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
+Para alterar as DWUs, use a API REST [Criar ou Atualizar Banco de Dados](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). O exemplo a seguir define o objetivo de nível de serviço como DW1000c para o banco de dados MySQLDW, que está hospedado no servidor MyServer. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1

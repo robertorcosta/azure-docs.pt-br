@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: mvc
-ms.openlocfilehash: 874da5ffcd2777648bb06c6e702932d64a32e59c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 740563935e12d5a7418bada2a18b48fb573f6e7d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681856"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679000"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-maps"></a>Início Rápido: Criar um aplicativo Android com o Azure Mapas
 
@@ -59,7 +59,7 @@ Depois de criar com êxito sua conta dos Mapas, recupere a chave primária que p
 3. Copie a **Chave Primária** para sua área de transferência. Salve-a localmente para usar depois neste tutorial.
 
 >[!NOTE]
-> Se você usar a chave de assinatura do Azure em vez da chave primária do Azure Mapas, seu mapa não será renderizado corretamente. Além disso, para fins de segurança, é recomendável que você faça a rotação entre as chaves primária e secundária. Para fazer a rotação das chaves, atualize seu aplicativo para usar a chave secundária, implante, em seguida, pressione o botão ciclo/atualizar ao lado da chave primária para gerar uma nova chave primária. A chave primária antiga será desabilitada. Para obter mais informações sobre a rotação de chaves, confira [Configurar o Azure Key Vault com a rotação de chaves e auditoria](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
+> Se você usar a chave de assinatura do Azure em vez da chave primária do Azure Mapas, seu mapa não será renderizado corretamente. Além disso, para fins de segurança, é recomendável que você faça a rotação entre as chaves primária e secundária. Para fazer a rotação das chaves, atualize seu aplicativo para usar a chave secundária, implante, em seguida, pressione o botão ciclo/atualizar ao lado da chave primária para gerar uma nova chave primária. A chave primária antiga será desabilitada. Para obter mais informações sobre a rotação de chaves, confira [Configurar o Azure Key Vault com a rotação de chaves e auditoria](../key-vault/secrets/tutorial-rotation-dual.md)
 
 ![Obter chave primária do Azure Mapas no portal do Azure](media/quick-android-map/get-key.png)
 

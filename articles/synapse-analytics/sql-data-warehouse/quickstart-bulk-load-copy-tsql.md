@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 939a74a2bbedf6b00159f0c33a50eeb93595cda4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 547f697c4f8ffb903006e48e94086433d64225c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116068"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681329"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Início Rápido: Carregar dados em massa usando a instrução COPY
 
-Neste guia de início rápido, você carregará dados em massa para seu pool de SQL dedicado usando a [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) simples e flexível para a ingestão de dados com alta taxa de transferência. A instrução COPY é o utilitário de carregamento recomendado, pois permite carregar dados de maneira direta e flexível oferecendo funcionalidades para:
+Neste guia de início rápido, você carregará dados em massa para seu pool de SQL dedicado usando a [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) simples e flexível para a ingestão de dados com alta taxa de transferência. A instrução COPY é o utilitário de carregamento recomendado, pois permite carregar dados de maneira direta e flexível oferecendo funcionalidades para:
 
 - Permitir que usuários com menor privilégio carreguem sem a necessidade de permissões CONTROL estritas no data warehouse
 - Usar apenas uma instrução T-SQL sem precisar criar nenhum objeto de banco de dados adicional

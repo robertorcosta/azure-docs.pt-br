@@ -1,18 +1,18 @@
 ---
 title: Tabela de referência para todas as recomendações da Central de Segurança do Azure
-description: Este artigo lista as recomendações de segurança da Central de Segurança do Azure que ajudam a proteger seus recursos.
+description: Este artigo listará as recomendações de segurança da Central de Segurança do Azure que ajudarão a fortalecer e proteger seus recursos.
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 01/24/2021
+ms.date: 01/26/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: cd72e904f659b7bd9c7e2df86b46fe20bd26ec33
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f6d881036b0ebaa79d1052e41b8ec649bb1e8d6d
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757090"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797174"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança – um guia de referência
 
@@ -22,7 +22,7 @@ As recomendações da Central de Segurança baseiam-se no [Azure Security Benchm
 
 Para saber mais sobre como responder a essas recomendações, confira [Recomendações de correção na Central de Segurança do Azure](security-center-remediate-recommendations.md).
 
-Sua classificação de segurança é baseada no número de recomendações da Central de Segurança que você concluiu. Para decidir quais recomendações resolver primeiro, examine a gravidade de cada uma e seu impacto potencial na sua classificação de segurança.
+A classificação de segurança é baseada na quantidade de recomendações da Central de Segurança que você executou. Examine a gravidade e o possível impacto de cada recomendação em sua classificação de segurança para decidir qual delas usar primeiro.
 
 > [!TIP]
 > Se a descrição de uma recomendação disser "Nenhuma política relacionada", isso geralmente ocorrerá porque essa recomendação depende de uma recomendação diferente e _sua_ política. Por exemplo, a recomendação "As falhas de integridade de Endpoint protection devem ser corrigidas...", depende da recomendação que verifica se uma solução de proteção de ponto de extremidade ainda está _instalada_ ("A solução de Endpoint protection deve estar instalada..."). A recomendação subjacente _tem_ uma política.

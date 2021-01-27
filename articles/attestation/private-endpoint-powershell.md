@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cf21ed73d74adb9f9a5a7229a45192bc63aca2c3
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 5c2b88ad7bef5fb8f7ba576e5f7b416f7458378c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98104235"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731594"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Início Rápido: Criar um ponto de extremidade privado usando o Azure PowerShell
 
@@ -22,8 +22,8 @@ Neste guia de início rápido, você criará um ponto de extremidade privado par
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Saiba mais sobre o [Link Privado do Azure](/azure/private-link/private-link-overview)
-* [Configurar o Atestado do Azure com o Azure PowerShell](/azure/attestation/quickstart-powershell)
+* Saiba mais sobre o [Link Privado do Azure](../private-link/private-link-overview.md)
+* [Configurar o Atestado do Azure com o Azure PowerShell](./quickstart-powershell.md)
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -207,4 +207,3 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
     Non-authoritative answer:
     Name:    myattestationprovider.eastus.test.attest.azure.net
     ```
-

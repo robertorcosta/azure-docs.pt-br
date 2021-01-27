@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 34ce36f0ff348f896b7c2ea680c113b5e9e4ea09
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 87f592f0cff8504fbafba392d20f405640e2578a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463175"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682963"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pool de SQL sem servidor no Azure Synapse Analytics 
 
@@ -75,7 +75,7 @@ A segurança pode ser imposta usando:
 
 T-SQL compatível:
 
-- A área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa é compatível, incluindo a maioria das funções SQL
+- A área de superfície de [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) completa é compatível, incluindo a maioria das funções SQL
 - CETAS – CREATE EXTERNAL TABLE AS SELECT
 - Instruções DDL relacionadas somente a exibições e segurança
 
@@ -89,7 +89,7 @@ O pool de SQL sem servidor não tem armazenamento local, somente objetos de meta
 
 ### <a name="extensions"></a>Extensões
 
-Para permitir uma experiência tranquila para a consulta no local de dados que residem em arquivos no data lake, o pool de SQL sem servidor estende a função [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) existente adicionando as seguintes funcionalidades:
+Para permitir uma experiência tranquila para a consulta no local de dados que residem em arquivos no data lake, o pool de SQL sem servidor estende a função [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) existente adicionando as seguintes funcionalidades:
 
 [Consultar vários arquivos ou pastas](query-data-storage.md#query-multiple-files-or-folders)
 
@@ -125,7 +125,7 @@ A autenticação do pool de SQL sem servidor refere-se a como os usuários compr
 
 - **Autenticação do Active Directory do Azure**:
 
-  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory. Para usuários do Azure AD, a autenticação multifator pode ser habilitada. Use autenticação do Active Directory (segurança integrada) [sempre que possível](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+  Esse método de autenticação usa identidades gerenciadas pelo Azure Active Directory. Para usuários do Azure AD, a autenticação multifator pode ser habilitada. Use autenticação do Active Directory (segurança integrada) [sempre que possível](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 #### <a name="authorization"></a>Autorização
 

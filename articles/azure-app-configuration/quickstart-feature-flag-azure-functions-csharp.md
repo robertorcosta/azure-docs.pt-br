@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 6996fdd9dce4314e9365177815d7d310ac80c7cb
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046066"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724236"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Início Rápido: Adicionar sinalizadores de recurso a um aplicativo Azure Functions
 
@@ -46,7 +46,7 @@ As bibliotecas do Gerenciamento de Recursos do .NET estendem a estrutura com sup
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar um repositório de Configuração de Aplicativos
 
-Este projeto usará [injeção de dependência no Azure Functions .NET](/azure/azure-functions/functions-dotnet-dependency-injection). Ele adiciona a Configuração de Aplicativos do Azure como uma fonte de configuração extra em que os sinalizadores de recurso são armazenados.
+Este projeto usará [injeção de dependência no Azure Functions .NET](../azure-functions/functions-dotnet-dependency-injection.md). Ele adiciona a Configuração de Aplicativos do Azure como uma fonte de configuração extra em que os sinalizadores de recurso são armazenados.
 
 1. Clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes do NuGet**. Na guia **Navegar**, pesquise e adicione os pacotes NuGet a seguir ao projeto.
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) versão 4.1.0 ou posterior

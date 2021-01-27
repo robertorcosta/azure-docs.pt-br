@@ -4,12 +4,12 @@ description: Neste guia de início rápido, você escreverá um código Java usa
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: cd95b84c4b55279b40f95eef65cb2490a55d1780
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 46dc6bed7e51a5157d7eb42dac75c0240d440780
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630234"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881611"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Enviar mensagens para um tópico do Barramento de Serviço do Azure e receber mensagens de assinaturas para o tópico (Java)
 Neste guia de início rápido, você escreverá um código Java usando o pacote azure-messaging-servicebus para enviar mensagens para um tópico do Barramento de Serviço do Azure e receber mensagens de assinaturas para esse tópico.
@@ -225,7 +225,7 @@ Nessa página, se você selecionar uma assinatura, chegará à página **Assinat
 Confira os seguintes exemplos e a documentação:
 
 - [Biblioteca de clientes do Barramento de Serviço do Azure para Java – Leiame](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
-- [Exemplos no GitHub](https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Exemplos no GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Referência da API Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
 

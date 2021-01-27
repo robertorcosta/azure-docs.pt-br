@@ -3,12 +3,12 @@ title: 'Início Rápido: Enviar eventos personalizados para a Função do Azure 
 description: 'Início Rápido: Use a Grade de Eventos do Azure e a CLI do Azure ou o portal para publicar um tópico e assinar esse evento. Uma Função do Azure é usada para o ponto de extremidade.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996331"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791720"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Início Rápido: Rotear eventos personalizados para uma Função do Azure com a Grade de Eventos
 
@@ -19,7 +19,7 @@ A Grade de Eventos do Azure é um serviço de eventos para a nuvem. O Azure Func
 ## <a name="create-azure-function"></a>Criar Função do Azure
 Antes de assinar o tópico personalizado, crie uma função para a lidar com os eventos. 
 
-1. Crie um aplicativo de funções usando instruções de [Criar um aplicativo de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+1. Crie um aplicativo de funções usando instruções de [Criar um aplicativo de funções](../azure-functions/functions-get-started.md).
 2. Crie uma função usando o **Gatilho da Grade de Eventos**. Selecione Se esta for a primeira vez que você usa esse gatilho, talvez seja necessário clicar em 'Instalar' para instalar a extensão.
     1. Na página **Aplicativo de Funções**, selecione **Funções** no menu à esquerda, pesquise **Grade de Eventos** em modelos e escolha **Gatilho da Grade de Eventos do Azure**. 
 

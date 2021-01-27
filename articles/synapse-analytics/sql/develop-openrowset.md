@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7e7dce7ec4b8d4d55e734487595bb330e97ab18b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 2ead7291f52f33c271768ae2f470af65aca98030
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120437"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734740"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Como usar a OPENROWSET usando o pool de SQL sem servidor no Azure Synapse Analytics
 
@@ -171,7 +171,7 @@ WITH (
 )
 ```
 
-json_path = [expressão do caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) para a coluna ou propriedade aninhada. O [modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) padrão é incerto.
+json_path = [expressão do caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) para a coluna ou propriedade aninhada. O [modo de caminho](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE) padrão é incerto.
 
 > [!NOTE]
 > Em modo estrito, a consulta falhará com erro se o caminho fornecido não existir. No modo incerto, a consulta será bem-sucedida e a expressão de caminho JSON for avaliada como NULL.
@@ -371,7 +371,7 @@ WITH (
 
 ### <a name="specify-columns-using-json-paths"></a>Especificar colunas usando caminhos JSON
 
-O seguinte exemplo mostra como você pode usar [expressões de caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) na cláusula WITH e demonstra a diferença entre os modos de caminho estrito e incerto: 
+O seguinte exemplo mostra como você pode usar [expressões de caminho JSON](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) na cláusula WITH e demonstra a diferença entre os modos de caminho estrito e incerto: 
 
 ```sql
 SELECT 

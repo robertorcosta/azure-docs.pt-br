@@ -3,23 +3,23 @@ title: Unidades administrativas no Azure Active Directory | Microsoft Docs
 description: Use unidades administrativas para delegação mais granular de permissões no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 792e8cd1e70f901385ed3b225a753024e06f2df0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: e82be52cff824c69dd2fe4ea5e7e1c0d7489be1d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394587"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740322"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas no Azure Active Directory
 

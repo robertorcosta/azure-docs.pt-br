@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.openlocfilehash: 7db546ec9038403bd9e34f637e9d9de368277d52
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0698295688a4587a704e8cdba0a4796e8d1e6fcd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400295"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879992"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Início Rápido: Criar uma conta do Azure Purview usando o Azure PowerShell/a CLI do Azure
 
@@ -27,9 +27,9 @@ Neste início rápido, você criará uma conta do Azure Purview usando o Azure P
 
 * A conta de usuário que você usa para entrar no Azure precisa ser um membro da função colaborador ou proprietário ou um administrador da assinatura do Azure.
 
-* O próprio [locatário do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* O próprio [locatário do Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* Instale o Azure PowerShell ou a CLI do Azure em seu computador cliente para implantar o modelo: [Implantação de linha de comando](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli#command-line-deployment)
+* Instale o Azure PowerShell ou a CLI do Azure em seu computador cliente para implantar o modelo: [Implantação de linha de comando](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

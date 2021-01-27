@@ -3,12 +3,12 @@ title: Visão geral de sistema de mensagens do Barramento de Serviço do Azure |
 description: Este artigo fornece uma visão geral de alto nível do Barramento de Serviço do Azure, um agente de mensagens de integração empresarial totalmente gerenciado.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: 70e9d966a14f78866d72865eed4cbb2dfd6c18dd
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 7453e8dd300ad754fb58489f059670af209314ab
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755728"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881594"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Barramento de Serviço do Azure?
 O Barramento de Serviço do Microsoft Azure é um agente de mensagens empresarial totalmente gerenciado com filas de mensagens e tópicos de publicação/assinatura. O Barramento de Serviço é usado para separar aplicativos e serviços uns dos outros, proporcionando estes benefícios:
@@ -32,7 +32,7 @@ Alguns cenários de sistema de mensagens comuns são:
     2. Postar os resultados do processamento em uma ou mais filas diferentes.
     3. Mover a mensagem de entrada da fila original. 
     
-    Os resultados ficam visíveis para consumidores downstream somente após o êxito, incluindo a liquidação bem-sucedida da mensagem de entrada, permitindo a semântica de processamento único. Esse modelo de transação é uma base robusta para o padrão de [transações de compensação](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) no contexto maior da solução. 
+    Os resultados ficam visíveis para consumidores downstream somente após o êxito, incluindo a liquidação bem-sucedida da mensagem de entrada, permitindo a semântica de processamento único. Esse modelo de transação é uma base robusta para o padrão de [transações de compensação](/azure/architecture/patterns/compensating-transaction) no contexto maior da solução. 
 * *Sessões de mensagem*. Implemente a coordenação em alta escala de fluxos de trabalho e transferências multiplexadas que exigem uma ordenação de mensagens estrita ou o adiamento de mensagens.
 
 Se você estiver familiarizado com outros agentes de mensagens como o Apache ActiveMQ, os conceitos do Barramento de Serviço serão semelhantes aos que você conhece. Como o Barramento de Serviço é uma oferta de PaaS (plataforma como serviço), uma diferença importante é que você não precisa se preocupar com as ações a seguir. O Azure cuida dessas tarefas para você. 
@@ -138,11 +138,11 @@ Para oferecer proteção contra tráfego indesejado, o Barramento de Serviço fo
 
 As bibliotecas de cliente do Barramento de Serviço com suporte total estão disponíveis por meio do SDK do Azure.
 
-- [Barramento de Serviço do Azure para .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
-- [Bibliotecas do Barramento de Serviço do Azure para Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
+- [Barramento de Serviço do Azure para .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true)
+- [Bibliotecas do Barramento de Serviço do Azure para Java](/java/api/overview/azure/servicebus?preserve-view=true)
 - [Provedor do Barramento de Serviço do Azure para Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [Módulos do Barramento de Serviço do Azure para JavaScript e TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
-- [Bibliotecas do Barramento de Serviço do Azure para Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
+- [Módulos do Barramento de Serviço do Azure para JavaScript e TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
+- [Bibliotecas do Barramento de Serviço do Azure para Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
 [O protocolo primário do Barramento de Serviço do Azure é o AMQP 1.0](service-bus-amqp-overview.md), que pode ser usado de qualquer cliente de protocolo em conformidade com AMQP 1.0. Vários clientes AMQP de software livre têm amostras que demonstram explicitamente a interoperabilidade do Barramento de Serviço. Examine o [Guia do protocolo AMQP 1.0](service-bus-amqp-protocol-guide.md) para saber como usar os recursos do Barramento de Serviço diretamente com os clientes do AMQP 1.0.
 

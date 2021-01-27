@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: df3dd8b5b18ec2997ee20ad4955ffd7bc1dc573d
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 2f49ec0fef5aa79c602e561746eb0f6dba16cb33
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955001"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876590"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -232,7 +232,7 @@ Isto é o que essa alteração faz para você:
 
 - Nessa atualização, você não precisa mais executar o Azure Marketplace nem o modelo do GitHub repetidamente para expandir um pool de host. Para expandir um pool de host, basta acessá-lo no portal do Azure e selecionar **+ Adicionar** para implantar hosts de sessão adicionais.
 
-- A implantação do pool de host agora está totalmente integrada à [Galeria de Imagens Compartilhadas do Azure](../virtual-machines/windows/shared-image-galleries.md). A Galeria de Imagens Compartilhadas é um serviço do Azure separado que armazena definições de imagem de VM (máquina virtual), incluindo o controle de versão de imagem. Você também pode usar a replicação global para copiar e enviar suas imagens para outras regiões do Azure para implantação local.
+- A implantação do pool de host agora está totalmente integrada à [Galeria de Imagens Compartilhadas do Azure](../virtual-machines/shared-image-galleries.md). A Galeria de Imagens Compartilhadas é um serviço do Azure separado que armazena definições de imagem de VM (máquina virtual), incluindo o controle de versão de imagem. Você também pode usar a replicação global para copiar e enviar suas imagens para outras regiões do Azure para implantação local.
 
 - As funções de monitoramento que costumavam ser feitas por meio do PowerShell ou do aplicativo Web do Serviço de Diagnóstico agora foram movidas para Log Analytics no portal do Azure. Agora, você também tem duas opções para visualizar seus relatórios. Você pode executar consultas do Kusto e usar Pastas de Trabalho para criar relatórios visuais.
 

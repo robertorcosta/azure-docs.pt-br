@@ -2,23 +2,23 @@
 title: Remover limites na criação de registros de aplicativo – Azure AD | Microsoft Docs
 description: Atribuir uma função personalizada para conceder registros de aplicativo irrestritos no Azure AD Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: quickstart
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a78296d3fd040b047c2a6cc3761d429883aa9d1
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 260b0621bf204c6d7593b3696c602665c42ad77e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378781"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740849"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Início Rápido: Conceder permissão para criar registros de aplicativo ilimitados
 
@@ -29,19 +29,19 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 ## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Criar uma função personalizada usando o portal do Azure AD
 
 1. Entre no [centro de administração do Azure AD](https://aad.portal.azure.com) com permissões do administrador de funções com privilégios ou administrador global na organização do Azure AD.
-1. Selecione **Azure Active Directory** , selecione **Funções e administradores** e, em seguida, selecione **Nova função personalizada**.
+1. Selecione **Azure Active Directory**, selecione **Funções e administradores** e, em seguida, selecione **Nova função personalizada**.
 
     ![Criar ou editar funções na página Funções e administradores](./media/quickstart-app-registration-limits/new-custom-role.png)
 
-1. Na guia **Noções Básicas** , forneça "Criador do Registro de Aplicativo" para o nome da função e "Pode criar um número ilimitado de registros de aplicativo" para a descrição da função e, em seguida, selecione **Próximo**.
+1. Na guia **Noções Básicas**, forneça "Criador do Registro de Aplicativo" para o nome da função e "Pode criar um número ilimitado de registros de aplicativo" para a descrição da função e, em seguida, selecione **Próximo**.
 
     ![forneça um nome e uma descrição para uma função personalizada na guia Noções básicas](./media/quickstart-app-registration-limits/basics-tab.png)
 
-1. Na guia **Permissões** , digite "microsoft.directory/applications/create" na caixa de pesquisa e, em seguida, marque as caixas de seleção ao lado das permissões desejadas e selecione **Próximo**.
+1. Na guia **Permissões**, digite "microsoft.directory/applications/create" na caixa de pesquisa e, em seguida, marque as caixas de seleção ao lado das permissões desejadas e selecione **Próximo**.
 
     ![Selecione as permissões para uma função personalizada na guia Permissões](./media/quickstart-app-registration-limits/permissions-tab.png)
 
-1. Na guia **Examinar + criar** , examine as permissões e selecione **Criar**.
+1. Na guia **Examinar + criar**, examine as permissões e selecione **Criar**.
 
 ### <a name="assign-the-role-in-the-azure-ad-portal"></a>Atribuir a função no portal do Azure AD
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ff7b07cb1a4f480907bb51e741a05deeaae8e66b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: cfd0476d3462fc902acb7238fcc1947c85af041f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116476"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676172"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio"></a>Conectar-se ao SQL do Synapse com o Azure Data Studio
 
@@ -26,7 +26,7 @@ ms.locfileid: "98116476"
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Você pode usar o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para se conectar ao SQL do Synapse e consultá-lo no Azure Synapse Analytics. 
+Você pode usar o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para se conectar ao SQL do Synapse e consultá-lo no Azure Synapse Analytics. 
 
 ## <a name="connect"></a>Conectar
 
@@ -73,7 +73,7 @@ Após o logon bem-sucedido, você deverá ver um painel como este: ![Painel](./m
 
 ## <a name="query"></a>Consulta
 
-Uma vez conectado, você pode consultar o Synapse SQL usando instruções [T-SQL (Transact-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) compatíveis com a instância. Selecione **Nova consulta** na exibição do painel para começar.
+Uma vez conectado, você pode consultar o Synapse SQL usando instruções [T-SQL (Transact-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) compatíveis com a instância. Selecione **Nova consulta** na exibição do painel para começar.
 
 ![Nova Consulta](./media/get-started-azure-data-studio/5-new-query.png)
 

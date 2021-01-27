@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 52c0dd6825c8576d97e10d3f0568ca5fb81e789e
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 3ab1e6011a1c127c9ac5a2c7652a4bf458372e1e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210793"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733930"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-portal"></a>Início rápido: Configurar Atestado do Azure com o portal do Azure
 
@@ -58,7 +58,7 @@ Siga as etapas abaixo para gerenciar um provedor de atestado usando o portal do 
 
     d. **Localização**: escolha uma localização 
     
-    e. **Arquivo de certificado de signatário de política**: Para configurar o provedor de atestado com certificados de assinatura de política, carregue o arquivo de certificados. Veja exemplos [aqui](/azure/attestation/policy-signer-examples) 
+    e. **Arquivo de certificado de signatário de política**: Para configurar o provedor de atestado com certificados de assinatura de política, carregue o arquivo de certificados. Veja exemplos [aqui](./policy-signer-examples.md) 
 6.  Depois de fornecer as entradas necessárias, clique em **Examinar+Criar**
 7.  Corrija problemas de validação, se houver, e clique em **Criar**.
 
@@ -98,7 +98,7 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
 3.  Selecione o provedor de atestado e navegue até a página de visão geral
 4.  Clique em **Certificados de signatário de política** no menu de recursos esquerdo ou no painel inferior
 5.  Clique em **Adicionar** no menu superior (o botão será desabilitado para os provedores de atestado criados sem o requisito de assinatura de política)
-6.  Carregue o arquivo de certificado de signatário de política e clique em **Adicionar**. Veja exemplos [aqui](/azure/attestation/policy-signer-examples)
+6.  Carregue o arquivo de certificado de signatário de política e clique em **Adicionar**. Veja exemplos [aqui](./policy-signer-examples.md)
 
 ### <a name="delete-policy-signer-certificate"></a>Excluir certificado de signatário de política
 
@@ -107,7 +107,7 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
 3.  Selecione o provedor de atestado e navegue até a página de visão geral
 4.  Clique em **Certificados de signatário de política** no menu de recursos esquerdo ou no painel inferior
 5.  Clique em **Excluir** no menu superior (o botão será desabilitado para os provedores de atestado criados sem o requisito de assinatura de política)
-6.  Carregue o arquivo de certificado de signatário de política e clique em **Excluir**. Veja exemplos [aqui](/azure/attestation/policy-signer-examples) 
+6.  Carregue o arquivo de certificado de signatário de política e clique em **Excluir**. Veja exemplos [aqui](./policy-signer-examples.md) 
 
 ## <a name="attestation-policy"></a>Política de atestado
 
@@ -132,7 +132,7 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
 5.  Clique em **Configurar** no menu superior
 6.  Quando o provedor de atestado é criado sem requisito de assinatura de política, o usuário pode carregar uma política em formato **JWT** ou de **Texto**
 7.  Selecione o **Formato de Política** como **JWT**
-8.  Carregue o arquivo de política com o conteúdo da política em um formato **JWT não assinado/assinado** e clique em **Salvar**. Veja exemplos [aqui](/azure/attestation/policy-examples)
+8.  Carregue o arquivo de política com o conteúdo da política em um formato **JWT não assinado/assinado** e clique em **Salvar**. Veja exemplos [aqui](./policy-examples.md)
     
     Para a opção de upload de arquivo, a versão prévia da política será mostrada em formato de texto e a versão prévia da política não pode ser editada.
 
@@ -147,7 +147,7 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
 5.  Clique em **Configurar** no menu superior
 6.  Quando o provedor de atestado é criado sem requisito de assinatura de política, o usuário pode carregar uma política em formato **JWT** ou de **Texto**
 7.  Selecione o **Formato de Política** como **Texto**
-8.  Carregue o arquivo de política com conteúdo em formato de **Texto** ou insira o conteúdo da política na área de texto e clique em **Salvar**. Veja exemplos [aqui](/azure/attestation/policy-examples)
+8.  Carregue o arquivo de política com conteúdo em formato de **Texto** ou insira o conteúdo da política na área de texto e clique em **Salvar**. Veja exemplos [aqui](./policy-examples.md)
 
     Para a opção de upload de arquivo, a versão prévia da política será mostrada em formato de texto e a versão prévia da política não pode ser editada.
 
@@ -163,20 +163,9 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
 4.  Clique em **Política** no menu de recursos esquerdo ou no painel inferior
 5.  Clique em **Configurar** no menu superior
 6.  Quando o provedor de atestado é criado sem requisito de assinatura de política, o usuário pode carregar uma política somente no formato **JWT assinado**
-7.  Carregue o arquivo de política em **formato JWT assinado** e clique em **Salvar**. Veja exemplos [aqui](/azure/attestation/policy-examples)
+7.  Carregue o arquivo de política em **formato JWT assinado** e clique em **Salvar**. Veja exemplos [aqui](./policy-examples.md)
 
     Para a opção de upload de arquivo, a versão prévia da política será mostrada em formato de texto e a versão prévia da política não pode ser editada.
     
 8.  Clique em **Atualizar** para ver a política configurada
-
- 
-
-
-
-
-
-
-
-
-
 

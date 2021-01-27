@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583202"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786632"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é o Azure Data Box Gateway?
 
@@ -89,7 +89,7 @@ A solução Data Box Gateway é composta pelo recurso de Data Box Gateway, dispo
 
 O dispositivo físico Data Box Gateway, o recurso do Azure e a conta de armazenamento de destino para a qual os dados são transferidos não precisam estar todos na mesma região.
 
-- **Disponibilidade de recursos** – para obter uma lista de todas as regiões em que o recurso Azure Data Box Gateway está disponível, acesse [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). O Data Box Gateway também pode ser implantado na Nuvem do Azure Governamental. Para obter mais informações, confira [O que é o Azure Governamental?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Disponibilidade de recursos** – para obter uma lista de todas as regiões em que o recurso Azure Data Box Gateway está disponível, acesse [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). O Data Box Gateway também pode ser implantado na Nuvem do Azure Governamental. Para obter mais informações, confira [O que é o Azure Governamental?](../azure-government/documentation-government-welcome.md).
 
 - **Contas de Armazenamento de destino** – as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure.
 
@@ -101,4 +101,3 @@ O dispositivo físico Data Box Gateway, o recurso do Azure e a conta de armazena
 - Examine os [requisitos do sistema do Data Box Gateway](data-box-gateway-system-requirements.md).
 - Entenda os [limites do Data Box Gateway](data-box-gateway-limits.md).
 - Implante o [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) no portal do Azure.
-
