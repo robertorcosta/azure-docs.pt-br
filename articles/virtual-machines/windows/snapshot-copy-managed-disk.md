@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 255b34fc683628846d2776d9db7a0fbe8fe32a45
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: dd19729f8b119946a12220d4b0c434f0b039989a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202072"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879656"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-powershell"></a>Criar um instantâneo usando o portal ou o PowerShell
 
@@ -22,7 +22,7 @@ Um instantâneo é uma cópia completa, somente leitura de um disco rígido virt
 
 Se você pretende usar o instantâneo para criar uma nova VM, recomendamos desligar a VM antes de capturar um instantâneo para limpar todos os processos em andamento.
 
-## <a name="use-the-azure-portal"></a>Use o Portal do Azure 
+## <a name="use-the-azure-portal"></a>Usar o portal do Azure 
 
 Para criar um instantâneo, conclua as seguintes etapas: 
 1.  Na [portal do Azure](https://portal.azure.com), selecione **criar um recurso**.
@@ -82,4 +82,4 @@ As etapas a seguir mostram como copiar o disco VHD e criar a configuração de i
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Cria uma máquina virtual usando um instantâneo criando um disco gerenciado do instantâneo e anexando o novo disco gerenciado como disco do SO. Para obter mais informações, consulte o exemplo em [Criar uma VM de um instantâneo com o PowerShell](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md).
+Cria uma máquina virtual usando um instantâneo criando um disco gerenciado do instantâneo e anexando o novo disco gerenciado como disco do SO. Para obter mais informações, consulte o exemplo em [Criar uma VM de um instantâneo com o PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot).

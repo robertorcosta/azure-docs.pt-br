@@ -4,15 +4,15 @@ description: O QnA Maker é um serviço de NLP baseado em nuvem que cria facilme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 05/26/2020
+ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, low code chat bots, multi-turn conversations
-ms.openlocfilehash: 9655f64da455fb7a7124a97e6dc2d1d8437d05b7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 16f30801d52aa46184c4eb394f3d1cfebecd4be6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353129"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700708"
 ---
 # <a name="what-is-qna-maker"></a>O que é QnA Maker?
 
@@ -85,8 +85,6 @@ Oferecemos guias de início rápido nas linguagens de programação mais popular
 
 * [Introdução à biblioteca de clientes do QnA Maker](../quickstarts/quickstart-sdk.md)
 * [Introdução ao portal do QnA Maker](../quickstarts/create-publish-knowledge-base.md)
-* [Introdução às APIs REST do QnA Maker](../quickstarts/quickstart-rest-curl.md)
-
 
 ## <a name="next-steps"></a>Próximas etapas
 O QnA Maker fornece tudo o que você precisa para criar, gerenciar e implantar a base de dados de conhecimento personalizada.

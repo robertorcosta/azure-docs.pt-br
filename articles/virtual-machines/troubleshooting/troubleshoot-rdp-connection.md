@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 66e4ea622f546981d1f0651b20368590e59056d3
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 33bd7c82568f836e498a05411d2b3cf1c6a950b9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201613"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878622"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Solucionar problemas de conexões de Área de Trabalho Remota a uma máquina virtual do Azure
 A conexão do protocolo RDP à sua VM (máquina virtual) do Azure baseada no Windows pode falhar por vários motivos, impedindo o seu acesso à VM. O problema pode ser com o serviço de Área de Trabalho Remota na VM, a conexão de rede ou o cliente de Área de Trabalho Remota no computador host. Este artigo explica alguns dos métodos mais comuns para resolver problemas de conexão de RDP. 
@@ -46,7 +46,7 @@ Após cada etapa da solução de problemas, tente se reconectar à VM:
 Caso você precise de etapas e explicações mais detalhadas, continue lendo. Verifique se equipamentos de rede local, como roteadores e firewalls, não estão bloqueando a porta de saída TCP 3389, conforme observado nos [cenários detalhados de solução de problemas de RDP](detailed-troubleshoot-rdp.md).
 
 > [!TIP]
-> Se o botão **Conectar** para a VM estiver esmaecido e você não estiver conectado ao Azure por meio de uma [Rota Expressa](../../expressroute/expressroute-introduction.md) ou de uma conexão [VPN Site a Site](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), será necessário criar um endereço IP público e atribui-lo à VM antes que seja possível usar o RDP. Leia mais sobre [endereços IP públicos no Azure](../../virtual-network/public-ip-addresses.md).
+> Se o botão **Conectar** para a VM estiver esmaecido e você não estiver conectado ao Azure por meio de uma [Rota Expressa](../../expressroute/expressroute-introduction.md) ou de uma conexão [VPN Site a Site](../../vpn-gateway/tutorial-site-to-site-portal.md), será necessário criar um endereço IP público e atribui-lo à VM antes que seja possível usar o RDP. Leia mais sobre [endereços IP públicos no Azure](../../virtual-network/public-ip-addresses.md).
 
 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>Maneiras de solucionar problemas com RDP

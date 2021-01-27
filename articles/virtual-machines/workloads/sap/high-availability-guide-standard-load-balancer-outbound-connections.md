@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: radeltch
-ms.openlocfilehash: 525c705db81dc0f152c8dbc55de5ebac841e5d57
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 62b235fa9ea84409a5c29609a5dc0fde1671684c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201732"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878758"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Conectividade de ponto de extremidade público para Máquinas Virtuais usando o Azure Standard Load Balancer em cenários de alta disponibilidade do SAP
 
@@ -45,8 +45,8 @@ Os sistemas SAP geralmente contêm dados comerciais confidenciais. Raramente é 
 
 Exemplos de cenários que exigem acesso a um ponto de extremidade público do Azure são:  
 - O agente de isolamento do Azure requer acesso a **Management.Azure.com** e **login.microsoftonline.com**  
-- [Backup do Azure](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
-- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
+- [Backup do Azure](../../../backup/tutorial-backup-sap-hana-db.md#set-up-network-connectivity)
+- [Azure Site Recovery](../../../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-for-urls)  
 - Uso de repositório público para aplicar patch ao sistema operacional
 - O fluxo de dados do aplicativo SAP pode exigir conectividade de saída para o ponto de extremidade público
 
