@@ -7,18 +7,18 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 4ae69ddeb46d484a64edc4ccabfa6740b36c4264
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: bb4987550e4962ba044e0a6aafbfd00145319e94
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663257"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804954"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
 
 ## <a name="overview"></a>Visão geral
-Quando a exportação de dados estiver configurada para seu espaço de trabalho do Log Analytics, todos os novos dados enviados para as tabelas selecionadas no espaço de trabalho serão exportados automaticamente para sua conta de armazenamento por hora ou para o Hub de eventos em tempo quase real.
+Quando a exportação de dados estiver configurada para seu espaço de trabalho Log Analytics, todos os novos dados enviados para as tabelas selecionadas no espaço de trabalho serão exportados automaticamente para sua conta de armazenamento ou para o Hub de eventos quase em tempo real.
 
 ![Visão geral da exportação de dados](media/logs-data-export/data-export-overview.png)
 
@@ -67,7 +67,7 @@ No momento, não há encargos adicionais para o recurso de exportação de dados
 ## <a name="export-destinations"></a>Destinos de exportação
 
 ### <a name="storage-account"></a>Conta de armazenamento
-Os dados são enviados para contas de armazenamento a cada hora. A configuração de exportação de dados cria um contêiner para cada tabela na conta de armazenamento com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um contêiner chamado *am-SecurityEvent*.
+Os dados são enviados para contas de armazenamento quase em tempo real à medida que atingem Azure Monitor. A configuração de exportação de dados cria um contêiner para cada tabela na conta de armazenamento com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um contêiner chamado *am-SecurityEvent*.
 
 O caminho do blob da conta de armazenamento é *WorkspaceResourceId =/subscriptions/Subscription-ID/resourcegroups/ \<resource-group\> /Providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.json*. Como os blobs de acréscimo são limitados a gravações 50 mil no armazenamento, o número de BLOBs exportados pode se estender se o número de acréscimos for alto. O padrão de nomenclatura para BLOBs nesse caso seria PT1H_ #. JSON, em que # é a contagem de BLOBs incremental.
 
@@ -121,7 +121,7 @@ Se você tiver configurado sua conta de armazenamento para permitir o acesso de 
 Uma regra de exportação de dados define os dados a serem exportados para um conjunto de tabelas para um único destino. Você pode criar uma única regra para cada destino.
 
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -403,7 +403,7 @@ Use o comando a seguir para criar uma regra de exportação de dados para um hub
 
 ## <a name="view-data-export-rule-configuration"></a>Exibir configuração da regra de exportação de dados
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -435,7 +435,7 @@ N/D
 
 ## <a name="disable-an-export-rule"></a>Desabilitar uma regra de exportação
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -482,7 +482,7 @@ As regras de exportação podem ser desabilitadas para permitir que você interr
 
 ## <a name="delete-an-export-rule"></a>Excluir uma regra de exportação
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -514,7 +514,7 @@ N/D
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Exibir todas as regras de exportação de dados em um espaço de trabalho
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 

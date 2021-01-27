@@ -1,5 +1,5 @@
 ---
-title: Aprimorar a resolução de nomes de porta e VLAN
+title: Aprimorar a resolução de nomes de porta e de VLAN
 description: Personalize os nomes de porta e VLAN em seus sensores para enriquecer a resolução do dispositivo.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 1747af77468ebe41f59892dea4bb49ce24757f37
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837757"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803586"
 ---
-# <a name="enhance-port-and-vlan-name-resolution"></a>Aprimorar a resolução de nomes de porta e VLAN
+# <a name="enhance-port-and-vlan-name-resolution"></a>Aprimorar a resolução de nomes de porta e de VLAN
 
 Você pode personalizar os nomes de porta e VLAN em seus sensores para enriquecer a resolução do dispositivo.
 
@@ -50,7 +50,7 @@ Para definir nomes de porta personalizados:
 
 3. Insira o número da porta, selecione **TCP/UDP**, ou selecione **ambos** e adicione o nome.
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ## <a name="configure-vlan-names"></a>Configurar nomes de VLAN
 
@@ -84,7 +84,8 @@ Para configurar VLANs:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Exiba informações de dispositivo aprimorado nos relatórios de inventário de dispositivos e Data Mining:
+Exibir informações de dispositivo aprimorado em vários relatórios:
 
-- [Investigar detecções de sensor em um inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Gerar relatórios](how-to-generate-reports.md)
+- [Investigar as detecções do sensor em um inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Tendências de sensor e relatórios de estatísticas](how-to-create-trends-and-statistics-reports.md)
+- [Consultas de Data Mining de sensor](how-to-create-data-mining-queries.md)

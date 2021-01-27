@@ -12,18 +12,18 @@ ms.date: 01/21/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1dc5b8dc8930d75456f307324ef97bd60e78eca9
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 96772020e70aeb32fa1a8ae18bf3818396887877
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660150"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805230"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerenciar Azure AD B2C com Microsoft Graph
 
 Microsoft Graph permite que você gerencie recursos em seu diretório Azure AD B2C. As operações de API de Microsoft Graph a seguir têm suporte para o gerenciamento de recursos de Azure AD B2C, incluindo usuários, provedores de identidade, fluxos de usuário, políticas personalizadas e chaves de política. Cada link nas seções a seguir visa a página correspondente dentro do Microsoft Graph referência de API para essa operação. 
 
-## <a name="perquisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar o MS API do Graph e interagir com recursos em seu locatário do Azure AD B2C, você precisa de um registro de aplicativo que conceda as permissões para fazer isso. Siga as etapas no artigo [gerenciar Azure ad B2C com Microsoft Graph](microsoft-graph-get-started.md) para criar um registro de aplicativo que seu aplicativo de gerenciamento pode usar. 
 
@@ -95,7 +95,7 @@ O recurso de nível superior para chaves de política na API de Microsoft Graph 
 - [Carregar um certificado X. 509](/graph/api/trustframeworkkeyset-uploadcertificate)
 - [Carregar um certificado de formato PKCS12](/graph/api/trustframeworkkeyset-uploadpkcs12)
 
-## <a name="applications"></a>Aplicativos
+## <a name="applications"></a>Aplicativo
 
 - [Listar aplicativos](/graph/api/application-list)
 - [Criar um aplicativo](/graph/api/resources/application)

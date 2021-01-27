@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 6bf0da8716233178889d47ec3d57e9b29bc2658f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763210"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805791"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Conectar-se a Azure Resource Manager em seu dispositivo do Azure Stack Edge pro
 
@@ -34,7 +34,7 @@ Azure Resource Manager fornece uma camada de gerenciamento consistente para cham
 
 A tabela a seguir resume os vários pontos de extremidade expostos em seu dispositivo, os protocolos com suporte e as portas para acessar esses pontos de extremidade. Ao longo do artigo, você encontrará referências a esses pontos de extremidade.
 
-| # | Ponto de extremidade | Protocolos com suporte | Porta usada | Usado para |
+| # | Ponto de Extremidade | Protocolos com suporte | Porta usada | Usada para |
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | HTTPS | 443 | Para se conectar ao Azure Resource Manager para automação |
 | 2. | Serviço de token de segurança | HTTPS | 443 | Para autenticar por meio de tokens de acesso e de atualização |
@@ -138,9 +138,9 @@ O cliente do Windows deve atender aos seguintes pré-requisitos:
 
     Compare a versão **principal** e verifique se ela é 5,0 ou posterior.
 
-    Se você tiver uma versão desatualizada, consulte [Atualizar o Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Se você tiver uma versão desatualizada, consulte [Atualizar o Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
 
-    Se você não \' tiver o PowerShell 5,0, siga a [instalação do Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Se você não \' tiver o PowerShell 5,0, siga a [instalação do Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
 
     Um exemplo de saída é mostrado abaixo.
 
@@ -156,7 +156,7 @@ O cliente do Windows deve atender aos seguintes pré-requisitos:
     
 2. Você pode acessar o Galeria do PowerShell.
 
-    Execute o PowerShell como administrador. Verifique se o PSGallery está registrado como um repositório.
+    Execute o PowerShell como administrador. Verifique se o `PSGallery` está registrado como um repositório.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -175,7 +175,7 @@ O cliente do Windows deve atender aos seguintes pré-requisitos:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Se o repositório não for confiável ou se você precisar de mais informações, consulte [validar o Galeria do PowerShell acessibilidade](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Se o repositório não for confiável ou se você precisar de mais informações, consulte [validar o Galeria do PowerShell acessibilidade](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Etapa 4: configurar Azure PowerShell no cliente 
 
@@ -327,7 +327,7 @@ Defina o ambiente de Azure Resource Manager e verifique se a comunicação do di
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Para obter mais informações, vá para [set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Para obter mais informações, vá para [set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
 
     - Defina o ambiente embutido para cada cmdlet que você executar. Isso garante que todas as chamadas à API estejam passando pelo ambiente correto. Por padrão, as chamadas passarão pelo público do Azure, mas você deseja que elas passem pelo ambiente que você definiu para Azure Stack dispositivo pro Edge.
 

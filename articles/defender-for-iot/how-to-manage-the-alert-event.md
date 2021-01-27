@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 023b33732b80198c4ed187328e8d18314f385f94
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837644"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803511"
 ---
 # <a name="manage-alert-events"></a>Gerenciar eventos de alerta
 
@@ -106,8 +106,6 @@ Quando um evento está mudo, ele é ignorado sempre que a origem envia um cabeç
 
 2. Focalize um alerta para ver se ele está mudo.  
 
-## <a name="see-also"></a>Consulte também
-
-[Gerar relatórios](how-to-generate-reports.md)
+## <a name="see-also"></a>Confira também
 
 [Controlar qual tráfego é monitorado](how-to-control-what-traffic-is-monitored.md)

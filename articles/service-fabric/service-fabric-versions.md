@@ -3,12 +3,12 @@ title: Atualizar sua versão do cluster de Service Fabric do Azure
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: b7234a60c98c42716e5b294c356062ec7001aef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c9a29a97238164b9f6daf9dda66a1f314a7673ce
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762641"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804233"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Atualizar sua versão do cluster de Service Fabric do Azure
 
@@ -60,13 +60,14 @@ Para melhorar a segurança e a disponibilidade, a infraestrutura do Azure fez um
 #### <a name="if-you-dont-upgrade-to-a-supported-version"></a>Se você não atualizar para uma versão com suporte
 
 Os clusters Service Fabric do Azure que são executados em versões inalteradas posteriores a 6,3 sofrerão perda de funcionalidade ou interrupções de serviço se não tiverem sido atualizados para uma versão com suporte até 19 de janeiro de 2021.
-
-As interrupções de serviço podem incluir o seguinte:
-
-- Versões que *não estão* usando o modo **aberto** : o cluster permanecerá, mas o modo de **abertura** deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
-
-- Versões que *estão* usando o modo **aberto** : o cluster pode se tornar indisponível e deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
   
+  - **Para clusters que executam uma versão do Service Fabric maior que 6,3 não usando o recurso de rede aberta**, o cluster permanecerá ativo.
+
+ - **Para clusters que executam uma versão do Service Fabric maior que 6,3 e usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , o cluster pode se tornar indisponível e deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
+ 
+ -   **Para clusters que executam [versões do Windows entre 7.0.457 e 7.0.466 (ambas as versões incluídas)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) e o sistema operacional Windows tem o recurso de contêineres do Windows habilitado. Observação: as versões do Linux 7.0.457, 7.0.464 e 7.0.465 não são afetadas**.
+    - **Impacto**: o cluster deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
+    
 #### <a name="required-action"></a>Ação necessária
 
 Para evitar o tempo de inatividade ou a perda de funcionalidade, verifique se os clusters estão executando uma das seguintes versões.

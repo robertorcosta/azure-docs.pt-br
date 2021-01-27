@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 69d5a0a69bcd820fd59da0a18b3838b65a6a0460
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763415"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805198"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implantar VMs em seu dispositivo do Azure Stack Edge pro GPU por meio de modelos
 
@@ -29,7 +29,7 @@ Para implantar Azure Stack VMs do Edge pro em vários dispositivos, você pode u
 
 O resumo de alto nível do fluxo de trabalho de implantação usando modelos é o seguinte:
 
-1. **Configurar os pré-requisitos** – há três tipos de pré-requisitos; dispositivo, cliente e para a VM.
+1. **Configurar os pré-requisitos** – há três tipos de pré-requisitos: dispositivo, cliente e para a VM.
 
     1. **Pré-requisitos do dispositivo**
 
@@ -47,7 +47,7 @@ O resumo de alto nível do fluxo de trabalho de implantação usando modelos é 
         1. Crie um grupo de recursos no local do dispositivo que conterá todos os recursos da VM.
         1. Crie uma conta de armazenamento para carregar o VHD usado para criar a imagem de VM.
         1. Adicione o URI da conta de armazenamento local ao arquivo DNS ou hosts no cliente que está acessando seu dispositivo.
-        1. Instale o certificado de armazenamento de BLOBs no dispositivo, bem como no cliente local que está acessando seu dispositivo. Opcionalmente, instale o certificado de armazenamento de BLOBs no Gerenciador de Armazenamento.
+        1. Instale o certificado de armazenamento de BLOBs no dispositivo e no cliente local que está acessando seu dispositivo. Opcionalmente, instale o certificado de armazenamento de BLOBs no Gerenciador de Armazenamento.
         1. Crie e carregue um VHD para a conta de armazenamento criada anteriormente.
 
 2. **Criar VM com base em modelos**
@@ -71,7 +71,7 @@ Configure esses pré-requisitos no cliente que serão usados para acessar o disp
 
 ## <a name="vm-prerequisites"></a>Pré-requisitos de VM
 
-Configure esses pré-requisitos para criar recursos que serão necessários para a criação da VM. 
+Configure esses pré-requisitos para criar os recursos necessários para a criação da VM. 
 
     
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
@@ -101,7 +101,7 @@ PS C:\windows\system32>
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma nova conta de armazenamento usando o grupo de recursos criado na etapa anterior. Esta é uma **conta de armazenamento local** que será usada para carregar a imagem de disco virtual para a VM.
+Crie uma nova conta de armazenamento usando o grupo de recursos criado na etapa anterior. Essa conta é uma **conta de armazenamento local** que será usada para carregar a imagem do disco virtual para a VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -159,7 +159,7 @@ Copie as imagens de disco a serem usadas em blobs de páginas na conta de armaze
 
 ### <a name="use-storage-explorer-for-upload"></a>Usar Gerenciador de Armazenamento para carregar
 
-1. Abra o Explorer do Armazenamento. Vá para **Editar** e verifique se o aplicativo está definido como **destino Azure Stack APIs**.
+1. Abra o Gerenciador de Armazenamento. Vá para **Editar** e verifique se o aplicativo está definido como **destino Azure Stack APIs**.
 
     ![Definir destino para Azure Stack APIs](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/set-target-apis-1.png)
 
@@ -209,7 +209,7 @@ Copie as imagens de disco a serem usadas em blobs de páginas na conta de armaze
 
     ![Carregar arquivo VHD 3](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
 
-12. Copie e salve o **URI** , pois você o usará em etapas posteriores.
+12. Copie e salve o **URI**, que será usado em etapas posteriores.
 
     ![Copiar URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
@@ -237,7 +237,7 @@ O arquivo `CreateImage.parameters.json` usa os seguintes parâmetros:
     }
 ```
 
-Edite o arquivo `CreateImage.parameters.json` para incluir o seguinte para seu dispositivo Azure Stack Edge pro:
+Edite o arquivo `CreateImage.parameters.json` para incluir os seguintes valores para seu dispositivo Azure Stack Edge pro:
 
 1. Forneça o tipo de sistema operacional correspondente ao VHD que será carregado. O tipo de sistema operacional pode ser Windows ou Linux.
 
@@ -250,16 +250,17 @@ Edite o arquivo `CreateImage.parameters.json` para incluir o seguinte para seu d
 
 2. Altere o URI da imagem para o URI da imagem que você carregou na etapa anterior:
 
-    ```json
-    "imageUri": {
-        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-        },
-    ```
-    Se você estiver usando *http* com Gerenciador de armazenamento, altere-o para um URI *http* .
+   ```json
+   "imageUri": {
+       "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
+       },
+   ```
+
+   Se você estiver usando *http* com Gerenciador de armazenamento, altere o URI para um URI *http* .
 
 3. Forneça um nome de imagem exclusivo. Essa imagem é usada para criar a VM nas etapas posteriores. 
 
-    Aqui está um exemplo de JSON que é usado neste artigo.
+   Aqui está um exemplo de JSON que é usado neste artigo.
 
     ```json
     {
@@ -278,6 +279,7 @@ Edite o arquivo `CreateImage.parameters.json` para incluir o seguinte para seu d
       }
     }
     ```
+
 5. Salve o arquivo de parâmetros.
 
 
@@ -568,7 +570,7 @@ Implante o modelo de criação de VM `CreateVM.json` . Este modelo cria uma inte
     `Get-AzureRmVm`
 
 
-## <a name="connect-to-a-vm"></a>Conectar-se a uma VM
+## <a name="connect-to-a-vm"></a>Como conectar-se a uma VM
 
 Dependendo se você criou uma VM do Windows ou do Linux, as etapas para conectar podem ser diferentes.
 
@@ -588,4 +590,4 @@ Siga estas etapas para se conectar a uma VM do Linux.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

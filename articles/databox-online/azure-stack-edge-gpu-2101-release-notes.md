@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/19/2021
 ms.author: alkohli
-ms.openlocfilehash: d0b7f871b2ea62c810a6d20f6e20a5e8d3f6306e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8158868a39bf8a1fe03a620f37e4dcb1c9adc14e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791906"
+ms.locfileid: "98805193"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de versão do Azure Stack Edge 2101
 
@@ -45,10 +45,10 @@ A tabela a seguir fornece um resumo dos problemas conhecidos na versão 2101.
 |**1.**|Versão prévia dos recursos |Para esta versão, os seguintes recursos: Azure Resource Manager locais, VMs, gerenciamento de nuvem de VMs, Arc do Azure habilitado kubernetes, VPN para Azure Stack Edge pro R e Azure Stack mini R de borda, MPS (multi-Process Service) para Azure Stack Edge pro GPU-estão todos disponíveis na visualização.  |Esses recursos estarão disponíveis para o público em geral em versões posteriores. |
 |**2.**|Painel do kubernetes | Não há suporte para o ponto de extremidade *https* do painel kubernetes com o certificado SSL. | |
 |**3.**|Kubernetes |O registro de contêiner do Edge não funciona quando o proxy Web está habilitado.|A funcionalidade estará disponível em uma versão futura. |
-|**4.**|Kubernetes |O registro de contêiner de borda não funciona com módulos IoT Edge.| |
-|**5.**|Kubernetes |Kubernetes não dá suporte a ":" em nomes de variáveis de ambiente que são usados por aplicativos .NET. Isso também é necessário para a grade de eventos IoT Edge módulo para funcionar em Azure Stack dispositivo de borda e outros aplicativos. Para obter mais informações, consulte a [documentação do ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Substitua ":" por duplo sublinhado. Para obter mais informações, consulte [kubernetes Issue](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**6.** |Azure Arc + cluster kubernetes |Por padrão, quando o recurso `yamls` é excluído do repositório git, os recursos correspondentes não são excluídos do cluster kubernetes.  |Você precisa definir `--sync-garbage-collection` em Arc OperatorParams para permitir a exclusão de recursos quando eles são excluídos do repositório git. Para obter mais informações, consulte [excluir uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
-|**7.**|NFS |Os aplicativos que usam montagens de compartilhamento NFS em seu dispositivo para gravar dados devem usar a gravação exclusiva. O uso de gravação exclusiva garante que as gravações sejam gravadas no disco.| |
+|**4.**|Kubernetes |O registro de contêiner do Edge não funciona com módulos IoT Edge.| |
+|**5.**|Kubernetes |Kubernetes não dá suporte a ":" em nomes de variáveis de ambiente que são usados por aplicativos .NET. Isso também é necessário para a grade de eventos IoT Edge módulo para funcionar no dispositivo Azure Stack Edge e em outros aplicativos. Para obter mais informações, consulte a [documentação do ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Substitua ":" por duplo sublinhado. Para obter mais informações, consulte [kubernetes Issue](https://github.com/kubernetes/kubernetes/issues/53201)|
+|**6.** |Azure Arc + cluster kubernetes |Por padrão, quando o recurso `yamls` é excluído do repositório git, os recursos correspondentes não são excluídos do cluster kubernetes.  |Você precisa definir `--sync-garbage-collection`  em Arc OperatorParams para permitir a exclusão de recursos quando excluídos do repositório git. Para obter mais informações, consulte [excluir uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**7.**|NFS |Os aplicativos que usam montagens de compartilhamento NFS em seu dispositivo para gravar dados devem usar a gravação exclusiva. Isso garante que as gravações sejam gravadas no disco.| |
 |**8.**|Configuração de computação |A configuração de computação falha em configurações de rede em que gateways ou comutadores ou roteadores respondem a solicitações de ARP (protocolo de resolução de endereço) para sistemas que não existem na rede.| |
 |**9.**|Computação e kubernetes |Se kubernetes for configurado primeiro no seu dispositivo, ele reivindicará todas as GPUs disponíveis. Portanto, não é possível criar Azure Resource Manager VMs usando GPUs depois de configurar o kubernetes. |Se o dispositivo tiver duas GPUs, você poderá criar uma VM que usa a GPU e, em seguida, configurar o kubernetes. Nesse caso, o kubernetes usará a GPU 1 disponível restante. |
 
