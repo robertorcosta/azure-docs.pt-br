@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 54a4a938be18d39993652cecb87b3604e268fcef
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: daf44afbb322cb30ab3a663dce4e935aefa7be13
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678945"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808066"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implantar VMs no dispositivo de GPU Azure Stack Edge Pro usando a CLI do Azure e o Python
 
@@ -70,9 +70,9 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
 
 3. Você criou e instalou todos os certificados no dispositivo Azure Stack Edge Pro e no repositório confiável do cliente. Siga o procedimento descrito na [Etapa 2: Criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. Você criou um certificado *.cer* (formato PEM) codificado em Base-64 para o dispositivo Azure Stack Edge Pro. Isso já foi carregado como uma cadeia de assinatura no dispositivo e instalado no repositório raiz confiável do cliente. Também é necessário que esse certificado esteja no formato *PEM* para que o Python funcione no cliente.
+4. Você criou um certificado *.cer* (formato PEM) codificado em Base-64 para o dispositivo Azure Stack Edge Pro. Esse certificado já foi carregado como uma cadeia de assinatura no dispositivo e instalado no repositório raiz confiável do cliente. Também é necessário que esse certificado esteja no formato *PEM* para que o Python funcione no cliente.
 
-    Converta o certificado em formato PEM usando o comando `certutil`. Você precisará executar esse comando no diretório que contém o certificado.
+    Converta o certificado em formato `pem` usando o comando `certutil`. Você precisará executar esse comando no diretório que contém o certificado.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
@@ -86,9 +86,9 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
     CertUtil: -encode command completed successfully.
     PS C:\Certificates>
     ```    
-    Você também adicionará esse PEM ao repositório do Python posteriormente.
+    Você também adicionará esse `pem` ao repositório do Python posteriormente.
 
-5. Você atribuiu o IP do dispositivo na página **Rede** à IU da Web local do dispositivo. Você precisará adicionar esse IP:
+5. Você atribuiu o IP do dispositivo na página **Rede** à IU da Web local do dispositivo. Adicionar este IP a:
 
     - Ao arquivo de host no cliente OU
     - À configuração do servidor DNS
@@ -117,7 +117,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Confirmar o perfil e instalar a CLI do Azure
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
 1. Instale a CLI do Azure no cliente. Neste exemplo, a CLI do Azure 2.0.80 foi instalada. Para confirmar a versão da CLI do Azure, execute o comando `az --version`.
 
@@ -149,7 +149,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
 
     Caso você não tenha a CLI do Azure, baixe-a e [instale-a no Windows](/cli/azure/install-azure-cli-windows). Execute a CLI do Azure usando o prompt de comando do Windows ou por meio do Windows PowerShell.
 
-2. Anote a localização do Python da CLI. Você precisará disso para determinar a localização do repositório de certificados raiz confiáveis da CLI do Azure.
+2. Anote a localização do Python da CLI. Você precisará da localização do Python para determinar a localização do repositório de certificados raiz confiáveis da CLI do Azure.
 
 3. Para executar o script de exemplo usado neste artigo, você precisará ter as seguintes versões da biblioteca do Python:
 
@@ -266,7 +266,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
     $ENV:ADAL_PYTHON_SSL_NO_VERIFY = 1
     ```
 
-2. Defina variáveis de ambiente do script no ponto de extremidade do Azure Resource Manager, no local em que os recursos foram criados e no caminho em que o VHD de origem se encontra. A localização dos recursos é fixa em todos os dispositivos Azure Stack Edge Pro e é definida como `dbelocal`. Você também precisa especificar os prefixos de endereço e o endereço IP privado. Todas as variáveis de ambiente a seguir são valores baseados nos seus valores com a exceção de `AZURE_RESOURCE_LOCATION`, que deve ser embutida em código em `"dbelocal"`.
+2. Defina variáveis de ambiente do script no ponto de extremidade do Azure Resource Manager, no local em que os recursos foram criados e no caminho em que o VHD de origem se encontra. A localização dos recursos é fixa em todos os dispositivos Azure Stack Edge Pro e é definida como `dbelocal`. Você também precisa especificar os prefixos de endereço e o endereço IP privado. Todas as variáveis de ambiente a seguir são valores baseados nos seus valores, exceto `AZURE_RESOURCE_LOCATION`, que deve ser embutida em código em `"dbelocal"`.
 
     ```powershell
     $ENV:ARM_ENDPOINT = "https://management.team3device.teatraining1.com"

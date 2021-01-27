@@ -134,7 +134,7 @@
               items:
                 - name: Visão geral
                   href: explore-data.md
-                - name: Explorar armazenamento de Blobs do Azure
+                - name: Explorar o Armazenamento de Blobs do Azure
                   href: explore-data-blob.md
                 - name: Explorar o SQL em uma VM
                   href: explore-data-sql-server.md

@@ -120,6 +120,10 @@
       href: azure-monitor.md
     - name: Configurar um plano de recuperação de desastre
       href: disaster-recovery.md
+    - name: Configurar o proxy KDC
+      href: key-distribution-center-proxy.md
+    - name: Configurar a função de Gateway de Área de Trabalho Remota
+      href: rd-gateway-role.md
 - name: Conceitos
   items:
     - name: Funções internas
@@ -170,6 +174,10 @@
       href: azure-monitor-glossary.md
     - name: Localizações de dados
       href: data-locations.md
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Solucionar problemas
   items:
     - name: 'Visão geral da solução de problemas, comentários e suporte'

@@ -10,12 +10,12 @@ metadata:
   author: mimckitt
   ms.author: mimckitt
   ms.date: 03/06/2020
-  ms.openlocfilehash: 8f999851c1566b2a488daa4bdc5da73761f7ce0b
-  ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+  ms.openlocfilehash: efbdf689b895278445f022d15473591e09a691f9
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 01/23/2021
-  ms.locfileid: "98743639"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98878724"
 landingContent:
 - title: Sobre os Serviços de Nuvem (suporte estendido)
   linkLists:
@@ -47,6 +47,8 @@ landingContent:
       url: available-sizes.md
     - text: Perguntas frequentes
       url: faq.md
+    - text: Notícias sobre o lançamento do SO convidado
+      url: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
 - title: Guias de instruções
   linkLists:
   - linkListType: how-to-guide
@@ -63,6 +65,8 @@ landingContent:
   linkLists:
   - linkListType: sample
     links:
+    - text: Modelos de exemplo
+      url: https://github.com/Azure-Samples/cloud-services-extended-support
     - text: Criar uma implantação do Serviço de Nuvem
       url: sample-create-cloud-service.md
     - text: Recuperar informações sobre uma implantação do Serviço de Nuvem
