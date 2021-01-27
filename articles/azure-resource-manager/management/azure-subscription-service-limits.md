@@ -3,12 +3,12 @@ title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: baef641a741d12185029436e5a74039427c69f68
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 0a20d38d0f8d5be4a19dcdb8b6b846699bac6cc1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98802895"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920453"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -175,6 +175,10 @@ Os valores mais recentes para Azure Machine Learning cotas de computação podem
 ## <a name="azure-policy-limits"></a>Limites do Azure Policy
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+
+## <a name="azure-quantum-limits"></a>Limites do quantum do Azure
+
+[!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
 
 ## <a name="azure-role-based-access-control-limits"></a>Limites de controle de acesso baseado em função do Azure
 
@@ -446,7 +450,7 @@ Há limites por assinatura para implantar recursos usando Galerias de Imagens Co
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Entender os limites e as aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de máquina virtual e serviço de nuvem para o Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 48dbd0892c9ec02f203edba55d1104f1ab0118a8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8ad5ee78a525b3798bbf613168ff74a9e21fe99b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737601"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920250"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
@@ -46,6 +46,7 @@ Há dois parâmetros de cabeçalho necessários que devem ser definidos para tra
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 A API do Azure para FHIR dá suporte aos seguintes parâmetros de consulta. Todos esses parâmetros são opcionais:
+
 |Parâmetro de consulta        | Definido pela especificação de FHIR?    |  Descrição|
 |------------------------|---|------------|
 | \_outputFormat | Sim | Atualmente dá suporte a três valores para alinhar à especificação FHIR: Application/FHIR + ndjson, Application/ndjson ou apenas ndjson. Todos os trabalhos de exportação serão retornados `ndjson` e o valor passado não terá efeito sobre o comportamento do código. |

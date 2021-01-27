@@ -4,12 +4,12 @@ description: Configure um pool de computação dedicado (pool de agentes) no reg
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: eeb9a71854f52da5c1a9f4befae93c377ad67b05
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844907"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920300"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Executar uma tarefa ACR em um pool de agentes dedicado
 
@@ -44,7 +44,7 @@ Esse recurso está disponível na camada de serviço **Premium** do registro de 
 
 As camadas do pool de agentes fornecem os seguintes recursos por instância no pool.
 
-|Camada    | Type  |  CPU  |Memória (GB)  |
+|Camada    | Tipo  |  CPU  |Memória (GB)  |
 |---------|---------|---------|---------|
 |S1     |  padrão    | 2       |    3     |
 |S2     |  padrão    | 4       |    8     |
@@ -139,7 +139,7 @@ az acr build \
     --agent-pool myagentpool \
     --image myimage:mytag \
     --file Dockerfile \
-    https://github.com/Azure-Samples/acr-build-helloworld-node.git
+    https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
 ### <a name="automatically-triggered-task"></a>Tarefa disparada automaticamente
@@ -153,7 +153,7 @@ az acr task create \
     --image myimage:mytag \
     --schedule "0 21 * * *" \
     --file Dockerfile \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --commit-trigger-enabled false
 ```
 

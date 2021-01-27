@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 5b91d6e58f4ae93bbf020f202991f878e7773114
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222948"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919945"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Criar uma máquina virtual Linux com Rede Acelerada usando CLI do Azure
 
@@ -56,11 +56,9 @@ As seguintes distribuições têm suporte imediato da Galeria do Azure:
 ## <a name="limitations-and-constraints"></a>Limitações e Restrições
 
 ### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
-A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs.  Essas séries com suporte são: D/DSv2 e F/Fs
+A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs. Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. 
 
-Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. As séries com suporte são: D/Dsv3, D/Dsv4, DD/Ddv4, da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, ea/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
-
-Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM do Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O suporte para rede acelerada pode ser encontrado na documentação de [tamanhos de máquinas virtuais](../virtual-machines/sizes.md) individuais. 
 
 ### <a name="custom-images"></a>Imagens personalizadas
 Se você estiver usando uma imagem personalizada e sua imagem der suporte à rede acelerada, certifique-se de ter os drivers necessários para trabalhar com NICs Mellanox ConnectX-3 e ConnectX-4 LX no Azure.

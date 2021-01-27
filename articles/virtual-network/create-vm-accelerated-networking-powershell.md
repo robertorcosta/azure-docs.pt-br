@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223628"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919962"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Criar uma VM do Windows com rede acelerada usando Azure PowerShell
 
@@ -61,11 +61,9 @@ As distribuições a seguir têm suporte diretamente da galeria do Azure:
 
 ### <a name="supported-vm-instances"></a>Instâncias de VM compatíveis
 
-A rede acelerada tem suporte na maioria dos tamanhos de instância de uso geral e otimizado para computação com duas ou mais CPUs virtuais (vCPUs).  Essas séries com suporte são: Dv2/DSv2 e F/FS.
+A Rede Acelerada é compatível com os tamanhos de instância de uso geral e de computação otimizada com 2 ou mais vCPUs. Em instâncias que são compatíveis com hyperthreading, a Rede Acelerada é compatível com instâncias de VM com 4 ou mais vCPUs. 
 
-Em instâncias que dão suporte a hyperthreading, a rede acelerada tem suporte em instâncias de VM com quatro ou mais vCPUs. As séries com suporte são: D/Dsv3, D/Dsv4, da/Dasv4, E/Esv3, ea/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
-
-Para obter mais informações sobre instâncias de VM, consulte [tamanhos de máquinas virtuais do Windows no Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O suporte para rede acelerada pode ser encontrado na documentação de [tamanhos de máquinas virtuais](../virtual-machines/sizes.md) individuais. 
 
 ### <a name="custom-images"></a>Imagens personalizadas
 
@@ -252,13 +250,13 @@ Depois de criar a VM no Azure, conecte-se à VM e confirme se o controlador Ethe
 
 5. Abra o arquivo. RDP e entre na VM com as credenciais que você inseriu na seção [criar uma VM e anexar a interface de rede](#create-a-vm-and-attach-the-network-interface) . Se você nunca se conectou a uma VM do Windows no Azure, consulte [Conectar-se a máquina virtual](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
-6. Depois que a sessão da área de trabalho remota para sua VM for exibida, clique com o botão direito do mouse no botão Iniciar do Windows e escolha **Device Manager**.
+6. Depois que a sessão da área de trabalho remota para sua VM for exibida, clique com o botão direito do mouse no botão Iniciar do Windows e escolha **Gerenciador de dispositivos**.
 
-7. Na janela **Device Manager** , expanda o nó **adaptadores de rede** .
+7. Na janela **Gerenciador de dispositivos** , expanda o nó **adaptadores de rede** .
 
 8. Confirme se o **adaptador Ethernet de função virtual Mellanox ConnectX-3** aparece, conforme mostrado na imagem a seguir:
 
-    ![Adaptador Ethernet de função virtual Mellanox ConnectX-3, novo adaptador de rede para rede acelerada, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
+    ![Adaptador Ethernet de função virtual Mellanox ConnectX-3, novo adaptador de rede para rede acelerada, Gerenciador de Dispositivos](./media/create-vm-accelerated-networking/device-manager.png)
 
 A rede acelerada agora está habilitada para sua VM.
 

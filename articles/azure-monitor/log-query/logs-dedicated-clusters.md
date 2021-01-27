@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98609937"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920216"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
@@ -25,9 +25,6 @@ Os recursos que exigem clusters dedicados são:
 - **[Vários espaços de trabalho](../log-query/cross-workspace-query.md)** – se um cliente estiver usando mais de um espaço de trabalho para produção, poderá fazer sentido usar o cluster dedicado. As consultas entre espaços de trabalho serão executadas mais rapidamente se todos os espaços de trabalho estiverem no mesmo cluster. Também pode ser mais econômico usar o cluster dedicado, pois as camadas de reserva de capacidade atribuídas levam em conta toda a ingestão de cluster e se aplicam a todos os seus espaços de trabalho, mesmo que algumas delas sejam pequenas e não elegíveis para o desconto de reserva de capacidade.
 
 Os clusters dedicados exigem que os clientes sejam confirmados usando uma capacidade de pelo menos 1 TB de ingestão de dados por dia. A migração para um cluster dedicado é simples. Não há perda de dados ou interrupção de serviço. 
-
-> [!IMPORTANT]
-> Os clusters dedicados são aprovados e têm suporte total para implantações de produção. No entanto, devido a restrições de capacidade temporárias, exigimos o registro prévio para usar o recurso. Use seus contatos na Microsoft para fornecer suas IDs de assinaturas.
 
 ## <a name="management"></a>Gerenciamento 
 

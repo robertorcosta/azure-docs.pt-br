@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: d5820af1efd91efd79fb2a860d6aad8d2eeed80d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740871"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920419"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Explore e gerencie seus recursos com o inventário de ativos
+# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Explore e gerencie seus recursos usando um inventário de ativos
 
 A página de inventário de ativos da Central de Segurança do Azure fornece uma só página para exibição da postura de segurança dos recursos que você conectou à Central de Segurança. 
 
@@ -40,7 +40,7 @@ As possibilidades de gerenciamento de ativos para essa ferramenta são substanci
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|todos os usuários|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|

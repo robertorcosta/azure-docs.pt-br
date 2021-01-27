@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 97b5d6bc6f19e07ea7c980b98c1e7986c59dc546
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 40eed41dbaa3314c00faebf1c2452aaa6fb46dc9
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585404"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920081"
 ---
 # <a name="nc-series"></a>Série NC
 
@@ -23,6 +23,7 @@ As VMs da série NC são alimentadas pela placa [NVIDIA Tesla K80](https://www.n
 [Migração ao vivo](maintenance-and-updates.md): sem suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): sem suporte<br>
 Interconexão NVIDIA NVLink: sem suporte<br>
 <br>
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 4931258af0dd50d091bec98824df5da0e91dbf53
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 14a405dbab0460f841a5e9104dbfeff101568f44
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895692"
+ms.locfileid: "98919152"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de alocação personalizadas
 
@@ -78,8 +78,11 @@ Nesta seção, você usa o Azure Cloud Shell para criar um serviço de provision
 
 3. Use o Azure Cloud Shell para criar o Hub IoT **Divisão de Resistências da Contoso** com o comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). O Hub IoT será adicionado ao *contoso-us-resource-group*.
 
-    O exemplo a seguir cria um hub IoT chamado *contoso-torradeirars-Hub-1098* no local *westus* . Você deve usar um nome de Hub exclusivo. Crie seu próprio sufixo no nome do hub no lugar de **1098**. O código de exemplo para a política de alocação personalizada requer `-toasters-` no nome do hub.
+    O exemplo a seguir cria um hub IoT chamado *contoso-torradeirars-Hub-1098* no local *westus* . Você deve usar um nome de Hub exclusivo. Crie seu próprio sufixo no nome do hub no lugar de **1098**. 
 
+    > [!CAUTION]
+    > O código de exemplo do Azure function para a política de alocação personalizada requer a subcadeia `-toasters-` de caracteres no nome do Hub. Certifique-se de usar um nome que contenha a subcadeia de caracteres dos torradeiras necessários.
+    
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
@@ -88,7 +91,10 @@ Nesta seção, você usa o Azure Cloud Shell para criar um serviço de provision
 
 4. Use o Azure Cloud Shell para criar o Hub IoT **Divisão de Bombas Térmicas da Contoso** com o comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). Este Hub IoT também será adicionado ao *contoso-us-resource-group*.
 
-    O exemplo a seguir cria um hub IoT chamado *contoso-heatpumps-Hub-1098* no local *westus* . Você deve usar um nome de Hub exclusivo. Crie seu próprio sufixo no nome do hub no lugar de **1098**. O código de exemplo para a política de alocação personalizada requer `-heatpumps-` no nome do hub.
+    O exemplo a seguir cria um hub IoT chamado *contoso-heatpumps-Hub-1098* no local *westus* . Você deve usar um nome de Hub exclusivo. Crie seu próprio sufixo no nome do hub no lugar de **1098**. 
+
+    > [!CAUTION]
+    > O código de exemplo do Azure function para a política de alocação personalizada requer a subcadeia `-heatpumps-` de caracteres no nome do Hub. Certifique-se de usar um nome que contenha a subcadeia de caracteres heatpumps necessária.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -98,14 +104,14 @@ Nesta seção, você usa o Azure Cloud Shell para criar um serviço de provision
 
 5. Os hubs IoT devem ser vinculados ao recurso de DPS. 
 
-    Execute os dois comandos a seguir para obter as cadeias de conexão para os hubs que você acabou de criar:
+    Execute os dois comandos a seguir para obter as cadeias de conexão para os hubs que você acabou de criar. Substitua os nomes de recursos do Hub pelos nomes que você escolheu em cada comando:
 
     ```azurecli-interactive 
     hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
     hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
     ```
 
-    Execute os seguintes comandos para vincular os hubs ao recurso de DPS:
+    Execute os comandos a seguir para vincular os hubs ao recurso de DPS. Substitua o nome do recurso DPS pelo nome que você escolheu em cada comando:
 
     ```azurecli-interactive 
     az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
@@ -346,56 +352,59 @@ Para o exemplo neste artigo, use as duas IDs de registro de dispositivo a seguir
 * **breakroom499-contoso-tstrsd-007**
 * **mainbuilding167-contoso-hpsd-088**
 
-### <a name="linux-workstations"></a>Estações de trabalho do Linux
 
-Se você estiver usando uma estação de trabalho do Linux, poderá usar o OpenSSL para gerar as chaves de dispositivo derivadas, conforme mostrado no exemplo a seguir.
-
-1. Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
-
-    ```bash
-    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
-
-    REG_ID1=breakroom499-contoso-tstrsd-007
-    REG_ID2=mainbuilding167-contoso-hpsd-088
-
-    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-
-    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-    ```
-
-    ```bash
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
-
-### <a name="windows-based-workstations"></a>Estações de trabalho baseadas em Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Se estiver usando uma estação de trabalho baseada no Windows, você poderá usar o PowerShell para gerar sua chave de dispositivo derivada, conforme mostrado no exemplo a seguir.
 
-1. Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
+Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
 
-    ```powershell
-    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+```powershell
+$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-    $REG_ID1='breakroom499-contoso-tstrsd-007'
-    $REG_ID2='mainbuilding167-contoso-hpsd-088'
+$REG_ID1='breakroom499-contoso-tstrsd-007'
+$REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-    $hmacsha256.key = [Convert]::FromBase64String($KEY)
-    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-    $derivedkey1 = [Convert]::ToBase64String($sig1)
-    $derivedkey2 = [Convert]::ToBase64String($sig2)
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+$derivedkey1 = [Convert]::ToBase64String($sig1)
+$derivedkey2 = [Convert]::ToBase64String($sig2)
 
-    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-    ```
+echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+```
 
-    ```powershell
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
+```powershell
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+Se você estiver usando uma estação de trabalho do Linux, poderá usar o OpenSSL para gerar as chaves de dispositivo derivadas, conforme mostrado no exemplo a seguir.
+
+Substitua o valor de **CHAVE** pela **Chave primária** que você anotou anteriormente.
+
+```bash
+KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+
+REG_ID1=breakroom499-contoso-tstrsd-007
+REG_ID2=mainbuilding167-contoso-hpsd-088
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+
+echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+```
+
+```bash
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+---
 
 Os dispositivos simulados usarão as chaves do dispositivo derivadas com cada ID de registro para realizar o atestado de chave simétrica.
 

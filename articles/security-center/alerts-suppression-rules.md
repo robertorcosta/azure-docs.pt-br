@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 1ca2ded69b0279a60d8ed83cf310a58dadf1a337
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751981"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920436"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Suprimir alertas do Azure Defender
 
@@ -23,7 +23,7 @@ Esta página explica como você pode usar as regras de supressão de alertas par
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:| Disponível para o público geral |
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita<br>(A maioria dos alertas de segurança só está disponível com o Azure defender)|
 |Funções e permissões necessárias:|**Administrador de segurança** e **proprietário** podem criar/excluir regras.<br>O **Leitor de segurança** e o **Leitor** podem exibir regras.|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|

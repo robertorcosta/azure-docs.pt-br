@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 01/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e64b0af455ab1f84653093b26654530ee3dfab
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232770"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919622"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -26,11 +26,11 @@ As políticas de termos de uso do Azure AD fornecem um método simples que as or
 
 ## <a name="overview-videos"></a>Vídeos de visão geral
 
-O vídeo a seguir fornece uma visão geral rápida dos termos de políticas de uso.
+O vídeo a seguir fornece uma visão geral rápida das políticas de ToU.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-Para ver outros vídeos, consulte:
+Para obter mais vídeos, consulte:
 - [Como implantar uma política de termos de uso no Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
 - [Como distribuir uma política de termos de uso no Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
@@ -99,17 +99,17 @@ Depois de ter finalizado o documento de política dos termos de uso, use o proce
 
    Por exemplo, se você definir a expiração a partir da data para **1 de janeiro** e a frequência para **Mensal**, segue como ocorreriam as expirações para dois usuários:
 
-   | User | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
+   | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
-   | Roberto | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
+   | Bob | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
 
 1. Use a configuração **duração antes da reaceitação requer (dias)** para especificar o número de dias antes que o usuário precise aceitar novamente a política de termos de uso. Isso permite que os usuários sigam seu próprio cronograma. Por exemplo, se você definir a duração como **30** dias, segue como ocorreriam as expirações para dois usuários:
 
-   | User | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
+   | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 31 de janeiro | 2 de março | 1 de abril |
-   | Roberto | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
+   | Bob | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
 
    É possível usar os **consentidos expirar** e a **duração antes que a reaceitação exija (dias)** as configurações juntas, mas normalmente você usa uma ou outra.
 
@@ -183,7 +183,7 @@ Para começar a usar os logs de auditoria do Microsoft Azure AD, use o procedime
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>A aparência dos termos de uso para os usuários
 
-Depois que a política de termos de uso for criada e imposta, os usuários, que estão no escopo, verão a tela a seguir durante a entrada.
+Depois que uma política de ToU for criada e imposta, os usuários, que estão no escopo, verão a tela a seguir durante a entrada.
 
 ![Exemplo de termos de uso que aparece quando um usuário entra](./media/terms-of-use/user-tou.png)
 
@@ -191,7 +191,7 @@ Os usuários podem exibir os termos de política de uso e, se necessário, usar 
 
 ![Exibição dos termos de uso com botões de zoom](./media/terms-of-use/zoom-buttons.png)
 
-A tela a seguir mostra como a política de termos de uso examina os dispositivos móveis.
+A tela a seguir mostra como uma política ToU procura em dispositivos móveis.
 
 ![Exemplo de termos de uso que aparece quando um usuário entra em um dispositivo móvel](./media/terms-of-use/mobile-tou.png)
 
@@ -226,7 +226,7 @@ Você pode editar alguns detalhes dos termos de políticas de uso, mas não pode
     - Apresentação Você pode **atualizar um documento de termos de uso existente**
     - Você pode adicionar um idioma a um ToU existente
 
-   Se houver outras configurações que você queira alterar, como documento PDF, exigir que os usuários consigam em cada dispositivo, expirem consentidos, duração antes da reaceitação ou política de acesso condicional, você deve criar uma nova política de termos de uso.
+   Se houver outras configurações que você gostaria de alterar, como documento PDF, exigir que os usuários consentissem em cada dispositivo, expirarem consentidos, duração antes da reaceitação ou política de acesso condicional, você deverá criar uma nova política de ToU.
 
     ![Editar mostrando opções de idioma diferentes ](./media/terms-of-use/edit-terms-use.png)
 
@@ -249,7 +249,7 @@ Você pode editar alguns detalhes dos termos de políticas de uso, mas não pode
 7.  Depois de carregar o novo PDF e decidir sobre reaceitar, clique em Adicionar na parte inferior do painel.
 8.  Agora, você verá a versão mais recente na coluna documento.
 
-## <a name="view-previous-versions-of-a-terms-of-use"></a>Exibir versões anteriores de termos de uso
+## <a name="view-previous-versions-of-a-tou"></a>Exibir versões anteriores de um ToU
 
 1.  Entre no Azure e navegue até **Termos de uso** em https://aka.ms/catou.
 2.  Selecione a política de termos de uso para a qual você deseja exibir um histórico de versão.
@@ -269,9 +269,9 @@ Você pode editar alguns detalhes dos termos de políticas de uso, mas não pode
 5.  Como alternativa, você pode selecionar uma versão específica na lista suspensa **versão**  para ver quem aceitou essa versão específica.
 
 
-## <a name="add-a-terms-of-use-language"></a>Adicionar um idioma de termos de uso
+## <a name="add-a-tou-language"></a>Adicionar um idioma ToU
 
-O procedimento a seguir descreve como adicionar um idioma de termos de uso.
+O procedimento a seguir descreve como adicionar um idioma ToU.
 
 1. Entre no Azure e navegue até **Termos de uso** em [https://aka.ms/catou](https://aka.ms/catou).
 1. Selecione os termos de política de uso que você deseja editar.
@@ -344,9 +344,13 @@ Você pode excluir as políticas de termos de uso antigos usando o procedimento 
 
    Você não deve mais ver sua política de termos de uso.
 
-## <a name="deleted-users-and-active-terms-of-use"></a>Usuários excluídos e termos de uso ativos
+## <a name="user-acceptance-record-deletion"></a>Exclusão do registro de aceitação do usuário
 
-Por padrão, um usuário excluído permanece excluído no Azure AD por 30 dias, durante os quais ele pode ser restaurado por um administrador, se necessário. Após 30 dias, esse usuário será excluído permanentemente. Além disso, usando o portal do Azure Active Directory, um Administrador Global pode explicitamente [excluir permanentemente um usuário excluído recentemente](../fundamentals/active-directory-users-restore.md) antes de atingir o período de tempo. Um usuário foi excluído permanentemente, os dados subsequentes sobre esse usuário serão removidos da política de termos de uso ativas. Auditar informações sobre usuários excluídos na trilha de auditoria.
+Os registros de aceitação do usuário são excluídos:
+
+- Quando o administrador exclui explicitamente o ToU. Quando isso acontece, todos os registros de aceitação associados a esse ToU específico também são excluídos.
+- Quando o locatário perde sua licença de Azure Active Directory Premium.
+- Quando o locatário é excluído.
 
 ## <a name="policy-changes"></a>Alterações na política
 

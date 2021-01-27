@@ -3,12 +3,12 @@ title: Alterar configurações de cluster do Azure Service Fabric
 description: Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: c055ad1dad8b9574c8d811284a34619ee3648a10
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095263"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919775"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -521,7 +521,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |AutoDetectAvailableResources|bool, o padrão é TRUE|Estático|Essa configuração disparará a detecção automática de recursos disponíveis no nó (CPU e memória) quando essa configuração for definida como true – leremos capacidades reais e as corrigiremos se o usuário tiver especificado capacidades de nó incorretas ou não as tiver definido. Se essa configuração for definida como false – rastrearemos um aviso de que o usuário especificou capacidades de nó incorretas, mas não as corrigiremos; isso significa que o usuário deseja ter as capacidades especificadas como maiores do que o nó realmente tem ou, se as capacidades estão indefinidas, ela assumirá capacidade ilimitada |
 |BalancingDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmico|Especifique o intervalo de tempo em segundos. Não inicie atividades de balanceamento nesse período depois de adicionar um novo nó. |
 |BalancingDelayAfterNodeDown | Tempo em segundos, o padrão é 120 |Dinâmico|Especifique o intervalo de tempo em segundos. Não inicie atividades de balanceamento nesse período depois de um evento de nó inativo. |
-|BlockNodeInUpgradeConstraintPriority | Int, o padrão é 0 |Dinâmico|Determina a prioridade da restrição de capacidade: 0: difícil; 1: Soft; negativo: ignorar  |
+|BlockNodeInUpgradeConstraintPriority | Int, o padrão é-1 |Dinâmico|Determina a prioridade da restrição de capacidade: 0: difícil; 1: Soft; negativo: ignorar  |
 |CapacityConstraintPriority | Int, o padrão é 0 | Dinâmico|Determina a prioridade da restrição de capacidade: 0: Rígida; 1: Flexível; negativa: Ignorar. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, o padrão é 20 | Dinâmico|Define o número de vezes consecutivas que os movimentos emitidos por ResourceBalancer são soltos antes que o diagnóstico seja realizado e os avisos de integridade sejam emitidos. Negativo: Nenhum aviso emitido sob essa condição. |
 |ConstraintFixPartialDelayAfterNewNode | Tempo em segundos, o padrão é 120 |Dinâmico| Especifique o intervalo de tempo em segundos. Não corrija as violações de restrições FaultDomain e UpgradeDomain nesse período depois de adicionar um novo nó. |
