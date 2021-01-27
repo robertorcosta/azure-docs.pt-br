@@ -3,19 +3,19 @@ title: Referência do tradutor V 3.0
 titleSuffix: Azure Cognitive Services
 description: Documentação de referência para o tradutor V 3.0. A versão 3 do tradutor fornece uma API da Web moderna baseada em JSON.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
-ms.author: swmachan
-ms.openlocfilehash: c93b8254e1fc80865d9889072b33cbf3fc94326d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.author: lajanuar
+ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880769"
+ms.locfileid: "98895451"
 ---
 # <a name="translator-v30"></a>Tradutor v 3.0
 

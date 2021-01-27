@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 12/08/2020
-ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ca090d9bd4f5968b0404cb73af9f8d21197e695d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904901"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880954"
 ---
-# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opção de venda conjunta no Marketplace comercial
+# <a name="co-sell-option-in-the-commercial-marketplace"></a>Opção de venda conjunta no marketplace comercial
 
-Fornecer informações sobre a **co-vender com** a guia Microsoft é totalmente opcional. Ele é necessário para atingir o [status de incentivados de venda cofuncional e de cooperação de IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes. Para obter mais informações, consulte [co-vender com a Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Fornecer informações sobre a **co-vender com** a guia Microsoft é totalmente opcional. Ele é necessário para atingir o [status de incentivados de venda cofuncional e de cooperação de IP](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente. Ele não está disponível diretamente aos clientes. Para obter mais informações, consulte [co-vender com a Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 A opção de venda conjunta no Partner Center está disponível para os seguintes tipos de oferta.
 
@@ -73,7 +73,7 @@ Você tem a opção de fornecer documentos de material de apoio que a Microsoft 
 | *Outros documentos* | Opcionalmente, você pode carregar até cinco documentos ou vídeos adicionais para ajudar as equipes de vendas da Microsoft e revendedores de canal a aprender mais sobre sua oferta, organização e/ou diferenciais. |
 | *URL de referência externa* | O link para o site do seu produto, onde as equipes de vendas da Microsoft e os revendedores de canal podem saber mais sobre sua oferta. |
 
-## <a name="contacts"></a>Contatos
+## <a name="contacts"></a>Contacts
 
 Suas informações de contato permitem que as equipes de vendas da Microsoft e os revendedores de canal solicitem informações adicionais do recurso apropriado em sua organização. As informações de contato estão disponíveis para todas as equipes de vendas da Microsoft. *(Um contato para cada geografia no qual sua oferta está disponível é necessário para o programa de venda conjunta.)* Se você optar por tornar sua oferta disponível no programa CSP, essas informações de contato também estarão disponíveis para revendedores de canal.
 

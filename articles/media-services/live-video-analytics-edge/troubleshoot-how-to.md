@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d49f048df7a624dc490acf7cb4c8e5f33aa5f1c6
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060224"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878283"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solucionar problemas de análise de vídeo ao vivo no IoT Edge
 
@@ -66,7 +66,7 @@ Você pode usar o portal do Azure para executar um diagnóstico do grafo de míd
     * 500 – ocorreu um erro no runtime do IoT Edge.
 
     > [!TIP]
-    > Se você tiver problemas ao executar Azure IoT Edge módulos em seu ambiente, use **[Azure IOT Edge etapas de diagnóstico padrão](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como um guia para solução de problemas e diagnósticos.
+    > Se você tiver problemas ao executar Azure IoT Edge módulos em seu ambiente, use **[Azure IOT Edge etapas de diagnóstico padrão](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** como um guia para solução de problemas e diagnósticos.
 ### <a name="post-deployment-direct-method-error-code"></a>Pós-implantação: código de erro do método direto
 1. Se você receber um status `501 code` , verifique se o nome do método direto é preciso. Se o nome do método e a carga da solicitação forem precisos, você deverá obter resultados juntamente com o código de êxito = 200. 
 1. Se a carga de solicitação for imprecisa, você obterá um status `400 code` e uma carga de resposta que indica o código e a mensagem de erro que devem ajudar no diagnóstico do problema com sua chamada de método direta.
@@ -96,7 +96,7 @@ A análise de vídeo ao vivo é implantada como um módulo IoT Edge no dispositi
 * [O módulo IOT Edge é implantado com êxito e desaparece do dispositivo](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
     > [!TIP]
-    > Se você tiver problemas ao executar Azure IoT Edge módulos em seu ambiente, use **[Azure IOT Edge etapas de diagnóstico padrão](https://docs.microsoft.com/azure/iot-edge/troubleshoot?view=iotedge-2018-06&preserve-view=true)** como um guia para solução de problemas e diagnósticos.
+    > Se você tiver problemas ao executar Azure IoT Edge módulos em seu ambiente, use **[Azure IOT Edge etapas de diagnóstico padrão](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** como um guia para solução de problemas e diagnósticos.
 ### <a name="live-video-analytics-working-with-external-modules"></a>Análise de vídeo ao vivo trabalhando com módulos externos
 
 A análise de vídeo ao vivo por meio dos processadores de extensão do grafo de mídia pode estender o grafo de mídia para enviar e receber dados de outros módulos IoT Edge usando protocolos HTTP ou gRPC. Como um [exemplo específico](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), esse grafo de mídia pode enviar quadros de vídeo como imagens para um módulo de inferência externo, como o Yolo v3, e receber resultados de análise baseada em JSON usando o protocolo http. Nessa topologia, o destino para os eventos é principalmente o Hub IoT. Em situações em que você não vê os eventos de inferência no Hub, verifique o seguinte:
@@ -211,7 +211,7 @@ Para configurar a análise de vídeo ao vivo no módulo IoT Edge para gerar logs
     > [!NOTE] 
     > Esse comando associa as pastas de logs entre o dispositivo de borda e o contêiner. Se você quiser coletar os logs em um local diferente, use o comando a seguir, substituindo **$LOG _LOCATION_ON_EDGE_DEVICE** pelo local que você deseja usar: `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
-1. Selecione **Atualização**.
+1. Selecione **Atualizar**.
 1. Selecione **Examinar + criar**. Uma mensagem de validação bem-sucedida é postada em uma faixa verde.
 1. Selecione **Criar**.
 1. Atualize a **identidade do módulo** "atualizar" para apontar para o parâmetro DebugLogsDirectory, que aponta para o diretório no qual os logs são coletados:
@@ -272,7 +272,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ``` 
 
-O [log e o diagnóstico no gRPC no .net](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true) fornecem algumas diretrizes para a coleta de alguns logs de diagnóstico de um servidor gRPC. 
+O [log e o diagnóstico no gRPC no .net](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1) fornecem algumas diretrizes para a coleta de alguns logs de diagnóstico de um servidor gRPC. 
 
 ### <a name="a-failed-grpc-connection"></a>Uma conexão gRPC com falha 
 
@@ -282,7 +282,7 @@ Se um grafo estiver ativo e transmitindo de uma câmera, a conexão será mantid
 
 A análise de vídeo ao vivo não monitora nem fornece monitoramento de recursos de hardware. Os desenvolvedores terão que usar as soluções de monitoramento de fabricantes de hardware. No entanto, se você usar contêineres kubernetes, poderá monitorar o dispositivo usando o [painel do kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-gRPC em documentos do .NET Core também compartilham algumas informações valiosas sobre [práticas recomendadas de desempenho](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1&preserve-view=true) e [balanceamento de carga](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-3.1#load-balancing&preserve-view=true).  
+gRPC em documentos do .NET Core também compartilham algumas informações valiosas sobre [práticas recomendadas de desempenho](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1) e [balanceamento de carga](/aspnet/core/grpc/performance?preserve-view=true&view=aspnetcore-3.1#load-balancing).  
 
 ### <a name="troubleshooting-an-inference-server-when-it-does-not-receive-any-frames-and-you-are-receiving-an-unknown-protocol-error"></a>Solução de problemas de um servidor de inferência quando ele não recebe nenhum quadro e você está recebendo um erro de protocolo "desconhecido" 
 
@@ -296,7 +296,7 @@ Há várias coisas que você pode fazer para obter mais informações sobre o pr
    ```
 
    Se o comando gerar uma cadeia de caracteres curta de texto jumbled, o Telnet poderá abrir com êxito uma conexão com o servidor de inferência e abrir um canal gRPC binário. Se você não vir isso, o Telnet relatará um erro de rede. 
-* No servidor de inferência, você pode habilitar o log adicional na biblioteca gRPC. Isso pode fornecer informações adicionais sobre o próprio canal do gRPC. Isso varia de acordo com a linguagem, aqui estão as instruções para [C#](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-3.1&preserve-view=true). 
+* No servidor de inferência, você pode habilitar o log adicional na biblioteca gRPC. Isso pode fornecer informações adicionais sobre o próprio canal do gRPC. Isso varia de acordo com a linguagem, aqui estão as instruções para [C#](/aspnet/core/grpc/diagnostics?preserve-view=true&view=aspnetcore-3.1). 
 
 ### <a name="picking-more-images-from-buffer-of-grpc-without-sending-back-result-for-first-buffer"></a>Selecionando mais imagens do buffer de gRPC sem enviar o resultado de retorno para o primeiro buffer
 

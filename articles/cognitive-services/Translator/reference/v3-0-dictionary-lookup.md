@@ -3,19 +3,19 @@ title: Método de pesquisa do dicionário do Tradutor
 titleSuffix: Azure Cognitive Services
 description: O método de pesquisa de dicionário fornece traduções alternativas para uma palavra e um pequeno número de frases idiomáticas.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: swmachan
-ms.openlocfilehash: 6ada9c06f0befbea4b9aa85f95651e96dec595b7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 88a76a16de43853a001f5db895d6ad418940de0f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021279"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895485"
 ---
 # <a name="translator-30-dictionary-lookup"></a>Tradutor 3,0: pesquisa de dicionário
 
@@ -33,11 +33,11 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
-| Parâmetro de consulta  | Description |
+| Parâmetro de consulta  | Descrição |
 | ------ | ----------- |
 | api-version <img width=200/>   | **Parâmetro obrigatório**.<br/>Versão da API solicitada pelo cliente. O valor deve ser `3.0` |
 | de | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](./v3-0-languages.md) incluídos no escopo de `dictionary`. |
-| para   | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](v3-0-languages.md) incluídos no escopo `dictionary`. |
+| como   | **Parâmetro obrigatório**.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas com suporte](v3-0-languages.md) incluídos no escopo `dictionary`. |
 
 
 Os cabeçalhos de solicitação incluem:
@@ -80,7 +80,7 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
     * `posTag`: uma cadeia de caracteres associando esse termo a uma marcação de parte da fala.
 
-        | Nome da marca | Description  |
+        | Nome da marca | Descrição  |
         |----------|--------------|
         | ADJ      | Adjetivos   |
         | ADV      | Advérbios      |

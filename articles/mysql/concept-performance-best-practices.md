@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c29c043a3af46086751629b31ce68217e7226442
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354926"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880399"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Práticas recomendadas para o desempenho ideal do banco de dados do Azure para MySQL-servidor único
 
@@ -46,9 +46,9 @@ Estabelecer uma nova conexão é sempre uma tarefa cara e demorada. Quando um ap
 
 Uma prática recomendada de desempenho do banco de dados do Azure para MySQL é alocar RAM suficiente para que o conjunto de trabalho resida quase que completamente na memória. 
 
-- Verifique se a porcentagem de memória está sendo usada para atingir os [limites](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) usando as [métricas para o servidor MySQL](https://docs.microsoft.com/azure/mysql/concepts-monitoring). 
+- Verifique se a porcentagem de memória está sendo usada para atingir os [limites](./concepts-pricing-tiers.md) usando as [métricas para o servidor MySQL](./concepts-monitoring.md). 
 - Configure alertas para esses números para garantir que, à medida que os servidores atingem limites, você pode tomar ações de prompt para corrigi-lo. Com base nos limites definidos, verifique se escalar verticalmente o SKU do banco de dados — para o tamanho de computação mais alto ou para um tipo de preço melhor que resulte em um aumento considerável no desempenho. 
-- Escale verticalmente até que os números de desempenho não sejam mais eliminados drasticamente após uma operação de dimensionamento. Para obter informações sobre como monitorar as métricas de uma instância de banco de dados, consulte [métricas do banco](https://docs.microsoft.com/azure/mysql/concepts-monitoring#metrics)de dados MySQL.
+- Escale verticalmente até que os números de desempenho não sejam mais eliminados drasticamente após uma operação de dimensionamento. Para obter informações sobre como monitorar as métricas de uma instância de banco de dados, consulte [métricas do banco](./concepts-monitoring.md#metrics)de dados MySQL.
 
 ## <a name="next-steps"></a>Próximas etapas
 

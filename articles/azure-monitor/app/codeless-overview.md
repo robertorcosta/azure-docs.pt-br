@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa5c2a0070ea0c3a0963f97fc1a04670eeaa4827
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: efa951ce5a15460e3eacfd4c7abecfac17106b4e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701884"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880501"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>O que é a instrumentação automática ou a Azure Monitor de anexação de código Application Insights?
 
@@ -23,21 +23,21 @@ O Application Insights é integrado a vários provedores de recursos e funciona 
 
 À medida que estamos adicionando mais e mais integrações, a matriz de recursos de instrumentação automática se torna complexa. A tabela a seguir mostra o estado atual da questão no que diz respeito ao suporte para vários provedores de recursos, linguagens e ambientes.
 
-|Provedor de recursos/ambiente          | .NET            | .NET Core       | Java            | Node.js         |
-|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Serviço de Azure App no Windows           | GA, OnBD *       | GA, aceitar      | Visualização particular | Visualização particular |
-|Serviço de Aplicativo do Azure no Linux             | N/D             | Sem suporte   | Visualização particular | Visualização pública  |
-|Serviço de Azure App no AKS               | N/D             | Em design       | Em design       | Em design       |
-|Azure Functions-básico                | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
-|Dependências do Windows Azure Functions | Sem suporte   | Sem suporte   | Visualização pública  | Sem suporte   |
-|Serviço de Kubernetes do Azure               | N/D             | Em design       | Por meio do agente   | Em design       |
-|Janelas de VMs do Azure                      | Visualização pública  | Sem suporte   | Sem suporte   | Sem suporte   |
-|Janelas de VMs locais                | GA, aceitar      | Sem suporte   | Por meio do agente   | Sem suporte   |
-|Agente autônomo – qualquer env.            | Sem suporte   | Sem suporte   | GA              | Sem suporte   |
+|Provedor de recursos/ambiente          | .NET            | .NET Core       | Java            | Node.js         | Python          |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+|Serviço de Azure App no Windows           | GA, OnBD *       | GA, aceitar      | Visualização particular | Visualização particular | Sem suporte   |
+|Serviço de Aplicativo do Azure no Linux             | N/D             | Sem suporte   | Visualização particular | Visualização pública  | Sem suporte   |
+|Serviço de Azure App no AKS               | N/D             | Em design       | Em design       | Em design       | Sem suporte   |
+|Azure Functions-básico                | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
+|Dependências do Windows Azure Functions | Sem suporte   | Sem suporte   | Visualização pública  | Sem suporte   | Sem suporte   |
+|Serviço de Kubernetes do Azure               | N/D             | Em design       | Por meio do agente   | Em design       | Sem suporte   |
+|Janelas de VMs do Azure                      | Visualização pública  | Sem suporte   | Sem suporte   | Sem suporte   | Sem suporte   |
+|Janelas de VMs locais                | GA, aceitar      | Sem suporte   | Por meio do agente   | Sem suporte   | Sem suporte   |
+|Agente autônomo – qualquer env.            | Sem suporte   | Sem suporte   | GA              | Sem suporte   | Sem suporte   |
 
 * OnBD é curto para ativado por padrão-o Application Insights será habilitado automaticamente depois que você implantar seu aplicativo em ambientes com suporte. 
 
-## <a name="azure-app-service"></a>Serviço de aplicativo do Azure
+## <a name="azure-app-service"></a>Serviço de Aplicativo do Azure
 
 ### <a name="windows"></a>Windows
 

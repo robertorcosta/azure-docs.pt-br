@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 562ea5e0e9e4851ed59bd3ef917be2f9c48cd2a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8454c5a5bb5b44d2a60ae0095a9b82a19ed27c8d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86185544"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896639"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mover a conta de Automação do Azure para outra assinatura
 
@@ -41,7 +41,7 @@ Para desvincular seu workspace da sua conta de Automação, você precisa remove
 
     ![Captura de tela da exclusão de recursos do portal do Azure](../media/move-account/delete-solutions.png)
 
-Se preferir, você pode excluir os recursos usando o cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0):
+Se preferir, você pode excluir os recursos usando o cmdlet [Remove-AzResource](/powershell/module/Az.Resources/Remove-AzResource):
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -80,7 +80,7 @@ Por Iniciar/Parar VMs fora do horário comercial, você também precisa remover 
 
     ![Captura de tela da página Grupo de ações](../media/move-account/delete-action-group.png)
 
-Se preferir, você pode excluir o grupo de ações usando o cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-3.7.0):
+Se preferir, você pode excluir o grupo de ações usando o cmdlet [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup):
 
 ```azurepowershell-interactive
 Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Notification

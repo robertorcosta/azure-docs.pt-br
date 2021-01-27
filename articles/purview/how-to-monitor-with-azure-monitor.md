@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 2c21f84b9a10db504afb8ead67ae479518a0afba
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 22c69288479e0247e499a33c2e818c19f7edb2ae
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603121"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879941"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métricas do Azure alcance no Azure Monitor
 
@@ -64,10 +64,10 @@ A tabela a seguir contém a lista de métricas disponíveis para explorar no por
 
 | Nome da métrica | Namespace da métrica | Tipo de agregação | Descrição |
 | ------------------- | ------------------- | ------------------- | ----------------- |
-| Verificação cancelada | Verificação automatizada | SUM <br> Contagem | Agregar as verificações da fonte de dados cancelada com o período de tempo |
-| Verificação concluída | Verificação automatizada | SUM <br> Contagem | Agregar as verificações de fonte de dados concluídas ao longo do período de tempo |
-| Falha na verificação | Verificação automatizada | SUM <br> Contagem | Agregar as verificações de fonte de dados com falha ao longo do período de tempo |
-| Tempo de verificação tomado | Verificação automatizada | Mín <br> Max <br> SUM <br> Méd | Agregar o tempo total gasto pelas verificações no período de tempo |
+| Verificação cancelada | Verificação automatizada | Somar <br> Contagem | Agregar as verificações da fonte de dados cancelada com o período de tempo |
+| Verificação concluída | Verificação automatizada | Somar <br> Contagem | Agregar as verificações de fonte de dados concluídas ao longo do período de tempo |
+| Falha na verificação | Verificação automatizada | Somar <br> Contagem | Agregar as verificações de fonte de dados com falha ao longo do período de tempo |
+| Tempo de verificação tomado | Verificação automatizada | Mín <br> Max <br> Somar <br> Méd | Agregar o tempo total gasto pelas verificações no período de tempo |
 
 ## <a name="diagnostic-logs-to-azure-storage-account"></a>Logs de diagnóstico para a conta de armazenamento do Azure
 
@@ -79,11 +79,11 @@ Siga as etapas para criar uma configuração de diagnóstico para sua conta do A
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Captura de tela mostrando a criação do log de diagnóstico." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 
-2. Registre os eventos em uma conta de armazenamento. Uma conta de armazenamento dedicada é recomendada para arquivar os logs de diagnóstico. Seguindo este artigo para [criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+2. Registre os eventos em uma conta de armazenamento. Uma conta de armazenamento dedicada é recomendada para arquivar os logs de diagnóstico. Seguindo este artigo para [criar uma conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal).
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Captura de tela mostrando a atribuição da conta de armazenamento para o log de diagnóstico." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-Aguarde até 15 minutos para começar a receber logs na conta de armazenamento recém-criada. [Consulte retenção de dados e esquema de logs de recursos na conta de armazenamento do Azure](../azure-monitor/platform/resource-logs-collect-storage.md). Depois que os logs de diagnóstico são configurados, os eventos fluem para a conta de armazenamento.
+Aguarde até 15 minutos para começar a receber logs na conta de armazenamento recém-criada. [Consulte retenção de dados e esquema de logs de recursos na conta de armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Depois que os logs de diagnóstico são configurados, os eventos fluem para a conta de armazenamento.
 
 ### <a name="scanstatuslogevent"></a>ScanStatusLogEvent
 

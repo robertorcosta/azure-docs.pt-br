@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 3290574b26abe544c8c749165e22bef41a83ecf3
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d72d2d094e220bd4e460cfca6b422f0609c083af
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538164"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880060"
 ---
 # <a name="version-and-track-azure-machine-learning-datasets"></a>Conjuntos de Azure Machine Learning de versão e acompanhamento
 
@@ -119,7 +119,7 @@ dataset2.register(workspace = workspace,
 
 Você pode usar um conjunto de dados como entrada e saída de cada etapa de [pipeline ml](concept-ml-pipelines.md) . Quando você executa novamente os pipelines, a saída de cada etapa de pipeline é registrada como uma nova versão do conjunto de resultados.
 
-Os pipelines ML preenchem a saída de cada etapa em uma nova pasta toda vez que o pipeline é reexecutado. Esse comportamento permite que os conjuntos de valores de saída com versão sejam reproduzíveis. Saiba mais sobre [conjuntos de informações em pipelines](how-to-create-your-first-pipeline.md#steps).
+Os pipelines ML preenchem a saída de cada etapa em uma nova pasta toda vez que o pipeline é reexecutado. Esse comportamento permite que os conjuntos de valores de saída com versão sejam reproduzíveis. Saiba mais sobre [conjuntos de informações em pipelines](./how-to-create-machine-learning-pipelines.md#steps).
 
 ```Python
 from azureml.core import Dataset

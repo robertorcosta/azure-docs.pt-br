@@ -12,18 +12,18 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 688bec24cbcd88130470634abff0688ead8005ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539663"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881679"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Treinar modelos com conjuntos de Azure Machine Learning 
 
 Neste artigo, você aprenderá a trabalhar com [conjuntos de Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) de trabalho para treinar modelos de aprendizado de máquina.  Você pode usar conjuntos de dados em seu destino de computação local ou remoto sem se preocupar com cadeias de conexão ou caminhos de dado. 
 
-Azure Machine Learning conjuntos de valores fornecem uma integração direta com Azure Machine Learning funcionalidade de treinamento como [pipelines](how-to-create-your-first-pipeline.md)de [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) e Azure Machine Learning.
+Azure Machine Learning conjuntos de valores fornecem uma integração direta com Azure Machine Learning funcionalidade de treinamento como [pipelines](./how-to-create-machine-learning-pipelines.md)de [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) e Azure Machine Learning.
 
 Se você não estiver pronto para disponibilizar seus dados para treinamento de modelo, mas quiser carregar seus dados para o seu bloco de anotações para exploração de dados, consulte como [explorar os dados em seu DataSet](how-to-create-register-datasets.md#explore-data). 
 
@@ -263,7 +263,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## <a name="troubleshooting"></a>Solução de problemas
 
 * **Falha na inicialização do conjunto de pontos: aguardando o ponto de montagem estar pronto** expirado: 
-  * Se você não tiver regras de [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) de saída e estiver usando `azureml-sdk>=1.12.0` , atualize `azureml-dataset-runtime` e suas dependências para serem as mais recentes para a versão secundária específica ou se estiver usando-a em uma execução, recrie seu ambiente para que ele possa ter o patch mais recente com a correção. 
+  * Se você não tiver regras de [grupo de segurança de rede](../virtual-network/network-security-groups-overview.md) de saída e estiver usando `azureml-sdk>=1.12.0` , atualize `azureml-dataset-runtime` e suas dependências para serem as mais recentes para a versão secundária específica ou se estiver usando-a em uma execução, recrie seu ambiente para que ele possa ter o patch mais recente com a correção. 
   * Se você estiver usando `azureml-sdk<1.12.0` o, atualize para a versão mais recente.
   * Se você tiver regras de NSG de saída, verifique se há uma regra de saída que permita todo o tráfego para a marca de serviço `AzureResourceMonitor` .
 
@@ -293,4 +293,4 @@ Se você estiver usando o compartilhamento de arquivos para outras cargas de tra
 
 * [Treine modelos de classificação de imagem](https://aka.ms/filedataset-samplenotebook) com DataSets.
 
-* [Treine com conjuntos de valores usando pipelines](how-to-create-your-first-pipeline.md).
+* [Treine com conjuntos de valores usando pipelines](./how-to-create-machine-learning-pipelines.md).

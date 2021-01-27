@@ -2,15 +2,15 @@
 title: Solucionar problemas de implantação do recurso de Automação do Azure
 description: Este artigo informa como solucionar e resolver problemas que surgem ao implantar os recursos de Automação do Azure.
 services: automation
+ms.subservice: ''
 ms.date: 06/30/2020
-ms.topic: conceptual
-ms.service: automation
-ms.openlocfilehash: a6b8384193e821e6c41a0d4d979cda51f6c65b3a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.topic: troubleshooting
+ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070479"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896504"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solucionar problemas de implantação de recurso
 

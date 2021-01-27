@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac9a1b43ba4ffb537afd658c84edb48ed59a3694
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a84e4e767092a1507ef0608c21ff1896cb1dde0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683475"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880937"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Treinar modelos com Azure Machine Learning
 
@@ -76,7 +76,7 @@ Defina as iterações, configurações de hiperparâmetro, personalização e ou
 Os pipelines do Machine Learning podem usar os métodos de treinamento mencionados anteriormente. Pipelines se tratam mais de criar um fluxo de trabalho, assim abrangem mais do que apenas o treinamento de modelos. Em um pipeline, você pode treinar um modelo usando o aprendizado de máquina automatizado ou executar configurações.
 
 * [O que são pipelines de ML no Azure Machine Learning?](concept-ml-pipelines.md)
-* [Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning](how-to-create-your-first-pipeline.md)
+* [Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
 * [Tutorial: Usar Pipelines do Azure Machine Learning para pontuação do lote](tutorial-pipeline-batch-scoring-classification.md)
 * [Exemplos: exemplos do Jupyter Notebook para pipelines de machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Exemplos: Pipeline com machine learning automatizado](https://aka.ms/pl-automl)

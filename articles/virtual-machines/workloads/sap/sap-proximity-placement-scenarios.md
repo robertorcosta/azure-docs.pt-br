@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e6aaf1b37073bf93e0aca8237161bf11af3a872
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: ee28f25e766940eb51e92b61fd782b97fd888705
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827216"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879605"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de posicionamento de proximidade do Azure para latência de rede ideal com aplicativos SAP
 Os aplicativos SAP baseados na arquitetura SAP NetWeaver ou SAP S/4HANA são sensíveis à latência de rede entre a camada de aplicativo SAP e a camada de banco de dados SAP. Essa sensibilidade é o resultado da maior parte da lógica de negócios em execução na camada de aplicativo. Como a camada de aplicativo SAP executa a lógica de negócios, ela emite consultas para a camada de banco de dados em uma alta frequência, a uma taxa de milhares ou dezenas de milhares por segundo. Na maioria dos casos, a natureza dessas consultas é simples. Geralmente, eles podem ser executados na camada de banco de dados em 500 microssegundos ou menos.
@@ -30,11 +30,11 @@ O tempo gasto na rede para enviar tal consulta da camada de aplicativo para a ca
 
 Em muitas regiões do Azure, o número de data centers cresceu. Ao mesmo tempo, os clientes, especialmente para sistemas SAP de alto nível, estão usando SKUs de VM mais especiais da família M ou Mv2 ou instâncias grandes do HANA. Esses tipos de máquina virtual do Azure nem sempre estão disponíveis em todos os data centers que complementam uma região do Azure. Esses fatos podem criar oportunidades para otimizar a latência de rede entre a camada do aplicativo SAP e a camada do SAP DBMS.
 
-Para oferecer a possibilidade de otimizar a latência de rede, o Azure oferece [grupos de posicionamento de proximidade](../../linux/co-location.md). Os grupos de posicionamento de proximidade podem ser usados para forçar o agrupamento de diferentes tipos de VM em um único datacenter do Azure para otimizar a latência de rede entre esses diferentes tipos de VM para o melhor possível. No processo de implantação da primeira VM em um grupo de posicionamento de proximidade, a VM é associada a um datacenter específico. Tão atraente quanto esse cliente parece, o uso da construção também apresenta algumas restrições:
+Para oferecer a possibilidade de otimizar a latência de rede, o Azure oferece [grupos de posicionamento de proximidade](../../co-location.md). Os grupos de posicionamento de proximidade podem ser usados para forçar o agrupamento de diferentes tipos de VM em um único datacenter do Azure para otimizar a latência de rede entre esses diferentes tipos de VM para o melhor possível. No processo de implantação da primeira VM em um grupo de posicionamento de proximidade, a VM é associada a um datacenter específico. Tão atraente quanto esse cliente parece, o uso da construção também apresenta algumas restrições:
 
 - Você não pode pressupor que todos os tipos de VM do Azure estejam disponíveis em todos e em todos os data centers do Azure. Como resultado, a combinação de diferentes tipos de VM dentro de um grupo de posicionamento de proximidade pode ser restrita. Essas restrições ocorrem porque o hardware do host necessário para executar um determinado tipo de VM pode não estar presente no datacenter no qual o grupo de posicionamento foi implantado
 - Ao redimensionar partes das VMs que estão dentro de um grupo de posicionamento de proximidade, você não pode presumir automaticamente que, em todos os casos, o novo tipo de VM está disponível no mesmo datacenter que as outras VMs que fazem parte do grupo de posicionamento de proximidade
-- Como o Azure encerra o hardware, ele pode forçar determinadas VMs de um grupo de posicionamento de proximidade em outro Datacenter do Azure. Para obter detalhes sobre esse caso, leia o documento [co-localizar recursos para maior latência](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
+- Como o Azure encerra o hardware, ele pode forçar determinadas VMs de um grupo de posicionamento de proximidade em outro Datacenter do Azure. Para obter detalhes sobre esse caso, leia o documento [co-localizar recursos para maior latência](../../co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > Como resultado das possíveis restrições, os grupos de posicionamento de proximidade devem ser usados:

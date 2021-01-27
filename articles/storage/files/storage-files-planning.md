@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: e1b29d901630156471bbb9cb8b939bb4bb29c836
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724214"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879840"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
@@ -131,6 +131,6 @@ O [artigo Visão geral da migração](storage-files-migration-overview.md) abord
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Planejando uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
-* [Implantando Arquivos do Azure](storage-files-deployment-guide.md)
+* [Implantando Arquivos do Azure](./storage-how-to-create-file-share.md)
 * [Implantando a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
 * [Confira o artigo Visão geral da migração para encontrar o guia de migração para seu cenário](storage-files-migration-overview.md)

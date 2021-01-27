@@ -2,19 +2,15 @@
 title: Solucionar problemas do recurso Iniciar/Parar VMs fora do horário comercial da Automação do Azure
 description: Este artigo informa como solucionar problemas que surgem durante o uso do recurso Iniciar/Parar VMs fora do horário comercial.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: bb8fa53fa07d666693ae545c193faaf3d6d0a30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: 763e1321556ade73778b82ea70926af21a83f7ec
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187142"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896267"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Solucionar problemas de Iniciar/Parar VMs fora do horário comercial
 

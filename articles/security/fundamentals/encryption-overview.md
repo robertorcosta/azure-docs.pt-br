@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d7d438b369c863660a032f101e466b6fadf639fa
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410208"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879707"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -45,11 +45,11 @@ Com a criptografia do lado do cliente, os provedores de serviços de nuvem não 
 
 Os três modelos de criptografia no servidor apresentam características diferentes de gerenciamento de chaves, que você pode escolher de acordo com seus requisitos:
 
-- **Chaves gerenciadas pelo serviço** : fornecem uma combinação de controle e conveniência com baixa sobrecarga.
+- **Chaves gerenciadas pelo serviço**: fornecem uma combinação de controle e conveniência com baixa sobrecarga.
 
-- **Chaves gerenciadas pelo cliente** : proporcionam controle das chaves, incluindo o suporte a BYOK (Bring Your Own Key), ou permitem a geração de novas.
+- **Chaves gerenciadas pelo cliente**: proporcionam controle das chaves, incluindo o suporte a BYOK (Bring Your Own Key), ou permitem a geração de novas.
 
-- **Chaves gerenciadas pelo serviço em hardware controlado pelo cliente** : permitem gerenciar as chaves no repositório proprietário, fora do controle da Microsoft. Essa característica é chamada de HYOK (Host Your Own Key). No entanto, a configuração é complexa e a maioria dos serviços do Azure não dá suporte a esse modelo.
+- **Chaves gerenciadas pelo serviço em hardware controlado pelo cliente**: permitem gerenciar as chaves no repositório proprietário, fora do controle da Microsoft. Essa característica é chamada de HYOK (Host Your Own Key). No entanto, a configuração é complexa e a maioria dos serviços do Azure não dá suporte a esse modelo.
 
 ### <a name="azure-disk-encryption"></a>Criptografia de disco do Azure
 
@@ -181,7 +181,7 @@ Configure uma conexão VPN site a site com uma rede virtual usando o portal do A
 
 Para obter mais informações, consulte:
 
-[Criar uma conexão site a site no portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Criar uma conexão site a site no portal do Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 [Criar uma conexão site a site no PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 

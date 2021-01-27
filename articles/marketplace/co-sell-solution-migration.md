@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/07/2020
-ms.openlocfilehash: 0114c75d99d79041631e5078deb33f77863dc35a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 84d98eedb3ea6f3faaeaecf832811f9f4c78c7c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043771"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880348"
 ---
 # <a name="migration-of-co-sell-solutions-from-ocp-gtm-to-the-commercial-marketplace"></a>Migração de soluções de venda conjuntas de OCP GTM para o mercado comercial
 
@@ -44,7 +44,7 @@ Depois de inscrever-se no Marketplace comercial, prepare-se para migrar suas sol
 
 Siga estas etapas antes de importar suas soluções do OCP GTM:
 
-1. Visite a lista de [editores](https://partner.microsoft.com/dashboard/account/v3/publishers/list)da sua empresa. Ele inclui o proprietário da conta, os gerentes e os desenvolvedores que têm acesso de publicação. Saiba mais sobre as [funções de usuário do Partner Center](/azure/marketplace/partner-center-portal/manage-account#define-user-roles-and-permissions).
+1. Visite a lista de [editores](https://partner.microsoft.com/dashboard/account/v3/publishers/list)da sua empresa. Ele inclui o proprietário da conta, os gerentes e os desenvolvedores que têm acesso de publicação. Saiba mais sobre as [funções de usuário do Partner Center](./partner-center-portal/manage-account.md#define-user-roles-and-permissions).
 2. Peça a um dos contatos listados para [Adicionar usuários](https://partner.microsoft.com/dashboard/account/usermanagement) ao Marketplace comercial como *gerentes* ou *desenvolvedores*, já que apenas essas funções podem editar e publicar soluções.
 3. Trabalhe com seus desenvolvedores para mover suas soluções de sua conta do GTM OCP para o mercado comercial.
 4. Decida qual das opções a seguir você deseja fazer:
@@ -156,4 +156,3 @@ Para obter instruções detalhadas sobre as informações que você precisa forn
 - [Revenda por meio de Parceiros do CSP](cloud-solution-providers.md)
 - [Como enviar materiais de vendas em conjunto no Partner Center](marketplace-co-sell.md#how-to-submit-co-sell-materials-in-partner-center)
 - Exibir essas [perguntas frequentes](https://partner.microsoft.com/resources/detail/co-sell-requirements-publish-commercial-marketplace-faq-pdf) (PDF)
-

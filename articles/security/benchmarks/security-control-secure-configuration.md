@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 349456b0a4de65520dd633efe0573d24ea1c89c4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f945699256b4de9bd87ee4ab7500268302e93089
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409018"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880162"
 ---
 # <a name="security-control-secure-configuration"></a>Controle de segurança: configuração segura
 
@@ -88,9 +88,9 @@ Além disso, observe que as imagens de máquina virtual do Azure Marketplace pub
 
 - [Criar uma máquina virtual do Windows no portal do Azure](../../virtual-machines/windows/quick-create-portal.md)
 
-- [Informações sobre como baixar o modelo de VM](../../virtual-machines/windows/download-template.md)
+- [Informações sobre como baixar o modelo de VM](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](../../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Script de exemplo para carregar um VHD para o Azure e criar uma nova VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 ## <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: armazenar configuração de recursos do Azure com segurança
 
@@ -118,7 +118,7 @@ Se usar imagens personalizadas, use o controle de acesso baseado em função do 
 
 - [Como configurar o RBAC do Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Visão geral da galeria de imagens compartilhadas](../../virtual-machines/windows/shared-image-galleries.md)
+- [Visão geral da Galeria de imagens compartilhadas](../../virtual-machines/shared-image-galleries.md)
 
 ## <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: implantar as ferramentas de gerenciamento de configuração para recursos do Azure
 

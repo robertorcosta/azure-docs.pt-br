@@ -2,19 +2,19 @@
 title: Visualizar resultados de testes do sistema e implantação - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Quando seu treinamento for bem-sucedido, revise os testes do sistema para analisar seus resultados de treinamento. Se você estiver satisfeito com os resultados do treinamento, faça uma solicitação de implantação para o modelo treinado.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 542f62f04adc7d4858e4b4621b0ae85e906434ad
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: cae2c95e56312c58d396d1e578f4677ce2b14aa2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369317"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895927"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
 
@@ -92,7 +92,7 @@ Para atualizar configurações de implantação:
 
     ![Captura de tela que realça o botão de atualização para atualizar as configurações de implantação.](media/how-to/how-to-update-undeploy-model.png)
 
-3.  Selecione **Atualização**.
+3.  Selecione **Atualizar**.
 4.  Selecione **Implantado** ou **Não Implantado** para as regiões onde você deseja seu modelo implantado ou não implantando, em seguida, clique em **Salvar**.
 
     ![Implantar modelo](media/how-to/how-to-undeploy-model.png)

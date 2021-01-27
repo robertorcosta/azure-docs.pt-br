@@ -3,12 +3,12 @@ title: Replicação de mensagens e Federação entre regiões-barramento de serv
 description: Este artigo fornece uma visão geral da replicação de eventos e da Federação entre regiões com o barramento de serviço do Azure.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: d5153820feab8b7901356838ec435d992aa82116
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: e47f633fcd9248eab6f47936aa7c45877decc1fe
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803265"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880820"
 ---
 # <a name="message-replication-and-cross-region-federation"></a>Replicação de mensagem e federação entre regiões
 
@@ -150,7 +150,7 @@ Azure Functions pode ser executado em uma [identidade gerenciada do Azure](../ac
 
 Além disso, o Azure Functions permite que as tarefas de replicação sejam integradas diretamente às redes virtuais do Azure e aos [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para todos os serviços de mensagens do Azure e estão prontamente integradas ao [Azure monitor](../azure-monitor/overview.md).
 
-O mais importante é que Azure Functions tem gatilhos pré-criados e escaláveis e associações de saída para [hubs de eventos do Azure](../azure-functions/functions-bindings-service-bus.md), [Hub IOT do](../azure-functions/functions-bindings-event-iot.md)Azure, [barramento de serviço do Azure](../azure-functions/functions-bindings-service-bus.md), [grade de eventos](../azure-functions/functions-bindings-event-grid.md)do Azure e armazenamento de [filas do Azure](/azure/azure-functions/functions-bindings-storage-queue), extensões personalizadas para [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)e [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). A maioria dos gatilhos se adaptará dinamicamente às necessidades de taxa de transferência, dimensionando o número de instâncias em execução simultaneamente com base em métricas documentadas. 
+O mais importante é que Azure Functions tem gatilhos pré-criados e escaláveis e associações de saída para [hubs de eventos do Azure](../azure-functions/functions-bindings-service-bus.md), [Hub IOT do](../azure-functions/functions-bindings-event-iot.md)Azure, [barramento de serviço do Azure](../azure-functions/functions-bindings-service-bus.md), [grade de eventos](../azure-functions/functions-bindings-event-grid.md)do Azure e armazenamento de [filas do Azure](../azure-functions/functions-bindings-storage-queue.md), extensões personalizadas para [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)e [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). A maioria dos gatilhos se adaptará dinamicamente às necessidades de taxa de transferência, dimensionando o número de instâncias em execução simultaneamente com base em métricas documentadas. 
 
 Com o plano de consumo de Azure Functions, os gatilhos pré-criados podem até mesmo reduzir para zero, enquanto nenhuma mensagem está disponível para replicação, o que significa que você não incorrerá nenhum custo para manter a configuração pronta para escalar o backup. A principal desvantagem de usar o plano de consumo é que a latência das tarefas de replicação "Ativando" desse Estado é significativamente maior do que com os planos de hospedagem em que a infraestrutura é mantida em execução.  
 
@@ -167,4 +167,4 @@ Em seguida, talvez você queira ler como configurar um aplicativo replicador com
 - [Eventos de roteamento para hubs de eventos do Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub)
 - [Adquirir eventos dos hubs de eventos do Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
 
-[1]: ./media/service-bus-auto-forwarding/IC628632.gif 
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif

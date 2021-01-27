@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 987281bd13b7ac053f07a4ef1fb7605c85686d56
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4deda838d229081ccd23c123f75d0c0ada2383bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898616"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878656"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -317,7 +317,7 @@ Use o link relevante abaixo para obter guias sobre como habilitar logs de fluxo.
 
 ## <a name="updating-parameters"></a>Atualizando parâmetros
 
-**Portal do Azure**
+**Azure portal**
 
 Na portal do Azure, navegue até a seção de logs de fluxo NSG no observador de rede. Em seguida, clique no nome do NSG. Isso abrirá o painel configurações para o log de fluxo. Altere os parâmetros desejados e clique em **salvar** para implantar as alterações.
 
@@ -362,7 +362,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Fluxos de entrada registrados de IPS de Internet para VMs sem IPS públicos**: VMs que não têm um endereço IP público atribuído por meio de um endereço IP público associado à NIC como um IP público em nível de instância, ou que fazem parte de um pool de back-end do Load Balancer básico, usam [SNAT padrão](../load-balancer/load-balancer-outbound-connections.md) e têm um endereço IP atribuído pelo Azure para facilitar a conectividade de saída. Como resultado, você poderá ver entradas de log de fluxo de fluxos de endereços IP da Internet, se o fluxo for destinado a uma porta no intervalo de portas atribuídas para SNAT. Embora o Azure não permita esses fluxos para a VM, a tentativa é registrada e aparece no log de fluxo do NSG do observador de rede por design. Recomendamos que o tráfego de Internet de entrada indesejado seja explicitamente bloqueado com NSG.
 
-**Problema com a sub-rede NSG do gateway de aplicativo v2**: o log de fluxo na sub-rede v2 do gateway de aplicativo NSG [não tem suporte](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) no momento. Esse problema não afeta o Application Gateway v1.
+**Problema com a sub-rede NSG do gateway de aplicativo v2**: o log de fluxo na sub-rede v2 do gateway de aplicativo NSG [não tem suporte](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) no momento. Esse problema não afeta o Application Gateway v1.
 
 **Serviços incompatíveis**: devido às limitações da plataforma atual, um pequeno conjunto de serviços do Azure não tem suporte dos logs de fluxo do NSG. A lista atual de serviços incompatíveis é
 - [AKS (Serviço de Kubernetes do Azure)](https://azure.microsoft.com/services/kubernetes-service/)

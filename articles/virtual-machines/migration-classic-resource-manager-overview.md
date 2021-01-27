@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 137670715af8b90d8a867459fa50249cd9be8e70
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 44b89aae2f446a13207c8e3b586892ad085bd790
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897109"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879403"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager no Linux
 
@@ -24,7 +24,7 @@ ms.locfileid: "97897109"
 
 Este artigo fornece uma visão geral sobre a ferramenta de migração com suporte da plataforma, como migrar recursos do ASM (Service Manager do Azure), também conhecido como modelos de implantação clássicos para o Gerenciador de recursos (ARM), e detalhes sobre como conectar recursos de dois modelos de implantação que coexistem em sua assinatura usando gateways site a site da rede virtual. Você pode ler mais sobre [Azure Resource Manager recursos e benefícios](../azure-resource-manager/management/overview.md). 
 
-O ASM dá suporte a dois produtos de computação diferentes, as máquinas virtuais do Azure (clássicas) também conhecidas como VMs IaaS & [serviços de nuvem do Azure (clássico)](https://docs.microsoft.com/azure/cloud-services/) , conhecidos como VMs PaaS ou funções Web/de trabalho. Este documento fala apenas sobre a migração de máquinas virtuais do Azure (clássico).
+O ASM dá suporte a dois produtos de computação diferentes, as máquinas virtuais do Azure (clássicas) também conhecidas como VMs IaaS & [serviços de nuvem do Azure (clássico)](../cloud-services/index.yml) , conhecidos como VMs PaaS ou funções Web/de trabalho. Este documento fala apenas sobre a migração de máquinas virtuais do Azure (clássico).
 
 ## <a name="goal-for-migration"></a>Meta de migração
 O Gerenciador de Recursos possibilita implantar aplicativos complexos por meio de modelos, configurar máquinas virtuais usando extensões de VM e incorporar o gerenciamento de acesso e a marcação. O Azure Resource Manager inclui implantação paralela e escalonável para máquinas virtuais em conjuntos de disponibilidade. O novo modelo também oferece gerenciamento de ciclo de vida de computação, rede e armazenamento de maneira independente. Por fim, há um enfoque para habilitar a segurança por padrão com a imposição de máquinas virtuais em uma rede virtual.
@@ -39,7 +39,7 @@ Há suporte para quase todos os recursos do modelo de implantação clássica re
 * Contas de Armazenamento
 * Redes Virtuais
 * Gateways VPN
-* [Gateways de rota expressa](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(na mesma assinatura que apenas na rede virtual)_
+* [Gateways de rota expressa](../expressroute/expressroute-howto-move-arm.md) _(na mesma assinatura que apenas na rede virtual)_
 * Grupos de segurança de rede
 * Tabelas de Rotas
 * IPs Reservados
@@ -142,7 +142,7 @@ Atualmente, não há suporte para as seguintes configurações.
 | Computação | VM com extensão Azure Site Recovery | Essas extensões são instaladas em uma máquina virtual configurada com o serviço de Azure Site Recovery. Enquanto a migração de armazenamento usada com Site Recovery funcionará, a replicação atual será afetada. Você precisa desabilitar e habilitar a replicação de VM após a migração de armazenamento. |
 | Rede |Redes virtuais que contêm máquinas virtuais e funções de trabalho/web |Não há suporte para esse recurso no momento. Mova as funções Web/Trabalho para as suas próprias redes virtuais antes de fazer a migração. Depois que a rede virtual clássica for migrada, a rede virtual do Azure Resource Manager pode ser emparelhada com a rede virtual clássica para obter uma configuração semelhante como antes.|
 | Rede | Circuitos do ExpressRoute clássico |Não há suporte para esse recurso no momento. Esses circuitos precisam ser migrados para o Azure Resource Manager antes da migração do IaaS ser iniciada. Para saber mais, consulte [Movimentação dos circuitos do ExpressRoute do modelo de implantação clássico para o Resource Manager](../expressroute/expressroute-move.md).|
-| Serviço de aplicativo do Azure |Redes virtuais que contêm ambientes do Serviço de Aplicativo |Não há suporte para esse recurso no momento. |
+| Serviço de Aplicativo do Azure |Redes virtuais que contêm ambientes do Serviço de Aplicativo |Não há suporte para esse recurso no momento. |
 | Azure HDInsight |Redes virtuais que contêm serviços do HDInsight |Não há suporte para esse recurso no momento. |
 | Serviços de Ciclo de Vida do Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais gerenciadas pelos Serviços de Ciclo de Vida do Microsoft Dynamics |Não há suporte para esse recurso no momento. |
 | Gerenciamento de API do Azure |Redes virtuais que contêm implantações do Gerenciamento de API do Azure |Não há suporte para esse recurso no momento. Para migrar a VNET IaaS, altere a VNET da implantação do Gerenciamento de API, que é uma operação sem tempo de inatividade. |

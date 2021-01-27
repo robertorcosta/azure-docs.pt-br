@@ -3,19 +3,19 @@ title: Método de idiomas do Tradutor
 titleSuffix: Azure Cognitive Services
 description: O método Languages Obtém o conjunto de idiomas com suporte no momento por outras operações do tradutor.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
-ms.openlocfilehash: d9abd1f305e47eca743dc9274e0ec1f0a950dd6a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 8471983d24cfed39e6521e19366f6023e519adaf
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021262"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895468"
 ---
 # <a name="translator-30-languages"></a>Tradutor 3,0: idiomas
 
@@ -40,7 +40,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
     <td><em>Parâmetro obrigatório</em>.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
-    <td>scope</td>
+    <td>escopo</td>
     <td>*Parâmetro opcional*.<br/>Uma lista separada por vírgula de nomes que definem o grupo de idiomas a ser retornado. Os nomes de grupo permitidos são: `translation`, `transliteration` e `dictionary`. Se nenhum escopo é fornecido, todos os grupos são retornados, o que é equivalente a passar `scope=translation,transliteration,dictionary`. Para decidir qual conjunto de idiomas compatíveis é apropriado para seu cenário, confira a descrição do [objeto de resposta](#response-body).</td>
   </tr>
 </table> 
@@ -248,7 +248,7 @@ Veja a seguir os possíveis códigos de status HTTP retornados por uma solicita�
 
 <table width="100%">
   <th width="20%">Código de status</th>
-  <th>Description</th>
+  <th>Descrição</th>
   <tr>
     <td>200</td>
     <td>Êxito.</td>

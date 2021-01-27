@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 469d7ba9e86751312ebf6a6c82b35f065ee6cb50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922959"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880365"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conectar um gateway de VPN (gateway de rede virtual) à WAN virtual
 
@@ -41,7 +41,7 @@ Crie um gateway de rede virtual **Gateway de VPN** no modo ativo-ativo para sua 
 
 Na página **configuração** do gateway de rede virtual, habilite o modo ativo-ativo.
 
-![ativo-ativo](./media/connect-virtual-network-gateway-vwan/active.png "ativo/ativo")
+![ativo-ativo](./media/connect-virtual-network-gateway-vwan/active.png "ativo-ativo")
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Configuração de BGP
 
@@ -83,7 +83,7 @@ Nesta seção, você baixa o arquivo de configuração de VPN para cada um dos s
 
 1. Na parte superior da página **sites VPN** da WAN virtual, selecione o **site** e selecione **baixar configuração de VPN site a site**. O Azure cria um arquivo de configuração com as configurações.
 
-   ![Captura de tela que mostra a página "sites VPN" com a ação "baixar configuração de VPN site a site" selecionada.](./media/connect-virtual-network-gateway-vwan/download.png "download")
+   ![Captura de tela que mostra a página "sites VPN" com a ação "baixar configuração de VPN site a site" selecionada.](./media/connect-virtual-network-gateway-vwan/download.png "baixar")
 2. Baixe e abra o arquivo de configuração.
 3. Repita essas etapas para o segundo site. Quando os dois arquivos de configuração estiverem abertos, você poderá prosseguir para a próxima seção.
 
@@ -91,7 +91,7 @@ Nesta seção, você baixa o arquivo de configuração de VPN para cada um dos s
 
 Nesta seção, você criará dois gateways de rede local do gateway de VPN do Azure. Os arquivos de configuração da etapa anterior contêm as definições de configuração do gateway. Use essas configurações para criar e configurar os gateways de rede local do gateway de VPN do Azure.
 
-1. Crie o gateway de rede local usando essas configurações. Para obter informações sobre como criar um gateway de rede local de gateway de VPN, consulte o artigo gateway de VPN [criar um gateway de rede local](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway).
+1. Crie o gateway de rede local usando essas configurações. Para obter informações sobre como criar um gateway de rede local de gateway de VPN, consulte o artigo gateway de VPN [criar um gateway de rede local](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
 
    * **Endereço IP** -use o endereço IP Instance0 mostrado para *gatewayconfiguration* do arquivo de configuração.
    * **BGP** -se a conexão for sobre BGP, selecione **definir configurações de BGP** e insira o ASN ' 65515 '. Insira o endereço IP do par de BGP. Use ' Instance0 BgpPeeringAddresses ' para *gatewayconfiguration* do arquivo de configuração.
@@ -105,7 +105,7 @@ Nesta seção, você criará dois gateways de rede local do gateway de VPN do Az
 
 ## <a name="5-create-connections"></a><a name="createlocalgateways"></a>5. criar conexões
 
-Nesta seção, você cria uma conexão entre os gateways de rede local do gateway de VPN e o gateway de rede virtual. Para obter as etapas sobre como criar uma conexão de gateway de VPN, consulte [Configurar uma conexão](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection).
+Nesta seção, você cria uma conexão entre os gateways de rede local do gateway de VPN e o gateway de rede virtual. Para obter as etapas sobre como criar uma conexão de gateway de VPN, consulte [Configurar uma conexão](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection).
 
 1. No portal, navegue até seu gateway de rede virtual e clique em **conexões**. Na parte superior da página Conexões, clique em **+ Adicionar** para abrir a página **Adicionar conexão**.
 2. Na página **Adicionar conexão** , configure os seguintes valores para sua conexão:

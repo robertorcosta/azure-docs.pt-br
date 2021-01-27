@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
-ms.openlocfilehash: 70dfccb32389d2f1fb492669c9f84a3e6ae77bbb
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621341"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880263"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicar uma solução integrada
 
@@ -32,8 +32,8 @@ Para obter uma visão geral do programa de soluções integradas, assista ao [v�
 ## <a name="eligibility-criteria"></a>Critérios de qualificação
 
 * Os parceiros participantes devem ter uma ID MPN.
-* Os provedores de serviços participantes devem estar [prontos para venda](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
-* Os fornecedores de software participantes devem ser [prontos para venda de IP](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+* Os provedores de serviços participantes devem estar [prontos para venda](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
+* Os fornecedores de software participantes devem ser [prontos para venda de IP](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 * Pelo menos um parceiro participante deve ter Competência Gold em uma das seguintes áreas:
     - Desenvolvimento de aplicativo
     - Integração de Aplicativo

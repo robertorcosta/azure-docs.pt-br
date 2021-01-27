@@ -7,18 +7,18 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: bb4987550e4962ba044e0a6aafbfd00145319e94
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804954"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895961"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
 
 ## <a name="overview"></a>Visão geral
-Quando a exportação de dados estiver configurada para seu espaço de trabalho Log Analytics, todos os novos dados enviados para as tabelas selecionadas no espaço de trabalho serão exportados automaticamente para sua conta de armazenamento ou para o Hub de eventos quase em tempo real.
+Quando a exportação de dados estiver configurada para seu espaço de trabalho do Log Analytics, todos os novos dados enviados para as tabelas selecionadas no espaço de trabalho serão exportados automaticamente para sua conta de armazenamento em blobs de acréscimo por hora ou para o Hub de eventos em tempo quase real.
 
 ![Visão geral da exportação de dados](media/logs-data-export/data-export-overview.png)
 
@@ -61,13 +61,13 @@ Log Analytics exportação de dados de espaço de trabalho exporta dados continu
 ## <a name="data-completeness"></a>Integridade dos dados
 A exportação de dados continuará a tentar enviar dados por até 30 minutos caso o destino não esteja disponível. Se ainda não estiver disponível após 30 minutos, os dados serão descartados até que o destino fique disponível.
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 No momento, não há encargos adicionais para o recurso de exportação de dados. Os preços para exportação de dados serão anunciados no futuro e um aviso fornecido antes do início da cobrança. Se você optar por continuar usando a exportação de dados após o período de aviso, você será cobrado na taxa aplicável.
 
 ## <a name="export-destinations"></a>Destinos de exportação
 
 ### <a name="storage-account"></a>Conta de armazenamento
-Os dados são enviados para contas de armazenamento quase em tempo real à medida que atingem Azure Monitor. A configuração de exportação de dados cria um contêiner para cada tabela na conta de armazenamento com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um contêiner chamado *am-SecurityEvent*.
+Os dados são enviados para contas de armazenamento à medida que atingem Azure Monitor e armazenados em blobs de acréscimo por hora. A configuração de exportação de dados cria um contêiner para cada tabela na conta de armazenamento com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um contêiner chamado *am-SecurityEvent*.
 
 O caminho do blob da conta de armazenamento é *WorkspaceResourceId =/subscriptions/Subscription-ID/resourcegroups/ \<resource-group\> /Providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.json*. Como os blobs de acréscimo são limitados a gravações 50 mil no armazenamento, o número de BLOBs exportados pode se estender se o número de acréscimos for alto. O padrão de nomenclatura para BLOBs nesse caso seria PT1H_ #. JSON, em que # é a contagem de BLOBs incremental.
 
