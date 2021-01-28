@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 626b061cc237f7238d47863a3e1ed88961d2f742
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680588"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931100"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Guia de dimensionamento do Cluster de Consulta Interativa do Azure HDInsight (Hive LLAP)
 
@@ -216,7 +216,7 @@ Por exemplo: capacidade total do cluster = 100 GB de memória, dividida entre LL
  - Capacidade da fila de gerenciamento de carga de trabalho = 20 GB
  - Capacidade de fila padrão = 10 GB
 
-Com 20 GB na capacidade da fila de gerenciamento de carga de trabalho, um plano de recursos pode especificar o `QUERY_PARALLELISM` valor como cinco, o que significa que o gerenciamento de carga de trabalho pode iniciar cinco tez AMS com 4 GB de tamanho de contêiner cada. Se `QUERY_PARALLELISM` for maior do que a capacidade, você poderá ver algum tez de AMS suspenso no `ACCEPTED` estado. O Hiveserver2 Interactive não pode enviar fragmentos de consulta para o AMs tez que não estão no `RUNNING` estado.
+Com 20 GB na capacidade da fila de gerenciamento de carga de trabalho, um plano de recursos pode especificar o `QUERY_PARALLELISM` valor como cinco, o que significa que o gerenciamento de carga de trabalho pode iniciar cinco tez AMS com 4 GB de tamanho de contêiner cada. Se `QUERY_PARALLELISM` for maior do que a capacidade, você verá que um AMS tez parar de responder no `ACCEPTED` estado. O Hiveserver2 Interactive não pode enviar fragmentos de consulta para o AMs tez que não estão no `RUNNING` estado.
 
 
 #### <a name="next-steps"></a>**Próximas etapas**

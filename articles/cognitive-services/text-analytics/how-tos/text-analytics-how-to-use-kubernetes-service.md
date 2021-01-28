@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 744be742d9f638df14f9d6720c9dad9678685af0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb33bd4fe70c51e1e2afffece10ba3b29dcb0450
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017826"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932440"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Implantar um contêiner de Análise de Texto no serviço kubernetes do Azure
 
@@ -27,7 +27,7 @@ Este procedimento requer várias ferramentas que devem ser instaladas e executad
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services) antes de começar.
 * Um editor de texto, por exemplo, [Visual Studio Code](https://code.visualstudio.com/download).
-* O [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalado.
+* O [CLI do Azure](/cli/azure/install-azure-cli) instalado.
 * A [CLI do kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/) instalada.
 * Um recurso do Azure com o tipo de preço correto. Nem todos os tipos de preços funcionam com esse contêiner:
     * O recurso **análise de texto do Azure** somente com tipos de preço F0 ou Standard.

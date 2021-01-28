@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 203782ef2d95cd2b47082f630fa12531a110d49e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968884"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933915"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solucionar problemas de desempenho da atividade de cópia
 
@@ -194,7 +194,7 @@ O tempo de execução da atividade varia quando o conjunto de base é baseado em
 
     - A camada do banco de dados SQL do Azure não é alta o suficiente.
 
-    - O uso de DTU do banco de dados SQL do Azure está próximo de 100%. Você pode [monitorar o desempenho](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) e considerar a atualização da camada do banco de dados SQL do Azure.
+    - O uso de DTU do banco de dados SQL do Azure está próximo de 100%. Você pode [monitorar o desempenho](../azure-sql/database/monitor-tune-overview.md) e considerar a atualização da camada do banco de dados SQL do Azure.
 
     - Os índices não estão definidos corretamente. Remova todos os índices antes de carregar os dados e recrie-os após a conclusão da carga.
 
@@ -202,7 +202,6 @@ O tempo de execução da atividade varia quando o conjunto de base é baseado em
 
     - Em vez da inserção em massa, o procedimento armazenado está sendo usado, o que deve ter um desempenho pior. 
 
-- **Resolução**: consulte [solucionar problemas de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
 
 ### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Tempo limite ou desempenho lento ao analisar arquivo grande do Excel
 

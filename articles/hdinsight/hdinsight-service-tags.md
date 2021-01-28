@@ -1,18 +1,16 @@
 ---
 title: Marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight
 description: Use as marcas de serviço do HDInsight para permitir o tráfego de entrada para o cluster nos nós de serviços de integridade e gerenciamento, sem adicionar endereços IP ao seu NSGs.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022744"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931764"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Marcas de serviço NSG para o Azure HDInsight
 

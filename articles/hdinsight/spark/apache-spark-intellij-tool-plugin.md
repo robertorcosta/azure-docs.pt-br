@@ -1,19 +1,16 @@
 ---
 title: 'Azure Toolkit for IntelliJ: aplicativo Spark – HDInsight'
 description: Use o Kit de Ferramentas do Azure para IntelliJ a fim de desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster Spark do HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: b70de1915e6c068bd658dff60776085075412789
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b2c2a91ba9d029bcf24b0980d0a2339194e6d8a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024003"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931043"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Usar o Azure Toolkit for IntelliJ para criar aplicativos Apache Spark para um cluster do HDInsight
 
@@ -262,7 +259,7 @@ Você pode realizar várias operações usando Azure Toolkit for IntelliJ.  A ma
 
 ### <a name="access-the-job-view"></a>Acessar a exibição do trabalho
 
-1. No Azure Explorer, navegue até trabalhos do **HDInsight**  >  \<Your Cluster>  >  **Jobs**.
+1. No Azure Explorer, navegue até trabalhos do **HDInsight**  >  \<Your Cluster>  >  .
 
     ![IntelliJ nó de exibição de trabalho do Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 
