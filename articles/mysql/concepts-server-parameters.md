@@ -1,17 +1,17 @@
 ---
 title: Parâmetros do servidor-banco de dados do Azure para MySQL
 description: Este tópico fornece diretrizes para configurar parâmetros de servidor no banco de dados do Azure para MySQL.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 0fddc1e8f80e257548d0dda91758273eb8c8ac78
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534901"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951303"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros de servidor no banco de dados do Azure para MySQL
 
@@ -108,7 +108,7 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/inn
 
 O MySQL armazena a tabela InnoDB em espaços de tabela diferentes com base na configuração fornecida durante a criação da tabela. O [espaço de tabela do sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de tabela de arquivo por tabela](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contém dados e índices de uma única tabela InnoDB e é armazenado no sistema de arquivos em seu próprio arquivo de dados. Esse comportamento é controlado pelo parâmetro do servidor `innodb_file_per_table`. Definir `innodb_file_per_table` como `OFF` faz com que o InnoDB crie tabelas no espaço de tabela do sistema. Caso contrário, o InnoDB cria tabelas em espaços de tabela de arquivo por tabela.
 
-O banco de dados do Azure para MySQL dá suporte a, no máximo, **4 TB** , em um único arquivo. Se o tamanho do seu banco de dados for maior do que 4 TB, você deverá criar a tabela no [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. Se você tiver um tamanho de tabela único maior que 4 TB, deverá usar a tabela de partição.
+O banco de dados do Azure para MySQL dá suporte a, no máximo, **4 TB**, em um único arquivo. Se o tamanho do seu banco de dados for maior do que 4 TB, você deverá criar a tabela no [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. Se você tiver um tamanho de tabela único maior que 4 TB, deverá usar a tabela de partição.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -261,6 +261,18 @@ Consulte a [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/ser
 |Otimizado para memória|8|16777216|1024|536870912|
 |Otimizado para memória|16|16777216|1024|1073741824|
 |Otimizado para memória|32|16777216|1024|1073741824|
+
+### <a name="innodb-buffer-pool-warmup"></a>Pool de buffers InnoDB aquecimento
+Depois de reiniciar o banco de dados do Azure para o servidor MySQL, as páginas que residem no disco são carregadas conforme as tabelas são consultadas. Isso leva a uma maior latência e desempenho mais lento para a primeira execução das consultas. Isso pode não ser aceitável para cargas de trabalho sensíveis à latência. Usar o pool de buffers InnoDB aquecimento reduz o período de aquecimento recarregando páginas de disco que estavam no pool de buffers antes da reinicialização em vez de esperar que as operações DML ou SELECT acessem as linhas correspondentes.
+
+Você pode reduzir o período de aquecimento após reiniciar o banco de dados do Azure para o servidor MySQL, que representa uma vantagem de desempenho Configurando os [parâmetros do servidor do pool de buffers do InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). O InnoDB salva uma porcentagem das páginas usadas mais recentemente para cada pool de buffers no desligamento do servidor e restaura essas páginas na inicialização do servidor.
+
+Também é importante observar que o desempenho aprimorado é a despesa de tempo de inicialização mais longo para o servidor. Quando esse parâmetro é habilitado, espera-se que a inicialização do servidor e o tempo de reinicialização aumentem dependendo do IOPS provisionado no servidor. É recomendável testar e monitorar o tempo de reinicialização para garantir que o desempenho de inicialização/reinicialização seja aceitável, pois o servidor não está disponível durante esse tempo. Não é recomendável usar esse parâmetro quando o IOPS provisionado for menor que 1000 IOPS (ou em outras palavras, quando o armazenamento provisionado for menor que 335GB.
+
+Para salvar o estado do pool de buffers em desligar servidor, defina o parâmetro `innodb_buffer_pool_dump_at_shutdown` de servidor como `ON` . Da mesma forma, defina o parâmetro de servidor `innodb_buffer_pool_load_at_startup` como `ON` para restaurar o estado do pool de buffers na inicialização do servidor. Você pode controlar o impacto na inicialização/reinicialização ao reduzir e ajustar o valor do parâmetro de servidor `innodb_buffer_pool_dump_pct` , por padrão, esse parâmetro é definido como `25` .
+
+> [!Note]
+> Os parâmetros aquecimento do pool de buffers InnoDB têm suporte apenas em servidores de armazenamento de uso geral com até 16 TB de armazenamento. Saiba mais sobre [as opções de armazenamento do banco de dados do Azure para MySQL aqui](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage).
 
 ### <a name="time_zone"></a>time_zone
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 50042b749c917752d08198c31ada3c73a5ef540b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938480"
+ms.locfileid: "98952216"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerenciar Azure AD B2C com Microsoft Graph
 
@@ -45,9 +45,13 @@ Um número de telefone que pode ser usado por um usuário para entrar usando [ch
 - [Atualizar](/graph/api/phoneauthenticationmethod-update)
 - [Delete (excluir)](/graph/api/phoneauthenticationmethod-delete)
 
+Observe que a operação de [lista](/graph/api/authentication-list-phonemethods) retorna apenas números de telefone habilitados. O número de telefone a seguir deve ser habilitado para uso com as operações de lista. 
+
+![Habilitar entrada pelo telefone](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
 ## <a name="self-service-password-reset-email-address-beta"></a>Endereço de email de redefinição de senha de autoatendimento (beta)
 
-Um endereço de email que pode ser usado por um usuário para descansar a senha para a [conta de entrada de nome de usuário](identity-provider-local.md#username-sign-in). Para obter mais informações, consulte [API de métodos de autenticação do Azure ad](/graph/api/resources/emailauthenticationmethod).
+Um endereço de email que pode ser usado por uma [conta de entrada de nome de usuário](identity-provider-local.md#username-sign-in) para redefinir a senha. Para obter mais informações, consulte [API de métodos de autenticação do Azure ad](/graph/api/resources/emailauthenticationmethod).
 
 - [Adicionar](/graph/api/emailauthenticationmethod-post)
 - [Lista](/graph/api/emailauthenticationmethod-list)

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 79fcbb6d2bf10da566139b0d103a4f31930f3200
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 23867ac6eb6941e2d132ae885fccd0e938fef907
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98537994"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98953082"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com a conta da Amazon usando o Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ Para habilitar a entrada para usuários com uma conta da Amazon no Azure Active 
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Configurar uma conta da Amazon como um provedor de identidade
+## <a name="configure-amazon-as-an-identity-provider"></a>Configurar a Amazon como um provedor de identidade
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C selecionando o filtro **Diretório + assinatura** no menu superior e escolhendo o diretório que contém o locatário.
@@ -56,7 +56,17 @@ Para habilitar a entrada para usuários com uma conta da Amazon no Azure Active 
 1. Insira um **Nome**. Por exemplo, *Amazon*.
 1. Para a **ID do cliente**, insira a ID do cliente do aplicativo Amazon que você criou anteriormente.
 1. Para o **segredo do cliente**, insira o segredo do cliente que você registrou.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
+
+## <a name="add-amazon-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade da Amazon a um fluxo de usuário 
+
+1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
+1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Amazon.
+1. Em **provedores de identidade social**, selecione **Amazon**.
+1. Selecione **Salvar**.
+1. Para testar sua política, selecione **executar fluxo de usuário**.
+1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Clique em **executar fluxo de usuário**
 
 ::: zone-end
 
@@ -77,9 +87,9 @@ Você precisa armazenar o segredo do cliente que registrou anteriormente no seu 
 9. Para **Uso de chave**, selecione `Signature`.
 10. Clique em **Criar**.
 
-## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
+## <a name="configure-amazon-as-an-identity-provider"></a>Configurar a Amazon como um provedor de identidade
 
-Se você quiser que os usuários entrem usando uma conta da Amazon, você precisa definir a conta como um provedor de declarações que podem se comunicar com o Azure AD B2C por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
+Para permitir que os usuários entrem usando uma conta da Amazon, você precisa definir a conta como um provedor de declarações. Esse Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir uma conta do Amazon como um provedor de declarações adicionando ao **ClaimsProviders** elemento no arquivo de extensão da política.
 
@@ -93,7 +103,7 @@ Você pode definir uma conta do Amazon como um provedor de declarações adicion
       <Domain>amazon.com</Domain>
       <DisplayName>Amazon</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Amazon-OAUTH">
+        <TechnicalProfile Id="Amazon-OAuth2">
         <DisplayName>Amazon</DisplayName>
         <Protocol Name="OAuth2" />
         <Metadata>
@@ -130,77 +140,28 @@ Você pode definir uma conta do Amazon como um provedor de declarações adicion
 4. Defina **client_id** para a ID do aplicativo de registro de aplicativo.
 5. Salve o arquivo.
 
-### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-A essa altura, você já terá configurado a política, de forma que o Azure AD B2C saiba como se comunicar com o diretório do Azure AD. Tente carregar o arquivo de extensão da política apenas para confirmar se ele não apresenta problemas até o momento.
 
-1. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política**.
-2. Habilite **Substitua a política se ela existir** e, em seguida, navegue até o arquivo *TrustFrameworkExtensions.xml* e selecione-o.
-3. Clique em **Carregar**.
-
-## <a name="register-the-claims-provider"></a>Registrar o provedor de declarações
-
-Neste ponto, o provedor de identidade foi definido, mas não está disponível em nenhuma das telas de inscrição/entrada. Para disponibilizá-lo, você criará uma duplicata de um modelo de percurso do usuário existente e, depois, o modificará para que ele também tenha o provedor de identidade do Amazon.
-
-1. Abra o arquivo *TrustFrameworkBase.xml* do starter pack.
-2. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
-3. Abra o *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
-4. Cole todo o conteúdo do elemento **UserJourney** que você copiou como filho do elemento **UserJourneys**.
-5. Renomeie a ID do percurso do usuário. Por exemplo, `SignUpSignInAmazon`.
-
-### <a name="display-the-button"></a>Exibir o botão
-
-O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de identidade em uma tela de inscrição/entrada. Se você adicionar um elemento **ClaimsProviderSelection** à conta da Amazon, um novo botão será exibido quando um usuário chegar à página.
-
-1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada do usuário que você criou.
-2. Em **ClaimsProviderSelects**, adicione o elemento a seguir. Defina o valor de **TargetClaimsExchangeId** para um valor apropriado, por exemplo `AmazonExchange`:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="AmazonExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação é para o Azure AD B2C se comunicar com a conta da Amazon para receber um token.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
-2. Adicione o seguinte elemento **ClaimsExchange** certificando-se de que você use o mesmo valor para a ID que você usou para **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
-    ```
-
-    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico você já criou. Por exemplo, `Amazon-OAuth`.
-
-3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-amazon-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade da Amazon a um fluxo de usuário 
-
-1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Amazon.
-1. Em **provedores de identidade social**, selecione **Amazon**.
-1. Clique em **Salvar**.
-1. Para testar sua política, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o arquivo de terceira parte confiável
-
-Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
-
-1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-o para *SignUpSignContoso.xml*.
-1. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInAmazon`.
-1. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_amazon`
-1. Atualize o valor do atributo **ReferenceId** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignAmazon).
-1. Salve suas alterações, carregue o arquivo e, em seguida, selecione a nova política na lista.
-1. Verifique se o aplicativo Azure AD B2C que você criou está selecionado no campo **Selecionar aplicativo** e teste-o clicando em **Executar agora**.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end

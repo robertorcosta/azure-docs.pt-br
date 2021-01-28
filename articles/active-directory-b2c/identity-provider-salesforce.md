@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 92c5850c3e8c6db63bb5f6287078d2b0345a051c
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 0981687b03344daf7a447cc4d9e50f0923341340
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538038"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98952284"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Salesforce usando Azure Active Directory B2C
 
@@ -54,12 +54,12 @@ Para habilitar a entrada para usuários com uma conta do Salesforce no Azure Act
 1. Selecione **Configurar token de ID** 
     1. Defina o **token válido por** 5 minutos.
     1. Selecione **incluir declarações padrão**.
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 1. Copie os valores da **chave do consumidor** e do **segredo do consumidor**. Você precisará de ambos para configurar o Salesforce como um provedor de identidade em seu locatário. **Segredo do cliente** é uma credencial de segurança importante.
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-a-salesforce-account-as-an-identity-provider"></a>Configurar uma conta do Salesforce como um provedor de identidade
+## <a name="configure-salesforce-as-an-identity-provider"></a>Configurar o Salesforce como um provedor de identidade
 
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C. Selecione o filtro **Diretório + assinatura** no menu superior e escolha o diretório que contém o locatário do Azure AD B2C.
 1. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
@@ -84,7 +84,18 @@ Para habilitar a entrada para usuários com uma conta do Salesforce no Azure Act
     - **Sobrenome**: *family_name*
     - **Email**: *email*
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
+
+## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Salesforce a um fluxo de usuário 
+
+1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
+1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Salesforce.
+1. Em **provedores de identidade social**, selecione **Salesforce**.
+1. Selecione **Salvar**.
+1. Para testar sua política, selecione **executar fluxo de usuário**.
+1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Clique em **executar fluxo de usuário**
+
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -104,9 +115,9 @@ Você precisa armazenar o segredo do cliente que registrou anteriormente no seu 
 9. Para **Uso de chave**, selecione `Signature`.
 10. Clique em **Criar**.
 
-## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
+## <a name="configure-salesforce-as-an-identity-provider"></a>Configurar o Salesforce como um provedor de identidade
 
-Se desejar que os usuários entrem usando uma conta do Salesforce, você precisará definir a conta como um provedor de declarações com o qual Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
+Para permitir que os usuários entrem usando uma conta do Salesforce, você precisa definir a conta como um provedor de declarações com o qual Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir uma conta da Salesforce como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política.
 
@@ -119,7 +130,7 @@ Você pode definir uma conta da Salesforce como um provedor de declarações adi
       <Domain>salesforce.com</Domain>
       <DisplayName>Salesforce</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Salesforce-OIDC">
+        <TechnicalProfile Id="Salesforce-OpenIdConnect">
           <DisplayName>Salesforce</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
@@ -159,80 +170,29 @@ Você pode definir uma conta da Salesforce como um provedor de declarações adi
 5. Defina **client_id** para a ID do aplicativo de registro de aplicativo.
 6. Salve o arquivo.
 
-### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-Até agora, você configurou a política para que o Azure AD B2C saiba como se comunicar com a conta da Salesforce. Tente carregar o arquivo de extensão da política apenas para confirmar se ele não apresenta problemas até o momento.
 
-1. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política**.
-2. Habilite **Substitua a política se ela existir** e, em seguida, navegue até o arquivo *TrustFrameworkExtensions.xml* e selecione-o.
-3. Clique em **Carregar**.
-
-## <a name="register-the-claims-provider"></a>Registrar o provedor de declarações
-
-Neste ponto, o provedor de identidade foi definido, mas não está disponível em nenhuma das telas de inscrição/entrada. Para disponibilizá-lo, você criará uma duplicata de um percurso do usuário de modelo existente e, depois, o modificará para que ele também tenha o provedor de identidade Salesforce.
-
-1. Abra o arquivo *TrustFrameworkBase.xml* do starter pack.
-2. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
-3. Abra o *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
-4. Cole todo o conteúdo do elemento **UserJourney** que você copiou como filho do elemento **UserJourneys**.
-5. Renomeie a ID do percurso do usuário. Por exemplo, `SignUpSignInSalesforce`.
-
-### <a name="display-the-button"></a>Exibir o botão
-
-O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de identidade em uma tela de inscrição/entrada. Se você adicionar um elemento **ClaimsProviderSelection** para uma conta do Salesforce, um novo botão será exibido quando um usuário chegar à página.
-
-1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada do usuário que você criou.
-2. Em **ClaimsProviderSelects**, adicione o elemento a seguir. Defina o valor de **TargetClaimsExchangeId** para um valor apropriado, por exemplo `SalesforceExchange`:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="Salesforce-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação é para que o Azure AD B2C se comunique com a conta da Salesforce para receber um token.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
-2. Adicione o seguinte elemento **ClaimsExchange** usando o mesmo valor de ID usado para **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="Salesforce-OIDC" />
-    ```
-
-    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico você já criou. Por exemplo, `Salesforce-OIDC`.
-
-3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Salesforce a um fluxo de usuário 
-
-1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Salesforce.
-1. Em **provedores de identidade social**, selecione **Salesforce**.
-1. Clique em **Salvar**.
-1. Para testar sua política, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o arquivo de terceira parte confiável
-
-Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
-
-1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-o para *SignUpSignInSalesforce.xml*.
-1. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInSalesforce`.
-1. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_Salesforce`
-1. Atualize o valor do atributo **referenceid** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignSalesforce).
-1. Salve as alterações, carregue o arquivo.
-1. Na página **Políticas personalizadas**, selecione **B2C_1A_signup_signin**.
-1. Para **Selecionar aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Selecione **executar agora** e selecione Salesforce para entrar com o Salesforce e testar a política personalizada.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end
 

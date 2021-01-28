@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5b7c6a229cfee5b543d1169b30be336cc97ba7ed
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8bc2cddf4d0380e5dc22e8250b6ee26f4d005b8a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538090"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98952420"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do QQ usando o Azure Active Directory B2C
 
@@ -64,7 +64,17 @@ Para habilitar a entrada para usuários com uma conta do QQ no Azure Active Dire
 1. Insira um **Nome**. Por exemplo, *QQ*.
 1. Para a **ID do cliente**, insira a ID do aplicativo QQ que você criou anteriormente.
 1. Para o **segredo do cliente**, insira a chave do aplicativo que você registrou.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
+
+## <a name="add-qq-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade QQ a um fluxo de usuário 
+
+1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
+1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade QQ.
+1. Em **provedores de identidade social**, selecione **QQ**.
+1. Selecione **Salvar**.
+1. Para testar sua política, selecione **executar fluxo de usuário**.
+1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Clique em **executar fluxo de usuário**
 
 ::: zone-end
 
@@ -85,9 +95,9 @@ Você precisa armazenar o segredo do cliente que registrou anteriormente no seu 
 9. Para **Uso de chave**, selecione `Signature`.
 10. Clique em **Criar**.
 
-## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
+## <a name="configure-qq-as-an-identity-provider"></a>Configurar o QQ como um provedor de identidade
 
-Se desejar que os usuários entrem usando uma conta do QQ, você precisará definir a conta como um provedor de declarações com o qual Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
+Para permitir que os usuários entrem usando uma conta do QQ, você precisa definir a conta como um provedor de declarações com o qual Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir uma conta QQ como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política.
 
@@ -100,7 +110,7 @@ Você pode definir uma conta QQ como um provedor de declarações adicionando-a 
       <Domain>qq.com</Domain>
       <DisplayName>QQ (Preview)</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="QQ-OAUTH">
+        <TechnicalProfile Id="QQ-OAuth2">
           <DisplayName>QQ</DisplayName>
           <Protocol Name="OAuth2" />
           <Metadata>
@@ -138,79 +148,28 @@ Você pode definir uma conta QQ como um provedor de declarações adicionando-a 
 4. Defina **client_id** para a ID do aplicativo de registro de aplicativo.
 5. Salve o arquivo.
 
-### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-Agora, você configurou sua política para que Azure AD B2C saiba como se comunicar com sua conta do QQ. Tente carregar o arquivo de extensão da política apenas para confirmar se ele não apresenta problemas até o momento.
 
-1. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política**.
-2. Habilite **Substitua a política se ela existir** e, em seguida, navegue até o arquivo *TrustFrameworkExtensions.xml* e selecione-o.
-3. Clique em **Carregar**.
-
-## <a name="register-the-claims-provider"></a>Registrar o provedor de declarações
-
-Neste ponto, o provedor de identidade foi definido, mas não está disponível em nenhuma das telas de inscrição/entrada. Para disponibilizá-lo, crie uma duplicata de um percurso de usuário de modelo existente e, em seguida, modifique-o para que ele também tenha o provedor de identidade QQ.
-
-1. Abra o arquivo *TrustFrameworkBase.xml* do starter pack.
-2. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
-3. Abra o *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
-4. Cole todo o conteúdo do elemento **UserJourney** que você copiou como filho do elemento **UserJourneys**.
-5. Renomeie a ID do percurso do usuário. Por exemplo, `SignUpSignInQQ`.
-
-### <a name="display-the-button"></a>Exibir o botão
-
-O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de identidade em uma tela de inscrição/entrada. Se você adicionar um elemento **ClaimsProviderSelection** para uma conta QQ, um novo botão será exibido quando um usuário chegar à página.
-
-1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada do usuário que você criou.
-2. Em **ClaimsProviderSelects**, adicione o elemento a seguir. Defina o valor de **TargetClaimsExchangeId** para um valor apropriado, por exemplo `QQExchange`:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="QQExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="QQExchange" TechnicalProfileReferenceId="QQ-OAuth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação é para Azure AD B2C se comunicar com uma conta do QQ para receber um token.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
-2. Adicione o seguinte elemento **ClaimsExchange** usando o mesmo valor de ID usado para **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="QQExchange" TechnicalProfileReferenceId="QQ-OAuth" />
-    ```
-
-    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico você já criou. Por exemplo, `QQ-OAuth`.
-
-3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-qq-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade QQ a um fluxo de usuário 
-
-1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade QQ.
-1. Em **provedores de identidade social**, selecione **QQ**.
-1. Clique em **Salvar**.
-1. Para testar sua política, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o arquivo de terceira parte confiável
-
-Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
-
-1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-o como *SignUpSignInQQ.xml*.
-1. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInQQ`.
-1. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_QQ`
-1. Atualize o valor do atributo **referenceid** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignQQ).
-1. Salve as alterações, carregue o arquivo.
-1. Na página **Políticas personalizadas**, selecione **B2C_1A_signup_signin**.
-1. Para **Selecionar aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Selecione **executar agora** e selecione QQ para entrar com QQ e testar a política personalizada.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end

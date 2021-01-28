@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradução, serviço de tradução, traduzir texto, transliterar texto, detecção de idioma
-ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 38bd4d28a8ae4c737155cd74bcb39d1acfaf699c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369521"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733487"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Início Rápido: Introdução à Tradução
 
@@ -59,7 +59,7 @@ Neste guia de início rápido, você aprende a usar o serviço de Tradução por
 # <a name="java"></a>[Java](#tab/java)
 
 * Crie um diretório de trabalho para seu projeto. Por exemplo: `mkdir sample-project`.
-* Inicialize seu projeto com Gradle: `gradle init --type basic`. Quando solicitado a escolher uma **DSL** , escolha **Kotlin**.
+* Inicialize seu projeto com Gradle: `gradle init --type basic`. Quando solicitado a escolher uma **DSL**, escolha **Kotlin**.
 * Atualizar `build.gradle.kts`. Tenha em mente que você precisará atualizar seu `mainClassName` dependendo do exemplo.
   ```java
   plugins {
@@ -968,7 +968,8 @@ Se você estiver traduzindo para um idioma que use um alfabeto diferente (ou fon
 
 Para obter uma transliteração do ponto de extremidade `translate`, use o parâmetro `toScript`.
 
-> ![NOTE] Para obter uma lista completa de idiomas disponíveis e opções de transliteração, confira [suporte ao idioma](language-support.md).
+> [!NOTE]
+> Para uma lista completa de idiomas disponíveis e opções de transliteração, confira [suporte ao idioma](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1247,7 +1248,8 @@ Após uma chamada bem-sucedida, você deverá ver a resposta a seguir. Lembre-se
 
 Você também pode usar o ponto de extremidade `transliterate` para obter uma transliteração. Ao usar o ponto de extremidade de transliteração, você deve informar o idioma de origem (`language`), o script/alfabeto de origem (`fromScript`) e o script/alfabeto de saída (`toScript`) como parâmetros. Neste exemplo, vamos obter a transliteração para สวัสดี. 
 
-> ![NOTE] Para obter uma lista completa de idiomas disponíveis e opções de transliteração, confira [suporte ao idioma](language-support.md).
+> [!NOTE]
+> Para uma lista completa de idiomas disponíveis e opções de transliteração, confira [suporte ao idioma](language-support.md).
 
 # <a name="c"></a>[C#](#tab/csharp)
 

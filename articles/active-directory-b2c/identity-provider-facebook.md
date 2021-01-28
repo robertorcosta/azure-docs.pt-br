@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 64a4404fa881181f92d442a73e5da4c16ae87ae3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598879"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98952667"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do Facebook usando o Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ Para habilitar a entrada para usuários com uma conta do Facebook no Azure Activ
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Facebook.
 1. Em **provedores de identidade social**, selecione **Facebook**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**
@@ -84,6 +84,21 @@ Para habilitar a entrada para usuários com uma conta do Facebook no Azure Activ
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="create-a-policy-key"></a>Criar uma chave de política
+
+Você precisa armazenar o segredo do aplicativo que você registrou anteriormente em seu locatário Azure AD B2C.
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
+2. Verifique se você está usando o diretório que contém seu locatário do Azure AD B2C. Escolha o filtro **Diretório + assinatura** no menu superior e escolha o diretório que contém o locatário.
+3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
+4. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.
+5. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar**.
+6. Para **Opções**, escolha `Manual`.
+7. Insira um **Nome** para a chave de política. Por exemplo, `FacebookSecret`. O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
+8. Em **segredo**, insira o segredo do aplicativo que você registrou anteriormente.
+9. Para **Uso de chave**, selecione `Signature`.
+10. Clique em **Criar**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurar o Facebook como um provedor de identidade
 

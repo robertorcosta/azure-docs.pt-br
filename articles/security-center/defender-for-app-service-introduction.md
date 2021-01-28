@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c6d62cf7b93255336d87cec1d0fef2c567cde9f2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791821"
+ms.locfileid: "98796624"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para Serviço de Aplicativo
 
@@ -62,9 +62,9 @@ O Azure Defender monitora muitas ameaças aos recursos do Serviço de Aplicativo
 
 ### <a name="dangling-dns-detection"></a>Detecção de DNS pendente
 
-O Azure Defender para o Serviço de Aplicativo também identifica as entradas de DNS restantes em seu registrador DNS quando um site do Serviço de Aplicativo é desativado (elas são conhecidas como entradas de DNS pendente). No momento, a entrada de DNS está apontando para um recurso não existente e seu subdomínio está vulnerável a uma invasão. O Azure Defender não verifica seu registrador DNS em busca de entradas de DNS pendente *existentes*; ele alerta você quando um site do Serviço de Aplicativo é desativado e o domínio personalizado dele (entrada de DNS) não é excluído.
+O Azure Defender para o Serviço de Aplicativo também identifica as entradas de DNS restantes em seu registrador DNS quando um site do Serviço de Aplicativo é desativado (elas são conhecidas como entradas de DNS pendente). Quando você remove um site da Web e não remove o domínio personalizado dele do seu registrador DNS, a entrada de DNS aponta para um recurso que não existe e seu subdomínio fica vulnerável a uma tomada de controle. O Azure Defender não verifica seu registrador DNS em busca de entradas de DNS pendente *existentes*; ele alerta você quando um site do Serviço de Aplicativo é desativado e o domínio personalizado dele (entrada de DNS) não é excluído.
 
-As invasões de subdomínios são uma ameaça comum de gravidade alta para as organizações. Quando um ator da ameaça detecta a entrada de DNS pendente, ele cria o próprio site no endereço de destino. O tráfego pretendido para o domínio da organização é direcionado ao site do ator da ameaça, e ele pode usar esse tráfego para uma ampla gama de atividades mal-intencionadas. 
+As invasões de subdomínios são uma ameaça comum de gravidade alta para as organizações. Quando um ator da ameaça detecta a entrada de DNS pendente, ele cria o próprio site no endereço de destino. O tráfego pretendido para o domínio da organização é direcionado ao site do ator da ameaça, e ele pode usar esse tráfego para uma ampla gama de atividades mal-intencionadas.
 
 A proteção de DNS pendente estará disponível caso seus domínios sejam gerenciados usando o DNS do Azure ou um registrador de domínios externo. Além disso, ela se aplica ao Serviço de Aplicativo no Windows e no Linux.
 
@@ -100,4 +100,4 @@ Para obter material relacionado, consulte os seguintes artigos:
 - Para obter uma lista dos alertas do Azure Defender para o Serviço de Aplicativo, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-azureappserv).
 - Para saber mais sobre os planos do Serviço de Aplicativo, confira [Planos do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/).
 > [!div class="nextstepaction"]
-> [Habilitar o Azure Defender](security-center-pricing.md)
+> [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)

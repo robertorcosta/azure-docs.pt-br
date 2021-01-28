@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c7d43a55878a07e424ce1b6f55782502c244239c
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: baf02c6da2b3c54b5a459ec6a5dbcb5dd939f2af
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98537935"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98952589"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-idme-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do ID.me usando Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Para habilitar a entrada para usuários com uma conta do ID.me no Azure Active D
 1. Selecione **exibir meus aplicativos** e selecione **continuar**.
 1. Selecione **Criar**
     1. Insira um **nome** e um **nome para exibição**.
-    1. Em **URI de redirecionamento** , insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-tenant-name` pelo nome do seu locatário. 
+    1. No **URI de redirecionamento**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-tenant-name` pelo nome do seu locatário. 
 1. Clique em **Continue**.
 1. Copie os valores da **ID do cliente** e do **segredo do cliente**. Você precisará delas para adicionar o provedor de identidade ao locatário.
 
@@ -64,9 +64,9 @@ Você precisa armazenar o segredo do cliente que registrou anteriormente no seu 
 9. Para **Uso de chave**, selecione `Signature`.
 10. Clique em **Criar**.
 
-## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
+## <a name="configure-idme-as-an-identity-provider"></a>Configurar o ID.me como um provedor de identidade
 
-Se desejar que os usuários entrem usando uma conta do ID.me, você precisará definir a conta como um provedor de declarações com o qual Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
+Para permitir que os usuários entrem usando uma conta do ID.me, você precisa definir a conta como um provedor de declarações com o qual Azure AD B2C pode se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir uma conta ID.me como um provedor de declarações adicionando-a ao elemento **ClaimsProviders** no arquivo de extensão da política.
 
@@ -79,7 +79,7 @@ Você pode definir uma conta ID.me como um provedor de declarações adicionando
       <Domain>id.me</Domain>
       <DisplayName>ID.me</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="IdMe-OAUTH2">
+        <TechnicalProfile Id="IdMe-OAuth2">
           <DisplayName>IdMe</DisplayName>
           <Protocol Name="OAuth2" />
           <Metadata>
@@ -141,61 +141,29 @@ Em seguida, você precisa de uma transformação declarações para criar a decl
 </ClaimsTransformations>
 ```
 
-### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-Agora, você configurou sua política para que Azure AD B2C saiba como se comunicar com sua conta do ID.me. Tente carregar o arquivo de extensão da política apenas para confirmar se ele não apresenta problemas até o momento.
 
-1. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política**.
-2. Habilite **Substitua a política se ela existir** e, em seguida, navegue até o arquivo *TrustFrameworkExtensions.xml* e selecione-o.
-3. Clique em **Carregar**.
-
-## <a name="register-the-claims-provider"></a>Registrar o provedor de declarações
-
-Neste ponto, o provedor de identidade foi definido, mas não está disponível em nenhuma das telas de inscrição/entrada. Para disponibilizá-lo, crie uma duplicata de um percurso de usuário de modelo existente e, em seguida, modifique-o para que ele também tenha o provedor de identidade ID.me.
-
-1. Abra o arquivo *TrustFrameworkBase.xml* do starter pack.
-2. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
-3. Abra o *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
-4. Cole todo o conteúdo do elemento **UserJourney** que você copiou como filho do elemento **UserJourneys**.
-5. Renomeie a ID do percurso do usuário. Por exemplo, `SignUpSignInIdMe`.
-
-### <a name="display-the-button"></a>Exibir o botão
-
-O elemento **ClaimsProviderSelection** é análogo a um botão do provedor de identidade em uma tela de inscrição/entrada. Se você adicionar um elemento **ClaimsProviderSelection** para uma conta ID.me, um novo botão será exibido quando um usuário chegar à página.
-
-1. Encontre o elemento **OrchestrationStep** que inclui `Order="1"` na jornada do usuário que você criou.
-2. Em **ClaimsProviderSelects**, adicione o elemento a seguir. Defina o valor de **TargetClaimsExchangeId** para um valor apropriado, por exemplo `IdMeExchange`:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="IdMeExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="IdMeExchange" TechnicalProfileReferenceId="IdMe-OAuth2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação é para Azure AD B2C se comunicar com uma conta do ID.me para receber um token.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
-2. Adicione o seguinte elemento **ClaimsExchange** usando o mesmo valor de ID usado para **TargetClaimsExchangeId**:
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
-    ```xml
-    <ClaimsExchange Id="IdMeExchange" TechnicalProfileReferenceId="IdMe-OAUTH2" />
-    ```
-
-    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico você já criou. Por exemplo, `IdMe-OAUTH2`.
-
-3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
-
-## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o arquivo de terceira parte confiável
-
-Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
-
-1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-o como *SignUpSignInIdMe.xml*.
-1. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignIdMe`.
-1. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_IdMe`
-1. Atualize o valor do atributo **referenceid** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignIdMe).
-1. Salve as alterações, carregue o arquivo.
-1. Na página **Políticas personalizadas**, selecione **B2C_1A_signup_signin**.
-1. Para **Selecionar aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Selecione **executar agora** e selecione ID.me para entrar com ID.me e testar a política personalizada.
 
 ::: zone-end
