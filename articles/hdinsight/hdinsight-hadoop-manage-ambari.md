@@ -1,19 +1,16 @@
 ---
 title: Monitorar e gerenciar o Azure HDInsight usando a IU da Web do Ambari
 description: Saiba como usar a interface do usuário do Apache Ambari para monitorar e gerenciar clusters HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 8195cffed077a77c0ad66fda1126e2f3ea53d5f0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 087f284bed7ab0c9eb551c1629ab4f9196c80d76
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179139"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945705"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface do usuário da Web do Apache Ambari
 
@@ -54,7 +51,7 @@ Quando a página se abrir, observe a barra na parte superior. Essa barra contém
 |Logotipo do Ambari|Abre o painel, que pode ser usado para monitorar o cluster.|
 |Nome do cluster # Ops|Exibe o número de operações de Ambari em andamento. A seleção do nome do cluster ou **Nº operações** exibe uma lista de operações em segundo plano.|
 |n º de alertas|Exibe avisos ou alertas críticos, se houver, para o cluster.|
-|Painel|Exibe o painel.|
+|Dashboard|Exibe o painel.|
 |Serviços|Informações e definições de configuração para os serviços no cluster.|
 |Hosts|Informações e definições de configuração para os nós no cluster.|
 |Alertas|Um log de informações, avisos e alertas críticos.|
@@ -162,7 +159,7 @@ A página **Hosts** lista todos os hosts no cluster. Para gerenciar hosts, siga 
     |Ativar o modo de manutenção|Suprime alertas para o host. Esse modo deve ser habilitado se você estiver fazendo ações que geram alertas. Por exemplo, parar e iniciar um serviço.|
     |Desligar o modo de manutenção|Retorna o host para alertas normais.|
     |Parar|Interrompe datanode ou NodeManagers no host.|
-    |Inicie o|Inicia datanode ou NodeManagers no host.|
+    |Iniciar|Inicia datanode ou NodeManagers no host.|
     |Reiniciar|Para e inicia o datanode ou NodeManagers no host.|
     |Desprogramar|Remove um host do cluster. **Não use essa ação em clusters HDInsight.**|
     |Reativação|Adiciona um host anterior descomissionado ao cluster. **Não use essa ação em clusters HDInsight.**|

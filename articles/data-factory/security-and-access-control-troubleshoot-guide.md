@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 3b7b405e34b6ca82da593507ad6103d360c5df1e
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 70e4d0c1a9f26f83924c1343e4e8e51c5595b324
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968578"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944510"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Solucionar problemas Azure Data Factory segurança e controle de acesso
 
@@ -49,13 +49,13 @@ O problema geralmente é causado por um dos seguintes fatores:
 
 * Se você estiver usando um **ir auto-hospedado**, verifique as configurações de proxy, firewall e rede, pois a conexão com o mesmo repositório de armazenamento poderá ter sucesso se você estiver usando um Azure ir. Para solucionar esse problema, consulte:
 
-   * [Portas e firewalls de IR hospedados internamente](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls)
-   * [Conector de Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
+   * [Portas e firewalls de IR hospedados internamente](./create-self-hosted-integration-runtime.md#ports-and-firewalls)
+   * [Conector de Azure Data Lake Storage](./connector-azure-data-lake-store.md)
   
 * Se você estiver usando uma **Azure ir**, tente desabilitar a configuração de firewall do repositório de armazenamento. Essa abordagem pode resolver os problemas nas duas situações a seguir:
   
-   * [Azure ir endereços IP](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) não estão na lista de permissões.
-   * O recurso *permitir que os serviços Microsoft confiáveis acessem este conta de armazenamento* está desativado para o [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) e o [Azure data Lake Storage Gen 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities).
+   * [Azure ir endereços IP](./azure-integration-runtime-ip-addresses.md) não estão na lista de permissões.
+   * O recurso *permitir que os serviços Microsoft confiáveis acessem este conta de armazenamento* está desativado para o [armazenamento de BLOBs do Azure](./connector-azure-blob-storage.md#supported-capabilities) e o [Azure data Lake Storage Gen 2](./connector-azure-data-lake-storage.md#supported-capabilities).
    * A configuração *permitir acesso aos serviços do Azure* não está habilitada para Azure data Lake Storage Gen1.
 
 Se nenhum dos métodos anteriores funcionar, contate a Microsoft para obter ajuda.
@@ -88,7 +88,7 @@ Para verificar se o FQDN (nome de domínio totalmente qualificado) do Data Facto
 #### <a name="resolution"></a>Resolução
 
 Para resolver o problema, faça o seguinte:
-- Consulte o [link privado do Azure para Azure data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) artigo. A instrução é para configurar a zona DNS privada ou o servidor para resolver o Data Factory FQDN para um endereço IP privado.
+- Consulte o [link privado do Azure para Azure data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) artigo. A instrução é para configurar a zona DNS privada ou o servidor para resolver o Data Factory FQDN para um endereço IP privado.
 
 - É recomendável usar um DNS personalizado como a solução de longo prazo. No entanto, se você não quiser configurar a zona DNS privada ou o servidor, tente a seguinte solução temporária:
 
@@ -120,7 +120,7 @@ O problema pode ser causado pela VM na qual você está tentando instalar o IR a
  
 Para resolver o problema, faça o seguinte:
 
-1. Vá para a página [fábricas – atualização](https://docs.microsoft.com/rest/api/datafactory/Factories/Update) .
+1. Vá para a página [fábricas – atualização](/rest/api/datafactory/Factories/Update) .
 
 1. No canto superior direito, selecione o botão **experimentar** .
 1. Em **parâmetros**, conclua as informações necessárias. 
@@ -146,7 +146,7 @@ Para resolver o problema, faça o seguinte:
 
 **Solução 2**
 
-Para resolver o problema, vá para o [link privado do Azure para Azure data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-private-link).
+Para resolver o problema, vá para o [link privado do Azure para Azure data Factory](./data-factory-private-link.md).
 
 Tente habilitar o acesso à rede pública na interface do usuário, conforme mostrado na seguinte captura de tela:
 

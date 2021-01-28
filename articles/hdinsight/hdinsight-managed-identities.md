@@ -1,19 +1,16 @@
 ---
 title: Identidades gerenciadas no Azure HDInsight
 description: Fornece uma visão geral da implementação de identidades gerenciadas no Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 87bc2338ecc48f1115a406c276ef221cb185a4c5
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f2b7f6e8421a735db131bc05605936e8cb2d87eb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118618"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944118"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades gerenciadas no Azure HDInsight
 

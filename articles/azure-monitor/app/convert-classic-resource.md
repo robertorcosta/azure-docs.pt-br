@@ -3,12 +3,12 @@ title: Migrar um Azure Monitor Application Insights recurso clássico para um re
 description: Saiba mais sobre as etapas necessárias para atualizar seu Azure Monitor Application Insights recurso clássico para o novo modelo baseado em espaço de trabalho.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5316bf5b919fe8b24ea1dd601214df62aa034f37
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536516"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945111"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrar para recursos de Application Insights baseados em espaço de trabalho
 
@@ -51,7 +51,7 @@ Se você não precisar migrar um recurso existente e, em vez disso, quiser criar
 - A exportação contínua não tem suporte para recursos baseados em espaço de trabalho e deve ser desabilitada.
 Quando a migração for concluída, você poderá usar [as configurações de diagnóstico](../platform/diagnostic-settings.md) para configurar o arquivamento de dados para uma conta de armazenamento ou streaming para o Hub de eventos do Azure.  
 
-- Verifique suas configurações de retenção atuais em uso **geral**  >  e a retenção de dados de **custos estimados**  >  **Data Retention** para seu espaço de trabalho log Analytics. Essa configuração afetará por quanto tempo todos os novos dados ingeridos serão armazenados depois que você migrar o recurso de Application Insights. Se atualmente você armazena dados Application Insights por mais tempo do que o padrão de 90 dias e deseja manter esse período de retenção maior, talvez seja necessário ajustar as configurações de retenção do espaço de trabalho.
+- Verifique suas configurações de retenção atuais em uso **geral**  >  e a retenção de dados de **custos estimados**  >   para seu espaço de trabalho log Analytics. Essa configuração afetará por quanto tempo todos os novos dados ingeridos serão armazenados depois que você migrar o recurso de Application Insights. Se atualmente você armazena dados Application Insights por mais tempo do que o padrão de 90 dias e deseja manter esse período de retenção maior, talvez seja necessário ajustar as configurações de retenção do espaço de trabalho.
 
 ## <a name="migrate-your-resource"></a>Migrar seu recurso
 
@@ -114,7 +114,7 @@ az monitor app-insights component update --app
 az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Para obter a documentação completa de CLI do Azure para este comando, confira a [documentação CLI do Azure](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-update).
+Para obter a documentação completa de CLI do Azure para este comando, confira a [documentação CLI do Azure](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-update).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

@@ -1,19 +1,16 @@
 ---
 title: Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 description: Fornece uma visão geral dos tipos de armazenamento e como eles funcionam com o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 34eeeed2b3c44336cd4aa1219d54b1811c6988f5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b6dd0fd95280a65615d38ab11a2f9814f58586f5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952311"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945859"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 
@@ -49,16 +46,16 @@ Você pode criar clusters usando combinações de serviços para armazenamento p
 
 | Versão do HDInsight | Armazenamento primário | Armazenamento secundário | Com suporte |
 |---|---|---|---|
-| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Yes |
-| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Data Lake Storage Gen2 | No |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Yes |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Yes |
-| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | No |
-| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Yes |
-| 3,6 | Data Lake Storage Gen1 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Yes |
-| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | No |
-| 4,0 | Data Lake Storage Gen1 | Qualquer | No |
-| 4,0 | Uso Geral v1, Uso Geral v2 | Data Lake Storage Gen1 | No |
+| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
+| 3,6 & 4,0 | Uso Geral v1, Uso Geral v2 | Data Lake Storage Gen2 | Não |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Sim |
+| 3,6 & 4,0 | Data Lake Storage Gen2 * | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
+| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Não |
+| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sim |
+| 3,6 | Data Lake Storage Gen1 | Uso Geral v1, Uso Geral v2, BlobStorage (BLOBs de blocos) | Sim |
+| 3,6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Não |
+| 4,0 | Data Lake Storage Gen1 | Qualquer | Não |
+| 4,0 | Uso Geral v1, Uso Geral v2 | Data Lake Storage Gen1 | Não |
 
 * = Isso pode ser um ou vários Data Lake Storage Gen2, desde que todas as configurações usem a mesma identidade gerenciada para acesso ao cluster.
 

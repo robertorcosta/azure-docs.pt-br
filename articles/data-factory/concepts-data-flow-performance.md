@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 12/18/2020
-ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 9706bee07f028c36b4d03311a7abbb969a1be685
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858563"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944987"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -161,7 +161,7 @@ O banco de dados SQL do Azure tem uma opção de particionamento exclusiva chama
 
 #### <a name="isolation-level"></a>Nível de isolamento
 
-O nível de isolamento da leitura em um sistema de origem do SQL do Azure tem um impacto no desempenho. Escolher ' ler não confirmado ' fornecerá o desempenho mais rápido e evitará qualquer bloqueio de banco de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [noções básicas sobre níveis de isolamento](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
+O nível de isolamento da leitura em um sistema de origem do SQL do Azure tem um impacto no desempenho. Escolher ' ler não confirmado ' fornecerá o desempenho mais rápido e evitará qualquer bloqueio de banco de dados. Para saber mais sobre os níveis de isolamento do SQL, consulte [noções básicas sobre níveis de isolamento](/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Ler usando consulta
 
@@ -208,7 +208,7 @@ Ambos podem ser feitos nativamente usando scripts Pre e post-SQL dentro de um ba
 ![Desabilitar índices](media/data-flow/disable-indexes-sql.png "Desabilitar índices")
 
 > [!WARNING]
-> Ao desabilitar índices, o fluxo de dados está efetivamente assumindo o controle de um banco e as consultas são improvável de serem bem sucedidos no momento. Como resultado, muitos trabalhos de ETL são disparados no meio da noite para evitar esse conflito. Para obter mais informações, saiba mais sobre as [restrições de desabilitar índices](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
+> Ao desabilitar índices, o fluxo de dados está efetivamente assumindo o controle de um banco e as consultas são improvável de serem bem sucedidos no momento. Como resultado, muitos trabalhos de ETL são disparados no meio da noite para evitar esse conflito. Para obter mais informações, saiba mais sobre as [restrições de desabilitar índices](/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### <a name="scaling-up-your-database"></a>Escalar verticalmente seu banco de dados
 
@@ -216,7 +216,7 @@ Agende um redimensionamento do Banco de Dados SQL do Azure e do DW da origem e d
 
 ### <a name="azure-synapse-analytics-sinks"></a>Coletores do Azure Synapse Analytics
 
-Ao gravar no Azure Synapse Analytics, verifique se **habilitar preparo** está definido como true. Isso permite que o ADF grave usando o [comando SQL Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) que efetivamente carrega os dados em massa. Você precisará fazer referência a um Azure Data Lake Storage Gen2 ou conta de armazenamento de BLOBs do Azure para preparo dos dados ao usar o preparo.
+Ao gravar no Azure Synapse Analytics, verifique se **habilitar preparo** está definido como true. Isso permite que o ADF grave usando o [comando SQL Copy](/sql/t-sql/statements/copy-into-transact-sql) que efetivamente carrega os dados em massa. Você precisará fazer referência a um Azure Data Lake Storage Gen2 ou conta de armazenamento de BLOBs do Azure para preparo dos dados ao usar o preparo.
 
 Além de preparo, as mesmas práticas recomendadas se aplicam ao Azure Synapse Analytics como banco de dados SQL do Azure.
 

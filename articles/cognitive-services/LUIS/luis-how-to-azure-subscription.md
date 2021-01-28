@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: d8944c9e49bde8c452a10a1886cae316a0f7a33f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348060"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945074"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
 
@@ -173,7 +173,7 @@ Você pode controlar quem pode ver sua chave de ponto de extremidade do LUIS de 
 
 ### <a name="create-resources-in-the-azure-cli"></a>Criar recursos no CLI do Azure
 
-Use o [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) para criar cada recurso individualmente.
+Use o [CLI do Azure](/cli/azure/install-azure-cli) para criar cada recurso individualmente.
 
 Recurso `kind` :
 
@@ -211,7 +211,7 @@ Você pode atribuir um recurso de criação para um único aplicativo ou para to
 
 1. Entre no portal do [LUIS](https://www.luis.ai).
 1. No canto superior direito, selecione sua conta de usuário e, em seguida, selecione **configurações**.
-1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Clique em **Salvar**.
+1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Selecione **Salvar**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a um aplicativo
 
@@ -253,7 +253,7 @@ Para processos automatizados, como pipelines de CI/CD, talvez você queira autom
 
     Essa API POST requer os seguintes valores:
 
-    |Tipo|Setting|Valor|
+    |Tipo|Configuração|Valor|
     |--|--|--|
     |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. O valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
     |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|

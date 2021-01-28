@@ -1,5 +1,5 @@
 ---
-title: Link privado do Azure para Azure Data Factory
+title: Link Privado do Azure para Azure Data Factory
 description: Saiba mais sobre como funciona o link privado do Azure no Azure Data Factory.
 services: data-factory
 ms.author: abnarain
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 6fb460c65d37723b03c1dfd4fba2c353c19455bd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746330"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944581"
 ---
-# <a name="azure-private-link-for-azure-data-factory"></a>Link privado do Azure para Azure Data Factory
+# <a name="azure-private-link-for-azure-data-factory"></a>Link Privado do Azure para Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -67,30 +67,30 @@ Habilitar o serviço de vínculo privado para cada um dos canais de comunicaçã
 > Ao criar um serviço vinculado, verifique se suas credenciais estão armazenadas em um cofre de chaves do Azure. Caso contrário, as credenciais não funcionarão quando você habilitar o link privado no Azure Data Factory.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Alterações de DNS para pontos de extremidade particulares
-Quando você cria um ponto de extremidade privado, o registro de recurso DNS CNAME para o Data Factory é atualizado para um alias em um subdomínio com o prefixo ' privatelink '. Por padrão, também criamos uma [zona DNS privada](https://docs.microsoft.com/azure/dns/private-dns-overview), correspondente ao subdomínio ' privatelink ', com os registros de recurso de DNS a para os pontos de extremidade privados.
+Quando você cria um ponto de extremidade privado, o registro de recurso DNS CNAME para o Data Factory é atualizado para um alias em um subdomínio com o prefixo ' privatelink '. Por padrão, também criamos uma [zona DNS privada](../dns/private-dns-overview.md), correspondente ao subdomínio ' privatelink ', com os registros de recurso de DNS a para os pontos de extremidade privados.
 
 Quando você resolve a URL do ponto de extremidade data factory de fora da VNet com o ponto de extremidade privado, ele é resolvido para o ponto de extremidade público do serviço de data factory. Quando resolvido da VNet que hospeda o ponto de extremidade privado, a URL do ponto de extremidade de armazenamento é resolvida para o endereço IP do ponto de extremidade privado.
 
 Para o exemplo ilustrado acima, os registros de recurso de DNS para o Data Factory ' datafactorya ', quando resolvidos de fora da VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---------- | -------- | --------------- |
 | Datafactorya. {região}. datafactory. Azure. net | CNAME   | Datafactorya. {região}. privatelink. datafactory. Azure. net |
 | Datafactorya. {região}. privatelink. datafactory. Azure. net | CNAME   | Ponto de extremidade público do serviço de data factory < > |
-| Ponto de extremidade público do serviço de data factory < >  | Um | < endereço IP público do serviço data factory > |
+| Ponto de extremidade público do serviço de data factory < >  | A | < endereço IP público do serviço data factory > |
 
 Os registros de recurso DNS para datafactorya, quando resolvidos na VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---------- | -------- | --------------- |
 | Datafactorya. {região}. datafactory. Azure. net | CNAME   | Datafactorya. {região}. privatelink. datafactory. Azure. net |
-| Datafactorya. {região}. privatelink. datafactory. Azure. net   | Um | < endereço IP do ponto de extremidade privado > |
+| Datafactorya. {região}. privatelink. datafactory. Azure. net   | A | < endereço IP do ponto de extremidade privado > |
 
 Se você estiver usando um servidor DNS personalizado em sua rede, os clientes deverão ser capazes de resolver o FQDN do ponto de extremidade de Data Factory para o endereço IP do ponto de extremidade privado. Você deve configurar o servidor DNS para delegar seu subdomínio de vínculo privado à zona DNS privada para a VNet ou configurar os registros a para ' datafactorya. {região}. privatelink. datafactory. Azure. net ' com o endereço IP do ponto de extremidade privado.
 
 Para obter mais informações sobre como configurar seu próprio servidor DNS para dar suporte a pontos de extremidade privados, consulte os seguintes artigos:
-- [Resolução de nomes para recursos em redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configuração de DNS para pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Resolução de nomes para recursos em redes virtuais do Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Configuração de DNS para pontos de extremidade privados](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurar link privado para Azure Data Factory

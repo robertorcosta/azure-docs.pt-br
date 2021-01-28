@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9df5d702019063ffba6d79cc63370cd25a7242fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60a721af9acf980e88ad60504e75d2488c8a4d81
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358774"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944478"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar seus aplicativos lógicos e runbooks para a migração de regras de alerta clássicos
 
@@ -30,7 +30,7 @@ A tabela a seguir é uma referência às interfaces programáticas para alertas 
 | Tipo de script de implantação | Alertas clássicos | Novos alertas de métrica |
 | ---------------------- | -------------- | ----------------- |
 |API REST     | [Microsoft. insights/alertrules](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
-|CLI do Azure     | [az monitor alert](/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta AZ monitor de métricas](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|CLI do Azure     | [az monitor alert](/cli/azure/monitor/alert)        | [alerta AZ monitor de métricas](/cli/azure/monitor/metrics/alert)        |
 |PowerShell      | [Referência](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referência](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modelo do Azure Resource Manager | [Para alertas clássicos](./alerts-enable-template.md)|[Para novos alertas de métrica](./alerts-metric-create-templates.md)|
 

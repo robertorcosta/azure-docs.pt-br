@@ -9,12 +9,12 @@ ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4b586b95232af2a154993523402f81ee88a22cda
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967116"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946163"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solucionar problemas de conectores do Azure Data Factory
 
@@ -121,7 +121,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: problema de falha na operação de CosmosDbSqlApi.
 
-- **Recomendação**:  Verifique os detalhes do erro. Consulte o [documento de ajuda do CosmosDb](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). Entre em contato com a equipe do CosmosDb se precisar de ajuda.
+- **Recomendação**:  Verifique os detalhes do erro. Consulte o [documento de ajuda do CosmosDb](../cosmos-db/troubleshoot-dot-net-sdk.md). Entre em contato com a equipe do CosmosDb se precisar de ajuda.
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
@@ -198,7 +198,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
     - Verifique se há alguma configuração de rede especial, como o ExpressRoute, e certifique-se de que a rede tenha largura de banda suficiente. É recomendável reduzir a configuração de trabalhos simultâneos de IR hospedados automaticamente quando a largura de banda geral é baixa, por meio do qual pode evitar a competição de recursos de rede em vários trabalhos simultâneos.
 
-    - Use tamanho de bloco menor para cópia não binária para atenuar esse erro de tempo limite se o tamanho do arquivo for moderado ou pequeno. Consulte o [bloco put do armazenamento de BLOBs](https://docs.microsoft.com/rest/api/storageservices/put-block).
+    - Use tamanho de bloco menor para cópia não binária para atenuar esse erro de tempo limite se o tamanho do arquivo for moderado ou pequeno. Consulte o [bloco put do armazenamento de BLOBs](/rest/api/storageservices/put-block).
 
        Para especificar o tamanho do bloco personalizado, você pode editar a propriedade no editor. JSON:
         ```
@@ -486,7 +486,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Resolução**: tente seguir as etapas para corrigir o problema:
 
-    1. Aplique a [tolerância a falhas](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)do coletor SQL, especialmente "redirectIncompatibleRowSettings", para solucionar quais linhas têm o problema.
+    1. Aplique a [tolerância a falhas](./copy-activity-fault-tolerance.md)do coletor SQL, especialmente "redirectIncompatibleRowSettings", para solucionar quais linhas têm o problema.
 
         > [!NOTE]
         > Observe que a tolerância a falhas pode introduzir tempo de execução adicional, o que pode levar a um custo mais alto.

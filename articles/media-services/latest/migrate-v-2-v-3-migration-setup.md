@@ -1,6 +1,6 @@
 ---
-title: Lista de verificação de migração dos serviços de mídia v2 para v3
-description: Este artigo é uma lista de verificação que ajudará você a migrar min dos serviços de mídia do Azure v2 para v3.
+title: Configuração de migração dos serviços de mídia v2 para v3
+description: Este artigo ajudará você a configurar seu ambiente para migrar dos serviços de mídia do Azure v2 para v3.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: bd1488a1e89bb7d5c8a3a2dedda60bd5a226e02e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1f9e0816a3533008a01f26ca7c0e712abfa23e8e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898249"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946248"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Etapa 3-configurar para migrar para a API REST V3 ou o SDK do cliente
 
