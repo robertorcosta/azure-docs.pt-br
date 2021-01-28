@@ -1,19 +1,16 @@
 ---
 title: Solucionar problemas de um trabalho lento ou com falha no cluster HDInsight do Azure
 description: Diagnostique e solucione problemas de um trabalho lento ou com falha em um cluster do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de5fa6c881f808bcd580f6fae3329d579573d876
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022693"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931524"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solucionar problemas de um trabalho do cluster do HDInsight lento ou com falha
 

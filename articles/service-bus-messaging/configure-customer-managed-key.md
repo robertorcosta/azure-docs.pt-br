@@ -2,26 +2,20 @@
 title: Configure sua própria chave para criptografar dados do barramento de serviço do Azure em repouso
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST do barramento de serviço do Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 3e8f3a599ee5fe40c85a93dd58d36e6cd611c9ea
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 01/26/2021
+ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631759"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928083"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure
-O barramento de serviço Premium do Azure fornece criptografia de dados em repouso com Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O barramento de serviço Premium depende do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
+O barramento de serviço Premium do Azure fornece criptografia de dados em repouso com Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O barramento de serviço Premium usa o armazenamento do Azure para armazenar os dados. Todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. Se você usar sua própria chave (também conhecida como Bring Your Own Key (BYOK) ou chave gerenciada pelo cliente), os dados ainda serão criptografados usando a chave gerenciada pela Microsoft, mas, além disso, a chave gerenciada pela Microsoft será criptografada usando a chave gerenciada pelo cliente. Esse recurso permite que você crie, gire, desabilite e revogue o acesso a chaves gerenciadas pelo cliente que são usadas para criptografar chaves gerenciadas pela Microsoft. Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
 
-## <a name="overview"></a>Visão geral
-O barramento de serviço do Azure agora dá suporte à opção de criptografar dados em repouso com chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente (Bring Your Own Key-BYOK). Esse recurso permite que você crie, gire, desabilite e revogue o acesso às chaves gerenciadas pelo cliente que são usadas para criptografar o barramento de serviço do Azure em repouso.
-
-Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
-
-> [!NOTE]
-> Há algumas advertências para a chave gerenciada pelo cliente para criptografia do lado do serviço. 
->   * Esse recurso é suportado pela camada [Premium do barramento de serviço do Azure](service-bus-premium-messaging.md) . Ele não pode ser habilitado para namespaces de barramento de serviço da camada Standard.
->   * A criptografia só pode ser habilitada para namespaces novos ou vazios. Se o namespace contiver quaisquer filas ou tópicos, a operação de criptografia falhará.
+Há algumas advertências para a chave gerenciada pelo cliente para criptografia do lado do serviço. 
+- Esse recurso é suportado pela camada [Premium do barramento de serviço do Azure](service-bus-premium-messaging.md) . Ele não pode ser habilitado para namespaces de barramento de serviço da camada Standard.
+- A criptografia só pode ser habilitada para namespaces novos ou vazios. Se o namespace contiver quaisquer filas ou tópicos, a operação de criptografia falhará.
 
 Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
 
@@ -70,13 +64,13 @@ Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a
         > [!NOTE]
         > Para redundância, você pode adicionar até três chaves. Caso uma das chaves tenha expirado ou não esteja acessível, as outras chaves serão usadas para criptografia.
         
-    1. Preencha os detalhes da chave e clique em **selecionar**. Isso habilitará a criptografia de dados em repouso no namespace com uma chave gerenciada pelo cliente. 
+    1. Preencha os detalhes da chave e clique em **selecionar**. Isso habilitará a criptografia da chave gerenciada pela Microsoft com sua chave (chave gerenciada pelo cliente). 
 
 
     > [!IMPORTANT]
-    > Se você pretende usar a chave gerenciada pelo cliente juntamente com a recuperação de desastres geográficos, leia o abaixo- 
+    > Se você pretende usar a chave gerenciada pelo cliente juntamente com a recuperação de desastre geográfica, examine esta seção. 
     >
-    > Para habilitar a criptografia em repouso com a chave gerenciada pelo cliente, uma [política de acesso](../key-vault/general/secure-your-key-vault.md) é configurada para a identidade gerenciada do barramento de serviço no Azure keyvault especificado. Isso garante o acesso controlado ao Azure keyvault do namespace do barramento de serviço do Azure.
+    > Para habilitar a criptografia da chave gerenciada pela Microsoft com uma chave gerenciada pelo cliente, uma [política de acesso](../key-vault/general/secure-your-key-vault.md) é configurada para a identidade gerenciada do barramento de serviço no cofre de chaves do Azure especificado. Isso garante o acesso controlado ao Azure keyvault do namespace do barramento de serviço do Azure.
     >
     > Devido a isso:
     > 

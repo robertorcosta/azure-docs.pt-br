@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 90c827774f38f07b9791a6399a53b0304bbe28c8
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695201"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879774"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning
 
@@ -252,7 +252,7 @@ Exclua apenas a instância de implantação do Azure Machine Learning em https:\
 Neste tutorial de machine learning automatizado, você usou a interface de ML automatizado do Azure Machine Learning para criar e implantar um modelo de classificação. Confira estes artigos para obter mais informações e ver as próximas etapas:
 
 > [!div class="nextstepaction"]
-> [Consumir um serviço Web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Consumir um serviço Web](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
 + Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md).

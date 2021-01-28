@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 36781e7f975ee9d4a03cf899650701bf2d3940ac
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b3503dead21eeca32d82e896f889b99d11435642
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555943"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879724"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrar e examinar um Banco de Dados SQL do Azure
 
@@ -39,7 +39,7 @@ O Azure Purview não dá suporte à verificação de [exibições](/sql/relation
 
 ### <a name="set-up-authentication-for-a-scan"></a>Configurar a autenticação para uma verificação
 
-Autenticação para examinar um Banco de Dados SQL do Azure. Caso precise criar uma autenticação, [autorize o acesso de banco de dados ao Banco de Dados SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). Há três métodos de autenticação aos quais o Purview atualmente dá suporte:
+Autenticação para examinar um Banco de Dados SQL do Azure. Caso precise criar uma autenticação, [autorize o acesso de banco de dados ao Banco de Dados SQL](../azure-sql/database/logins-create-manage.md). Há três métodos de autenticação aos quais o Purview atualmente dá suporte:
 
 - Autenticação SQL
 - Entidade de Serviço
@@ -88,8 +88,8 @@ Para usar uma entidade de serviço, use uma existente ou crie uma.
 
 A entidade de serviço ou a identidade gerenciada precisa ter permissão para obter metadados para o banco de dados, esquemas e tabelas. Ela também precisa conseguir consultar as tabelas para obter uma amostragem de classificação.
 
-- [Configurar e gerenciar a autenticação do Azure AD com o Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- Se você estiver usando a identidade gerenciada, sua conta do Purview terá uma identidade gerenciada própria, que é basicamente seu nome do Purview quando você o criou. Você precisará criar um usuário do Azure AD no Banco de Dados SQL do Azure com a identidade gerenciada exata do Purview ou sua entidade de serviço seguindo o tutorial descrito em [Criar o usuário da entidade de serviço no Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial#create-the-service-principal-user-in-azure-sql-database). É necessário atribuir uma permissão apropriada (como `db_owner` ou `db_datareader`) à identidade. Exemplo de sintaxe SQL para criar um usuário e conceder a permissão:
+- [Configurar e gerenciar a autenticação do Azure AD com o Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Se você estiver usando a identidade gerenciada, sua conta do Purview terá uma identidade gerenciada própria, que é basicamente seu nome do Purview quando você o criou. Você precisará criar um usuário do Azure AD no Banco de Dados SQL do Azure com a identidade gerenciada exata do Purview ou sua entidade de serviço seguindo o tutorial descrito em [Criar o usuário da entidade de serviço no Banco de Dados SQL do Azure](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). É necessário atribuir uma permissão apropriada (como `db_owner` ou `db_datareader`) à identidade. Exemplo de sintaxe SQL para criar um usuário e conceder a permissão:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER

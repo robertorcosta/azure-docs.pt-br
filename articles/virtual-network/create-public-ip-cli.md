@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 70fb502e45a6cdcc196f5fb97ee4c8c59ba6c27d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 4d2f339f5a1339b5f249172170fed54c91f1dc24
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223526"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927183"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Início rápido: criar um endereço IP público usando CLI do Azure
 
@@ -30,7 +30,7 @@ Este artigo mostra como criar um recurso de endereço IP público usando CLI do 
 
 Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) chamado **MyResource** grupo no local **eastus2** .
+Crie um grupo de recursos com [AZ Group Create](/cli/azure/group#az-group-create) chamado **MyResource** grupo no local **eastus2** .
 
 ```azurecli-interactive
   az group create \
@@ -46,7 +46,7 @@ Crie um grupo de recursos com [AZ Group Create](/cli/azure/group?view=azure-cli-
 >[!NOTE]
 >O comando a seguir funciona para a API versão 2020-08-01 ou posterior.  Para obter mais informações sobre a versão de API que está sendo usada no momento, consulte [provedores de recursos e tipos](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [AZ Network Public-IP Create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para criar um endereço IP público com redundância de zona padrão chamado **MyStandardZRPublicIP** no **MyResource**.
+Use [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) para criar um endereço IP público com redundância de zona padrão chamado **MyStandardZRPublicIP** no **MyResource**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -76,7 +76,7 @@ Observe que as opções acima para zonas são apenas seleções válidas em regi
 >[!NOTE]
 >O comando a seguir funciona para a API versão 2020-08-01 ou posterior.  Para obter mais informações sobre a versão de API que está sendo usada no momento, consulte [provedores de recursos e tipos](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [AZ Network Public-IP Create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para criar um endereço IP público padrão como um recurso não zonal chamado **MyStandardPublicIP** no **MyResource**.
+Use [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) para criar um endereço IP público padrão como um recurso não zonal chamado **MyStandardPublicIP** no **MyResource**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -88,7 +88,7 @@ Essa seleção é válida em todas as regiões e é a seleção padrão para end
 
 # <a name="basic-sku"></a>[**SKU Básico**](#tab/option-create-public-ip-basic)
 
-Use [AZ Network Public-IP Create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para criar um endereço IP público estático básico chamado **MyBasicPublicIP** no **MyResource**.  Os IPs públicos básicos não têm o conceito de zonas de disponibilidade.
+Use [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) para criar um endereço IP público estático básico chamado **MyBasicPublicIP** no **MyResource**.  Os IPs públicos básicos não têm o conceito de zonas de disponibilidade.
 
 ```azurecli-interactive
   az network public-ip create \

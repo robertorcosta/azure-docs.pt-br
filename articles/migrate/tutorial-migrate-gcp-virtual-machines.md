@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 892b731f662af57916d067c562d48f4ec25e2210
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 12b8e30b0107b6b008cbd6467ada7c2d44f5e6d6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233042"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871631"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Descobrir, avaliar e migrar VMs do GCP (Google Cloud Platform) para o Azure
 
@@ -77,7 +77,7 @@ Preparar o Azure para a migração com a ferramenta Migrações para Azure: Ferr
 
 **Tarefa** | **Detalhes**
 --- | ---
-**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário para [criar um projeto](https://docs.microsoft.com/azure/migrate/create-manage-projects).
+**Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário para [criar um projeto](./create-manage-projects.md).
 **Verificar as permissões para sua conta do Azure** | Sua conta do Azure precisa de permissões para criar uma VM e gravar em um disco gerenciado do Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar o projeto
@@ -252,7 +252,7 @@ Um agente do serviço Mobilidade deve ser instalado nas VMs do GCP de origem a s
     - Criptografia dupla com chaves gerenciadas por plataforma e gerenciadas pelo cliente
 
    > [!NOTE]
-   > Para replicar VMs com a CMK, você precisará [criar um conjunto de criptografia de disco](https://go.microsoft.com/fwlink/?linkid=2151800) no grupo de recursos de destino. Um objeto de conjunto de criptografia de disco mapeia o Managed Disks para um Key Vault que contém a CMK a ser usada para a SSE.
+   > Para replicar VMs com a CMK, você precisará [criar um conjunto de criptografia de disco](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no grupo de recursos de destino. Um objeto de conjunto de criptografia de disco mapeia o Managed Disks para um Key Vault que contém a CMK a ser usada para a SSE.
   
 12. Em **Benefício Híbrido do Azure**:
 

@@ -1,18 +1,15 @@
 ---
 title: Solucionar problemas do YARN usando o Azure HDInsight
 description: Obtenha respostas para perguntas comuns sobre como trabalhar com o Apache Hadoop YARN e o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b5b8ccbfd3e39415416cfc8fabcf9614f5934042
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022659"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931414"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN do Apache Hadoop usando o Azure HDInsight
 
@@ -28,7 +25,7 @@ Neste exemplo, duas filas existentes (**padrão** e **thriftsvr**) são alterada
 
 | Fila | Capacity | Capacidade máxima |
 | --- | --- | --- |
-| default | 25% | 50% |
+| padrão | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
@@ -129,7 +126,7 @@ Essas alterações estarão visíveis imediatamente na interface do usuário do 
 
     Este comando cria um arquivo de log chamado containerlogs.txt.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>Leitura adicional
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>Leituras adicionais
 
 - [Conectar ao HDInsight (Apache Hadoop) usando SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop conceitos e aplicativos do YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)

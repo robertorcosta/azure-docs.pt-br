@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e99ee28460c1639a7f0b9dd989bbe5a287a9158c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 457749b353b9b7fabfb137ebe907463bb17158ba
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221809"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98926937"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutorial: Criar um gateway da NAT usando a CLI do Azure e testar o serviço NAT
 
@@ -61,7 +61,7 @@ Para acessar a Internet pública, você precisa de um ou mais endereços IP púb
 
 ### <a name="create-a-public-ip-prefix"></a>Criar um prefixo IP público
 
-Você pode usar um ou mais recursos de endereço IP público, prefixos IP público ou ambos com o gateway da NAT. Adicionaremos um recurso de prefixo IP público a esse cenário para demonstrar.   Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) para criar um recurso de prefixo IP público chamado **myPublicIPprefixsource** em **myResourceGroupNAT**.
+Você pode usar um ou mais recursos de endereço IP público, prefixos IP público ou ambos com o gateway da NAT. Adicionaremos um recurso de prefixo IP público a esse cenário para demonstrar.   Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) para criar um recurso de prefixo IP público chamado **myPublicIPprefixsource** em **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -77,7 +77,7 @@ Esta seção fornece detalhes sobre como criar e configurar os seguintes compone
   - Um pool de IPs públicos e o prefixo IP público a serem usados para fluxos de saída convertidos pelo recurso de Gateway da NAT.
   - Altere o tempo limite de ociosidade do padrão de 4 minutos para 10 minutos.
 
-Crie um gateway da NAT global do Azure com [az network nat gateway create](/cli/azure/network/nat?view=azure-cli-latest) chamado **myNATgateway**. O comando usa o endereço IP público **myPublicIP** e o prefixo IP público **myPublicIPprefix**. O comando também altera o tempo limite de ociosidade para 10 minutos.
+Crie um gateway da NAT global do Azure com [az network nat gateway create](/cli/azure/network/nat) chamado **myNATgateway**. O comando usa o endereço IP público **myPublicIP** e o prefixo IP público **myPublicIPprefix**. O comando também altera o tempo limite de ociosidade para 10 minutos.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -144,7 +144,7 @@ Criamos um IP público para ser usado para acessar a VM de origem. Use [az netwo
 
 ### <a name="create-an-nsg-for-source-vm"></a>Criar um NSG para a VM de origem
 
-Como os endereços IP públicos Standard são "seguros por padrão", precisamos criar um NSG para permitir o acesso de entrada para acesso SSH.  O serviço NAT do Azure reconhece a direção do fluxo. Este NSG não será usado para saída depois que o gateway da NAT estiver configurado na mesma sub-rede. Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) para criar um recurso NSG chamado **myNSGsource** em **myResourceGroupNAT**.
+Como os endereços IP públicos Standard são "seguros por padrão", precisamos criar um NSG para permitir o acesso de entrada para acesso SSH.  O serviço NAT do Azure reconhece a direção do fluxo. Este NSG não será usado para saída depois que o gateway da NAT estiver configurado na mesma sub-rede. Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) para criar um recurso NSG chamado **myNSGsource** em **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg create \
@@ -155,7 +155,7 @@ Como os endereços IP públicos Standard são "seguros por padrão", precisamos 
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>Expor o ponto de extremidade SSH na VM de origem
 
-Criamos uma regra no NSG para acesso SSH à VM de origem. Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para criar uma regra NSG chamada **ssh**. Essa regra será criada no NSG chamado **myNSGsource** no grupo de recursos **myResourceGroupNAT**.
+Criamos uma regra no NSG para acesso SSH à VM de origem. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) para criar uma regra NSG chamada **ssh**. Essa regra será criada no NSG chamado **myNSGsource** no grupo de recursos **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -237,7 +237,7 @@ Criamos um IP público para ser usado para acessar a VM de origem. Use [az netwo
 
 ### <a name="create-an-nsg-for-destination-vm"></a>Criar um NSG para a VM de destino
 
-Os endereços IP Públicos Standard são "seguros por padrão". Você precisará criar um NSG para permitir o acesso de entrada para SSH. O serviço NAT do Azure reconhece a direção do fluxo. Este NSG não será usado para saída depois que o gateway da NAT estiver configurado na mesma sub-rede. Use [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) para criar um recurso NSG chamado **myNSGdestination** em **myResourceGroupNAT**.
+Os endereços IP Públicos Standard são "seguros por padrão". Você precisará criar um NSG para permitir o acesso de entrada para SSH. O serviço NAT do Azure reconhece a direção do fluxo. Este NSG não será usado para saída depois que o gateway da NAT estiver configurado na mesma sub-rede. Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) para criar um recurso NSG chamado **myNSGdestination** em **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg create \
@@ -248,7 +248,7 @@ Os endereços IP Públicos Standard são "seguros por padrão". Você precisará
 
 ### <a name="expose-ssh-endpoint-on-destination-vm"></a>Expor o ponto de extremidade SSH na VM de destino
 
-Criamos uma regra no NSG para acesso SSH à VM de destino. Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para criar uma regra NSG chamada **ssh**. Essa regra será criada no NSG chamado **myNSGdestination** no grupo de recursos **myResourceGroupNAT**.
+Criamos uma regra no NSG para acesso SSH à VM de destino. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) para criar uma regra NSG chamada **ssh**. Essa regra será criada no NSG chamado **myNSGdestination** no grupo de recursos **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -266,7 +266,7 @@ Criamos uma regra no NSG para acesso SSH à VM de destino. Use [az network nsg r
 
 ### <a name="expose-http-endpoint-on-destination-vm"></a>Expor ponto de extremidade HTTP na VM de destino
 
-Criamos uma regra no NSG para acesso HTTP à VM de destino. Use [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) para criar uma regra NSG chamada **http** no NSG chamado **myNSGdestination** em **myResourceGroupNAT**.
+Criamos uma regra no NSG para acesso HTTP à VM de destino. Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) para criar uma regra NSG chamada **http** no NSG chamado **myNSGdestination** em **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \

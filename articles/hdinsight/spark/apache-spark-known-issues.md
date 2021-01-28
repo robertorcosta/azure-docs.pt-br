@@ -1,19 +1,16 @@
 ---
 title: Solucionar problemas com o cluster Apache Spark no Azure HDInsight
 description: Saiba mais sobre problemas relacionados aos clusters Apache Spark no Azure HDInsight e como solucioná-los.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 65163225853037ac4cb97a02c0bdaf554b509fb1
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: c92b55d3ac7f4476b7b74d25b40150a74c6ea1cf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822192"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930152"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos do cluster do Apache Spark no HDInsight
 
@@ -119,7 +116,7 @@ Quando o cluster Spark está sem recursos, os kernels Spark e PySpark no Jupyter
 
 2. Reinicie o notebook que você está tentando iniciar. Recursos suficientes devem estar disponíveis para você criar uma sessão agora.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

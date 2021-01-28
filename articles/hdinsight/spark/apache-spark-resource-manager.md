@@ -1,19 +1,16 @@
 ---
 title: Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight
 description: Saiba como gerenciar recursos para clusters Spark no Azure HDInsight para melhorar o desempenho.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/12/2021
-ms.openlocfilehash: 43e46c1b5e720e4f9f46f8d3198fea7124d8f5ba
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: ff7cfe8ad09201df20db89e14f8c175e678e5107
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132198"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929804"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight
 
@@ -149,7 +146,7 @@ Inicie a interface do usuário do Yarn, conforme mostrado no início do artigo. 
 
     ![Eliminar App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Eliminar App2")
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](apache-spark-job-debugging.md)
 

@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345722"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927417"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usar identidades gerenciadas atribuídas pelo sistema para acessar dados de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +31,7 @@ Nesta etapa, você atribuirá uma identidade gerenciada atribuída pelo sistema 
 
 1. No [portal do Azure](https://portal.azure.com/), abra o painel de **funções do Azure** e vá para seu aplicativo de funções. 
 
-1. Abra a **Platform features**  >  guia **identidade** de recursos da plataforma: 
+1. Abra a   >  guia **identidade** de recursos da plataforma: 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Captura de tela mostrando recursos de plataforma e opções de identidade para o aplicativo de funções.":::
 
@@ -130,7 +130,7 @@ namespace Monitor
 }
 ```
 
-Você usará a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o token de identidade gerenciado atribuído pelo sistema. Para saber outras maneiras de obter o token e obter mais informações sobre a `Microsoft.Azure.Service.AppAuthentication` biblioteca, consulte o artigo de [autenticação de serviço a serviço](../key-vault/general/service-to-service-authentication.md) .
+Você usará a biblioteca [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para obter o token de identidade gerenciado atribuído pelo sistema. Para saber outras maneiras de obter o token e obter mais informações sobre a `Microsoft.Azure.Service.AppAuthentication` biblioteca, consulte o artigo de [autenticação de serviço a serviço](/dotnet/api/overview/azure/service-to-service-authentication) .
 
 
 ```csharp

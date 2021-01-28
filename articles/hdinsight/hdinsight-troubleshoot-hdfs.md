@@ -1,19 +1,16 @@
 ---
 title: Solucionar problemas do HDFS no Azure HDInsight
 description: Obtenha respostas para perguntas comuns sobre como trabalhar com o HDFS e o Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: add8bc14c1810d4b0d5894a840f2b815230f31cc
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0be7805493e5acc41254c57ca912b5a2ecf02dae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288989"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931463"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Solucione problemas de HDFS do Apache Hadoop usando o Azure HDInsight
 
@@ -116,7 +113,7 @@ Você também pode aumentar o valor de `fs.azure.write.request.size` globalmente
 
 1. No navegador, acesse a interface de usuário do Ambari Web para seu cluster. A URL é `https://CLUSTERNAME.azurehdinsight.net` , em que `CLUSTERNAME` é o nome do cluster. Quando solicitado, insira o nome de administrador e a senha de administrador para o cluster.
 2. No lado esquerdo da tela, escolha **HDFS** e selecione a guia **Configurações**.
-3. No campo **Filtrar...** , insira `fs.azure.write.request.size`.
+3. No campo **Filtrar...** , digite `fs.azure.write.request.size` .
 4. Altere o valor de 262144 (256 KB) para o novo valor. Por exemplo, 4194304 (4 MB).
 
     ![Imagem de alteração de valor por meio da interface de usuário do Ambari Web](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
