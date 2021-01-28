@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 01/27/2021
 ms.author: aahi
-ms.openlocfilehash: 3b6c2a5a50cedadd8818eae735df55b661e794ef
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97034013"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940040"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de Serviços Cognitivos do Azure
 
@@ -53,7 +53,7 @@ As redes virtuais (VNETs) têm suporte em [regiões em que os serviços cognitiv
 > * Reconhecimento Vocal (LUIS)
 > * Personalizador
 > * Serviços de Fala
-> * Análise de Texto
+> * Análise de texto
 > * QnA Maker
 > * Tradução de Texto
 
@@ -78,7 +78,7 @@ Por padrão, os recursos de serviços cognitivas aceitam conexões de clientes e
 
 Você pode gerenciar regras de acesso de rede padrão para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -180,7 +180,7 @@ O recurso de serviços cognitivas e as redes virtuais com acesso concedido podem
 
 Você pode gerenciar regras de rede virtual para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -341,9 +341,6 @@ Forneça intervalos de endereços de Internet permitidos usando a [notação CID
 
 As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública**. Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP. Redes privadas incluem endereços que começam com `10.*` , `172.16.*`  -  `172.31.*` e `192.168.*` .
 
-   > [!NOTE]
-   > As regras de rede IP não têm nenhum efeito em solicitações provenientes da mesma região do Azure que o recurso serviços cognitivas. Use as [regras de rede Virtual](#grant-access-from-a-virtual-network) para permitir solicitações da mesma região.
-
 Só há suporte para endereços IPV4 no momento. Cada recurso de serviços cognitivas dá suporte a até 100 regras de rede IP, que podem ser combinadas com [regras de rede virtual](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurando o acesso de redes locais
@@ -356,7 +353,7 @@ Se você estiver usando o [ExpressRoute](../expressroute/expressroute-introducti
 
 Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -508,7 +505,7 @@ Ao criar o ponto de extremidade privado, você deve especificar o recurso de ser
 
 * [Criar um ponto de extremidade privado usando o centro de links privado no portal do Azure](../private-link/create-private-endpoint-portal.md)
 * [Criar um ponto de extremidade privado usando a CLI do Azure](../private-link/create-private-endpoint-cli.md)
-* [Criar um ponto de extremidade privado usando Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
+* [Criar um ponto de extremidade privado usando o Azure PowerShell](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="connecting-to-private-endpoints"></a>Conectando-se a pontos de extremidade privados
 

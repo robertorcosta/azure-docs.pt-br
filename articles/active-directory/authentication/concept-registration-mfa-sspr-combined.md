@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9442489efd2a84ac8a31dfb2efb5718e1fd4f594
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 112ad0714c84cd3be08788b3277f52372f6d0373
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621786"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938467"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registro de informações de segurança combinado para Azure Active Directory visão geral
 
 Antes do registro combinado, os usuários registraram métodos de autenticação para a autenticação multifator do Azure AD e a SSPR (redefinição de senha de autoatendimento) separadamente. As pessoas foram confundidas que métodos semelhantes eram usados para autenticação multifator e SSPR, mas tinham que se registrar para ambos os recursos. Agora, com o registro combinado, os usuários podem registrar uma vez e obter os benefícios da autenticação multifator e do SSPR.
 
 > [!NOTE]
-> A partir de 15 de agosto de 2020, todos os novos locatários do Azure AD serão habilitados automaticamente para o registro combinado. A partir de 14 de dezembro de 2020, todos os locatários do Azure AD com um usuário serão habilitados automaticamente para o registro combinado.
+> A partir de 15 de agosto de 2020, todos os novos locatários do Azure AD serão habilitados automaticamente para o registro combinado. 
 
 Este artigo descreve o que é o registro de segurança combinado. Para começar a usar o registro de segurança combinado, consulte o seguinte artigo:
 
@@ -51,7 +51,7 @@ Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language
 
 O registro combinado dá suporte aos seguintes métodos e ações de autenticação:
 
-| Método | Registrar | Alterar | Excluir |
+| Método | Registre-se | Alterar | Excluir |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Sim (no máximo 5) | Não | Sim |
 | Outro aplicativo autenticador | Sim (no máximo 5) | Não | Sim |
