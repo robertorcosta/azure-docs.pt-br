@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: dd0b6833c4c51c218497cea4fec04390200edff4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5c668783232533098822cca982f1af9008f13640
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935335"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761727"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutorial: Preparar a implantação do Azure Stack Edge Pro R
 
@@ -142,15 +142,18 @@ Para criar um recurso do Azure Stack Edge, execute as etapas a seguir no portal 
 
 11. Selecione **Criar**.
 
-A criação do recurso leva alguns minutos. Uma MSI também é criada para permitir que o dispositivo do Azure Stack Edge se comunique com o provedor de recursos no Azure.
+    A criação do recurso leva alguns minutos. Uma MSI também é criada para permitir que o dispositivo do Azure Stack Edge se comunique com o provedor de recursos no Azure.
 
-Depois que o recurso for criado com êxito e implantado, você será notificado. Selecione **Ir para o recurso**.
+    Depois que o recurso for criado com êxito e implantado, você será notificado. Selecione **Ir para o recurso**.
 
-![Acesse o recurso do Azure Stack Edge Pro](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Acesse o recurso do Azure Stack Edge Pro](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
 
 Depois que o pedido for feito, a Microsoft analisará o pedido e o contatará (por email) com os detalhes da entrega.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
+
+> [!NOTE]
+> Se você quiser criar vários pedidos ao mesmo tempo ou clonar um pedido existente, poderá usar os [scripts em exemplos do Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Para obter mais informações, confira o arquivo LEIAME.
 
 Se você tiver problemas durante o processo de pedido, confira [Solucionar problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 939db97a03b69335c9d648c894f453cbb2010edb
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 34365a8bd7a15f502aa89a966adb14807e802cc4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967048"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736990"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SSO de SAML para o Confluence da Microsoft
 
@@ -252,7 +252,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse o SSO do SAML do Confluence pela URL de logon da Microsoft diretamente e inicie o fluxo de logon de lá.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clica no bloco Confluence SAML SSO by Microsoft em Meus Aplicativos, isso redirecionará para a URL de logon do Confluence SAML SSO by Microsoft. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clica no bloco Confluence SAML SSO by Microsoft em Meus Aplicativos, isso redirecionará para a URL de logon do Confluence SAML SSO by Microsoft. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

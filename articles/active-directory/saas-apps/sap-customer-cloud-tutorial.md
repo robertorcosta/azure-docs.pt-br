@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: df52e18c602e1054ecc53146080e56cab4781d78
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 60381c7d8c452277b53e1af67ae7fc85349521c8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963820"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735667"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SAP Cloud for Customer
 
@@ -188,7 +188,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse a URL de logon do SAP Cloud for Customer diretamente e inicie o fluxo de logon de lá.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clica no bloco SAP Cloud for Customer nos Meus Aplicativos, isso redirecionará para a URL de logon do SAP Cloud for Customer. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clica no bloco SAP Cloud for Customer nos Meus Aplicativos, isso redirecionará para a URL de logon do SAP Cloud for Customer. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

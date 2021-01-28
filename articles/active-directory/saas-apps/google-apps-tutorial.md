@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/11/2021
 ms.author: jeedes
-ms.openlocfilehash: eeb5f3e2a87dcc56b8e2ef0bf17309e184c3d65b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: a846899ba8f9b9e7c0d2e54744f5e5044ca7a2d6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019390"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732026"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Google Cloud (G Suite) Connector
 
@@ -132,8 +132,8 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     c. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão: 
 
     ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
+    https://www.google.com/acs
+    https://www.google.com/a/<yourdomain.com>/acs
     ```
 
 1. Na seção **Configuração Básica do SAML**, caso deseje realizar a configuração para a **Google Cloud Platform**, execute as seguintes etapas:
@@ -152,8 +152,8 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão:  
     
     ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
+    https://www.google.com/acs
+    https://www.google.com/a/<yourdomain.com>/acs
     ```
 
     > [!NOTE]
@@ -249,7 +249,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse a URL de Logon do Conector do Google Cloud (G Suite) diretamente e inicie o fluxo de logon de lá.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Conector do Google Cloud (G Suite) em Meus Aplicativos, isso redirecionará para a URL de logon do Conector do Google Cloud (G Suite). Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Conector do Google Cloud (G Suite) em Meus Aplicativos, isso redirecionará para a URL de logon do Conector do Google Cloud (G Suite). Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

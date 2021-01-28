@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 18d75d5c49eecb0fe198ce2afc432870fb3783e6
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 2d046f5f039555e58d9ce4c028e750ce083fd5f4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969037"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733665"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Tutorial: Integração do Qlik Sense Enterprise ao Azure Active Directory
 
@@ -251,7 +251,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do Qlik Sense Enterprise, na qual você iniciará o fluxo de logon.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Qlik Sense Enterprise em Meus Aplicativos, isso redirecionará para a URL de logon do Qlik Sense Enterprise. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Qlik Sense Enterprise em Meus Aplicativos, isso redirecionará para a URL de logon do Qlik Sense Enterprise. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

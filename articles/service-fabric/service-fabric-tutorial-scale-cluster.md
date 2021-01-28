@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a reduzir horizontalmente e expand
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 063c83818ec2e98491f9062e936b9a1e7b2c4356
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: cdc7ba8d6c83ae72ffb8f1afae3954b3a46dc6ec
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702167"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787987"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -809,7 +809,7 @@ Depois de criar um cluster do Service Fabric, você pode dimensionar um cluster 
 > [!WARNING]
 > Não é recomendável usar Remove-AzServiceFabricNodeType para remover um tipo de nó de um cluster de produção a ser usado com frequência. Esse é um comando muito perigoso, pois ele exclui o recurso de conjunto de dimensionamento de máquinas virtuais por trás do tipo de nó. 
 
-Para remover o tipo de nó, execute o cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  O tipo de nó deve ser de [nível de durabilidade][durability] de Ouro ou Prata. O cmdlet exclui o conjunto de dimensionamento associado ao tipo de nó e leva algum tempo para ser concluído.  Em seguida, execute o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em cada um dos nós a serem removidos, o que exclui o estado do nó e remove os nós do cluster. Se houver serviços nos nós, os serviços serão primeiramente movidos para outro nó. Se o gerenciador de cluster não puder localizar um nó para o serviço/réplica, a operação é atrasada/bloqueada.
+Para remover o tipo de nó, execute o cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  O tipo de nó deve ser de [nível de durabilidade][durability] de Ouro ou Prata. O cmdlet exclui o conjunto de dimensionamento associado ao tipo de nó e leva algum tempo para ser concluído.  Em seguida, execute o cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) em cada um dos nós a serem removidos, o que exclui o estado do nó e remove os nós do cluster. Se houver serviços nos nós, os serviços serão primeiramente movidos para outro nó. Se o gerenciador de cluster não puder localizar um nó para o serviço/réplica, a operação é atrasada/bloqueada.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

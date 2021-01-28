@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 3db6fd2e6df96590d7d405157cbb33900c7d8531
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 286dc20ba70c78f8248f611abd75e0acc303c068
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127797"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736181"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory à AWS (Amazon Web Services)
 
@@ -120,7 +120,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | SessionDuration | "fornecer um valor entre 900 segundos (15 minutos) para segundos 43200 (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
 
     > [!NOTE]
-    > A AWS espera funções para usuários atribuídos ao aplicativo. Configure essas funções no Azure AD para que os usuários possam ser atribuídos às funções apropriadas. Para entender como configurar funções no Azure AD, veja [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
+    > A AWS espera funções para usuários atribuídos ao aplicativo. Configure essas funções no Azure AD para que os usuários possam ser atribuídos às funções apropriadas. Para entender como configurar funções no Azure AD, veja [aqui](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)
 
 1. Na página **Configurar o logon único com o SAML**, na caixa de diálogo **Certificado de Autenticação do SAML** (Etapa 3), selecione **Adicionar um certificado**.
 

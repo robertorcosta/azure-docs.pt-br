@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 39081bc7bec7cfd76ccfc9107d5c2286affb7df0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e7e63ea56edc2b76383ee4c034fd39dd8b8259c1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913763"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785998"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
 
@@ -234,8 +234,8 @@ Um modelo de funções de rotação para dois conjuntos de credenciais e várias
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Tutorial: [Rotação de segredos para um conjunto de credenciais](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation)
+- Tutorial: [Rotação de segredos para um conjunto de credenciais](./tutorial-rotation.md)
 - Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure](../general/event-grid-overview.md)
-- Como fazer: [Criar sua primeira função no portal do Azure](../../azure-functions/functions-create-first-azure-function.md)
+- Como fazer: [Criar sua primeira função no portal do Azure](../../azure-functions/functions-get-started.md)
 - Como [Receber emails quando um segredo do Key Vault for alterado](../general/event-grid-logicapps.md)
 - Referência: [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault](../../event-grid/event-schema-key-vault.md)

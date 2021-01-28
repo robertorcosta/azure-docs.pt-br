@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 68de75f25c70db9e2f5fcdb524e6b55fb6939e9a
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c87f66e48aa7b39a7f3fc5f9b8572dd6925abbc0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186271"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732133"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-a-github-enterprise-cloud-organization"></a>Tutorial: Integração de SSO (logon único) do Azure Active Directory ao GitHub Enterprise Cloud – Organização
 
@@ -205,7 +205,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse a URL de Entrada do GitHub diretamente e inicie o fluxo de logon desse local.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do GitHub em Meus Aplicativos, isso redirecionará para a URL de logon do GitHub. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do GitHub em Meus Aplicativos, isso redirecionará para a URL de logon do GitHub. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

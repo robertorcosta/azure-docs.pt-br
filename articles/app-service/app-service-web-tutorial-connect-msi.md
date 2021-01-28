@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: f043f7ed63353dcb9cf9fd26690da97b902f32a6
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 2c19ee2b8e7ec3c695b2c76c46402c118c559b40
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108612"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736231"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: proteger a conexão do Banco de Dados SQL do Azure no Serviço de Aplicativo usando uma identidade gerenciada
 
@@ -130,7 +130,7 @@ Em *Web.config*, comece pela parte superior do arquivo e faça as seguintes alte
 - Localizar a cadeia de caracteres de conexão chamada `MyDbConnection` e substitua seu valor `connectionString` por `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Substitua _\<server-name>_ e _\<db-name>_ pelos nomes do servidor e do banco de dados.
 
 > [!NOTE]
-> O SqlAuthenticationProvider recém-registrado baseia-se na biblioteca AppAuthentication instalada anteriormente. Por padrão, ele usa uma identidade atribuída ao sistema. Para aproveitar uma identidade atribuída ao usuário, será necessário fornecer uma configuração adicional. Confira [Suporte à cadeia de conexão](../key-vault/general/service-to-service-authentication.md#connection-string-support) da biblioteca AppAuthentication.
+> O SqlAuthenticationProvider recém-registrado baseia-se na biblioteca AppAuthentication instalada anteriormente. Por padrão, ele usa uma identidade atribuída ao sistema. Para aproveitar uma identidade atribuída ao usuário, será necessário fornecer uma configuração adicional. Confira [Suporte à cadeia de conexão](/dotnet/api/overview/azure/service-to-service-authentication#connection-string-support) da biblioteca AppAuthentication.
 
 Isso é tudo de que você precisa para se conectar ao Banco de Dados SQL. Ao depurar no Visual Studio, seu código utiliza o usuário do Azure AD que você configurou na seção [Configurar Visual Studio](#set-up-visual-studio). Você vai configurar o Banco de Dados SQL posteriormente para permitir a conexão na identidade gerenciada do aplicativo do Serviço de Aplicativo.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 1dc321200c7fe85b3f4bd5099d6ca0714e4ca63a
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 6f7b2abecdfae1e8f943cd45df7e4c42f1ddd978
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914324"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736608"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dotcom-monitor"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Dotcom-Monitor
 
@@ -93,7 +93,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | Funções | user.assignedroles |
 
     > [!NOTE]
-    > Você pode encontrar mais diretrizes [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) sobre como criar funções personalizadas no Microsoft AD do Azure.
+    > Você pode encontrar mais diretrizes [aqui](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) sobre como criar funções personalizadas no Microsoft AD do Azure.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, localize **XML de Metadados de Federação** e selecione **Baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -143,7 +143,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse a URL de Logon do Dotcom-Monitor diretamente e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando clicar no bloco do Dotcom-Monitor em Meus Aplicativos, você será redirecionado para a URL de Logon do Dotcom-Monitor. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando clicar no bloco do Dotcom-Monitor em Meus Aplicativos, você será redirecionado para a URL de Logon do Dotcom-Monitor. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

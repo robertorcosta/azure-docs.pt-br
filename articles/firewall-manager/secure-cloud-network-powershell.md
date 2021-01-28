@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
 ms.author: victorh
-ms.openlocfilehash: e2bcdf947db60fb50b44abba9d6a224768840b28
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 093b962bb9f42b660fb8cc5c0584ec67ebc87e48
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656132"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789155"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-powershell"></a>Tutorial: Proteger seu hub virtual usando o Azure PowerShell
 
@@ -265,7 +265,7 @@ TimeGenerated            Protocol    SourceIP       SourcePort TargetIP      Tar
 2020-10-04T20:52:52.356Z TCP         10.1.1.4       53748      10.1.2.4      22         Allow   N/A            AZFW1
 ```
 
-Se você quiser ver os logs das regras de aplicativo (descrevendo conexões HTTP permitidas e negadas) ou alterar a forma como os logs são exibidos, você poderá tentar fazer isso com outras consultas KQL. Você pode encontrar alguns exemplos em [logs do Azure Monitor para o Firewall do Azure](../firewall/log-analytics-samples.md).
+Se você quiser ver os logs das regras de aplicativo (descrevendo conexões HTTP permitidas e negadas) ou alterar a forma como os logs são exibidos, você poderá tentar fazer isso com outras consultas KQL. Você pode encontrar alguns exemplos em [logs do Azure Monitor para o Firewall do Azure](../firewall/firewall-workbook.md).
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 3d1840b2741b06421db21aa38dcf83a5fbf8d026
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: dc9c8e622840d30f1d18ab783cc20e2659a1b5e3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97747035"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735554"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-yello-enterprise"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Yello Enterprise
 
@@ -137,11 +137,9 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Clique em Testar este aplicativo no portal do Azure e você entrará de modo automático no Yello Enterprise para o qual configurou o SSO
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Yello Enterprise em Meus Aplicativos, você entrará de modo automático no Yello Enterprise para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Yello Enterprise em Meus Aplicativos, você entrará de modo automático no Yello Enterprise para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Yello Enterprise, será possível impor um controle de sessão que fornecerá proteção contra a exfiltração e a infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o Yello Enterprise, será possível impor um controle de sessão que fornecerá proteção contra a exfiltração e a infiltração dos dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

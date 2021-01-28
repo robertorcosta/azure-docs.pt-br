@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 8afbf80fb6fa57db9de57122d7a4bfdb64e456bc
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 7b85cc064babf44b14e80abc02669573b4730da2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185505"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft (V5.2)
 
@@ -229,7 +229,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse o SSO do SAML do JIRA pela URL de logon da Microsoft (V5.2) diretamente e inicie o fluxo de logon de lá.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clica no bloco JIRA SAML SSO by Microsoft (V5.2) em Meus Aplicativos, isso redirecionará para a URL de logon do JIRA SAML SSO by Microsoft (V5.2). Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clica no bloco JIRA SAML SSO by Microsoft (V5.2) em Meus Aplicativos, isso redirecionará para a URL de logon do JIRA SAML SSO by Microsoft (V5.2). Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

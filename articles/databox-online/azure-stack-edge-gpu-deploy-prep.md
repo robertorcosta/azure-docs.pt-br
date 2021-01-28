@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: e8b58069dc41d5272c67edcb1f05ebd9f1bc5ad4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 277b1a46ad480be8313f6971dc600d3dd911c09d
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935590"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762354"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Preparar a implantação do Azure Stack Edge Pro com GPU 
 
@@ -157,18 +157,18 @@ Para criar um recurso do Azure Stack Edge, execute as etapas a seguir no portal 
 
 11. Selecione **Criar**.
 
-A criação do recurso leva alguns minutos. Uma MSI também é criada para permitir que o dispositivo do Azure Stack Edge se comunique com o provedor de recursos no Azure.
+    A criação do recurso leva alguns minutos. Uma MSI também é criada para permitir que o dispositivo do Azure Stack Edge se comunique com o provedor de recursos no Azure.
 
-Depois que o recurso for criado com êxito e implantado, você será notificado. Selecione **Ir para o recurso**.
+    Depois que o recurso for criado com êxito e implantado, você será notificado. Selecione **Ir para o recurso**.
 
-![Acesse o recurso do Azure Stack Edge Pro](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Acesse o recurso do Azure Stack Edge Pro](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
 Depois que o pedido for feito, a Microsoft analisará o pedido e o contatará (por email) com os detalhes da entrega.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
 
 > [!NOTE]
->Se você quiser criar vários pedidos ao mesmo tempo ou clonar um pedido existente, poderá usar os [scripts em exemplos do Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Para obter mais informações, confira o arquivo LEIAME.
+> Se você quiser criar vários pedidos ao mesmo tempo ou clonar um pedido existente, poderá usar os [scripts em exemplos do Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Para obter mais informações, confira o arquivo LEIAME.
 
 Se você tiver problemas durante o processo de pedido, confira [Solucionar problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/27/2020
 ms.author: jeedes
-ms.openlocfilehash: f91f3b1af5631ea168ce59791e516d434ee0b7e8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9747abb5b614c5a59b56159399c3386a831b3337
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354722"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735043"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-proprofs-knowledge-base"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ProProfs Knowledge Base
 
@@ -124,11 +124,9 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Clique em Testar este aplicativo no portal do Azure e você será conectado automaticamente ao ProProfs Knowledge Base, para o qual configurou o SSO
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do ProProfs Knowledge Base em Meus Aplicativos, você deverá ser conectado automaticamente ao ProProfs Knowledge Base, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do ProProfs Knowledge Base em Meus Aplicativos, você deverá ser conectado automaticamente ao ProProfs Knowledge Base, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o ProProfs Knowledge Base, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o ProProfs Knowledge Base, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

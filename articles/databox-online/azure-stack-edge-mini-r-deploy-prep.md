@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4535368b7d8d044469a4b0effee914176aca78e4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b6745ed879f02a341027417b54eb459b5bfed705
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935386"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762944"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Tutorial: Preparar a implantação do Azure Stack Edge Mini R
 
@@ -121,11 +121,11 @@ Para criar um recurso do Azure Stack Edge, execute as etapas a seguir no portal 
 
 7. Selecione **Avançar: Endereço para entrega**.
 
-    - Caso já tenha um dispositivo, marque a caixa de combinação **Já tenho um dispositivo**.
+   - Caso já tenha um dispositivo, marque a caixa de combinação **Já tenho um dispositivo**.
 
      ![Criar um recurso 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - Caso esse seja o novo dispositivo que você está solicitando, insira o nome de contato, a empresa, o endereço para a entrega do dispositivo e informações de contato.
+   - Caso esse seja o novo dispositivo que você está solicitando, insira o nome de contato, a empresa, o endereço para a entrega do dispositivo e informações de contato.
 
      ![Criar um recurso 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
@@ -145,9 +145,12 @@ Para criar um recurso do Azure Stack Edge, execute as etapas a seguir no portal 
     
     ![Acesse o recurso do Azure Stack Edge Pro](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
-    Depois que o pedido for feito, a Microsoft analisará o pedido e o contatará (por email) com os detalhes da entrega.
+Depois que o pedido for feito, a Microsoft analisará o pedido e o contatará (por email) com os detalhes da entrega.
 
-   Se você tiver problemas durante o processo de pedido, confira [Solucionar problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
+> [!NOTE]
+> Se você quiser criar vários pedidos ao mesmo tempo ou clonar um pedido existente, poderá usar os [scripts em exemplos do Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Para obter mais informações, confira o arquivo LEIAME.
+
+Se você tiver problemas durante o processo de pedido, confira [Solucionar problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
 
 ## <a name="get-the-activation-key"></a>Obter a chave de ativação
 

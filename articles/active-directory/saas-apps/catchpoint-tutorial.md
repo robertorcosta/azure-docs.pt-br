@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 940915186176efcb39be03efe6673c138132ebd6
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a8515920985c569df74b1e328d6bfe1c4ec97195
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916296"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735307"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Tutorial: Integração de logon único do Microsoft Azure Active Directory ao Catchpoint
 
@@ -101,7 +101,7 @@ Siga estas etapas no portal do Azure para habilitar o SSO do Microsoft Azure AD:
     | namespace | user.assignedrole |
 
     > [!NOTE]
-    > A declaração `namespace` precisa ser mapeada com o nome da conta. Esse nome da conta deve ser configurado com uma função no Microsoft Azure AD para transmitir novamente na resposta SAML. Para saber mais sobre as funções no Microsoft Azure AD, confira [Configurar a declaração de função emitida no token SAML para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+    > A declaração `namespace` precisa ser mapeada com o nome da conta. Esse nome da conta deve ser configurado com uma função no Microsoft Azure AD para transmitir novamente na resposta SAML. Para saber mais sobre as funções no Microsoft Azure AD, confira [Configurar a declaração de função emitida no token SAML para aplicativos empresariais](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 1. Acesse a página **Configurar o logon único com o SAML**. Na seção **Certificado de autenticação SAML**, localize **Certificados (Base64)** . Selecione **Baixar** para salvar o certificado em seu computador.
 
@@ -176,7 +176,7 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Clique em **Testar este aplicativo** no portal do Azure e você entrará automaticamente no Catchpoint para o qual configurou o SSO 
 
-Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco do Catchpoint, em Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IDP, você será conectado automaticamente ao Catchpoint para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Quando você clicar no bloco do Catchpoint, em Meus Aplicativos, se ele estiver configurado no modo SP, você será redirecionado à página de logon do aplicativo para iniciar o fluxo de logon e, se ele estiver configurado no modo IDP, você será conectado automaticamente ao Catchpoint para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 > [!NOTE]

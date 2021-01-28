@@ -1,15 +1,15 @@
 ---
 title: Lista de definições de políticas internas
 description: Liste as definições de políticas internas para o Azure Policy. As categorias incluem Marcas, Conformidade a normas, Key Vault, Kubernetes, Configuração de convidado e muito mais.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: ccd310583f003fd381b9ddd48333644f2241ea88
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 9fcb66fbb7fdd94de0d265d19c547ca1567417e7
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98047051"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807262"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definições de política interna do Azure Policy
 
@@ -93,6 +93,10 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 
 [!INCLUDE [azure-policy-reference-policies-data-box](../../../../includes/policy/reference/bycat/policies-data-box.md)]
 
+## <a name="data-factory"></a>Data Factory
+
+[!INCLUDE [azure-policy-reference-policies-data-factory](../../../../includes/policy/reference/bycat/policies-data-factory.md)]
+
 ## <a name="data-lake"></a>Data Lake
 
 [!INCLUDE [azure-policy-reference-policies-data-lake](../../../../includes/policy/reference/bycat/policies-data-lake.md)]
@@ -112,6 +116,10 @@ O nome de cada link interno para a definição de política no portal do Azure. 
 ## <a name="guest-configuration"></a>Configuração de convidado
 
 [!INCLUDE [azure-policy-reference-policies-guest-configuration](../../../../includes/policy/reference/bycat/policies-guest-configuration.md)]
+
+## <a name="hdinsight"></a>HDInsight
+
+[!INCLUDE [azure-policy-reference-policies-hdinsight](../../../../includes/policy/reference/bycat/policies-hdinsight.md)]
 
 ## <a name="internet-of-things"></a>Internet das coisas
 
