@@ -393,7 +393,7 @@
     - name: Cenários para Automação de Cobrança
       href: manage/cost-management-automation-scenarios.md
     - name: Visão Geral da API de Cobrança do Azure
-      href: manage/usage-rate-card-overview.md
+      href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: API REST de Cobrança do Azure
       href: /rest/api/billing
     - name: Visão Geral da API de Consumo do Azure

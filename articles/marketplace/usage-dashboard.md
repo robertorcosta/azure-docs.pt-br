@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462925"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934404"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Painel de uso na análise do marketplace comercial
 
@@ -127,7 +127,7 @@ _**Tabela 1: dicionário de termos de dados**_
 | SKU | SKU | O plano associado à oferta. |
 | País/Região do cliente | País/região do cliente | O nome do país/região fornecido pelo cliente. O país/região pode ser diferente do país/região na assinatura do Azure de um cliente. |
 | É SKU de versão prévia | É SKU de versão prévia | O valor mostra se você marcou a SKU como "visualização". O valor será "Sim" se o SKU tiver sido devidamente marcado e somente as assinaturas do Azure autorizadas por você puderem implantar e usar essa imagem. O valor será "Não" se o SKU não tiver sido identificado como "versão prévia". |
-| Tipo de cobrança da SKU | Tipo de cobrança da SKU | O tipo de cobrança associado a cada SKU na oferta. Os valores possíveis são:<ul><li>Gratuita</li><li>Pago</li></ul> |
+| Tipo de cobrança da SKU | Tipo de cobrança da SKU | O tipo de cobrança associado a cada SKU na oferta. Os valores possíveis são:<ul><li>Grátis</li><li>Pago</li></ul> |
 | Que IsInternal | Preterido | Preterido |
 | Tamanho da VM | Tamanho da Máquina Virtual | Para tipos de oferta com base em VM, essa entidade representa o tamanho da VM associada à SKU da oferta. |
 | Nome da instância de nuvem | Nome da instância de nuvem | A Microsoft Cloud em que ocorreu uma implantação de VM. |
@@ -135,7 +135,7 @@ _**Tabela 1: dicionário de termos de dados**_
 | Nome da oferta | Nome da oferta | O nome da oferta do Marketplace comercial. |
 | DeploymentMethod | Preterido | Preterido (mesma definição que o tipo de oferta)
  |
-| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura do Azure de um cliente. |
+| Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente do nome na assinatura do Azure de um cliente. |
 | Data de Uso | Data de Uso | A data de geração de evento de uso para ativos baseados em uso. |
 | IsMultisolution | É multisolução | Significa se a oferta é um tipo de oferta de multisolução. |
 | É cliente novo | Preterido | Preterido |

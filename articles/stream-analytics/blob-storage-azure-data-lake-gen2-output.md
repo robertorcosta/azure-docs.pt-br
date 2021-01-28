@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 5484d13a70d8eaf905d3c8a51d575f177427019b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/27/2021
+ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882154"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935139"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Armazenamento de BLOBs e Azure Data Lake saída de Gen2 de Azure Stream Analytics
 
@@ -44,7 +44,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 Ao usar o Armazenamento de blobs como saída, um novo arquivo será criado no blob nos seguintes casos:
 
 * Se o arquivo atual excede o número máximo permitido de blocos (atualmente 50.000). Você pode alcançar o número máximo permitido de blocos sem atingir o tamanho máximo permitido do blob. Por exemplo, se a taxa de saída for alta, você pode ver mais bytes por bloco, e o tamanho do arquivo é maior. Se a taxa de saída for baixa, cada bloco tem menos dados e o tamanho do arquivo é menor.
-* Se houver uma alteração de esquema na saída, e o formato de saída requer esquema fixo (CSV e Avro).
+* Se houver uma alteração de esquema na saída, e o formato de saída exigir esquema fixo (CSV, Avro, parquet).
 * Se um trabalho for reiniciado externamente por um usuário, parando e iniciando-o, ou internamente para manutenção do sistema ou recuperação de erro.
 * Se a consulta for totalmente particionada, e um novo arquivo for criado para cada partição de saída.
 * Se o usuário excluir um arquivo ou um contêiner da conta de armazenamento.

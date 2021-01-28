@@ -3,14 +3,14 @@ title: Gerenciar módulos na Automação do Azure
 description: Este artigo informa como usar módulos do PowerShell para habilitar cmdlets em runbooks e recursos DSC em configurações DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/22/2020
+ms.date: 01/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c940ede63e2a467a29ae56308893d573925d0039
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458142"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936628"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerenciar módulos na Automação do Azure
 
@@ -25,10 +25,18 @@ A Automação do Azure usa vários módulos do PowerShell para habilitar cmdlets
 
 Quando você cria uma conta de Automação, a Automação do Azure importa alguns módulos por padrão. Consulte [Módulos padrão](#default-modules).
 
+## <a name="sandboxes"></a>Áreas restritas
+
 Quando a Automação executa trabalhos de runbook e compilação DSC, ela carrega os módulos para áreas restritas em que os runbooks podem ser executados e as configurações DSC podem ser compiladas. A Automação também insere automaticamente recursos DSC em módulos no servidor de pull DSC. Os computadores podem extrair os recursos quando aplicam as configurações DSC.
 
 >[!NOTE]
 >Importe apenas os módulos que seus runbooks e configurações DSC exigem. Não é recomendável importar o módulo Az raiz. Ele inclui muitos outros módulos talvez não sejam necessários, que podem causar problemas de desempenho. Importe módulos individuais, como Az.Compute.
+
+A área restrita da nuvem dá suporte a um máximo de 48 chamadas do sistema e restringe todas as outras chamadas por motivos de segurança. Outras funcionalidades, como o gerenciamento de credenciais e algumas redes, não têm suporte na área restrita da nuvem.
+
+Devido ao número de módulos e cmdlets incluídos, é difícil saber com antecedência quais dos cmdlets farão chamadas sem suporte. Em geral, vimos problemas com cmdlets que exigem acesso elevado, exigem uma credencial como parâmetro ou cmdlets relacionados à rede. Não há suporte para nenhum cmdlet que execute operações de rede de pilha completa na área restrita, incluindo [Connect-AipService](/powershell/module/aipservice/connect-aipservice) do módulo AipService PowerShell e [resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) do módulo dnsclient.
+
+Essas são limitações conhecidas da área restrita. A solução alternativa recomendada é implantar um [Hybrid runbook Worker](../automation-hybrid-runbook-worker.md) ou usar [Azure Functions](../../azure-functions/functions-overview.md).
 
 ## <a name="default-modules"></a>Módulos padrão
 

@@ -1,5 +1,5 @@
 ---
-title: Enviar Data Factory dados de linhagem por push para o Azure alcance
+title: Enviar dados de linhagem do Data Factory por push para o Azure Purview
 description: Saiba mais sobre como enviar por push Data Factory dados de linhagem para o Azure alcance
 services: data-factory
 ms.author: lle
@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 6b50c9440a958bc1398e79ddf3c5a0984816ec45
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e87a9d677fee94d410099db1da80a56b5539048c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603110"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935458"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Enviar Data Factory dados de linhagem por push para o Azure alcance (versão prévia)
 
@@ -29,7 +29,7 @@ Neste tutorial, você usará a interface do usuário do Data Factory para criar 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Assinatura do Azure**. Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 * **Azure data Factory**. Se você não tiver um Azure Data Factory, consulte [criar um Azure data Factory](./quickstart-create-data-factory-portal.md).
-* **Conta do Azure alcance**. A conta alcance captura todos os dados de linhagem gerados pelo data factory. Se você não tiver uma conta do Azure alcance, consulte [criar um alcance do Azure](https://docs.microsoft.com/azure/purview/create-catalog-portal).
+* **Conta do Azure alcance**. A conta alcance captura todos os dados de linhagem gerados pelo data factory. Se você não tiver uma conta do Azure alcance, consulte [criar um alcance do Azure](../purview/create-catalog-portal.md).
 
 
 ## <a name="run-data-factory-activities-and-push-lineage-data-to-azure-purview"></a>Executar Data Factory atividades e enviar dados de linhagem por push para o Azure alcance
@@ -76,6 +76,6 @@ Você também pode ver dados de linhagem para a atividade executar pacote SSIS.
 > Para a linhagem da atividade executar pacote SSIS, damos suporte apenas à origem e ao destino. Ainda não há suporte para a linhagem para transformação.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Guia do usuário de linhagem de catálogo](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide)
+[Guia do usuário de linhagem de catálogo](../purview/catalog-lineage-user-guide.md)
 
 [Conectar Data Factory ao Azure alcance](connect-data-factory-to-azure-purview.md)

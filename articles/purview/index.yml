@@ -6,15 +6,15 @@ metadata:
   description: Saiba como usar o Azure Purview, em que a organização pode encontrar, entender e consumir as fontes de dados. Os tutoriais, a referência da API REST e outra documentação mostram como planejar e configurar o repositório de dados em que os consumidores de dados podem descobrir fontes de dados disponíveis e obter conhecimentos compartilhados por especialistas no assunto.
   ms.service: purview
   ms.topic: landing-page
-  author: hrasheed-msft
-  ms.author: hrasheed
+  author: JasonWHowell
+  ms.author: jasonh
   ms.date: 11/29/2020
-  ms.openlocfilehash: 378a335653acf31275c312bcf4fa53b36bfa614e
-  ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+  ms.openlocfilehash: c9e9a32ca5c77082186f15a0eae3f3430347a02b
+  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96549404"
+  ms.lasthandoff: 01/28/2021
+  ms.locfileid: "98926919"
 landingContent:
 - title: Sobre o Azure Purview
   linkLists:

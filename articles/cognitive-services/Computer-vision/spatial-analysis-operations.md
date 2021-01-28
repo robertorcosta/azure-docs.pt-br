@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734532"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934745"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -61,7 +61,7 @@ Esses são os parâmetros necessários para cada uma dessas operações de anál
 |---------|---------|
 | ID da Operação | O identificador da operação da tabela acima.|
 | Habilitado | Booliano: verdadeiro ou falso|
-| VIDEO_URL| A URL RTSP para o dispositivo de câmera (exemplo: `rtsp://username:password@url` ). A análise espacial dá suporte ao fluxo codificado H. 264 por meio de RTSP, http ou MP4. Video_URL pode ser fornecido como um valor de cadeia de caracteres Base64 ofuscado usando a criptografia AES, e se a URL de vídeo for ofuscada `KEY_ENV` e `IV_ENV` precisar ser fornecida como variáveis de ambiente. O utilitário de exemplo para gerar chaves e criptografia pode ser encontrado [aqui](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0). |
+| VIDEO_URL| A URL RTSP para o dispositivo de câmera (exemplo: `rtsp://username:password@url` ). A análise espacial dá suporte ao fluxo codificado H. 264 por meio de RTSP, http ou MP4. Video_URL pode ser fornecido como um valor de cadeia de caracteres Base64 ofuscado usando a criptografia AES, e se a URL de vídeo for ofuscada `KEY_ENV` e `IV_ENV` precisar ser fornecida como variáveis de ambiente. O utilitário de exemplo para gerar chaves e criptografia pode ser encontrado [aqui](/dotnet/api/system.security.cryptography.aesmanaged). |
 | VIDEO_SOURCE_ID | Um nome amigável para o dispositivo de câmera ou fluxo de vídeo. Isso será retornado com a saída do evento JSON.|
 | VIDEO_IS_LIVE| Verdadeiro para dispositivos de câmera; false para vídeos gravados.|
 | VIDEO_DECODE_GPU_INDEX| Qual GPU decodificará o quadro de vídeo. Por padrão, é 0. Deve ser o mesmo que o `gpu_index` em outras configurações de nó como `VICA_NODE_CONFIG` , `DETECTOR_NODE_CONFIG` .|
