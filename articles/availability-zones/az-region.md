@@ -1,18 +1,19 @@
 ---
 title: Serviços do Azure compatíveis com as zonas de disponibilidade
 description: Para criar aplicativos altamente disponíveis e resilientes no Azure, as Zonas de Disponibilidade oferecem locais fisicamente separados que você pode usar para executar seus recursos.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2021
-ms.author: cynthn
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 5883dc8b34cd1aa00ba1c5de25a09a017a130c0a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e8e62d92afb70ec9d4df40f677de05583ef472b0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896877"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955776"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure compatíveis com as zonas de disponibilidade
 

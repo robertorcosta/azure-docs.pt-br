@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/20/2020
-ms.openlocfilehash: 36f31ee390a6a208b202698ec9bda59b644c9e30
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/27/2021
+ms.openlocfilehash: 267b362c94b04b3be634f7e61c2b6d67604d7854
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534663"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954674"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento no banco de dados do Azure para MySQL – servidor flexível (visualização)
 
@@ -70,6 +70,9 @@ As especificações detalhadas dos tipos de servidor disponíveis são as seguin
 | Standard_E64ds_v4    | 64     | 504               |
 
 Para obter mais detalhes sobre a série de computação disponível, consulte a documentação da VM do Azure para [intermitência (série B)](../../virtual-machines/sizes-b-series-burstable.md), [uso geral (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)e [otimizado para memória (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
+
+>[!NOTE]
+>Para a camada de computação [expansível (série B)](../../virtual-machines/sizes-b-series-burstable.md) quando o servidor é reiniciado por qualquer motivo como a manutenção iniciada pelo usuário, planejada ou não planejada, o crédito acumulado pode ser perdido. O motivo é que sempre que o banco de dados do Azure para MySQL for reiniciado, ele permanecerá no mesmo nó, o crédito acumulado será retido. Contrarily, sempre que o servidor do banco de dados do Azure para MySQL iniciar uma nova atualização em um novo nó, ele obterá um crédito inicial. Para obter mais informações, leia as [perguntas frequentes sobre a intermitência (série B)](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## <a name="storage"></a>Armazenamento
 
@@ -132,7 +135,7 @@ Para saber mais sobre o máximo de IOPS efetivo por tamanho de computação, usa
 
 O IOPS máximo efetivo depende do máximo de IOPS disponível por tamanho de computação. Consulte a fórmula abaixo e consulte a coluna máximo de *taxa de transferência do disco não armazenado em cache: IOPS/Mbps* na documentação da série [B](../../virtual-machines/sizes-b-series-burstable.md), da [série Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e da [série Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
 
-**IOPS efetivo máximo** = mínimo ( *"taxa de transferência máxima do disco não armazenado em cache: IOPS/Mbps"* do tamanho da computação, armazenamento provisionado em GIB * 3)
+**IOPS efetivo máximo** = mínimo (*"taxa de transferência máxima do disco não armazenado em cache: IOPS/Mbps"* do tamanho da computação, armazenamento provisionado em GIB * 3)
 
 Você pode monitorar o consumo de e/s no portal do Azure (com Azure Monitor) usando a métrica de [percentual de e](./concepts-monitoring.md) /s. Se precisar de mais IOPS, você precisará entender se você está restrito pelo tamanho da computação ou pelo armazenamento provisionado. Dimensione a computação ou o armazenamento do servidor de acordo com a configuração.
 
@@ -153,7 +156,7 @@ O dimensionamento do armazenamento e a alteração do período de retenção do 
 
 ## <a name="pricing"></a>Preços
 
-Para as informações mais recentes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/MySQL/) do serviço. Para ver o custo da configuração desejada, o [portal do Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) mostra o custo mensal na guia **computação + armazenamento** com base nas opções selecionadas. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. No site da [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) , selecione **Adicionar itens** , expanda a categoria **bancos** de dados, escolha **banco de dados do Azure para MySQL** e **servidor flexível** como o tipo de implantação para personalizar as opções.
+Para as informações mais recentes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/MySQL/) do serviço. Para ver o custo da configuração desejada, o [portal do Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) mostra o custo mensal na guia **computação + armazenamento** com base nas opções selecionadas. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. No site da [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) , selecione **Adicionar itens**, expanda a categoria **bancos** de dados, escolha **banco de dados do Azure para MySQL** e **servidor flexível** como o tipo de implantação para personalizar as opções.
 
 Se desejar otimizar o custo do servidor, você pode considerar as seguintes dicas:
 

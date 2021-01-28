@@ -1,5 +1,5 @@
 ---
-title: Disponibilidade das nuvens e regiões dos serviços de mídia do Azure v3
+title: Disponibilidade de regiões dos serviços de mídia do Azure v3
 description: Este artigo discute as nuvens e regiões do Azure em que os Serviços de Mídia do Azure v3 estão disponíveis.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 20c025cfabf6ed3cedd838f8be964bec06ad595e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 91df515703b4b6b368b07482fad1aa8b781281f6
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242476"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954439"
 ---
 # <a name="azure-media-services-v3-clouds-and-regions-availability"></a>Disponibilidade das nuvens e regiões dos serviços de mídia do Azure v3
 
@@ -63,7 +63,7 @@ Use a navegação à direita para encontrar a região em que você está interes
 
 [Regiões nas quais o serviço dos serviços de mídia do Azure está implantado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Nomes de código regionais e pontos de extremidade](azure-regions-code-names.md)

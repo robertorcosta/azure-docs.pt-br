@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 6a73ecf18a4bd89567dc603758d9ff8501267a1f
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: a39f7701d0244eff7f914908a6708dfc14873b35
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570024"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954847"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Tutorial: Configurar o SAP SuccessFactors para o provisionamento de usuário do Azure AD
 O objetivo deste tutorial é mostrar as etapas que você precisa seguir para provisionar dados de trabalho do SuccessFactors Employee Central para o Azure Active Directory, com write-back opcional de endereço de email para o SuccessFactors. 
@@ -223,9 +223,8 @@ Nesta seção, você vai configurar como o fluxo de dados do usuário flui do Su
 
 1. Na seção **Mapeamentos de atributos**, é possível definir como os atributos individuais do SuccessFactors são mapeados para os atributos do Active Directory.
 
-  >[!NOTE]
-  >Para obter a lista completa de atributos do SuccessFactors com suporte do aplicativo, veja [Referência de Atributos do SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
-
+     >[!NOTE]
+     >Para obter a lista completa de atributos do SuccessFactors com suporte do aplicativo, veja [Referência de Atributos do SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 1. Clique em um mapeamento de atributo existente para atualizá-lo ou clique em **Adicionar novo mapeamento** na parte inferior da tela para adicionar novos mapeamentos. Um mapeamento de atributo individual dá suporte para essas propriedades:
 

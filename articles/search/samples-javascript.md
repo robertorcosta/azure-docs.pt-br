@@ -7,29 +7,30 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: 09a9ca2ad1b1f1e5578ecc5d35a85c81b32a5b1a
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.date: 01/27/2021
+ms.openlocfilehash: f83767813ea3923d85db2ca3f0164776c610525e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511739"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955013"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Exemplos de código JavaScript para o Azure Pesquisa Cognitiva
 
-Saiba mais sobre os exemplos de código do JavaScript que demonstram os recursos e a funcionalidade do Azure Pesquisa Cognitiva. Os repositórios primários são os seguintes:
+Saiba mais sobre os exemplos de código do JavaScript que demonstram a funcionalidade e o fluxo de trabalho de uma solução de Pesquisa Cognitiva do Azure. Esses exemplos usam a [**biblioteca de cliente do azure pesquisa cognitiva**](/javascript/api/overview/azure/search-documents-readme) para o [**SDK do Azure para JavaScript**](/azure/developer/javascript/), que pode ser explorado por meio dos links a seguir.
 
-| Repositório | Descrição |
-|------------|-------------|
-| [Azure-SDK-for-js/árvore/mestre/SDK/pesquisa/pesquisa-documentos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents) | Exemplos produzidos pela equipe do SDK do Azure que acompanha a biblioteca de cliente do Azure.Search.Documents no SDK. Você também pode examinar os [testes de unidade](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) da biblioteca de cliente para ver como várias APIs são chamadas. |
-| [Azure-Samples/Azure-Search-JavaScript-Samples](https://github.com/Azure-Samples/azure-search-javascript-samples) | Exemplos de código que acompanham artigos de instruções, incluindo o [início rápido: criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).|
+| Destino | Link |
+|--------|------|
+| Download do pacote | [www.npmjs.com/package/@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) |
+| Referência de API | [@azure/search-documents](/javascript/api/@azure/search-documents/)  |
+| Casos de teste de API | [github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/test) |
+| Código-fonte | [github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents)  |
 
-> [!Tip]
-> Experimente o [navegador de exemplos](/samples/browse/?languages=javascript&products=azure-cognitive-search) para pesquisar exemplos de código da Microsoft no GitHub, filtrados por produto, serviço e idioma.
+## <a name="sdk-samples"></a>Exemplos do SDK
 
-## <a name="javascript-sdk-samples"></a>Exemplos de SDK do JavaScript
+Exemplos de código da equipe de desenvolvimento do SDK do Azure demonstram o uso da API. Você pode encontrar esses exemplos em [**Azure-SDK-for-js/árvore/mestre/SDK/Search/Search-Documents/Samples**](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples) no github.
 
-O SDK do Azure para Java inclui vários exemplos e uma [página de introdução](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/README.md#getting-started) que aborda a instalação do pacote, a configuração do cliente e a solução de problemas. A página também descreve as seguintes categorias de exemplo, listadas aqui para sua conveniência.
+### <a name="javascript-sdk-samples"></a>Exemplos de SDK do JavaScript
 
 | Exemplos | Descrição |
 |---------|-------------|
@@ -40,9 +41,7 @@ O SDK do Azure para Java inclui vários exemplos e uma [página de introdução]
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Demonstra como criar, atualizar, obter, listar e excluir [mapas de sinônimos](search-synonyms.md).  |
 | [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Demonstra a execução da consulta em um índice público somente leitura hospedado pela Microsoft.  |
 
-## <a name="typescript-samples"></a>Exemplos de TypeScript
-
-O SDK também fornece exemplos do TypeScript, listados aqui para sua conveniência.
+### <a name="typescript-samples"></a>Exemplos de TypeScript
 
 | Exemplos | Descrição |
 |---------|-------------|
@@ -53,15 +52,20 @@ O SDK também fornece exemplos do TypeScript, listados aqui para sua conveniênc
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Demonstra como criar, atualizar, obter, listar e excluir [mapas de sinônimos](search-synonyms.md).  |
 | [Consultas](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Demonstra a execução da consulta em um índice público somente leitura hospedado pela Microsoft.  |
 
-## <a name="documentation-samples"></a>Amostras de documentação
+## <a name="doc-samples"></a>Exemplos de documento
 
-Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cognitiva do Azure](./index.yml).
+Exemplos de código da equipe de Pesquisa Cognitiva demonstram recursos e fluxos de trabalho. Muitos desses exemplos são referenciados em tutoriais, guias de início rápido e artigos de instruções. Você pode encontrar esses exemplos em [**Azure-Samples/Azure-Search-JavaScript-Samples**](https://github.com/Azure-Samples/azure-search-javascript-samples) no github.
 
-| Exemplos | Descrição | 
-|---------|-------------|
-| [TUTORIAIS](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Código-fonte para [início rápido: criar um índice de pesquisa em JavaScript](search-get-started-javascript.md).  |
+| Exemplos | Artigo |
+|---------|---------|
+| [TUTORIAIS](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Código-fonte para [início rápido: criar um índice de pesquisa em JavaScript](search-get-started-javascript.md). Este artigo aborda o fluxo de trabalho básico para criar, carregar e consultar um índice de pesquisa usando dados de exemplo. |
 
-## <a name="standalone-samples"></a>Amostras autônomas
+> [!Tip]
+> Experimente o [navegador de exemplos](/samples/browse/?languages=javascript&products=azure-cognitive-search) para pesquisar exemplos de código da Microsoft no GitHub, filtrados por produto, serviço e idioma.
+
+## <a name="other-samples"></a>Outras amostras
+
+Os exemplos a seguir também são publicados pela equipe de Pesquisa Cognitiva, mas não são referenciados na documentação do. Os arquivos Leiame associados fornecem instruções de uso.
 
 | Exemplos | Descrição |
 |---------|-------------|

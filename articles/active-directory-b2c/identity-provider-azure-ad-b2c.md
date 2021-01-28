@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8a0d69ea57eb5b8b2a074c37d4798a99c576ce95
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: ea4def3cfaa19e27dc05e955bf97b41976ec2190
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538172"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98953913"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configurar a inscrição e a entrada com uma conta de Azure AD B2C de outro locatário Azure AD B2C
 
@@ -105,7 +105,18 @@ Para criar um aplicativo.
     - **Sobrenome**: *family_name*
     - **Email**: *email*
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
+
+## <a name="add-azure-ad-b2c-identity-provider-to-a-user-flow"></a>Adicionar Azure AD B2C provedor de identidade a um fluxo de usuário 
+
+1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
+1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade Azure AD B2C.
+1. Em **provedores de identidade social**, selecione **Fabrikam**.
+1. Selecione **Salvar**.
+1. Para testar sua política, selecione **executar fluxo de usuário**.
+1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
+1. Clique em **executar fluxo de usuário**
+1. Na página inscrever-se ou entrar, selecione *Fabrikam* para entrar com o outro locatário Azure ad B2C.
 
 ::: zone-end
 
@@ -125,9 +136,9 @@ Você precisa armazenar a chave do aplicativo que você criou anteriormente em s
 1. Para **Uso de chave**, selecione `Signature`.
 1. Selecione **Criar**.
 
-## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
+## <a name="configure-azure-ad-b2c-as-an-identity-provider"></a>Configurar Azure AD B2C como um provedor de identidade
 
-Se desejar que os usuários entrem usando o outro Azure AD B2C (Fabrikam), você precisará definir os outros Azure AD B2C como um provedor de declarações que Azure AD B2C possa se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
+Para permitir que os usuários entrem usando uma conta de outro locatário do Azure AD B2C (Fabrikam), você precisa definir os outros Azure AD B2C como um provedor de declarações que Azure AD B2C possa se comunicar por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir Azure ad B2C como um provedor de declarações adicionando Azure ad B2C ao elemento **Claims** no arquivo de extensão da política.
 
@@ -139,7 +150,7 @@ Você pode definir Azure ad B2C como um provedor de declarações adicionando Az
       <Domain>fabrikam.com</Domain>
       <DisplayName>Federation with Fabrikam tenant</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Fabrikam-OpenIdConnect">
+        <TechnicalProfile Id="AzureADB2CFabrikam-OpenIdConnect">
         <DisplayName>Fabrikam</DisplayName>
         <Protocol Name="OpenIdConnect"/>
         <Metadata>
@@ -188,83 +199,29 @@ Você pode definir Azure ad B2C como um provedor de declarações adicionando Az
     |CryptographicKeys| Atualize o valor de **StorageReferenceId** para o nome da chave de política que você criou anteriormente. Por exemplo, `B2C_1A_FabrikamAppSecret`.| 
     
 
-### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
-
-Agora, você configurou sua política para que Azure AD B2C saiba como se comunicar com o outro locatário Azure AD B2C. Tente carregar o arquivo de extensão da política apenas para confirmar se ele não apresenta problemas até o momento.
-
-1. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política**.
-1. Habilite **Substitua a política se ela existir** e, em seguida, navegue até o arquivo *TrustFrameworkExtensions.xml* e selecione-o.
-1. Clique em **Carregar**.
-
-## <a name="register-the-claims-provider"></a>Registrar o provedor de declarações
-
-Neste ponto, o provedor de identidade foi configurado, mas ele ainda não está disponível em nenhuma das páginas de inscrição/entrada. Para disponibilizá-lo, crie uma duplicata de um percurso de usuário de modelo existente e, em seguida, modifique-o para que ele também tenha o provedor de identidade do Azure AD:
-
-1. Abra o arquivo *TrustFrameworkBase.xml* do starter pack.
-1. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
-1. Abra o *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
-1. Cole todo o conteúdo do elemento **UserJourney** que você copiou como filho do elemento **UserJourneys**.
-1. Renomeie a ID do percurso do usuário. Por exemplo, `SignUpSignInFabrikam`.
-
-### <a name="display-the-button"></a>Exibir o botão
-
-O elemento **ClaimsProviderSelection** é análogo a um botão de provedor de identidade em uma página de inscrição/entrada. Se você adicionar um elemento **ClaimsProviderSelection** para Azure ad B2C, um novo botão será exibido quando um usuário chegar à página.
-
-1. Localize o elemento **OrchestrationStep** que inclui `Order="1"` no percurso do usuário que você criou no *TrustFrameworkExtensions.xml*.
-1. Em **ClaimsProviderSelections**, adicione o elemento a seguir. Defina o valor de **TargetClaimsExchangeId** para um valor apropriado, por exemplo `FabrikamExchange`:
-
-    ```xml
-    <ClaimsProviderSelection TargetClaimsExchangeId="FabrikamExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>Vincular o botão a uma ação
-
-Agora que implementou um botão, você precisará vinculá-lo a uma ação. Nesse caso, a ação é para Azure AD B2C se comunicar com os outros Azure AD B2C para receber um token. Vincule o botão a uma ação vinculando o perfil técnico para o provedor de declarações Azure AD B2C:
-
-1. Localize o **OrchestrationStep** que inclui `Order="2"` no percurso do usuário.
-1. Adicione o seguinte elemento **ClaimsExchange** , certificando-se de usar o mesmo valor para **ID** que você usou para **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="FabrikamExchange" TechnicalProfileReferenceId="Fabrikam-OpenIdConnect" />
-    ```
-
-    Atualize o valor de **TechnicalProfileReferenceId** para a **ID** do perfil técnico criado anteriormente. Por exemplo, `Fabrikam-OpenIdConnect`.
-
-1. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-azure-ad-b2c-identity-provider-to-a-user-flow"></a>Adicionar Azure AD B2C provedor de identidade a um fluxo de usuário 
-
-1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
-1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade Azure AD B2C.
-1. Em **provedores de identidade social**, selecione **Fabrikam**.
-1. Clique em **Salvar**.
-1. Para testar sua política, selecione **executar fluxo de usuário**.
-1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
-1. Clique em **executar fluxo de usuário**
-1. Na página inscrever-se ou entrar, selecione *Fabrikam* para entrar com o outro locatário Azure ad B2C.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
 
-## <a name="update-and-test-the-relying-party-file"></a>Atualizar e testar o arquivo de terceira parte confiável
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
+    <ClaimsProviderSelection TargetClaimsExchangeId="AzureADB2CFabrikamExchange" />
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="AzureADB2CFabrikamExchange" TechnicalProfileReferenceId="AzureADB2CFabrikam-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-o como *SignUpSignInFabrikam.xml*.
-1. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInFabrikam`.
-1. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_fabrikam`.
-1. Atualize o valor do atributo **referenceid** em **DefaultUserJourney** para corresponder à ID da jornada do usuário que você criou anteriormente. Por exemplo, *SignUpSignInFabrikam*.
-1. Salve as alterações e carregue o arquivo.
-1. Em **políticas personalizadas**, selecione a nova política na lista.
-1. Na lista suspensa **Selecionar aplicativo** , selecione o aplicativo Azure ad B2C que você criou anteriormente. Por exemplo, *testapp1*.
-1. Selecione **executar agora** 
-1. Na página inscrever-se ou entrar, selecione *Fabrikam* para entrar com o outro locatário Azure ad B2C.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end
 

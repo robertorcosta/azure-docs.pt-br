@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8b1c2a5384e479e39d169d368554f16c300a33e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95527302"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954539"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implantar um modelo para Azure Machine Learning instâncias de computação
 
@@ -38,11 +38,12 @@ Saiba como usar Azure Machine Learning para implantar um modelo como um serviço
 
 Um bloco de anotações de exemplo que demonstra implantações locais está incluído em sua instância de computação. Use as etapas a seguir para carregar o bloco de anotações e implantar o modelo como um serviço Web na VM:
 
-1. No [Azure Machine Learning Studio](https://ml.azure.com), selecione suas instâncias de computação Azure Machine Learning.
+1. No [Azure Machine Learning Studio](https://ml.azure.com), selecione "notebooks" e, em seguida, selecione How-to-use-azureml/Deployment/Deploy-to-local/Register-Model-Deploy-local. ipynb em "notebooks de exemplo". Clone este bloco de anotações em sua pasta de usuário.
 
-1. Abra o `samples-*` subdiretório e, em seguida, abra `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb` . Uma vez aberto, execute o bloco de anotações.
+1. Localize o bloco de anotações clonado na etapa 1, escolha ou crie uma instância de computação para executar o bloco de anotações.
 
     ![Captura de tela do serviço local em execução no bloco de anotações](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
+
 
 1. O notebook exibe a URL e a porta em que o serviço está sendo executado. Por exemplo, `https://localhost:6789`. Você também pode executar a célula que contém `print('Local service port: {}'.format(local_service.port))` para exibir a porta.
 

@@ -1,17 +1,17 @@
 ---
-title: Traga sua própria chave (chaves gerenciadas pelo cliente) com os serviços de mídia
+title: Traga sua própria chave (chaves gerenciadas pelo cliente)
 description: Você pode usar uma chave gerenciada pelo cliente (ou seja, traga sua própria chave) com os serviços de mídia.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c11bb0e369075c3024824d65290e8aecfa68e6f4
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681815"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956133"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga sua própria chave (chaves gerenciadas pelo cliente) com os serviços de mídia
 
@@ -39,7 +39,7 @@ Você pode especificar um nome de chave e uma versão de chave, ou apenas um nom
 
 ## <a name="tutorials"></a>Tutoriais
 
-- [Usar o portal do Azure para usar chaves gerenciadas pelo cliente ou BYOK com os serviços de mídia](tutorial-byok-portal.md)
+- [Usar o portal do Azure para usar as chaves gerenciadas pelo cliente ou o BYOK com os Serviços de Mídia](tutorial-byok-portal.md)
 - [Use chaves gerenciadas pelo cliente ou BYOK com a API REST dos serviços de mídia](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Próximas etapas

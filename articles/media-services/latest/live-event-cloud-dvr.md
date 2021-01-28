@@ -1,5 +1,5 @@
 ---
-title: Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
+title: Usar a mudança de tempo para criar a reprodução de vídeo sob demanda
 description: Este artigo descreve como usar as saídas dinâmicas e de mudança de tempo para registrar fluxos ao vivo e criar a reprodução sob demanda.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f5b475f15a5dc751de154965e3d1e78a85fbd4c9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a2bb876c164f0df56a8b7f3c4a3666ff306e9416
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897859"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955929"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usar mudança de tempo e saídas ao vivo para criar reprodução de vídeo sob demanda
 

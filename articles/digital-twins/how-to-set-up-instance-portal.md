@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 61b396cbcc8c91c75c961f702de7ed6a33e676e4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947007"
+ms.locfileid: "98953743"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (Portal)
 
@@ -56,8 +56,8 @@ Se você quiser configurar mais detalhes para sua instância, a próxima seção
 
 Aqui estão as opções adicionais que podem ser definidas durante a instalação, usando as outras guias do processo de **criação de recursos** .
 
-* **Rede**: nessa guia, você pode habilitar pontos de extremidade privados com o [link privado do Azure](../private-link/private-link-overview.md) para eliminar a exposição da rede pública à sua instância. Para obter instruções, consulte [*como: habilitar o acesso privado com o link privado*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
-* **Avançado**: nessa guia, você pode habilitar uma [identidade gerenciada pelo sistema](../active-directory/managed-identities-azure-resources/overview.md) para sua instância do que pode ser usada ao encaminhar eventos para [pontos de extremidade](concepts-route-events.md). Para obter instruções, consulte [*como: habilitar identidades gerenciadas para eventos de roteamento*](how-to-enable-managed-identities.md).
+* **Rede**: nessa guia, você pode habilitar pontos de extremidade privados com o [link privado do Azure](../private-link/private-link-overview.md) para eliminar a exposição da rede pública à sua instância. Para obter instruções, consulte [*como habilitar o acesso privado com o link privado (visualização)*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
+* **Avançado**: nessa guia, você pode habilitar uma [identidade gerenciada pelo sistema](../active-directory/managed-identities-azure-resources/overview.md) para sua instância do que pode ser usada ao encaminhar eventos para [pontos de extremidade](concepts-route-events.md). Para obter instruções, consulte [*como: habilitar identidades gerenciadas para eventos de roteamento (versão prévia)*](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
 * **Marcas**: nesta guia, você pode adicionar marcas à sua instância para ajudá-lo a organizá-las entre os recursos do Azure. Para saber mais sobre as marcas de recurso do Azure, confira [*recursos de marca, grupos de recursos e assinaturas para a organização lógica*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Verificar o êxito e coletar valores importantes

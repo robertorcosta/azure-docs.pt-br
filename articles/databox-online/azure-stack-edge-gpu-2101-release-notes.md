@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 8158868a39bf8a1fe03a620f37e4dcb1c9adc14e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 6fff5b9d41c960ebe37098695c694725de0226e0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805193"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954607"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de versão do Azure Stack Edge 2101
 
@@ -77,8 +77,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos transmitidos das ve
 |**16.**|Certificados |Em determinadas instâncias, o estado do certificado na interface do usuário local pode levar vários segundos para ser atualizado. |Os cenários a seguir na interface do usuário local podem ser afetados.<ul><li>Coluna **status** na página **certificados** .</li><li>Bloco **segurança** na **página Introdução.**</li><li>Bloco **configuração** na página **visão geral** .</li></ul>  |
 |**16.**|IoT Edge |Módulos implantados por meio de IoT Edge não podem usar a rede de host. | |
 |**anos.**|Computação + kubernetes |Compute/kubernetes não oferece suporte a proxy da Web NTLM. ||
-|**aprimora.**|Computação + proxy da Web + atualização |Se você tiver a computação configurada com o proxy Web, a atualização de computação poderá falhar. |Recomendamos que você desabilite a computação antes da atualização. |
-|**20,00.**|Kubernetes + atualização |Versões anteriores do software, como versões 2008, têm um problema de atualização da condição de corrida que faz com que a atualização falhe com ClusterConnectionException. |O uso de compilações mais recentes deve ajudar a evitar esse problema. Se você ainda vir esse problema, a solução alternativa é tentar novamente a atualização e ela deve funcionar.|
+|**aprimora.**|Kubernetes + atualização |Versões anteriores do software, como versões 2008, têm um problema de atualização da condição de corrida que faz com que a atualização falhe com ClusterConnectionException. |O uso de compilações mais recentes deve ajudar a evitar esse problema. Se você ainda vir esse problema, a solução alternativa é tentar novamente a atualização e ela deve funcionar.|
 
 
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->

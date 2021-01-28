@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 1222108694ff7274e5d8fd063635b70a76ffc59c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920216"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954742"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
@@ -81,10 +81,12 @@ As propriedades a seguir devem ser especificadas:
 
 Depois de criar o recurso de *cluster* , você pode editar propriedades adicionais, como *SKU*, * keyvaultproperties ou *billtype*. Veja mais detalhes abaixo.
 
+Você pode ter até 2 clusters ativos por assinatura por região. Se o cluster for excluído, ele ainda estará reservado por 14 dias. Você pode ter até 4 clusters reservados por assinatura por região (ativa ou excluída recentemente).
+
 > [!WARNING]
 > A criação do cluster dispara a alocação de recursos e o provisionamento. Esta operação pode levar até uma hora para ser concluída. É recomendável executá-lo de forma assíncrona.
 
-A conta de usuário que cria os clusters deve ter a permissão de criação de recurso do Azure padrão: `Microsoft.Resources/deployments/*` e a permissão de gravação de cluster `(Microsoft.OperationalInsights/clusters/write)` .
+A conta de usuário que cria os clusters deve ter a permissão de criação de recurso do Azure padrão: `Microsoft.Resources/deployments/*` e a permissão `Microsoft.OperationalInsights/clusters/write` de gravação de cluster ao ter em suas atribuições de função essa ação específica ou `Microsoft.OperationalInsights/*` `*/write` .
 
 ### <a name="create"></a>Criar 
 
@@ -503,7 +505,9 @@ Use a seguinte chamada REST para excluir um cluster:
 
 ## <a name="limits-and-constraints"></a>Limites e restrições
 
-- O número máximo de clusters por região e assinatura é 2
+- O número máximo de clusters ativos por região e assinatura é 2
+
+- O número máximo de clusters reservados (ativos ou excluídos recentemente) por região e assinatura é 4 
 
 - O máximo de espaços de trabalho vinculados ao cluster é 1000
 

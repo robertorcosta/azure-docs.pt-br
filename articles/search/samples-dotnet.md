@@ -7,30 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: ab6408621616a4be62631391456f73e90fced752
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/27/2021
+ms.openlocfilehash: 5567cf3bf606b08ce430f9189467d796498ae691
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498992"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953896"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Exemplos de código .NET (C#) para o Azure Pesquisa Cognitiva
 
-Saiba mais sobre os exemplos de código do C# que demonstram os recursos e a funcionalidade do Azure Pesquisa Cognitiva. Os repositórios primários são os seguintes:
+Saiba mais sobre os exemplos de código do C# que demonstram a funcionalidade e o fluxo de trabalho de uma solução de Pesquisa Cognitiva do Azure. Esses exemplos usam a [**biblioteca de cliente do azure pesquisa cognitiva**](/dotnet/api/overview/azure/search) para o [**SDK do Azure para .net**](/dotnet/azure/), que pode ser explorado por meio dos links a seguir.
 
-| Repositório | Descrição |
-|------------|-------------|
-| [Azure-SDK-for-NET/SDK/Search/Azure.Search.Documents/Samples/](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/samples) | Exemplos produzidos pela equipe do SDK do Azure que acompanha a biblioteca de cliente do Azure.Search.Documents no SDK. Você também pode examinar os [testes de unidade](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) da biblioteca de cliente para ver como várias APIs são chamadas. |
-| [Azure-Samples/Azure-Search-dotnet-Samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) | Exemplos que acompanham artigos de instruções na documentação, incluindo [como usar a biblioteca de cliente .net](search-howto-dotnet-sdk.md).|
-| [Azure-Samples/Search-dotnet-Getting-Started](https://github.com/Azure-Samples/search-dotnet-getting-started) | Exemplos que acompanham os guias de início rápido e tutoriais na documentação.|
+| Destino | Link |
+|--------|------|
+| Download do pacote | [www.nuget.org/packages/Azure.Search.Documents/](https://www.nuget.org/packages/Azure.Search.Documents/) |
+| Referência de API | [azure.search.documents](/dotnet/api/azure.search.documents)  |
+| Casos de teste de API | [github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/testes](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) |
+| Código-fonte | [github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/src](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/src)  |
 
-> [!Tip]
-> Experimente o [navegador de exemplos](/samples/browse/?languages=csharp&products=azure-cognitive-search) para pesquisar exemplos de código da Microsoft no GitHub, filtrados por produto, serviço e idioma.
+## <a name="sdk-samples"></a>Exemplos do SDK
 
-## <a name="net-sdk-samples"></a>Exemplos de SDK do .NET
-
-O SDK do Azure para .NET inclui vários exemplos e um [Leiame de exemplos](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/README.md) que descreve cada um deles. Essa lista é fornecida abaixo para sua conveniência.
+Exemplos de código da equipe de desenvolvimento do SDK do Azure demonstram o uso da API. Você pode encontrar esses exemplos em [**Azure/Azure-SDK-for-net/Tree/Master/SDK/Search/Azure.Search.Documents/Samples**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/) no github.
 
 | Exemplos | Descrição |
 |---------|-------------|
@@ -42,23 +40,28 @@ O SDK do Azure para .NET inclui vários exemplos e um [Leiame de exemplos](https
 | [Indexando documentos (modelo de push)](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md) | Indexação de modelo "Push", em que você envia uma carga JSON para um índice em um serviço.   |
 | [Exemplo de chave de criptografia](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample06_EncryptedIndex.md) | Demonstra o uso de uma chave de criptografia gerenciada pelo cliente para adicionar uma camada extra de proteção por conteúdo confidencial.  |
 
-## <a name="documentation-samples"></a>Amostras de documentação
+## <a name="doc-samples"></a>Exemplos de documento
 
-Os exemplos a seguir têm um artigo associado na [documentação do pesquisa cognitiva do Azure](./index.yml).
+Exemplos de código da equipe de Pesquisa Cognitiva demonstram recursos e fluxos de trabalho. Muitos desses exemplos são referenciados em tutoriais, guias de início rápido e artigos de instruções. Você pode encontrar esses exemplos em [**Azure-Samples/Azure-Search-dotnet-Samples**](https://github.com/Azure-Samples/azure-search-dotnet-samples) e no [**Azure-Samples/Search-dotnet-Getting-Started**](https://github.com/Azure-Samples/search-dotnet-getting-started/) on github.
 
-| Exemplos | Descrição |
+| Exemplos | Artigo  |
 |---------|-------------|
-| [TUTORIAIS](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Código-fonte para [início rápido: criar um índice de pesquisa ](search-get-started-dotnet.md).  |
-| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Código-fonte de [como usar a biblioteca de cliente .net](search-howto-dotnet-sdk.md) |
-| [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | As listas de sinônimos são usadas para expansão de consulta, fornecendo termos de correspondência externos a um índice. Este exemplo é incluído no [exemplo: Adicionar sinônimos em C#](search-synonyms-tutorial-sdk.md). |
-| [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | Código-fonte por trás de trechos relacionados ao indexador em vários artigos. Este exemplo mostra como configurar um indexador que tem um agendamento, mapeamentos de campo e parâmetros.  |
-| [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | Código-fonte de [como configurar chaves gerenciadas pelo cliente para criptografia de dados](search-security-manage-encryption-keys.md) |
+| [TUTORIAIS](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Código-fonte para [início rápido: criar um índice de pesquisa ](search-get-started-dotnet.md). Este artigo aborda o fluxo de trabalho básico para criar, carregar e consultar um índice de pesquisa usando dados de exemplo. |
+| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Código-fonte de [como usar a biblioteca de cliente .net](search-howto-dotnet-sdk.md). Este artigo percorre o fluxo de trabalho básico, mas com mais detalhes e a discussão sobre o uso da API.  |
+| [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | Código-fonte por [exemplo: Adicionar sinônimos em C#](search-synonyms-tutorial-sdk.md). As listas de sinônimos são usadas para expansão de consulta, fornecendo termos de correspondência externos a um índice. |
+| [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | Código-fonte para [tutorial: indexe dados SQL do Azure usando o SDK do .net](search-indexer-tutorial.md). Este artigo mostra como configurar um indexador do SQL Azure que tem um agendamento, mapeamentos de campo e parâmetros.  |
+| [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | Código-fonte de [como configurar chaves gerenciadas pelo cliente para criptografia de dados](search-security-manage-encryption-keys.md). |
 | [Criar seu primeiro aplicativo em C #](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11) |  Código-fonte para [tutorial: Crie seu primeiro aplicativo de pesquisa](tutorial-csharp-create-first-app.md). Embora a maioria dos exemplos sejam aplicativos de console, este exemplo MVC usa uma página da Web para antecipar o índice de hotéis de exemplo, demonstrando pesquisa básica, paginação, preenchimento automático e consultas sugeridas, facetas e filtros. |
 | [fontes de dados múltiplos](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources)  | Código-fonte para [tutorial: índice de várias fontes de dados](tutorial-multiple-data-sources.md). |
 |  [otimização de dados-indexação](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) | Código-fonte para [tutorial: otimizar a indexação com a API de envio por push](tutorial-optimize-indexing-push-api.md).  |
 | [tutorial – reenriquecimento de ia](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/tutorial-ai-enrichment)  | Código-fonte para [tutorial: conteúdo pesquisável gerado por ia de BLOBs do Azure usando o SDK do .net](cognitive-search-tutorial-blob-dotnet.md).  |
 
-## <a name="standalone-samples-and-solutions"></a>Amostras e soluções autônomas
+> [!Tip]
+> Experimente o [navegador de exemplos](/samples/browse/?languages=csharp&products=azure-cognitive-search) para pesquisar exemplos de código da Microsoft no GitHub, filtrados por produto, serviço e idioma.
+
+## <a name="other-samples"></a>Outras amostras
+
+Os exemplos a seguir também são publicados pela equipe de Pesquisa Cognitiva, mas não são referenciados na documentação do. Os arquivos Leiame associados fornecem instruções de uso.
 
 | Exemplos | Descrição |
 |---------|-------------|

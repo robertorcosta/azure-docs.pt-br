@@ -1,9 +1,24 @@
 ---
-Título: conceitos de eventos ao vivo e de saídas ao vivo nos serviços de mídia do Azure V3: descrição dos serviços de mídia do Azure: Este tópico fornece uma visão geral de eventos ao vivo e saídas ao vivo nos serviços de mídia do Azure v3.
-serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
-
-MS. Service: Media-Services MS. Workload: Media ms.tgt_pltfrm: na Sra. DevLang: NE MS. Topic: conceitual MS. Date: 10/23/2020 MS. Author: inhenkel
-
+title: Conceitos de eventos ao vivo e saídas ao vivo
+description: Este tópico fornece uma visão geral de eventos ao vivo e saídas ao vivo nos serviços de mídia do Azure v3.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: ne
+ms.topic: conceptual
+ms.date: 10/23/2020
+ms.author: inhenkel
+ms.openlocfilehash: 0b223fcedfdead991f7ce374f7f7814749388f90
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955946"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos e saídas ao vivo nos Serviços de Mídia
 

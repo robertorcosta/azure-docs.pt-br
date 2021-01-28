@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações do 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 08d2ac8451e88dd8d40ed5faee0368ff7739cd16
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757467"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954691"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte do backup em disco do Azure (em versão prévia)
 
@@ -65,6 +65,8 @@ Mais regiões serão anunciadas quando forem disponibilizadas.
 - Os discos gerenciados permitem alterar o nível de desempenho na implantação ou posteriormente sem alterar o tamanho do disco. A solução de backup em disco do Azure dá suporte às alterações de nível de desempenho no disco de origem que está sendo submetido a backup. Durante a restauração, o nível de desempenho do disco restaurado será o mesmo do disco de origem no momento do backup. Siga a documentação [aqui](../virtual-machines/disks-performance-tiers-portal.md) para alterar o nível de desempenho do disco após a operação de restauração.
 
 - O suporte a [links privados](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) para discos gerenciados permite que você restrinja a exportação e a importação de discos gerenciados para que ele ocorra apenas dentro de sua rede virtual do Azure. O backup em disco do Azure dá suporte ao backup de discos que têm pontos de extremidade privados habilitados. Isso não inclui os dados de backup ou instantâneos para serem acessíveis por meio do ponto de extremidade privado.
+
+- Durante a versão prévia, não é possível desabilitar o backup, portanto a opção **parar backup e reter os dados de backup** não tem suporte. Você pode excluir uma instância de backup, o que só interromperá o backup, mas também excluirá todos os dados de backup.
 
 ## <a name="next-steps"></a>Próximas etapas
 

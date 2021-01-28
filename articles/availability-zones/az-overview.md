@@ -1,18 +1,19 @@
 ---
 title: Regiões e Zonas de Disponibilidade no Azure
 description: Saiba mais sobre regiões e Zonas de Disponibilidade no Azure para atender aos seus requisitos técnicos e regulatórios.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2021
-ms.author: cynthn
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 0b67f113fb8ab3835419a75697e60a732d4ee390
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dae5319e6c8b87d6a9eef98875ad7e8da623e65c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896046"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955793"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade no Azure
 
@@ -99,7 +100,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Azure Data Lake Storage Gen2          | Azure Active Directory Domain Services            | Serviços cognitivas do Azure: reconhecedor de formulário            |
 > | Azure ExpressRoute                    | Azure Bastion                                     | Serviços cognitivas do Azure: personalizador               |
 > | IP público do Azure                       | Cache Redis do Azure                             | Serviços cognitivas do Azure: QnA Maker                  |
-> | Banco de Dados SQL do Azure                    | Azure Cognitive Search                            | Banco de Dados do Azure para MariaDB                           |
+> | Banco de Dados SQL do Azure                    | Pesquisa Cognitiva do Azure                            | Banco de Dados do Azure para MariaDB                           |
 > | SQL do Azure: Instância Gerenciada          | Serviços Cognitivos do Azure                          | Serviço de Migração de Banco de Dados do Azure                     |
 > | Serviços de Nuvem                        | Serviços Cognitivos do Azure: Pesquisa Visual Computacional         | HSM Dedicado do Azure                                  |
 > | Serviços de nuvem: Av2-Series            | Serviços cognitivas do Azure: Content Moderator       | Gêmeos Digitais do Azure                                  |

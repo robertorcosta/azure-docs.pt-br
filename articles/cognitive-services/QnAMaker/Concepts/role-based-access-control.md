@@ -1,16 +1,16 @@
 ---
 title: Colabore com outras pessoas – QnA Maker
-description: ''
+description: Saiba como colaborar com outros autores e editores usando o controle de acesso baseado em função do Azure.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cb6d0ee9c651ca1dcc554f5951a5733727af2d6b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346148"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954099"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Colabore com outros autores e editores
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: ce48d87c6e04e6c349b681e953647feb5e7ddda5
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 7b59e0ae2fbb73f341d5254fd2804d50ad141a19
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570109"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953794"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configurar o SAP SuccessFactors para o provisionamento de usuário do Active Directory 
 O objetivo deste tutorial é mostrar as etapas que você precisa seguir para provisionar usuários do SuccessFactors Employee Central para o AD (Active Directory) e o Azure AD, com write-back opcional de endereço de email para o SuccessFactors. 
@@ -186,7 +186,7 @@ Esta seção fornece as etapas para o provisionamento da conta de usuário do Su
 
 Para provisionar no Active Directory local, o agente de Provisionamento deverá ser instalado em um servidor conectado ao domínio que tenha acesso à rede para os domínios do Active Directory desejados.
 
-Transfira o instalador do agente baixado para o host do servidor e siga as etapas listadas [na seção instalar o agente](../cloud-provisioning/how-to-install.md) para concluir a configuração do agente.
+Transfira o instalador do agente baixado para o host do servidor e siga as etapas listadas [na seção instalar o agente](../cloud-sync/how-to-install.md) para concluir a configuração do agente.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Parte 3: No aplicativo de provisionamento, configure a conectividade com o SuccessFactors e o Active Directory
 Nesta etapa, estabelecemos a conectividade com o SuccessFactors e o Active Directory no portal do Azure. 
@@ -209,12 +209,12 @@ Nesta etapa, estabelecemos a conectividade com o SuccessFactors e o Active Direc
         > Essa configuração só entra em vigor para criações de contas de usuário quando o atributo *parentDistinguishedName* não está configurado nos mapeamentos de atributo. Essa configuração não é usada para operações de atualização e pesquisa de usuários. A subárvore de todo o domínio se enquadra no escopo da operação de pesquisa.
 
    * **Email de Notificação –** Digite seu endereço de email e marque a caixa de seleção “enviar email se ocorrer falha”.
-    > [!NOTE]
-    > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](../app-provisioning/application-provisioning-quarantine-status.md).
+     > [!NOTE]
+     > O Serviço de Provisionamento do Azure AD envia uma notificação por email quando o trabalho de provisionamento entra no estado de [quarentena](../app-provisioning/application-provisioning-quarantine-status.md).
 
    * Clique no botão **Conexão de Teste**. Se o teste de conexão for bem-sucedido, clique no botão **Salvar** na parte superior. Se ele falhar, verifique se as credenciais do SuccessFactors e as credenciais do AD configuradas na instalação do agente são válidas.
-    >[!div class="mx-imgBorder"]
-    >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
+     >[!div class="mx-imgBorder"]
+     >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
    * Depois que as credenciais são salvas com êxito, a seção **Mapeamentos** exibirá o mapeamento padrão **Sincronizar Usuários do SuccessFactors com o Active Directory Local**
 
@@ -250,9 +250,8 @@ Nesta seção, você vai configurar como o fluxo de dados do usuário flui do Su
 
 1. Na seção **Mapeamentos de atributos**, é possível definir como os atributos individuais do SuccessFactors são mapeados para os atributos do Active Directory.
 
-  >[!NOTE]
-  >Para obter a lista completa de atributos do SuccessFactors com suporte do aplicativo, veja [Referência de Atributos do SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
-
+     >[!NOTE]
+     >Para obter a lista completa de atributos do SuccessFactors com suporte do aplicativo, veja [Referência de Atributos do SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 1. Clique em um mapeamento de atributo existente para atualizá-lo ou clique em **Adicionar novo mapeamento** na parte inferior da tela para adicionar novos mapeamentos. Um mapeamento de atributo individual dá suporte para essas propriedades:
 

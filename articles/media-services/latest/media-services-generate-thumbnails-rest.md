@@ -1,5 +1,5 @@
 ---
-title: Obter uma chave de assinatura de uma política usando os serviços de mídia do Azure v3 .NET
+title: Gerar miniaturas usando Media Encoder Standard REST
 description: Este artigo mostra como usar REST para codificar um ativo e gerar miniaturas ao mesmo tempo usando Media Encoder Standard.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 75b8fd53836cce02816413afaeb656c3ac3f8796
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f4456a65f422c23da73f36dd74680fbb598db186
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935390"
+ms.locfileid: "98955827"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-rest"></a>Como gerar miniaturas usando o codificador padrão com REST
 

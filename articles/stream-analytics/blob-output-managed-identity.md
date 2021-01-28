@@ -1,17 +1,17 @@
 ---
 title: Autenticar saída de blob com identidade gerenciada Azure Stream Analytics
 description: Este artigo descreve como usar identidades gerenciadas para autenticar seu trabalho de Azure Stream Analytics para a saída do armazenamento de BLOBs do Azure.
-author: cedarbaum
-ms.author: sacedarb
+author: kim-ale
+ms.author: kimal
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 2e55b1f18648ce6970b81b943cd8a6a0fc3e7e81
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 369348133f7395f5db5b5923bd438cec8e4ad733
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705125"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954371"
 ---
 # <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Usar identidade gerenciada (versão prévia) para autenticar seu trabalho de Azure Stream Analytics para o armazenamento de BLOBs do Azure
 

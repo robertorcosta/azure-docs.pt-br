@@ -1,5 +1,5 @@
 ---
-title: Codificadores de transmissão ao vivo recomendados pelos serviços de mídia-Azure
+title: Codificadores de transmissão ao vivo recomendados pelos serviços de mídia
 description: Saiba mais sobre codificadores locais de transmissão ao vivo recomendados pelos Serviços de Mídia
 services: media-services
 keywords: codificação; codificadores; mídia
@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 6d54a4167739775d3c09740f25a883314e048c65
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bf282b3fbba0f22cd41c0420014c46ddb7c958eb
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895162"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955132"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo no local verificados
 
@@ -117,7 +117,7 @@ Para reproduzir conteúdo, os fluxos de áudio e de vídeo devem estar presentes
 > [!IMPORTANT]
 > Observe a condição física da máquina (CPU/memória/etc.), já que o carregamento de fragmentos para a nuvem envolve operações de CPU e e/s. Se você alterar as configurações no codificador, será determinado que redefina os canais/evento ao vivo para que a alteração tenha efeito.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Transmissão ao vivo com os Serviços de Mídia v3](live-streaming-overview.md)
 

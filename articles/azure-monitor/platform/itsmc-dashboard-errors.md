@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: c3e6408a6a3473380edbe2966eba41970bd73562
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: be6d47d8f40746bfb2154ddb62cf2e9ce93e74aa
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762767"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955676"
 ---
 # <a name="errors-in-the-connector-status-section"></a>Erros na seção status do conector
 
@@ -66,6 +66,10 @@ Nesta seção, você pode encontrar os erros comuns apresentados na seção stat
 
 * **Erro**: "algo deu errado. Não foi possível obter os detalhes da conexão. " Esse erro é apresentado quando o cliente define o grupo de ações de ITSM.
 
-    **Causa**: a conector ITSM recém-criada ainda não concluiu a sincronização inicial.
+    **Causa**: esse erro é exibido quando:
+    * Os Conector ITSM recém-criados ainda têm de concluir a sincronização inicial.
+    * O conector não foi definido corretamente
 
-    **Resolução**: quando um novo conector ITSM é criado, conector ITSM inicia a sincronização de informações do sistema ITSM, como modelos de item de trabalho e itens de trabalho. Sincronize o Conector ITSM para gerar um novo token de atualização, conforme explicado [aqui](./itsmc-resync-servicenow.md).
+    **Resolução**: 
+    * Quando um novo conector ITSM é criado, Conector ITSM inicia a sincronização de informações do sistema ITSM, como modelos de item de trabalho e itens de trabalho. Sincronize o Conector ITSM para gerar um novo token de atualização, conforme explicado [aqui](./itsmc-resync-servicenow.md).
+    * Examine os detalhes de conexão no conector ITSM conforme explicado [aqui](./itsmc-connections-servicenow.md#create-a-connection) e verifique se o conector ITSM pode ser [sincronizado](./itsmc-resync-servicenow.md)com êxito.

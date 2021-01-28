@@ -1,5 +1,5 @@
 ---
-title: Controle de acesso baseado em função do Azure para contas de serviços de mídia – Azure
+title: Controle de acesso baseado em função para contas de serviços de mídia
 description: Este artigo discute o controle de acesso baseado em função do Azure (RBAC do Azure) para contas dos serviços de mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 1fab743c647c3628a79fffb3bf1060983c34d0aa
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7c9edce71e0d0565de80153bfd5b3d5f1edb2e8f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895179"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955149"
 ---
 # <a name="azure-role-based-access-control-azure-rbac-for-media-services-accounts"></a>Controle de acesso baseado em função do Azure (RBAC do Azure) para contas de serviços de mídia
 

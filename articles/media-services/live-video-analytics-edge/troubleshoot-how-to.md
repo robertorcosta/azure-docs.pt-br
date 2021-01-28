@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d519193d55c9535dc71206d2d9f72661d7a40d71
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878283"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954405"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Solucionar problemas de análise de vídeo ao vivo no IoT Edge
 
@@ -97,6 +97,17 @@ A análise de vídeo ao vivo é implantada como um módulo IoT Edge no dispositi
 
     > [!TIP]
     > Se você tiver problemas ao executar Azure IoT Edge módulos em seu ambiente, use **[Azure IOT Edge etapas de diagnóstico padrão](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** como um guia para solução de problemas e diagnósticos.
+
+Você também pode encontrar problemas ao executar o **[script de instalação de recursos de análise de vídeo ao vivo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)**. Alguns problemas comuns incluem:
+
+* Usando uma assinatura em que você não tem privilégios de proprietário. Isso fará com que o script falhe com um erro de **ForbiddenError** ou **AuthorizationFailed** .
+    * Para passar por esse problema, verifique se você tem privilégios de **proprietário** para a assinatura que planeja usar. Se você não puder fazer isso por conta própria, entre em contato com o administrador da assinatura para conceder os privilégios corretos.
+* **A implantação de modelo falhou por causa da violação de política.**
+    * Para obter esse problema, trabalhe com o administrador de ti para garantir que as chamadas criem uma máquina virtual para ignorar o bloqueio da autenticação SSH. Isso não será necessário, pois estamos usando uma rede de bastiões segura que exige um nome de usuário e uma senha para se comunicar com os recursos do Azure. Essas credenciais serão armazenadas no arquivo **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** no Cloud Shell, depois que a máquina virtual for criada, implantada e anexada com êxito ao Hub IOT.
+* O script de instalação não pode criar uma entidade de serviço e/ou recursos do Azure.
+    * Para passar por esse problema, verifique se sua assinatura e o locatário do Azure não atingiram seus limites de serviço máximos. Saiba mais sobre [restrições e limites de serviço do Azure ad](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) e [assinatura e limites de serviço, cotas e restrições do Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+
+
 ### <a name="live-video-analytics-working-with-external-modules"></a>Análise de vídeo ao vivo trabalhando com módulos externos
 
 A análise de vídeo ao vivo por meio dos processadores de extensão do grafo de mídia pode estender o grafo de mídia para enviar e receber dados de outros módulos IoT Edge usando protocolos HTTP ou gRPC. Como um [exemplo específico](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), esse grafo de mídia pode enviar quadros de vídeo como imagens para um módulo de inferência externo, como o Yolo v3, e receber resultados de análise baseada em JSON usando o protocolo http. Nessa topologia, o destino para os eventos é principalmente o Hub IoT. Em situações em que você não vê os eventos de inferência no Hub, verifique o seguinte:

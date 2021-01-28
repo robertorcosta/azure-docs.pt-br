@@ -1,5 +1,5 @@
 ---
-title: Monitorar logs de diagnóstico dos serviços de mídia via Azure Monitor
+title: Monitorar logs de diagnóstico por meio de Azure Monitor
 description: Este artigo demonstra como rotear e exibir logs de diagnóstico por meio de Azure Monitor.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c666228a8a82083c319aa6c2d7fd161f7e623f4
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1d9252a5fdf7b1c68c1bb64bd22ede8640184a0c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897961"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953947"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorar logs de diagnóstico dos serviços de mídia
 
@@ -181,7 +181,7 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
 * O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md)

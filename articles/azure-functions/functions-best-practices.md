@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f05afb3c23fc720bb0100a751a6943d7bb03453f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84697683"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954776"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Melhore o desempenho e a confiabilidade do Azure Functions
 
@@ -112,7 +112,7 @@ Para funções C#, você pode alterar o tipo para uma matriz fortemente tipada. 
 
 O arquivo `host.json` no aplicativo de funções permite configurar os comportamentos do runtime e do gatilho do host.  Além do envio em lote de comportamentos, é possível gerenciar a simultaneidade de diversos gatilhos. Geralmente, ajustar os valores nessas opções pode ajudar a escalar cada instância adequadamente para as demandas das funções invocadas.
 
-As configurações na host.jsno arquivo se aplicam a todas as funções dentro do aplicativo, dentro de uma *única instância* da função. Por exemplo, se você tivesse um aplicativo de funções com duas funções e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) solicitações HTTP definidas como 25, uma solicitação para o gatilho http contaria para as 25 solicitações simultâneas compartilhadas.  Quando esse aplicativo de funções é dimensionado para 10 instâncias, as duas funções permitem efetivamente 250 solicitações simultâneas (10 instâncias * 25 solicitações simultâneas por instância). 
+As configurações na host.jsno arquivo se aplicam a todas as funções dentro do aplicativo, dentro de uma *única instância* da função. Por exemplo, se você tivesse um aplicativo de funções com duas funções e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) solicitações HTTP definidas como 25, uma solicitação para o gatilho http contaria para as 25 solicitações simultâneas compartilhadas.  Quando esse aplicativo de funções é dimensionado para 10 instâncias, as dez funções permitem efetivamente 250 solicitações simultâneas (10 instâncias * 25 solicitações simultâneas por instância). 
 
 Outras opções de configuração de host são encontradas no [ artigohost.jsno Configuration](functions-host-json.md).
 

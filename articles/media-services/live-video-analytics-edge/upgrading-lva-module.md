@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 49c17946203bc6c3655b1aaf7b04a1ee3ea67388
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119451"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955642"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>Atualizando a análise de vídeo ao vivo no IoT Edge de 1,0 para 2,0
 
@@ -19,7 +19,7 @@ Este artigo aborda as diferenças e as diferentes questões a serem consideradas
 ## <a name="change-list"></a>Lista de alterações
 
 > [!div class="mx-tdCol4BreakAll"]
-> |Título|Análise de vídeo ao vivo 1,0|Análise de vídeo ao vivo 2,0|Descrição|
+> |Title|Análise de vídeo ao vivo 1,0|Análise de vídeo ao vivo 2,0|Descrição|
 > |-------------|----------|---------|---------|
 > |Imagem de contêiner|mcr.microsoft.com/media/live-video-analytics:1|mcr.microsoft.com/media/live-video-analytics:2|Imagens do Docker publicadas pela Microsoft para análise de vídeo ao vivo no Azure IoT Edge|
 > |**Nós MediaGraph** |    |   |   |
@@ -37,7 +37,7 @@ Em seu modelo de implantação, procure sua análise de vídeo ao vivo no módul
 "image": "mcr.microsoft.com/media/live-video-analytics:2"
 ```
 > [!TIP]
-Se você não tiver modificado o nome da análise de vídeo ao vivo no módulo IoT Edge, procure `lvaEdge` no nó do módulo.
+> Se você não tiver modificado o nome da análise de vídeo ao vivo no módulo IoT Edge, procure `lvaEdge` no nó do módulo.
 
 ### <a name="topology-file-changes"></a>Alterações no arquivo de topologia
 Em seus arquivos de topologia, verifique se **`apiVersion`** está definido como 2,0
@@ -58,9 +58,9 @@ Em seus arquivos de topologia, verifique se **`apiVersion`** está definido como
 >O **`outputSelectors`** é uma propriedade opcional. Se isso não for usado, o grafo de mídia passará o áudio (se habilitado) e o vídeo do downstream da câmera RTSP. 
 
 * Em `MediaGraphHttpExtension` `MediaGraphGrpcExtension` processadores e, observe as seguintes alterações:  
-    * **Propriedades da imagem**
-        * `MediaGraphImageFormatEncoded` não é mais suportada. 
-        * Em vez disso, use **`MediaGraphImageFormatBmp`** ou **`MediaGraphImageFormatJpeg`** ou **`MediaGraphImageFormatPng`** . Por exemplo,
+    #### <a name="image-properties"></a>Propriedades da imagem
+    * `MediaGraphImageFormatEncoded` não é mais suportada. 
+      * Em vez disso, use **`MediaGraphImageFormatBmp`** ou **`MediaGraphImageFormatJpeg`** ou **`MediaGraphImageFormatPng`** . Por exemplo,
         ```
         "image": {
                 "scale": 
@@ -94,14 +94,14 @@ Em seus arquivos de topologia, verifique se **`apiVersion`** está definido como
         >[!NOTE]
         > Os valores possíveis de pixelFormat incluem:,,,,, `yuv420p` `rgb565be` `rgb565le` `rgb555be` `rgb555le` `rgb24` , `bgr24` ,, `argb` `rgba` , `abgr` , `bgra`  
 
-    * **extensionConfiguration para processador de extensão Grpc**  
-        * No `MediaGraphGrpcExtension` processador, uma nova propriedade chamada **`extensionConfiguration`** está disponível, que é uma cadeia de caracteres opcional que pode ser usada como parte do contrato gRPC. Esse campo pode ser usado para passar quaisquer dados para o servidor de inferência e você pode definir como o servidor de inferência usa esses dados.  
-        Um caso de uso dessa propriedade é quando você tem vários modelos de ia empacotados em um único servidor de inferência. Com essa propriedade, você não precisará expor um nó para todos os modelos de ia. Em vez disso, para uma instância de grafo, como um provedor de extensão, você pode definir como selecionar os diferentes modelos de ia usando a **`extensionConfiguration`** propriedade e durante a execução, LVA passará essa cadeia de caracteres para o servidor inferência, que pode usar isso para invocar o modelo de ia desejado.  
+    #### <a name="extensionconfiguration-for-grpc-extension-processor"></a>extensionConfiguration para processador de extensão Grpc  
+    * No `MediaGraphGrpcExtension` processador, uma nova propriedade chamada **`extensionConfiguration`** está disponível, que é uma cadeia de caracteres opcional que pode ser usada como parte do contrato gRPC. Esse campo pode ser usado para passar quaisquer dados para o servidor de inferência e você pode definir como o servidor de inferência usa esses dados.  
+    Um caso de uso dessa propriedade é quando você tem vários modelos de ia empacotados em um único servidor de inferência. Com essa propriedade, você não precisará expor um nó para todos os modelos de ia. Em vez disso, para uma instância de grafo, como um provedor de extensão, você pode definir como selecionar os diferentes modelos de ia usando a **`extensionConfiguration`** propriedade e durante a execução, LVA passará essa cadeia de caracteres para o servidor inferência, que pode usar isso para invocar o modelo de ia desejado.  
 
-    * **Composição de ia**
-        * A análise de vídeo ao vivo 2,0 agora dá suporte ao uso de mais de um processador de extensão de grafo de mídia em uma topologia. Você pode passar os quadros de mídia da câmera RTSP para modelos de ia diferentes seqüencialmente, em paralelo ou em uma combinação de ambos. Consulte uma topologia de exemplo mostrando dois modelos de ia que estão sendo usados sequencialmente.
+    #### <a name="ai-composition"></a>Composição de ia
+    * A análise de vídeo ao vivo 2,0 agora dá suporte ao uso de mais de um processador de extensão de grafo de mídia em uma topologia. Você pode passar os quadros de mídia da câmera RTSP para modelos de ia diferentes seqüencialmente, em paralelo ou em uma combinação de ambos. Consulte uma topologia de exemplo mostrando dois modelos de ia que estão sendo usados sequencialmente.
 
-
+### <a name="disk-space-management-with-sink-nodes"></a>Gerenciamento de espaço em disco com nós do coletor
 * No nó do **coletor de arquivos** , agora você pode especificar quanto espaço em disco a análise de vídeo ao vivo no módulo IOT Edge pode usar para armazenar as imagens processadas. Para fazer isso, adicione o **`maximumSizeMiB`** campo ao nó filesink. Um exemplo de nó de coletor de arquivo é o seguinte:
     ```
     "sinks": [
@@ -154,6 +154,7 @@ Em seus arquivos de topologia, verifique se **`apiVersion`** está definido como
     >[!NOTE]
     >  O caminho do **coletor de arquivo** é dividido no caminho do diretório base e no padrão de nome de arquivo, enquanto o caminho do **coletor de ativos** inclui o caminho do diretório base.  
 
+### <a name="frame-rate-management"></a>Gerenciamento de taxa de quadros
 * **`MediaGraphFrameRateFilterProcessor`** é preterido na **análise de vídeo ao vivo no módulo IoT Edge 2,0** .
     * Para obter amostras do vídeo de entrada para processamento, adicione a **`samplingOptions`** Propriedade aos processadores de extensão MediaGraph ( `MediaGraphHttpExtension` ou `MediaGraphGrpcExtension` )  
      ```
@@ -169,7 +170,7 @@ Com esta versão, Telegraf pode ser usado para enviar métricas para Azure Monit
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="Taxonomia de eventos":::
 
-Você pode produzir uma imagem Telegraf com uma configuração personalizada facilmente usando o Docker. Saiba mais sobre isso na página [monitoramento e registro em log](monitoring-logging.md#azure-monitor-collection-via-telegraf) .
+Você pode produzir uma imagem Telegraf com uma configuração personalizada facilmente usando o Docker. Saiba mais na página [monitoramento e registro em log](monitoring-logging.md#azure-monitor-collection-via-telegraf) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

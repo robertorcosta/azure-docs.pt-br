@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 99da711038e1fcea3e14584fde09ccd1f79feffa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796624"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916689"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para Serviço de Aplicativo
 
@@ -25,7 +25,7 @@ O **Azure Defender para Serviço de Aplicativo** usa a escala da nuvem para iden
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|GA (em disponibilidade geral)|
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|O [Azure Defender para Serviço de Aplicativo](azure-defender.md) é cobrado conforme mostrado na [página de preços](security-center-pricing.md)<br>A página de preços e configurações lista o número de instâncias para sua **Quantidade de Recursos**. Esse número é o total de instâncias de computação, em todos os planos do Serviço de Aplicativo nessa assinatura, em execução no momento em que você abriu a página de tipo de preço.<br>Para validar a contagem, abra os **planos do Serviço de Aplicativo** no portal do Azure e confira o número de instâncias de computação usadas que cada plano usou.|
 |Planos do Serviço de Aplicativo compatíveis:|![Sim](./media/icons/yes-icon.png) Básico, Padrão, Premium, Isolado ou Linux<br>![Não](./media/icons/no-icon.png) Gratuito, Compartilhado ou Consumo<br>[Saiba mais sobre os Planos do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
