@@ -3,12 +3,12 @@ title: Matriz de suporte para o agente MARS
 description: Este artigo resume o suporte ao backup do Azure ao fazer backup de computadores que executam o agente de Serviços de Recuperação do Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2170440b7b47861b75801b8dbd334686b4cabc8b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997232"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985607"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -44,7 +44,7 @@ Quando você usa o agente MARS para fazer backup de dados, o agente tira um inst
 **Cache** | **Detalhes**
 --- | ---
 Tamanho |  O espaço livre na pasta de cache deve ter pelo menos 5 a 10% do tamanho geral dos dados de backup.
-Localização | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
+Location | A pasta de cache deve ser armazenada localmente no computador que está sendo submetido a backup e deve estar online. A pasta de cache não deve estar em um compartilhamento de rede, em mídia removível ou em um volume offline.
 Pasta | A pasta de cache não deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta compactada, que seja esparsa ou que tenha um ponto de nova análise.
 Alterações de local | Você pode alterar o local do cache interrompendo o mecanismo de backup ( `net stop bengine` ) e copiando a pasta de cache para uma nova unidade. (Verifique se a nova unidade tem espaço suficiente.) Em seguida, atualize duas entradas de registro em **HKLM\Software\Microsoft\Windows Azure backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) para o novo local e reinicie o mecanismo.
 
@@ -59,6 +59,7 @@ O agente MARS precisa de acesso a estas URLs:
 - *.WindowsAzure.com
 - *. MicrosoftOnline.com
 - *. Windows.net
+- `www.msftconnecttest.com`
 
 E para estes endereços IP:
 
@@ -82,11 +83,16 @@ Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelha
 
 Com o emparelhamento público: Verifique o acesso aos seguintes domínios/endereços:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:
 

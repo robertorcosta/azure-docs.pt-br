@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 3ed71e49ebc550cb7bc2041e25aa6b9bde77b1ef
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b1412a79fa6137ce1f8c73d5875e52b6382048fa
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629707"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986964"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 

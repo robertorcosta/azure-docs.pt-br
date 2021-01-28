@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/09/2020
-ms.openlocfilehash: 6f74f3b1f5aad153903ba5d290a290973203a875
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489379"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986117"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurar uma assinatura do Azure Marketplace para unidades de teste hospedadas
 
@@ -43,11 +43,11 @@ Este artigo explica como configurar uma assinatura do Azure Marketplace e o **dy
     5. Em tipos de conta com suporte, selecione **conta em qualquer diretório da organização e contas pessoais da Microsoft**.
     6. Selecione **criar** e aguarde até que seu aplicativo seja criado.
     7. Depois que o aplicativo for criado, observe a **ID do aplicativo** exibida na tela Visão geral. Você precisará desse valor posteriormente ao configurar seu test drive.
-    8. Para adicionar um URI de redirecionamento nativeClient, selecione a folha **autenticação** . Em **configuração da plataforma** , selecione **Adicionar plataforma**  >  área de **Mobile**  >  **trabalho** móvel bloco de aplicativo. Escolha o URI de redirecionamento **nativeClient** e selecione **Configurar**.
+    8. Para adicionar um URI de redirecionamento nativeClient, selecione a folha **autenticação** . Em **configuração da plataforma**, selecione **Adicionar plataforma**  >  área de  >  **trabalho** móvel bloco de aplicativo. Escolha o URI de redirecionamento **nativeClient** e selecione **Configurar**.
 
         :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Adicionando um URI de redirecionamento nativeClient.":::
 
-    9. Em **gerenciar aplicativo** , selecione **permissões de API**.
+    9. Em **gerenciar aplicativo**, selecione **permissões de API**.
     10. Selecione **Adicionar uma permissão** e, em seguida, **Microsoft Graph API**.
     11. Selecione a categoria de permissão de **aplicativo** e as permissões **Directory. Read. All** e **Directory. ReadWrite. All** .
 
@@ -63,14 +63,14 @@ Este artigo explica como configurar uma assinatura do Azure Marketplace e o **dy
         [![Mostra as permissões de aplicativo concedidas com êxito.](media/test-drive/api-permissions-confirmation-customer.png)](media/test-drive/api-permissions-confirmation-customer.png#lightbox)
 
     15. Para gerar um segredo para o Aplicativo Azure AD:
-        1. Em **gerenciar aplicativo** , selecione **certificado e segredos**.
+        1. Em **gerenciar aplicativo**, selecione **certificado e segredos**.
         2. Em segredos do cliente, selecione **novo segredo do cliente**.
-        3. Insira uma descrição, como *Test Drive* , e selecione uma duração apropriada. A test drive será interrompida quando essa chave expirar e, nesse ponto, você precisará gerar e fornecer AppSource uma nova chave.
+        3. Insira uma descrição, como *Test Drive*, e selecione uma duração apropriada. A test drive será interrompida quando essa chave expirar e, nesse ponto, você precisará gerar e fornecer AppSource uma nova chave.
         4. Selecione **Adicionar** para gerar o segredo do aplicativo do Azure. Copie esse valor, pois ele ficará oculto assim que você lave essa folha. Você precisará desse valor posteriormente ao configurar seu test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adicionando um segredo do cliente.":::
 
-5. Às vezes, demora mais do que o esperado para sincronizar um usuário do Azure AD com uma instância de CRM. Para ajudar com isso, adicionamos um processo para forçar o usuário de sincronização, mas requer que o aplicativo do Azure AD seja adicionado à lista de permissões do Partner Center. Para fazer isso, consulte [sincronização do usuário para a instância do engajamento do cliente](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
+5. Às vezes, demora mais do que o esperado para sincronizar um usuário do Azure AD com uma instância de CRM. Para ajudar com isso, adicionamos um processo para forçar o usuário de sincronização, mas requer que o aplicativo do Azure AD seja allowlisted pelo Partner Center. Para fazer isso, consulte [sincronização do usuário para a instância do engajamento do cliente](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
 6. Adicione a função de entidade de serviço ao aplicativo para permitir que o aplicativo do Azure AD remova usuários do seu locatário do Azure.
     1. Abra um prompt de comando do PowerShell de nível administrativo.
     2. Install-Module MSOnline (Execute este comando se o MSOnline não estiver instalado).
@@ -83,7 +83,7 @@ Este artigo explica como configurar uma assinatura do Azure Marketplace e o **dy
 
 7. Adicione o aplicativo do Azure criado acima como um usuário de aplicativo à sua instância do test drive CRM.
     1. Adicione um novo usuário no **Azure Active Directory**. Somente os valores de **nome** e nome de **usuário** (pertencentes ao mesmo locatário) são necessários para criar esse usuário, deixe os outros campos como padrão. Copie o valor do nome de usuário.
-    2. Entre na **instância do CRM** e selecione **configuração**  >  **Security**  >  **usuários** de segurança.
+    2. Entre na **instância do CRM** e selecione **configuração**  >    >  **usuários** de segurança.
     3. Altere a exibição para **usuários do aplicativo**.
 
         :::image type="content" source="./media/test-drive/application-users.png" alt-text="Definindo informações de conta para um usuário.":::
@@ -91,7 +91,7 @@ Este artigo explica como configurar uma assinatura do Azure Marketplace e o **dy
     4. Adicionar um novo usuário (verifique se o formulário é para o usuário do aplicativo).
     5. Insira o mesmo nome de usuário nos campos de **email primário** e **nome de usuários** . Adicione o **ApplicationId do Azure** na **ID do aplicativo**.
     6. Forneça qualquer **nome completo**.
-    7. Clique em **Salvar**.
+    7. Selecione **Salvar**.
     8. Selecione **gerenciar funções**.
     9. Atribua uma função de segurança personalizada ou OOB que contenha privilégios de leitura, gravação e atribuição de função, como *administrador do sistema*.
 
@@ -120,7 +120,7 @@ Este artigo explica como configurar uma assinatura do Azure Marketplace e o **dy
     5. Em tipos de conta com suporte, selecione **conta em qualquer diretório da organização e contas pessoais da Microsoft**.
     6. Selecione **criar** e aguarde até que seu aplicativo seja criado.
     7. Depois que o aplicativo for criado, observe a **ID do aplicativo** exibida na tela Visão geral. Você precisará desse valor posteriormente ao configurar seu test drive.
-    8. Em **gerenciar aplicativo** , selecione **permissões de API**.
+    8. Em **gerenciar aplicativo**, selecione **permissões de API**.
     9. Selecione **Adicionar uma permissão** e, em seguida, **Microsoft Graph API**.
     10. Selecione a categoria de permissão de **aplicativo** e as permissões **Directory. Read. All** e **Directory. ReadWrite. All** .
 
@@ -133,9 +133,9 @@ Este artigo explica como configurar uma assinatura do Azure Marketplace e o **dy
         [![Mostra as permissões de aplicativo concedidas com êxito.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
 
     14. Para gerar um segredo para o Aplicativo Azure AD:
-        1. Em **gerenciar aplicativo** , selecione **certificado e segredos**.
+        1. Em **gerenciar aplicativo**, selecione **certificado e segredos**.
         2. Em segredos do cliente, selecione **novo segredo do cliente**.
-        3. Insira uma descrição, como *Test Drive* , e selecione uma duração apropriada. A test drive será interrompida quando essa chave expirar e, nesse ponto, você precisará gerar e fornecer AppSource uma nova chave.
+        3. Insira uma descrição, como *Test Drive*, e selecione uma duração apropriada. A test drive será interrompida quando essa chave expirar e, nesse ponto, você precisará gerar e fornecer AppSource uma nova chave.
         4. Selecione **Adicionar** para gerar o segredo do aplicativo do Azure. Copie esse valor, pois ele ficará oculto assim que você lave essa folha. Você precisará desse valor posteriormente ao configurar seu test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adicionando um segredo do cliente.":::

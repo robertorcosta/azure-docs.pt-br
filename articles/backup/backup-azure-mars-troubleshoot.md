@@ -3,12 +3,12 @@ title: Solucionar problemas do agente de backup do Azure
 description: Neste artigo, saiba como solucionar problemas de instalação e registro do agente de backup do Azure.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 4ae4142652d9d38d5bf384e5a10d6eeb7e3cc608
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c08a146d91a128dc48fa4c379055b8c0efc1df0c
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993832"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986642"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -42,7 +42,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 | Causa | Ações recomendadas |
 | ---     | ---    |
 | **As credenciais do cofre não são válidas** <br/> <br/> Os arquivos de credencial do cofre podem estar corrompidos, podem ter expirado ou podem ter uma extensão de arquivo diferente de *. vaultCredentials*. (Por exemplo, eles podem ter sido baixados mais de 48 horas antes do horário de registro.)| [Baixe novas credenciais](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) do cofre dos serviços de recuperação no portal do Azure. Em seguida, siga estas etapas, conforme apropriado: <ul><li> Se você já tiver instalado e registrado o MARS, abra o console do MMC do Backup do Microsoft Azure Agent. Em seguida, selecione **registrar servidor** no painel **ações** para concluir o registro com as novas credenciais. <br/> <li> Se a nova instalação falhar, Tente reinstalar com as novas credenciais.</ul> **Observação**: se vários arquivos de credencial de cofre tiverem sido baixados, somente o arquivo mais recente será válido nas próximas 48 horas. Recomendamos que você baixe um novo arquivo de credencial de cofre.
-| **O servidor proxy/firewall está bloqueando o registro** <br/>ou <br/>**Sem conectividade com a Internet** <br/><br/> Se o seu computador ou servidor proxy tiver conectividade limitada com a Internet e você não garantir o acesso às URLs necessárias, o registro falhará.| Siga estas etapas:<br/> <ul><li> Trabalhe com sua equipe de ti para garantir que o sistema tenha conectividade com a Internet.<li> Se você não tiver um servidor proxy, certifique-se de que a opção proxy não esteja selecionada quando você registrar o agente. [Verifique as configurações de proxy](#verifying-proxy-settings-for-windows).<li> Se você tiver um servidor de firewall/proxy, trabalhe com sua equipe de rede para garantir que essas URLs e endereços IP tenham acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Tente se registrar novamente depois de concluir as etapas de solução de problemas anteriores.<br></br> Se sua conexão for por meio do Azure ExpressRoute, verifique se as configurações estão definidas conforme descrito em [suporte do Azure expressroute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
+| **O servidor proxy/firewall está bloqueando o registro** <br/>ou <br/>**Sem conectividade com a Internet** <br/><br/> Se o seu computador ou servidor proxy tiver conectividade limitada com a Internet e você não garantir o acesso às URLs necessárias, o registro falhará.| Siga estas etapas:<br/> <ul><li> Trabalhe com sua equipe de ti para garantir que o sistema tenha conectividade com a Internet.<li> Se você não tiver um servidor proxy, certifique-se de que a opção proxy não esteja selecionada quando você registrar o agente. [Verifique as configurações de proxy](#verifying-proxy-settings-for-windows).<li> Se você tiver um servidor de firewall/proxy, trabalhe com sua equipe de rede para garantir que essas URLs e endereços IP tenham acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/></ul></ul>Tente se registrar novamente depois de concluir as etapas de solução de problemas anteriores.<br></br> Se sua conexão for por meio do Azure ExpressRoute, verifique se as configurações estão definidas conforme descrito em [suporte do Azure expressroute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **O software antivírus está bloqueando o registro** | Se você tiver um software antivírus instalado no servidor, adicione as regras de exclusão necessárias à verificação de antivírus para esses arquivos e pastas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> A pasta de rascunho. Seu local padrão é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Recomendações adicionais
@@ -173,7 +173,7 @@ A operação atual falhou devido a um erro de serviço interno "recurso não pro
 
 ## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>Não foi possível iniciar o trabalho porque outro trabalho estava em andamento
 
-Se você notar uma mensagem de aviso no histórico de trabalhos do **console do Mars**  >  **Job history**, dizer "o trabalho não pôde ser iniciado enquanto outro trabalho estava em andamento", isso pode ser devido a uma instância duplicada do trabalho disparado pelo Agendador de tarefas.
+Se você notar uma mensagem de aviso no histórico de trabalhos do **console do Mars**  >  , dizer "o trabalho não pôde ser iniciado enquanto outro trabalho estava em andamento", isso pode ser devido a uma instância duplicada do trabalho disparado pelo Agendador de tarefas.
 
 ![Não foi possível iniciar o trabalho porque outro trabalho estava em andamento](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
 
@@ -198,9 +198,9 @@ O Backup do Azure pode não montar com êxito o volume de recuperação, mesmo d
 
 2. Verifique se você tem a versão mais recente do agente de backup. Para verificar a versão, no painel **ações** do console do Mars, selecione **sobre o agente de serviços de recuperação do Microsoft Azure**. Confirme se o número de **versão** é igual ou maior do que a versão mencionada [neste artigo](https://go.microsoft.com/fwlink/?linkid=229525). Selecione este link para [baixar a versão mais recente](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-3. Vá para **Device Manager**  >  **controladores de armazenamento** e localize **Microsoft iSCSI Initiator**. Se você o localizar, vá diretamente para a etapa 7.
+3. Vá para **Gerenciador de dispositivos**  >  **controladores de armazenamento** e localize **Microsoft iSCSI Initiator**. Se você o localizar, vá diretamente para a etapa 7.
 
-4. Se você não conseguir localizar o serviço Iniciador Microsoft iSCSI, tente encontrar uma entrada em **Device Manager**  >  **controladores de armazenamento** chamados **dispositivo desconhecido** com a ID de hardware **ROOT\ISCSIPRT**.
+4. Se você não conseguir localizar o serviço Iniciador Microsoft iSCSI, tente encontrar uma entrada em **Gerenciador de dispositivos**  >  **controladores de armazenamento** chamados **dispositivo desconhecido** com a ID de hardware **ROOT\ISCSIPRT**.
 
 5. Clique com o botão direito do mouse em **dispositivo desconhecido** e selecione **atualizar software de driver**.
 
@@ -222,7 +222,7 @@ Se a recuperação ainda falhar, reinicie o servidor ou o cliente. Se você não
 
 A operação de backup poderá falhar se a pasta de cache (também conhecida como pasta de rascunho) estiver configurada incorretamente, tiver pré-requisitos ausentes ou tiver acesso restrito.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Prerequisites
 
 Para que as operações do agente MARS tenham sucesso, a pasta de cache precisa atender aos seguintes requisitos:
 

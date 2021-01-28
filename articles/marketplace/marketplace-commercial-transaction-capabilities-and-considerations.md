@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 59768e4fc04613a5ecac6a76059382499b7aaa86
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880735"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986455"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Recursos de transação do marketplace comercial
 
@@ -84,7 +84,7 @@ Para cenários de publicação Transact, você pode disponibilizar uma licença 
 
 Além de usar tipos de oferta e modelos de cobrança para monetizar uma oferta, você pode realizar uma oferta privada e completa com preços negociados, específicos do negócio ou configurações personalizadas. As ofertas privadas têm suporte para todas as três opções de publicação de transações.
 
-Essa opção permite um estabelecer um preço mais alto ou mais baixo do que a oferta publicamente disponível. Você pode usar ofertas privadas para desconto ou adicionar uma Premium a uma oferta. Você pode tornar as ofertas privadas disponíveis para um ou mais clientes, listando as informações de assinatura do Azure em nível de oferta.
+Essa opção permite um estabelecer um preço mais alto ou mais baixo do que a oferta publicamente disponível. Você pode usar ofertas privadas para desconto ou adicionar uma Premium a uma oferta. Você pode tornar as ofertas privadas disponíveis para um ou mais clientes allowlistingndo sua assinatura do Azure no nível da oferta.
 
 ### <a name="commercial-marketplace-service-fees"></a>Tarifas de serviço do Marketplace comercial
 

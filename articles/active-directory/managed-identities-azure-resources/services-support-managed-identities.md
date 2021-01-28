@@ -4,19 +4,19 @@ description: Lista de serviços que dão suporte a identidades gerenciadas para 
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/07/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0f7c97e5d84b3ee2d40c714625d0158fe60f2c95
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880786"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986066"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -98,7 +98,7 @@ Veja a lista a seguir para usar uma identidade gerenciada com o [Azure Blueprint
 - [API REST – atribuição de blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 
-### <a name="azure-cognitive-search"></a>Azure Cognitive Search
+### <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -111,6 +111,14 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 | --- | :-: | :-: | :-: | :-: |
 | Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
+
+
+### <a name="azure-communication-services"></a>Serviços de Comunicação do Azure
+
+Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
 
 
 ### <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
@@ -158,6 +166,17 @@ Veja a lista a seguir para configurar a identidade gerenciada para Azure Data Fa
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+### <a name="azure-digital-twins"></a>Gêmeos Digitais do Azure
+
+Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | ![Disponível][check] | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Consulte a lista a seguir para configurar a identidade gerenciada para o gêmeos digital do Azure (em regiões onde disponível):
+
+- [Azure portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
 
 ### <a name="azure-event-grid"></a>Grade de Eventos do Azure
 

@@ -4,12 +4,12 @@ description: Este artigo mostra como autenticar o acesso a recursos de hubs de e
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff141fc1bb681e2356a4471dfdc808d622fd76b5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510083"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986481"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos de hubs de eventos usando SAS (assinaturas de acesso compartilhado)
 A SAS (assinatura de acesso compartilhado) oferece controle granular sobre o tipo de acesso que você concede aos clientes que têm a assinatura de acesso compartilhado. Aqui estão alguns dos controles que você pode definir em uma SAS: 
@@ -203,7 +203,7 @@ Por exemplo, para definir regras de autorização com escopo para enviar/publica
 
 
 > [!NOTE]
-> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode ser incluído na lista de bloqueados para ser impedido de enviar para esse hub de eventos.
+> Embora não seja recomendado, é possível equipar dispositivos com tokens que concedem acesso a um hub de eventos ou a um namespace. Qualquer dispositivo que mantém esse token pode enviar mensagens diretamente para esse Hub de eventos. Além disso, o dispositivo não pode ser incluídos de enviar para esse Hub de eventos.
 > 
 > É sempre recomendável fornecer escopos específicos e granulares.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756682"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986570"
 ---
 # <a name="manage-security-policies"></a>Gerenciar políticas de segurança
 
@@ -54,7 +54,7 @@ Para exibir suas políticas de segurança na Central de Segurança:
 
 1. A página política de segurança para essa assinatura ou grupo de gerenciamento é exibida. Ele mostra as políticas disponíveis e atribuídas.
 
-   ![página de política](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Página política de segurança da central de segurança" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > Se houver um rótulo "MG herdado" junto com a política padrão, significa que a política foi atribuída a um grupo de gerenciamento e herdada pela assinatura que você está exibindo.
@@ -102,7 +102,7 @@ Para obter mais informações sobre recomendações, consulte [Gerenciando recom
 
 1. Na central de segurança, na seção **política de & de conformidade** , selecione política de **segurança**.
 
-   ![gerenciamento de políticas](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Iniciando o processo de gerenciamento de política na central de segurança do Azure":::
 
 2. Selecione a assinatura ou o grupo de gerenciamento para o qual você deseja desabilitar a recomendação.
 
@@ -111,7 +111,7 @@ Para obter mais informações sobre recomendações, consulte [Gerenciando recom
 
 1. Selecione **Exibir política efetiva**.
 
-   ![Exibir política](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="Como abrir a política efetiva atribuída à sua assinatura":::
 
 1. Selecione a política atribuída.
 
@@ -121,15 +121,13 @@ Para obter mais informações sobre recomendações, consulte [Gerenciando recom
 
    ![desabilitar política](./media/tutorial-security-policy/disable-policy.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    > [!NOTE]
    > As alterações de política de desabilitação podem levar até 12 horas para entrar em vigor.
 
-
-
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo explicou as políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
+Esta página explicou as políticas de segurança. Para obter informações relacionadas, consulte as seguintes páginas:
 
 - [Saiba como definir políticas usando o PowerShell](../governance/policy/assign-policy-powershell.md) - 
 - [Saiba como editar uma política de segurança no Azure Policy](../governance/policy/tutorials/create-and-manage.md) - 

@@ -3,12 +3,12 @@ title: O que o Servidor de Backup do Azure v3 RTM pode fazer backup
 description: Este artigo fornece uma matriz de proteção que lista todas as cargas de trabalho, tipos de dados e instalações que o backup do Azure serve para a versão v3 RTM.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: c1a1a876a9249a32c87c50d7f320a62b9c478caf
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1ec8240844061b9b250a3cbf92ffcc5f2b3f474b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752372"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986880"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Matriz de proteção RTM do Servidor de Backup do Azure v3
 
@@ -86,11 +86,16 @@ Você pode fazer backup dos dados por meio do Azure ExpressRoute com o emparelha
 
 Com o emparelhamento público: Verifique o acesso aos seguintes domínios/endereços:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* URLs
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Endereços IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Com o emparelhamento da Microsoft, selecione os seguintes serviços/regiões e os valores de comunidade relevantes:
 

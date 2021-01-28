@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 63fbac0919e06b29377afacaaa5708d195c6b319
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5ecf9e49887eb584269f724d5199cbfb014351e0
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887147"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986846"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Responsabilidades do cliente para executar o Azure Spring Cloud na VNET
 Este documento inclui especificações para o uso do Azure Spring Cloud em uma rede virtual.
@@ -57,6 +57,9 @@ O Firewall do Azure fornece uma marca de nome de domínio totalmente qualificado
   | <i>login.microsoftonline.com</i> | HTTPS:443 | Autenticação Azure Active Directory. |
   |<i>packages.microsoft.com</i>    | HTTPS:443 | Repositório de pacotes da Microsoft. |
   | <i>acs-mirror.azureedge.net</i> | HTTPS:443 | Repositório necessário para instalar os binários necessários, como kubenet e Azure CNI. |
+  | *mscrl.microsoft.com* | HTTPS: 80 | Caminhos da cadeia de certificados da Microsoft necessários. |
+  | *crl.microsoft.com* | HTTPS: 80 | Caminhos da cadeia de certificados da Microsoft necessários. |
+  | *crl3.digicert.com* | HTTPS: 80 | Caminhos de cadeia de certificados SSL de terceiros. |
 
 ## <a name="see-also"></a>Confira também
 * [Acessar seu aplicativo em uma rede privada](spring-cloud-access-app-virtual-network.md)

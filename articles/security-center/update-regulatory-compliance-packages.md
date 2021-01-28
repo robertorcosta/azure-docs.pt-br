@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 6fb2e5c0193bc4e66f8fb4215732a69c43731146
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5f70f74accba5df439351547fda7497656e2c06e
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756615"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986676"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Como personalizar o conjunto de padrões em seu painel de conformidade regulatória
 
@@ -73,9 +73,11 @@ As etapas a seguir explicam como adicionar um pacote para monitorar sua conformi
 
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
-    - **SWIFT CSP CSCF-v2020**
+    - **SWIFT CSP CSCF v2020**
     - **UKO e UK NHS**
-    - **PBMM do Canadá**
+    - **PBMM Federal do Canadá**
+    - **HIPAA/HITRUST**
+    - **Azure CIS 1.1.0**
     
     ![Adicionando padrões regulatórios ao painel de conformidade regulatória da central de segurança do Azure](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
@@ -88,8 +90,7 @@ As etapas a seguir explicam como adicionar um pacote para monitorar sua conformi
     > [!NOTE]
     > Pode levar algumas horas para que um padrão recém-adicionado apareça no painel de conformidade.
 
-    [![Painel de conformidade regulatória mostrando o Azure CIS antigo e novo](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
-
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Painel de conformidade regulatória" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 ## <a name="removing-a-standard-from-your-dashboard"></a>Removendo um padrão do seu painel
 

@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2529c6c3b0f9d188e1ce8062c05f62f3e980ef50
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 19330af5e4c0e4962993d0ed89ec9bcd4a50514a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805213"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986406"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configurar políticas de tempo de vida do token (versão prévia)
 Você pode especificar o tempo de vida de um token de acesso, SAML ou ID emitido pela plataforma de identidade da Microsoft. Configure os tempos de vida de token de todos os aplicativos em uma organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização. Para obter mais informações, leia [tempos de vida de token configuráveis](active-directory-configurable-token-lifetimes.md).
@@ -38,7 +38,7 @@ Para começar, execute uma destas etapas:
 1. Para ver todas as políticas que foram criadas em sua organização, execute o cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) .  Todos os resultados com valores de propriedade definidos que diferem dos padrões listados acima estão no escopo da desativação.
 
     ```powershell
-    Get-AzureADPolicy -All
+    Get-AzureADPolicy -All $true
     ```
 
 1. Para ver quais aplicativos e entidades de serviço estão vinculados a uma política específica que você identificou, execute o seguinte cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) substituindo **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** por qualquer uma das suas IDs de política. Em seguida, você pode decidir se deseja configurar a frequência de entrada de acesso condicional ou permanecer com os padrões do Azure AD.

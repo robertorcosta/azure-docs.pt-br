@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754123"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986812"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -45,7 +45,7 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 
 **Requisito** | **VMware** 
 --- | ---
-**Permissões** | Para acessar o aplicativo Web do dispositivo de forma local ou remota, você precisa ser administrador do domínio ou administrador local no computador do dispositivo.
+**Permissões** | Para acessar o aplicativo Web do dispositivo localmente ou remotamente, você precisa ter uma conta de usuário local ou de domínio com privilégios administrativos no servidor do dispositivo.
 **Componentes do dispositivo** | O dispositivo tem os seguintes componentes:<br/><br/> - **Aplicativo de gerenciamento**: é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente coleta dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente coletor**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (executado a cada 24 horas).<br/>- **Agente DRA**: orquestra a replicação da VM e coordena a comunicação entre computadores replicados e o Azure. Usado somente ao replicar as VMs do VMware para o Azure usando a migração sem agente.<br/>- **Gateway**: envia dados replicados para o Azure. Usado somente ao replicar as VMs do VMware para o Azure usando a migração sem agente.
 **Implantação com suporte** | Implantação como VM do VMware usando o modelo OVA.<br/><br/> Implantação como uma VM do VMware ou computador físico usando um script de instalação do PowerShell.
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
@@ -65,7 +65,7 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 
 **Requisito** | **Hyper-V** 
 --- | ---
-**Permissões** | Para acessar o aplicativo Web do dispositivo de forma local ou remota, você precisa ser administrador do domínio ou administrador local no computador do dispositivo.
+**Permissões** | Para acessar o aplicativo Web do dispositivo localmente ou remotamente, você precisa ter uma conta de usuário local ou de domínio com privilégios administrativos no servidor do dispositivo.
 **Componentes do dispositivo** | O dispositivo tem os seguintes componentes:<br/><br/>- **Aplicativo de gerenciamento**: é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente coleta dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente coletor**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (executado a cada 24 horas).
 **Implantação com suporte** | Implantação como VM do Hyper-V usando um modelo VHD.<br/><br/> Implantação como uma VM do Hyper-V ou computador físico usando um script de instalação do PowerShell.
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
@@ -82,7 +82,7 @@ _ *Requisitos do Hyper-V** | Se você implantar o dispositivo com o modelo VHD, 
 
 **Requisito** | **Físico** 
 --- | ---
-**Permissões** | Para acessar o aplicativo Web do dispositivo de forma local ou remota, você precisa ser administrador do domínio ou administrador local no computador do dispositivo.
+**Permissões** | Para acessar o aplicativo Web do dispositivo localmente ou remotamente, você precisa ter uma conta de usuário local ou de domínio com privilégios administrativos no servidor do dispositivo.
 **Componentes do dispositivo** | O dispositivo tem os seguintes componentes: <br/><br/> - **Aplicativo de gerenciamento**: é um aplicativo Web para entrada do usuário durante a implantação do dispositivo. Usado ao avaliar computadores para migração para o Azure.<br/> - **Agente de descoberta**: o agente coleta dados de configuração do computador. Usado ao avaliar computadores para migração para o Azure.<br/>- **Agente coletor**: o agente coleta dados de desempenho. Usado ao avaliar computadores para migração para o Azure.<br/>- **Serviço de atualização automática**: atualiza os componentes do dispositivo (executado a cada 24 horas).
 **Implantação com suporte** | Implante como computador físico dedicado, ou VM, usando um script de instalação do PowerShell. O script está disponível para download no portal.
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 

@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 06614fc33910eda44bf6bf8369c4ad4b3c0b25fe
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445194"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986015"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
@@ -73,7 +73,7 @@ O modelo de exemplo tem dois parâmetros **obrigatórios** :
 > [!TIP]
 > Embora o modelo associado a este documento crie um Registro de Contêiner do Azure, você também pode criar um workspace sem criar nenhum registro de contêiner. Um registro de contêiner será criado quando você executar uma operação que exija um. Treinar ou implantar um modelo, por exemplo.
 >
-> Você também pode fazer referência a uma conta de armazenamento ou registro de contêiner existente no modelo do Azure Resource Manager, em vez de criar um. No entanto, o registro de contêiner que você usa deve ter a __conta de administrador__ habilitada. Para obter informações sobre como habilitar a conta de administrador, consulte [conta de administrador](../container-registry/container-registry-authentication.md#admin-account).
+> Você também pode fazer referência a uma conta de armazenamento ou registro de contêiner existente no modelo do Azure Resource Manager, em vez de criar um. Ao fazer isso, você deve [usar uma identidade gerenciada](how-to-use-managed-identities.md) (versão prévia) ou [habilitar a conta de administrador](../container-registry/container-registry-authentication.md#admin-account) para o registro de contêiner.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -95,7 +95,7 @@ Consulte a seção [portal do Azure](#use-the-azure-portal) se preferir usar a i
 az group create --name "examplegroup" --location "eastus"
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name "examplegroup" -Location "eastus"
@@ -115,7 +115,7 @@ az deployment group create \
     --parameters workspaceName="exampleworkspace" location="eastus"
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -146,7 +146,7 @@ az deployment group create \
       storageAccountName="existingstorageaccountname"
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -192,7 +192,7 @@ __Para obter os valores__ para a `cmk_keyvault` (ID do Key Vault) e os parâmetr
     az keyvault show --name <keyvault-name> --query 'id' --output tsv   
     ``` 
 
-    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell) 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
     ```azurepowershell  
     Get-AzureRMKeyVault -VaultName '<keyvault-name>'    
@@ -209,7 +209,7 @@ __Para obter os valores__ para a `cmk_keyvault` (ID do Key Vault) e os parâmetr
     az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv  
     ``` 
 
-    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell) 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
     ```azurepowershell  
     Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>' 
@@ -241,7 +241,7 @@ az deployment group create \
       resource_cmk_uri="https://mykeyvault.vault.azure.net/keys/mykey/{guid}" \
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -299,7 +299,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -332,7 +332,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -370,7 +370,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -446,7 +446,7 @@ Para implantar um espaço de trabalho com recursos associados existentes, você 
     az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.ContainerRegistry"
     ```
 
-    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
 
     ```azurepowershell
     Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
@@ -480,7 +480,7 @@ Para implantar um espaço de trabalho com recursos associados existentes, você 
       privateEndpointType="AutoApproval"
     ```
 
-    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
     ```azurepowershell
     New-AzResourceGroupDeployment `
       -Name "exampledeployment" `
