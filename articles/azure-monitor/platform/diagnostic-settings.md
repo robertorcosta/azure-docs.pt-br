@@ -7,15 +7,15 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 29e50a5c9b306d0e4491852fd08ecdf73026ebc2
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: c25c53159fd0504956eed2cf7f968c573e9fc289
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882238"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927731"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
-[Os logs de plataforma](platform-logs-overview.md) no Azure, incluindo o log de atividades do Azure e os logs de recursos, fornecem informações detalhadas de diagnóstico e auditoria para recursos do Azure e a plataforma do Azure da qual dependem. As [métricas de plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas Azure monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para destinos diferentes.
+Os [logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, apresentam informações detalhadas de diagnóstico e auditoria para recursos do Azure e para a plataforma do Azure da qual eles dependem. As [métricas da plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para diferentes destinos.
 
 > [!IMPORTANT]
 > Antes de criar uma configuração de diagnóstico para o log de atividades, primeiro você deve desabilitar qualquer configuração herdada. Consulte [métodos de coleta herdados](activity-log.md#legacy-collection-methods) para obter detalhes.
@@ -130,7 +130,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
         >
         > Por exemplo, se você definir a política de retenção para *WorkflowRuntime* como 180 dias e, em seguida, 24 horas depois defini-la como 365 dias, os logs armazenados durante essas primeiras 24 horas serão excluídos automaticamente após 180 dias, enquanto todos os logs subsequentes desse tipo serão excluídos automaticamente após 365 dias. A alteração da política de retenção mais tarde não faz com que as primeiras 24 horas de logs permaneçam por cerca de 365 dias.
 
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações desse recurso e os logs serão transmitidos para os destinos especificados à medida que novos dados de evento forem gerados. Pode levar até 15 minutos entre o momento em que um evento é emitido e quando ele [aparece em um espaço de trabalho log Analytics](data-ingestion-time.md).
 
@@ -149,7 +149,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## <a name="create-using-azure-cli"></a>Criar usando CLI do Azure
 
-Use o comando [AZ monitor Diagnostics-Settings Create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) para criar uma configuração de diagnóstico com [CLI do Azure](/cli/azure/monitor?view=azure-cli-latest). Consulte a documentação deste comando para obter descrições de seus parâmetros.
+Use o comando [AZ monitor Diagnostics-Settings Create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) para criar uma configuração de diagnóstico com [CLI do Azure](/cli/azure/monitor). Consulte a documentação deste comando para obter descrições de seus parâmetros.
 
 > [!IMPORTANT]
 > Você não pode usar esse método para o log de atividades do Azure. Em vez disso, use a [configuração criar diagnóstico no Azure monitor usando um modelo do Resource Manager](../samples/resource-manager-diagnostic-settings.md) para criar um modelo do Resource Manager e implantá-lo com a CLI.

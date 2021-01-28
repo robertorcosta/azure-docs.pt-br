@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 965795b96deda03531504952fc8afbea0acb41bf
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 39645e8bd370dfd518d570c3088c56a22aa77748
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221945"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927029"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -129,8 +129,8 @@ Você pode obter as informações da marca de serviço e dos intervalos atuais p
 Você pode recuperar de forma programática a lista atual de marcas de serviço com os detalhes dos intervalos de endereços IP:
 
 - [REST](/rest/api/virtualnetwork/servicetags/list)
-- [PowerShell do Azure](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [CLI do Azure](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [PowerShell do Azure](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [CLI do Azure](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
 > Embora esteja em versão prévia pública, a API de Descoberta pode retornar informações que estão menos atualizadas do que as informações retornadas pelos downloads JSON. (Confira a próxima seção.)

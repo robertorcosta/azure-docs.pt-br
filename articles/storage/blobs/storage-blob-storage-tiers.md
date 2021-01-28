@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 570fd7f356969bbd37ef6b661334501a062c36df
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165681"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928795"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Camadas de acesso para armazenamento de BLOBs do Azure – frequente, fria e arquivo morto
 
@@ -86,7 +86,7 @@ Os cenários de uso de exemplo para a camada de acesso de arquivamento incluem:
 - Dados de conformidade e arquivamento que precisam ser armazenados por muito tempo e nunca são acessados
 
 > [!NOTE]
-> A camada de arquivo morto não tem suporte para contas ZRS, GZRS ou RA-GZRS.
+> A camada de arquivo morto não tem suporte para contas ZRS, GZRS ou RA-GZRS. A migração de LRS para GRS não terá suporte se a conta de armazenamento contiver BLOBs na camada de arquivo morto.
 
 ## <a name="account-level-tiering"></a>Camadas em nível de conta
 

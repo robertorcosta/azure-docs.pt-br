@@ -1,19 +1,16 @@
 ---
 title: Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 description: Use a interface do usuário do YARN, a interface do usuário do Spark e o Servidor de Histórico do Spark para rastrear e depurar trabalhos em execução no cluster Spark no Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 366c77ff94773163b71845b1ccbc6072c503734a
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: f332416a10aa86cb7e0bc7ba560537955d9f2faa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822294"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930564"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar trabalhos do Apache Spark em execução no Azure HDInsight
 
@@ -104,7 +101,7 @@ Quando um trabalho é concluído, as informações sobre ele são mantidas no Se
 
     ![Aplicativos concluídos do servidor de histórico do Spark](./media/apache-spark-job-debugging/view-completed-applications.png "Iniciar Server2 do histórico do Spark")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
 * [Depure as tarefas do Spark do Apache usando o Extended History Server estendido](apache-azure-spark-history-server.md)

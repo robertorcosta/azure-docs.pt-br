@@ -2,18 +2,15 @@
 title: Criptografia dupla para dados em repouso
 titleSuffix: Azure HDInsight
 description: Este artigo descreve as duas camadas de criptografia disponíveis para dados em repouso em clusters do Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 4e895cdba1bfc16eac0450bd05271f0e41985b7b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359752"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927328"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Criptografia dupla do Azure HDInsight para dados em repouso
 
@@ -71,7 +68,7 @@ Consulte [criar uma identidade gerenciada atribuída pelo usuário](../active-di
 
 ### <a name="create-azure-key-vault"></a>Criar Azure Key Vault
 
-Criar um cofre de chaves. Consulte [criar Azure Key Vault](../key-vault/general/quick-create-portal.md) para obter etapas específicas.
+Crie um cofre da chave. Consulte [criar Azure Key Vault](../key-vault/general/quick-create-portal.md) para obter etapas específicas.
 
 O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu próprio cofre de chaves, poderá importar suas chaves para o Azure Key Vault. Lembre-se de que o cofre de chaves deve ter a **exclusão reversível** habilitada. Para obter mais informações sobre como importar as chaves existentes, visite [Sobre chaves, segredos e certificados](../key-vault/general/about-keys-secrets-certificates.md).
 

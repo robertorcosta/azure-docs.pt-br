@@ -1,19 +1,16 @@
 ---
 title: Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight
 description: Saiba como implantar, monitorar e gerenciar topologias de Apache Storm usando o painel do Storm no HDInsight baseado em Linux. Use as ferramentas do Hadoop para Visual Studio.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995583"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929174"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight
 
@@ -249,7 +246,7 @@ O URI de base para a API REST em clusters HDInsight baseados em Linux está disp
 
 Você pode encontrar o FQDN (nome de domínio totalmente qualificado) para o nó principal do cluster de várias maneiras:
 
-| Método de descoberta de FQDN | Description |
+| Método de descoberta de FQDN | Descrição |
 | --- | --- |
 | Sessão SSH | Use o comando `headnode -f` de uma sessão SSH para o cluster. |
 | Ambari Web | Na página da Web do cluster Ambari ( `https://CLUSTERNAME.azurehdinsight.net` ), selecione **Serviços** na parte superior da página e, em seguida, selecione **Storm**. Na guia **Resumo** selecione **Servidor de IU do Storm**. O FQDN do nó que hospeda a interface do usuário do Storm e a API REST são exibidos na parte superior da página. |

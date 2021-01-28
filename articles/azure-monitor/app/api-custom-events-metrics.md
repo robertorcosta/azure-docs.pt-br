@@ -4,12 +4,12 @@ description: Insira algumas linhas de código em seu aplicativo da área de trab
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8fecca4875ba291da093bf1eea596eef290f80c8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 72e79ff90422a6f055d5b883ba208555244687b3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678105"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927820"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -1088,7 +1088,7 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 * **Sessão**: a sessão do usuário. A ID é definida para um valor gerado, que é alterado quando o usuário ficar inativo por um tempo.
 * **Usuário**: informações do usuário.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
@@ -1098,8 +1098,8 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [Referência do ASP.NET](/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Referência do Java](/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [Referência do ASP.NET](/dotnet/api/overview/azure/insights)
+* [Referência do Java](/java/api/overview/azure/appinsights)
 * [Referência do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="sdk-code"></a>Código do SDK
