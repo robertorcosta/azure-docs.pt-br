@@ -2,13 +2,13 @@
 title: Funções de modelo – implantação
 description: Descreve as funções a serem usadas em um modelo de Azure Resource Manager (modelo ARM) para recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/27/2021
+ms.openlocfilehash: 438afc947b07ac7425de365a2d63c427cf53e2ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920520"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943475"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
 
@@ -33,6 +33,7 @@ Retorna informações sobre a operação de implantação atual.
 
 Essa função retorna o objeto que é passado durante a implantação. As propriedades no objeto retornado diferem se você for:
 
+* Implantando um modelo ou uma especificação de modelo.
 * Implantando um modelo que é um arquivo local ou implantando um modelo que é um arquivo remoto acessado por meio de um URI.
 * Implantando em um grupo de recursos ou implantando em um dos outros escopos ([assinatura do Azure](deploy-to-subscription.md), [grupo de gerenciamento](deploy-to-management-group.md)ou [locatário](deploy-to-tenant.md)).
 
@@ -66,6 +67,31 @@ Ao implantar um modelo remoto em um grupo de recursos: a função retorna o segu
   "properties": {
     "templateLink": {
       "uri": ""
+    },
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
+}
+```
+
+Ao implantar uma especificação de modelo em um grupo de recursos: a função retorna o seguinte formato:
+
+```json
+{
+  "name": "",
+  "properties": {
+    "templateLink": {
+      "id": ""
     },
     "template": {
       "$schema": "",
@@ -426,7 +452,7 @@ output crossOutput string = crossParameter
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | stringOutput | String | opção 1 |
 | intOutput | int | 1 |
@@ -564,7 +590,7 @@ output exampleOutput4 object = var4
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Type | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | exampleOutput1 | String | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |

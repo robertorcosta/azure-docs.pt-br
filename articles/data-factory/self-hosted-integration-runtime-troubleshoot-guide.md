@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757671"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942050"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -198,7 +198,7 @@ No erro a seguir, você pode ver claramente que o assembly *System. ValueTuple* 
  
 " \<LogProperties> \<ErrorInfo> [{" Código ": 0," Message ":" o inicializador de tipo para ' Npgsql. poolmanager ' lançou uma exceção. "," EventType ": 0," category ": 5," data ": {} ," msgid ": NULL," ExceptionType ":" System. TypeInitializationException "," Source ":" Npgsql "," StackTrace ":" "," InnerEventInfos ": [{" código ": 0," Message ":" não foi possível carregar o arquivo ou assembly ' System. ValueTuple, Version = 4.0.2.0, Culture = neutral, PublicKeyToken = xxxxxxxxx ' ou uma de suas dependências O sistema não pode localizar o arquivo especificado. "," EventType ": 0," categoria ": 5," dados ": {} ," msgid":NULL,"ExceptionType":"System. IO. FileNotFoundException "," Source ":" Npgsql "," StackTrace ":" "," InnerEventInfos ": []}]}] \</ErrorInfo> \</LogProperties> "
  
-Para obter mais informações sobre o GAC, consulte [global assembly cache](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+Para obter mais informações sobre o GAC, consulte [global assembly cache](/dotnet/framework/app-domains/gac).
 
 
 ### <a name="self-hosted-integration-runtime-authentication-key-is-missing"></a>A chave de autenticação do Integration Runtime de hospedagem interna está ausente

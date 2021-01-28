@@ -1,19 +1,16 @@
 ---
 title: Dimensionar automaticamente os clusters do Azure HDInsight
 description: Use o recurso de dimensionamento automático para dimensionar automaticamente os clusters do Azure HDInsight com base em métricas de desempenho ou agendamento.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
-ms.openlocfilehash: 2b23b4256e79723ce0b5edafd59186dc345eb791
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 130a5a58fc7dab6f94c011cf9764743f9114e48a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629248"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942635"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
 
@@ -224,7 +221,7 @@ O status do cluster listado no portal do Azure pode ajudá-lo a monitorar as ati
 
 Todas as mensagens de status do cluster que você pode ver são explicadas na lista abaixo.
 
-| Status do cluster | Description |
+| Status do cluster | Descrição |
 |---|---|
 | Executando | O cluster está funcionando normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
 | Atualizar  | A configuração de autoescala do cluster está sendo atualizada.  |

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: f7cc9d4062ad9a49ff84db6ac035ff53934ae0a0
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: d5cfdca24193b899926bd30995063ed55b3dd3eb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532050"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943460"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorar o Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -129,7 +129,7 @@ Os dados em Logs do Azure Monitor são armazenados em tabelas, cada uma com o pr
 
 Todos os logs de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos do serviço. O esquema comum é descrito em [Azure monitor esquema de log de recursos](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Para obter uma lista dos tipos de logs de recursos coletados para Azure Cosmos DB, consulte [monitoramento Azure Cosmos DB referência de dados](monitor-cosmos-db-reference.md#resource-logs).
 
-O [log de atividades](/azure/azure-monitor/platform/activity-log) é um logon de plataforma do Azure que fornece informações sobre eventos de nível de assinatura. Você pode exibi-lo de forma independente ou roteá-lo para Azure Monitor logs, onde você pode fazer consultas muito mais complexas usando Log Analytics.  
+O [log de atividades](../azure-monitor/platform/activity-log.md) é um logon de plataforma do Azure que fornece informações sobre eventos de nível de assinatura. Você pode exibi-lo de forma independente ou roteá-lo para Azure Monitor logs, onde você pode fazer consultas muito mais complexas usando Log Analytics.  
 
 O Azure Cosmos DB armazena dados nas tabelas a seguir.
 
