@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737669"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946257"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -142,6 +142,8 @@ O balanceador de carga entre regiões roteia o tráfego para o balanceador de ca
 * Não há suporte para configurações de IP de front-end IPv6 entre regiões. 
 
 * Uma investigação de integridade não pode ser configurada no momento. Uma investigação de integridade padrão coleta automaticamente informações de disponibilidade sobre o balanceador de carga regional a cada 20 segundos. 
+
+* Atualmente, o serviço de kubernetes do Azure (AKS) não pode ser integrado com Load Balancer entre regiões. A perda de conectividade deve ser esperada ao configurar uma Load Balancer de região cruzada na frente de uma Load Balancer pública implantada com AKS.
 
 ## <a name="pricing-and-sla"></a>Preço e SLA
 O balanceador de carga entre regiões compartilha o [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) do balanceador de carga padrão.

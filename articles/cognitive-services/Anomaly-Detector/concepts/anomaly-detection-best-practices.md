@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 43ccde054a9630b251aa6c206028d29c7c699316
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702719"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936204"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Práticas recomendadas para usar a API do detector de anomalias
 
@@ -52,7 +52,7 @@ Abaixo está o mesmo conjunto de dados usando a detecção de anomalias do lote.
 
 ## <a name="data-preparation"></a>Preparação de dados
 
-A API do detector de anomalias aceita dados de série temporal formatados em um objeto de solicitação JSON. Uma série temporal pode ser qualquer dado numérico registrado ao longo do tempo em ordem sequencial. Você pode enviar o Windows dos dados de série temporal para o ponto de extremidade da API do detector de anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados que você pode enviar é 12 e o máximo é de 8640 pontos. A [granularidade](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) é definida como a taxa em que os dados são amostrados. 
+A API do detector de anomalias aceita dados de série temporal formatados em um objeto de solicitação JSON. Uma série temporal pode ser qualquer dado numérico registrado ao longo do tempo em ordem sequencial. Você pode enviar o Windows dos dados de série temporal para o ponto de extremidade da API do detector de anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados que você pode enviar é 12 e o máximo é de 8640 pontos. A [granularidade](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity) é definida como a taxa em que os dados são amostrados. 
 
 Os pontos de dados enviados para a API do detector de anomalias devem ter um carimbo de data/hora UTC (tempo Universal Coordenado) válido e um valor numérico. 
 

@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567628"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937604"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API de ponto de extremidade do Azure AD Connect Sync v2 
 A Microsoft implantou um novo ponto de extremidade (API) para o Azure AD Connect que aprimora o desempenho das operações de serviço de sincronização para o Azure Active Directory. Ao utilizar o novo ponto de extremidade V2, você experimentará ganhos de desempenho perceptíveis na exportação e na importação para o Azure AD. Esse novo ponto de extremidade dá suporte ao seguinte:
@@ -176,7 +176,7 @@ Se você tiver habilitado o ponto de extremidade v2 e precisar reverter, siga es
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes  
  
 **Quando o novo ponto de extremidade se tornará o padrão para atualizações e novas instalações?**  
-</br>Estamos planejando uma nova versão do AADConnect a ser publicada para download em janeiro de 2021. Esta versão usará o ponto de extremidade v2 por padrão e habilitará a sincronização de grupos maiores que 50 mil sem nenhuma configuração adicional. Em seguida, esta versão será publicada para atualização automática para servidores qualificados.
+</br>Estamos planejando uma nova versão do AADConnect para ser publicada para download em fevereiro de 2021. Esta versão usará o ponto de extremidade v2 por padrão e habilitará a sincronização de grupos maiores que 50 mil sem nenhuma configuração adicional. Em seguida, esta versão será publicada para atualização automática para servidores qualificados.
  
 ## <a name="next-steps"></a>Próximas etapas
 

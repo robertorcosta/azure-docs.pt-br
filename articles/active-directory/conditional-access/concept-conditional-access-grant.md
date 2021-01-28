@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219939"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938391"
 ---
 # <a name="conditional-access-grant"></a>Acesso condicional: Grant
 
@@ -30,7 +30,7 @@ O bloco leva em conta quaisquer atribuições e impede o acesso com base na conf
 
 O bloco é um controle poderoso que deve ser atraente com o conhecimento apropriado. Políticas com instruções de bloco podem ter efeitos colaterais indesejados. Os testes e a validação adequados são vitais antes de habilitar em escala. Os administradores devem utilizar ferramentas como o [modo somente de relatório de acesso condicional](concept-conditional-access-report-only.md) e [a ferramenta de What If no acesso condicional](what-if-tool.md) ao fazer alterações.
 
-## <a name="grant-access"></a>Permitir acesso
+## <a name="grant-access"></a>Conceder acesso
 
 Os administradores podem optar por impor um ou mais controles ao conceder acesso. Esses controles incluem as seguintes opções: 
 
@@ -121,7 +121,9 @@ Em sua política de acesso condicional, você pode exigir que uma [política de 
 
 Para aproveitar esse controle de concessão, o acesso condicional requer que o dispositivo seja registrado em Azure Active Directory, o que exige o uso de um aplicativo de agente. O aplicativo agente pode ser o Microsoft Authenticator para iOS ou o portal da Empresa da Microsoft para dispositivos Android. Se um aplicativo agente não estiver instalado no dispositivo quando o usuário tentar se autenticar, o usuário será redirecionado para a loja de aplicativos para instalar o aplicativo agente.
 
-Essa configuração se aplica aos seguintes aplicativos cliente:
+Os aplicativos precisam ter o **SDK do Intune** com a **garantia de política** implementada e atender a determinados requisitos para dar suporte a essa configuração. Os desenvolvedores que implementam aplicativos com o SDK do Intune podem encontrar mais informações na documentação do SDK sobre esses requisitos.
+
+Os seguintes aplicativos cliente foram confirmados para dar suporte a essa configuração:
 
 - Microsoft Cortana
 - Microsoft Edge

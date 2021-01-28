@@ -1,19 +1,16 @@
 ---
 title: Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 description: Saiba como criar e gerenciar clusters do Azure HDInsight usando o portal do Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: 7c644583e994e51f11bdf7991755a6ea94b01e76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d308bfbe605e5ec3bed3bf5d6506ccafc53836e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012793"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942820"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 
@@ -58,12 +55,12 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |Visão geral|Fornece informações gerais para o cluster.|
     |Log de atividades|Mostra e consulta logs de atividades.|
     |Controle de acesso (IAM)|Utiliza as atribuições de função.  Consulte [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md).|
-    |Marcações|Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto** e usar um valor comum para todos os serviços associados a um projeto específico.|
+    |Marcas|Permite estabelecer pares de chave/valor para definir uma taxonomia personalizada dos serviços de nuvem. Por exemplo, você pode criar uma chave chamada **projeto** e usar um valor comum para todos os serviços associados a um projeto específico.|
     |Diagnosticar e resolver problemas|Exibe informações sobre solução de problemas.|
-    |Início Rápido|Exibe informações que ajudam você a começar a usar o HDInsight.|
+    |Guia de Início Rápido|Exibe informações que ajudam você a começar a usar o HDInsight.|
     |Ferramentas|Informações de ajuda para ferramentas relacionadas ao HDInsight.|
 
-  - **Menu Configurações**  
+  - **Menu configurações**  
 
     | Item| Descrição |
     |---|---|
@@ -77,7 +74,7 @@ Selecione o nome do cluster na página [**clusters HDInsight**](#showClusters) .
     |Metastores externos|Exiba os metastores [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). Os metastores só podem ser configurados durante o processo de criação do cluster.|
     |Parceiro HDInsight|Adiciona/remove o parceiro do HDInsight atual.|
     |Propriedades|Exibe as [propriedades do cluster](#properties).|
-    |Locks|Adiciona um bloqueio para impedir que o cluster seja modificado ou excluído.|
+    |Bloqueios|Adiciona um bloqueio para impedir que o cluster seja modificado ou excluído.|
     |Exportar modelo|Exibe e exporta o modelo do Azure Resource Manager para o cluster. No momento, você pode exportar apenas a conta de armazenamento do Azure dependente. Consulte [Criar clusters do Apache Hadoop baseados em Linux no HDInsight usando os modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
   - **Menu Monitoramento**
@@ -228,7 +225,7 @@ A senha é alterada em todos os nós no cluster.
    | Campo | Valor |
    | --- | --- |
    | Tipo de script | Selecione **- Personalizar** na lista suspensa.|
-   | Name |"Alterar credenciais SSH" |
+   | Nome |"Alterar credenciais SSH" |
    | URI do script Bash |O URI para o arquivo changecredentials.sh |
    | Tipo (s) de nó: (cabeçalho, trabalho, Nimbus, supervisor ou Zookeeper.) |✓ para todos os tipos de nó listados |
    | Parâmetros |Insira o nome de usuário SSH e a nova senha. Deve haver um espaço entre o nome de usuário e a senha. |

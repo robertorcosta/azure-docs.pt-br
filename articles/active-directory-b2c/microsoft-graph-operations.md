@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 96772020e70aeb32fa1a8ae18bf3818396887877
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 50042b749c917752d08198c31ada3c73a5ef540b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805230"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938480"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerenciar Azure AD B2C com Microsoft Graph
 
@@ -35,18 +35,29 @@ Para usar o MS API do Graph e interagir com recursos em seu locatário do Azure 
 - [Atualizar um usuário](/graph/api/user-update)
 - [Excluir um usuário](/graph/api/user-delete)
 
-## <a name="user-phone-number-management"></a>Gerenciamento de número de telefone do usuário
+## <a name="user-phone-number-management-beta"></a>Gerenciamento de número de telefone de usuário (beta)
+
+Um número de telefone que pode ser usado por um usuário para entrar usando [chamadas de voz ou SMS](identity-provider-local.md#phone-sign-in-preview), ou [autenticação multifator](multi-factor-authentication.md). Para obter mais informações, consulte [API de métodos de autenticação do Azure ad](/graph/api/resources/phoneauthenticationmethod).
 
 - [Adicionar](/graph/api/authentication-post-phonemethods)
-- [Obter](/graph/api/b2cauthenticationmethodspolicy-get)
-- [Atualizar](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Lista](/graph/api/authentication-list-phonemethods)
+- [Obter](/graph/api/phoneauthenticationmethod-get)
+- [Atualizar](/graph/api/phoneauthenticationmethod-update)
 - [Delete (excluir)](/graph/api/phoneauthenticationmethod-delete)
 
-Para obter mais informações sobre como gerenciar o número de telefone de entrada do usuário, consulte [métodos de autenticação do B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
+## <a name="self-service-password-reset-email-address-beta"></a>Endereço de email de redefinição de senha de autoatendimento (beta)
 
-## <a name="identity-providers-user-flow"></a>Provedores de identidade (fluxo do usuário)
+Um endereço de email que pode ser usado por um usuário para descansar a senha para a [conta de entrada de nome de usuário](identity-provider-local.md#username-sign-in). Para obter mais informações, consulte [API de métodos de autenticação do Azure ad](/graph/api/resources/emailauthenticationmethod).
 
-Gerencie os provedores de identidade disponíveis para seus fluxos de usuário em seu locatário Azure AD B2C.
+- [Adicionar](/graph/api/emailauthenticationmethod-post)
+- [Lista](/graph/api/emailauthenticationmethod-list)
+- [Obter](/graph/api/emailauthenticationmethod-get)
+- [Atualizar](/graph/api/emailauthenticationmethod-update)
+- [Delete (excluir)](/graph/api/emailauthenticationmethod-delete)
+
+## <a name="identity-providers"></a>Provedores de identidade
+
+Gerencie os [provedores de identidade](add-identity-provider.md) disponíveis para seus fluxos de usuário em seu locatário Azure ad B2C.
 
 - [Listar provedores de identidade registrados no locatário do Azure AD B2C](/graph/api/identityprovider-list)
 - [Criar um provedor de identidade](/graph/api/identityprovider-post-identityproviders)
@@ -62,6 +73,13 @@ Configure políticas predefinidas para inscrição, entrada, inscrição combina
 - [Criar um fluxo de usuário](/graph/api/identitycontainer-post-b2cuserflows)
 - [Obter um fluxo de usuário](/graph/api/b2cidentityuserflow-get)
 - [Excluir um fluxo de usuário](/graph/api/b2cidentityuserflow-delete)
+
+## <a name="user-flow-authentication-methods-beta"></a>Métodos de autenticação de fluxo de usuário (beta)
+
+Escolha um mecanismo para permitir que os usuários se registrem por meio de contas locais. As contas locais são as contas em que o Azure AD faz a asserção de identidade. Para obter mais informações, consulte [tipo de recurso b2cAuthenticationMethodsPolicy](/graph/api/resources/b2cauthenticationmethodspolicy).
+
+- [Obter](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Atualizar](/graph/api/b2cauthenticationmethodspolicy-update)
 
 ## <a name="custom-policies"></a>Políticas personalizadas
 
@@ -95,7 +113,7 @@ O recurso de nível superior para chaves de política na API de Microsoft Graph 
 - [Carregar um certificado X. 509](/graph/api/trustframeworkkeyset-uploadcertificate)
 - [Carregar um certificado de formato PKCS12](/graph/api/trustframeworkkeyset-uploadpkcs12)
 
-## <a name="applications"></a>Aplicativo
+## <a name="applications"></a>Aplicativos
 
 - [Listar aplicativos](/graph/api/application-list)
 - [Criar um aplicativo](/graph/api/resources/application)

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: alkohli
-ms.openlocfilehash: f1b00273314c845a36c7efdb9cf9f4de9d5cdd46
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 40de216a9bcb173d9dfebf39d05fb9cb12579301
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96579991"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937336"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparar para implantar o Azure Data Box Gateway
 
@@ -50,11 +50,11 @@ Aqui você encontra os pré-requisitos de configuração para o recurso Data Box
 
 Antes de começar, verifique se:
 
-* Sua assinatura do Microsoft Azure está habilitada para um recurso do Azure Stack Edge. Use uma assinatura compatível, como [EA (Contrato Enterprise) da Microsoft](https://azure.microsoft.com/overview/sales-number/), [Programa do CSP (Provedor de Soluções na Nuvem)](https://docs.microsoft.com/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
+* Sua assinatura do Microsoft Azure está habilitada para um recurso do Azure Stack Edge. Use uma assinatura compatível, como [EA (Contrato Enterprise) da Microsoft](https://azure.microsoft.com/overview/sales-number/), [Programa do CSP (Provedor de Soluções na Nuvem)](/partner-center/azure-plan-lp) ou [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
 * Você tem acesso de proprietário ou colaborador no nível do grupo de recursos aos recursos do Azure Stack Edge/Data Box Gateway, do Hub IoT e do Armazenamento do Azure.
     - Para criar qualquer recurso do Azure Stack Edge/Data Box Gateway, você deverá ter permissões como um colaborador (ou superior) com escopo no nível do grupo de recursos. Você também precisará verificar se o provedor `Microsoft.DataBoxEdge` está registrado. Para obter informações sobre como realizar o registro, acesse [Registrar o provedor de recursos](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - Para criar um recurso da conta de armazenamento, novamente, você precisará ter acesso de colaborador ou superior com escopo no nível do grupo de recursos. O Armazenamento do Azure é, por padrão, um provedor de recursos registrado.
-- Você tem acesso de administrador ou de usuário para a API do Microsoft Graph. Para obter mais informações, confira [Referência de permissões do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+- Você tem acesso de administrador ou de usuário para a API do Microsoft Graph. Para obter mais informações, confira [Referência de permissões do Microsoft Graph](/graph/permissions-reference).
 - Você tem sua conta de armazenamento do Microsoft Azure com credenciais de acesso.
 
 ### <a name="for-the-data-box-gateway-device"></a>Para o dispositivo de Data Box Gateway
@@ -90,7 +90,7 @@ Para criar um recurso do Data Box Gateway, execute as seguintes etapas no portal
 1. Use suas credenciais do Microsoft Azure para entrar em qualquer um destes portais:
 
     - No portal do Azure nesta URL: [https://portal.azure.com](https://portal.azure.com).
-    - O portal do Azure Government nesta URL: [https://portal.azure.us](https://portal.azure.us). Para obter detalhes, acesse [Conectar-se ao Azure Government usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    - O portal do Azure Government nesta URL: [https://portal.azure.us](https://portal.azure.us). Para obter detalhes, acesse [Conectar-se ao Azure Government usando o portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
     
 2. Selecione **+ Criar um recurso**.
 
@@ -193,5 +193,3 @@ OU
 
 > [!div class="nextstepaction"]
 > [Provisionar um Data Box Gateway no VMware](./data-box-gateway-deploy-provision-vmware.md)
-
-

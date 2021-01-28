@@ -1,19 +1,16 @@
 ---
 title: Entenda e resolva erros do WebHCat no Azure HDInsight
 description: Saiba sobre erros comuns retornados pelo WebHCat no HDInsight e como resolvê-los.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 951dba6e64561301dc7dbb6ebd6fd6b641c90a47
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285686"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945457"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entenda e resolva erros recebidos do WebHCat no HDInsight
 
@@ -39,7 +36,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 ## <a name="too-many-requests"></a>Número excessivo de solicitações
 
-**Código de status HTTP** : 429
+**Código de status HTTP**: 429
 
 | Causa | Resolução |
 | --- | --- |
@@ -47,7 +44,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 ## <a name="server-unavailable"></a>Servidor indisponível
 
-**Código de status HTTP** : 503
+**Código de status HTTP**: 503
 
 | Causa | Resolução |
 | --- | --- |
@@ -55,7 +52,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 ## <a name="bad-request-content-could-not-find-job"></a>Conteúdo de solicitação inválido: Não foi possível localizar o trabalho
 
-**Código de status HTTP** : 400
+**Código de status HTTP**: 400
 
 | Causa | Resolução |
 | --- | --- |
@@ -65,7 +62,7 @@ Se os seguintes valores padrão forem excedidos, isso poderá prejudicar o desem
 
 ## <a name="bad-gateway"></a>Gateway inválido
 
-**Código de status HTTP** : 502
+**Código de status HTTP**: 502
 
 | Causa | Resolução |
 | --- | --- |

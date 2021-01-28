@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 7539e896d810a2f0fbf3c07f389f25e2d3c31fe1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: f6d610db01b465306cdaaafa9b1308dba63ff9ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844998"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936161"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -85,7 +85,7 @@ o **v 2.0** inclui a seguinte atualização:
 
 ### <a name="new-features"></a>Novos recursos
 
-* **referência v 2.0 disponível** -Veja a [referência da API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.net](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)e [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
+* **referência v 2.0 disponível** -Veja a [referência da API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e os SDKs atualizados para [.net](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme)e [JavaScript](/javascript/api/overview/azure/).
 * Aprimoramentos de **tabela e aprimoramentos de extração** -inclui melhorias de precisão e aprimoramentos de extrações de tabela, especificamente, a capacidade de aprender cabeçalhos e estruturas de tabelas em _treinamento personalizado sem rótulos_. 
 
 * **Suporte a moeda** – detecção e extração de símbolos de moeda global.
@@ -110,10 +110,10 @@ o **v 2.0** inclui a seguinte atualização:
 
 ### <a name="new-features"></a>Novos recursos
 * **Suporte do SDK para a visualização pública da API v 2.0 do Forms Recognizer** – este mês, expandimos nosso suporte de serviço para incluir um SDK de visualização para a versão do Recognizer v 2.0 (visualização). Use os links abaixo para começar a usar o idioma de sua escolha: 
-   * [SDK .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [SDK do Python](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [SDK do JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [SDK .NET](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
+   * [SDK do Python](/python/api/overview/azure/ai-formrecognizer-readme)
+   * [SDK do JavaScript](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
   O novo SDK dá suporte a todos os recursos da API REST v 2.0 para o reconhecedor de formulário. Por exemplo, você pode treinar um modelo com ou sem rótulos e extrair texto, pares chave-valor e tabelas de seus formulários, extrair dados de recibos com o serviço de recebimentos pré-criados e extrair texto e tabelas com o serviço de layout de seus documentos. Você pode compartilhar seus comentários sobre os SDKs por meio do [formulário de comentários do SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -209,7 +209,7 @@ As respostas JSON para todas as chamadas de API têm novos formatos. Algumas cha
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conclua um guia de [início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o reconhecedor de formulário no idioma de sua escolha.
+Conclua um [início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários no idioma de sua escolha.
 
 ## <a name="see-also"></a>Confira também
 

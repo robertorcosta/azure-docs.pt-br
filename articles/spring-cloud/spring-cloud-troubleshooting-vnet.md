@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c2b0488663233546411b3a1b5ac1b1eb6c0b899c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8491eb02fd61f291904d57990b3785ce93239964
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887135"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935270"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>Solução de problemas do Azure Spring Cloud em redes virtuais
 
@@ -39,7 +39,7 @@ Para configurar a instância do serviço de nuvem do Azure Spring usando o model
 |------|------|
 | Os recursos criados pelo Azure Spring Cloud não foram permitidos pela política. | Os recursos de rede serão criados durante a implantação do Azure Spring Cloud em sua própria rede virtual. Verifique se você tem [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) definido para bloquear a criação. Os recursos que não puderam ser criados podem ser encontrados na mensagem de erro. |
 | As sub-redes fornecidas foram associadas a tabelas de rotas, desassocie-as. | Atualmente, não há suporte para implantar o Azure Spring Cloud na sub-rede associada às tabelas de rotas existentes, dissocia-as e tente novamente. |
-| O tráfego necessário não está na lista de permissões. | Consulte as [responsabilidades do cliente para executar o Azure Spring Cloud na VNET](spring-cloud-vnet-customer-responsibilities.md) para garantir que o tráfego necessário esteja na lista de permissões. |
+| O tráfego necessário não é allowlisted. | Consulte as [responsabilidades do cliente para executar o Azure Spring Cloud na VNET](spring-cloud-vnet-customer-responsibilities.md) para garantir que o tráfego necessário seja allowlisted. |
 
 ## <a name="my-application-cant-be-registered"></a>Meu aplicativo não pode ser registrado
 

@@ -2,18 +2,16 @@
 title: Solucionar problemas Apache Spark no Azure HDInsight
 description: Obtenha respostas para perguntas comuns sobre como trabalhar com o Apache Spark e o Azure HDInsight.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4cfcc860e40415403952efeda13bac513a2c6347
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: af488cd253e8a8ebedd838aa5286185ea556f69d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822141"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942503"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Spark usando o Azure HDInsight
 
@@ -37,7 +35,7 @@ Os valores de configuração do Spark podem ser ajustados ajudam a evitar uma ex
 
 1. Defina o valor para a configuração recomendada. O valor de **2048m** é recomendado para essa configuração.
 
-1. Salve o valor e, em seguida, salve a configuração. Clique em **Salvar**.
+1. Salve o valor e, em seguida, salve a configuração. Selecione **Salvar**.
 
     ![Altere o valor para 2048m](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 

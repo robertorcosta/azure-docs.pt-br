@@ -3,7 +3,7 @@ title: Delegação e funções no gerenciamento de direitos-Azure AD
 description: Saiba como delegar a governança de acesso de administradores de ti a gerentes de departamento e gerentes de projeto para que eles possam gerenciar o acesso.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf3784cc5f6014b04b4668517faf3f319ce55d5
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 7a5812d4dbbd1a63b16d5bee77bb018ea18dd1d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746670"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937685"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções no gerenciamento de direitos do Azure AD
 
@@ -69,7 +69,7 @@ Após a delegação, o departamento de marketing pode ter funções semelhantes 
 | --- | --- | --- | --- |
 | Hana | Administrador de ti | Administrador global ou administrador de usuário |  |
 | Mamta | Gerente de marketing | Usuário | Criador do catálogo e proprietário do catálogo |
-| Roberto | Líder de marketing | Usuário | Proprietário do catálogo |
+| Bob | Líder de marketing | Usuário | Proprietário do catálogo |
 | Jessica | Gerente de projeto de marketing | Usuário | Gerenciador de pacotes de acesso |
 
 ## <a name="entitlement-management-roles"></a>Funções de gerenciamento de direitos
@@ -118,7 +118,7 @@ A tabela a seguir lista as tarefas que as funções de gerenciamento de direitos
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Funções necessárias para adicionar recursos a um catálogo
 
-Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados pela nuvem ou grupos de Microsoft 365 criados na nuvem), aplicativo ou site do SharePoint Online em um catálogo. Um administrador de usuário pode adicionar ou remover qualquer grupo ou aplicativo em um catálogo, exceto para um grupo configurado como atribuível a uma função de diretório.
+Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados pela nuvem ou grupos de Microsoft 365 criados na nuvem), aplicativo ou site do SharePoint Online em um catálogo. Um administrador de usuário pode adicionar ou remover qualquer grupo ou aplicativo em um catálogo, exceto para um grupo configurado como atribuível a uma função de diretório. Observe que um administrador de usuário pode gerenciar pacotes de acesso em um catálogo que inclui grupos configurados como atribuíveis a uma função de diretório.
 
 Para um usuário que não seja um administrador global ou um administrador de usuário, para adicionar grupos, aplicativos ou sites do SharePoint Online a um catálogo, esse usuário deve *ter a* função de gerenciamento de direitos e a função de diretório do Azure ad necessária. A tabela a seguir lista as combinações de função que são necessárias para adicionar recursos a um catálogo. Para remover recursos de um catálogo, você deve ter as mesmas funções.
 

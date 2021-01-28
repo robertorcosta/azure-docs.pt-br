@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 88eae702782e2f1af9c20797676214db458c2adc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94407998"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937627"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -35,8 +35,13 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 
 ![Logon Único Contínuo](./media/how-to-connect-sso/sso1.png)
 
->[!IMPORTANT]
->O SSO contínuo precisa que o dispositivo do usuário tenha apenas **ingressado no domínio** , mas não seja usado nos dispositivos [ingressados no Azure Active Directory](../devices/concept-azure-ad-join.md) ou [ingressados no Azure AD híbrido](../devices/concept-azure-ad-join-hybrid.md). O SSO em dispositivos ingressados no Azure Active Directory, no Azure Active Directory híbrido e registrados no Azure Active Directory funciona com base no [token de atualização principal](../devices/concept-primary-refresh-token.md).
+## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>SSO por meio do token de atualização primário vs. SSO contínuo
+
+Para o Windows 10, é recomendável usar o SSO por meio do token de atualização primário (PRT). Para o Windows 7 e 8,1, é recomendável usar o SSO contínuo.
+O SSO contínuo precisa que o dispositivo do usuário seja ingressado no domínio, mas não é usado em [dispositivos ingressados](../devices/concept-azure-ad-join.md) no Azure AD do Windows 10 ou em [dispositivos ingressados no Azure ad híbrido](../devices/concept-azure-ad-join-hybrid.md). SSO no Azure AD ingressado, ingressado no Azure AD híbrido e dispositivos registrados no Azure AD funcionam com base no [token de atualização primário (PRT)](../devices/concept-primary-refresh-token.md)
+
+O SSO via PRT funciona depois que os dispositivos são registrados com o Azure AD para ingressado no Azure AD híbrido, dispositivos de registro pessoal ou ingressados no Azure AD por meio de adicionar conta corporativa ou de estudante. Para obter mais informações sobre como o SSO funciona com o Windows 10 usando o PRT, consulte: [token de atualização principal (PRT) e Azure ad](../devices/concept-primary-refresh-token.md)
+
 
 ## <a name="key-benefits"></a>Principais benefícios
 
@@ -78,9 +83,6 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 \*\*\*Requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations).
 
 \*\*\*\*Requer o Microsoft Edge versão 77 ou posterior.
-
->[!NOTE]
->Para o Windows 10, a recomendação é usar o [Ingresso do Azure AD](../devices/concept-azure-ad-join.md) para obter a experiência ideal de logon único com o Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 
