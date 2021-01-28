@@ -3,16 +3,16 @@ title: 'Tutorial: Criar um Banco de Dados do Azure para MariaDB – Portal do Az
 description: Este tutorial explica como criar e gerenciar um servidor do Banco de Dados do Azure para MariaDB usando o portal do Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9df151be99ba81af28f6b7b0cc012eae7db3ea1b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542432"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664462"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para MariaDB usando o portal do Azure
 
@@ -55,7 +55,7 @@ Crie um servidor do Banco de Dados do Azure para MariaDB com um conjunto definid
     Subscription | *sua assinatura* | Selecione a assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura na qual você recebe a cobrança do recurso.
     Resource group | **myresourcegroup** | Insira o nome de um novo grupo de recursos ou escolha um grupo de recursos existente.
     Selecionar a origem | **Em branco** | Selecione **Em branco** para criar um novo servidor. (Selecione **Backup** caso esteja criando um servidor a partir de um backup de área geográfica de um servidor de Banco de Dados do Azure para MariaDB existente.)
-    Logon de administrador do servidor | **myadmin** | A conta de entrada para usar ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** ou **public**.
+    Logon de administrador do servidor | **myadmin** | A conta de entrada para usar ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
     Senha | *sua escolha* | Insira uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0-9) e caracteres não alfanuméricos (!, $, #, % e assim por diante).
     Confirmar senha | *sua escolha*| Confirme a senha da conta do administrador.
     Location | *a região mais próxima de seus usuários*| Selecione o local mais próximo de seus usuários ou de outros aplicativos do Azure.
@@ -89,7 +89,7 @@ Obtenha os valores para **Nome do servidor** (totalmente qualificado) e o **Nome
 
 1. No [portal do Azure](https://portal.azure.com/), no menu à esquerda, selecione **Todos os recursos**. Insira o nome do servidor e busque o servidor do Banco de Dados do Azure para MariaDB. Selecione o nome do servidor para exibir os detalhes do servidor.
 
-2. Na página **Visão Geral** , anote os valores do **Nome do servidor** e do **Nome de logon do administrador do servidor**. Você também pode selecionar o botão **Copiar** ao lado de cada campo para copiar o valor para a área de transferência.
+2. Na página **Visão Geral**, anote os valores do **Nome do servidor** e do **Nome de logon do administrador do servidor**. Você também pode selecionar o botão **Copiar** ao lado de cada campo para copiar o valor para a área de transferência.
 
    ![Propriedades do servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
@@ -166,18 +166,18 @@ SELECT * FROM inventory;
 
 Imagine que você excluiu acidentalmente uma tabela de banco de dados importante e não consegue recuperar os dados com facilidade. No Banco de Dados do Azure para MariaDB, é possível restaurar o servidor para um ponto no tempo criando uma cópia dos bancos de dados no novo servidor. Use esse novo servidor para recuperar seus dados excluídos. As etapas a seguir restauram o servidor de exemplo para um ponto no tempo anterior à adição da tabela:
 
-1. No portal do Azure, localize o Banco de Dados do Azure para MariaDB. Na página **Visão geral** , selecione **Restaurar**.
+1. No portal do Azure, localize o Banco de Dados do Azure para MariaDB. Na página **Visão geral**, selecione **Restaurar**.
 
    ![Restaurar um banco de dados](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
-2. Na página **Restaurar** , insira ou selecione as seguintes informações:
+2. Na página **Restaurar**, insira ou selecione as seguintes informações:
 
    ![Formulário de restauração](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Ponto de restauração** : Selecione um ponto no tempo para o qual deseja fazer a restauração, no período listado. Lembre-se de converter o fuso horário local para UTC.
-   - **Restaurar em um novo servidor** : Insira um novo nome do servidor para o qual será feita a restauração.
-   - **Localização** : A região é a mesma do servidor de origem e não pode ser alterada.
-   - **Tipo de preço** : O tipo de preço é o mesmo do servidor de origem e não pode ser alterado.
+   - **Ponto de restauração**: Selecione um ponto no tempo para o qual deseja fazer a restauração, no período listado. Lembre-se de converter o fuso horário local para UTC.
+   - **Restaurar em um novo servidor**: Insira um novo nome do servidor para o qual será feita a restauração.
+   - **Localização**: A região é a mesma do servidor de origem e não pode ser alterada.
+   - **Tipo de preço**: O tipo de preço é o mesmo do servidor de origem e não pode ser alterado.
    
 3. Clique em **OK** para [restaurar o servidor para um ponto no tempo](./howto-restore-server-portal.md) anterior à exclusão da tabela. A restauração de um servidor cria uma nova cópia do servidor no ponto no tempo selecionado. 
 

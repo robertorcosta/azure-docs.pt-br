@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.author: zhchia
-ms.openlocfilehash: 057b437c5d88c4f292e08828482e5dca0d2ca5b4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0e7275ee92431e791fec7bd2c9ec07dd623b0f9e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611829"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696001"
 ---
 # <a name="tutorial-configure-templafy-saml2-for-automatic-user-provisioning"></a>Tutorial: Configurar o Templafy SAML2 para o provisionamento automático de usuário
 
@@ -133,7 +133,26 @@ Esta seção descreve as etapas de configuração do serviço de provisionamento
 
 9. Examine os atributos de usuário que serão sincronizados do Azure AD para o Templafy SAML2 na seção **Mapeamentos de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência das contas de usuário no Templafy SAML2 em operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de Usuário no Templafy SAML2](media/templafy-saml-2-provisioning-tutorial/user-attribute.png)
+   |Atributo|Type|Com suporte para filtragem|
+   |---|---|---|
+   |userName|String|&check;|
+   |ativo|Boolean|
+   |displayName|String|
+   |título|String|
+   |preferredLanguage|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |phoneNumbers[type eq "fax"].value|String|
+   |externalId|String|
+   |addresses[type eq "work"].locality|String|
+   |addresses[type eq "work"].postalCode|String|
+   |addresses[type eq "work"].region|String|
+   |addresses[type eq "work"].streetAddress|String|
+   |addresses[type eq "work"].country|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
 
 10. Na seção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Templafy**.
 
@@ -141,7 +160,12 @@ Esta seção descreve as etapas de configuração do serviço de provisionamento
 
 11. Examine os atributos de grupo que serão sincronizados do Azure AD para o Templafy SAML2 na seção **Mapeamento de Atributos**. Os atributos selecionados como propriedades **Correspondentes** são usados para fazer a correspondência dos grupos no Templafy SAML2 em operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de Grupo no Templafy SAML2](media/templafy-saml-2-provisioning-tutorial/group-attribute.png)
+      |Atributo|Type|Com suporte para filtragem|
+      |---|---|---|
+      |displayName|String|&check;|
+      |membros|Referência|
+      |externalId|String|      
+
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bc6dc5b385a39ddb1c4f1663649ea21e5ed14767
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4affc2add2822702c1d5395f81efe01eeedf448b
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669305"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696017"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Usar condição em modelos do ARM
 
@@ -31,7 +31,7 @@ Este tutorial cobre as seguintes tarefas:
 Este tutorial aborda apenas um cenário básico de como usar as condições. Para obter mais informações, consulte:
 
 * [Estrutura de arquivos de modelo: Condição](conditional-resource-deployment.md).
-* [Implantar condicionalmente um recurso em um modelo do ARM](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Implantar condicionalmente um recurso em um modelo do ARM](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy).
 * [Função de modelo: If](./template-functions-logical.md#if).
 * [Funções de comparação para modelos do ARM](./template-functions-comparison.md)
 

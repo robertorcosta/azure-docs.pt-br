@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d475c76d338270cb9b8e34ea8563cdfd8fdf5122
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b5c65035f8b51b53f617d4562fe1982f53f0deec
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563051"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678265"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: implementar análise espacial de IoT usando os Azure Mapas
 
@@ -161,15 +161,15 @@ O Hub IoT permite comunicação bidirecional segura e confiável entre um aplica
 > [!NOTE]
 > A capacidade de publicar eventos de telemetria de dispositivo na Grade de Eventos está atualmente em versão prévia. Esse recurso está disponível em todas as regiões, exceto nas seguintes: Leste dos EUA, Oeste dos EUA, Oeste da Europa, Azure Governamental, Azure China 21Vianet e Azure Alemanha.
 
-Para criar um hub IoT no grupo de recursos *AluguelContoso*, siga as etapas em [Criar um hub IoT](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub).
+Para criar um hub IoT no grupo de recursos *AluguelContoso*, siga as etapas em [Criar um hub IoT](../iot-hub/quickstart-send-telemetry-dotnet.md#create-an-iot-hub).
 
 ## <a name="register-a-device-in-your-iot-hub"></a>Registrar um dispositivo em seu hub IoT
 
-Os dispositivos não podem se conectar ao hub IoT, a menos que estejam registrados no registro de identidade do hub IoT. Aqui, você criará um único dispositivo com o nome *InVehicleDevice*. Para criar e registrar o dispositivo no hub IoT, siga as etapas em [Registrar um novo dispositivo no hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub). Copie a cadeia de conexão primária do seu dispositivo. Você precisará dela mais tarde.
+Os dispositivos não podem se conectar ao hub IoT, a menos que estejam registrados no registro de identidade do hub IoT. Aqui, você criará um único dispositivo com o nome *InVehicleDevice*. Para criar e registrar o dispositivo no hub IoT, siga as etapas em [Registrar um novo dispositivo no hub IoT](../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub). Copie a cadeia de conexão primária do seu dispositivo. Você precisará dela mais tarde.
 
 ## <a name="create-a-function-and-add-an-event-grid-subscription"></a>Crie uma função e adicione uma assinatura de Grade de Eventos
 
-O Azure Functions é um serviço de computação sem servidor que permite executar pequenos trechos de código, também chamados de "funções", sem a necessidade de provisionar explicitamente nem gerenciar a infraestrutura de computação. Para saber mais, confira [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+O Azure Functions é um serviço de computação sem servidor que permite executar pequenos trechos de código, também chamados de "funções", sem a necessidade de provisionar explicitamente nem gerenciar a infraestrutura de computação. Para saber mais, confira [Azure Functions](../azure-functions/functions-overview.md).
 
 Uma função é disparada por determinado evento. Aqui, você criará uma função que é disparada por um gatilho da Grade de Eventos. Crie a relação entre gatilho e função criando uma assinatura de evento para eventos de telemetria de dispositivo do Hub IoT. Quando ocorre um evento de telemetria de dispositivo, sua função é chamada como um ponto de extremidade e recebe os dados relevantes para o dispositivo que você registrou anteriormente no Hub IoT.
 
@@ -223,7 +223,7 @@ Agora, configure sua função do Azure.
 
 ## <a name="filter-events-by-using-iot-hub-message-routing"></a>Filtrar eventos usando o roteamento de mensagens do Hub IoT
 
-Quando você adiciona uma assinatura de Grade de Eventos à função do Azure, uma rota de mensagens é criada automaticamente no hub IoT especificado. O roteamento de mensagens permite que você roteie diferentes tipos de dados para vários pontos de extremidade. Por exemplo, você pode rotear mensagens de telemetria do dispositivo, eventos do ciclo de vida do dispositivo e eventos de alteração de dispositivo gêmeo. Para saber mais, confira [Usar o roteamento de mensagens do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
+Quando você adiciona uma assinatura de Grade de Eventos à função do Azure, uma rota de mensagens é criada automaticamente no hub IoT especificado. O roteamento de mensagens permite que você roteie diferentes tipos de dados para vários pontos de extremidade. Por exemplo, você pode rotear mensagens de telemetria do dispositivo, eventos do ciclo de vida do dispositivo e eventos de alteração de dispositivo gêmeo. Para saber mais, confira [Usar o roteamento de mensagens do Hub IoT](../iot-hub/iot-hub-devguide-messages-d2c.md).
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="Captura de tela do roteamento de mensagens no hub IoT.":::
 
@@ -232,7 +232,7 @@ Em seu cenário de exemplo, você quer receber mensagens apenas quando o carro a
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Captura de tela da filtragem do roteamento de mensagens.":::
 
 >[!TIP]
->Existem várias maneiras de consultar mensagens IoT de dispositivo para nuvem. Para saber mais sobre a sintaxe de roteamento de mensagens, confira [Roteamento de mensagens do Hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax).
+>Existem várias maneiras de consultar mensagens IoT de dispositivo para nuvem. Para saber mais sobre a sintaxe de roteamento de mensagens, confira [Roteamento de mensagens do Hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 ## <a name="send-telemetry-data-to-iot-hub"></a>Enviar dados de telemetria ao Hub IoT
 
@@ -283,6 +283,10 @@ Para obter uma lista completa das APIs REST do Azure Mapas, confira:
 Para obter uma lista de dispositivos certificados pelo Azure para IoT, visite:
 
 * [Dispositivos certificados pelo Azure](https://catalog.azureiotsolutions.com/)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Não há recursos que exijam limpeza.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4ca431290fe168f8fc073908bb3735ecb5992562
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739698"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731244"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Azure DevOps Services e o Azure Pipelines
 
@@ -24,7 +24,7 @@ A CI (integração contínua) e a CD (implantação contínua) formam um pipelin
 
 O Azure Pipelines fornece um conjunto completo de ferramentas de automação de CI/CD para implantações em máquinas virtuais, tanto localmente quanto em qualquer nuvem.
 
-Neste tutorial, você configurará um pipeline de CI/CD baseado em YAML para implantar seu aplicativo em um [ambiente do Azure Pipelines](/azure/devops/pipelines/process/environments?view=azure-devops) com máquinas virtuais do Linux como recursos, cada uma das quais servirá como um servidor Web para executar o aplicativo.
+Neste tutorial, você configurará um pipeline de CI/CD baseado em YAML para implantar seu aplicativo em um [ambiente do Azure Pipelines](/azure/devops/pipelines/process/environments) com máquinas virtuais do Linux como recursos, cada uma das quais servirá como um servidor Web para executar o aplicativo.
 
 Você aprenderá como:
 
@@ -41,7 +41,7 @@ Você aprenderá como:
   Você precisa obter uma [organização do Azure DevOps Services gratuita](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Para saber mais, confira [Conectar-se ao Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > Para saber mais, confira [Conectar-se ao Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
 
 *  É necessária uma máquina virtual Linux para um destino de implantação.  Para obter mais informações, consulte [Criar e gerenciar VMs Linux com a CLI do Azure](./tutorial-manage-vm.md).
 
@@ -222,7 +222,7 @@ Para obter mais diretrizes, siga as etapas em [Crie seu aplicativo Node.js com o
        tags: web
    ```
 2. Você pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implantação, especificando as **marcas** que você definiu para cada máquina virtual no ambiente.
-Confira [aqui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) o esquema completo do YAML para o trabalho de implantação.
+Confira [aqui](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job) o esquema completo do YAML para o trabalho de implantação.
 
 3. É possível especificar `runOnce` ou `rolling` como a estratégia de implantação. 
 

@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4d6401c53071235784a5371a4a6315e4e25a438f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895964"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680258"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Conectar usuários e chamar uma API protegida de um aplicativo Blazor WebAssembly
 
@@ -26,7 +26,7 @@ Neste tutorial:
 > * Criar um aplicativo Blazor WebAssembly configurado para usar o Azure AD (Azure Active Directory) para [autenticação e autorização](authentication-vs-authorization.md) usando a plataforma de identidade da Microsoft
 > * Recuperar dados de uma API Web protegida, neste caso, [Microsoft Graph](/graph/overview)
 
-Este tutorial usa o .NET Core 3.1. Os documentos do .NET contêm instruções sobre [como proteger um aplicativo Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) usando o ASP.NET Core 5.0. 
+Este tutorial usa o .NET Core 3.1. Os documentos do .NET contêm instruções sobre [como proteger um aplicativo Blazor WebAssembly](/aspnet/core/blazor/security/webassembly/graph-api) usando o ASP.NET Core 5.0. 
 
 Também temos um tutorial para o [Blazor Server](tutorial-blazor-server.md). 
 
@@ -80,7 +80,7 @@ Os componentes desse modelo que habilitam logons com o Azure AD usando a platafo
 
 O [Microsoft Graph](/graph/overview) contém APIs que fornecem acesso a dados do Microsoft 365 para seus usuários e dá suporte aos tokens emitidos pela plataforma de identidade da Microsoft, o que o torna uma boa API protegida para usar como exemplo. Nesta seção, você adicionará código para chamar o Microsoft Graph e exibir os emails do usuário na página "Buscar dados" do aplicativo.
 
-Esta seção é escrita usando uma abordagem comum para chamar uma API protegida usando um cliente nomeado. O mesmo método pode ser usado para outras APIs protegidas que você deseja chamar. No entanto, se você planeja chamar o Microsoft Graph do seu aplicativo, pode usar o SDK do Graph para reduzir o texto clichê. Os documentos do .NET contêm instruções sobre [como usar o SDK do Graph](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
+Esta seção é escrita usando uma abordagem comum para chamar uma API protegida usando um cliente nomeado. O mesmo método pode ser usado para outras APIs protegidas que você deseja chamar. No entanto, se você planeja chamar o Microsoft Graph do seu aplicativo, pode usar o SDK do Graph para reduzir o texto clichê. Os documentos do .NET contêm instruções sobre [como usar o SDK do Graph](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
 
 Antes de começar, faça logoff do seu aplicativo, pois você fará alterações nas permissões necessárias e seu token atual não funcionará. Se você ainda não fez isso, execute o aplicativo novamente e selecione **Fazer logoff** antes de atualizar o código abaixo.
 

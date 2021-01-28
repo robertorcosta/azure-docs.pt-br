@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 735c0955a25a3995c94c73bd6471643ce2783df3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040796"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682607"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Criar um cluster Pivotal Cloud Foundry no Azure
 
@@ -42,11 +42,13 @@ Para saber mais, confira [Use SSH keys with Windows on Azure](../virtual-machine
 
 > [!NOTE]
 >
-> Para criar uma entidade de serviço, é necessária uma permissão de conta de proprietário. Também é possível escrever um script para automatizar a criação da entidade de serviço. Por exemplo, é possível usar [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest) da CLI do Azure.
+> Para criar uma entidade de serviço, é necessária uma permissão de conta de proprietário. Também é possível escrever um script para automatizar a criação da entidade de serviço. Por exemplo, é possível usar [az ad sp create-for-rbac](/cli/azure/ad/sp) da CLI do Azure.
 
 1. Entre em sua conta do Azure.
 
-    `az login`
+    ```azurecli
+    az login
+    ```
 
     ![Logon da CLI do Azure](media/deploy/az-login-output.png )
  
@@ -54,11 +56,15 @@ Para saber mais, confira [Use SSH keys with Windows on Azure](../virtual-machine
 
 2. Defina sua assinatura padrão para essa configuração.
 
-    `az account set -s {id}`
+    ```azurecli
+    az account set -s {id}
+    ```
 
 3. Criar um aplicativo Azure Active Directory para seu PCF. Especifique uma senha alfanumérica exclusiva. Armazene a senha como **clientSecret** para ser usada posteriormente.
 
-    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    ```azurecli
+    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}
+    ```
 
     Copie o valor de "appId" na saída como sua **clientID** para ser usado posteriormente.
 
@@ -68,23 +74,31 @@ Para saber mais, confira [Use SSH keys with Windows on Azure](../virtual-machine
 
 4. Crie uma entidade de serviço com a nova ID do aplicativo.
 
-    `az ad sp create --id {appId}`
+    ```azurecli
+    az ad sp create --id {appId}
+    ```
 
 5. Defina a função de permissão da sua entidade de serviço como um Colaborador.
 
-    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"
+    ```
 
     Ou também é possível usar
 
-    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee {service-principal-name} --role "Contributor"
+    ```
 
     ![Atribuição de função da entidade de serviço](media/deploy/svc-princ.png )
 
 6. Verifique se é possível entrar com êxito em sua entidade de serviço usando a ID do aplicativo, a senha e a ID do locatário.
 
-    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
+    ```azurecli
+    az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}
+    ```
 
-7. Crie um arquivo .json com o seguinte formato. Use os valores de **ID da assinatura** , **tenantID** , **clientID** e **clientSecret** que você copiou anteriormente. Salve o arquivo.
+7. Crie um arquivo .json com o seguinte formato. Use os valores de **ID da assinatura**, **tenantID**, **clientID** e **clientSecret** que você copiou anteriormente. Salve o arquivo.
 
     ```json
     {
