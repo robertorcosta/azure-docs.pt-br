@@ -10,8 +10,10 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Criar um ponto de extremidade SCIM e configurar o provisionamento
+    - name: Planejar o provisionamento para um ponto de extremidade SCIM
       href: use-scim-to-provision-users-and-groups.md
+    - name: Desenvolver um ponto de extremidade SCIM de exemplo
+      href: use-scim-to-build-users-and-groups-endpoints.md
     - name: Personalizar mapeamentos do atributo
       href: customize-application-attributes.md
     - name: Tutoriais de provisionamento de aplicativos específicos

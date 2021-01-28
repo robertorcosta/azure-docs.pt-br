@@ -101,13 +101,11 @@
   items:
     - name: Gerenciar contas de Lote
       items:
-        - name: Gerenciar sua conta
-          href: batch-manage-account-basics.md
-        - name: Gerenciar contas de Lote com o portal
+        - name: Gerenciar contas do Lote no portal do Azure
           href: batch-account-create-portal.md
         - name: Gerenciar contas de Lote com o Batch Management .NET
           href: batch-management-dotnet.md
-        - name: Análise de custo e orçamentos
+        - name: Obter análise de custo e definir orçamentos
           href: budget.md
         - name: Usar pontos de extremidade privados com contas do Lote
           href: private-connectivity.md
@@ -291,16 +289,18 @@
       href: 'https://azure.microsoft.com/updates/'
     - name: Comunidade do Lote
       href: 'https://github.com/Azure/Batch'
+    - name: Batch Explorer
+      href: 'https://azure.github.io/BatchExplorer/'
     - name: Comentários sobre o Lote
       href: 'https://feedback.azure.com/forums/269742-batch'
-    - name: Página de perguntas de P e R da Microsoft para Lote
-      href: /answers/topics/azure-batch.html
     - name: Shipyard de lote
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog
       href: /archive/blogs/windowshpc/
     - name: HPC no Azure
       href: /azure/architecture/topics/high-performance-computing/
+    - name: Página de perguntas de P e R da Microsoft para Lote
+      href: /answers/topics/azure-batch.html
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: Calculadora de preço

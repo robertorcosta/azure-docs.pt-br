@@ -977,6 +977,8 @@
           href: kisi-physical-security-tutorial.md
         - name: Kiteworks
           href: kiteworks-tutorial.md
+        - name: SAML do Klaxoon
+          href: klaxoon-saml-tutorial.md
         - name: Klue
           href: klue-tutorial.md
         - name: Treinamento de reconhecimento de segurança KnowBe4
