@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d1632c66791dd5e697b95a2c5aaaddea81629abf
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878215"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052815"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Usando SNAT para conexões de saída
 
@@ -80,7 +80,7 @@ Quando o [cenário 2](#scenario2) abaixo estiver configurado, o host para cada i
 
  | Associações | Método | Protocolos IP |
  | ------------ | ------ | ------------ |
- | Balanceador de carga público | Uso de IPs de front-end do balanceador de carga para [SNAT](#snat).| TCP </br> UDP |
+ | Load Balancer público padrão | Uso de IPs de front-end do balanceador de carga para [SNAT](#snat).| TCP </br> UDP |
 
 
  #### <a name="description"></a>Descrição
@@ -103,8 +103,18 @@ Quando o [cenário 2](#scenario2) abaixo estiver configurado, o host para cada i
 
  Neste contexto, as portas efêmeras usadas para SNAT são chamadas de portas SNAT. É altamente recomendável que uma [regra de saída](./outbound-rules.md) seja configurada explicitamente. Se estiver usando SNAT padrão por meio de uma regra de balanceamento de carga, as portas SNAT serão previamente alocadas conforme descrito na [tabela de alocação de portas SNAT padrão](#snatporttable).
 
+ ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-standard-internal-load-balancer"></a><a name="scenario3"></a>Cenário 3: máquina virtual sem IP público e por trás de Load Balancer internas padrão
 
- ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Cenário 3: máquina virtual sem IP público e por trás de Load Balancer básica
+
+ | Associações | Método | Protocolos IP |
+ | ------------ | ------ | ------------ |
+ | Balanceador de carga interno padrão | Sem conectividade com a Internet.| Nenhum |
+
+ #### <a name="description"></a>Descrição
+ 
+Ao usar um balanceador de carga interno padrão, não há nenhum uso de endereços IP efêmeras para SNAT. Isso é para dar suporte à segurança por padrão e garantir que todos os endereços IP usados pelo recurso sejam configuráveis e possam ser reservados. Para obter conectividade de saída com a Internet ao usar um balanceador de carga interno padrão, configure um endereço IP público em nível de instância para seguir o comportamento no (cenário 1) [#scenario1] ou adicione as instâncias de back-end a um Load Balancer público padrão com uma regra de saída configurada em additon para o balanceador de carga interno para seguir o comportamento no (cenário #scenario2 2 
+
+ ### <a name="scenario-4-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario4"></a>Cenário 4: máquina virtual sem IP público e por trás de Load Balancer básica
 
 
  | Associações | Método | Protocolos IP |
@@ -126,7 +136,6 @@ Quando o [cenário 2](#scenario2) abaixo estiver configurado, o host para cada i
 
 
  Não use este cenário para adicionar IPs a uma lista de permissões. Use o cenário 1 ou 2 onde declarar explicitamente o comportamento de saída. As portas [SNAT](#snat) são prealocadas conforme descrito na [tabela de alocação de portas SNAT padrão](#snatporttable).
-
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Portas esgotadas
 

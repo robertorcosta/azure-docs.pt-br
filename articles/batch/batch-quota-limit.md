@@ -2,14 +2,14 @@
 title: Cotas e limites de serviço
 description: Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 01/28/2021
 ms.custom: seodec18
-ms.openlocfilehash: 11c9ad1e916ad7e64b59cc13c0967d2b9daed4aa
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 433272c76b9ff27d9cad542cf65a8ec0d8fc0378
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814628"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052373"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -33,19 +33,7 @@ Observe também que as cotas não são valores garantidos. As cotas podem variar
 
 ### <a name="cores-quotas-in-batch-service-mode"></a>Cotas de núcleos no modo de serviço do lote
 
-A imposição de cotas de núcleo dedicadas está sendo aprimorada, com as alterações disponibilizadas em estágios e concluídas para todas as contas do lote até o final de janeiro de 2021.
-
-Existem cotas de núcleo para cada série de VMs com suporte do lote e são exibidas na página **cotas** no Portal. Os limites de cota da série de VMs podem ser atualizados com uma solicitação de suporte, conforme detalhado abaixo.
-
-Com o mecanismo existente sendo dividido em fases, os limites de cota para a série de VMs não são verificados, somente o limite de cota total para a conta é imposto. Isso significa que pode ser possível alocar mais núcleos para uma série de VMs do que é indicado pela cota da série de VMs, até o limite de cota de conta total.
-
-O mecanismo atualizado irá impor as cotas da série de VMs, além da cota de conta total. Como parte da transição para o novo mecanismo, os valores de cota da série de VMs podem ser atualizados para evitar falhas de alocação-qualquer série de VM usada nos últimos meses terá sua cota de série de VMs atualizada para corresponder à cota de conta total. Essa alteração não permitirá o uso de mais capacidade do que o que já estava disponível.
-
-É possível determinar se a imposição de cota da série de VMs foi habilitada para uma conta do lote, verificando:
-
-* A propriedade de API [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) da conta do lote.
-
-* Texto na página de **cotas** da conta do lote no Portal.
+Existem cotas de núcleo para cada série de VMs com suporte do lote e são exibidas na página **cotas** no Portal. Os limites de cota da série de VMs podem ser atualizados com uma solicitação de suporte, conforme detalhado abaixo. Para nós dedicados, o lote impõe um limite de cota de núcleo para cada série de VM, bem como um limite de cota de núcleo total para toda a conta do lote. Para nós de baixa prioridade, o lote impõe apenas uma cota de núcleo total para a conta do lote sem qualquer distinção entre séries de VM diferentes.
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Cotas de núcleo no modo de assinatura de usuário
 

@@ -3,14 +3,14 @@ title: Solucionar problemas com recursos compartilhados de Automação do Azure
 description: Este artigo informa como solucionar problemas com os recursos compartilhados de Automação do Azure.
 services: automation
 ms.subservice: ''
-ms.date: 03/12/2019
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c4ede0bffedc256f4af621d4945ebbbea0f8a4b6
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896284"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053612"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Solucionar problemas de recursos compartilhados
 
@@ -131,7 +131,7 @@ Você não tem as permissões necessárias para criar ou atualizar a conta Execu
 
 #### <a name="resolution"></a>Resolução
 
-Para criar ou atualizar uma conta Executar como, você deve ter [permissões](../manage-runas-account.md#permissions) apropriadas para os diversos recursos usados pela conta Executar como. 
+Para criar ou atualizar uma conta Executar como, você deve ter [permissões](../automation-security-overview.md#permissions) apropriadas para os diversos recursos usados pela conta Executar como.
 
 Se o problema for por causa de um bloqueio, verifique se pode ser removido. Em seguida, vá para o recurso bloqueado no portal do Azure, clique com o botão direito do mouse no bloqueio e selecione **Excluir**.
 
@@ -147,7 +147,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Causa
 
-Esse erro é provavelmente causado por uma [conta Executar como ](../manage-runas-account.md)configurada incorretamente.
+Esse erro é provavelmente causado por uma [conta Executar como ](../automation-security-overview.md)configurada incorretamente.
 
 #### <a name="resolution"></a>Resolução
 
@@ -166,4 +166,3 @@ Se este artigo não conseguiu resolver seu problema, visite um dos seguintes can
 * Obtenha respostas de especialistas do Azure por meio de [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
 * Conectar-se com [@AzureSupport](https://twitter.com/azuresupport). Esta é  a conta oficial do Microsoft Azure para conectar-se à comunidade do Azure para os recursos certos: respostas, suporte e especialistas.
 * Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
-

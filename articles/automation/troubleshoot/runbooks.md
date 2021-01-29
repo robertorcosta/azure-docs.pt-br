@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.date: 11/03/2020
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 116677354009c538eece02184d801cfda11574a0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896301"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053662"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Solucionar problemas de runbook
 
@@ -134,7 +134,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Causa
 
-Esse erro pode ocorrer quando você não está usando uma conta Executar Como ou quando a conta Executar Como expirou. Para saber mais, confira [Gerenciar contas Executar Como de Automação do Azure](../manage-runas-account.md).
+Esse erro pode ocorrer quando você não está usando uma conta Executar Como ou quando a conta Executar Como expirou. Para obter mais informações, consulte [visão geral das contas Executar como da automação do Azure](../automation-security-overview.md#run-as-accounts).
 
 Esse erro tem duas causas principais:
 

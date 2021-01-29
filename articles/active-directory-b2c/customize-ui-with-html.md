@@ -1,33 +1,33 @@
 ---
-title: Personalizar a interface do usuário
+title: Personalizar a interface do usuário com modelos HTML
 titleSuffix: Azure AD B2C
-description: Saiba como personalizar a interface do usuário para seus aplicativos que usam Azure Active Directory B2C.
+description: Saiba como personalizar a interface do usuário com modelos HTML para seus aplicativos que usam Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058660"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050536"
 ---
-# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário no Azure Active Directory B2C
+# <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalizar a interface do usuário com modelos HTML no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 A identidade visual e a personalização da interface do usuário que o Azure Active Directory B2C (Azure AD B2C) exibe para seus clientes ajuda a fornecer uma experiência de usuário direta em seu aplicativo. Essas experiências incluem a inscrição, a entrada, a edição de perfil e a redefinição de senha. Este artigo apresenta os métodos de personalização da interface do usuário. 
 
 > [!TIP]
-> Se você quiser modificar apenas o logotipo de faixa, a imagem de tela de fundo e a cor da tela de fundo das suas páginas de fluxo de usuário, você poderá experimentar o recurso de [identidade visual da empresa](company-branding.md) .
+> Se você quiser modificar apenas o logotipo de faixa, a imagem de tela de fundo e a cor da tela de fundo das suas páginas de fluxo de usuário, você poderá experimentar o recurso de [identidade visual da empresa](customize-ui.md) .
 
 ## <a name="custom-html-and-css-overview"></a>Visão geral de HTML e CSS personalizados
 
@@ -201,11 +201,11 @@ Para criar um contêiner público no armazenamento de BLOBs, execute as seguinte
 
 #### <a name="22-upload-your-custom-page-content-files"></a>2,2 carregar seus arquivos de conteúdo de página personalizada
 
-1. Escolha **Carregar**.
+1. Selecione **Carregar**.
 1. Selecione o ícone de pasta ao lado de **selecionar um arquivo**.
 1. Navegue até e selecione **customize-ui.html**, que você criou anteriormente na seção personalização da interface do usuário da página.
 1. Se você quiser carregar para uma subpasta, expanda **avançado** e insira um nome de pasta em **carregar para a pasta**.
-1. Escolha **Carregar**.
+1. Selecione **Carregar**.
 1. Selecione o blob **customize-ui.html** que você carregou.
 1. À direita da caixa de texto **URL** , selecione o ícone **copiar para área de transferência** para copiar a URL para a área de transferência.
 1. No navegador da Web, navegue até a URL que você copiou para verificar se o blob que você carregou está acessível. Se ele estiver inacessível, por exemplo, se você encontrar um `ResourceNotFound` erro, verifique se o tipo de acesso do contêiner está definido como **blob**.
@@ -387,7 +387,15 @@ Para usar o exemplo:
 1. Agora, modifique a política, apontando para o arquivo HTML, conforme mencionado anteriormente.
 1. Se você vir fontes, imagens ou CSS ausentes, verifique suas referências na política de extensões e nos \* arquivos. html.
 
+## <a name="use-company-branding-assets-in-custom-html"></a>Usar ativos de identidade visual da empresa em HTML personalizado
+
+Para usar os ativos de [identidade visual da empresa](customize-ui.md#configure-company-branding) em um HTML personalizado, adicione as seguintes marcas fora da `<div id="api">` marca. A origem da imagem é substituída pela imagem de plano de fundo e pelo logotipo de faixa.
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como habilitar o [código JavaScript do lado do cliente](javascript-and-page-layout.md).
-

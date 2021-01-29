@@ -1,5 +1,5 @@
 ---
-title: Referência do Armazenamento de Blobs do Azure
+title: Referência do armazenamento de BLOBs do Azure
 description: Localize referência de API de armazenamento de BLOBs do Azure, arquivos Leiame e pacotes de biblioteca de cliente.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 04eca391fd02e18d4faed5e4f435e44e5675c4bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70178a955fe4afcfc0c695d34e3c1466773d802d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912273"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054069"
 ---
-# <a name="azure-blob-storage-reference"></a>Referência do Armazenamento de Blobs do Azure
+# <a name="azure-blob-storage-reference"></a>Referência do armazenamento de BLOBs do Azure
 
 Encontre a referência da API do armazenamento de BLOBs do Azure, pacotes de biblioteca, arquivos Leiame e artigos de introdução.
 
@@ -25,8 +25,8 @@ A tabela a seguir lista a referência e a documentação de exemplo para as APIs
 
 |  Versão  | Documentação de referência | Pacote | Início Rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca de clientes do Armazenamento de Blobs do Azure para .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Início Rápido: Biblioteca de cliente do armazenamento de blobs do Azure v12 para .NET](./storage-quickstart-blobs-dotnet.md) |
-| 11. x | [Namespace Microsoft. Azure. Storage. blob](/dotnet/api/microsoft.azure.storage.blob) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Início Rápido: Biblioteca de clientes do Armazenamento do Blob v11 para .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
+| 12.x | [Biblioteca de cliente de armazenamento de BLOBs do Azure para .NET](/dotnet/api/overview/azure/storage.blobs-readme) | [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure V12 para .NET](./storage-quickstart-blobs-dotnet.md) |
+| 11. x | [Namespace Microsoft. Azure. Storage. blob](/dotnet/api/microsoft.azure.storage.blob) | [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Início rápido: biblioteca de cliente do armazenamento de BLOBs do Azure v11 para .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Gerenciamento de armazenamento
 

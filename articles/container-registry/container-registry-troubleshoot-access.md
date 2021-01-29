@@ -3,12 +3,12 @@ title: Solucionar problemas de rede com o registro
 description: Sintomas, causas e resolução de problemas comuns ao acessar um registro de contêiner do Azure em uma rede virtual ou atrás de um firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351786"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052154"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solucionar problemas de rede com o registro
 
@@ -40,6 +40,8 @@ Pode incluir um ou mais dos seguintes:
 Execute o comando [AZ ACR check-Health](/cli/azure/acr#az-acr-check-health) para obter mais informações sobre a integridade do ambiente do registro e, opcionalmente, o acesso a um registro de destino. Por exemplo, diagnostique certos problemas de conectividade de rede ou configuração. 
 
 Consulte [verificar a integridade de um registro de contêiner do Azure](container-registry-check-health.md) para obter exemplos de comando. Se forem relatados erros, examine a [referência de erro](container-registry-health-error-reference.md) e as seções a seguir para obter as soluções recomendadas.
+
+Se você estiver tendo problemas ao usar o serviço wih do Azure kubernetes, execute o comando [AZ AKs check-ACR](/cli/azure/aks#az_aks_check_acr) para validar se o registro está acessível no cluster AKs.
 
 > [!NOTE]
 > Alguns sintomas de conectividade de rede também podem ocorrer quando há problemas com a autenticação ou autorização do registro. Consulte [solucionar problemas de logon do registro](container-registry-troubleshoot-login.md).
@@ -136,7 +138,7 @@ Se você não resolver o problema aqui, consulte as opções a seguir.
 
 * Outros tópicos de solução de problemas de registro incluem:
   * [Solucionar problemas de logon do registro](container-registry-troubleshoot-login.md) 
-  * [Solucionar problemas de desempenho de registro](container-registry-troubleshoot-performance.md)
+  * [Solucionar problemas de desempenho do registro](container-registry-troubleshoot-performance.md)
 * Opções de [suporte da Comunidade](https://azure.microsoft.com/support/community/)
 * [P e R da Microsoft](/answers/products/)
 * [Abra um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/)

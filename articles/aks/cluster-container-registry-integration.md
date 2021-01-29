@@ -5,12 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 01/08/2021
-ms.openlocfilehash: 4157195260e5c685faaddeaca87db81d199ffb23
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0d61cccb6b70091194d407eda056060d1fa3623c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98043839"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053883"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Registro de Contêiner do Azure do Serviço de Kubernetes do Azure
 
@@ -150,6 +150,7 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
 
 ### <a name="troubleshooting"></a>Solução de problemas
+* Execute o comando [AZ AKs check-ACR](/cli/azure/aks#az_aks_check_acr) para validar se o registro pode ser acessado do cluster AKs.
 * Saiba mais sobre o [diagnóstico ACR](../container-registry/container-registry-diagnostics-audit-logs.md)
 * Saiba mais sobre a [integridade do ACR](../container-registry/container-registry-check-health.md)
 

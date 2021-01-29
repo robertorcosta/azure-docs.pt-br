@@ -1,18 +1,16 @@
 ---
-title: Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager | Microsoft Docs
+title: Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 description: Este artigo diz como usar um modelo do Azure Resource Manager to habilitar o Gerenciamento de Atualizações.
-ms.service: automation
+services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: e2ebdd3d0f4a4461521ee5f412d5b4c4f872b8a0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 47c982bff45838617b9a55f9129d4dc55d58b0d2
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183227"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050324"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 
@@ -29,7 +27,7 @@ O modelo não automatiza a habilitação de Gerenciamento de Atualizações em u
 Se você já tiver um workspace do Log Analytics e uma conta da Automação implantada em uma região com suporte em sua assinatura, eles não serão vinculados. O uso desse modelo cria com êxito o link e implanta Gerenciamento de Atualizações.
 
 >[!NOTE]
->Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, consulte [Gerenciar contas Executar como](../manage-runas-account.md).
+>Não há suporte para a criação da conta Executar como de Automação quando você está usando um modelo do ARM. Para criar uma conta Executar como manualmente no portal ou com o PowerShell, consulte [criar conta Executar como](../create-run-as-account.md).
 
 Depois de concluir essas etapas, você precisará [definir configurações de diagnóstico](../automation-manage-send-joblogs-log-analytics.md) para sua conta de automação para enviar fluxos de trabalho e status do trabalho de runbook para o workspace do Log Analytics vinculado.
 

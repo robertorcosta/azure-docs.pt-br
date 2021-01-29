@@ -4,15 +4,15 @@ description: Linha de base de segurança do Azure para automação
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 01/07/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ea984e527eb526e49c87ce5385ba5715803cc72d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 79282e99894bccad4f3c265cdffe4bee2e465950
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737245"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052746"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
@@ -336,11 +336,11 @@ No entanto, ao usar o recurso Hybrid Runbook Worker, a central de segurança do 
 
 **Diretrizes**: Use Azure Active Directory funções de administrador internas que podem ser atribuídas explicitamente e podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos. Sempre que usar contas Executar como da conta de automação para seus runbooks, verifique se essas entidades de serviço também são rastreadas em seu inventário, pois geralmente têm permissões elevadas. Exclua todas as contas Executar como não utilizadas para minimizar a superfície de ataque exposta.
 
-* [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-* [Excluir uma conta Executar como ou Executar como Clássica](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Excluir uma conta Executar como ou Executar como Clássica](./delete-run-as-account.md)
 
 * [Gerenciar uma conta Executar como da Automação do Azure](./manage-runas-account.md)
 
@@ -364,7 +364,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 * [Saiba mais sobre o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
-* [Excluir uma conta Executar como ou Executar como Clássica](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Excluir uma conta Executar como ou Executar como Clássica](./delete-run-as-account.md)
 
 * [Gerenciar uma conta Executar como da Automação do Azure](./manage-runas-account.md)
 
@@ -454,7 +454,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 * [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
-* [Excluir uma conta Executar como ou Executar como Clássica](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Excluir uma conta Executar como ou Executar como Clássica](./delete-run-as-account.md)
 
 * [Gerenciar uma conta Executar como da Automação do Azure](./manage-runas-account.md)
 
@@ -696,7 +696,7 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 * [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -724,7 +724,7 @@ Se você estiver usando Hybrid runbook Workers apoiado pelas máquinas virtuais 
 
 * [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-* [Excluir uma conta Executar como ou Executar como Clássica](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Excluir uma conta Executar como ou Executar como Clássica](./delete-run-as-account.md)
 
 * [Gerenciar uma conta Executar como da Automação do Azure](./manage-runas-account.md)
 
@@ -836,7 +836,7 @@ O controle de aplicativo adaptável é uma solução inteligente, automatizada e
 
 **Orientação**: ao usar o recurso de Hybrid runbook Worker e, dependendo do tipo de scripts, você pode usar configurações específicas do sistema operacional ou recursos de terceiros para limitar a capacidade dos usuários de executar scripts nos recursos de computação do Azure. Você também pode aproveitar os controles de aplicativo adaptáveis da central de segurança do Azure para garantir que apenas o software autorizado seja executado e todos os softwares não autorizados sejam impedidos de serem executados em máquinas virtuais do Azure.
 
-* [Como controlar a execução de script do PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Como controlar a execução de script do PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [Como usar os controles de aplicativo adaptáveis da central de segurança do Azure](../security-center/security-center-adaptive-application.md)
 
@@ -878,7 +878,7 @@ Além disso, Azure Resource Manager tem a capacidade de exportar o modelo no Jav
 
 Você também pode usar recomendações da central de segurança do Azure como uma linha de base de configuração segura para seus recursos do Azure.
 
-* [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Tutorial: Criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md)
 
@@ -942,7 +942,7 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 * [Informações sobre a criação de modelos do ARM](../virtual-machines/windows/ps-template.md)
 
-* [Como carregar um VHD de VM personalizado para o Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Como carregar um VHD de VM personalizado para o Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -952,7 +952,7 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 **Diretrizes**: Use o Azure DevOps para armazenar e gerenciar com segurança seu código, como políticas personalizadas do Azure, modelos de Azure Resource Manager e scripts de configuração de estado desejado. Para acessar os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory se integrados ao Azure DevOps ou Active Directory se integrado ao TFS. Use o recurso de integração de controle do código-fonte para manter seus runbooks em sua conta de automação atualizados com scripts no repositório do controle do código-fonte.
 
-* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -1134,7 +1134,7 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 * [Introdução à automação do Azure](./automation-intro.md)
 
-* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Uso de chaves gerenciadas pelo cliente para uma conta de automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1160,7 +1160,7 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 * [Introdução à automação do Azure](./automation-intro.md)
 
-* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Uso de chaves gerenciadas pelo cliente para uma conta de automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1176,7 +1176,7 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 * [Implantar recursos com modelos ARM e portal do Azure](../azure-resource-manager/templates/deploy-portal.md)
 
-* [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 * [Uso de chaves gerenciadas pelo cliente para uma conta de automação](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1190,7 +1190,7 @@ Use o recurso de integração de controle do código-fonte para manter seus runb
 
 Use o recurso de integração de controle do código-fonte para manter seus runbooks em sua conta de automação atualizados com scripts no repositório do controle do código-fonte.
 
-* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

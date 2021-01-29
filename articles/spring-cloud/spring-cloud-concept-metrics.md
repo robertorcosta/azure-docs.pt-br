@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755483"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051593"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
 
@@ -121,6 +121,7 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 >| Contagem de GC de Gen 0  | Gen-0-GC-contagem | Contagem        | Número de coletas de lixo de geração 0 por segundo. |
 >| Contagem de GC de Gen 1  | Gen-1-GC-contagem | Contagem        | Número de coletas de lixo de geração 1 por segundo. |
 >| Contagem de GC de Gen 2  | Gen-2-GC-contagem | Contagem        | Número de coletas de lixo de geração 2 por segundo. |
+>| Hora em GC      | time-GC      | Porcentagem      | A porcentagem de tempo na coleta de lixo desde a última coleta de lixo. |
 >| Tamanho do heap de geração 0 | Ger-0-tamanho     | Bytes        | Tamanho da pilha de geração 0. |
 >| Tamanho do heap de geração 1 | Ger-1-tamanho     | Bytes        | Tamanho de heap de geração 1. |
 >| Tamanho do heap de geração 2 | Gen-2-tamanho     | Bytes        | Tamanho de heap de geração 2. |
@@ -153,7 +154,7 @@ Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnosti
 >| Solicitações por segundo | solicitações por segundo | Contagem | Taxa de solicitação. |
 >| Total de solicitações | total-solicitações | Contagem | Número total de solicitações. |
 >| Solicitações atuais | solicitações atuais | Contagem | Número de solicitações atuais. |
->| Solicitações falhas | solicitações com falha | Contagem | Número de solicitações com falha. |
+>| Solicitações com falha | solicitações com falha | Contagem | Número de solicitações com falha. |
 
 Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnostics/dotnet-counters).
 

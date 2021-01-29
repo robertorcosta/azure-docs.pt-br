@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579446"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050763"
 ---
 # <a name="use-source-control-integration"></a>Usar a integração de controle do código-fonte
 
@@ -29,7 +29,7 @@ A Automação do Azure é compatível com três tipos de controle do código-fon
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um repositório de controle do código-fonte (GitHub ou Azure Repos)
-* Uma [conta Executar como](manage-runas-account.md)
+* Uma [conta Executar como](automation-security-overview.md#run-as-accounts)
 * Os [módulos mais recentes do Azure](automation-update-azure-modules.md) na sua conta de Automação do Azure, incluindo o módulo `Az.Accounts` (módulo Az equivalente do `AzureRM.Profile`)
 
 > [!NOTE]
@@ -69,7 +69,7 @@ Use este procedimento para configurar o controle do código-fonte usando o porta
    ![Resumo do controle do código-fonte](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> As credenciais de acesso do seu repositório do controle do código-fonte podem ser diferentes das suas credenciais de acesso do portal do Azure. Verifique se você está conectado com a conta correta do seu repositório de controle do código-fonte ao configurar o controle do código-fonte. Se estiver em dúvida, abra uma nova guia no navegador, saia de **dev.azure.com** , **visualstudio.com** ou **github.com** e tente se reconectar ao controle do código-fonte.
+> As credenciais de acesso do seu repositório do controle do código-fonte podem ser diferentes das suas credenciais de acesso do portal do Azure. Verifique se você está conectado com a conta correta do seu repositório de controle do código-fonte ao configurar o controle do código-fonte. Se estiver em dúvida, abra uma nova guia no navegador, saia de **dev.azure.com**, **visualstudio.com** ou **github.com** e tente se reconectar ao controle do código-fonte.
 
 ### <a name="configure-source-control-in-powershell"></a>Configurar controle do código-fonte no PowerShell
 
@@ -86,7 +86,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Criar conexão de controle do código-fonte para Azure Repos (Git)
 
 > [!NOTE]
-> O Azure Repos (Git) usa uma URL que acessa **dev.azure.com** no lugar de **visualstudio.com** , usado nos formatos anteriores. O formato mais antigo da URL `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` foi preterido, mas ainda é compatível. O novo formato é preferencial.
+> O Azure Repos (Git) usa uma URL que acessa **dev.azure.com** no lugar de **visualstudio.com**, usado nos formatos anteriores. O formato mais antigo da URL `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` foi preterido, mas ainda é compatível. O novo formato é preferencial.
 
 
 ```powershell-interactive
@@ -96,7 +96,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Criar conexão de controle do código-fonte para Azure Repos (TFVC)
 
 > [!NOTE]
-> O Azure Repos (TFVC) usa uma URL que acessa **dev.azure.com** no lugar de **visualstudio.com** , usado nos formatos anteriores. O formato mais antigo da URL `https://<accountname>.visualstudio.com/<projectname>/_versionControl` foi preterido, mas ainda é compatível. O novo formato é preferencial.
+> O Azure Repos (TFVC) usa uma URL que acessa **dev.azure.com** no lugar de **visualstudio.com**, usado nos formatos anteriores. O formato mais antigo da URL `https://<accountname>.visualstudio.com/<projectname>/_versionControl` foi preterido, mas ainda é compatível. O novo formato é preferencial.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -147,7 +147,7 @@ Siga estas etapas para sincronizar com o controle do código-fonte.
 
 3. Exiba o status do trabalho de sincronização atual ou anteriores clicando na guia **Trabalhos de sincronização**.
 
-4. No menu suspenso **Controle do código-fonte** , selecione um mecanismo de controle do código-fonte.
+4. No menu suspenso **Controle do código-fonte**, selecione um mecanismo de controle do código-fonte.
 
     ![Status da sincronização](./media/source-control-integration/sync-status.png)
 
@@ -209,4 +209,4 @@ No momento, você não pode usar o portal do Azure para atualizar o PAT no contr
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre integração do controle do código-fonte no Automação do Azure, veja [Automação do Azure: Integração do Controle do Código-Fonte na Automação do Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
-* Para saber mais sobre integração do controle do código-fonte do runbook com o Visual Studio Online, veja [Automação do Azure: Integração do Controle do Código-Fonte do Runbook usando o Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
+* Para integrar o controle de origem do runbook com o Visual Studio Codespaces, confira [automação do Azure: integrando o controle de origem do runbook usando o Visual Studio Codespaces](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

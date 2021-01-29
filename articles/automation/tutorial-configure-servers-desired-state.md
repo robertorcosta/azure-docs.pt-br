@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 2e09607dde118ce25e5d2e5311e7614f2f18a590
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890723"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053560"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configurar computadores para um estado desejado
 
@@ -27,7 +27,7 @@ Para este tutorial, usamos uma [configuração DSC](/powershell/scripting/dsc/co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta de Automação do Azure. Para obter instruções sobre como criar uma conta Executar Como de Automação do Azure, consulte [Conta Executar Como do Azure](./manage-runas-account.md).
+- Uma conta de Automação do Azure. Para saber mais sobre uma conta de automação e seus requisitos, consulte [visão geral da autenticação da conta de automação](./automation-security-overview.md).
 - Uma VM do Azure Resource Manager (não clássica) executando o Windows Server 2008 R2 ou posterior. Para obter instruções sobre como criar uma VM, veja [Criação da primeira máquina virtual do Windows no portal do Azure](../virtual-machines/windows/quick-create-portal.md).
 - Versão de módulo do Azure PowerShell 3.6 ou posterior. Execute `Get-Module -ListAvailable Az` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 - Familiaridade com a Configuração do Estado Desejado (DSC). Para obter informações sobre a plataforma DSC, veja [Visão Geral da Desired State Configuration do Windows PowerShell](/powershell/scripting/dsc/overview/overview).
@@ -49,7 +49,6 @@ Connect-AzAccount
 ```
 
 ## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Criar e carregar uma configuração na Automação do Azure
-
 
 Em um editor de texto, digite o seguinte e salve localmente como **TestConfig.ps1**.
 

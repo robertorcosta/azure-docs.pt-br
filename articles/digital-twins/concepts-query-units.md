@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 86f2abb8bfb95d5b9e72936ca3e9464747c00b1c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0e1c5f08c4292e4f3dfec448d8bf54d5d5601840
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049296"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050491"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unidades de consulta no gêmeos digital do Azure 
 
@@ -45,4 +45,4 @@ Para saber mais sobre como consultar o Azure digital gêmeos, visite:
 * [*Como consultar o gráfico de entrelaçamento*](how-to-query-graph.md)
 * [Documentação de referência da API de consulta](/rest/api/digital-twins/dataplane/query/querytwins)
 
-Você pode encontrar limites relacionados à consulta do Azure digital gêmeos em [*referência: limites de serviço*](reference-service-limits.md).
+Você pode encontrar limites relacionados à consulta do Azure digital gêmeos nos [*limites do serviço gêmeos do Azure digital*](reference-service-limits.md).

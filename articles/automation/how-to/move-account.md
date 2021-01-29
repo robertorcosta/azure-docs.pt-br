@@ -2,19 +2,15 @@
 title: Mover a conta de Automação do Azure para outra assinatura
 description: Esse artigo informa como mover a conta de Automação para outra assinatura.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/11/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8454c5a5bb5b44d2a60ae0095a9b82a19ed27c8d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a86d876a723c89eb8dcdf18c8318f2a9c740a229
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896639"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051017"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Mover a conta de Automação do Azure para outra assinatura
 
@@ -108,7 +104,7 @@ Agora você pode mover sua conta de Automação e os respectivos runbooks.
 
 ## <a name="re-create-run-as-accounts"></a>Recriar contas Executar como
 
-[Contas Executar como](../manage-runas-account.md) criam uma entidade de serviço no Azure Active Directory para autenticar com os recursos do Azure. Quando você altera as assinaturas, a conta de Automação deixa de usar a conta Executar como existente. Para recriar as contas Executar como:
+[Contas Executar como](../automation-security-overview.md#run-as-accounts) criam uma entidade de serviço no Azure Active Directory para autenticar com os recursos do Azure. Quando você altera as assinaturas, a conta de Automação deixa de usar a conta Executar como existente. Para recriar as contas Executar como:
 
 1. Acesse sua conta de Automação na nova assinatura e selecione **contas Executar como** em **Configurações da Conta**. Você verá que as contas Executar como são mostradas como incompletas agora.
 
@@ -117,7 +113,7 @@ Agora você pode mover sua conta de Automação e os respectivos runbooks.
 2. Exclua as contas Executar como, uma de cada vez, selecionando **Excluir** na página **Propriedades**. 
 
     > [!NOTE]
-    > Se você não tiver permissões para criar nem exibir as contas Executar Como, verá a seguinte mensagem: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Para obter mais informações, confira [Permissões necessárias para configurar contas Executar como](../manage-runas-account.md#permissions).
+    > Se você não tiver permissões para criar nem exibir as contas Executar Como, verá a seguinte mensagem: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Para obter mais informações, confira [Permissões necessárias para configurar contas Executar como](../automation-security-overview.md#permissions).
 
 3. Depois de excluir as contas Executar como, selecione **Criar** em **conta Executar como do Azure**. 
 

@@ -10,19 +10,19 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 84aec5031dd8d19f8f2ad0aa32185002add378b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618069"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053972"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solucionar problemas de logon único baseado em senha no Azure Active Directory
 
 Para usar o SSO (logon único) baseado em senha em meus aplicativos, a extensão do navegador deve ser instalada. A extensão é baixada automaticamente quando você seleciona um aplicativo configurado para SSO baseado em senha. Para saber mais sobre como usar meus aplicativos de uma perspectiva do usuário final, consulte [a ajuda do portal de meus aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="my-apps-browser-extension-not-installed"></a>Extensão do navegador meus aplicativos não instalada
-Verifique se a extensão do navegador está instalada. Para saber mais, consulte [planejar uma Azure Active Directory implantação de meus aplicativos](access-panel-deployment-plan.md). 
+Verifique se a extensão do navegador está instalada. Para saber mais, consulte [planejar uma Azure Active Directory implantação de meus aplicativos](my-apps-deployment-plan.md). 
 
 ## <a name="single-sign-on-not-configured"></a>Logon único não configurado
 Verifique se o logon único baseado em senha está configurado. Para saber mais, confira [Configurar logon único baseado em senha](configure-password-single-sign-on-non-gallery-applications.md).
@@ -87,7 +87,7 @@ Em geral, se a captura automática do campo de entrada não funcionar, tente a o
 ### <a name="automatically-capture-sign-in-fields-for-an-app"></a>Capturar automaticamente os campos de entrada para um aplicativo
 
 Para configurar o SSO baseado em senha usando a captura automática de campo de entrada, siga estas etapas:
-1. Abra o [Portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
+1. Abra o [portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
 2. No painel de navegação no lado esquerdo, selecione **todos os serviços** para abrir a extensão do Azure AD.
 3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
@@ -106,7 +106,7 @@ Para configurar o SSO baseado em senha usando a captura automática de campo de 
 Para capturar manualmente os campos de entrada, você deve ter a extensão de navegador meus aplicativos instalada. Além disso, seu navegador não pode ser executado no modo *InPrivate*, *Incognito* ou *Private* .
 
 Para configurar o SSO baseado em senha para um aplicativo usando a captura de campo de entrada manual, siga estas etapas:
-1. Abra o [Portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
+1. Abra o [portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
 2. No painel de navegação no lado esquerdo, selecione **todos os serviços** para abrir a extensão do Azure AD.
 3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
@@ -247,4 +247,4 @@ As informações a seguir explicam o que significa cada item de notificação e 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Série de Início Rápido no Gerenciamento de Aplicativos](view-applications-portal.md)
-* [Planejar uma implantação de Meus Aplicativos](access-panel-deployment-plan.md)
+* [Planejar uma implantação de Meus Aplicativos](my-apps-deployment-plan.md)

@@ -1,17 +1,17 @@
 ---
 title: Opções de computação e armazenamento-banco de dados do Azure para MySQL-servidor flexível
 description: Este artigo descreve as opções de computação e armazenamento no banco de dados do Azure para MySQL-servidor flexível.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 267b362c94b04b3be634f7e61c2b6d67604d7854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2021
+ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954674"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052339"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento no banco de dados do Azure para MySQL – servidor flexível (visualização)
 
@@ -72,7 +72,7 @@ As especificações detalhadas dos tipos de servidor disponíveis são as seguin
 Para obter mais detalhes sobre a série de computação disponível, consulte a documentação da VM do Azure para [intermitência (série B)](../../virtual-machines/sizes-b-series-burstable.md), [uso geral (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)e [otimizado para memória (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->Para a camada de computação [expansível (série B)](../../virtual-machines/sizes-b-series-burstable.md) quando o servidor é reiniciado por qualquer motivo como a manutenção iniciada pelo usuário, planejada ou não planejada, o crédito acumulado pode ser perdido. O motivo é que sempre que o banco de dados do Azure para MySQL for reiniciado, ele permanecerá no mesmo nó, o crédito acumulado será retido. Contrarily, sempre que o servidor do banco de dados do Azure para MySQL iniciar uma nova atualização em um novo nó, ele obterá um crédito inicial. Para obter mais informações, leia as [perguntas frequentes sobre a intermitência (série B)](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>Para a [camada de computação expansível (série B)](../../virtual-machines/sizes-b-series-burstable.md) se a VM for iniciada/interrompida ou reiniciada, os créditos poderão ser perdidos. Para obter mais informações, consulte [FAQ (série B) com intermitência](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## <a name="storage"></a>Armazenamento
 

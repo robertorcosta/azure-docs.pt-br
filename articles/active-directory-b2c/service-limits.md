@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b980624ebf55c3666bcc7dd1d60f681d788c95ae
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 866af8b992374492286f47357f108a01f35e560b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98987032"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051034"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Limites e restrições do serviço Azure Active Directory B2C
 
@@ -40,17 +40,15 @@ A tabela a seguir lista os limites de configuração administrativa no serviço 
 |Categoria  |Limite  |
 |---------|---------|
 |Número de aplicativos por Azure AD B2C locatário   |250           |
-|Número de políticas por locatário de Azure AD B2C       |200          |
-|Tamanho máximo do arquivo de política      |400 KB          |
 |Número de escopos por aplicativo        |1000          |
-|Número de atributos personalizados por usuário <sup>1</sup>       |100         |
+|Número de [atributos personalizados](user-profile-attributes.md#extension-attributes)   por usuário <sup>1</sup>       |100         |
 |Número de URLs de redirecionamento por aplicativo       |100         |
 |Número de URLs de saída por aplicativo        |1          |
 |Limite de cadeia de caracteres por atributo      |caracteres de 250          |
 |Número de locatários B2C por assinatura      |20         |
 |Níveis de [herança](custom-policy-overview.md#inheritance-model) em políticas personalizadas     |10         |
-|Número de políticas por locatário de Azure AD B2C      |200         |
-|Tamanho máximo do arquivo de política      |400 KB         |
+|Número de políticas por locatário de Azure AD B2C      |200          |
+|Tamanho máximo do arquivo de política      |400 KB          |
 
 <sup>1</sup> consulte também [limites e restrições de serviço do Azure ad](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 

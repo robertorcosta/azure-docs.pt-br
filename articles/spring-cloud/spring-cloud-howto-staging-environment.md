@@ -1,18 +1,18 @@
 ---
 title: Configurar um ambiente de preparo no Azure Spring Cloud | Microsoft Docs
 description: Saiba como usar a implantação azul-verde com o Azure Spring Cloud
-author: bmitchell287
+author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 72cf5553bec5985ba0310b4a347b0d2c60da6924
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8cae73e03fee0b59be0c7596f0783570ac14f6ee
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090702"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053033"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurar um ambiente de preparo no Azure Spring Cloud
 
@@ -22,7 +22,8 @@ Este artigo discute como configurar uma implantação de preparo usando o padrã
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que você já tenha implantado o aplicativo PiggyMetrics do nosso [tutorial sobre como iniciar um aplicativo do Azure Spring Cloud](./spring-cloud-quickstart.md). O PiggyMetrics inclui três aplicativos: "gateway", "Account-Service," e "auth-Service".  
+* Um aplicativo em execução.  Consulte [início rápido: implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md).
+* CLI do Azure [extensão ASC](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
 
 Se você quiser usar um aplicativo diferente para este exemplo, precisará fazer uma alteração simples em uma parte voltada ao público do aplicativo.  Essa alteração diferencia a implantação de preparo da produção.
 
@@ -39,34 +40,61 @@ Instale a extensão Azure Spring Cloud para a CLI do Azure usando o seguinte com
 az extension add --name spring-cloud
 ```
     
-## <a name="view-all-deployments"></a>Exibir todas as implantações
+## <a name="view-apps-and-deployments"></a>Exibir aplicativos e implantações
 
-Vá para sua instância de serviço no portal do Azure e selecione **Gerenciamento de implantação** para exibir todas as implantações. Para exibir mais detalhes, você pode selecionar cada implantação.
+Exiba os aplicativos implantados usando os procedimentos a seguir.
+
+1. Acesse sua instância do Azure Spring Cloud na portal do Azure.
+
+1. No painel de navegação à esquerda, abra **implantações**.
+
+    [![Implantação-preterida](media/spring-cloud-blue-green-staging/deployments.png)](media/spring-cloud-blue-green-staging/deployments.png)
+
+1. Abra a folha "aplicativos" para exibir aplicativos para sua instância de serviço.
+
+    [![Aplicativos-painel](media/spring-cloud-blue-green-staging/app-dashboard.png)](media/spring-cloud-blue-green-staging/app-dashboard.png)
+
+1. Você pode clicar em um aplicativo e exibir detalhes.
+
+    [![Aplicativos-visão geral](media/spring-cloud-blue-green-staging/app-overview.png)](media/spring-cloud-blue-green-staging/app-overview.png)
+
+1. Abra a folha **implantações** para ver todas as implantações do aplicativo. A grade de implantação mostra se a implantação é de produção ou de preparo.
+
+    [![Painel de implantações](media/spring-cloud-blue-green-staging/deployments-dashboard.png)](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
+
+1. Você pode clicar no nome da implantação para exibir a visão geral da implantação. Nesse caso, a única implantação é denominada *padrão*.
+
+    [![Visão geral das implantações](media/spring-cloud-blue-green-staging/deployments-overview.png)](media/spring-cloud-blue-green-staging/deployments-overview.png)
+    
 
 ## <a name="create-a-staging-deployment"></a>Criar uma implantação de preparo
 
-1. Em seu ambiente de desenvolvimento local, faça uma pequena modificação no aplicativo de gateway PiggyMetrics. Por exemplo, altere a cor no arquivo *Gateway/src/main/resources/static/CSS/Launch. css* . Isso permite que você diferencie facilmente as duas implantações. Para compilar o pacote jar, execute o seguinte comando: 
+1. Em seu ambiente de desenvolvimento local, faça uma pequena modificação em seu aplicativo. Isso permite que você diferencie facilmente as duas implantações. Para compilar o pacote jar, execute o seguinte comando: 
 
     ```console
-    mvn clean package
+    mvn clean package -DskipTests
     ```
 
 1. No CLI do Azure, crie uma nova implantação e dê a ela o nome de implantação de preparo "verde".
 
     ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app gateway -n green --jar-path gateway/target/gateway.jar
+    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app default -n green --jar-path gateway/target/gateway.jar
     ```
 
-1. Depois que a implantação for concluída com êxito, acesse a página do gateway no **painel do aplicativo**e exiba todas as suas instâncias na guia **instâncias do aplicativo** à esquerda.
+1. Depois que a implantação da CLI for concluída com êxito, acesse a página do aplicativo no **painel do aplicativo** e exiba todas as suas instâncias na guia **implantações** à esquerda.
+
+   [![Painel de implantações após a implantação verde](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)
+
   
 > [!NOTE]
 > O status da descoberta é *OUT_OF_SERVICE* para que o tráfego não seja roteado para essa implantação antes de a verificação ser concluída.
 
 ## <a name="verify-the-staging-deployment"></a>Verificar a implantação de preparo
 
-1. Retorne à página **Gerenciamento de implantação** e selecione a nova implantação. O status da implantação agora deve mostrar *Em execução*. O botão **atribuir/cancelar domínio** deve aparecer esmaecido, pois o ambiente é um ambiente de preparo.
-
-1. No painel **visão geral** , você deve ver um **ponto de extremidade de teste**. Copie e cole-o em uma nova janela do navegador e a nova página PiggyMetrics deverá ser exibida.
+Para verificar se o desenvolvimento de preparo verde está funcionando:
+1. Vá para **implantações** e clique na `green` **implantação de preparo**.
+1. Na página **visão geral** , clique no **ponto de extremidade de teste**.
+1. Isso abrirá a compilação de preparo mostrando suas alterações.
 
 >[!TIP]
 > * Confirme se o ponto de extremidade de teste termina com uma barra (/) para garantir que o arquivo CSS seja carregado corretamente.  
@@ -79,11 +107,17 @@ Vá para sua instância de serviço no portal do Azure e selecione **Gerenciamen
     
 ## <a name="set-the-green-deployment-as-the-production-environment"></a>Definir a implantação verde como o ambiente de produção
 
-1. Depois de verificar sua alteração no ambiente de preparo, você pode enviá-la por push para produção. Retorne ao **Gerenciamento de implantação**e marque a caixa de seleção aplicativo de **Gateway** .
+1. Depois de verificar sua alteração no ambiente de preparo, você pode enviá-la por push para produção. Retorne ao **Gerenciamento de implantação** e selecione o aplicativo atualmente em `Production` .
 
-2. Selecione **definir implantação**.
-3. Na lista **implantação de produção** , selecione **verde**e, em seguida, selecione **aplicar**.
-4. Vá para a página **Visão geral** do aplicativo de gateway. Se você já tiver atribuído um domínio para seu aplicativo de gateway, a URL aparecerá no painel **visão geral** . Para exibir a página PiggyMetrics modificada, selecione a URL e vá para o site.
+1. Clique nas reticências após o **status do registro** e defina a compilação de produção como `staging` .
+
+   [![Implantações definir implantação de preparo](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
+
+1. Retorne à página **Gerenciamento de implantação** .  O `green` status da implantação de implantação deve aparecer. Agora, essa é a compilação de produção em execução.
+
+   [![Conjunto de implantações definir resultado da implantação de preparo](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
+
+1. Copie e cole a URL em uma nova janela do navegador e a nova página do aplicativo deve ser exibida com as alterações.
 
 >[!NOTE]
 > Depois de definir a implantação verde como o ambiente de produção, a implantação anterior torna-se a implantação de preparo.
@@ -108,4 +142,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Início Rápido: Implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md)
+* [CI/CD para o Azure Spring Cloud](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-cicd?branch=pr-en-us-142929&pivots=programming-language-java)

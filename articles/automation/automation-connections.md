@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8deb249dc042701ec02c3e5e30f3603be132d0ec
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 5f6494eb72084c683ddbb8b27a49acdb1fbc2bfc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733987"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054256"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Gerenciar conexões na Automação do Azure
 
@@ -35,7 +35,7 @@ A Automação do Azure torna os seguintes tipos de conexão internos disponívei
 * `AzureServicePrincipal` - Representa uma conexão usada pela conta Executar como do Azure.
 * `AzureClassicCertificate` - Representa uma conexão usada pela conta Executar como clássica do Azure.
 
-Na maioria dos casos, você não precisa criar um recurso de conexão, pois ele é gerado quando ao criar uma [conta Executar como](manage-runas-account.md).
+Na maioria dos casos, você não precisa criar um recurso de conexão, pois ele é gerado quando ao criar uma [conta Executar como](automation-security-overview.md).
 
 ## <a name="powershell-cmdlets-to-access-connections"></a>Cmdlets do PowerShell para acessar conexões
 

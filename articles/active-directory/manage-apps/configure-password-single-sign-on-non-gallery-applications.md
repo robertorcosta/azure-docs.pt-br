@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 7f9d29fee78c01dd3b1ee79d564297fa0cef14d3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2bb190ea01098e8e7b21a00f54fc37cd817f3743
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219871"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053272"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Entender o logon único baseado em senha
 
@@ -54,7 +54,7 @@ Usar o Azure AD como seu IdP (provedor de identidade) e configurar o logon únic
 Na [série de início rápido](view-applications-portal.md), você aprendeu a adicionar um aplicativo ao seu locatário, o que permite que o Azure ad saiba que ele está sendo usado como o IDP (provedor de identidade) para o aplicativo. Alguns aplicativos já estão pré-configurados e são mostrados na galeria do Azure AD. Outros aplicativos não estão na galeria e você precisa criar um aplicativo genérico e configurá-lo manualmente. Dependendo do aplicativo, a opção SSO baseado em senha pode não estar disponível. Se você não vir a lista de opções baseadas em senha na página logon único do aplicativo, ela não estará disponível.
 
 > [!IMPORTANT]
-> A extensão do navegador meus aplicativos é necessária para o SSO baseado em senha. Para saber mais, confira [planejar a implantação de meus aplicativos](access-panel-deployment-plan.md).
+> A extensão do navegador meus aplicativos é necessária para o SSO baseado em senha. Para saber mais, confira [planejar a implantação de meus aplicativos](my-apps-deployment-plan.md).
 
 A página de configuração para o SSO baseado em senha é simples. Ele inclui apenas a URL da página de logon que o aplicativo usa. Essa cadeia de caracteres deve ser a página que inclui o campo de entrada nome de usuário.
 
