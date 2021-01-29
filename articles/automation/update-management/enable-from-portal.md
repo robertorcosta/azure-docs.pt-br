@@ -2,15 +2,16 @@
 title: Habilitar a Gerenciamento de Atualizações de automação do Azure do portal do Azure
 description: Este artigo informa como habilitar o Gerenciamento de Atualizações do portal do Azure.
 services: automation
-ms.date: 04/11/2019
-ms.topic: article
+ms.subservice: update-management
+ms.date: 01/07/2021
+ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: ac402587c8346c14f34b683ba10832c7779b660b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 089c5fea6ac4a6fc4fb25af2d631335ef51cf4cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182760"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054899"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Habilitar o Gerenciamento de Atualizações do portal do Azure
 
@@ -24,7 +25,7 @@ O número de grupos de recursos que você pode usar para gerenciar suas VMs é l
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Conta de automação](../index.yml) para gerenciar máquinas.
+* [Conta de automação](../automation-security-overview.md) para gerenciar máquinas.
 * Uma [máquina virtual](../../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure

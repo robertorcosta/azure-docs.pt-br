@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fa699163fdf445624c918e714fda890a41a67f07
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2623ebf929f6a24cfc977896acea514634ffb23
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682640"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054494"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "98682640"
 
 No Azure digital gêmeos, você pode rotear [notificações de eventos](how-to-interpret-event-data.md) para serviços de downstream ou recursos de computação conectados. Isso é feito primeiro configurando **pontos de extremidade** que podem receber os eventos. Em seguida, você pode criar  [**rotas de eventos**](concepts-route-events.md) que especificam quais eventos gerados pelo Azure digital gêmeos são entregues a quais pontos de extremidade.
 
-Este artigo orienta você pelo processo de criação de pontos de extremidade e rotas com as [APIs de rotas de eventos](/rest/api/digital-twins/dataplane/eventroutes), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
+Este artigo orienta você pelo processo de criação de pontos de extremidade e rotas com as [APIs REST](/rest/api/azure-digitaltwins/), o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e a [CLI do Azure digital gêmeos](how-to-use-cli.md).
 
 Como alternativa, você também pode gerenciar pontos de extremidade e rotas com o [portal do Azure](https://portal.azure.com). Para obter uma versão deste artigo que usa o portal em vez disso, consulte [*como: gerenciar pontos de extremidade e rotas (Portal)*](how-to-manage-routes-portal.md).
 
@@ -29,7 +29,7 @@ Como alternativa, você também pode gerenciar pontos de extremidade e rotas com
 - Você precisará de uma **conta do Azure** (você pode configurar uma gratuitamente [aqui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 - Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-cli.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
     - Nome da instância
-    - Resource group
+    - Grupo de recursos
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
     
@@ -42,51 +42,31 @@ Estes são os tipos de pontos de extremidade com suporte que você pode criar pa
 
 Para obter mais informações sobre os diferentes tipos de ponto de extremidade, consulte [*escolher entre os serviços de mensagens do Azure*](../event-grid/compare-messaging-services.md).
 
-Para vincular um ponto de extremidade ao Azure digital gêmeos, o tópico da grade de eventos, o Hub de eventos ou o barramento de serviço que você está usando para o ponto de extremidade precisa já existir. 
+Esta seção explica como criar esses pontos de extremidade usando o CLI do Azure. Você também pode gerenciar pontos de extremidade com as [APIs do plano de controle DigitalTwinsEndpoint](/rest/api/digital-twins/controlplane/endpoints).
 
-### <a name="create-an-event-grid-endpoint"></a>Criar um ponto de extremidade de grade de eventos
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-O exemplo a seguir mostra como criar um ponto de extremidade do tipo grade de evento usando o CLI do Azure.
+### <a name="create-the-endpoint"></a>Criar o ponto de extremidade
 
-Primeiro, crie um tópico de grade de eventos. Você pode usar o comando a seguir ou exibir as etapas em mais detalhes visitando [a seção *criar um tópico personalizado*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) do guia de início rápido *eventos personalizados* da grade de eventos.
+Depois de criar os recursos do ponto de extremidade, você poderá usá-los para um ponto de extremidade do Azure digital gêmeos. Os exemplos a seguir mostram como criar pontos de extremidade usando o `az dt endpoint create` comando para a [CLI do Azure digital gêmeos](how-to-use-cli.md). Substitua os espaços reservados nos comandos pelos detalhes de seus próprios recursos.
 
-```azurecli-interactive
-az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
-```
-
-> [!TIP]
-> Para gerar uma lista de nomes de regiões do Azure que podem ser passados para comandos na CLI do Azure, execute este comando:
-> ```azurecli-interactive
-> az account list-locations -o table
-> ```
-
-Depois de criar o tópico, você pode vinculá-lo ao Azure digital gêmeos com o seguinte [comando da CLI do Azure digital gêmeos](how-to-use-cli.md):
+Para criar um ponto de extremidade de grade de eventos:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Agora, o tópico da grade de eventos está disponível como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome especificado com o `--endpoint-name` argumento. Normalmente, você usará esse nome como o destino de uma **rota de evento**, que você criará [posteriormente neste artigo](#create-an-event-route) usando a API do serviço de gêmeos digital do Azure.
+Para criar um ponto de extremidade de hubs de eventos:
+```azurecli-interactive
+az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
+```
 
-### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Criar um hub de eventos ou um ponto de extremidade do barramento de serviço
-
-O processo para a criação de hubs de eventos ou pontos de extremidade do barramento de serviço é semelhante ao processo da grade de eventos mostrado acima.
-
-Primeiro, crie seus recursos que você usará como o ponto de extremidade. Aqui está o que é necessário:
-* Barramento de serviço: _namespace do barramento_ de serviço, tópico do barramento de _serviço_, regra de _autorização_
-* Hubs de eventos: _namespace de hubs de eventos_, Hub de _eventos_, regra de _autorização_
-
-Em seguida, use os seguintes comandos para criar os pontos de extremidade no Azure digital gêmeos: 
-
-* Adicionar ponto de extremidade de tópico do barramento de serviço (requer um recurso de barramento de serviço criado previamente)
+Para criar um ponto de extremidade de tópico do barramento de serviço:
 ```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-* Adicionar ponto de extremidade de hubs de eventos (requer o recurso de hubs de eventos pré-criado)
-```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
-```
+Após a execução bem-sucedida desses comandos, a grade de eventos, o Hub de eventos ou o tópico do barramento de serviço estarão disponíveis como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome fornecido com o `--endpoint-name` argumento. Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto de extremidade com mensagens mortas
 
@@ -121,15 +101,15 @@ Siga as etapas abaixo para configurar esses recursos de armazenamento em sua con
     
 #### <a name="configure-the-endpoint"></a>Configurar o ponto de extremidade
 
-Para criar um ponto de extremidade com mensagens mortas habilitadas, você precisará criar o ponto de extremidade usando as APIs de Azure Resource Manager. 
+Para criar um ponto de extremidade com mensagens mortas habilitadas, você pode criar o ponto de extremidade usando as APIs de Azure Resource Manager. 
 
 1. Primeiro, use a [documentação de APIs de Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para configurar uma solicitação para criar um ponto de extremidade e preencher os parâmetros de solicitação necessários. 
 
-1. Em seguida, adicione um `deadLetterSecret` campo ao objeto Properties no **corpo** da solicitação. Defina esse valor de acordo com o modelo abaixo, que recolocará uma URL do nome da conta de armazenamento, do nome do contêiner e do valor do token SAS que você coletou na [seção anterior](#set-up-storage-resources).
+2. Em seguida, adicione um `deadLetterSecret` campo ao objeto Properties no **corpo** da solicitação. Defina esse valor de acordo com o modelo abaixo, que recolocará uma URL do nome da conta de armazenamento, do nome do contêiner e do valor do token SAS que você coletou na [seção anterior](#set-up-storage-resources).
       
   :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
 
-1. Envie a solicitação para criar o ponto de extremidade.
+3. Envie a solicitação para criar o ponto de extremidade.
 
 Para obter mais informações sobre como estruturar essa solicitação, consulte a documentação da API REST do Azure digital gêmeos: [pontos de extremidade – DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
@@ -169,10 +149,6 @@ Aqui está um exemplo de uma mensagem de mensagens mortas para uma [notificaçã
 
 ## <a name="create-an-event-route"></a>Criar uma rota de eventos
 
-Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidade, você precisará definir uma **rota de evento**. As APIs do gêmeos **EventRoutes** do Azure digital permitem que os desenvolvedores conectem o fluxo de eventos, em todo o sistema e em serviços downstream. Leia mais sobre as rotas de eventos em [*conceitos: roteamento de eventos do gêmeos digital do Azure*](concepts-route-events.md).
-
-Os exemplos nesta seção usam o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-
 **Pré-requisito**: você precisa criar pontos de extremidade conforme descrito anteriormente neste artigo antes de passar para a criação de uma rota. Você pode prosseguir com a criação de uma rota de evento quando seus pontos de extremidade tiverem concluído a configuração.
 
 > [!NOTE]
@@ -180,9 +156,7 @@ Os exemplos nesta seção usam o [SDK do .net (C#)](/dotnet/api/overview/azure/d
 >
 > Se você estiver criando scripts para esse fluxo, talvez queira considerar isso criando em 2-3 minutos de tempo de espera para o serviço de ponto de extremidade concluir a implantação antes de passar para a instalação de rota.
 
-### <a name="creation-code-with-apis-and-the-c-sdk"></a>Código de criação com APIs e o SDK do C#
-
-As rotas de eventos são definidas usando [APIs de plano de dados](how-to-use-apis-sdks.md#overview-data-plane-apis). 
+Para realmente enviar dados do Azure digital gêmeos para um ponto de extremidade, você precisará definir uma **rota de evento**. As rotas de eventos são usadas para conectar o fluxo de eventos, em todo o sistema e em serviços downstream.
 
 Uma definição de rota pode conter estes elementos:
 * O nome da rota que você deseja usar
@@ -193,6 +167,12 @@ Se não houver nenhum nome de rota, nenhuma mensagem será roteada fora do Azure
 
 Uma rota deve permitir que várias notificações e tipos de eventos sejam selecionados. 
 
+As rotas de eventos podem ser criadas com os comandos [  APIs de plano de dados](/rest/api/digital-twins/dataplane/eventroutes) do Azure digital gêmeos EventRoutes ou [ **AZ DT Route** CLI](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true). O restante desta seção percorre o processo de criação.
+
+### <a name="create-routes-with-the-apis-and-c-sdk"></a>Criar rotas com as APIs e o SDK do C#
+
+Uma maneira de definir as rotas de eventos é com as [APIs do plano de dados](how-to-use-apis-sdks.md#overview-data-plane-apis). Os exemplos nesta seção usam o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+
 `CreateOrReplaceEventRouteAsync` é a chamada do SDK que é usada para adicionar uma rota de evento. Aqui está um exemplo de uso:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
@@ -200,11 +180,17 @@ Uma rota deve permitir que várias notificações e tipos de eventos sejam selec
 > [!TIP]
 > Todas as funções do SDK são fornecidas em versões síncronas e assíncronas.
 
-### <a name="event-route-sample-code"></a>Código de exemplo de rota de evento
+#### <a name="event-route-sample-sdk-code"></a>Código SDK de exemplo de rota de evento
 
-O método de exemplo a seguir mostra como criar, listar e excluir uma rota de evento:
+O método de exemplo a seguir mostra como criar, listar e excluir uma rota de evento com o SDK do C#:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="FullEventRouteSample":::
+
+### <a name="create-routes-with-the-cli"></a>Criar rotas com a CLI
+
+As rotas também podem ser gerenciadas usando os comandos de [rota AZ DT](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) para a CLI do Azure digital gêmeos. 
+
+Para obter mais informações sobre como usar a CLI e quais comandos estão disponíveis, consulte [*How-to: Use the Azure digital gêmeos CLI*](how-to-use-cli.md).
 
 ## <a name="filter-events"></a>Filtrar eventos
 
@@ -222,10 +208,6 @@ Para adicionar um filtro, você pode usar uma solicitação PUT para *https://{Y
 Aqui estão os filtros de rota com suporte. Use os detalhes na coluna *Filtrar esquema de texto* para substituir o `<filter-text>` espaço reservado no corpo da solicitação acima.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]
-
-## <a name="manage-endpoints-and-routes-with-cli"></a>Gerenciar pontos de extremidade e rotas com a CLI
-
-Os pontos de extremidade e as rotas também podem ser gerenciados usando a CLI do Azure digital gêmeos. Para obter mais informações sobre como usar a CLI e quais comandos estão disponíveis, consulte [*How-to: Use the Azure digital gêmeos CLI*](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883105"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054839"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Solucionar problemas de conectividade SMTP de saída no Azure
 
@@ -27,13 +27,13 @@ Essa alteração no comportamento se aplica somente a assinaturas e implantaçõ
 
 ## <a name="recommended-method-of-sending-email"></a>Método recomendado para enviar email
 
-Recomendamos que você use os serviços de retransmissão SMTP autenticados para enviar emails de VMs do Azure ou do serviço Azure App. (Esses serviços de retransmissão normalmente se conectam por meio da porta TCP 587 ou 443, mas dão suporte a outras portas.) Esses serviços são usados para manter a reputação do IP ou do domínio para minimizar a possibilidade de os provedores de email de terceiros rejeitarem mensagens. O [SendGrid](https://sendgrid.com/partners/azure/) é um desses serviços de retransmissão de SMTP, mas há outros. Você também pode ter um serviço de retransmissão SMTP seguro em execução no local que você pode usar.
+Recomendamos que você use os serviços de retransmissão SMTP autenticados para enviar emails de VMs do Azure ou do serviço Azure App. (Esses serviços de retransmissão normalmente se conectam por meio da porta TCP 587, mas dão suporte a outras portas.) Esses serviços são usados para manter a reputação do IP ou do domínio para minimizar a possibilidade de os provedores de email de terceiros rejeitarem mensagens. O [SendGrid](https://sendgrid.com/partners/azure/) é um desses serviços de retransmissão de SMTP, mas há outros. Você também pode ter um serviço de retransmissão SMTP seguro em execução no local que você pode usar.
 
 Usando esses serviços de entrega de email não é restrito no Azure, independentemente do tipo de assinatura.
 
 ## <a name="enterprise-agreement"></a>Contrato Enterprise
 
-Para usuários do Enterprise Agreement do Azure, não há nenhuma alteração na capacidade técnica de enviar o email sem usar uma retransmissão autenticada. Usuários do Enterprise Agreement novos e existentes podem tentar a entrega de emails de saída das VMs do Azure diretamente aos provedores de email externo sem quaisquer restrições da plataforma do Azure. Não há nenhuma garantia de que os provedores de email aceitarão emails de entrada de qualquer usuário específico. Mas a plataforma do Azure não bloqueará as tentativas de entrega para VMs em assinaturas Enterprise Agreement. Você precisará trabalhar diretamente com os provedores de email para corrigir quaisquer problemas de entrega de mensagens ou de filtragem de SPAM que envolvam provedores específicos.
+Para usuários do Enterprise Agreement do Azure, não há nenhuma alteração na capacidade técnica de enviar o email sem usar uma retransmissão autenticada. Usuários do Enterprise Agreement novos e existentes podem tentar a entrega de emails de saída das VMs do Azure diretamente aos provedores de email externo sem quaisquer restrições da plataforma do Azure. Não há nenhuma garantia de que os provedores de email aceitarão emails de entrada de qualquer usuário específico. Mas a plataforma do Azure não bloqueará as tentativas de entrega para VMs em assinaturas Contrato Enterprise. Você precisará trabalhar diretamente com os provedores de email para corrigir quaisquer problemas de entrega de mensagens ou de filtragem de SPAM que envolvam provedores específicos.
 
 ## <a name="pay-as-you-go"></a>Pago conforme o uso
 

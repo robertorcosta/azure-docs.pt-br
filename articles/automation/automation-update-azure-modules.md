@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 413293cdefd39285c57b58d4555d3d703492ea96
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f05c3247ecdd77fe4cf02db70c7ba4b2c534f959
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894840"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055341"
 ---
 # <a name="update-azure-powershell-modules"></a>Atualizar os módulos do Azure PowerShell
 
@@ -23,7 +23,7 @@ Os módulos mais comuns do PowerShell são fornecidos por padrão em cada conta 
 
 Para evitar o impacto nos runbooks e nos processos que eles automatizam, teste e valide conforme atualiza. Se você não tiver uma conta de Automação dedicada destinada para essa finalidade, considere criar uma para que você possa testar vários cenários e permutações diferentes durante o desenvolvimento de seus runbooks. Esse teste deve incluir alterações iterativas, como atualizar os módulos do PowerShell.
 
-Verifique se sua conta de Automação tem uma [credencial da conta Executar como do Azure](manage-runas-account.md) criada.
+Verifique se sua conta de automação tem uma [conta Executar como do Azure](automation-security-overview.md#run-as-accounts) criada.
 
 Se você desenvolve seus scripts localmente, é recomendável ter localmente as mesmas versões do módulo que você tem em sua conta de Automação durante os testes para garantir que você receberá os mesmos resultados. Depois que os resultados forem validados e você tiver aplicado as alterações necessárias, você pode mover as alterações para a produção.
 

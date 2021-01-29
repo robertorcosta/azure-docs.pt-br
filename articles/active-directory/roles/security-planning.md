@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: e38ca27606ecf04b08bd29867894ba269148260c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740798"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055239"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -147,9 +147,10 @@ Se os administradores globais iniciais reutilizarem as credenciais de conta da M
 
 Contas de email pessoais são regularmente capturadas por invasores virtuais, um risco que torna os endereços de email pessoais inaceitáveis para contas do administrador global. Para ajudar a separar os riscos de internet de privilégios administrativos, crie contas dedicadas para cada usuário com privilégios administrativos.
 
-* Crie contas separadas para os usuários realizarem tarefas de administração globais
-* Certifique-se de que os administradores globais não abram emails ou executem programas acidentalmente com suas contas de administrador
-* Certifique-se de que essas contas tenham seu email encaminhado para uma caixa de correio comercial
+* Certifique-se de criar contas separadas para os usuários realizarem tarefas de administração globais.
+* Certifique-se de que seus administradores globais não abram emails acidentalmente ou executem programas com suas contas de administrador.
+* Certifique-se de que essas contas têm seu email encaminhado para uma caixa de correio do trabalho.
+* Contas de administrador global (e outros grupos privilegiados) devem ser contas somente em nuvem sem ligações para Active Directory locais.
 
 #### <a name="ensure-the-passwords-of-administrative-accounts-have-recently-changed"></a>Certifique-se de que as senhas de contas administrativas foram alteradas recentemente
 

@@ -2,7 +2,7 @@
 title: Gerenciar permissões de usuário e administrador-Azure Active Directory | Microsoft Docs
 description: Saiba como examinar e gerenciar permissões para o aplicativo no Azure AD. Por exemplo, revogar todas as permissões concedidas a um aplicativo.
 services: active-directory
-author: mimart
+author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ff97d0a69efbe624e959f92f5320f921476a306
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: da1284af82c0779ca57b49a0c4aef4b492a3bf20
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658971"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054595"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Tome medidas sobre aplicativos com privilégios elevados ou suspeitos no Azure Active Directory
 
@@ -107,67 +107,67 @@ Recupere a ID de objeto da entidade de serviço.
 4. Selecione **Propriedades** e, em seguida, copie a ID do objeto.
 
 ```powershell
-    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
-    $sp.ObjectId
+$sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+$sp.ObjectId
 ```
 Remova todos os usuários atribuídos ao aplicativo.
  ```powershell
-    Connect-AzureAD
+Connect-AzureAD
 
-    # Get Service Principal using objectId
-    $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
+# Get Service Principal using objectId
+$sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
 
-    # Get Azure AD App role assignments using objectId of the Service Principal
-    $assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true
+# Get Azure AD App role assignments using objectId of the Service Principal
+$assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true
 
-    # Remove all users and groups assigned to the application
-    $assignments | ForEach-Object {
-        if ($_.PrincipalType -eq "User") {
-            Remove-AzureADUserAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
-        } elseif ($_.PrincipalType -eq "Group") {
-            Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
-        }
+# Remove all users and groups assigned to the application
+$assignments | ForEach-Object {
+    if ($_.PrincipalType -eq "User") {
+        Remove-AzureADUserAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
+    } elseif ($_.PrincipalType -eq "Group") {
+        Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
     }
+}
  ```
 
 Revogar permissões concedidas ao aplicativo.
 
 ```powershell
-    Connect-AzureAD
+Connect-AzureAD
 
-    # Get Service Principal using objectId
-    $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
+# Get Service Principal using objectId
+$sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
 
-    # Get all delegated permissions for the service principal
-    $spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true| Where-Object { $_.clientId -eq $sp.ObjectId }
+# Get all delegated permissions for the service principal
+$spOAuth2PermissionsGrants = Get-AzureADOAuth2PermissionGrant -All $true| Where-Object { $_.clientId -eq $sp.ObjectId }
 
-    # Remove all delegated permissions
-    $spOAuth2PermissionsGrants | ForEach-Object {
-        Remove-AzureADOAuth2PermissionGrant -ObjectId $_.ObjectId
-    }
+# Remove all delegated permissions
+$spOAuth2PermissionsGrants | ForEach-Object {
+    Remove-AzureADOAuth2PermissionGrant -ObjectId $_.ObjectId
+}
 
-    # Get all application permissions for the service principal
-    $spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
+# Get all application permissions for the service principal
+$spApplicationPermissions = Get-AzureADServiceAppRoleAssignedTo -ObjectId $sp.ObjectId -All $true | Where-Object { $_.PrincipalType -eq "ServicePrincipal" }
 
-    # Remove all delegated permissions
-    $spApplicationPermissions | ForEach-Object {
-        Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
-    }
+# Remove all delegated permissions
+$spApplicationPermissions | ForEach-Object {
+    Remove-AzureADServiceAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.objectId
+}
 ```
 Invalidar os tokens de atualização.
 ```powershell
-        Connect-AzureAD
+Connect-AzureAD
 
-        # Get Service Principal using objectId
-        $sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
+# Get Service Principal using objectId
+$sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
 
-        # Get Azure AD App role assignments using objectID of the Service Principal
-        $assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true | Where-Object {$_.PrincipalType -eq "User"}
+# Get Azure AD App role assignments using objectID of the Service Principal
+$assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true | Where-Object {$_.PrincipalType -eq "User"}
 
-        # Revoke refresh token for all users assigned to the application
-        $assignments | ForEach-Object {
-            Revoke-AzureADUserAllRefreshToken -ObjectId $_.PrincipalId
-        }
+# Revoke refresh token for all users assigned to the application
+$assignments | ForEach-Object {
+    Revoke-AzureADUserAllRefreshToken -ObjectId $_.PrincipalId
+}
 ```
 ## <a name="next-steps"></a>Próximas etapas
 - [Gerenciar o consentimento para aplicativos e avaliar a solicitação de consentimento](manage-consent-requests.md)

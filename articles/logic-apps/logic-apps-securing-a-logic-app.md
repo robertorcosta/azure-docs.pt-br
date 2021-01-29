@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: 337e242e3c194c8ec9f66e1888926e6a8f6a8375
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a74868beea6e5903b6b17a7bc0c82cc822fcd36f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633071"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055171"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -866,7 +866,7 @@ Aqui estão mais maneiras de ajudar a proteger pontos de extremidade que manipul
 
 * Restringir o acesso a endereços IP de aplicativo lógico.
 
-  Todas as chamadas para pontos de extremidade de aplicativos lógicos originam-se de endereços IP especificamente designados que se baseiam nas regiões dos seus aplicativos lógicos. Você pode adicionar filtragem que aceite solicitações somente de endereços IP. Para obter esses endereços IP, confira [Limites e configuração para Aplicativos Lógicos do Azure](logic-apps-limits-and-config.md#configuration).
+  Todas as chamadas para pontos de extremidade de aplicativos lógicos originam-se de endereços IP especificamente designados que se baseiam nas regiões dos seus aplicativos lógicos. Você pode adicionar filtragem que aceite solicitações somente de endereços IP. Para obter esses endereços IP, confira [Limites e configuração para Aplicativos Lógicos do Azure](logic-apps-limits-and-config.md#firewall-ip-configuration).
 
 * Aumente a segurança de conexões com sistemas locais.
 

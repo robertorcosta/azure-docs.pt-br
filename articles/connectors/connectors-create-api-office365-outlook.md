@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682988"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055069"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerenciar emails, contatos e calendários no Outlook do Office 365 usando os Aplicativos Lógicos do Azure
 
@@ -92,17 +92,19 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
 ## <a name="connect-using-other-accounts"></a>Conectar-se usando outras contas
 
-Se você tentar se conectar ao Outlook usando uma conta diferente daquela atualmente conectada ao Azure, você poderá obter erros de [SSO (logon único)](../active-directory/manage-apps/what-is-single-sign-on.md) . Esse problema ocorre quando você entra no portal do Azure com uma conta, mas usa uma conta diferente para criar a conexão. O designer do aplicativo lógico espera usar a conta que está conectada ao Azure. Para resolver esse problema, você tem estas opções:
+Se você tentar se conectar ao Outlook usando uma conta diferente daquela atualmente conectada ao Azure, você poderá obter erros de [SSO (logon único)](../active-directory/manage-apps/what-is-single-sign-on.md) . Esse problema ocorre quando você entra no portal do Azure com uma conta, mas usa uma conta diferente para criar a conexão. O designer espera que você use a conta que está conectada ao portal do Azure. Para resolver esse problema, você tem estas opções:
 
-* Configure a outra conta como um **colaborador** para o grupo de recursos do aplicativo lógico.
+* Configure a outra conta com a função **colaborador** no grupo de recursos do aplicativo lógico.
 
-  1. No menu do grupo de recursos do aplicativo lógico, selecione **controle de acesso (iam)**. Configure a outra conta com a função **colaborador** . Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+  1. No menu do grupo de recursos do aplicativo lógico, selecione **controle de acesso (iam)**. Configure a outra conta com a função **colaborador** . 
+  
+     Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
-  1. Se você tiver entrado no portal do Azure com sua conta corporativa ou de estudante, saia e entre novamente com sua outra conta. Agora você pode criar uma conexão com o Outlook usando a outra conta.
+  1. Depois de configurar essa função, entre no portal do Azure com a conta que agora tem permissões de colaborador. Agora você pode usar essa conta para criar a conexão com o Outlook.
 
 * Configure a outra conta para que sua conta corporativa ou de estudante tenha permissões "enviar como".
 
-   Se você tiver permissões de administrador, na caixa de correio da conta de serviço, configure sua conta corporativa ou de estudante com o **envio** ou **envio em nome de** permissões. Para obter mais informações, consulte [conceder permissões de caixa de correio para outra ajuda de administrador do usuário](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Em seguida, você pode criar a conexão usando sua conta corporativa ou de estudante. Agora, em gatilhos ou ações em que você pode especificar o remetente, você pode usar o endereço de email da conta de serviço.
+   Se você tiver permissões de administrador, na caixa de correio da conta de serviço, configure sua conta corporativa ou de estudante com o **Enviar como** ou **enviar em nome de** permissões. Para obter mais informações, consulte [conceder permissões de caixa de correio para outra ajuda de administrador do usuário](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). Em seguida, você pode criar a conexão usando sua conta corporativa ou de estudante. Agora, em gatilhos ou ações em que você pode especificar o remetente, você pode usar o endereço de email da conta de serviço.
 
    Por exemplo, a ação **enviar um email** tem um parâmetro opcional, **de (enviar como)**, que você pode adicionar à ação e usar o endereço de email da sua conta de serviço como o remetente. Para adicionar esse parâmetro, siga estas etapas:
 

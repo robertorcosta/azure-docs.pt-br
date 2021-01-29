@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ea2e08db91d23e9523b7bc95e01b7adc9c93b3cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563391"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054814"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gerenciamento de aplicativos Azure Active Directory: o que há de novo
 
@@ -67,7 +67,7 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 ### <a name="new-articles"></a>Novos artigos
 - [Início Rápido: configurar o SSO (logon único) baseado em OIDC para um aplicativo no locatário do Azure AD (Azure Active Directory)](add-application-portal-setup-oidc-sso.md)
 - [Início Rápido: Atribuir usuários a um aplicativo que está usando o Azure AD como um provedor de identidade](add-application-portal-assign-users.md)
-- [O que há de novo no docs?](whats-new-docs.md)
+- [O que há de novo no Docs?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Artigos atualizados
@@ -90,7 +90,7 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 - [Como usar o acesso de aplicativo de autoatendimento](access-panel-manage-self-service-access.md)
 - [Solucionar problemas ao entrar em um aplicativo do Azure AD meus aplicativos](application-sign-in-other-problem-access-panel.md)
 - [Solucionar problemas de logon único baseado em senha no Azure Active Directory](troubleshoot-password-based-sso.md)
-- [Planejar uma implantação do Azure Active Directory meus aplicativos](access-panel-deployment-plan.md)
+- [Planejar uma implantação do Azure Active Directory meus aplicativos](my-apps-deployment-plan.md)
 - [O que é SSO (logon único)?](what-is-single-sign-on.md)
 - [Tome medidas sobre aplicativos com privilégios elevados ou suspeitos no Azure Active Directory](manage-application-permissions.md)
 - [Início Rápido: Configurar propriedades para um aplicativo em seu locatário do Azure AD (Azure Active Directory)](add-application-portal-configure.md)

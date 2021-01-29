@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7a570fb322d24bf0d32efcb6f1a2ee515862755
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 37b9733c8c48f477efcd42571b2206405efdd5cb
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736962"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055086"
 ---
 # <a name="application-management-best-practices"></a>Melhores práticas de gerenciamento de aplicativos
 
@@ -34,7 +34,7 @@ Este artigo contém recomendações e práticas recomendadas para o gerenciament
 | Usar SSO baseado em SAML federado  | Quando um aplicativo dá suporte a ele, use SSO Federado baseado em SAML com o Azure AD em vez de SSO baseado em senha e ADFS.  | 
 | Usar SHA-256 para assinatura de certificado  | O Azure AD usa o algoritmo SHA-256 por padrão para assinar a resposta SAML. Use SHA-256, a menos que o aplicativo exija SHA-1 (consulte [Opções de assinatura de certificado](certificate-signing-options.md) e problema de [conexão do aplicativo](application-sign-in-problem-application-error.md)).  | 
 | Exigir atribuição de usuário  | Por padrão, os usuários podem acessar seus aplicativos empresariais sem serem atribuídos a eles. No entanto, se o aplicativo expor funções ou se você quiser que o aplicativo apareça nos meus aplicativos de um usuário, exija a atribuição de usuário.  | 
-| Implantar meus aplicativos para seus usuários | [Meus aplicativos](end-user-experiences.md) em `https://myapps.microsoft.com` é um portal baseado na Web que fornece aos usuários um único ponto de entrada para seus aplicativos baseados em nuvem atribuídos. Como recursos adicionais como gerenciamento de grupo e redefinição de senha de autoatendimento são adicionados, os usuários podem encontrá-los em meus aplicativos. Consulte [planejar a implantação de meus aplicativos](access-panel-deployment-plan.md).
+| Implantar meus aplicativos para seus usuários | [Meus aplicativos](end-user-experiences.md) em `https://myapps.microsoft.com` é um portal baseado na Web que fornece aos usuários um único ponto de entrada para seus aplicativos baseados em nuvem atribuídos. Como recursos adicionais como gerenciamento de grupo e redefinição de senha de autoatendimento são adicionados, os usuários podem encontrá-los em meus aplicativos. Consulte [planejar a implantação de meus aplicativos](my-apps-deployment-plan.md).
 | Usar atribuição de grupo  | Se estiver incluído em sua assinatura, atribua grupos a um aplicativo para que você possa delegar o gerenciamento de acesso contínuo ao proprietário do grupo.  | 
 | Estabelecer um processo para gerenciar certificados | O tempo de vida máximo de um certificado de autenticação é de três anos. Para evitar ou minimizar a interrupção devido a um certificado expirando, use funções e listas de distribuição de email para garantir que as notificações de alteração relacionadas ao certificado sejam monitoradas de forma detalhada. |
 

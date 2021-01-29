@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3210aa5ae2ff94ba2c7dda673fbb60847c4dfd0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 89566bdfb56ca662813b586b2203eec7e7e5566b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372150"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055374"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
 
@@ -37,7 +37,7 @@ A seguir estão as limitações do recurso atual:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](./manage-runas-account.md). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
+- Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](./automation-security-overview.md#run-as-accounts). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
 
 - A conta de automação vinculada e o espaço de trabalho Log Analytics precisam estar no mesmo grupo de recursos.
 
@@ -79,7 +79,7 @@ Para habilitar as VMs para o recurso Iniciar/Parar VMs fora do horário comercia
 Você pode habilitar VMs para o recurso Iniciar/Parar VMs fora do horário comercial usando uma nova conta de Automação e um novo workspace do Log Analytics. Nesse caso, você precisa das permissões definidas na seção anterior, bem como das permissões definidas nesta seção. Você também precisa das seguintes funções:
 
 - Co-Administrator na assinatura. Essa função é necessária para criar a conta Executar como clássica se você pretende gerenciar VMs clássicas. [Contas Executar como clássicas](automation-create-standalone-account.md#create-a-classic-run-as-account) não são mais criadas por padrão.
-- Associação na função de Desenvolvedor de Aplicativo do [Azure AD](../active-directory/roles/permissions-reference.md). Para obter mais informações sobre contas Executar como, confira [Permissões para configurar contas Executar como](manage-runas-account.md#permissions).
+- Associação na função de Desenvolvedor de Aplicativo do [Azure AD](../active-directory/roles/permissions-reference.md). Para obter mais informações sobre contas Executar como, confira [Permissões para configurar contas Executar como](automation-security-overview.md#permissions).
 - Colaborador na assinatura ou as permissões a seguir.
 
 | Permissão |Escopo|

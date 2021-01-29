@@ -3,15 +3,15 @@ title: Criar e gerenciar grupos de ações no portal do Azure
 description: Este artigo mostra como criar e gerenciar grupos de ações no portal do Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 01/28/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8e260ae8310807ef9e0dad7d4fe21df8caad9b48
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 08cf66edaa67ab1853a3b246afb9364b431445c6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735286"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055103"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. 
@@ -328,139 +328,8 @@ WebHooks são processados usando as seguintes regras
 - A segunda e terceira tentativas aguardarão 30 segundos por uma resposta.
 - Depois que as 3 tentativas de chamar o webhook falharam, nenhum grupo de ação chamará o ponto de extremidade por 15 minutos.
 
-Intervalos de endereços IP de origem:
+Consulte os [endereços IP do grupo de ações](../app/ip-addresses.md) para os intervalos de endereços IP de origem.
 
- - 13.66.60.119/32
- - 13.66.143.220/30
- - 13.66.202.14/32
- - 13.66.248.225/32
- - 13.66.249.211/32
- - 13.67.10.124/30
- - 13.69.109.132/30
- - 13.71.199.112/30
- - 13.77.53.216/30
- - 13.77.172.102/32
- - 13.77.183.209/32
- - 13.78.109.156/30
- - 13.84.49.247/32
- - 13.84.51.172/32
- - 13.84.52.58/32
- - 13.86.221.220/30
- - 13.106.38.142/32
- - 13.106.38.148/32
- - 13.106.54.3/32
- - 13.106.54.19/32
- - 13.106.57.181/32
- - 13.106.57.196/31
- - 20.38.149.132/30
- - 20.42.64.36/30
- - 20.43.121.124/30
- - 20.44.17.220/30
- - 20.45.123.236/30
- - 20.72.27.152/30
- - 20.150.172.228/30
- - 20.192.238.124/30
- - 20.193.202.4/30
- - 40.68.195.137/32
- - 40.68.201.58/32
- - 40.68.201.65/32
- - 40.68.201.206/32
- - 40.68.201.211/32
- - 40.68.204.18/32
- - 40.115.37.106/32
- - 40.121.219.215/32
- - 40.121.221.62/32
- - 40.121.222.201/32
- - 40.121.223.186/32
- - 51.104.9.100/30
- - 52.183.20.244/32
- - 52.183.31.0/32
- - 52.183.94.59/32
- - 52.184.145.166/32
- - 191.233.50.4/30
- - 191.233.207.64/26
- - 2603:1000:4:402::178/125
- - 2603:1000:104:402::178/125
- - 2603:1010:6:402::178/125
- - 2603:1010:101:402::178/125
- - 2603:1010:304:402::178/125
- - 2603:1010:404:402::178/125
- - 2603:1020:5:402::178/125
- - 2603:1020:206:402::178/125
- - 2603:1020:305:402::178/125
- - 2603:1020:405:402::178/125
- - 2603:1020:605:402::178/125
- - 2603:1020:705:402::178/125
- - 2603:1020:805:402::178/125
- - 2603:1020:905:402::178/125
- - 2603:1020: A04:402:: 178/125
- - 2603:1020: B04:402:: 178/125
- - 2603:1020: C04:402:: 178/125
- - 2603:1020: D04:402:: 178/125
- - 2603:1020: E04:402:: 178/125
- - 2603:1020: F04:402:: 178/125
- - 2603:1020:1004:800:: F8/125
- - 2603:1020:1104:400::178/125
- - 2603:1030: f:400:: 978/125
- - 2603:1030:10:402::178/125
- - 2603:1030:104:402::178/125
- - 2603:1030:107:400:: F0/125
- - 2603:1030:210:402::178/125
- - 2603:1030:40B: 400:: 978/125
- - 2603:1030:40C: 402:: 178/125
- - 2603:1030:504:802:: F8/125
- - 2603:1030:608:402::178/125
- - 2603:1030:807:402::178/125
- - 2603:1030: A07:402:: 8f8/125
- - 2603:1030: B04:402:: 178/125
- - 2603:1030: C06:400:: 978/125
- - 2603:1030: F05:402:: 178/125
- - 2603:1030:1005:402::178/125
- - 2603:1040:5:402::178/125
- - 2603:1040:207:402::178/125
- - 2603:1040:407:402::178/125
- - 2603:1040:606:402::178/125
- - 2603:1040:806:402::178/125
- - 2603:1040:904:402::178/125
- - 2603:1040: A06:402:: 178/125
- - 2603:1040: B04:402:: 178/125
- - 2603:1040: C06:402:: 178/125
- - 2603:1040: D04:800:: F8/125
- - 2603:1040: F05:402:: 178/125
- - 2603:1040:1104:400::178/125
- - 2603:1050:6:402::178/125
- - 2603:1050:403:400:: 1f8/125
-
-Para receber atualizações sobre as alterações para esses endereços IP, é recomendável que você configure um alerta de Integridade do Serviço, que monitora notificações informativas sobre o serviço de grupos de ação.
-
-É possível ter um número limitado de ações de webhook em um grupo de ações.
-
-Atualizações frequentes em endereços IP de origem podem ser muito demoradas no webhook. O uso da **marca de serviço** para o The *Action* ajuda a minimizar a complexidade de atualizações frequentes para endereços IP manualmente. Os prefixos de intervalo de endereços IP de origem compartilhados acima são gerenciados automaticamente pela Microsoft, abrangedos por **marca de serviço**.
-
-#### <a name="service-tag"></a>Marca de serviço
-Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados, minimizando a complexidade de atualizações frequentes para regras de segurança de rede para um The Action.
-
-1. Em portal do Azure em pesquisa de serviços do Azure para *grupo de segurança de rede*.
-2. Clique em **Adicionar** e crie um grupo de segurança de rede.
-
-   1. Adicione o nome do grupo de recursos e insira os *detalhes da instância*.
-   1. Clique em **revisão + criar** e, em seguida, clique em *criar*.
-   
-   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Exemplo de como criar um grupo de segurança de rede."border="true":::
-
-3. Vá para o grupo de recursos e clique em *grupo de segurança de rede* que você criou.
-
-    1. Selecione *regras de segurança de entrada*.
-    1. Clique em **Adicionar**.
-    
-    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Exemplo de como adicionar uma marca de serviço."border="true":::
-
-4. Uma nova janela será aberta no painel direito.
-    1.  Selecionar origem: **marca de serviço**
-    1.  Marca de serviço de **origem: resourcegroup**
-    1.  Clique em **Adicionar**.
-    
-    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Exemplo de como adicionar a marca de serviço."border="true":::
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [comportamento de alertas por SMS](./alerts-sms-behavior.md).  

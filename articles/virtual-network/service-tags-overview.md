@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 39645e8bd370dfd518d570c3088c56a22aa77748
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b353fad64b08f5fc50af2b8d31abab77cd797e25
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927029"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055035"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureBotService** | Serviço de Bot do Azure. | Saída | Não | Não |
 | **AzureCloud** | Todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=56519). | Saída | Sim | Sim |
 | **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>Esta marca ou os endereços IP cobertos por essa marca podem ser usados para conceder aos indexadores o acesso seguro a fontes de dados. Consulte a [documentação de conexão do indexador](../search/search-indexer-troubleshooting.md#connection-errors) para obter mais detalhes. <br/><br/> *Observação*: o IP do serviço de pesquisa não está incluído na lista de intervalos de IP para essa marca de serviço e **também precisa ser adicionado** ao firewall de IP de fontes de dados. | Entrada | Não | Não |
-| **AzureConnectors** | Conectores de Aplicativos Lógicos do Azure para conexões de investigação/back-end. | Entrada | Sim | Sim |
+| **AzureConnectors** | Essa marca representa os endereços IP usados para conectores gerenciados que fazem retornos de chamada de webhook de entrada para o serviço de aplicativos lógicos do Azure e chamadas de saída para seus respectivos serviços, por exemplo, armazenamento do Azure ou hubs de eventos do Azure. | Entrada/saída | Sim | Sim |
 | **AzureContainerRegistry** | Registro de Contêiner do Azure. | Saída | Sim | Sim |
 | **AzureCosmosDB** | Azure Cosmos DB. | Saída | Sim | Sim |
 | **AzureDatabricks** | Azure Databricks. | Ambos | Não | Não |

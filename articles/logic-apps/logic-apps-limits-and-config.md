@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2021
-ms.openlocfilehash: b16e95c231096b7b37175cda5233019696fba19c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 01/25/2021
+ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726508"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054747"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -380,27 +380,42 @@ Ao desabilitar um aplicativo lógico, nenhuma nova execução será instanciada.
 Ao excluir um aplicativo lógico, nenhuma nova execução será instanciada. Todas as execuções em andamento e pendentes serão canceladas. Se você tiver milhares de execuções, o cancelamento poderá demorar um tempo significativo até ser concluído.
 
 <a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configuração do firewall: Endereços IP e marcas de serviço
 
-Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada e saída dependem da região em que seu aplicativo lógico existe. *Todos* os aplicativos lógicos na mesma região usam os mesmos intervalos de endereço IP. Algumas chamadas do [Power Automate](/power-automate/getting-started), como solicitações **HTTP** e **HTTP + OpenAPI**, vão diretamente por meio do serviço de Aplicativos Lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pelo Power Automate, consulte os [Limites e configuração no Power Automate](/flow/limits-and-config#ip-address-configuration).
+Quando seu aplicativo lógico precisa se comunicar por meio de um firewall que limita o tráfego a endereços IP específicos, esse firewall precisa permitir *o acesso* para os endereços IP de [entrada](#inbound) e [saída](#outbound) usados pelo serviço de aplicativos lógicos ou tempo de execução na região do Azure onde o aplicativo lógico existe. *Todos* os aplicativos lógicos na mesma região usam os mesmos intervalos de endereço IP.
 
-> [!TIP]
-> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar [marcas de serviço](../virtual-network/service-tags-overview.md), em vez de especificar os endereços IP dos Aplicativos Lógicos para cada região, descritos mais adiante nesta seção.
-> Essas marcas funcionam nas regiões em que o serviço de Aplicativos Lógicos está disponível:
->
-> * **LogicAppsManagement**: Representa os prefixos do endereço IP de entrada para o serviço de Aplicativos Lógicos.
-> * **LogicApps**: Representa os prefixos do endereço IP de saída para o serviço de Aplicativos Lógicos.
+Por exemplo, para dar suporte a chamadas que os aplicativos lógicos na região oeste dos EUA enviam ou recebem por meio de gatilhos e ações internas, como o [gatilho http ou a ação](../connectors/connectors-native-http.md), o firewall precisa permitir o acesso a *todos* os endereços IP de entrada *e* endereços IP de saída do serviço de aplicativos lógicos que existem na região oeste dos EUA.
 
-* Para o [Azure China 21Vianet](/azure/china/), os endereços IP fixos ou reservados estão indisponíveis para os [conectores personalizados](../logic-apps/custom-connector-overview.md) e os [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors); por exemplo, Armazenamento do Azure, SQL Server, Outlook do Office 365 etc.
+Se seu aplicativo lógico também usar [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), como o conector do Outlook do Office 365 ou o conector do SQL, ou usar [conectores personalizados](/connectors/custom-connectors/), o firewall também precisará permitir o acesso para *todos* os [endereços IP de saída do conector gerenciado](#outbound) na região do Azure do aplicativo lógico. Além disso, se você usar conectores personalizados que acessam recursos locais por meio do [recurso de gateway de dados local no Azure](logic-apps-gateway-connection.md), será necessário configurar a instalação do gateway para permitir o acesso aos *[endereços IP de saída](#outbound)dos conectores gerenciados* correspondentes.
 
-* Para dar suporte às chamadas que os aplicativos lógicos fazem diretamente com [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) e outras solicitações HTTP, configure seu firewall com todos os endereços IP de [entrada](#inbound) *e* [saída](#outbound) usados pelo serviço dos Aplicativos Lógicos, com base nas regiões em que esses aplicativos existem. Esses endereços são exibidos sob os títulos **De entrada** e **De saída** nesta seção e são classificados por região.
+Para obter mais informações sobre como definir as configurações de comunicação no gateway, consulte estes tópicos:
 
-* Para dar suporte às chamadas que os [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors) fazem, configure seu firewall com *todos* os endereços IP [de saída](#outbound) usados por esses conectores, com base nas regiões em que seus aplicativos lógicos existem. Esses endereços são exibidos sob o título **De saída** nesta seção e são classificados por região.
+* [Ajustar configurações de comunicação para gateway de dados local](/data-integration/gateway/service-gateway-communication)
+* [Definir configurações de proxy para o gateway de dados local](/data-integration/gateway/service-gateway-proxy)
 
-* Para habilitar a comunicação para os aplicativos lógicos executados em um ambiente do serviço de integração (ISE), [abra essas portas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+<a name="ip-setup-considerations"></a>
 
-* Se seus aplicativos lógicos tiverem problemas para acessar contas de armazenamento do Azure que usam [firewalls e regras de firewall](../storage/common/storage-network-security.md), você terá [várias opções para habilitar o acesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+### <a name="firewall-ip-configuration-considerations"></a>Considerações de configuração de IP de firewall
+
+Antes de configurar o firewall com endereços IP, examine estas considerações:
+
+* Se você estiver usando a [automatização de energia](/power-automate/getting-started), algumas ações, como **http** e **http + openapi**, vão diretamente por meio do serviço aplicativos lógicos do Azure e vêm dos endereços IP listados aqui. Para obter mais informações sobre os endereços IP usados pela automatização de energia, consulte [limites e configuração para automatizar a energia](/flow/limits-and-config#ip-address-configuration).
+
+* Para o [Azure China 21vianet](/azure/china/), os endereços IP fixos ou reservados não estão disponíveis para [conectores personalizados](../logic-apps/custom-connector-overview.md) e para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), como o armazenamento do Azure, SQL Server, Outlook do Office 365 e assim por diante.
+
+* Se seus aplicativos lógicos forem executados em um [ambiente do serviço de integração (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), certifique-se de [abrir essas portas também](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+
+* Para ajudá-lo a simplificar as regras de segurança que você deseja criar, você pode opcionalmente usar [marcas de serviço](../virtual-network/service-tags-overview.md) , em vez de especificar prefixos de endereço IP para cada região. Essas marcas funcionam nas regiões em que o serviço de Aplicativos Lógicos está disponível:
+
+  * **LogicAppsManagement**: Representa os prefixos do endereço IP de entrada para o serviço de Aplicativos Lógicos.
+
+  * **LogicApps**: Representa os prefixos do endereço IP de saída para o serviço de Aplicativos Lógicos.
+
+  * **AzureConnectors**: representa os prefixos de endereço IP para conectores gerenciados que fazem retornos de chamada de webhook de entrada para o serviço de aplicativos lógicos e chamadas de saída para seus respectivos serviços, como o armazenamento do Azure ou hubs de eventos do Azure.
+
+* Se seus aplicativos lógicos tiverem problemas para acessar contas de armazenamento do Azure que usam [firewalls e regras de firewall](../storage/common/storage-network-security.md), você terá [várias outras opções para habilitar o acesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   Por exemplo, os aplicativos lógicos não podem acessar diretamente as contas de armazenamento que usam regras de firewall e existem na mesma região. No entanto, se você permitir [endereços IP de saída para os conectores gerenciados em sua região](../logic-apps/logic-apps-limits-and-config.md#outbound), seus aplicativos lógicos poderão acessar as contas de armazenamento que estão em uma região diferente, exceto quando usar os conectores de Armazenamento de Tabelas do Azure ou Armazenamento de Filas do Azure. Para acessar o Armazenamento de Tabelas ou o Armazenamento de Filas, você pode usar o gatilho e as ações HTTP. Para ver outras opções, consulte [Acessar contas de armazenamento por trás de firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -411,9 +426,7 @@ Os endereços IP que o aplicativo lógico do Azure usa para chamadas de entrada 
 Esta seção lista os endereços IP de entrada para o serviço de Aplicativos Lógicos do Azure somente. Se você tem o Azure Governamental, consulte os [endereços IP de entrada do Azure Governamental](#azure-government-inbound).
 
 > [!TIP]
-> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, em vez de especificar os endereços IP dos Aplicativos Lógicos de entrada para cada região.
-> Para conectores gerenciados, você pode opcionalmente usar a marca de serviço **AzureConnectors** , em vez de especificar prefixos de endereço IP do conector gerenciado de entrada para cada região.
-> Essas marcas funcionam nas regiões em que o serviço de aplicativos lógicos está disponível.
+> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, em vez de especificar os endereços IP dos Aplicativos Lógicos de entrada para cada região. Opcionalmente, você também pode usar a marca de serviço **AzureConnectors** para conectores gerenciados que fazem retornos de chamada de webhook de entrada para o serviço de aplicativos lógicos, em vez de especificar prefixos de endereço IP do conector gerenciado de entrada para cada região. Essas marcas funcionam nas regiões em que o serviço de aplicativos lógicos está disponível.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -479,8 +492,7 @@ Esta seção lista os endereços IP de entrada para o serviço de Aplicativos L�
 Esta seção lista os endereços IP de saída para o serviço de Aplicativos Lógicos do Azure e conectores gerenciados. Se você tem o Azure Governamental, consulte os [endereços IP de saída do Azure Governamental](#azure-government-outbound).
 
 > [!TIP]
-> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicApps**, em vez de especificar os endereços IP dos Aplicativos Lógicos de saída para cada região.
-> Essa marca funciona nas regiões em que o serviço de Aplicativos Lógicos está disponível. 
+> Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicApps**, em vez de especificar os endereços IP dos Aplicativos Lógicos de saída para cada região. Opcionalmente, você também pode usar a marca de serviço **AzureConnectors** para conectores gerenciados que fazem chamadas de saída para seus respectivos serviços, como o armazenamento do Azure ou hubs de eventos do Azure, em vez de especificar prefixos de endereço IP do conector gerenciado de saída para cada região. Essas marcas funcionam nas regiões em que o serviço de aplicativos lógicos está disponível.
 
 <a name="multi-tenant-outbound"></a>
 

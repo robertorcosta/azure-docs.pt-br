@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: 95f6ce2fefacd20102abe9bbe818f228139ca33d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a995cd1d02438ae3be7091ba55e945549558829d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898504"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055188"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Como desanexar um disco de dados de uma máquina virtual Windows
 
@@ -53,7 +53,7 @@ O disco permanecerá no armazenamento, mas não estará mais conectado a uma má
 1. No menu à esquerda, selecione **Máquinas Virtuais**.
 1. Selecione a máquina virtual que tem o disco de dados que você deseja desanexar.
 1. Em **Configurações**, selecione **Discos**.
-1. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, clique no botão de exclusão **X** .
+1. No painel **discos** , na extrema direita do disco de dados que você deseja desanexar, clique no botão **desanexar X** .
 1. Selecione **Salvar** na parte superior da página para salvar as alterações.
 
 O disco permanecerá no armazenamento, mas não estará mais conectado a uma máquina virtual.

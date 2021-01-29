@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: eaba099725530f24dcd6aa5da7eb59cb233efd46
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695638"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054950"
 ---
 # <a name="azure-functions-http-trigger"></a>Gatilho de HTTP do Azure Functions
 
@@ -448,7 +448,7 @@ Aqui está o arquivo *function.json*:
         {
             "type": "http",
             "direction": "out",
-            "name": "res"
+            "name": "$return"
         }
     ]
 }

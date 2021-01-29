@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 11/25/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 214501c447632232dc00b61643ea21083bd0e4ac
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896487"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055324"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solucionar problemas do Hybrid Runbook Worker
 
@@ -106,7 +106,7 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>Causa
 
-Esse erro ocorre quando você tenta usar uma [conta Executar como](../manage-runas-account.md) em um runbook que é executado em um Hybrid Runbook Worker, em que o certificado da conta Executar como não está presente. Os Hybrid Runbook Workers não têm o ativo de certificado localmente por padrão. A conta Executar como requer que este ativo funcione corretamente.
+Esse erro ocorre quando você tenta usar uma [conta Executar como](../automation-security-overview.md#run-as-accounts) em um runbook que é executado em um Hybrid Runbook Worker, em que o certificado da conta Executar como não está presente. Os Hybrid Runbook Workers não têm o ativo de certificado localmente por padrão. A conta Executar como requer que este ativo funcione corretamente.
 
 #### <a name="resolution"></a>Resolução
 

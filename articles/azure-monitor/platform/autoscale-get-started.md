@@ -1,20 +1,20 @@
 ---
 title: Introdução ao dimensionamento automático no Azure
-description: Saiba como dimensionar seu aplicativo Web de recurso, serviço de nuvem, máquina virtual ou conjunto de dimensionamento de máquinas virtuais no Azure.
+description: Saiba como dimensionar seu aplicativo Web de recursos, serviço de nuvem, máquina virtual ou conjunto de dimensionamento de máquinas virtuais no Azure.
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 9bbd4da77d2892064906dc7ae272bcc770b6bdc4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694919"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055273"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
 
-O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento de Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aos [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/), ao [Serviço de Aplicativo – Aplicativos Web](https://azure.microsoft.com/services/app-service/web/) e aos [Serviços de Gerenciamento de API](../../api-management/api-management-key-concepts.md).
+Azure Monitor dimensionamento automático se aplica somente aos [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços de nuvem](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicativo-aplicativos Web](https://azure.microsoft.com/services/app-service/web/)e [serviços de gerenciamento de API](../../api-management/api-management-key-concepts.md).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Descobrir as configurações de dimensionamento automático na sua assinatura
 
@@ -57,7 +57,7 @@ Agora, vamos percorrer um passo a passo simples para criar sua primeira configur
 
    Agora, você deve ter uma configuração de dimensionamento que expande/reduz com base no uso da CPU.
    ![Dimensionamento com base na CPU][8]
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 Parabéns! Você criou com êxito sua primeira configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base no uso da CPU.
 
@@ -115,36 +115,9 @@ Você sempre pode retornar para o dimensionamento automático clicando em **Habi
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Rotear o tráfego para instâncias íntegras (serviço de aplicativo)
 
-Quando você é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego somente para as instâncias íntegras. Para fazer isso, abra o portal para o serviço de aplicativo e selecione **verificação de integridade** em **monitoramento**. Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` . Clique em **Save** (Salvar).
+<a id="health-check-path"></a>
 
-Para habilitar o recurso com modelos ARM, defina a `healthcheckpath` Propriedade do `Microsoft.Web/sites` recurso para o caminho de verificação de integridade em seu site, por exemplo: `"/api/health/"` . Para desabilitar o recurso, defina a propriedade de volta para a cadeia de caracteres vazia, `""` .
-
-### <a name="health-check-path"></a>Caminho de verificação de integridade
-
-O caminho deve responder dentro de um minuto com um código de status entre 200 e 299 (inclusivo). Se o caminho não responder dentro de um minuto ou retornar um código de status fora do intervalo, a instância será considerada "não íntegra". O serviço de aplicativo não segue 30 vezes (301, 302, 307, etc.) redirecionamentos no caminho da verificação de integridade--esses códigos de status são considerados não **íntegros**. A verificação de integridade se integra aos recursos de autenticação e autorização do serviço de aplicativo, o sistema alcançará o ponto de extremidade mesmo se esses recursos de segurança estiverem habilitados. Se você estiver usando seu próprio sistema de autenticação, o caminho de verificação de integridade deverá permitir acesso anônimo. Se o site tiver somente HTTP **s** habilitado, a solicitação HealthCheck será enviada via http **s**.
-
-O caminho de verificação de integridade deve verificar os componentes críticos do seu aplicativo. Por exemplo, se seu aplicativo depende de um banco de dados e um sistema de mensagens, o ponto de extremidade de verificação de integridade deve se conectar a esses componentes. Se o aplicativo não puder se conectar a um componente crítico, o caminho deverá retornar um código de resposta de nível 500 para indicar que o aplicativo não está íntegro.
-
-#### <a name="security"></a>Segurança 
-
-As equipes de desenvolvimento em grandes empresas geralmente precisam aderir aos requisitos de segurança para suas APIs expostas. Para proteger o ponto de extremidade HealthCheck, você deve primeiro usar recursos como [restrições de IP](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), certificados de [cliente](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)ou uma rede virtual para restringir o acesso ao aplicativo. Você pode proteger o ponto de extremidade HealthCheck em si, exigindo que o `User-Agent` da solicitação de entrada seja correspondente `ReadyForRequest/1.0` . O User-Agent não pode ser falsificado, pois a solicitação já foi protegida pelos recursos de segurança anteriores.
-
-### <a name="behavior"></a>Comportamento
-
-Quando o caminho de verificação de integridade for fornecido, o serviço de aplicativo executará ping no caminho em todas as instâncias. Se um código de resposta bem-sucedido não for recebido após 5 pings, essa instância será considerada "não íntegra". Instâncias não íntegras serão excluídas da rotação do balanceador de carga se você for dimensionado para duas ou mais instâncias e usando a [camada básica](../../app-service/overview-hosting-plans.md) ou superior. Você pode configurar o número necessário de pings com falha com a `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` configuração do aplicativo. Essa configuração de aplicativo pode ser definida como qualquer inteiro entre 2 e 10. Por exemplo, se estiver definido como `2` , suas instâncias serão removidas do balanceador de carga após dois pings com falha. Além disso, quando você estiver aumentando ou reduzindo, o serviço de aplicativo executará ping no caminho de verificação de integridade para garantir que as novas instâncias estejam prontas para solicitações antes de serem adicionadas ao balanceador de carga.
-
-> [!NOTE]
-> Lembre-se de que o plano do serviço de aplicativo deve ser dimensionado para duas ou mais instâncias e ser a **camada básica ou superior** para que a exclusão do balanceador de carga ocorra. Se você tiver apenas 1 instância, ela não será removida do balanceador de carga, mesmo que não esteja íntegra. 
-
-Além disso, o caminho de verificação de integridade é pingado quando as instâncias são adicionadas ou reiniciadas, como durante operações de expansão, reinicializações manuais ou implantação de código por meio do site do SCM. Se a verificação de integridade falhar durante essas operações, as instâncias com falha não serão adicionadas ao balanceador de carga. Isso impede que essas operações afetem negativamente a disponibilidade do seu aplicativo.
-
-Ao usar o HealthCheck, suas instâncias íntegras restantes podem sofrer uma carga maior. Para evitar sobrecarregar as instâncias restantes, não mais do que metade das instâncias serão excluídas. Por exemplo, se um plano do serviço de aplicativo for escalado horizontalmente para 4 instâncias e três das quais não estiverem íntegras, no máximo 2 serão excluídas da rotação do balanceador. As outras 2 instâncias (1 íntegro e 1 não íntegro) continuarão a receber solicitações. No pior cenário em que todas as instâncias não estão íntegras, nenhuma será excluída. Se você quiser substituir esse comportamento, poderá definir a `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` configuração do aplicativo como um valor entre `0` e `100` . Definir isso para um valor mais alto significa que mais instâncias não íntegras serão removidas (o valor padrão é 50).
-
-Se as verificações de integridade falharem para todos os aplicativos em uma instância por uma hora, a instância será substituída. No máximo uma instância será substituída por hora, com um máximo de três instâncias por dia por plano do serviço de aplicativo.
-
-### <a name="monitoring"></a>Monitoramento
-
-Depois de fornecer o caminho de verificação de integridade do aplicativo, você pode monitorar a integridade do seu site usando Azure Monitor. Na folha **verificação de integridade** no portal, clique nas **métricas** na barra de ferramentas superior. Isso abrirá uma nova folha em que você poderá ver o status de integridade histórico do site e criar uma nova regra de alerta. Para obter mais informações sobre como monitorar seus sites, [consulte o guia em Azure monitor](../../app-service/web-sites-monitor.md).
+Quando seu aplicativo Web do Azure é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego para as instâncias íntegras. Para saber mais, confira [Este artigo sobre a verificação de integridade do serviço de aplicativo](../../app-service/monitor-instances-health-check.md).
 
 ## <a name="moving-autoscale-to-a-different-region"></a>Movendo o dimensionamento automático para uma região diferente
 Esta seção descreve como mover a autoescala do Azure para outra região sob a mesma assinatura e grupo de recursos. Você pode usar a API REST para mover as configurações de dimensionamento automático.
