@@ -3,12 +3,12 @@ title: Proteger suas VMs de solução do Azure VMware com a integração da cent
 description: Saiba como proteger suas VMs de solução do Azure VMware com as ferramentas de segurança nativa do Azure de um único painel na central de segurança do Azure.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937331"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061457"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteger suas VMs de solução do Azure VMware com a integração da central de segurança do Azure
 
@@ -32,7 +32,7 @@ Depois que os logs são coletados pelo espaço de trabalho Log Analytics, você 
 
 Você pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel para detecção de alertas, visibilidade de ameaças, busca proativa e resposta a ameaças. No diagrama anterior, a central de segurança do Azure está conectada ao Azure Sentinel usando o conector da central de segurança do Azure. A central de segurança do Azure encaminhará a vulnerabilidade do ambiente para o Azure Sentinel para criar um incidente e mapear com outras ameaças. Você também pode criar a consulta de regras agendadas para detectar atividades indesejadas e convertê-las nos incidentes.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 - Os serviços nativos do Azure podem ser usados para segurança de ambiente híbrido no Azure, solução Azure VMware e serviços locais.
 - Usando um espaço de trabalho Log Analytics, você pode coletar os dados ou os logs para um único ponto e apresentar os mesmos dados a diferentes serviços nativos do Azure.
@@ -45,7 +45,7 @@ Você pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel p
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar um workspace do Log Analytics
 
-Você precisará de um espaço de trabalho Log Analytics para coletar dados de várias fontes. Consulte as etapas em [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/learn/quick-create-workspace.md). 
+Você precisará de um espaço de trabalho Log Analytics para coletar dados de várias fontes. Para obter mais informações, consulte [criar um log Analytics espaço de trabalho no portal do Azure](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Implantar a central de segurança e configurar VMs da solução Azure VMware
 
@@ -77,7 +77,7 @@ O Azure defender estende a proteção avançada contra ameaças da central de se
 
 5. Na guia **detalhes do recurso** , preencha os seguintes detalhes: 
     - Assinatura
-    - Resource group
+    - Grupo de recursos
     - Região 
     - Sistema operacional
     - Detalhes do servidor proxy
@@ -157,7 +157,7 @@ Depois de conectar fontes de dados ao Azure Sentinel, você pode criar regras pa
     - Nome
     - Descrição
     - Táticas
-    - Severidade
+    - Gravidade
     - Status
 
     Selecione **Avançar: definir >de lógica de regra**.

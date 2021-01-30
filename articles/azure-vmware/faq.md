@@ -3,12 +3,12 @@ title: Perguntas frequentes
 description: Fornece respostas para algumas das perguntas mais comuns sobre a solução do Azure VMware.
 ms.topic: conceptual
 ms.date: 1/14/2021
-ms.openlocfilehash: 8245cd8da983ce48ba88d7faef76ab9b7ceb8c26
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 090b29b1e013ffbceb9296250fed99a04d15a82c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218579"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062080"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre a solução do Azure VMware
 
@@ -258,11 +258,11 @@ O VMware HCX Enterprise está disponível com a solução Azure VMware como uma 
 
 ### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Como fazer solicitar um aumento de cota de host para a solução do Azure VMware?
 
-Para assinaturas gerenciadas pelo CSP, o cliente deve enviar a solicitação ao parceiro. Em seguida, a equipe de parceiros se comunica com a Microsoft para obter a cota aumentada para a assinatura. Consulte o [artigo sobre como habilitar o recurso da solução Azure VMware](enable-azure-vmware-solution.md) para obter detalhes. 
+Para assinaturas gerenciadas pelo CSP, o cliente deve enviar a solicitação ao parceiro. Em seguida, a equipe de parceiros se comunica com a Microsoft para obter a cota aumentada para a assinatura. Para obter mais informações, confira [Como habilitar o recurso de Solução VMware no Azure](enable-azure-vmware-solution.md). 
 
 Para assinaturas EA, use o procedimento a seguir. Primeiro, você precisará de:
 
-* Um [ea (Enterprise Agreement do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
+* Um [ea (contrato Enterprise do Azure)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 * Uma conta do Azure em uma assinatura do Azure.
 
 Antes de criar o recurso de solução do Azure VMware, você enviará um tíquete de suporte para que seus hosts sejam alocados. Leva até cinco dias úteis para confirmar e atender à sua solicitação. Se você tiver uma nuvem privada da Solução VMware no Azure existente e quiser mais hosts alocados, deverá passar pelo mesmo processo.
