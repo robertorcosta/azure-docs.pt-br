@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e2623ebf929f6a24cfc977896acea514634ffb23
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054494"
+ms.locfileid: "99071691"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (APIs e CLI)
 
@@ -48,7 +48,7 @@ Esta seção explica como criar esses pontos de extremidade usando o CLI do Azur
 
 ### <a name="create-the-endpoint"></a>Criar o ponto de extremidade
 
-Depois de criar os recursos do ponto de extremidade, você poderá usá-los para um ponto de extremidade do Azure digital gêmeos. Os exemplos a seguir mostram como criar pontos de extremidade usando o `az dt endpoint create` comando para a [CLI do Azure digital gêmeos](how-to-use-cli.md). Substitua os espaços reservados nos comandos pelos detalhes de seus próprios recursos.
+Depois de criar os recursos do ponto de extremidade, você poderá usá-los para um ponto de extremidade do Azure digital gêmeos. Os exemplos a seguir mostram como criar pontos de extremidade usando o comando [AZ DT Endpoint Create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) para a [CLI do Azure digital gêmeos](how-to-use-cli.md). Substitua os espaços reservados nos comandos pelos detalhes de seus próprios recursos.
 
 Para criar um ponto de extremidade de grade de eventos:
 
@@ -56,21 +56,39 @@ Para criar um ponto de extremidade de grade de eventos:
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Para criar um ponto de extremidade de hubs de eventos:
+Para criar um ponto de extremidade de hubs de eventos (autenticação baseada em chave):
 ```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Para criar um ponto de extremidade de tópico do barramento de serviço:
+Para criar um ponto de extremidade de tópico do barramento de serviço (autenticação baseada em chave):
 ```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 Após a execução bem-sucedida desses comandos, a grade de eventos, o Hub de eventos ou o tópico do barramento de serviço estarão disponíveis como um ponto de extremidade dentro do Azure digital gêmeos, sob o nome fornecido com o `--endpoint-name` argumento. Normalmente, você usará esse nome como o destino de uma **rota de evento**, que será criada [posteriormente neste artigo](#create-an-event-route).
 
+#### <a name="create-an-endpoint-with-identity-based-authentication"></a>Criar um ponto de extremidade com autenticação baseada em identidade
+
+Você também pode criar um ponto de extremidade que tenha autenticação baseada em identidade para usar o ponto de extremidade com uma [identidade gerenciada](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Essa opção só está disponível para os pontos de extremidade do hub de eventos e do tipo de barramento de serviço (não há suporte para a grade de eventos).
+
+O comando da CLI para criar esse tipo de ponto de extremidade está abaixo. Você precisará dos seguintes valores para se conectar aos espaços reservados no comando:
+* a ID de recurso do Azure da instância de gêmeos digital do Azure
+* um nome de ponto de extremidade
+* um tipo de ponto de extremidade
+* o namespace do recurso do ponto de extremidade
+* o nome do hub de eventos ou tópico do barramento de serviço
+* o local da instância de gêmeos digital do Azure
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Criar um ponto de extremidade com mensagens mortas
 
 Quando um ponto de extremidade não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue para uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**.
+
+Os pontos de extremidade com mensagens mortas habilitadas podem ser configurados com as APIs da [CLI](how-to-use-cli.md) do Azure digital gêmeos ou do [plano de controle](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
 Para saber mais sobre mensagens mortas, consulte [*conceitos: rotas de eventos*](concepts-route-events.md#dead-letter-events). Para obter instruções sobre como configurar um ponto de extremidade com mensagens mortas, continue no restante desta seção.
 
@@ -78,7 +96,7 @@ Para saber mais sobre mensagens mortas, consulte [*conceitos: rotas de eventos*]
 
 Antes de definir o local de mensagens mortas, você deve ter uma [conta de armazenamento](../storage/common/storage-account-create.md?tabs=azure-portal) com um [contêiner](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurado em sua conta do Azure. 
 
-Você fornecerá a URL para esse contêiner ao criar o ponto de extremidade posteriormente. O local de mensagens mortas será fornecido ao ponto de extremidade como uma URL de contêiner com um [token SAS](../storage/common/storage-sas-overview.md). Esse token precisa `write` de permissão para o contêiner de destino dentro da conta de armazenamento. A URL totalmente formada estará no formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` .
+Você fornecerá o URI para esse contêiner ao criar o ponto de extremidade posteriormente. O local de mensagens mortas será fornecido ao ponto de extremidade como um URI de contêiner com um [token SAS](../storage/common/storage-sas-overview.md). Esse token precisa `write` de permissão para o contêiner de destino dentro da conta de armazenamento. O URI de **SAS de mensagens mortas** totalmente formado estará no formato: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>` .
 
 Siga as etapas abaixo para configurar esses recursos de armazenamento em sua conta do Azure, para se preparar para configurar a conexão de ponto de extremidade na próxima seção.
 
@@ -99,25 +117,44 @@ Siga as etapas abaixo para configurar esses recursos de armazenamento em sua con
 
     :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copie o token SAS para usar no segredo de mensagens mortas." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
     
-#### <a name="configure-the-endpoint"></a>Configurar o ponto de extremidade
+#### <a name="create-the-dead-letter-endpoint"></a>Criar o ponto de extremidade de mensagens mortas
 
-Para criar um ponto de extremidade com mensagens mortas habilitadas, você pode criar o ponto de extremidade usando as APIs de Azure Resource Manager. 
+Para criar um ponto de extremidade com mensagens mortas habilitadas, adicione o seguinte parâmetro de mensagens mortas ao comando [AZ DT Endpoint Create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) para a [CLI do Azure digital gêmeos](how-to-use-cli.md).
 
-1. Primeiro, use a [documentação de APIs de Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para configurar uma solicitação para criar um ponto de extremidade e preencher os parâmetros de solicitação necessários. 
+O valor para o parâmetro é o **URI SAS de mensagens mortas** constituído do nome da conta de armazenamento, do nome do contêiner e do token SAS que você reuniu na [seção anterior](#set-up-storage-resources). Esse parâmetro cria o ponto de extremidade com autenticação baseada em chave.
 
-2. Em seguida, adicione um `deadLetterSecret` campo ao objeto Properties no **corpo** da solicitação. Defina esse valor de acordo com o modelo abaixo, que recolocará uma URL do nome da conta de armazenamento, do nome do contêiner e do valor do token SAS que você coletou na [seção anterior](#set-up-storage-resources).
-      
-  :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
+```azurecli
+--deadletter-sas-uri https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
+```
 
-3. Envie a solicitação para criar o ponto de extremidade.
+Adicione esse parâmetro ao final dos comandos de criação do ponto de extremidade na seção [*criar o ponto de extremidade*](#create-the-endpoint) anteriormente para criar um ponto de extremidade do tipo desejado com a inatividade habilitada.
 
-Para obter mais informações sobre como estruturar essa solicitação, consulte a documentação da API REST do Azure digital gêmeos: [pontos de extremidade – DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+Como alternativa, você pode criar pontos de extremidade de mensagens mortas usando as [APIs do plano do controle de gêmeos digital do Azure](how-to-use-apis-sdks.md#overview-control-plane-apis) em vez da CLI. Para fazer isso, exiba a [documentação do DigitalTwinsEndpoint](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para ver como estruturar a solicitação e adicionar os parâmetros de letra mortas.
 
-### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
+#### <a name="create-a-dead-letter-endpoint-with-identity-based-authentication"></a>Criar um ponto de extremidade de mensagens mortas com autenticação baseada em identidade
+
+Você também pode criar um ponto de extremidade de mensagens mortas que tenha autenticação baseada em identidade, para usar o ponto de extremidade com uma [identidade gerenciada](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Essa opção só está disponível para os pontos de extremidade do hub de eventos e do tipo de barramento de serviço (não há suporte para a grade de eventos).
+
+Para criar esse tipo de ponto de extremidade, use o mesmo comando de CLI anterior para [criar um ponto de extremidade com autenticação baseada em identidade](#create-an-endpoint-with-identity-based-authentication), com um campo extra no conteúdo JSON para um `deadLetterUri` .
+
+Aqui estão os valores que você precisará para se conectar aos espaços reservados no comando:
+* a ID de recurso do Azure da instância de gêmeos digital do Azure
+* um nome de ponto de extremidade
+* um tipo de ponto de extremidade
+* o namespace do recurso do ponto de extremidade
+* o nome do hub de eventos ou tópico do barramento de serviço
+* detalhes de **URI de SAS de mensagens mortas** : nome da conta de armazenamento, nome do contêiner
+* o local da instância de gêmeos digital do Azure
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
+#### <a name="message-storage-schema"></a>Esquema de armazenamento de mensagens
 
 Depois que o ponto de extremidade com mensagens mortas estiver configurado, mensagens mortas serão armazenadas no seguinte formato em sua conta de armazenamento:
 
-`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+`{container}/{endpoint-name}/{year}/{month}/{day}/{hour}/{event-ID}.json`
 
 As mensagens inativas corresponderão ao esquema do evento original que deveria ser entregue ao seu ponto de extremidade original.
 
@@ -128,7 +165,7 @@ Aqui está um exemplo de uma mensagem de mensagens mortas para uma [notificaçã
   "specversion": "1.0",
   "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "type": "Microsoft.DigitalTwins.Twin.Create",
-  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "source": "<your-instance>.api.<your-region>.da.azuredigitaltwins-test.net",
   "data": {
     "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",

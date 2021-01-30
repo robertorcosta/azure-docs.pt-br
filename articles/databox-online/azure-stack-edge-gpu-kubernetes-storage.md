@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2d079f2fa3e67f1ec915a02de3e195ccac538209
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448704"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063291"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Gerenciamento de armazenamento kubernetes em seu dispositivo de GPU pro Azure Stack Edge
 
@@ -79,11 +79,11 @@ Ocorrem as seguintes etapas:
 
 No dispositivo Azure Stack Edge pro, o provisionamento estático `PersistentVolumes` é criado usando os recursos de armazenamento do dispositivo. Quando você provisiona um compartilhamento e **usa a opção compartilhar com a computação de borda** está habilitada, essa ação cria um recurso VP automaticamente no cluster kubernetes.
 
-![Criação de compartilhamento local em portal do Azure para provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
+![Criação de compartilhamento local em portal do Azure para provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
 Para usar a camada de nuvem, você pode criar um compartilhamento de nuvem de borda com a opção usar o compartilhamento com a computação de borda habilitada. Um PV é novamente criado automaticamente para esse compartilhamento. Todos os dados do aplicativo gravados no compartilhamento de borda são em camadas para a nuvem. 
 
-![Criação de compartilhamento de nuvem em portal do Azure para provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
+![Criação de compartilhamento de nuvem em portal do Azure para provisionamento estático](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
 Você pode criar compartilhamentos SMB e NFS para provisionar estaticamente o PVs no dispositivo pro Azure Stack Edge. Depois que o PV for provisionado, você enviará um PVC para reivindicar esse armazenamento. Aqui está um exemplo de uma implantação de PVC `yaml` que declara o armazenamento e usa os compartilhamentos que você provisionou.
 

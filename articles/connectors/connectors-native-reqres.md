@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920811"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063005"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Receber e responder a solicitações HTTPS de entrada nos Aplicativos Lógicos do Azure
 
@@ -216,7 +216,7 @@ Ao usar o gatilho de solicitação para lidar com solicitações de entrada, voc
 > Se uma ação de resposta incluir esses cabeçalhos, os Aplicativos Lógicos removerão esses cabeçalhos da mensagem de resposta gerada sem mostrar nenhum aviso ou erro:
 >
 > * `Allow`
-> * `Content-*` com estas exceções: `Content-Disposition`, `Content-Encoding` e `Content-Type`
+> * `Content-*` cabeçalhos, exceto para `Content-Disposition` , `Content-Encoding` e `Content-Type` quando você usa operações post e put, mas não são incluídos para operações Get
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`

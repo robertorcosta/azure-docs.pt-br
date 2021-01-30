@@ -4,12 +4,12 @@ description: Saiba mais sobre a criptografia em repouso do registro de contêine
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620421"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062721"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Criptografar o Registro usando uma chave gerenciada pelo cliente
 
@@ -247,7 +247,7 @@ Você usará o nome da identidade nas etapas posteriores.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-managed-identity.png" alt-text="Criar identidade atribuída ao usuário no portal do Azure":::
 
-### <a name="create-a-key-vault"></a>Criar um cofre de chaves
+### <a name="create-a-key-vault"></a>Criar um cofre de chave
 
 Para obter as etapas para criar um cofre de chaves, consulte [início rápido: criar um cofre de chaves usando o portal do Azure](../key-vault/general/quick-create-portal.md).
 
@@ -566,21 +566,31 @@ Depois de concluir as etapas anteriores, gire a chave para uma nova chave no cof
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-### <a name="removing-user-assigned-identity"></a>Removendo identidade atribuída pelo usuário
+### <a name="removing-managed-identity"></a>Removendo identidade gerenciada
 
-Se você tentar remover uma identidade atribuída pelo usuário de um registro que é usado para criptografia, você poderá ver uma mensagem de erro semelhante a:
+
+Se você tentar remover uma identidade gerenciada atribuída pelo usuário ou pelo sistema de um registro que é usado para configurar a criptografia, você poderá ver uma mensagem de erro semelhante a:
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Você também não poderá alterar (girar) a chave de criptografia. Se esse problema ocorrer, primeiro reatribua a identidade usando o GUID exibido na mensagem de erro. Por exemplo:
+Você também não poderá alterar (girar) a chave de criptografia. As etapas de resolução dependem do tipo de identidade usado para criptografia.
+
+**Identidade atribuída ao usuário**
+
+Se esse problema ocorrer com uma identidade atribuída pelo usuário, primeiro reatribua a identidade usando o GUID exibido na mensagem de erro. Por exemplo:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
         
 Em seguida, depois de alterar a chave e atribuir uma identidade diferente, você pode remover a identidade original atribuída pelo usuário.
+
+**Identidade atribuída ao sistema**
+
+Se esse problema ocorrer com uma identidade atribuída pelo sistema, [crie um tíquete de suporte do Azure](https://azure.microsoft.com/support/create-ticket/) para obter assistência para restaurar a identidade.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

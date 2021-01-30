@@ -3,12 +3,12 @@ title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
 description: Configure manualmente o monitoramento do Application Insights para um novo aplicativo em tempo real.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: adc40db493c701a21fd30d10a4452edee1b87ab9
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: e69611d650f61630c8b36f7387b79cffbb61f227
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951252"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062906"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -36,8 +36,8 @@ Entre no [portal do Azure](https://portal.azure.com) e crie um recurso do Applic
 
 Insira os valores apropriados nos campos obrigatórios e selecione **Examinar + criar**.
 
-[!div class="mx-imgBorder"]
-![Insira os valores nos campos obrigatórios e, em seguida, selecione "examinar + criar".](./media/create-new-resource/review-create.png)
+> [!div class="mx-imgBorder"]
+> ![Insira os valores nos campos obrigatórios e, em seguida, selecione "examinar + criar".](./media/create-new-resource/review-create.png)
 
 Quando seu aplicativo tiver sido criado, um novo painel será aberto. Esse painel mostra os dados de uso e de desempenho do seu aplicativo monitorado. 
 

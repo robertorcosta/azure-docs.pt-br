@@ -3,12 +3,12 @@ title: Conceito – integrar uma implantação de solução do Azure VMware em u
 description: Saiba como integrar uma implantação de solução do Azure VMware em uma arquitetura de Hub e spoke no Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 0d511c8d6a96ffb6fa666bcb7c989764f398bdc9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: bfc442e569572349b1323500fbd0b2f912ebbc62
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901378"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062738"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrar a solução do Azure VMware em uma arquitetura de Hub e spoke
 
@@ -76,7 +76,7 @@ Como um gateway de ExpressRoute não fornece roteamento transitivo entre seus ci
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Solução do Azure VMware para o fluxo de tráfego de rede virtual do Hub" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
-Você pode encontrar mais detalhes sobre os conceitos de conectividade e rede da solução do Azure VMware na [documentação do produto da solução Azure VMware](./concepts-networking.md).
+Para obter mais informações sobre conceitos de conectividade e rede da solução do Azure VMware, consulte a [documentação do produto da solução Azure VMware](./concepts-networking.md).
 
 ### <a name="traffic-segmentation"></a>Segmentação de tráfego
 
@@ -103,7 +103,7 @@ Um segundo nível de segmentação de tráfego usando os grupos de segurança de
 
 Aplicativo Azure gateway v1 e v2 foram testados com aplicativos Web que são executados em VMs de solução do Azure VMware como um pool de back-end. Atualmente, o gateway de aplicativo é o único método com suporte para expor aplicativos Web em execução em VMs de solução do Azure VMware para a Internet. Ele também pode expor os aplicativos a usuários internos com segurança.
 
-Examine o artigo específico da solução Azure VMware no [Gateway de aplicativo](./protect-azure-vmware-solution-with-application-gateway.md) para obter os detalhes e os requisitos.
+Para obter mais informações, consulte o artigo específico da solução Azure VMware no [Gateway de aplicativo](./protect-azure-vmware-solution-with-application-gateway.md).
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Segundo nível de segmentação de tráfego usando os grupos de segurança de rede" border="false":::
 

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b1c0e91b08fff80c0308c0ead5fabce903421adc
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649561"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090113"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para acessar aplicativos remotamente com o Proxy de Aplicativo do Azure AD
 
@@ -108,7 +108,7 @@ O conector usa um certificado de cliente para autenticar o serviço de Proxy de 
 Quando o conector é configurado pela primeira vez, ocorrem os seguintes eventos de fluxo:
 
 1. O registro do conector para o serviço ocorre como parte da instalação do conector. Os usuários são solicitados a digitar suas credenciais de administrador do Azure AD.  O token adquirido dessa autenticação é então apresentado ao serviço de Proxy de Aplicativo do Azure AD.
-2. O serviço de Proxy de Aplicativo avalia o token. Ele verifica se o usuário é um administrador da empresa no locatário.  Se o usuário não for um administrador, o processo será encerrado.
+2. O serviço de Proxy de Aplicativo avalia o token. Ele verifica se o usuário é um administrador global no locatário.  Se o usuário não for um administrador, o processo será encerrado.
 3. O conector gera uma solicitação de certificado de cliente e a passa, juntamente com o token, para o serviço de Proxy de Aplicativo. O serviço, por sua vez, verifica o token e faz a solicitação do certificado de cliente.
 4. O conector usa o certificado de cliente para comunicação futura com o serviço de Proxy de Aplicativo.
 5. O conector realiza uma extração inicial dos dados de configuração do sistema do serviço usando o respectivo certificado de cliente e está pronto para receber solicitações.

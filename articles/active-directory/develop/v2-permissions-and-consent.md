@@ -12,16 +12,16 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756048"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090180"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Permissões e consentimento na plataforma de identidade da Microsoft
 
-Os aplicativos que se integram com a plataforma de identidade da Microsoft seguem um modelo de autorização que oferece aos usuários e administradores o controle sobre como os dados podem ser acessados. A implementação do modelo de autorização foi atualizada na plataforma de identidade da Microsoft. Ele altera como um aplicativo deve interagir com a plataforma de identidade da Microsoft. Este artigo aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
+Os aplicativos que se integram à plataforma de identidade da Microsoft seguem um modelo de autorização que dá aos usuários e administradores controle sobre como os dados podem ser acessados. A implementação do modelo de autorização foi atualizada na plataforma de identidade da Microsoft. Ele altera como um aplicativo deve interagir com a plataforma de identidade da Microsoft. Este artigo aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
 
 ## <a name="scopes-and-permissions"></a>Permissões e escopos
 
@@ -164,7 +164,7 @@ Se o aplicativo solicitar permissões de aplicativo e um administrador conceder 
 
 Depois de usar o ponto de extremidade de consentimento do administrador para conceder o consentimento do administrador, você terá terminado. Os usuários não precisam executar nenhuma ação adicional. Depois que o consentimento do administrador é concedido, os usuários podem obter um token de acesso por meio de um fluxo de autenticação típico. O token de acesso resultante tem as permissões consentidas.
 
-Quando um administrador da empresa usa seu aplicativo e é direcionado para o ponto de extremidade de autorização, a plataforma de identidade da Microsoft detecta a função do usuário. Ele pergunta se o administrador da empresa deseja consentir em nome do locatário inteiro para as permissões solicitadas. Em vez disso, você poderia usar um ponto de extremidade de consentimento de administrador dedicado para solicitar proativamente um administrador para conceder permissão em nome do locatário inteiro. Esse ponto de extremidade também é necessário para solicitar permissões de aplicativo. Não é possível solicitar permissões de aplicativo usando o ponto de extremidade de autorização.
+Quando um administrador global usa seu aplicativo e é direcionado para o ponto de extremidade de autorização, a plataforma de identidade da Microsoft detecta a função do usuário. Ele pergunta se o administrador global deseja consentir em nome do locatário inteiro para as permissões solicitadas. Em vez disso, você poderia usar um ponto de extremidade de consentimento de administrador dedicado para solicitar proativamente um administrador para conceder permissão em nome do locatário inteiro. Esse ponto de extremidade também é necessário para solicitar permissões de aplicativo. Não é possível solicitar permissões de aplicativo usando o ponto de extremidade de autorização.
 
 Se você seguir estas etapas, seu aplicativo poderá solicitar permissões para todos os usuários em um locatário, incluindo escopos restringidos pelo administrador. Esta operação é de alto privilégio. Use a operação somente se necessário para seu cenário.
 
@@ -219,11 +219,11 @@ https://graph.microsoft.com/mail.send
 
 | Parâmetro        | Condição        | Descrição                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Necessária | O locatário do diretório para o qual você deseja solicitar permissão. Ele pode ser fornecido em um formato de nome amigável ou GUID. Ou pode ser referenciado genericamente com organizações, como visto no exemplo. Não use "comum", porque as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
-| `client_id` | Necessária | A ID do aplicativo (cliente) que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
-| `redirect_uri` | Necessária |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
-| `state` | Recomendado | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-|`scope`        | Necessária        | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Os escopos podem ser estáticos (usando [`/.default`](#the-default-scope) ) ou dinâmicos.  Esse conjunto pode incluir os escopos do OpenID Connect ( `openid` , `profile` , `email` ). Se você precisar de permissões de aplicativo, deverá usar `/.default` para solicitar a lista de permissões configuradas estaticamente.  |
+| `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Ele pode ser fornecido em um formato de nome amigável ou GUID. Ou pode ser referenciado genericamente com organizações, como visto no exemplo. Não use "comum", porque as contas pessoais não podem fornecer consentimento de administrador, exceto no contexto de um locatário. Para garantir a melhor compatibilidade com contas pessoais que gerenciam locatários, use a ID do locatário quando possível. |
+| `client_id` | Obrigatório | A ID do aplicativo (cliente) que a [portal do Azure – registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência atribuída ao seu aplicativo. |
+| `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
+| `state` | Recomendadas | Um valor incluído na solicitação que também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+|`scope`        | Obrigatório        | Define o conjunto de permissões que estão sendo solicitadas pelo aplicativo. Os escopos podem ser estáticos (usando [`/.default`](#the-default-scope) ) ou dinâmicos.  Esse conjunto pode incluir os escopos do OpenID Connect ( `openid` , `profile` , `email` ). Se você precisar de permissões de aplicativo, deverá usar `/.default` para solicitar a lista de permissões configuradas estaticamente.  |
 
 
 Neste ponto, o Azure AD requer um administrador de locatários para entrar e concluir a solicitação. O administrador é solicitado a aprovar todas as permissões que você solicitou no `scope` parâmetro.  Se você usou um valor estático ( `/.default` ), ele funcionará como o ponto de extremidade de consentimento do administrador v 1.0 e solicitará o consentimento para todos os escopos encontrados nas permissões necessárias para o aplicativo.

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 25515c29ae3e5623b447232ed6f935a668a58c3a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658478"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090062"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erro inesperado ao executar o consentimento para um aplicativo
 
@@ -35,7 +35,7 @@ Determinadas condições devem ser verdadeiras para que um usuário conceda as p
 * O **AADSTS90093:** &lt;clientAppDisplayName&gt; está solicitando uma ou mais permissões que você não está autorizado a conceder. Contate um administrador que pode consentir pedido em seu nome.
 * **AADSTS90094:** &lt;clientAppDisplayName&gt; precisa de permissão para acessar recursos em sua organização que apenas um administrador pode conceder. Peça a um administrador para conceder permissão ao aplicativo antes de poder usá-lo.
 
-Esse erro ocorre quando um usuário que não é um administrador de empresa tenta usar um aplicativo que está solicitando permissões, as quais somente um administrador pode conceder. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
+Esse erro ocorre quando um usuário que não é um administrador global tenta usar um aplicativo que está solicitando permissões que apenas um administrador pode conceder. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
 
 Esse erro também pode ocorrer quando um usuário é impedido de consentir em um aplicativo devido à Microsoft detectar que a solicitação de permissões é arriscada. Nesse caso, um evento de auditoria também será registrado com uma categoria de "ApplicationManagement", o tipo de atividade de "consentimento para o aplicativo" e o motivo do status de "aplicativo arriscado detectado".
 
@@ -44,7 +44,7 @@ Outro cenário no qual esse erro pode ocorrer é quando a atribuição de usuár
 ## <a name="policy-prevents-granting-permissions-error"></a>Política impede concessão de permissões de erro
 * **AADSTS90093:** Um administrador do &lt;NomeExibiçãoLocatário&gt; definiu uma política que impede que você conceda ao &lt;nome do aplicativo&gt; as permissões solicitadas. Contate um administrador de &lt;Nome Exibiçãolocatário&gt; que pode conceder permissões para esse aplicativo em seu nome.
 
-Esse erro ocorre quando um administrador da empresa desativa a capacidade de consentimento dos usuários para aplicativos e, em seguida, um usuário não administrador tenta usar um aplicativo que exige consentimento. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
+Esse erro ocorre quando um administrador global desativa a capacidade dos usuários de consentirem com os aplicativos e, em seguida, um usuário não administrador tenta usar um aplicativo que exige consentimento. Esse erro pode ser resolvido por um administrador concedendo acesso ao aplicativo em nome de sua organização.
 
 ## <a name="intermittent-problem-error"></a>Erro de problema intermitente
 * **AADSTS90090:** Parece que o processo de login encontrou um problema intermitente registrando as permissões que você tentou conceder a &lt; clientAppDisplayName &gt;. tente novamente mais tarde.

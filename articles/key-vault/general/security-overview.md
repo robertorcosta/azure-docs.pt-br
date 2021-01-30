@@ -9,22 +9,21 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c4e9f0cd6a7421f5be29200816bb00a56b141367
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937569"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071555"
 ---
-# <a name="azure-key-vault-security-overview"></a>Visão geral da segurança do Azure Key Vault
+# <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
 Você usa Azure Key Vault para proteger chaves de criptografia e segredos como certificados, cadeias de conexão e senhas na nuvem. Ao armazenar dados confidenciais e críticos para os negócios, você precisa tomar medidas para maximizar a segurança de seus cofres e os dados armazenados neles.
 
-Este artigo fornece uma visão geral dos recursos de segurança e das práticas recomendadas para Azure Key Vault. Para obter uma lista abrangente de recomendações, com base no [benchmark de segurança do Azure](../../security/benchmarks/introduction.md), consulte a [linha de base de segurança para Azure Key Vault](security-baseline.md).
+Este artigo fornece uma visão geral dos recursos de segurança e das práticas recomendadas para Azure Key Vault. 
 
-## <a name="general-guidance"></a>Orientação geral
-
-Nossa recomendação é usar um cofre por aplicativo por ambiente (desenvolvimento, pré-produção e produção). Isso ajuda você a não compartilhar segredos entre ambientes e também reduz a ameaça em caso de uma violação.
+> [!NOTE]
+> Para obter uma lista abrangente de Azure Key Vault recomendações de segurança, consulte a [linha de base de segurança para Azure Key Vault](security-baseline.md).
 
 ## <a name="network-security"></a>Segurança de rede
 
@@ -109,20 +108,9 @@ Azure Key Vault a proteção de exclusão e limpeza reversível permite recupera
 
 Você também deve fazer backups regulares de seu cofre em atualizar/excluir/criar objetos em um cofre.  
 
-Azure PowerShell comandos de backup:
-
-* [Certificado de backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Chave de backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Segredo de backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-CLI do Azure comandos de backup
-
-* [Certificado de backup](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Chave de backup](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Segredo de backup](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Azure Key Vault linha de base de segurança](security-baseline.md)
+- [Melhores práticas do Azure Key Vault](security-baseline.md)
 - [Pontos de extremidade de serviço de rede virtual para o Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC do Azure: funções internas](../../role-based-access-control/built-in-roles.md)

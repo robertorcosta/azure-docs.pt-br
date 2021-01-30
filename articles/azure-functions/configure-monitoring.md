@@ -4,12 +4,12 @@ description: Saiba como conectar seu aplicativo de funções a Application Insig
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e24f2b1a61d77dafd7a23b04d225d0301f82ca59
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684701"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070133"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar o monitoramento para Azure Functions
 
@@ -246,7 +246,7 @@ Quando você escolhe **Criar**, um recurso de Application Insights é criado com
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Adicionar a um aplicativo de funções existente 
 
-Se um Application Insights recursos não foi criado com seu aplicativo de funções, use as etapas a seguir para criar o recurso. Em seguida, você pode adicionar a chave de instrumentação a partir desse recurso como uma [configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) no seu aplicativo de funções.
+Se um recurso de Application Insights não foi criado com seu aplicativo de funções, use as etapas a seguir para criar o recurso. Em seguida, você pode adicionar a chave de instrumentação a partir desse recurso como uma [configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) no seu aplicativo de funções.
 
 1. Na [portal do Azure](https://portal.azure.com), procure e selecione aplicativo de **funções** e, em seguida, escolha seu aplicativo de funções. 
 
@@ -271,6 +271,30 @@ Se um Application Insights recursos não foi criado com seu aplicativo de funç�
 
 > [!NOTE]
 > As primeiras versões de Functions usavam o monitoramento interno, o que não é mais recomendado. Ao habilitar a integração do Application Insights para um aplicativo de funções como esse, você também deve [desabilitar o registro em log interno](#disable-built-in-logging).  
+
+## <a name="query-scale-controller-logs"></a>Logs do controlador de escala de consulta
+
+Depois de habilitar o registro em log do controlador de escala e a integração de Application Insights, você pode usar a pesquisa de log de Application Insights para consultar os logs do controlador de escala emitido. Os logs do controlador de escala são salvos na `traces` coleção na categoria **ScaleControllerLogs** .
+
+A consulta a seguir pode ser usada para pesquisar todos os logs do controlador de escala para o aplicativo de funções atual dentro do período de tempo especificado:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+A consulta a seguir se expande na consulta anterior para mostrar como obter apenas os logs que indicam uma alteração na escala:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="disable-built-in-logging"></a>Desabilitar o registro em log interno
 

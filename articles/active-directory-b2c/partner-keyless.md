@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2ab1b5ae87cee6265c965c45b706c7fbf10dfe3f
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: c8a5666d373852da5ff79490f435b2d66d5cc6e0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702947"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090359"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Tutorial: configurar o mínimo com Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ Para configurar um provedor de identidade, siga estas etapas:
    |Propriedade | Valor |
    |:-----| :-----------|
    | Nome   | Keyless |
-   | URL de metadados | Insira o URI do aplicativo de autenticação de menos de hospedagem, seguido pelo caminho específico, como https://keyless.auth/.well-known/openid-configuration |
+   | URL de metadados | Insira o URI do aplicativo de autenticação de menos de hospedagem, seguido pelo caminho específico, como ' https://keyless.auth/.well-known/openid-configuration ' |
    | Segredo do cliente | O segredo associado à instância de autenticação sem chave – não o mesmo que foi configurado antes. Insira uma cadeia de caracteres complexa de sua escolha. Esse segredo será usado posteriormente na configuração de contêiner de chave menos.|
    | ID do Cliente | A ID do cliente. Essa ID será usada mais tarde na configuração do contêiner de subunidade.|
    | Escopo | openid |

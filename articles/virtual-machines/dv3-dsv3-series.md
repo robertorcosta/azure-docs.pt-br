@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: d38b395ec4e4a3e9f3550e6a891ad4785dae8597
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 215f907edb01cc35ffa4e9bb683964f8eda11d94
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919741"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089318"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 e DSv3
 
@@ -35,6 +35,7 @@ O recurso de VMs da série Dv3 Intel® Hyper-Threading tecnologia.
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS/MBps de leitura/MBps de gravação | Largura de banda máxima de NICs/rede |
@@ -60,6 +61,7 @@ O recurso de VMs da série Dsv3 Intel® Hyper-Threading tecnologia.
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento em cache e temporária: IOPS/MBps (tamanho do cache em GiB) | Taxa de transferência máxima de armazenamento em cache e temporária de intermitência: IOPS/MBps<sup>1</sup> | Taxa de transferência de disco sem cache: IOPS/MBps | Taxa de transferência máxima de disco não cache de intermitência: IOPS/MBps<sup>1</sup> | Máximo de NICs/largura de banda de rede esperada (Mbps) |

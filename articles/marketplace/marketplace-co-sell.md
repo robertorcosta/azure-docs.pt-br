@@ -3,16 +3,16 @@ title: Participação de parceiros de venda conjunta - marketplace comercial da 
 description: O programa de venda covendedor do Microsoft Partner Center para parceiros pode ajudá-lo a alcançar uma vasta base de clientes e gerar novas vendas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/2/2020
-ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/29/2021
+ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880280"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063072"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
 
@@ -22,7 +22,7 @@ O programa de venda conjunta está disponível para **software criado com sua pr
 
 - As ofertas **prontas para venda conjuntas** são expostas aos vendedores de campo da Microsoft. Ao trabalhar com os vendedores da Microsoft, o programa de venda conjunta ajuda você a alcançar uma vasta comunidade de clientes gerenciados da Microsoft para colaborar em oportunidades de vendas que aceleram o crescimento de seus negócios.
 
-    ![Diagrama mostrando como a venda de vendas ocorre quando os clientes potenciais são compartilhados, aceitos e ganhos em relação aos clientes gerenciados pela Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="Diagrama mostrando como a venda de vendas ocorre quando os clientes potenciais são compartilhados, aceitos e ganhos em relação aos clientes gerenciados pela Microsoft.":::
 
 - **Co-vender incentivados** As ofertas de IP podem obter incentivos para os vendedores de campo da Microsoft quando eles são vendidos em colaboração com as equipes de vendas da Microsoft, além dos benefícios do Marketplace listados abaixo.</li></ul>
 
@@ -63,7 +63,7 @@ Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as e
 
 1. No menu à esquerda, selecione **co-vender com a Microsoft**.
 
-    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Esta imagem mostra o local da televenda com a guia Microsoft.":::
+    [![Esta imagem mostra o local da televenda com a guia Microsoft.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
 1. Forneça detalhes de listagem básica para ajudar os vendedores da Microsoft a classificar e descobrir rapidamente sua oferta na seção de **listagem** . (*Obrigatório: todos os campos.*)
 
@@ -71,29 +71,20 @@ Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as e
 
 1. Forneça detalhes sobre sua oferta e o material de upload na seção **documentos** . Os vendedores da Microsoft usarão essas informações para recomendar e vender sua oferta. *(Obrigatório: solução/oferta One-pager e solução/oferta de baralho. Necessário para obter o IP do Azure co-vender o status do incentivados: diagrama da arquitetura de referência.)*
 
-    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Esta imagem mostra a seção de documentos na guia de venda conjunta.":::
+    [![Esta imagem mostra a seção de documentos na guia de venda conjunta.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
 
 1. Carregar informações de contato de vendas na seção **contatos** . Os vendedores da Microsoft podem entrar em contato com esses contatos para solicitar informações adicionais sobre sua oferta. (*Obrigatório: um contato para cada geografia no qual sua oferta é* disponibilizada.)
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Esta imagem mostra a seção de contatos na guia de venda conjunta.":::
+    [![Esta imagem mostra a seção de contatos na guia de venda conjunta.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
 
 1. Salve o rascunho antes de continuar.
 1. Depois de concluir todas as seções necessárias da oferta, você pode enviá-las para análise e publicação. No canto superior direito, selecione **revisar e publicar**. Examine os detalhes da oferta e, em seguida, selecione **publicar**.
-1. Depois de garantir que você atende aos [critérios para o status de televenda que você está buscando](#co-sell-publishing-steps-and-requirements), siga as diretrizes abaixo para indicar sua oferta para a venda conjunta:
-    1. **Se você tiver um gerente de parceiros da Microsoft (por exemplo, PDM):** entre em contato com seu gerente de parceiro para obter assistência. Eles guiarão você pelo processo de indicação de status pronto para venda e de venda de IP do Azure ou Business Applications covenda incentivados (se aplicável).
-
-    1. **Se você não tiver um Gerenciador de parceiros da Microsoft (por exemplo, PDM):** [auto-indicado por meio da CED (área de habilitação de nuvem)](https://aka.ms/cednominate). Selecione "tornando-se pronto para venda" na lista suspensa "serviços do CED desejados":
-
-        :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Esta imagem mostra a lista suspensa do CED para solicitar uma revisão de venda conjunta.":::
-
-    O CED entrará em contato com você para concluir o processo.
 
 ## <a name="see-your-offers-co-sell-status"></a>Consulte o status de venda de sua oferta
 
 Para ofertas com a [opção de venda conjunta no Marketplace comercial](commercial-marketplace-co-sell.md), você pode ver o status de venda atual da sua oferta na página Visão geral da oferta:
 
- :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="Esta imagem mostra o status de venda atual de ofertas.":::
-
+[![Esta imagem mostra o status de venda atual de ofertas.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 
