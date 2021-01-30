@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para o Azure Lighthouse
 description: Lista as definições de políticas internas do Azure Policy para o Azure Lighthouse. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 557d6b08be75032747c8f535b2f537da07607d19
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: eb8f7b2b348b93d47056bb5a1b551586a2a69706
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806508"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092077"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Definições internas do Azure Policy para o Azure Lighthouse
 

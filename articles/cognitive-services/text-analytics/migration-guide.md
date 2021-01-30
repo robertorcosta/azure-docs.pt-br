@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656947"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096314"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3. x do API de Análise de Texto
 
@@ -46,9 +46,6 @@ Consulte a documentação de referência para obter exemplos de resposta JSON.
 
 ### <a name="feature-changes"></a>Alterações de recurso
 
-> [!NOTE] 
-> Atualmente, as [categorias de entidade v3](named-entity-types.md) são retornadas apenas em texto em inglês e espanhol. A API retorna resultados da versão 2,1 para solicitações em outras linguagens, desde que elas tenham suporte na versão 2,1.
-
 Na versão 2,1, o API de Análise de Texto usa um ponto de extremidade para NER (reconhecimento de entidade nomeada) e vinculação de entidade. A versão 3 fornece detecção de entidade nomeada expandida e usa pontos de extremidade separados para NER e solicitações de vinculação de entidade. A partir do v 3.1-Preview. 1, o NER também pode detectar `pii` informações pessoais e de saúde `phi` . 
 
 ### <a name="steps-to-migrate"></a>Etapas para migrar
@@ -73,6 +70,35 @@ Consulte a documentação de referência para obter exemplos de resposta JSON.
 #### <a name="client-libraries"></a>Bibliotecas de cliente
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
+
+#### <a name="version-21-entity-categories"></a>Categorias de entidade da versão 2,1
+
+A tabela a seguir lista as categorias de entidade retornadas para o NER v 2.1.
+
+| Categoria   | Descrição                          |
+|------------|--------------------------------------|
+| Person   |   Nomes de pessoas.  |
+|Localização    | Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica |
+|Organização | Empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas. As nacionalidades e Religions não são incluídas nesse tipo de entidade. |
+| PhoneNumber | Números de telefone (somente números de telefone dos EUA e da UE). |
+| Email | Endereços de email. |
+| URL | URLs para sites. |
+| IP | Endereços IP de rede. |
+| Datetime | Datas e horas do dia.| 
+| Data | Datas do calendário. |
+| Hora | Horas do dia |
+| DateRange | Intervalos de datas. |
+| TimeRange | Intervalos de tempo. |
+| Duração | Durações. |
+| Definir | Definido, horários repetidos. |
+| Quantidade | Números e quantidades numéricas. |
+| Número | Números. |
+| Porcentagem | Porcentagens.|
+| Ordinal | Números ordinais. |
+| Idade | Paralisa. |
+| Moeda | Moedas. |
+| Dimensão | Dimensões e medidas. |
+| Temperatura | Temperatura. |
 
 ## <a name="language-detection"></a>[Detecção de idioma](#tab/language-detection)
 

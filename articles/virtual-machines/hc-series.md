@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 86fd90a5979a876313694583709a64e74c116154
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 38020376f9d86fb074bd6d9c09e3d16e899c4a6f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917026"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096891"
 ---
 # <a name="hc-series"></a>Série HC
 
@@ -28,11 +28,12 @@ As VMs da série HC apresentam 100 GB/s Mellanox EDR InfiniBand. Essas VMs são 
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Processador | Memória (GiB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GiB) | Discos de dados máximos | VNICs Ethernet máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Todos | 700 | 4 | 8 |
+| Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Tudo | 700 | 4 | 8 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

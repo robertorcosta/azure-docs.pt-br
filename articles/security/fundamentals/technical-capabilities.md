@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 575486a89cd078325b76fa684ff9bd3d59a619c9
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 353b1708a1c6014f9108ad2be62f22c1e0b0604c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844260"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092761"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -167,7 +167,7 @@ Uma das chaves de proteção de dados na nuvem é responsável por possíveis es
 - Em repouso: isso inclui todos os objetos de armazenamento, contêineres e tipos de informações que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
 - Em trânsito: quando os dados são transferidos entre componentes, locais ou programas, como pela rede, em um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute), ou durante um processo de entrada/saída, ele é considerado em movimento.
 
-### <a name="encryption-at-rest"></a>Criptografia em repouso
+### <a name="encryption-at-rest"></a>Criptografar em repouso
 
 A criptografia em repouso é discutida em detalhes na [criptografia de dados do Azure em repouso](encryption-atrest.md).
 
@@ -181,7 +181,7 @@ Para organizações que precisam proteger o acesso de várias estações de trab
 
 Para organizações que precisam proteger o acesso de uma estação de trabalho localizada localmente local ao Azure, use [VPN Ponto a Site](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
-Conjuntos de dados maiores podem ser movidos em um link WAN de alta velocidade dedicado, como o [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se você optar por usar o ExpressRoute, também poderá criptografar os dados no nível do aplicativo usando [SSL/TLS](https://support.microsoft.com/kb/257591) ou outros protocolos para proteção adicional.
+Conjuntos de dados maiores podem ser movidos em um link WAN de alta velocidade dedicado, como o [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Se você optar por usar o ExpressRoute, também poderá criptografar os dados no nível do aplicativo usando [SSL/TLS](https://web.archive.org/web/20150221085231/http://support.microsoft.com:80/kb/257591) ou outros protocolos para proteção adicional.
 
 Se você estiver interagindo com o Armazenamento do Azure pelo Portal do Azure, todas as transações ocorrerão via HTTPS. A [API REST de armazenamento](/rest/api/storageservices/) sobre HTTPS também pode ser usada para interagir com o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) e com o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/).
 

@@ -3,12 +3,12 @@ title: Usar o Barramento de Serviço do Azure para executar operações de dados
 description: Este artigo fornece informações sobre como usar o Gerenciador do Barramento de Serviço do Azure baseado em portal para acessar os dados do Barramento do Serviço do Azure.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: eb6610945ba4b09543308ab351d3a36ec7e587dd
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 06bc2ffffc6b467aa730e16599099bc95117dac9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684834"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092210"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Usar o Gerenciador do Barramento de Serviço para realizar as operações de dados no Barramento de Serviço (versão prévia)
 
@@ -37,9 +37,9 @@ Para usar a ferramenta Service Bus Explorer, você precisará executar as seguin
     - [Início rápido - Criar filas ](service-bus-quickstart-portal.md)
     - [Início rápido - Criar tópicos ](service-bus-quickstart-topics-subscriptions-portal.md)
 - Verifique se você é membro de uma dessas funções no namespace: 
-    - [Proprietário de dados do barramento de serviço](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
-    - [Colaborador](../role-based-access-control/built-in-roles.md#contributor) 
-    - [Proprietário](/role-based-access-control/built-in-roles.md#owner)
+    - [Proprietário de dados do barramento de serviço](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) 
+    - [Colaborador](/azure/role-based-access-control/built-in-roles#contributor) 
+    - [Proprietário](/azure/role-based-access-control/built-in-roles#owner)
 
 
 ## <a name="using-the-service-bus-explorer"></a>Usar o Gerenciador de Barramento de Serviço

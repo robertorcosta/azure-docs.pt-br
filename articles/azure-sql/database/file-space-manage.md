@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
 ms.date: 12/22/2020
-ms.openlocfilehash: 08cab806d6ad8b75821a92994dde0fa07db8b960
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 7bb754b892715adffc6ead99f3d866f9f9d8af9b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233586"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096484"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gerenciar o espaço de arquivo para bancos de dados no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -219,7 +219,7 @@ Os comandos de redução afetam o desempenho do banco de dados durante a execuç
 
 Você também deve estar ciente do impacto potencial de desempenho negativo da redução de arquivos de banco de dados, consulte a seção [**Recompilar índices**](#rebuild-indexes) abaixo.
 
-Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
+Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
 
 ### <a name="auto-shrink"></a>A redução automática
 

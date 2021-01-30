@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Banco de Dados do Azure para MySQL
 description: Lista as definições de políticas internas do Azure Policy para o Banco de Dados do Azure para MySQL. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: reference
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3eb7ec9ff8db28abb58136e0492bd9ce3cdeeff7
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 28d6f180d388ee958b59799d5dec53d869d47459
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808165"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096348"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mysql"></a>Definições internas do Azure Policy para o Banco de Dados do Azure para MySQL
 

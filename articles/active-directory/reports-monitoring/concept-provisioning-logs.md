@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 1/19/2021
+ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1932cd02cae5e92ee1f6011f952a3e59260388
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054933"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091925"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Visão geral do provisionamento de logs no portal do Azure (versão prévia)
 
@@ -48,7 +48,7 @@ Este tópico fornece uma visão geral dos logs de provisionamento. Os logs forne
 Esses usuários podem acessar os dados em logs de provisionamento:
 
 * Proprietários de aplicativos (logs para seus próprios aplicativos)
-* Usuários das funções administrador de segurança, leitor de segurança, leitor de relatórios, administrador de aplicativos e administrador de aplicativos de nuvem
+* Usuários nas funções administrador de segurança, leitor de segurança, leitor de relatório, operador de segurança, administrador de aplicativos e administrador de aplicativos de nuvem
 * Usuários em uma função personalizada com a [permissão provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 * Administradores globais
 

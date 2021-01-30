@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff2651d2fed9c307bbb90623572b4a74d750d3a4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1fa195fd8d40c6b67a9c446f0b2320fe47d75259
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94836063"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092658"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Perguntas frequentes do Azure Active Directory Connect
 
@@ -162,8 +162,8 @@ Os usuários sincronizados podem ser criados ou controlados localmente. Se a con
 **P: Por que o atributo userPrincipalName (UPN) do Azure AD não corresponde ao UPN local?**  
 Para obter informações, consulte estes artigos:
 
-* [Os nomes de acesso no Microsoft 365, no Azure ou no Intune não correspondem ao UPN local ou à ID de logon alternativa](https://support.microsoft.com/kb/2523192)
-* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois que você altera o UPN de uma conta de usuário para usar um domínio federado diferente](https://support.microsoft.com/kb/2669550)
+* [Os nomes de acesso no Microsoft 365, no Azure ou no Intune não correspondem ao UPN local ou à ID de logon alternativa](https://mskb.pkisolutions.com/kb/2523192)
+* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois que você altera o UPN de uma conta de usuário para usar um domínio federado diferente](https://mskb.pkisolutions.com/kb/2669550)
 
 Você também pode configurar o Azure AD para permitir que o mecanismo de sincronização atualize da forma descrita em [Azure AD Connect sync service features (Recursos do serviço de sincronização do Azure AD Connect)](how-to-connect-syncservice-features.md).
 

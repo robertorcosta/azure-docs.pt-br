@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a08b5db19aab19402aa3c93cfa23ce7b39a0a838
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2416c0b4002f560e272393c95a86c543cb5f1009
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918681"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097835"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -33,6 +33,7 @@ A série Lsv2 apresenta alta taxa de transferência, baixa latência, armazename
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 Intermitência: com suporte<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Taxa de transferência de disco de NVMe<sup>3</sup> (IOPS de leitura/Mbps) | Taxa de transferência de disco de dados não armazenados em cache (IOPs/MBps)<sup>4</sup> | Taxa de transferência máxima de disco de dados não armazenados em cache (IOPs/MBps)<sup>5</sup>| Discos de dados máximos | Máximo de NICs | Largura de banda de rede esperada (Mbps) |

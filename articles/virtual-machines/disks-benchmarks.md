@@ -1,26 +1,26 @@
 ---
-title: Benchmarking de seu aplicativo no Armazenamento em Disco do Azure
+title: Avaliar o aplicativo no Armazenamento em Disco do Azure
 description: Saiba mais sobre o processo de aplicação de parâmetros de comparação em seu aplicativo no Azure.
 author: roygara
 ms.author: rogarana
-ms.date: 01/11/2019
+ms.date: 01/29/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 0d1fb4d51aa08ce1c4889e82d7284da05a68aa17
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: bfda14acc2e50005e25faafa3037805af871c1df
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540508"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094566"
 ---
-# <a name="benchmarking-a-disk"></a>Aplicação de parâmetros de comparação em um disco
+# <a name="benchmark-a-disk"></a>Submeter um disco a benchmark
 
-Os parâmetros de comparação são o processo de simular diferentes cargas de trabalho no aplicativo e avaliar o desempenho do aplicativo para cada carga de trabalho. Usando as etapas descritas no artigo [Projeto para alto desempenho](premium-storage-performance.md), você reuniu os requisitos de desempenho do aplicativo. Ao executar ferramentas de parâmetros de comparação nas VMs que hospedam o aplicativo, você poderá determinar os níveis de desempenho que o aplicativo pode atingir com o Armazenamento Premium. Neste artigo, forneceremos exemplos de parâmetros de comparação de uma VM DS14 Standard provisionada com discos do Armazenamento Premium do Azure.
+Os parâmetros de comparação são o processo de simular diferentes cargas de trabalho no aplicativo e avaliar o desempenho do aplicativo para cada carga de trabalho. Usando as etapas descritas no artigo [Projeto para alto desempenho](premium-storage-performance.md), você reuniu os requisitos de desempenho do aplicativo. Ao executar ferramentas de benchmark nas VMs que hospedam o aplicativo, você pode determinar os níveis de desempenho que seu aplicativo pode atingir com o SSDs Premium. Neste artigo, fornecemos exemplos de benchmarking de uma VM Standard_D8ds_v4 provisionada com o SSDs Premium do Azure.
 
-Usamos ferramentas comuns de parâmetros de comparação, Iometer e FIO, para Windows e Linux, respectivamente. Essas ferramentas geram vários threads que simulam uma carga de trabalho parecida com uma produção e avaliam o desempenho do sistema. Usando as ferramentas, você pode configurar parâmetros como tamanho do bloco e profundidade da fila, que normalmente você não pode mudar para um aplicativo. Isso proporciona mais flexibilidade para impulsionar o desempenho máximo em uma VM de alta escala provisionada com discos premium para diferentes tipos de carga de trabalho de aplicativo. Para saber mais sobre cada ferramenta de parâmetro de comparação, acesse [Iometer](http://www.iometer.org/) e [FIO](http://freecode.com/projects/fio).
+Usamos ferramentas comuns de benchmark DiskSpd e FIO, para Windows e Linux, respectivamente. Essas ferramentas geram vários threads que simulam uma carga de trabalho parecida com uma produção e avaliam o desempenho do sistema. Usando as ferramentas, você pode configurar parâmetros como tamanho do bloco e profundidade da fila, que normalmente você não pode mudar para um aplicativo. Isso proporciona mais flexibilidade para impulsionar o desempenho máximo em uma VM de alta escala provisionada com o SSDs Premium para diferentes tipos de cargas de trabalho de aplicativo. Para saber mais sobre cada ferramenta de benchmark, visite [DiskSpd](https://github.com/Microsoft/diskspd/wiki/) e [fio](http://freecode.com/projects/fio).
 
-Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos do Armazenamento Premium à VM. Dos 11 discos, configure dez discos com cache de host como "None" e distribua-os em um volume chamado NoCacheWrites. Configure o cache de host como "ReadOnly" no disco restante e crie um volume chamado CacheReads com esse disco. Usando essa configuração, você pode ver o desempenho máximo de Leitura e Gravação de uma VM DS14 Standard. Para obter etapas detalhadas sobre como criar uma VM DS14 com SSDs premium, acesse [Projeto para alto desempenho](premium-storage-performance.md).
+Para seguir os exemplos abaixo, crie um Standard_D8ds_v4 e anexe quatro SSDs Premium à VM. Dos quatro discos, configure três com o cache de host como "None" e distribua-os para um volume chamado NoCacheWrites. Configure o cache de host como "ReadOnly" no disco restante e crie um volume chamado CacheReads com esse disco. Usando essa configuração, você pode ver o desempenho máximo de leitura e gravação de uma VM Standard_D8ds_v4. Para obter etapas detalhadas sobre como criar um Standard_D8ds_v4 com o SSDs Premium, consulte [projetando para alto desempenho](premium-storage-performance.md).
 
 [!INCLUDE [virtual-machines-disks-benchmarking](../../includes/virtual-machines-managed-disks-benchmarking.md)]
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 13fc9d3574243c2403f93489a398a461c5392de7
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6e4dd4340ba1b7a933b79f9dad616cfdc396f03c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918747"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091104"
 ---
 # <a name="hbv2-series"></a>Série HBv2
 
@@ -27,11 +27,12 @@ As VMs HBv2-Series apresentam 200 GB/s Mellanox HDR InfiniBand. Essas VMs são c
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Processador | Memória (GiB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GiB) | Discos de dados máximos | VNICs Ethernet máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | Todos | 480 + 960 | 8 | 8 |
+| Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | Tudo | 480 + 960 | 8 | 8 |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

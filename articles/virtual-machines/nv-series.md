@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: cba7342409d309fceeb7cfe50c152f2548f29bec
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6c2ac4247945436f5c32d25fbae1c1fe9a9c0ceb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919724"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097717"
 ---
 # <a name="nv-series"></a>Série NV
 
@@ -26,6 +26,7 @@ Cada GPU em instâncias NV vem com uma licença GRID. Esta licença oferece flex
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): sem suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | GPU | Memória da GPU: GiB | Discos de dados máximos | Máximo de NICs | Estações de trabalho virtuais | Aplicativos virtuais |
