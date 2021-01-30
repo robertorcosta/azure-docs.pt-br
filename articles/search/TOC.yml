@@ -91,7 +91,7 @@
     - name: Exemplos em Python
       href: samples-python.md
     - name: Exemplos de REST
-      href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
+      href: samples-rest.md
 - name: Conceitos
   items:
     - name: Pesquisa de texto completo
@@ -558,5 +558,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: vídeos
+    - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

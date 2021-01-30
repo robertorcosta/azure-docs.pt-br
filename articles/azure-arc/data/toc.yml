@@ -96,6 +96,8 @@
       items:
         - name: O que é o PostgreSQL de Hiperescala habilitado para o Azure Arc
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
+        - name: Limitações
+          href: limitations-postgresql-hyperscale.md
     - name: Inícios rápidos
       items:
         - name: Versões com suporte

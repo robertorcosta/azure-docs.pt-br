@@ -50,7 +50,7 @@
         - name: Planejar apps não listados na galeria
           href: non-gallery-apps.md
         - name: Planejar uma implantação de Meus Aplicativos
-          href: access-panel-deployment-plan.md
+          href: my-apps-deployment-plan.md
     - name: Logon único
       items:
         - name: Planejar uma implantação de logon único
