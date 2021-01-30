@@ -4,12 +4,12 @@ description: Saiba como criar uma política de Configuração de Convidado do Az
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 705c12cff5f4377249674ef9db155d1ed321ce42
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 38579bb43f012cac2b373bbbbb6ad757604f4c07
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755864"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070682"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -204,7 +204,17 @@ O cmdlet também tem suporte para a entrada do pipeline do PowerShell. Conduza a
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-A próxima etapa é publicar o arquivo no armazenamento de BLOBs do Azure.  O comando `Publish-GuestConfigurationPackage` requer o `Az.Storage` módulo.
+A próxima etapa é publicar o arquivo no armazenamento de BLOBs do Azure. O comando `Publish-GuestConfigurationPackage` requer o `Az.Storage` módulo.
+
+Parâmetros do cmdlet `Publish-GuestConfigurationPackage`:
+
+- **Caminho**: local do pacote a ser publicado
+- **ResourceGroupName**: nome do grupo de recursos em que a conta de armazenamento está localizada
+- **StorageAccountName**: nome da conta de armazenamento na qual o pacote deve ser publicado
+- **StorageContainerName**: (padrão: *guestconfiguration*) nome do contêiner de armazenamento na conta de armazenamento
+- **Forçar**: substituir o pacote existente na conta de armazenamento com o mesmo nome
+
+O exemplo a seguir publica o pacote para um nome de contêiner de armazenamento ' guestconfiguration '.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName

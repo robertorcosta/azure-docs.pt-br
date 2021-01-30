@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6c1da45115303bb0a67d6ff796a40ef47c24224a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: cc00a4f1c1551932b4a30a8ef9b27cb1d4082667
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287439"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071589"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos do Azure Key Vault
 
@@ -23,38 +23,36 @@ Azure Key Vault é um serviço de nuvem para armazenar e acessar segredos com se
 
 Aqui estão outros termos importantes:
 
-- **Locatário** : um locatário é a organização que possui e gerencia uma instância específica de serviços em nuvem da Microsoft. Geralmente, é usado para se referir ao conjunto de serviços do Azure e Microsoft 365 para uma organização.
+- **Locatário**: um locatário é a organização que possui e gerencia uma instância específica de serviços em nuvem da Microsoft. Geralmente, é usado para se referir ao conjunto de serviços do Azure e Microsoft 365 para uma organização.
 
-- **Proprietário do cofre** : pode criar um cofre de chaves e obter acesso e controle totais sobre ele. O proprietário do cofre também pode configurar a auditoria para registrar quem acessa os segredos e as chaves. Os administradores podem controlar o ciclo de vida da chave. Eles podem reverter para uma nova versão da chave, fazer o backup e tarefas relacionadas.
+- **Proprietário do cofre**: pode criar um cofre de chaves e obter acesso e controle totais sobre ele. O proprietário do cofre também pode configurar a auditoria para registrar quem acessa os segredos e as chaves. Os administradores podem controlar o ciclo de vida da chave. Eles podem reverter para uma nova versão da chave, fazer o backup e tarefas relacionadas.
 
-- **Consumidor do cofre** : pode executar ações nos ativos dentro do cofre de chaves quando seu proprietário concede acesso ao cliente. As ações disponíveis dependem das permissões concedidas.
+- **Consumidor do cofre**: pode executar ações nos ativos dentro do cofre de chaves quando seu proprietário concede acesso ao cliente. As ações disponíveis dependem das permissões concedidas.
 
-- **Administradores HSM gerenciados** : os usuários que recebem a função de administrador têm controle total sobre um pool de HSM gerenciado. Eles podem criar mais atribuições de função para delegar o acesso controlado a outros usuários.
+- **Administradores HSM gerenciados**: os usuários que recebem a função de administrador têm controle total sobre um pool de HSM gerenciado. Eles podem criar mais atribuições de função para delegar o acesso controlado a outros usuários.
 
-- **Usuário/funcionário de criptografia HSM gerenciado** : funções internas que geralmente são atribuídas a usuários ou entidades de serviço que executarão operações criptográficas usando chaves no HSM gerenciado. O usuário de criptografia pode criar novas chaves, mas não pode excluir chaves.
+- **Usuário/funcionário de criptografia HSM gerenciado**: funções internas que geralmente são atribuídas a usuários ou entidades de serviço que executarão operações criptográficas usando chaves no HSM gerenciado. O usuário de criptografia pode criar novas chaves, mas não pode excluir chaves.
 
-- **Criptografia do serviço de criptografia HSM gerenciada** : função interna que geralmente é atribuída a uma identidade de serviço gerenciada de contas de serviço (por exemplo, conta de armazenamento) para criptografia de dados em repouso com a chave gerenciada pelo cliente.
+- **Criptografia do serviço de criptografia HSM gerenciada**: função interna que geralmente é atribuída a uma identidade de serviço gerenciada de contas de serviço (por exemplo, conta de armazenamento) para criptografia de dados em repouso com a chave gerenciada pelo cliente.
 
-- **Recurso** : trata-se de um item gerenciável que está disponível por meio do Azure. Exemplos comuns são máquina virtual, conta de armazenamento, aplicativo Web, banco de dados e rede virtual. Há muito mais.
+- **Recurso**: trata-se de um item gerenciável que está disponível por meio do Azure. Exemplos comuns são máquina virtual, conta de armazenamento, aplicativo Web, banco de dados e rede virtual. Há muito mais.
 
-- **Grupo de recursos** : trata-se de um contêiner que mantém os recursos relacionados de uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização.
+- **Grupo de recursos**: trata-se de um contêiner que mantém os recursos relacionados de uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização.
 
 - **Entidade** de segurança: uma entidade de segurança do Azure é uma identidade de segurança que os aplicativos, serviços e ferramentas de automação criados pelo usuário usam para acessar recursos específicos do Azure. Imagine-o como uma "identidade do usuário" (nome de usuários e senha ou certificado) com uma função específica e permissões rigidamente controladas. Uma entidade de segurança deve precisar apenas fazer coisas específicas, diferentemente de uma identidade de usuário geral. Ele melhora a segurança se você conceder apenas o nível mínimo de permissão necessário para executar suas tarefas de gerenciamento. Uma entidade de segurança usada com um aplicativo ou serviço é especificamente chamada de **entidade de serviço**.
 
 - [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md): o Azure AD é o serviço do Active Directory de um locatário. Cada diretório tem um ou mais domínios. Um diretório pode ter várias assinaturas associadas a ele, mas apenas um locatário.
 
-- **ID do locatário do Azure** : uma ID de locatário é uma maneira exclusiva para identificar uma instância do Azure AD dentro de uma assinatura do Azure.
+- **ID do locatário do Azure**: uma ID de locatário é uma maneira exclusiva para identificar uma instância do Azure AD dentro de uma assinatura do Azure.
 
-- **Identidades gerenciadas** : o Azure Key Vault fornece uma maneira de armazenar credenciais e outras chaves e segredos com segurança, mas seu código precisa autenticar-se no Key Vault para recuperá-los. Usar a identidade gerenciada torna a solução desse problema mais simples, fornecendo aos serviços do Azure uma identidade gerenciada automaticamente no Microsoft Azure Active Directory. Você pode usar essa identidade para autenticar o Key Vault ou qualquer serviço que dê suporte à autenticação do Azure AD sem ter as credenciais no código. Para obter mais informações, consulte a imagem a seguir e a [visão geral de identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
-
-    ![Diagrama de como as identidades gerenciadas dos recursos do Azure funcionam](../media/key-vault-whatis/msi.png)
+- **Identidades gerenciadas**: o Azure Key Vault fornece uma maneira de armazenar credenciais e outras chaves e segredos com segurança, mas seu código precisa autenticar-se no Key Vault para recuperá-los. Usar a identidade gerenciada torna a solução desse problema mais simples, fornecendo aos serviços do Azure uma identidade gerenciada automaticamente no Microsoft Azure Active Directory. Você pode usar essa identidade para autenticar o Key Vault ou qualquer serviço que dê suporte à autenticação do Azure AD sem ter as credenciais no código. Para obter mais informações, consulte a imagem a seguir e a [visão geral de identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="authentication"></a>Autenticação
 Para realizar operações com Key Vault, primeiro você precisa se autenticar nele. Há três maneiras de se autenticar no Key Vault:
 
 - [Identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md): ao implantar um aplicativo em uma máquina virtual no Azure, você pode atribuir uma identidade à sua máquina virtual que tem acesso ao key Vault. Você também pode atribuir identidades a [outros recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md). O benefício dessa abordagem é que o aplicativo ou serviço não está gerenciando a rotação do primeiro segredo. Azure gira automaticamente a identidade. Recomendamos essa abordagem como uma prática recomendada. 
-- **Entidade de serviço e certificado** : você pode usar uma entidade de serviço e um certificado associado que tenha acesso a Key Vault. Não recomendamos essa abordagem porque o proprietário do aplicativo ou o desenvolvedor deve girar o certificado.
-- **Entidade de serviço e segredo** : embora você possa usar uma entidade de serviço e um segredo para autenticar para Key Vault, não é recomendável. É difícil girar automaticamente o segredo de inicialização que é usado para autenticar para Key Vault.
+- **Entidade de serviço e certificado**: você pode usar uma entidade de serviço e um certificado associado que tenha acesso a Key Vault. Não recomendamos essa abordagem porque o proprietário do aplicativo ou o desenvolvedor deve girar o certificado.
+- **Entidade de serviço e segredo**: embora você possa usar uma entidade de serviço e um segredo para autenticar para Key Vault, não é recomendável. É difícil girar automaticamente o segredo de inicialização que é usado para autenticar para Key Vault.
 
 
 ## <a name="key-vault-roles"></a>Funções do Key Vault

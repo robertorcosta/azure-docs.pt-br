@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: d6832238b0c76059079e2a1330d31eed3212b242
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 46e0687056d697afc2d4355bdf900af138273eaf
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685571"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061827"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar Jupyter Notebooks em seu workspace
 
@@ -255,89 +255,6 @@ Um indicador ao lado do menu suspenso **Kernel** mostra seu status.
 |---------|---------|
 |  Verde |Kernel conectado, ocioso, ocupado|
 |  Cinza |Kernel não conectado |
-
-## <a name="shortcut-keys"></a>Teclas de atalho
-Semelhante ao Jupyter notebooks, os notebooks Azure Machine Learning Studio têm uma interface de usuário modal. O teclado faz coisas diferentes, dependendo de em qual modo a célula do notebook está. Azure Machine Learning Studio notebooks dão suporte aos dois modos a seguir para uma determinada célula de código: modo de comando e modo de edição.
-
-### <a name="command-mode-shortcuts"></a>Atalhos do modo de comando
-
-Uma célula está no modo de comando quando não há um cursor de texto solicitando que você digite. Quando uma célula está no modo de comando, você pode editar o notebook como um todo, mas não pode digitar em células individuais. Insira o modo de comando pressionando `ESC` ou usando o mouse para selecionar fora da área do editor de uma célula.  A borda esquerda da célula ativa é azul e sólida e seu botão de **execução** é azul.
-
-   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Célula do bloco de anotações no modo de comando ":::
-
-| Atalho                      | Descrição                          |
-| ----------------------------- | ------------------------------------|
-| Digite                         | Entrar no modo de edição             |        
-| Shift + Enter                 | Executar célula, selecione abaixo         |     
-| Controle/comando + Enter       | Executar célula                            |
-| Alt + Enter                   | Célula de execução, Inserir célula de código abaixo    |
-| Controle/comando + Alt + Enter | Executar célula, Inserir célula de redução abaixo|
-| Alt + R                       | Executar tudo      |                       
-| S                             | Converter célula em código    |                         
-| M                             | Converter célula em redução  |                       
-| Para cima/K                          | Selecionar célula acima    |               
-| Para baixo/J                        | Selecionar célula abaixo    |               
-| Um                             | Inserir célula de código acima  |            
-| B                             | Inserir célula de código abaixo   |           
-| Controle/Comando + Shift + A   | Inserir célula de redução acima    |      
-| Controle/Comando + Shift + B   | Inserir célula de redução abaixo   |       
-| X                             | Recortar célula selecionada    |               
-| C                             | Copiar célula selecionada   |               
-| Shift + V                     | Colar célula selecionada acima           |
-| V                             | Colar célula selecionada abaixo    |       
-| D D                           | Excluir célula selecionada|                
-| O                             | Ativar/Desativar Saída         |              
-| Shift + O                     | Alternar a rolagem de saída   |          
-| Eu                           | Kernel de interrupção |                   
-| 0 0                           | Reiniciar kernel |                     
-| Shift + espaço                 | Rolar para cima  |                         
-| Space                         | Rolar para baixo|
-| Tab                           | Alterar o foco para o próximo item de foco (quando a captura de guias estiver desabilitada)|
-| Controle/comando + S           | Salvar bloco de anotações |                      
-| 1                             | Alterar para H1|                       
-| 2                             | Alterar para H2|                        
-| 3                             | Alterar para H3|                        
-| 4                             | Alterar para H4 |                       
-| 5                             | Alterar para H5 |                       
-| 6                             | Alterar para H6 |                       
-
-### <a name="edit-mode-shortcuts"></a>Atalhos do modo de edição
-
-O modo de edição é indicado por um cursor de texto solicitando que você digite na área do editor. Quando uma célula está no modo de edição, você pode digitar na célula. Insira o modo de edição pressionando `Enter` ou usando o mouse para selecionar na área do editor de uma célula. A borda esquerda da célula ativa é verde e hachurada e seu botão de **execução** está verde. Você também verá o prompt do cursor na célula no modo de edição.
-
-   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Célula do bloco de anotações no modo de edição":::
-
-Usando os atalhos de tecla a seguir, você pode navegar e executar o código com mais facilidade em blocos de anotações do Azure Machine Learning no modo de edição.
-
-| Atalho                      | Descrição|                                     
-| ----------------------------- | ----------------------------------------------- |
-| Escape                        | Entrar no modo de comando|  
-| Controle/comando + espaço       | Ativar o IntelliSense |
-| Shift + Enter                 | Executar célula, selecione abaixo |                         
-| Controle/comando + Enter       | Executar célula  |                                      
-| Alt + Enter                   | Célula de execução, Inserir célula de código abaixo  |              
-| Controle/comando + Alt + Enter | Executar célula, Inserir célula de redução abaixo  |          
-| Alt + R                       | Executar todas as células     |                              
-| Up                            | Mover o cursor para cima ou para a célula anterior    |             
-| Down                          | Mover cursor para baixo ou para a próxima célula |                  
-| Controle/comando + S           | Salvar bloco de anotações   |                                
-| Controle/comando + up          | Ir para o início da célula   |                             
-| Controle/comando + down        | Ir para o final da célula |                                 
-| Tab                           | Preenchimento ou recuo de código (se a captura de guias estiver habilitada) |
-| Controle/comando + M           | Habilitar/desabilitar interceptação de guia  |                       
-| Controle/comando +]           | Recuar |                                         
-| Controle/comando + [           | Desfazer recuo  |                                        
-| Controle/comando + A           | Selecionar tudo|                                      
-| Controle/comando + Z           | Desfazer |                                           
-| Controle/Comando + Shift + Z   | Refazer |                                           
-| Controle/comando + Y           | Refazer |                                           
-| Controle/comando + página inicial        | Ir para o início da célula|                                
-| Controle/comando + fim         | Ir para o final da célula   |                               
-| Controle/comando + esquerda        | Ir uma palavra para a esquerda |                               
-| Controle/comando + à direita       | Ir uma palavra para a direita |                              
-| Controle/comando + Backspace   | Excluir palavra anterior |                             
-| Controle/comando + excluir      | Excluir palavra seguinte |                              
-| Controle/comando +/           | Ativar/desativar comentário em cu
 
 ## <a name="find-compute-details"></a>Localizar detalhes da computação
 

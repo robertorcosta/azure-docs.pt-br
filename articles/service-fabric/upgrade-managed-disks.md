@@ -3,12 +3,12 @@ title: Atualizar nós de cluster para usar o Azure Managed disks
 description: Veja como atualizar um cluster de Service Fabric existente para usar o Azure Managed disks com pouco ou nenhum tempo de inatividade do cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c374c4536309a13abcf8c882b041a9c5357878e5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316157"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090647"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Atualizar nós de cluster para usar o Azure Managed disks
 
@@ -30,11 +30,11 @@ Este artigo orientará você pelas etapas de atualização do tipo de nó primá
 > [!CAUTION]
 > Você terá uma interrupção com esse procedimento somente se tiver dependências no DNS do cluster (por exemplo, ao acessar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). A [prática recomendada de arquitetura para serviços de front-end](/azure/architecture/microservices/design/gateway) é ter algum tipo de [balanceador de carga](/azure/architecture/guide/technology-choices/load-balancing-overview) na frente de seus tipos de nó para tornar a troca de nó possível sem uma interrupção.
 
-Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) para Azure Resource Manager que usaremos para concluir o cenário de atualização. As alterações no modelo serão explicadas em [implantar um conjunto de dimensionamento atualizado para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  abaixo.
+Aqui estão os [modelos e cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) para Azure Resource Manager que usaremos para concluir o cenário de atualização. As alterações no modelo serão explicadas em [implantar um conjunto de dimensionamento atualizado para o tipo de nó primário](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  abaixo.
 
 ## <a name="set-up-the-test-cluster"></a>Configurar o cluster de teste
 
-Vamos configurar o cluster inicial de teste de Service Fabric. Primeiro, [Baixe](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) o Azure Resource Manager modelos de exemplo que usaremos para concluir este cenário.
+Vamos configurar o cluster inicial de teste de Service Fabric. Primeiro, [Baixe](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) o Azure Resource Manager modelos de exemplo que usaremos para concluir este cenário.
 
 Em seguida, entre na sua conta do Azure.
 
@@ -158,7 +158,7 @@ Com isso, estamos prontos para iniciar o procedimento de atualização.
 
 Para atualizar ou *dimensionar verticalmente*, um tipo de nó, precisaremos implantar uma cópia do conjunto de dimensionamento de máquinas virtuais do tipo de nó, que, de outra forma, é idêntico ao conjunto de dimensionamento original (incluindo referência ao mesmo `nodeTypeRef` , `subnet` , e `loadBalancerBackendAddressPools` ), exceto que ele inclui a atualização/alterações desejadas e sua própria sub-rede separada e pool de endereços NAT de entrada. Como estamos atualizando um tipo de nó primário, o novo conjunto de dimensionamento será marcado como primário ( `isPrimary: true` ), assim como o conjunto de dimensionamento original. (Para atualizações de tipo de nó não primário, basta omitir isso.)
 
-Para sua conveniência, as alterações necessárias já foram feitas para você no modelo *upgrade-1NodeType-2ScaleSets-ManagedDisks* [template](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) e nos arquivos de [parâmetros](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) .
+Para sua conveniência, as alterações necessárias já foram feitas para você no modelo *upgrade-1NodeType-2ScaleSets-ManagedDisks* [](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) e nos arquivos de [parâmetros](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) .
 
 As seções a seguir explicarão as alterações de modelo em detalhes. Se preferir, você pode ignorar a explicação e continuar na [próxima etapa do procedimento de atualização](#obtain-your-key-vault-references).
 
@@ -263,7 +263,7 @@ Depois de implementar todas as alterações em seus arquivos de modelo e de par�
 
 Para implantar a configuração atualizada, primeiro você deve obter várias referências ao seu certificado de cluster armazenado em seu Key Vault. A maneira mais fácil de encontrar esses valores é por meio de portal do Azure. Você precisará do seguinte:
 
-* **A URL de Key Vault do seu certificado de cluster.** Em seu Key Vault em portal do Azure, selecione **certificados**  >  *o*  >  **identificador secreto**do certificado desejado:
+* **A URL de Key Vault do seu certificado de cluster.** Em seu Key Vault em portal do Azure, selecione **certificados**  >  *o*  >  **identificador secreto** do certificado desejado:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
@@ -373,6 +373,6 @@ Saiba como:
 
 Consulte também:
 
-* [Exemplo: atualizar nós de cluster para usar o Azure Managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [Exemplo: atualizar nós de cluster para usar o Azure Managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade)
 
 * [Considerações de dimensionamento vertical](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

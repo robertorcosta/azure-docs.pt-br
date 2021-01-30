@@ -4,12 +4,12 @@ description: Saiba como configurar a rede (avançada) CNI do Azure no AKS (Servi
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 0a6ea45156477c0d0e95b9d345cffe1a75c773b6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: afb98acf903f90ead137c9b372d33ce82b89f7b5
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917800"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062210"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -63,7 +63,7 @@ O número máximo de pods por nó em um cluster AKS é de 250. O número máximo
 | -- | :--: | :--: | -- |
 | CLI do Azure | 110 | 30 | Sim (até 250) |
 | Modelo do Resource Manager | 110 | 30 | Sim (até 250) |
-| Portal | 110 | 30 | Não |
+| Portal | 110 | 110 (configurado na guia pools de nós) | No |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar o máximo - novos clusters
 

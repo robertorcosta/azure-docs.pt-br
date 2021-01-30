@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87650f364f8ccfd3a531d710bfbdc4715f0ac5a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cc336781e9a55bbcb6c51677b01bfc402126f4a
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442177"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071893"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para usuários B2B de organizações específicas
 
@@ -42,7 +42,7 @@ Esse é o cenário mais comum, onde sua organização deseja trabalhar com quase
 Adicionar uma lista de negações:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory**  >  configurações de usuário**dos usuários**  >  **User settings**.
+2. Selecione **Azure Active Directory**  >  configurações de usuário **dos usuários**  >  .
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **Restrições de colaboração**, selecione **Negar convites para os domínios especificados**.
 5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja bloquear. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
@@ -63,7 +63,7 @@ Se você quiser usar uma lista de permissões, certifique-se de avaliar completa
 Para adicionar uma lista de permissões:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
-2. Selecione **Azure Active Directory**  >  configurações de usuário**dos usuários**  >  **User settings**.
+2. Selecione **Azure Active Directory**  >  configurações de usuário **dos usuários**  >  .
 3. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 4. Em **Restrições de colaboração**, selecione **Permitir convites somente para os domínios especificados (mais restritivos)**.
 5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja permitir. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
@@ -126,7 +126,7 @@ Se o módulo não estiver instalado ou se você não tem uma versão necessária
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Use os cmdlets de AzureADPolicy para configurar a política
 
-Para criar uma lista de permissão ou negação, use o cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview). O exemplo a seguir mostra como definir uma lista de negações que bloqueia o domínio "live.com".
+Para criar uma lista de permissão ou negação, use o cmdlet [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). O exemplo a seguir mostra como definir uma lista de negações que bloqueia o domínio "live.com".
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -140,19 +140,19 @@ O mesmo exemplo é exibido a seguir, mas com de definição da política embutid
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Para definir uma lista de permissão ou negação, use o cmdlet [AzureADPolicy conjunto](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
+Para definir uma lista de permissão ou negação, use o cmdlet [AzureADPolicy conjunto](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). Por exemplo:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Para obter a política, use o cmdlet [AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
+Para obter a política, use o cmdlet [AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). Por exemplo:
 
 ```powershell
-$currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
+$currentpolicy = Get-AzureADPolicy -All $true | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Para remover a política, use o cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
+Para remover a política, use o cmdlet [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true). Por exemplo:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

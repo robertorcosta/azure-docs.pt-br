@@ -4,16 +4,16 @@ description: Obtenha uma visão geral de como acompanhar o uso do cliente para s
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: vikrambmsft
-ms.author: vikramb
+author: cpercy737
+ms.author: camper
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: e9e630f4199e0bfb67509f008f403c0a7a490887
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 989e50ec03dae5d00961d572b70d524a56b3d64c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436684"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062198"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro do Marketplace comercial e atribuição de uso do cliente
 
@@ -76,7 +76,7 @@ Depois que você adicionar um GUID ao seu modelo ou no agente do usuário e regi
 
 1. Selecione **configurações** (ícone de engrenagem) no canto superior direito > **configurações da conta**.
 
-1. Em **Organization profile**  >  **identificadores** de perfil da organização, selecione **Adicionar GUID de acompanhamento**.
+1. Em   >  **identificadores** de perfil da organização, selecione **Adicionar GUID de acompanhamento**.
 
 1. Na caixa **GUID**, insira seu GUID de acompanhamento. Insira apenas o GUID sem o `pid-` prefixo. Na caixa **Descrição**, insira o nome ou a descrição da sua oferta.
 

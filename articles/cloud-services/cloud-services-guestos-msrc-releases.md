@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/26/2021
 ms.author: yohaddad
-ms.openlocfilehash: 7384b902e1bde46c55bcfa30b2aa46122445b05e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7873a1b9fa8a404285f39736a4e6ba758fbf22b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877502"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089200"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
@@ -1578,7 +1578,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [4014511] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
 | N/D | [4014514] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
 | N/D | [4019216] |Pacote cumulativo de atualizações não relacionado à segurança de maio |3.50 |9 de maio de 2017 |
-| N/D | [4014503] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
+| N/D | 4014503 |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
 | N/D | [4014506] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
 | N/D | [4014509] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
 | N/D | [4014513] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
@@ -2327,7 +2327,6 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [4014511]: https://support.microsoft.com/kb/4014511
 [4014514]: https://support.microsoft.com/kb/4014514
 [4019216]: https://support.microsoft.com/kb/4019216
-[4014503]: https://support.microsoft.com/kb/4014503
 [4014506]: https://support.microsoft.com/kb/4014506
 [4014509]: https://support.microsoft.com/kb/4014509
 [4014513]: https://support.microsoft.com/kb/4014513
@@ -2679,7 +2678,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [3035126]: https://support.microsoft.com/kb/3035126
 
 [3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
+[3057110]:https://mskb.pkisolutions.com/kb/3057110
 [3046002]:https://support.microsoft.com/kb/3046002
 [3057134]:https://support.microsoft.com/kb/3057134
 [3055642]:https://support.microsoft.com/kb/3055642
@@ -2689,7 +2688,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [3051768]:https://support.microsoft.com/kb/3051768
 [3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
+[3038314]:https://web.archive.org/web/20180920122209/https:/support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
 [3042553]:https://support.microsoft.com/kb/3042553
 [3046306]:https://support.microsoft.com/kb/3046306
 [3046269]:https://support.microsoft.com/kb/3046269

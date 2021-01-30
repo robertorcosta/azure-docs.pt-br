@@ -1,14 +1,14 @@
 ---
 title: Monitorar alterações de delegação no seu locatário de gerenciamento
 description: Saiba como monitorar a atividade de delegação de locatários do cliente para seu locatário de gerenciamento.
-ms.date: 12/11/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: f65ffda642e67ec6e2c7694a823c2ba6845a7af4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936100"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089403"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorar alterações de delegação no seu locatário de gerenciamento
 
@@ -16,10 +16,12 @@ Como um provedor de serviços, talvez você queira estar atento quando os grupos
 
 No locatário de gerenciamento, o [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) rastreia a atividade de delegação no nível do locatário. Essa atividade registrada inclui todas as delegações adicionadas ou removidas de todos os locatários do cliente.
 
-Este tópico explica as permissões necessárias para monitorar a atividade de delegação para seu locatário (em todos os seus clientes) e as práticas recomendadas para fazer isso. Ele também inclui um script de exemplo que mostra um método para consultar e relatar esses dados.
+Este tópico explica as permissões necessárias para monitorar a atividade de delegação para seu locatário (em todos os seus clientes). Ele também inclui um script de exemplo que mostra um método para consultar e relatar esses dados.
 
 > [!IMPORTANT]
 > Todas essas etapas devem ser executadas em seu locatário de gerenciamento, em vez de em qualquer locatário do cliente.
+>
+> Embora possamos nos referimos a provedores de serviços e clientes neste tópico, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar os mesmos processos.
 
 ## <a name="enable-access-to-tenant-level-data"></a>Habilitar o acesso a dados no nível do locatário
 
@@ -33,33 +35,21 @@ Para obter instruções detalhadas sobre como adicionar e remover a elevação, 
 
 Depois de elevar seu acesso, sua conta terá a função de administrador de acesso do usuário no Azure no escopo raiz. Essa atribuição de função permite exibir todos os recursos e atribuir acesso em qualquer assinatura ou grupo de gerenciamento no diretório, bem como fazer atribuições de função no escopo raiz.
 
-### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Criar uma nova conta de entidade de serviço para acessar dados no nível do locatário
+### <a name="assign-the-monitoring-reader-role-at-root-scope"></a>Atribuir a função leitor de monitoramento ao escopo raiz
 
 Depois de ter elevado o acesso, você pode atribuir as permissões apropriadas a uma conta para que ela possa consultar dados do log de atividades no nível do locatário. Essa conta precisará ter a função interna do [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader) do Azure atribuída no escopo raiz do seu locatário de gerenciamento.
 
 > [!IMPORTANT]
-> A concessão de uma atribuição de função no escopo raiz significa que as mesmas permissões serão aplicadas a todos os recursos no locatário.
+> A concessão de uma atribuição de função no escopo raiz significa que as mesmas permissões serão aplicadas a todos os recursos no locatário. Como esse é um nível amplo de acesso, talvez você queira [atribuir essa função a uma conta de entidade de serviço e usar essa conta para consultar dados](#use-a-service-principal-account-to-query-the-activity-log). Você também pode atribuir a função leitor de monitoramento no escopo raiz a usuários individuais ou a grupos de usuários para que eles possam [Exibir informações de delegação diretamente no portal do Azure](#view-delegation-changes-in-the-azure-portal). Se você fizer isso, lembre-se de que esse é um nível amplo de acesso que deve ser limitado ao menor número de usuários possível.
 
-Como esse é um nível amplo de acesso, recomendamos que você atribua essa função a uma conta de entidade de serviço, em vez de a um usuário individual ou a um grupo.
-
- Além disso, recomendamos as seguintes práticas recomendadas:
-
-- [Crie uma nova conta de entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md) para ser usada somente para essa função, em vez de atribuir essa função a uma entidade de serviço existente usada para outra automação.
-- Certifique-se de que essa entidade de serviço não tenha acesso a nenhum recurso de cliente delegado.
-- [Use um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) e [armazená-lo com segurança no Azure Key Vault](../../key-vault/general/security-overview.md).
-- Limite os usuários que têm acesso ao Act em nome da entidade de serviço.
-
-> [!NOTE]
-> Você também pode atribuir a função interna do leitor de monitoramento do Azure ao escopo raiz para usuários individuais ou grupos de usuários. Isso pode ser útil se você quiser que um usuário possa [Exibir informações de delegação diretamente no portal do Azure](#view-delegation-changes-in-the-azure-portal). Se você fizer isso, lembre-se de que esse é um nível amplo de acesso que deve ser limitado ao menor número de usuários possível.
-
-Use um dos métodos a seguir para fazer as atribuições de escopo raiz.
+Use um dos métodos a seguir para fazer a atribuição de escopo raiz.
 
 #### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ApplicationId $servicePrincipal.ApplicationId 
+New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ObjectId <objectId> 
 ```
 
 #### <a name="azure-cli"></a>CLI do Azure
@@ -72,9 +62,32 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Remover acesso elevado para a conta de administrador global
 
-Depois de criar sua conta de entidade de serviço e atribuir a função leitor de monitoramento no escopo raiz, certifique-se de [remover o acesso elevado](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) para a conta de administrador global, pois esse nível de acesso não será mais necessário.
+Depois de atribuir a função leitor de monitoramento ao escopo raiz à conta desejada, certifique-se de [remover o acesso elevado](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) para a conta de administrador global, pois esse nível de acesso não será mais necessário.
 
-## <a name="query-the-activity-log"></a>Consultar o log de atividades
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Exibir alterações de delegação no portal do Azure
+
+Os usuários que receberam a função leitor de monitoramento no escopo raiz podem exibir as alterações de delegação diretamente no portal do Azure.
+
+1. Navegue até a página **meus clientes** e, em seguida, selecione **log de atividades** no menu de navegação à esquerda.
+1. Verifique se a **atividade de diretório** está selecionada no filtro próximo à parte superior da tela.
+
+Uma lista de alterações de delegação será exibida. Você pode selecionar **Editar colunas** para mostrar ou ocultar o **status**, **a categoria de evento**, a **hora**, o carimbo de **data/hora**, a **assinatura**, o **evento iniciado por**, o **grupo de recursos**, o tipo de **recurso** e os valores de **recurso** .
+
+:::image type="content" source="../media/delegation-activity-portal.jpg" alt-text="Captura de tela de alterações de delegação no portal do Azure.":::
+
+## <a name="use-a-service-principal-account-to-query-the-activity-log"></a>Usar uma conta de entidade de serviço para consultar o log de atividades
+
+Como a função leitor de monitoramento no escopo raiz é um nível tão amplo de acesso, talvez você queira atribuir a função a uma conta de entidade de serviço e usar essa conta para consultar dados usando o script abaixo.
+
+> [!IMPORTANT]
+> Atualmente, os locatários com uma grande quantidade de atividade de delegação podem encontrar erros ao consultar esses dados.
+
+Ao usar uma conta de entidade de serviço para consultar o log de atividades, recomendamos as seguintes práticas recomendadas:
+
+- [Crie uma nova conta de entidade de serviço](../../active-directory/develop/howto-create-service-principal-portal.md) para ser usada somente para essa função, em vez de atribuir essa função a uma entidade de serviço existente usada para outra automação.
+- Certifique-se de que essa entidade de serviço não tenha acesso a nenhum recurso de cliente delegado.
+- [Use um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) e [armazená-lo com segurança no Azure Key Vault](../../key-vault/general/security-overview.md).
+- Limite os usuários que têm acesso ao Act em nome da entidade de serviço.
 
 Depois de criar uma nova conta de entidade de serviço com acesso de leitor de monitoramento ao escopo raiz do seu locatário de gerenciamento, você poderá usá-la para consultar e relatar a atividade de delegação em seu locatário.
 
@@ -164,18 +177,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-> [!TIP]
-> Embora possamos nos referimos a provedores de serviços e clientes neste tópico, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar os mesmos processos.
-
-## <a name="view-delegation-changes-in-the-azure-portal"></a>Exibir alterações de delegação no portal do Azure
-
-Os usuários que receberam a função interna de leitor de monitoramento do Azure no escopo raiz podem exibir as alterações de delegação diretamente no portal do Azure.
-
-1. Navegue até a página **meus clientes** e, em seguida, selecione **log de atividades** no menu de navegação à esquerda.
-1. Verifique se a **atividade de diretório** está selecionada no filtro próximo à parte superior da tela.
-
-Uma lista de alterações de delegação será exibida. Você pode selecionar **Editar colunas** para mostrar ou ocultar o **status**, **a categoria de evento**, a **hora**, o carimbo de **data/hora**, a **assinatura**, o **evento iniciado por**, o **grupo de recursos**, o tipo de **recurso** e os valores de **recurso** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,19 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 3f403308c77e5ee0dfc066ec3dc53100e520d274
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652833"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090664"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 O API de Análise de Texto é atualizado em uma base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece informações sobre novas versões e recursos.
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+* A `2021-01-15` versão do modelo para o [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md) v3. x, que fornece 
+  * Suporte a idiomas expandidos para [várias categorias de entidade geral](named-entity-types.md). 
+  * Qualidade de ia aprimorada de categorias gerais de entidade para todos os idiomas v3 com suporte. 
+
+* A `2021-01-05` versão de modelo para [detecção de idioma](how-tos/text-analytics-how-to-language-detection.md), que fornece [suporte a idioma](language-support.md?tabs=language-detection)adicional.
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
@@ -66,7 +74,7 @@ O API de Análise de Texto é atualizado em uma base contínua. Para se manter a
 ### <a name="text-analytics-for-health-container-updates"></a>Análise de Texto para atualizações de contêiner de integridade
 
 As atualizações a seguir são específicas para a versão de setembro do Análise de Texto apenas para o contêiner de integridade.
-* Uma nova imagem de contêiner com `1.1.013530001-amd64-preview` a marca com a nova versão de modelo foi `2020-09-03` liberada para o repositório containerpreview. 
+* Uma nova imagem de contêiner com `1.1.013530001-amd64-preview` a marca com a nova versão de modelo foi `2020-09-03` liberada para o repositório de visualização de contêiner. 
 * Essa versão do modelo fornece melhorias no reconhecimento de entidades, detecção de abreviação e aprimoramentos de latência.
 
 > [!div class="nextstepaction"]
@@ -237,7 +245,7 @@ Ele dá suporte a Inglês ( `en` ), japonês (), `ja` chinês simplificado ( `zh
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é a API de Análise de Texto?](overview.md)  
+* [O que é o API de Análise de Texto?](overview.md)  
 * [Cenários de usuário de exemplo](text-analytics-user-scenarios.md)
 * [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Detecção de idioma](how-tos/text-analytics-how-to-language-detection.md)
