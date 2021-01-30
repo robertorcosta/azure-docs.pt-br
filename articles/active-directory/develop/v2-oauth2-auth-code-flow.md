@@ -13,12 +13,12 @@ ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a313633c6c1799136b8b8911ae780ca13be5d2c3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5b3f7f8016d9b5da70d76322aead551613b8d9c3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756114"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090214"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidade da Microsoft e fluxo de código de autorização do OAuth 2.0
 
@@ -48,7 +48,7 @@ Então, você precisa visitar o registro do aplicativo e atualizar o URI de redi
 
 ## <a name="request-an-authorization-code"></a>Solicitar um código de autorização
 
-O fluxo do código de autorização começa com o cliente direcionando o usuário para o ponto de extremidade `/authorize` . Nessa solicitação, o cliente solicita as permissões `openid`, `offline_access` e `https://graph.microsoft.com/mail.read ` do usuário.  Algumas permissões são restritas ao administrador, por exemplo, gravar dados no diretório de uma organização usando `Directory.ReadWrite.All`. Se seu aplicativo solicitar acesso a uma dessas permissões de um usuário organizacional, o usuário receberá uma mensagem de erro que informa que não está autorizado a consentir com as permissões de seu aplicativo. Para solicitar acesso a escopos restritos ao administrador, você deve solicitá-los diretamente de um administrador da empresa.  Para obter mais informações, leia [Permissões restritas ao administrador](v2-permissions-and-consent.md#admin-restricted-permissions).
+O fluxo do código de autorização começa com o cliente direcionando o usuário para o ponto de extremidade `/authorize` . Nessa solicitação, o cliente solicita as permissões `openid`, `offline_access` e `https://graph.microsoft.com/mail.read ` do usuário.  Algumas permissões são restritas ao administrador, por exemplo, gravar dados no diretório de uma organização usando `Directory.ReadWrite.All`. Se seu aplicativo solicitar acesso a uma dessas permissões de um usuário organizacional, o usuário receberá uma mensagem de erro que informa que não está autorizado a consentir com as permissões de seu aplicativo. Para solicitar acesso a escopos restritos ao administrador, você deve solicitá-los diretamente de um administrador global.  Para obter mais informações, leia [Permissões restritas ao administrador](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only
@@ -159,10 +159,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro atualizado | Obrigatório/opcional | Descrição |
 |---------------|-------------|--------------|
-|`response_type`| Necessária | A adição de `id_token` indica ao servidor que o aplicativo gostaria de um token de ID na resposta do ponto de `/authorize` extremidade.  |
-|`scope`| Necessária | Para tokens de ID, deve ser atualizado para incluir os escopos de token de ID- `openid` e, opcionalmente, `profile` e `email` . |
-|`nonce`| Necessária|     Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id_token resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. O valor normalmente é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
-|`response_mode`| Recomendado | Especifica o método que deve ser usado para enviar o token resultante de volta ao seu aplicativo. O padrão é para `query` apenas um código de autorização, mas `fragment` se a solicitação incluir uma id_token `response_type` .|
+|`response_type`| Obrigatório | A adição de `id_token` indica ao servidor que o aplicativo gostaria de um token de ID na resposta do ponto de `/authorize` extremidade.  |
+|`scope`| Obrigatório | Para tokens de ID, deve ser atualizado para incluir os escopos de token de ID- `openid` e, opcionalmente, `profile` e `email` . |
+|`nonce`| Obrigatório|     Um valor incluído na solicitação, gerado pelo aplicativo, que será incluído no id_token resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. O valor normalmente é uma cadeia de caracteres aleatória e exclusiva que pode ser usada para identificar a origem da solicitação. |
+|`response_mode`| Recomendadas | Especifica o método que deve ser usado para enviar o token resultante de volta ao seu aplicativo. O padrão é para `query` apenas um código de autorização, mas `fragment` se a solicitação incluir uma id_token `response_type` .|
 
 O uso do `fragment` como modo de resposta pode causar problemas para aplicativos Web que lêem o código do redirecionamento, uma vez que os navegadores não passam o fragmento para o servidor Web.  Nessas situações, é recomendável que os aplicativos usem o `form_post` modo de resposta para garantir que todos os dados sejam enviados ao servidor. 
 

@@ -11,18 +11,18 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: d480239c0eb99ed48c13ec2fdb5b052574acc318
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092492"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095351"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usar pontos de extremidade de serviço de rede virtual e regras para servidores no banco de dados SQL do Azure
+# <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Use as regras e pontos de extremidade de serviço da rede virtual para os servidores no Banco de Dados SQL do Azure
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor para seus bancos de dados e pools elásticos no [banco de dados SQL do Azure](sql-database-paas-overview.md) ou em seus bancos de dados no [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que as regras de rede virtual são, às vezes, a melhor opção para permitir a comunicação com segurança no banco de dados SQL e no Azure Synapse Analytics.
+*As regras de rede virtual* são um recurso de segurança de firewall que controla se o servidor de seus bancos de dados e pools elásticos no [banco de dados SQL do Azure](sql-database-paas-overview.md) ou nos bancos de dado do pool SQL dedicado (anteriormente conhecido como SQL DW) no [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) aceita comunicações enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que as regras de rede virtual são, às vezes, a melhor opção para permitir a comunicação com segurança no banco de dados SQL e no Azure Synapse Analytics.
 
 > [!NOTE]
 > Este artigo se aplica ao banco de dados SQL e ao Azure Synapse Analytics. Para simplificar, o termo *banco de dados* refere-se a ambos os bancos de dados do SQL e do Azure Synapse Analytics. Da mesma forma, todas as referências ao *servidor* referem-se ao [SQL Server lógico](logical-servers.md) que hospeda o banco de dados SQL e o Azure Synapse Analytics.

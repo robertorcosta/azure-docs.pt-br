@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219225"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095634"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de solução de virtualização de rede no Azure
 
@@ -30,7 +30,7 @@ Você pode enfrentar uma VM ou problemas de conectividade VPN e erros ao usar um
 Suporte técnico para NVAs de terceiros e sua integração com a plataforma do Azure é fornecido pelo fornecedor NVA.
 
 > [!NOTE]
-> Se você tiver um problema de roteamento que envolve uma NVA ou de conectividade, você deve [entrar em contato com o fornecedor da NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) diretamente.
+> Se você tiver um problema de roteamento que envolve uma NVA ou de conectividade, você deve [entrar em contato com o fornecedor da NVA](https://mskb.pkisolutions.com/kb/2984655) diretamente.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -52,7 +52,7 @@ Suporte técnico para NVAs de terceiros e sua integração com a plataforma do A
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Verificar os requisitos mínimos de configuração para NVAs no Azure
 
-Cada NVA tem requisitos de configuração básica para funcionar corretamente no Azure. A seção a seguir fornece as etapas para verificar essas configurações básicas. Para obter mais informações, [entre em contato com o fornecedor da NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Cada NVA tem requisitos de configuração básica para funcionar corretamente no Azure. A seção a seguir fornece as etapas para verificar essas configurações básicas. Para obter mais informações, [entre em contato com o fornecedor da NVA](https://mskb.pkisolutions.com/kb/2984655).
 
 **Verifique se o encaminhamento de IP está habilitado na NVA**
 
@@ -112,17 +112,17 @@ Usar o PowerShell
     ```console
    netstat -an | grep -i listen
     ```
-2. Se você não vir a porta TCP usada pelo software de NVA que está listado nos resultados, você deve configurar o aplicativo sobre o NVA e a VM para ouvir e responder ao tráfego que chega a essas portas. [Entre em contato com o fornecedor NVA para obter assistência conforme necessário](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. Se você não vir a porta TCP usada pelo software de NVA que está listado nos resultados, você deve configurar o aplicativo sobre o NVA e a VM para ouvir e responder ao tráfego que chega a essas portas. [Entre em contato com o fornecedor NVA para obter assistência conforme necessário](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="check-nva-performance"></a>Verificar o desempenho de NVA
 
 ### <a name="validate-vm-cpu"></a>Validar a CPU da VM
 
-Se o uso da CPU ficar perto de 100%, você poderá enfrentar problemas que afetam os descartes de pacotes de rede. Seus relatórios VM médios de CPU para um período de tempo específico no portal do Azure. Durante um pico de CPU, investigar qual processo no convidado que VM está causando a alta utilização da CPU e resolvê-lo, se possível. Você também terá que redimensionar a VM para um tamanho maior de SKU ou, para o conjunto de dimensionamento de máquina virtual, aumentar a contagem de instâncias ou definido para dimensionamento automático no uso da CPU. Para qualquer um desses problemas, [entre em contato com o fornecedor do NVA para obter assistência](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), conforme necessário.
+Se o uso da CPU ficar perto de 100%, você poderá enfrentar problemas que afetam os descartes de pacotes de rede. Seus relatórios VM médios de CPU para um período de tempo específico no portal do Azure. Durante um pico de CPU, investigar qual processo no convidado que VM está causando a alta utilização da CPU e resolvê-lo, se possível. Você também terá que redimensionar a VM para um tamanho maior de SKU ou, para o conjunto de dimensionamento de máquina virtual, aumentar a contagem de instâncias ou definido para dimensionamento automático no uso da CPU. Para qualquer um desses problemas, [entre em contato com o fornecedor do NVA para obter assistência](https://mskb.pkisolutions.com/kb/2984655), conforme necessário.
 
 ### <a name="validate-vm-network-statistics"></a>Validar as estatísticas de rede de VM
 
-Se a rede VM usa picos ou mostra períodos de alto uso, que você também pode ter que aumentar o tamanho do SKU da VM para obter os recursos de taxa de transferência mais alta. Também é possível reimplantar a VM tendo a Rede Acelerada habilitada. Para verificar se a NVA dá suporte a recurso de rede acelerada [entre em contato com o fornecedor NVA para obter assistência](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), conforme necessário.
+Se a rede VM usa picos ou mostra períodos de alto uso, que você também pode ter que aumentar o tamanho do SKU da VM para obter os recursos de taxa de transferência mais alta. Também é possível reimplantar a VM tendo a Rede Acelerada habilitada. Para verificar se a NVA dá suporte a recurso de rede acelerada [entre em contato com o fornecedor NVA para obter assistência](https://mskb.pkisolutions.com/kb/2984655), conforme necessário.
 
 ## <a name="advanced-network-administrator-troubleshooting"></a>Administrador de rede avançados de solução de problemas
 
@@ -146,4 +146,4 @@ Capturar um rastreamento de rede simultânea na VM de origem, a NVA, e a VM de d
 
 Se você não vir a entrada de pacotes para o rastreamento de VM de back-end, provavelmente haverá um NSG/UDR interferindo ou as tabelas de roteamento NVA estão incorretas.
 
-Se você vir os pacotes que chegam mas sem resposta, precisará solucionar um problema de firewall ou de um aplicativo de VM. Para qualquer um desses problemas, [entre em contato com o fornecedor para obter assistência, conforme necessário](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Se você vir os pacotes que chegam mas sem resposta, precisará solucionar um problema de firewall ou de um aplicativo de VM. Para qualquer um desses problemas, [entre em contato com o fornecedor para obter assistência, conforme necessário](https://mskb.pkisolutions.com/kb/2984655).

@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: d1360589fe2c2ec13c341dd14793db0ca8b809c4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358870"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093935"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Instância Gerenciada
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -172,7 +172,7 @@ Os logons do SQL do SQL Server de origem podem ser movidos para o Azure SQL Inst
 
 Por padrão, o Serviço de Migração de Banco de Dados do Azure é compatível apenas com a migração de logons SQL. No entanto, você pode habilitar a capacidade de migrar logons do Windows executando as seguintes ações:
 
-Garantindo que o SQL de destino Instância Gerenciada tenha acesso de leitura do Azure AD, que pode ser configurado por meio do portal do Azure por um usuário com a função **administrador da empresa** ou **administrador global**.
+Garantir que o SQL de destino Instância Gerenciada tenha acesso de leitura do Azure AD, que pode ser configurado por meio do portal do Azure por um usuário com a função de **administrador global** .
 Configurando sua instância do Serviço de Migração de Banco de Dados do Azure para habilitar as migrações de logon de usuário/grupo do Windows, que são configuradas por meio do portal do Azure, na página de Configuração. Depois de habilitar essa configuração, reinicie o serviço para que as alterações entrem em vigor.
 
 Depois de reiniciar o serviço, os logons de usuário/grupo do Windows aparecerão na lista de logons disponíveis para migração. Para todo logon de usuário/grupo do Windows que você migrar, será solicitado que forneça o nome de domínio associado. As contas de usuário de serviço (conta com nome de domínio NT AUTHORITY) e as contas de usuário virtual (nome da conta com o nome de domínio NT SERVICE) não são compatíveis.

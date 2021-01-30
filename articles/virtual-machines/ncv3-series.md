@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: aae2c8b51fabf22419028a17f5bbce6c97530ed5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b8eeb06b75ba0e0bdaf19957699ad638c6937891
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917295"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094751"
 ---
 # <a name="ncv3-series"></a>Série NCv3
 
@@ -24,6 +24,7 @@ VMs da série NCv3 têm a tecnologia de GPUs NVIDIA Tesla V100. Essas GPUs podem
 [Atualizações de preservação de memória](maintenance-and-updates.md): sem suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): sem suporte<br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 Interconexão NVIDIA NVLink: sem suporte<br>
 
 > [!IMPORTANT]

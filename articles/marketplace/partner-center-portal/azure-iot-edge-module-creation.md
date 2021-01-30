@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347475"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096433"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -34,7 +34,7 @@ Este artigo descreve como criar e publicar uma oferta de módulo do IoT (Interne
 Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
 
 - Essa ID é visível para os clientes no endereço Web para a oferta do Marketplace e nos modelos do Azure Resource Manager, se aplicável.
-- Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1** , o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Use apenas letras minúsculas e números. Ela pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1**, o endereço Web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
 
 Insira um **Alias da oferta**. Esse é o nome usado para a oferta no Partner Center.
@@ -182,9 +182,9 @@ Você deve fornecer o nome, o email e o número de telefone de um **Contato de s
 - Contato de engenharia (obrigatório): para questões técnicas e problemas de certificação.
 - Contato de programa CSP (opcional): Para questões sobre o revendedor relacionadas ao programa CSP.
 
-Na seção **Contato do suporte** , forneça o endereço Web do **Site de suporte** em que os parceiros podem encontrar suporte para sua oferta com base em se ela está disponível no Azure global, no Azure Government ou em ambos.
+Na seção **Contato do suporte**, forneça o endereço Web do **Site de suporte** em que os parceiros podem encontrar suporte para sua oferta com base em se ela está disponível no Azure global, no Azure Government ou em ambos.
 
-Na seção **Contato do Programa CSP** , forneça o link ( **Materiais de marketing do Programa CSP** ) em que os parceiros CSP podem encontrar materiais de marketing relacionados à sua oferta.
+Na seção **Contato do Programa CSP**, forneça o link (**Materiais de marketing do Programa CSP**) em que os parceiros CSP podem encontrar materiais de marketing relacionados à sua oferta.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos adicionais de listagem do marketplace
 
@@ -275,7 +275,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 
 ## <a name="preview"></a>Visualização
 
-Na **guia Versão prévia** , você pode escolher um **Público-alvo de versão prévia** para validar sua oferta antes de publicá-la como ativa para o público-alvo geral do marketplace.
+Na **guia Versão prévia**, você pode escolher um **Público-alvo de versão prévia** para validar sua oferta antes de publicá-la como ativa para o público-alvo geral do marketplace.
 
 > [!IMPORTANT]
 > Depois de exibir sua oferta como Versão prévia, você precisa selecionar **Ativar** para publicá-la para o público em geral.
@@ -305,16 +305,16 @@ Depois de criar seus planos, a guia **Visão geral do plano** exibe:
 
 As ações disponíveis no painel Visão geral do plano variam de acordo com o status atual do seu plano. Elas incluem:
 
-- **Excluir o rascunho** : se o status de plano for de rascunho.
-- **Parar venda do plano** : se o status do plano for publicado e ativo.
+- **Excluir o rascunho**: se o status de plano for de rascunho.
+- **Parar venda do plano**: se o status do plano for publicado e ativo.
 
 ### <a name="create-new-plan"></a>Criar plano
 
 Selecione **Criar novo plano**. A caixa de diálogo **Novo plano** é exibida.
 
-Na caixa **ID do plano** , crie uma ID de plano exclusiva para cada plano nesta oferta. Essa ID será visível para os clientes no endereço Web do produto. Use apenas letras minúsculas e números, traços ou sublinhados e, no máximo, 50 caracteres.
+Na caixa **ID do plano**, crie uma ID de plano exclusiva para cada plano nesta oferta. Essa ID será visível para os clientes no endereço Web do produto. Use apenas letras minúsculas e números, traços ou sublinhados e, no máximo, 50 caracteres.
 
-Na caixa **Nome do plano** , insira um nome para esse plano. Os clientes veem esse nome quando estão decidindo qual plano selecionar dentro da sua oferta. Crie um nome exclusivo para cada plano nessa oferta. Por exemplo, você pode usar um nome de oferta do **Windows Server** com planos **Windows Server 2016** e **Windows Server 2019**.
+Na caixa **Nome do plano**, insira um nome para esse plano. Os clientes veem esse nome quando estão decidindo qual plano selecionar dentro da sua oferta. Crie um nome exclusivo para cada plano nessa oferta. Por exemplo, você pode usar um nome de oferta do **Windows Server** com planos **Windows Server 2016** e **Windows Server 2019**.
 
 > [!NOTE]
 > A ID do plano não pode ser alterada depois que você seleciona **Criar**.
@@ -403,15 +403,15 @@ Assim que a oferta for publicada, a imagem de contêiner do IoT Edge será copia
 
 Você fornecerá as informações a seguir na guia **Detalhes do repositório de imagens**.
 
-**Selecione a origem da imagem** : selecione a opção **Registro de Contêiner do Azure**.
+**Selecione a origem da imagem**: selecione a opção **Registro de Contêiner do Azure**.
 
-**ID da assinatura do Azure** : forneça a ID da assinatura na qual o uso do recurso é relatado e os serviços são cobrados para o Registro de Contêiner do Azure que inclui sua imagem de contêiner. É possível encontrar essa ID na [página Assinaturas](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
+**ID da assinatura do Azure**: forneça a ID da assinatura na qual o uso do recurso é relatado e os serviços são cobrados para o Registro de Contêiner do Azure que inclui sua imagem de contêiner. É possível encontrar essa ID na [página Assinaturas](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
 
-**Nome do grupo de recursos do Azure** : forneça o nome do [grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md) que contém o Registro de Contêiner do Azure com a imagem de contêiner. O grupo de recursos precisa poder ser acessado na ID da assinatura (acima). Você pode encontrar o nome na página [Grupos de recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal do Azure.
+**Nome do grupo de recursos do Azure**: forneça o nome do [grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md) que contém o Registro de Contêiner do Azure com a imagem de contêiner. O grupo de recursos precisa poder ser acessado na ID da assinatura (acima). Você pode encontrar o nome na página [Grupos de recursos](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) no portal do Azure.
 
-**Nome do Registro de Contêiner do Azure** : forneça o nome do [Registro de Contêiner do Azure](../../container-registry/container-registry-intro.md) que tem sua imagem de contêiner. O registro de contêiner precisa estar presente no grupo de recursos do Azure que você forneceu anteriormente. Forneça somente o nome do Registro, não o nome completo do servidor de logon. Lembre-se de omitir **azurecr.io** do nome. Você pode encontrar o nome do registro na [página Registros de Contêiner](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal do Azure.
+**Nome do Registro de Contêiner do Azure**: forneça o nome do [Registro de Contêiner do Azure](../../container-registry/container-registry-intro.md) que tem sua imagem de contêiner. O registro de contêiner precisa estar presente no grupo de recursos do Azure que você forneceu anteriormente. Forneça somente o nome do Registro, não o nome completo do servidor de logon. Lembre-se de omitir **azurecr.io** do nome. Você pode encontrar o nome do registro na [página Registros de Contêiner](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) no portal do Azure.
 
-**Nome de usuário do administrador para o registro de contêiner do Azure** : forneça o [nome de usuário do administrador](../../container-registry/container-registry-authentication.md#admin-account)associado ao registro de contêiner do Azure que tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao registro. Para obter o nome de usuário do administrador e a senha, defina a propriedade **admin-enabled** como **True** usando a CLI (interface de linha de comando) do Azure. Opcionalmente, você pode definir **Usuário administrador** como **Habilitar** no portal do Azure.
+**Nome de usuário do administrador para o registro de contêiner do Azure**: forneça o [nome de usuário do administrador](../../container-registry/container-registry-authentication.md#admin-account)associado ao registro de contêiner do Azure que tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao registro. Para obter o nome de usuário do administrador e a senha, defina a propriedade **admin-enabled** como **True** usando a CLI (interface de linha de comando) do Azure. Opcionalmente, você pode definir **Usuário administrador** como **Habilitar** no portal do Azure.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustra a caixa de diálogo Atualizar registro de contêiner.":::
 
@@ -419,7 +419,7 @@ Você fornecerá as informações a seguir na guia **Detalhes do repositório de
 
 1. Usuário administrador
 
-<br>**Senha para o Registro de Contêiner do Azure** : forneça a senha para o nome de usuário do administrador que está associado ao Registro de Contêiner do Azure e tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao Registro. Você pode obter a senha do portal do Azure acessando **Registro de Contêiner** > **Chaves de Acesso** ou com a CLI do Azure usando o [comando mostrar](/cli/azure/acr/credential#az-acr-credential-show).
+<br>**Senha para o Registro de Contêiner do Azure**: forneça a senha para o nome de usuário do administrador que está associado ao Registro de Contêiner do Azure e tem sua imagem de contêiner. O nome de usuário e a senha são obrigatórios para garantir que sua empresa tenha acesso ao Registro. Você pode obter a senha do portal do Azure acessando **Registro de Contêiner** > **Chaves de Acesso** ou com a CLI do Azure usando o [comando mostrar](/cli/azure/acr/credential#az-acr-credential-show).
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustra a tela de chave de acesso na portal do Azure.":::
 
@@ -430,6 +430,9 @@ Você fornecerá as informações a seguir na guia **Detalhes do repositório de
 3. Senha
 
 **Nome do repositório no Registro de Contêiner do Azure**. Forneça o nome do repositório do Registro de Contêiner do Azure que tem sua imagem. Você especifica o nome do repositório quando envia a imagem por push para o registro. Você pode encontrar o nome do repositório acessando a página [Registro de Contêiner](https://azure.microsoft.com/services/container-registry/) > **Repositórios**. Para obter mais informações, confira [Exibir repositórios de registro de contêiner no portal do Azure](../../container-registry/container-registry-repositories.md). Depois de definir o nome, ele não poderá mais ser alterado. Use um nome exclusivo para cada oferta presente em sua conta.
+
+> [!NOTE]
+> Não há suporte para o registro de contêiner do Azure criptografado para certificação de módulo do Edge. O registro de contêiner do Azure deve ser criado sem criptografia habilitada.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tags de imagem para novas versões da sua oferta
 

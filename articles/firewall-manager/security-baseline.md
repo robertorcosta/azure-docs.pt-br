@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b8dc91851ee736fd15f1fed8ef50c2cd7c7ab778
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5ef40b048fbc50174afb662aecd3335d97eb0106
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788291"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095965"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Linha de base de segurança do Azure para o Gerenciador de firewall do Azure
 
@@ -129,7 +129,7 @@ O ATP (Proteção Avançada contra Ameaças) do Azure é uma solução de segura
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: proteger e limitar os usuários altamente privilegiados
 
 **Diretrizes**: o Gerenciador de firewall do Azure usa o Azure Active Directory (Azure AD) para identidade e acesso. As funções internas mais críticas são o administrador global e o administrador de função com privilégios, pois os usuários atribuídos a essas duas funções podem delegar funções de administrador:
-- Administrador global/administração da empresa: os usuários com essa função têm acesso a todos os recursos administrativos do Azure AD, bem como serviços que usam identidades do Azure AD.
+- Administrador global: os usuários com essa função têm acesso a todos os recursos administrativos no Azure AD, bem como a serviços que usam identidades do Azure AD.
 - Administrador de função com privilégios: os usuários com essa função podem gerenciar atribuições de função no Azure AD, bem como dentro de Azure AD Privileged Identity Management (PIM). Além disso, essa função permite o gerenciamento de todos os aspectos do PIM e das unidades administrativas.
 
 Você pode ter outras funções críticas que precisam ser governadas se você usar funções personalizadas com determinadas permissões privilegiadas atribuídas. E você também pode querer aplicar controles semelhantes à conta de administrador de ativos de negócios críticos.

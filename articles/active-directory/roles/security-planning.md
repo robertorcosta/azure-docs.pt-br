@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e38ca27606ecf04b08bd29867894ba269148260c
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055239"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090783"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -40,7 +40,7 @@ Proteger acesso privilegiado requer alterações a:
 Proteja seu acesso privilegiado de uma maneira que seja gerenciado e relatado nos serviços da Microsoft que você deseja. Se você tiver contas administrativas locais, confira as diretrizes para acesso privilegiado no local e híbrido no Active Directory em [Proteção de acesso privilegiado](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
-> As diretrizes neste artigo referem-se principalmente a recursos do Azure Active Directory que são incluídos em planos de Azure Active Directory Premium P1 e P2. O Azure Active Directory Premium P2 está incluído no conjunto de EMS E5 e Microsoft 365 E5. Este guia pressupõe que sua organização já tem as licenças do Azure AD Premium P2 adquiridas para os usuários. Se você não tiver essas licenças, algumas das orientações podem não se aplicar à sua organização. Além disso, em todo este artigo, o termo administrador global (ou administrador global) significa a mesma coisa que "administrador da empresa" ou "administrador de locatários".
+> As diretrizes neste artigo referem-se principalmente a recursos do Azure Active Directory que são incluídos em planos de Azure Active Directory Premium P1 e P2. O Azure Active Directory Premium P2 está incluído no conjunto de EMS E5 e Microsoft 365 E5. Este guia pressupõe que sua organização já tem as licenças do Azure AD Premium P2 adquiridas para os usuários. Se você não tiver essas licenças, algumas das orientações podem não se aplicar à sua organização. Além disso, em todo este artigo, o termo administrador global significa a mesma coisa que "administrador da empresa" ou "administrador de locatários".
 
 ## <a name="develop-a-roadmap"></a>Desenvolver um roteiro
 
@@ -74,7 +74,7 @@ O Azure AD Privileged Identity Management está incluído no Azure AD Premium P2
 
 Depois de ativar o Azure AD Privileged Identity Management:
 
-1. Entre no [portal do Azure](https://portal.azure.com/) com uma conta que seja um administrador global da organização de produção do Azure AD.
+1. Entre no [portal do Azure](https://portal.azure.com/) com uma conta que seja um administrador global da sua organização de produção do Azure AD.
 
 2. Para selecionar a organização do Azure AD em que você deseja usar o Privileged Identity Management, selecione seu nome de usuário no canto superior direito do portal do Azure.
 
@@ -93,7 +93,7 @@ Depois de ativar Azure AD Privileged Identity Management, visualize os usuários
 * Administradores do Exchange
 * Administrador do SharePoint
 
-Se você não tiver o Azure AD Privileged Identity Management em sua organização, poderá usar a [API do PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Comece com a função de administrador global porque um administrador global tem as mesmas permissões em todos os serviços de nuvem ao quais sua organização tenha assinado. Essas permissões são concedidas independentemente de onde foram atribuídas: no Centro de Administração do Microsoft 365, no portal do Azure ou pelo módulo do Azure AD para Microsoft PowerShell.
+Se você não tiver o Azure AD Privileged Identity Management em sua organização, poderá usar a [API do PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Comece com a função de administrador global, pois um administrador global tem as mesmas permissões em todos os serviços de nuvem para os quais sua organização assinou. Essas permissões são concedidas independentemente de onde foram atribuídas: no Centro de Administração do Microsoft 365, no portal do Azure ou pelo módulo do Azure AD para Microsoft PowerShell.
 
 Remova todas as contas que não são mais necessárias nessas funções. Em seguida, categorize as contas restantes atribuídas às funções administrativas:
 
@@ -110,7 +110,7 @@ Remova todas as contas que não são mais necessárias nessas funções. Em segu
 
 As contas de acesso de emergência ajudam a restringir o acesso privilegiado em uma organização do Azure AD. Essas contas são altamente privilegiadas e não são atribuídas a indivíduos específicos. As contas de acesso de emergência são limitadas a cenários de emergência ou urgência em que as contas administrativas normais não podem ser usadas. Certifique-se de controlar e reduzir o uso da conta de emergência somente pelo tempo necessário.
 
-Avalie as contas que são atribuídas ou qualificadas para a função de administrador global. Se você não vir nenhuma conta somente em nuvem usando o domínio \*.onmicrosoft.com (para acesso de emergência), crie-as. Para obter mais informações, consulte [Gerenciamento de contas administrativas de acesso de emergência no Azure AD](security-emergency-access.md).
+Avalie as contas atribuídas ou qualificadas para a função de administrador global. Se você não vir nenhuma conta somente em nuvem usando o domínio \*.onmicrosoft.com (para acesso de emergência), crie-as. Para obter mais informações, consulte [Gerenciamento de contas administrativas de acesso de emergência no Azure AD](security-emergency-access.md).
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ativar autenticação multifator e registrar todas as outras contas de administrador de usuário único, não federadas e altamente privilegiadas
 
@@ -141,13 +141,13 @@ O aumento de "bring your own device" e políticas de trabalho de casa e o cresci
 
 #### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>Identifique as contas da Microsoft em funções administrativas que precisam ser alternadas para contas de trabalho ou escolares
 
-Se os administradores globais iniciais reutilizarem as credenciais de conta da Microsoft existentes quando começarem a usar o Azure AD, substitua as contas da Microsoft por contas individuais baseadas em nuvem ou sincronizadas.
+Se os administradores globais iniciais reutilizarem suas credenciais de conta Microsoft existentes quando começarem a usar o Azure AD, substitua as contas da Microsoft por contas individuais baseadas em nuvem ou sincronizadas.
 
-#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Garanta contas de usuário separadas e emails de encaminhamento para as contas de administrador global
+#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Garantir contas de usuário separadas e encaminhamento de email para contas de administrador global
 
-Contas de email pessoais são regularmente capturadas por invasores virtuais, um risco que torna os endereços de email pessoais inaceitáveis para contas do administrador global. Para ajudar a separar os riscos de internet de privilégios administrativos, crie contas dedicadas para cada usuário com privilégios administrativos.
+As contas de email pessoais são regularmente analisadas por invasores cibernéticos, um risco que torna os endereços de email pessoais inaceitáveis para contas de administrador global. Para ajudar a separar os riscos de internet de privilégios administrativos, crie contas dedicadas para cada usuário com privilégios administrativos.
 
-* Certifique-se de criar contas separadas para os usuários realizarem tarefas de administração globais.
+* Certifique-se de criar contas separadas para os usuários realizarem tarefas de administrador global.
 * Certifique-se de que seus administradores globais não abram emails acidentalmente ou executem programas com suas contas de administrador.
 * Certifique-se de que essas contas têm seu email encaminhado para uma caixa de correio do trabalho.
 * Contas de administrador global (e outros grupos privilegiados) devem ser contas somente em nuvem sem ligações para Active Directory locais.
@@ -431,7 +431,7 @@ Para obter mais informações sobre como o Microsoft Office 365 trata os inciden
 
 **P:** O que devo fazer se ainda não tiver implementado nenhum componente de acesso seguro?
 
-**Resposta:** Defina no mínimo duas contas de vigilância, atribua o MFA a suas contas de administrador privilegiado e separe as contas de usuário das contas de administrador Global.
+**Resposta:** Defina pelo menos duas contas de interrupção, atribua o MFA às suas contas de administrador privilegiado e separe as contas de usuário das contas de administrador global.
 
 **P:** Após uma violação, qual é o problema superior que precisa ser abordado primeiro?
 
@@ -439,7 +439,7 @@ Para obter mais informações sobre como o Microsoft Office 365 trata os inciden
 
 **P:** O que acontecerá se nossos administradores com privilégios forem desativados?
 
-**Resposta:** Crie uma conta do administrador global que está sempre atualizada.
+**Resposta:** Crie uma conta de administrador global que sempre seja mantida atualizada.
 
 **P:** O que acontece se houver apenas um administrador global e eles não puderem ser acessados?
 

@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para o Azure Service Fabric
 description: Lista as definições de políticas internas do Azure Policy para o Azure Service Fabric. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 97b29be8d0062b4f2956d1bf121e64171350d60d
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 8d44c34fe72196134a5516607acaa9beac8c2639
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805064"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093868"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-fabric"></a>Definições internas do Azure Policy para o Azure Service Fabric
 

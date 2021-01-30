@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b750d4cc911dc72b60974171dd884b373921fad5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e123ab6d5b9d801908112239cf3e9cb72b4abbb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734589"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093956"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Linha de base de segurança do Azure para serviço de Signaler do Azure
 
@@ -220,7 +220,7 @@ O ATP (Proteção Avançada contra Ameaças) do Azure é uma solução de segura
 
 **Orientação**: as funções internas mais críticas são Azure Active Directory (Azure AD) são o administrador global e o administrador de função com privilégios, pois os usuários atribuídos a essas duas funções podem delegar funções de administrador:
 
-- Administrador global/administração da empresa: os usuários com essa função têm acesso a todos os recursos administrativos do Azure AD, bem como serviços que usam identidades do Azure AD.
+- Administrador global: os usuários com essa função têm acesso a todos os recursos administrativos no Azure AD, bem como a serviços que usam identidades do Azure AD.
 
 - Administrador de função com privilégios: os usuários com essa função podem gerenciar atribuições de função no Azure Active Directory (Azure AD), bem como em Azure AD Privileged Identity Management (PIM). Além disso, essa função permite o gerenciamento de todos os aspectos do PIM e das unidades administrativas.
 
