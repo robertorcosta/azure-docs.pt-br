@@ -8,7 +8,7 @@
       href: api-management-features.md
     - name: Gerenciar os microsserviços implantados no AKS
       href: api-management-kubernetes.md
-- name: Início rápido
+- name: Inícios rápidos
   expanded: true
   items:
     - name: Criar uma instância – CLI
@@ -64,6 +64,8 @@
           href: api-management-error-handling-policies.md
     - name: Segurança
       items:
+        - name: Controles de segurança do Azure Policy
+          href: ./security-controls-policy.md
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: Assinaturas

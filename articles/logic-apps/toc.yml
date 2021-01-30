@@ -57,6 +57,14 @@
           href: security-baseline.md
 - name: Guias de instruções
   items:
+    - name: Versão prévia dos Aplicativos Lógicos do Azure
+      items:
+        - name: Visão geral da versão prévia dos Aplicativos Lógicos do Azure
+          href: logic-apps-overview-preview.md
+        - name: Criar fluxos de trabalho com e sem estado – portal do Azure
+          href: create-stateful-stateless-workflows-azure-portal.md
+        - name: Criar fluxos de trabalho com e sem estado – Visual Studio Code
+          href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Desenvolver
       items:
         - name: Criar a partir de modelos predefinidos
@@ -67,14 +75,6 @@
           href: logic-apps-move-from-mabs.md
         - name: Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
           href: export-from-microsoft-flow-logic-app-template.md
-        - name: Versão prévia dos Aplicativos Lógicos do Azure
-          items:
-            - name: Visão geral da versão prévia dos Aplicativos Lógicos do Azure
-              href: logic-apps-overview-preview.md
-            - name: Criar fluxos de trabalho com e sem estado – portal do Azure
-              href: create-stateful-stateless-workflows-azure-portal.md
-            - name: Criar fluxos de trabalho com e sem estado – Visual Studio Code
-              href: create-stateful-stateless-workflows-visual-studio-code.md
         - name: Chamar aplicativos lógicos do Power Automate e do Power Apps
           href: call-from-power-automate-power-apps.md
         - name: Controlar a execução do fluxo de trabalho
@@ -330,6 +330,8 @@
           href: logic-apps-enterprise-integration-create-integration-account.md
         - name: Gerenciar ambientes de serviço de integração
           href: ise-manage-integration-service-environment.md
+        - name: Planejar e gerenciar custos
+          href: plan-manage-costs.md
         - name: Mover recursos do aplicativo lógico
           href: move-logic-app-resources.md
         - name: Migrar para o esquema mais recente
