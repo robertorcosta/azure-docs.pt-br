@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: c7e8f96e7917173aaec308b8ae5218684a722483
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507465"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221135"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copiar dados de e para Azure Databricks o Delta Lake usando Azure Data Factory
 
@@ -41,8 +41,8 @@ Em geral, Azure Data Factory dá suporte ao Delta Lake com os seguintes recursos
 
 Para usar este Azure Databricks o conector Delta Lake, você precisa configurar um cluster no Azure Databricks.
 
-- Para copiar dados para o Delta Lake, a atividade de cópia invoca Azure Databricks cluster para ler dados de um armazenamento do Azure, que é a fonte original ou uma área de preparação para onde Data Factory grava em primeiro lugar os dados de origem por meio de cópia em etapas internas. Saiba mais no [Delta Lake como a origem](#delta-lake-as-source).
-- Da mesma forma, para copiar dados do Delta Lake, a atividade de cópia invoca Azure Databricks cluster para gravar dados em um armazenamento do Azure, que é o seu coletor original ou uma área de preparo de onde Data Factory continuará gravando dados no coletor final por meio de cópia em etapas internas. Saiba mais no [Delta Lake como o coletor](#delta-lake-as-sink).
+- Para copiar dados para o Delta Lake, a atividade de cópia invoca Azure Databricks cluster para ler dados de um armazenamento do Azure, que é a fonte original ou uma área de preparação para onde Data Factory grava em primeiro lugar os dados de origem por meio de cópia em etapas internas. Saiba mais no [Delta Lake como o coletor](#delta-lake-as-sink).
+- Da mesma forma, para copiar dados do Delta Lake, a atividade de cópia invoca Azure Databricks cluster para gravar dados em um armazenamento do Azure, que é o seu coletor original ou uma área de preparo de onde Data Factory continuará gravando dados no coletor final por meio de cópia em etapas internas. Saiba mais no [Delta Lake como a origem](#delta-lake-as-source).
 
 O cluster do databricks precisa ter acesso ao blob do Azure ou Azure Data Lake Storage Gen2 conta, tanto o contêiner de armazenamento/sistema de arquivos usado para origem/coletor/preparo quanto para o sistema de contêiner/arquivo no qual você deseja gravar as tabelas Delta Lake.
 
@@ -116,7 +116,7 @@ As propriedades a seguir têm suporte para o conjunto de Azure Databricks do Del
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | A propriedade Type do conjunto de conjuntos deve ser definida como **AzureDatabricksDeltaLakeDataset**. | Sim                         |
 | Banco de Dados | Nome do banco de dados. |Não para fonte, sim para coletor  |
-| table | Nome da tabela Delta. |Não para fonte, sim para coletor  |
+| tabela | Nome da tabela Delta. |Não para fonte, sim para coletor  |
 
 **Exemplo:**
 
@@ -149,12 +149,12 @@ Para copiar dados do Azure Databricks Delta Lake, há suporte para as propriedad
 | Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | A propriedade Type da fonte da atividade de cópia deve ser definida como **AzureDatabricksDeltaLakeSource**. | Sim      |
-| Consulta          | Especifique a consulta SQL para ler os dados. Para o controle de viagem de tempo, siga o padrão abaixo:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | Não       |
-| exportSettings | Configurações avançadas usadas para recuperar dados da tabela Delta. | Não       |
+| Consulta          | Especifique a consulta SQL para ler os dados. Para o controle de viagem de tempo, siga o padrão abaixo:<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | No       |
+| exportSettings | Configurações avançadas usadas para recuperar dados da tabela Delta. | No       |
 | ***Em `exportSettings` :** _ |  |  |
-| tipo | O tipo de comando de exportação, definido como _ * AzureDatabricksDeltaLakeExportCommand * *. | Sim |
-| dateFormat | Formate o tipo de data como cadeia de caracteres com um formato de data. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd` . | Não |
-| timestampFormat | Formate o tipo TIMESTAMP como cadeia de caracteres com um formato de carimbo de hora. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | Não |
+| tipo | O tipo de comando de exportação, definido como _ * AzureDatabricksDeltaLakeExportCommand * *. | Yes |
+| dateFormat | Formate o tipo de data como cadeia de caracteres com um formato de data. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd` . | No |
+| timestampFormat | Formate o tipo TIMESTAMP como cadeia de caracteres com um formato de carimbo de hora. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | No |
 
 #### <a name="direct-copy-from-delta-lake"></a>Cópia direta do Delta Lake
 
@@ -262,13 +262,13 @@ Para copiar dados para Azure Databricks Delta Lake, as propriedades a seguir tê
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | :------------ | :----------------------------------------------------------- | :------- |
-| type          | A propriedade Type do coletor da atividade de cópia, definida como **AzureDatabricksDeltaLakeSink**. | Sim      |
-| preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados na tabela Delta do databricks em cada execução. Você pode usar essa propriedade para limpar os dados pré-carregados ou adicionar uma tabela Truncate ou uma instrução de aspiração. | Não       |
-| importSettings | Configurações avançadas usadas para gravar dados na tabela Delta. | Não |
+| type          | A propriedade Type do coletor da atividade de cópia, definida como **AzureDatabricksDeltaLakeSink**. | Yes      |
+| preCopyScript | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados na tabela Delta do databricks em cada execução. Você pode usar essa propriedade para limpar os dados pré-carregados ou adicionar uma tabela Truncate ou uma instrução de aspiração. | No       |
+| importSettings | Configurações avançadas usadas para gravar dados na tabela Delta. | No |
 | **_Em `importSettings` :_* _ |                                                              |  |
-| tipo | O tipo de comando de importação, definido como _ * AzureDatabricksDeltaLakeImportCommand * *. | Sim |
-| dateFormat | Formatar cadeia de caracteres para tipo de data com um formato de data. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd` . | Não |
-| timestampFormat | Formatar cadeia de caracteres para tipo TIMESTAMP com um formato de carimbo de data/hora. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | Não |
+| tipo | O tipo de comando de importação, definido como _ * AzureDatabricksDeltaLakeImportCommand * *. | Yes |
+| dateFormat | Formatar cadeia de caracteres para tipo de data com um formato de data. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd` . | No |
+| timestampFormat | Formatar cadeia de caracteres para tipo TIMESTAMP com um formato de carimbo de data/hora. Formatos de data personalizados seguem os formatos no [padrão DateTime](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html). Se não for especificado, ele usará o valor padrão `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` . | No |
 
 #### <a name="direct-copy-to-delta-lake"></a>Cópia direta para o Delta Lake
 

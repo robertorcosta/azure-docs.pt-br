@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 4c0017a36d84973a4d99c49a5ea33faeb189b35f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639153"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221203"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Noções básicas sobre a conectividade de rede de área de trabalho virtual
 
@@ -50,7 +50,7 @@ Sequência de conexão do cliente descrita abaixo:
 
 ## <a name="connection-security"></a>Segurança da conexão
 
-O TLS 1,2 é usado para todas as conexões iniciadas dos clientes e hosts de sessão para os componentes de infraestrutura de área de trabalho virtual do Windows.
+O TLS 1,2 é usado para todas as conexões iniciadas dos clientes e hosts de sessão para os componentes de infraestrutura de área de trabalho virtual do Windows. A área de trabalho virtual do Windows usa as mesmas codificações TLS 1,2 que o [Azure front door](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). É importante garantir que os computadores cliente e os hosts de sessão possam usar essas codificações.
 Para o transporte de conexão reversa, o cliente e o host de sessão se conectam ao gateway de área de trabalho virtual do Windows. Depois de estabelecer a conexão TCP, o cliente ou o host de sessão valida o certificado do gateway de área de trabalho virtual do Windows.
 Depois de estabelecer o transporte base, o RDP estabelece uma conexão TLS aninhada entre o host de sessão e o cliente usando os certificados do host de sessão. Por padrão, o certificado usado para criptografia de RDP é gerado automaticamente pelo sistema operacional durante a implantação. Se desejar, os clientes podem implantar certificados gerenciados centralmente emitidos pela autoridade de certificação corporativa. Para obter mais informações sobre como configurar certificados, consulte a [documentação do Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

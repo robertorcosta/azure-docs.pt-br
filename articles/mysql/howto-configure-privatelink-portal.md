@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998559"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221019"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerenciar um link privado para o banco de dados do Azure para MySQL usando o portal
 
@@ -32,7 +32,7 @@ Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM qu
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta seção, você criará uma rede virtual e a sub-rede para hospedar a VM usada para acessar o recurso de Link Privado.
 
-1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >  **Networking**  >  **virtuais**.
+1. No lado superior esquerdo da tela, selecione **criar um recurso** rede redes  >    >  **virtuais**.
 2. Em **Criar rede virtual**, insira ou selecione estas informações:
 
     | Configuração | Valor |
@@ -114,7 +114,7 @@ Nesta seção, você criará um servidor de banco de dados do Azure para MySQL n
     | Senha | Insira uma senha de sua escolha. A senha deve ter no mínimo 8 caracteres e atender a requisitos complexidade definidos. |
     | Location | Selecione uma região do Azure em que você deseja que o servidor MySQL resida. |
     |Versão  | Selecione a versão do banco de dados do servidor MySQL que é necessária.|
-    | Computação + Armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
+    | Computação + armazenamento| Selecione o tipo de preço necessário para o servidor com base na carga de trabalho. |
     |||
  
 7. Selecione **OK**. 
@@ -143,7 +143,7 @@ Nesta seção, você criará um servidor MySQL e adicionará um ponto de extremi
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você o criou na seção anterior.|
-    | **Detalhes da instância** |  |
+    | **Detalhes da Instância** |  |
     | Nome | Insira *myPrivateEndpoint*. Se esse nome já estiver sendo usado, crie um nome exclusivo. |
     |Região|Selecione **Europa Ocidental**.|
     |||
@@ -223,6 +223,8 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
     Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
     ```
+    > [!NOTE]
+    > Se o acesso público estiver desabilitado nas configurações de firewall no banco de dados do Azure para MySQL-servidor único. Esses testes ping e Telnet serão bem-sucedidos independentemente das configurações do firewall. Esses testes garantirão a conectividade de rede.
 
 3. Teste a conexão de link privado para o servidor MySQL usando qualquer cliente disponível. No exemplo abaixo, usei o [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) para realizar a operação.
 
@@ -232,7 +234,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
     | ------- | ----- |
     | Tipo de servidor| Selecione **MySQL**.|
     | Nome do servidor| Selecionar *MyServer.privatelink.mysql.Database.Azure.com* |
-    | Nome de usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor MySQL. |
+    | Nome do usuário | Insira o nome de usuário como username@servername fornecido durante a criação do servidor MySQL. |
     |Senha |Insira uma senha fornecida durante a criação do servidor MySQL. |
     |SSL|Selecione **obrigatório**.|
     ||
@@ -245,7 +247,7 @@ Depois de criar **myVm**, conecte-se a ela pela Internet da seguinte maneira:
 
 8. Feche a conexão de área de trabalho remota para myVm.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando você terminar de usar o ponto de extremidade privado, o MySQL Server e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 
 1. Insira *myResourceGroup* na caixa **Pesquisar** na parte superior do portal e selecione *myResourceGroup* nos resultados da pesquisa.

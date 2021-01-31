@@ -2,20 +2,20 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 01/27/2021
 ms.author: rogarana
-ms.openlocfilehash: e7b7fae094ad15bc1732778b6a4a3259fb4dd3b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7da7c2fbb49a9dd936762b23f3c251d2142c52fd
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028236"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221767"
 ---
 | Recurso | Compartilhamentos de arquivos padrão\* | Compartilhamentos de arquivos Premium |
 |----------|---------------|------------------------------------------|
 | Tamanho mínimo de um compartilhamento de arquivo | Sem mínimo; pagamento conforme o uso | 100 GiB; provisionado |
 | Tamanho máximo de um compartilhamento de arquivo | 100 TiB\*\*, 5 TiB | 100 TiB |
-| Tamanho máximo de um arquivo em um compartilhamento de arquivo | 1 TiB | 4 TiB |
+| Tamanho máximo de um arquivo em um compartilhamento de arquivo | 4 TiB | 4 TiB |
 | Número máximo de arquivos em um compartilhamento de arquivo | Sem limite | Sem limite |
 | IOPS máxima por compartilhamento | 10.000 IOPS\*\*, 1.000 IOPS ou 100 solicitações em 100 ms | 100.000 IOPS |
 | Número máximo de políticas de acesso armazenadas por compartilhamento de arquivo | 5 | 5 |
