@@ -2,13 +2,13 @@
 title: Restrições de nomenclatura de recursos
 description: Mostra as regras e restrições de nomenclatura de recursos do Azure.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 01/27/2021
+ms.openlocfilehash: dbe19dae4509e1dd6aa95763e4d034c339bb0531
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806890"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220846"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -92,7 +92,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | automationaccounts | grupo de recursos | 6–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra e termine com caractere alfanumérico. |
+> | automationaccounts | região de & do grupo de recursos <br>(Veja a observação abaixo) | 6–50 | Caracteres alfanuméricos e hifens.<br><br>Comece com letra e termine com caractere alfanumérico. |
 > | automationAccounts / certificates | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço.  |
 > | automationAccounts / connections | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço. |
 > | automationAccounts / credentials | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço. |
@@ -101,6 +101,9 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > | automationAccounts / variables | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço. |
 > | automationAccounts / watchers | conta de automação | 1-63 |  Caracteres alfanuméricos, sublinhados e hifens.<br><br>Comece com letra. |
 > | automationAccounts / webhooks | conta de automação | 1–128 | Não é possível usar:<br> `<>*%&:\?.+/` <br><br>Não pode terminar com espaço. |
+
+> [!NOTE]
+> Os nomes da conta de Automação são exclusivos por região e grupo de recursos. Os nomes das contas de Automação excluídas não estarão disponíveis imediatamente.
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 

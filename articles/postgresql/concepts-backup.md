@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.date: 01/29/2021
+ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706763"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219716"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauração no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -82,6 +82,16 @@ A Restauração pontual é útil em vários cenários. Por exemplo, quando um us
 
 Talvez seja necessário aguardar a execução do próximo backup de log de transações antes de poder restaurar para um ponto anterior nos últimos cinco minutos.
 
+Se você quiser restaurar uma tabela descartada, 
+1. Restaure o servidor de origem usando o método pontual.
+2. Despeje a tabela usando `pg_dump` do servidor restaurado.
+3. Renomeie a tabela de origem no servidor original.
+4. Importar tabela usando a linha de comando psql no servidor original.
+5. Opcionalmente, você pode excluir o servidor restaurado.
+
+>[!Note]
+> É recomendável não criar várias restaurações para o mesmo servidor ao mesmo tempo. 
+
 ### <a name="geo-restore"></a>Restauração geográfica
 
 É possível restaurar um servidor para outra região do Azure onde o serviço está disponível caso você tenha configurado o servidor para backups com redundância geográfica. Os servidores que dão suporte a até 4 TB de armazenamento podem ser restaurados para a região emparelhada geograficamente ou para qualquer região que ofereça suporte a até 16 TB de armazenamento. Para servidores que dão suporte a até 16 TB de armazenamento, os backups geográficos podem ser restaurados em qualquer região que dê suporte a servidores de 16 TB também. Examine os [tipos de preço do banco de dados do Azure para PostgreSQL](concepts-pricing-tiers.md) para a lista de regiões com suporte.
@@ -97,7 +107,7 @@ Durante a restauração geográfica, as configurações de servidor que podem se
 
 Após uma restauração de um dos mecanismos de recuperação, você deve executar as seguintes tarefas para colocar os usuários e os aplicativos novamente em execução:
 
-- Se o novo servidor é usado para substituir o servidor original, redirecione clientes e aplicativos de cliente para o novo servidor
+- Se o novo servidor for destinado a substituir o servidor original, redirecione clientes e aplicativos cliente para o novo servidor. Além disso, altere também o nome de usuário para `username@new-restored-server-name` .
 - Garanta que as regras de rede virtual e de firewall no nível de servidor apropriadas estejam em vigor para que os usuários se conectem. Essas regras não são copiadas do servidor original.
 - Verifique se as permissões e os logons adequados no nível do banco de dados estão em vigor
 - Configurar os alertas, conforme apropriado

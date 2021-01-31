@@ -3,19 +3,24 @@ title: Configurar o Kerberos centro de distribuição de chaves proxy da área d
 description: Como configurar um pool de hosts de área de trabalho virtual do Windows para usar um proxy de centro de distribuição de chaves Kerberos.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f123659941eaeb3b8ceeb6a999abf836eb9cf5ea
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 102ddc1c8937c66a92416ddb6d5f2d25f2a3c349
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798352"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219648"
 ---
-# <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Configurar um proxy de centro de distribuição de chaves Kerberos
+# <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configurar um proxy de centro de distribuição de chaves Kerberos (versão prévia)
 
-Este artigo mostrará como configurar um proxy KDC (Kerberos Key Distribiution Center) para o pool de hosts. Esse proxy permite que as organizações se autentiquem com o Kerberos fora de seus limites corporativos. Por exemplo, você pode usar o proxy KDC para habilitar a autenticação de cartão inteligente para clientes externos.
+> [!IMPORTANT]
+> Esse recurso está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo mostrará como configurar um proxy de centro de distribuição de chaves (KDC) Kerberos (versão prévia) para seu pool de hosts. Esse proxy permite que as organizações se autentiquem com o Kerberos fora de seus limites corporativos. Por exemplo, você pode usar o proxy KDC para habilitar a autenticação de cartão inteligente para clientes externos.
 
 ## <a name="how-to-configure-the-kdc-proxy"></a>Como configurar o proxy KDC
 

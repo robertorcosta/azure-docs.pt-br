@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3d1238bffd785a47b6e0ffab70366a15dfff0ef3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757399"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218104"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -150,6 +150,7 @@ VMs Gen2 | Com suporte <br> O Backup do Azure dá suporte ao backup e à restaur
 Backup de VMs do Azure com bloqueios | Sem suporte para VMs não gerenciadas. <br><br> Com suporte para VMs gerenciadas.
 [VMs do Spot](../virtual-machines/spot-vms.md) | Sem suporte. As restaurações de backup do Azure identificam VMs como VMs regulares do Azure.
 [Host dedicado do Azure](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Com suporte
+Configuração de espaços de armazenamento do Windows de VMs autônomas do Azure | Com suporte 
 
 ## <a name="vm-storage-support"></a>Suporte ao armazenamento de VM
 

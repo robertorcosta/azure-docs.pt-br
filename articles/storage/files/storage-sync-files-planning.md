@@ -4,16 +4,16 @@ description: Planejar uma implantação com o Sincronização de Arquivos do Azu
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 28b7419dfc889d1149765b884f1a5990a1e28f03
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898097"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219469"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -302,48 +302,16 @@ Para obter mais informações sobre criptografia em trânsito, consulte [Exigir 
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="azure-file-sync-region-availability"></a>Disponibilidade de região da sincronização de arquivos do Azure
-A Sincronização de Arquivos do Azure está disponível nas seguintes regiões:
 
-| Nuvem do Azure | Região geográfica | Região do Azure | Código da região |
-|-------------|-------------------|--------------|-------------|
-| Público | Ásia | Leste da Ásia | `eastasia` |
-| Público | Ásia | Sudeste Asiático | `southeastasia` |
-| Público | Austrália | Leste da Austrália | `australiaeast` |
-| Público | Austrália | Sudeste da Austrália | `australiasoutheast` |
-| Público | Brasil | Sul do Brasil | `brazilsouth` |
-| Público | Canada | Canadá Central | `canadacentral` |
-| Público | Canada | Leste do Canadá | `canadaeast` |
-| Público | Europa | Norte da Europa | `northeurope` |
-| Público | Europa | Europa Ocidental | `westeurope` |
-| Público | França | França Central | `francecentral` |
-| Público | França | Sul da França* | `francesouth` |
-| Público | Índia | Índia Central | `centralindia` |
-| Público | Índia | Sul da Índia | `southindia` |
-| Público | Japão | Leste do Japão | `japaneast` |
-| Público | Japão | Oeste do Japão | `japanwest` |
-| Público | Coreia do Sul | Coreia Central | `koreacentral` |
-| Público | Coreia do Sul | Sul da Coreia | `koreasouth` |
-| Público | África do Sul | Norte da África do Sul | `southafricanorth` |
-| Público | África do Sul | Oeste da África do Sul* | `southafricawest` |
-| Público | EAU | EAU Central* | `uaecentral` |
-| Público | EAU | Norte dos EAU | `uaenorth` |
-| Público | Reino Unido | Sul do Reino Unido | `uksouth` |
-| Público | Reino Unido | Oeste do Reino Unido | `ukwest` |
-| Público | EUA | Centro dos EUA | `centralus` |
-| Público | EUA | Leste dos EUA | `eastus` |
-| Público | EUA | Leste dos EUA 2 | `eastus2` |
-| Público | EUA | Centro-Norte dos EUA | `northcentralus` |
-| Público | EUA | Centro-Sul dos Estados Unidos | `southcentralus` |
-| Público | EUA | Centro-Oeste dos EUA | `westcentralus` |
-| Público | EUA | Oeste dos EUA | `westus` |
-| Público | EUA | Oeste dos EUA 2 | `westus2` |
-| Gov dos EUA | EUA | Governo dos EUA do Arizona | `usgovarizona` |
-| Gov dos EUA | EUA | Governo dos EUA do Texas | `usgovtexas` |
-| Gov dos EUA | EUA | Gov. dos EUA – Virgínia | `usgovvirginia` |
+Para disponibilidade regional, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
-A Sincronização de Arquivos do Azure é compatível apenas com um compartilhamento de arquivo do Azure que esteja na mesma região que o Serviço de Sincronização de Armazenamento.
+As seguintes regiões exigem que você solicite acesso ao armazenamento do Azure antes de poder usar Sincronização de Arquivos do Azure com eles:
 
-Para as regiões marcadas com asteriscos, você deve contatar o Suporte do Azure para solicitar acesso ao Armazenamento do Azure nessas regiões. O processo é descrito [neste documento](https://azure.microsoft.com/global-infrastructure/geographies/).
+- Sul da França
+- Oeste da África do Sul
+- EAU Central
+
+Para solicitar acesso a essas regiões, siga o processo neste [documento](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## <a name="redundancy"></a>Redundância
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]

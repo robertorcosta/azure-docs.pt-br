@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 11/12/2020
-ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/29/2021
+ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170609"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219223"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorar Azure AD B2C com Azure Monitor
 
@@ -31,6 +31,10 @@ Você pode rotear eventos de log para:
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
 Neste artigo, você aprende a transferir os logs para um espaço de trabalho do Azure Log Analytics. Em seguida, você pode criar um painel ou criar alertas baseados em atividades Azure AD B2C usuários.
+
+> [!IMPORTANT]
+> Quando você planeja transferir logs de Azure AD B2C para diferentes soluções de monitoramento ou repositório, considere o seguinte. Os logs de Azure AD B2C contêm dados pessoais. Esses dados devem ser processados de uma maneira que garanta a segurança apropriada dos dados pessoais, incluindo proteção contra processamento não autorizado ou ilegal, usando medidas técnicas ou organizacionais apropriadas.
+
 
 ## <a name="deployment-overview"></a>Visão geral da implantação
 
@@ -99,7 +103,7 @@ Em seguida, você criará um modelo de Azure Resource Manager que concede Azure 
 
    | Campo   | Definição |
    |---------|------------|
-   | Subscription |  Selecione o diretório que contém a assinatura do Azure na qual o grupo de recursos *Azure-ad-B2C-monitor* foi criado. |
+   | Assinatura |  Selecione o diretório que contém a assinatura do Azure na qual o grupo de recursos *Azure-ad-B2C-monitor* foi criado. |
    | Região| Selecione a região em que o recurso será implantado.  | 
    | Nome da oferta MSP| Um nome que descreve essa definição. Por exemplo, *Azure ad B2C monitoramento*.  |
    | Descrição da oferta MSP| Uma breve descrição da sua oferta. Por exemplo, *habilita Azure monitor em Azure ad B2C*.|
@@ -224,7 +228,7 @@ Para obter mais exemplos, consulte o [repositório GitHub do SIEM](https://aka.m
 
 ### <a name="62-create-a-workbook"></a>6,2 criar uma pasta de trabalho
 
-As pastas de trabalho fornecem uma tela flexível para análise de dados e a criação de relatórios visuais avançados no portal do Azure. Eles permitem que você toque em várias fontes de dados em todo o Azure e combine-as em experiências interativas unificadas. Para obter mais informações, consulte [Azure monitor pastas de trabalho](../azure-monitor/platform/workbooks-overview.md).
+As pastas de trabalho fornecem uma tela flexível para análise de dados e a criação de relatórios visuais avançados no portal do Azure. Com elas, você pode explorar várias fontes de dados em todo o Azure e combiná-las em experiências interativas unificadas. Para obter mais informações, consulte [Azure monitor pastas de trabalho](../azure-monitor/platform/workbooks-overview.md).
 
 Siga as instruções abaixo para criar uma nova pasta de trabalho usando um modelo de galeria JSON. Esta pasta de trabalho fornece um painel de **informações do usuário** e de **autenticação** para Azure ad B2C locatário.
 

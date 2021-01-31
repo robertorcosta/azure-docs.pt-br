@@ -3,19 +3,24 @@ title: Implantar a função de gateway RD área de trabalho virtual do Windows-A
 description: Como implantar a função de gateway RD na área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca3c36f339d5cbca6d5b5990415fba180ae42a13
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 71bd7d38727d99c05a15c54e5141c613960d9050
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798355"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220812"
 ---
-# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop"></a>Implantar a função de gateway RD na área de trabalho virtual do Windows
+# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop-preview"></a>Implantar a função de gateway RD na área de trabalho virtual do Windows (versão prévia)
 
-Este artigo lhe dirá como implantar os servidores de gateway de Área de Trabalho Remota em seu ambiente. É possível instalar as funções de servidor em computadores físicos ou máquinas virtuais, dependendo de onde estão sendo criadas: no local, baseadas na nuvem ou em ambiente híbrido.
+> [!IMPORTANT]
+> Esse recurso está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo lhe dirá como usar a função de gateway de área de trabalho remota (versão prévia) para implantar Área de Trabalho Remota servidores de gateway em seu ambiente. Você pode instalar as funções de servidor em máquinas físicas ou máquinas virtuais, dependendo se você estiver criando um ambiente local, baseado em nuvem ou híbrido.
 
 ## <a name="install-the-rd-gateway-role"></a>Instalar a função de gateway de área de trabalho remota
 
