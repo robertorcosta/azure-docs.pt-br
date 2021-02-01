@@ -1,23 +1,45 @@
 ---
-title: Noções básicas sobre cobrança de arquivos do Azure | Microsoft Docs
+title: Entender a cobrança de arquivos do Azure | Microsoft Docs
 description: Saiba como interpretar os modelos de cobrança provisionados e pagos conforme o uso para compartilhamentos de arquivos do Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632471"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226634"
 ---
-# <a name="understanding-azure-files-billing"></a>Noções básicas sobre a cobrança de arquivos do Azure
+# <a name="understand-azure-files-billing"></a>Entender a cobrança de arquivos do Azure
 Os arquivos do Azure fornecem dois modelos de cobrança distintos: provisionados e pagos conforme o uso. O modelo provisionado só está disponível para compartilhamentos de arquivos premium, que são compartilhamentos de arquivos implantados no tipo de conta de armazenamento **FileStorage** . O modelo pago conforme o uso está disponível somente para compartilhamentos de arquivos padrão, que são compartilhamentos de arquivos implantados no tipo de conta de armazenamento **GPv2 (de uso geral 2)** . Este artigo explica como os dois modelos funcionam para ajudá-lo a entender sua fatura mensal dos arquivos do Azure.
 
-Os preços atuais dos arquivos do Azure podem ser encontrados na [página de preços dos arquivos do Azure](https://azure.microsoft.com/pricing/details/storage/files/).
+Para obter informações sobre preços de arquivos do Azure, consulte a [página de preços dos arquivos do Azure](https://azure.microsoft.com/pricing/details/storage/files/).
+
+## <a name="storage-units"></a>Unidades de armazenamento    
+Os arquivos do Azure usam unidades base 2 de medida para representar a capacidade de armazenamento: KiB, MiB, GiB e TiB. Seu sistema operacional pode ou não usar a mesma unidade de medição ou sistema de contagem.
+
+### <a name="windows"></a>Windows
+
+O sistema operacional Windows e os arquivos do Azure medem a capacidade de armazenamento usando o sistema de contagem de base 2, mas há uma diferença ao rotular unidades. Os arquivos do Azure rotulam sua capacidade de armazenamento com as unidades base 2 de medida, enquanto o Windows rotula sua capacidade de armazenamento em unidades de medida de 10 bases. Ao relatar a capacidade de armazenamento, o Windows não converte sua capacidade de armazenamento de base 2 para base-10.
+
+|Acrônimo  |Definição  |Unidade  |O Windows é exibido como  |
+|---------|---------|---------|---------|
+|KiB     |1.024 bytes         |kibibyte         |KB (quilobytes)         |
+|MiB     |1.024 KiB (1.048.576 bytes)         |mebibyte         |MB (megabyte)         |
+|GiB     |1024 MiB (1.073.741.824 bytes)         |Gibibyte         |GB (Gigabyte)         |
+|TiB     |1024 GiB (1.099.511.627.776 bytes)         |tebibyte         |TB (Terabyte)         |
+
+### <a name="macos"></a>macOS
+
+Veja [como o Ios e MacOS reportam a capacidade de armazenamento](https://support.apple.com/HT201402) no site da Apple para determinar qual sistema de contagem é usado.
+
+### <a name="linux"></a>Linux
+
+Um sistema de contagem diferente poderia ser usado por cada sistema operacional ou parte de software individual. Consulte sua documentação para determinar como eles relatam a capacidade de armazenamento.
 
 ## <a name="provisioned-model"></a>Modelo provisionado
 Os arquivos do Azure usam um modelo provisionado para compartilhamentos de arquivos premium. Em um modelo de negócios provisionado, você especifica de forma proativa o serviço de arquivos do Azure quais são seus requisitos de armazenamento, em vez de serem cobrados com base no que você usa. Isso é semelhante à compra de hardware local, quando você provisiona um compartilhamento de arquivos do Azure com uma determinada quantidade de armazenamento, você paga pelo armazenamento, independentemente de usá-lo ou não, assim como não começa a pagar os custos de mídia física local quando você começa a usar o espaço. Ao contrário da compra de mídia física local, os compartilhamentos de arquivos provisionados podem ser dimensionados ou reduzidos dinamicamente, dependendo de suas características de desempenho de e/s de armazenamento.
@@ -92,7 +114,7 @@ Há cinco categorias de transação básicas: gravação, lista, leitura, outras
 > [!Note]  
 > O NFS 4,1 está disponível somente para compartilhamentos de arquivos premium, que usam o modelo de cobrança provisionado, as transações não afetam a cobrança de compartilhamentos de arquivos premium.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 - [Página de preços dos arquivos do Azure](https://azure.microsoft.com/pricing/details/storage/files/).
 - [Planejamento de uma implantação de arquivos do Azure](./storage-files-planning.md) e [planejamento para uma implantação de sincronização de arquivos do Azure](./storage-sync-files-planning.md).
 - [Crie um compartilhamento de arquivos](./storage-how-to-create-file-share.md) e [implante sincronização de arquivos do Azure](./storage-sync-files-deployment-guide.md).

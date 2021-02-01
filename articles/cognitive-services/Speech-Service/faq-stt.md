@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072166"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226549"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -83,7 +83,7 @@ Os modelos básicos e os modelos personalizados serão desativados após algum t
 
 **P: Minhas solicitações são registradas?**
 
-**R**: por padrão, as solicitações não são registradas (nem de áudio nem transcrição). Se necessário, você pode selecionar *o conteúdo de log dessa opção de ponto de extremidade* ao [criar um ponto de extremidade personalizado](./how-to-custom-speech-train-model.md). Você também pode habilitar o log de áudio no [SDK de fala](speech-sdk.md) com base em cada solicitação sem criar um ponto de extremidade personalizado. Em ambos os casos, os resultados de áudio e de reconhecimento de solicitações serão armazenados no armazenamento seguro. Para assinaturas que usam o armazenamento de propriedade da Microsoft, elas estarão disponíveis por 30 dias.
+**R**: por padrão, as solicitações não são registradas (nem de áudio nem transcrição). Se necessário, você pode selecionar *o conteúdo de log dessa opção de ponto de extremidade* ao [criar um ponto de extremidade personalizado](how-to-custom-speech-train-model.md#deploy-a-custom-model). Você também pode habilitar o log de áudio no [SDK de fala](how-to-use-logging.md) com base em cada solicitação sem criar um ponto de extremidade personalizado. Em ambos os casos, os resultados de áudio e de reconhecimento de solicitações serão armazenados no armazenamento seguro. Para assinaturas que usam o armazenamento de propriedade da Microsoft, elas estarão disponíveis por 30 dias.
 
 Você pode exportar os arquivos registrados na página de implantação no Speech Studio se usar um ponto de extremidade personalizado com *conteúdo de log desse ponto de extremidade* habilitado. Se o log de áudio estiver habilitado por meio do SDK, chame a [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) para acessar os arquivos.
 

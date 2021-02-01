@@ -1,5 +1,5 @@
 ---
-title: Funções RBAC Synapse
+title: Funções RBAC do Synapse
 description: Este artigo descreve as funções de RBAC Synapse internas
 author: billgib
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 1ffbb5579ea19d7d608dd9c9d600342cd89d371c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572789"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225067"
 ---
 # <a name="synapse-rbac-roles"></a>Funções RBAC Synapse
 
@@ -39,7 +39,7 @@ A tabela a seguir descreve as funções internas e os escopos nos quais elas pod
 
 |Função |Permissões|Escopos|
 |---|---|-----|
-|Administrador do Synapse  |Acesso completo a Synapse a pools SQL sem servidor, pools de Apache Spark e tempos de execução de integração.  Inclui criar, ler, atualizar e excluir o acesso a todos os artefatos de código publicados.  Inclui permissões de operador de computação, Gerenciador de Dados vinculadas e de usuário de credencial na credencial de identidade do sistema do espaço de trabalho.  Inclui a atribuição de funções RBAC Synapse.  As permissões do Azure são necessárias para criar, excluir e gerenciar recursos de computação. </br></br>_Pode ler e gravar artefatos </br> pode fazer todas as ações em atividades do Spark. </br> Pode exibir os logs do pool do Spark </br> pode exibir o bloco de anotações salvo e </br> a saída do pipeline pode usar os segredos armazenados por serviços vinculados ou as credenciais </br> podem se conectar a pontos de extremidade sem SQL Server com `db_datareader` as permissões SQL, `db_datawriter` , `connect` , e `grant` </br> podem atribuir e revogar funções RBAC Synapse no escopo atual_|Workspace </br> Pool do Spark<br/>runtime de integração </br>Serviço vinculado</br>Credencial |
+|Administrador do Azure Synapse  |Acesso completo a Synapse a pools SQL sem servidor, pools de Apache Spark e tempos de execução de integração.  Inclui criar, ler, atualizar e excluir o acesso a todos os artefatos de código publicados.  Inclui permissões de operador de computação, Gerenciador de Dados vinculadas e de usuário de credencial na credencial de identidade do sistema do espaço de trabalho.  Inclui a atribuição de funções RBAC Synapse. Além do administrador do Synapse, os proprietários do Azure também podem atribuir funções RBAC Synapse. As permissões do Azure são necessárias para criar, excluir e gerenciar recursos de computação. </br></br>_Pode ler e gravar artefatos </br> pode fazer todas as ações em atividades do Spark. </br> Pode exibir os logs do pool do Spark </br> pode exibir o bloco de anotações salvo e </br> a saída do pipeline pode usar os segredos armazenados por serviços vinculados ou as credenciais </br> podem se conectar a pontos de extremidade sem SQL Server com `db_datareader` as permissões SQL, `db_datawriter` , `connect` , e `grant` </br> podem atribuir e revogar funções RBAC Synapse no escopo atual_|Workspace </br> Pool do Spark<br/>runtime de integração </br>Serviço vinculado</br>Credencial |
 |Administrador de Apache Spark de Synapse</br>|Acesso total de Synapse a pools de Apache Spark.  Crie, leia, atualize e exclua o acesso a definições de trabalho do Spark, blocos de anotações e suas saídas publicados, além de bibliotecas, serviços vinculados e credenciais.  Inclui acesso de leitura a todos os outros artefatos de código publicados. Não inclui permissão para usar credenciais e executar pipelines. Não inclui concessão de acesso. </br></br>_Pode fazer todas as ações em artefatos do Spark </br> pode fazer todas as ações em atividades do Spark_|Workspace</br>Pool do Spark|
 |Administrador do SQL do Synapse|Acesso total a Synapse a pools SQL sem servidor.  Criar, ler, atualizar e excluir o acesso a scripts, credenciais e serviços vinculados do SQL publicados.  Inclui acesso de leitura a todos os outros artefatos de código publicados.  Não inclui permissão para usar credenciais e executar pipelines. Não inclui concessão de acesso. </br></br>*Pode fazer todas as ações em scripts SQL <br/> pode se conectar a pontos de extremidade sem SQL Server com `db_datareader` permissões SQL, `db_datawriter` , `connect` e `grant`*|Workspace|
 |Colaborador de Synapse|Acesso total a Synapse a pools SQL sem servidor, pools de Apache Spark, tempos de execução de integração.  Inclui acesso de criação, leitura, atualização e exclusão a todos os artefatos de código publicados e suas saídas, incluindo credenciais e serviços vinculados.  Inclui permissões de operador de computação. Não inclui permissão para usar credenciais e executar pipelines. Não inclui concessão de acesso. </br></br>_Pode ler e gravar artefatos </br> pode exibir o bloco de anotações salvo e a saída </br> do pipeline pode fazer todas as ações em atividades do Spark </br> pode exibir logs do pool do Spark_|Workspace </br> Pool do Spark<br/> runtime de integração|
@@ -60,7 +60,7 @@ A tabela a seguir lista as funções internas e as ações/as permissões que ca
 
 Função|Ações
 --|--
-Administrador do Synapse|espaços de trabalho/leitura</br>espaços de trabalho/roleAssignments/gravação, excluir</br>espaços de trabalho/managedPrivateEndpoint/gravação, excluir</br>espaços de trabalho/bigDataPools/useCompute/ação</br>espaços de trabalho/bigDataPools/viewLogs/ação</br>espaços de trabalho/integrationRuntimes/useCompute/ação</br>espaços de trabalho/artefatos/leitura</br>espaços de trabalho/blocos de anotações/gravação, excluir</br>espaços de trabalho/sparkJobDefinitions/gravação, excluir</br>espaços de trabalho/sqlscriptes/gravar, excluir</br>espaços de trabalho/Dataflows/gravação, exclusão</br>espaços de trabalho/pipelines/gravação, exclusão</br>espaços de trabalho/gatilhos/gravação, exclusão</br>espaços de trabalho/conjuntos de valores/gravação, exclusão</br>espaços de trabalho/bibliotecas/gravação, excluir</br>espaços de trabalho/linkedservices/gravar, excluir</br>espaços de trabalho/credenciais/gravação, excluir</br>espaços de trabalho/blocos de anotações/viewOutputs/ação</br>espaços de trabalho/pipelines/viewOutputs/ação</br>espaços de trabalho/linkservices/useSecret/ação</br>espaços de trabalho/credenciais/useSecret/ação|
+Administrador do Azure Synapse|espaços de trabalho/leitura</br>espaços de trabalho/roleAssignments/gravação, excluir</br>espaços de trabalho/managedPrivateEndpoint/gravação, excluir</br>espaços de trabalho/bigDataPools/useCompute/ação</br>espaços de trabalho/bigDataPools/viewLogs/ação</br>espaços de trabalho/integrationRuntimes/useCompute/ação</br>espaços de trabalho/artefatos/leitura</br>espaços de trabalho/blocos de anotações/gravação, excluir</br>espaços de trabalho/sparkJobDefinitions/gravação, excluir</br>espaços de trabalho/sqlscriptes/gravar, excluir</br>espaços de trabalho/Dataflows/gravação, exclusão</br>espaços de trabalho/pipelines/gravação, exclusão</br>espaços de trabalho/gatilhos/gravação, exclusão</br>espaços de trabalho/conjuntos de valores/gravação, exclusão</br>espaços de trabalho/bibliotecas/gravação, excluir</br>espaços de trabalho/linkedservices/gravar, excluir</br>espaços de trabalho/credenciais/gravação, excluir</br>espaços de trabalho/blocos de anotações/viewOutputs/ação</br>espaços de trabalho/pipelines/viewOutputs/ação</br>espaços de trabalho/linkservices/useSecret/ação</br>espaços de trabalho/credenciais/useSecret/ação|
 |Administrador de Apache Spark de Synapse|espaços de trabalho/leitura</br>espaços de trabalho/bigDataPools/useCompute/ação</br>espaços de trabalho/bigDataPools/viewLogs/ação</br>espaços de trabalho/blocos de anotações/viewOutputs/ação</br>espaços de trabalho/artefatos/leitura</br>espaços de trabalho/blocos de anotações/gravação, excluir</br>espaços de trabalho/sparkJobDefinitions/gravação, excluir</br>espaços de trabalho/bibliotecas/gravação, excluir</br>espaços de trabalho/linkedservices/gravar, excluir</br>espaços de trabalho/credenciais/gravação, excluir|
 |Administrador do SQL do Synapse|espaços de trabalho/leitura</br>espaços de trabalho/artefatos/leitura</br>espaços de trabalho/sqlscriptes/gravar, excluir</br>espaços de trabalho/linkedservices/gravar, excluir</br>espaços de trabalho/credenciais/gravação, excluir|
 |Colaborador de Synapse|espaços de trabalho/leitura</br>espaços de trabalho/bigDataPools/useCompute/ação</br>espaços de trabalho/bigDataPools/viewLogs/ação</br>espaços de trabalho/integrationRuntimes/useCompute/ação</br>espaços de trabalho/integrationRuntimes/viewLogs/ação</br>espaços de trabalho/artefatos/leitura</br>espaços de trabalho/blocos de anotações/gravação, excluir</br>espaços de trabalho/sparkJobDefinitions/gravação, excluir</br>espaços de trabalho/sqlscriptes/gravar, excluir</br>espaços de trabalho/Dataflows/gravação, exclusão</br>espaços de trabalho/pipelines/gravação, exclusão</br>espaços de trabalho/gatilhos/gravação, exclusão</br>espaços de trabalho/conjuntos de valores/gravação, exclusão</br>espaços de trabalho/bibliotecas/gravação, excluir</br>espaços de trabalho/linkedservices/gravar, excluir</br>espaços de trabalho/credenciais/gravação, excluir</br>espaços de trabalho/blocos de anotações/viewOutputs/ação</br>espaços de trabalho/pipelines/viewOutputs/ação|
@@ -77,27 +77,27 @@ A tabela a seguir lista as ações Synapse e as funções internas que permitem 
 
 Ação|Função
 --|--
-espaços de trabalho/leitura|Administrador do Synapse</br>Administrador de Apache Spark de Synapse</br>Administrador do SQL do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse</br>Operador de computação Synapse </br>Usuário de credencial Synapse</br>Gerenciador de Dados Synapse vinculados</br>Usuário Synapse 
-espaços de trabalho/roleAssignments/gravação, excluir|Administrador do Synapse
-espaços de trabalho/managedPrivateEndpoint/gravação, excluir|Administrador do Synapse</br>Gerenciador de Dados Synapse vinculados
-espaços de trabalho/bigDataPools/useCompute/ação|Administrador do Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Operador de computação Synapse 
-espaços de trabalho/bigDataPools/viewLogs/ação|Administrador do Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Operador de computação Synapse 
-espaços de trabalho/integrationRuntimes/useCompute/ação|Administrador do Synapse</br>Colaborador de Synapse</br>Operador de computação Synapse 
-espaços de trabalho/artefatos/leitura|Administrador do Synapse</br>Administrador de Apache Spark de Synapse</br>Administrador do SQL do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse
-espaços de trabalho/blocos de anotações/gravação, excluir|Administrador do Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
-espaços de trabalho/sparkJobDefinitions/gravação, excluir|Administrador do Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
-espaços de trabalho/sqlscriptes/gravar, excluir|Administrador do Synapse</br>Administrador do SQL do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
-espaços de trabalho/Dataflows/gravação, exclusão|Administrador do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
-espaços de trabalho/pipelines/gravação, exclusão|Administrador do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
-espaços de trabalho/gatilhos/gravação, exclusão|Administrador do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
-espaços de trabalho/conjuntos de valores/gravação, exclusão|Administrador do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
-espaços de trabalho/bibliotecas/gravação, excluir|Administrador do Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
-espaços de trabalho/linkedservices/gravar, excluir|Administrador do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Gerenciador de Dados Synapse vinculados
-espaços de trabalho/credenciais/gravação, excluir|Administrador do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Gerenciador de Dados Synapse vinculados
-espaços de trabalho/blocos de anotações/viewOutputs/ação|Administrador do Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse
-espaços de trabalho/pipelines/viewOutputs/ação|Administrador do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse
-espaços de trabalho/linkservices/useSecret/ação|Administrador do Synapse</br>Usuário de credencial Synapse
-espaços de trabalho/credenciais/useSecret/ação|Administrador do Synapse</br>Usuário de credencial Synapse
+espaços de trabalho/leitura|Administrador do Azure Synapse</br>Administrador de Apache Spark de Synapse</br>Administrador do SQL do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse</br>Operador de computação Synapse </br>Usuário de credencial Synapse</br>Gerenciador de Dados Synapse vinculados</br>Usuário Synapse 
+espaços de trabalho/roleAssignments/gravação, excluir|Administrador do Azure Synapse
+espaços de trabalho/managedPrivateEndpoint/gravação, excluir|Administrador do Azure Synapse</br>Gerenciador de Dados Synapse vinculados
+espaços de trabalho/bigDataPools/useCompute/ação|Administrador do Azure Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Operador de computação Synapse 
+espaços de trabalho/bigDataPools/viewLogs/ação|Administrador do Azure Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Operador de computação Synapse 
+espaços de trabalho/integrationRuntimes/useCompute/ação|Administrador do Azure Synapse</br>Colaborador de Synapse</br>Operador de computação Synapse 
+espaços de trabalho/artefatos/leitura|Administrador do Azure Synapse</br>Administrador de Apache Spark de Synapse</br>Administrador do SQL do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse
+espaços de trabalho/blocos de anotações/gravação, excluir|Administrador do Azure Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
+espaços de trabalho/sparkJobDefinitions/gravação, excluir|Administrador do Azure Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
+espaços de trabalho/sqlscriptes/gravar, excluir|Administrador do Azure Synapse</br>Administrador do SQL do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
+espaços de trabalho/Dataflows/gravação, exclusão|Administrador do Azure Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
+espaços de trabalho/pipelines/gravação, exclusão|Administrador do Azure Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
+espaços de trabalho/gatilhos/gravação, exclusão|Administrador do Azure Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
+espaços de trabalho/conjuntos de valores/gravação, exclusão|Administrador do Azure Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
+espaços de trabalho/bibliotecas/gravação, excluir|Administrador do Azure Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse
+espaços de trabalho/linkedservices/gravar, excluir|Administrador do Azure Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Gerenciador de Dados Synapse vinculados
+espaços de trabalho/credenciais/gravação, excluir|Administrador do Azure Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Gerenciador de Dados Synapse vinculados
+espaços de trabalho/blocos de anotações/viewOutputs/ação|Administrador do Azure Synapse</br>Administrador de Apache Spark de Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse
+espaços de trabalho/pipelines/viewOutputs/ação|Administrador do Azure Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse
+espaços de trabalho/linkservices/useSecret/ação|Administrador do Azure Synapse</br>Usuário de credencial Synapse
+espaços de trabalho/credenciais/useSecret/ação|Administrador do Azure Synapse</br>Usuário de credencial Synapse
 
 ## <a name="synapse-rbac-scopes-and-their-supported-roles"></a>Escopos de RBAC Synapse e suas funções com suporte
 
@@ -108,11 +108,11 @@ A tabela a seguir lista os escopos de RBAC Synapse e as funções que podem ser 
 
 Escopo|Funções
 --|--
-Workspace |Administrador do Synapse</br>Administrador de Apache Spark de Synapse</br>Administrador do SQL do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse</br>Operador de computação Synapse </br>Usuário de credencial Synapse</br>Gerenciador de Dados Synapse vinculados</br>Usuário Synapse
-Pool do Apache Spark | Administrador do Synapse </br>Colaborador de Synapse </br> Operador de computação Synapse
-runtime de integração | Administrador do Synapse </br>Colaborador de Synapse </br> Operador de computação Synapse
-Serviço vinculado |Administrador do Synapse </br>Usuário de credencial Synapse
-Credencial |Administrador do Synapse </br>Usuário de credencial Synapse
+Workspace |Administrador do Azure Synapse</br>Administrador de Apache Spark de Synapse</br>Administrador do SQL do Synapse</br>Colaborador de Synapse</br>Publicador de artefatos do Synapse</br>Usuário do artefato Synapse</br>Operador de computação Synapse </br>Usuário de credencial Synapse</br>Gerenciador de Dados Synapse vinculados</br>Usuário Synapse
+Pool do Apache Spark | Administrador do Azure Synapse </br>Colaborador de Synapse </br> Operador de computação Synapse
+runtime de integração | Administrador do Azure Synapse </br>Colaborador de Synapse </br> Operador de computação Synapse
+Serviço vinculado |Administrador do Azure Synapse </br>Usuário de credencial Synapse
+Credencial |Administrador do Azure Synapse </br>Usuário de credencial Synapse
  
 >[!note]
 >Todas as funções de artefato e ações são delimitadas no nível do espaço de trabalho. 

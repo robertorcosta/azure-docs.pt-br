@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 369ec11050fa7dbc09159d88793685ad5fbdb3e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053953"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226515"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -238,7 +238,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
    - No iOS, em **configurações**, selecione **como ativar o preenchimento automático** na seção Configurações de preenchimento automático para saber como definir o autenticador como o provedor de preenchimento automático padrão.
    - No Android, em **configurações**, selecione **definir como provedor de preenchimento automático** na seção Configurações de preenchimento automático.
 
-**P**: e se a opção de **preenchimento automático** não estiver disponível para mim em configurações?
+**P**: e se o **preenchimento automático** não estiver disponível para mim em configurações?
 
 **R**: se o preenchimento automático não estiver disponível para você no autenticador, pode ser porque o preenchimento automático ainda não foi permitido para sua organização ou tipo de conta. Você pode usar esse recurso em um dispositivo em que sua conta corporativa ou de estudante não é adicionada. Para saber mais sobre como permitir o preenchimento automático de sua organização, confira [preenchimento automático para administradores de ti](#autofill-for-it-admins).
 

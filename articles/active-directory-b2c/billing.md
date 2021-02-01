@@ -7,23 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/01/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949778"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225201"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de cobrança para Azure Active Directory B2C
 
 Os preços de Azure Active Directory B2C (Azure AD B2C) baseiam-se em usuários ativos mensais (MAU), que é a contagem de usuários exclusivos com atividade de autenticação em um mês civil. Esse modelo de cobrança se aplica aos locatários Azure AD B2C e à [colaboração do usuário convidado (B2B) do Azure ad](../active-directory/external-identities/external-identities-pricing.md). A cobrança do MAU ajuda a reduzir os custos oferecendo uma camada gratuita e preços flexíveis e previsíveis. Neste artigo, saiba mais sobre a cobrança do MAU, vinculando seus locatários do Azure AD B2C a uma assinatura e alterando o tipo de preço.
 
 > [!IMPORTANT]
-> Este artigo não contém detalhes de preços. Para obter as informações mais recentes sobre cobrança e preços de uso, consulte [preços de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> Este artigo não contém detalhes de preços. Para obter as informações mais recentes sobre cobrança e preços de uso, consulte [preços de Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/). Consulte também [Azure ad B2C disponibilidade da região e residência de dados](data-residency.md) para obter detalhes sobre onde o serviço de Azure ad B2C está disponível e onde os dados do usuário são armazenados.
 
 ## <a name="what-do-i-need-to-do"></a>O que preciso fazer?
 
@@ -70,7 +70,7 @@ Uma assinatura vinculada a um locatário Azure AD B2C pode ser usada para a cobr
 
     ![A página de criação de recursos de Azure AD B2C no portal do Azure](./media/billing/portal-01-create-b2c-resource-page.png)
 
-Depois de concluir essas etapas para um locatário Azure AD B2C, sua assinatura do Azure será cobrada com base nos detalhes do Azure Direct ou Enterprise Agreement, se aplicável.
+Depois de concluir essas etapas para um locatário Azure AD B2C, sua assinatura do Azure será cobrada com base nos detalhes do Azure Direct ou Contrato Enterprise, se aplicável.
 
 ## <a name="change-your-azure-ad-pricing-tier"></a>Alterar o tipo de preço do Azure AD
 
@@ -125,7 +125,7 @@ Veja como fazer a mudança para a cobrança de MAU para um recurso de Azure AD B
 
 A medição baseada em MAU é habilitada assim que você, o proprietário da assinatura/recurso, confirma a alteração. Sua fatura mensal refletirá as unidades de autenticação cobradas até a alteração e as novas unidades de MAU começando com a alteração.
 
-Os usuários não são contados duas vezes durante o mês de transição. Usuários ativos exclusivos que se autenticam antes da alteração são cobrados por uma taxa por autenticação em um mês civil. Esses mesmos usuários não estão incluídos no cálculo de MAU para o restante do ciclo de cobrança da assinatura. Por exemplo:
+Os usuários não são contados duas vezes durante o mês de transição. Usuários ativos exclusivos que se autenticam antes da alteração são cobrados por uma taxa por autenticação em um mês civil. Esses mesmos usuários não estão incluídos no cálculo de MAU para o restante do ciclo de cobrança da assinatura. Por exemplo: 
 
 * O locatário contoso B2C tem 1.000 usuários. 250 os usuários estão ativos em um determinado mês. O administrador da assinatura muda de por autenticação para usuários ativos mensais (MAU) no décimo do mês.
 * A cobrança por 1º-10 é cobrada usando o modelo por autenticação.

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de imagem, aplicativo de reconhecimento de imagem, visão personalizada
-ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 5ecd5fee565a8d31e0ff05f3b234771446242d02
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132572"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221288"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Início Rápido: criar um detector de objeto com o site da Visão Personalizada
 
@@ -70,7 +70,7 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
 
 Nesta seção, você carregará e marcará manualmente imagens para ajudar a treinar o detector. 
 
-1. Para adicionar imagens, clique no botão __Adicionar imagens__ e selecione __Procurar arquivos locais__. Selecione __Abrir__ para carregar as imagens.
+1. Para adicionar imagens, selecione __Adicionar imagens__ e selecione __Procurar arquivos locais__. Selecione __Abrir__ para carregar as imagens.
 
     ![O controle de adição de imagens é mostrado no canto superior esquerdo e como um botão na parte inferior central.](./media/get-started-build-detector/add-images.png)
 
@@ -78,7 +78,7 @@ Nesta seção, você carregará e marcará manualmente imagens para ajudar a tre
 
     ![Imagens carregadas, na seção Sem marcas](./media/get-started-build-detector/images-untagged.png)
 
-1. Clique e arraste um retângulo em torno do objeto na imagem. Em seguida, insira um novo nome de marca com o botão **+** ou selecione uma marca existente na lista suspensa. É muito importante marcar todas as instâncias dos objetos que você deseja detectar, pois o detector usa a área da tela de fundo sem marcas como um exemplo negativo no treinamento. Quando concluir a marcação, clique na seta à direita para salvar as marcas e passar para a próxima imagem.
+1. Clique e arraste um retângulo em torno do objeto na imagem. Em seguida, insira um novo nome de marca com o botão **+** ou selecione uma marca existente na lista suspensa. É importante marcar todas as instâncias dos objetos que você deseja detectar, pois o detector usa a área da tela de fundo sem marcas como um exemplo negativo no treinamento. Quando concluir a marcação, clique na seta à direita para salvar as marcas e passar para a próxima imagem.
 
     ![Como marcar um objeto com uma seleção retangular](./media/get-started-build-detector/image-tagging.png)
 

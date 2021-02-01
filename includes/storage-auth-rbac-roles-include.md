@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a4a2034d44d98de9696b435c68c97a8a54a1c351
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f014ce55dc40723faf1b60f908814f9fa0428b8e
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028361"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99215293"
 ---
 O Azure fornece as seguintes funções internas do Azure para autorizar o acesso aos dados de blob e fila usando o Azure AD e o OAuth:
 
@@ -31,4 +31,4 @@ Somente as funções explicitamente definidas para acesso a dados permitem que u
 Para obter informações detalhadas sobre as funções internas do Azure para o Armazenamento do Azure para os serviços de dados e o serviço de gerenciamento, consulte a seção **Armazenamento** em [Funções internas do Azure para o RBAC do Azure](../articles/role-based-access-control/built-in-roles.md#storage). Além disso, para obter informações sobre os diferentes tipos de funções que fornecem permissões no Azure, consulte [Funções de administrador de assinatura clássicas, funções do Azure e funções do Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> As atribuições de função do Azure podem levar até cinco minutos para serem propagadas.
+> As atribuições de função do Azure podem levar até 30 minutos para serem propagadas.

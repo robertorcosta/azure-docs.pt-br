@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Criar políticas para impor conformidade'
 description: Neste tutorial, você usa políticas para impor padrões, controlar custos, manter a segurança e impor princípios de design empresariais.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: tutorial
-ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005428"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221186"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerenciar políticas para impor a conformidade
 
@@ -71,6 +71,10 @@ A primeira etapa para impor a conformidade com a Política do Azure é atribuir 
 1. Deixe **Criar uma tarefa de correção** desmarcado. Essa caixa permite que você crie uma tarefa para alterar recursos existentes além de recursos novos ou atualizados. Para saber mais, confira [remediar recursos](../how-to/remediate-resources.md).
 
 1. **Criar uma Identidade Gerenciada** é marcado automaticamente, pois essa definição de política usa o efeito [modificar](../concepts/effects.md#modify). **Permissões** é definido como _Colaborador_ automaticamente com base na definição de política. Para obter mais informações, confira [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de correção](../how-to/remediate-resources.md#how-remediation-security-works).
+
+1. Selecione a guia **Mensagens de não conformidade** na parte superior do assistente.
+
+1. Defina a **Mensagem de não conformidade** para _Este recurso não tem a marca necessária_. Essa mensagem personalizada é exibida quando um recurso é negado ou para recursos sem conformidade durante a avaliação regular.
 
 1. Selecione a guia **Examinar + criar** na parte superior do assistente.
 

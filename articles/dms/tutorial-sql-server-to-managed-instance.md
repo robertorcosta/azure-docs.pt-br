@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 210d5b06cfe417f581995ad5b356d62e1c35a6d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 995fe7bc81b0fae75ebf93338722c21bd12bde49
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972600"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095566"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para a Instância Gerenciada de SQL do Azure offline usando DMS
 
@@ -66,7 +66,7 @@ Para concluir este tutorial, você precisará:
     >[!NOTE]
     >Por padrão, o Serviço de Migração de Banco de Dados do Azure é compatível apenas com a migração de logons SQL. No entanto, você pode habilitar a capacidade de migrar logons do Windows executando as seguintes ações:
     >
-    >- Garantindo que a Instância Gerenciada de SQL de destino tenha acesso de leitura ao AAD, que pode ser configurado por meio do portal do Azure por um usuário com a função de **Administrador da empresa** ou **Administrador global**".
+    >- Garantindo que a Instância Gerenciada de SQL de destino tenha acesso de leitura ao AAD, que pode ser configurado por meio do portal do Azure por um usuário com a função de **Administrador Global**.
     >- Configurando sua instância do Serviço de Migração de Banco de Dados do Azure para habilitar as migrações de logon de usuário/grupo do Windows, que são configuradas por meio do portal do Azure, na página de Configuração. Depois de habilitar essa configuração, reinicie o serviço para que as alterações entrem em vigor.
     >
     > Depois de reiniciar o serviço, os logons de usuário/grupo do Windows aparecerão na lista de logons disponíveis para migração. Para todo logon de usuário/grupo do Windows que você migrar, será solicitado que forneça o nome de domínio associado. As contas de usuário de serviço (conta com nome de domínio NT AUTHORITY) e as contas de usuário virtual (nome da conta com o nome de domínio NT SERVICE) não são compatíveis.

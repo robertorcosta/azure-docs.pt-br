@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 0beaef9162f4bdb540764a100243c579b40d1324
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755949"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225472"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos da plataforma Microsoft Identity: o que há de novo
 
@@ -24,13 +24,25 @@ Bem-vindo ao que há de novo na documentação da plataforma Microsoft Identity.
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
+### <a name="new-articles"></a>Novos artigos
+
+- [Registrar em log em MSAL para Android](msal-logging-android.md)
+- [Registro em log no MSAL.NET](msal-logging-dotnet.md)
+- [Registrar em log em MSAL para iOS/macOS](msal-logging-ios.md)
+- [Registrar em log em MSAL para Java](msal-logging-java.md)
+- [Como fazer registro em log no MSAL.js](msal-logging-js.md)
+- [Registrar em log em MSAL para Python](msal-logging-python.md)
+
 ### <a name="updated-articles"></a>Artigos atualizados
 
+- [Solucionar problemas](troubleshoot-publisher-verification.md) de verificação do editor
+- [Modelo de aplicativo](application-model.md)
 - [Autenticação versus autorização](authentication-vs-authorization.md)
 - [Como restringir seu aplicativo do Azure AD a um conjunto de usuários em um locatário do Azure AD](howto-restrict-your-app-to-a-set-of-users.md)
 - [Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](v2-permissions-and-consent.md)
 - [Tempos de vida de token configuráveis na plataforma Microsoft Identity (versão prévia)](active-directory-configurable-token-lifetimes.md)
 - [Configurar políticas de tempo de vida do token (versão prévia)](configure-token-lifetimes.md)
+- [Bibliotecas de autenticação da plataforma de identidade da Microsoft](reference-v2-libraries.md)
 - [Plataforma de identidade da Microsoft e fluxo de código de autorização do OAuth 2.0](v2-oauth2-auth-code-flow.md)
 
 ## <a name="december-2020"></a>Dezembro de 2020

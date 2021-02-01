@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: d4189e466d5e9b41247723165ce2a5c14c4a8dfa
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 39a675ff4947e7eca64298e1e68160cd6149f081
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756414"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226331"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicativo de página única: Registro do aplicativo
 
@@ -47,7 +47,7 @@ Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo q
 1. No portal do Azure, selecione o registro de aplicativo que você criou anteriormente em [Criar o registro do aplicativo](#create-the-app-registration).
 1. Em **Gerenciar**, escolha **Autenticação** > **Adicionar uma plataforma**.
 1. Em **Aplicativos Web**, selecione o bloco **Aplicativo de página única**.
-1. Em **URIs de redirecionamento**, insira um [URI de redirecionamento](reply-url.md). **NÃO** marque as caixas de seleção em **Concessão implícita**.
+1. Em **URIs de redirecionamento**, insira um [URI de redirecionamento](reply-url.md). Não **marque nenhuma** das caixas de seleção em **concessão implícita e fluxos híbridos**.
 1. Selecione **Configurar** para concluir a adição do URI de redirecionamento.
 
 Você concluiu o registro do seu aplicativo de página única (SPA) e configurou um URI de redirecionamento para o qual o cliente será redirecionado e todos os tokens de segurança serão enviados. Ao configurar o URI de redirecionamento usando o bloco **Aplicativo de página única** no painel **Adicionar uma plataforma**, o registro do aplicativo é configurado para compatibilidade com o fluxo de código de autorização com PKCE e CORS.
@@ -62,7 +62,7 @@ Siga estas etapas para adicionar um URI de redirecionamento para um aplicativo d
 1. Em **Gerenciar**, escolha **Autenticação** > **Adicionar uma plataforma**.
 1. Em **Aplicativos Web**, selecione o bloco **Aplicativo de página única**.
 1. Em **URIs de redirecionamento**, insira um [URI de redirecionamento](reply-url.md).
-1. Habilite o **Fluxo implícito**:
+1. Habilite a **concessão implícita e os fluxos híbridos**:
     - Se o seu aplicativo conectar usuários, selecione **Tokens de ID**.
     - Se o seu aplicativo também precisar chamar uma API Web protegida, selecione **Tokens de acesso**. Para obter mais informações sobre esses tipos de token, confira [Tokens de ID](id-tokens.md) e [Tokens de acesso](access-tokens.md).
 1. Selecione **Configurar** para concluir a adição do URI de redirecionamento.

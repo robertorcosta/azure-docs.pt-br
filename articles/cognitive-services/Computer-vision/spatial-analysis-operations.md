@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934745"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226043"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -87,7 +87,7 @@ Este é um exemplo de parâmetros de DETECTOR_NODE_CONFIG para todas as operaç�
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `gpu_index` | string| O índice de GPU no qual esta operação será executada.|
 | `do_calibration` | string | Indica que a calibragem está ativada. `do_calibration` deve ser verdadeiro para **cognitivaservices. Vision. spatialanalysis-persondistance** para funcionar corretamente. do_calibration é definido por padrão como true. |
@@ -122,7 +122,7 @@ Este é um exemplo de parâmetros de DETECTOR_NODE_CONFIG para todas as operaç�
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `zones` | list| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -130,7 +130,7 @@ Este é um exemplo de parâmetros de DETECTOR_NODE_CONFIG para todas as operaç�
 | `threshold` | FLOAT| Os eventos são egressos quando a confiança dos modelos de ia é maior ou igual ao valor. |
 | `type` | string| Para **cognitivaservices. Vision. spatialanalysis-personcount** deve ser `count` .|
 | `trigger` | string| O tipo de gatilho para enviar um evento. Os valores com suporte são `event` para enviar eventos quando a contagem `interval` é alterada ou para enviar eventos periodicamente, independentemente de a contagem ter sido alterada ou não.
-| `interval` | string| Um tempo em segundos que a contagem de pessoas será agregada antes de um evento ser acionado. A operação continuará a analisar a cena com uma taxa constante e retornará a contagem mais comum sobre esse intervalo. O intervalo de agregação é aplicável ao `event` e ao `interval` .|
+| `output_frequency` | INT | A taxa em que os eventos são reegressos. Quando `output_frequency` = x, cada evento X é egresso, por exemplo, `output_frequency` = 2 significa que todos os outros eventos são gerados. O `output_frequency` é aplicável ao `event` e ao `interval` . |
 | `focus` | string| A localização do ponto na caixa delimitadora da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a superfície da pessoa), `bottom_center` (a parte inferior central da caixa delimitadora da pessoa), `center` (o centro da caixa delimitadora da pessoa).|
 
 ### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Configuração de linha para cognitivaservices. Vision. spatialanalysis-personcrossingline
@@ -167,7 +167,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `lines` | list| Lista de linhas.|
 | `name` | string| Nome amigável para esta linha.|
@@ -213,7 +213,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `zones` | list| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -247,7 +247,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `zones` | list| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -255,8 +255,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 | `threshold` | FLOAT| Os eventos são egressos quando a confiança dos modelos de ia é maior ou igual ao valor. |
 | `type` | string| Para **cognitivaservices. Vision. spatialanalysis-persondistance** deve ser `people_distance` .|
 | `trigger` | string| O tipo de gatilho para enviar um evento. Os valores com suporte são `event` para enviar eventos quando a contagem `interval` é alterada ou para enviar eventos periodicamente, independentemente de a contagem ter sido alterada ou não.
-| `interval` | string | Um tempo em segundos que as violações serão agregadas antes de um evento ser acionado. O intervalo de agregação é aplicável ao `event` e ao `interval` .|
-| `output_frequency` | INT | A taxa em que os eventos são reegressos. Quando `output_frequency` = x, cada evento X é egresso, por exemplo, `output_frequency` = 2 significa que todos os outros eventos são gerados. O output_frequency é aplicável ao `event` e ao `interval` .|
+| `output_frequency` | INT | A taxa em que os eventos são reegressos. Quando `output_frequency` = x, cada evento X é egresso, por exemplo, `output_frequency` = 2 significa que todos os outros eventos são gerados. O `output_frequency` é aplicável ao `event` e ao `interval` .|
 | `minimum_distance_threshold` | FLOAT| Uma distância em pés que disparará um evento "TooClose" quando as pessoas forem menores do que essa distância.|
 | `maximum_distance_threshold` | FLOAT| Uma distância em pés que irá disparar um evento "TooFar" quando as pessoas forem maiores que essa distância.|
 | `focus` | string| A localização do ponto na caixa delimitadora da pessoa usada para calcular eventos. O valor do foco pode ser `footprint` (a superfície da pessoa), `bottom_center` (a parte inferior central da caixa delimitadora da pessoa), `center` (o centro da caixa delimitadora da pessoa).|
@@ -362,7 +361,7 @@ Exemplo de JSON para uma saída de evento por esta operação.
 }
 ```
 
-| Nome do campo de evento | Tipo| Descrição|
+| Nome do campo de evento | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID do evento|
 | `type` | string| Tipo de evento|
@@ -372,7 +371,7 @@ Exemplo de JSON para uma saída de evento por esta operação.
 | `zone` | string | O campo "Name" do polígono que representa a zona que foi cruzada|
 | `trigger` | string| O tipo de gatilho é ' Event ' ou ' interval ' dependendo do valor de `trigger` no SPACEANALYTICS_CONFIG|
 
-| Nome do campo de detecções | Tipo| Descrição|
+| Nome do campo de detecções | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID de detecção|
 | `type` | string| Tipo de detecção|
@@ -383,7 +382,7 @@ Exemplo de JSON para uma saída de evento por esta operação.
 | `face_Mask` | FLOAT | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detectada está usando uma máscara de face |
 | `face_noMask` | FLOAT | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detectada **não** está desgastando uma máscara de face |
 
-| Nome do campo SourceInfo | Tipo| Descrição|
+| Nome do campo SourceInfo | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID da Câmera|
 | `timestamp` | date| Data UTC quando a carga JSON foi emitida|
@@ -396,7 +395,7 @@ Exemplo de JSON para uma saída de evento por esta operação.
 | `focalLength` | FLOAT | O comprimento focal da câmera em pixels. Isso é inferido da calibragem automática. |
 | `tiltUpAngle` | FLOAT | O ângulo de inclinação da câmera da vertical. Isso é inferido da calibragem automática.|
 
-| Nome do campo SourceInfo | Tipo| Descrição|
+| Nome do campo SourceInfo | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID da Câmera|
 | `timestamp` | date| Data UTC quando a carga JSON foi emitida|
@@ -461,7 +460,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
     "schemaVersion": "1.0"
 }
 ```
-| Nome do campo de evento | Tipo| Descrição|
+| Nome do campo de evento | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID do evento|
 | `type` | string| Tipo de evento|
@@ -471,7 +470,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
 | `status` | string| Direção de cruzamentos de linha, ' CrossLeft ' ou ' CrossRight '|
 | `zone` | string | O campo "nome" da linha que foi cruzada|
 
-| Nome do campo de detecções | Tipo| Descrição|
+| Nome do campo de detecções | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID de detecção|
 | `type` | string| Tipo de detecção|
@@ -482,7 +481,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
 | `face_Mask` | FLOAT | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detectada está usando uma máscara de face |
 | `face_noMask` | FLOAT | O valor de confiança do atributo com intervalo (0-1) indica que a pessoa detectada **não** está desgastando uma máscara de face |
 
-| Nome do campo SourceInfo | Tipo| Descrição|
+| Nome do campo SourceInfo | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID da Câmera|
 | `timestamp` | date| Data UTC quando a carga JSON foi emitida|
@@ -606,7 +605,7 @@ Exemplo de JSON para a saída de detecções por essa operação com o `zonedwel
 }
 ```
 
-| Nome do campo de evento | Tipo| Descrição|
+| Nome do campo de evento | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID do evento|
 | `type` | string| Tipo de evento. O valor pode ser _personZoneDwellTimeEvent_ ou _personZoneEnterExitEvent_|
@@ -618,7 +617,7 @@ Exemplo de JSON para a saída de detecções por essa operação com o `zonedwel
 | `durationMs` | FLOAT | O número de milissegundos que representam o tempo que a pessoa gastou na zona. Este campo é fornecido quando o tipo de evento é _personZoneDwellTimeEvent_|
 | `zone` | string | O campo "Name" do polígono que representa a zona que foi cruzada|
 
-| Nome do campo de detecções | Tipo| Descrição|
+| Nome do campo de detecções | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID de detecção|
 | `type` | string| Tipo de detecção|
@@ -721,7 +720,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
 }
 ```
 
-| Nome do campo de evento | Tipo| Descrição|
+| Nome do campo de evento | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID do evento|
 | `type` | string| Tipo de evento|
@@ -736,7 +735,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
 | `zone` | string | O campo "Name" do polígono que representa a zona que foi monitorada para distancing entre as pessoas|
 | `trigger` | string| O tipo de gatilho é ' Event ' ou ' interval ' dependendo do valor de `trigger` no SPACEANALYTICS_CONFIG|
 
-| Nome do campo de detecções | Tipo| Descrição|
+| Nome do campo de detecções | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID de detecção|
 | `type` | string| Tipo de detecção|
@@ -753,7 +752,7 @@ Ao calcular `centerGroundPoint` , `x` é a distância da câmera para a pessoa a
 Neste exemplo, `centerGroundPoint` é `{x: 4, y: 5}`. Isso significa que há uma pessoa 4 pés de distância da câmera e 5 pés à direita, observando a sala de cima para baixo.
 
 
-| Nome do campo SourceInfo | Tipo| Descrição|
+| Nome do campo SourceInfo | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID da Câmera|
 | `timestamp` | date| Data UTC quando a carga JSON foi emitida|
@@ -964,7 +963,7 @@ Para obter o melhor desempenho e utilização das GPUs, você pode implantar qua
       }
   }
   ```
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `batch_size` | INT | Indica o número de câmeras que serão usadas na operação. |
 

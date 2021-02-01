@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5d656a27017f3c7ec97362efc6207917ffcd1a56
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111098"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225151"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação de vários fatores no Azure Active Directory B2C
 
@@ -40,7 +40,9 @@ Esse recurso ajuda os aplicativos a lidar com cenários como:
 1. Escolha **Fluxos de usuário**.
 1. Selecione o fluxo de usuário para o qual você deseja habilitar a MFA. Por exemplo, *B2C_1_signinsignup*.
 1. Selecione **Propriedades**.
-1. Na seção **autenticação multifator** , selecione o **método MFA** desejado e, em seguida, em **imposição de MFA** , selecione **Always on** ou **[condicional](conditional-access-user-flow.md) (recomendado)**. Para condicional, crie uma política de [política de acesso condicional](conditional-access-identity-protection-setup.md) e especifique os aplicativos aos quais você deseja que a política se aplique. 
+1. Na seção **autenticação multifator** , selecione o **método MFA** desejado e, em seguida, em **imposição de MFA** , selecione **Always on** ou **condicional (recomendado)**.
+  > [!NOTE]
+  > Se você selecionar **condicional (recomendado)**, também precisará [Adicionar uma política de acesso condicional](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) e especificar os aplicativos aos quais deseja que a política se aplique.
 1. Selecione Salvar. A MFA agora está habilitada para este fluxo de usuário.
 
 Você pode usar **Executar fluxo de usuário** na política para verificar a experiência. Confirme o seguinte cenário:

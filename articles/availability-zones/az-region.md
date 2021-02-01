@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: e8e62d92afb70ec9d4df40f677de05583ef472b0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955776"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226617"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure compatíveis com as zonas de disponibilidade
 
@@ -47,16 +47,16 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 ## <a name="azure-regions-with-availability-zones"></a>Regiões do Azure com Zonas de Disponibilidade
 
 
-| Américas           | Europa         | Alemanha              | África              | Pacífico Asiático   |
-|--------------------|----------------|----------------------|---------------------|----------------|
-|                    |                |                      |                     |                |
-| Canadá Central     | França Central | Centro-Oeste da Alemanha | Norte da África do Sul * | Japan East     |
-| Centro dos EUA         | Norte da Europa   |                      |                     | Sudeste Asiático |
-| Leste dos EUA            | Sul do Reino Unido       |                      |                     | Leste da Austrália |
-| Leste dos EUA 2          | Europa Ocidental    |                      |                     |                |
-| EUA Central do Sul |                |                      |                     |                |
-| US Gov-Virgínia * |                |                      |                     |                |
-| Oeste dos EUA 2        |                |                      |                     |                |
+| Américas           | Europa               | África              | Pacífico Asiático   |
+|--------------------|----------------------|---------------------|----------------|
+|                    |                      |                     |                |
+| Canadá Central     | França Central       | Norte da África do Sul * | Japan East     |
+| Centro dos EUA         | Centro-Oeste da Alemanha |                     | Sudeste Asiático |
+| Leste dos EUA            | Norte da Europa         |                     | Leste da Austrália |
+| Leste dos EUA 2          | Sul do Reino Unido             |                     |                |
+| EUA Central do Sul | Europa Ocidental          |                     |                |
+| US Gov-Virgínia * |                      |                     |                |
+| Oeste dos EUA 2        |                      |                     |                |
 
 
 \* Para saber mais sobre o suporte a Zonas de Disponibilidade e serviços disponíveis nessas regiões, entre em contato com seu representante de vendas ou cliente da Microsoft. Para as próximas regiões que oferecerão suporte a Zonas de Disponibilidade, confira [geografias do Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
@@ -162,7 +162,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |     Mapas do Azure                                |     : globe_with_meridians:             |
 |     Azure Policy                              |     : globe_with_meridians:             |
 |     Grafo de recursos do Azure                    |     : globe_with_meridians:             |
-|     Azure Stack                               |     : globe_with_meridians:             |
+|     Azure Stack Hub                               |     : globe_with_meridians:             |
 |     Borda do Azure Stack                        |     : globe_with_meridians:             |
 |     Cloud Shell                               |     : globe_with_meridians:             |
 |     Sistema de Proteção de Dados do Cliente para Microsoft Azure    |     : globe_with_meridians:             |

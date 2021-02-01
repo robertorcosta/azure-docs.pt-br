@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 8cae73e03fee0b59be0c7596f0783570ac14f6ee
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 991a335207fc29cef7b243d7e520dd5f62ff691f
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053033"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226094"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurar um ambiente de preparo no Azure Spring Cloud
 
@@ -22,6 +22,7 @@ Este artigo discute como configurar uma implantação de preparo usando o padrã
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+* Instância do Azure Spring Cloud com **tipo de preço** *Standard* .
 * Um aplicativo em execução.  Consulte [início rápido: implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md).
 * CLI do Azure [extensão ASC](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
 
@@ -78,7 +79,7 @@ Exiba os aplicativos implantados usando os procedimentos a seguir.
 1. No CLI do Azure, crie uma nova implantação e dê a ela o nome de implantação de preparo "verde".
 
     ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app default -n green --jar-path gateway/target/gateway.jar
+    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app <appName> -n green --jar-path gateway/target/gateway.jar
     ```
 
 1. Depois que a implantação da CLI for concluída com êxito, acesse a página do aplicativo no **painel do aplicativo** e exiba todas as suas instâncias na guia **implantações** à esquerda.
@@ -113,11 +114,11 @@ Para verificar se o desenvolvimento de preparo verde está funcionando:
 
    [![Implantações definir implantação de preparo](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
 
-1. Retorne à página **Gerenciamento de implantação** .  O `green` status da implantação de implantação deve aparecer. Agora, essa é a compilação de produção em execução.
+1. Retorne à página **Gerenciamento de implantação** . Defina a `green` implantação como `production` . Quando a configuração for concluída, o `green` status da implantação deverá aparecer. Agora, essa é a compilação de produção em execução.
 
    [![Conjunto de implantações definir resultado da implantação de preparo](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
 
-1. Copie e cole a URL em uma nova janela do navegador e a nova página do aplicativo deve ser exibida com as alterações.
+1. A URL do aplicativo deve exibir suas alterações.
 
 >[!NOTE]
 > Depois de definir a implantação verde como o ambiente de produção, a implantação anterior torna-se a implantação de preparo.

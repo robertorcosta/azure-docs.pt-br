@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7dc8aac730fdf46cab47a3297b8c001cb0b8e314
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219251"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226398"
 ---
 # <a name="test-vm-network-latency"></a>Testar latência da rede de VMs
 
@@ -45,7 +45,7 @@ Você pode usar essa abordagem para medir a latência de rede entre duas VMs ou 
 ### <a name="tools-for-testing"></a>Ferramentas para teste
 Para medir a latência, você tem duas opções de ferramenta diferentes:
 
-* Para sistemas baseados no Windows: [latte.exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* Para sistemas baseados no Windows: [latte.exe (Windows)](https://github.com/microsoft/latte/releases/download/v0/latte.exe)
 * Para sistemas baseados em Linux: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
 Ao usar essas ferramentas, você ajuda a garantir que apenas os tempos de entrega de carga TCP ou UDP sejam medidos e não ICMP (ping) ou outros tipos de pacotes que não são usados por aplicativos e não afetam seu desempenho.

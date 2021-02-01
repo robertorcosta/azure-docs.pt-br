@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 68362b61aa0d919bd0e95f3cebb1cf1189f9f0f3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540466"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095167"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -19,9 +19,15 @@ ms.locfileid: "98540466"
 Siga estas etapas para instalar a CLI de Fala no Windows:
 
 1. No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Ao instalá-los pela primeira vez, pode ser necessária uma reinicialização.
-2. Baixe o [arquivo zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala e, em seguida, extraia o arquivo.
-3. Acesse o diretório em que você extraiu `spx-zips`. Essa pasta contém arquivos de programas para a CLI de Fala em uma variedade de plataformas. 
-4. Extraia os arquivos da sua plataforma (`spx-net471` para .NET Framework 4.7 ou `spx-netcore-win-x64` para .NET Core 3.0 em uma CPU x64). Tenha em mente que você executará `spx` nesse diretório.
+1. Instale o [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Instale a CLI de Fala usando o NuGet por meio deste comando:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
+
+Digite `spx` para ver a ajuda da CLI de Fala.
+
+> [!NOTE]
+> Como alternativa ao NuGet, você pode baixar e extrair o [arquivo .zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala, localizar e extrair sua plataforma do diretório `spx-zips` e adicionar o caminho `spx` à variável **PATH** do seu sistema.
 
 ### <a name="run-the-speech-cli"></a>Executar a CLI de Fala
 
@@ -43,15 +49,16 @@ Se você produzir a saída em um arquivo, um editor de texto como o Bloco de not
 
 Siga estas etapas para instalar a CLI de Fala no Linux em uma CPU x64:
 
-1. Instalar o [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Baixe o [arquivo zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala e, em seguida, extraia o arquivo.
-3. Acesse o diretório raiz `spx-zips` que você extraiu no download e extraia `spx-netcore-30-linux-x64` para um novo diretório `~/spx`.
-4. Em um terminal, digite estes comandos:
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Instale o [.NET Core 3.1](/dotnet/core/install/linux.md).
+2. Instale a CLI de Fala usando o NuGet por meio deste comando:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
 Digite `spx` para ver a ajuda da CLI de Fala.
+
+> [!NOTE]
+> Como alternativa ao NuGet, você pode baixar os binários no [arquivo .zip](https://aka.ms/speech/spx-zips.zip), extrair `spx-netcore-30-linux-x64` para um novo diretório `~/spx`, digitar `sudo chmod +r+x spx` no binário e adicionar o caminho `~/spx` à variável de sistema PATH.
+
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalação do Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 
