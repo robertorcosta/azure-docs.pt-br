@@ -68,6 +68,8 @@
           href: quickstart-v2-netcore-daemon.md
         - name: Daemon do console do Python
           href: quickstart-v2-python-daemon.md
+        - name: Daemon do console Java
+          href: quickstart-v2-java-daemon.md
 - name: Tutoriais
   items:
     - name: SPA (aplicativo de página única)

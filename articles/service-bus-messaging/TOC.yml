@@ -9,7 +9,7 @@
       maintainContext: true
     - name: Usar o Barramento de Serviço com o JMS (Serviço de Mensagens Java) 2.0 (versão prévia)
       href: how-to-use-java-message-service-20.md
-- name: Início rápido
+- name: Inícios rápidos
   items:
     - name: Filas do Barramento de Serviço
       items:
@@ -210,14 +210,20 @@
               href: service-bus-auto-forwarding.md
             - name: Processamento de transação
               href: service-bus-transactions.md
-        - name: Rastreamento de ponta a ponta e diagnóstico
-          href: service-bus-end-to-end-tracing.md
         - name: Criar um aplicativo de Barramento de Serviço com várias camadas
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
     - name: Migrar
       items:
         - name: Migrar do ActiveMQ para o Barramento de Serviço do Azure
           href: migrate-jms-activemq-to-servicebus.md
+    - name: Monitor
+      items:
+        - name: Rastreamento de ponta a ponta e diagnóstico
+          href: service-bus-end-to-end-tracing.md
+        - name: Logs de diagnóstico
+          href: service-bus-diagnostic-logs.md
+        - name: Métricas do Azure Monitor
+          href: service-bus-metrics-azure-monitor.md
     - name: Integração
       items:
         - name: Integrar com o RabbitMQ
@@ -228,12 +234,8 @@
           href: automate-update-messaging-units.md
         - name: Usar Azure PowerShell para provisionar entidades
           href: service-bus-manage-with-ps.md
-        - name: Monitorar Barramento de Serviço com o Azure Monitor
-          href: service-bus-metrics-azure-monitor.md
         - name: Bibliotecas de gerenciamento do Barramento de Serviço
           href: service-bus-management-libraries.md
-        - name: Logs de recursos
-          href: service-bus-diagnostic-logs.md
         - name: Suspender e reativar entidades de mensagens
           href: entity-suspend.md
         - name: Usar o Service Bus Explorer para executar operações de dados no Barramento de Serviço

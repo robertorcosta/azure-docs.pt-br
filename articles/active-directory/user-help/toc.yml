@@ -50,6 +50,8 @@
       href: auth-app-android-china.md
     - name: Fazer backup e recuperar suas contas
       href: user-help-auth-app-backup-recovery.md
+    - name: Importar senhas no aplicativo Authenticator
+      href: user-help-authenticator-app-import-passwords.md
     - name: Perguntas frequentes
       href: user-help-auth-app-faq.md
 - name: Ajuda do portal Minha Conta
