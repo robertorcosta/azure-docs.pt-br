@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ)
+title: Perguntas frequentes
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d3f859590b30aaeeaebaed7b1f2f85e1a86a92c9
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724009"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223399"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -363,7 +363,7 @@ Sim. Consulte [como configurar um DNS personalizado para o Azure SQL instância 
 
 **Posso fazer a atualização de DNS?**
 
-Atualmente, não fornecemos um recurso para atualizar a configuração do servidor DNS para o SQL Instância Gerenciada.
+Sim. Confira a [configuração sincronizar servidores DNS da rede virtual no cluster virtual do SQL instância gerenciada](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 A configuração de DNS é, por fim, atualizada:
 

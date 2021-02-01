@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/22/2021
-ms.openlocfilehash: 48450218975f2c6ee14e12af8d722942e8db1347
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 01/29/2021
+ms.openlocfilehash: 386547aa6e815ad6ba7d860c513a3e24c4040cca
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695841"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223215"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copiar e transformar dados no Azure Synapse Analytics usando Azure Data Factory
 
@@ -376,10 +376,10 @@ O Azure Data Factory dá suporte a três maneiras de carregar dados no Azure Syn
 ![Opções de cópia do coletor do Azure Synapse Analytics](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
 
 - [Usar o PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)
-- [Usar a instrução COPY (versão prévia)](#use-copy-statement)
+- [Usar instrução de cópia](#use-copy-statement)
 - Usar Bulk Insert
 
-A maneira mais rápida e escalonável de carregar dados é por meio do [PolyBase](/sql/relational-databases/polybase/polybase-guide) ou da [instrução COPY](/sql/t-sql/statements/copy-into-transact-sql) (versão prévia).
+A maneira mais rápida e escalonável de carregar dados é por meio do [polybase](/sql/relational-databases/polybase/polybase-guide) ou da [instrução de cópia](/sql/t-sql/statements/copy-into-transact-sql).
 
 Para copiar dados para o Azure Synapse Analytics, defina o tipo de coletor na atividade de cópia como **SqlDWSink**. As seguintes propriedades são suportadas na seção Copy Activity **sink**:
 
@@ -388,7 +388,7 @@ Para copiar dados para o Azure Synapse Analytics, defina o tipo de coletor na at
 | type              | A propriedade **tipo** do coletor de Atividade de Cópia deve ser definida como **SqlDWSink**. | Sim                                           |
 | allowPolyBase     | Indica se o polybase deve ser usado para carregar dados no Azure Synapse Analytics. `allowCopyCommand` e `allowPolyBase` não podem ser ambos verdadeiros. <br/><br/>Confira [a seção usar o polybase para carregar dados na análise de Synapse do Azure](#use-polybase-to-load-data-into-azure-synapse-analytics) para obter restrições e detalhes.<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não.<br/>Aplicar ao usar o PolyBase.     |
 | polyBaseSettings  | Um grupo de propriedades que pode ser especificado quando a propriedade `allowPolybase` está definida como **true**. | Não.<br/>Aplicar ao usar o PolyBase. |
-| allowCopyCommand | Indica se a [instrução de cópia](/sql/t-sql/statements/copy-into-transact-sql) (versão prévia) deve ser usada para carregar dados no Azure Synapse Analytics. `allowCopyCommand` e `allowPolyBase` não podem ser ambos verdadeiros. <br/><br/>Consulte [usar a instrução Copy para carregar dados na seção do Azure Synapse Analytics](#use-copy-statement) para obter restrições e detalhes.<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não.<br>Aplicar ao usar a instrução COPY. |
+| allowCopyCommand | Indica se a [instrução de cópia](/sql/t-sql/statements/copy-into-transact-sql) deve ser usada para carregar dados no Azure Synapse Analytics. `allowCopyCommand` e `allowPolyBase` não podem ser ambos verdadeiros. <br/><br/>Consulte [usar a instrução Copy para carregar dados na seção do Azure Synapse Analytics](#use-copy-statement) para obter restrições e detalhes.<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não.<br>Aplicar ao usar a instrução COPY. |
 | copyCommandSettings | Um grupo de propriedades que pode ser especificado quando a propriedade `allowCopyCommand` está definida como TRUE. | Não.<br/>Aplicar ao usar a instrução COPY. |
 | writeBatchSize    | Número de linhas a serem inseridas na tabela SQL **por lote**.<br/><br/>O valor permitido é **inteiro** (número de linhas). Por padrão, o Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha. | Não.<br/>Aplicar ao usar Bulk Insert.     |
 | writeBatchTimeout | Tempo de espera para a operação de inserção em lote ser concluída antes de expirar.<br/><br/>O valor permitido é **timespan**. Exemplo: "00:30:00" (30 minutos). | Não.<br/>Aplicar ao usar Bulk Insert.        |
@@ -674,9 +674,9 @@ All columns of the table must be specified in the INSERT BULK statement.
 
 O valor NULL é uma forma especial do valor padrão. Se a coluna permite valor nulo, os dados de entrada no blob para essa coluna podem estar vazios. Mas não pode estar ausente do conjunto de dados de entrada. O PolyBase insere NULL para valores ausentes no Azure Synapse Analytics.
 
-## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics-preview"></a><a name="use-copy-statement"></a> Usar a instrução de cópia para carregar dados no Azure Synapse Analytics (versão prévia)
+## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics"></a><a name="use-copy-statement"></a> Usar a instrução de cópia para carregar dados no Azure Synapse Analytics
 
-A instrução de [cópia](/sql/t-sql/statements/copy-into-transact-sql) do Azure Synapse Analytics (versão prévia) dá suporte diretamente ao carregamento de dados do **blob do Azure e Azure data Lake Storage Gen2**. Se os dados de origem atendem aos critérios descritos nesta seção, você pode optar por usar a instrução de cópia no ADF para carregar dados no Azure Synapse Analytics. O Azure Data Factory verificará as configurações e falhará na execução da atividade de cópia se os critérios não forem atendidos.
+A instrução de [cópia](/sql/t-sql/statements/copy-into-transact-sql) do Azure Synapse Analytics dá suporte diretamente ao carregamento de dados do **blob do Azure e Azure data Lake Storage Gen2**. Se os dados de origem atendem aos critérios descritos nesta seção, você pode optar por usar a instrução de cópia no ADF para carregar dados no Azure Synapse Analytics. O Azure Data Factory verificará as configurações e falhará na execução da atividade de cópia se os critérios não forem atendidos.
 
 >[!NOTE]
 >Atualmente, o Data Factory só dá suporte à cópia de origens compatíveis com a instrução COPY, conforme mencionado abaixo.
@@ -796,9 +796,10 @@ Exemplo do SQL: ```Select * from MyTable where customerId > 1000 and customerId 
 - Leitura Confirmada
 - Leitura Não Confirmada
 - Leitura repetida
-- Serializable *-nenhum (ignorar nível de isolamento)
+- Serializável
+- Nenhum (ignorar o nível de isolamento)
 
-![Nível de Isolamento](media/data-flow/isolationlevel.png "Nível de Isolamento")
+![Nível de Isolamento](media/data-flow/isolationlevel.png)
 
 ### <a name="sink-transformation"></a>Transformação de coletor
 

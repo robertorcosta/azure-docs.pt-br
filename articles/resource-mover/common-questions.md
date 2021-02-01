@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb8cfa3e1aa874f807ce46b254a22f3003c2f600
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600646"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222808"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
@@ -62,7 +62,7 @@ Sim, em trânsito e em repouso.
 
 ### <a name="how-is-managed-identity-used-in-resource-mover"></a>Como a identidade gerenciada é usada no movimentador de recursos?
 
-A [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conhecida como identidade de serviço gerenciada (MIS)) fornece aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD.
+A [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conhecida como identidade de serviço gerenciada (MSI)) fornece aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD.
 - O Resource mover usa identidade gerenciada para que possa acessar assinaturas do Azure para mover recursos entre regiões.
 - Uma coleção de movimentação precisa de uma identidade atribuída pelo sistema, com acesso à assinatura que contém os recursos que você está movendo.
 
@@ -74,7 +74,7 @@ A [identidade gerenciada](../active-directory/managed-identities-azure-resources
 A identidade gerenciada do Azure Resource Mover precisa de pelo menos estas permissões: 
 
 - Permissão para gravar/criar recursos na assinatura do usuário, disponível com a função *colaborador* . 
-- Permissão para criar atribuições de função. Normalmente, disponível com as funções de *administrador de acesso de usuário* ou *proprietário* , ou com uma função personalizada que tenha a *permissão Microsoft. Authorization/role assignments/Write* atribuída. Essa permissão não será necessária se a identidade gerenciada do recurso de compartilhamento de dados já tiver acesso concedido ao armazenamento de dados do Azure. 
+- Permissão para criar atribuições de função. Normalmente, disponível com as funções de *administrador de acesso de usuário* ou *proprietário* , ou com uma função personalizada que tenha a *permissão Microsoft. Authorization/role assignments/Write* atribuída. Essa permissão não será necessária, se a identidade gerenciada do recurso de compartilhamento de dados já tiver acesso concedida ao armazenamento de dados do Azure. 
  
 Quando você adiciona recursos no hub do Resource Mover no portal, as permissões são tratadas automaticamente, desde que o usuário tenha as permissões descritas acima. Se você adicionar recursos com o PowerShell, atribua permissões manualmente.
 

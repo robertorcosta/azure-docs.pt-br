@@ -3,12 +3,12 @@ title: Fazer backup e restaurar VMs do Azure criptografadas
 description: Descreve como fazer backup e restaurar VMs do Azure criptografadas com o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547144"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223450"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Fazer backup e restaurar máquinas virtuais do Azure criptografadas
 
@@ -44,11 +44,11 @@ O backup do Azure pode fazer backup e restaurar VMs do Azure usando ADE com e se
 
 ### <a name="limitations"></a>Limitações
 
-- Você pode fazer backup e restaurar VMs criptografadas dentro da mesma assinatura e região.
+- Você pode fazer backup e restaurar VMs criptografadas do ADE dentro da mesma assinatura e região.
 - O backup do Azure dá suporte a VMs criptografadas usando chaves autônomas. Qualquer chave que faz parte de um certificado usado para criptografar uma VM não tem suporte no momento.
-- Você pode fazer backup e restaurar VMs criptografadas dentro da mesma assinatura e região que o cofre de backup dos serviços de recuperação.
-- As VMs criptografadas não podem ser recuperadas no nível de arquivo/pasta. Você precisa recuperar toda a VM para restaurar arquivos e pastas.
-- Ao restaurar uma VM, você não pode usar a opção [substituir VM existente](backup-azure-arm-restore-vms.md#restore-options) para VMs criptografadas. Essa opção só tem suporte para discos gerenciados não criptografados.
+- Você pode fazer backup e restaurar VMs criptografadas em ADE na mesma assinatura e região que o cofre de backup dos serviços de recuperação.
+- As VMs criptografadas em ADE não podem ser recuperadas no nível de arquivo/pasta. Você precisa recuperar toda a VM para restaurar arquivos e pastas.
+- Ao restaurar uma VM, você não pode usar a opção [substituir VM existente](backup-azure-arm-restore-vms.md#restore-options) para VMs criptografadas em Ade. Essa opção só tem suporte para discos gerenciados não criptografados.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -125,6 +125,17 @@ Para definir permissões:
 
 1. Na portal do Azure, selecione **todos os serviços** e procure por **cofres de chaves**.
 1. Selecione o cofre de chaves associado à VM criptografada que você está fazendo backup.
+
+    >[!TIP]
+    >Para identificar o cofre de chaves associado de uma VM, use o comando do PowerShell a seguir. Substitua o nome do grupo de recursos e o nome da VM:
+    >
+    >`Get-AzVm -ResourceGroupName "MyResourceGroup001" -VMName "VM001" -Status`
+    >
+    > Procure o nome do cofre de chaves nesta linha:
+    >
+    >`SecretUrl            : https://<keyVaultName>.vault.azure.net`
+    >
+
 1. Selecione **políticas de acesso**  >  **Adicionar política de acesso**.
 
     ![Adicionar política de acesso](./media/backup-azure-vms-encryption/add-access-policy.png)
@@ -148,7 +159,7 @@ As VMs criptografadas só podem ser restauradas restaurando o disco da VM, confo
 Restaure as VMs criptografadas da seguinte maneira:
 
 1. [Restaure o disco da VM](backup-azure-arm-restore-vms.md#restore-disks).
-2. Recrie a instância de máquina virtual seguindo um destes procedimentos:
+2. Recrie a instância de máquina virtual executando uma das seguintes ações:
     1. Use o modelo gerado durante a operação de restauração para personalizar as configurações da VM e disparar a implantação da VM. [Saiba mais](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     2. Crie uma nova VM com base nos discos restaurados usando o PowerShell. [Saiba mais](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Para VMs do Linux, reinstale a extensão ADE para que os discos de dados sejam abertos e montados.

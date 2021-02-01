@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353163"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222858"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planejar seu aplicativo QnA Maker
 
@@ -94,13 +94,13 @@ Agora você pode ter bases de dados de conhecimento em diferentes idiomas dentro
 
 ### <a name="ingest-data-sources"></a>Fontes de dados de ingestão
 
-Você pode usar uma das seguintes [fontes de dados](../index.yml) ingeridas para criar uma base de conhecimento:
+Você pode usar uma das seguintes [fontes de dados](../Concepts/data-sources-and-content.md) ingeridas para criar uma base de conhecimento:
 
 * URL pública
 * URL privada do SharePoint
 * Arquivo
 
-O processo de ingestão converte os [tipos de conteúdo com suporte](../index.yml) para redução. Toda edição adicional da *resposta* é feita com a redução. Depois de criar uma base de dados de conhecimento, você pode editar [pares de QnA](question-answer-set.md) no portal de QnA Maker com a [criação de Rich Text](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+O processo de ingestão converte os [tipos de conteúdo com suporte](../reference-document-format-guidelines.md) para redução. Toda edição adicional da *resposta* é feita com a redução. Depois de criar uma base de dados de conhecimento, você pode editar [pares de QnA](question-answer-set.md) no portal de QnA Maker com a [criação de Rich Text](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Considerações de formato de dados
 
@@ -124,7 +124,7 @@ Você deve projetar seu fluxo de conversação com um loop em mente para que um 
 
 Os colaboradores podem ser outros desenvolvedores que compartilham a pilha de desenvolvimento completa do aplicativo da base de dados de conhecimento ou podem estar limitados a apenas criar a base de dados de conhecimento.
 
-A criação da base de dados de conhecimento dá suporte a várias [permissões de acesso baseadas em função](../index.yml) que você aplica no portal do Azure para limitar o escopo das habilidades de um colaborador.
+A criação da base de dados de conhecimento dá suporte a várias [permissões de acesso baseadas em função](../reference-role-based-access-control.md) que você aplica no portal do Azure para limitar o escopo das habilidades de um colaborador.
 
 ## <a name="integration-with-client-applications"></a>Integração com aplicativos cliente
 

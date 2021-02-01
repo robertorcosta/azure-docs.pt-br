@@ -3,18 +3,18 @@ title: Recuperação de desastre geográfico – Hubs de Eventos do Azure | Micr
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre nos Hubs de Eventos do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0e0a207630898eb7fe7613acb311364a64f9b38b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4470b55973f53c924caba8665199d261fe63a8fc
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681676"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222875"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos do Azure – Recuperação de desastre geográfico 
 
 A resiliência contra interrupções desastrosas de recursos de processamento de dados é um requisito para muitas empresas e, em alguns casos, até mesmo exigida por regulamentos do setor. 
 
-Os hubs de eventos do Azure já espalham o risco de falhas catastróficas de máquinas individuais ou até mesmo de racks completos em clusters que abrangem vários domínios de falha em um datacenter e implementam mecanismos de detecção de falha transparente e failover, de modo que o serviço continuará a operar dentro dos níveis de serviço garantidos e, normalmente, sem interrupções perceptíveis no caso de tais falhas Se um namespace de hubs de eventos tiver sido criado com a opção habilitado para [zonas de disponibilidade](../availability-zones/az-overview.md), o risco é a interrupção do risco é mais disseminado em três instalações fisicamente separadas, e o serviço tem reserva de capacidade suficiente para lidar instantaneamente com a perda completa e catastrófica de todo o recurso. 
+Os hubs de eventos do Azure já espalham o risco de falhas catastróficas de máquinas individuais ou até mesmo de racks completos em clusters que abrangem vários domínios de falha em um datacenter e implementam mecanismos de detecção de falha transparente e failover, de modo que o serviço continuará a operar dentro dos níveis de serviço garantidos e, normalmente, sem interrupções perceptíveis no caso de tais falhas Se um namespace de hubs de eventos tiver sido criado com a opção habilitado para [zonas de disponibilidade](../availability-zones/az-overview.md), o risco de interrupção estará mais espalhado em três instalações fisicamente separadas, e o serviço terá reserva de capacidade suficiente para lidar instantaneamente com a perda completa e catastrófica de todo o recurso. 
 
 O modelo de cluster todos os hubs de eventos do Azure ativos com suporte à zona de disponibilidade fornece resiliência contra graves falhas de hardware e até mesmo perda catastrófica de instalações de datacenter inteiras. Ainda assim, pode haver grave situações com a destruição física abrangente que, até mesmo, as medidas não podem se defender suficientemente. 
 
@@ -23,7 +23,7 @@ O recurso de recuperação de desastres de hubs de eventos é projetado para fac
 O recurso de recuperação de Geo-Disaster garante que toda a configuração de um namespace (hubs de eventos, grupos de consumidores e configurações) seja replicada continuamente de um namespace primário para um namespace secundário quando emparelhado, e permite que você inicie uma movimentação de failover somente uma vez do primário para o secundário a qualquer momento. A movimentação de failover irá redirecionar o nome do alias escolhido para o namespace para o namespace secundário e, em seguida, interromperá o emparelhamento. O failover é quase instantâneo depois de iniciado. 
 
 > [!IMPORTANT]
-> O recurso permite a continuidade instantânea de operações com a mesma configuração, mas não **replica os dados de evento**. A menos que o desastre tenha causado a perda de todas as zonas, os dados do evento serão preservados no Hub de eventos primário após o failover ser recuperável e os eventos históricos poderão ser obtidos a partir daí quando o acesso for restaurado. Para replicar dados de eventos e operar namespaces correspondentes em configurações ativas/ativas para lidar com interrupções e desastres, não faça o acompanhamento desse conjunto de recursos de recuperação de desastres geograficamente, mas siga as [diretrizes de replicação](event-hubs-federation-overview.md).  
+> O recurso permite a continuidade instantânea de operações com a mesma configuração, mas não **replica os dados de evento**. A menos que o desastre tenha causado a perda de todas as zonas, os dados de evento preservados no Hub de eventos primário após o failover serão recuperáveis e os eventos históricos poderão ser obtidos a partir daí quando o acesso for restaurado. Para replicar dados de eventos e operar namespaces correspondentes em configurações ativas/ativas para lidar com interrupções e desastres, não faça o acompanhamento desse conjunto de recursos de recuperação de desastres geograficamente, mas siga as [diretrizes de replicação](event-hubs-federation-overview.md).  
 
 ## <a name="outages-and-disasters"></a>Interrupções e desastres
 

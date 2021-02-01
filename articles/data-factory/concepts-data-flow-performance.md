@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 9706bee07f028c36b4d03311a7abbb969a1be685
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 01/29/2021
+ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944987"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222926"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -244,7 +244,7 @@ Se uma coluna corresponder ao modo como você deseja gerar os dados, você poder
 
 Ao gravar em CosmosDB, alterar a taxa de transferência e o tamanho do lote durante a execução do fluxo de dados pode melhorar o desempenho. Essas alterações só entram em vigor durante a execução da atividade de fluxo de dados e retornarão às configurações da coleção original após a conclusão. 
 
-**Tamanho do lote:** Calcule o tamanho da linha aproximada dos seus dados e certifique-se de que tamanho da linha * tamanho do lote seja menor que 2 milhões. Se for, aumente o tamanho do lote para obter uma melhor taxa de transferência
+**Tamanho do lote:** Normalmente, a partir do tamanho de lote padrão é suficiente. Para ajustar esse valor, calcule o tamanho do objeto aproximado dos dados e verifique se o tamanho do lote * tamanho do objeto é menor que 2MB. Se for, você poderá aumentar o tamanho do lote para obter uma melhor taxa de transferência.
 
 **Taxa de transferência:** Defina uma configuração de taxa de transferência mais alta aqui para permitir que os documentos sejam gravados mais rapidamente no CosmosDB. Tenha em mente os custos de RU maiores com base em uma configuração de alta taxa de transferência.
 

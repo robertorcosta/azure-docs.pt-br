@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931292"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223080"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de e para um ponto de extremidade REST usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +26,7 @@ Este artigo descreve como usar a atividade de cópia em Azure Data Factory para 
 A diferença entre esse conector REST, o [conector http](connector-http.md)e o [conector de tabela da Web](connector-web-table.md) são:
 
 - O **conector REST** oferece suporte especificamente à cópia de dados de APIs RESTful; 
-- O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. Antes desse conector REST se tornar disponível, você pode usar o conector HTTP para copiar dados do API RESTful, que é um suporte menos funcional em comparação ao conector REST.
+- O **conector http** é genérico para recuperar dados de qualquer ponto de extremidade http, por exemplo, para baixar o arquivo. Antes desse conector REST, você pode usar o conector HTTP para copiar dados da API RESTful, que tem suporte, mas a comparação menos funcional com o conector REST.
 - O **conector da tabela da Web** extrai o conteúdo da tabela de uma página da Web em HTML.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
