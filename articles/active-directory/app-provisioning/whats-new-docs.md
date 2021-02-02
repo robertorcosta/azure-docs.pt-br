@@ -1,24 +1,36 @@
 ---
 title: O que há de novo no provisionamento de aplicativos Azure Active Directory
 description: Documentação nova e atualizada para o provisionamento do Azure Active Directory Application.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: 053d342c8fbdd506ac5d4ba0916a1ae9361e7189
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+manager: daveba
+ms.openlocfilehash: a127552c47b9e1ee86d2164926971c8628367dc0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562201"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255994"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicativos Azure Active Directory: o que há de novo
 
 Bem-vindo ao que há de novo na documentação de provisionamento de aplicativos Azure Active Directory. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço de provisionamento, consulte [What ' s New in Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="new-articles"></a>Novos artigos
+- [Como Azure Active Directory provisionamento se integra ao workday](workday-integration-reference.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+- [Tutorial: desenvolver um ponto de extremidade SCIM de exemplo](use-scim-to-build-users-and-groups-endpoints.md)
+- [Tutorial – Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory](customize-application-attributes.md)
+- [Como Azure Active Directory provisionamento se integra ao SAP SuccessFactors](sap-successfactors-integration-reference.md)
+- [Provisionamento de aplicativo no status de quarentena](application-provisioning-quarantine-status.md)
+
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
@@ -60,7 +72,7 @@ Bem-vindo ao que há de novo na documentação de provisionamento de aplicativos
 
 ### <a name="new-articles"></a>Novos artigos
 
-- [O que há de novo no docs?](whats-new-docs.md)
+- [O que há de novo no Docs?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Provisionamento de aplicativo no status de quarentena](application-provisioning-quarantine-status.md)

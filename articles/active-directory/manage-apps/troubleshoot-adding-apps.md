@@ -3,19 +3,19 @@ title: Solucionar problemas comuns ao adicionar ou remover um aplicativo para Az
 description: Solucione os problemas comuns que as pessoas enfrentam ao adicionar ou remover um aplicativo para Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: f873608d07785e6b99bd8e0fcdadf64a8899d490
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: dbfc90f01bdd9cc0a831160d06efa1c3952884a2
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108408"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257662"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Solucionar problemas comuns ao adicionar ou remover um aplicativo para Azure Active Directory
 Este artigo ajuda você a entender os problemas comuns que as pessoas enfrentam ao adicionar ou remover um aplicativo para Azure Active Directory.

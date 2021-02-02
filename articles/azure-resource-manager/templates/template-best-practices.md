@@ -3,12 +3,12 @@ title: Práticas recomendadas para modelos
 description: Descreve as abordagens recomendadas para a criação de modelos de Azure Resource Manager (modelos ARM). Oferece sugestões para evitar problemas comuns ao usar os modelos.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 583a113df9cdb1951daf1002dd69531f050cfb54
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696339"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257990"
 ---
 # <a name="arm-template-best-practices"></a>Práticas recomendadas do modelo ARM
 
@@ -276,6 +276,8 @@ As seguintes informações podem ser úteis quando você trabalha com [recursos]
 
    > [!NOTE]
    > Para garantir que os segredos sejam criptografados quando forem passados como parâmetros para VMs e extensões, use a `protectedSettings` propriedade das extensões relevantes.
+
+* Especifique valores explícitos para propriedades que têm valores padrão que podem mudar ao longo do tempo. Por exemplo, se você estiver implantando um cluster AKS, poderá especificar ou omitir a `kubernetesVersion` propriedade. Se você não especificá-lo, [o cluster será padronizado para a versão secundária N-1 e o patch mais recente](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). Quando você implanta o cluster usando um modelo ARM, esse comportamento padrão pode não ser o esperado. Reimplantar o modelo pode fazer com que o cluster seja atualizado para uma nova versão do kubernetes inesperadamente. Em vez disso, considere especificar um número de versão explícito e, em seguida, alterá-lo manualmente quando estiver pronto para atualizar o cluster.
 
 ## <a name="use-test-toolkit"></a>Usar o kit de ferramentas de teste
 

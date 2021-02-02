@@ -3,7 +3,7 @@ title: Use o SCIM, o Microsoft Graph e o Azure AD para provisionar usuários e e
 description: Usando o SCIM e o Microsoft Graph em conjunto para provisionar usuários e enriquecer seu aplicativo com os dados de que precisa.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: ba8dec19443bbafa300144b1aa42b3973cce9e6d
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0a5d84585f28f6d13cbceb1fec41d6cdabf6d08c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655145"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255620"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Usando o SCIM e o Microsoft Graph juntos para provisionar usuários e enriquecer seu aplicativo com os dados de que precisa
 

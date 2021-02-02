@@ -2,7 +2,7 @@
 title: Solucionar problemas de logon único baseado em senha no Azure Active Directory
 description: Solucionar problemas com um aplicativo do Azure AD configurado para logon único baseado em senha.
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 84aec5031dd8d19f8f2ad0aa32185002add378b1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: fdbbc6c53e43d3ecc9fd4ecb563bd7ec798f8888
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053972"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257571"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solucionar problemas de logon único baseado em senha no Azure Active Directory
 
@@ -98,7 +98,7 @@ Para configurar o SSO baseado em senha usando a captura automática de campo de 
 7. Depois que o aplicativo for carregado, selecione **logon único** no painel de navegação no lado esquerdo.
 8. Selecione o modo de **logon baseado em senha** .
 9. Insira a **URL de logon**, que é a URL da página em que os usuários inserem seu nome de usuário e senha para entrar. *Certifique-se de que os campos de entrada estejam visíveis na página para a URL que você fornecer*.
-10. Selecione **Salvar**.
+10. Clique em **Salvar**.
     A página é automaticamente recortada para as caixas de entrada nome de usuário e senha. Agora você pode usar o Azure AD para transmitir com segurança as senhas para esse aplicativo usando a extensão do navegador meus aplicativos.
 
 ### <a name="manually-capture-sign-in-fields-for-an-app"></a>Capturar manualmente os campos de entrada para um aplicativo

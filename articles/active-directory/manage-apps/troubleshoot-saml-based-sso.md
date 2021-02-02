@@ -3,19 +3,19 @@ title: Solucionar problemas de logon único baseado em SAML no Azure Active Dire
 description: Solucionar problemas com um aplicativo do Azure AD configurado para logon único baseado em SAML.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 2e8508d4fceb1e7fb580350c726dd70eeaea31c6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b169616042892c379196dd1d38c2343704aa1030
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658869"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257519"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Solucionar problemas de logon único baseado em SAML no Azure Active Directory
 Se você encontrar um problema ao configurar um aplicativo. Verifique se seguiu todas as etapas no tutorial para o aplicativo. Nas configurações de aplicativo há uma documentação embutida sobre como configurar o aplicativo. Além disso, é possível acessar a [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](../saas-apps/tutorial-list.md) para uma orientação passo a passo detalhada.
@@ -69,7 +69,7 @@ Para baixar o certificado ou metadados do aplicativo Azure Active Directory, sig
 
 O Azure AD não fornece uma URL para obter os metadados. Os metadados apenas podem ser recuperados como um arquivo XML.
 
-## <a name="customize-saml-claims-sent-to-an-application"></a>Personalizar declarações SAML enviadas a um aplicativo
+## <a name="customize-saml-claims-sent-to-an-application"></a>Personalizar as declarações SAML enviadas para um aplicativo
 Para saber como personalizar as declarações de atributo SAML enviadas para seu aplicativo, consulte [Mapeamento de declarações no Azure Active Directory](../develop/active-directory-claims-mapping.md) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas

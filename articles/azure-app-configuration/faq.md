@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: alkemper
-ms.openlocfilehash: 4e19574e5848d1ee86d13aa02a9cf583b92eff02
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 39ad20bd57e3da6345c63d4601f34b19e640c1d6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929558"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256468"
 ---
 # <a name="azure-app-configuration-faq"></a>Perguntas frequentes sobre configuração do Azure App
 
@@ -105,7 +105,7 @@ Não é possível fazer downgrade de um armazenamento da camada Standard para a 
 
 ## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>Há algum limite no número de solicitações feitas para a configuração do aplicativo?
 
-Os repositórios de configuração na camada gratuita são limitados a 1.000 solicitações por dia. Os repositórios de configuração na camada Standard podem enfrentar uma limitação temporária quando a taxa de solicitação excede 20.000 solicitações por hora.
+Na configuração do aplicativo, ao ler valores de chave, os dados serão paginados e cada solicitação poderá ler até 100 valores de chave. Ao gravar valores de chave, cada solicitação pode criar ou atualizar um valor de chave. Isso é suportado por meio da API REST, dos SDKs de configuração de aplicativo e dos provedores de configuração. Os repositórios de configuração na camada gratuita são limitados a 1.000 solicitações por dia. Os repositórios de configuração na camada Standard podem enfrentar uma limitação temporária quando a taxa de solicitação excede 20.000 solicitações por hora.
 
 Quando um repositório atingir seu limite, ele retornará o código de status HTTP 429 para todas as solicitações feitas até que o período de tempo expire. O `retry-after-ms` cabeçalho na resposta fornece um tempo de espera sugerido (em milissegundos) antes de repetir a solicitação.
 

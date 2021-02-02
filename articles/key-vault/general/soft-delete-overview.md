@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589977"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257939"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
@@ -99,5 +99,6 @@ Em geral, quando um objeto (um cofre de chaves ou uma chave ou um segredo) está
 
 As duas guias a seguir oferecem os cenários de uso primário para usar a exclusão reversível.
 
+- [Como usar Key Vault exclusão reversível com o portal](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
 - [Como usar a exclusão reversível do Key Vault com o PowerShell](./key-vault-recovery.md) 
 - [Como usar a exclusão reversível do Key Vault com a CLI](./key-vault-recovery.md)

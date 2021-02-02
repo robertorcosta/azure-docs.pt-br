@@ -1,5 +1,5 @@
 ---
-title: O que há de novo no serviço de face?
+title: O que há de novo no serviço de Detecção Facial?
 titleSuffix: Azure Cognitive Services
 description: As notas de versão do serviço de face incluem um histórico das alterações de versão para várias versões.
 services: cognitive-services
@@ -10,19 +10,31 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 8a409d66065a7ccd2b34365bd565202f207ac0e8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e537166352f242d54819477a4dc0051aad684b0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560739"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258075"
 ---
-# <a name="whats-new-in-face-service"></a>O que há de novo no serviço de face?
+# <a name="whats-new-in-face-service"></a>O que há de novo no serviço de Detecção Facial?
 
 O serviço de face do Azure é atualizado em uma base contínua. Use este artigo para se manter atualizado com os aprimoramentos de recursos, correções e atualizações de documentação.
 
+## <a name="january-2021"></a>Janeiro de 2021
+* Reduzir a latência ao usar o API de Detecção Facial: a equipe de face publicou um novo artigo detalhando possíveis causas de latência ao usar o serviço e as estratégias de mitigação possíveis. Consulte [mitigar latência ao usar o serviço de face](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/how-to-mitigate-latency).
+
+## <a name="december-2020"></a>Dezembro de 2020
+* Configuração do cliente para o armazenamento de ID facial: embora o serviço de face não armazene imagens do cliente, os recursos de face extraídos serão armazenados no servidor. A ID de face é um identificador do recurso facial e será usado em [face-Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [facial-Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)e [face-Find semelhantes](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237). Os recursos de face armazenados expirarão e serão excluídos 24 horas após a chamada de detecção original. Agora, os clientes podem determinar o período de tempo em que essas IDs de face são armazenadas em cache. O valor máximo ainda é de até 24 horas, mas um valor mínimo de 60 segundos agora pode ser definido. Os novos intervalos de tempo para as IDs de face que estão sendo armazenadas em cache são qualquer valor entre 60 segundos e 24 horas. Mais detalhes podem ser encontrados na referência da API de [detecção de face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (o parâmetro *faceIdTimeToLive* ).
+
 ## <a name="november-2020"></a>Novembro de 2020
-* Publicou um exemplo de aplicativo de registro de face para demonstrar as práticas recomendadas para estabelecer um consentimento significativo e criar sistemas de reconhecimento de face de alta precisão por meio de registros de alta qualidade. O exemplo de código-fonte aberto pode ser encontrado no guia [criar um aplicativo de registro](build-enrollment-app.md) e no [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), pronto para os desenvolvedores implantarem ou personalizarem.  
+* Publicou um exemplo de aplicativo de registro de face para demonstrar as práticas recomendadas para estabelecer um consentimento significativo e criar sistemas de reconhecimento de face de alta precisão por meio de registros de alta qualidade. O exemplo de código-fonte aberto pode ser encontrado no guia [criar um aplicativo de registro](build-enrollment-app.md) e no [GitHub](https://github.com/Azure-Samples/cognitive-services-FaceAPIEnrollmentSample), pronto para os desenvolvedores implantarem ou personalizarem. 
+
+## <a name="august-2020"></a>Agosto de 2020
+* Criptografia de dados gerenciada pelo cliente em repouso: o serviço de face criptografa automaticamente seus dados ao mantê-los para a nuvem. A criptografia do serviço de face protege seus dados para ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Também há uma nova opção para gerenciar sua assinatura com suas próprias chaves chamadas CMK (chaves gerenciadas pelo cliente). Mais detalhes podem ser encontrados em [chaves gerenciadas pelo cliente](https://docs.microsoft.com/azure/cognitive-services/face/face-encryption-of-data-at-rest).
+
+## <a name="april-2020"></a>Abril de 2020
+* Novo modelo de reconhecimento de API de Detecção Facial: o novo modelo de reconhecimento 03 é o modelo mais preciso disponível no momento. Se você for um novo cliente, recomendamos o uso desse modelo. O reconhecimento 03 fornecerá precisão aprimorada para comparações de semelhanças e comparações de correspondência de pessoas. Mais detalhes podem ser encontrados em [especificar um modelo de reconhecimento facial](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model).
 
 ## <a name="june-2019"></a>Junho de 2019
 

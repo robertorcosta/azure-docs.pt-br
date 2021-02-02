@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 86ded3dea819702631b1fa04dbc56f727566fc98
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: a41966c2b3ba73d7b68399b1b99d14313e220833
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602675"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257804"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Usar o inventário de blob do armazenamento do Azure para gerenciar dados de BLOB (versão prévia)
 
@@ -32,6 +32,8 @@ A visualização de inventário de blob está disponível em contas de armazenam
 - França Central
 - Canadá Central
 - Leste do Canadá
+- Leste dos EUA
+- Leste dos EUA 2
 
 ### <a name="pricing-and-billing"></a>Preços e cobrança
 
@@ -57,7 +59,7 @@ Habilite os relatórios de inventário de blob adicionando uma política à sua 
 As políticas de inventário são lidas ou gravadas integralmente. Não há suporte para atualizações parciais.
 
 > [!IMPORTANT]
-> Se você habilitar regras de firewall para sua conta de armazenamento, as solicitações de inventário poderão ser bloqueadas. Você pode desbloquear essas solicitações fornecendo exceções para serviços confiáveis da Microsoft. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](../common/storage-network-security.md#exceptions).
+> Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações inventário poderão ser bloqueadas. Desbloqueie essas solicitações fornecendo exceções para serviços Microsoft confiáveis. Para obter mais informações, consulte a seção exceções em [Configurar firewalls e redes virtuais](../common/storage-network-security.md#exceptions).
 
 Uma execução de inventário de blob é agendada automaticamente todos os dias. Pode levar até 24 horas para que uma execução de estoque seja concluída. Um relatório de inventário é configurado pela adição de uma política de inventário com uma ou mais regras.
 
@@ -87,8 +89,8 @@ Exiba o JSON para uma política de inventário selecionando a guia **exibição 
 
 | Nome do parâmetro | Tipo de parâmetro        | Observações | Necessário? |
 |----------------|-----------------------|-------|-----------|
-| destino    | String                | O contêiner de destino em que todos os arquivos de inventário serão gerados. O contêiner de destino já deve existir. | Sim |
-| Habilitado        | Boolean               | Usado para desabilitar a política inteira. Quando definido como **true**, o campo de nível de regra habilitado substitui esse parâmetro. Quando desabilitado, o inventário de todas as regras será desabilitado. | Sim |
+| destino    | Cadeia de caracteres                | O contêiner de destino em que todos os arquivos de inventário serão gerados. O contêiner de destino já deve existir. | Sim |
+| Habilitado        | Booliano               | Usado para desabilitar a política inteira. Quando definido como **true**, o campo de nível de regra habilitado substitui esse parâmetro. Quando desabilitado, o inventário de todas as regras será desabilitado. | Sim |
 | regras          | Matriz de objetos de regra | Pelo menos uma regra é necessária em uma política. Há suporte para até 10 regras. | Sim |
 
 ## <a name="inventory-rules"></a>Regras de inventário
@@ -100,7 +102,7 @@ Cada regra na política tem vários parâmetros:
 | Nome do parâmetro | Tipo de parâmetro                 | Observações | Necessário? |
 |----------------|--------------------------------|-------|-----------|
 | name           | String                         | Um nome de regra pode incluir até 256 caracteres alfanuméricos que diferenciam maiúsculas de minúsculas. O nome deve ser exclusivo dentro de uma política. | Sim |
-| Habilitado        | Boolean                        | Um sinalizador que permite que uma regra seja habilitada ou desabilitada. O valor padrão é **true**. | Sim |
+| Habilitado        | Booliano                        | Um sinalizador que permite que uma regra seja habilitada ou desabilitada. O valor padrão é **true**. | Sim |
 | definição     | Definição de regra de inventário JSON | Cada definição é composta por um conjunto de filtros de regra. | Sim |
 
 O sinalizador **habilitado de inventário de blob** global tem precedência sobre o parâmetro *habilitado* em uma regra.
@@ -113,8 +115,8 @@ Vários filtros estão disponíveis para personalizar um relatório de inventár
 |---------------------|---------------------------------|-------|-----------|
 | blobTypes           | Matriz de valores de enumeração predefinidos | Os valores válidos são `blockBlob` e `appendBlob` para contas habilitadas para namespace hierárquico, e `blockBlob` , `appendBlob` e `pageBlob` para outras contas. | Sim |
 | prefixMatch         | Matriz de até 10 cadeias de caracteres para que os prefixos sejam correspondidos. Um prefixo deve começar com um nome de contêiner, por exemplo, "Container1/foo" | Se você não definir *prefixMatch* ou fornecer um prefixo vazio, a regra se aplicará a todos os BLOBs na conta de armazenamento. | Não |
-| includeSnapshots    | Boolean                         | Especifica se o inventário deve incluir instantâneos. O padrão é **false**. | Não |
-| includeBlobVersions | Boolean                         | Especifica se o inventário deve incluir versões de BLOB. O padrão é **false**. | Não |
+| includeSnapshots    | Booliano                         | Especifica se o inventário deve incluir instantâneos. O padrão é **false**. | Não |
+| includeBlobVersions | Booliano                         | Especifica se o inventário deve incluir versões de BLOB. O padrão é **false**. | Não |
 
 Exiba o JSON para regras de inventário selecionando a guia **exibição de código** na seção **inventário de blob** do portal do Azure. Os filtros são especificados dentro de uma definição de regra.
 

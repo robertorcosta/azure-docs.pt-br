@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860619"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257178"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (versão prévia)
 
@@ -78,7 +78,8 @@ Sim. Se o domínio não tiver sido verificado e o locatário não tiver passado 
 Quando a federação direta é estabelecida com uma organização parceira, ela tem precedência sobre a autenticação de senha de uso único por email para novos usuários convidados dessa organização. Se um usuário convidado resgatar um convite usando a autenticação de senha de uso único antes de configurar a federação direta, ele continuará a usar a autenticação de senha de uso único. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>A federação direta resolve problemas de entrada devido a uma locação parcialmente sincronizada?
 Não, o recurso de [senha de uso único por email](one-time-passcode.md) deve ser usado neste cenário. Um "aluguel parcialmente sincronizado" refere-se a um locatário do Azure AD de parceiro no qual as identidades de usuário local não estão totalmente sincronizadas com a nuvem. Um convidado cuja identidade ainda não existir na nuvem, mas que tentar resgatar seu convite B2B, não conseguirá entrar. O recurso de senha de uso único permitiria que esse convidado entrasse. O recurso de federação direta aborda os cenários em que o convidado tem sua própria conta institucional gerenciada por IdP, mas não há nenhuma presença do Azure AD na organização.
-
+### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Quando a Federação direta é configurada com uma organização, cada convidado precisa ser enviado e resgatar um convite individual?
+A configuração da Federação direta não altera o método de autenticação para usuários convidados que já resgataram um convite de você. Você pode atualizar o método de autenticação de um usuário convidado excluindo a conta de usuário convidado do seu diretório e convidando-as novamente.
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>Etapa 1: Configurar o provedor de identidade da organização parceira
 Primeiro, sua organização parceira precisa configurar o respectivo provedor de identidade com as declarações e relações de confiança de terceira parte confiável necessárias. 
 

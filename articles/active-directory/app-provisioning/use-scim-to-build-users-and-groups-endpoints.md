@@ -3,7 +3,7 @@ title: Criar um ponto de extremidade SCIM para provisionamento de usuário para 
 description: O sistema para SCIM (Sistema de Gerenciamento de Usuários entre Domínios) padroniza o provisionamento automático de usuários. Saiba como desenvolver um ponto de extremidade do SCIM, integrar sua API do SCIM com Azure Active Directory e começar a automatizar o provisionamento de usuários e grupos em seus aplicativos de nuvem com Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 34fa76197c4e08cffd1d8c66d6877b3e427e9fd6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6b7451b0d664995a6b647f7926d856b0db6090d8
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918137"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256095"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: desenvolver um ponto de extremidade SCIM de exemplo
 
@@ -63,7 +63,7 @@ As etapas fornecidas aqui implantam o ponto de extremidade SCIM em um serviço u
 
    Ao testar seu ponto de extremidade com um aplicativo empresarial na portal do Azure, opte por manter o ambiente como `Development` e forneça o token gerado do `/scim/token` ponto de extremidade para testar ou alterar o ambiente para `Production` e deixar o campo de token vazio no aplicativo empresarial na [portal do Azure](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
-Pronto! Seu ponto de extremidade SCIM agora está publicado e permite que você use a URL do serviço Azure App para testar o ponto de extremidade SCIM.
+É isso! Seu ponto de extremidade SCIM agora está publicado e permite que você use a URL do serviço Azure App para testar o ponto de extremidade SCIM.
 
 ## <a name="test-your-scim-endpoint"></a>Testar seu ponto de extremidade do SCIM
 
@@ -137,7 +137,7 @@ Os pontos de extremidade estão localizados no `{host}/scim/` diretório e podem
    > [!NOTE]
    > Para tornar um ponto de extremidade SCIM seguro, você precisa de um token de segurança antes de se conectar e o tutorial usa o `{host}/scim/token` ponto de extremidade para gerar um token autoassinado.
 
-Pronto! Agora você pode executar a coleção de **postmaster** para testar a funcionalidade de ponto de extremidade SCIM.
+É isso! Agora você pode executar a coleção de **postmaster** para testar a funcionalidade de ponto de extremidade SCIM.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,7 +3,7 @@ title: Conceder consentimento de administrador em todo o locatário para um apli
 description: Saiba como conceder consentimento em todo o locatário a um aplicativo para que os usuários finais não sejam solicitados a fornecer consentimento ao entrar em um aplicativo.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaf8f92ec2c7d9653595b3249521582620670aaf
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089945"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258313"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador em todo o locatário para um aplicativo
 
@@ -83,7 +83,7 @@ A URL de consentimento do administrador em todo o locatário segue o seguinte fo
 https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 ```
 
-onde:
+em que:
 
 * `{client-id}` é a ID do cliente do aplicativo (também conhecida como ID do aplicativo).
 * `{tenant-id}` é a ID de locatário da sua organização ou qualquer nome de domínio verificado.

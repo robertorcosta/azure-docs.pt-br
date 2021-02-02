@@ -3,7 +3,7 @@ title: Status de provisionamento de aplicativo de quarentena | Microsoft Docs
 description: Quando você configurou um aplicativo para provisionamento automático de usuário, saiba o que é um status de provisionamento de quarentena e como limpá-lo.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 09/24/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: aa0df4e18e89ecf366da0ddf79e5241bca99bcc1
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: d997c85f96fa9f87ca6d017cb555b3732007e21c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915259"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256298"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de aplicativo no status de quarentena
 
@@ -52,7 +52,7 @@ Há três maneiras de verificar se um aplicativo está em quarentena:
 
 ## <a name="why-is-my-application-in-quarantine"></a>Por que meu aplicativo está em quarentena?
 
-|Description|Ação recomendada|
+|Descrição|Ação recomendada|
 |---|---|
 |**Problema de conformidade do scim:** Uma resposta HTTP/404 não encontrada foi retornada em vez da resposta HTTP/200 OK esperada. Nesse caso, o serviço de provisionamento do Azure AD fez uma solicitação para o aplicativo de destino e recebeu uma resposta inesperada.|Verifique a seção credenciais de administrador. Veja se o aplicativo requer a especificação da URL do locatário e se a URL está correta. Se você não vir um problema, entre em contato com o desenvolvedor do aplicativo para garantir que seu serviço seja compatível com SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Credenciais inválidas:** Ao tentar autorizar, acessar o aplicativo de destino, recebemos uma resposta do aplicativo de destino que indica que as credenciais fornecidas são inválidas.|Navegue até a seção credenciais de administrador da interface do usuário de configuração de provisionamento e autorize o acesso novamente com credenciais válidas. Se o aplicativo estiver na Galeria, examine o tutorial de configuração do aplicativo para obter mais etapas necessárias.|

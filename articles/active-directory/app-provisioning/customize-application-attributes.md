@@ -3,19 +3,19 @@ title: Tutorial – Personalizar mapeamentos de atributo do Azure Active Directo
 description: Saiba quais são os mapeamentos de atributo para aplicativos SaaS no Active Directory do Azure e como você pode modificá-los para atender às necessidades de negócios.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/25/2021
 ms.author: kenwith
-ms.openlocfilehash: 2a27124ea76d6e5aaa7ec4b8ca36c388718ffb94
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 89b40ac68143c2af0d94434ddedec489a2208839
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761306"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256400"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial – Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 

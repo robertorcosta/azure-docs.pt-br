@@ -3,7 +3,7 @@ title: Autenticação baseada em cabeçalho com o PingAccess para Azure Proxy de
 description: Publique aplicativos com o PingAccess e o Proxy de Aplicativo a fim de oferecer suporte à autenticação baseada em cabeçalho.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e09bb0b07112a962b709c380c48f2a656c16097b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663406"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258160"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -48,7 +48,7 @@ Se você habilitou o proxy de aplicativo habilitado e já instalou um conector, 
 O conector de proxy de aplicativo é um serviço do Windows Server que direciona o tráfego de seus funcionários remotos para seus aplicativos publicados. Para obter instruções de instalação mais detalhadas, consulte [tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Entre no portal de [Azure Active Directory](https://aad.portal.azure.com/) como um administrador de aplicativos. A página **Azure Active Directory centro de administração** é exibida.
-1. Selecione **Azure Active Directory**  >  **Application proxy**  >  **serviço do conector de download** do proxy de aplicativo. A página de **download do conector de proxy de aplicativo** é exibida.
+1. Selecione **Azure Active Directory**  >    >  **serviço do conector de download** do proxy de aplicativo. A página de **download do conector de proxy de aplicativo** é exibida.
 
    ![Download do conector de proxy de aplicativo](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
 
@@ -108,7 +108,7 @@ Agora, atribua um usuário para teste de aplicativo e escolha logon único basea
 
    ![Mostra a tela de logon baseada em cabeçalho e PingAccess](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Em seguida, verifique se a URL de redirecionamento está definida para a URL externa:
 
@@ -124,13 +124,13 @@ Além da URL externa, um ponto de extremidade de autorização de Azure Active D
 
 Por fim, configure seu aplicativo local para que os usuários tenham acesso de leitura e outros aplicativos tenham acesso de leitura/gravação:
 
-1. Na barra lateral **registros de aplicativo** do seu aplicativo, selecione **permissões de API**  >  **Adicionar uma permissão**  >  **Microsoft Graph APIs da Microsoft**  >  **Microsoft Graph**. A página **solicitar permissões de API** para **Microsoft Graph** é exibida, que contém as APIs para o Windows Azure Active Directory.
+1. Na barra lateral **registros de aplicativo** do seu aplicativo, selecione **permissões de API**  >  **Adicionar uma permissão**  >  **Microsoft Graph APIs da Microsoft**  >  . A página **solicitar permissões de API** para **Microsoft Graph** é exibida, que contém as APIs para o Windows Azure Active Directory.
 
    ![Mostra a página solicitar permissões de API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
-1. Selecione **permissões delegadas**  >  **User**  >  **usuários usuário. ler**.
-1. Selecione **permissões do aplicativo** aplicativo aplicativo  >  **Application**  >  **. ReadWrite. tudo**.
-1. Selecione **Adicionar Permissões**.
+1. Selecione **permissões delegadas**  >    >  **usuários usuário. ler**.
+1. Selecione **permissões do aplicativo** aplicativo aplicativo  >    >  **. ReadWrite. tudo**.
+1. Escolha **Adicionar permissões**.
 1. Na página **permissões de API** , selecione **conceder consentimento de administrador \<your directory name> para**.
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Coletar informações sobre as etapas do PingAccess
@@ -168,7 +168,7 @@ Para coletar essas informações:
 1. Selecione seu aplicativo.
 1. Na barra lateral da página **registros de aplicativo** para seu aplicativo, selecione **manifesto**. O código JSON do manifesto para o registro do seu aplicativo é exibido.
 1. Pesquise o `acceptMappedClaims` campo e altere o valor para `True` .
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="use-of-optional-claims-optional"></a>Uso de declarações opcionais (opcional)
 
