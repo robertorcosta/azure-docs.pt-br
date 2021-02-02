@@ -1,45 +1,40 @@
 ---
-title: Identidades gerenciadas e armazenamento confiável
-description: Os serviços de mídia podem ser usados com identidades gerenciadas para habilitar o armazenamento confiável.
+title: Identidades gerenciadas
+description: Os serviços de mídia podem ser usados com identidades gerenciadas do Azure.
+keywords: ''
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 291508a6beaa687b3a10f55df4591ce601ab51a0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 71a2b8f0734de80f71dbb2372f8600b464d6c606
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956167"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258432"
 ---
-# <a name="managed-identities-and-trusted-storage-with-media-services"></a>Identidades gerenciadas e armazenamento confiável com os serviços de mídia
+# <a name="managed-identities"></a>Identidades gerenciadas
 
-Os serviços de mídia podem ser usados com [identidades gerenciadas](../../active-directory/managed-identities-azure-resources/overview.md) para habilitar o armazenamento confiável. Ao criar uma conta de serviços de mídia, você deve associá-la a uma conta de armazenamento. Os serviços de mídia podem acessar essa conta de armazenamento usando a autenticação do sistema. Os serviços de mídia validam que a conta dos serviços de mídia e a conta de armazenamento estão na mesma assinatura e valida que o usuário que está adicionando a associação tem acesso à conta de armazenamento com o Azure Resource Manager RBAC.
+Um desafio comum para desenvolvedores é o gerenciamento de segredos e credenciais para proteger a comunicação entre diferentes serviços. No Azure, as identidades gerenciadas eliminam a necessidade de os desenvolvedores precisarem gerenciar credenciais fornecendo uma identidade para o recurso do Azure no Azure AD e a usando para obter tokens do Azure AD (Azure Active Directory).
 
-## <a name="trusted-storage"></a>Armazenamento confiável
-
-No entanto, se você quiser usar um firewall para proteger sua conta de armazenamento, deverá usar a autenticação de identidade gerenciada. Ele permite que os serviços de mídia acessem a conta de armazenamento que foi configurada com um firewall ou uma restrição de VNet por meio de acesso de armazenamento confiável.  Para obter mais informações sobre serviços confiáveis da Microsoft, consulte [configurar redes virtuais e firewalls de armazenamento do Azure](../../storage/common/storage-network-security.md#trusted-microsoft-services).
-
-## <a name="media-services-managed-identity-scenarios"></a>Cenários de identidade gerenciada dos serviços de mídia
-
-Atualmente, há dois cenários em que a identidade gerenciada pode ser usada com os serviços de mídia:
+Atualmente, há dois cenários em que identidades gerenciadas podem ser usadas com os serviços de mídia:
 
 - Use a identidade gerenciada da conta dos serviços de mídia para acessar as contas de armazenamento.
 
 - Use a identidade gerenciada da conta dos serviços de mídia para acessar Key Vault acessar as chaves do cliente.
 
-As próximas duas seções descrevem as diferenças nos dois cenários.
+As próximas duas seções descrevem as etapas dos dois cenários.
 
-### <a name="use-the-managed-identity-of-the-media-services-account-to-access-storage-accounts"></a>Usar a identidade gerenciada da conta dos serviços de mídia para acessar contas de armazenamento
+## <a name="use-the-managed-identity-of-the-media-services-account-to-access-storage-accounts"></a>Usar a identidade gerenciada da conta dos serviços de mídia para acessar contas de armazenamento
 
 1. Crie uma conta dos serviços de mídia com uma identidade gerenciada.
 1. Conceda o acesso de entidade de identidade gerenciada a uma conta de armazenamento que você possui.
 1. Os serviços de mídia podem, então, acessar a conta de armazenamento em seu nome usando a identidade gerenciada.
 
-### <a name="use-the-managed-identity-of-the-media-services-account-to-access-key-vault-to-access-customer-keys"></a>Use a identidade gerenciada da conta dos serviços de mídia para acessar Key Vault acessar as chaves do cliente
+## <a name="use-the-managed-identity-of-the-media-services-account-to-access-key-vault-to-access-customer-keys"></a>Use a identidade gerenciada da conta dos serviços de mídia para acessar Key Vault acessar as chaves do cliente
 
 1. Crie uma conta dos serviços de mídia com uma identidade gerenciada.
 1. Conceda acesso de entidade de identidade gerenciada a um Key Vault que você possui.

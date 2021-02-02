@@ -3,7 +3,7 @@ title: Introdução à integração do Azure AD com aplicativos
 description: Este artigo é um guia de introdução para a integração do AD do Azure (Active Directory do Azure) com aplicativos locais e aplicativos em nuvem.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: db3d3623e175d582a2fe271d73aa452ca07b8e8d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8b321acb00e6e9b4b6cca117afba8bf0c9432719
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735059"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258459"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
 
@@ -38,7 +38,7 @@ Antes de ir para a integração de aplicativos com o Azure AD, é importante sab
 ### <a name="user-and-group-inventory"></a>Inventário de usuários e grupos
 * Onde residem suas contas de usuário?
   * Active Directory local
-  * AD do Azure
+  * Azure AD
   * Em um banco de dados de aplicativo separado que você possui
   * Em aplicativos não autorizados
   * Todas as anteriores

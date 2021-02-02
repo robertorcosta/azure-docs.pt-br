@@ -3,7 +3,7 @@ title: Movendo a autenticação do aplicativo de AD FS para Azure Active Directo
 description: Este artigo serve para ajudar as organizações a entender como mover aplicativos para o Azure AD, concentrando-se em aplicativos SaaS federados.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15009dd935d91971ce4212ff44b67a1ca6fa363
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: b27ccf5a861295ae83b5ddc021e77de75962de48
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745360"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258381"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory
 
@@ -458,7 +458,7 @@ Dependendo de como você configura seu aplicativo, verifique se o SSO funciona c
 ‎ |
 | SSO baseado em SAML| Use o botão [testar configurações de SAML](./debug-saml-sso-issues.md) encontrado em **logon único**.
 ‎ |
-| Password-Based SSO| Baixe e instale a extensão de [logon seguro do myapps](../user-help/my-apps-portal-end-user-access.md) [-](../user-help/my-apps-portal-end-user-access.md) [in Extension](../user-help/my-apps-portal-end-user-access.md). Essa extensão ajuda a iniciar qualquer um dos aplicativos de nuvem da sua organização que exigem que você use um processo de SSO.
+| Password-Based SSO| Baixe e instale a extensão de [logon seguro do myapps](../user-help/my-apps-portal-end-user-access.md) [-](../user-help/my-apps-portal-end-user-access.md) [](../user-help/my-apps-portal-end-user-access.md). Essa extensão ajuda a iniciar qualquer um dos aplicativos de nuvem da sua organização que exigem que você use um processo de SSO.
 ‎ |
 | Proxy do Aplicativo| Verifique se o conector está em execução e atribuído ao seu aplicativo. Visite o [Guia de solução de problemas de proxy de aplicativo](./application-proxy-troubleshoot.md) para obter mais assistência.
 ‎ |
