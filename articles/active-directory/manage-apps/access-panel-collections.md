@@ -4,7 +4,7 @@ description: Use coleções de aplicativos para personalizar minhas páginas de 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,12 +14,12 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7743a1af54b01f848c4ac6f0cb1d4526d66f8132
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656778"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254975"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Criar coleções no portal Meus Aplicativos
 
@@ -93,7 +93,7 @@ Caso você precise enviar uma solicitação de suporte para um problema com a p�
 
 * Para problemas com a página **"minha conta" do Azure ad** , abra uma solicitação de suporte no portal do Azure. Vá para **portal do Azure**  >  **Azure Active Directory**  >  **nova solicitação de suporte**.
 
-* Para problemas com a página **"minha conta" do Office** , abra uma solicitação de suporte no centro de administração do Microsoft 365. Vá para **Microsoft 365 suporte do centro de administração**  >  **Support**. 
+* Para problemas com a página **"minha conta" do Office** , abra uma solicitação de suporte no centro de administração do Microsoft 365. Vá para **Microsoft 365 suporte do centro de administração**  >  . 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Experiências do usuário final para aplicativos no Active Directory Domain Services do Azure](end-user-experiences.md)
