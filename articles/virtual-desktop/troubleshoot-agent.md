@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 5f9d772a4cc5722201891450707a68fe487acc3a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540489"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475245"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Solucionar problemas comuns do agente de área de trabalho virtual do Windows
 
@@ -207,7 +207,7 @@ Para resolver esse problema, libere espaço em seu disco:
 Abra uma janela do PowerShell como administrador e execute o seguinte cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object*
+Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
 ```
 
 Se o status listado para o host de sessão ou hosts em seu pool de hosts sempre diz não **disponível** ou **atualizando**, a instalação do agente ou da pilha pode ter falhado

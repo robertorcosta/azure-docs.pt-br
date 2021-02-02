@@ -9,16 +9,16 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: bb49523858f07e54887a67d9df68eb894e27ad34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 04b68899b796088bd4b89509a413c7a1fe5369bb
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881241"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475345"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado TLS do Azure  
 
-A Microsoft está atualizando os serviços do Azure para que eles usem certificados TLS de outro conjunto de ACs (autoridades de certificação) raiz. Essa alteração está sendo feita porque os Certificados de Autoridade de Certificação atuais não estão em conformidade com um dos requisitos de linha de base do fórum do navegador/da AC.
+A Microsoft está atualizando os serviços do Azure para que eles usem certificados TLS de outro conjunto de ACs (autoridades de certificação) raiz. Essa alteração está sendo feita porque os certificados de autoridade de certificação atuais não estão em conformidade com um dos requisitos de linha de base do fórum de CA/navegador e serão revogados em 15 de fevereiro de 2021.
 
 ## <a name="when-will-this-change-happen"></a>Quando ocorrerá essa alteração?
 

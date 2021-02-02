@@ -4,12 +4,12 @@ description: Criar e gerenciar uma entidade de serviço do Azure Active Director
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b7f8060666612049026f2602ab7c8511aea22757
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614788"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475430"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
@@ -128,7 +128,7 @@ Ao usar o AKS e as entidades de serviço do Azure AD, tenha em mente as consider
 - Se você não passar uma entidade de serviço especificamente em comandos adicionais da CLI do AKS, a entidade de serviço padrão localizada em `~/.azure/aksServicePrincipal.json` será usada.  
 - Opcionalmente, você também pode remover o aksServicePrincipal.jsno arquivo e o AKS criará uma nova entidade de serviço.
 - Ao excluir um cluster do AKS que foi criado por [az aks create][az-aks-create], a entidade de serviço que foi criada automaticamente não será excluída.
-    - Para excluir a entidade de serviço, consulte o cluster *servicePrincipalProfile.clientId* e, em seguida, exclua-a com [az ad app delete][az-ad-app-delete]. Substitua os seguintes nomes de cluster e de grupo de recursos por seus próprios valores:
+    - Para excluir a entidade de serviço, consulte o cluster *servicePrincipalProfile. clientId* e exclua com [AZ ad SP DELETE] [AZ-ad-SP-DELETE]. Substitua os seguintes nomes de cluster e de grupo de recursos por seus próprios valores:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)

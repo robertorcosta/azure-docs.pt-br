@@ -3,12 +3,12 @@ title: Conceitos-interconectividade de rede
 description: Saiba mais sobre os principais aspectos e casos de uso de rede e interconectividade na solução do Azure VMware.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9369c0fff31de4c6575d8e4903420cfa01461bf4
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062113"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475413"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceitos de rede e interconectividade da solução do Azure VMware
 
@@ -58,8 +58,11 @@ O diagrama a seguir mostra a interconectividade de local para nuvem privada, que
 Para obter a interconectividade completa com sua nuvem privada, habilite o ExpressRoute Alcance Global e, em seguida, solicite uma chave de autorização e uma ID de emparelhamento privado para Alcance Global no portal do Azure. A chave de autorização e a ID de emparelhamento são usadas para estabelecer Alcance Global entre um circuito de ExpressRoute em sua assinatura e o circuito de ExpressRoute para sua nova nuvem privada. Uma vez vinculado, os dois circuitos do ExpressRoute roteiam o tráfego de rede entre seus ambientes locais para sua nuvem privada.  Para obter mais informações sobre os procedimentos para solicitar e usar a chave de autorização e a ID de emparelhamento, consulte o [tutorial para criar um ExpressRoute alcance global emparelhamento para uma nuvem privada](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## <a name="next-steps"></a>Próximas etapas 
-Saiba mais sobre os [conceitos de armazenamento em nuvem privada](concepts-storage.md).
 
+Agora que você já abordou esses conceitos de rede e de interconectividade, talvez queira aprender sobre:
+
+- [Conceitos de armazenamento da solução VMware do Azure](concepts-storage.md).
+- [Conceitos de identidade da solução VMware do Azure](concepts-identity.md)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

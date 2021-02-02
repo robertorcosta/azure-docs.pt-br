@@ -3,12 +3,12 @@ title: Conceitos-nuvens e clusters privados
 description: Saiba mais sobre os principais recursos de data centers definidos pelo software da solução Azure VMware e clusters vSphere.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 7f8508abed3446c58a683454bc49ec7dbb49d051
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 234e705ad3b39a575c6f8c475bede4b81efa4b96
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825096"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474906"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceitos de nuvem privada e de cluster da solução Azure VMware
 
@@ -66,7 +66,10 @@ As configurações do vCenter e do NSX-T na nuvem privada estão em uma agenda d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A próxima etapa é aprender os [conceitos de rede e de interconectividade](concepts-networking.md).
+Agora que você já abordou esses conceitos da nuvem privada da solução Azure VMware, talvez queira saber mais sobre: 
+
+- [Conceitos de rede e interconectividade da solução do Azure VMware](concepts-networking.md).
+- [Conceitos de armazenamento da solução VMware do Azure](concepts-storage.md).
 
 <!-- LINKS - internal -->
 

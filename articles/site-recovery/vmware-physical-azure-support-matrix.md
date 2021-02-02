@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: f525666e91a482a6c23128e266b4f5669437a502
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 48eba42548287b54d99d1a2188786437f4b05a2b
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956014"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475464"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -231,7 +231,7 @@ NFS do convidado/servidor | Não
 ISCSI de convidado/servidor | Para migração-Sim<br/>Para recuperação de desastre-não, o iSCSI fará o failback como um disco anexado à VM
 SMB 3.0 do convidado/servidor | Não
 RDM do convidado/servidor | Sim<br/><br/> N/D para servidores físicos
-Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 8.192 GB ao replicar para discos gerenciados (versão 9,26 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
+Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 32 TB ao replicar para discos gerenciados (versão 9,40 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
 Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | Não
 Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | Não
 Volume do convidado/servidor com discos distribuídos >4 TB | Sim
@@ -292,7 +292,7 @@ Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha 
 Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falha se não tiver suporte.
 Contagem do disco do sistema operacional | 1 </br> Não há suporte para a partição de inicialização e de sistema em discos diferentes | A verificação falha se não tiver suporte.
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
-Tamanho do disco de dados | Até 8.192 GB ao replicar para o disco gerenciado (versão 9,26 em diante)<br></br>Até 4.095 GB ao replicar para a conta de armazenamento| A verificação falha se não tiver suporte.
+Tamanho do disco de dados | Até 32 TB ao replicar para o disco gerenciado (versão 9,40 em diante)<br></br>Até 4.095 GB ao replicar para a conta de armazenamento| A verificação falha se não tiver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
 VHD compartilhado | Não há suporte. | A verificação falha se não tiver suporte.
 Disco FC | Não há suporte. | A verificação falha se não tiver suporte.

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 5098d897d84ff6af31d430c0ddd2e26d8d6b08a7
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814288"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474839"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Habilidade cognitiva de extração de documentos
 
@@ -37,7 +37,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | Entradas | Valores Permitidos | Descrição |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | Defina como `default` para extração de documentos de arquivos que não são texto puro ou JSON. Defina como `text` para melhorar o desempenho em arquivos de texto sem formatação. Defina como `json` para extrair conteúdo estruturado de arquivos JSON. Se `parsingMode` não for definido explicitamente, ele será definido como `default` . |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Defina como `contentAndMetadata` para extrair todos os metadados e conteúdo textual de cada arquivo. Defina como `allMetadata` para extrair somente os [metadados específicos do tipo de conteúdo](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) (por exemplo, metadados exclusivos para arquivos apenas. png). Se `dataToExtract` não for definido explicitamente, ele será definido como `contentAndMetadata` . |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | Defina como `contentAndMetadata` para extrair todos os metadados e conteúdo textual de cada arquivo. Defina como `allMetadata` para extrair somente as [Propriedades de metadados para o tipo de conteúdo](search-blob-metadata-properties.md) (por exemplo, metadados exclusivos para arquivos apenas. png). Se `dataToExtract` não for definido explicitamente, ele será definido como `contentAndMetadata` . |
 | `configuration` | Veja abaixo. | Um dicionário de parâmetros opcionais que ajustam como a extração de documento é executada. Consulte a tabela abaixo para obter descrições das propriedades de configuração com suporte. |
 
 | Parâmetro de configuração   | Valores Permitidos | Descrição |
