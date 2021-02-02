@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: feeed07021e31dfee44fa9372927e45b53131d1e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d5a90909345599b2389d1752e00a7bc917d06822
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254046"
+ms.locfileid: "99430404"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemas ao entrar em aplicativos configurados para logon único baseado em SAML
 Para solucionar os problemas de entrada abaixo, recomendamos o seguinte para diagnosticar melhor e automatizar as etapas de resolução:
@@ -54,7 +54,7 @@ Verifique se o `Issuer` atributo na solicitação SAML corresponde ao valor do i
 Na página configuração do SSO baseado em SAML, na seção **configuração básica do SAML** , verifique se o valor na caixa de texto identificador corresponde ao valor do valor do identificador exibido no erro.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>O endereço de resposta não corresponde aos endereços de resposta configurados para o aplicativo
-`Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
+`Error AADSTS50011: The reply URL specified in the request does not match the reply URLs configured for the application: '{application identifier}'.`
 
 **Causa possível**
 

@@ -1,6 +1,6 @@
 ---
-title: Usar relocalação de alta proteção sem uma sessão de âncora
-description: Usar relocalação de alta proteção sem uma sessão de âncora
+title: Usar relocalização ampla sem uma sessão de âncora
+description: Usar relocalização ampla sem uma sessão de âncora
 author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
@@ -9,14 +9,14 @@ ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b768a4fba7474c863ff8a9bce538f0a0b67e191
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 0b3959ba3ec80f3113ea0358db550c86f1f276b1
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072542"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430302"
 ---
-# <a name="use-coarse-relocalization-without-an-anchor-session"></a>Usar relocalação de alta proteção sem uma sessão de âncora
+# <a name="use-coarse-relocalization-without-an-anchor-session"></a>Usar relocalização ampla sem uma sessão de âncora
 
 O objeto do provedor de impressão digital do sensor que faz parte do recurso de [relocalização](../concepts/coarse-reloc.md) de alta utilização pode ser usado sem ser anexado a uma sessão de âncoras espaciais do Azure.
 O trecho de código a seguir mostra como o provedor de sensor pode ser acessado para adquirir uma estimativa da posição do dispositivo:
@@ -146,3 +146,10 @@ sensorProvider.Stop();
 ```
 
 ---
+
+### <a name="next-steps"></a>Próximas etapas
+
+Este artigo mostrou como usar a API de reposicionamento grosso para obter uma estimativa da posição do seu dispositivo. Para saber mais sobre a relocalização grosseira, vá para o próximo guia.
+
+> [!div class="nextstepaction"]
+> [Relocalização grosseira](../concepts/coarse-reloc.md)

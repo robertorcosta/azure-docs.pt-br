@@ -2,19 +2,20 @@
 title: Configure sua própria chave para criptografar dados de hubs de eventos do Azure em repouso
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST dos hubs de eventos do Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 00e33bc3464aed1829968b7957e48455eaa04447
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/01/2021
+ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933793"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430672"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
 Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O serviço de hubs de eventos usa o armazenamento do Azure para armazenar os dados. Todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. Se você usar sua própria chave (também conhecida como Bring Your Own Key (BYOK) ou chave gerenciada pelo cliente), os dados ainda serão criptografados usando a chave gerenciada pela Microsoft, mas, além disso, a chave gerenciada pela Microsoft será criptografada usando a chave gerenciada pelo cliente. Esse recurso permite que você crie, gire, desabilite e revogue o acesso a chaves gerenciadas pelo cliente que são usadas para criptografar chaves gerenciadas pela Microsoft. Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
 
 > [!NOTE]
-> O recurso BYOK tem suporte dos clusters de [locatário único dedicados aos hubs de eventos](event-hubs-dedicated-overview.md) . Ele não pode ser habilitado para namespaces de hubs de eventos padrão.
+> - O recurso BYOK tem suporte dos clusters de [locatário único dedicados aos hubs de eventos](event-hubs-dedicated-overview.md) . Ele não pode ser habilitado para namespaces de hubs de eventos padrão.
+> - A criptografia só pode ser habilitada para namespaces novos ou vazios. Se o namespace contiver hubs de eventos, a operação de criptografia falhará.
 
 Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs do Azure Key Vault para gerar chaves. Para obter mais informações sobre o Cofre da Chave do Azure, consulte [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 385a67e117bf0cf9508b81d014e3accac4725744
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ee51b31246760e4619eef1e16e800b16ea886de0
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914902"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430706"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e provisionar um dispositivo IoT Edge usando certificados X. 509
 
@@ -117,7 +117,7 @@ Para obter mais informações sobre registros no serviço de provisionamento de 
       }
       ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Continue na seção [instalar o IOT Edge Runtime](#install-the-iot-edge-runtime) para configurar o dispositivo de IOT Edge.
 
@@ -143,7 +143,7 @@ Ao criar um grupo de registros, você tem a opção de usar um certificado verif
 
    Se você estiver usando os certificados de demonstração, carregue o `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` certificado.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. O certificado agora deve estar listado na página **certificados** . Selecione-o para abrir os detalhes do certificado.
 
@@ -202,7 +202,7 @@ Para obter mais informações sobre registros no serviço de provisionamento de 
       }
       ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Continue na próxima seção para configurar o dispositivo IoT Edge.
 
@@ -248,7 +248,11 @@ Tenha as seguintes informações prontas:
    #   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
        identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
        identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   #  always_reprovision_on_startup: true
+   #  dynamic_reprovisioning: false
    ```
+
+   Opcionalmente, use as `always_reprovision_on_startup` `dynamic_reprovisioning` linhas ou para configurar o comportamento de reprovisionamento do seu dispositivo. Se um dispositivo estiver configurado para reprovisionar na inicialização, ele sempre tentará provisionar com o DPS primeiro e, em seguida, retornará para o backup de provisionamento se isso falhar. Se um dispositivo estiver definido para reprovisionar dinamicamente, IoT Edge será reiniciado e reprovisionado se um evento de reprovisionamento for detectado. Para obter mais informações, consulte [conceitos de reprovisionamento de dispositivo do Hub IOT](../iot-dps/concepts-device-reprovision.md).
 
 1. Atualize os valores de `scope_id` , `identity_cert` e `identity_pk` com suas informações de dispositivo e DPS.
 

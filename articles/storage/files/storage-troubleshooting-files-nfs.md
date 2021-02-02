@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f684aff58f441fb0642779e54de39dff941e818c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878486"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430655"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Solucionar problemas de compartilhamentos de arquivos NFS
 
@@ -67,7 +67,6 @@ O NFS só está disponível em contas de armazenamento com a seguinte configura�
 
 - Camada-Premium
 - Tipo de conta-armazenamento de
-- Redundância-LRS
 - Regiões- [lista de regiões com suporte](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Solução
@@ -150,6 +149,17 @@ O protocolo NFS se comunica com seu servidor pela porta 2049, certifique-se de q
 #### <a name="solution"></a>Solução
 
 Verifique se a porta 2049 está aberta no cliente executando o seguinte comando: `telnet <storageaccountnamehere>.file.core.windows.net 2049` . Se a porta não estiver aberta, abra-a.
+
+## <a name="ls-list-files-shows-incorrectinconsistent-results"></a>ls (arquivos de lista) mostra resultados incorretos/inconsistentes
+
+### <a name="cause-inconsistency-between-cached-values-and-server-file-metadata-values-when-the-file-handle-is-open"></a>Causa: inconsistência entre valores em cache e valores de metadados de arquivo de servidor quando o identificador de arquivo está aberto
+Às vezes, o comando "listar arquivos" exibe um tamanho diferente de zero conforme esperado e, em vez disso, o comando de arquivos da próxima lista mostra o tamanho 0 ou um carimbo de data/hora muito antigo. Esse é um problema conhecido devido ao cache inconsistente de valores de metadados de arquivo enquanto o arquivo está aberto. Você pode usar uma das seguintes soluções alternativas para resolver isso:
+
+#### <a name="workaround-1-for-fetching-file-size-use-wc--c-instead-of-ls--l"></a>Solução alternativa 1: para buscar o tamanho do arquivo, use wc-c em vez de ls-l
+O uso de WC-c sempre buscará o valor mais recente do servidor e não terá nenhuma inconsistência.
+
+#### <a name="workaround-2-use-noac-mount-flag"></a>Solução alternativa 2: usar o sinalizador de montagem "NOAC"
+Monte novamente o sistema de arquivos usando o sinalizador "NOAC" com o comando Mount. Isso sempre irá buscar todos os valores de metadados do servidor. Pode haver alguma sobrecarga de desempenho secundária para todas as operações de metadados se essa solução alternativa for usada.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Caso ainda precise de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

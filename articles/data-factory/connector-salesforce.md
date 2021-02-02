@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: 2c60e8c71c38e5a6e92939b655cef9fcc1e04f70
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 02/02/2021
+ms.openlocfilehash: 9c85b02ac0e83f3463c458629411989062adc4e6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072047"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430740"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce usando o Azure Data Factory
 
@@ -75,10 +75,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce.
 | password |Especifique um senha para a conta de usuário.<br/><br/>Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. <br/><br/>Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). O token de segurança só poderá ser ignorado se você adicionar o IP do Integration Runtime à [lista de endereços IP confiáveis](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) no Salesforce. Ao usar Azure IR, consulte [Azure Integration Runtime endereços IP](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obter instruções sobre como obter e redefinir um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Não |
 | apiVersion | Especifique a versão de API em massa/REST do Salesforce a ser usada, por exemplo, `48.0` . Por padrão, o conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados do Salesforce e usa o [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para o Salesforce. | Não |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para a fonte, Sim para o coletor se o serviço vinculado à fonte não possuir integration runtime |
-
->[!IMPORTANT]
->Ao copiar dados para o Salesforce, o Azure Integration Runtime padrão não poderá ser usado para executar a cópia. Em outras palavras, se seu serviço vinculado à fonte não tem um integration runtime especificado, explicitamente [crie um Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) com um local perto de sua instância do Salesforce. Associe o serviço vinculado ao Salesforce como no exemplo a seguir.
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não |
 
 **Exemplo: Credenciais de armazenamento no Data Factory**
 
@@ -305,7 +302,7 @@ Ao copiar dados do Salesforce, é possível usar a consulta SOQL ou a consulta S
 | Formato de data/hora |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na próxima seção. | Consulte os detalhes [aqui](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals) e exemplos na próxima seção. |
 | Valores boolianos | Representado como `False` e `True`, p. ex. `SELECT … WHERE IsDeleted=True`. | Representado como 0 ou 1, p. ex. `SELECT … WHERE IsDeleted=1`. |
 | Renomeação de coluna | Não há suporte. | Com suporte, p. ex.: `SELECT a AS b FROM …`. |
-| Relationship | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Não há suporte. |
+| Relação | Com suporte, p. ex. `Account_vod__r.nvs_Country__c`. | Não há suporte. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperar dados usando um onde cláusula na coluna DateTime
 
@@ -325,7 +322,7 @@ Ao copiar dados do Salesforce, os seguintes mapeamentos são usados de tipos de 
 | Tipo de dados do Salesforce | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | Numeração automática |String |
-| Caixa de seleção |Booliano |
+| Caixa de seleção |Boolean |
 | Moeda |Decimal |
 | Data |Datetime |
 | Data/Hora |DateTime |

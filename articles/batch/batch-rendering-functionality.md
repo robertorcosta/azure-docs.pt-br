@@ -3,14 +3,14 @@ title: Recursos de renderização
 description: Os recursos padrão do Lote do Azure são usados para executar cargas de trabalho e aplicativos de renderização. O lote inclui recursos específicos para dar suporte às cargas de trabalho de renderização.
 author: mscurrell
 ms.author: markscu
-ms.date: 01/14/2021
+ms.date: 02/01/2021
 ms.topic: how-to
-ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234266"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429795"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização de Lote do Azure
 
@@ -32,7 +32,7 @@ A maioria dos aplicativos de renderização exigirá licenças obtidas de um ser
 
 Uma imagem de VM de renderização do Azure Marketplace pode ser especificada na configuração do pool se apenas os aplicativos pré-instalados precisarem ser usados.
 
-Há uma imagem do Windows 2016 e uma imagem do CentOS.  No [Azure Marketplace](https://azuremarketplace.microsoft.com), as imagens da VM podem ser encontradas pesquisando por 'renderização em lote'.
+Há uma imagem do Windows e uma imagem CentOS.  No [Azure Marketplace](https://azuremarketplace.microsoft.com), as imagens da VM podem ser encontradas pesquisando por 'renderização em lote'.
 
 Para um exemplo de configuração do pool, consulte o [tutorial de renderização de CLI do Azure](./tutorial-rendering-cli.md).  O portal do Azure e o Explorador de lotes fornecem ferramentas de GUI para selecionar uma imagem de VM de renderização quando você cria um pool.  Se você estiver usando uma API de lotes, especifique os seguintes valores de propriedade para [ImageReference](/rest/api/batchservice/pool/add#imagereference) ao criar um pool:
 
@@ -70,13 +70,10 @@ Para poder criar a linha de comando para tarefas de renderização, o local de i
 
 |Aplicativo|Executável de aplicativo|Variável de ambiente|
 |---------|---------|---------|
-|Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
-|Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
-|Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
-|Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
-|Grupo de caos V-Ray Standalone|vray.exe|VRAY_3.60.4_EXEC|
-Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
-|Linha de comando Arnold 2018|kick.exe|ARNOLD_2018_EXEC|
+|Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
+|Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
+|Grupo de caos V-Ray Standalone|vray.exe|VRAY_4 VRAY_4.10.03_EXEC|
+|Linha de comando do Arnold 2020|kick.exe|ARNOLD_2020_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
 ## <a name="azure-vm-families"></a>Azure VM families

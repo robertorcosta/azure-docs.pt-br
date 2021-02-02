@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: efee1e1cda7767620931ef81825708d94a1925c3
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: fb3a77291d8b24d5774094533f8c214f1527d771
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063172"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430438"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos de campo e transformações usando indexadores do Azure Pesquisa Cognitiva
 
@@ -42,7 +42,7 @@ Um mapeamento de campo é composto por três partes:
 Os mapeamentos de campo são adicionados à `fieldMappings` matriz da definição do indexador.
 
 > [!NOTE]
-> Se nenhum mapeamento de campo for adicionado, os indexadores presumirão que os campos de fonte de dados devem ser mapeados para campos de índice com o mesmo nome. A adição de um mapeamento de campo remove esses mapeamentos de campo padrão para o campo de origem e destino. Alguns indexadores, como [o indexador de armazenamento de BLOBs](search-howto-indexing-azure-blob-storage.md), adicionam mapeamentos de campo padrão para o campo chave de índice.
+> Se nenhum mapeamento de campo for adicionado, os indexadores presumirão que os campos de fonte de dados devem ser mapeados para campos de índice com o mesmo nome. A adição de um mapeamento de campo remove esses mapeamentos de campo padrão para o campo de origem e destino. Alguns indexadores, como o [indexador de armazenamento de BLOBs](search-howto-indexing-azure-blob-storage.md), adicionam mapeamentos de campo padrão para o campo chave de índice.
 
 ## <a name="map-fields-using-rest"></a>Mapear campos usando REST
 
@@ -51,7 +51,6 @@ Você pode adicionar mapeamentos de campo ao criar um novo indexador usando a so
 Por exemplo, veja como mapear um campo de origem para um campo de destino com um nome diferente:
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]

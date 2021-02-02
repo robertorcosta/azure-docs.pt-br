@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/01/2021
+ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760621"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430790"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: visualização de aplicativos lógicos do Azure
 
@@ -168,6 +168,8 @@ Para obter mais informações sobre os modelos de preços que se aplicam a esse 
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>Recursos alterados, limitados, indisponíveis ou sem suporte
 
 Na visualização dos aplicativos lógicos do Azure, esses recursos foram alterados, ou eles estão limitados, indisponíveis ou sem suporte:
+
+* **Suporte do so**: atualmente, o designer no Visual Studio Code não funciona no sistema operacional Linux, mas você ainda pode implantar aplicativos lógicos que usam o tempo de execução de visualização dos aplicativos lógicos para máquinas virtuais baseadas em Linux. Por enquanto, você pode criar seus aplicativos lógicos no Visual Studio Code no Windows ou no macOS e, em seguida, implantar em uma máquina virtual baseada em Linux.
 
 * **Gatilhos e ações**: alguns gatilhos internos não estão disponíveis, como janela deslizante e lote. Para iniciar o fluxo de trabalho, use a [recorrência interna, a solicitação, o http, o webhook http, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md). Gatilhos e ações internos são executados nativamente no tempo de execução de visualização dos aplicativos lógicos do Azure, enquanto os conectores gerenciados são implantados no Azure. No designer, gatilhos e ações internas aparecem sob a guia **interna** , enquanto os gatilhos e as ações do conector gerenciado aparecem na guia **Azure** .
 

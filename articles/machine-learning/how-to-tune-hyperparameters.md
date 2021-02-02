@@ -2,24 +2,23 @@
 title: Ajuste de hiperparâmetro de um modelo
 titleSuffix: Azure Machine Learning
 description: Automatize o ajuste de hiperparâmetro para aprendizado profundo e modelos de aprendizado de máquina usando Azure Machine Learning.
-ms.author: swatig
-author: swatig007
+ms.author: anumamah
+author: Aniththa
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/30/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133830"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430320"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hiperparâmetro ajustando um modelo com Azure Machine Learning
-
 
 Automatize o ajuste eficiente de hiperparâmetro usando Azure Machine Learning [pacote hyperdrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py). Saiba como concluir as etapas necessárias para ajustar os hiperparâmetros com o [SDK do Azure Machine Learning](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py):
 
@@ -382,6 +381,30 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-hyperparameter-tuning-runs"></a>Visualizar execuções de ajuste de hiperparâmetro
 
+Você pode visualizar as execuções de ajuste de hiperparâmetro no Azure Machine Learning Studio ou pode usar um widget de bloco de anotações.
+
+### <a name="studio"></a>Estúdio
+
+Você pode visualizar todas as execuções de ajuste de hiperparâmetro no [Azure Machine Learning Studio](https://ml.azure.com). Para obter mais informações sobre como exibir um experimento no portal, consulte [exibir registros de execução no estúdio](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+
+- **Gráfico de métricas**: essa visualização acompanha as métricas registradas para cada filho hyperdrive executado durante o ajuste de hiperparâmetro. Cada linha representa uma execução filho, e cada ponto mede o valor principal da métrica nessa iteração de tempo de execução.  
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Gráfico de métricas de ajuste de hiperparâmetro":::
+
+- **Gráfico de coordenadas paralelas**: essa visualização mostra a correlação entre o desempenho da métrica primária e os valores de hiperparâmetro individuais. O gráfico é interativo por meio da movimentação de eixos (clique e arraste pelo rótulo do eixo) e, ao realçar valores em um único eixo (clique e arraste verticalmente ao longo de um único eixo para realçar um intervalo de valores desejados).
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Gráfico de coordenadas paralelas de ajuste de hiperparâmetro":::
+
+- **gráfico de dispersão bidimensional**: essa visualização mostra a correlação entre quaisquer dois hiperparâmetros individuais, juntamente com seu valor de métrica primária associado.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Gráfico de dispersão bidimensional de ajuste Hyparameter":::
+
+- **gráfico de dispersão tridimensional**: essa visualização é igual a 2D, mas permite três dimensões de hiperparâmetro de correlação com o valor principal de métrica. Você também pode clicar e arrastar para reorientar o gráfico para exibir diferentes correlações no espaço 3D.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Gráfico de dispersão tridimensional de Hyparameter ajuste":::
+
+### <a name="notebook-widget"></a>Widget de notebook
+
 Use o [widget Notebook](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) para visualizar o progresso de suas execuções de treinamento. O snippet a seguir visualiza todas as execuções em um único lugar em um bloco de anotações do Jupyter de ajuste de seu parâmetro:
 
 ```Python
@@ -391,17 +414,9 @@ RunDetails(hyperdrive_run).show()
 
 Esse código exibe uma tabela com detalhes sobre as execuções de treinamento para cada uma das configurações de hiperparâmetro.
 
-![tabela de ajuste de hiperparâmetro](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Tabela de ajuste de hiperparâmetro":::
 
-Você também pode visualizar o desempenho de cada uma das execuções à medida que o treinamento avança. 
-
-![gráfico de ajuste de hiperparâmetro](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
-
-Você pode identificar visualmente a correlação entre o desempenho e os valores de hiperparâmetros individuais usando um gráfico de coordenadas paralelas. 
-
-[![coordenadas paralelas de ajuste de hiperparâmetro](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
-
-Você também pode visualizar todas as execuções de ajuste de hiperparâmetro no portal da Web do Azure. Para obter mais informações sobre como exibir um experimento no portal, consulte [como controlar experimentos](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal).
+Você também pode visualizar o desempenho de cada uma das execuções à medida que o treinamento avança.
 
 ## <a name="find-the-best-model"></a>Localizar o melhor modelo
 

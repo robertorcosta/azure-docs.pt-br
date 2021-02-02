@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: ceeaad64734099f8669590d39f1629b9f4173e19
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: df393f54e7dfa83c8fc0feab3dbf42a156b296b7
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097133"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430455"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
 
@@ -47,6 +47,8 @@ Armazenamentos de dados de rastreamento de indexadores no Azure.
 + [Banco de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [Instância Gerenciada de SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [SQL Server em Máquinas Virtuais do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+
+Conexões de indexador para fontes de dados remotas podem ser feitas usando conexões de Internet padrão (públicas) ou conexões privadas criptografadas quando você usa redes virtuais do Azure para aplicativos cliente. Você também pode configurar conexões para autenticar usando uma identidade de serviço confiável. Para obter mais informações sobre conexões seguras, consulte [concedendo acesso por meio de pontos de extremidade privados](search-indexer-securing-resources.md#granting-access-via-private-endpoints) e [conectar-se a uma fonte de dados usando uma identidade gerenciada](search-howto-managed-identities-data-sources.md).
 
 ## <a name="stages-of-indexing"></a>Estágios da indexação
 
