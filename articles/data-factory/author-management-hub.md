@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.date: 06/02/2020
-ms.openlocfilehash: aa1246a65dc6971107abe35f4a418b0bbb05641b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/01/2021
+ms.openlocfilehash: c3366b7ba0eb0b49d4d5b89481b7bed843e52c8e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486123"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428983"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Hub de gerenciamento no Azure Data Factory
 
@@ -30,17 +30,21 @@ Os serviços vinculados definem as informações de conexão para Azure Data Fac
 
 ![Gerenciar serviços vinculados](media/author-management-hub/management-hub-linked-services.png)
 
-### <a name="integration-runtimes"></a>Tempos de execução de integração
+### <a name="integration-runtimes"></a>Runtimes de integração
 
 Um tempo de execução de integração é uma infraestrutura de computação usada pelo Azure Data Factory para fornecer recursos de integração de dados em diferentes ambientes de rede. Para obter mais informações, saiba mais sobre os [conceitos do Integration Runtime](concepts-integration-runtime.md). No Hub de gerenciamento, você pode criar, excluir e monitorar seus tempos de execução de integração.
 
-![Gerenciar tempos de execução de integração](media/author-management-hub/management-hub-integration-runtime.png)
+![Gerenciar runtimes de integração](media/author-management-hub/management-hub-integration-runtime.png)
 
 ## <a name="manage-source-control"></a>Gerenciar controle do código-fonte
 
 ### <a name="git-configuration"></a>Configuração do git
 
-Exiba e edite suas configurações de repositório git configuradas no Hub de gerenciamento. Para obter mais informações, saiba mais sobre o [controle do código-fonte no Azure data Factory](source-control.md).
+Você pode Exibir/editar todas as informações relacionadas ao git nas definições de configuração do git no Hub de gerenciamento. 
+
+As últimas informações de confirmação publicadas também estão listadas e podem ajudar a entender a confirmação exata, que foi publicada/implantada pela última vez entre ambientes. Ele também pode ser útil ao fazer hot fixes em produção.
+
+Para obter mais informações, saiba mais sobre o [controle do código-fonte no Azure data Factory](source-control.md).
 
 ![Gerenciar repositório git](media/author-management-hub/management-hub-git.png)
 

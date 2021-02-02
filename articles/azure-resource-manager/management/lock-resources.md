@@ -2,18 +2,20 @@
 title: Bloqueio de recursos para prevenir alterações
 description: Impedir que os usuários atualizem ou excluam recursos do Azure aplicando um bloqueio para todos os usuários e funções.
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 912c7e86d253aa18b9a6c60717ceaa70e32fcf0e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98802439"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428310"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para evitar alterações inesperadas
 
-Como administrador, talvez você precise bloquear uma assinatura, um recurso ou grupo de recursos para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. É possível definir o nível de bloqueio como **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são chamados **Excluir** e **Somente leitura** respectivamente.
+Como administrador, você pode bloquear uma assinatura, um grupo de recursos ou um recurso para impedir que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos. O bloqueio substitui todas as permissões que o usuário possa ter.
+
+É possível definir o nível de bloqueio como **CanNotDelete** ou **ReadOnly**. No portal, os bloqueios são chamados **Excluir** e **Somente leitura** respectivamente.
 
 * **CanNotDelete** significa que os usuários autorizados ainda poderão ler e modificar um recurso, mas não poderão excluir o recurso.
 * **ReadOnly** significa que os usuários autorizados poderão ler um recurso, mas não poderão excluir ou atualizar o recurso. Aplicar esse bloqueio é semelhante ao restringir todos os usuários autorizados para as permissões concedidas pela função **Leitor**.
@@ -24,7 +26,7 @@ Quando você aplica um bloqueio a um escopo pai, todos os recursos filho herdam 
 
 Ao contrário do controle de acesso baseado em função, é possível usar bloqueios de gerenciamento para aplicar uma restrição a todos os usuários e a todas as funções. Para saber mais sobre como definir permissões para usuários e funções, consulte [controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md).
 
-Bloqueios do Resource Manager se aplicam apenas às operações que ocorrem no plano de gerenciamento, que consistem em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem a maneira como os recursos executam suas próprias funções. Alterações de recursos são restritas, mas as operações de recursos não são restritas. Por exemplo, um bloqueio ReadOnly em um servidor lógico do banco de dados SQL impede que você exclua ou modifique o servidor. Ele não impede que você crie, atualize ou exclua dados nos bancos de dado nesse servidor. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
+Bloqueios do Resource Manager se aplicam apenas às operações que ocorrem no plano de gerenciamento, que consistem em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem a maneira como os recursos executam suas próprias funções. Alterações de recursos são restritas, mas as operações de recursos não são. Por exemplo, um bloqueio ReadOnly em um servidor lógico do banco de dados SQL impede que você exclua ou modifique o servidor. Ele não impede que você crie, atualize ou exclua dados nos bancos de dado nesse servidor. As transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
 
 ## <a name="considerations-before-applying-locks"></a>Considerações antes da aplicação de bloqueios
 

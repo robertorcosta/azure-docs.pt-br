@@ -11,15 +11,16 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
-ms.openlocfilehash: d11125ed00491f87844c7b0b344473825ad52a99
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/02/2021
+ms.openlocfilehash: 63816a40aa710d26dc036dfe82018883e917beb6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223467"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428463"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo descreve como usar uma atividade de cópia no Azure Data Factory para copiar dados de e para o Microsoft Dynamics 365 e o Microsoft Dynamics CRM. Ele se baseia no artigo [visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral de uma atividade de cópia.
@@ -88,7 +89,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 | servicePrincipalCredential | A credencial de entidade de serviço. <br/><br/>Quando você usa "ServicePrincipalKey" como o tipo de credencial, `servicePrincipalCredential` pode ser uma cadeia de caracteres que Azure data Factory criptografa na implantação do serviço vinculado. Ou pode ser uma referência a um segredo no Azure Key Vault. <br/><br/>Quando você usa "ServicePrincipalCert" como a credencial, `servicePrincipalCredential` deve ser uma referência a um certificado no Azure Key Vault. | Sim quando a autenticação for "AADServicePrincipal" |
 | Nome de Usuário | O nome de usuário para se conectar ao Dynamics. | Sim quando a autenticação for "Office365" |
 | password | A senha da conta de usuário que você especificou como o nome de usuários. Marque este campo com "SecureString" para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim quando a autenticação for "Office365" |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não para fonte e sim para o coletor se o serviço vinculado de origem não tiver um tempo de execução de integração |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não |
 
 >[!NOTE]
 >O conector do Dynamics usou anteriormente a propriedade **OrganizationName** opcional para identificar sua instância do Dynamics CRM ou do Dynamics 365 online. Embora essa propriedade ainda funcione, sugerimos que você especifique a nova propriedade **ServiceUri** em vez disso, para obter um melhor desempenho para a descoberta de instância.
@@ -184,7 +185,7 @@ Propriedades adicionais que se comparam ao Dynamics online são **hostname** e *
 | authenticationType | O tipo de autenticação para se conectar ao servidor do Dynamics. Especifique "Ifd" para o Dynamics local com IFD. | Sim. |
 | Nome de Usuário | O nome de usuário para se conectar ao Dynamics. | Sim. |
 | password | A senha para a conta de usuário especificada para o nome do usuário. Você pode marcar esse campo com "SecureString" para armazená-lo com segurança em Data Factory. Ou você pode armazenar uma senha em Key Vault e deixar a atividade de cópia efetuar pull a partir daí quando ela faz a cópia de dados. Saiba mais sobre [Armazenar credenciais no Cofre de Chaves](store-credentials-in-key-vault.md). | Sim. |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não para fonte e sim para coletor. |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Exemplo: Dynamics local com IFD usando a autenticação de IFD
 
@@ -378,21 +379,21 @@ Configure o tipo de dados Data Factory correspondente em uma estrutura de conjun
 | Tipo de dados do Dynamics | Tipo de dados provisório do Data Factory | Tem suporte como origem | Tem suporte como coletor |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Booliano | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | Cadeia de caracteres | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
-| AttributeType.ManagedProperty | Booliano | ✓ | |
-| AttributeType.Memo | Cadeia de caracteres | ✓ | ✓ |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | Cadeia de caracteres | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

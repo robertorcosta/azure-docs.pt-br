@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 02/01/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f0c8d237e270177ef38c60c523364054bae15af
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: da85c80dd6450fd4427f83586e75cf1e9d62a605
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090851"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428767"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -69,15 +69,9 @@ Os usuários nessa função podem criar registros dos aplicativos quando a confi
 
 ### <a name="authentication-administrator"></a>[Administrador de autenticação](#authentication-administrator-permissions)
 
-Os usuários com essa função podem definir ou redefinir credenciais que não exijam senha de alguns usuários, além de poderem atualizar as senhas de todos os usuários. Os Administradores de autenticação podem exigir que os usuários que não sejam administradores ou que estejam atribuídos a algumas funções refaçam o registro de credenciais existentes que não usam senhas (por exemplo, MFA ou FIDO) e também possam revogar a **lembrança da MFA no dispositivo**, o qual solicitará a MFA na próxima entrada. Essas ações se aplicam apenas a usuários que não sejam administradores ou àqueles que tenham uma ou mais das seguintes funções atribuídas:
+Os usuários com essa função podem definir ou redefinir credenciais que não exijam senha de alguns usuários, além de poderem atualizar as senhas de todos os usuários. Os Administradores de autenticação podem exigir que os usuários que não sejam administradores ou que estejam atribuídos a algumas funções refaçam o registro de credenciais existentes que não usam senhas (por exemplo, MFA ou FIDO) e também possam revogar a **lembrança da MFA no dispositivo**, o qual solicitará a MFA na próxima entrada. Se um administrador de autenticação pode redefinir a senha de um usuário depende da função atribuída ao usuário. Para obter uma lista das funções para as quais um administrador de autenticação pode redefinir senhas, consulte [permissões de redefinição de senha](#password-reset-permissions).
 
-* Administrador de Autenticação
-* Leitores de Diretório
-* Emissor do Convite ao Convidado
-* Leitor do Centro de Mensagens
-* Leitor de Relatórios
-
-A função de [Administrador de autenticação privilegiada](#privileged-authentication-administrator) tem permissão para forçar o novo registro e a autenticação multifator para todos os usuários.
+A função de [administrador de autenticação privilegiada](#privileged-authentication-administrator) tem permissão pode forçar o novo registro e a autenticação multifator para todos os usuários.
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar credenciais de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração das credenciais de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
@@ -253,14 +247,7 @@ Usuários nessa função podem gerenciar convites de usuários convidados do Azu
 
 ### <a name="helpdesk-administrator"></a>[Administrador de Assistência Técnica](#helpdesk-administrator-permissions)
 
-Usuários com essa função podem alterar senhas, invalidar tokens de atualização, gerenciar solicitações de serviço e monitorar a integridade do serviço. Invalidar um token de atualização força o usuário a entrar novamente. Os administradores do suporte técnico podem redefinir senhas e invalidar tokens de atualização de outros usuários que não sejam administradores nem atribuídos às seguintes funções apenas:
-
-* Leitores de Diretório
-* Emissor do Convite ao Convidado
-* Administrador de assistência técnica
-* Leitor do Centro de Mensagens
-* Administrador de senha
-* Leitor de Relatórios
+Usuários com essa função podem alterar senhas, invalidar tokens de atualização, gerenciar solicitações de serviço e monitorar a integridade do serviço. Invalidar um token de atualização força o usuário a entrar novamente. Se um administrador de assistência técnica pode redefinir a senha de um usuário e invalidar tokens de atualização depende da função atribuída ao usuário. Para obter uma lista das funções para as quais um administrador de assistência técnica pode redefinir senhas e invalidar tokens de atualização, consulte [permissões de redefinição de senha](#password-reset-permissions).
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar senhas de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração da senha de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
@@ -271,7 +258,7 @@ Usuários com essa função podem alterar senhas, invalidar tokens de atualizaç
 >- Administradores em outros serviços fora do Azure AD, como o Exchange Online, a Segurança do Office e o Centro de Conformidade e sistemas de recursos humanos.
 >- Não administradores, como executivos, o departamento jurídico e os funcionários de recursos humanos, que podem ter acesso a informações confidenciais ou privadas.
 
-É possível delegar permissões administrativas sobre subconjuntos de usuários e aplicar políticas a um subconjunto de usuários usando [Unidades administrativas (agora em visualização pública)](administrative-units.md).
+É possível delegar permissões administrativas sobre subconjuntos de usuários e aplicar políticas a um subconjunto de usuários com [unidades administrativas](administrative-units.md).
 
 Essa função era anteriormente chamada de “Administrador de senha” no [portal do Azure](https://portal.azure.com/). O nome “Administrador de assistência técnica” no Azure AD agora corresponde ao seu nome no PowerShell do Azure AD e na API do Microsoft Graph.
 
@@ -344,11 +331,7 @@ Não use. Essa função foi substituída e será removida do Azure AD no futuro.
 
 ### <a name="password-administrator"></a>[Administrador de senha](#password-administrator-permissions)
 
-Os usuários com essa função têm uma capacidade limitada de gerenciamento de senhas. Essa função não concede a capacidade de gerenciar solicitações de serviço nem de monitorar a integridade do serviço. Os Administradores de senha podem redefinir senhas de outros usuários que não sejam administradores ou membros das seguintes funções apenas:
-
-* Leitores de Diretório
-* Emissor do Convite ao Convidado
-* Administrador de senha
+Os usuários com essa função têm uma capacidade limitada de gerenciamento de senhas. Essa função não concede a capacidade de gerenciar solicitações de serviço nem de monitorar a integridade do serviço. Se um administrador de senha pode redefinir a senha de um usuário depende da função atribuída ao usuário. Para obter uma lista das funções para as quais um administrador de senha pode redefinir senhas, consulte [permissões de redefinição de senha](#password-reset-permissions).
 
 ### <a name="power-bi-administrator"></a>[Administrador do Power BI](#power-bi-service-administrator-permissions)
 
@@ -371,13 +354,7 @@ Os usuários com essa função podem registrar impressoras e gerenciar seus stat
 
 ### <a name="privileged-authentication-administrator"></a>[Administrador de autenticação privilegiada](#privileged-authentication-administrator-permissions)
 
-Os usuários com essa função podem definir ou redefinir credenciais de não senha para todos os usuários, incluindo administradores globais, e podem atualizar senhas para todos os usuários. Os Administradores de autenticação privilegiada podem forçar os usuários a se registrarem novamente em relação a uma credencial existente (como MFA ou FIDO) e revogar a opção de “lembrar MFA no dispositivo”, solicitando a MFA na próxima entrada de todos os usuários. A função de [Administrador de autenticação](#authentication-administrator) pode forçar um novo registro e a MFA apenas para não administradores e usuários atribuídos às seguintes funções do Azure AD:
-
-* Administrador de Autenticação
-* Leitores de Diretório
-* Emissor do Convite ao Convidado
-* Leitor do Centro de Mensagens
-* Leitor de Relatórios
+Os usuários com essa função podem definir ou redefinir credenciais de não senha para todos os usuários, incluindo administradores globais, e podem atualizar senhas para todos os usuários. Os Administradores de autenticação privilegiada podem forçar os usuários a se registrarem novamente em relação a uma credencial existente (como MFA ou FIDO) e revogar a opção de “lembrar MFA no dispositivo”, solicitando a MFA na próxima entrada de todos os usuários.
 
 ### <a name="privileged-role-administrator"></a>[Administrador de Função com Privilégios](#privileged-role-administrator-permissions)
 
@@ -500,11 +477,12 @@ Os usuários com essa função podem acessar dados agregados no nível do locat�
 
 Os usuários com essa função podem criar usuários e gerenciar todos os aspectos de usuários com algumas restrições (consulte a tabela) e podem atualizar as políticas de expiração de senha. Além disso, os usuários com essa função podem criar e gerenciar todos os grupos. Essa função também inclui a capacidade de criar e gerenciar exibições de usuários, gerenciar tickets de suporte e monitorar a integridade do serviço. Os administradores de usuários não têm permissão para gerenciar algumas propriedades de usuários na maioria das funções de administrador. O usuário com essa função não tem permissões para gerenciar a MFA. As funções que são exceções a essa restrição estão listadas na tabela a seguir.
 
-| **Permissão** | **O que ele pode fazer** |
+| Permissão de administrador de usuário | Observações |
 | --- | --- |
-|Permissões gerais|<p>Criar usuários e grupos</p><p>Criar e gerenciar modos de exibição do usuário</p><p>Gerenciar tíquetes de suporte do Office<p>Atualizar políticas de expiração de senha|
-| <p>Em todos os usuários, inclusive todos os administradores</p>|<p>Gerenciar licenças</p><p>Gerenciar todas as propriedades de usuário, exceto o nome Principal do usuário</p>
-| Somente em usuários não administradores ou em qualquer um destes procedimentos limitada de funções de administrador:<ul><li>Leitores de Diretório<li>Administrador de Grupos<li>Emissor do Convite ao Convidado<li>Administrador de assistência técnica<li>Leitor do Centro de Mensagens<li>Administrador de senha<li>Leitor de Relatórios<li>Administrador de usuários|<p>Excluir e restauração</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerenciar todas as propriedades de usuário, incluindo o nome Principal do usuário</p><p>Redefinir senha</p><p>Atualizar chaves de dispositivo FIDO)</p>|
+| Criar usuários e grupos<br/>Criar e gerenciar modos de exibição do usuário<br/>Gerenciar tíquetes de suporte do Office<br/>Atualizar políticas de expiração de senha |  |
+| Gerenciar licenças<br/>Gerenciar todas as propriedades de usuário, exceto o nome Principal do usuário | Aplica-se a todos os usuários, incluindo todos os administradores |
+| Excluir e restauração<br/>Desativar e ativar<br/>Gerenciar todas as propriedades de usuário, incluindo o nome Principal do usuário<br/>Atualizar chaves de dispositivo FIDO) | Aplica-se a usuários que não são administradores ou em qualquer uma das seguintes funções:<ul><li>Administrador de assistência técnica</li><li>Usuário sem função</li><li>Administrador de usuários</li></ul> |
+| Invalidar Tokens de atualização<br/>Redefinir senha | Para obter uma lista das funções para as quais um administrador de usuário pode redefinir senhas e invalidar tokens de atualização, consulte [permissões de redefinição de senha](#password-reset-permissions). |
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar senhas de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração da senha de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
@@ -515,7 +493,7 @@ Os usuários com essa função podem criar usuários e gerenciar todos os aspect
 >- Administradores em outros serviços fora do Azure AD, como o Exchange Online, a Segurança do Office e o Centro de Conformidade e sistemas de recursos humanos.
 >- Não administradores, como executivos, o departamento jurídico e os funcionários de recursos humanos, que podem ter acesso a informações confidenciais ou privadas.
 
-## <a name="role-permissions"></a>Permissões de Função
+## <a name="role-permissions"></a>Permissões de função
 
 As tabelas a seguir descrevem as permissões específicas no Azure Active Directory fornecidas a cada função. Algumas funções podem ter permissões adicionais nos serviços da Microsoft fora do Azure Active Directory.
 
@@ -572,6 +550,7 @@ Pode criar e gerenciar todos os aspectos de registros de aplicativo e aplicativo
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="application-developer-permissions"></a>Permissões do Desenvolvedor de aplicativos
 
@@ -647,6 +626,7 @@ Pode gerenciar todos os aspectos do serviço de Proteção de Informações do A
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Permissões do Administrador de Conjunto de Chaves do IEF B2C
 
@@ -725,6 +705,7 @@ Pode criar e gerenciar todos os aspectos de registros de aplicativo e aplicativo
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="cloud-device-administrator-permissions"></a>Permissões do Administrador de Dispositivo de Nuvem
 
@@ -2064,6 +2045,31 @@ Suporte ao parceiro de Nível 2 | Não exibido porque não deve ser usado | [Doc
 Usuário convidado restrito | Não exibido porque não pode ser usado | NA
 Usuário | Não exibido porque não pode ser usado | NA
 Ingresso no Dispositivo no Local de Trabalho | Preterido | [Documentação de funções preteridas](permissions-reference.md#deprecated-roles)
+
+## <a name="password-reset-permissions"></a>Permissões de redefinição de senha
+
+Os títulos de coluna representam as funções que podem redefinir senhas. As linhas da tabela contêm as funções para as quais sua senha pode ser redefinida.
+
+A senha pode ser redefinida | Administrador de autenticação | Administrador de assistência técnica | Administrador de senha | Usuário Administrador | Administrador de autenticação privilegiada | Administrador global
+------ | ------ | ------ | ------ | ------ | ------ | ------
+Administrador de autenticação | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Leitores de Diretório | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador global | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
+Administrador de grupos | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Convidado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Emissor do Convite ao Convidado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador de assistência técnica | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Leitor do Centro de Mensagens | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador de senha | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Administrador de autenticação privilegiada | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Administrador de função com privilégios | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+Leitor de Relatórios | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Convidado restrito | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Usuário (sem função de administrador) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Usuário Administrador | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+Leitor de relatórios de Resumo de uso | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+
+\* Um administrador global não pode remover sua própria atribuição de administrador global. Isso é para evitar uma situação em que uma organização tem 0 administradores globais.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: d3f859590b30aaeeaebaed7b1f2f85e1a86a92c9
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223399"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428666"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -364,13 +364,6 @@ Sim. Consulte [como configurar um DNS personalizado para o Azure SQL instância 
 **Posso fazer a atualização de DNS?**
 
 Sim. Confira a [configuração sincronizar servidores DNS da rede virtual no cluster virtual do SQL instância gerenciada](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
-
-A configuração de DNS é, por fim, atualizada:
-
-- Quando a concessão de DHCP expirar.
-- Na atualização da plataforma.
-
-Como alternativa, faça downgrade do SQL Instância Gerenciada para 4 vCores e atualize-o novamente depois. Isso tem um efeito colateral de atualizar a configuração de DNS.
 
 ## <a name="change-time-zone"></a>Alterar fuso horário
 

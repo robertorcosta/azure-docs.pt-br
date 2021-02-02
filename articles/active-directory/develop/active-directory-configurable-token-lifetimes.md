@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755305"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428142"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Tempos de vida de token configuráveis na plataforma Microsoft Identity (versão prévia)
 
@@ -77,16 +77,14 @@ Para obter um exemplo, consulte [criar uma política para entrada na Web](config
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>Políticas de vida útil de token para tokens de atualização e tokens de sessão
 
-Você pode definir políticas de tempo de vida de token para tokens de atualização e tokens de sessão.
+Você não pode definir políticas de tempo de vida de token para tokens de atualização e tokens de sessão.
 
 > [!IMPORTANT]
-> A partir de maio de 2020, novos locatários não podem configurar a atualização e tempos de vida de token de sessão.  Os locatários com a configuração existente podem modificar as políticas de atualização e de token de sessão até 30 de janeiro de 2021.   Azure Active Directory deixará de respeitar a configuração existente e o token de sessão em políticas após 30 de janeiro de 2021. Você ainda pode configurar o acesso, SAML e tempos de vida de token de ID após a aposentadoria.
->
-> Se você precisar continuar a definir o período de tempo antes que um usuário seja solicitado a entrar novamente, configure a frequência de entrada no acesso condicional. Para saber mais sobre o acesso condicional, leia [Configurar gerenciamento de sessão de autenticação com acesso condicional](../conditional-access/howto-conditional-access-session-lifetime.md).
->
-> Se você não quiser usar o acesso condicional após a data de desativação, seus tokens de atualização e de sessão serão definidos para a [configuração padrão](#configurable-token-lifetime-properties-after-the-retirement) nessa data e você não poderá mais alterar seus tempos de vida.
+> A partir de 30 de janeiro de 2021, você não pode configurar tempos de vida de atualização e de token de sessão. Azure Active Directory não honra mais a configuração de token de atualização e de sessão nas políticas existentes.  Novos tokens emitidos após os tokens existentes expiraram agora são definidos para a [configuração padrão](#configurable-token-lifetime-properties-after-the-retirement). Você ainda pode configurar o acesso, SAML e tempos de vida de token de ID após a atualização e a desativação da configuração do token de sessão.
 >
 > O tempo de vida do token existente não será alterado. Depois que eles expirarem, um novo token será emitido com base no valor padrão.
+>
+> Se você precisar continuar a definir o período de tempo antes que um usuário seja solicitado a entrar novamente, configure a frequência de entrada no acesso condicional. Para saber mais sobre o acesso condicional, leia [Configurar gerenciamento de sessão de autenticação com acesso condicional](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="Informações de aposentadoria":::
 

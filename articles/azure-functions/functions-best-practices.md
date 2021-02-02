@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f05afb3c23fc720bb0100a751a6943d7bb03453f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954776"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428293"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Melhore o desempenho e a confiabilidade do Azure Functions
 
@@ -63,6 +63,31 @@ Como o seu código reage se ocorrer uma falha após a inserção de 5.000 desses
 Se um item da fila já tiver sido processado, permita que sua função seja no-op.
 
 Tire proveito de medidas defensivas já fornecidas para componentes usados na plataforma Azure Functions. Por exemplo, consulte **Tratamento de mensagens suspeitas na fila** na documentação de [gatilhos e associações de fila de Armazenamento do Microsoft Azure](functions-bindings-storage-queue-trigger.md#poison-messages). 
+
+## <a name="function-organization-best-practices"></a>Práticas recomendadas da organização de funções
+
+Como parte de sua solução, você pode desenvolver e publicar várias funções. Essas funções geralmente são combinadas em um único aplicativo de funções, mas também podem ser executadas em aplicativos de funções separados. Nos planos de hospedagem Premium e dedicado (serviço de aplicativo), vários aplicativos de funções também podem compartilhar os mesmos recursos executando no mesmo plano. A forma como você agrupa suas funções e seus aplicativos de função pode afetar o desempenho, o dimensionamento, a configuração, a implantação e a segurança de sua solução geral. Não há regras que se apliquem a todos os cenários, portanto, considere as informações nesta seção ao planejar e desenvolver suas funções.
+
+### <a name="organize-functions-for-performance-and-scaling"></a>Organizar funções de desempenho e dimensionamento
+
+Cada função que você cria tem uma superfície de memória. Embora essa superfície seja geralmente pequena, ter muitas funções em um aplicativo de funções pode levar à inicialização mais lenta do seu aplicativo em novas instâncias. Isso também significa que o uso de memória geral do seu aplicativo de funções pode ser maior. É difícil dizer quantas funções devem estar em um único aplicativo, o que depende de sua carga de trabalho específica. No entanto, se sua função armazena muitos dados na memória, considere ter menos funções em um único aplicativo.
+
+Se você executar vários aplicativos de funções em um único plano Premium ou plano dedicado (serviço de aplicativo), esses aplicativos serão todos dimensionados juntos. Se você tiver um aplicativo de funções que tenha um requisito de memória muito maior do que os outros, ele usará uma quantidade desproporcional de recursos de memória em cada instância na qual o aplicativo é implantado. Como isso pode deixar menos memória disponível para os outros aplicativos em cada instância, talvez você queira executar um aplicativo de função de alta memória usando a mesma forma em seu próprio plano de hospedagem separado.
+
+> [!NOTE]
+> Ao usar o [plano de consumo](./functions-scale.md), recomendamos sempre colocar cada aplicativo em seu próprio plano, já que os aplicativos são dimensionados de forma independente, de qualquer maneira.
+
+Considere se você deseja agrupar funções com perfis de carga diferentes. Por exemplo, se você tiver uma função que processa muitas milhares de mensagens da fila e outra que seja chamada apenas ocasionalmente, mas tiver requisitos de memória alta, talvez você queira implantá-las em aplicativos de funções separados para que eles obtenham seus próprios conjuntos de recursos e sejam dimensionados de forma independente.
+
+### <a name="organize-functions-for-configuration-and-deployment"></a>Organizar funções para configuração e implantação
+
+Os aplicativos de funções têm um `host.json` arquivo, que é usado para configurar o comportamento avançado de gatilhos de função e o tempo de execução de Azure functions. As alterações no `host.json` arquivo se aplicam a todas as funções no aplicativo. Se você tiver algumas funções que precisam de configurações personalizadas, considere movê-las para seu próprio aplicativo de funções.
+
+Todas as funções em seu projeto local são implantadas juntas como um conjunto de arquivos para seu aplicativo de funções no Azure. Talvez seja necessário implantar funções individuais separadamente ou usar recursos como [Slots de implantação](./functions-deployment-slots.md) para algumas funções e não para outras. Nesses casos, você deve implantar essas funções (em projetos de código separados) em diferentes aplicativos de funções.
+
+### <a name="organize-functions-by-privilege"></a>Organizar funções por privilégio 
+
+As cadeias de conexão e outras credenciais armazenadas nas configurações do aplicativo dão a todas as funções no aplicativo de funções o mesmo conjunto de permissões no recurso associado. Considere minimizar o número de funções com acesso a credenciais específicas movendo funções que não usam essas credenciais para um aplicativo de funções separado. Você sempre pode usar técnicas como [encadeamento de funções](/learn/modules/chain-azure-functions-data-using-bindings/) para passar dados entre funções em diferentes aplicativos de funções.  
 
 ## <a name="scalability-best-practices"></a>Melhores práticas de escalabilidade
 

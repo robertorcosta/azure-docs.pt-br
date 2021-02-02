@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563725"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428176"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e WAN virtual
 
@@ -133,9 +133,6 @@ O [Gerenciador de firewall do Azure](../firewall-manager/index.yml) fornece os r
 
 **Figura 5: Hub virtual protegido com o Firewall do Azure**
 
-> [!NOTE]
-> Não há suporte para o Inter-Hub com o firewall no momento. O tráfego entre hubs moverá o bypass diretamente do firewall do Azure em cada Hub.
-
 O Firewall do Azure para a WAN virtual dá suporte aos seguintes caminhos de conectividade de trânsito seguro global. As letras entre parênteses são mapeadas para a Figura 5.
 
 * Trânsito seguro de VNet a VNet (e)
@@ -152,6 +149,23 @@ A rede virtual para a Internet permite que o VNets se conecte à Internet por me
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Branch-to-Internet ou serviço de segurança de terceiros (j)
 A ramificação para a Internet permite que branches se conectem à Internet por meio do firewall do Azure no Hub de WAN virtual. O tráfego para a Internet por meio de serviços de segurança de terceiros com suporte não flui pelo firewall do Azure. Você pode configurar o caminho da ramificação para a Internet por meio do serviço de segurança de terceiros com suporte usando o Gerenciador de firewall do Azure. 
+
+### <a name="branch-to-branch-secured-transit-cross-region-f"></a>Entre regiões de trânsito protegidas de ramificação para ramificação (f)
+
+As ramificações podem ser conectadas a um hub virtual protegido com o Firewall do Azure usando circuitos de ExpressRoute e/ou conexões VPN site a site. Você pode conectar as ramificações ao Hub de WAN virtual que está na região mais próxima da ramificação.
+
+Essa opção permite que as empresas aproveitem o backbone do Azure para conectar branches. No entanto, embora esse recurso esteja disponível, você deve avaliar os benefícios de conectar branches pela WAN virtual do Azure versus usar uma WAN privada.  
+
+> [!NOTE]
+> Não há suporte para o processamento entre hubs do tráfego via firewall no momento. O tráfego entre hubs será roteado para a ramificação apropriada no Hub virtual protegido, no entanto, o tráfego irá ignorar o Firewall do Azure em cada Hub.
+
+### <a name="branch-to-vnet-secured-transit-g"></a>Trânsito protegido de Branch para VNet (g)
+
+O trânsito protegido de Branch para VNet permite que as ramificações se comuniquem com redes virtuais na mesma região que o Hub WAN virtual, bem como outra rede virtual conectada a outro hub WAN virtual em outra região.
+
+> [!NOTE]
+> Não há suporte para o Inter-Hub com o firewall no momento. O tráfego entre hubs moverá o bypass diretamente do firewall do Azure em cada Hub.  O tráfego por meio de uma conexão destinada a uma rede virtual na mesma região será processado pelo firewall do Azure no Hub protegido.
+
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Como fazer habilitar a rota padrão (0.0.0.0/0) em um hub virtual protegido
 
