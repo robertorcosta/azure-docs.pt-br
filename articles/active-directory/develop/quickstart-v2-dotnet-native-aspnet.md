@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Chamar um ASP.NET Web API protegido pela plataforma de identidade da Microsoft | Azure'
+title: 'Início rápido: Chamar um ASP.NET Web API protegido pela plataforma de identidade da Microsoft | Azure'
 titleSuffix: Microsoft identity platform
 description: Neste início rápido, saiba como chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft de um aplicativo da Área de Trabalho do Windows (WPF).
 services: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 2967476d06b8f6f88b740f811a94c5fdb4284b4d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ec8fd05c0661178cc07b9165793c9f34f2463948
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011859"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754312"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Início Rápido: chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft
 

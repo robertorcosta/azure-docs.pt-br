@@ -1,6 +1,6 @@
 ---
 title: Exemplos de código para a plataforma de identidade da Microsoft
-description: Fornece um índice de exemplos de código disponíveis da plataforma de identidade da Microsoft (ponto de extremidade v2.0) organizado por cenário.
+description: Fornece um índice de exemplos de código disponíveis da plataforma de identidade da Microsoft organizado por cenário.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 368a1acdfda66c3714979d27037737a75bbada5a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064511"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756647"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemplos de código da plataforma de identidade da Microsoft (ponto de extremidade v2.0)
 
@@ -26,9 +26,9 @@ Você pode usar a plataforma de identidade da Microsoft para:
 - Adicionar autenticação e autorização para aplicativos Web e APIs da Web.
 - Solicitar um token de acesso para acessar uma API da Web protegida.
 
-Este artigo descreve brevemente e fornece links para exemplos do ponto de extremidade da plataforma de identidade da Microsoft. Esses exemplos mostram como isso é feito e também fornecem snippets de código que podem ser usados em seus aplicativos. Na página de exemplo de código, você encontrará tópicos de leitura detalhados que ajudam nos requisitos, instalação e configuração. Comentários no código ajudam você a entender as seções críticas.
+Este artigo descreve brevemente e fornece links para exemplos da plataforma de identidade da Microsoft. Esses exemplos mostram como isso é feito e também fornecem snippets de código que podem ser usados em seus aplicativos. Na página de exemplo de código, você encontrará tópicos de leitura detalhados que ajudam nos requisitos, instalação e configuração. Comentários no código ajudam você a entender as seções críticas.
 
-Para entender o cenário básico para cada tipo de exemplo, confira [Tipos de aplicativo para o ponto de extremidade da plataforma de identidade da Microsoft](v2-app-types.md).
+Para entender o cenário básico para cada tipo de exemplo, confira [Tipos de aplicativo para a plataforma de identidade da Microsoft](v2-app-types.md).
 
 Você também pode contribuir com os exemplos no GitHub. Para saber como, consulte [Exemplos e documentação do Microsoft Azure Active Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
 
@@ -121,7 +121,7 @@ Os exemplos a seguir mostram como configurar o seu aplicativo para aceitar crede
 
 ## <a name="web-apis"></a>APIs da Web
 
-Os exemplos a seguir mostram como proteger uma API Web com o ponto de extremidade da plataforma de identidade da Microsoft e como chamar uma API downstream da API Web.
+Os exemplos a seguir mostram como proteger uma API Web com a plataforma de identidade da Microsoft e como chamar uma API downstream da API Web.
 
 | Plataforma | Amostra |
 | -------- | ------------------- |
@@ -133,7 +133,7 @@ Os exemplos a seguir mostram como proteger uma API Web com o ponto de extremidad
 
 ## <a name="azure-functions-as-web-apis"></a>Azure Functions como APIs Web
 
-Os exemplos a seguir mostram como proteger uma função do Azure usando HttpTrigger e expor uma API Web com o ponto de extremidade da plataforma de identidade da Microsoft e como chamar uma API downstream da API Web.
+Os exemplos a seguir mostram como proteger uma função do Azure usando HttpTrigger e expor uma API Web com a plataforma de identidade da Microsoft e como chamar uma API downstream da API Web.
 
 | Plataforma | Amostra |
 | -------- | ------------------- |

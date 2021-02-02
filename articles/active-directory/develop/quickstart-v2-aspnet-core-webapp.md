@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 293a8d8b8add37f78e5a900b093ec89e95851aec
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: c20685c0c392ece68dc80b57afc6680f2efd9e35
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178629"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754503"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
@@ -148,7 +148,7 @@ O middleware *Microsoft.AspNetCore.Authentication* usa a classe `Startup` execut
 
 O método `AddAuthentication()` configura o serviço para adicionar a autenticação baseada em cookies, que é usada em cenários do navegador, e para definir o desafio para OpenID Connect.
 
-A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação de plataforma de identidade da Microsoft ao seu aplicativo. Em seguida, ele é configurado para entrar usando o ponto de extremidade da plataforma de identidade da Microsoft com base nas informações da seção `AzureAD` do arquivo de configuração *appSettings.json*:
+A linha que contém `.AddMicrosoftIdentityWebApp` adiciona a autenticação de plataforma de identidade da Microsoft ao seu aplicativo. Em seguida, ele é configurado para entrar usando a plataforma de identidade da Microsoft com base nas informações da seção `AzureAD` do arquivo de configuração *appSettings.json*:
 
 | chave *appsettings.json* | Descrição                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

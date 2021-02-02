@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Detecção de anomalias com os Serviços Cognitivos'
-description: Tutorial sobre como aproveitar os Serviços Cognitivos para detecção de anomalias no Azure Synapse
+description: Saiba como usar os Serviços Cognitivos para detecção de anomalias no Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,94 +9,95 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 5e7b914d459d2452704f93987ce1bf91bfba988c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c54300bf37f6f4526c525b1502d902e5f4336ed7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222200"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943500"
 ---
 # <a name="tutorial-anomaly-detection-with-cognitive-services-preview"></a>Tutorial: Detecção de anomalias com os Serviços Cognitivos (versão prévia)
 
-Neste tutorial, você aprenderá a enriquecer facilmente seus dados no Azure Synapse com os [Serviços Cognitivos](../../cognitive-services/index.yml). Usaremos o [Detector de Anomalias](../../cognitive-services/anomaly-detector/index.yml) para executar a detecção de anomalias. Um usuário no Azure Synapse pode simplesmente selecionar uma tabela para enriquecer a detecção de anomalias.
+Neste tutorial, você aprenderá a enriquecer facilmente seus dados no Azure Synapse Analytics com os [Serviços Cognitivos do Azure](../../cognitive-services/index.yml). Você usará o [Detector de Anomalias](../../cognitive-services/anomaly-detector/index.yml) para encontrar anomalias. Um usuário no Azure Synapse pode simplesmente selecionar uma tabela para enriquecer a detecção de anomalias.
 
 Este tutorial abrange:
 
 > [!div class="checklist"]
 > - Etapas para obter um conjunto de dados de tabela do Spark que contém dados de série temporal.
-> - Use uma experiência de assistente no Azure Synapse para enriquecer dados usando o Serviço Cognitivo do Detector de Anomalias.
+> - O uso de uma experiência de assistente no Azure Synapse para enriquecer dados usando o Detector de Anomalias nos Serviços Cognitivos.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita antes de começar](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Workspace do Azure Synapse Analytics](../get-started-create-workspace.md) com uma conta de armazenamento do ADLS Gen2 configurada como o armazenamento padrão. Você precisa ser o **Colaborador de Dados do Blob de Armazenamento** do sistema de arquivos ADLS Gen2 com o qual trabalha.
+- [Workspace do Azure Synapse Analytics](../get-started-create-workspace.md) com uma conta de armazenamento do Azure Data Lake Storage Gen2 configurada como o armazenamento padrão. Você precisa ser *Colaborador de Dados do Storage Blob* do sistema de arquivos Data Lake Storage Gen2 com o qual você trabalha.
 - Pool do Spark no workspace do Azure Synapse Analytics. Para obter detalhes, confira [Criar um Pool do Spark no Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Para usar este tutorial, conclua as etapas de pré-configuração descritas nele. [Configurar os Serviços Cognitivos no Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Conclusão das etapas de pré-configuração no tutorial [Configurar os Serviços Cognitivos no Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no [Portal do Azure](https://portal.azure.com/)
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-spark-table"></a>Criar uma tabela do Spark
 
-Você precisará de uma tabela do Spark para este tutorial.
+Você precisa de uma tabela do Spark para este tutorial.
 
-1. Baixe o seguinte arquivo de notebook que contém um código para gerar uma tabela do Spark: [prepare_anomaly_detector_data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149577)
+1. Baixe o seguinte arquivo de notebook que contém um código para gerar uma tabela do Spark: [prepare_anomaly_detector_data.ipynb](https://go.microsoft.com/fwlink/?linkid=2149577).
 
 1. Carregue o arquivo para seu workspace do Azure Synapse.
-![Carregar notebook](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00a.png)
 
-1. Abra o arquivo do notebook e escolha **Executar Todas** as células.
-![Criar tabela do Spark](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00b.png)
+   ![Captura de tela que mostra seleções para carregamento de um notebook.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00a.png)
+
+1. Abra o arquivo do notebook e selecione **Executar Tudo** para executar todas as células.
+
+   ![Captura de tela que mostra seleções para criação de uma tabela do Spark.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00b.png)
 
 1. Uma tabela do Spark com o nome **anomaly_detector_testing_data** agora deve aparecer no banco de dados do Spark padrão.
 
-## <a name="launch-cognitive-services-wizard"></a>Iniciar assistente dos Serviços Cognitivos
+## <a name="open-the-cognitive-services-wizard"></a>Abrir o assistente dos Serviços Cognitivos
 
-1. Clique com o botão direito do mouse na tabela do Spark criada na etapa anterior. Selecione "Machine Learning -> Enriquecer com o modelo existente" para abrir o assistente.
-![Iniciar assistente de pontuação](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00g.png)
+1. Clique com o botão direito do mouse na tabela do Spark criada na etapa anterior. Selecione **Machine Learning** > **Enriquecer com o modelo existente** para abrir o assistente.
 
-2. Um painel de configuração será exibido e você deverá selecionar um modelo dos Serviços Cognitivos. Selecione Detector de Anomalias.
+   ![Captura de tela que mostra seleções para abrir o assistente de pontuação.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00g.png)
 
-![Iniciar assistente de pontuação – etapa 1](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00c.png)
+2. Um painel de configuração é exibido e você é solicitado a selecionar um modelo dos Serviços Cognitivos. Selecione **Detector de Anomalias**.
+
+   ![Captura de tela que mostra a seleção do Detector de Anomalias como um modelo.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00c.png)
 
 ## <a name="provide-authentication-details"></a>Fornecer detalhes de autenticação
 
-Para fazer a autenticação nos Serviços Cognitivos, você precisa fazer referência ao segredo usado em seu Key Vault. As entradas abaixo estão dependendo das [etapas de pré-requisito](tutorial-configure-cognitive-services-synapse.md) que você deve ter concluído antes desta etapa.
+Para fazer a autenticação nos Serviços Cognitivos, você precisa fazer referência ao segredo para o seu cofre de chaves. As entradas a seguir dependem das [etapas de pré-requisito](tutorial-configure-cognitive-services-synapse.md) que você deve ter concluído antes desta etapa.
 
 - **Assinatura do Azure**: selecione a assinatura do Azure à qual seu cofre de chaves pertence.
-- **Conta dos Serviços Cognitivos**: esse é o recurso de Análise de Texto ao qual você vai se conectar.
-- **Serviço Vinculado do Azure Key Vault**: como parte das etapas de pré-requisitos, você criou um serviço vinculado para o recurso Análise de Texto. Selecione-o aqui.
-- **Nome do segredo**: esse é o nome do segredo no cofre de chaves que contém a chave para fazer a autenticação no recurso dos Serviços Cognitivos.
+- **Conta dos Serviços Cognitivos**: insira o recurso de Análise de Texto ao qual você se conectará.
+- **Serviço vinculado do Azure Key Vault**: como parte das etapas de pré-requisitos, você criou um serviço vinculado para o recurso Análise de Texto. Selecione-o aqui.
+- **Nome do segredo**: Insira o nome do segredo no cofre de chaves que contém a chave para fazer a autenticação no recurso dos Serviços Cognitivos.
 
-![Fornecer detalhes do Azure Key Vault](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00d.png)
+![Captura de tela que mostra os detalhes de autenticação para um cofre de chaves.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00d.png)
 
-## <a name="configure-anomaly-detection"></a>Configurar a Detecção de Anomalias
+## <a name="configure-anomaly-detector"></a>Configurar o Detector de Anomalias
 
-Em seguida, você precisa configurar a detecção de anomalias. Forneça os seguintes detalhes:
+Forneça os seguintes detalhes para configurar o Detector de Anomalias:
 
-- Granularidade: a taxa na qual os dados são amostrados. Por exemplo, se os seus dados tiverem um valor para cada minuto, sua granularidade será por minuto. Escolha **mensalmente** 
+- **Granularidade**: a taxa na qual os dados são amostrados. Escolha **mensalmente**. 
 
-- Carimbo de data/hora: coluna que representa a hora da série. Escolha a coluna **carimbo de data/hora**
+- **Coluna de carimbo de data/hora**: a coluna que representa a hora da série. Escolha **carimbo de data/hora (string)** .
 
-- Valor de série temporal: coluna que representa o valor da série na hora especificada pela coluna Carimbo de data/hora. Escolha a coluna **valor**
+- **Coluna de valor da série temporal**: a coluna que representa o valor da série na hora especificada pela coluna Carimbo de data/hora. Escolha **valor (double)** .
 
-- Agrupamento: coluna que agrupa a série. Ou seja, todas as linhas que têm o mesmo valor nesta coluna devem formar uma série temporal. Escolha a coluna **grupo**
+- **Coluna de agrupamento**: a coluna que agrupa a série. Ou seja, todas as linhas que têm o mesmo valor nesta coluna devem formar uma série temporal. Escolha **grupo (string)** .
 
-Quando terminar, selecione **Abrir Notebook**. Isso vai gerar um notebook para você com o código do PySpark que executa a detecção de anomalias usando os Serviços Cognitivos do Azure.
+Quando terminar, selecione **Abrir notebook**. Isso vai gerar um notebook para você com o código do PySpark que usa os Serviços Cognitivos do Azure para detectar anomalias.
 
-![Configurar detector de anomalias](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00e.png)
+![Captura de tela que mostra os detalhes de configuração para o Detector de Anomalias.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00e.png)
 
-## <a name="open-notebook-and-run"></a>Abrir notebook e executar
+## <a name="run-the-notebook"></a>Executar o notebook
 
-O notebook que você acabou de abrir está usando a [Biblioteca MMLSpark](https://github.com/Azure/mmlspark) para se conectar aos Serviços Cognitivos.
+O notebook que você acabou de abrir usa a [Biblioteca MMLSpark](https://github.com/Azure/mmlspark) para se conectar aos Serviços Cognitivos. Os detalhes do Azure Key Vault fornecidos permitem que você referencie com segurança seus segredos dessa experiência sem revelá-los.
 
-Os detalhes do Azure Key Vault fornecidos permitem que você referencie com segurança seus segredos dessa experiência sem revelá-los.
+Agora você pode executar todas as células para realizar a detecção de anomalias. Selecione **Executar Tudo**. [Saiba mais sobre o Detector de Anomalias nos Serviços Cognitivos](../../cognitive-services/anomaly-detector/index.yml).
 
-Agora você pode **Executar Todas** as células para executar a detecção de anomalias. Saiba mais sobre os [Serviços Cognitivos – Detector de Anomalias](../../cognitive-services/anomaly-detector/index.yml).
-
-![Executar a Detecção de Anomalias](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00f.png)
+![Captura de tela que mostra a detecção de anomalias.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00f.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

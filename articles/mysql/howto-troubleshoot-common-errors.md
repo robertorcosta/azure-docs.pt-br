@@ -7,16 +7,28 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 986bc5ef24855ac0014975edc0a26a11a82ec6ca
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510955"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631360"
 ---
 # <a name="common-errors"></a>Erros comuns
 
 O Banco de Dados do Azure para MySQL é um serviço totalmente gerenciado ativado pela versão da comunidade do MySQL. A experiência do MySQL em um ambiente de serviço gerenciado pode ser diferente da execução do MySQL no próprio ambiente. Neste artigo, você verá alguns dos erros comuns que os usuários podem receber ao fazer a migração para o serviço Banco de Dados do Azure para MySQL ou fazer o desenvolvimento nele pela primeira vez.
+
+## <a name="common-connection-errors"></a>Erros de conexão comuns
+
+#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERRO 1184 (08S01): conexão 22 com db: 'db-name' usuário: 'user' host: 'hostIP' anulada (falha no comando init_connect)
+O erro acima ocorre após o logon bem-sucedido, mas antes da execução de qualquer comando quando a sessão é estabelecida. A mensagem acima indica que você definiu um valor incorreto do parâmetro de servidor init_connect, que está causando a falha na inicialização da sessão.
+
+Há alguns parâmetros do servidor como require_secure_transport que não são compatíveis com o nível de sessão. Portanto, a tentativa de alterar os valores desses parâmetros usando init_connect poderá resultar no erro 1184 durante a conexão com o servidor MySQL, conforme mostrado abaixo
+
+mysql> show databases; ERROR 2006 (HY000): O servidor MySQL desapareceu. Sem conexão. Tentando reconectar... ID da conexão:    64897 Banco de dados atual: *** NENHUM **_ ERRO 1184 (08S01): conexão 22 com db: 'db-name' usuário: 'user' host: 'hostIP' anulada (falha no comando init_connect)
+
+_ *Resolução**: você deve redefinir o valor de init_connect na guia Parâmetros do servidor no portal do Azure e definir apenas os parâmetros do servidor compatíveis usando o parâmetro init_connect. 
+
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Erros devido à ausência do privilégio SUPER e da função DBA
 

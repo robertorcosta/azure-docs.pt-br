@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
-ms.openlocfilehash: 7c88aea6aff942cdcf5cbc022df8f07cfe0d4cce
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 01/25/2021
+ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701272"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746130"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Indexar blobs JSON do Armazenamento do Azure usando a REST
 
@@ -98,13 +98,13 @@ As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicita
 
 1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Obter um ponto de extremidade HTTP e uma chave de acesso" border="false":::
 
 Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
 ## <a name="2---set-up-postman"></a>2 – Configurar o Postman
 
-Inicie o Postman e configure uma solicitação HTTP. Se não estiver familiarizado com essa ferramenta, confira [Explorar APIs REST do Azure Cognitive Search](search-get-started-rest.md).
+Inicie o Postman e configure uma solicitação HTTP. Se você não estiver familiarizado com essa ferramenta, confira [Criar um índice de pesquisa usando APIs REST](search-get-started-rest.md).
 
 Os métodos de solicitação para cada chamada neste tutorial são **POST** e **GET**. Você fará três chamadas à API ao serviço de pesquisa para criar uma fonte de dados, um índice e um indexador. A fonte de dados inclui um ponteiro para sua conta de armazenamento e seus dados JSON. O serviço de pesquisa faz a conexão ao carregar os dados.
 
@@ -158,7 +158,7 @@ A [API de Criação de Fonte de Dados](/rest/api/searchservice/create-data-sourc
     ```
 
 ## <a name="4---create-an-index"></a>4 – Criar um índice
-    
+
 A segunda chamada é à [API de Criação de Índice](/rest/api/searchservice/create-index), criando um índice da Pesquisa Cognitiva do Azure que armazena todos os dados pesquisáveis. Um índice especifica todos os parâmetros e seus atributos.
 
 1. Defina o ponto de extremidade dessa chamada como `https://[service name].search.windows.net/indexes?api-version=2020-06-30`. Substitua `[service name]` pelo nome do serviço de pesquisa.

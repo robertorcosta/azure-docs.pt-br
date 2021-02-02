@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503787"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735768"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar sua assinatura do Azure
 
@@ -79,7 +79,7 @@ Se tiver uma assinatura de avaliação gratuita, você não precisará aguardar 
 
 ## <a name="reactivate-a-subscription"></a>Reativar uma assinatura
 
-Se você cancelar acidentalmente sua assinatura com taxas pagas conforme o uso, poderá [reativá-la no Centro de Contas](subscription-disabled.md).
+Se você cancelar acidentalmente sua assinatura com taxas pagas conforme o uso, poderá [reativá-la no portal do Azure](subscription-disabled.md).
 
 Caso sua assinatura não tenha taxas Pagas Conforme o Uso, entre em contato com o suporte em até 90 dias após o cancelamento para reativar a assinatura.
 
@@ -101,4 +101,4 @@ Confira o artigo [Renovação e Cancelamento](/visualstudio/subscriptions/faq/ad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se necessário, você pode reativar uma assinatura paga conforme o uso no [Centro de Contas](subscription-disabled.md).
+- Se necessário, você pode reativar uma assinatura paga conforme o uso no [portal do Azure](subscription-disabled.md).

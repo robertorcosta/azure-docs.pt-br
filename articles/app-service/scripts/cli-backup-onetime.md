@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Fazer backup de um aplicativo'
+title: 'CLI: fazer backup de um aplicativo'
 description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como fazer backup de um aplicativo.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,12 +9,12 @@ ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: cca0f927c6824642f11254743f3bdf275ca7e5d9
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 4f87e610c1f3315b21a9c157f127e713ff5444f2
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006847"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747535"
 ---
 # <a name="back-up-an-app-using-cli"></a>Fazer backup de um aplicativo usando a CLI
 

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a0751e7e4c90f04cd5e28610e2c62dbec6a7adcf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: bedb152a8fecfdb1ee699f431e4e43ef3ceed564
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98047111"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807291"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -19,3 +19,4 @@ ms.locfileid: "98047111"
 |[A rede virtual do workspace gerenciado nos workspaces do Azure Synapse deve ser habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |A habilitação de uma rede virtual de workspace gerenciado garante que o seu workspace seja isolado da rede de outros workspaces. A integração de dados e os recursos do Spark implantados nessa rede virtual também fornecem isolamento no nível do usuário para atividades do Spark. |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
 |[As conexões de ponto de extremidade privado nos workspaces do Azure Synapse devem ser habilitadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Os pontos de extremidade privados podem ser configurados para se conectarem de modo privado a um workspace do Azure Synapse. Isso é usado para impor um canal de comunicação seguro ao workspace do Azure Synapse. |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |[Os pontos de extremidade privados gerenciados pelo Azure Synapse só devem se conectar aos recursos em locatários aprovados do Azure Active Directory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Proteja seu workspace do Azure Synapse permitindo apenas conexões com recursos em locatários aprovados do Azure AD (Active Directory). Os locatários aprovados do Azure AD podem ser definidos durante a atribuição de política. |Auditoria, desabilitado, negação |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |
+|[A avaliação de vulnerabilidade deve ser habilitada em seus workspaces do Azure Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |Descubra, acompanhe e corrija potenciais vulnerabilidades configurando verificações de avaliação de vulnerabilidades SQL recorrentes em seus workspaces do Azure Synapse. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |

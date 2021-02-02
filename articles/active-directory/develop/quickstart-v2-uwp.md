@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 4610d4d677d2d340340aab5edcddb658ac32e5e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 074b64debc0a5aa08967efce69b7e5d14b4d90e4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178187"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754046"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a API do Microsoft Graph de um aplicativo da UWP (Plataforma Universal do Windows)
 
@@ -124,7 +124,7 @@ Quando a janela do aplicativo for exibida, você poderá selecionar o botão **C
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) é a biblioteca usada para conectar usuários e solicitar tokens de segurança. Os tokens de segurança são usados para acessar uma API protegida pela plataforma de identidade da Microsoft para desenvolvedores. Você pode instalar a MSAL executando o comando abaixo no *Console do Gerenciador de Pacotes* do Visual Studio:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) é a biblioteca usada para conectar usuários e solicitar tokens de segurança. Os tokens de segurança são usados para acessar uma API protegida pela plataforma de identidade da Microsoft. Você pode instalar a MSAL executando o comando abaixo no *Console do Gerenciador de Pacotes* do Visual Studio:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -155,7 +155,7 @@ A MSAL tem dois métodos para adquirir tokens em um aplicativo UWP: `AcquireToke
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Algumas situações exigem forçar os usuários a interagir com o ponto de extremidade da plataforma de identidade da Microsoft por meio de uma janela pop-up para validar suas credenciais ou para dar consentimento. Alguns exemplos incluem:
+Algumas situações exigem forçar os usuários a interagir com a plataforma de identidade da Microsoft por meio de uma janela pop-up para validar suas credenciais ou para dar consentimento. Alguns exemplos incluem:
 
 - A primeira vez que os usuários entram no aplicativo
 - Quando os usuários precisam reinserir suas credenciais porque a senha expirou

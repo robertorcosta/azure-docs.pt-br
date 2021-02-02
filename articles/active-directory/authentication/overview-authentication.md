@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/13/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c6f4659b9ee809cc1f1caeb1cb9c0d626b1b3a3b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741245"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725647"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>O que é a autenticação do Azure Active Directory?
 
@@ -27,6 +27,10 @@ Um dos principais recursos de uma plataforma de identidade é verificar ou *aute
 * Integração híbrida para o write-back de alterações de senha no ambiente local
 * Integração híbrida para imposição de políticas de proteção de senha em um ambiente local
 * Autenticação sem senha
+
+Assista ao nosso vídeo curto para saber mais sobre esses componentes de autenticação.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4KVJA]
 
 ## <a name="improve-the-end-user-experience"></a>Aprimorar a experiência do usuário final
 
@@ -80,7 +84,7 @@ A meta final para muitos ambientes é remover o uso de senhas como parte dos eve
 
 ![Segurança versus conveniência com o processo de autenticação que leva à eliminação de senhas](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-Quando você entra com um método sem senha, as credenciais são fornecidas por meio do uso de métodos como biometria com o Windows Hello para Empresas ou uma chave de segurança FIDO2. Esses métodos de autenticação não podem ser duplicados com facilidade por um invasor.
+Quando você se conecta com um método sem senha, as credenciais são fornecidas pelo uso de métodos como biometria com o Windows Hello para Empresas ou uma chave de segurança FIDO2. Esses métodos de autenticação não podem ser duplicados com facilidade por um invasor.
 
 O Azure AD fornece maneiras de se autenticar nativamente usando métodos sem senha, a fim de simplificar a experiência de conexão para os usuários e reduzir o risco de ataques.
 

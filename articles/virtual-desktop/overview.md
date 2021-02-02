@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 36a15560b88c823ff2ae41f160839796bf21e4f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023183"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730778"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows?
 
@@ -130,7 +130,7 @@ A Área de Trabalho Virtual do Windows é compatível com as seguintes imagens d
 * Windows Server 2016
 * Windows Server 2012 R2
 
-A Área de Trabalho Virtual do Windows não é compatível com imagens do sistema operacional x86 (32 bits), Windows 10 Enterprise N ou Windows 10 Enterprise KN. O Windows 7 também não dá suporte a nenhuma solução de perfil baseada em VHD ou VHDX hospedada no Armazenamento do Azure gerenciado devido a uma limitação de tamanho de setor.
+A Área de Trabalho Virtual do Windows não é compatível com imagens do sistema operacional x86 (32 bits), Windows 10 Enterprise N, Windows 10 Pro ou Windows 10 Enterprise KN. O Windows 7 também não dá suporte a nenhuma solução de perfil baseada em VHD ou VHDX hospedada no Armazenamento do Azure gerenciado devido a uma limitação de tamanho de setor.
 
 As opções de automação e implantação disponíveis dependem do sistema operacional e da versão escolhidos, conforme mostrado na tabela a seguir:
 

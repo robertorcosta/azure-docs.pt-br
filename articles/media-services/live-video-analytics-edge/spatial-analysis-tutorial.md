@@ -3,12 +3,12 @@ title: Análise Dinâmica de Vídeo com a Pesquisa Visual Computacional para An�
 description: Este tutorial mostra como usar a Análise Dinâmica de Vídeo junto com o recurso de IA de Pesquisa Visual Computacional para análise espacial dos Serviços Cognitivos do Azure para analisar um feed de vídeo ao vivo de uma câmera IP (simulada).
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 1c6fe6e10a91034d794437f31d495b85ef086848
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060173"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632936"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Análise Dinâmica de Vídeo com a Pesquisa Visual Computacional para Análise Espacial (versão prévia)
 
@@ -23,7 +23,8 @@ Neste tutorial, você irá:
 > * Monitorar eventos.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
+  > [!NOTE]
+  > Você precisará ter uma assinatura do Azure com permissões para criar entidades de serviço (a **função de proprietário** fornece isso). Caso não tenha as permissões corretas, entre em contato com o administrador da conta para conceder a você as permissões corretas. 
 ## <a name="suggested-pre-reading"></a>Pré-leitura sugerida
 
 Leia estes artigos antes de começar:
@@ -136,10 +137,10 @@ Você precisa prestar atenção a algumas coisas no arquivo de modelo de implant
 1. O `IpcMode` em lvaEdge e createOptions do módulo de análise espacial devem ser iguais e definidos como host.
 1. Para que o simulador RTSP funcione, verifique se você configurou os limites de volume. Para obter mais informações, confira [Configurar a montagem de volume do Docker](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Conecte-se ao compartilhamento SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) e copie o [arquivo de vídeo de retroescavadeira de exemplo](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) para o compartilhamento local.
+    1. [Conecte-se ao compartilhamento SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) e copie o [arquivo de vídeo de retroescavadeira de exemplo](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) para o compartilhamento local.  
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
     1. Veja que o módulo rtspsim tem a seguinte configuração:
-        
-        ```json
+        ```
         "createOptions": {
                             "HostConfig": {
                               "Mounts": [
@@ -159,6 +160,8 @@ Você precisa prestar atenção a algumas coisas no arquivo de modelo de implant
                             }
                           }
         ```
+        
+
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>Gerar e implantar o manifesto de implantação
 
 O manifesto de implantação define quais módulos são implantados em um dispositivo de borda. Ele também define as configurações desses módulos.

@@ -118,9 +118,8 @@
         - name: Azure AD com o Gerenciamento de Lote
           href: batch-aad-auth-management.md
         - name: Acessar com segurança o Key Vault com o Lote
+          displayName: 'credential, certificate'
           href: credential-access-key-vault.md
-        - name: Usando certificados com o Lote
-          href: batch-certificates.md
     - name: Copiar arquivos e aplicativos para nós de pool
       items:
         - name: Copiar aplicativos e dados para nós de pool

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 857ae8d824443e9a8abdac7c4a66e2b014be2be0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3772988e9bf4f733323adae6c0527c8b811c4d04
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566343"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624449"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Enviar notificações por email sobre os eventos do Hub IoT do Azure usando Aplicativos Lógicos e a Grade de Eventos
 
@@ -242,4 +242,7 @@ Para excluir todos os recursos criados neste tutorial, exclua o grupo de recurso
 * [Saiba como ordenar os eventos de conexão e desconexão de dispositivo](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * Saiba mais sobre o que mais você pode fazer com [Grade de Eventos](overview.md).
 
-Para obter uma lista completa de conectores dos Aplicativos Lógicos compatíveis, confira a [Visão geral dos conectores](/connectors/).
+Para obter uma lista completa de conectores dos Aplicativos Lógicos compatíveis, confira a 
+
+> [!div class="nextstepaction"]
+> [Visão geral dos conectores](/connectors/).

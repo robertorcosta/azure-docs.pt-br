@@ -1,5 +1,5 @@
 ---
-title: Comunicar-se com o aplicativo do dispositivo no C# com os fluxos de dispositivos do Hub IoT do Azure
+title: Guia de Início Rápido – Comunicar-se com o aplicativo do dispositivo no C# com os fluxos de dispositivos do Hub IoT do Azure
 description: Neste início rápido, você executará dois aplicativos C# de exemplo que se comunicam por um fluxo de dispositivos estabelecido pelo Hub IoT.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 8a8e6f12a8709935a6fa9551261c56fc8f2aabbd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3eb65db27e5b96f4b12973154bc860a2ab3df020
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832051"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624601"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início Rápido: Comunicar-se com um aplicativo de dispositivo em C# por meio de fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -74,7 +74,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Nesta 
    > Substitua o espaço reservado *YourIoTHubName* com o nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Anote a cadeia de conexão de dispositivo retornada para uso posterior neste início rápido. Ela se parece com o seguinte exemplo:

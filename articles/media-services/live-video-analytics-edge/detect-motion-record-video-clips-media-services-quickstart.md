@@ -3,12 +3,12 @@ title: Detectar movimento, gravar vídeo nos Serviços de Mídia do Azure
 description: Este guia de início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para detectar o movimento em uma transmissão de vídeo ao vivo e gravar clipes de vídeo nos Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 33deabf27fe9b74fd01dba5d6fbe3883b54dda63
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 15a9def78c7dddda7e63db66d2b21794506f6a92
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060411"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632717"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Início Rápido: Detectar movimento e gravar vídeo em Serviços de Mídia
 
@@ -19,6 +19,8 @@ Este artigo se baseia no [início rápido Introdução](get-started-detect-motio
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  > [!NOTE]
+  > Você precisará ter uma assinatura do Azure com permissões para criar entidades de serviço (a **função de proprietário** fornece isso). Caso não tenha as permissões corretas, entre em contato com o administrador da conta para conceder a você as permissões corretas. 
 * [Visual Studio Code](https://code.visualstudio.com/) em seu computador com a [extensão do Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Se você não tiver concluído o [início rápido de Introdução](get-started-detect-motion-emit-events-quickstart.md) anteriormente, siga as etapas abaixo:
     * [Configurar recursos do Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 197b7ff0a6c613a019007ba507d678b619c9afd4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ef4381f305292b366348aa3729209dc3f5e8c87b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358585"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954082"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutorial: Configurar o Workday para o provisionamento de usuário do Azure AD
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar perfis de trabalho do Workday no Azure Active Directory. 
@@ -208,11 +208,11 @@ Depois que as configurações do aplicativo de provisionamento do Workday tivere
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Saiba mais sobre os cenários de integração do Azure AD e do Workday e as chamadas de serviço Web](../app-provisioning/workday-integration-reference.md)
 * [Saiba mais sobre os Atributos do Workday com suporte para o provisionamento de entrada](../app-provisioning/workday-attribute-reference.md)
 * [Saiba como configurar o Write-back do Workday](workday-writeback-tutorial.md)
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](workday-tutorial.md)
-* [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
 * [Saiba como exportar e importar as configurações de provisionamento](../app-provisioning/export-import-provisioning-configuration.md)
 
 

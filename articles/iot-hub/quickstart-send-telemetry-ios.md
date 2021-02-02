@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Enviar telemetria para o Hub IoT do Azure (iOS)'
-description: Execute um aplicativo iOS de exemplo para enviar telemetria simulada a um hub IoT e ler a telemetria do hub IoT para processamento na nuvem.
+title: Guia de Início Rápido – Enviar a telemetria para o Hub IoT do Azure (iOS)
+description: Neste início rápido, você executa um aplicativo iOS de exemplo para enviar telemetria simulada a um hub IoT e ler a telemetria do hub IoT para processamento na nuvem.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 ms.date: 04/03/2019
-ms.openlocfilehash: 6699015a3c8939f012eb837da3d8b0c3d49527d5
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 4af985d93c5b02ab20df97abd5fa0371edf889f5
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121457"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624245"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT (iOS)
 

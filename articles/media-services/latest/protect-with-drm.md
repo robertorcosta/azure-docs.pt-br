@@ -1,26 +1,9 @@
 ---
-title: Serviço de entrega de licença e criptografia de DRM nos Serviços de Mídia do Azure
-titleSuffix: Azure Media Services
-description: Saiba como usar a criptografia dinâmica de DRM e o serviço de entrega de licença para entregar fluxos criptografados com licenças do Microsoft PlayReady, do Google Widevine ou do Apple FairPlay.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: abaa82d6f5f33a3dc29db50ae6d029dacd3f7c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289342"
+Título: Serviço de entrega de licença e criptografia de DRM nos Serviços de Mídia do Azure: Descrição dos Serviços de Mídia do Azure: Saiba como usar a criptografia dinâmica de DRM e o serviço de entrega de licença para entregar fluxos criptografados com licenças do Microsoft PlayReady, do Google Widevine ou do Apple FairPlay.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
+
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel ms.custom: seodec18
+
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Usar o serviço de entrega de licença e criptografia dinâmica do DRM
 

@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 2fbff2abeb454fe02aa4bd50615033b9a0b7f27b
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178595"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754307"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS ou macOS
 
@@ -46,7 +46,7 @@ O guia de início rápido se aplica a aplicativos iOS e macOS. Algumas etapas s�
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>Opção 1: Registrar e configurar automaticamente o aplicativo e, em seguida, baixar o exemplo de código
 > #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
 > Para registrar seu aplicativo,
-> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
@@ -181,7 +181,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |Em que: | Descrição |
 > |---------|---------|
 > | `clientId` | A ID do Aplicativo registrado em _portal.azure.com* |
-> | `authority` | O ponto de extremidade da plataforma de identidade da Microsoft. Na maioria dos casos, ele estará em `https://login.microsoftonline.com/common` |
+> | `authority` | A plataforma de identidade da Microsoft. Na maioria dos casos, ele estará em `https://login.microsoftonline.com/common` |
 > | `redirectUri` | O URI de redirecionamento do aplicativo. Você pode passar “nulo” para usar o valor padrão ou o URI de redirecionamento personalizado. |
 
 ### <a name="for-ios-only-additional-app-requirements"></a>Somente para o iOS, requisitos adicionais do aplicativo

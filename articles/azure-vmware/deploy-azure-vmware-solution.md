@@ -2,17 +2,20 @@
 title: Implantar e configurar a Solução VMware no Azure
 description: Saiba como usar as informações coletadas na fase de planejamento para implantar a nuvem privada da Solução VMware no Azure.
 ms.topic: tutorial
-ms.date: 11/09/2020
-ms.openlocfilehash: 7e31b9236a3c75009d15bde35019036b6db55cab
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/24/2020
+ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861504"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760887"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implantar e configurar a Solução VMware no Azure
 
-Neste artigo, você usará as informações da [seção de planejamento](production-ready-deployment-steps.md) para implantar a Solução VMware no Azure. Se você não tiver definido as informações, volte para a [seção de planejamento](production-ready-deployment-steps.md) antes de continuar.
+Neste artigo, você usará as informações da [seção de planejamento](production-ready-deployment-steps.md) para implantar a Solução VMware no Azure. 
+
+>[!IMPORTANT]
+>Se você ainda não tiver definido as informações, volte para a [seção de planejamento](production-ready-deployment-steps.md) antes de continuar.
 
 ## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
 
@@ -40,21 +43,22 @@ Depois de implantar a Solução VMware no Azure, você criará o jumpbox da rede
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Criar o jumpbox da Solução VMware no Azure" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-Para criar uma VM (máquina virtual) na rede virtual que você [identificou ou criou como parte do processo de implantação](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), siga estas instruções: 
+Para criar uma VM (máquina virtual) na rede virtual que você [identificou ou criou como parte do processo de implantação](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), siga estas instruções: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## <a name="connect-to-a-virtual-network-with-expressroute"></a>Conectar-se a uma rede virtual com o ExpressRoute
 
-Se você não tiver definido uma rede virtual na etapa de implantação e sua intenção for conectar o ExpressRoute da Solução VMware no Azure com um Gateway do ExpressRoute existente, siga as etapas abaixo.
+>[!IMPORTANT]
+>Se você já tiver definido uma rede virtual na tela de implantação no Azure, pule para a próxima seção.
 
-Se você já tiver definido uma rede virtual na tela de implantação no Azure, pule para a próxima seção.
+Se você não tiver definido uma rede virtual na etapa de implantação e sua intenção for conectar o ExpressRoute da Solução VMware no Azure com um Gateway do ExpressRoute existente, siga estas etapas.
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 ## <a name="verify-network-routes-advertised"></a>Verificar as rotas de rede anunciadas
 
-O jumpbox está na rede virtual na qual a Solução VMware no Azure se conecta por meio do circuito do ExpressRoute dela.  No Azure, acesse o adaptador de rede do jumpbox e [veja as rotas em vigor](../virtual-network/manage-route-table.md#view-effective-routes).
+O jumpbox está na rede virtual na qual a Solução VMware no Azure se conecta por meio do circuito ExpressRoute dela.  No Azure, acesse o adaptador de rede do jumpbox e [veja as rotas em vigor](../virtual-network/manage-route-table.md#view-effective-routes).
 
 Na lista de rotas em vigor, serão exibidas as redes criadas como parte da implantação da Solução VMware no Azure. Você verá várias redes que foram derivadas da rede [`/22` que você definiu](production-ready-deployment-steps.md#ip-address-segment) durante a [etapa de implantação](#deploy-azure-vmware-solution) anteriormente neste artigo.
 
@@ -70,7 +74,7 @@ Você pode identificar os endereços IP e as credenciais do console de administr
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Criar um segmento de rede na Solução VMware no Azure
 
-O NSX-T é usado para criar segmentos de rede no ambiente da Solução VMware no Azure.  Na [seção de planejamento](production-ready-deployment-steps.md), você definiu as redes que deseja criar.  Se você não as tiver definido, volte para a [seção de planejamento](production-ready-deployment-steps.md) antes de continuar.
+O NSX-T é usado para criar segmentos de rede no ambiente da Solução VMware no Azure.  Você definiu as redes que deseja criar na [seção de planejamento](production-ready-deployment-steps.md).  Se você não as tiver definido, volte para a [seção de planejamento](production-ready-deployment-steps.md) antes de continuar.
 
 >[!IMPORTANT]
 >Verifique se o bloco de endereço de rede CIDR que você definiu não se sobrepõe a nada nos ambientes do Azure ou locais.  
@@ -79,7 +83,7 @@ Siga o tutorial [Criar um segmento de rede do NSX-T na Solução VMware no Azure
 
 ## <a name="verify-advertised-nsx-t-segment"></a>Verificar o segmento do NSX-T anunciado
 
-Volte para a etapa [Verificar as rotas de rede anunciadas](#verify-network-routes-advertised). Você verá rotas adicionais na lista, representando os segmentos de rede que você criou na etapa anterior.  
+Volte para a etapa [Verificar as rotas de rede anunciadas](#verify-network-routes-advertised). Você verá outras rotas na lista que representa os segmentos de rede criados na etapa anterior.  
 
 Para máquinas virtuais, você atribuirá os segmentos criados na etapa [Criar um segmento de rede na Solução VMware no Azure](#create-a-network-segment-on-azure-vmware-solution).  
 
@@ -120,11 +124,10 @@ Implante a VM como faria em qualquer ambiente vSphere.  Anexe a VM a um dos segm
 Faça logon na VM criada na etapa anterior e verifique a conectividade;
 
 1. Execute ping em um IP na Internet.
-2. Acesse um site da Internet usando um navegador da Web.
+2. Em um navegador da Web, acesse um site da Internet.
 3. Execute ping no jumpbox que fica na Rede Virtual do Azure.
 
->[!IMPORTANT]
->Neste ponto, a Solução VMware no Azure está em funcionamento e você estabeleceu com êxito a conectividade entre a rede virtual do Azure e a Internet.
+A Solução VMware no Azure agora está em funcionamento e você estabeleceu com êxito a conectividade entre a rede virtual do Azure e a Internet.
 
 ## <a name="next-steps"></a>Próximas etapas
 

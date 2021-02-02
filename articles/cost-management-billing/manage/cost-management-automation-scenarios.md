@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 01/26/2021
 ms.author: banders
-ms.openlocfilehash: e0a7553269e1223a5e744db967d65814877878ab
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 40eb6bbb952596e015be7c1ed29dbefb3fb6016d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598265"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897706"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Cenários de automação para gerenciamento de custos e de cobrança
 
@@ -60,43 +60,43 @@ Você pode APIs de gerenciamento de custos e de cobrança em vários cenários p
 ### <a name="consumption"></a>Consumo
 Os clientes Diretos via Web e empresariais podem usar todas as seguintes APIs, exceto quando observado:
 
--   [API de Orçamentos](/rest/api/consumption/budgets) (*somente clientes Enterprise*): Crie os orçamentos de custo ou de uso de recursos, grupos de recursos ou medidores de cobrança. Quando você tiver criado os orçamentos, poderá configurar alertas para notificar quando você exceder limites de orçamento definidos. Você também pode configurar ações para ocorrerem quando você atingir os valores de orçamento.
+-    [API de Orçamentos](/rest/api/consumption/budgets) (*somente clientes Enterprise*): Crie os orçamentos de custo ou de uso de recursos, grupos de recursos ou medidores de cobrança. Quando você tiver criado os orçamentos, poderá configurar alertas para notificar quando você exceder limites de orçamento definidos. Você também pode configurar ações para ocorrerem quando você atingir os valores de orçamento.
 
--   [API de Encargos do Marketplace](/rest/api/consumption/marketplaces): Obter dados de uso e custo em todos os recursos do Azure Marketplace (ofertas de parceiro do Azure). Você pode usar esses dados para somar os custos de todos os recursos do Marketplace ou investigar os custos ou o uso de recursos específicos.
+-    [API de Encargos do Marketplace](/rest/api/consumption/marketplaces): Obter dados de uso e custo em todos os recursos do Azure Marketplace (ofertas de parceiro do Azure). Você pode usar esses dados para somar os custos de todos os recursos do Marketplace ou investigar os custos ou o uso de recursos específicos.
 
--   [API de Tabela de Preços](/rest/api/consumption/pricesheet) (*somente clientes Enterprise*): Obtenha preço personalizado para todos os medidores. As empresas podem usar esses dados em combinação com detalhes de uso e informações de uso do marketplace calcular custos usando dados de uso e do Marketplace.
+-    [API de Tabela de Preços](/rest/api/consumption/pricesheet) (*somente clientes Enterprise*): Obtenha preço personalizado para todos os medidores. As empresas podem usar esses dados em combinação com detalhes de uso e informações de uso do marketplace calcular custos usando dados de uso e do Marketplace.
 
--   [API de recomendações de reserva](/rest/api/consumption/reservationrecommendations): Obtenha recomendações para a compra de instâncias de VM reservada. As recomendações ajudam a analisar as economias de custo esperadas e os valores de compra. Para obter mais informações, confira [APIs para automação de reserva do Azure](../reservations/reservation-apis.md).
+-    [API de recomendações de reserva](/rest/api/consumption/reservationrecommendations): Obtenha recomendações para a compra de instâncias de VM reservada. As recomendações ajudam a analisar as economias de custo esperadas e os valores de compra. Para obter mais informações, confira [APIs para automação de reserva do Azure](../reservations/reservation-apis.md).
 
--   [API de Detalhes de Reserva](/rest/api/consumption/reservationsdetails): veja informações sobre reservas de VM compradas anteriormente, como quanto consumo está reservado versus a quantidade usada. Você pode ver os dados em um nível de detalhe por VM. Para obter mais informações, confira [APIs para automação de reserva do Azure](../reservations/reservation-apis.md).
+-    [API de Detalhes de Reserva](/rest/api/consumption/reservationsdetails): veja informações sobre reservas de VM compradas anteriormente, como quanto consumo está reservado versus a quantidade usada. Você pode ver os dados em um nível de detalhe por VM. Para obter mais informações, confira [APIs para automação de reserva do Azure](../reservations/reservation-apis.md).
 
--   [API de Resumos de Reserva](/rest/api/consumption/reservationssummaries): veja informações agregadas sobre reservas de VM que sua organização comprou, como quanto consumo está reservado versus a quantidade usada na agregação. Para obter mais informações, confira [APIs para automação de reserva do Azure](../reservations/reservation-apis.md).
+-    [API de Resumos de Reserva](/rest/api/consumption/reservationssummaries): veja informações agregadas sobre reservas de VM que sua organização comprou, como quanto consumo está reservado versus a quantidade usada na agregação. Para obter mais informações, confira [APIs para automação de reserva do Azure](../reservations/reservation-apis.md).
 
--   [API de detalhes de uso](/rest/api/consumption/usagedetails): obtenha informações de cobrança e uso em todos os recursos do Azure da Microsoft. As informações estão na forma de registros de detalhes de uso que atualmente são emitidos uma vez por metro por dia. Você pode usar as informações para somar os custos de todos os recursos ou investigar os custos ou o uso de recursos específicos.
+-    [API de detalhes de uso](/rest/api/consumption/usagedetails): obtenha informações de cobrança e uso em todos os recursos do Azure da Microsoft. As informações estão na forma de registros de detalhes de uso que atualmente são emitidos uma vez por metro por dia. Você pode usar as informações para somar os custos de todos os recursos ou investigar os custos ou o uso de recursos específicos.
 
--   [API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)): obter taxas de medidor, se você for um cliente Direto da Web. Você então pode usar as informações retornadas com suas informações de uso de recursos para calcular manualmente a fatura esperada.
+-    [API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)): obter taxas de medidor, se você for um cliente Direto da Web. Você então pode usar as informações retornadas com suas informações de uso de recursos para calcular manualmente a fatura esperada.
 
--   [API de Uso sem Classificação](/previous-versions/azure/reference/mt219003(v=azure.100)): obtenha informações de uso bruto antes que o Azure faça qualquer medição/cobrança.
+-    [API de Uso sem Classificação](/previous-versions/azure/reference/mt219003(v=azure.100)): obtenha informações de uso bruto antes que o Azure faça qualquer medição/cobrança.
 
 ### <a name="billing"></a>Cobrança
--   [API dos Períodos de Cobrança](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): determine um período de cobrança para analisar, juntamente com as IDs de fatura para aquele período. Você pode usar as IDs de fatura com a API de Faturas.
+-    [API dos Períodos de Cobrança](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): determine um período de cobrança para analisar, juntamente com as IDs de fatura para aquele período. Você pode usar as IDs de fatura com a API de Faturas.
 
--   [API de Faturas](/rest/api/billing/2019-10-01-preview/invoices): obtenha a URL de download para uma fatura para um período de cobrança em formato PDF.
+-    [API de Faturas](/rest/api/billing/2019-10-01-preview/invoices): obtenha a URL de download para uma fatura para um período de cobrança em formato PDF.
 
 ### <a name="enterprise-consumption"></a>Consumo de Enterprise
 As seguintes APIs são apenas para Enterprise:
 
--   [API de Resumo de Saldo](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary): Obtenha um resumo mensal de informações sobre saldos, novas compras, encargos de serviço do Azure Marketplace, ajustes e encargos de excedente. Você pode obter essas informações para o período de faturamento atual ou para qualquer período no passado. As empresas podem usar esses dados para comparação com o resumo de encargos calculados manualmente. Essa API não fornece informações específicas do recurso nem uma exibição agregada de custos.
+-    [API de Resumo de Saldo](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary): Obtenha um resumo mensal de informações sobre saldos, novas compras, encargos de serviço do Azure Marketplace, ajustes e encargos de excedente. Você pode obter essas informações para o período de faturamento atual ou para qualquer período no passado. As empresas podem usar esses dados para comparação com o resumo de encargos calculados manualmente. Essa API não fornece informações específicas do recurso nem uma exibição agregada de custos.
 
--   [API de detalhes de uso](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail): Obtenha informações sobre o uso do Azure (ofertas da Microsoft) para o mês atual, um período de cobrança específico ou um período de datas personalizado. As empresas podem usar esses dados para calcular faturas manualmente com base na taxa e no consumo. As empresas também podem usar informações de organização/departamento para custos de atributo entre organizações. Os dados fornecem uma exibição do uso e do custo específica a um recurso.
+-    [API de detalhes de uso](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail): Obtenha informações sobre o uso do Azure (ofertas da Microsoft) para o mês atual, um período de cobrança específico ou um período de datas personalizado. As empresas podem usar esses dados para calcular faturas manualmente com base na taxa e no consumo. As empresas também podem usar informações de organização/departamento para custos de atributo entre organizações. Os dados fornecem uma exibição do uso e do custo específica a um recurso.
 
--   [API de Encargo de Loja do Marketplace](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge): obtenha informações sobre o uso do Azure (ofertas do parceiro) para o mês atual, um período de cobrança específico ou um período de datas personalizado. As empresas podem usar esses dados para calcular faturas manualmente com base na taxa e no consumo. As empresas também podem usar informações de organização/departamento para custos de atributo entre organizações. Essa API fornece uma exibição do uso e do custo específica a um recurso.
+-    [API de Encargo de Loja do Marketplace](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge): obtenha informações sobre o uso do Azure (ofertas do parceiro) para o mês atual, um período de cobrança específico ou um período de datas personalizado. As empresas podem usar esses dados para calcular faturas manualmente com base na taxa e no consumo. As empresas também podem usar informações de organização/departamento para custos de atributo entre organizações. Essa API fornece uma exibição do uso e do custo específica a um recurso.
 
--   [API de folha de preço](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet): obtenha a taxa aplicável de cada medidor para o registro especificado e o período de cobrança. Você pode usar essas informações de taxa em combinação com detalhes de uso e informações de uso do marketplace para calcular manualmente a fatura esperada.
+-    [API de folha de preço](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet): obtenha a taxa aplicável de cada medidor para o registro especificado e o período de cobrança. Você pode usar essas informações de taxa em combinação com detalhes de uso e informações de uso do marketplace para calcular manualmente a fatura esperada.
 
--   [API dos Períodos de Cobrança](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): obter uma lista de períodos de cobrança. A API também fornece uma propriedade que aponta para a rota da API dos quatro conjuntos de dados da API Enterprise que pertencem ao período de cobrança: BalanceSummary, UsageDetails, Marketplace Charges e PriceSheet.
+-    [API dos Períodos de Cobrança](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): obter uma lista de períodos de cobrança. A API também fornece uma propriedade que aponta para a rota da API dos quatro conjuntos de dados da API Enterprise que pertencem ao período de cobrança: BalanceSummary, UsageDetails, Marketplace Charges e PriceSheet.
 
--   [API de Recomendações de Instância Reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation): Examine 7 dias, 30 dias ou 60 dias de utilização de máquina virtual e obtenha recomendações de Compra Única e Compartilhada. Você pode usar essa API para analisar as economias de custo esperadas e os valores de compra recomendados. Para obter mais informações, confira [APIs para automação de reserva do Azure](../reservations/reservation-apis.md).
+-    [API de Recomendações de Instância Reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation): Examine 7 dias, 30 dias ou 60 dias de utilização de máquina virtual e obtenha recomendações de Compra Única e Compartilhada. Você pode usar essa API para analisar as economias de custo esperadas e os valores de compra recomendados. Para obter mais informações, confira [APIs para automação de reserva do Azure](../reservations/reservation-apis.md).
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -133,7 +133,7 @@ Essas APIs fornecem conjuntos semelhantes de dados, mas têm diferentes público
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter informações sobre como usar as APIs do Azure para obter insights de maneira programática sobre seu uso do Azure, veja [Visão geral da API de Consumo do Azure](consumption-api-overview.md) e [Visão geral da API de Cobrança do Azure](usage-rate-card-overview.md).
+- Para obter informações sobre como usar as APIs REST recupera preços para todos os serviços do Azure, confira [Visão geral dos preços de varejo do Azure](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 - Para comparar sua fatura com o arquivo detalhado de uso diário e os relatórios de gerenciamento de custos no Portal do Azure, veja [Entenda sua fatura do Microsoft Azure](../understand/review-individual-bill.md).
 

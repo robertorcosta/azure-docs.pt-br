@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Implantar o Azure Spring Cloud em uma rede virtual
+title: Implantar o Azure Spring Cloud em uma rede virtual
 description: Implantar o Azure Spring Cloud em uma rede virtual (injeção de VNet).
 author: MikeDodaro
 ms.author: brendm
@@ -7,14 +7,14 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d72d60bd3a1ef23b8122b2bc5ba4f0c5c701254
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587716"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880585"
 ---
-# <a name="tutorial-deploy-azure-spring-cloud-in-a-virtual-network"></a>Tutorial: Implantar o Azure Spring Cloud em uma rede virtual
+# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implantar o Azure Spring Cloud em uma rede virtual
 
 **Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
@@ -25,6 +25,9 @@ A implantação permite:
 * Isolamento de aplicativos e runtime de serviço do Azure Spring Cloud da Internet em sua rede corporativa.
 * Interação do Azure Spring Cloud com sistemas em data centers locais ou serviços do Azure em outras redes virtuais.
 * Permitir que clientes controlem comunicações de rede de entrada e saída para o Azure Spring Cloud.
+
+> [!Note]
+> Você pode selecionar sua rede virtual do Azure somente quando cria uma instância de serviço do Azure Spring Cloud. Você não pode alterar e usar outra rede virtual após a criação do Azure Spring Cloud.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -77,6 +80,7 @@ Se você já tiver uma rede virtual para hospedar a instância do Azure Spring C
 1. Selecione **Examinar + criar**. Deixe o restante com os valores padrão e selecione **Criar**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Conceder permissão de serviço para a rede virtual
+O Azure Spring Cloud requer permissão de **Proprietário** para sua rede virtual, a fim de conceder uma entidade de serviço dedicada e dinâmica na rede virtual para implantação e manutenção adicionais.
 
 Selecione a rede virtual **azure-spring-cloud-vnet** que você criou anteriormente.
 
@@ -160,9 +164,9 @@ Esses recursos de rede estão conectados à sua rede virtual criada na imagem an
    > [!Important]
    > Os grupos de recursos são totalmente gerenciados pelo serviço do Azure Spring Cloud. *Não* exclua nem modifique manualmente nenhum recurso.
 
-## <a name="limitations"></a>Limitações
+## <a name="using-smaller-subnet-ranges"></a>Usando intervalos de sub-rede menores
 
-Um pequeno intervalo de sub-rede salva endereços IP, mas traz limitações para o número máximo de instâncias de aplicativo que a instância do Azure Spring Cloud pode conter.
+Esta tabela mostra o número máximo de instâncias de aplicativo a que o Azure Spring Cloud dá suporte usando intervalos de sub-rede menores.
 
 | CIDR de sub-rede de aplicativo | IPs totais | IPs disponíveis | Máximo de instâncias do aplicativo                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |

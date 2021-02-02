@@ -7,19 +7,22 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: f5ddca937d2928b957c8116f24c10ab8e242e737
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 023e75549265a0784db2ea49ab9b5af83ca1acd8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100330"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674653"
 ---
 # <a name="create-a-table-with-autoscale-for-azure-cosmos-db---table-api"></a>Criar uma tabela com dimensionamento automático para Azure Cosmos DB – API de Tabela
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
+Este exemplo exige o Azure PowerShell Az 5.4.0 ou posterior. Execute `Get-Module -ListAvailable Az` para ver quais versões estão instaladas.
+Se é preciso instalar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-az-ps).
+
+Execute [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) para entrar no Azure.
 
 ## <a name="sample-script"></a>Exemplo de script
 

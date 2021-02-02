@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569503"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954202"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático do usuário
 
@@ -157,7 +157,7 @@ Nesta etapa, você concederá permissões de política de “segurança de domí
 
 1. Pesquise e selecione o grupo de segurança que você criou na etapa anterior. 
    >[!div class="mx-imgBorder"]
-   >![Selecionar Grupo de Segurança](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+   >![Selecionar Grupo de Segurança](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
 1. Clique nas reticências (...) ao lado do nome do grupo e, no menu, selecione **Grupo de Segurança > Manter Permissões de Domínio Para o Grupo de Segurança**
    >[!div class="mx-imgBorder"]
@@ -228,7 +228,7 @@ Nesta etapa, você concederá permissões de política de “segurança de proce
 
 ## <a name="provisioning-agent-installation-prerequisites"></a>Pré-requisitos de instalação do agente de provisionamento
 
-Examine os [pré-requisitos de instalação do agente de provisionamento](../cloud-provisioning/how-to-prerequisites.md) antes de prosseguir para a próxima seção. 
+Examine os [pré-requisitos de instalação do agente de provisionamento](../cloud-sync/how-to-prerequisites.md) antes de prosseguir para a próxima seção. 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configurando o provisionamento de usuário do Workday para o Active Directory
 
@@ -267,7 +267,7 @@ Esta seção fornece as etapas para o provisionamento de conta do usuário do Wo
 
 Para provisionar no Active Directory local, o agente de Provisionamento deverá ser instalado em um servidor conectado ao domínio que tenha acesso à rede para os domínios do Active Directory desejados.
 
-Transfira o instalador do agente baixado para o host do servidor e siga as etapas listadas [na seção **Instalar o agente**](../cloud-provisioning/how-to-install.md) para concluir a configuração do agente.
+Transfira o instalador do agente baixado para o host do servidor e siga as etapas listadas [na seção **Instalar o agente**](../cloud-sync/how-to-install.md) para concluir a configuração do agente.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: No aplicativo de provisionamento, configure a conectividade com o Workday e o Active Directory
 Nesta etapa, estabelecemos a conectividade com o Workday e o Active Directory no portal do Azure. 
@@ -336,7 +336,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
       * Operador: IS NOT NULL
 
    > [!TIP]
-   > Quando você estiver configurando o aplicativo de provisionamento de aplicativo pela primeira vez, você precisará testar e verificar seus mapeamentos de atributo e expressões para certificar-se de que ele está dando a você o resultado desejado. A Microsoft recomenda usar os filtros de escopo sob **Escopo do objeto de origem** para testar seus mapeamentos com alguns usuários de teste do Workday. Após ter verificado que os mapeamentos funcionam, você pode remover o filtro ou expandi-lo gradualmente para incluir mais usuários.
+   > Quando você estiver configurando o aplicativo de provisionamento de aplicativo pela primeira vez, você precisará testar e verificar seus mapeamentos de atributo e expressões para certificar-se de que ele está dando a você o resultado desejado. A Microsoft recomenda usar os [filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) sob **Escopo do Objeto de Origem** e [provisionamento sob demanda](../app-provisioning/provision-on-demand.md) para testar seus mapeamentos com alguns usuários de teste do Workday. Após ter verificado que os mapeamentos funcionam, você pode remover o filtro ou expandi-lo gradualmente para incluir mais usuários.
 
    > [!CAUTION] 
    > O comportamento padrão do mecanismo de provisionamento é desabilitar/excluir usuários fora do escopo. Isso pode não ser desejável em sua integração do Workday com o AD. Para substituir esse comportamento padrão, consulte o artigo [Ignorar a exclusão de contas de usuário fora do escopo](../app-provisioning/skip-out-of-scope-deletions.md)
@@ -1065,7 +1065,8 @@ Em relação à retenção de dados, o serviço de provisionamento do Azure AD n
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Saiba mais sobre os cenários de integração do Azure AD e do Workday e as chamadas de serviço Web](../app-provisioning/workday-integration-reference.md)
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](workday-tutorial.md)
-* [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
+* [Saiba como configurar o Write-back do Workday](workday-writeback-tutorial.md)
 * [Saiba como usar APIs do Microsoft Graph para gerenciar configurações de provisionamento](/graph/api/resources/synchronization-overview)

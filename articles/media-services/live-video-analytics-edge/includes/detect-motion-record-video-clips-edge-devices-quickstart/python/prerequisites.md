@@ -1,12 +1,14 @@
 ---
-ms.openlocfilehash: 3a6b78aaa2bf23051ed4ee8950a764b01a3ca3bb
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f031843243e64515549eaa4e850efcddca58d1f2
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98061201"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633393"
 ---
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) se não tiver uma.
+  > [!NOTE]
+  > Você precisará ter uma assinatura do Azure com permissões para criar entidades de serviço (a **função de proprietário** fornece isso). Caso não tenha as permissões corretas, entre em contato com o administrador da conta para conceder a você as permissões corretas. 
 * [Visual Studio Code](https://code.visualstudio.com/) com as extensões a seguir:
     * [Ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
         > [!TIP]

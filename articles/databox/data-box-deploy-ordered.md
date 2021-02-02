@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: fd165795be85c26cdfcaee3c4fd01427274a7316
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210334"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797614"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Solicitar o Azure Data Box
 
@@ -231,7 +231,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     |País/região de origem    |    Selecione o país/região em que os dados residem no momento.         |
     |Região do Azure de destino     |     Selecione a região do Azure para onde você deseja transferir dados. <br> Para saber mais, acesse [disponibilidade por região](data-box-overview.md#region-availability).            |
 
-    [![Como iniciar um pedido de importação do Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
+    [ ![Como iniciar um pedido de importação do Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04-b.png) ](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. Selecione **Data Box**. A capacidade máxima utilizável de um único pedido é de 80 TB. É possível criar vários pedidos para tamanhos maiores de dados.
 
@@ -338,9 +338,9 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
 14. Selecione uma identidade de usuário que você usará para gerenciar o acesso a esse recurso. Escolha **Selecionar uma identidade de usuário**. No painel à direita, selecione a assinatura e a identidade gerenciada a ser usada. Em seguida, escolha **Selecionar**.
 
-    Uma identidade gerenciada atribuída pelo usuário é um recurso do Azure autônomo que pode ser usado para gerenciar vários recursos. Para obter mais informações, confira [Tipos de identidade gerenciada](/azure/active-directory/managed-identities-azure-resources/overview).  
+    Uma identidade gerenciada atribuída pelo usuário é um recurso do Azure autônomo que pode ser usado para gerenciar vários recursos. Para obter mais informações, confira [Tipos de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md).  
 
-    Se você precisar criar uma identidade gerenciada, siga as diretrizes em [Criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Se você precisar criar uma identidade gerenciada, siga as diretrizes em [Criar, listar, excluir ou atribuir uma função a uma identidade gerenciada atribuída pelo usuário usando o portal do Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Selecionar uma identidade de usuário](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 

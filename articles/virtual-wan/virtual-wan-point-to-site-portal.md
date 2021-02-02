@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: e7e65d5d2941765df98b3bf3b7fb8ff2e89b7e9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411194"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919052"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão de VPN do Usuário usando a WAN Virtual do Azure
 
@@ -24,6 +24,7 @@ Neste tutorial, você aprenderá como:
 > * Criar uma WAN virtual
 > * Criar uma configuração P2S
 > * Criar um hub virtual
+> * Escolher pools de endereços de cliente
 > * Especificar servidores de DNS
 > * Gerar um pacote de configuração do perfil de cliente VPN
 > * Configurar clientes de VPN
@@ -49,6 +50,11 @@ Uma configuração P2S (ponto a site) define os parâmetros para conexão de cli
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
+
+## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Escolher pools de endereços de cliente P2S
+
+[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
+
 ## <a name="specify-dns-server"></a><a name="dns"></a>Especificar servidor DNS
 
 Você pode definir essa configuração durante o processo de criação do hub ou modificá-la posteriormente. Para modificar, localize o hub virtual. Em **VPN de Usuário (ponto a site)** , selecione **Configurar** e insira os endereços IP do servidor DNS nas caixas de texto **Servidores DNS Personalizados**. Você pode especificar até cinco servidores DNS.
@@ -73,6 +79,8 @@ Depois de concluir a configuração do cliente, você poderá se conectar.
 1. Navegue até a WAN virtual.
 1. Na página **Visão Geral**, cada ponto no mapa representa um hub.
 1. Na seção **Hubs e conexões**, você pode ver o status do hub, o site, a região, o status de conexão de VPN e os bytes de entrada e saída.
+
+
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Biblioteca do Armazenamento de Blobs do Azure v12 – Xamarin'
+title: 'Início rápido: Biblioteca do Armazenamento de Blobs do Azure v12 – Xamarin'
 description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 com o Xamarin para criar um contêiner e um blob no Armazenamento de Blobs (objeto). Em seguida, você aprenderá a baixar o blob para seu dispositivo móvel e a listar todos os blobs em um contêiner.
 author: codemillmatt
 ms.author: masoucou
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004731"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802360"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Início Rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v12 com o Xamarin
+# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Início rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v12 com o Xamarin
 
 Introdução à biblioteca de clientes do Armazenamento de Blobs do Azure v12 com o Xamarin. O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
 

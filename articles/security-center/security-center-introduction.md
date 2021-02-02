@@ -12,18 +12,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: b52fbd820c4b4603481f585ea0b0983720cabb22
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 9f39988375f58f75dad2b623cd3d937022a072e7
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709071"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806193"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
-
-[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 A Central de Segurança do Azure é um sistema de gerenciamento de segurança de infraestrutura unificado que fortalece a postura de segurança de seus data centers e fornece proteção avançada contra ameaças em suas cargas de trabalho híbridas locais e na nuvem, estejam elas no Azure ou não.
 
@@ -74,7 +72,7 @@ A Central de Segurança o ajuda a **identificar as assinaturas de TI sombra**. E
 
 ### <a name="continuous-assessments"></a>Avaliações contínuas
 
-A Central de Segurança descobre novos recursos que estão sendo implantados em suas cargas de trabalho e avalia se estão configurados de acordo com as práticas recomendadas de segurança, caso contrário, são sinalizados e você obtém uma lista priorizada de recomendações do que você precisará consertar continuamente para de proteger seus computadores.
+A Central de Segurança descobre novos recursos que estão sendo implantados em suas cargas de trabalho e avalia se estão configurados de acordo com as práticas recomendadas de segurança, caso contrário, são sinalizados e você obtém uma lista priorizada de recomendações do que você precisará consertar continuamente para de proteger seus computadores. A lista de recomendações é habilitada e compatível com o [Azure Security Benchmark](../security/benchmarks/introduction.md), o conjunto específico de diretrizes do Azure, criado pela Microsoft, para as melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. Esse parâmetro de comparação amplamente respeitado se baseia nos controles do [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) e do [NIST (National Institute of Standards and Technology)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
 
 Para ajudar você a entender a importância de cada recomendação para sua postura de segurança geral, a Central de Segurança agrupa as recomendações em controles de segurança e adiciona um valor de **classificação de segurança** a cada controle. Isso é fundamental para permitir que você **priorize seu trabalho de segurança**.
 
@@ -107,9 +105,8 @@ A proteção contra ameaças da Central de Segurança inclui análise de cadeia 
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integração ao Microsoft Defender para Ponto de Extremidade
 
-A Central de Segurança inclui a integração nativa e automática ao Microsoft Defender para Ponto de Extremidade. Isso significa que, sem qualquer configuração, seus computadores Windows e Linux são totalmente integrados com avaliações e recomendações da Central de Segurança.
+O Azure Defender para servidores inclui a integração automática e nativa ao Microsoft Defender para Ponto de Extremidade. Saiba mais em [Proteger seus pontos de extremidade com a solução EDR integrada da Central de Segurança: Microsoft Defender para Ponto de extremidade](security-center-wdatp.md)
 
-Além disso, a Central de Segurança permite automatizar as políticas de controle de aplicativo em ambientes de servidor. Os controles de aplicativos adaptáveis da Central de Segurança habilitam a listagem de aprovação de aplicativo de ponta a ponta nos servidores Windows. Você não precisa criar as regras e verificar as violações, tudo é feito automaticamente para você.
 
 ### <a name="protect-paas"></a>Proteger PaaS
 

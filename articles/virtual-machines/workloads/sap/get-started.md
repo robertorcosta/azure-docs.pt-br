@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/23/2021
+ms.date: 02/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 992115a65ec015ca04990135975e0d4020764184
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 61adb72d043821dfaedca5e5da0b2f880d56811e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873766"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258911"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -84,6 +84,7 @@ Nesta seção, você encontrará documentos sobre a integração do Microsoft Po
 
 ## <a name="change-log"></a>Log de Alterações
 
+- 02/01/2021: alteração na [ha para SAP Hana escalar verticalmente com seja no RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [SAP Hana escalar horizontalmente HSR com pacemaker em VMs do Azure no RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [SAP Hana escalar horizontalmente com o nó em espera em VMs do Azure com seja no SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) e SAP Hana escalar horizontalmente com o nó em [espera em VMs do Azure com seja no RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md) para adicionar um link aos [volumes NFS v 4.1 em Azure NetApp Files para SAP Hana](./hana-vm-operations-netapp.md)
 - 01/23/2021: apresente a funcionalidade do particionamento de volume de dados do HANA como funcionalidade para distribuir operações de e/s em arquivos de dados do HANA em diferentes discos do Azure ou compartilhamentos NFS sem usar um Gerenciador de volumes de disco em artigos [SAP Hana configurações de armazenamento de máquina virtual do Azure](./hana-vm-operations-storage.md) e [volumes NFS v 4.1 no Azure NetApp Files para SAP Hana](./hana-vm-operations-netapp.md)
 - 01/18/2021: suporte adicional de arquivos do Azure net apps baseado em NFS para Oracle em [máquinas virtuais do Azure implantação do Oracle DBMS para carga de trabalho do SAP](./dbms_guide_oracle.md) e ajuste de decimais na tabela em documentos [NFS v 4.1 volumes em Azure NetApp Files para SAP Hana](./hana-vm-operations-netapp.md)
 - 01/11/2021: alterações secundárias na [ha para SAP NW em VMs do Azure no RHEL for SAP Applications](./high-availability-guide-rhel.md), [ha for SAP NW em VMs do Azure no RHEL com seja](./high-availability-guide-rhel-netapp-files.md) e [ha para SAP NW em VMs do Azure no guia de vários SID do RHEL](./high-availability-guide-rhel-multi-sid.md) para ajustar comandos para funcionar tanto para RHEL8 quanto para RHEL7, ENSA1 quanto ENSA2

@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 45280ec41a9fd9423e4184b2e1ce593720ab6488
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6052e2243f8b31aa57d4abf27c24a4b045c9eae2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232345"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754634"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft
 
@@ -84,8 +84,8 @@ Para definir as configurações do aplicativo com base na plataforma ou no dispo
 
     | Plataforma | Definições de configuração |
     | -------- | ---------------------- |
-    | **Web** | Insira um **URI de redirecionamento** para seu aplicativo, o local para o qual a plataforma de identidade da Microsoft redireciona o cliente do usuário e envia tokens de segurança após a autenticação.<br/><br/>Selecione essa plataforma para aplicativos Web padrão que são executados em um servidor. |
-    | **Aplicativo de página única** | Insira um **URI de redirecionamento** para seu aplicativo, o local para o qual a plataforma de identidade da Microsoft redireciona o cliente do usuário e envia tokens de segurança após a autenticação.<br/><br/>Selecione esta plataforma se você está criando um aplicativo Web do lado do cliente em JavaScript ou com uma estrutura como Angular, Vue.js, React.js ou Blazor WebAssembly. |
+    | **Web** | Insira um **URI de redirecionamento** para seu aplicativo, a localização para a qual a plataforma de identidade da Microsoft redireciona o cliente do usuário e envia tokens de segurança após a autenticação.<br/><br/>Selecione essa plataforma para aplicativos Web padrão que são executados em um servidor. |
+    | **Aplicativo de página única** | Insira um **URI de redirecionamento** para seu aplicativo, a localização para a qual a plataforma de identidade da Microsoft redireciona o cliente do usuário e envia tokens de segurança após a autenticação.<br/><br/>Selecione esta plataforma se você está criando um aplicativo Web do lado do cliente em JavaScript ou com uma estrutura como Angular, Vue.js, React.js ou Blazor WebAssembly. |
     | **iOS/macOS** | Insira a **ID do Pacote** do aplicativo, encontrada no XCode em *Info.plist* ou Configurações de Build.<br/><br/>Um URI de redirecionamento é gerado para você quando você especifica uma ID de pacote. |
     | **Android** | Insira o **Nome do pacote** do aplicativo, que pode ser encontrado no arquivo *AndroidManifest.xml*, e gere e insira o **Hash de assinatura**.<br/><br/>Um URI de redirecionamento é gerado para você quando você especifica essas configurações. |
     | **Aplicativos móveis e para desktop** | Selecione um dos **URIs de redirecionamento sugeridos** ou especifique um **URI de redirecionamento personalizado**.<br/>Para aplicativos de desktop, recomendamos:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Selecionar essa plataforma para aplicativos móveis que não estão usando a MSAL (Biblioteca de Autenticação da Microsoft) mais recente ou que não estão usando um agente. Selecione também essa plataforma para aplicativos de desktop. |

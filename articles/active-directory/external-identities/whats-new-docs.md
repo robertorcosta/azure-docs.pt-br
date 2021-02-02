@@ -1,7 +1,7 @@
 ---
 title: O que há de novo no Azure Active Directory identidades externas
 description: Documentação nova e atualizada para as Azure Active Directory identidades externas.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,21 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: e614507fbcfce5fc006983e0be7963223bb0b7ed
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 84adb08231589ae636c6a6926a4019a8a070a62e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562371"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258856"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Azure Active Directory identidades externas: o que há de novo
 
 Bem-vindo ao que há de novo na documentação de identidades externas Azure Active Directory. Este artigo lista novos documentos que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber o que há de novo no serviço de identidades externas, consulte [What ' s New in Azure Active Directory](../fundamentals/whats-new.md).
 
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="updated-articles"></a>Artigos atualizados
+- [Permitir ou bloquear convites para usuários B2B de organizações específicas](allow-deny-list.md)
+- [Como usuários na organização podem convidar usuários convidados para um aplicativo](add-users-information-worker.md)
+
+
 ## <a name="december-2020"></a>Dezembro de 2020
 
 ### <a name="updated-articles"></a>Artigos atualizados
-
 - [Perguntas frequentes sobre a colaboração B2B do Azure Active Directory](faq.md)
 - [Adicionar o Google como provedor de identidade para usuários convidados B2B](google-federation.md)
 - [Provedores de identidade para identidades externas](identity-providers.md)

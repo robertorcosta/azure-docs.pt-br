@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 654206bccd25bf09fcdc5c3e7ee72ba97c75af2a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949761"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785474"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurar o Identity Protection e o acesso condicional no Azure AD B2C
 
@@ -94,9 +94,7 @@ Para adicionar uma política de acesso condicional com base nas detecções de r
 
 1. Em **Segurança**, escolha **Acesso Condicional (Versão Prévia)** . A página **Políticas de Acesso Condicional** será aberta. 
 
-1. Selecione **Nova política** e siga a documentação do acesso condicional do Azure AD para criar uma política. A seguir, é mostrado um exemplo:
-
-   - [Acesso condicional baseado em risco de entrada: Habilitar a política de acesso condicional](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
+1. Selecione **Nova política** e siga a documentação do acesso condicional do Azure AD para criar uma política. Para políticas baseadas em risco, você precisará configurar políticas separadas com base no [risco do usuário](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy) ou no [risco de entrada](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy) dependendo do tipo de risco que você deseja usar como condição. Não recomendamos o uso de ambos os tipos de risco em uma política.
 
    > [!IMPORTANT]
    > Ao selecionar os usuários aos quais você deseja aplicar a política, não escolha apenas **Todos os usuários** ou você poderá bloquear sua inscrição.

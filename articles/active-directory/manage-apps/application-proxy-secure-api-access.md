@@ -3,7 +3,7 @@ title: Acessar APIs locais com o Azure Proxy de Aplicativo do AD
 description: O proxy de aplicativo do Azure Active Directory permite que aplicativos nativos acessem APIs e lógica de negócios com segurança que você hospeda no local ou em VMs de nuvem.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: eaa4a8f92809dcf44969958573231ad37d908daa
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9341646f32f6a2e05397b072d3f63186964fbd88
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835690"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258975"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro a APIs locais com o Azure Proxy de Aplicativo do AD
 
@@ -106,7 +106,7 @@ Para registrar o aplicativo nativo AppProxyNativeAppSample:
 
 1. Na página **visão geral** do Azure Active Directory, **selecione registros de aplicativo** e, na parte superior do painel **registros de aplicativo** , selecione **novo registro**.
 
-1. Na página **registrar um aplicativo** :
+1. Na página **Registrar um aplicativo**:
 
    1. Em **nome**, insira *AppProxyNativeAppSample*.
 

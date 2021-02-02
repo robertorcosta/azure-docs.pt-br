@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb10001436d3184b89aa064ec82fcd1f56bea931
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 7c3bca9e5ad87c681fc38a5c618331a3f7a97ae1
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566927"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897503"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: descobrir VMs do Hyper-V com a Avaliação de Servidor
 
@@ -83,7 +83,7 @@ Você pode preparar os hosts do Hyper-V manualmente ou usando um script. As etap
 
 **Step** | **Script** | **Manual**
 --- | --- | ---
-Verificar os requisitos do host | Verifica se o host está executando uma versão compatível do Hyper-V e a função do Hyper-V.<br/><br/>Habilita o serviço WinRM e abre as portas 5985 (HTTP) e 5986 (HTTPS) no host (necessárias para a coleta de metadados). | O host deve executar Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Verifique se as conexões de entrada são permitidas na porta 5985 do WinRM (HTTP), para que o dispositivo possa se conectar a fim de extrair os metadados da VM e os dados de desempenho usando uma sessão do modelo CIM.
+Verificar os requisitos do host | Verifica se o host está executando uma versão compatível do Hyper-V e a função do Hyper-V.<br/><br/>Habilita o serviço WinRM e abre as portas 5985 (HTTP) e 5986 (HTTPS) no host (necessárias para a coleta de metadados). | O host deve executar Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2.<br/><br/> Verifique se as conexões de entrada são permitidas na porta 5985 do WinRM (HTTP), para que o dispositivo possa se conectar a fim de extrair os metadados da VM e os dados de desempenho usando uma sessão do modelo CIM.<br/><br/> No momento, não há suporte para o script em hosts com uma localidade com idioma diferente do inglês.  
 Verificar a versão do PowerShell | Verifica se você está executando o script em uma versão do PowerShell compatível. | Verifique se você está executando o PowerShell versão 4.0 ou posterior no host Hyper-V.
 Criar uma conta | Verifica se você tem as permissões corretas no host do Hyper-V.<br/><br/> Permite que você crie uma conta de usuário local com as permissões corretas. | Opção 1: prepare uma conta com acesso de Administrador no computador host do Hyper-V.<br/><br/> Opção 2: prepare uma conta de Administrador Local ou de Administrador de Domínio e adicione-a a estes grupos: Usuários de Gerenciamento Remoto, Administradores do Hyper-V e Usuários do Monitor de Desempenho.
 Habilitar a Comunicação Remota do PowerShell | Habilitar a comunicação remota do PowerShell no host para que o dispositivo de Migrações para Azure possa executar comandos do PowerShell no host, em uma conexão do WinRM. | Para a configuração, em cada host, abra um console do PowerShell como administrador e execute este comando: ``` powershell Enable-PSRemoting -force ```

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2021
+ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: ba9a640c2231c7098e58ad6e29bbfa196436a7f9
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 99dadea37a519289120fcf30e394df1e0f7af5e7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562311"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757704"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Futuras alterações importantes na Central de Segurança do Azure
 
@@ -31,11 +31,39 @@ Se você estiver procurando as notas sobre a versão mais recentes, poderá enco
 
 ## <a name="planned-changes"></a>Alterações planejadas
 
+- [As recomendações de proteção de cargas de trabalho do Kubernetes em breve serão lançadas em GA (disponibilidade geral)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
 - [Duas recomendações do controle de segurança "Aplicar atualizações do sistema" que está sendo preterido](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Aprimoramentos na recomendação de classificação de dados SQL](#enhancements-to-sql-data-classification-recommendation)
-- [Recursos "Não aplicáveis" a serem relatados como "Em conformidade" nas avaliações do Azure Policy](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
-- [35 recomendações de versão prévia adicionadas para aumentar a cobertura do Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
+
+### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>As recomendações de proteção de cargas de trabalho do Kubernetes em breve serão lançadas em GA (disponibilidade geral)
+
+**Data estimada da alteração:** Janeiro de 2021
+
+As recomendações de proteção de cargas de trabalho do Kubernetes descritas em [Proteger suas cargas de trabalho do Kubernetes](kubernetes-workload-protections.md) estão atualmente em versão prévia. Embora uma recomendação esteja em versão prévia, ela não torna um recurso não íntegro e é incluída nos cálculos da sua classificação de segurança.
+
+Essas recomendações serão lançadas em breve em GA (disponibilidade geral) e, portanto, *serão* incluídas no cálculo da classificação. Se você ainda não corrigiu, isso pode resultar em um pequeno impacto em sua classificação de segurança.
+
+Corrija-os sempre que possível (saiba como em [Corrigir recomendações na Central de Segurança do Azure](security-center-remediate-recommendations.md)).
+
+As recomendações da proteção de cargas de trabalho do Kubernetes são:
+
+- Um complemento do Azure Policy para Kubernetes deverá estar instalado e habilitado nos clusters
+- Deverão ser aplicados limites de memória e CPU ao contêiner
+- Os contêineres com privilégios deverão ser evitados
+- Um sistema de arquivos raiz imutável (somente leitura) deverá ser aplicado aos contêineres
+- Os contêineres com elevação de privilégio deverão ser evitados
+- Executar contêineres como usuário raiz deverá ser evitado
+- Os contêineres que compartilham namespaces de host confidenciais deverão ser evitados
+- Deverão ser aplicadas aos contêineres funcionalidades do Linux com privilégios mínimos
+- Usar montagens de volumes de HostPath do pod deverá ser restrito a uma lista conhecida
+- Os contêineres deverão escutar somente em portas permitidas
+- Os serviços deverão escutar somente em portas permitidas
+- Usar redes e portas do host deverá ser restrito
+- As ações para substituir ou desabilitar o perfil do AppArmor de contêineres deverão ser restritas
+- As imagens de contêiner devem ser implantadas apenas de registros confiáveis             
+
+Saiba mais sobre essas recomendações em [Proteger suas cargas de trabalho do Kubernetes](kubernetes-workload-protections.md).
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controle de segurança "Aplicar atualizações do sistema" que está sendo preterido 
 
@@ -60,44 +88,6 @@ A versão atual da recomendação **Os dados confidenciais em seus bancos de dad
 - A recomendação não afetará mais sua classificação de segurança
 - O controle de segurança ("Aplicar classificação de dados") não afetará mais sua classificação de segurança
 - A ID da recomendação também será alterada (atualmente b0df6f56-862d-4730-8597-38c0fd4ebd59)
-
-
-
-### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Recursos "Não aplicáveis" a serem relatados como "Em conformidade" nas avaliações do Azure Policy
-
-**Data estimada da alteração:** Janeiro de 2021
-
-Atualmente, os recursos avaliados para uma recomendação e que foram considerados **não aplicáveis** são exibidos no Azure Policy como "Fora de conformidade". Nenhuma ação do usuário pode alterar o estado deles para "Em conformidade". Após essa alteração planejada, eles serão relatados como "Em conformidade" para maior clareza.
-
-O único impacto será visto no Azure Policy, em que o número de recursos em conformidade aumentará. Não haverá nenhum impacto na sua classificação de segurança na Central de Segurança do Azure.
-
-### <a name="35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark"></a>35 recomendações de versão prévia adicionadas para aumentar a cobertura do Azure Security Benchmark
-
-**Data estimada da alteração:** Janeiro de 2021
-
-O Azure Security Benchmark é um conjunto específico de diretrizes específicas do Azure criadas pela Microsoft com as melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. [Saiba mais sobre o Azure Security Benchmark](../security/benchmarks/introduction.md).
-
-As 35 recomendações de versão prévia a seguir serão adicionadas à Central de Segurança para aumentar a cobertura desse parâmetro de comparação.
-
-As recomendações de versão prévia não processam um recurso não íntegro e não são incluídas nos cálculos de sua classificação de segurança. Corrija-as sempre que possível, para que, quando o período da versão prévia terminar, elas contribuam para sua classificação. Saiba mais sobre como responder a essas recomendações em [Recomendações de correção na Central de Segurança do Azure](security-center-remediate-recommendations.md).
-
-| Controle de segurança                     | Novas recomendações                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Habilitar a criptografia em repouso            | – As contas do Azure Cosmos DB devem usar chaves gerenciadas pelo cliente para criptografar os dados inativos<br>– Os workspaces do Azure Machine Learning devem ser criptografados com uma CMK (chave gerenciada pelo cliente)<br>– A proteção de dados do Bring Your Own Key será habilitada para servidores MySQL<br>– A proteção de dados do Bring Your Own Key será habilitada para servidores PostgreSQL<br>– As contas dos Serviços Cognitivos devem habilitar a criptografia de dados com uma CMK (chave gerenciada pelo cliente)<br>– Os registros de contêiner devem ser criptografados com uma CMK (chave gerenciada pelo cliente)<br>– As instâncias gerenciadas de SQL devem usar chaves gerenciadas pelo cliente para criptografar dados inativos<br>– Os SQL Servers devem usar chaves gerenciadas pelo cliente para criptografar dados inativos<br>– As contas de armazenamento devem usar uma CMK (chave gerenciada pelo cliente) para criptografia                                                                                                                                                              |
-| Implementar melhores práticas de segurança    | – As assinaturas devem ter um endereço de email de contato para problemas de segurança<br> – O provisionamento automático do agente do Log Analytics será habilitado na sua assinatura<br> – A notificação por email para alertas de alta severidade deve ser habilitada<br> – A notificação por email para o proprietário da assinatura para alertas de alta severidade deve ser habilitada<br> – Os cofres de chaves devem ter a proteção contra limpeza habilitada<br> – Os cofres de chaves devem ter a exclusão temporária habilitada |
-| Gerenciar acesso e permissões        | – Os aplicativos de funções devem ter a opção 'Certificados do Cliente (Certificados do cliente de entrada)' habilitada |
-| Proteger os aplicativos contra DDoS | – O WAF (Firewall de Aplicativo Web) deve ser habilitado para o Gateway de Aplicativo<br> – O WAF (Firewall de Aplicativo Web) deve ser habilitado para o Azure Front Door Service |
-| Restringir acesso não autorizado à rede | – O firewall deve ser habilitado no Key Vault<br> – O ponto de extremidade privado deve ser configurado para o Key Vault<br> – A Configuração de Aplicativos deve usar um link privado<br> – O Cache do Azure para Redis deve residir em uma rede virtual<br> – Os domínios da Grade de Eventos do Azure devem usar um link privado<br> – Os tópicos da Grade de Eventos do Azure devem usar um link privado<br> – Os workspaces do Azure Machine Learning devem usar um link privado<br> – O Serviço do Azure SignalR deve usar um link privado<br> – O Azure Spring Cloud deve usar uma injeção de rede<br> – Os registros de contêiner não devem permitir acesso irrestrito à rede<br> – Os registros de contêiner devem usar um link privado<br> – O acesso à rede pública deve ser desabilitado para servidores MariaDB<br> – O acesso à rede pública deve ser desabilitado para servidores MySQL<br> – O acesso à rede pública deve ser desabilitado para servidores PostgreSQL<br> – A conta de armazenamento deve usar uma conexão de link privado<br> – As contas de armazenamento devem restringir o acesso à rede usando regras de rede virtual<br> – Os modelos do Construtor de Imagens de VM devem usar um link privado|
-|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-
-Links relacionados:
-
-- [Saiba mais sobre o Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Saiba mais sobre o Banco de Dados do Azure para MariaDB](../mariadb/overview.md)
-- [Saiba mais sobre o Banco de Dados do Azure para MySQL](../mysql/overview.md)
-- [Saiba mais sobre o Banco de Dados do Azure para PostgreSQL](../postgresql/overview.md)
-
-
 
 
 

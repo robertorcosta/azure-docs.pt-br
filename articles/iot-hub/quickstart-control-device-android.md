@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Controlar um dispositivo no Hub IoT do Azure (Android) | Microsoft Docs'
+title: Guia de Início Rápido – Controlar um dispositivo no Hub IoT do Azure (Android) | Microsoft Docs
 description: Neste início rápido, você executa dois aplicativos Java de exemplo. Um deles é um aplicativo de serviço que pode controlar remotamente os dispositivos conectados ao seu hub. O outro aplicativo é executado em um dispositivo físico ou simulado, conectado ao seu hub, que pode ser controlado remotamente.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 969ae6dc1e3667bc360890c292371a0a9b1ba2dc
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 345b82d8120be52066ce6f834b7f2338b6c3bfd0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844584"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623291"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT (Android)
 
@@ -73,7 +73,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string \
+    az iot hub device-identity connection-string show\
       --hub-name {YourIoTHubName} \
       --device-id MyAndroidDevice \
       --output table
@@ -133,7 +133,7 @@ Esse aplicativo precisa ser executado em um emulador ou dispositivo físico enqu
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria do hub
 
-Nesta seção, você usará o Azure Cloud Shell com a [extensão de IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) para monitorar as mensagens enviadas pelo dispositivo Android.
+Nesta seção, você usará o Azure Cloud Shell com a [extensão de IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) para monitorar as mensagens enviadas pelo dispositivo Android.
 
 1. Usando o Azure Cloud Shell, execute o seguinte comando para se conectar e ler mensagens do hub IoT:
 

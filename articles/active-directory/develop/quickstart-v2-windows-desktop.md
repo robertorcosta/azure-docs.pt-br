@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Conectar usuários e chamar o Microsoft Graph em um aplicativo da área de trabalho da Plataforma Universal do Windows | Azure'
-description: Neste guia de início rápido, saiba como um aplicativo .NET da área de trabalho do Windows (XAML) pode obter um token de acesso e chamar uma API protegida por um ponto de extremidade da plataforma de identidade da Microsoft
+description: Neste guia de início rápido, saiba como um aplicativo .NET da área de trabalho do Windows (XAML) pode obter um token de acesso e chamar uma API protegida pela plataforma de identidade da Microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1cac8ab4ccf23047bd5eb2d15c174a2009f2864a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178289"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754001"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows
 
@@ -145,7 +145,7 @@ A MSAL tem dois métodos para adquirir tokens: `AcquireTokenInteractive` e `Acqu
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Algumas situações exigem forçar os usuários a interagir com o ponto de extremidade da plataforma de identidade da Microsoft por meio de uma janela pop-up para validar suas credenciais ou para dar consentimento. Alguns exemplos incluem:
+Algumas situações exigem forçar os usuários a interagir com a plataforma de identidade da Microsoft por meio de uma janela pop-up para validar suas credenciais ou para dar consentimento. Alguns exemplos incluem:
 
 - A primeira vez que os usuários entram no aplicativo
 - Quando os usuários precisam reinserir suas credenciais porque a senha expirou

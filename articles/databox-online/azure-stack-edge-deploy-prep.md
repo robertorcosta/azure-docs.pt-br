@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/06/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 07b526d443b5f1b41bc6f811b7cccc0fbc6165ee
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968476"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761718"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Tutorial: Preparar a implantação do Azure Stack Edge Pro  
 
@@ -91,7 +91,7 @@ Antes de começar, verifique se:
 
 Se você tiver um recurso do Azure Stack Edge existente para gerenciar seu dispositivo físico, ignore esta etapa e vá para [Obter a chave de ativação](#get-the-activation-key).
 
-Para criar um recurso do Azure Stack Edge, execute as seguintes etapas no portal do Azure.
+Para criar um recurso do Azure Stack Edge, execute as etapas a seguir no portal do Azure.
 
 1. Use suas credenciais do Microsoft Azure para entrar 
 
@@ -118,14 +118,14 @@ Para criar um recurso do Azure Stack Edge, execute as seguintes etapas no portal
 
     |Configuração  |Valor  |
     |---------|---------|
-    |Nome   | Um nome amigável para identificar o recurso.<br>O nome tem entre 2 e 50 caracteres contendo letras, números e hifens.<br> Nome começa e termina com uma letra ou um número.        |
+    |Nome   | Um nome amigável para identificar o recurso.<br>O nome deve ter de 2 a 50 caracteres, incluindo letras, números e hifens.<br> Nome começa e termina com uma letra ou um número.        |
     |Região     |Para obter uma lista de todas as regiões em que o recurso Azure Stack Edge está disponível, confira [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Se você estiver usando o Azure Governamental, todas as regiões do governo estarão disponíveis, conforme mostrado nas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Escolha um local mais próximo da região geográfica em que você deseja implantar seu dispositivo.|
 
     ![Detalhes do projeto e da instância](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
 
 5. Selecione **Avançar: Endereço para entrega**.
 
-    - Caso já tenha um dispositivo, marque a caixa de combinação **Tenho um dispositivo Azure Stack Edge Pro**.
+    - Caso já tenha um dispositivo, marque a caixa de combinação **Tenho um dispositivo Azure Stack Edge**.
     - Se esse for o novo dispositivo solicitado, insira o nome de contato, a empresa, o endereço para entrega do dispositivo e informações de contato.
 
     ![Endereço para entrega do novo dispositivo](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
@@ -138,13 +138,17 @@ Para criar um recurso do Azure Stack Edge, execute as seguintes etapas no portal
 
 8. Selecione **Criar**.
 
-A criação do recurso leva alguns minutos. Depois que o recurso for criado com êxito e implantado, você será notificado. Selecione **Ir para o recurso**.
+   A criação do recurso leva alguns minutos. Depois que o recurso for criado com êxito e implantado, você será notificado. Selecione **Ir para o recurso**.
 
-![Acesse o recurso do Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
+   ![Acesse o recurso do Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
 
 Depois que o pedido for feito, a Microsoft analisará o pedido e o contatará (por email) com os detalhes da entrega.
 
 ![Notificação para revisão do pedido do Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+
+
+> [!NOTE]
+> Se você quiser criar vários pedidos ao mesmo tempo ou clonar um pedido existente, poderá usar os [scripts em exemplos do Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Para obter mais informações, confira o arquivo LEIAME.
 
 ## <a name="get-the-activation-key"></a>Obter a chave de ativação
 

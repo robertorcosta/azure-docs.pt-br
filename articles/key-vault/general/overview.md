@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4747c958b5e592458c14bbf4244953564c252678
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445091"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790116"
 ---
 # <a name="about-azure-key-vault"></a>Sobre o Azure Key Vault
 
@@ -25,7 +25,7 @@ O Azure Key Vault ajuda a resolver os problemas a seguir:
 - **Gerenciamento de Chaves** – O Azure Key Vault também pode ser usado como uma solução de gerenciamento de chaves. O Azure Key Vault torna fácil criar e controlar as chaves de criptografia usadas para criptografar seus dados. 
 - **Gerenciamento de Certificado** – O Azure Key Vault também é um serviço que permite provisionar, gerenciar e implantar com facilidade certificados de protocolo TLS/SSL (Transport Layer Security/Secure Sockets Layer) públicos e privados para uso com o Azure e seus recursos internos conectados com facilidade.
 
-O Azure Key Vault tem duas camadas de serviço: Standard, que faz a criptografia com uma chave de software e uma camada Premium, que inclui chaves protegidas por HSM. Para ver uma comparação entre as camadas Standard e Premium, confira a [página de preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
+O Azure Key Vault tem duas camadas de serviço: Standard, que faz a criptografia com uma chave de software, e uma camada Premium, que inclui chaves protegidas por HSM (módulo de segurança de hardware). Para ver uma comparação entre as camadas Standard e Premium, confira a [página de preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="why-use-azure-key-vault"></a>Por que usar o Azure Key Vault?
 

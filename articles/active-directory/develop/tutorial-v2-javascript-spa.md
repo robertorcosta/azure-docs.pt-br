@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 51b548beae57ce1da32006b61dfd222b0a4e6218
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 874488e5de7888edad5310afce1afd1baec4ece0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015854"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753064"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um SPA (aplicativo de página única) JavaScript
 
@@ -45,7 +45,7 @@ Neste tutorial:
 
 ![Mostra como funciona o aplicativo de exemplo gerado por este tutorial](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-O aplicativo de exemplo criado por este guia permite que um SPA JavaScript consulte a API do Microsoft Graph ou uma API Web que aceita tokens do ponto de extremidade da plataforma de identidade da Microsoft. Nesse cenário, depois que um usuário se conecta, um token de acesso é adicionado às solicitações HTTP por meio do cabeçalho de autorização. Esse token será usado para adquirir o perfil e os emails do usuário por meio da **API do MS Graph**.
+O aplicativo de exemplo criado por este guia permite que um SPA JavaScript consulte a API do Microsoft Graph ou uma API Web que aceita tokens da plataforma de identidade da Microsoft. Nesse cenário, depois que um usuário se conecta, um token de acesso é adicionado às solicitações HTTP por meio do cabeçalho de autorização. Esse token será usado para adquirir o perfil e os emails do usuário por meio da **API do MS Graph**.
 
 A aquisição e a renovação de tokens são manipuladas pela [MSAL (Biblioteca de Autenticação da Microsoft) para JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
@@ -413,13 +413,13 @@ O SPA gerado por este guia chama `acquireTokenSilent` e/ou `acquireTokenPopup` p
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Depois da entrada inicial, você não deseja solicitar aos usuários que autentiquem novamente sempre que precisam solicitar um token para acessar um recurso. Portanto, *acquireTokenSilent* deve ser usado na maioria das vezes para adquirir tokens. Entretanto, há situações em que é necessário forçar os usuários a interagir com o ponto de extremidade da plataforma de identidade da Microsoft. Os exemplos incluem:
+Depois da entrada inicial, você não deseja solicitar aos usuários que autentiquem novamente sempre que precisam solicitar um token para acessar um recurso. Portanto, *acquireTokenSilent* deve ser usado na maioria das vezes para adquirir tokens. Entretanto, há situações em que é necessário forçar os usuários a interagir com a plataforma de identidade da Microsoft. Os exemplos incluem:
 
 - Os usuários precisam reinserir suas credenciais, pois a senha expirou.
 - Seu aplicativo está solicitando acesso a um recurso e você precisa do consentimento do usuário.
 - A autenticação de dois fatores é necessária.
 
-Chamar *acquireTokenPopup* abre uma janela pop-up (ou *acquireTokenRedirect* redireciona os usuários para o ponto de extremidade da plataforma de identidade da Microsoft). Nessa janela, os usuários precisam interagir confirmando suas credenciais, concedendo consentimento ao recurso necessário ou concluindo a autenticação de dois fatores.
+Chamar *acquireTokenPopup* abre uma janela pop-up (ou *acquireTokenRedirect* redireciona os usuários para a plataforma de identidade da Microsoft). Nessa janela, os usuários precisam interagir confirmando suas credenciais, concedendo consentimento ao recurso necessário ou concluindo a autenticação de dois fatores.
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de usuário no modo silencioso
 
@@ -483,7 +483,7 @@ No aplicativo de exemplo criado por este guia, o método `callMSGraph()` é usad
    ```
 1. No navegador, digite **http://localhost:3000** ou **http://localhost:{port}** , em que *port* é a porta na qual o servidor Web está escutando. Você deve ver o conteúdo do seu arquivo *index.html* e o botão **Entrar**.
 
-Depois que o navegador carregar seu arquivo *index.html*, selecione **Entrar**. Você será solicitado a entrar com o ponto de extremidade da plataforma de identidade da Microsoft:
+Depois que o navegador carregar seu arquivo *index.html*, selecione **Entrar**. Você deverá entrar na plataforma de identidade da Microsoft:
 
 ![A janela de entrada do conta SPA do JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

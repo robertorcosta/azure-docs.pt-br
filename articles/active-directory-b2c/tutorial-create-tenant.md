@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5229175af618f897caeae7310338cbe51966a48d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 4b8292d99bd16f9b6f98f4ae8ca82edbfc02ff76
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859573"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725747"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um locatário do Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     ![Criar formulário de locatário com valores de exemplo no portal do Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. Selecione **Examinar + criar**.
-1. Examine as configurações do diretório. Em seguida, selecione **Criar**.
+1. Examine as configurações do diretório. Em seguida, selecione **Criar**. Para obter a [solução de problemas de erros de implantação](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
 É possível vincular vários locatários Azure AD B2C a apenas uma assinatura do Azure para fins de cobrança. Para vincular um locatário, você precisa ser um administrador no locatário do Azure AD B2C e receber pelo menos uma função de Colaborador dentro da assinatura do Azure. Confira [Vincular um locatário do Azure AD B2C a uma assinatura](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 

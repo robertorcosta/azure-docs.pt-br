@@ -1,5 +1,5 @@
 ---
-title: Início rápido de controle de um dispositivo do Hub IoT do Azure (.NET) | Microsoft Docs
+title: Guia de Início Rápido – Controlar um dispositivo no Hub IoT do Azure (.NET) | Microsoft Docs
 description: Neste início rápido, você executa dois aplicativos C# de exemplo. Um deles é um aplicativo de serviço que pode controlar remotamente os dispositivos conectados ao seu hub. O outro aplicativo simula um dispositivo conectado ao seu hub que pode ser controlado remotamente.
 author: robinsh
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 03/04/2020
-ms.openlocfilehash: 39cfa64b756ef6bf20f8cbf3d6e8f8a25e81c674
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 88b818a25a0888cc74783a210cc7a1c0acb455ac
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092866"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623257"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT (.NET)
 
@@ -82,7 +82,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string \
+    az iot hub device-identity connection-string show \
       --hub-name {YourIoTHubName} \
       --device-id MyDotnetDevice \
       --output table

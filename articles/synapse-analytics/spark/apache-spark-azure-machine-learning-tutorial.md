@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2594e25bff3ca949b329f8b66f4427eb1f6950b0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: fc9909614a9d557c19a22e215b7513a038f88c33
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118703"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942343"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>Tutorial: Treinar um modelo em Python com o machine learning automatizado
 
@@ -24,14 +24,14 @@ Neste tutorial, você usará o [machine learning automatizado](../../machine-lea
 
 Neste tutorial, você aprenderá como:
 - Baixar os dados usando o Apache Spark e o Azure Open Datasets.
-- Transformar e limpar dados usando dataframes do Apache Spark.
+- Transformar e limpar dados usando DataFrames do Apache Spark.
 - Treinar um modelo de regressão com machine learning automatizado.
 - Calcular a precisão do modelo.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-- Crie um Pool do Apache Spark sem servidor seguindo o [guia de início rápido Criar um Pool do Apache Spark sem servidor](../quickstart-create-apache-spark-pool-studio.md).
-- Conclua o [tutorial de instalação do workspace do Azure Machine Learning](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) caso você não tenha um workspace do Azure Machine Learning. 
+- Crie um pool do Apache Spark sem servidor seguindo o [guia de início rápido Criar um pool do Apache Spark sem servidor](../quickstart-create-apache-spark-pool-studio.md).
+- Conclua o tutorial de [instalação do Workspace do Azure Machine Learning](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) caso você não tenha um Workspace do Azure Machine Learning. 
 
 ## <a name="understand-regression-models"></a>Entender os modelos de regressão
 
@@ -53,7 +53,7 @@ Aqui está como:
     > [!Note]
     > Por causa do kernel do PySpark, não será necessário criar nenhum contexto explicitamente. O contexto do Spark é criado automaticamente para você ao executar a primeira célula do código.
   
-2. Como os dados brutos estão no formato Parquet, você pode usar o contexto do Spark para extrair o arquivo diretamente na memória como um dataframe. Crie um dataframe do Spark recuperando os dados por meio da API do Conjunto de Dados em Aberto no Azure. Aqui, você usa as propriedades `schema on read` do dataframe do Spark para inferir os tipos de dados e o esquema. 
+2. Como os dados brutos estão no formato Parquet, você pode usar o contexto do Spark para extrair o arquivo diretamente na memória como um DataFrame. Crie um DataFrame do Spark recuperando os dados por meio da API do Open Datasets. Aqui, você usa as propriedades `schema on read` do DataFrame do Spark para inferir os tipos de dados e o esquema. 
    
     ```python
     blob_account_name = "azureopendatastorage"
@@ -61,16 +61,16 @@ Aqui está como:
     blob_relative_path = "yellow"
     blob_sas_token = r""
 
-    # Allow Spark to read from Blob remotely
+    # Allow Spark to read from the blob remotely
     wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
     spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
 
-    # Spark read parquet, note that it won't load any data yet by now
+    # Spark read parquet; note that it won't load any data yet
     df = spark.read.parquet(wasbs_path)
 
     ```
 
-3. Dependendo do tamanho do pool do Spark, os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para obter algo menor usando os filtros ```start_date``` e ```end_date```. Isso aplica um filtro que retorna dados de um mês. Depois de ter o dataframe filtrado, você também executa a função ```describe()``` no novo dataframe para ver as estatísticas resumidas de cada campo. 
+3. Dependendo do tamanho do pool do Spark, os dados brutos podem ser muito grandes ou levar muito tempo para a operação. Você pode filtrar esses dados para obter algo menor, como o equivalente a um mês de dados, usando os filtros ```start_date``` e ```end_date```. Depois de filtrar um DataFrame, você também executa a função ```describe()``` no novo DataFrame para ver as estatísticas resumidas de cada campo. 
 
    Com base nas estatísticas resumidas, você pode ver que há algumas irregularidades nos dados. Por exemplo, as estatísticas mostram que a distância mínima de viagem é menor que zero. Será necessário filtrar esses pontos de dados irregulares.
    
@@ -84,13 +84,13 @@ Aqui está como:
    filtered_df.describe().show()
    ```
 
-4. Em seguida, gere recursos do conjunto de dados selecionando um conjunto de colunas e criando vários recursos baseados em tempo relativos ao campo datetime do início da corrida. Filtre as exceções que foram identificadas na etapa anterior e remova as últimas colunas porque elas são desnecessárias para o treinamento.
+4. Gere recursos do conjunto de dados selecionando um conjunto de colunas e criando vários recursos baseados em tempo relativos ao campo `datetime` do início da corrida. Filtre as exceções que foram identificadas na etapa anterior e remova as últimas colunas porque elas são desnecessárias para o treinamento.
    
    ```python
    from datetime import datetime
    from pyspark.sql.functions import *
 
-   # To make development easier, faster and less expensive down sample for now
+   # To make development easier, faster, and less expensive, downsample for now
    sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
 
    taxi_df = sampled_taxi_df.select('vendorID', 'passengerCount', 'tripDistance',  'startLon', 'startLat', 'endLon' \
@@ -110,16 +110,16 @@ Aqui está como:
    taxi_df.show(10)
    ```
    
-   Veja que isso criará um novo dataframe com colunas adicionais para o dia do mês, a hora de início da corrida, o dia da semana e o tempo total de viagem. 
+   Veja que isso criará um DataFrame com colunas adicionais para o dia do mês, a hora de início da corrida, o dia da semana e o tempo total de viagem. 
 
-   ![Figura do dataframe do táxi.](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
+   ![Figura do DataFrame do táxi.](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
 
 ## <a name="generate-test-and-validation-datasets"></a>Gerar conjuntos de dados de testes e de validação
 
 Depois de ter o conjunto de dados final, você pode dividir os data em conjuntos de treinamento e teste usando a função ```random_ split ``` no Spark. Usando os pesos fornecidos, essa função dividirá aleatoriamente os dados em: conjunto de dados de treinamento para o treinamento do modelo e no conjunto de dados de validação para teste.
 
 ```python
-# Random split dataset using Spark, convert Spark to Pandas
+# Random split dataset using Spark; convert Spark to pandas
 training_data, validation_data = taxi_df.randomSplit([0.8,0.2], 223)
 
 ```
@@ -143,20 +143,20 @@ ws = Workspace(workspace_name = workspace_name,
 
 ```
 
-## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Converter um dataframe em um conjunto de dados do Azure Machine Learning
-Para enviar um experimento remoto, converta seu conjunto de dados em um ```TabularDatset``` do Azure Machine Learning. Um [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa dados em um formato tabular, com base na análise dos arquivos fornecidos.
+## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Converter um DataFrame em um conjunto de dados do Azure Machine Learning
+Para enviar um experimento remoto, converta seu conjunto de dados em uma instância de ```TabularDatset``` do Azure Machine Learning. Um [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa dados em um formato tabular, com base na análise dos arquivos fornecidos.
 
-O código a seguir obtém o workspace existente e o armazenamento de dados padrão do Azure Machine Learning. Em seguida, ele passa o armazenamento de dados e os locais de arquivo para que o parâmetro de caminho crie um ```TabularDataset```. 
+O código a seguir obtém o workspace existente e o armazenamento de dados do Azure Machine Learning. Em seguida, ele passa o armazenamento de dados e os locais de arquivo para que o parâmetro de caminho crie uma instância de ```TabularDataset```. 
 
 ```python
 import pandas 
 from azureml.core import Dataset
 
-# Get the Azure Machine Learning Default Datastore
+# Get the Azure Machine Learning default datastore
 datastore = ws.get_default_datastore()
 training_pd = training_data.toPandas().to_csv('training_pd.csv', index=False)
 
-# Convert into Azure Machine Learning Tabular Dataset
+# Convert into an Azure Machine Learning tabular dataset
 datastore.upload_files(files = ['training_pd.csv'],
                        target_path = 'train-dataset/tabular/',
                        overwrite = True,
@@ -215,12 +215,12 @@ local_run = experiment.submit(automl_config, show_output=True, tags = tags)
 # Use the get_details function to retrieve the detailed output for the run.
 run_details = local_run.get_details()
 ```
-Quando o experimento for concluído, a saída retornará detalhes sobre as iterações realizadas. Para cada iteração, você vê o tipo de modelo, a duração da execução e a precisão do treinamento. O campo **BEST** monitora a melhor pontuação de treinamento com base no tipo de métrica.
+Quando o experimento for concluído, a saída retornará detalhes sobre as iterações realizadas. Para cada iteração, você vê o tipo de modelo, a duração da execução e a precisão do treinamento. O campo `BEST` monitora a melhor pontuação de treinamento com base no tipo de métrica.
 
 ![Captura de tela da saída do modelo.](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
-> Depois de enviar o experimento de machine learning automatizado, ele executa várias iterações e tipos de modelo. Essa execução geralmente leva 60-90 minutos. 
+> Depois de enviar o experimento de machine learning automatizado, ele executa várias iterações e tipos de modelo. Essa execução geralmente leva 60 a 90 minutos. 
 
 ### <a name="retrieve-the-best-model"></a>Recuperar o melhor modelo
 Para selecionar o melhor modelo das iterações, use a função ```get_output``` para retornar o melhor modelo executado e ajustado. O código a seguir recupera o modelo de melhor execução e ajuste para qualquer métrica registrada em log ou uma iteração específica.
@@ -231,7 +231,7 @@ best_run, fitted_model = local_run.get_output()
 ```
 
 ### <a name="test-model-accuracy"></a>Testar a precisão do modelo
-1. Para testar a precisão do modelo, use o melhor modelo para executar previsões de tarifa de táxi no conjunto de dados de teste. A função ```predict``` usa o melhor modelo e prevê os valores de y (valor da tarifa) com base no conjunto de dados de validação. 
+1. Para testar a precisão do modelo, use o melhor modelo para executar previsões de tarifa de táxi no conjunto de dados de teste. A função ```predict``` usa o melhor modelo e prevê os valores de `y` (valor da tarifa) com base no conjunto de dados de validação. 
 
    ```python
    # Test best model accuracy
@@ -240,15 +240,15 @@ best_run, fitted_model = local_run.get_output()
    y_predict = fitted_model.predict(validation_data_pd)
    ```
 
-1. A raiz do erro quadrático médio é uma medida usada com frequência das diferenças entre os valores da amostra previstos por um modelo e os valores observados. Você calcula a raiz do erro quadrático médio dos resultados comparando o dataframe `y_test` com os valores previstos pelo modelo. 
+1. A raiz do erro quadrático médio é uma medida usada com frequência das diferenças entre os valores da amostra previstos por um modelo e os valores observados. Você calcula a raiz do erro quadrático médio dos resultados comparando o DataFrame `y_test` com os valores previstos pelo modelo. 
 
-   A função ```mean_squared_error``` usa duas matrizes e calcula o erro médio quadrático entre elas. Em seguida, você obtém a raiz quadrada do resultado. Essa métrica indica aproximadamente o quão distantes as previsões das tarifas de táxi estão dos valores das tarifas reais.
+   A função ```mean_squared_error``` usa duas matrizes e calcula o erro médio quadrático entre elas. Em seguida, você obtém a raiz quadrada do resultado. Essa métrica indica aproximadamente o quão distantes as previsões das tarifas de táxi estão dos valores de tarifa reais.
 
    ```python
    from sklearn.metrics import mean_squared_error
    from math import sqrt
 
-   # Calculate Root Mean Square Error
+   # Calculate root-mean-square error
    y_actual = y_test.values.flatten().tolist()
    rmse = sqrt(mean_squared_error(y_actual, y_predict))
 
@@ -265,7 +265,7 @@ best_run, fitted_model = local_run.get_output()
 1. Execute o código a seguir para calcular o erro percentual absoluto médio. Essa métrica expressa a precisão como um percentual do erro. Ela faz isso calculando uma diferença absoluta entre cada valor previsto e real, somando todas as diferenças depois. Em seguida, ela expressa essa soma como um percentual do total de valores reais.
 
    ```python
-   # Calculate MAPE and Model Accuracy 
+   # Calculate mean-absolute-percent error and model accuracy 
    sum_actuals = sum_errors = 0
 
    for actual_val, predict_val in zip(y_actual, y_predict):
@@ -301,26 +301,26 @@ best_run, fitted_model = local_run.get_output()
    import numpy as np
    from sklearn.metrics import mean_squared_error, r2_score
 
-   # Calculate the R2 score using the predicted and actual fare prices
+   # Calculate the R2 score by using the predicted and actual fare prices
    y_test_actual = y_test["fareAmount"]
    r2 = r2_score(y_test_actual, y_predict)
 
-   # Plot the Actual vs Predicted Fare Amount Values
+   # Plot the actual versus predicted fare amount values
    plt.style.use('ggplot')
    plt.figure(figsize=(10, 7))
    plt.scatter(y_test_actual,y_predict)
    plt.plot([np.min(y_test_actual), np.max(y_test_actual)], [np.min(y_test_actual), np.max(y_test_actual)], color='lightblue')
    plt.xlabel("Actual Fare Amount")
    plt.ylabel("Predicted Fare Amount")
-   plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
+   plt.title("Actual vs Predicted Fare Amount R^2={}".format(r2))
    plt.show()
 
    ```
-   ![Captura de tela do gráfico de regressão.](./media/azure-machine-learning-spark-notebook/fare-amount.png)
+   ![Captura de tela de um gráfico de regressão.](./media/azure-machine-learning-spark-notebook/fare-amount.png)
 
    Com base nos resultados, você pode ver que a medida R-quadrado corresponde a 95% da variância. Isso também é validado pelo gráfico real versus o gráfico observado. Quanto mais variância for contabilizada pelo modelo de regressão, mais próximo os pontos de dados se encaixarão na linha de regressão ajustada.  
 
-## <a name="register-model-to-azure-machine-learning"></a>Registrar o modelo no Azure Machine Learning
+## <a name="register-the-model-to-azure-machine-learning"></a>Registrar o modelo no Azure Machine Learning
 Depois de validar seu melhor modelo, você pode registrá-lo no Azure Machine Learning. Em seguida, você pode baixar ou implantar o modelo registrado e receber todos os arquivos que registrou.
 
 ```python
@@ -333,9 +333,9 @@ print(model.name, model.version)
 NYCGreenTaxiModel 1
 ```
 ## <a name="view-results-in-azure-machine-learning"></a>Exibir resultados no Azure Machine Learning
-Por fim, você também pode acessar os resultados das iterações acessando o experimento no workspace do Azure Machine Learning. Lá você pode se aprofundar em mais detalhes sobre o status da execução, as tentativas de modelos e outras métricas do modelo. 
+Você também pode acessar os resultados das iterações acessando o experimento no Workspace do Azure Machine Learning. Lá você pode obter mais detalhes sobre o status da execução, as tentativas de modelos e outras métricas do modelo. 
 
-![Captura de tela do workspace do Azure Machine Learning.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
+![Captura de tela de um Workspace do Azure Machine Learning.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Azure Synapse Analytics](../index.yml)

@@ -3,7 +3,7 @@ title: Publicar aplicativos locais com o Proxy de Aplicativo do Azure AD
 description: Entenda por que usar o Proxy de Aplicativo para publicar aplicativos Web locais externamente para usuários remotos. Saiba mais sobre a arquitetura, conectores, métodos de autenticação e benefícios de segurança do Proxy de Aplicativo.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 02b08e6fcdd6714886f8afea1c0a461eb6128fe4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 1569e577ec535a4680cfaec6f7975c056275ecbe
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832634"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258771"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Usar o Proxy de Aplicativo do Azure AD para publicar aplicativos locais para usuários remotos
 

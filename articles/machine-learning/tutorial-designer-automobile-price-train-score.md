@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796101"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879790"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço de automóvel com o designer
 
@@ -103,7 +103,7 @@ Há vários conjuntos de dados de exemplo incluídos no designer para que você 
 
 Você pode visualizar os dados para entender o conjunto de dados que será usado.
 
-1. Clique com o botão direito do mouse nos **Dados de preço do automóvel (Brutos)** e selecione **Visualizar**.
+1. Clique com o botão direito do mouse nos **Dados de preço do automóvel (Brutos)** e selecione **Visualizar** > **Saída do conjunto de dados**.
 
 1. Selecione as diferentes colunas na janela de dados para exibir informações sobre cada um.
 
@@ -284,7 +284,7 @@ Agora que o pipeline está configurado, você poderá enviar uma execução de p
 
 Depois que a execução for concluída, você poderá exibir os resultados da execução do pipeline. Primeiro, examine as previsões geradas pelo modelo de regressão.
 
-1. Clique com o botão direito do mouse no módulo **Modelo de Pontuação** e selecione **Visualizar** para ver a saída dele.
+1. Clique com o botão direito do mouse no módulo **Modelo de Pontuação** e selecione **Visualizar** > **Conjunto de dados pontuado** para ver a saída dele.
 
     Aqui você poderá ver os preços previstos e os preços reais dos dados de teste.
 
@@ -294,7 +294,7 @@ Depois que a execução for concluída, você poderá exibir os resultados da ex
 
 Use **Avaliar Modelo** para ver como o desempenho do modelo treinado no conjunto de dados de teste.
 
-1. Clique com o botão direito do mouse no módulo **Modelo de Avaliação** e selecione **Visualizar** para ver a saída dele.
+1. Clique com o botão direito do mouse no módulo **Avaliar Modelo** e selecione **Visualizar** > **Resultados da avaliação** para ver a saída dele.
 
 As seguintes estatísticas são mostradas para o modelo:
 

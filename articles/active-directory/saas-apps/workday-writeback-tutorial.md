@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 3a623a487dd31caf8c85b18771d90e3a6306df68
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359724"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953997"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configurar o write-back de atributo do Azure AD para o Workday
 O objetivo deste tutorial é mostrar as etapas que você precisará executar para fazer write-back dos atributos do Azure AD para o Workday. O aplicativo de provisionamento de Write-back do Workday dá suporte à atribuição de valores aos seguintes atributos do Workday:
@@ -172,6 +172,7 @@ Depois que as configurações do aplicativo de provisionamento do Workday tivere
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Saiba mais sobre os cenários de integração do Azure AD e do Workday e as chamadas de serviço Web](../app-provisioning/workday-integration-reference.md)
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](workday-tutorial.md)
 * [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](tutorial-list.md)

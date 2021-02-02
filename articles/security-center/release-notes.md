@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 01/27/2021
 ms.author: memildin
-ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5dd58dd5f43481184b17ca4bdd694a1df76697db
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784924"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916449"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -46,6 +46,7 @@ As atualizações em janeiro incluem:
 - [35 recomendações de versão prévia adicionadas para aumentar a cobertura do Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [Exportação de CSV da lista de recomendações filtrada](#csv-export-of-filtered-list-of-recommendations)
 - [Recursos "não aplicáveis" que agora são relatados como "em conformidade" nas avaliações do Azure Policy](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
+- [Exportar instantâneos semanais da classificação de segurança e dos dados de conformidade regulatória com exportação contínua (versão prévia)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
 
 
 ### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>O Azure Security Benchmark agora é a iniciativa de política padrão da Central de Segurança do Azure
@@ -110,7 +111,7 @@ Saiba mais sobre os [controles de segurança e classificação de segurança na 
 
 ### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Proteções de DNS pendentes e adicionadas ao Azure Defender para o Serviço de Aplicativo
 
-As tomadas de controle de subdomínios são uma ameaça comum de gravidade alta para as organizações. Uma tomada de controle de subdomínio poderá ocorrer quando um registro DNS indicar um site desprovisionado. Esses registros DNS também são conhecidos como entradas "DNS pendentes". Os registros CNAME são particularmente vulneráveis a essa ameaça. 
+As invasões de subdomínios são uma ameaça comum de gravidade alta para as organizações. Uma tomada de controle de subdomínio poderá ocorrer quando um registro DNS indicar um site desprovisionado. Esses registros DNS também são conhecidos como entradas "DNS pendentes". Os registros CNAME são particularmente vulneráveis a essa ameaça. 
 
 As tomadas de controle de subdomínios permitem que agentes de ameaça redirecionem o tráfego destinado ao domínio de uma organização para um site que executa atividades mal-intencionadas.
 
@@ -224,6 +225,18 @@ Anteriormente, os recursos avaliados com o objetivo de obter uma recomendação 
 O único impacto será visto no Azure Policy, em que o número de recursos em conformidade aumentará. Não haverá nenhum impacto na sua classificação de segurança na Central de Segurança do Azure.
 
 
+### <a name="export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview"></a>Exportar instantâneos semanais da classificação de segurança e dos dados de conformidade regulatória com exportação contínua (versão prévia)
+
+Adicionamos uma versão prévia do recurso às ferramentas de [exportação contínua](continuous-export.md) para exportar instantâneos semanais de classificação de segurança e dados de conformidade regulatória.
+
+Ao definir uma exportação contínua, defina a frequência de exportação:
+
+:::image type="content" source="media/release-notes/export-frequency.png" alt-text="Como escolher a frequência da exportação contínua":::
+
+- **Streaming** – as avaliações serão enviadas em tempo real quando o estado de integridade de um recurso for atualizado (se nenhuma atualização ocorrer, nenhum dado será enviado).
+- **Instantâneos** – um instantâneo do estado atual de todas as avaliações de conformidade regulatória será enviado a cada semana (essa é uma versão prévia do recurso para instantâneos semanais de classificações de segurança e dados de conformidade regulatória).
+
+Saiba mais sobre as funcionalidades completas desse recurso em [Exportar continuamente os dados da Central de Segurança](continuous-export.md)
 
 ## <a name="december-2020"></a>Dezembro de 2020
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: dbddf35b0aa1494ef719803fa84cafae04f3ec50
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e2a71313294457e09e2bb152dea98c84b7730236
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178575"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754407"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Início Rápido: Adicionar a entrada da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET
 
@@ -169,7 +169,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | ID do aplicativo referente ao aplicativo registrado no portal do Azure |
 > | `Authority`    | O ponto de extremidade do STS para o usuário autenticar. Geralmente `https://login.microsoftonline.com/{tenant}/v2.0` para a nuvem pública, em que {tenant} é o nome do seu locatário, sua Id do locatário ou *common* para uma referência ao ponto de extremidade comum (usado para aplicativos multilocatário) |
-> | `RedirectUri`  | URL à qual os usuários são enviados após a autenticação com relação ao ponto de extremidade da plataforma de identidade da Microsoft |
+> | `RedirectUri`  | URL à qual os usuários são enviados após a autenticação com relação à plataforma de identidade da Microsoft |
 > | `PostLogoutRedirectUri`     | URL à qual os usuários são enviados após saírem |
 > | `Scope`     | A lista de escopos que estão sendo solicitados, separados por espaços |
 > | `ResponseType`     | Solicitação de que a resposta da autenticação contenha um token de ID |

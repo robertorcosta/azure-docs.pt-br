@@ -3,7 +3,7 @@ title: Exemplo do PowerShell – listar informações estendidas para aplicativo
 description: Exemplo do PowerShell que lista todos os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory) junto com a ID do aplicativo (AppId), o nome (DisplayName), a URL externa (ExternalUrl), a URL interna (InternalUrl) e o tipo de autenticação (ExternalAuthenticationType).
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 62dae175b529bd54b2f139eece89bbde6f98cd38
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ccd0c7be7fd0dd533028faa0dc2bbdad30d74c79
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055001"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258652"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Obter todos os aplicativos do Proxy de Aplicativo e listar informações estendidas
 

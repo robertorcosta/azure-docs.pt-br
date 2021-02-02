@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 8c0dd9713c673ad676058acc7dbbb3cb5a65362e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 2f141b896ef11fecdf156d062a78252ce6f7ffb3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929184"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734976"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Usar sinalizadores de recursos em um aplicativo ASP.NET Core
 
@@ -37,7 +37,6 @@ Neste tutorial, você aprenderá a:
 ## <a name="set-up-feature-management"></a>Configurar o gerenciamento de recursos
 
 Adicione uma referência aos pacotes do NuGet `Microsoft.FeatureManagement.AspNetCore` e `Microsoft.FeatureManagement` para utilizar o gerenciador de recursos do .NET Core.
-    
 O gerenciador de recursos `IFeatureManager` do .NET Core obtém os sinalizadores de recursos do sistema de configuração nativa da estrutura. Como resultado, você pode definir os sinalizadores de recursos do aplicativo usando qualquer fonte de configuração compatível com o .NET Core, incluindo o arquivo *appsettings.json* local ou variáveis de ambiente. O `IFeatureManager` se baseia na injeção de dependência do .NET Core. Você pode registrar os serviços de gerenciamento de recursos usando convenções padrão:
 
 ```csharp
@@ -106,16 +105,23 @@ A maneira mais fácil de conectar seu aplicativo ASP.NET Core à Configuração 
               .UseStartup<Startup>();
    ```
 
-2. Abra *Startup.cs* e atualize o método `Configure` para adicionar o middleware interno chamado `UseAzureAppConfiguration`. Esse middleware permite que os valores de sinalizador de recurso sejam atualizados em um intervalo recorrente enquanto o aplicativo Web ASP.NET Core continua recebendo solicitações.
+2. Abra *Startup.cs* e atualize o método `Configure` e `ConfigureServices` para adicionar o middleware interno chamado `UseAzureAppConfiguration`. Esse middleware permite que os valores de sinalizador de recurso sejam atualizados em um intervalo recorrente enquanto o aplicativo Web ASP.NET Core continua recebendo solicitações.
 
    ```csharp
-   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
        app.UseAzureAppConfiguration();
        app.UseMvc();
    }
    ```
 
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddAzureAppConfiguration();
+   }
+   ```
+   
 Os valores de sinalizadores de recurso devem ser alterados ao longo do tempo. Por padrão, os valores de sinalizador de recurso são armazenados em cache por um período de 30 segundos, de modo que uma operação de atualização disparada quando o middleware recebe uma solicitação não atualizará o valor até que o valor armazenado em cache expire. O seguinte código mostra como alterar a hora de expiração do cache ou o intervalo de sondagem para 5 segundos na chamada `options.UseFeatureFlags()`.
 
 ```csharp
@@ -189,6 +195,8 @@ if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 No ASP.NET Core MVC, você pode acessar o gerenciador de recursos `IFeatureManager` por meio da injeção de dependência:
 
 ```csharp
+using Microsoft.FeatureManagement;
+
 public class HomeController : Controller
 {
     private readonly IFeatureManager _featureManager;

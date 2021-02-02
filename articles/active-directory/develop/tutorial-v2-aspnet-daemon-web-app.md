@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015939"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937822"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Criar um daemon multilocatário que usa a plataforma de identidade da Microsoft
 
@@ -49,7 +49,7 @@ Como o aplicativo é multilocatário para clientes empresariais da Microsoft, el
 
 ![O diagrama mostra o Aplicativo UserSync com três itens locais que se conectam ao Azure. O Start dot Auth adquire um token interativamente para se conectar ao Azure AD, o AccountController obtém o consentimento do administrador para se conectar ao Azure AD e o SyncController lê o usuário para se conectar ao Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
-Para obter mais informações sobre os conceitos usados neste exemplo, leia a [documentação do protocolo de credenciais do cliente do ponto de extremidade da plataforma de identidade](v2-oauth2-client-creds-grant-flow.md).
+Para obter mais informações sobre os conceitos usados neste exemplo, leia a [documentação do protocolo de credenciais do cliente da plataforma de identidade](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="clone-or-download-this-repository"></a>Clonar ou baixar este repositório
 
@@ -109,7 +109,7 @@ Se você não quiser usar a automação, use as etapas nas seções a seguir.
 1. Selecione **Registrar** para criar o aplicativo.
 1. Na página **Visão geral** do aplicativo, localize o valor de **ID do Aplicativo (cliente)** e registre-o para uso posterior. Você precisará dele para definir o arquivo de configuração do Visual Studio para este projeto.
 1. Em **Gerenciar**, selecione **Autenticação**.
-1. Defina **URL de Logoff** como `https://localhost:44316/Account/EndSession`.
+1. Defina **URL de logoff de front-channel** para `https://localhost:44316/Account/EndSession`.
 1. Na seção **Concessão implícita**, selecione **Tokens de acesso** e **Tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário e chamar uma API.
 1. Clique em **Salvar**.
 1. Em **Gerenciar**, selecione **Certificados e Segredos**.
@@ -227,7 +227,7 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador na U
 1. Retorne ao <a href="https://portal.azure.com/" target="_blank">portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. No painel à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, **Registros de aplicativo**.
 1. Selecione o aplicativo **dotnet-web-daemon-v2**.
-1. Na página **Autenticação** do seu aplicativo, atualize os campos de **URL de Logout** com o endereço do seu serviço. Por exemplo, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. Na página **Autenticação** do seu aplicativo, atualize os campos de **URL de logoff de front-channel** com o endereço do seu serviço. Por exemplo, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
 1. No menu de **Identidade Visual**, atualize a **URL da página inicial** para o endereço do serviço. Por exemplo, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Salve a configuração.
 1. Adicione a mesma URL na lista de valores do menu **Autenticação** > **URIs de Redirecionamento**. Se você tiver várias URLs de redirecionamento, verifique se há uma nova entrada que usa o URI do serviço de aplicativo para cada URL de redirecionamento.

@@ -1,15 +1,15 @@
 ---
 title: Detalhes de Conformidade Regulatória para CIS Microsoft Azure Foundations Benchmark
 description: Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 01/08/2021
+ms.date: 01/25/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 4cc68cb3549f5b5dd3342fd3f60214c6e3ca5ae0
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 85467c086225c4d9e7699debb9871dbd197ebfd2
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046202"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807066"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark
 
@@ -23,7 +23,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 > [!IMPORTANT]
 > Cada controle abaixo está associado com uma ou mais definições do [Azure Policy](../overview.md).
-> Essas políticas podem ajudar você a [avaliar a conformidade](../how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias definições de política e não garante que você esteja em conformidade total com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre os domínios de conformidade, os controles e as definições do Azure Policy para este padrão de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json).
+> Essas políticas podem ajudar você a [avaliar a conformidade](../how-to/get-compliance-data.md) com o controle. No entanto, geralmente não há uma correspondência um para um ou completa entre um controle e uma ou mais políticas. Dessa forma, **Conformidade** no Azure Policy refere-se somente às próprias definições de política e não garante que você esteja em conformidade total com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição do Azure Policy no momento. Portanto, a conformidade no Azure Policy é somente uma exibição parcial do status de conformidade geral. As associações entre os domínios de conformidade, os controles e as definições do Azure Policy para este padrão de conformidade podem ser alteradas ao longo do tempo. Para exibir o histórico de alterações, confira o [Histórico de Confirmações do GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json).
 
 ## <a name="identity-and-access-management"></a>Gerenciamento de Identidades e Acesso
 
@@ -63,6 +63,14 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 |[Não devem existir funções personalizadas de proprietário de assinatura](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |Essa política garante que não exista nenhuma função personalizada de proprietário de assinatura. |Audit, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
 
 ## <a name="security-center"></a>Central de Segurança
+
+### <a name="ensure-that-standard-pricing-tier-is-selected"></a>Verificar se o tipo de preço Standard foi selecionado
+
+**ID**: CIS Azure 2.1 **Propriedade**: Cliente
+
+|Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[O tipo de preço Standard da Central de Segurança deve ser selecionado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |O tipo de preço standard habilita a detecção de ameaças para redes e máquinas virtuais, fornecendo inteligência contra ameaças, detecção de anomalias e análise de comportamento na Central de Segurança do Azure |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Verificar se 'Provisionamento automático do agente de monitoramento' está definido como 'Ativo'
 
@@ -127,7 +135,7 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Monitora as vulnerabilidades detectadas pela solução de Avaliação de Vulnerabilidade e VMs sem uma solução de Avaliação de Vulnerabilidade na Central de Segurança do Azure como recomendações. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
+|[Uma solução de avaliação de vulnerabilidade deve ser habilitada nas máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Audita as máquinas virtuais para detectar se elas estão executando uma solução de avaliação de vulnerabilidade compatível. Um componente principal de cada programa de segurança e risco cibernético é a identificação e a análise das vulnerabilidades. O tipo de preço padrão da Central de Segurança do Azure inclui a verificação de vulnerabilidade para as máquinas virtuais sem custo adicional. Além disso, a Central de Segurança pode implantar essa ferramenta automaticamente para você. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Garantir que a configuração padrão da política do ASC "Monitorar o Acesso à Rede JIT" não esteja "Desabilitada"
 
@@ -169,14 +177,6 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 |---|---|---|---|
 |[As assinaturas devem ter um endereço de email de contato para problemas de segurança](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7) |Para que as pessoas relevantes em sua organização sejam notificadas quando houver uma potencial violação de segurança em uma das suas assinaturas, defina um contato de segurança para receber notificações por email da Central de Segurança. |AuditIfNotExists, desabilitado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_email.json) |
 
-### <a name="ensure-that-security-contact-phone-number-is-set"></a>Garantir que a opção 'Número de telefone de contato de segurança' esteja definida
-
-**ID**: CIS Azure 2.17 **Propriedade**: Cliente
-
-|Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-|[Um número de telefone de contato de segurança deve ser fornecido para a sua assinatura](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4d66858-c922-44e3-9566-5cdb7a7be744) |Insira um número de telefone para receber notificações quando a Central de Segurança do Azure detectar recursos comprometidos |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_phone_number.json) |
-
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>Garantir que a opção 'Enviar notificação por email para alertas de severidade alta' seja definida como 'Ativado'
 
 **ID**: CIS Azure 2.18 **Propriedade**: Cliente
@@ -202,6 +202,14 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[A transferência segura para contas de armazenamento deve ser habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Exigência de auditoria de transferência segura em sua conta de armazenamento. A transferência segura é uma opção que força a sua conta de armazenamento a aceitar somente solicitações de conexões seguras (HTTPS). O uso de HTTPS garante a autenticação entre o servidor e o serviço e protege dados em trânsito de ataques de camada de rede, como ataques intermediários, interceptação e sequestro de sessão |Audit, Deny, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+
+### <a name="ensure-that-public-access-level-is-set-to-private-for-blob-containers"></a>Verificar se "Nível de acesso público" está definido como Privado para contêineres de blobs
+
+**ID**: CIS Azure 3.6 **Propriedade**: Cliente
+
+|Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[O acesso público da conta de armazenamento não deve ser permitido](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |O acesso de leitura público anônimo a contêineres e blobs no Armazenamento do Azure é uma forma conveniente de compartilhar dados, mas pode representar riscos de segurança. Para evitar violações de dados causadas por acesso anônimo indesejado, a Microsoft recomenda impedir o acesso público a uma conta de armazenamento, a menos que o seu cenário exija isso. |auditar, negar, desabilitado |[2.0.1 – versão prévia](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Garantir que a regra de acesso de rede padrão para Contas de Armazenamento estejam definidas como negar
 
@@ -360,6 +368,14 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[O Azure Monitor deve coletar os logs de atividades de todas as regiões](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Essa política audita o perfil de log do Azure Monitor que não exporta atividades de todas as regiões com suporte do Azure, incluindo global. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
+
+### <a name="ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible"></a>Verificar se o contêiner que armazena os logs de atividade não está acessível publicamente
+
+**ID**: CIS Azure 5.1.5 **Propriedade**: Cliente
+
+|Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[O acesso público da conta de armazenamento não deve ser permitido](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |O acesso de leitura público anônimo a contêineres e blobs no Armazenamento do Azure é uma forma conveniente de compartilhar dados, mas pode representar riscos de segurança. Para evitar violações de dados causadas por acesso anônimo indesejado, a Microsoft recomenda impedir o acesso público a uma conta de armazenamento, a menos que o seu cenário exija isso. |auditar, negar, desabilitado |[2.0.1 – versão prévia](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Garanta que a conta de armazenamento que tem o contêiner com logs de atividades seja criptografada com BYOK (Bring Your Own Key)
 
@@ -526,6 +542,22 @@ Essa iniciativa interna é implantada como parte da [Amostra de blueprint do CIS
 |[Monitorar o Endpoint Protection ausente na Central de Segurança do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |Servidores sem um agente do Endpoint Protection instalado serão monitorados pela Central de Segurança do Azure como recomendações |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
 ## <a name="other-security-considerations"></a>Outras considerações de segurança
+
+### <a name="ensure-that-the-expiration-date-is-set-on-all-keys"></a>Verifique se a data de validade está definida em todas as chaves
+
+**ID**: CIS Azure 8.1 **Propriedade**: Cliente
+
+|Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[As chaves do Key Vault devem ter uma data de validade](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |As chaves de criptografia devem ter uma data de validade definida e não ser permanentes. As chaves válidas para sempre dão a um invasor potencial mais tempo para comprometer a chave. Uma prática de segurança recomendada é definir as datas de validade em chaves de criptografia. |Audit, Deny, desabilitado |[1.0.1 – versão prévia](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
+
+### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>Verifique se a data de validade está definida em todos os segredos
+
+**ID**: CIS Azure 8.2 **Propriedade**: Cliente
+
+|Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Os segredos do Key Vault devem ter uma data de validade](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) |Os segredos devem ter uma data de validade definida e não ser permanentes. Os segredos são válidos para sempre dão a um invasor potencial mais tempo para comprometê-las. Uma prática de segurança recomendada é definir datas de validade nos segredos. |Audit, Deny, desabilitado |[1.0.1 – versão prévia](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ExpirationSet.json) |
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Garantir que o cofre de chaves seja recuperável
 

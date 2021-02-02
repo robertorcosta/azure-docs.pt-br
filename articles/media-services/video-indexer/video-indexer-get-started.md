@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/30/2020
+ms.date: 01/25/2021
 ms.author: juliako
-ms.openlocfilehash: 7099b0d303965b987fb316170738cc82568dc6d6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 5b38c731db141052e6700472020cd60b6a4d13a5
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505590"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797796"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início Rápido: Como inscrever-se e atualizar seu primeiro vídeo
 
@@ -57,7 +57,11 @@ Confira o artigo [contêiner de entrada/formatos de arquivo](../latest/media-enc
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Carregou o upload":::
- 
+
+## <a name="supported-browsers"></a>Navegadores com suporte
+
+Para mais informações, confira [navegadores com suporte](video-indexer-overview.md#supported-browsers).
+
 ## <a name="see-also"></a>Veja também
 
 Confira [Carregar e indexar vídeos](upload-index-videos.md) para obter mais detalhes.

@@ -4,12 +4,12 @@ description: Fornece uma visão geral do serviço de Backup do Azure e como impl
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 805fa81362b9f90c1d6ba468caaf4b6745e42c62
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 6a30e31dd1462e427faf64966a38c94f9fa56df6
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746107"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624465"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de Backup do Azure?
 
@@ -21,6 +21,7 @@ O serviço de Backup do Azure fornece soluções simples, seguras e econômicas 
 
 - **Local** – faça backup de arquivos, de pastas e do estado do sistema usando o [agente MARS (Serviços de Recuperação do Microsoft Azure)](backup-support-matrix-mars-agent.md). Ou, então, use o Agente do DPM ou do MABS (Servidor de Backup do Azure) para proteger as VMs locais ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) e [VMware](backup-azure-backup-server-vmware.md)) e outras [cargas de trabalho locais](backup-mabs-protection-matrix.md)
 - **VMs do Azure** - [Faça backup de VMs do Windows/Linux inteiras](backup-azure-vms-introduction.md) (usando extensões de backup) ou faça backup de arquivos, de pastas e do estado do sistema usando o [agente MARS](backup-azure-manage-mars.md).
+- **Azure Managed Disks** - [Backup do Azure Managed Disks (em versão prévia)](backup-managed-disks.md)
 - **Compartilhamentos dos Arquivos do Azure** - [Faça backup de compartilhamentos dos Arquivos do Azure para uma conta de armazenamento](backup-afs.md)
 - **SQL Server em VMs do Azure** -  [Faça backup de bancos de dados do SQL Server em execução nas VMs do Azure](backup-azure-sql-database.md)
 - **Bancos de dados do SAP HANA em VMs do Azure** - [Faça backup de bancos de dados do SAP HANA em execução nas VMs do Azure](backup-azure-sap-hana-database.md)

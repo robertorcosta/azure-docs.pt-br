@@ -11,18 +11,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/11/2020
+ms.date: 01/28/2021
 ms.author: memildin
-ms.openlocfilehash: bbc36dbb2a17d379d31a9a235898500aea36247d
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: f8d92ff0835948637761d7d2a98ec95a1c6dfccd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533903"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944219"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Melhorar sua conformidade regulatória
 
-A Central de Segurança do Azure ajuda a simplificar o processo para atender aos requisitos de conformidade regulatória, usando o **painel de conformidade regulatória**. No painel, a Central de Segurança fornece insights sobre sua postura de conformidade, com base em avaliações contínuas de seu ambiente do Azure. A Central de Segurança analisa fatores de risco em seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Essas avaliações são mapeadas para controles de conformidade de um conjunto compatível de padrões. No painel de conformidade regulatória, você pode ver o status de todas as avaliações em seu ambiente no contexto de um padrão ou regulamento específico. Conforme você tomar decisões com base nas recomendações e reduzir os fatores de risco em seu ambiente, sua postura de conformidade melhorará.
+A Central de Segurança do Azure ajuda a simplificar o processo para atender aos requisitos de conformidade regulatória, usando o **painel de conformidade regulatória**. 
+
+A Central de Segurança executa avaliações contínuas de seu ambiente de nuvem híbrida para analisar os fatores de risco de acordo com os controles e as melhores práticas nos padrões aplicados às suas assinaturas. O painel reflete o status de sua conformidade com esses padrões. 
+
+Quando você habilita a Central de Segurança em uma assinatura do Azure, o [Azure Security Benchmark](../security/benchmarks/introduction.md) é automaticamente atribuído a ela. Esse parâmetro de comparação amplamente respeitado se baseia nos controles do [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) e do [NIST (National Institute of Standards and Technology)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+
+No painel de conformidade regulatória, você pode ver o status de todas as avaliações em seu ambiente no contexto de um padrão ou regulamento específico. Conforme você tomar decisões com base nas recomendações e reduzir os fatores de risco em seu ambiente, sua postura de conformidade melhorará.
 
 Neste tutorial, você aprenderá a:
 
@@ -41,17 +47,13 @@ Para acompanhar os recursos abordados neste tutorial:
 
 ##  <a name="assess-your-regulatory-compliance"></a>Avaliar sua conformidade regulatória
 
-A Central de Segurança avalia a configuração de seus recursos continuamente para identificar problemas de segurança e vulnerabilidades. Essas avaliações são apresentadas como recomendações, que se concentram na melhoria da higiene de segurança. No painel de conformidade regulatória, você pode ver um conjunto de padrões de conformidade com todos os requisitos, em que os requisitos compatíveis são mapeados para as avaliações de segurança aplicáveis. Isso permite que você exiba sua postura de conformidade em relação ao padrão, com base no status dessas avaliações.
+O painel de conformidade regulatória mostra os padrões de conformidade que você selecionou com todos os respectivos requisitos, em que os requisitos compatíveis são mapeados para as avaliações de segurança aplicáveis. O status dessas avaliações reflete sua conformidade com o padrão.
 
-A exibição do painel Conformidade regulatória pode ajudar você a concentrar sua atenção nas lacunas de conformidade com um padrão ou um regulamento importante para você. Essa exibição concentrada também possibilita que você monitore continuamente sua pontuação de conformidade ao longo do tempo em ambientes dinâmicos híbridos e de nuvem.
+Use o painel de conformidade regulatória como auxílio para concentrar sua atenção nas lacunas de conformidade com os padrões ou regulamentos que são importantes para você. Essa exibição concentrada também possibilita que você monitore continuamente sua conformidade ao longo do tempo em ambientes dinâmicos híbridos e de nuvem.
 
->[!NOTE]
-> Por padrão, a Central de Segurança dá suporte aos seguintes padrões regulatórios: Azure CIS, PCI DSS 3.2, ISO 27001 e SOC TSP. 
->
-> O recurso de [pacotes de conformidade dinâmica (versão prévia)](update-regulatory-compliance-packages.md) permite que você atualize os padrões mostrados em seu painel de conformidade regulatória para os novos pacotes *dinâmicos*. Você também pode usar a mesma versão prévia do recurso para adicionar novos pacotes de conformidade e monitorar a conformidade com padrões adicionais. 
+1. No menu da Central de Segurança, selecione **Conformidade regulatória**.
 
-1. No menu da Central de Segurança, selecione **Conformidade regulatória**. <br>
-Na parte superior da tela, você verá um painel com uma visão geral de seu status de conformidade com o conjunto de regulamentos de conformidade compatíveis. Você poderá ver sua pontuação geral de conformidade e o número de avaliações aprovadas vs. reprovadas associadas a cada padrão.
+    Na parte superior da tela, você verá um painel com uma visão geral de seu status de conformidade com o conjunto de regulamentos de conformidade compatíveis. Você poderá ver sua pontuação geral de conformidade e o número de avaliações aprovadas vs. reprovadas associadas a cada padrão.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Painel de conformidade regulatória":::
 
@@ -59,7 +61,7 @@ Na parte superior da tela, você verá um painel com uma visão geral de seu sta
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Explorando os detalhes da conformidade com um padrão específico":::
 
-1. Para gerar e fazer o download de um relatório em PDF que resuma seu status de conformidade atual para um padrão específico, clique em **Baixar o relatório**.
+1. Para gerar um relatório em PDF com um resumo do seu status de conformidade atual para um padrão específico, selecione **Baixar o relatório**.
 
     O relatório fornece um resumo de alto nível do status de conformidade para o padrão escolhido tendo como base os dados das avaliações da Central de Segurança e é organizado de acordo com os controles desse padrão específico. O relatório pode ser compartilhado com stakeholders relevantes e pode servir para fornecer evidências aos auditores internos e externos.
 
@@ -71,7 +73,7 @@ Considerando as informações do painel de conformidade regulatória, você pode
 
 1.  Clique em uma das avaliações reprovadas mostradas no painel para exibir os detalhes dessa recomendação. Cada recomendação inclui um conjunto de etapas de correção que devem ser seguidas para resolver o problema.
 
-1.  Selecione um recurso específico para exibir mais detalhes e resolva a recomendação para esse recurso. <br>Por exemplo, no **Azure CIS 1.1.0 (Novo) Standard**, você pode selecionar a recomendação **Criptografia de disco deve ser aplicada em máquinas virtuais**.
+1.  Selecione um recurso específico para exibir mais detalhes e resolva a recomendação para esse recurso. <br>Por exemplo, no padrão **Azure CIS 1.1.0**, você pode selecionar a recomendação **Criptografia de disco deve ser aplicada em máquinas virtuais**.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/sample-recommendation.png" alt-text="A seleção de uma recomendação de um padrão leva diretamente para a página de detalhes da recomendação":::
 

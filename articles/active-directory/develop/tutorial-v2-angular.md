@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 105353598a2af60c407bacf02b4527b2de84e450
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979922"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756153"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo de página única Angular
 
@@ -271,7 +271,7 @@ Por exemplo:
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
-Às vezes, você precisa que o usuário interaja com o ponto de extremidade da plataforma de identidade da Microsoft. Por exemplo:
+Às vezes, você precisa que o usuário interaja com a plataforma de identidade da Microsoft. Por exemplo:
 
 * Os usuários podem precisar reinserir as credenciais porque a senha expirou.
 * Seu aplicativo está solicitando acesso a escopos de recursos adicionais com os quais o usuário precisa concordar.
@@ -279,7 +279,7 @@ Por exemplo:
 
 O padrão recomendado para a maioria dos aplicativos é chamar `acquireTokenSilent` primeiro, depois capturar a exceção e, em seguida, chamar `acquireTokenPopup` (ou `acquireTokenRedirect`) para iniciar uma solicitação interativa.
 
-Chamar `acquireTokenPopup` resulta em uma janela pop-up de credenciais. Como alternativa, `acquireTokenRedirect` redireciona os usuários para o ponto de extremidade da plataforma de identidade da Microsoft. Nessa janela, os usuários precisam confirmar suas credenciais, dar consentimento ao recurso necessário ou realizar a autenticação de dois fatores.
+Chamar `acquireTokenPopup` resulta em uma janela pop-up de credenciais. Como alternativa, `acquireTokenRedirect` redireciona os usuários para a plataforma de identidade da Microsoft. Nessa janela, os usuários precisam confirmar suas credenciais, dar consentimento ao recurso necessário ou realizar a autenticação de dois fatores.
 
 ```javascript
   const requestObj = {
