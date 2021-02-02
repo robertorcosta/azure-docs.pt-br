@@ -11,14 +11,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2020
+ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: cfa68bde2462cefd6f690247cfd1e3bd2e3dbc74
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b90d703a44cf89961eb0dca02abb1b8ea9cff166
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489200"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259195"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidade de SAP HANA escalar verticalmente com Azure NetApp Files no Red Hat Enterprise Linux
 
@@ -91,6 +91,7 @@ Primeiro, leia os seguintes documentos e Notas SAP:
     - [Instale o SAP HANA no Red Hat Enterprise Linux para uso no Microsoft Azure.](https://access.redhat.com/solutions/3193782)
     - [Configurar a replicação do sistema de expansão SAP HANA do cluster pacemaker quando os sistemas de arquivos do HANA estiverem em compartilhamentos NFS](https://access.redhat.com/solutions/5156571)
 - [Aplicativos SAP NetApp no Microsoft Azure usando o Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
+- [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
 ## <a name="overview"></a>Visão geral
 
@@ -144,7 +145,7 @@ As instruções a seguir pressupõem que você já tenha implantado sua [rede vi
 
 3.  Configure um pool de capacidade Azure NetApp Files seguindo as instruções em [configurar um pool de capacidade Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-    A arquitetura do HANA apresentada neste artigo usa um único pool de capacidade de Azure NetApp Files no nível de *ultra* serviço. Para cargas de trabalho do HANA no Azure, é recomendável usar um *Premium* [nível de serviço](../../../azure-netapp-files/azure-netapp-files-service-levels.md)Azure NetApp files *ultra* ou Premium.
+    A arquitetura do HANA apresentada neste artigo usa um único pool de capacidade de Azure NetApp Files no nível de *ultra* serviço. Para cargas de trabalho do HANA no Azure, é recomendável usar um  [nível de serviço](../../../azure-netapp-files/azure-netapp-files-service-levels.md)Azure NetApp files *ultra* ou Premium.
 
 4.  Delegue uma sub-rede para Azure NetApp Files, conforme descrito nas instruções em [delegar uma sub-rede para Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
@@ -564,7 +565,7 @@ Neste exemplo, cada nó de cluster tem seus próprios sistemas de filenfs do HAN
 
    Verificar o status do cluster e de todos os recursos
    > [!NOTE]
-   > Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, nós o removeremos deste artigo.
+   > Este artigo contém referências ao termo *subordinado*, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
    
     ```
     sudo pcs status
@@ -694,3 +695,10 @@ Esta seção descreve como é possível testar a configuração.
     ```
 
    É recomendável testar exaustivamente a configuração de cluster SAP HANA, executando também os testes descritos em [instalação SAP Hana replicação do sistema no RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Planejamento e implementação de Máquinas Virtuais do Azure para o SAP][planning-guide]
+* [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
+* [Implantação do DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
+* [Volumes NFS v4.1 no Azure NetApp Files para SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)

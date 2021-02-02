@@ -3,7 +3,7 @@ title: Configurar o fluxo de trabalho de consentimento do administrador-Azure Ac
 description: Saiba como configurar uma maneira para os usuários finais solicitarem acesso a aplicativos que exigem consentimento de administrador.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9552d1a0c7bdb73dbcf739144a3ab9f746705664
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: b38b8cf38d2d75493ef50c4f206758c6289be079
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053356"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259580"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
 
@@ -49,7 +49,7 @@ Para habilitar o fluxo de trabalho de consentimento do administrador e escolher 
    * **Os usuários selecionados receberão lembretes de expiração de solicitação**. Habilitar ou desabilitar notificações de email de lembrete para os revisores quando uma solicitação estiver prestes a expirar.  
    * A **solicitação de consentimento expira após (dias)**. Especifique por quanto tempo as solicitações permanecem válidas.
 
-7. Selecione **Salvar**. Pode levar até uma hora para que o recurso fique habilitado.
+7. Clique em **Salvar**. Pode levar até uma hora para que o recurso fique habilitado.
 
 > [!NOTE]
 > Você pode adicionar ou remover revisores para este fluxo de trabalho modificando a lista **selecionar revisores de solicitações de consentimento de administrador** . Observe que uma limitação atual desse recurso é que os revisores podem reter a capacidade de revisar solicitações feitas enquanto foram designadas como um revisor.

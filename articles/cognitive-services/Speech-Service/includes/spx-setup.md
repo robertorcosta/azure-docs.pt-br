@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 68362b61aa0d919bd0e95f3cebb1cf1189f9f0f3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d6ae9585ce5b5a6f666a96ae8c5e7e9e3c5e248a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095167"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427330"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -29,14 +29,6 @@ Digite `spx` para ver a ajuda da CLI de Fala.
 > [!NOTE]
 > Como alternativa ao NuGet, você pode baixar e extrair o [arquivo .zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala, localizar e extrair sua plataforma do diretório `spx-zips` e adicionar o caminho `spx` à variável **PATH** do seu sistema.
 
-### <a name="run-the-speech-cli"></a>Executar a CLI de Fala
-
-1. Abra o prompt de comando ou o PowerShell e procure o diretório em que você extraiu a CLI de Fala.  
-2. Digite `spx` para ver os comandos de ajuda para a CLI de Fala.
-
-> [!NOTE]
-> O PowerShell não verifica o diretório local ao procurar um comando. No PowerShell, altere o diretório para a localização `spx` e chame a ferramenta inserindo `.\spx`.
-> Se você adicionar esse diretório ao caminho, o PowerShell e o prompt de comando do Windows encontrarão `spx` em qualquer diretório sem incluir o prefixo `.\`.
 
 ### <a name="font-limitations"></a>Limitações de fontes
 

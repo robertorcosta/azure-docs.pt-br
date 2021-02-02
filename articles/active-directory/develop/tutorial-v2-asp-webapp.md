@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 8b12df62a7080e57e47b52cb79ed8a67e12bd526
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 17cff66d3f8c816099bcc61322a1d331bfe58872
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753094"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226297"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicionar a entrada com a conta da Microsoft a um aplicativo Web ASP.NET
 
@@ -383,7 +383,7 @@ Para registrar seu aplicativo e adicionar as informações de registro do aplica
 1. Adicione a URL do SSL copiada do Visual Studio na etapa 1 (por exemplo, `https://localhost:44368/`) no **URI de Redirecionamento**.
 1. Selecione **Registrar**.
 1. Em **Gerenciar**, selecione **Autenticação**.
-1. Na seção **Concessão Implícita**, selecione **Tokens de ID** e, em seguida, **Salvar**.
+1. Na seção **Concessão Implícita e fluxos híbridos**, selecione **Tokens de ID** e, em seguida, **Salvar**.
 1. Adicione o seguinte ao arquivo web.config, localizado na pasta raiz, na seção `configuration\appSettings`:
 
     ```xml
