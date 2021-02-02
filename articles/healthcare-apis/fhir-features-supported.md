@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 0ee32d37ca8e3a32ba603fd84cee81890ddac98b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747518"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252110"
 ---
 # <a name="features"></a>Recursos
 
@@ -41,8 +41,8 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 | create                         | Sim       | Sim       | Sim       | Suporte para POST/PUT                               |
 | criar (condicional)           | Sim       | Sim       | Sim       | Problema [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | pequisa                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
-| pesquisa encadeada                 | Não        | Sim       | Não        |                                           |
-| pesquisa encadeada inversa         | Não        | Não        | Não        |                                            |
+| pesquisa encadeada                 | Não        | Sim       | Não        |                                                     |
+| pesquisa encadeada inversa         | Não        | Sim       | Não        |                                                     |
 | funcionalidades                   | Sim       | Sim       | Sim       |                                                     |
 | lote                          | Sim       | Sim       | Sim       |                                                     |
 | transaction                    | Não        | Sim       | Não        |                                                     |
@@ -72,39 +72,39 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 |`:exact`               | Sim       | Sim       | Sim       |         |
 |`:contains`            | Sim       | Sim       | Sim       |         |
 |`:text`                | Sim       | Sim       | Sim       |         |
+|`:[type]` referência  | Sim       | Sim       | Sim       |         |
+|`:not`                 | Sim       | Sim       | Sim       |         |
+|`:below` URI         | Sim       | Sim       | Sim       |         |
+|`:above` URI         | Não        | Não        | Não        | Problema [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 |`:in` token          | Não        | Não        | Não        |         |
 |`:below` token       | Não        | Não        | Não        |         |
 |`:above` token       | Não        | Não        | Não        |         |
 |`:not-in` token      | Não        | Não        | Não        |         |
-|`:[type]` referência  | Não        | Não        | Não        |         |
-|`:below` URI         | Sim       | Sim       | Sim       |         |
-|`:not`                 | Não        | Não        | Não        |         |
-|`:above` URI         | Não        | Não        | Não        | Problema [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Parâmetro de pesquisa comum | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
 |-------------------------| ----------| ----------| ----------|---------|
 | `_id`                   | Sim       | Sim       | Sim       |         |
 | `_lastUpdated`          | Sim       | Sim       | Sim       |         |
 | `_tag`                  | Sim       | Sim       | Sim       |         |
-| `_profile`              | Parcial   | Parcial   | Parcial   | Com suporte apenas em STU3, sem suporte em R4 |
+| `_list`                 | Sim       | Sim       | Sim       |         |
+| `_type`                 | Sim       | Sim       | Sim       | Problema [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
 | `_security`             | Sim       | Sim       | Sim       |         |
+| `_profile`              | Parcial   | Parcial   | Parcial   | Com suporte apenas em STU3, sem suporte em R4 |
 | `_text`                 | Não        | Não        | Não        |         |
 | `_content`              | Não        | Não        | Não        |         |
-| `_list`                 | Sim       | Sim       | Sim       |         |
 | `_has`                  | Não        | Não        | Não        |         |
-| `_type`                 | Sim       | Sim       | Sim       |         |
 | `_query`                | Não        | Não        | Não        |         |
 | `_filter`               | Não        | Não        | Não        |         |
 
 | Parâmetros de resultado da pesquisa | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_sort`                 | Parcial        | Parcial   | Parcial        |   `_sort=_lastUpdated` é compatível       |
+| `_elements`             | Sim       | Sim       | Sim       | Problema [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
 | `_count`                | Sim       | Sim       | Sim       | `_count` é limitado a 100 caracteres. Se definido como maior que 100, somente 100 será retornado e um aviso será retornado no grupo. |
 | `_include`              | Sim       | Sim       | Sim       |Os itens incluídos são limitados a 100. Incluir em PaaS e OSS no Cosmos DB não inclui: suporte a iteração.|
-| `_revinclude`           | Sim       | Sim       | Sim       | Os itens incluídos são limitados a 100. Incluir em PaaS e OSS no Cosmos DB não inclui: suporte a iteração.|
+| `_revinclude`           | Sim       | Sim       | Sim       | Os itens incluídos são limitados a 100. Incluir em PaaS e OSS no Cosmos DB não [inclui: suporte a iteração](https://github.com/microsoft/fhir-server/issues/1313). Problema [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é compatível |
-| `_total`                | Parcial   | Parcial   | Parcial   | _total = não e _total = preciso      |
-| `_elements`             | Sim       | Sim       | Sim       |         |
+| `_total`                | Parcial   | Parcial   | Parcial   | `_total=none` e `_total=accurate`      |
+| `_sort`                 | Parcial   | Parcial   | Parcial   |   `_sort=_lastUpdated` é compatível       |
 | `_contained`            | Não        | Não        | Não        |         |
 | `containedType`         | Não        | Não        | Não        |         |
 | `_score`                | Não        | Não        | Não        |         |

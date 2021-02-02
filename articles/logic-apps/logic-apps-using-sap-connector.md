@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: 93e705eea39443ffc15fbdd079e1376ec46cb51c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786683"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252603"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
@@ -529,6 +529,18 @@ Para obter mensagens de erro completas, verifique os logs estendidos do adaptado
 
 Para versões do gateway de dados locais de junho de 2020 e posteriores, você pode [habilitar os logs de gateway nas configurações do aplicativo](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app). 
 
+* O nível de log padrão é **aviso**.
+
+* Se você habilitar o  **log adicional** nas configurações de **diagnóstico** do aplicativo de gateway de dados local, o nível de log será aumentado para **informativo**.
+
+* Para aumentar o nível de log para **detalhado**, atualize a configuração a seguir no arquivo de configuração. Normalmente, o arquivo de configuração está localizado em `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config` .
+
+```json
+<setting name="SapTraceLevel" serializeAs="String">
+   <value>Verbose</value>
+</setting>
+```
+
 Para versões do gateway de dados locais de abril de 2020 e anteriores, os logs são desabilitados por padrão.
 
 ### <a name="extended-sap-logging-in-on-premises-data-gateway"></a>Registro em log do SAP estendido no gateway de dados local
@@ -717,7 +729,7 @@ Aqui está um exemplo que mostra como extrair IDocs individuais de um pacote usa
 
 1. Antes de começar, você precisa de um aplicativo lógico com um gatilho SAP. Se você ainda não tiver esse aplicativo lógico, siga as etapas anteriores neste tópico para [configurar um aplicativo lógico com um gatilho do SAP](#receive-message-from-sap).
 
-   Por exemplo:
+   Por exemplo: 
 
    ![Adicionar gatilho SAP ao aplicativo lógico](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 

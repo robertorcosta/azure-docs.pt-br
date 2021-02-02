@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e75786c42b54882c249b5ed7100ebd12f3f78e78
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289503"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254352"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Perguntas frequentes sobre importação de certificados Azure Key Vault
 
@@ -47,7 +47,7 @@ Para exibir um erro mais descritivo, importe o arquivo de certificado usando [o 
 
 ### <a name="how-can-i-resolve-error-type-access-denied-or-user-is-unauthorized-to-import-certificate"></a>Como posso resolver "tipo de erro: acesso negado ou o usuário não está autorizado a importar o certificado"?
     
-A operação de importação exige que você conceda permissões de usuário para importar o certificado nas políticas de acesso. Para fazer isso, vá para o cofre de chaves, selecione **políticas de acesso**  >  **Adicionar política de acesso**  >  **selecionar** entidade de permissões de certificado  >  **Principal** , pesquise o usuário e, em seguida, adicione o endereço de email do usuário. 
+A operação de importação exige que você conceda permissões de usuário para importar o certificado nas políticas de acesso. Para fazer isso, vá para o cofre de chaves, selecione **políticas de acesso**  >  **Adicionar política de acesso**  >  **selecionar** entidade de permissões de certificado  >  , pesquise o usuário e, em seguida, adicione o endereço de email do usuário. 
 
 Para obter mais informações sobre políticas de acesso relacionadas a certificados, consulte [about Azure Key Vault Certificates](./about-certificates.md#certificate-access-control).
 
@@ -62,6 +62,10 @@ Para obter mais informações, consulte [obter operação de certificado excluí
 Esse erro pode ser causado por uma destas duas razões:    
 * O nome da entidade do certificado é limitado a 200 caracteres.
 * A senha do certificado é limitada a 200 caracteres.
+
+
+### <a name="error-the-specified-pem-x509-certificate-content-is-in-an-unexpected-format-please-check-if-certificate-is-in-valid-pem-format"></a>Erro "o conteúdo do certificado PEM X. 509 especificado está em um formato inesperado. Verifique se o certificado está em um formato PEM válido. "
+Verifique se o conteúdo no arquivo PEM usa separadores de linha de estilo UNIX `(\n)`
 
 ### <a name="can-i-import-an-expired-certificate-to-azure-key-vault"></a>Posso importar um certificado expirado para Azure Key Vault?
     

@@ -3,7 +3,7 @@ title: Usar restrições de locatário para gerenciar o acesso aos aplicativos S
 description: Como usar restrições de locatário para gerenciar quais usuários podem acessar aplicativos com base em seu locatário do Azure AD.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f605b2bb48855d70ea305dcda194b26da71ee9ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286215"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252467"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restrições de locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -33,13 +33,13 @@ Este artigo se concentra em restrições de locatário para Microsoft 365, mas o
 
 A solução geral inclui os seguintes componentes:
 
-1. **Azure ad** : se o `Restrict-Access-To-Tenants: <permitted tenant list>` cabeçalho estiver presente, o Azure ad emitirá apenas tokens de segurança para os locatários permitidos.
+1. **Azure ad**: se o `Restrict-Access-To-Tenants: <permitted tenant list>` cabeçalho estiver presente, o Azure ad emitirá apenas tokens de segurança para os locatários permitidos.
 
-2. **Infraestrutura de servidor proxy local** : Essa infraestrutura é um dispositivo proxy capaz de realizar inspeção de protocolo TLS. Você precisa configurar o proxy para inserir o cabeçalho que contém a lista de locatários permitidos no tráfego destinado ao Azure AD.
+2. **Infraestrutura de servidor proxy local**: Essa infraestrutura é um dispositivo proxy capaz de realizar inspeção de protocolo TLS. Você precisa configurar o proxy para inserir o cabeçalho que contém a lista de locatários permitidos no tráfego destinado ao Azure AD.
 
-3. **Software cliente** : Para dar suporte às restrições de locatário, o software cliente precisa solicitar tokens diretamente do Azure AD, de modo que a infraestrutura de proxy possa interceptar o tráfego. Atualmente, os aplicativos Microsoft 365 baseados em navegador dão suporte a restrições de locatário, como clientes do Office que usam autenticação moderna (como o OAuth 2,0).
+3. **Software cliente**: Para dar suporte às restrições de locatário, o software cliente precisa solicitar tokens diretamente do Azure AD, de modo que a infraestrutura de proxy possa interceptar o tráfego. Atualmente, os aplicativos Microsoft 365 baseados em navegador dão suporte a restrições de locatário, como clientes do Office que usam autenticação moderna (como o OAuth 2,0).
 
-4. **Autenticação moderna** : os serviços de nuvem devem usar a autenticação moderna para usar restrições de locatário e bloquear o acesso a todos os locatários não permitidos. Você deve configurar Microsoft 365 serviços de nuvem para usar protocolos de autenticação modernos por padrão. Para obter as informações mais recentes sobre Microsoft 365 suporte para autenticação moderna, leia [autenticação moderna do Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Autenticação moderna**: os serviços de nuvem devem usar a autenticação moderna para usar restrições de locatário e bloquear o acesso a todos os locatários não permitidos. Você deve configurar Microsoft 365 serviços de nuvem para usar protocolos de autenticação modernos por padrão. Para obter as informações mais recentes sobre Microsoft 365 suporte para autenticação moderna, leia [autenticação moderna do Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 O diagrama a seguir ilustra o fluxo do tráfego de alto nível. Restrições de locatário requer a inspeção TLS somente no tráfego para o Azure AD, não para os serviços de nuvem Microsoft 365. Essa distinção é importante porque o volume de tráfego de autenticação para o Azure AD normalmente é muito menor do que o volume de tráfego para aplicativos de SaaS como o Exchange Online e o SharePoint Online.
 
@@ -76,9 +76,9 @@ Para cada solicitação de entrada para login.microsoftonline.com, login.microso
 
 Os cabeçalhos devem incluir os seguintes elementos:
 
-- Para *restringir o acesso-para-locatários* , use um valor de \<permitted tenant list\> , que é uma lista separada por vírgulas de locatários que você deseja permitir que os usuários acessem. Qualquer domínio registrado com um locatário pode ser usado para identificar o locatário nessa lista, bem como a própria ID de diretório. Para obter um exemplo de todas as três maneiras de descrever um locatário, o par nome/valor para permitir que contoso, fabrikam e Microsoft se pareça com: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
+- Para *restringir o acesso-para-locatários*, use um valor de \<permitted tenant list\> , que é uma lista separada por vírgulas de locatários que você deseja permitir que os usuários acessem. Qualquer domínio registrado com um locatário pode ser usado para identificar o locatário nessa lista, bem como a própria ID de diretório. Para obter um exemplo de todas as três maneiras de descrever um locatário, o par nome/valor para permitir que contoso, fabrikam e Microsoft se pareça com: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- Para *Restrict-Access-Context* , use um valor de uma ID de diretório, declarando qual locatário está configurando as restrições de locatário. Por exemplo, para declarar contoso como o locatário que define a política de restrições de locatário, o par nome/valor é semelhante a: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  Você **deve** usar sua própria ID de diretório nesse local.
+- Para *Restrict-Access-Context*, use um valor de uma ID de diretório, declarando qual locatário está configurando as restrições de locatário. Por exemplo, para declarar contoso como o locatário que define a política de restrições de locatário, o par nome/valor é semelhante a: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  Você **deve** usar sua própria ID de diretório nesse local.
 
 > [!TIP]
 > Você pode encontrar a ID de diretório no [portal do Azure Active Directory](https://aad.portal.azure.com/). Entre como administrador, selecione **Azure Active Directory** e selecione **Propriedades**. 
@@ -115,7 +115,7 @@ O administrador do locatário especificado como o locatário Restricted-Access-C
 > [!NOTE]
 > O relatório pode conter informações limitadas, como a ID do diretório de destino, no momento em que um usuário que está em um locatário diferente do locatário de contexto de acesso restrito entra. Nesse caso, as informações de identificação do usuário, como nome e nome UPN, são mascaradas para proteger os dados do usuário em outros locatários (" 00000000-0000-0000-0000-00000000@domain.com ") 
 
-Como outros relatórios no Portal do Azure, você pode usar filtros para especificar o escopo do relatório. Você pode filtrar por um status, usuário, aplicativo, cliente ou intervalo de tempo específico. Se você selecionar o botão **Colunas** , poderá optar por exibir dados com qualquer combinação dos seguintes campos:
+Como outros relatórios no Portal do Azure, você pode usar filtros para especificar o escopo do relatório. Você pode filtrar por um status, usuário, aplicativo, cliente ou intervalo de tempo específico. Se você selecionar o botão **Colunas**, poderá optar por exibir dados com qualquer combinação dos seguintes campos:
 
 - **Usuário**
 - **Aplicativo**

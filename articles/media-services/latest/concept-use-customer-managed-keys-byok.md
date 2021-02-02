@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: c11bb0e369075c3024824d65290e8aecfa68e6f4
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2020
+ms.openlocfilehash: 7e58daf72522071eb7d0031d4ea236a21c6d8bfb
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956133"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252314"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Traga sua própria chave (chaves gerenciadas pelo cliente) com os serviços de mídia
 
@@ -36,6 +36,12 @@ Você pode especificar um nome de chave e uma versão de chave, ou apenas um nom
 
 > [!WARNING]
 > Os serviços de mídia monitoram o acesso à chave do cliente. Se a chave do cliente se tornar inacessível (por exemplo, a chave tiver sido excluída ou o Key Vault tiver sido excluído ou a concessão de acesso tiver sido removida), os serviços de mídia passarão a conta para o estado inacessível da chave do cliente (desabilitando efetivamente a conta). No entanto, a conta pode ser excluída nesse estado. As únicas operações com suporte são conta GET, lista e exclusão; todas as outras solicitações (codificação, streaming e assim por diante) falharão até que o acesso à chave de conta seja restaurado.
+
+## <a name="double-encryption"></a>Criptografia dupla
+
+Os serviços de mídia oferecem suporte à criptografia dupla.  Para saber mais sobre a criptografia dupla, confira [criptografia dupla do Azure](../../security/fundamentals/double-encryption.md).
+
+A criptografia dupla é habilitada automaticamente na conta dos serviços de mídia. No entanto, você precisa configurar a chave gerenciada pelo cliente e a criptografia dupla em sua conta de armazenamento separadamente.
 
 ## <a name="tutorials"></a>Tutoriais
 

@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do AKS (Serviço de Kubernetes 
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 66072032b3fd1ac33bef60922c62f73a8cfb11bd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 56d3b36d17ee044ce7aba2337429c45123801ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734657"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254505"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado do Serviço de Kubernetes do Azure
 
@@ -130,7 +130,6 @@ As [arquiteturas de hub e spoke](/azure/architecture/reference-architectures/hyb
 * Para clientes que precisam habilitar o Registro de Contêiner do Azure para trabalhar com AKS privado, a rede virtual do registro de contêiner deve ser emparelhada com a rede virtual do cluster do agente.
 * Não há suporte para converter clusters AKS existentes em clusters privados
 * Excluir ou modificar o ponto de extremidade privado na sub-rede do cliente fará com que o cluster pare de funcionar. 
-* No momento, não há suporte para o Azure Monitor para contêineres de dados dinâmicos.
 * Depois que os clientes tiverem atualizado o registro a em seus próprios servidores DNS, esses pods ainda resolverão o FQDN do apiserver para o IP mais antigo após a migração até que eles sejam reiniciados. Os clientes precisam reiniciar hostNetwork pods e pods padrão de DNSPolicy após a migração do plano de controle.
 * No caso de manutenção no plano de controle, o [IP do AKS](./limit-egress-traffic.md) pode ser alterado. Nesse caso, você deve atualizar o registro a que aponta para o IP privado do servidor de API no seu servidor DNS personalizado e reiniciar os pods ou as implantações personalizadas usando hostNetwork.
 
