@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
 ms.custom: references_regions
-ms.openlocfilehash: 2b5a34e8f3e7132a16ad3683b846d57e9ece2cb6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f29fd56bb5e9f32b37f6dcf1f67edd325b58a07d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015452"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947485"
 ---
 Neste início rápido, você aprenderá os padrões de design básicos para Reconhecimento do Locutor usando o SDK de Fala, incluindo:
 
@@ -51,7 +51,7 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Fala
 
-Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet). Neste exemplo, você cria um [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet) usando uma chave de assinatura e uma região. Você também cria um código clichê básico a ser usado no restante do artigo e o modifica para personalizações diferentes.
+Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). Neste exemplo, você cria um [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) usando uma chave de assinatura e uma região. Você também cria um código clichê básico a ser usado no restante do artigo e o modifica para personalizações diferentes.
 
 Observe que a região é definida como `westus`, pois é a única região com suporte para o serviço.
 

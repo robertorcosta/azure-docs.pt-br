@@ -6,26 +6,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 01/20/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: e68a46070f03154092d148552fffbb99ae82bcfd
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 9c719d222e8c38030556214d42f6519768d99f0a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612681"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090685"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[Versão 3.1, versão prévia](#tab/version-3-1)
 
-[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics) | [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.3) | [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics) | [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.3) | [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
-[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[Documentação de referência](/java/api/overview/azure/ai-textanalytics-readme) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics) | [Pacote](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.0.0) | [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.0.0/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
@@ -606,8 +606,7 @@ veterinarian
 
 # <a name="version-31-preview"></a>[Versão 3.1, versão prévia](#tab/version-3-1)
 
-> [!CAUTION]
-> Para usar as operações do Analisar, você deve usar um recurso de Análise de Texto com o tipo de preço S (Standard).  
+[!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
 Crie uma função chamada `analyzeOperationExample()`, que chama a função `beginAnalyzeTasks()`. O resultado será uma operação de execução prolongada que será sondada em busca de resultados.
 

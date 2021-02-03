@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: fb9d74da6030c430cce4a2a3c4c5e4299183ca15
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e578cd08177eb9db03e5e4af4a134473a8484a41
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132251"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947180"
 ---
 > [!IMPORTANT]
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Confira a documentação de referência abaixo. 
@@ -146,7 +146,7 @@ Para reconhecer o conteúdo de um arquivo em uma URL especificada, use o método
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_getcontent)]
 
 > [!TIP]
-> Você também pode obter o conteúdo das imagens locais. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_content`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
+> Você também pode obter o conteúdo das imagens locais. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), como `begin_recognize_content`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
 
 ### <a name="output"></a>Saída
 
@@ -178,7 +178,7 @@ Esta seção demonstra como reconhecer e extrair campos comuns de recibos dos EU
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
 > [!TIP]
-> Você também pode reconhecer imagens de recebimento local. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_receipts`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
+> Você também pode reconhecer imagens de recebimento local. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), como `begin_recognize_receipts`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
 
 ### <a name="output"></a>Saída
 
@@ -217,7 +217,7 @@ Esta seção demonstra como reconhecer e extrair campos comuns de cartões de vi
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_bc)]
 
 > [!TIP]
-> Reconheça também imagens de cartões de visita locais. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_business_cards`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
+> Reconheça também imagens de cartões de visita locais. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), como `begin_recognize_business_cards`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
 
 ---
 
@@ -235,7 +235,7 @@ Esta seção demonstra como reconhecer e extrair campos comuns de faturas de ven
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_invoice)]
 
 > [!TIP]
-> Reconheça também imagens de faturas locais. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_invoices`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
+> Reconheça também imagens de faturas locais. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), como `begin_recognize_invoices`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
 
 ---
 
@@ -345,7 +345,7 @@ Você usará o método `begin_recognize_custom_forms_from_url`. O valor retornad
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_analyze)]
 
 > [!TIP]
-> Você também pode analisar imagens locais. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python), como `begin_recognize_custom_forms`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
+> Você também pode analisar imagens locais. Confira os métodos de [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), como `begin_recognize_custom_forms`. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples) para obter cenários que envolvam imagens locais.
 
 
 ### <a name="output"></a>Saída

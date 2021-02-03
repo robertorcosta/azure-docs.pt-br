@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 97b8f889bf625ac36917debe2cc2848cb1a97e37
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: cc1d375de9f45369f6d2902b106a1740f316ad8d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956536"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947821"
 ---
-[Documentação de referência](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[Documentação de referência](/javascript/api/@azure/arm-cognitiveservices/) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Pacote (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
 ## <a name="javascript-prerequisites"></a>Pré-requisitos para usar o JavaScript
 
@@ -116,7 +116,7 @@ node index.js
 
 ## <a name="see-also"></a>Veja também
 
-* [Documentação de referência do SDK de Gerenciamento do Azure](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
+* [Documentação de referência do SDK de Gerenciamento do Azure](/javascript/api/@azure/arm-cognitiveservices/)
 * [O que são os Serviços Cognitivos do Azure?](../../what-are-cognitive-services.md)
 * [Autenticar solicitações para os Serviços Cognitivos do Azure](../../authentication.md)
 * [Criar um recurso usando o portal do Azure](../../cognitive-services-apis-create-account.md)

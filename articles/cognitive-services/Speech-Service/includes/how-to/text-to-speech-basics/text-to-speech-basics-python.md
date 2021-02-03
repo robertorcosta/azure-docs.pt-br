@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
-ms.openlocfilehash: a306cca2d10052d36ae04950deb87fa56d0fd5e1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: d990deca3f435f0b1e3fbdd3388371a11813662a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97731845"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948684"
 ---
 Neste início rápido, você aprende os padrões de design comuns para fazer uma síntese da conversão de texto em fala usando o SDK de Fala. Você começa fazendo a configuração e a sintetização básicas e passa para exemplos mais avançados de desenvolvimento de aplicativos personalizados, incluindo:
 
@@ -49,19 +49,19 @@ from azure.cognitiveservices.speech.audio import AudioOutputConfig
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de Fala
 
-Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python). Essa classe inclui informações sobre sua assinatura, como sua chave e região, ponto de extremidade, host ou token de autorização associados.
+Para chamar o serviço de Fala usando o SDK de Fala, você precisa criar um [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig). Essa classe inclui informações sobre sua assinatura, como sua chave e região, ponto de extremidade, host ou token de autorização associados.
 
 > [!NOTE]
 > Independentemente se você estiver executando o reconhecimento de fala, a síntese de fala, tradução ou reconhecimento de intenção, você sempre criará uma configuração.
 
-Há algumas maneiras de inicializar um [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python):
+Há algumas maneiras de inicializar um [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
 
 * Com uma assinatura: passe uma chave e a região associada.
 * Com um ponto de extremidade: passe um ponto de extremidade do serviço de Fala. Uma chave ou um token de autorização é opcional.
 * Com um host: passe um endereço de host. Uma chave ou um token de autorização é opcional.
 * Com um token de autorização: passe um token de autorização e a região associada.
 
-Neste exemplo, você cria um [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python) usando uma chave de assinatura e uma região. Obtenha essas credenciais seguindo as etapas em [Experimente o serviço de Fala gratuitamente](../../../overview.md#try-the-speech-service-for-free).
+Neste exemplo, você cria um [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) usando uma chave de assinatura e uma região. Obtenha essas credenciais seguindo as etapas em [Experimente o serviço de Fala gratuitamente](../../../overview.md#try-the-speech-service-for-free).
 
 ```python
 speech_config = SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
@@ -69,7 +69,7 @@ speech_config = SpeechConfig(subscription="YourSubscriptionKey", region="YourSer
 
 ## <a name="synthesize-speech-to-a-file"></a>Sintetizar fala em um arquivo
 
-Em seguida, você cria um objeto [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?preserve-view=true&view=azure-python), que executa conversões de texto em fala e gera saídas para alto-falantes, arquivos ou outros fluxos de saída. O [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?preserve-view=true&view=azure-python) aceita como parâmetros o objeto [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python) criado na etapa anterior e um objeto [`AudioOutputConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audiooutputconfig?preserve-view=true&view=azure-python), que especifica como os resultados de saída devem ser tratados.
+Em seguida, você cria um objeto [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer), que executa conversões de texto em fala e gera saídas para alto-falantes, arquivos ou outros fluxos de saída. O [`SpeechSynthesizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer) aceita como parâmetros o objeto [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) criado na etapa anterior e um objeto [`AudioOutputConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audiooutputconfig), que especifica como os resultados de saída devem ser tratados.
 
 Para começar, crie um `AudioOutputConfig` para gravar automaticamente a saída em um arquivo `.wav` usando o parâmetro construtor `filename`.
 
@@ -107,7 +107,7 @@ Para muitos cenários de desenvolvimento de aplicativos de fala, é provável qu
 > [!NOTE]
 > Passar `None` para o `AudioConfig`, em vez de omiti-lo como no exemplo da saída para o alto-falante acima, não reproduzirá o áudio por padrão no dispositivo de saída ativo.
 
-Desta vez, salve o resultado em uma variável [`SpeechSynthesisResult`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult?preserve-view=true&view=azure-python). A propriedade `audio_data` contém um objeto `bytes` dos dados de saída. Você pode trabalhar com esse objeto manualmente ou pode usar a classe [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream?preserve-view=true&view=azure-python) para gerenciar o fluxo na memória. Neste exemplo, você usa o construtor `AudioDataStream` para obter um fluxo do resultado.
+Desta vez, salve o resultado em uma variável [`SpeechSynthesisResult`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisresult). A propriedade `audio_data` contém um objeto `bytes` dos dados de saída. Você pode trabalhar com esse objeto manualmente ou pode usar a classe [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) para gerenciar o fluxo na memória. Neste exemplo, você usa o construtor `AudioDataStream` para obter um fluxo do resultado.
 
 ```python
 synthesizer = SpeechSynthesizer(speech_config=speech_config, audio_config=None)
@@ -125,14 +125,14 @@ A seguinte seção mostra como personalizar os atributos da saída de áudio, in
 * Taxa de amostragem
 * Profundidade de bits
 
-Para alterar o formato do áudio, use a função `set_speech_synthesis_output_format()` no objeto `SpeechConfig`. Essa função espera um `enum` do tipo [`SpeechSynthesisOutputFormat`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat?preserve-view=true&view=azure-python), que você usa para selecionar o formato de saída. Confira os documentos de referência para ver uma lista dos [formatos de áudio](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat?preserve-view=true&view=azure-python) disponíveis.
+Para alterar o formato do áudio, use a função `set_speech_synthesis_output_format()` no objeto `SpeechConfig`. Essa função espera um `enum` do tipo [`SpeechSynthesisOutputFormat`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat), que você usa para selecionar o formato de saída. Confira os documentos de referência para ver uma lista dos [formatos de áudio](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat) disponíveis.
 
 Há várias opções de diferentes tipos de arquivo dependendo de seus requisitos. Observe que, por definição, formatos brutos como `Raw24Khz16BitMonoPcm` não incluem cabeçalhos de áudio. Use formatos brutos somente quando souber que sua implementação downstream pode decodificar um fluxo de bits fragmentado ou se você planejar criar cabeçalhos manualmente com base na profundidade de bits, na taxa de amostragem, no número de canais etc.
 
 > [!NOTE]
 > As vozes **en-US-AriaRUS** e **en-US-GuyRUS** são criadas com base em amostras codificadas na taxa de amostragem `Riff24Khz16BitMonoPcm`.
 
-Neste exemplo, você especifica um formato RIFF de alta fidelidade `Riff24Khz16BitMonoPcm` definindo o `SpeechSynthesisOutputFormat` no objeto `SpeechConfig`. Semelhante ao exemplo na seção anterior, você usa [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream?preserve-view=true&view=azure-python) para obter um fluxo na memória do resultado e, em seguida, gravá-lo em um arquivo.
+Neste exemplo, você especifica um formato RIFF de alta fidelidade `Riff24Khz16BitMonoPcm` definindo o `SpeechSynthesisOutputFormat` no objeto `SpeechConfig`. Semelhante ao exemplo na seção anterior, você usa [`AudioDataStream`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audiodatastream) para obter um fluxo na memória do resultado e, em seguida, gravá-lo em um arquivo.
 
 
 ```python

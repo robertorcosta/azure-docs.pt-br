@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8ca42367db5607faedb4497f0a0fb0ca160464bc
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a4d29dfb2a57dde2bb21244b2e5335f1a8ea1fcf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98698012"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948046"
 ---
 > [!IMPORTANT]
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Confira a documentação de referência abaixo. 
@@ -134,7 +134,7 @@ Use o Reconhecimento de Formulários para reconhecer tabelas, linhas e palavras 
 
 
 > [!TIP]
-> Você também pode obter o conteúdo em um arquivo local. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest), como **beginRecognizeContent**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
+> Você também pode obter o conteúdo em um arquivo local. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeContent**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
 
 ### <a name="output"></a>Saída
 
@@ -161,7 +161,7 @@ Para reconhecer recibos de um URI, use o método `beginRecognizeReceiptsFromUrl`
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> Você também pode reconhecer imagens de recebimento local. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest), como **beginRecognizeReceipts**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
+> Você também pode reconhecer imagens de recebimento local. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeReceipts**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
 
 ### <a name="output"></a>Saída
 
@@ -281,7 +281,7 @@ Você usará o método `beginRecognizeCustomFormsFromUrl`. O valor retornado é 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
 > [!TIP]
-> Você também pode analisar arquivos locais. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest), como **beginRecognizeCustomForms**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
+> Você também pode analisar arquivos locais. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeCustomForms**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
 
 
 ### <a name="output"></a>Saída

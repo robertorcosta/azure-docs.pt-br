@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: c9ed54f11cade20af67a1c9bfe948b03e9d7b0d3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7ff53a700ab1b158d94af84907940f56afa74eb5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95097266"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99213807"
 ---
 Neste início rápido, você aprenderá a usar o SDK de Dispositivos de Fala para Windows para criar um produto habilitado para fala ou usá-lo como um dispositivo de [transcrição de conversas](../conversation-transcription.md). Na Transcrição de conversas, há suporte apenas para o [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). Para outros usos de fala, há suporte para matrizes de microfone lineares que fornecem uma geometria de matriz de microfone.
 
@@ -74,7 +74,7 @@ Caso você planeje usar as intenções, será necessária uma assinatura do [LUI
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.14.0</version>
+             <version>1.15.0</version>
         </dependency>
     </dependencies>
    ```

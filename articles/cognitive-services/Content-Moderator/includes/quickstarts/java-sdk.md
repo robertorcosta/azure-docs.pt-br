@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: b45873da5e34c77d3eae706975619df948d84874
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 147985ce5aff54f3784363720a576b7e46d6e647
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98698040"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948410"
 ---
 Introdução à biblioteca de clientes do Content Moderator do Azure para Java. Siga essas etapas para instalar o pacote do Maven e testar o código de exemplo para tarefas básicas. 
 
@@ -27,7 +27,7 @@ Use a biblioteca de clientes do Content Moderator para Java para:
 * Moderar texto
 * Moderar imagens
 
-[Documentação de referência](/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-contentmoderator) |[Artefato (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Exemplos](/samples/browse/?products=azure&term=content-moderator)
+[Documentação de referência](/java/api/overview/azure/cognitiveservices/client/contentmoderator) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-contentmoderator) |[Artefato (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Exemplos](/samples/browse/?products=azure&term=content-moderator)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -116,10 +116,10 @@ As classes a seguir tratam de alguns dos principais recursos da biblioteca de cl
 
 |Nome|Descrição|
 |---|---|
-|[ContentModeratorClient](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable)|Essa classe é necessária para toda a funcionalidade do Content Moderator. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
-|[ImageModeration](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.imagemoderations?view=azure-java-stable)|Essa classe fornece a funcionalidade para analisar imagens de conteúdo para adulto, informações pessoais ou rostos humanos.|
-|[TextModerations](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.textmoderations?view=azure-java-stable)|Essa classe fornece a funcionalidade para analisar o texto de idioma, profanação, erros e informações pessoais.|
-|[Análises](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.reviews?view=azure-java-stable)|Essa classe fornece a funcionalidade das APIs de Revisão, incluindo os métodos para criar trabalhos, fluxos de trabalho personalizados e revisões humanas.|
+|[ContentModeratorClient](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient)|Essa classe é necessária para toda a funcionalidade do Content Moderator. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
+|[ImageModeration](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.imagemoderations)|Essa classe fornece a funcionalidade para analisar imagens de conteúdo para adulto, informações pessoais ou rostos humanos.|
+|[TextModerations](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.textmoderations)|Essa classe fornece a funcionalidade para analisar o texto de idioma, profanação, erros e informações pessoais.|
+|[Análises](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.reviews)|Essa classe fornece a funcionalidade das APIs de Revisão, incluindo os métodos para criar trabalhos, fluxos de trabalho personalizados e revisões humanas.|
 
 
 ## <a name="code-examples"></a>Exemplos de código
@@ -133,7 +133,7 @@ Estes snippets de códigos mostram como realizar as seguintes tarefas com a bibl
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-No método `main` do aplicativo, crie um objeto [ContentModeratorClient](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable) usando o valor do ponto de extremidade da assinatura e a chave de assinatura.
+No método `main` do aplicativo, crie um objeto [ContentModeratorClient](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient) usando o valor do ponto de extremidade da assinatura e a chave de assinatura.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_client)]
 
@@ -168,7 +168,7 @@ Feche `try` e adicione uma instrução `catch` para concluir o método.
 
 ### <a name="set-up-sample-image"></a>Configurar imagem de exemplo
 
-Em um novo método, crie um objeto **[BodyModelModel](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.models.bodymodelmodel?view=azure-java-stable)** com determinada cadeia de caracteres que aponte para uma imagem.
+Em um novo método, crie um objeto **[BodyModelModel](/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.models.bodymodelmodel)** com determinada cadeia de caracteres que aponte para uma imagem.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod)]
 

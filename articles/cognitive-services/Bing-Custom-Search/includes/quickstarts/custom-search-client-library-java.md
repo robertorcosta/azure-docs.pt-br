@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: d9c5fe2653cff0d83a145964a3ad9eed166d0688
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 300c602a62b0d6b3ba579931b2222d2cd8667656
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371683"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948200"
 ---
 Introdução à biblioteca de clientes da Pesquisa Personalizada do Bing para Java. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. A API de Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada sem anúncios para os tópicos de seu interesse. O código-fonte dessa amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingCustomSearch)
 
@@ -22,7 +22,7 @@ Use a biblioteca de clientes da Pesquisa Personalizada do Bing para Java:
 
 * Localizar os resultados da pesquisa na Web, na sua instância da Pesquisa Personalizada do Bing.
 
-[Documentação de referência](/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Artefato (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Documentação de referência](/java/api/overview/azure/cognitiveservices/client/bingcustomsearch) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Artefato (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,13 +46,13 @@ Em uma janela de console (como cmd, PowerShell ou Bash), crie um novo diretório
 mkdir myapp && cd myapp
 ```
 
-Execute o comando `gradle init` em seu diretório de trabalho. Esse comando cria arquivos de build essenciais para o Gradle, incluindo um arquivo *build.gradle.kts* , que é usado no runtime para configurar seu aplicativo.
+Execute o comando `gradle init` em seu diretório de trabalho. Esse comando cria arquivos de build essenciais para o Gradle, incluindo um arquivo *build.gradle.kts*, que é usado no runtime para configurar seu aplicativo.
 
 ```console
 gradle init --type basic
 ```
 
-Quando solicitado a escolher uma **DSL** , escolha **Kotlin**.
+Quando solicitado a escolher uma **DSL**, escolha **Kotlin**.
 
 ## <a name="install-the-client-library"></a>Instalar a biblioteca de clientes
 
@@ -99,9 +99,9 @@ Na classe, crie um método `main` e uma variável para a chave do recurso. Se vo
 
 ## <a name="object-model"></a>Modelo de objeto
 
-O cliente da Pesquisa Personalizada do Bing é um objeto [BingCustomSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) criado no método [authenticate()](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager.authenticate) do objeto [BingCustomSearchManager](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager?view=azure-java-stable). Você pode enviar uma solicitação de pesquisa usando o método [BingCustomInstances.search()](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) do cliente.
+O cliente da Pesquisa Personalizada do Bing é um objeto [BingCustomSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi) criado no método [authenticate()](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager.authenticate) do objeto [BingCustomSearchManager](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager). Você pode enviar uma solicitação de pesquisa usando o método [BingCustomInstances.search()](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) do cliente.
 
-A resposta da API é um objeto [SearchResponse](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.models.searchresponse?view=azure-java-stable) que contém informações sobre a consulta de pesquisa e os resultados da pesquisa.
+A resposta da API é um objeto [SearchResponse](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.models.searchresponse) que contém informações sobre a consulta de pesquisa e os resultados da pesquisa.
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -112,7 +112,7 @@ Esses snippets de códigos mostram como realizar as seguintes tarefas com a bibl
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-O método principal deve incluir um objeto [BingCustomSearchManager](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) que usa a chave e chama seu `authenticate()`.
+O método principal deve incluir um objeto [BingCustomSearchManager](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi) que usa a chave e chama seu `authenticate()`.
 
 ```java
 BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKey);
@@ -120,7 +120,7 @@ BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKe
 
 ## <a name="get-search-results-from-your-custom-search-instance"></a>Obter resultados da pesquisa na instância de pesquisa personalizada
 
-Use a função [BingCustomInstances.search()](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) do cliente para enviar uma consulta de pesquisa para sua instância personalizada. Defina o `withCustomConfig` para sua ID de configuração personalizada ou por padrão como `1`. Depois de obter uma resposta da API, verifique se foram encontrados resultados da pesquisa. Nesse caso, obtenha o primeiro resultado da pesquisa chamando a função `webPages().value().get()` da resposta e imprima o nome do resultado e a URL.
+Use a função [BingCustomInstances.search()](/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) do cliente para enviar uma consulta de pesquisa para sua instância personalizada. Defina o `withCustomConfig` para sua ID de configuração personalizada ou por padrão como `1`. Depois de obter uma resposta da API, verifique se foram encontrados resultados da pesquisa. Nesse caso, obtenha o primeiro resultado da pesquisa chamando a função `webPages().value().get()` da resposta e imprima o nome do resultado e a URL.
 
 [!code-java[call the custom search API](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=runSample)]
 

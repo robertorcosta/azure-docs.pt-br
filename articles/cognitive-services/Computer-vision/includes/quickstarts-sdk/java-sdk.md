@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 7057644207fae866e7fe789f951d2279b1c8e3eb
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 6eec9cf199068db6b87e69dd97dd0e105f629a14
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98698083"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948335"
 ---
 <a name="HOLTop"></a>
 
@@ -24,7 +24,7 @@ Use a biblioteca de clientes da Pesquisa Visual Computacional para:
 * Analisar uma imagem quanto a marcas, descrição de texto, rostos, conteúdo para adulto e muito mais.
 * Leia o texto impresso e manuscrito com a API de Leitura.
 
-[Documentação de referência](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[Artefato (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Exemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Documentação de referência](/java/api/overview/azure/cognitiveservices/client/computervision) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-computervision) |[Artefato (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Exemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -113,9 +113,9 @@ As seguintes classes e interfaces lidam com alguns dos principais recursos do Ja
 
 |Nome|Descrição|
 |---|---|
-| [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) | Essa classe é necessária para toda a funcionalidade da Pesquisa Visual Computacional. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
-|[ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable)| Essa classe é proveniente do objeto de cliente e manipula diretamente todas as operações de imagem, como análise de imagem, detecção de texto e geração de miniaturas.|
-|[VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable)| Essa enumeração define os diferentes tipos de análise de imagem que podem ser feitos em uma operação de análise padrão. Especifique um conjunto de valores VisualFeatureTypes dependendo de suas necessidades. |
+| [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) | Essa classe é necessária para toda a funcionalidade da Pesquisa Visual Computacional. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
+|[ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision)| Essa classe é proveniente do objeto de cliente e manipula diretamente todas as operações de imagem, como análise de imagem, detecção de texto e geração de miniaturas.|
+|[VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes)| Essa enumeração define os diferentes tipos de análise de imagem que podem ser feitos em uma operação de análise padrão. Especifique um conjunto de valores VisualFeatureTypes dependendo de suas necessidades. |
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -127,7 +127,7 @@ Esses snippets de códigos mostram como realizar as seguintes tarefas com a bibl
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Em um novo método, crie uma instância do objeto [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-java-stable) com o ponto de extremidade e a chave.
+Em um novo método, crie uma instância do objeto [ComputerVisionClient](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) com o ponto de extremidade e a chave.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
@@ -139,7 +139,7 @@ Em um novo método, crie uma instância do objeto [ComputerVisionClient](/java/a
 O código a seguir define um método `AnalyzeLocalImage`, que usa o objeto de cliente para analisar uma imagem local e imprimir os resultados. O método retorna uma descrição de texto, categorização, lista de marcas, rostos detectados, sinalizadores de conteúdo para adulto, cores principais e tipo de imagem.
 
 > [!TIP]
-> Você também pode analisar uma imagem remota usando sua URL. Confira os métodos de [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable), como **AnalyzeImage**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para ver cenários que envolvem imagens remotas.
+> Você também pode analisar uma imagem remota usando sua URL. Confira os métodos de [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision), como **AnalyzeImage**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para ver cenários que envolvem imagens remotas.
 
 ### <a name="set-up-test-image"></a>Configurar imagem de teste
 
@@ -149,7 +149,7 @@ Primeiro, crie uma pasta **resources/** na pasta **src/main/** do seu projeto e 
 
 ### <a name="specify-visual-features"></a>Especificar recursos visuais
 
-Em seguida, especifique quais recursos visuais você gostaria de extrair em sua análise. Confira a enumeração [VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-java-stable) para obter uma lista completa.
+Em seguida, especifique quais recursos visuais você gostaria de extrair em sua análise. Confira a enumeração [VisualFeatureTypes](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes) para obter uma lista completa.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_analyzelocal_features)]
 
@@ -222,7 +222,7 @@ O código a seguir imprime informações sobre o tipo de imagem – seja clip-ar
 A Pesquisa Visual Computacional pode ler um texto visível em uma imagem e convertê-lo em um fluxo de caracteres. Esta seção define um método, `ReadFromFile`, que usa um caminho de arquivo local e imprime o texto da imagem no console.
 
 > [!TIP]
-> Também é possível ler texto em uma imagem remota referenciada pela URL. Confira os métodos de [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision?view=azure-java-stable), como **read**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para ver cenários que envolvem imagens remotas.
+> Também é possível ler texto em uma imagem remota referenciada pela URL. Confira os métodos de [ComputerVision](/java/api/com.microsoft.azure.cognitiveservices.vision.computervision.computervision), como **read**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) para ver cenários que envolvem imagens remotas.
 
 ### <a name="set-up-test-image"></a>Configurar imagem de teste
 
@@ -295,7 +295,7 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 Neste início rápido, você aprendeu a usar a biblioteca Java de Pesquisa Visual Computacional para realizar tarefas básicas. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 
 > [!div class="nextstepaction"]
->[Referência à Pesquisa Visual Computacional (Java)](/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
+>[Referência à Pesquisa Visual Computacional (Java)](/java/api/overview/azure/cognitiveservices/client/computervision)
 
 
 * [O que é a Pesquisa Visual Computacional?](../../overview.md)

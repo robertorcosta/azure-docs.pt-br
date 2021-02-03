@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
-ms.openlocfilehash: 43864d3593fda986031cf9b59251b920672476bb
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c1ff099dd6dffe06e9707ff23fffd57ae753ab64
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097245"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99500403"
 ---
 O recurso NER para Análise de Texto retorna as seguintes categorias de entidade geral (sem identificação). por exemplo, ao enviar solicitações para o `/entities/recognition/general` ponto de extremidade.
 
@@ -23,17 +23,18 @@ O recurso NER para Análise de Texto retorna as seguintes categorias de entidade
 |------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
 | [Person](#category-person)     | Nomes de pessoas.  |
 | [Persontype](#category-persontype) | Tipos de trabalho ou funções mantidas por uma pessoa. |
-| [Localização](#category-location)    | Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica |
+| [Localidade](#category-location)    | Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica |
 | [Organização](#category-organization)  | Empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas.  |
 | [Evento](#category-event)  | Eventos históricos, sociais e naturalmente ocorridos. |
 | [Product](#category-product) | Objetos físicos de várias categorias. |
 | [Habilidade](#category-skill) | Capacidade, habilidade ou experiência.  |
 | [Endereço](#category-address) | Endereços de endereçamento completos.  |
-| [Número do telefone](#category-phonenumber) | Números de telefone. |
+| [Número de telefone](#category-phonenumber) | Números de telefone. |
 | [Email](#category-email) | Endereços de email. |
 | [URL](#category-url) | URLs para sites. |
 | [IP](#category-ip) | Endereços IP de rede. |
 | [DateTime](#category-datetime) | Datas e horas do dia. |
+| [Quantidade](#category-quantity) | Medidas numéricas e unidades. |
 
 
 ### <a name="category-person"></a>Categoria: pessoa
@@ -547,7 +548,7 @@ Essa categoria contém as seguintes entidades:
     :::column span="":::
         **Entidade**
 
-        Datetime
+        DateTime
 
     :::column-end:::
     :::column span="2":::
@@ -644,7 +645,7 @@ A entidade nessa categoria pode ter as subcategorias a seguir.
 :::row:::
     :::column span="":::
 
-        Duração
+        Duration
 
     :::column-end:::
     :::column span="2":::

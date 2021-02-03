@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: ceb560a3f0c56a13b9f8da6c867f513b2b08e59b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0b04ebd9672990738d77bc5ae09d7f7fae4ffb9d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962188"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500238"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Serviço de metadados de instância do Azure (IMDS)
 
@@ -78,7 +78,7 @@ Qualquer solicitação que não atender a esses **dois** requisitos será rejeit
 IMDS não deve ser usado atrás de um proxy e fazer isso **não** é suportado. A maioria dos clientes HTTP fornece uma opção para você desabilitar proxies em suas solicitações, e essa funcionalidade deve ser utilizada ao se comunicar com o IMDS. Consulte a documentação do cliente para obter detalhes.
 
 > [!IMPORTANT]
-> Mesmo que você não conheça nenhuma configuração de proxy em seu ambiente, **você ainda deve substituir as configurações padrão de proxy do cliente**. As configurações de proxy podem ser descobertas automaticamente e a falha ao ignorar essas configurações expõe a você Outrage riscos caso a configuração do computador seja alterada no futuro.
+> Mesmo que você não conheça nenhuma configuração de proxy em seu ambiente, **você ainda deve substituir as configurações padrão de proxy do cliente**. As configurações de proxy podem ser descobertas automaticamente e a falha ao ignorar essas configurações expõe os riscos de interrupção caso a configuração do computador seja alterada no futuro.
 
 ## <a name="rate-limiting"></a>Limitação de taxa
 
@@ -92,7 +92,7 @@ Atualmente, há suporte para os seguintes verbos HTTP:
 |------|-------------|
 | `GET` | Recuperar o recurso solicitado
 
-## <a name="parameters"></a>Parâmetros
+## <a name="parameters"></a>parâmetros
 
 Os pontos de extremidade podem dar suporte a parâmetros obrigatórios e/ou opcionais. Consulte o [esquema](#schema) e a documentação do ponto de extremidade específico em questão para obter detalhes.
 
@@ -106,7 +106,7 @@ http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=j
 
 Especifica os parâmetros:
 
-| Name | Valor |
+| Nome | Valor |
 |------|-------|
 | `api-version` | `2019-06-04`
 | `format` | `json`
@@ -268,7 +268,7 @@ O ponto de extremidade raiz é `http://169.254.169.254/metadata` .
 
 A API IMDS contém várias categorias de ponto de extremidade que representam diferentes fontes de dados, cada uma contendo um ou mais pontos de extremidades. Consulte cada categoria para obter detalhes.
 
-| Raiz da categoria | Description | Versão introduzida |
+| Raiz da categoria | Descrição | Versão introduzida |
 |---------------|-------------|--------------------|
 | `/metadata/attested` | Confira [Dados Atestados](#attested-data) | 01-10-2018
 | `/metadata/identity` | Consulte [identidade gerenciada via IMDS](#managed-identity) | 01-02-2018
@@ -289,7 +289,7 @@ Retorna o conjunto de versões de API com suporte.
 GET /metadata/versions
 ```
 
-#### <a name="parameters"></a>Parâmetros
+#### <a name="parameters"></a>parâmetros
 
 Nenhum (este ponto de extremidade não tem versão).
 
@@ -330,7 +330,7 @@ Esse ponto de extremidade dá suporte à filtragem de resposta via [parâmetros 
 
 Divisão de esquema:
 
-**Computação**
+**Compute**
 
 | Dados | Descrição | Versão introduzida |
 |------|-------------|--------------------|
