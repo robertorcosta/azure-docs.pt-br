@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 5cf933a11956bb8459bf6f5cd1b2b366eb8419d8
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021976"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508635"
 ---
 # <a name="disclosure-design-patterns"></a>Padrões de design de divulgação
 Agora que você&#39;foi determinado o [nível certo de divulgação](concepts-disclosure-guidelines.md#disclosure-assessment) para sua experiência de voz sintética, ele&#39;um bom momento para explorar os padrões de design potenciais.
@@ -249,7 +249,6 @@ Use a divulgação como uma oportunidade de falhar normalmente.
 
 * [Divulgação para talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Diretrizes para a implantação responsável da tecnologia de voz sintética](concepts-guidelines-responsible-deployment-synthetic.md)
-* [Visão geral da retenção](concepts-gating-overview.md)
 * [Como divulgar](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Próximas etapas

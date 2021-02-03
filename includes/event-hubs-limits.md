@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 02/01/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 45cc5120072f2a8c7742f79cfb79161042345505
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96152719"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427362"
 ---
 A tabela a seguir fornece cotas e limites específicos para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para saber mais sobre os preços dos Hubs de Eventos, veja os [preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -30,7 +30,8 @@ Os limites a seguir são comuns em todas as camadas.
 | Número de destinatários sem época por grupo de consumidores |- |5 |
 | Número de regras de autorização por namespace | As solicitações subsequentes de criação de regra de autorização são rejeitadas.|12 |
 | Número de chamadas para o método GetRuntimeInformation |  - | 50 por segundo | 
-| Número de regras de VNet (rede virtual) e de configuração de IP | - | 128 | 
+| Número de VNets (redes virtuais) | - | 128 | 
+| Número de regras de configuração de IP | - | 128 | 
 
 
 ### <a name="basic-vs-standard-tiers"></a>Camadas Básica versus Standard

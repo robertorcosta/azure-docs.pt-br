@@ -3,12 +3,12 @@ title: Conceitos-identidade e acesso
 description: Saiba mais sobre os conceitos de identidade e acesso da solução do Azure VMware
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: e9c0d62968d94e2b018186f67072b6ae7078db02
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: bd1b4cd918ce977cf57d641908b127f7a2d1b0cc
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536091"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509292"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceitos de identidade da solução VMware do Azure
 
@@ -53,7 +53,11 @@ Use a conta "administrador" para acessar o Gerenciador de NSX-T. Ele tem privil�
   
 ## <a name="next-steps"></a>Próximas etapas
 
-A próxima etapa é aprender sobre os [conceitos de atualização de nuvem privada][concepts-upgrades].
+Agora que você abordou os conceitos de acesso e identidade da solução Azure VMware, talvez queira saber mais sobre:
+
+- [Conceitos de atualização da nuvem privada](concepts-upgrades.md).
+- [controle de acesso baseado em função do vSphere para a solução do Azure VMware](concepts-role-based-access-control.md).
+- [Como habilitar o recurso de solução VMware do Azure](enable-azure-vmware-solution.md).
 
 <!-- LINKS - external -->
 

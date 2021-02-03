@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com notificações de dispositivo
+title: Trabalhar com notificações de dispositivos
 description: As notificações fornecem informações sobre a atividade de rede que podem exigir sua atenção, juntamente com recomendações para lidar com essa atividade.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d113805322bd45584987460d57ad6bdba241ec10
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837837"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509024"
 ---
-# <a name="work-with-device-notifications"></a>Trabalhar com notificações de dispositivo
+# <a name="work-with-device-notifications"></a>Trabalhar com notificações de dispositivos
 
 As notificações fornecem informações sobre a atividade de rede que podem exigir sua atenção, juntamente com recomendações para lidar com essa atividade. Por exemplo, você pode receber uma notificação sobre:
 
@@ -60,13 +60,13 @@ A tabela a seguir descreve os tipos de evento de notificação que você pode re
 
 | Tipos de evento de notificação | Descrição | Respostas |
 |--|--|--|
-| Novos endereços IP | Um novo endereço IP está associado ao dispositivo. Podem ser detectados cinco cenários: <br /><br /> Um endereço IP adicional foi associado a um dispositivo. Esse dispositivo também está associado a um endereço MAC existente.<br /><br /> Um novo endereço IP foi detectado para um dispositivo que está usando um endereço MAC existente. Atualmente, o dispositivo não se comunica usando um endereço IP.<br /> <br /> Um novo endereço IP foi detectado para um dispositivo que está usando um nome NetBIOS. <br /><br /> Um endereço IP foi detectado como a interface de gerenciamento para um dispositivo associado a um endereço MAC. <br /><br /> Um novo endereço IP foi detectado para um dispositivo que está usando um endereço IP virtual. | **Definir IP adicional para dispositivo** (dispositivos de mesclagem) <br /> <br />**Substituir IP existente** <br /> <br /> **Ignorar**<br /> Remova a notificação. |
-| Dispositivos inativos | O tráfego não foi detectado em um dispositivo por mais de 60 dias. | **Excluir** <br /> Se este dispositivo não fizer parte de sua rede, remova-o. <br /><br />**Ignorar** <br /> Remova a notificação se o dispositivo fizer parte de sua rede. Se o dispositivo estiver inativo (por exemplo, porque está desconectado da rede por engano), ignore a notificação e reconecte o dispositivo. |
-| Novo dispositivo de OT | Uma sub-rede inclui um dispositivo de OT que não está definido em uma sub-rede ICS. <br /><br /> Cada sub-rede que contém pelo menos um dispositivo de se pode ser definida como uma sub-rede ICS. Isso ajuda a diferenciar entre os dispositivos de OT e de ti no mapa. | **Definir como sub-rede do ICS** <br /> <br /> **Ignorar** <br />Remova a notificação se o dispositivo não fizer parte da sub-rede. |
+| Novo IP detectado | Um novo endereço IP está associado ao dispositivo. Podem ser detectados cinco cenários: <br /><br /> Um endereço IP adicional foi associado a um dispositivo. Esse dispositivo também está associado a um endereço MAC existente.<br /><br /> Um novo endereço IP foi detectado para um dispositivo que está usando um endereço MAC existente. Atualmente, o dispositivo não se comunica usando um endereço IP.<br /> <br /> Um novo endereço IP foi detectado para um dispositivo que está usando um nome NetBIOS. <br /><br /> Um endereço IP foi detectado como a interface de gerenciamento para um dispositivo associado a um endereço MAC. <br /><br /> Um novo endereço IP foi detectado para um dispositivo que está usando um endereço IP virtual. | **Definir IP adicional para dispositivo** (dispositivos de mesclagem) <br /> <br />**Substituir IP existente** <br /> <br /> **Ignorar**<br /> Remova a notificação. |
+| Dispositivos inativos | O tráfego não foi detectado em um dispositivo por mais de 60 dias. | **Delete (excluir)** <br /> Se este dispositivo não fizer parte de sua rede, remova-o. <br /><br />**Ignorar** <br /> Remova a notificação se o dispositivo fizer parte de sua rede. Se o dispositivo estiver inativo (por exemplo, porque está desconectado da rede por engano), ignore a notificação e reconecte o dispositivo. |
+| Novos dispositivos de OT | Uma sub-rede inclui um dispositivo de OT que não está definido em uma sub-rede ICS. <br /><br /> Cada sub-rede que contém pelo menos um dispositivo de se pode ser definida como uma sub-rede ICS. Isso ajuda a diferenciar entre os dispositivos de OT e de ti no mapa. | **Definir como sub-rede do ICS** <br /> <br /> **Ignorar** <br />Remova a notificação se o dispositivo não fizer parte da sub-rede. |
 | Nenhuma sub-rede configurada | Não há sub-redes atualmente configuradas em sua rede. <br /><br /> Configure sub-redes para uma melhor representação no mapa e a capacidade de diferenciar entre os dispositivos de OT e de ti. | **Abra a configuração de sub-redes** e configure sub-redes. <br /><br />**Ignorar** <br /> Remova a notificação. |
 | Alterações do sistema operacional | Um ou mais sistemas operacionais novos foram associados ao dispositivo. | Selecione o nome do novo sistema operacional que você deseja associar ao dispositivo.<br /><br /> **Ignorar** <br /> Remova a notificação. |
-| Sub-redes detectadas | Novas sub-redes foram descobertas. | **Learn**<br />Adicione a sub-rede automaticamente.<br />**Abrir configuração de sub-rede**<br />Adicione todas as informações de sub-rede ausentes.<br />**Ignorar**<br />Remova a notificação. |
-| Alteração de tipo de dispositivo detectada | Um novo tipo de dispositivo foi associado ao dispositivo. | **Definir como {...}**<br />Associe o novo tipo ao dispositivo.<br />**Ignorar**<br />Remova a notificação. |
+| Novas sub-redes | Novas sub-redes foram descobertas. | **Learn**<br />Adicione a sub-rede automaticamente.<br />**Abrir configuração de sub-rede**<br />Adicione todas as informações de sub-rede ausentes.<br />**Ignorar**<br />Remova a notificação. |
+| Alterações de tipo de dispositivo | Um novo tipo de dispositivo foi associado ao dispositivo. | **Definir como {...}**<br />Associe o novo tipo ao dispositivo.<br />**Ignorar**<br />Remova a notificação. |
 
 ## <a name="respond-to-many-notifications-simultaneously"></a>Responder a várias notificações simultaneamente
 

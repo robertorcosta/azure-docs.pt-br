@@ -1,5 +1,5 @@
 ---
-title: Acompanhar atividade do sensor
+title: Controlar atividade do sensor
 description: A linha do tempo de evento apresenta uma linha do tempo de atividade detectada em sua rede, incluindo alertas e ações de gerenciamento de alertas, eventos de rede e operações de usuário, como entrada de usuário e exclusão de usuários.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3895e01b1fbfcde79ff91bd1eade8d902c33b852
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837878"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509092"
 ---
-# <a name="track-sensor-activity"></a>Acompanhar atividade do sensor
+# <a name="track-sensor-activity"></a>Controlar atividade do sensor
 
 ## <a name="event-timeline"></a>Linha do tempo do evento
 
@@ -59,13 +59,13 @@ Para filtrar a linha do tempo:
 
 2. Defina filtros de eventos, da seguinte maneira:
 
-   - **Incluir endereço**: exibir dispositivos de evento específicos.
+   - **Incluir endereço**: exibe eventos para dispositivos específicos.
 
-   - **Excluir endereço**: Ocultar dispositivos de evento específicos.
+   - **Excluir endereço**: Ocultar eventos para dispositivos específicos.
 
-   - **Incluir tipos de evento**: Exibir tipos de evento específicos.
+   - **Incluir tipos de evento**: Exibir tipos de eventos específicos.
 
-   - **Excluir tipos de evento**: Ocultar tipos de evento específicos.
+   - **Excluir tipos de evento**: Ocultar tipos de eventos específicos.
 
    - **Grupo de dispositivos**: selecione um grupo de dispositivos, como ele foi definido no mapa do dispositivo. Somente os eventos desse grupo são apresentados.
 
@@ -87,7 +87,7 @@ Para filtrar a linha do tempo:
 
     - Selecione o **arquivo pcap** para baixar o arquivo pcap (se ele existir) que contém uma captura de pacote de toda a rede em um momento específico. 
     
-      O arquivo PCAP contém informações técnicas que podem ajudar os engenheiros a determinar exatamente onde o evento foi e o que está acontecendo lá. Você pode analisar o arquivo PCAP com um analisador de protocolo de rede, como o Wireshark, um aplicativo gratuito.
+      O arquivo PCAP contém informações técnicas que podem ajudar os engenheiros de rede a determinar os parâmetros exatos do evento. Você pode analisar o arquivo PCAP com um analisador de protocolo de rede, como o Wireshark, um aplicativo de software livre.
 
 ## <a name="see-also"></a>Consulte também
 

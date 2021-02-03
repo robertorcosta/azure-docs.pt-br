@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: 62faaed3672f721b26587d1bca3ddb0947f733e7
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: ea2dc877c7bc6db387985e7b5cd1153e195ab4f1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220829"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509563"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>Atualização de versão principal no banco de dados do Azure para MySQL servidor único
 
@@ -121,15 +121,7 @@ A GA desse recurso é planejada antes da desativação do MySQL v 5.6. No entant
 
 ### <a name="will-this-cause-downtime-of-the-server-and-if-so-how-long"></a>Isso causará tempo de inatividade do servidor e, nesse caso, quanto tempo?
 
-Sim, o servidor não estará disponível durante o processo de atualização, portanto, recomendamos que você execute essa operação durante a janela de manutenção planejada. O tempo de inatividade estimado depende do tamanho do banco de dados, do tamanho do armazenamento provisionado (IOPs provisionado) e do número de tabelas no banco de dados. O tempo de atualização é diretamente proporcional ao número de tabelas no servidor. Espera-se que as atualizações dos servidores SKU básicos demorem mais tempo como na plataforma de armazenamento padrão. Para estimar o tempo de inatividade do seu ambiente de servidor, é recomendável primeiro executar a atualização na cópia restaurada do servidor.  
-
-### <a name="it-is-noted-that-it-is-not-supported-on-replica-server-yet-what-does-that-mean-concrete"></a>Observe que ainda não há suporte para ele no servidor de réplica. O que isso significa concreto?
-
-Atualmente, a atualização da versão principal não tem suporte para o servidor de réplica, o que significa que você não deve executá-lo para servidores envolvidos na replicação (ou seja, o servidor de origem ou de réplica). Se você quiser testar a atualização dos servidores envolvidos na replicação antes de adicionarmos o suporte de réplica para o recurso de atualização, recomendamos as seguintes etapas:
-
-1. Durante a manutenção planejada, [pare a replicação e exclua o servidor de réplica](howto-read-replicas-portal.md) depois de capturar seu nome e todas as informações de configuração (configurações de firewall, configuração de parâmetro de servidor se ele for diferente do servidor de origem).
-2. Execute a atualização do servidor de origem.
-3. Provisione um novo servidor de réplica de leitura com o mesmo nome e definições de configuração capturadas na etapa 1. O novo servidor de réplica estará no v 5.7 automaticamente depois que o servidor de origem for atualizado para o v 5.7.
+Sim, o servidor não estará disponível durante o processo de atualização, portanto, recomendamos que você execute essa operação durante a janela de manutenção planejada. O tempo de inatividade estimado depende do tamanho do banco de dados, do tamanho do armazenamento provisionado (IOPs provisionado) e do número de tabelas no banco de dados. O tempo de atualização é diretamente proporcional ao número de tabelas no servidor. Espera-se que as atualizações dos servidores SKU básicos demorem mais tempo como na plataforma de armazenamento padrão. Para estimar o tempo de inatividade do seu ambiente de servidor, é recomendável primeiro executar a atualização na cópia restaurada do servidor. Considere [executar a atualização de versão principal de tempo de inatividade mínimo do mysql 5,6 para o mysql 5,7 usando a réplica de leitura.](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas)
 
 ### <a name="what-will-happen-if-we-do-not-choose-to-upgrade-our-mysql-v56-server-before-february-5-2021"></a>O que acontecerá se não optarmos por atualizar nosso servidor MySQL v 5.6 antes de 5 de fevereiro de 2021?
 

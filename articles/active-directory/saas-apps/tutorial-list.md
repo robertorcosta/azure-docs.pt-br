@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 1cfd296ae051192f83b6d256de539da6c076328b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 154b9f526dd4df6aabaaf24687a534a28ed1a3a3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622838"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253164"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory
 
@@ -121,6 +121,7 @@ Para localizar mais tutoriais, use o sumário à esquerda.
 | ![logotipo – Teamphoria](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|
 | ![logotipo – Terraform Cloud](./media/tutorial-list/active-directory-saas-terraform-cloud-tutorial.png)| [Terraform Cloud](terraform-cloud-tutorial.md)|
 | ![logotipo – TextMagic](./media/tutorial-list/active-directory-saas-textmagic-tutorial.png)| [TextMagic](textmagic-tutorial.md)|
+| ![logotipo – SAML do Timeclock 365](./media/tutorial-list/active-directory-saas-timeclock-365-saml-tutorial.png)| [SAML do Timeclock 365](timeclock-365-saml-tutorial.md)|
 | ![logotipo – Upshotly](./media/tutorial-list/active-directory-saas-upshotly-tutorial.png)| [Upshotly](upshotly-tutorial.md)|
 | ![logotipo – Velpic SAML](./media/tutorial-list/active-directory-saas-velpicsaml-tutorial.png)| [Velpic SAML](velpicsaml-tutorial.md)|
 | ![logotipo – Wandera](./media/tutorial-list/active-directory-saas-wandera-tutorial.png)| [Wandera](wandera-tutorial.md)|

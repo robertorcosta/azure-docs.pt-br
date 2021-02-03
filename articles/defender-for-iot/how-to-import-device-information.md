@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 333ffbf4107dfd005ba7e7fae6a079a618e0c645
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625407"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509428"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importar informações do dispositivo para um sensor
 
@@ -160,7 +160,7 @@ Para importar o endereço IP, o sistema operacional e o nível de patch:
 
    - **Sistema operacional**: selecione na lista suspensa.
 
-   - **Última atualização**: Use o formato aaaa-mm-dd.
+   - **Data da última atualização**: Use o formato aaaa-mm-dd.
 
     :::image type="content" source="media/how-to-import-device-information/last-update-screen.png" alt-text="O conteúdo na tela.":::
 
@@ -172,7 +172,7 @@ Para importar o endereço IP, o sistema operacional e o nível de patch:
 
 Para importar o status de autorização:
 
-1. Baixe e salve o arquivo de [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) no centro de ajuda do defender para IOT. Verifique se você salvou o arquivo como um CSV.
+1. Baixe e salve o arquivo de [authorized_devices examples.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) do centro de ajuda do defender para IOT. Verifique se você salvou o arquivo como um CSV.
 
 2. Insira as informações como:
 
@@ -188,7 +188,7 @@ Para importar o status de autorização:
 
 Quando as informações são importadas, você recebe alertas sobre dispositivos não autorizados para todos os dispositivos que não aparecem nessa lista.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Controlar qual tráfego é monitorado](how-to-control-what-traffic-is-monitored.md)
 

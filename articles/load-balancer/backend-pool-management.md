@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 8887474f07928462afe7863ffe2b3667ece536dc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575292"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429595"
 ---
 # <a name="backend-pool-management"></a>Gerenciamento de pools de back-end
 O pool de back-end é um componente crítico do balanceador de carga. O pool de back-end define o grupo de recursos que receberá o tráfego para determinada regra de balanceamento de carga.
@@ -25,6 +25,8 @@ Há duas maneiras de configurar um pool de back-end:
 Configure o pool de back-end pela NIC ao usar máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais existentes. Esse método cria o link mais direto entre o recurso e o pool de back-end. 
 
 Ao alocar previamente o seu pool de back-end com um intervalo de endereços IP com o qual você planeja criar posteriormente máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais, configure o pool de back-end por endereço IP e por combinação de ID de VNET.
+
+Você pode configurar pools de back-end baseados em IP e em NIC para o mesmo balanceador de carga, no entanto, você não pode criar um único pool de back-end que combine endereços com suporte direcionados por endereços IP e NIC dentro do mesmo pool.
 
 As seções de configuração deste artigo terão como foco:
 

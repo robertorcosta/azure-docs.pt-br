@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98803511"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508736"
 ---
 # <a name="manage-alert-events"></a>Gerenciar eventos de alerta
 
@@ -45,7 +45,7 @@ Em determinadas situações, talvez você não queira que um sensor Aprenda um e
 
 Depois de realizar a mitigação ou investigação, você pode instruir o sensor a ocultar o alerta selecionando **confirmar**. Se o evento for detectado novamente, o alerta será disparado novamente.
 
-Para ocultar o alerta:
+Para limpar o alerta:
 
   - Selecione **reconhecer**.
 
@@ -72,7 +72,7 @@ Nessas situações, o aprendizado não está disponível. Quando o aprendizado n
 
 Um cenário sem áudio inclui os dispositivos de rede e o tráfego detectado para um evento. O título do alerta descreve o tráfego que está sendo mudo.
 
-O dispositivo ou dispositivos com mudo de áudio serão exibidos como uma imagem no alerta. Se dois dispositivos forem mostrados, o tráfego entre eles ficará mudo.
+O dispositivo ou dispositivos com mudo de áudio serão exibidos como uma imagem no alerta. Se dois dispositivos forem mostrados, o tráfego de alerta específico entre eles será mudo.
 
 **Exemplo 1**
 
@@ -106,6 +106,6 @@ Quando um evento está mudo, ele é ignorado sempre que a origem envia um cabeç
 
 2. Focalize um alerta para ver se ele está mudo.  
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Controlar qual tráfego é monitorado](how-to-control-what-traffic-is-monitored.md)

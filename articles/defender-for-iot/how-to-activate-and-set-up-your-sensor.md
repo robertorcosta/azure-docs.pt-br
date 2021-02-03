@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7d045ad104f8e2055ae85b74f4aae8f4d3fd61a4
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623582"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509512"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar seu sensor
 
@@ -81,7 +81,7 @@ Para entrar e ativar:
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Sensor do Azure defender para IoT.":::
 
-1. Insira as credenciais definidas durante a instalação do sensor. Se você comprou um sensor pré-configurado da seta, gere uma senha primeiro. Para obter mais informações sobre recuperação de senha, consulte [investigar falha de senha na entrada inicial](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
+1. Insira as credenciais definidas durante a instalação do sensor ou selecione a opção **recuperação de senha** . Se você comprou um sensor pré-configurado da seta, gere uma senha primeiro. Para obter mais informações sobre recuperação de senha, consulte [investigar falha de senha na entrada inicial](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
 1. Depois de entrar, a caixa de diálogo **ativação** é aberta. Selecione **carregar** e vá até o arquivo de ativação que você baixou durante a integração do sensor.
 
@@ -98,7 +98,7 @@ Para entrar e ativar:
 1. Insira uma frase secreta e carregue um arquivo PEM, se necessário.
 1. Selecione **Avançar**. A tela validação é aberta. Por padrão, a validação entre o console de gerenciamento e os sensores conectados está habilitada.
 1. Desative a alternância **Habilitar validação em todo o sistema** para desabilitar a validação. Recomendamos que você habilite a validação.
-1. Clique em **Salvar**.  
+1. Selecione **Salvar**.  
 
 Talvez seja necessário atualizar a tela depois de carregar o certificado assinado por uma autoridade de certificação.
 
@@ -152,7 +152,7 @@ Defina as configurações do sistema do sensor. Por exemplo:
 
 - Se o DHCP estiver em uso, defina intervalos DHCP legítimos.
 
-- Defina a integração com Active Directory e servidores de email.
+- Defina a integração com o Active Directory e o servidor de email conforme apropriado.
 
 ### <a name="disable-learning-mode"></a>Desabilitar o modo de aprendizado
 
@@ -179,9 +179,9 @@ Você acessa as ferramentas do console no menu lateral.
 
 | Janela | ícone | Descrição |
 | -----------|--|--|
-| Painel | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Exiba um instantâneo intuitivo do estado da segurança da rede. |
+| Dashboard | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | Exiba um instantâneo intuitivo do estado da segurança da rede. |
 | Mapa do dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | Exiba os dispositivos de rede, as conexões de dispositivo e as propriedades de dispositivo em um mapa. Várias opções de zoom, realce e filtro estão disponíveis para exibir a rede. |
-| Inventário de dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | O inventário de dispositivo exibe uma ampla gama de atributos de dispositivo que esse sensor detecta. As opções estão disponíveis para: <br /> -Filtre as informações de acordo com os campos de tabela e veja as informações filtradas exibidas. <br /> -Exportar informações para um arquivo CSV. <br /> -Importar detalhes do registro do Windows.|
+| Inventário de dispositivo | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | O inventário de dispositivo exibe uma lista de atributos de dispositivo que esse sensor detecta. As opções estão disponíveis para: <br /> -Classifique ou filtre as informações de acordo com os campos de tabela e veja as informações filtradas exibidas. <br /> -Exportar informações para um arquivo CSV. <br /> -Importar detalhes do registro do Windows.|
 | Alertas | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | Exibe alertas quando ocorrem violações de política, desvios do comportamento de linha de base ocorrem ou qualquer tipo de atividade suspeita na rede é detectada. |
 | Relatórios | :::image type="icon" source="media/concept-sensor-console-overview/reports-icon-azure.png" border="false"::: | Exibir relatórios baseados em consultas de mineração de dados. |
 
@@ -196,7 +196,7 @@ Você acessa as ferramentas do console no menu lateral.
 | Janela | ícone | Descrição |
 |---|---|---|
 | Mineração de dados | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | Gere informações abrangentes e granulares sobre os dispositivos de sua rede em várias camadas. |
-| Tendências e estatísticas | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Exiba tendências e estatísticas em uma ampla gama de widgets. |
+| Investigação | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | Exiba tendências e estatísticas em uma ampla gama de widgets. |
 | Avaliação de risco | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | Exibir a janela **vulnerabilidades** . |
 
 **Administrador**
@@ -204,7 +204,7 @@ Você acessa as ferramentas do console no menu lateral.
 | Janela | ícone | Descrição |
 |---|---|---|
 | Usuários | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Defina usuários e funções com vários níveis de acesso. |
-| Encaminhamento | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Encaminhe informações de alerta para parceiros que se integram com o defender para IoT, endereços de email, servidores de webhook e muito mais. <br /> Consulte [encaminhar informações de alerta](how-to-forward-alert-information-to-partners.md) para obter detalhes. |
+| Encaminhamento | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Encaminhe informações de alerta para parceiros e fontes internas (por exemplo, Sentinela) integrando-se com o defender para IoT, endereços de email, servidores de webhook e muito mais. <br /> Consulte [encaminhar informações de alerta](how-to-forward-alert-information-to-partners.md) para obter detalhes. |
 | Configurações de sistema | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Defina as configurações do sistema. Por exemplo, defina as configurações de DHCP, forneça detalhes do servidor de email ou crie aliases de porta. |
 | Configurações de importação | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Exibir a janela **configurações de importação** . Você pode executar alterações manuais nas informações de um dispositivo.<br /> Consulte [importar informações do dispositivo](how-to-import-device-information.md) para obter detalhes. |
 
@@ -214,7 +214,7 @@ Você acessa as ferramentas do console no menu lateral.
 |----|---|---|
 | Suporte | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contate a [suporte da Microsoft](https://support.microsoft.com/) para obter ajuda. |
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Consulte também
 
 [Integrar um sensor](getting-started.md#4-onboard-a-sensor)
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 735b1ce4391598d05a1bf0b4486503092f4de37d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: c9afc22cd123a782c9ee0247952c78c72ee916c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837855"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509060"
 ---
 # <a name="the-dashboard"></a>O painel
 
@@ -28,7 +28,7 @@ O painel permite exibir rapidamente o status de segurança da rede. Ele fornece 
 
 - Warnings
 
-- Os dois medidores no centro da página indicam os pacotes por segundo (PPS) e os alertas não confirmados (UA). **PPS** é o número de pacotes confirmados pelo sistema por segundo. **UA** é o número de alertas que ainda não foram confirmados.
+- Os dois indicadores no centro da página mostram os pacotes por segundo (PPS) e os alertas não confirmados (UA). **PPS** é o número de pacotes confirmados pelo sistema por segundo. **UA** é o número de alertas que ainda não foram confirmados.
 
 - Lista de alertas não confirmados com sua descrição.
 
@@ -78,23 +78,23 @@ Selecione a seta para baixo **V** na parte inferior de uma caixa de alerta para 
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/extended-alert-screen.png" alt-text="Informações de entrada e dispositivos de alerta":::
 
-- Selecione o dispositivo ou **mostre os dispositivos** para exibir o mapa do modo físico. Os dispositivos sujeitos ao sujeito são realçados.
+- Selecione o dispositivo para exibir o mapa do modo físico. Os dispositivos sujeitos ao sujeito são realçados.
+
+- Clique em qualquer lugar na caixa de alerta para exibir detalhes adicionais sobre o alerta. Um pop-up será exibido semelhante ao mostrado abaixo
 
 - Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/excel-icon.png" alt-text="Excel"::: para exportar um arquivo CSV sobre o alerta.
 
 - Somente administradores e analistas de segurança — selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/approve-all-icon.png" alt-text="reconhecer tudo"::: para **confirmar todos os** alertas associados.
 
-- Selecione a entrada de alerta para exibir o tipo e a descrição do alerta:
-
 - Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pdf-icon.png" alt-text="PDF":::para baixar um relatório de alerta como um arquivo PDF.
 
-- Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="fixar":::para fixar ou desafixar o alerta.
+- Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="fixar":::para fixar ou desafixar o alerta. A seleção do PIN o adicionará à janela **alertas fixados** na tela **alertas** .
 
-- Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="baixar"::: para investigar o alerta baixando o arquivo pcap que contém uma análise de protocolo de rede.
+- Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="baixar"::: para investigar o alerta baixando o arquivo pcap relacionado que contém uma análise de protocolo de rede.
 
-- Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="nuvem"::: para baixar um arquivo pcap filtrado que contenha apenas os pacotes relevantes de alerta, reduzindo assim o tamanho do arquivo de saída e permitindo uma análise mais focalizada. Você pode exibi-lo usando o [Wireshark](https://www.wireshark.org/).
+- Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="nuvem"::: para baixar um arquivo pcap filtrado relacionado que contenha apenas os pacotes relevantes de alerta, reduzindo assim o tamanho do arquivo de saída e permitindo uma análise mais focalizada. Você pode exibi-lo usando o [Wireshark](https://www.wireshark.org/).
 
-- Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="navegação"::: para navegar até a linha do tempo do evento no momento do alerta solicitado.
+- Selecione :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="navegação"::: para navegar até a linha do tempo do evento no momento do alerta solicitado. Isso permite que você avalie outros eventos que podem estar ocorrendo em um alerta específico.
 
 - Somente administradores e analistas de segurança – altere o status do alerta de não confirmado para confirmado. Selecione aprender para aprovar a atividade detectada.
 

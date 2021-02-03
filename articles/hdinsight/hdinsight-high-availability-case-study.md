@@ -5,12 +5,12 @@ keywords: alta disponibilidade hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6b995e2ab5ba663f6e33b009062859eb32928cc1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945351"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508584"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Estudo de caso da arquitetura de solução de alta disponibilidade do Azure HDInsight
 
@@ -71,7 +71,7 @@ O **Kafka** usa a replicação [ativa – passiva](hdinsight-business-continuity
 
 O **Hive e o Spark** usam modelos [de replicação secundária ativos primários sob demanda](hdinsight-business-continuity-architecture.md#apache-spark) durante horários normais. O processo de replicação do hive é executado periodicamente e acompanha o hive do Azure SQL metastore e a replicação da conta de armazenamento do hive. A conta de armazenamento do Spark é replicada periodicamente usando o ADF DistCP. A natureza transitória desses clusters ajuda a otimizar os custos. As replicações são agendadas a cada 4 horas para chegar a um RPO que está bem dentro do requisito de cinco horas.
 
-A replicação do **HBase** usa o modelo [líder – de acompanhamento](hdinsight-business-continuity-architecture.md#apache-hbase) durante os horários normais para garantir que os dados sejam sempre atendidos, independentemente da região e o RPO seja zero.
+A replicação do **HBase** usa o modelo [líder – de acompanhamento](hdinsight-business-continuity-architecture.md#apache-hbase) durante os horários normais para garantir que os dados sejam sempre atendidos, independentemente da região, e o RPO seja muito baixo.
 
 Se houver uma falha regional na região primária, a página da Web e o conteúdo de back-end serão servidos da região secundária por 5 horas com certo grau de desatualização. Se o painel de integridade do serviço do Azure não indicar uma recuperação ETA na janela de cinco horas, o varejo da Contoso criará a camada de transformação do hive e do Spark na região secundária e, em seguida, apontará todas as fontes de dados upstream para a região secundária. Tornar a região secundária gravável causaria um processo de failback que envolve a replicação de volta para o primário.
 

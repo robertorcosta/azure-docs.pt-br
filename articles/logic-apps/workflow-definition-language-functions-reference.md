@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 01/13/2021
-ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234215"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507241"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -569,10 +569,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 Esse exemplo adiciona 10 dias ao carimbo de data/hora especificado:
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-E retorna este resultado: `"2018-03-25T00:00:0000000Z"`
+E retorna este resultado: `"2018-03-25T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -582,7 +582,7 @@ Esse exemplo subtrai cinco dias do carimbo de data/hora especificado:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-E retorna este resultado: `"2018-03-10T00:00:0000000Z"`
+E retorna este resultado: `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -614,7 +614,7 @@ Esse exemplo adiciona 10 horas ao carimbo de data/hora especificado:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-E retorna este resultado: `"2018-03-15T10:00:0000000Z"`
+E retorna este resultado: ' "2018-03-15T10:00:00.0000000 Z"
 
 *Exemplo 2*
 
@@ -624,7 +624,7 @@ Esse exemplo subtrai cinco horas do carimbo de data/hora especificado:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-E retorna este resultado: `"2018-03-15T10:00:0000000Z"`
+E retorna este resultado: `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -1136,20 +1136,20 @@ Se você estiver usando `bool()` com um objeto, o valor do objeto deverá ser um
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| `true` ou `false` | Boolean | A versão booliana do valor especificado. |
+| `true` ou `false` | Booliano | A versão booliana do valor especificado. |
 ||||
 
 *Saídas*
 
 Estes exemplos mostram os diferentes tipos de entrada com suporte para `bool()` :
 
-| Valor de entrada | Tipo | Valor retornado |
+| Valor de entrada | Type | Valor retornado |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | Integer | `true` |
 | `bool(0)` | Integer    | `false` |
 | `bool(-1)` | Integer | `true` |
 | `bool('true')` | String | `true` |
-| `bool('false')` | String | `false` |
+| `bool('false')` | Cadeia de caracteres | `false` |
 
 <a name="coalesce"></a>
 
@@ -2263,7 +2263,7 @@ guid('<format>')
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | Não | String | Um único [especificador de formato](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) para o GUID retornado. Por padrão, o formato é "D", mas é possível usar "N", "D", "B", "P" ou "X". |
+| <*format*> | Não | String | Um único [especificador de formato](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) para o GUID retornado. Por padrão, o formato é "D", mas é possível usar "N", "D", "B", "P" ou "X". |
 |||||
 
 | Valor retornado | Type | Descrição |
@@ -4011,7 +4011,7 @@ Esse exemplo subtrai um dia desse carimbo de data/hora:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-E retorna este resultado: `"2018-01-01T00:00:00:0000000Z"`
+E retorna este resultado: `"2018-01-01T00:00:00.0000000Z"`
 
 *Exemplo 2*
 
@@ -4063,7 +4063,7 @@ E retornam estes resultados:
 
 ### <a name="ticks"></a>ticks
 
-Retorna o número de tiques, que são intervalos de 100 nanossegundos, desde 1º de janeiro de 0001 12h00min00s meia-noite (ou DateTime.Ticks em C#) até o carimbo de data/hora especificado. Para obter mais informações, confira este tópico: [Propriedade DateTime.Ticks (sistema)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Retorna o número de tiques, que são intervalos de 100 nanossegundos, desde 1º de janeiro de 0001 12h00min00s meia-noite (ou DateTime.Ticks em C#) até o carimbo de data/hora especificado. Para obter mais informações, confira este tópico: [Propriedade DateTime.Ticks (sistema)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')

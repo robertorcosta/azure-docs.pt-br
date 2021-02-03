@@ -43,6 +43,8 @@
   items:
     - name: Criar um serviço de autenticação confiável usando o Azure Functions
       href: tutorials/trusted-service-tutorial.md
+    - name: Preparar um aplicativo Web para Serviços de Comunicação (Node.js)
+      href: tutorials/building-app-start.md
 - name: Conceitos
   expanded: false
   items:

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621207"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508753"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
 
@@ -147,7 +147,7 @@ Para alterar a configuração de validação:
 
 1. Habilitar ou desabilitar a alternância **Habilitar validação de certificado** .
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Se a opção estiver habilitada e a validação falhar, a comunicação entre o console de gerenciamento e o sensor será interrompida e um erro de validação será apresentado no console do.
 
@@ -355,7 +355,7 @@ Para alterar o nome:
 
 1. Na caixa de diálogo **Editar nome do sensor** , insira um nome.
 
-1. Clique em **Salvar**. O novo nome é aplicado.
+1. Selecione **Salvar**. O novo nome é aplicado.
 
 ### <a name="change-the-name-of-a-cloud-connected-sensor"></a>Alterar o nome de um sensor conectado à nuvem
 
@@ -367,9 +367,9 @@ Para alterar o nome:
 
 1. Exclua o sensor da janela de **Gerenciamento do sensor** .
 
-1. Registre-se com o novo nome.
+1. Registre novamente com o novo nome.
 
-1. Baixe e novo arquivo de ativação.
+1. Baixe o novo arquivo de ativação.
 
 1. Entre no sensor e carregue o novo arquivo de ativação.
 
@@ -398,7 +398,7 @@ Para alterar a configuração:
     | Nome do host | O nome do host do sensor |
     | Proxy | Host de proxy e nome da porta |
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ## <a name="synchronize-time-zones-on-the-sensor"></a>Sincronizar fusos horários no sensor
 
@@ -562,7 +562,7 @@ Para acessar as propriedades do sistema:
 
 3. Selecione **Propriedades do sistema** na seção **geral** .
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Pesquisa e pacotes de inteligência contra ameaças](how-to-work-with-threat-intelligence-packages.md)
 

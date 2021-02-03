@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 02/03/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 53be2f6795593bf44cafde149242b13ed4fdfe50
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 225fc83133aba0a7d669f36dc9c8e7cd20c8e42e
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790470"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507512"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -74,7 +74,7 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
-| Cabeçalho | Descrição | Obrigatório/Opcional |
+| parâmetro | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
@@ -209,12 +209,13 @@ Essas regiões são suportadas para text-to-speech usando a API REST. Certifique
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de texto em fala.
 
-| Cabeçalho | Descrição | Obrigatório/Opcional |
+| parâmetro | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Necessária |
-| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Necessária |
-| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Necessária |
-| `User-Agent` | O nome do aplicativo. O valor fornecido deve ter menos de 255 caracteres. | Necessária |
+| `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
+| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Obrigatório |
+| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Obrigatório |
+| `User-Agent` | O nome do aplicativo. O valor fornecido deve ter menos de 255 caracteres. | Obrigatório |
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 

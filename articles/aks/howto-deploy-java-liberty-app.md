@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: Java, Jacarta, Java, microprofile, Open-Liberty, WebSphere-Liberty, AKs, kubernetes
-ms.openlocfilehash: 93ffa3ded4d0771438c5d6a2dc23e6e184f04fe2
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 4d6e335cd4b522593091094ac6251acc97873208
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227580"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508042"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>Implantar um aplicativo Java com o Liberty aberto ou o WebSphere Liberty em um cluster do AKS (serviço kubernetes do Azure)
 
@@ -213,7 +213,7 @@ Aguarde até que o endereço *IP externo* seja alterado de *pendente* para um en
 
 Abra um navegador da Web para o endereço IP externo e a porta do seu serviço ( `52.152.189.57:9080` para o exemplo acima) para ver o home page do aplicativo. Você deve ver o nome do pod de suas réplicas de aplicativo exibidas na parte superior esquerda da página. Aguarde alguns minutos e atualize a página, você provavelmente verá um nome de Pod diferente exibido devido ao balanceamento de carga fornecido pelo cluster AKS.
 
-:::image type="content" source="./media/howto-deploy-java-liberty-app/java-liberty-app-aks-deployed-success.png" alt-text="Aplicativo de Liberty Java implantado com êxito em AKS":::
+:::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Aplicativo de Liberty Java implantado com êxito em AKS":::
 
 >[!NOTE]
 > - Atualmente, o aplicativo não está usando HTTPS. É recomendável [HABILITAR o TLS com os próprios certificados](ingress-own-tls.md).

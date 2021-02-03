@@ -3,12 +3,12 @@ title: Monitoramento e registro em log – Azure
 description: Este artigo fornece uma visão geral do monitoramento e registro em log na análise de vídeo ao vivo no IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a77ca6cf9dc66d1efda5741266f1a2eecc2599c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878097"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507804"
 ---
 # <a name="monitoring-and-logging"></a>Monitoramento e registro em log
 
@@ -230,7 +230,7 @@ A hora do evento é formatada em uma cadeia de caracteres ISO 8601. Representa a
 
 Essas métricas serão relatadas da análise de vídeo ao vivo no módulo IoT Edge:  
 
-|Nome da métrica|Tipo|Rótulo|Descrição|
+|Nome da métrica|Type|Rótulo|Descrição|
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|Medidor|iothub, edge_device, module_name, graph_topology|Número total de grafos ativos por topologia.|
 |lva_received_bytes_total|Contador|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|Número total de bytes recebidos por um nó. Com suporte apenas para fontes RTSP.|
@@ -254,14 +254,14 @@ Siga estas etapas para habilitar a coleta de métricas da análise de vídeo ao 
       urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
 
     [[outputs.azure_monitor]]
-      namespace_prefix = ""
+      namespace_prefix = "lvaEdge"
       region = "westus"
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
     > Certifique-se de substituir as variáveis no arquivo. toml. As variáveis são indicadas por chaves ( `{}` ).
 
-1. Na mesma pasta, crie um `.dockerfile` que contenha os seguintes comandos:
+1. Na mesma pasta, crie um Dockerfile que contenha os seguintes comandos:
     ```
         FROM telegraf:1.15.3-alpine
         COPY telegraf.toml /etc/telegraf/telegraf.conf
@@ -305,13 +305,28 @@ Siga estas etapas para habilitar a coleta de métricas da análise de vídeo ao 
      `AZURE_CLIENT_SECRET`: Especifica o segredo do aplicativo a ser usado.  
      
      >[!TIP]
-     > Você pode dar à entidade de serviço a função de **Editor de métricas de monitoramento** .
+     > Você pode dar à entidade de serviço a função de **Editor de métricas de monitoramento** . Siga as etapas em **[criar entidade de serviço](https://docs.microsoft.com/azure/azure-arc/data/upload-metrics-and-logs-to-azure-monitor?pivots=client-operating-system-macos-and-linux#create-service-principal)** para criar a entidade de serviço e atribuir a função.
 
 1. Depois que os módulos são implantados, as métricas aparecerão em Azure Monitor em um único namespace. Os nomes de métrica corresponderão aos emitidos por Prometheus. 
 
    Nesse caso, na portal do Azure, vá para o Hub IoT e selecione **métricas** no painel esquerdo. Você deve ver as métricas ali.
 
-## <a name="logging"></a>Registrando em log
+Usando o Prometheus juntamente com [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), você pode gerar e [monitorar métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) como, por exemplo, o usado CPUPercent, MemoryUsedPercent, etc. Usando a linguagem de consulta Kusto, você pode escrever consultas como abaixo e obter a porcentagem de CPU usada pelos módulos do IoT Edge.
+```kusto
+let cpu_metrics = promMetrics_CL
+| where Name_s == "edgeAgent_used_cpu_percent"
+| extend dimensions = parse_json(Tags_s)
+| extend module_name = tostring(dimensions.module_name)
+| where module_name in ("lvaEdge","yolov3","tinyyolov3")
+| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+cpu_metrics
+| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+| extend module_name = "Total"
+| union cpu_metrics
+```
+
+[![Diagrama que mostra as métricas usando a consulta Kusto.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
+## <a name="logging"></a>Registro em log
 
 Assim como ocorre com outros módulos IoT Edge, você também pode [examinar os logs de contêiner](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) no dispositivo de borda. Você pode configurar as informações gravadas nos logs usando as seguintes propriedades de [mymódulo](module-twin-configuration-schema.md) :
 

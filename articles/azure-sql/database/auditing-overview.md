@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 11/08/2020
+ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: b09eb03994098f8cb68033f3c42309a77e15f91c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e96aa32c6b67290fc4b4ee62ae98c4e72399fd4b
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620984"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509580"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -94,7 +94,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
   > [!NOTE]
   > Não é possível habilitar a auditoria em um pool SQL dedicado em pausa. Para habilitar a auditoria, cancele a pausa do pool SQL dedicado. Saiba mais sobre o [pool SQL dedicado](../..//synapse-analytics/sql/best-practices-sql-pool.md).
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+1. Acesse o [portal do Azure](https://portal.azure.com).
 2. Navegue até **auditoria** no título segurança no seu banco de **dados SQL** ou no painel do **SQL Server** .
 3. Se preferir configurar uma política de auditoria de servidor, selecione o link **Exibir configurações do servidor** na página de auditoria do banco de dados. Depois, é possível exibir ou modificar as configurações de auditoria do servidor. As políticas de auditoria de servidor se aplicam a todos os bancos de dados existentes e recém-criados neste servidor.
 
@@ -274,7 +274,12 @@ Diretiva estendida com suporte em que a cláusula de filtragem adicional:
 - [Obter a *política* de auditoria de bando de dados estendida](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obter a *política* de auditoria de servidor estendida](/rest/api/sql/server%20auditing%20settings/get)
 
-### <a name="using-azure-resource-manager-templates"></a>Usando modelos do Gerenciador de Recursos do Azure
+### <a name="using-azure-cli"></a>Usando a CLI do Azure
+
+- [Gerenciar a política de auditoria de um servidor](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
+- [Gerenciar a política de auditoria de um banco de dados](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
+
+### <a name="using-azure-resource-manager-templates"></a>Usar modelos do Azure Resource Manager
 
 Você pode gerenciar a auditoria do banco de dados SQL do Azure usando modelos de [Azure Resource Manager](../../azure-resource-manager/management/overview.md) , conforme mostrado nestes exemplos:
 

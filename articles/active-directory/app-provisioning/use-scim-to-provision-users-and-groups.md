@@ -3,7 +3,7 @@ title: Tutorial – Desenvolver um ponto de extremidade do SCIM de provisionamen
 description: O sistema para SCIM (Sistema de Gerenciamento de Usuários entre Domínios) padroniza o provisionamento automático de usuários. Neste tutorial, você aprenderá a desenvolver um ponto de extremidade do SCIM, integrar sua API do SCIM ao Azure Active Directory e começar a automatizar o provisionamento de usuários e grupos em aplicativos de nuvem.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1057276a543c18b746bb60b7e7a54bf28dec6f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a6895a47bc6d99a09408ca002ec48405a5c78682
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98892551"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255671"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Tutorial: Desenvolver e planejar o provisionamento para um ponto de extremidade SCIM
 
@@ -56,7 +56,7 @@ Cada aplicativo requer atributos diferentes para criar um usuário ou grupo. Ini
 |--|--|--|
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
-|lastName|name.lastName|lastName|
+|lastName|name.familyName|surName|
 |workMail|emails[type eq "work"].value|Email|
 |manager|manager|manager|
 |marca|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
@@ -69,7 +69,7 @@ O esquema definido anteriormente será representado pelo conteúdo JSON abaixo. 
      "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
-     "userName":"bjensen",
+     "userName":"bjensen@testuser.com",
      "externalId":"bjensen",
      "name":{
        "familyName":"Jensen",
@@ -961,7 +961,7 @@ Caso a resposta a uma consulta ao serviço Web para um usuário com um valor de 
      "urn:ietf:params:scim:schemas:core:2.0:User",
      "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
    "externalId":"jyoung",
-   "userName":"jyoung",
+   "userName":"jyoung@testuser.com",
    "active":true,
    "addresses":null,
    "displayName":"Joy Young",
@@ -1198,7 +1198,7 @@ A especificação do SCIM não define um esquema específico de SCIM para autent
 |--|--|--|--|
 |Nome de usuário e senha (não recomendado ou com suporte do Azure AD)|Fácil de implementar|Inseguro – [Sua Pa$$word não importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Com suporte caso a caso para aplicativos da galeria. Sem suporte para aplicativos que não são da galeria.|
 |Token de portador de vida útil longa|Os tokens de vida útil longa não exigem que um usuário esteja presente. Eles são fáceis para os administradores usarem ao configurar o provisionamento.|Os tokens de vida útil longa podem ser difíceis de compartilhar com um administrador sem usar métodos inseguros, como email. |Com suporte para aplicativos que não são e que são da galeria. |
-|Concessão de código de autorização OAuth|Os tokens de acesso são muito mais curtos do que as senhas e têm um mecanismo de atualização automatizado que os tokens de portador de vida útil longa não têm.  Um usuário real deve estar presente durante a autorização inicial, adicionando um nível de responsabilidade. |Exige que um usuário esteja presente. Se o usuário sair da organização, o token será inválido e a autorização precisará ser realizada novamente.|Com suporte para aplicativos da galeria, porém não para aplicativos inexistentes na galeria. No entanto, é possível fornecer um token de acesso na interface do usuário como um token secreto para fins de teste de curto prazo. Dar suporte para a concessão do código OAuth fora da galeria não está em nossa lista de pendências.|
+|Concessão de código de autorização OAuth|Os tokens de acesso são muito mais curtos do que as senhas e têm um mecanismo de atualização automatizado que os tokens de portador de vida útil longa não têm.  Um usuário real deve estar presente durante a autorização inicial, adicionando um nível de responsabilidade. |Exige que um usuário esteja presente. Se o usuário sair da organização, o token será inválido e a autorização precisará ser realizada novamente.|Com suporte para aplicativos da galeria, porém não para aplicativos inexistentes na galeria. No entanto, é possível fornecer um token de acesso na interface do usuário como um token secreto para fins de teste de curto prazo. O suporte para concessão de código OAuth em aplicativos que não são da galeria está em nossa lista de pendências, além do suporte a URLs de autenticação/token configuráveis no aplicativo da galeria.|
 |Concessão de credenciais de cliente do OAuth|Os tokens de acesso são muito mais curtos do que as senhas e têm um mecanismo de atualização automatizado que os tokens de portador de vida útil longa não têm. A concessão de código de autorização e a concessão de credenciais de cliente criam o mesmo tipo de token de acesso; portanto, a transferência entre esses métodos é transparente para a API.  O provisionamento pode ser completamente automatizado e novos tokens podem ser silenciosamente solicitados sem interação do usuário. ||Sem suporte para aplicativos que não são e que são da galeria. O suporte está em nossa pendência.|
 
 > [!NOTE]

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 772fc9f21f36a1487e2e3a1acbe644f9fd12e0f4
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 545359cd68c18fea8bf1369a57226d024489f293
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563187"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258907"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar/Atualizar online o BD do Azure para PostgreSQL – Servidor Único para o BD do Azure para PostgreSQL – Servidor Único usando o DMS por meio do portal do Azure
 
@@ -54,7 +54,7 @@ Para concluir este tutorial, você precisará:
 * [Crie um servidor do Banco de Dados do Azure para PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) ou [Crie um Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)](../postgresql/quickstart-create-hyperscale-portal.md) como o servidor de banco de dados de destino para o qual os dados serão migrados.
 * Crie uma Rede Virtual do Microsoft Azure para o Serviço de Migração de Banco de Dados do Azure usando o modelo de implantação do Azure Resource Manager. Para obter mais informações sobre como criar uma rede virtual, confira a [Documentação da Rede Virtual](../virtual-network/index.yml) e, especificamente, os artigos de Início Rápido com detalhes passo a passo.
 
-* Verifique se as regras do NSG (Grupo de Segurança de Rede) da rede virtual não bloqueiam as seguintes portas de comunicação de entrada para o Serviço de Migração de Banco de Dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Verifique se as regras do NSG (Grupo de Segurança de Rede) da sua rede virtual não bloqueiam as seguintes portas de comunicação de saída para o Serviço de Migração de Banco de Dados do Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Crie uma [regra de firewall](../azure-sql/database/firewall-configure.md) no nível do servidor para que o Banco de Dados do Azure para PostgreSQL de origem permita que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
 * Crie uma [regra de firewall](../azure-sql/database/firewall-configure.md) no nível do servidor para que o Banco de Dados do Azure para PostgreSQL de destino permita que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de destino. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
 * [Habilitar replicação lógica](../postgresql/concepts-logical.md) na origem do BD do Azure para PostgreSQL. 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4dd1941e6a749c2ccf7ca082ab89ef2a70baa0d6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131467"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509529"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão para o agente de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -25,6 +25,7 @@ Há suporte para as seguintes versões de agente de Sincronização de Arquivos 
 
 | Marco | Número de versão do agente | Data de liberação | Status |
 |----|----------------------|--------------|------------------|
+| Versão da v 11.2- [KB4539952](https://support.microsoft.com/en-us/help/4539952)| 11.2.0.0 | 2 de fevereiro de 2021 | Com suporte-comprovante |
 | Versão v 11.1- [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4 de novembro de 2020 | Com suporte |
 | V 10.1 versão- [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 de junho de 2020 | Com suporte |
 | Pacote cumulativo de atualizações de maio de 2020 – [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 de maio de 2020 | Com suporte |
@@ -48,6 +49,32 @@ As seguintes versões do agente de Sincronização de Arquivos do Azure expirara
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-11200"></a>Versão do agente 11.2.0.0
+As notas de versão a seguir são para a versão 11.2.0.0 do agente de Sincronização de Arquivos do Azure lançado em 2 de fevereiro de 2021. Essas notas são além das notas de versão listadas para a versão 11.1.0.0.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>Problemas corrigidos e aprimoramentos 
+- Se uma sessão de sincronização for cancelada devido a um grande número de erros por item, a sincronização poderá passar pela reconciliação quando uma nova sessão for iniciada se o serviço de Sincronização de Arquivos do Azure determinar uma sessão de sincronização personalizada é necessária para corrigir os erros por item.
+- O registro de um servidor usando o cmdlet Register-AzStorageSyncServer pode falhar com o erro "exceção sem tratamento".
+- Novo cmdlet do PowerShell (Add-StorageSyncAllowedServerEndpointPath) para configurar os caminhos de pontos de extremidade do servidor permitidos em um servidor. Esse cmdlet é útil para cenários nos quais a implantação de Sincronização de Arquivos do Azure é gerenciada por um provedor de soluções de nuvem (CSP) ou provedor de serviços e o cliente deseja configurar caminhos de pontos de extremidade de servidor permitidos em um servidor. Ao criar um ponto de extremidade do servidor, se o caminho especificado não estiver na lista de permissões, a criação do ponto de extremidade do servidor falhará. Observe que esse é um recurso opcional e todos os caminhos com suporte são permitidos por padrão ao criar um ponto de extremidade do servidor.  
+
+    
+    - Para adicionar um caminho de ponto de extremidade de servidor permitido, execute os seguintes comandos do PowerShell no servidor:
+
+    ```powershell
+    Import-Module 'C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll' -verbose
+    Add-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
+
+    - Para obter a lista de caminhos com suporte, execute o seguinte comando do PowerShell:
+    
+    ```powershell
+    Get-StorageSyncAllowedServerEndpointPath
+    ```     
+    - Para remover um caminho, execute o seguinte comando do PowerShell:
+    
+    ```powershell
+    Remove-StorageSyncAllowedServerEndpointPath -Path <path>
+    ```  
 ## <a name="agent-version-11100"></a>Versão do agente 11.1.0.0
 As notas de versão a seguir são para a versão 11.1.0.0 do agente de Sincronização de Arquivos do Azure (lançada em 4 de novembro de 2020).
 

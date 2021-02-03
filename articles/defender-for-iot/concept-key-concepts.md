@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: cb984ca1a74d8b3838b857f2f5679264d1445187
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621921"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508601"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos 
 
@@ -20,9 +20,9 @@ Este artigo descreve as principais vantagens do Azure defender para IoT.
 
 ## <a name="rapid-non-invasive-deployment-and-passive-monitoring"></a>Implantação rápida não invasiva e monitoramento passivo
 
-Os sensores do defender for IoT se conectam a uma porta SPAN ou a um toque de rede e começam imediatamente a coletar tráfego de rede ICS via monitoramento passivo (sem agente). A inspeção de pacote profunda (DPI) é usada para dissecar o tráfego do equipamento de rede de controle serial e Ethernet. O defender para IoT tem impacto zero sobre as redes, pois não é colocado no caminho de dados e não examina ativamente os dispositivos. 
+Os sensores do defender for IoT se conectam a portas de switch SPAN (espelho) e toques de rede e imediatamente começam a coletar tráfego de rede ICS via monitoramento passivo (sem agente). A inspeção de pacote profunda (DPI) é usada para dissecar o tráfego do equipamento de rede de controle serial e Ethernet. O defender para IoT tem impacto zero sobre as redes, pois não é colocado no caminho de dados e não examina ativamente os dispositivos. 
 
-Para fornecer instantâneos instantâneos de informações detalhadas do dispositivo, o defender para o sensor IoT complementa o monitoramento passivo com um componente ativo opcional. Esse componente usa comandos seguros e aprovados pelo fornecedor para consultar os dispositivos do Windows e do controlador para obter detalhes do dispositivo, com frequência ou com a frequência desejada.
+Para fornecer instantâneos instantâneos de informações detalhadas do dispositivo Windows, o defender for IoT sensor pode ser configurado para complementar o monitoramento passivo com um componente ativo opcional. Esse componente usa comandos seguros e aprovados pelo fornecedor para consultar os dispositivos do Windows em busca de detalhes do dispositivo, com frequência ou com a frequência desejada.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Conhecimento incorporado de protocolos, dispositivos e aplicativos do ICS
 
@@ -73,7 +73,7 @@ O defender para IoT fornece uma exibição consolidada de todos os seus disposit
 
 O defender para IoT permite o gerenciamento eficaz de várias implantações e uma visão unificada abrangente da rede. O defender para IoT otimiza o tratamento de alertas e o controle da segurança de rede operacional.
 
-O console de gerenciamento local é uma plataforma administrativa baseada na Web que permite monitorar e controlar as atividades de instalações de sensor global. Além de gerenciar os dados recebidos de sensores implantados, o console de gerenciamento local integra diretamente os dados de uma variedade de recursos empresariais: CMDBs, DNS, firewalls, APIs da Web e muito mais.
+O console de gerenciamento local é uma plataforma administrativa baseada na Web que permite monitorar e controlar as atividades de instalações de sensor global. Além de gerenciar os dados recebidos de sensores implantados, o console de gerenciamento local integra diretamente os dados de vários recursos comerciais: CMDBs, DNS, firewalls, APIs da Web e muito mais.
 
 :::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="Exibição do console de gerenciamento local.":::
 

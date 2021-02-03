@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4ad619fa5f0fb8f8e87333f2681727dabedda42b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605291"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427353"
 ---
 Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://portal.azure.com).
 
@@ -35,17 +35,17 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Criar um hub no portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Crie um hub no portal do Azure.":::
 
 1. Selecione **Avançar: Rede** para continuar criando o hub.
 
    Escolha os pontos de extremidade que podem se conectar ao Hub IoT. Você pode selecionar a configuração padrão **Ponto de extremidade público (todas as redes)** ou escolher **Ponto de extremidade público (intervalos IP selecionados)** ou **Ponto de extremidade privado**. Aceite a configuração padrão para esse exemplo.
 
-   ![Escolha os pontos de extremidade que podem se conectar](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Escolha os pontos de extremidade que podem se conectar.":::
 
 1. Selecione **Avançar: Gerenciamento** para continuar criando o hub.
 
-    ![Definir o tamanho e a escala para um novo hub usando o portal do Azure](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management-screen.png" alt-text="Defina o tamanho e a escala para um novo hub usando o portal do Azure.":::
 
     Você pode aceitar as configurações padrão aqui. Se desejar, você poderá modificar qualquer um dos seguintes campos:
 
@@ -60,14 +60,14 @@ Esta seção descreve como criar um hub IoT usando o [portal do Azure](https://p
 
     - **Configurações avançadas** > **Partições de dispositivo para nuvem**: Essa propriedade está relacionada a mensagens de dispositivo para nuvem para o número de leitores simultâneos das mensagens. A maioria dos hubs precisa apenas de quatro partições.
 
-1.  Selecione **Avançar: Marcas** para avançar para a próxima tela.
+1. Selecione **Avançar: Marcas** para avançar para a próxima tela.
 
     Marcas são pares nome/valor. Você pode atribuir a mesma marca a vários recursos e grupos de recursos para categorizá-los e consolidar a cobrança. Para obter mais informações, veja [Usar marcas para organizar os recursos do Azure](../articles/azure-resource-manager/management/tag-resources.md).
 
-    ![Atribuir marcas para o hub usando o portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Atribua marcas para o hub usando o portal do Azure.":::
 
-1.  Selecione **Avançar: Analisar + criar** para examinar suas escolhas. Você verá algo semelhante a esta tela, mas com os valores que você selecionou ao criar o hub. 
+1. Selecione **Avançar: Analisar + criar** para examinar suas escolhas. Você verá algo semelhante a esta tela, mas com os valores que você selecionou ao criar o hub.
 
-    ![Examinar informações para criar o hub](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Examine as informações para criar o hub.":::
 
-1.  Selecione **Criar** para criar o hub. Criar o hub leva alguns minutos.
+1. Selecione **Criar** para criar o hub. Criar o hub leva alguns minutos.

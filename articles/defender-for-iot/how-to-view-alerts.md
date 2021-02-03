@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4803691a82a97cd2be5fa3beafd4419010e7a9c9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837868"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509058"
 ---
 # <a name="view-alerts"></a>Exibir alertas
 
@@ -84,7 +84,7 @@ Quando nenhuma das opções é selecionada, todos os alertas são exibidos.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="Segurança na tela alertas.":::
 
-## <a name="alert-window-options"></a>Opções da janela de alerta
+## <a name="alert-page-options"></a>Opções de página de alerta
 
 As mensagens de alerta fornecem as seguintes ações:
 
@@ -101,6 +101,8 @@ As mensagens de alerta fornecem as seguintes ações:
 - Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: para aprender e reconhecer todos os alertas.
 
 - Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: para exportar a lista de alertas para um arquivo CSV e selecione a opção Exportar. Escolha **exportação de alertas** para a opção regular exportar para CSV. Ou escolha **exportação de alerta estendida** para a possibilidade de adicionar linhas separadas para obter informações adicionais sobre um alerta no arquivo CSV.
+
+## <a name="alert-pop-up-window-options"></a>Opções da janela pop-up de alerta
 
 - Selecione o :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: ícone para baixar um relatório de alerta como um arquivo PDF.
 
@@ -120,6 +122,6 @@ As mensagens de alerta fornecem as seguintes ações:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Gerenciar o evento de alerta](how-to-manage-the-alert-event.md)
+[Gerenciar o evento de alertas](how-to-manage-the-alert-event.md)
 
 [Acelerar fluxos de trabalho de alerta](how-to-accelerate-alert-incident-response.md)

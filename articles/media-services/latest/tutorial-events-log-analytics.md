@@ -1,8 +1,23 @@
 ---
-Título: Armazenar eventos dos Serviços de Mídia do Azure no Azure Log Analytics: Descrição dos Serviços de Mídia do Azure: Saiba como armazenar eventos dos Serviços de Mídia do Azure no Azure Log Analytics.
-services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: '' ms.service: media-services ms.workload: ms.topic: tutorial ms.date: 08/24/2020 ms.author: inhenkel
+title: Armazenar eventos dos Serviços de Mídia no Azure Log Analytics
+description: Saiba como armazenar eventos dos Serviços de Mídia do Azure no Azure Log Analytics.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: ''
+ms.topic: tutorial
+ms.date: 08/24/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2bfd1064a02f0fb4982c9d2747b85707e98b5bcd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954522"
 ---
-
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutorial: Armazenar eventos dos Serviços de Mídia do Azure no Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Eventos dos Serviços de Mídia do Azure

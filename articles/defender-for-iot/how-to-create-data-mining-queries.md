@@ -1,5 +1,5 @@
 ---
-title: Criar relatórios de Data Mining
+title: Criar relatórios de mineração de dados
 description: gere informações abrangentes e granulares sobre seus dispositivos de rede em várias camadas, como protocolos, versões de firmware ou comandos de programação.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56751adedfc01b3927acc65f47910c3b1281f09c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811605"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507563"
 ---
 # <a name="sensor-data-mining-queries"></a>Consultas de Data Mining de sensor
 
@@ -55,11 +55,11 @@ As consultas de mineração de dados criadas são atualizadas dinamicamente toda
 
 Você pode usar consultas para lidar com uma ampla gama de necessidades de segurança para várias equipes de segurança:
 
-- **Resposta a incidentes SOC**: gere um relatório em tempo real para ajudar a lidar com resposta imediata a incidentes. Por exemplo, gere um relatório para uma lista de dispositivos que podem exigir aplicação de patch.
+- **Resposta a incidentes SOC**: gere um relatório em tempo real para ajudar a lidar com resposta imediata a incidentes. Por exemplo, a mineração de dados pode gerar um relatório para uma lista de dispositivos que podem exigir aplicação de patch.
 
 - **Análise forense**: gere um relatório com base em dados históricos para relatórios investigativos.
 
-- **Integridade da rede de ti**: gere um relatório que ajude a melhorar a segurança geral da rede. Por exemplo, gere um relatório que liste os dispositivos com credenciais de autenticação fracas.
+- **Integridade da rede de ti**: gere um relatório que ajude a melhorar a segurança geral da rede. Por exemplo, gerar um relatório pode ser gerado para listar dispositivos com credenciais de autenticação fracas.
 
 - **Visibilidade**: gere um relatório que cubra todos os itens de consulta para exibir todos os parâmetros de linha de base da sua rede.
 

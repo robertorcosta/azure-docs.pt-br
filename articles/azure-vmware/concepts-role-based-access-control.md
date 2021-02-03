@@ -3,12 +3,12 @@ title: Conceitos-controle de acesso baseado em função do vSphere (vSphere RBAC
 description: Saiba mais sobre os principais recursos do vSphere controle de acesso baseado em função para a solução do Azure VMware
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: fbd5b48ce30a6612c45ebd97f08812efd29c50b3
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6f5c30b070b010f312d038d8286be994039c56f8
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888395"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509241"
 ---
 # <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>controle de acesso baseado em função do vSphere (vSphere RBAC) para a solução do Azure VMware
 
@@ -22,9 +22,6 @@ Em uma implantação local do vCenter e ESXi, o administrador tem acesso à cont
 Em uma implantação de solução do Azure VMware, o administrador não tem acesso à conta de usuário administrador. Mas eles podem atribuir usuários e grupos do AD à função CloudAdmin no vCenter.  
 
 O usuário da nuvem privada não tem acesso ao e não pode configurar componentes de gerenciamento específicos com suporte e gerenciados pela Microsoft. Por exemplo, clusters, hosts, repositórios de armazenamento e comutadores virtuais distribuídos.
-
-
-
 
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Função CloudAdmin da solução VMware do Azure no vCenter
 
@@ -54,7 +51,7 @@ A função CloudAdmin na solução VMware do Azure tem os seguintes privilégios
 | **Tarefa agendada** | Criar tarefa<br />Modificar tarefa<br />Remover tarefa<br />Executar tarefa |
 | **Sessões** | Mensagem<br />Validar sessão |
 | **Perfil** | Exibição de armazenamento controlada por perfil |
-| **Exibição de armazenamento** | Exibir |
+| **Exibição de armazenamento** | Visualizar |
 | **vApp** | Adicionar máquina virtual<br />Atribuir pool de recursos<br />Atribuir vApp<br />Clone<br />Criar<br />Excluir<br />Exportação<br />Importar<br />Mover<br />Desligar<br />Ligue<br />Renomear<br />Suspend<br />Cancelar o registro <br />Exibir ambiente OVF<br />configuração do aplicativo vApp<br />configuração da instância de vApp<br />configuração do vApp managedBy<br />configuração do recurso vApp |
 | **Máquina virtual** | Alterar Configuração<br />&#160;&#160;&#160;&#160;adquirir concessão de disco<br />&#160;&#160;&#160;&#160;adicionar disco existente<br />&#160;&#160;&#160;&#160;adicionar novo disco<br />&#160;&#160;&#160;&#160;adicionar ou remover dispositivo<br />Configuração avançada do &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;alterar contagem de CPU<br />&#160;&#160;&#160;&#160;alterar a memória<br />&#160;&#160;&#160;&#160;alterar configurações<br />&#160;&#160;&#160;&#160;alterar o posicionamento do Swapfile<br />&#160;&#160;&#160;&#160;alterar recurso<br />&#160;&#160;&#160;&#160;configurar o dispositivo USB do host<br />&#160;&#160;&#160;&#160;configurar o dispositivo bruto<br />&#160;&#160;&#160;&#160;configurar o managedBy<br />&#160;&#160;&#160;&#160;exibir configurações de conexão<br />Estender o disco virtual &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;modificar as configurações do dispositivo<br />Compatibilidade de tolerância a falhas de consulta &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;consultar arquivos sem proprietário<br />Recarregar &#160;&#160;&#160;&#160;de caminhos<br />&#160;&#160;&#160;&#160;remover disco<br />Renomear &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;redefinir informações de convidado<br />&#160;&#160;&#160;&#160;definir anotação<br />&#160;&#160;&#160;&#160;alternar o controle de alterações do disco<br />&#160;&#160;&#160;&#160;alternar bifurcação pai<br />&#160;&#160;&#160;&#160;atualizar a compatibilidade da máquina virtual<br />Editar inventário<br />&#160;&#160;&#160;&#160;criar a partir de existente<br />&#160;&#160;&#160;&#160;criar novo<br />&#160;&#160;&#160;&#160;mover<br />Registro de &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;remover<br />&#160;&#160;&#160;&#160;cancelar o registro<br />Operações de convidado<br />Modificação de alias de operação de convidado &#160;&#160;&#160;&#160;<br />Consulta de alias de operação de convidado &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;modificações de operação de convidado<br />&#160;&#160;&#160;&#160;execução do programa de operação de convidado<br />&#160;&#160;&#160;&#160;consultas de operação de convidado<br />Interação<br />&#160;&#160;&#160;&#160;pergunta de resposta<br />&#160;&#160;&#160;&#160;operação de backup na máquina virtual<br />&#160;&#160;&#160;&#160;configurar mídia de CD<br />&#160;&#160;&#160;&#160;configurar mídia de disquete<br />Dispositivos &#160;&#160;&#160;&#160;Connect<br />Interação do console do &#160;&#160;&#160;&#160;<br />Criar captura de tela &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;desfragmentar todos os discos<br />Arrastar e soltar &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;o gerenciamento do sistema operacional convidado pela API do VIX<br />&#160;&#160;&#160;&#160;injetar códigos de verificação de HID USB<br />&#160;&#160;&#160;&#160;instalar as ferramentas do VMware<br />&#160;&#160;&#160;&#160;pausar ou pausar<br />&#160;&#160;&#160;&#160;executar operações de apagamento ou redução<br />&#160;&#160;&#160;&#160;desligar<br />Ligar &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;sessão de registro na máquina virtual<br />&#160;&#160;&#160;&#160;a sessão de reprodução na máquina virtual<br />&#160;&#160;&#160;&#160;suspender<br />Tolerância a falhas de suspensão &#160;&#160;&#160;&#160;<br />Failover de teste do &#160;&#160;&#160;&#160;<br />VM secundária de reinício de teste de &#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;desativar a tolerância a falhas<br />&#160;&#160;&#160;&#160;ativar a tolerância a falhas<br />Provisionamento<br />&#160;&#160;&#160;&#160;permitir acesso ao disco<br />&#160;&#160;&#160;&#160;permitir o acesso ao arquivo<br />&#160;&#160;&#160;&#160;permitir acesso a disco somente leitura<br />&#160;&#160;&#160;&#160;permitir download de máquina virtual<br />&#160;&#160;&#160;&#160;o modelo de clonagem<br />Clonar &#160;&#160;&#160;&#160;máquina virtual<br />&#160;&#160;&#160;&#160;criar modelo a partir da máquina virtual<br />&#160;&#160;&#160;&#160;personalizar o convidado<br />&#160;&#160;&#160;&#160;implantar modelo<br />&#160;&#160;&#160;&#160;marcar como modelo<br />&#160;&#160;&#160;&#160;modificar especificação de personalização<br />&#160;&#160;&#160;&#160;promover discos<br />&#160;&#160;&#160;&#160;ler especificações de personalização<br />Configuração de serviço<br />&#160;&#160;&#160;&#160;permitir notificações<br />&#160;&#160;&#160;&#160;permitir sondagem de notificações de eventos globais<br />&#160;&#160;&#160;&#160;gerenciar a configuração de serviço<br />&#160;&#160;&#160;&#160;modificar a configuração de serviço<br />&#160;&#160;&#160;&#160;configurações do serviço de consulta<br />&#160;&#160;&#160;&#160;configuração do serviço de leitura<br />Gerenciamento de instantâneo<br />&#160;&#160;&#160;&#160;criar instantâneo<br />&#160;&#160;&#160;&#160;remover instantâneo<br />Renomear instantâneo &#160;&#160;&#160;&#160;<br />Reverta o instantâneo &#160;&#160;&#160;&#160;<br />Replicação do vSphere<br />&#160;&#160;&#160;&#160;configurar a replicação<br />&#160;&#160;&#160;&#160;gerenciar a replicação<br />&#160;&#160;&#160;&#160;monitorar a replicação |
 | **vService** | Criar dependência<br />Destruir dependência<br />Reconfigurar a configuração de dependência<br />Atualizar dependência |
@@ -63,7 +60,11 @@ A função CloudAdmin na solução VMware do Azure tem os seguintes privilégios
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte a [documentação do produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) para obter uma explicação detalhada de cada privilégio.
+Agora que você já abordou as noções básicas do controle de acesso baseado em função vSphere para a solução do Azure VMware, talvez queira saber mais sobre:
+
+- Os detalhes de cada privilégio na [documentação do produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+- [Como a solução Azure VMware monitora e repara nuvens privadas](concepts-monitor-repair-private-cloud.md).
+- [Como habilitar o recurso de solução VMware do Azure](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
 

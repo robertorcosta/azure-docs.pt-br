@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625424"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508855"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigar as detecções do sensor em um inventário de dispositivos
 
@@ -32,18 +32,18 @@ Os atributos a seguir aparecem na tabela de inventário do dispositivo.
 
 | Parâmetro | Descrição |
 |--|--|
-| Nome | O nome do dispositivo como o sensor o descobriu. |
-| Type | O tipo de dispositivo. |
+| Name | O nome do dispositivo como o sensor o descobriu, ou conforme inserido pelo usuário. |
+| Type | O tipo de dispositivo, conforme determinado pelo sensor, ou conforme inserido pelo usuário. |
 | Fornecedor | O nome do fornecedor do dispositivo, conforme definido no endereço MAC. |
-| Sistema operacional | O sistema operacional do dispositivo. |
-| Firmware | O firmware do dispositivo. |
-| Endereço IP | O endereço IP do dispositivo. |
+| Sistema operacional | O sistema operacional do dispositivo, se detectado. |
+| Versão do firmware | O firmware do dispositivo, se detectado. |
+| Endereço IP | O endereço IP do dispositivo onde definido. |
 | VLAN | A VLAN do dispositivo. Para obter detalhes sobre como instruir o sensor a descobrir VLANs, consulte [definir nomes de VLAN](how-to-manage-the-on-premises-management-console.md#define-vlan-names). (instruções-definir-Management-Console-Network-Settings. MD # define-VLAN-Names). |
 | Endereço MAC | O endereço MAC do dispositivo. |
 | Protocolos | Os protocolos que o dispositivo usa. |
 | Alertas não confirmados | O número de alertas não confirmados associados a este dispositivo. |
 | É autorizado | O status de autorização definido pelo usuário:<br />- **True**: o dispositivo foi autorizado.<br />- **False**: o dispositivo não foi autorizado. |
-| É conhecido como scanner | Definido como um dispositivo de verificação pelo usuário. |
+| É conhecido como scanner | Definido como um dispositivo de verificação de rede pelo usuário. |
 | É dispositivo de programação | Definido como um dispositivo de programação autorizado pelo usuário. <br />- **Verdadeiro**: o dispositivo executa atividades de programação para PLCs, RTUs e controladores, que são relevantes para estações de engenharia. <br />- **False**: o dispositivo não é um dispositivo de programação. |
 | Grupos | Os grupos dos quais este dispositivo participa. |
 | Última atividade | A última atividade que o dispositivo realizou. |
@@ -65,7 +65,7 @@ Para ocultar e exibir colunas, personalize a tabela de inventário do dispositiv
 
 3. Altere o local das colunas na tabela usando setas.
 
-4. Clique em **Salvar**. A janela **configurações de inventário de dispositivo** é fechada e as novas configurações aparecem na tabela.
+4. Selecione **Salvar**. A janela **configurações de inventário de dispositivo** é fechada e as novas configurações aparecem na tabela.
 
 ### <a name="create-temporary-device-inventory-filters"></a>Criar filtros de inventário de dispositivo temporários
 
@@ -111,7 +111,7 @@ Quando você alterna para o modo de exibição de mapa, os dispositivos filtrado
 
 ## <a name="learn-windows-registry-details"></a>Saiba mais detalhes do registro do Windows
 
-Além de aprender os dispositivos, você pode descobrir dispositivos de ti, incluindo servidores e estações de trabalho do Microsoft Windows. Esses dispositivos também são exibidos no inventário de dispositivos. Depois de aprender os dispositivos, você pode enriquecer o inventário do dispositivo com informações detalhadas do Windows, como:
+Além de aprender os dispositivos, você pode descobrir estações de trabalho e servidores do Microsoft Windows. Esses dispositivos também são exibidos no inventário de dispositivos. Depois de aprender os dispositivos, você pode enriquecer o inventário do dispositivo com informações detalhadas do Windows, como:
 
 - Versão do Windows instalada
 
@@ -217,13 +217,13 @@ Para importar:
 
 ## <a name="export-device-inventory-information"></a>Exportar informações de inventário do dispositivo
 
-Você pode exportar informações de inventário de dispositivo para um arquivo do Excel. As informações importadas substituirão as informações atuais.
+Você pode exportar informações de inventário de dispositivo para um arquivo do Excel.
 
 Para exportar um arquivo CSV:
 
 - No menu superior direito do inventário de dispositivos, selecione :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false"::: . O relatório CSV é gerado e baixado.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Investigar todas as detecções do sensor corporativo em um inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

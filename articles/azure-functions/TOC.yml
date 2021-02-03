@@ -281,9 +281,10 @@
               href: functions-create-storage-queue-triggered-function.md
             - name: Gatilho de temporizador
               href: functions-create-scheduled-function.md
-        - name: Adicionar associações
+        - name: Conectar-se a serviços
           items:
-            - name: Como adicionar uma associação
+            - name: Como conectar-se a serviços
+              displayName: 'bindings,integrate'
               href: add-bindings-existing-function.md
             - name: Status do Azure Cosmos DB – portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
@@ -395,7 +396,7 @@
           href: configure-encrypt-at-rest-using-cmk.md
     - name: Integração
       items:
-        - name: Adicionar associações
+        - name: Conectar-se a serviços
           items:
             - name: Status do Azure Cosmos DB – portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
