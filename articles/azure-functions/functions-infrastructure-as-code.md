@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a1b621b5d5601e6d8bffef48e23d217e0eee1d6a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9df4c62a65fd133c6ea8dc84e33d7c7b02d94cbf
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725812"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99494032"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizar a implantação de recursos para seu aplicativo de funções do Azure Functions
 
@@ -28,8 +28,8 @@ Uma implantação Azure Functions normalmente consiste nesses recursos:
 
 | Recurso                                                                           | Requisito | Referência de sintaxe e propriedades                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
-| Um aplicativo de funções                                                                     | Necessária    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
-| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Necessária    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| Um aplicativo de funções                                                                     | Obrigatório    | [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)                             |
+| Uma conta de [armazenamento do Azure](../storage/index.yml)                                   | Obrigatório    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | Um componente [Application insights](../azure-monitor/app/app-insights-overview.md) | Opcional    | [Microsoft. insights/Components](/azure/templates/microsoft.insights/components)         |
 | Um [plano de hospedagem](./functions-scale.md)                                             | Opcional<sup>1</sup>    | [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
@@ -473,7 +473,7 @@ Os aplicativos do Linux também devem incluir uma `linuxFxVersion` propriedade e
 |------------------|-------------------------------------------------------|
 | Python           | `python|3.7`      |
 | JavaScript       | `node|12`          |
-| .NET             | `dotnet|3.0` |
+| .NET             | `dotnet|3.1` |
 
 ```json
 {
