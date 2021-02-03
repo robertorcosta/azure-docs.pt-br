@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 6400d3f3c721619551ba3989a2e5799b72ff9f38
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e485c2f0a7deeffe68c932688658ef099fec510e
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831917"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492748"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster do serviço kubernetes do Azure
 
@@ -70,7 +70,9 @@ Azure Machine Learning pode implantar modelos de aprendizado de máquina treinad
     - [Dimensionar manualmente a contagem de nós em um cluster AKS](../aks/scale-cluster.md)
     - [Configurar o dimensionamento de cluster em AKS](../aks/cluster-autoscaler.md)
 
-## <a name="azure-kubernetes-service-version"></a>Versão do serviço kubernetes do Azure
+- __Não atualize diretamente o cluster usando uma configuração de YAML__. Enquanto os serviços Kubernetess do Azure dão suporte a atualizações por meio da configuração do YAML, Azure Machine Learning implantações substituirão as alterações. Os únicos dois campos YAML que não serão substituídos são __limites de solicitação__ e __CPU e memória__.
+
+## <a name="azure-kubernetes-service-version"></a>Versão do Serviço de Kubernetes do Azure
 
 O serviço kubernetes do Azure permite que você crie um cluster usando uma variedade de versões do kubernetes. Para obter mais informações sobre as versões disponíveis, consulte [versões do kubernetes com suporte no serviço kubernetes do Azure](../aks/supported-kubernetes-versions.md).
 
@@ -381,7 +383,6 @@ No Azure Machine Learning Studio, selecione __computação__, __clusters de infe
 ---
 
 ## <a name="troubleshooting"></a>Solução de problemas
-
 ### <a name="update-the-cluster"></a>Atualizar o cluster
 
 As atualizações para Azure Machine Learning componentes instalados em um cluster do serviço kubernetes do Azure devem ser aplicadas manualmente. 

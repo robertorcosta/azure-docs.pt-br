@@ -7,41 +7,41 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 717a1bc4361ba4a7366f4864c1fe44f93b6f4b5e
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: ba32cfa4bc5cd0b41a210cf88fb598afc3064495
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127848"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492545"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
 :::image type="icon" source="media/itsmc-overview/itsmc-symbol.png":::
 
-Este artigo fornece informações sobre como configurar o Conector de Gerenciamento de Serviços de TI (ITSMC) no Log Analytics para gerenciar centralmente seus itens de trabalho.
+Este artigo fornece informações sobre como configurar o Conector de Gerenciamento de Serviços de TI (ITSMC) no Log Analytics para gerenciar centralmente seus itens de trabalho do gerenciamento de serviços de ti (ITSM).
 
 ## <a name="add-it-service-management-connector"></a>Adicionar Conector de Gerenciamento de Serviços de TI
 
-Antes de criar uma conexão, você precisa adicionar ITSMC.
+Para poder criar uma conexão, você precisa instalar o ITSMC.
 
 1. Na portal do Azure, selecione **criar um recurso**:
 
-   ![Captura de tela que mostra o item de menu criar um recurso.](media/itsmc-overview/azure-add-new-resource.png)
+   ![Captura de tela que mostra o item de menu para criar um recurso.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Pesquise **conector de gerenciamento de serviços de ti** no Azure Marketplace. Selecione **criar**:
+2. Pesquise **conector de gerenciamento de serviços de ti** no Azure Marketplace. Em seguida, selecione **Criar**:
 
    ![Captura de tela que mostra o botão criar no Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
-3. Na seção **espaço de trabalho da la** , selecione o espaço de trabalho log Analytics do Azure onde você deseja instalar o ITSMC.
-   >[!NOTE]
-   >
-   > * O ITSMC pode ser instalado somente em espaços de trabalho Log Analytics nas seguintes regiões: leste dos EUA, oeste dos EUA 2, Sul EUA Central, Oeste EUA Central, US Gov Arizona, US Gov-Virgínia, Canadá central, Europa Ocidental, sul do Reino Unido, Sudeste Asiático, leste do Japão, Índia central e sudeste da Austrália.
+3. Na seção **espaço de trabalho da la** , selecione o espaço de trabalho log Analytics onde você deseja instalar o ITSMC.
+   > [!NOTE]
+   > Você pode instalar o ITSMC nos espaços de trabalho Log Analytics somente nas seguintes regiões: leste dos EUA, oeste dos EUA 2, Sul EUA Central, Oeste EUA Central, US Gov Arizona, US Gov-Virgínia, Canadá central, Europa Ocidental, sul do Reino Unido, Sudeste Asiático, leste do Japão, Índia central e sudeste da Austrália.
 
 4. Na seção **log Analytics espaço de trabalho** , selecione o grupo de recursos no qual você deseja criar o recurso ITSMC:
 
    ![Captura de tela que mostra a seção Log Analytics espaço de trabalho.](media/itsmc-overview/itsmc-solution-workspace.png)
-   >[!NOTE]
-   >Como parte da transição contínua do Microsoft Operations Management Suite (OMS) para Azure Monitor, os espaços de trabalho do OMS agora são chamados de *espaços de trabalho log Analytics*.
+   
+   > [!NOTE]
+   > Como parte da transição contínua do Microsoft Operations Management Suite (OMS) para Azure Monitor, os espaços de trabalho do OMS agora são chamados de *espaços de trabalho log Analytics*.
 
 5. Selecione **OK**.
 
@@ -49,18 +49,14 @@ Quando o recurso ITSMC é implantado, uma notificação é exibida no canto supe
 
 ## <a name="create-an-itsm-connection"></a>Criar uma conexão de ITSM
 
-Depois de instalar o ITSMC, você poderá criar uma conexão.
-
-Para criar uma conexão, você precisará preparar sua ferramenta de ITSM para permitir a conexão de ITSMC.  
-
-Com base no produto de ITSM ao qual você está se conectando, selecione um dos links a seguir para obter instruções:
+Depois de instalar o ITSMC, você deve preparar sua ferramenta de ITSM para permitir a conexão de ITSMC. Com base no produto de ITSM ao qual você está se conectando, selecione um dos links a seguir para obter instruções:
 
 - [ServiceNow](./itsmc-connections-servicenow.md)
 - [System Center Service Manager](./itsmc-connections-scsm.md)
 - [Cherwell](./itsmc-connections-cherwell.md)
 - [Provance](./itsmc-connections-provance.md)
 
-Depois de ter preparado suas ferramentas de ITSM, conclua estas etapas para criar uma conexão:
+Depois de ter preparado sua ferramenta de ITSM, conclua estas etapas para criar uma conexão:
 
 1. Em **todos os recursos**, procure por **assistência técnica (*seu nome de espaço de trabalho*)**:
 
@@ -69,9 +65,10 @@ Depois de ter preparado suas ferramentas de ITSM, conclua estas etapas para cria
 1. Em **fontes de dados do espaço de trabalho** no painel esquerdo, selecione **conexões de ITSM**:
 
    ![Captura de tela que mostra o item de menu de conexões de ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
+
 1. Selecione **Adicionar conexão**.
 
-1. Especifique as configurações de conexão conforme descrito de acordo com os produtos/serviços de ITSM:
+1. Especifique as configurações de conexão de acordo com o produto de ITSM que você está usando:
 
     - [ServiceNow](./itsmc-connections-servicenow.md)
     - [System Center Service Manager](./itsmc-connections-scsm.md)
@@ -79,31 +76,24 @@ Depois de ter preparado suas ferramentas de ITSM, conclua estas etapas para cria
     - [Provance](./itsmc-connections-provance.md)
 
    > [!NOTE]
+   > Por padrão, o ITSMC atualiza os dados de configuração da conexão uma vez a cada 24 horas. Para atualizar os dados da conexão instantaneamente para refletir as edições ou atualizações de modelo que você fizer, selecione o botão **sincronizar** no painel da sua conexão:
    >
-   > Por padrão, o ITSMC atualiza os dados de configuração da conexão uma vez a cada 24 horas. Para atualizar os dados da conexão instantaneamente para refletir as edições ou atualizações de modelo que você fizer, selecione o botão **sincronizar** na folha da sua conexão:
-   >
-   > ![Captura de tela que mostra o botão Sincronizar na folha conexão.](media/itsmc-overview/itsmc-connections-refresh.png)
-
-## <a name="use-itsmc"></a>Usar ITSMC
-
-   Você pode usar o ITSMC para criar alertas de alertas Azure Monitor na ferramenta de ITSM.
+   > ![Captura de tela que mostra o botão Sincronizar no painel da conexão.](media/itsmc-overview/itsmc-connections-refresh.png)
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Criar itens de trabalho de ITSM desde alertas do Azure
 
-Depois de criar sua conexão de ITSM, você pode criar itens de trabalho em sua ferramenta de ITSM com base nos alertas do Azure. Para criar os itens de trabalho, você usará a ação de ITSM em grupos de ações.
+Depois de criar sua conexão de ITSM, você pode usar o ITMC para criar itens de trabalho em sua ferramenta de ITSM com base nos alertas do Azure. Para criar os itens de trabalho, você usará a ação de ITSM em grupos de ações.
 
-Os grupos de ação fornecem uma maneira modular e reutilizável para disparar ações para seus alertas do Azure. Você pode usar grupos de ação com alertas de métrica, alertas do log de atividades e alertas de Log Analytics do Azure no portal do Azure.
+Os grupos de ação fornecem uma maneira modular e reutilizável para disparar ações para seus alertas do Azure. Você pode usar grupos de ação com alertas de métrica, alertas do log de atividades e alertas de Log Analytics no portal do Azure.
 
 > [!NOTE]
 > Depois de criar a conexão de ITSM, você precisa aguardar 30 minutos para que o processo de sincronização seja concluído.
 
-### <a name="template-definitions"></a>Definições de modelo
+## <a name="define-a-template"></a>Definir um modelo
 
-   Há tipos de item de trabalho que podem usar modelos que são definidos pela ferramenta ITSM.
-Usando modelos, você pode definir campos que serão preenchidos automaticamente de acordo com os valores fixos que são definidos como parte do grupo de ações. Você define modelos na ferramenta ITSM.
-Você pode definir qual modelo deseja usar como parte da definição do grupo de ações.
+Determinados tipos de item de trabalho podem usar modelos que você define na ferramenta ITSM. Usando modelos, você pode definir campos que serão preenchidos automaticamente de acordo com os valores fixos de um grupo de ação. Você pode definir qual modelo deseja usar como parte da definição de um grupo de ações.
 
-Use o procedimento a seguir para criar grupos de ações:
+Para criar um grupo de ação:
 
 1. No portal do Azure, selecione  **alertas**.
 2. No menu na parte superior da tela, selecione **Gerenciar ações**:
@@ -112,61 +102,58 @@ Use o procedimento a seguir para criar grupos de ações:
 
    A janela **Criar grupo de ações** é exibida.
 
-3. Selecione a **assinatura** e o **grupo de recursos** em que você deseja criar o grupo de ações. Forneça um **nome de grupo de ação** e um **nome de exibição** para o grupo de ação. Selecione **Avançar: notificações**.
+3. Selecione a **assinatura** e o **grupo de recursos** em que você deseja criar o grupo de ações. Forneça valores no **nome do grupo de ações** e no **nome de exibição** do seu grupo de ação. Em seguida, selecione **Avançar: notificações**.
 
     ![Captura de tela que mostra a janela criar grupo de ações.](media/itsmc-overview/action-groups-details.png)
 
-4. Na lista notificação, selecione **Avançar: ações**.
-5. Na lista ações, selecione **ITSM** na lista **tipo de ação** . Forneça um **nome** para a ação. Selecione o botão de caneta que representa **detalhes de edição**.
+4. Na guia **notificações** , selecione **Avançar: ações**.
+5. Na guia **ações** , selecione **ITSM** na lista **tipo de ação** . Para **nome**, forneça um nome para a ação. Em seguida, selecione o botão de caneta que representa **detalhes de edição**.
 
-    ![Captura de tela que mostra a definição do grupo de ações.](media/itsmc-definition/action-group-pen.png)
+    ![Captura de tela que mostra seleções para criar um grupo de ações.](media/itsmc-definition/action-group-pen.png)
 
-6. Na lista **assinatura** , selecione a assinatura na qual seu espaço de trabalho do log Analytics está localizado. Na lista **conexão** , selecione o nome do conector de ITSM. Ele será seguido pelo nome do seu espaço de trabalho. Por exemplo, MyITSMConnector (MyWorkspace).
+6. Na lista **assinatura** , selecione a assinatura que contém seu espaço de trabalho log Analytics. Na lista **conexão** , selecione o nome do conector de ITSM. Ele será seguido pelo nome do seu espaço de trabalho. Um exemplo é *MyITSMConnector (MyWorkspace)*.
 
 7. Selecione um tipo de **item de trabalho** .
 
-8. Se você quiser preencher os campos prontos para uso com valores fixos, selecione **usar modelo personalizado**. Caso contrário, escolha um [modelo](#template-definitions) existente na lista de **modelos** e insira os valores fixos nos campos de modelo.
+8. Se você quiser preencher os campos prontos para uso com valores fixos, selecione **usar modelo personalizado**. Caso contrário, escolha um [modelo](#define-a-template) existente na lista de **modelos** e insira os valores fixos nos campos de modelo.
 
-9. Na última seção da definição de grupo de ITSM da ação, você pode definir quantos itens de trabalho serão criados para cada alerta.
+9. Na última seção da interface para criar um grupo de ações de ITSM, você pode definir quantos itens de trabalho serão criados para cada alerta.
 
-    >[!NOTE]
-    >
-    > * Esta seção é relevante apenas para alertas de pesquisa de log.
-    > * Para todos os outros tipos de alertas, um item de trabalho será criado por alerta.
+   > [!NOTE]
+   > Esta seção é relevante apenas para alertas de pesquisa de log. Para todos os outros tipos de alerta, você criará um item de trabalho por alerta.
 
-    * Caso você selecione no menu suspenso "item de trabalho" "incidente" ou "alerta": ![ captura de tela que mostra a janela incidente de ITSM.](media/itsmc-overview/itsm-action-configuration.png)
-        * Se você marcar a caixa de seleção **"criar itens de trabalho individuais para cada item de configuração"** , cada item de configuração em cada alerta criará um novo item de trabalho. Como resultado de vários alertas para os mesmos itens de configuração impactados, haverá mais de um item de trabalho para cada item de configuração.
+   * Se você selecionou **incidente** ou **alerta** na lista suspensa **item de trabalho** , terá a opção de criar itens de trabalho individuais para cada item de configuração.
+    
+     ![Captura de tela que mostra a área de tíquete I S M com o incidente selecionado como um item de trabalho.](media/itsmc-overview/itsm-action-configuration.png)
+    
+     * Se você marcar a caixa de seleção **criar itens de trabalho individuais para cada item de configuração** , cada item de configuração em cada alerta criará um novo item de trabalho. Como vários alertas ocorrerão para os mesmos itens de configuração afetados, haverá mais de um item de trabalho para cada item de configuração.
 
-             Por exemplo:
-             1) Alerta 1 com 3 itens de configuração: A, B, C-criará 3 itens de trabalho.
-             2) Alerta 2 com 1 item de configuração: A-criará 1 item de trabalho.
+       Por exemplo, um alerta com três itens de configuração criará três itens de trabalho. Um alerta que tenha um item de configuração criará um item de trabalho.
+        
+     * Se você desmarcar a caixa de seleção **criar itens de trabalho individuais para cada item de configuração** , o ITSMC criará um único item de trabalho para cada regra de alerta e acrescentará a ele todos os itens de configuração afetados. Um novo item de trabalho será criado se o anterior for fechado.
 
-        * Se você desmarcar a caixa de seleção **"criar itens de trabalho individuais para cada item de configuração"** , o conector ITSM criará um único item de trabalho para cada regra de alerta e acrescentará a ele todos os itens de configuração afetados. Um novo item de trabalho será criado se o anterior for fechado.
+       >[!NOTE]
+       > Nesse caso, alguns dos alertas acionados não geram novos itens de trabalho na ferramenta ITSM.
 
-        >[!NOTE]
-        > Nesse caso, alguns dos alertas acionados não gerarão novos itens de trabalho na ferramenta ITSM.
+       Por exemplo, um alerta que tem três itens de configuração criará um item de trabalho. Se um alerta para a mesma regra de alerta que o exemplo anterior tiver um item de configuração, esse item de configuração será anexado à lista de itens de configuração afetados no item de trabalho criado. Um alerta para uma regra de alerta diferente que tenha um item de configuração criará um item de trabalho.
 
-        Por exemplo:
-         1) Alerta 1 com 3 itens de configuração: A, B, C-criará 1 item de trabalho.
-         2) Alerta 2 para a mesma regra de alerta que na etapa a com 1 item de configuração: D-D será anexado à lista de itens de configuração afetados no item de trabalho criado na etapa a.
-         3) Alerta 3 para uma regra de alerta diferente com 1 item de configuração: E-criará 1 item de trabalho.
+   * Se você selecionou **evento** na lista suspensa **item de trabalho** , você pode optar por criar itens de trabalho individuais para cada entrada de log ou para cada item de configuração.
+    
+     ![Captura de tela que mostra a área de tíquete I S M com o evento selecionado como um item de trabalho.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-    * Em um caso, você seleciona no "evento de lista suspensa" item de trabalho ": ![ captura de tela que mostra a janela de evento de ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
-
-        * Se você selecionar **"criar itens de trabalho individuais para cada entrada de log (o campo item de configuração não será preenchido. Pode resultar em um grande número de itens de trabalho.) "** na seleção de botões de opção, um item de trabalho será criado por cada linha nos resultados da pesquisa da consulta de alerta de pesquisa de logs. A propriedade Description na carga do item de trabalho conterá a linha dos resultados da pesquisa.
-        * Se você selecionar **"criar itens de trabalho individuais para cada item de configuração"** na seleção de botões de opção, cada item de configuração em cada alerta criará um novo item de trabalho. Pode haver mais de um item de trabalho por item de configuração no sistema ITSM. Isso será o mesmo que a marca de seleção na seção incidente/alerta.
+     * Se você selecionar **criar itens de trabalho individuais para cada entrada de log (o campo item de configuração não será preenchido. Pode resultar em um grande número de itens de trabalho.)**, um item de trabalho será criado para cada linha nos resultados da pesquisa da consulta de alerta de pesquisa de logs. A propriedade Description na carga do item de trabalho conterá a linha dos resultados da pesquisa.
+      
+     * Se você selecionar **criar itens de trabalho individuais para cada item de configuração**, cada item de configuração em cada alerta criará um novo item de trabalho. Cada item de configuração pode ter mais de um item de trabalho no sistema ITSM. Essa opção é igual à seleção da caixa de seleção que aparece depois que você seleciona **incidente** como o tipo de item de trabalho.
 
 10. Selecione **OK**.
 
 Quando você cria ou edita uma regra de alerta do Azure, use um grupo de ações, que tem uma ação de ITSM. Quando o alerta é disparado, o item de trabalho é criado ou atualizado na ferramenta ITSM.
 
 > [!NOTE]
+> Para obter informações sobre o preço da ação de ITSM, consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para grupos de ações.
 >
->- Para obter informações sobre o preço da ação de ITSM, consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para grupos de ações.
->
->
->- O campo Descrição curta na definição de regra de alerta é limitado a 40 caracteres quando você o envia usando a ação de ITSM.
+> O campo Descrição curta na definição de regra de alerta é limitado a 40 caracteres quando você o envia usando a ação de ITSM.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Solução de problemas no Conector ITSM](./itsmc-resync-servicenow.md)
+* [Solucionar problemas no ITSMC](./itsmc-resync-servicenow.md)

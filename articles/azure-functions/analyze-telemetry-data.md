@@ -4,12 +4,12 @@ description: Saiba como exibir e consultar Azure Functions dados de telemetria c
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937290"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493763"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analisar Azure Functions telemetria no Application Insights 
 
@@ -65,7 +65,7 @@ As seguintes áreas do Application Insights podem ser úteis ao avaliar o compor
 | **[Falhas](../azure-monitor/app/asp-net-exceptions.md)** |  Crie gráficos e alertas com base em falhas de função e de exceções do servidor. O **Nome da Operação** é o nome da função. Falhas nas dependências não são mostradas, a menos que você implemente telemetria personalizada para dependências. |
 | **[Desempenho](../azure-monitor/app/performance-counters.md)** | Para analisar problemas de desempenho, veja a utilização de recursos e a taxa de transferência por **instâncias de função de nuvem**. Esses dados de desempenho podem ser úteis para cenários de depuração em que as funções estão sobrecarregarndo seus recursos subjacentes. |
 | **[Métrica](../azure-monitor/platform/metrics-charts.md)** | Crie gráficos e alertas baseados em métricas. As métricas incluem o número de invocações de função, tempo de execução e taxas de sucesso. |
-| **[Live Metrics](../azure-monitor/app/live-stream.md)** | Exiba os dados de métricas conforme eles são criados quase em tempo real. |
+| **[Métricas ao vivo](../azure-monitor/app/live-stream.md)** | Exiba os dados de métricas conforme eles são criados quase em tempo real. |
 
 ## <a name="query-telemetry-data"></a>Dados de telemetria da consulta
 
@@ -77,18 +77,18 @@ Escolha **Logs** para explorar ou consultar eventos registrados.
 
 Veja um exemplo de consulta que mostra a distribuição de solicitações por trabalhador nos últimos 30 minutos.
 
-<pre>
+```kusto
 requests
 | where timestamp > ago(30m) 
 | summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
-</pre>
+```
 
 As tabelas disponíveis são mostradas na guia **Esquema** à esquerda. Você pode encontrar os dados gerados por invocações de função nas tabelas a seguir:
 
 | Tabela | Descrição |
 | ----- | ----------- |
-| **traces** | Logs criados pelo tempo de execução e rastreamentos do seu código de função. |
+| **traces** | Logs criados pelo tempo de execução, pelo controlador de escala e pelos rastreamentos do seu código de função. |
 | **requests** | Uma solicitação para cada invocação de função. |
 | **exceptions** | Todas as exceções geradas pelo runtime. |
 | **customMetrics** | Contagem de invocações bem-sucedidas e com falha, taxa de sucesso e duração. |
@@ -99,12 +99,38 @@ As outras tabelas são para testes de disponibilidade e telemetria do cliente e 
 
 Dentro de cada tabela, alguns dos dados específicos do Functions estão em um campo `customDimensions`.  Por exemplo, a consulta a seguir recupera todos os rastreamentos que têm o nível de log `Error`.
 
-<pre>
+```kusto
 traces 
 | where customDimensions.LogLevel == "Error"
-</pre>
+```
 
 O runtime fornece os campos `customDimensions.LogLevel` e `customDimensions.Category`. Você pode fornecer campos adicionais nos logs que você grava em seu código de função. Para obter um exemplo em C#, consulte [registro em log estruturado](functions-dotnet-class-library.md#structured-logging) no guia do desenvolvedor da biblioteca de classes .net.
+
+## <a name="query-scale-controller-logs"></a>Logs do controlador de escala de consulta
+
+_Este recurso está em versão prévia._
+
+Depois de habilitar o [registro em log do controlador de escala](configure-monitoring.md#configure-scale-controller-logs) e a integração de [Application insights](configure-monitoring.md#enable-application-insights-integration), você pode usar a pesquisa de log de Application insights para consultar os logs do controlador de escala emitido. Os logs do controlador de escala são salvos na `traces` coleção na categoria **ScaleControllerLogs** .
+
+A consulta a seguir pode ser usada para pesquisar todos os logs do controlador de escala para o aplicativo de funções atual dentro do período de tempo especificado:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+A consulta a seguir se expande na consulta anterior para mostrar como obter apenas os logs que indicam uma alteração na escala:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="consumption-plan-specific-metrics"></a>Métricas específicas do plano de consumo
 

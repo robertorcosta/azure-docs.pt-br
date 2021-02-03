@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3cbcb7eb3695e6f57daef741d4cd4b15577d8f58
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516546"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493264"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrar dados do Cassandra para a conta de API do Cassandra Azure Cosmos DB usando Azure Databricks
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,28 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> As `spark.cassandra.output.concurrent.writes` `connections_per_executor_max` configurações e são importantes para evitar a [limitação de taxa](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), o que acontece quando as solicitações para Cosmos DB excedem a taxa de transferência provisionada (unidades de[solicitação](./request-units.md)). Talvez seja necessário ajustar essas configurações dependendo do número de executores no cluster do Spark e, potencialmente, do tamanho (e, portanto, do custo de RU) de cada registro que está sendo gravado nas tabelas de destino.
+> As `spark.cassandra.output.batch.size.rows` `spark.cassandra.output.concurrent.writes` configurações, e `connections_per_executor_max` são importantes para evitar a limitação de [taxa](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), que ocorre quando as solicitações para Azure Cosmos DB excedem a taxa de transferência provisionada/([unidades de solicitação](./request-units.md)). Talvez seja necessário ajustar essas configurações dependendo do número de executores no cluster do Spark e, potencialmente, do tamanho (e, portanto, do custo de RU) de cada registro que está sendo gravado nas tabelas de destino.
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+### <a name="rate-limiting-429-error"></a>Limitação de taxa (erro 429)
+Você pode ver um código de erro 429 ou `request rate is large` texto de erro, apesar de reduzir as configurações acima para seus valores mínimos. Estes são alguns cenários:
+
+- **A taxa de transferência alocada para a tabela é inferior a 6000 [unidades de solicitação](./request-units.md)**. Mesmo no mínimo de configurações, o Spark poderá executar gravações a uma taxa de cerca de 6000 unidades de solicitação ou mais. Se você provisionou uma tabela em um keyspace com a taxa de transferência compartilhada provisionada, é possível que essa tabela tenha menos de 6000 RUs disponível em tempo de execução. Verifique se a tabela que você está migrando tem pelo menos 6000 RUs disponíveis ao executar a migração e, se necessário, aloque as unidades de solicitação dedicadas para essa tabela. 
+- **Distorção de dados excessiva com volume de dados grande**. Se você tiver uma grande quantidade de dados (ou seja, linhas de tabela) para migrar para uma determinada tabela, mas tiver uma distorção significativa nos dados (ou seja, um grande número de registros sendo gravados para o mesmo valor de chave de partição), você ainda poderá experimentar a limitação de taxa mesmo que tenha uma grande quantidade de [unidades de solicitação](./request-units.md) provisionadas em sua tabela. Isso ocorre porque as unidades de solicitação são divididas igualmente entre as partições físicas e a distorção de dados pesada pode resultar em um afunilamento de solicitações para uma única partição, causando limitação de taxa. Nesse cenário, é aconselhável reduzir as configurações de taxa de transferência mínima no Spark para evitar a limitação da taxa e forçar a execução lenta da migração. Esse cenário pode ser mais comum ao migrar tabelas de referência ou de controle, em que o acesso é menos frequente, mas a distorção pode ser alta. No entanto, se uma distorção significativa estiver presente em qualquer outro tipo de tabela, também poderá ser aconselhável revisar seu modelo de dados para evitar problemas de partição ativa para sua carga de trabalho durante operações de estado estacionário. 
+- **Não é possível obter a contagem em uma tabela grande**. `select count(*) from table`Atualmente, não há suporte para execução em tabelas grandes. Você pode obter a contagem de métricas em portal do Azure (consulte nosso [artigo de solução de problemas](cassandra-troubleshoot.md)), mas se precisar determinar a contagem de uma tabela grande de dentro do contexto de um trabalho do Spark, você poderá copiar os dados para uma tabela temporária e, em seguida, usar o Spark SQL para obter a contagem, por exemplo, abaixo (substitua `<primary key>` por algum campo da tabela temporária resultante).
+
+  ```scala
+  val ReadFromCosmosCassandra = sqlContext
+    .read
+    .format("org.apache.spark.sql.cassandra")
+    .options(cosmosCassandra)
+    .load
+
+  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
+  %sql
+  select count(<primary key>) from CosmosCassandraResult
+  ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

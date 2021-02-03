@@ -3,12 +3,12 @@ title: Implantar recursos em grupos de recursos
 description: Descreve como implantar recursos em um modelo de Azure Resource Manager. Ele mostra como direcionar mais de um grupo de recursos.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186219"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491547"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Implantações de grupo de recursos com modelos ARM
 
@@ -128,9 +128,9 @@ Para obter um modelo de exemplo, consulte [Criar grupo de recursos](#create-reso
 
 ### <a name="scope-to-tenant"></a>Escopo para o locatário
 
-Você pode criar recursos no locatário definindo o `scope` conjunto como `/` . O usuário que está implantando o modelo deve ter o [acesso necessário para implantar no locatário](deploy-to-tenant.md#required-access).
+Para criar recursos no locatário, defina `scope` como `/` . O usuário que está implantando o modelo deve ter o [acesso necessário para implantar no locatário](deploy-to-tenant.md#required-access).
 
-Você pode usar uma implantação aninhada com o `scope` e o `location` set.
+Para usar uma implantação aninhada, defina `scope` e `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -142,7 +142,7 @@ Para obter mais informações, consulte [grupo de gerenciamento](deploy-to-manag
 
 ## <a name="deploy-to-target-resource-group"></a>Implantar no grupo de recursos de destino
 
-Para implantar recursos no grupo de recursos de destino, defina esses recursos na seção **recursos** do modelo. O modelo a seguir cria uma conta de armazenamento no grupo de recursos especificado na operação de implantação.
+Para implantar recursos no grupo de recursos de destino, defina esses recursos na `resources` seção do modelo. O modelo a seguir cria uma conta de armazenamento no grupo de recursos especificado na operação de implantação.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 

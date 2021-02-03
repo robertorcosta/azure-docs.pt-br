@@ -11,18 +11,21 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976496"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492239"
 ---
 # <a name="page-layout-versions"></a>Versões do layout da página
 
 Os pacotes de layout de página são atualizados periodicamente para incluir correções e aprimoramentos em seus elementos de página. O log de alterações a seguir especifica as alterações introduzidas em cada versão.
 
 ## <a name="self-asserted-page-selfasserted"></a>Página autodeclarada (selfasserted)
+
+**2.1.2**
+- Correção do problema de codificação de localização para idiomas como espanhol e francês.
 
 **2.1.1**
 
@@ -70,6 +73,10 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 - Versão inicial
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Página de inscrição de entrada unificada com link de redefinição de senha (unifiedssp)
+
+**2.1.2**
+- Correção do problema de codificação de localização para idiomas como espanhol e francês.
+- Permitir o link "esqueceu a senha" para usar como troca de declarações como IDP social.
 
 **2.1.1**
 - Adicionou um UXString `heading` além de `intro` ser exibido na página como um título. Isso fica oculto por padrão.

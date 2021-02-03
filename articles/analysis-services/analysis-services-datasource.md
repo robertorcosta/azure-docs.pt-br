@@ -4,15 +4,15 @@ description: Descreve as fontes de fonte de dados e os conectores com suporte pa
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b778cf55ea485d7b3b4d3730d3659750f27b2697
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685588"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493813"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -128,7 +128,9 @@ Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authenticati
 
 ## <a name="oauth-credentials"></a>Credenciais OAuth
 
-Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo na memória, o banco de dados SQL do Azure, o Azure Synapse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. O Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução de longa duração. Para gerar tokens válidos, defina as credenciais usando Power Query.
+Para modelos de tabela no nível de compatibilidade 1400 e superior usando o modo *na memória* , o banco de dados SQL do Azure, o Azure Synapse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Para gerar tokens válidos, defina as credenciais usando Power Query. O Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução de longa duração. 
+> [!NOTE]
+> A atualização de token gerenciada não tem suporte para fontes de dados acessadas por meio de um gateway. Por exemplo, uma ou mais fontes de dados de consulta de mashup são acessadas por meio de um gateway e/ou a propriedade [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) é definida como **true**. 
 
 Não há suporte para o modo Direct Query com credenciais OAuth.
 

@@ -1,87 +1,97 @@
 ---
-title: Solução de problemas no Conector ITSM
-description: Solucionando problemas no Conector de Gerenciamento de Serviços de TI
+title: Solucionar problemas no ITSMC
+description: Saiba como resolver problemas comuns no Conector de Gerenciamento de Serviços de TI.
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: fce20626d5e000c08b8a057671c06a3084534187
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e8ae306a4900bc6e5815f6fc251dfa1b8b22964d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896029"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492409"
 ---
-# <a name="troubleshooting-problems-in-itsm-connector"></a>Solução de problemas no Conector ITSM
+# <a name="troubleshoot-problems-in-it-service-management-connector"></a>Solucionar problemas no Conector de Gerenciamento de Serviços de TI
 
-Este artigo aborda problemas comuns no Conector ITSM e como solucioná-los.
+Este artigo discute problemas comuns no Conector de Gerenciamento de Serviços de TI (ITSMC) e como solucioná-los.
 
-Azure Monitor Alertas proativamente notificam você quando condições importantes são encontradas nos dados de monitoramento. Eles permitem que você identifique e resolva problemas antes que os usuários do seu sistema os percebam.
-O cliente pode selecionar como deseja ser notificado sobre o alerta se ele é por email, SMS, webhook ou até mesmo para automatizar uma solução. Outra opção a ser notificada é usar o ITSM.
-O ITSM oferece a opção de enviar os alertas para o sistema de tíquetes externos, como o ServiceNow.
+Azure Monitor notifica proativamente sobre alertas quando encontra condições importantes em seus dados de monitoramento. Esses alertas ajudam a identificar e resolver problemas antes que os usuários do seu sistema os observem.
 
-## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar os dados de incidente e solicitação de alteração
+Você pode selecionar como deseja receber alertas. Você pode escolher email, SMS ou webhook, ou até mesmo automatizar uma solução. 
 
-Dependendo de sua configuração quando você configurar uma conexão, o ITSMC poderá sincronizar até 120 dias de incidentes e dados de solicitação de alteração. O esquema de registro de log para esses dados é fornecido na [seção informações adicionais](./itsmc-synced-data.md) deste artigo.
+Uma alternativa é ser notificada por meio de ITSMC. O ITSMC oferece a opção de enviar alertas para um sistema de tíquetes externos, como o ServiceNow.
+
+## <a name="use-the-dashboard-to-analyze-incident-and-change-request-data"></a>Use o painel para analisar os dados de incidentes e de solicitação de alteração
+
+Dependendo de sua configuração quando você configurar uma conexão, o ITSMC poderá sincronizar até 120 dias de incidentes e dados de solicitação de alteração. Para obter o esquema de registro de log para esses dados, consulte o artigo [dados sincronizados do produto ITSM](./itsmc-synced-data.md) .
 
 Você pode visualizar o incidente e alterar os dados de solicitação usando o painel do ITSMC:
 
 ![Captura de tela que mostra o painel do ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
-O painel também fornece informações sobre o status do conector, que você pode usar como ponto de partida para analisar problemas com as conexões.
+O painel também fornece informações sobre o status do conector. Você pode usar essas informações como um ponto de partida para analisar problemas com as conexões. Para obter mais informações, consulte [investigação de erros usando o painel](./itsmc-dashboard.md).
 
-Para obter mais informações sobre a investigação do painel, consulte [investigação de erro usando o painel](./itsmc-dashboard.md).
-
-### <a name="service-map"></a>Mapa do serviço
+## <a name="use-service-map-to-visualize-incidents"></a>Usar Mapa do Serviço para visualizar incidentes
 
 Você também pode visualizar os incidentes sincronizados em relação aos computadores afetados no Mapa do Serviço.
 
-O Mapa do Serviço descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Ele permite que você exiba seus servidores da maneira como você os considera: como sistemas interconectados que fornecem serviços críticos. Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP. Além da instalação de um agente, nenhuma configuração é necessária. Para obter mais informações, consulte [usando mapa do serviço](../insights/service-map.md).
+O Mapa do Serviço descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Ele permite que você exiba seus servidores da maneira como você os considera: como sistemas interconectados que fornecem serviços críticos. 
 
-Se você estiver usando Mapa do Serviço, poderá exibir os itens da central de serviços criados em soluções de ITSM, conforme mostrado aqui:
+Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP. Além da instalação de um agente, nenhuma configuração é necessária. Para obter mais informações, consulte [usando mapa do serviço](../insights/service-map.md).
+
+Se você estiver usando Mapa do Serviço, poderá exibir os itens da central de serviços criados nas soluções de ITSM (gerenciamento de serviços de ti), conforme mostrado neste exemplo:
 
 ![Captura de tela que mostra a exibição de Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## <a name="common-symptoms---how-should-it-be-resolved"></a>Sintomas comuns-como eles devem ser resolvidos?
+## <a name="resolve-problems"></a>Resolver problemas
 
-A lista abaixo contém sintomas comuns e como ele deve ser resolvido:
+As seções a seguir identificam sintomas comuns, possíveis causas e resoluções. 
 
-* **Sintoma**: se uma conexão não conseguir se conectar ao sistema ITSM, você receberá um **erro ao salvar a mensagem de conexão** .
+### <a name="a-connection-to-the-itsm-system-fails-and-you-get-an-error-in-saving-connection-message"></a>Uma conexão com o sistema ITSM falha e você recebe uma mensagem "erro ao salvar a conexão"
 
-    **Causa**: a causa pode ser uma das opções:
-    * Credenciais incorretas
-     * Privilégios insuficientes
-     * O aplicativo Web deve ser implantado corretamente
+**Causa**: a causa pode ser uma destas opções:
 
-    **Resolução**:
-    * Para as conexões ServiceNow, Cherwell e Provance:
-        * Certifique-se de que você inseriu corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
-        * Para o ServiceNow: Verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão, conforme [especificado](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
-  * Para conexões Service Manager:  
-      * Verifique se o aplicativo Web foi implantado com êxito e se a conexão híbrida foi criada. Para verificar se a conexão foi estabelecida com êxito com o computador Service Manager local, vá para a URL do aplicativo Web, conforme descrito na documentação para fazer a [conexão híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-* **Sintoma**: itens de trabalho duplicados são criados
+* As credenciais estão incorretas.
+* Os privilégios são insuficientes.
+* O aplicativo Web foi implantado incorretamente.
 
-    **Causa**: a causa pode ser uma das duas opções:
-    * Mais de uma ação de ITSM está definida para o alerta.
-    * O alerta foi resolvido.
+**Resolução**:
 
-    **Resolução**: pode haver duas soluções:
-    * Verifique se você tem um único grupo de ações de ITSM por alerta.
-    * Conector ITSM não dá suporte à atualização de status de itens de trabalho de correspondência quando um alerta é resolvido. Um novo item de trabalho resolvido é criado.
-* **Sintoma**: os itens de trabalho não são criados
+* Para as conexões ServiceNow, Cherwell e Provance:
+  * Certifique-se de que você inseriu corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
+  * Para o ServiceNow, verifique se você tem [privilégios suficientes](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role) no produto de ITSM correspondente.
 
-    **Causa**: pode haver alguns motivos para esse sintoma:
-    * Modificação de código no lado do ServiceNow
-    * Configurações incorretas de permissões
-    * Os limites de taxa do ServiceNow são muito altos/baixos
-    * O token de atualização expirou
-    * Conector ITSM foi excluído
+* Para conexões Service Manager:  
+  * Verifique se o aplicativo Web foi implantado com êxito e se a conexão híbrida foi criada. Para verificar se a conexão foi estabelecida com êxito com o computador Service Manager local, vá para a URL do aplicativo Web, conforme descrito na [documentação para fazer uma conexão híbrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 
-    **Resolução**: você pode verificar o [painel](itsmc-dashboard.md) e examinar os erros na seção status do conector. Examine os [erros comuns](itsmc-dashboard-errors.md) e descubra como resolver o erro.
+### <a name="duplicate-work-items-are-created"></a>Itens de trabalho duplicados são criados
 
-* **Sintoma**: não é possível criar a ação de ITSM para o grupo de ações
+**Causa**: a causa pode ser uma destas duas opções:
 
-    **Causa**: a conector ITSM recém-criada ainda não concluiu a sincronização inicial.
+* Mais de uma ação de ITSM está definida para o alerta.
+* O alerta foi resolvido.
 
-    **Resolução**: você pode examinar os [erros comuns da interface do usuário](itsmc-dashboard-errors.md#ui-common-errors) e descobrir como resolver o erro.
+**Resolução**: pode haver duas soluções:
+
+* Verifique se você tem um único grupo de ações de ITSM por alerta.
+* ITSMC não dá suporte a atualizações de status de itens de trabalho correspondentes quando um alerta é resolvido. Crie um novo item de trabalho resolvido.
+
+### <a name="work-items-are-not-created"></a>Os itens de trabalho não são criados
+
+**Causa**: pode haver vários motivos para esse sintoma:
+
+* O código foi modificado no lado do ServiceNow.
+* As permissões estão configuradas incorretamente.
+* Os limites de taxa do ServiceNow são muito altos ou muito baixos.
+* Um token de atualização expirou.
+* ITSMC foi excluído.
+
+**Resolução**: Verifique o [painel](itsmc-dashboard.md) e examine os erros na seção para obter o status do conector. Em seguida, examine os [erros comuns e suas resoluções](itsmc-dashboard-errors.md).
+
+### <a name="you-cant-create-an-itsm-action-for-an-action-group"></a>Não é possível criar uma ação de ITSM para um grupo de ação
+
+**Causa**: uma instância ITSMC recém-criada ainda não concluiu a sincronização inicial.
+
+**Resolução**: examine os [erros comuns e suas resoluções](itsmc-dashboard-errors.md).

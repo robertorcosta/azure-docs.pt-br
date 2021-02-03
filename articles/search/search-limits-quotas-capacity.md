@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 02/02/2021
+ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591337"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493034"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -139,7 +139,7 @@ Um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) que faz
 
 ## <a name="throttling-limits"></a>Limitações
 
-As consultas de pesquisa e solicitações de indexação são limitadas à medida que o sistema se aproxima da capacidade máxima. A limitação se comporta de maneira diferente para diferentes APIs. As APIs de consulta (pesquisa/sugestão/preenchimento automático) e as APIs de indexação são limitadas dinamicamente com base na carga no serviço. As APIs de índice têm limites de taxa de solicitação estática. 
+As solicitações de API são limitadas conforme o sistema se aproxima da capacidade de pico. A limitação se comporta de maneira diferente para diferentes APIs. As APIs de consulta (pesquisa/sugestão/preenchimento automático) e as APIs de indexação são limitadas dinamicamente com base na carga no serviço. As APIs de índice e a API de operações de serviço têm limites de taxa de solicitação estáticos. 
 
 Limites de solicitação de taxa estática para operações relacionadas a um índice:
 
@@ -148,6 +148,10 @@ Limites de solicitação de taxa estática para operações relacionadas a um í
 + Criar índice (POST/índices): 12 por minuto por unidade de pesquisa
 + Criar ou atualizar índice (PUT/índices/myindex): 6 por segundo por unidade de pesquisa
 + Excluir índice (DELETE/índices/myindex): 12 por minuto por unidade de pesquisa 
+
+Limites de solicitação de taxa estática para operações relacionadas a um serviço:
+
++ Estatísticas de serviço (GET/servicestats): 4 por segundo por unidade de pesquisa
 
 ## <a name="api-request-limits"></a>Limites de solicitação de API
 * Máximo de 16 MB por solicitação <sup>1</sup>

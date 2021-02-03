@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: d6e8c4f4b6646254aeea12cf587f47047e661e3f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222863"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493712"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Atualizar endereços IP públicos
 
-Os endereços IP públicos do Azure são criados com um SKU--básico ou standard – que determina os aspectos de sua funcionalidade (incluindo o método de alocação, o uso em zonas de disponibilidade e a quais recursos eles podem ser associados). 
+Os endereços IP públicos do Azure são criados com um SKU--básico ou standard – que determina os aspectos de sua funcionalidade (incluindo método de alocação, suporte a recursos e a quais recursos eles podem ser associados). 
 
 Os cenários a seguir são revisados neste artigo:
-* Como atualizar um IP público de SKU básico para um IP público de SKU Standard (usando o portal, o PowerShell ou a CLI)
+* Como atualizar um IP público de SKU básico para um IP público de SKU Standard (usando o PowerShell ou a CLI)
 * Como migrar um IP Reservado do Azure clássico para um IP público de SKU Azure Resource Manager Basic
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>Atualizar o endereço IP público do SKU básico para o Standard

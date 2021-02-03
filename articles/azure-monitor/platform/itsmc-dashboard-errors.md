@@ -1,75 +1,89 @@
 ---
-title: Erros comuns
-description: Este documento contém informações sobre erros comuns que existem no painel
+title: Erros de status do conector no painel do ITSMC
+description: Saiba mais sobre os erros comuns existentes no painel de Conector de Gerenciamento de Serviços de TI.
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: be6d47d8f40746bfb2154ddb62cf2e9ce93e74aa
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: d1ba698cd95a074c021aa351a98eb12fc8ae0fc3
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955676"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492511"
 ---
-# <a name="errors-in-the-connector-status-section"></a>Erros na seção status do conector
+# <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Erros de status do conector no painel do ITSMC
 
-Na seção lista de status do conector no painel, você pode encontrar erros que podem ajudá-lo a corrigir problemas em seu conector ITSM.
+O painel Conector de Gerenciamento de Serviços de TI (ITSMC) apresenta erros que podem ajudá-lo a corrigir problemas em seu conector.
 
-## <a name="status-common-errors"></a>Erros comuns de status
+As seções a seguir descrevem os erros comuns que aparecem na seção status do conector do painel e como você pode resolvê-los.
 
-Nesta seção, você pode encontrar os erros comuns apresentados na seção status do conector e como você deve resolvê-los:
+## <a name="unexpected-response"></a>Resposta inesperada
 
-* **Erro**: "resposta inesperada do ServiceNow junto com o código de status de êxito. Resposta: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "resultado": [{"transform_map": "incidente do OMS", "tabela": "incidente", "status": "erro", "error_message": "{registro de destino não encontrado | Tabela inválida | Tabela de preparo inválida "}"
+**Erro**: "resposta inesperada do ServiceNow junto com o código de status de êxito. Resposta: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "resultado": [{"transform_map": "incidente do OMS", "tabela": "incidente", "status": "erro", "error_message": "{registro de destino não encontrado | Tabela inválida | Tabela de preparo inválida "}"
 
-    **Causa**: esse erro é retornado do ServiceNow quando:
-  * Um script personalizado implantado na instância do ServiceNow faz com que os incidentes sejam ignorados.
-  * O próprio código "aplicativo de integrador do OMS" foi modificado no ServiceNow, por exemplo, o script onbefore.
+**Causa**: o ServiceNow retorna esse erro quando:
 
-  **Resolução**: Desabilite todos os scripts personalizados ou modificações de código.
+* Um script personalizado implantado em uma instância do ServiceNow faz com que os incidentes sejam ignorados.
+* O código "aplicativo do integrador do OMS" foi modificado no lado do ServiceNow (por exemplo, por meio do `onBefore` script).
 
-* **Erro**: "{" erro ": {" Message ":" falha na operação "," Detail ":" falha na atualização da exceção de ACL devido a restrições de segurança "}"
+**Resolução**: Desabilite todos os scripts personalizados ou modificações de código.
 
-    **Causa: falha** na configuração de permissões do ServiceNow
+## <a name="exception-update-failure"></a>Falha na atualização da exceção
 
-    **Resolução**: Verifique se todas as funções foram atribuídas corretamente conforme [especificado](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
+**Erro**: "{" erro ": {" Message ":" falha na operação "," Detail ":" falha na atualização da exceção de ACL devido a restrições de segurança "}"
 
-* **Erro**: "ocorreu um erro ao enviar a solicitação."
+**Causa**: as permissões do ServiceNow estão configuradas incorretamente.
 
-    **Causa**: "instância do ServiceNow não disponível"
+**Resolução**: Verifique se todas as funções estão corretamente atribuídas conforme [especificado](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
 
-    **Resolução**: Verifique sua instância no ServiceNow que pode ser excluída ou indisponível.
+## <a name="problem-sending-a-request"></a>Problema ao enviar uma solicitação
 
-* **Erro**: "ServiceDeskHttpBadRequestException: StatusCode = 429"
+**Erro**: "ocorreu um erro ao enviar a solicitação."
 
-    **Causa**: os limites de taxa do ServiceNow são muito altos/baixos.
+**Causa**: uma instância do ServiceNow não está disponível.
 
-    **Resolução**: aumente ou cancele os limites de taxa na instância do ServiceNow, conforme explicado [aqui](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
+**Resolução**: Verifique sua instância no ServiceNow. Ele pode ser excluído ou não disponível.
 
-* **Erro**: "AccessToken e RefreshToken inválido. O usuário precisa autenticar novamente. "
+## <a name="servicenow-rate-problem"></a>Problema de taxa do ServiceNow
 
-    **Causa**: o token de atualização expirou.
+**Erro**: "ServiceDeskHttpBadRequestException: StatusCode = 429"
 
-    **Resolução**: sincronize o conector ITSM para gerar um novo token de atualização, conforme explicado [aqui](./itsmc-resync-servicenow.md).
+**Causa**: os limites de taxa do ServiceNow são muito altos ou muito baixos.
 
-* **Erro**: "não foi possível criar/atualizar o item de trabalho para o alerta {AlertName}. Conector ITSM {connectionIdentifier} não existe ou foi excluído. "
+**Resolução**: aumente ou cancele os limites de taxa na instância do servicenow, conforme explicado na [documentação do servicenow](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
 
-    **Causa**: conector ITSM foi excluído.
+## <a name="invalid-refresh-token"></a>Token de atualização inválido
 
-    **Resolução**: a conector ITSM foi excluída, mas ainda há grupos de ações de ITSM definidos associados a ela. Há duas opções para resolver esse problema:
-  * Localizar e desabilitar ou excluir esses grupos de ações
-  * [Reconfigure o grupo de ações](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) para usar um conector ITSM existente.
-  * [Crie um novo conector ITSM](./itsmc-definition.md#create-an-itsm-connection) e [reconfigure o grupo de ações para usá-lo](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
+**Erro**: "AccessToken e RefreshToken inválido. O usuário precisa autenticar novamente. "
 
-## <a name="ui-common-errors"></a>Erros comuns da interface do usuário
+**Causa**: um token de atualização expirou.
 
-* **Erro**: "algo deu errado. Não foi possível obter os detalhes da conexão. " Esse erro é apresentado quando o cliente define o grupo de ações de ITSM.
+**Resolução**: Sincronize o ITSMC para gerar um novo token de atualização, conforme explicado em [como corrigir manualmente os problemas de sincronização](./itsmc-resync-servicenow.md).
 
-    **Causa**: esse erro é exibido quando:
-    * Os Conector ITSM recém-criados ainda têm de concluir a sincronização inicial.
-    * O conector não foi definido corretamente
+## <a name="missing-connector"></a>Conector ausente
 
-    **Resolução**: 
-    * Quando um novo conector ITSM é criado, Conector ITSM inicia a sincronização de informações do sistema ITSM, como modelos de item de trabalho e itens de trabalho. Sincronize o Conector ITSM para gerar um novo token de atualização, conforme explicado [aqui](./itsmc-resync-servicenow.md).
-    * Examine os detalhes de conexão no conector ITSM conforme explicado [aqui](./itsmc-connections-servicenow.md#create-a-connection) e verifique se o conector ITSM pode ser [sincronizado](./itsmc-resync-servicenow.md)com êxito.
+**Erro**: "não foi possível criar/atualizar o item de trabalho para o alerta {AlertName}. Conector ITSM {connectionIdentifier} não existe ou foi excluído. "
+
+**Causa**: ITSMC foi excluído.
+
+**Resolução**: ITSMC foi excluído, mas os grupos de ações de ITSM (gerenciamento de serviços de ti) definidos ainda estão associados a ele. Há três opções para resolver esse problema:
+
+* Localize e desabilite ou exclua esses grupos de ação.
+* [Reconfigure os grupos de ação](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) para usar uma instância de ITSMC existente.
+* [Crie uma nova instância do ITSMC](./itsmc-definition.md#create-an-itsm-connection) e [Reconfigure os grupos de ação para usá-la](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
+
+## <a name="lack-of-connection-details"></a>Falta de detalhes de conexão
+
+**Erro**: "algo deu errado. Não foi possível obter os detalhes da conexão. " Esse erro aparece quando você define um grupo de ações de ITSM.
+
+**Causa**: esse erro aparece em uma destas situações:
+
+* Uma instância de Conector ITSM recém-criada ainda não concluiu a sincronização inicial.
+* O conector não foi definido corretamente.
+
+**Resolução**: 
+
+* Quando uma nova instância de ITSMC é criada, ela inicia a sincronização de informações do sistema ITSM, como modelos de item de trabalho e itens de trabalho. [Sincronize o ITSMC para gerar um novo token de atualização](./itsmc-resync-servicenow.md).
+* [Examine os detalhes da conexão em ITSMC](./itsmc-connections-servicenow.md#create-a-connection) e verifique se o ITSMC pode ser [sincronizado](./itsmc-resync-servicenow.md)com êxito.

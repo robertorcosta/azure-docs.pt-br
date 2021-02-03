@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741483"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491378"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Habilitar a Azure Active Directory redefinição de senha de autoatendimento na tela de entrada do Windows
 
@@ -40,7 +40,7 @@ As seguintes limitações se aplicam ao uso do SSPR na tela de entrada do Window
 - Os computadores ingressados no Azure Active Directory híbrido devem ter a linha de visão de conectividade de rede para um controlador de domínio para usar a nova senha e atualizar as credenciais armazenadas em cache. Isso significa que os dispositivos devem estar na rede interna da organização ou em uma VPN com acesso à rede para um controlador de domínio local.
 - Se estiver usando uma imagem, antes de executar o sysprep, veja se o cache da Web está desmarcado para o Administrador interno, antes de executar a etapa CopyProfile. Mais informações sobre esse assunto podem ser encontradas no artigo de suporte [Desempenho insatisfatório ao usar perfil de usuário padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - As configurações a seguir são conhecidas por interferir na capacidade de usar e redefinir senhas em dispositivos Windows 10:
-    - Se Ctrl + Alt + Del for exigido pela política em versões do Windows 10 antes de v1909, a **redefinição de senha** não funcionará.
+    - Se Ctrl + Alt + Del for exigido pela política no Windows 10, a **redefinição de senha** não funcionará.
     - Se as notificações da tela de bloqueio estiverem desativadas, a opção **Redefinir senha** não funcionará.
     - *HideFastUserSwitching* é definido como Enabled ou 1
     - *DontDisplayLastUserName* é definido como Enabled ou 1
@@ -51,6 +51,10 @@ As seguintes limitações se aplicam ao uso do SSPR na tela de entrada do Window
     - Logon interativo: Não exigir CTRL+ALT+DEL = Desabilitado
     - *DisableLockScreenAppNotifications* = 1 ou habilitado
     - O SKU do Windows não é Home ou Professional Edition
+
+> [!NOTE]
+> Essas limitações também se aplicam à redefinição de PIN do Windows Hello para empresas na tela de bloqueio do dispositivo.
+>
 
 ## <a name="windows-10-password-reset"></a>Redefinição de senha do Windows 10
 

@@ -1,62 +1,78 @@
 ---
-title: Investigar erros usando o painel
-description: Este documento contém informações sobre erros no painel do ITSMC.
+title: Investigar erros usando o painel do ITSMC
+description: Saiba como usar o painel de Conector de Gerenciamento de Serviços de TI para investigar erros.
 ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/15/2021
-ms.openlocfilehash: ebd59e637e498b8088fe9a302b1bb12efdf2c173
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 5cbd501b9ccb408ee23cb5c8ed9cde2689ef79fb
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089268"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492528"
 ---
 # <a name="investigate-errors-by-using-the-itsmc-dashboard"></a>Investigar erros usando o painel do ITSMC
 
-Este artigo contém informações sobre o painel de Conector de Gerenciamento de Serviços de TI (ITSMC). O painel ajuda você a investigar o status de ITSMC.
+Este artigo contém informações sobre o painel de Conector de Gerenciamento de Serviços de TI (ITSMC). O painel ajuda você a investigar o status do conector.
 
-## <a name="view-the-dashboard"></a>Exibir o painel
+## <a name="view-errors"></a>Exibir erros
 
-Siga estas etapas para abrir o painel.
+Para exibir erros no painel:
 
 1. Selecione **todos os recursos** e, em seguida, localize **a assistência (*seu nome de espaço de trabalho*)**.
 
    ![Captura de tela que mostra os recursos nos serviços do Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
 
-1. No painel esquerdo, selecione **fontes de dados de espaço de trabalho** e, em seguida, selecione conexões de **ITSM**.
+2. Em **fontes de dados do espaço de trabalho** no painel esquerdo, selecione **conexões de ITSM**:
 
    ![Captura de tela que mostra a seleção de conexões ITSM em fontes de dados do local de trabalho.](media/itsmc-overview/add-new-itsm-connection.png)
 
-1. Na seção **Resumo** , selecione **Exibir Resumo** para exibir um gráfico de resumo.
+3. Em **Resumo**, na área **conector de gerenciamento de serviços de ti** , selecione **Exibir Resumo**:
 
-    ![Captura de tela que mostra a opção Exibir Resumo na seção Resumo.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
+   ![Captura de tela que mostra o botão Exibir Resumo.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
 
-1. Selecione o grafo na seção **Resumo** para abrir o painel.
+4. Quando um gráfico for exibido na área de **conector de gerenciamento de serviços de ti** , selecione-o:
 
-    ![Captura de tela que mostra a seleção do grafo de resumo.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
+   ![Captura de tela que mostra a seleção de um grafo.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
 
-1. Examine o painel para ver o status e os erros em seu conector.
-    ![Captura de tela que mostra o painel.](media/itsmc-resync-servicenow/connector-dashboard.png)
+5. O painel é exibido. Use-o para examinar o status e os erros em seu conector.
+   
+   ![Captura de tela que mostra o status do conector no painel.](media/itsmc-resync-servicenow/connector-dashboard.png)
 
 ## <a name="understand-dashboard-elements"></a>Entender os elementos do Dashboard
 
-O painel contém informações sobre os alertas que foram enviados para a ferramenta de ITSM usando esse conector.
+O painel contém informações sobre os alertas que foram enviados para a ferramenta ITSM por meio desse conector. O painel é dividido em quatro partes.
 
-O painel é dividido em quatro seções:
+### <a name="created-work-items"></a>Itens de trabalho criados 
 
-- **Itens de trabalho criados**: o grafo e a tabela mostram o número de itens de trabalho por tipo. Selecione o grafo ou a tabela para saber mais sobre seus itens de trabalho.
-      ![Captura de tela que mostra a seção itens de trabalho criados.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
-- **Computadores afetados**: a tabela contém detalhes sobre os itens de configuração que criaram itens de trabalho.
-      Selecione linhas nas tabelas para obter mais detalhes sobre os itens de configuração.
-      A tabela contém um número limitado de linhas. Para ver a lista inteira, selecione **ver tudo**.
-      ![Captura de tela que mostra a seção computadores afetados.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
-- **Status do conector**: o grafo e a tabela mostram informações sobre o status do conector. Selecione o grafo ou as mensagens na tabela para obter mais detalhes. A tabela mostra um número limitado de linhas. Para ver a lista inteira, selecione **ver tudo**.
-      ![Captura de tela que mostra a seção status do conector.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
-- **Regras de alerta**: Esta seção mostra informações sobre o número de regras de alerta que foram detectadas. Selecione linhas nas tabelas para obter mais detalhes sobre as regras que foram detectadas. A tabela tem um número limitado de linhas. Para ver a lista inteira, selecione **ver tudo**.
-      ![Captura de tela que mostra a seção regras de alerta.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
+Na área **itens de trabalho criados** , o grafo e a tabela abaixo contêm a contagem dos itens de trabalho por tipo. Se você selecionar o grafo ou a tabela, poderá ver mais detalhes sobre os itens de trabalho.
 
-## <a name="next-steps"></a>Próximas etapas
+![Captura de tela que mostra um item de trabalho criado.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
 
-Confira [erros comuns de status do conector](itsmc-dashboard-errors.md).
+### <a name="affected-computers"></a>Computadores afetados 
+
+Na área **computadores afetados** , a tabela lista os computadores e seus itens de trabalho associados. Ao selecionar linhas nas tabelas, você pode obter mais detalhes sobre os computadores.
+
+A tabela contém um número limitado de linhas. Se você quiser ver todas as linhas, selecione **ver tudo**.
+
+![Captura de tela que mostra os computadores afetados.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
+
+### <a name="connector-status"></a>Status do conector 
+
+Na área **status do conector** , o grafo e a tabela abaixo contêm mensagens sobre o status do conector. Ao selecionar o grafo ou as linhas na tabela, você pode obter mais detalhes sobre as mensagens.
+
+A tabela contém um número limitado de linhas. Se você quiser ver todas as linhas, selecione **ver tudo**.
+
+Para saber mais sobre as mensagens na tabela, consulte [Este artigo](itsmc-dashboard-errors.md).
+
+![Captura de tela que mostra o status do conector.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
+
+### <a name="alert-rules"></a>Regras de alerta 
+
+Na área **regras de alerta** , a tabela contém informações sobre o número de regras de alerta que foram detectadas. Selecionando linhas na tabela, você pode obter mais detalhes sobre as regras detectadas.
+    
+A tabela contém um número limitado de linhas. Se você quiser ver todas as linhas, selecione **ver tudo**.
+
+![Captura de tela que mostra as regras de alerta.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)

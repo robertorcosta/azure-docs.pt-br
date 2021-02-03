@@ -3,24 +3,24 @@ title: 'Tutorial: Criar um aplicativo de tradução com WPF, C# - Tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você criará um aplicativo do WPF para realizar tradução de texto, detecção de idioma e verificação ortográfica com uma chave de assinatura única.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d239b89aaf0bc140916d38583f4263f7bf660f1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023609"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927485"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar um aplicativo de tradução com o WPF
 
-Neste tutorial, você criará um aplicativo do [WPF (Windows Presentation Foundation)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019) que usa os Serviços Cognitivos do Azure para tradução de texto, detecção de idioma e verificação ortográfica com uma chave de assinatura única. Especificamente, seu aplicativo chamará as APIs do Tradutor e a [Verificação Ortográfica do Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+Neste tutorial, você criará um aplicativo do [WPF (Windows Presentation Foundation)](/visualstudio/designers/getting-started-with-wpf) que usa os Serviços Cognitivos do Azure para tradução de texto, detecção de idioma e verificação ortográfica com uma chave de assinatura única. Especificamente, seu aplicativo chamará as APIs do Tradutor e a [Verificação Ortográfica do Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 O que é o WPF? É uma estrutura de interface do usuário que cria aplicativos de cliente da área de trabalho. A plataforma de desenvolvimento do WPF é compatível com um amplo conjunto de recursos de desenvolvimento de aplicativo, incluindo um modelo de aplicativo, recursos, controles, elementos gráficos, layout, vinculação de dados, documentos e segurança. Ela é um subconjunto do .NET Framework, portanto, se você já tiver criado aplicativos com o .NET Framework usando ASP.NET ou Windows Forms, a experiência de programação deverá ser familiar. O WPF usa linguagem XAML para fornecer um modelo declarativo para programação de aplicativo que vamos analisar nas próximas seções.
 
@@ -90,7 +90,7 @@ Vamos adicionar assemblies ao nosso projeto para serializar e desserializar obje
 1. Depois de adicionar essas referências ao projeto, clique em **OK** para fechar o **Gerenciador de Referências**.
 
 > [!NOTE]
-> Se você quiser saber mais sobre referências de assembly, confira [Como: adicionar ou remover referência usando o Gerenciador de Referências](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> Se você quiser saber mais sobre referências de assembly, confira [Como: adicionar ou remover referência usando o Gerenciador de Referências](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager).
 
 ### <a name="install-newtonsoftjson"></a>Instalar o NewtonSoft.Json
 

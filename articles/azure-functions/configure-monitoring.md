@@ -4,12 +4,12 @@ description: Saiba como conectar seu aplicativo de funções a Application Insig
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e24f2b1a61d77dafd7a23b04d225d0301f82ca59
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 5007009d9aabf9a1c1c6e1d5c2f286c0ba25b340
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070133"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493746"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Como configurar o monitoramento para Azure Functions
 
@@ -229,6 +229,8 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
+Com o registro em log do controlador de escala habilitado, agora você pode [consultar os logs do controlador de escala](analyze-telemetry-data.md#query-scale-controller-logs). 
+
 ## <a name="enable-application-insights-integration"></a>Habilitar a integração do Application Insights
 
 Para um aplicativo de funções enviar dados ao Application Insights, ele precisa saber a chave de instrumentação de um recurso do Application Insights. A chave deve estar em uma configuração de aplicativo chamada **APPINSIGHTS_INSTRUMENTATIONKEY**.
@@ -271,30 +273,6 @@ Se um recurso de Application Insights não foi criado com seu aplicativo de fun�
 
 > [!NOTE]
 > As primeiras versões de Functions usavam o monitoramento interno, o que não é mais recomendado. Ao habilitar a integração do Application Insights para um aplicativo de funções como esse, você também deve [desabilitar o registro em log interno](#disable-built-in-logging).  
-
-## <a name="query-scale-controller-logs"></a>Logs do controlador de escala de consulta
-
-Depois de habilitar o registro em log do controlador de escala e a integração de Application Insights, você pode usar a pesquisa de log de Application Insights para consultar os logs do controlador de escala emitido. Os logs do controlador de escala são salvos na `traces` coleção na categoria **ScaleControllerLogs** .
-
-A consulta a seguir pode ser usada para pesquisar todos os logs do controlador de escala para o aplicativo de funções atual dentro do período de tempo especificado:
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-```
-
-A consulta a seguir se expande na consulta anterior para mostrar como obter apenas os logs que indicam uma alteração na escala:
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-| where message == "Instance count changed"
-| extend Reason = CustomDimensions.Reason
-| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
-| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
-```
 
 ## <a name="disable-built-in-logging"></a>Desabilitar o registro em log interno
 

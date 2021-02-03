@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 79706b66dba46253843b1f53a26481170d6ff723
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 907a78b15cca4718308f79bc6be2e6258bc04d19
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729591"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492664"
 ---
 # <a name="connect-system-center-service-manager-with-it-service-management-connector"></a>Conectar System Center Service Manager com Conector de Gerenciamento de Serviços de TI
 
@@ -32,7 +32,7 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 
 > [!NOTE]
 > - O Conector ITSM pode se conectar apenas a instâncias do ServiceNow baseadas em nuvem. No momento, não há suporte para instâncias locais do ServiceNow.
-> - Para usar [modelos](./itsmc-definition.md#template-definitions) personalizados como parte das ações, o parâmetro "geometertype" no modelo SCSM deve ser mapeado para "IncidentManagement! System. WorkItem. Incident. Projetype "
+> - Para usar [modelos](./itsmc-definition.md#define-a-template) personalizados como parte das ações, o parâmetro "geometertype" no modelo SCSM deve ser mapeado para "IncidentManagement! System. WorkItem. Incident. Projetype "
 
 ## <a name="connection-procedure"></a>Procedimento de conexão
 
@@ -165,6 +165,6 @@ O exemplo a seguir mostra os detalhes de uma conexão bem-sucedida:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral de Conector ITSM](itsmc-overview.md)
+* [Visão geral do Conector ITSM](itsmc-overview.md)
 * [Criar itens de trabalho de ITSM desde alertas do Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
 * [Solução de problemas no Conector ITSM](./itsmc-resync-servicenow.md)

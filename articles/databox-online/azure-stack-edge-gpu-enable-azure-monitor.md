@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 3485c6ca5c2672fa48b6118a78600b9745994ce1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465919"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493905"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitar Azure Monitor em seu dispositivo de GPU pro Azure Stack Edge
 
@@ -30,7 +30,7 @@ Antes de começar, você precisará de:
 - Você concluiu a etapa **Configurar computação** de acordo com o [tutorial: configurar a computação em seu dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-deploy-configure-compute.md) em seu dispositivo. Seu dispositivo deve ter um recurso de Hub IoT associado, um dispositivo IoT e um dispositivo IoT Edge.
 
 
-## <a name="create-log-analytics-workspace"></a>Criar Log Analytics espaço de trabalho.
+## <a name="create-log-analytics-workspace"></a>Criar espaço de trabalho do Log Analytics
 
 Execute as etapas a seguir para criar um espaço de trabalho do log Analytics. Um espaço de trabalho do log Analytics é uma unidade de armazenamento lógico em que os dados de log são coletados e armazenados.
 
@@ -116,10 +116,10 @@ Execute as etapas a seguir para habilitar o insights de contêiner em seu espaç
     }
     ```
 
-1. Obtenha a ID do recurso e o local. Acesse `Your Log Analytics workspace > General > Properties`. Copie as seguintes informações:
+1. Obtenha a ID do recurso e o local. Ir para `Your Log Analytics workspace > General > Properties`. Copie as seguintes informações:
 
-    - **ID do recurso** que é a ID de recurso do Azure totalmente qualificada do espaço de trabalho do Azure log Analytics. 
-    - **local** que é a região do Azure.
+    - **ID de recurso**, que é a ID de recurso do Azure totalmente qualificada do espaço de trabalho do Azure log Analytics. 
+    - **local**, que é a região do Azure.
 
     ![Propriedades do espaço de trabalho Log Analytics](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
 
@@ -241,3 +241,4 @@ Execute as etapas a seguir para habilitar o insights de contêiner em seu espaç
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [monitorar cargas de trabalho do kubernetes por meio do painel do kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
+- Saiba como [gerenciar notificações de alerta de eventos de dispositivo](azure-stack-edge-gpu-manage-device-event-alert-notifications.md). 

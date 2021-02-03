@@ -3,12 +3,12 @@ title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: a203dd2c52bdc889452a6755fb025c7ed5721a59
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184009"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491630"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implantações de grupo de gerenciamento com modelos ARM
 
@@ -112,7 +112,7 @@ Para obter informações mais detalhadas sobre os comandos de implantação e op
 
 Para implantações no nível do grupo de gerenciamento, você deve fornecer um local para a implantação. O local da implantação é separado do local dos recursos que você implanta. O local de implantação especifica onde armazenar os dados de implantação. As implantações de [assinatura](deploy-to-subscription.md) e [locatário](deploy-to-tenant.md) também exigem um local. Para implantações de [grupo de recursos](deploy-to-resource-group.md) , o local do grupo de recursos é usado para armazenar os dados de implantação.
 
-Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+Você pode fornecer um nome da implantação ou usar o nome da implantação padrão. O nome padrão é o nome do arquivo de modelo. Por exemplo, implantar um modelo chamado _azuredeploy.json_ cria um nome de implantação padrão de **azuredeploy**.
 
 O local não pode ser alterado para cada nome de implantação. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome em um local diferente. Por exemplo, se você criar uma implantação de grupo de gerenciamento com o nome **deployment1** em **centralus**, não será possível criar outra implantação mais tarde com o nome **deployment1** , mas um local de **westus**. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
 
@@ -164,9 +164,9 @@ Para usar uma implantação de grupo de gerenciamento para criar um grupo de rec
 
 ### <a name="scope-to-tenant"></a>Escopo para o locatário
 
-Você pode criar recursos no locatário definindo o `scope` conjunto como `/` . O usuário que está implantando o modelo deve ter o [acesso necessário para implantar no locatário](deploy-to-tenant.md#required-access).
+Para criar recursos no locatário, defina `scope` como `/` . O usuário que está implantando o modelo deve ter o [acesso necessário para implantar no locatário](deploy-to-tenant.md#required-access).
 
-Você pode usar uma implantação aninhada com o `scope` e o `location` set.
+Para usar uma implantação aninhada, defina `scope` e `location` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
@@ -222,7 +222,7 @@ O exemplo a seguir cria um novo grupo de gerenciamento no grupo de gerenciamento
 
 ## <a name="azure-policy"></a>Azure Policy
 
-As definições de política personalizadas que são implantadas no grupo de gerenciamento são extensões do grupo de gerenciamento. Para obter a ID de uma definição de política personalizada, use a função [extensionResourceId ()](template-functions-resource.md#extensionresourceid) . As definições de política internas são recursos de nível de locatário. Para obter a ID de uma definição de política interna, use a função [tenantResourceId](template-functions-resource.md#tenantresourceid) .
+As definições de política personalizadas que são implantadas no grupo de gerenciamento são extensões do grupo de gerenciamento. Para obter a ID de uma definição de política personalizada, use a função [extensionResourceId ()](template-functions-resource.md#extensionresourceid) . As definições de política internas são recursos de nível de locatário. Para obter a ID de uma definição de política interna, use a função [tenantResourceId ()](template-functions-resource.md#tenantresourceid) .
 
 O exemplo a seguir mostra como [definir](../../governance/policy/concepts/definition-structure.md) uma política no nível do grupo de gerenciamento e atribuí-la.
 

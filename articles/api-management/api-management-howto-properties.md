@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 12/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 4cde4dadee33ec1c3f91ab4770dbfe697289cef3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504725"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490998"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Usar valores nomeados em políticas de gerenciamento de API do Azure
 
@@ -43,7 +43,7 @@ O uso de segredos do Key Vault é recomendado porque ajuda a melhorar a seguran�
 
 * Os segredos armazenados em cofres de chaves podem ser reutilizados em todos os serviços
 * [As políticas de acesso](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) granular podem ser aplicadas aos segredos
-* Os segredos atualizados no cofre de chaves são automaticamente girados no gerenciamento de API. Após a atualização no cofre de chaves, um valor nomeado no gerenciamento de API é atualizado dentro de 4 horas. 
+* Os segredos atualizados no cofre de chaves são automaticamente girados no gerenciamento de API. Após a atualização no cofre de chaves, um valor nomeado no gerenciamento de API é atualizado dentro de 4 horas. Você também pode atualizar manualmente o segredo usando o portal do Azure ou por meio da API REST de gerenciamento.
 
 ### <a name="prerequisites-for-key-vault-integration"></a>Pré-requisitos para a integração do Key Vault
 
@@ -58,25 +58,16 @@ O uso de segredos do Key Vault é recomendado porque ajuda a melhorar a seguran�
 
 Para usar o segredo do cofre de chaves, [adicione ou edite um valor nomeado](#add-or-edit-a-named-value)e especifique um tipo de **cofre de chaves**. Selecione o segredo no cofre de chaves.
 
-> [!CAUTION]
-> Ao usar um segredo do cofre de chaves no gerenciamento de API, tenha cuidado para não excluir o segredo, o cofre de chaves ou a identidade gerenciada usada para acessar o cofre de chaves.
-
-Se [Key Vault firewall](../key-vault/general/network-security.md) estiver habilitado em seu cofre de chaves, os seguintes requisitos adicionais serão para usar os segredos do Key Vault:
-
-* Você deve usar a identidade gerenciada **atribuída pelo sistema** da instância de gerenciamento de API para acessar o cofre de chaves.
-* No Key Vault firewall, habilite a opção **permitir que os serviços confiáveis da Microsoft ignorem esse firewall** .
-
-Se a instância de gerenciamento de API for implantada em uma rede virtual, defina também as seguintes configurações de rede:
-* Habilite um [ponto de extremidade de serviço](../key-vault/general/overview-vnet-service-endpoints.md) para Azure Key Vault na sub-rede de gerenciamento de API.
-* Configure uma regra de NSG (grupo de segurança de rede) para permitir o tráfego de saída para as [marcas de serviço](../virtual-network/service-tags-overview.md)AzureKeyVault e AzureActiveDirectory. 
-
-Para obter detalhes, consulte detalhes de configuração de rede em [conectar-se a uma rede virtual](api-management-using-with-vnet.md#-common-network-configuration-issues).
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## <a name="add-or-edit-a-named-value"></a>Adicionar ou editar um valor nomeado
 
 ### <a name="add-a-key-vault-secret"></a>Adicionar um segredo do Key Vault
 
 Consulte [pré-requisitos para a integração do Key Vault](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> Ao usar um segredo do cofre de chaves no gerenciamento de API, tenha cuidado para não excluir o segredo, o cofre de chaves ou a identidade gerenciada usada para acessar o cofre de chaves.
 
 1. No [portal do Azure](https://portal.azure.com), navegue até a instância do Gerenciamento de API.
 1. Em **APIs**, selecione **valores nomeados**  >  **+ Adicionar**.

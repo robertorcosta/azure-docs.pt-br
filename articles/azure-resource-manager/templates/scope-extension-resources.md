@@ -3,12 +3,12 @@ title: Escopo em tipos de recursos de extensão
 description: Descreve como usar a Propriedade Scope ao implantar tipos de recursos de extensão.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ce08ca951e24c1c0a5450052cf814a68888837c2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179972"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492154"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Definindo o escopo para recursos de extensão em modelos ARM
 
@@ -85,6 +85,6 @@ O exemplo a seguir cria uma conta de armazenamento e aplica uma função a ela.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para entender como definir parâmetros em seu modelo, confira [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](template-syntax.md).
+* Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos ARM](template-syntax.md).
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](common-deployment-errors.md).
-* Para saber mais sobre como implantar um modelo que exija um token SAS, veja [Implantar o modelo particular com o token SAS](secure-template-with-sas-token.md).
+* Para obter informações sobre como implantar um modelo que requer um token SAS, consulte [implantar modelo de ARM privado com token SAS](secure-template-with-sas-token.md).
