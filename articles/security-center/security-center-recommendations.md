@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: dbda0aecdadd81da0f7681a5fc9b140157d5e8f3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3b2f111f83dbd731b69671e58d4bf9dc648a596f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756819"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526478"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recomendações de segurança na Central de Segurança do Azure 
 
@@ -39,11 +39,19 @@ Cada recomendação fornece:
 
 ## <a name="how-does-microsoft-decide-what-needs-securing-and-hardening"></a>Como a Microsoft decide o que precisa de proteção e proteção?
 
-As recomendações da central de segurança são baseadas no benchmark de segurança do Azure. 
+As recomendações da Central de Segurança baseiam-se no Azure Security Benchmark. Quase todas as recomendações têm uma política subjacente que é derivada de um requisito no parâmetro de comparação.
 
-O Azure Security Benchmark é um conjunto específico de diretrizes específicas do Azure criadas pela Microsoft com as melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. Esse benchmark amplamente respeitado se baseia nos controles do [centro de segurança da Internet (CIS)](https://www.cisecurity.org/benchmark/azure/) e do [Instituto Nacional de normas e tecnologia (NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
+O Azure Security Benchmark é um conjunto específico de diretrizes específicas do Azure criadas pela Microsoft com as melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. Esse parâmetro de comparação amplamente respeitado se baseia nos controles do [CIS (Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) e do [NIST (National Institute of Standards and Technology)](https://www.nist.gov/) com foco na segurança centrada na nuvem. Saiba mais sobre o [Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-Saiba mais sobre o [Azure Security Benchmark](../security/benchmarks/introduction.md).
+Quando você estiver examinando os detalhes de uma recomendação, muitas vezes é útil poder ver a política subjacente. Para cada recomendação com suporte de uma política, use o link **Exibir definição de política** da página de detalhes de recomendação para ir diretamente para a entrada de Azure Policy para a política relevante:
+
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link para a página de Azure Policy para a política específica que dá suporte a uma recomendação":::
+
+Use este link para exibir a definição de política e examinar a lógica de avaliação. 
+
+Se você estiver examinando a lista de recomendações em nosso [Guia de referência de recomendações de segurança](recommendations-reference.md), você também verá links para as páginas de definição de política:
+
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Acessando a página de Azure Policy para uma política específica diretamente da página de referência de recomendações da central de segurança do Azure":::
 
 ## <a name="monitor-recommendations"></a>Recomendações de monitor <a name="monitor-recommendations"></a>
 
@@ -63,9 +71,12 @@ A central de segurança analisa o estado de segurança de seus recursos para ide
 
     A página inclui:
 
-    1. **Aplicar** e **negar** botões em recomendações com suporte (consulte [evitar configurações incorretas com recomendações de impor/negar](prevent-misconfigurations.md))
+    1. Para obter recomendações com suporte, a barra de ferramentas superior mostra um ou todos os botões a seguir:
+        - **Impor** e **negar** (consulte [evitar configurações incorretas com recomendações de impor/negar](prevent-misconfigurations.md))
+        - **Exibir a definição de política** para ir diretamente para a entrada de Azure Policy para a política subjacente
     1. **Indicador de severidade**
-    1. **Intervalo de atualização**  (quando relevante) 
+    1. **Intervalo de atualização** (quando relevante)
+    1. **Contagem de recursos isentos** se existirem isenções para essa recomendação, isso mostrará o número de recursos que foram isentos
     1. **Descrição** -uma breve descrição do problema
     1. **Etapas de correção** -uma descrição das etapas manuais necessárias para corrigir o problema de segurança nos recursos afetados. Para obter recomendações com ' correção rápida ', você pode selecionar **Exibir lógica de correção** antes de aplicar a correção sugerida aos seus recursos. 
     1. **Recursos afetados** -seus recursos são agrupados em guias:

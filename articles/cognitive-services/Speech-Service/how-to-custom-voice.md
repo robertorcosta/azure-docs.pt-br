@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 756c40be52f2739d3a7682752b038bfe3958d47d
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 4e487a3eab70e7d561468a8fac2103e177d2abc5
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507703"
+ms.locfileid: "99524968"
 ---
 # <a name="get-started-with-custom-voice"></a>Introdução à Voz Personalizada
 
@@ -39,7 +39,10 @@ O diagrama a seguir realça as etapas para criar um modelo de voz personalizado 
 
 ## <a name="custom-neural-voices"></a>Vozes neurais personalizadas
 
-O recurso de personalização de voz neural está atualmente em visualização pública, limitado aos clientes selecionados. Preencha este [formulário de aplicativo](https://go.microsoft.com/fwlink/?linkid=2108737) para começar.
+A voz personalizada atualmente dá suporte às camadas Standard e neural. A voz neural personalizada permite que os usuários criem modelos de voz de qualidade mais alta enquanto exigem menos dados e fornece medidas para ajudá-lo a implantar o AI com responsabilidade. Recomendamos que você use a voz neural personalizada para desenvolver vozes mais realísticas para interfaces de conversa mais naturais e permitir que seus clientes e usuários finais se beneficiem da mais recente tecnologia de conversão de texto em fala, de uma maneira responsável. [Saiba mais sobre a voz neural personalizada](https://aka.ms/CNV-Transparency-Note). 
+
+> [!NOTE]
+> Como parte do compromisso da Microsoft em projetar a AI responsável, limitamos o uso de voz neural personalizada. Você pode obter acesso à tecnologia somente depois que seus aplicativos são revisados e você se compromete a usá-los em alinhamento com nossos princípios de ia responsáveis. Saiba mais sobre nossa [política sobre o limite de acesso](https://aka.ms/gating-overview) e aplique-a [aqui](https://aka.ms/customneural). As [linguagens](language-support.md#customization) e [regiões](regions.md#custom-voices) com suporte para a versão padrão e neural de voz personalizada são diferentes. Verifique os detalhes antes de começar.  
 
 ## <a name="set-up-your-azure-account"></a>Configurar sua conta do Azure
 
@@ -53,7 +56,7 @@ Depois de criar uma conta do Azure e uma assinatura do serviço de fala, você p
 4. Se você quiser mudar para outra assinatura de fala, use o ícone de engrenagem localizado na navegação superior.
 
 > [!NOTE]
-> Você deve ter uma chave F0 ou S0 criada no Azure antes de poder usar o serviço.
+> Você deve ter uma chave de serviço de fala F0 ou S0 criada no Azure antes de poder usar o serviço. A voz neural personalizada só dá suporte à camada S0. 
 
 ## <a name="how-to-create-a-project"></a>Como criar um projeto
 

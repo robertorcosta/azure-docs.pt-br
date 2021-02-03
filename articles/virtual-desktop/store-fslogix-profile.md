@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 189ff3bbfdb3b8533defcedb77e15fef433598b5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023081"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526595"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows
 
@@ -28,11 +28,11 @@ As tabelas a seguir comparam as soluções de armazenamento ofertas de armazenam
 |Caso de uso|Propósito geral|Ultra desempenho ou migração do NetApp local|Plataforma cruzada|
 |Serviço de plataforma|Sim, solução nativa do Azure|Sim, solução nativa do Azure|Não, autogerenciado|
 |Disponibilidade regional|Todas as regiões|[Selecionar regiões](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Todas as regiões|
-|Redundância|Localmente redundante/com redundância de zona/redundância geográfica|Localmente redundante|Localmente redundante/com redundância de zona/redundância geográfica|
-|Camadas e desempenho|Standard<br>Premium<br>Até máx. de 100 mil IOPS por compartilhamento com 5 GBps por compartilhamento em aproximadamente 3 ms de latência|Standard<br>Premium<br>Ultra<br>Até 320K (16K) IOPS com 4,5 GBps por volume em aproximadamente 1 ms de latência|HDD Standard: até 500 de IOPS por disco limites<br>SSD Standard: até 4K IOPS por disco limites<br>SSD Premium: limites de até 20 mil IOPS por disco<br>Recomendamos discos Premium para Espaços de Armazenamento Diretos|
-|Capacidade|100 TiB por compartilhamento|100 TiB por volume, até 12,5 PiB por assinatura|Máximo de 32 TiB por disco|
+|Redundância|Localmente redundante/com redundância de zona/geograficamente redundante/com redundância de zona|Localmente redundante|Localmente redundante/com redundância de zona/redundância geográfica|
+|Camadas e desempenho| Standard (com otimização de transação)<br>Premium<br>Até máx. de 100 mil IOPS por compartilhamento com 10 GBps por compartilhamento em aproximadamente 3 ms de latência|Standard<br>Premium<br>Ultra<br>Até 320K (16K) IOPS com 4,5 GBps por volume em aproximadamente 1 ms de latência|HDD Standard: até 500 de IOPS por disco limites<br>SSD Standard: até 4K IOPS por disco limites<br>SSD Premium: limites de até 20 mil IOPS por disco<br>Recomendamos discos Premium para Espaços de Armazenamento Diretos|
+|Capacity|100 TiB por compartilhamento, até 5 PiB por conta de uso geral |100 TiB por volume, até 12,5 PiB por assinatura|Máximo de 32 TiB por disco|
 |Infraestrutura necessária|Tamanho mínimo de compartilhamento 1 GiB|Pool mínimo de capacidade 4 TiB, tamanho mínimo de volume 100 GiB|Duas VMs no Azure IaaS (+ testemunha de nuvem) ou pelo menos três VMs sem e custos para discos|
-|Protocolos|SMB 2.1/3. e REST|NFSv3, NFSv 4.1 (visualização), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
+|Protocolos|SMB 3.0/2.1, NFSv 4.1 (versão prévia), REST|NFSv3, NFSv 4.1 (visualização), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
 
 ## <a name="azure-management-details"></a>Detalhes de gerenciamento do Azure
 

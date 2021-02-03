@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 225fc83133aba0a7d669f36dc9c8e7cd20c8e42e
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b4a4fa8a207320a5867b6cdf1dc347bbb2f453af
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507512"
+ms.locfileid: "99525731"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -60,9 +60,11 @@ O `voices/list` ponto de extremidade permite obter uma lista completa de vozes p
 | Coreia Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Norte dos EUA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Norte da Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norte da África do Sul | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centro-Sul dos Estados Unidos | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro-Oeste dos EUA | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste dos EUA | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Oeste dos EUA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -211,8 +213,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações d
 
 | parâmetro | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
-| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
+| `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Obrigatório |
 | `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceitos, consulte [saídas de áudio](#audio-outputs). | Obrigatório |
 | `User-Agent` | O nome do aplicativo. O valor fornecido deve ter menos de 255 caracteres. | Obrigatório |
@@ -278,5 +279,5 @@ Se o status HTTP for `200 OK`, o corpo da resposta conterá um arquivo de áudio
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criar uma conta gratuita do Azure](https://azure.microsoft.com/free/cognitive-services/)
-- [Síntese assíncrona para áudio de forma longa](./long-audio-api.md)
+- [Síntese assíncrona para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Introdução à Voz Personalizada](how-to-custom-voice.md)

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 79791bf2db888912d5c1f016f4bf357e76bddcba
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 58ee3bcd0ba14359ea9adaa131b8280b81008b57
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475093"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526748"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -111,7 +111,7 @@ Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-example
 
 Se os caminhos incluídos e os caminhos excluídos tiverem um conflito, o caminho mais preciso terá precedência.
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 **Caminho incluído**: `/food/ingredients/nutrition/*`
 
@@ -309,8 +309,7 @@ As seguintes considerações são usadas ao criar índices compostos para otimiz
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
 
-
-## <a name="modifying-the-indexing-policy"></a>Modificando a política de indexação
+## <a name="index-transformationmodifying-the-indexing-policy"></a>Índice de <-transformação>modificar a política de indexação
 
 A política de indexação de um contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação dispara uma transformação do índice antigo para o novo, que é executado online e in-loco (portanto, nenhum espaço de armazenamento adicional é consumido durante a operação). A política de indexação antiga é transformada com eficiência para a nova política sem afetar a disponibilidade de gravação, a disponibilidade de leitura ou a taxa de transferência provisionada no contêiner. A transformação de índice é uma operação assíncrona e o tempo necessário para concluir depende da taxa de transferência provisionada, do número de itens e de seu tamanho.
 

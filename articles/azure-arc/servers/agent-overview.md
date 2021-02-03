@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente do Connected Machine do Windows
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 01/08/2021
+ms.date: 02/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: 86d524665b70725108324b1d88521a4c3cb8ff05
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 5f12ea90a4398b63eaa19a1fc5a375c15bdfa8c5
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033958"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526357"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -116,9 +116,9 @@ Os agentes de visualização (versão 0,11 e inferior) também exigem acesso às
 |`agentserviceapi.azure-automation.net`|Configuração de convidado|
 |`*-agentservice-prod-1.azure-automation.net`|Configuração de convidado|
 
-Para obter uma lista de endereços IP para cada tag de serviço/região, confira o arquivo JSON – [Intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). A Microsoft publica atualizações semanais que contêm cada serviço do Azure e os intervalos de IP que ele usa. Para obter mais informações, confira [Marcas de serviço](../../virtual-network/network-security-groups-overview.md#service-tags).
+Para obter uma lista de endereços IP para cada tag de serviço/região, confira o arquivo JSON – [Intervalos de IP do Azure e marcas de serviço – nuvem pública](https://www.microsoft.com/download/details.aspx?id=56519). A Microsoft publica atualizações semanais que contêm cada serviço do Azure e os intervalos de IP que ele usa. Essas informações no arquivo JSON são a lista pontual atual dos intervalos de IP que correspondem a cada marca de serviço. Os endereços IP estão sujeitos a alterações. Se os intervalos de endereço IP forem necessários para sua configuração de firewall, a Marca de Serviço **AzureCloud** deverá ser usada para permitir o acesso a todos os serviços do Azure. Não desabilite o monitoramento de segurança ou a inspeção dessas URLs. Permita-os como você faria com outro tráfego de Internet.
 
-As URLs na tabela anterior são necessárias, além das informações do intervalo de endereços IP da marca de serviço, pois a maioria dos serviços não tem um registro de marca de serviço no momento. Como tal, os endereços IP estão sujeitos a alterações. Se os intervalos de endereço IP forem necessários para sua configuração de firewall, a Marca de Serviço **AzureCloud** deverá ser usada para permitir o acesso a todos os serviços do Azure. Não desabilite o monitoramento de segurança ou a inspeção dessas URLs. Permita-os como você faria com outro tráfego de Internet.
+Para obter mais informações, consulte [visão geral das marcas de serviço](../../virtual-network/service-tags-overview.md).
 
 ### <a name="register-azure-resource-providers"></a>Registrar provedores de recursos do Azure
 

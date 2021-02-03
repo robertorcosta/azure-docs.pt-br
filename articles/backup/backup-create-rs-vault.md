@@ -4,12 +4,12 @@ description: Neste artigo, saiba como criar e configurar cofres de serviços de 
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4022838575ca53608a802a6be95e150778db6ac7
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915719"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525967"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Criar e configurar um cofre dos serviços de recuperação
 
@@ -71,6 +71,7 @@ Como esse processo está no nível de armazenamento, há [implicações de preç
 >- Depois de aceitar, pode levar até 48 horas para que os itens de backup estejam disponíveis em regiões secundárias.
 >- Atualmente, a CRR para VMs do Azure tem suporte apenas para VMs do Azure do Azure Resource Manager. Não haverá suporte para VMs clássicas do Azure.  Quando tipos de gerenciamento adicionais dão suporte à CRR, eles serão registrados **automaticamente** .
 >- Atualmente, a restauração entre regiões **não pode ser revertida de volta** para grs ou LRS quando a proteção é iniciada pela primeira vez.
+>- Atualmente, o [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) de região secundária é de até 12 horas a partir da região primária, embora a replicação de [armazenamento com REDUNDÂNCIA geográfica (ra-grs) de acesso de leitura](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) seja de 15 minutos.
 
 ### <a name="configure-cross-region-restore"></a>Configurar a restauração entre regiões
 

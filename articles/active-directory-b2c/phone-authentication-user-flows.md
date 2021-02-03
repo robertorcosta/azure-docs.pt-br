@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0ce9b60ead9aff792bf2e4e98841469d58620ccd
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1ed0ca069f29413083356a3147d4b97f1b6ed981
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754555"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525188"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configurar a inscrição e a entrada do telefone para fluxos de usuário (visualização)
 
@@ -45,9 +45,9 @@ A inscrição de email é habilitada por padrão nas configurações do provedor
 
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
 
-4. Em **gerenciar**, selecione **provedores de identidade**.
+4. Em **Gerenciar**, selecione **Provedores de identidade**.
 
-5. Na lista provedor de identidade, selecione **conta local**.
+5. Na lista de provedores de identidade, selecione **Conta local**.
 
    ![Provedores de identidade selecione a conta local](media/phone-authentication-user-flows/identity-provider-local-account.png)
 
@@ -75,7 +75,7 @@ Veja um exemplo que mostra como adicionar a inscrição por telefone a um novo f
 
 5. Na página **Criar um fluxo de usuário**, selecione o fluxo do usuário **Inscrever-se e entrar**.
 
-    ![Selecione uma página de fluxo de usuário com o fluxo de entrada e de entrada realçado](./media/phone-authentication-user-flows/select-user-flow-type.png)
+    ![Página Selecione um fluxo de usuário com o fluxo Inscrever-se e entrar realçado](./media/phone-authentication-user-flows/select-user-flow-type.png)
 
 6. Em **Selecionar uma versão**, selecione **Recomendado** e, em seguida, selecione **Criar**. ([Saiba mais](user-flow-versions.md) sobre as versões de fluxo de usuário.)
 
@@ -89,11 +89,11 @@ Veja um exemplo que mostra como adicionar a inscrição por telefone a um novo f
 9. Em **provedores de identidade social**, selecione qualquer outro provedor de identidade que você queira permitir para esse fluxo de usuário.
 
    > [!NOTE]
-   > A autenticação multifator (MFA) é desabilitada por padrão. Você pode habilitar a MFA para um fluxo de usuário de inscrição de telefone, mas como um número de telefone é usado como o identificador primário, o email de senha de uso único é a única opção disponível para o segundo fator de autenticação.
+   > A autenticação multifator (MFA) é desabilitada por padrão para fluxos de usuário de inscrição. Você pode habilitar a MFA para um fluxo de usuário de inscrição de telefone, mas como um número de telefone é usado como o identificador primário, o email de senha de uso único é a única opção disponível para o segundo fator de autenticação.
 
 1. Na seção **atributos de usuário e declarações de token** , escolha as declarações e os atributos que você deseja coletar e enviar do usuário durante a inscrição. Por exemplo, selecione **Mostrar mais** e, depois, escolha atributos e declarações de **País/região**, **Nome de exibição** e **Código postal**. Selecione **OK**.
 
-1. Selecione **criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é anexado automaticamente ao nome.
+1. Selecione **Criar** para adicionar o fluxo de usuário. Um prefixo *B2C_1* é anexado automaticamente ao nome.
 
 ## <a name="enable-the-recovery-email-prompt-preview"></a>Habilitar o prompt de email de recuperação (visualização)
 
@@ -129,9 +129,9 @@ Você pode habilitar o prompt de email de recuperação nas propriedades do flux
 
 Depois de habilitar a inscrição e a entrada do telefone e o prompt de email de recuperação em seu fluxo de usuário, você poderá usar **executar fluxo de usuário** para testar a experiência do usuário.
 
-1. Selecione **políticas**  >  **fluxos de usuário** e, em seguida, selecione o fluxo de usuário que você criou. Na página Visão geral do fluxo de usuário, selecione **executar fluxo de usuário**.
+1. Selecione **Políticas** > **Fluxos de usuário** e selecione o fluxo de usuário criado. Na página de visão geral do fluxo de usuário, selecione **Executar o fluxo de usuário**.
 
-2. Para **aplicativo**, selecione o aplicativo Web que você registrou na etapa 1. A **URL de resposta** deve mostrar `https://jwt.ms`.
+2. Para **Aplicativo**, selecione o aplicativo Web registrado na etapa 1. A **URL de resposta** deve mostrar `https://jwt.ms`.
 
 3. Selecione **executar fluxo de usuário** e verifique o seguinte comportamento:
 

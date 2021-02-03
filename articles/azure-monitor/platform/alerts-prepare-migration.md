@@ -6,17 +6,17 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 60a721af9acf980e88ad60504e75d2488c8a4d81
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: dc0be351253a15bf9039839c8cae2246681d41e2
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944478"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526646"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar seus aplicativos lógicos e runbooks para a migração de regras de alerta clássicos
 
 > [!NOTE]
-> Como [anunciado anteriormente](monitoring-classic-retirement.md), os alertas clássicos no Azure monitor são desativados, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. A data de aposentadoria para esses alertas foi ainda mais estendida. Uma nova data será anunciada em breve.
+> Como [anunciado anteriormente](monitoring-classic-retirement.md), os alertas clássicos no Azure monitor são desativados para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. A data de aposentadoria para esses alertas foi ainda mais estendida. Uma nova data será anunciada em breve.
 >
 
 Se você optar por migrar voluntariamente suas regras de alerta clássicas para novas regras de alerta, lembre-se de que há algumas diferenças entre os dois sistemas. Este artigo explica essas diferenças e como você pode se preparar para a alteração.

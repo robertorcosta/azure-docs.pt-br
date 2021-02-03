@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: Java, Jacarta, Java, microprofile, Open-Liberty, WebSphere-Liberty, AKs, kubernetes
-ms.openlocfilehash: 4d6e335cd4b522593091094ac6251acc97873208
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 2e025c706512b6ab3945118da996b11a5a8a9585
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508042"
+ms.locfileid: "99526883"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>Implantar um aplicativo Java com o Liberty aberto ou o WebSphere Liberty em um cluster do AKS (serviço kubernetes do Azure)
 
@@ -31,7 +31,7 @@ Este guia demonstra como executar seu aplicativo Java, Java EE, [Jacarta EE](htt
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos, *Java-Liberty-Project* usando o comando [AZ Group Create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) no local *eastus* . Ele será usado para criar a instância do ACR (registro de contêiner do Azure) e o cluster AKS mais tarde. 
+Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos, *Java-Liberty-Project* usando o comando [AZ Group Create](/cli/azure/group#az_group_create) no local *eastus* . Ele será usado para criar a instância do ACR (registro de contêiner do Azure) e o cluster AKS mais tarde. 
 
 ```azurecli-interactive
 az group create --name java-liberty-project --location eastus
@@ -39,7 +39,7 @@ az group create --name java-liberty-project --location eastus
 
 ## <a name="create-an-acr-instance"></a>Criar uma instância de ACR
 
-Use o comando [AZ ACR Create](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az_acr_create) para criar a instância do ACR. O exemplo a seguir cria uma instância de ACR chamada *youruniqueacrname*. Certifique-se de que *youruniqueacrname* seja exclusivo no Azure.
+Use o comando [AZ ACR Create](/cli/azure/acr#az_acr_create) para criar a instância do ACR. O exemplo a seguir cria uma instância de ACR chamada *youruniqueacrname*. Certifique-se de que *youruniqueacrname* seja exclusivo no Azure.
 
 ```azurecli-interactive
 az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
@@ -70,7 +70,7 @@ Você deverá ver `Login Succeeded` no final da saída do comando se tiver feito
 
 ## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
 
-Use o comando [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create) para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. Isso levará vários minutos.
+Use o comando [az aks create](/cli/azure/aks#az_aks_create) para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. Isso levará vários minutos.
 
 ```azurecli-interactive
 az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-managed-identity
@@ -87,13 +87,13 @@ Após alguns minutos, o comando é concluído e retorna informações formatadas
 
 ### <a name="connect-to-the-aks-cluster"></a>Conectar-se ao cluster AKS
 
-Para gerenciar um cluster do Kubernetes, use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), o cliente de linha de comando do Kubernetes. Se você usar o Azure Cloud Shell, o `kubectl` já estará instalado. Para instalar o `kubectl` localmente, use o comando [az aks install-cli](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_install_cli):
+Para gerenciar um cluster do Kubernetes, use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), o cliente de linha de comando do Kubernetes. Se você usar o Azure Cloud Shell, o `kubectl` já estará instalado. Para instalar o `kubectl` localmente, use o comando [az aks install-cli](/cli/azure/aks#az_aks_install_cli):
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o comando [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_credentials). Este comando baixa as credenciais e configura a CLI do Kubernetes para usá-las.
+Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o comando [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). Este comando baixa as credenciais e configura a CLI do Kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group java-liberty-project --name myAKSCluster --overwrite-existing
@@ -220,7 +220,7 @@ Abra um navegador da Web para o endereço IP externo e a porta do seu serviço (
 
 ## <a name="clean-up-the-resources"></a>Limpar os recursos
 
-Para evitar cobranças do Azure, limpe recursos desnecessários.  Quando o cluster não for mais necessário, use o comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) para remover o grupo de recursos, o serviço de contêiner, o registro de contêiner e todos os recursos relacionados.
+Para evitar cobranças do Azure, limpe recursos desnecessários.  Quando o cluster não for mais necessário, use o comando [AZ Group Delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o serviço de contêiner, o registro de contêiner e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name java-liberty-project --yes --no-wait

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd14c7911676768a61d2b2c0e366d2c227455be8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678197"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524661"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -48,7 +48,7 @@ A avaliação de acesso contínuo é implementada habilitando serviços, como o 
 - A senha de um usuário é alterada ou redefinida
 - A autenticação multifator está habilitada para o usuário
 - O administrador revoga explicitamente todos os tokens de atualização para um usuário
-- Risco de usuário elevado detectado por Azure AD Identity Protection
+- Alto risco de usuário detectado por Azure AD Identity Protection
 
 Esse processo habilita o cenário em que os usuários perdem o acesso a arquivos, email, calendário ou tarefas organizacionais do SharePoint, e equipes de Microsoft 365 aplicativos cliente dentro de minutos após um desses eventos críticos. 
 

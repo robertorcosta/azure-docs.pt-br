@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 4dd1941e6a749c2ccf7ca082ab89ef2a70baa0d6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 4f2bdf3d5c34ffb4f3ec95c27bbdaf312adb4204
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509529"
+ms.locfileid: "99526391"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão para o agente de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -25,7 +25,7 @@ Há suporte para as seguintes versões de agente de Sincronização de Arquivos 
 
 | Marco | Número de versão do agente | Data de liberação | Status |
 |----|----------------------|--------------|------------------|
-| Versão da v 11.2- [KB4539952](https://support.microsoft.com/en-us/help/4539952)| 11.2.0.0 | 2 de fevereiro de 2021 | Com suporte-comprovante |
+| Versão da v 11.2- [KB4539952](https://support.microsoft.com/topic/azure-file-sync-agent-v11-2-release-february-2021-c956eaf0-cd8e-4511-98c0-e5a1f2c84048)| 11.2.0.0 | 2 de fevereiro de 2021 | Com suporte-comprovante |
 | Versão v 11.1- [KB4539951](https://support.microsoft.com/en-us/help/4539951)| 11.1.0.0 | 4 de novembro de 2020 | Com suporte |
 | V 10.1 versão- [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | 5 de junho de 2020 | Com suporte |
 | Pacote cumulativo de atualizações de maio de 2020 – [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 de maio de 2020 | Com suporte |

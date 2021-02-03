@@ -3,12 +3,12 @@ title: Solucionar problemas de rede com o registro
 description: Sintomas, causas e resolução de problemas comuns ao acessar um registro de contêiner do Azure em uma rede virtual ou atrás de um firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052154"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525069"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Solucionar problemas de rede com o registro
 
@@ -105,20 +105,20 @@ Links relacionados:
 
 ### <a name="configure-service-access"></a>Configurar o acesso ao serviço
 
-Atualmente, a central de segurança do Azure não pode executar a [verificação de vulnerabilidade de imagem](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) em um registro que restringe o acesso a pontos de extremidade privados, sub-redes selecionadas ou endereços IP. Além disso, os recursos dos seguintes serviços não podem acessar um registro de contêiner com restrições de rede:
+Atualmente, o acesso a um registro de contêiner com restrições de rede não é permitido de vários serviços do Azure:
 
-* Azure DevOps Services 
-* Instâncias de Contêiner do Azure
-* Tarefas do Registro de Contêiner do Azure
+* A central de segurança do Azure não pode executar a [verificação de vulnerabilidade de imagem](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) em um registro que restringe o acesso a pontos de extremidade privados, sub-redes selecionadas ou endereços IP. 
+* Os recursos de determinados serviços do Azure não podem acessar um registro de contêiner com restrições de rede, incluindo Azure App serviço e instâncias de contêiner do Azure.
 
 Se o acesso ou a integração desses serviços do Azure com o registro de contêiner for necessário, remova a restrição de rede. Por exemplo, remova os pontos de extremidade privados do registro ou remova ou modifique as regras de acesso público do registro.
+
+A partir de janeiro de 2021, você pode configurar um registro de rede restrita para [permitir o acesso](allow-access-trusted-services.md) de selecionar serviços confiáveis.
 
 Links relacionados:
 
 * [Verificação de imagem do registro de contêiner do Azure por central de segurança](../security-center/defender-for-container-registries-introduction.md)
 * Fornecer [comentários](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
-* [Configurar regras de rede IP pública](container-registry-access-selected-networks.md)
-* [Conectar-se de forma privada a um registro de contêiner do Azure usando o link privado do Azure](container-registry-private-link.md)
+* [Permitir que os serviços confiáveis acessem com segurança um registro de contêiner restrito à rede](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Solução de problemas avançada
@@ -140,5 +140,5 @@ Se você não resolver o problema aqui, consulte as opções a seguir.
   * [Solucionar problemas de logon do registro](container-registry-troubleshoot-login.md) 
   * [Solucionar problemas de desempenho do registro](container-registry-troubleshoot-performance.md)
 * Opções de [suporte da Comunidade](https://azure.microsoft.com/support/community/)
-* [P e R da Microsoft](/answers/products/)
+* [P e R da Microsoft](https://docs.microsoft.com/answers/products/)
 * [Abra um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ce0808bc53ae663b80da793bf33b5b371d881961
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 99e217c6d8065d19f7b03419306f4992735cb587
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222176"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526714"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger as cargas de trabalho do Kubernetes
 
@@ -35,10 +35,10 @@ A central de segurança oferece mais recursos de segurança de contêiner se voc
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|**Proprietário** ou **administrador de segurança** para editar uma atribuição<br>**Leitor** para exibir as recomendações|
-|Clusters com suporte:|Kubernetes v 1.14 (ou superior) é necessário<br>Nenhum recurso PodSecurityPolicy (antigo modelo PSP) nos clusters<br>Não há suporte para nós do Windows|
+|Requisitos de ambiente:|Kubernetes v 1.14 (ou superior) é necessário<br>Nenhum recurso PodSecurityPolicy (antigo modelo PSP) nos clusters<br>Não há suporte para nós do Windows|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
 
@@ -52,6 +52,8 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
 Para configurar as recomendações, instale o  **complemento Azure Policy para kubernetes**. 
 
 - Você pode implantar automaticamente esse complemento, conforme explicado em [habilitar o provisionamento automático de extensões](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Quando o provisionamento automático para o complemento é definido como "ativado", a extensão fica habilitada por padrão em todos os clusters existentes e futuros (que atendem aos requisitos de instalação do complemento).
+
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Usando a ferramenta de provisionamento automático da central de segurança para instalar o complemento de política para kubernetes":::
 
 - Para implantar manualmente o complemento:
 
@@ -90,7 +92,7 @@ Para configurar as recomendações, instale o  **complemento Azure Policy para k
     | Os serviços deverão escutar somente em portas permitidas                                | Restringir o acesso não autorizado à rede     | **Sim**                |
     | Usar redes e portas do host deverá ser restrito                     | Restringir acesso não autorizado à rede     | **Sim**                |
     | As ações para substituir ou desabilitar o perfil do AppArmor de contêineres deverão ser restritas | Corrigir as configurações de segurança        | **Sim**                |
-    | As imagens de contêiner devem ser implantadas somente de registros confiáveis            | Corrigir vulnerabilidades                | **Sim**                |
+    | As imagens de contêiner devem ser implantadas apenas de registros confiáveis            | Corrigir vulnerabilidades                | **Sim**                |
     |||
 
 

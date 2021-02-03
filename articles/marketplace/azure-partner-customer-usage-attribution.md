@@ -8,12 +8,12 @@ author: cpercy737
 ms.author: camper
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 989e50ec03dae5d00961d572b70d524a56b3d64c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 99e1e77a37afbdc1ed54767700574316ed03fae3
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062198"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525238"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro do Marketplace comercial e atribuição de uso do cliente
 
@@ -248,10 +248,8 @@ foreach ($deployment in $deployments){
 
 }
 ```
-
 ## <a name="report"></a>Relatório
-
-Você pode encontrar o relatório para atribuição de uso do cliente no painel do Partner Center ([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview)). Para ver o relatório, você precisa usar suas credenciais do Partner Center para entrar. Se você encontrar problemas com o relatório ou entrar, crie uma [solicitação de suporte](#get-support).
+Os relatórios para uso do Azure acompanhados por meio da atribuição de uso do cliente não estão disponíveis atualmente para parceiros ISV. A adição de relatórios ao programa do Marketplace comercial no Partner Center para cobrir a atribuição de uso do cliente é destinada ao segundo semestre de 2021.
 
 ## <a name="notify-your-customers"></a>Notificar os clientes
 

@@ -4,12 +4,12 @@ description: Saiba como criar um cluster privado do AKS (Serviço de Kubernetes 
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 56d3b36d17ee044ce7aba2337429c45123801ca5
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2749e66375fbd808a9e87f252a813f1054ceff21
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254505"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525561"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado do Serviço de Kubernetes do Azure
 
@@ -126,7 +126,7 @@ As [arquiteturas de hub e spoke](/azure/architecture/reference-architectures/hyb
 ## <a name="limitations"></a>Limitações 
 * Os intervalos autorizados por IP não podem ser aplicados ao ponto de extremidade do servidor de API privada, eles se aplicam somente ao servidor de API pública
 * As [limitações do serviço de Link Privado do Azure][private-link-service] se aplicam a clusters privados.
-* Não há suporte para agentes hospedados pela Microsoft do Azure DevOps com clusters privados. Considere o uso de [agentes auto-hospedados](/azure/devops/pipelines/agents/agents?preserve-view=true&tabs=browser&view=azure-devops). 
+* Não há suporte para agentes hospedados pela Microsoft do Azure DevOps com clusters privados. Considere o uso de [agentes auto-hospedados](/azure/devops/pipelines/agents/agents?tabs=browser). 
 * Para clientes que precisam habilitar o Registro de Contêiner do Azure para trabalhar com AKS privado, a rede virtual do registro de contêiner deve ser emparelhada com a rede virtual do cluster do agente.
 * Não há suporte para converter clusters AKS existentes em clusters privados
 * Excluir ou modificar o ponto de extremidade privado na sub-rede do cliente fará com que o cluster pare de funcionar. 

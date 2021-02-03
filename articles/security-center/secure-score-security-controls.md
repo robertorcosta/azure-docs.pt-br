@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bd64ca877f0bfd81597e091ef8ef000ad1b76992
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752224"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526425"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação segura na Central de Segurança do Azure
 
@@ -244,8 +244,8 @@ Embora a iniciativa de segurança padrão da central de segurança seja baseada 
     <td class="tg-lboi"; width=55%>- Os Controles de Aplicativos Adaptáveis devem ser habilitados em máquinas virtuais<br>- O agente de monitoramento deve ser instalado em suas máquinas virtuais<br>- O agente de monitoramento deve ser instalado em seus computadores<br>- O agente de Log Analytics deve ser instalado em suas máquinas de arco do Azure baseadas no Windows (versão prévia)<br>- O agente de Log Analytics deve ser instalado em seus computadores de Arc do Azure baseados em Linux (versão prévia)<br>- Os problemas de integridade do agente de monitoramento devem ser resolvidos em seus computadores</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar classificação de dados (pontuação máxima de 2)</p></strong>Classificar os dados da sua organização por sensibilidade e impacto nos negócios permite que você determine e atribua valor aos dados e fornece a estratégia e a base para governança.<br>A <a href="/azure/information-protection/what-is-information-protection">Proteção de Informações do Azure</a> pode ajudar na classificação de dados. Ela usa políticas de criptografia, identidade e autorização para proteger dados e restringir o acesso a dados. Algumas classificações usadas pela Microsoft são não comerciais, públicas, gerais, confidenciais e altamente confidenciais.</td>
-    <td class="tg-lboi"; width=55%>- Dados confidenciais em seus bancos de dados SQL devem ser classificados (versão prévia)</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar classificação de dados (máximo de Pontuação 0)</p></strong>Classificar os dados da sua organização por sensibilidade e impacto nos negócios permite que você determine e atribua valor aos dados e fornece a estratégia e a base para governança.<br>A <a href="/azure/information-protection/what-is-information-protection">Proteção de Informações do Azure</a> pode ajudar na classificação de dados. Ela usa políticas de criptografia, identidade e autorização para proteger dados e restringir o acesso a dados. Algumas classificações usadas pela Microsoft são não comerciais, públicas, gerais, confidenciais e altamente confidenciais.</td>
+    <td class="tg-lboi"; width=55%>- Dados confidenciais em seus bancos de dado SQL devem ser classificados</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Proteger aplicativos contra ataques de DDoS (pontuação máxima de 2)</p></strong>Ataques de DDoS (negação de serviço distribuído) sobrecarregam recursos e renderizam aplicativos inutilizáveis. Use o <a href="/azure/virtual-network/ddos-protection-overview">Padrão de Proteção contra DDoS do Azure</a> para defender sua organização dos três tipos principais de ataques de DDoS:<br>Os - <strong>ataques volumétricos</strong> inundam a rede com tráfego legítimo. O Padrão da Proteção contra DDoS atenua esses ataques, absorvendo-os ou depurando-os automaticamente.<br>- <strong>Ataques de protocolo</strong> renderizam um destino inacessível, explorando uma vulnerabilidade na pilha de protocolos das camadas 3 e 4. O Padrão da Proteção contra DDoS atenua esses ataques bloqueando o tráfego mal-intencionado.<br>Os - <strong>ataques de camada de recurso (aplicativo)</strong> apontam para os pacotes de aplicativos Web. Proteja-se contra esse tipo com um firewall do aplicativo Web e o Padrão da Proteção contra DDoS.</td>

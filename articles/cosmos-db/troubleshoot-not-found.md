@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b112cc80984a761e780f134731476f9dff4f687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96017552"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525764"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnosticar e solucionar problemas Azure Cosmos DB exceções não encontradas
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -102,7 +102,7 @@ Aguarde até que a indexação acompanhe ou altere a política de indexação.
 O banco de dados ou o contêiner no qual o item existe foi excluído.
 
 #### <a name="solution"></a>Solução:
-1. [Restaure](./online-backup-and-restore.md#request-data-restore-from-a-backup) o recurso pai ou recrie os recursos.
+1. [Restaure](./configure-periodic-backup-restore.md#request-restore) o recurso pai ou recrie os recursos.
 1. Crie um novo recurso para substituir o recurso excluído.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. os nomes de contêiner/coleção diferenciam maiúsculas de minúsculas

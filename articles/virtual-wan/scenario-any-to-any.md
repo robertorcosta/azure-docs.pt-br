@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a866c21e067293481a52dd563873892de8b5444c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955268"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525781"
 ---
 # <a name="scenario-any-to-any"></a>Cenário: qualquer-para-qualquer
 
-Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Em um cenário qualquer para qualquer, qualquer spoke pode alcançar outro spoke. Quando existem vários hubs, o roteamento de Hub para Hub (também conhecido como inter-Hub) é habilitado por padrão na WAN virtual padrão. Você pode criar essa configuração usando uma variedade de métodos diferentes, como o portal do Azure ou um [modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/). Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md). 
+Ao trabalhar com o roteamento de Hub virtual de WAN virtual, há alguns cenários disponíveis. Em um cenário qualquer para qualquer, qualquer spoke pode alcançar outro spoke. Quando existem vários hubs, o roteamento de Hub para Hub (também conhecido como inter-Hub) é habilitado por padrão na WAN virtual padrão. Você pode criar essa configuração usando uma variedade de métodos diferentes, como o portal do Azure ou um [modelo de início rápido do Azure](quickstart-any-to-any-template.md). Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Design
 

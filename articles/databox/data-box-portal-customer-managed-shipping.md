@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 08/12/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 9643e62f085888808b95698d068c5e383fb8d539
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 07529b18191c71776a9a36edbfa4cfd8ded5af4f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337960"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524542"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Use a remessa autogerenciada para Azure Data Box no portal do Azure
 
@@ -24,12 +24,14 @@ Este artigo descreve as tarefas de remessa autogerenciada para solicitar, pegar 
 A remessa autogerenciada está disponível como uma opção quando você [solicita o Azure Data Box](data-box-deploy-ordered.md). A remessa autogerenciada está disponível nas seguintes regiões:
 
 * Governo dos EUA
+* Reino Unido
 * Europa Ocidental
 * Japão
 * Singapura
 * Coreia do Sul
 * Índia
 * África do Sul
+* Austrália
 
 ## <a name="use-self-managed-shipping"></a>Usar remessa autogerenciada
 
@@ -41,7 +43,7 @@ Ao fazer um pedido de Data Box, você pode escolher a opção de envio autogeren
 
 2. Ao escolher um tipo de envio, selecione a opção de **envio autogerenciado** . Essa opção só estará disponível se você estiver em uma região com suporte, conforme descrito em pré-requisitos.
 
-3. Depois de fornecer seu endereço para remessa, você precisará validá-lo e concluir seu pedido.
+3. Depois de fornecer seu endereço de envio, você precisará validá-lo e concluir seu pedido.
 
    ![Entrega autogerenciada, validar e adicionar endereço](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
@@ -57,11 +59,11 @@ Ao fazer um pedido de Data Box, você pode escolher a opção de envio autogeren
 
    ![Agendar retirada para instruções do Azure](media\data-box-portal-customer-managed-shipping\data-box-portal-schedule-pickup-email-01.png)
 
-6. Depois de agendar o recebimento do dispositivo, você poderá exibir o código de autorização do dispositivo no painel **Agendar a retirada do Azure**.
+6. Depois de agendar o recebimento do dispositivo, você poderá exibir o código de autorização do dispositivo no painel de **retirada do agendamento para o Azure** .
 
    ![Exibindo o código de autorização do dispositivo](media\data-box-portal-customer-managed-shipping\data-box-portal-auth-01b.png)
 
-   Anote este **Código de autorização**. De acordo com os requisitos de segurança, no momento da retirada do agendamento, é necessário apresentar o nome da pessoa que chegaria para a escolha.
+   Anote este **Código de autorização**. De acordo com os requisitos de segurança, no momento da retirada do agendamento, é necessário apresentar o nome da pessoa que chegaria à escolha.
 
    Você também precisa fornecer detalhes de quem vai para o datacenter para retirada. Você ou o ponto de contato deve estar com uma ID de foto oficial que será validada no datacenter.
 
@@ -73,16 +75,16 @@ Ao fazer um pedido de Data Box, você pode escolher a opção de envio autogeren
 
 8. Depois que o dispositivo for retirado, copie os dados para o Data Box em seu site. Após a conclusão da cópia dos dados, você pode preparar a remessa do Data Box. Para obter mais informações, consulte [Preparar para o envio](data-box-deploy-picked-up.md#prepare-to-ship).
 
-   A etapa **Preparar para o envio** precisa ser concluída sem nenhum erro crítico, caso contrário, você precisará executar essa etapa novamente depois de fazer as correções necessárias. Depois que a preparação para o envio for concluída com êxito, você poderá exibir o código de autorização para a devolução na interface do usuário local do dispositivo.
+   A etapa **preparação para o envio** precisa ser concluída sem erros críticos. Caso contrário, você precisará executar essa etapa novamente depois de fazer as correções necessárias. Depois que a etapa de **preparação para o envio** for concluída com êxito, você poderá exibir o código de autorização para a lista suspensa na interface do usuário local do dispositivo.
 
    > [!NOTE]
    > Não compartilhe o código de autorização por email. Isso só deve ser verificado no datacenter durante a coleta.
 
-9. Se você tiver recebido um compromisso para a lista suspensa, a ordem deverá estar **pronta para receber no status do datacenter do Azure** no portal do Azure. Siga as instruções em **Agendar a devolução** para devolver o dispositivo.
+9. Se você recebeu um compromisso para a lista suspensa, a ordem deve estar **pronta para receber no status do datacenter do Azure** no portal do Azure. Siga as instruções em **Agendar a devolução** para devolver o dispositivo.
 
    ![Instruções para a remoção do dispositivo](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-02b.png)
 
-10. Depois que a ID e o código de autorização são verificados e você removeu o dispositivo no datacenter, o status do pedido deve ser **Recebido**.
+10. Depois que a ID e o código de autorização são verificados e você removeu o dispositivo no datacenter, o status do pedido deve ser **recebido**.
 
     ![Um pedido com status recebido](media\data-box-portal-customer-managed-shipping\data-box-portal-received-complete-01.png)
 

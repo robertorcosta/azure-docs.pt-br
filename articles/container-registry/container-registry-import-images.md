@@ -2,13 +2,13 @@
 title: Importar imagens de contêiner
 description: Importe imagens de contêiner para um registro de contêiner do Azure usando APIs do Azure sem a necessidade de executar comandos do Docker.
 ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/15/2021
+ms.openlocfilehash: 364c90b857d0d7d479152e2aa56db4d80041f037
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019966"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524491"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contêiner para um registro de contêiner
 
@@ -35,6 +35,11 @@ Para importar imagens de contêiner, este artigo requer que você execute a CLI 
 > [!NOTE]
 > Se for necessário distribuir imagens de contêiner idênticas em várias regiões do Azure, o Registro de Contêiner do Azure também suporta a [replicação geográfica](container-registry-geo-replication.md). Ao replicar geograficamente um registro (camada de serviço Premium necessária), você pode atender a várias regiões com nomes de imagem e marca idênticos de um único registro.
 >
+
+> [!IMPORTANT]
+> As alterações na importação de imagem entre dois registros de contêiner do Azure foram introduzidas a partir de janeiro de 2021:
+> * Importar de ou para um registro de contêiner do Azure restrito à rede requer que o registro restrito [**permita o acesso por serviços confiáveis**](allow-access-trusted-services.md) para ignorar a rede. Por padrão, a configuração é habilitada, permitindo a importação. Se a configuração não estiver habilitada em um registro recém-criado com um ponto de extremidade privado ou com regras de firewall do registro, a importação falhará. 
+> * Em um registro de contêiner do Azure com restrição de rede existente que é usado como uma origem ou destino de importação, a habilitação desse recurso de segurança de rede é opcional, mas recomendada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -92,6 +97,8 @@ Você pode importar uma imagem de um registro de contêiner do Azure no mesmo lo
 * O registro pode estar na mesmo assinatura ou em uma assinatura diferente do Azure no mesmo locatário do Active Directory.
 
 * O [acesso público](container-registry-access-selected-networks.md#disable-public-network-access) ao registro de origem pode estar desabilitado. Se o acesso público estiver desabilitado, especifique o registro de origem por ID de recurso, em vez de pelo nome do servidor de logon do registro.
+
+* Se o registro de origem e/ou o registro de destino tiver um ponto de extremidade privado ou regras de firewall do registro forem aplicadas, verifique se o registro restrito permite que os [serviços confiáveis](allow-access-trusted-services.md) acessem a rede.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importar de um registro na mesma assinatura
 
