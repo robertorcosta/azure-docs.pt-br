@@ -3,7 +3,7 @@ title: O que é o gerenciamento de aplicativos no Azure Active Directory
 description: Uma visão geral do uso do Azure AD (Active Directory) como um sistema de IAM (Gerenciamento de Identidades e Acesso) para seus aplicativos locais e de nuvem.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 01/22/2021
 ms.author: kenwith
 ms.reviewer: ''
-ms.openlocfilehash: ad572188ceb15a948e4242d0521b8304db45e65b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 247e824997fd95434246e49c78bf167f36e146c0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732334"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258584"
 ---
 # <a name="what-is-application-management"></a>O que é gerenciamento de aplicativos?
 

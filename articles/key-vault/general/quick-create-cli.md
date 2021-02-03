@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.date: 07/20/2020
+ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e29a692e3fdad1bea7132b3bed50444c7398ba46
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f7f6f5d82c5fda7101e80ddcb8b17dc6bdef6532
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936304"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070238"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-cli"></a>Início Rápido: Criar um cofre de chaves usando a CLI do Azure
 
@@ -28,44 +28,15 @@ O Azure Key Vault é um serviço de nuvem que fornece um repositório seguro par
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*.
+[!INCLUDE [Create a resource group](../../../includes/key-vault-cli-rg-creation.md)]
 
-```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-```
+## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-## <a name="create-a-key-vault"></a>Criar um cofre de chave
-
-Crie um Key Vault no grupo de recursos da etapa anterior. Você precisará fornecer algumas informações:
-
-- Nome do cofre de chaves: uma cadeia de 3 a 24 caracteres contendo somente números (0-9), letras (a-z, A-Z) e hifens (-)
-
-  > [!Important]
-  > Cada cofre de chaves deve ter um nome exclusivo. Substitua <seu-nome-de cofre-de-chaves-exclusivo> pelo nome do seu cofre de chaves nos exemplos a seguir.
-
-- Nome do grupo de recursos: **myResourceGroup**.
-- A localização: **EastUS**.
-
-```azurecli
-az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "EastUS"
-```
-
-A saída desse cmdlet mostra as propriedades do cofre de chaves criado recentemente. Anote as duas propriedades listadas abaixo:
-
-- **Nome do cofre**: o nome que você forneceu ao parâmetro --name acima.
-- **URI do cofre**: No exemplo, ele é https://&lt;nome-exclusivo-do-cofre-de-chaves&gt;.vault.azure.net/. Aplicativos que usam seu cofre via API REST devem usar esse URI.
-
-Nesse ponto, sua conta do Azure é a única autorizada a executar qualquer operação nesse novo cofre.
+[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e inícios rápidos subsequentes, deixe esses recursos onde estão.
-
-Quando não forem mais necessários, você poderá usar o comando [az group delete](/cli/azure/group) da CLI do Azure para remover o grupo de recursos e todos os recursos relacionados:
-
-```azurecli
-az group delete --name myResourceGroup
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-delete-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

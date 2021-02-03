@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0c41771af81989ff965098a762338216db54fd27
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 780ef2bbb7851d8bef5fc52a51421a7938043ecb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577982"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932324"
 ---
 ## <a name="join-the-meeting-chat"></a>Participar do chat da reunião 
 
@@ -21,7 +21,7 @@ Depois que a interoperabilidade do Teams estiver habilitada, um usuário dos Ser
 Primeiro, crie uma instância de `ChatThreadClient` para o thread do chat da reunião. Analise o link da reunião ou use as APIs do Graph com a ID da reunião para obter a ID do thread. 
 
 - Um link de reunião do Teams é parecido com este: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. A ID do thread será o local em que a `meeting_chat_thread_id` está nesse link. 
-- Se você tiver a ID da reunião, use a [API do Graph](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) para obter a ID do thread. A resposta [OBTER API](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http%22%20%5C) terá um objeto `chatInfo` que contém a `threadID`. 
+- Se você tiver a ID da reunião, use a [API do Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) para obter a ID do thread. A resposta [OBTER API](/graph/api/onlinemeeting-get?tabs=http%22+%5c&view=graph-rest-beta) terá um objeto `chatInfo` que contém a `threadID`. 
 
 Quando tiver a ID do thread do chat, obtenha o cliente do thread do chat usando a biblioteca de clientes de chat do JavaScript: 
 
@@ -44,4 +44,3 @@ Para obter mais informações sobre os tipos de mensagens, acesse [aqui](../../.
 
 **Observação**: atualmente, só há suporte para o envio e o recebimento de mensagens em cenários de interoperabilidade com o Teams. Ainda não há suporte para outros recursos como indicadores de digitação e adição ou remoção de outros usuários da reunião do Teams pelos usuários dos Serviços de Comunicação.  
 
- 

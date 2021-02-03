@@ -3,7 +3,7 @@ title: Cenários comuns de gerenciamento de aplicativos para o Azure Active Dire
 description: Centralizar o gerenciamento de aplicativos com o Azure AD
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6372407a5deebefab60e09a9d0c01d977157357b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835485"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259563"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar o gerenciamento de aplicativos com o Azure AD
 
@@ -43,7 +43,7 @@ Chega de gerenciar senhas. Acesse com segurança todos os recursos de que você 
 |Recurso  | Descrição | Recomendação |
 |---------|---------|---------|
 |SSO|SSO federado baseado em padrões usando padrões confiáveis do setor.|Sempre use [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md) para habilitar o SSO quando seu aplicativo for compatível.|
-|Meus aplicativos|Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Possibilite que eles sejam mais produtivos com os recursos de autoatendimento, como a solicitação de acesso a novos aplicativos e grupos ou o gerenciamento do acesso a recursos em nome de outras pessoas.| Implante [Meus Aplicativos](./access-panel-deployment-plan.md) na sua organização depois de integrar seus aplicativos ao Azure AD para SSO.|
+|Meus aplicativos|Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Possibilite que eles sejam mais produtivos com os recursos de autoatendimento, como a solicitação de acesso a novos aplicativos e grupos ou o gerenciamento do acesso a recursos em nome de outras pessoas.| Implante [Meus Aplicativos](my-apps-deployment-plan.md) na sua organização depois de integrar seus aplicativos ao Azure AD para SSO.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Cenário 2: Automatizar o provisionamento e o desprovisionamento 
 

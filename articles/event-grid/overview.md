@@ -2,13 +2,13 @@
 title: O que é a Grade de Eventos do Azure?
 description: Envie dados de eventos de uma origem para manipuladores com a Grade de Eventos do Azure. Crie aplicativos baseados em eventos e integre com serviços do Azure.
 ms.topic: overview
-ms.date: 09/24/2020
-ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 01/28/2021
+ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576675"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055120"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -20,7 +20,7 @@ A Grade de Eventos do Azure é implantada para maximizar a disponibilidade distr
 
 Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). 
 
-:::image type="content" source="./media/overview/functional-model.png" alt-text="Modelo de Grade de Eventos de origens e manipuladores" lightbox="./media/overview/functional-model.png":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Modelo de Grade de Eventos de origens e manipuladores" lightbox="./media/overview/functional-model-big.png":::
 
 Esta imagem mostra como a Grade de Eventos conecta origens e manipuladores, mas não é uma lista abrangente de integrações compatíveis.
 
@@ -42,6 +42,7 @@ Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à
 - [Barramento de Serviço do Azure](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Assinaturas do Azure](event-schema-subscriptions.md)
+- [Cache Redis do Azure](event-schema-azure-cache.md)
 
 ## <a name="event-handlers"></a>Manipuladores de eventos
 

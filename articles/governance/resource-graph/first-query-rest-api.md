@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Sua primeira consulta à API REST'
 description: Neste guia de início rápido, você seguirá as etapas para chamar o ponto de extremidade do Resource Graph para a API REST e executar sua primeira consulta.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 670ceba95d937be278c44c34704cb844eead480d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566071"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920043"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Início Rápido: Execute sua primeira consulta ao Resource Graph usando a API REST
 
