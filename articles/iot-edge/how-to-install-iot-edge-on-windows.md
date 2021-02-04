@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 3470e07c1b5673efa6cd015e43e077828da1573e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: be807c7654123962f93820d9a3d54f3c7c070d97
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703658"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526951"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalar e provisionar Azure IoT Edge para Linux em um dispositivo Windows (versão prévia)
 
@@ -26,7 +26,7 @@ Azure IoT Edge para Linux no Windows permite que você use Azure IoT Edge em dis
 Este artigo lista as etapas para configurar o IoT Edge em um dispositivo Windows. Estas etapas implantam uma máquina virtual Linux que contém o tempo de execução de IoT Edge para executar em seu dispositivo Windows e, em seguida, provisionar o dispositivo com sua identidade de dispositivo do Hub IoT.
 
 >[!NOTE]
->O IoT Edge para Linux no Windows está em [Visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>O IoT Edge para Linux no Windows está em [versão prévia pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,11 +62,11 @@ Este artigo lista as etapas para configurar o IoT Edge em um dispositivo Windows
 
    1. No menu **configurações** , em **Gateway**, selecione **extensões**.
 
-   1. Selecione a guia **feeds** e selecione **Adicionar**.
+   1. Selecione a guia **Feeds** e **Adicionar**.
 
-   1. Digite https://aka.ms/wac-insiders-feed na caixa de texto e selecione **Adicionar**.
+   1. Insira https://aka.ms/wac-insiders-feed na caixa de texto e escolha **Adicionar**.
 
-   1. Depois que o feed tiver sido adicionado, navegue até a guia **extensões disponíveis** . Pode levar um tempo para atualizar a lista de extensões.
+   1. Depois que o feed for adicionado, procure a guia **Extensões disponíveis**. Pode levar alguns instantes para que a lista de extensões seja atualizada.
 
    1. Na guia **extensões disponíveis** , localize **Azure IOT Edge** na lista de extensões. Escolha-o e selecione o prompt de **instalação** acima da lista de extensões.
 
@@ -296,7 +296,7 @@ Esta seção aborda o provisionamento automático de seu dispositivo usando cert
 1. Copie o seguinte comando em um editor de texto. Substitua o texto do espaço reservado pelas suas informações conforme detalhado.
 
    ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType x509 -scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocWin <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
+   Provision-EflowVm -provisioningType x509 -scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocVm <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
    ```
 
 1. Na [portal do Azure](https://ms.portal.azure.com/), navegue até a instância do DPS.

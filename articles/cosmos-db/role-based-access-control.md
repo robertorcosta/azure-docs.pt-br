@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2a5ec03bcd7d5002f85d32ed63614d277e95cfa0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: db6721754802a3eeda387339498dadb9d25b3685
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943746"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526934"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Controle de acesso baseado em função do Azure no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,7 +26,8 @@ A seguir estão as funções internas com suporte pelo Azure Cosmos DB:
 |---------|---------|
 |[Colaborador de Conta do DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Pode gerenciar contas do Azure Cosmos DB.|
 |[Cosmos DB leitor de conta](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler dados de contas do Azure Cosmos DB.|
-|[Operador de backup Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Pode enviar solicitação de restauração para um banco de dados Cosmos do Azure ou um contêiner. Não é possível acessar nenhum dado ou usar Data Explorer.|
+|[Operador de backup Cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| Pode enviar uma solicitação de restauração para portal do Azure para um banco de dados ou contêiner habilitado para backup periódico. Pode modificar o intervalo de backup e a retenção no portal do Azure. Não é possível acessar nenhum dado ou usar Data Explorer.  |
+| [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md) | Pode executar a ação de restauração para Azure Cosmos DB conta com o modo de backup contínuo.|
 |[Operador de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Pode provisionar contas, bancos de dados e contêineres do Azure Cosmos. Não é possível acessar nenhum dado ou usar Data Explorer.|
 
 > [!IMPORTANT]
@@ -36,7 +37,7 @@ A seguir estão as funções internas com suporte pelo Azure Cosmos DB:
 
 O painel de **controle de acesso (iam)** no portal do Azure é usado para configurar o controle de acesso baseado em função do Azure nos recursos de Cosmos do Azure. As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos. A captura de tela a seguir mostra a integração de Active Directory (RBAC do Azure) usando o controle de acesso (IAM) no portal do Azure:
 
-:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Controle de acesso (IAM) no portal do Azure – demonstrando a segurança de banco de dados":::
+:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="IAM (controle de acesso) no portal do Azure-demonstrando a segurança do banco de dados.":::
 
 ## <a name="custom-roles"></a>Funções personalizadas
 
