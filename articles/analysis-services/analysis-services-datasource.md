@@ -4,15 +4,15 @@ description: Descreve as fontes de fonte de dados e os conectores com suporte pa
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 2b4ae4aa8f6b08b273088c98d120d339db7deadb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493813"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539443"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -36,7 +36,7 @@ As fontes de dados e conectores mostrados no Assistente Obter Dados ou de Import
 **Observações:**
 
 <a name="tab1400a">1</a> - Tabular 1.400 e modelos superiores somente.  
-<a name="azprovider">2</a> - Quando especificado como uma *fonte de dados* do provedor em modelos tabulares nos níveis de compatibilidade 1200 e superiores, os modelos na memória e DirectQuery exigem o Driver do Microsoft OLE DB para SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0 ou Provedor de Dados .NET Framework para SQL Server.  
+<a name="azprovider">2</a> -quando especificado como uma fonte de dados de *provedor* nos modelos tabulares 1200 e superior, os modelos na memória e DirectQuery exigem o Microsoft OLE DB driver para SQL Server MSOLEDBSQL (recomendado) ou .NET Framework provedor de dados para SQL Server.  
 <a name="azsqlmanaged">3</a> -há suporte para o Azure SQL instância gerenciada. Como o SQL Instância Gerenciada é executado na VNet do Azure com um endereço IP privado, o ponto de extremidade público deve ser habilitado na instância. Caso não esteja habilitado, é necessário um [Gateway de dados local](analysis-services-gateway.md).  
 <a name="databricks">4</a> - No momento, não há suporte para uso do conector do Spark pelo Azure Databricks.  
 <a name="gen2">5</a> - No momento, não há suporte para o conector ADLS Gen2, no entanto, o conector de Armazenamento de Blobs do Azure pode ser usado com uma fonte de dados do ADLS Gen2.

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951303"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539477"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros de servidor no banco de dados do Azure para MySQL
 
@@ -31,7 +31,7 @@ Consulte as seguintes seções abaixo para saber mais sobre os limites dos vári
 
 ### <a name="thread-pools"></a>Pools de threads
 
-O MySQL tradicionalmente atribui um thread para cada conexão de cliente. À medida que aumenta o número de usuários simultâneos, há uma forma de queda correspondente. Muitos threads ativos podem impactar significativamente o desempenho devido à maior alternância de contexto, contenção de thread e localidade inadequada para caches de CPU.
+O MySQL tradicionalmente atribui um thread para cada conexão de cliente. À medida que o número de usuários simultâneos aumenta, há uma queda de desempenho correspondente. Muitos threads ativos podem impactar significativamente o desempenho devido à maior alternância de contexto, contenção de thread e localidade inadequada para caches de CPU.
 
 Pools de threads que são um recurso do lado do servidor e são distintos do pool de conexões, maximizam o desempenho introduzindo um pool dinâmico de threads de trabalho que pode ser usado para limitar o número de threads ativos em execução no servidor e minimizar a rotatividade de threads. Isso ajuda a garantir que uma intermitência de conexões não fará com que o servidor fique sem recursos ou falhe com um erro de memória insuficiente. Os pools de threads são mais eficientes para consultas curtas e cargas de trabalho com uso intensivo de CPU, por exemplo, cargas de trabalho OLTP.
 

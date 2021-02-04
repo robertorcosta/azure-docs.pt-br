@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: d3d72cff5fcfeed17d60e2f856be4adc1a983819
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 218a39a2bf8e9269e43c4876c1654d94be886997
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527228"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539494"
 ---
 # <a name="list-restorable-sql-api-databases-in-azure-cosmos-db-using-rest-api"></a>Listar bancos de dados de API SQL restauráveis no Azure Cosmos DB usando a API REST
+
+> [!IMPORTANT]
+> O recurso de restauração pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Mostre o feed de eventos de todas as mutações feitas em todos os Azure Cosmos DB bancos de dados SQL na conta restaurável. Isso ajuda no cenário em que o banco de dados foi acidentalmente excluído para obter o tempo de exclusão. Esta API requer `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` permissão
 
