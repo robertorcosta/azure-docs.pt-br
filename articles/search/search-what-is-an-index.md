@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: d9f4ba48a7dc6cdcf6d60e4e9da5f68fcc6b1f28
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509326"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539087"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Criando índices de pesquisa no Azure Pesquisa Cognitiva
 
-Um índice de pesquisa armazena o conteúdo pesquisável usado para texto completo e consultas filtradas. Um índice é definido por um esquema e salvo no serviço, com a importação de dados a seguir como uma segunda etapa. 
+Pesquisa Cognitiva armazena o conteúdo pesquisável usado para texto completo e consultas filtradas em um *índice de pesquisa*. Um índice é definido por um esquema e salvo no serviço, com a importação de dados a seguir como uma segunda etapa. 
 
-Os índices contêm *documentos*. Conceitualmente, um documento é uma única unidade de dados pesquisáveis no índice. Um varejista pode ter um documento para cada produto, uma organização de notícias pode ter um documento para cada artigo e assim por diante. Mapeando esses conceitos para equivalentes de banco de dados mais conhecidos: um *índice de pesquisa* é igual a uma *tabela* e os *documentos* são aproximadamente equivalentes a *linhas* em uma tabela.
+Os índices contêm *documentos de pesquisa*. Conceitualmente, um documento é uma única unidade de dados pesquisáveis no índice. Um varejista pode ter um documento para cada produto, uma organização de notícias pode ter um documento para cada artigo e assim por diante. Mapeando esses conceitos para equivalentes de banco de dados mais conhecidos: um *índice de pesquisa* é igual a uma *tabela* e os *documentos* são aproximadamente equivalentes a *linhas* em uma tabela.
 
 ## <a name="whats-an-index-schema"></a>O que é um esquema de índice?
 
@@ -106,7 +106,9 @@ Por Pesquisa Cognitiva, os SDKs do Azure implementam recursos geralmente dispon�
 | JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [Índices](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/indexes) |
 | Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations. py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
 
-## <a name="defining-fields"></a>Definindo campos
+## <a name="define-fields"></a>Definir campos
+
+Um documento de pesquisa é definido pela `fields` coleção. Você precisará de campos para consultas e chaves. Você provavelmente também precisará de campos para dar suporte a filtros, facetas e classificações. Você também pode precisar de campos para dados que um usuário nunca vê, por exemplo, você pode desejar campos para margens de lucro ou promoções de marketing que você pode usar para modificar a classificação de pesquisa.
 
 Um campo do tipo EDM. String deve ser designado como a chave do documento. Ele é usado para identificar exclusivamente cada documento de pesquisa. Você pode recuperar um documento por sua chave para preencher uma página de detalhes.  
 
@@ -146,9 +148,11 @@ A captura de tela a seguir ilustra padrões de armazenamento de índice resultan
 
 ![Tamanho do índice com base na seleção de atributo](./media/search-what-is-an-index/realestate-index-size.png "Tamanho do índice com base na seleção de atributo")
 
-Embora essas variantes de índice sejam artificiais, podemos referenciá-las para obter amplas comparações de como os atributos afetam o armazenamento. Definir "recuperável" aumenta o tamanho do índice? Não. Adicionar campos a um **Sugestor** aumenta o tamanho do índice? Sim.
+Embora essas variantes de índice sejam artificiais, podemos referenciá-las para obter amplas comparações de como os atributos afetam o armazenamento. Definir "recuperável" aumenta o tamanho do índice? Não. Adicionar campos a um **Sugestor** aumenta o tamanho do índice? Sim. 
 
-Os índices que dão suporte ao filtro e à classificação são proporcionalmente maiores do que os índices que dão suporte à pesquisa de texto completo. Isso ocorre porque as operações de filtro e classificação verificam correspondências exatas, exigindo a presença de cadeias de caracteres de texto textual. Por outro lado, os campos pesquisáveis que dão suporte a consultas de texto completo usam índices invertidos, que são preenchidos com termos com token que consomem menos espaço do que documentos inteiros. 
+Tornar um campo filtrável ou classificável também adiciona ao consumo de armazenamento porque os campos filtrados e classificados não são indexados para que as sequências de caracteres possam corresponder textualmente.
+
+Também não refletida na tabela acima é o impacto dos [analisadores](search-analyzers.md). Se você estiver usando o edgeNgram criador para armazenar sequências idênticas de caracteres (a, AB, ABC, abcd), o tamanho do índice será maior do que se você tiver usado um analisador padrão.
 
 > [!Note]
 > A arquitetura de armazenamento é considerada um detalhe de implementação do Azure Pesquisa Cognitiva e pode ser alterada sem aviso prévio. Não há nenhuma garantia de que o comportamento atual persistirá no futuro.
@@ -169,9 +173,9 @@ As seguintes opções podem ser definidas para CORS:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode obter experiência prática ao criar um índice usando quase qualquer exemplo ou passo a passos para Pesquisa Cognitiva. Você pode escolher qualquer um dos guias de início rápido do Sumário para começar.
+Você pode obter experiência prática ao criar um índice usando quase qualquer exemplo ou passo a passos para Pesquisa Cognitiva. Para iniciantes, você pode escolher qualquer um dos guias de início rápido do Sumário.
 
-Você também desejará familiarizar-se com as metodologias para carregar um índice com dados. A definição e a população do índice são feitas juntas. Os artigos a seguir fornecem mais informações.
+Mas você também desejará familiarizar-se com metodologias para carregar um índice com dados. As estratégias de definição de índice e de importação de dados são definidas em tandem. Os artigos a seguir fornecem mais informações sobre como carregar um índice.
 
 + [Visão geral da importação de dados](search-what-is-data-import.md)
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8ffbe5debaa980385a2c6dc0078de5f1cc2e9bde
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 150e1aee38a724a0d52c83219c4d214265be9274
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045505"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538061"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usar o espaço de trabalho por trás de um firewall para Azure Machine Learning
 
@@ -33,15 +33,22 @@ Ao usar o Firewall do Azure, use __DNAT (conversão de endereços de rede de des
 
 Se você usar uma __instância de computação__ ou __cluster de computação__ Azure Machine Learning, adicione uma [UDRs (rotas definidas pelo usuário)](../virtual-network/virtual-networks-udr-overview.md) para a sub-rede que contém os recursos de Azure Machine Learning. Essa rota força o tráfego __dos__ endereços IP dos `BatchNodeManagement` recursos e `AzureMachineLearning` para o IP público de sua instância de computação e cluster de computação.
 
-Essas UDRs permitem que o serviço de Lote se comunique com os nós de computação para agendamento de tarefas. Adicione também o endereço IP para o serviço do Azure Machine Learning onde estão os recursos, já que isso é necessário para acessar as Instâncias de Computação. Use um dos seguintes métodos para obter uma lista de endereços IP do serviço de Lote e do serviço do Azure Machine Learning:
+Essas UDRs permitem que o serviço de Lote se comunique com os nós de computação para agendamento de tarefas. Além disso, adicione o endereço IP para o serviço de Azure Machine Learning, pois isso é necessário para acessar instâncias de computação. Ao adicionar o IP para o serviço de Azure Machine Learning, você deve adicionar o IP para as regiões __primárias e secundárias__ do Azure. A região primária sendo aquela em que seu espaço de trabalho está localizado.
+
+Para encontrar a região secundária, confira [garantir a continuidade dos negócios & recuperação de desastre usando regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por exemplo, se seu serviço de Azure Machine Learning estiver no leste dos EUA 2, a região secundária será EUA Central. 
+
+Use um dos seguintes métodos para obter uma lista de endereços IP do serviço de Lote e do serviço do Azure Machine Learning:
 
 * Baixe os [Intervalos de IP do Azure e as Marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) e pesquise `BatchNodeManagement.<region>` e `AzureMachineLearning.<region>` no arquivo, em que `<region>` é a sua região do Azure.
 
-* Use o [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para baixar as informações. O exemplo a seguir baixa as informações do endereço IP e filtra as informações para a região Leste dos EUA 2:
+* Use o [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) para baixar as informações. O exemplo a seguir baixa as informações de endereço IP e filtra as informações da região leste dos EUA 2 (primária) e região de EUA Central (secundária):
 
     ```azurecli-interactive
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+    # Get primary region IPs
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+    # Get secondary region IPs
+    az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
     ```
 
     > [!TIP]
@@ -146,7 +153,7 @@ Os hosts nesta seção são de propriedade da Microsoft e fornecem os serviços 
 | **Obrigatório para** | **Público do Azure** | **Azure Governamental** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Conta de Armazenamento do Azure | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
-| Azure Key Vault | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
+| Cofre de Chave do Azure | vault.azure.net | vault.usgovcloudapi.net | vault.azure.cn |
 | Registro de Contêiner do Azure | azurecr.io | azurecr.us | azurecr.cn |
 | Registro de Contêiner da Microsoft | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 

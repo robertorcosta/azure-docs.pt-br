@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 26012b23a10f560158e3ba3919e12f5c15759189
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555892"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539308"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrar e verificar um SQL Server local
 
@@ -50,21 +50,17 @@ Há apenas uma maneira de configurar a autenticação para o SQL Server local:
 
 ### <a name="sql-authentication"></a>Autenticação SQL
 
-A identidade do SQL deve ter acesso ao banco de dados primário. Esse local é o local em que `sys.databases` está armazenado. O scanner alcance precisa enumerar para `sys.databases` Localizar todas as instâncias de BD SQL no servidor.
+A conta SQL deve ter acesso ao banco de dados **mestre** . Isso ocorre porque o `sys.databases` está no banco de dados mestre. O scanner alcance precisa enumerar para `sys.databases` Localizar todos os bancos de dados SQL no servidor.
 
 #### <a name="using-an-existing-server-administrator"></a>Usando um administrador de servidor existente
 
 Se você planeja usar um usuário existente do SA (administrador do servidor) para verificar seu SQL Server local, verifique o seguinte:
 
-1. `sa` Não é o tipo de autenticação do Windows.
+1. `sa` Não é uma conta de autenticação do Windows.
 
-2. O usuário de nível de servidor que você está planejando usar deve ter funções de servidor de Public e sysadmin. Você pode verificar isso navegando até SQL Server Management Studio (SSMS), conectando-se ao servidor, navegando até segurança, selecionando o logon que você está planejando usar, clicando com o botão direito do mouse em **Propriedades** e selecionando **funções de servidor**.
+2. O logon no nível do servidor que você está planejando usar deve ter funções de servidor de Public e sysadmin. Você pode verificar isso conectando-se ao servidor, navegando até SQL Server Management Studio (SSMS), navegando até segurança, selecionando o logon que você está planejando usar, clicando com o botão direito do mouse em **Propriedades** e selecionando **funções de servidor**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/server-level-login.png" alt-text="Logon no nível do servidor.":::
-
-3. Os bancos de dados são mapeados para um usuário que tem pelo menos o acesso de nível db_datareader em cada um deles.
-
-   :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping-sa.png" alt-text="mapeamento de usuário para SA.":::
 
 #### <a name="creating-a-new-login-and-user"></a>Criando um novo logon e usuário
 
@@ -74,9 +70,9 @@ Se você quiser criar um novo logon e um usuário para poder verificar o SQL Ser
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/create-new-login-user.png" alt-text="Crie um novo logon e usuário.":::
 
-2. Selecione funções de servidor no painel de navegação esquerdo e selecione pública e sysadmin.
+2. Selecione funções de servidor no painel de navegação esquerdo e verifique se a função pública está atribuída.
 
-3. Selecione mapeamento de usuário no painel de navegação esquerdo e selecione todos os bancos de dados no mapa.
+3. Selecione mapeamento de usuário no painel de navegação esquerdo, selecione todos os bancos de dados no mapa e selecione a função de banco de dados: **db_datareader**.
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/user-mapping.png" alt-text="mapeamento de usuário.":::
 
@@ -88,8 +84,7 @@ Se você quiser criar um novo logon e um usuário para poder verificar o SQL Ser
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Armazenando sua senha de logon do SQL em um cofre de chaves e criando uma credencial no alcance
 
-1. Navegue até o seu cofre de chaves no portal do Azure
-1. Selecione **Configurações > Segredos**
+1. Navegue até o cofre de chaves no portal1 do Azure. Selecione **Configurações > Segredos**
 1. Selecione **+ gerar/importar** e insira o **nome** e o **valor** como a *senha* do seu logon do SQL Server
 1. Selecione **Criar** para terminar
 1. Se o cofre de chaves ainda não estiver conectado ao Purview, [crie uma conexão do cofre de chaves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)

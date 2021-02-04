@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: ricmmartins
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/03/2021
 ms.author: ricmart
-ms.openlocfilehash: a0655ce1d2e9939981bb4fd3280af80e359ea1e1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 82161ac92566f6589ebfb64dddc221e296ec0992
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737737"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539121"
 ---
 # <a name="create-a-vpn-connection-between-azure-and-aws-using-managed-solutions"></a>Criar uma conexão VPN entre o Azure e o AWS usando soluções gerenciadas
 
@@ -219,4 +219,6 @@ Nesta seção, você cria uma segunda conexão para garantir a alta disponibilid
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o suporte do AWS para IKEv2, consulte o [artigo AWS](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/).
+* Para obter mais informações sobre o suporte do AWS para IKEv2, consulte o [artigo AWS](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/).
+
+* Para obter mais informações sobre como criar uma VPN de nuvem em escala, consulte o vídeo [criar a melhor VPN de multinuvem em escala](https://www.youtube.com/watch?v=p7h-frLDFE0).

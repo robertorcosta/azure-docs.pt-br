@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/03/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: d7f71afd1cf47ab1a94d984090e8fb52ee69c6b4
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f7ba6363ec3a38d37ea3df0f76409289069638e8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088931"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537789"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
 
@@ -113,6 +113,9 @@ O tamanho do documento deve ser inferior a 5.120 caracteres. Para obter o númer
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>Estruturar a solicitação de API para a API Web assíncrona hospedada
 
 Para o contêiner e a API web hospedada, você deve criar uma solicitação POST. Você pode [usar o postmaster](text-analytics-how-to-call-api.md), um comando de ondulação ou o **console de teste de API** no [análise de texto para a referência de API hospedada de integridade](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) para construir e enviar rapidamente uma solicitação post para a API web hospedada na região desejada. 
+
+> [!NOTE]
+> Os pontos assíncronos `/analyze` e de `/health` extremidade só estão disponíveis nas seguintes regiões: oeste dos EUA 2, leste dos EUA 2, EUA Central, Europa Setentrional e Europa Ocidental.  Para fazer solicitações bem-sucedidas a esses pontos de extremidade, verifique se o recurso foi criado em uma dessas regiões.
 
 Abaixo está um exemplo de um arquivo JSON anexado à Análise de Texto para o corpo da solicitação da API de integridade:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 8daec71745c9eff9a7db5bb34cb3596973def4aa
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70f4ac69721db57aa06c0d8fda12189f43e79686
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736404"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537823"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos compartilhados do Azure (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -32,7 +32,7 @@ Para saber mais, confira uma visão geral do [FCI com SQL Server em VMs do Azure
 Antes de concluir as instruções neste artigo, você já deve ter:
 
 - Uma assinatura do Azure. Comece [gratuitamente](https://azure.microsoft.com/free/). 
-- [Duas ou mais máquinas virtuais do Windows Azure](failover-cluster-instance-prepare-vm.md). Os [conjuntos de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md) e PPGs (grupos de posicionamento de [proximidade](../../../virtual-machines/co-location.md#proximity-placement-groups) ) com suporte para zonas de [disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) e SSD Premium têm suporte para ultra discos. Se você usar um PPG, todos os nós deverão existir no mesmo grupo.
+- [Duas ou mais máquinas virtuais do Windows Azure](failover-cluster-instance-prepare-vm.md). Os [conjuntos de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md) e PPGs (grupos de posicionamento de [proximidade](../../../virtual-machines/co-location.md#proximity-placement-groups) ) com suporte para zonas de [disponibilidade](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) e SSD Premium têm suporte para ultra discos. Todos os nós devem existir no mesmo [grupo de posicionamento de proximidade](../../../virtual-machines/co-location.md#proximity-placement-groups).
 - Uma conta que tenha permissões para criar objetos em máquinas virtuais do Azure e no Active Directory.
 - A versão mais recente do [PowerShell](/powershell/azure/install-az-ps). 
 

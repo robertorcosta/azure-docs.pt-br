@@ -8,17 +8,22 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: f8ba08c6147320160e99e522536f00fc98855eb4
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 036f086c88267f6a20da51746ca875c48a248712
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527256"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538765"
 ---
-# <a name="continuous-backup-with-point-in-time-restore-feature-in-azure-cosmos-db"></a>Backup contínuo com o recurso de restauração pontual no Azure Cosmos DB
+# <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Backup contínuo com o recurso de restauração pontual (versão prévia) no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-O recurso de restauração pontual do Azure Cosmos DB ajuda em vários cenários, como o seguinte:
+> [!IMPORTANT]
+> O recurso de restauração pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+O recurso de restauração pontual do Azure Cosmos DB (versão prévia) ajuda em vários cenários, como o seguinte:
 
 * Para recuperar-se de uma operação de gravação ou exclusão acidental em um contêiner.
 * Para restaurar uma conta, um banco de dados ou um contêiner excluído.
@@ -58,17 +63,17 @@ A seguir estão alguns dos principais cenários que são abordados pelo recurso 
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Eventos de ciclo de vida com carimbos de data/hora para uma conta restaurável." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
-a. **Restaurar conta excluída** -todas as contas excluídas que você pode restaurar são visíveis no painel de **restauração** . Por exemplo, se "conta A" for excluída em T3 de carimbo de data/hora. Nesse caso, o carimbo de data/hora pouco antes do T3, local, nome da conta de destino, grupo de recursos e nome da conta de destino é suficiente para restaurar de [portal do Azure](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)ou [CLI](continuous-backup-restore-command-line.md).  
+a. **Restaurar conta excluída** -todas as contas excluídas que você pode restaurar são visíveis no painel de **restauração** . Por exemplo, se "conta A" for excluída em T3 de carimbo de data/hora. Nesse caso, o carimbo de data/hora pouco antes do T3, local, nome da conta de destino, grupo de recursos e nome da conta de destino é suficiente para restaurar de [portal do Azure](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)ou [CLI](continuous-backup-restore-command-line.md#trigger-restore).  
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="Eventos de ciclo de vida com carimbos de data/hora para um banco de dados e contêiner restauráveis." lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
-b. **Restaurar dados de uma conta em uma região específica** – por exemplo, se "conta a" existir em duas regiões "leste dos EUA" e "oeste dos EUA" no carimbo de data/hora T3. Se você precisar de uma cópia da conta A em "oeste dos EUA", poderá fazer uma restauração pontual do [portal do Azure](continuous-backup-restore-portal.md), do [PowerShell](continuous-backup-restore-powershell.md)ou da [CLI](continuous-backup-restore-command-line.md) com o oeste dos EUA como o local de destino.
+b. **Restaurar dados de uma conta em uma região específica** – por exemplo, se "conta a" existir em duas regiões "leste dos EUA" e "oeste dos EUA" no carimbo de data/hora T3. Se você precisar de uma cópia da conta A em "oeste dos EUA", poderá fazer uma restauração pontual do [portal do Azure](continuous-backup-restore-portal.md), do [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)ou da [CLI](continuous-backup-restore-command-line.md#trigger-restore) com o oeste dos EUA como o local de destino.
 
-c. **Recuperar-se de uma operação de gravação ou exclusão acidental em um contêiner com um carimbo de data/hora de restauração conhecido** , por exemplo, se você **souber** que o conteúdo do "contêiner 1" no "banco de dados 1" foi modificado acidentalmente no carimbo de data/hora em T3. Você pode fazer uma restauração pontual de [portal do Azure](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md)ou [CLI](continuous-backup-restore-command-line.md) em outra conta em T3 de carimbo de data/hora para recuperar o estado desejado do contêiner.
+c. **Recuperar-se de uma operação de gravação ou exclusão acidental em um contêiner com um carimbo de data/hora de restauração conhecido** , por exemplo, se você **souber** que o conteúdo do "contêiner 1" no "banco de dados 1" foi modificado acidentalmente no carimbo de data/hora em T3. Você pode fazer uma restauração pontual de [portal do Azure](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)ou [CLI](continuous-backup-restore-command-line.md#trigger-restore) em outra conta em T3 de carimbo de data/hora para recuperar o estado desejado do contêiner.
 
-d. **Restaurar uma conta para um ponto anterior no tempo antes da exclusão acidental do banco de dados** -no [portal do Azure](continuous-backup-restore-portal.md), você pode usar o painel feed de eventos para determinar quando um banco de dados foi excluído e encontrar o tempo de restauração. Da mesma forma, com [CLI do Azure](continuous-backup-restore-command-line.md) e o [PowerShell](continuous-backup-restore-powershell.md), você pode descobrir o evento de exclusão do banco de dados enumerando o feed de eventos do banco de dados e, em seguida, disparar o comando Restore com os parâmetros necessários.
+d. **Restaurar uma conta para um ponto anterior no tempo antes da exclusão acidental do banco de dados** -no [portal do Azure](continuous-backup-restore-portal.md#restore-live-account), você pode usar o painel feed de eventos para determinar quando um banco de dados foi excluído e encontrar o tempo de restauração. Da mesma forma, com [CLI do Azure](continuous-backup-restore-command-line.md#trigger-restore) e o [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), você pode descobrir o evento de exclusão do banco de dados enumerando o feed de eventos do banco de dados e, em seguida, disparar o comando Restore com os parâmetros necessários.
 
-e. **Restaure uma conta para um ponto anterior no tempo antes da exclusão acidental ou modificação das propriedades do contêiner.** -Em [portal do Azure](continuous-backup-restore-portal.md), você pode usar o painel feed de eventos para determinar quando um contêiner foi criado, modificado ou excluído para localizar o tempo de restauração. Da mesma forma, com [CLI do Azure](continuous-backup-restore-command-line.md) e o [PowerShell](continuous-backup-restore-powershell.md), você pode descobrir todos os eventos de contêiner enumerando o feed de eventos de contêiner e, em seguida, disparar o comando Restore com os parâmetros necessários.
+e. **Restaure uma conta para um ponto anterior no tempo antes da exclusão acidental ou modificação das propriedades do contêiner.** -Em [portal do Azure](continuous-backup-restore-portal.md#restore-live-account), você pode usar o painel feed de eventos para determinar quando um contêiner foi criado, modificado ou excluído para localizar o tempo de restauração. Da mesma forma, com [CLI do Azure](continuous-backup-restore-command-line.md#trigger-restore) e o [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), você pode descobrir todos os eventos de contêiner enumerando o feed de eventos de contêiner e, em seguida, disparar o comando Restore com os parâmetros necessários.
 
 ## <a name="permissions"></a>Permissões
 

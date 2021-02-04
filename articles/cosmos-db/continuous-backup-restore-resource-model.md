@@ -7,17 +7,22 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 64033182356e66d6a69bd47c1780b7081416019e
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527238"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538487"
 ---
-# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature"></a>Modelo de recurso para a Azure Cosmos DB recurso de restauração pontual
+# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modelo de recurso para a Azure Cosmos DB recurso de restauração pontual (versão prévia)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Este artigo explica o modelo de recurso para a Azure Cosmos DB recurso de restauração pontual. Ele explica os parâmetros que dão suporte ao backup contínuo e aos recursos que podem ser restaurados na API Azure Cosmos DB para contas do SQL e do MongoDB.
+> [!IMPORTANT]
+> O recurso de restauração pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Este artigo explica o modelo de recurso para a Azure Cosmos DB recurso de restauração pontual (versão prévia). Ele explica os parâmetros que dão suporte ao backup contínuo e aos recursos que podem ser restaurados na API Azure Cosmos DB para contas do SQL e do MongoDB.
 
 ## <a name="database-accounts-resource-model"></a>Modelo de recurso da conta do banco de dados
 

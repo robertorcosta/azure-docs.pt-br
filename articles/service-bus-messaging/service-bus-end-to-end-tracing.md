@@ -2,14 +2,14 @@
 title: Diagnóstico e rastreamento end-to-end de Barramento de Serviço do Azure | Microsoft Docs
 description: Visão geral do diagnóstico de cliente do barramento de serviço e rastreamento de ponta a ponta (cliente por meio de todos os serviços que estão envolvidos no processamento).
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 19b284aceb83fbbc2bcf662b2b58941e6a5b36f9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601251"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539206"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreamento distribuído e correlação por meio de mensagens do Barramento de Serviço
 
@@ -135,12 +135,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 Neste exemplo, o ouvinte registra duração, resultado, identificador exclusivo e a hora de início para cada operação de Barramento de Serviço.
 
 ### <a name="events"></a>Eventos
-Para cada operação, dois eventos são enviados: 'Start' e 'Stop'. Provavelmente, você está interessado apenas em eventos ' Stop '. Eles fornecem o resultado da operação e a hora de início e a duração como propriedades da atividade.
-
-A carga do evento fornece um ouvinte com o contexto da operação, ele replica os parâmetros de entrada de API e valor de retorno. A carga do evento de 'Stop' tem todas as propriedades da carga do evento de 'Start', portanto você pode ignorar o evento de 'Start' completamente.
-
-Cada evento de 'Stop' tem `Status` propriedade com `TaskStatus` operação assíncrona foi concluída, o que também é omitido na tabela a seguir para simplificar.
-
 Todos os eventos terão as seguintes propriedades que estão em conformidade com a especificação de telemetria aberta: https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md .
 
 - `message_bus.destination` – caminho da fila/tópico/assinatura

@@ -7,17 +7,22 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 3614a85a6df2e793a73a2609d6f5762e4dc873fb
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 9d30f5325162b9ea447d54aadc092dbd9aa29132
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527255"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538664"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Gerenciar permissões para restaurar uma conta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB permite isolar e restringir as permissões de restauração para a conta de backup contínuo a uma função específica ou a uma entidade de segurança. O proprietário da conta pode disparar uma restauração e atribuir uma função a outras entidades de segurança para executar a operação de restauração. Essas permissões podem ser aplicadas no escopo da assinatura ou de forma mais granular no escopo da conta de origem, conforme mostrado na imagem a seguir:
+> [!IMPORTANT]
+> O recurso de restauração pontual (modo de backup contínuo) para Azure Cosmos DB está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Cosmos DB permite isolar e restringir as permissões de restauração para a conta de backup contínuo (versão prévia) a uma função específica ou a uma entidade de segurança. O proprietário da conta pode disparar uma restauração e atribuir uma função a outras entidades de segurança para executar a operação de restauração. Essas permissões podem ser aplicadas no escopo da assinatura ou de forma mais granular no escopo da conta de origem, conforme mostrado na imagem a seguir:
 
 :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="Lista de funções necessárias para executar a operação de restauração." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" border="false":::
 

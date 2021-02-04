@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 849c159f31a14441ef9c6aa19b8704b286727bd7
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 7c89bfab6c4914cee26726006e6928eeb14c0686
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507174"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538180"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -1046,18 +1046,19 @@ Pode gerenciar todos os aspectos do produto Exchange.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
-| microsoft.directory/groups/unified/appRoleAssignments/update | Atualize a propriedade groups.unified no Active Directory do Azure. |
-| microsoft.directory/groups/unified/basic/update | Atualize as propriedades básicas de grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/create | Criar grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/delete | Excluir grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/members/update | Atualize a associação de grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/owners/update | Atualizar a propriedade de grupos de Microsoft 365. |
+| microsoft.directory/groups/hiddenMembers/read | Ler Membros ocultos de um grupo |
+| Microsoft. Directory/groups. Unified/Basic/Update | Atualize as propriedades básicas de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Create | Criar grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Delete | Excluir grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Restore | Restaurar grupos de Microsoft 365 |
+| Microsoft. Directory/groups. Unified/Members/Update | Atualize a associação de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Owners/Update | Atualizar a propriedade de grupos de Microsoft 365. |
 | Microsoft.office365.Exchange/allEntities/allTasks | Gerencie todos os aspectos do Exchange Online. |
 | microsoft.office365.network/performance/allProperties/read | Ler páginas de desempenho de rede no centro de administração Microsoft 365. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+| Microsoft. office365. usageReports/myentities/myproperties/Read | Leia os relatórios de uso do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="external-id-user-flow-administrator-permissions"></a>Permissões de administrador de fluxo de usuário de ID externa
 
@@ -1295,23 +1296,24 @@ Pode gerenciar todos os aspectos do produto Intune.
 | Microsoft. Directory/Devices/extensionattributes/Update | Atualize todos os valores para dispositivos. Propriedade extensionattributes no Azure Active Directory. |
 | microsoft.directory/devices/registeredOwners/update | Atualize a propriedade registeredowners no Azure Active Directory. |
 | microsoft.directory/devices/registeredUsers/update | Atualize a propriedade registeredusers no Azure Active Directory. |
-| microsoft.directory/groups/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
-| microsoft.directory/groups/basic/update | Atualize as propriedades básicas nos grupos do Active Directory do Azure. |
-| microsoft.directory/groups/create | Crie grupos no Active Directory do Azure. |
-| microsoft.directory/groups/createAsOwner | Crie grupos no Active Directory do Azure. O criador é adicionado como o primeiro proprietário e o objeto criado conta com a cota de 250 objetos criados pelo criador. |
-| microsoft.directory/groups/delete | Exclua grupos no Azure Active Directory. |
+| Microsoft. Directory/deviceManagementPolicies/Standard/Read | Ler propriedades padrão em políticas de aplicativo de gerenciamento de dispositivos |
+| Microsoft. Directory/deviceRegistrationPolicy/Standard/Read | Ler propriedades padrão em políticas de registro de dispositivo |
 | microsoft.directory/groups/hiddenMembers/read | Ler a propriedade hiddenmembers no Azure Active Directory. |
-| microsoft.directory/groups/members/update | Atualize a propriedade Groups no Azure Active Directory. |
-| microsoft.directory/groups/owners/update | Atualize a propriedade Owners no Azure Active Directory. |
-| microsoft.directory/groups/restore | Restaure grupos no Azure Active Directory. |
-| microsoft.directory/groups/settings/update | Atualize a propriedade Groups no Azure Active Directory. |
-| microsoft.directory/users/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
+| Microsoft. Directory/groups. Security/Basic/Update | Atualize as propriedades básicas nos grupos do Active Directory do Azure. |
+| Microsoft. Directory/groups. Security/Classification/Update | Atualizar a propriedade de classificação dos grupos de segurança com a exclusão de grupos de função atribuível |
+| Microsoft. Directory/groups. Security/Create | Crie grupos no Active Directory do Azure. |
+| Microsoft. Directory/groups. Security/Delete | Exclua grupos no Azure Active Directory. |
+| Microsoft. Directory/groups. Security/dynamicMembershipRule/Update | Atualizar a propriedade dynamicMembershipRule dos grupos de segurança com a exclusão de grupos de função atribuídas |
+| Microsoft. Directory/groups. Security/GroupType/Update | Atualizar a propriedade do tipo de grupo dos grupos de segurança com a exclusão de grupos de função atribuível |
+| Microsoft. Directory/groups. Security/Members/Update | Atualize a propriedade Groups no Azure Active Directory. |
+| Microsoft. Directory/groups. Security/Owners/Update | Atualize a propriedade Owners no Azure Active Directory. |
+| Microsoft. Directory/groups. Security/Visibility/Update | Atualizar a propriedade Visibility dos grupos de segurança com a exclusão de grupos de função atribuídas |
 | microsoft.directory/users/basic/update | Atualize as propriedades básicas nos usuários no Azure Active Directory. |
 | microsoft.directory/users/manager/update | Atualize a propriedade Users no Azure Active Directory. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
 | microsoft.intune/allEntities/allTasks | Gerencie todos os aspectos do Intune. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+| microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="kaizala-administrator-permissions"></a>Permissões do Administrador do Kaizala
 
@@ -1458,13 +1460,18 @@ Não use – não se destina para uso geral.
 | microsoft.directory/contacts/create | Crie contatos no Azure Active Directory. |
 | microsoft.directory/contacts/delete | Exclua contatos no Azure Active Directory. |
 | microsoft.directory/groups/create | Crie grupos no Active Directory do Azure. |
-| microsoft.directory/groups/createAsOwner | Crie grupos no Active Directory do Azure. O criador é adicionado como o primeiro proprietário e o objeto criado conta com a cota de 250 objetos criados pelo criador. |
+| microsoft.directory/groups/delete | Excluir grupos, excluindo grupo de funções de atribuição |
 | microsoft.directory/groups/members/update | Atualize a propriedade Groups no Azure Active Directory. |
 | microsoft.directory/groups/owners/update | Atualize a propriedade Owners no Azure Active Directory. |
-| microsoft.directory/users/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
+| microsoft.directory/groups/restore | Restaurar grupos excluídos |
+| microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Criar e excluir concessões de permissão OAuth 2,0 e ler e atualizar todas as propriedades |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Atualizar atribuições de função da entidade de serviço |
 | microsoft.directory/users/assignLicense | Gerenciar licenças em usuários no Azure Active Directory. |
 | microsoft.directory/users/basic/update | Atualize as propriedades básicas nos usuários no Azure Active Directory. |
+| microsoft.directory/users/create | Adicionar usuários |
 | microsoft.directory/users/delete | Exclua usuários no Azure Active Directory. |
+| Microsoft. Directory/Users/Disable | Desabilitar usuários |
+| Microsoft. Directory/Users/Enable | Habilitar usuários |
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidar todos os tokens de atualização de usuário no Azure Active Directory. |
 | microsoft.directory/users/manager/update | Atualize a propriedade Users no Azure Active Directory. |
 | microsoft.directory/users/password/update | Atualize senhas para todos os usuários no Active Directory do Azure. Consulte a documentação online para obter mais detalhes. |
@@ -1472,9 +1479,9 @@ Não use – não se destina para uso geral.
 | microsoft.directory/users/userPrincipalName/update | Atualize a propriedade users.userPrincipalName no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="partner-tier2-support-permissions"></a>Permissões do Suporte de nível 2 ao parceiro
 
@@ -1498,16 +1505,25 @@ Não use – não se destina para uso geral.
 | microsoft.directory/contacts/basic/update | Atualize as propriedades básicas em contatos no Azure Active Directory. |
 | microsoft.directory/contacts/create | Crie contatos no Azure Active Directory. |
 | microsoft.directory/contacts/delete | Exclua contatos no Azure Active Directory. |
-| microsoft.directory/domains/allTasks | Criar e excluir domínios e ler e atualizar propriedades padrão no Azure Active Directory. |
+| Microsoft. Directory/Domains/Basic/The tarefas | Criar e excluir domínios e ler e atualizar propriedades padrão no Azure Active Directory. |
 | microsoft.directory/groups/create | Crie grupos no Active Directory do Azure. |
 | microsoft.directory/groups/delete | Exclua grupos no Azure Active Directory. |
 | microsoft.directory/groups/members/update | Atualize a propriedade Groups no Azure Active Directory. |
+| microsoft.directory/groups/owners/update | Atualizar os proprietários de grupos, excluindo grupos de funções atribuíveis |
 | microsoft.directory/groups/restore | Restaure grupos no Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Criar e excluir concessões de permissão OAuth 2,0 e ler e atualizar todas as propriedades |
 | microsoft.directory/organization/basic/update | Atualize as propriedades básicas em organização no Azure Active Directory. |
-| microsoft.directory/users/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
+| microsoft.directory/roleAssignments/allProperties/allTasks | Criar e excluir atribuições de função e ler e atualizar todas as propriedades de atribuição de função |
+| microsoft.directory/roleDefinitions/allProperties/allTasks | Criar e excluir definições de função e ler e atualizar todas as propriedades |
+| microsoft.directory/scopedRoleMemberships/allProperties/allTasks | Criar e excluir scopedRoleMemberships, e ler e atualizar todas as propriedades |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Atualizar atribuições de função da entidade de serviço |
+| Microsoft. Directory/subscribedSkus/Standard/Read | Ler propriedades básicas em assinaturas |
 | microsoft.directory/users/assignLicense | Gerenciar licenças em usuários no Azure Active Directory. |
 | microsoft.directory/users/basic/update | Atualize as propriedades básicas nos usuários no Azure Active Directory. |
+| microsoft.directory/users/create | Adicionar usuários |
 | microsoft.directory/users/delete | Exclua usuários no Azure Active Directory. |
+| Microsoft. Directory/Users/Disable | Desabilitar usuários |
+| Microsoft. Directory/Users/Enable | Habilitar usuários |
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidar todos os tokens de atualização de usuário no Azure Active Directory. |
 | microsoft.directory/users/manager/update | Atualize a propriedade Users no Azure Active Directory. |
 | microsoft.directory/users/password/update | Atualize senhas para todos os usuários no Active Directory do Azure. Consulte a documentação online para obter mais detalhes. |
@@ -1515,9 +1531,9 @@ Não use – não se destina para uso geral.
 | microsoft.directory/users/userPrincipalName/update | Atualize a propriedade users.userPrincipalName no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="password-administrator-permissions"></a>Permissões do Administrador de senha
 
@@ -1785,18 +1801,18 @@ Pode gerenciar todos os aspectos do serviço SharePoint.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
-| microsoft.directory/groups/unified/appRoleAssignments/update | Atualize a propriedade groups.unified no Active Directory do Azure. |
-| microsoft.directory/groups/unified/basic/update | Atualize as propriedades básicas de grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/create | Criar grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/delete | Excluir grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/members/update | Atualize a associação de grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/owners/update | Atualizar a propriedade de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Basic/Update | Atualize as propriedades básicas de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Create | Criar grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Delete | Excluir grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Members/Update | Atualize a associação de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Owners/Update | Atualizar a propriedade de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Restore | Restaurar grupos de Microsoft 365 |
 | microsoft.office365.network/performance/allProperties/read | Ler as páginas de desempenho de rede no Centro de administração do M365. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
 | Microsoft.office365.SharePoint/allEntities/allTasks | Criar e excluir todos os recursos e ler e atualizar propriedades padrão em microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-| Microsoft.office365.usageReports/allEntities/Read    | Leia os relatórios de uso do Office 365. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+| Microsoft. office365. usageReports/myentities/myproperties/Read | Leia os relatórios de uso do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="teams-communications-administrator-permissions"></a>Permissões do Administrador de Comunicações do Teams
 
@@ -1880,16 +1896,19 @@ Pode gerenciar o serviço do Microsoft Teams.
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
 | microsoft.directory/groups/hiddenMembers/read | Ler a propriedade hiddenmembers no Azure Active Directory. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Atualize a propriedade groups.unified no Active Directory do Azure. |
-| microsoft.directory/groups/unified/basic/update | Atualize as propriedades básicas de grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/create | Criar grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/delete | Excluir grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/members/update | Atualize a associação de grupos de Microsoft 365. |
-| microsoft.directory/groups/unified/owners/update | Atualizar a propriedade de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Basic/Update | Atualize as propriedades básicas de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Create | Criar grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Delete | Excluir grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Members/Update | Atualize a associação de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Owners/Update | Atualizar a propriedade de grupos de Microsoft 365. |
+| Microsoft. Directory/groups. Unified/Restore | Restaurar grupos de Microsoft 365 |
+| Microsoft. Directory/servicePrincipalName/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Conceder consentimento para permissões delegadas em nome de um grupo |
 | microsoft.office365.network/performance/allProperties/read | Ler as páginas de desempenho de rede no Centro de administração do M365. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
+| Microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerenciar todos os aspectos do Skype for Business Online |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-| Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+| Microsoft. office365. usageReports/myentities/myproperties/Read | Leia os relatórios de uso do Office 365. |
+| microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | Microsoft. Teams/myentities/myproperties/mytasks | Gerencie todos os recursos em equipes. |
 
 ### <a name="usage-summary-reports-reader-permissions"></a>Relatórios de Resumo de uso permissões de leitor
