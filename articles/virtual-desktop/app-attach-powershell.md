@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8aa6a2168bff6e90d636770804900fa93f081ced
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1196982fedc7321805e36cceed27c90e43a6e705
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425712"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558328"
 ---
 # <a name="set-up-msix-app-attach-preview-using-powershell"></a>Configurar a anexação do aplicativo MSIX (versão prévia) usando o PowerShell
 
@@ -30,6 +30,7 @@ Veja o que você precisa para configurar o anexo do aplicativo MSIX:
 
 - Uma implantação funcional da Área de Trabalho Virtual do Windows. Para saber como implantar a área de trabalho virtual do Windows (clássica), consulte [criar um locatário na área de trabalho virtual do Windows](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para saber como implantar a área de trabalho virtual do Windows com a integração do Azure Resource Manager, confira [criar um pool de hosts com o portal do Azure](./create-host-pools-azure-marketplace.md).
 - Um pool de hosts da área de trabalho virtual do Windows com pelo menos um host de sessão ativo.
+- Esse pool de hosts deve estar no ambiente de validação.
 - Um grupo de aplicativos remotos da área de trabalho.
 - A ferramenta de empacotamento MSIX.
 - Um aplicativo MSIX expandido em uma imagem MSIX que é carregada em um compartilhamento de arquivos.

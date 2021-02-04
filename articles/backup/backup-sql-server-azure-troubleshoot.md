@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549891"
+ms.locfileid: "99557743"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -206,14 +206,14 @@ A operação está bloqueada porque o cofre atingiu seu limite máximo para essa
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-Falha na operação de extensão de carga de trabalho AzureBackup. | A VM é desligada (ou) a VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet.| -Certifique-se de que a VM esteja em execução e tenha conectividade com a Internet.<br>- [Registre novamente a extensão na VM SQL Server](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+Falha na operação de extensão de carga de trabalho AzureBackup. | A VM está desligada ou a VM não pode entrar em contato com o serviço de backup do Azure devido a problemas de conectividade com a Internet.| <li> Verifique se a VM está em execução e se tem conectividade com a Internet.<li> [Registre novamente a extensão na VM SQL Server](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm).
 
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou os serviços Azure Active Directorys.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço *AzureBackup* para permitir o acesso de saída ao serviço de backup do Azure e, da mesma forma, para os serviços do Azure AD (*AzureActiveDirectory*) e armazenamento do Azure (*armazenamento*). Siga estas [etapas](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy bloqueando chamadas para os três serviços de destino acima.
+A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou os serviços Azure Active Directorys.| <li> Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço *AzureBackup* para permitir o acesso de saída ao serviço de backup do Azure e, da mesma forma, para os serviços do Azure AD (*AzureActiveDirectory*) e armazenamento do Azure (*armazenamento*). Siga estas [etapas](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso. <li> Verifique se o DNS está resolvendo os pontos de extremidade do Azure. <li> Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará. <li> Verifique se não há firewall/antivírus/proxy bloqueando chamadas para os três serviços de destino acima.
 
 ## <a name="re-registration-failures"></a>Falhas no novo registro
 
@@ -257,7 +257,7 @@ Agora, organize-os no seguinte formato:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -286,7 +286,7 @@ O conteúdo do arquivo deve estar neste formato:
 ]
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```json
 [

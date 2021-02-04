@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531319"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556133"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos do Application Insights
 
@@ -186,7 +186,7 @@ O volume de dados que você envia pode ser gerenciado com as seguintes técnicas
 
 * **Amostragem**: Você pode usar a amostragem para reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas. Amostragem é a ferramenta principal que você pode usar para ajustar a quantidade de dados enviados. Saiba mais sobre [recursos de amostragem](./sampling.md).
 
-* **Limitar chamadas Ajax**: Você pode [limitar o número de chamadas Ajax que podem ser relatadas](./javascript.md#configuration) em cada exibição de página ou desativar relatórios Ajax.
+* **Limitar chamadas Ajax**: Você pode [limitar o número de chamadas Ajax que podem ser relatadas](./javascript.md#configuration) em cada exibição de página ou desativar relatórios Ajax. Observe que desabilitar as chamadas AJAX desabilitará a [correlação de JavaScript](./javascript.md#enable-correlation).
 
 * **Desabilitar os módulos desnecessários**: [Edite Applicationinsights](./configuration-with-applicationinsights-config.md) para desativar os módulos de coleção desnecessários. Por exemplo, você pode decidir que os contadores de desempenho ou dados de dependência não são essenciais.
 

@@ -1,5 +1,5 @@
 ---
-title: Usar o Azure Sentinel watchlists
+title: Usar watchlists do Azure Sentinel
 description: Este artigo descreve como usar o Azure Sentinel watchlists investigar ameaças, importar dados corporativos, criar listas de permissões e enriquecer dados de evento.
 services: sentinel
 author: yelevin
@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 97509b878fb5e0cb28bddc5d1b58c21b32c34675
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797346"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555643"
 ---
-# <a name="use-azure-sentinel-watchlists"></a>Usar o Azure Sentinel watchlists
+# <a name="use-azure-sentinel-watchlists"></a>Usar watchlists do Azure Sentinel
 
 > [!IMPORTANT]
 > O recurso watchlists está atualmente em **Visualização**. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
@@ -28,7 +28,7 @@ Os cenários comuns para usar o watchlists incluem:
 
 - **Investigação de ameaças** e resposta a incidentes rapidamente com a rápida importação de endereços IP, hashes de arquivo e outros dados de arquivos CSV. Depois de importado, você pode usar os pares nome-valor da inspeção para junções e filtros em regras de alerta, busca de ameaças, pastas de trabalho, blocos de anotações e consultas gerais.
 
-- **Importando dados corporativos** como um watchlists. Por exemplo, importe listas de usuários com acesso de sistema privilegiado ou funcionários demitidos e, em seguida, use a inspeção para criar listas de permissão e negação usadas para detectar ou impedir que esses usuários façam logon na rede.
+- **Importando dados corporativos** como uma inspeção. Por exemplo, importe listas de usuários com acesso de sistema privilegiado ou funcionários demitidos e, em seguida, use a inspeção para criar listas de permissão e negação usadas para detectar ou impedir que esses usuários façam logon na rede.
 
 - **Reduzindo o alerta fadiga**. Crie listas de permissões para suprimir alertas de um grupo de usuários, como usuários de endereços IP autorizados que executam tarefas que normalmente disparam o alerta e evitar que eventos benignos se tornem alertas.
 

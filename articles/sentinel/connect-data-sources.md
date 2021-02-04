@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: cffc41264dfa30fd833aef465a13abc799334b2f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c3bb05af3e0a24ebb10dc98b9174cfb235ddda13
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567479"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555922"
 ---
 # <a name="connect-data-sources"></a>Conectar fontes de dados
 
@@ -66,11 +66,13 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
 
 - **Soluções externas por meio de API**: algumas fontes de dados são conectados por meio de APIs fornecidas pela fonte de dados conectada. Normalmente, a maioria das tecnologias de segurança fornece um conjunto de APIs por meio das quais os logs de eventos podem ser recuperados. As APIs se conectam ao Azure Sentinel e reúnem tipos de dados específicos e os enviam à Análise de Logs do Azure. Os dispositivos conectados por meio de API incluem:
     
+    - [Proteção contra identidades e defesa do Agari phishing](connect-agari-phishing-defense.md)
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [WAF do Barracuda](connect-barracuda.md)
     - [Firewall do Barracuda CloudGen](connect-barracuda-cloudgen-firewall.md)
     - [MELHOR Defesa Contra Ameaças Móveis](connect-better-mtd.md)
     - [Beyond Security beSECURE](connect-besecure.md)
+    - [Cisco Umbrella](connect-cisco-umbrella.md)
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
@@ -95,6 +97,7 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
 
     - **Firewalls, proxies e pontos de extremidade – CEF:**
         - [Detecção de IA da Vectra](connect-ai-vectra-detect.md)
+        - [Eventos de segurança da Akamai](connect-akamai-security-events.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Citrix WAF](connect-citrix-waf.md)
@@ -104,24 +107,27 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
         - [Produtos Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
         - [Illusive redes AMS](connect-illusive-attack-management-system.md)
+        - [Imperva WAF gateway](connect-imperva-waf-gateway.md)
         - [One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
-        - [Servidor de segredo Thycotic](connect-thycotic-secret-server.md)
+        - [Servidor secreto Thycotic](connect-thycotic-secret-server.md)
         - [Deep Security da Trend Micro](connect-trend-micro.md)
         - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
         - [Plataforma de perícia de rede WireX](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [Outros dispositivos baseados em CEF](connect-common-event-format.md)
     - **Firewalls, proxies e pontos de extremidade – syslog:**
+        - [Alsid para Active Directory](connect-alsid-active-directory.md)
         - [UCS (sistema de computação unificada da Cisco)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
         - [Juniper SRX](connect-juniper-srx.md)
         - [Pulse Connect Secure](connect-pulse-connect-secure.md)
         - [Sophos XG](connect-sophos-xg-firewall.md)
-        - [Proxy Squid](connect-squid-proxy.md)
+        - [Proxy da Squid](connect-squid-proxy.md)
         - [Proxy SG da Symantec](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
         - [Outros dispositivos baseados em syslog](connect-syslog.md)
+    - [Apache HTTP Server](connect-apache-http-server.md)
     - Soluções de DLP
     - [Provedores de inteligência contra ameaças](connect-threat-intelligence.md)
     - [Computadores DNS](connect-dns.md) - agente instalado diretamente no computador DNS
@@ -132,7 +138,6 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
 ## <a name="agent-connection-options"></a>Opções de conexão de agente<a name="agent-options"></a>
 
 Para conectar seu dispositivo externo ao Azure Sentinel, o agente precisa ser implantado em um computador dedicado (VM ou local) para dar suporte à comunicação entre o dispositivo e o Azure Sentinel. Você pode implantar o agente manualmente ou automaticamente. A implantação automática só estará disponível se o computador dedicado for uma nova VM que você está criando no Azure. 
-
 
 ![CEF no Azure](./media/connect-cef/cef-syslog-azure.png)
 

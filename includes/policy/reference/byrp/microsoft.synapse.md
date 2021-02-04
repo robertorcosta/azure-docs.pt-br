@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 1c6e767a1c6be08060865c43614c90aa7469d1b2
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4991bb889d4b9a099662b8d46c6d5cd5a89c1c63
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092410"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555786"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -19,4 +19,4 @@ ms.locfileid: "99092410"
 |[A rede virtual do workspace gerenciado nos workspaces do Azure Synapse deve ser habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |A habilitação de uma rede virtual de workspace gerenciado garante que o seu workspace seja isolado da rede de outros workspaces. A integração de dados e os recursos do Spark implantados nessa rede virtual também fornecem isolamento no nível do usuário para atividades do Spark. |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
 |[As conexões de ponto de extremidade privado nos workspaces do Azure Synapse devem ser habilitadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Os pontos de extremidade privados podem ser configurados para se conectarem de modo privado a um workspace do Azure Synapse. Isso é usado para impor um canal de comunicação seguro ao workspace do Azure Synapse. |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |[Os pontos de extremidade privados gerenciados pelo Azure Synapse só devem se conectar aos recursos em locatários aprovados do Azure Active Directory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Proteja seu workspace do Azure Synapse permitindo apenas conexões com recursos em locatários aprovados do Azure AD (Active Directory). Os locatários aprovados do Azure AD podem ser definidos durante a atribuição de política. |Auditoria, desabilitado, negação |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |
-|[A avaliação de vulnerabilidade deve ser habilitada em seus espaços de trabalho do Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |Descubra, acompanhe e corrija possíveis vulnerabilidades Configurando verificações de avaliação de vulnerabilidades do SQL recorrentes em seus espaços de trabalho do Synapse. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |
+|[A avaliação de vulnerabilidade deve ser habilitada em seus workspaces do Azure Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |Descubra, acompanhe e corrija potenciais vulnerabilidades configurando verificações de avaliação de vulnerabilidades SQL recorrentes em seus workspaces do Azure Synapse. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |

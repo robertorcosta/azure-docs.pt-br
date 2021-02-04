@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757620"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556433"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizar grupos de gerenciamento, assinaturas e visibilidade em todo o locatário
 
@@ -81,12 +81,14 @@ Você consegue adicionar assinaturas a um grupo de gerenciamento que você criou
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Conceder permissões em todo o locatário para você mesmo
 
-Um usuário com a função **Administrador global** no Azure Active Directory pode ter responsabilidades em todo o locatário, mas não ter as permissões do Azure para ver essas informações de toda a organização na Central de Segurança do Azure. 
+Um usuário com a função de Azure Active Directory (AD) do **administrador global** pode ter responsabilidades em todo o locatário, mas não tem as permissões do Azure para exibir as informações de toda a organização na central de segurança do Azure. A elevação de permissões é necessária porque as atribuições de função do Azure AD não concedem acesso aos recursos do Azure. 
 
 > [!TIP]
-> Se sua organização gerencia o acesso a recursos com [Azure ad Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)ou qualquer outra ferramenta PIM, a função de administrador global deve estar ativa para que o usuário faça essas alterações.
+> Saiba mais sobre a elevação de permissões para a função de administrador global em [elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 Para atribuir permissões em nível de locatário:
+
+1. Se sua organização gerencia o acesso a recursos com [Azure ad Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)ou qualquer outra ferramenta PIM, a função de administrador global deve estar ativa para o usuário seguindo o procedimento abaixo.
 
 1. Como um usuário administrador global sem uma atribuição no grupo de gerenciamento raiz do locatário, abra a página **visão geral** da central de segurança e selecione o link **visibilidade em todo o locatário** na faixa. 
 
@@ -123,7 +125,7 @@ Para solicitar permissões elevadas de seu administrador global:
 
 1. Se você vir a faixa "você está vendo informações limitadas". Selecione-o.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Faixa informando um usuário ele pode solicitar permissões em todo o locatário.":::
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Faixa informando a um usuário que ele pode solicitar permissões em todo o locatário.":::
 
 1. No formulário de solicitação detalhado, selecione a função desejada e a justificativa de por que você precisa dessas permissões.
 
