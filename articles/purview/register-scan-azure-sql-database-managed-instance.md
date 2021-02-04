@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 2391a36c02e0bdfe0ea98be7f19fc64f1fbb676f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879925"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491716"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registrar e examinar uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -104,20 +104,6 @@ A entidade de serviço ou a identidade gerenciada precisa ter permissão para ob
 1. Selecione **Criar** para terminar
 1. Se o cofre de chaves ainda não estiver conectado ao Purview, [crie uma conexão do cofre de chaves](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Por fim, [crie uma credencial](manage-credentials.md#create-a-new-credential) usando a entidade de serviço para configurar a verificação
-
-### <a name="firewall-settings"></a>Configurações de firewall
-
-O servidor de banco de dados precisará permitir que as conexões do Azure sejam habilitadas. Isso permitirá que o Azure acesse o servidor e se conecte a ele. Siga o guia de instruções de [Conexões dentro do Azure](../azure-sql/database/firewall-configure.md#connections-from-inside-azure).
-
-1. Acesse a sua conta de banco de dados
-1. Selecione o nome do servidor na página **Visão geral**
-1. Escolha **Segurança > Firewalls e redes virtuais**
-1. Escolha **Sim** na opção **Permitir que serviços e recursos do Azure acessem este servidor**
-
-    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="opções de registro de fontes" border="true":::
-    
-> [!Note]
-> Atualmente, o Azure Purview não dá suporte à configuração da VNET. Portanto, não é possível fazer configurações de firewall baseadas em IP.
 
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Registrar uma fonte de dados da Instância Gerenciada do Banco de Dados SQL do Azure
 

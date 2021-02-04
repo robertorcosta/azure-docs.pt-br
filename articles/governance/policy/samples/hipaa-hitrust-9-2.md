@@ -1,15 +1,15 @@
 ---
 title: Detalhes da Conformidade Regulatória para o HIPAA HITRUST 9.2
 description: Detalhes da iniciativa interna de Conformidade Regulatória do HIPAA HITRUST 9.2. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: bbec4e1ea72f458557281f76b5ca5178bce2c316
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 4ee5f87b5bf8d2476685eb469df05bb2267bcf2f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805594"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095750"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa interna de Conformidade Regulatória do HIPAA HITRUST 9.2
 
@@ -1438,7 +1438,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Uma solução de avaliação de vulnerabilidade deve ser habilitada nas máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Audita as máquinas virtuais para detectar se elas estão executando uma solução de avaliação de vulnerabilidade compatível. Um componente principal de cada programa de segurança e risco cibernético é a identificação e a análise das vulnerabilidades. O tipo de preço padrão da Central de Segurança do Azure inclui a verificação de vulnerabilidade para as máquinas virtuais sem custo adicional. Além disso, a Central de Segurança pode implantar essa ferramenta automaticamente para você. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
+|[Uma solução de avaliação de vulnerabilidade deve ser habilitada nas máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Audita as máquinas virtuais para detectar se elas estão executando uma solução de avaliação de vulnerabilidade compatível. Um componente principal de cada programa de segurança e risco cibernético é a identificação e a análise das vulnerabilidades. O tipo de preço padrão da Central de Segurança do Azure inclui a verificação de vulnerabilidade para as máquinas virtuais sem custo adicional. Além disso, a Central de Segurança pode implantar essa ferramenta automaticamente para você. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 |[As vulnerabilidades nas configurações de segurança do contêiner devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Audite vulnerabilidades na configuração de segurança em computadores com o Docker instalado e exiba como recomendações na Central de Segurança do Azure. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |Os servidores que não atenderem à linha de base configurada serão monitorados pela Central de Segurança do Azure como recomendações |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[As vulnerabilidades da configuração de segurança nos conjuntos de dimensionamento de máquinas virtuais devem ser corrigidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Faça a auditoria das vulnerabilidades do SO nos seus conjuntos de dimensionamento de máquinas virtuais para protegê-los contra ataques. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
@@ -1461,7 +1461,7 @@ Essa iniciativa interna é implantada como parte do [exemplo de blueprint do HIP
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Uma solução de avaliação de vulnerabilidade deve ser habilitada nas máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Audita as máquinas virtuais para detectar se elas estão executando uma solução de avaliação de vulnerabilidade compatível. Um componente principal de cada programa de segurança e risco cibernético é a identificação e a análise das vulnerabilidades. O tipo de preço padrão da Central de Segurança do Azure inclui a verificação de vulnerabilidade para as máquinas virtuais sem custo adicional. Além disso, a Central de Segurança pode implantar essa ferramenta automaticamente para você. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
+|[Uma solução de avaliação de vulnerabilidade deve ser habilitada nas máquinas virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Audita as máquinas virtuais para detectar se elas estão executando uma solução de avaliação de vulnerabilidade compatível. Um componente principal de cada programa de segurança e risco cibernético é a identificação e a análise das vulnerabilidades. O tipo de preço padrão da Central de Segurança do Azure inclui a verificação de vulnerabilidade para as máquinas virtuais sem custo adicional. Além disso, a Central de Segurança pode implantar essa ferramenta automaticamente para você. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 
 ### <a name="patches-are-tested-and-evaluated-before-they-are-installed"></a>Os patches são testados e avaliados antes de serem instalados.
 
