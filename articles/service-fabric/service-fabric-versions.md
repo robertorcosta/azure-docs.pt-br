@@ -3,12 +3,12 @@ title: Atualizar sua versão do cluster de Service Fabric do Azure
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: a99b38a33a5bb83345898769b466ce0cab0a4d4d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 5abfe83fcb68fcab7df22f1fd266cc695f2b9c80
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918102"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549061"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Atualizar sua versão do cluster de Service Fabric do Azure
 
@@ -40,9 +40,9 @@ Os clusters Service Fabric do Azure que são executados em versões do 5,7 para 
 Atualize para uma versão Service Fabric com suporte para evitar tempo de inatividade ou perda de funcionalidade relacionada a essa alteração. Verifique se os clusters estão executando pelo menos as seguintes versões para evitar problemas em seu ambiente.
 
 > [!Note]
-> Todas as versões lançadas do 7,2 incluem as alterações necessárias.
+> **Todas as versões lançadas do 7,2 incluem as alterações necessárias**.
   
-  | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch |
+  | SO | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch |
   | --- | --- |--- |
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
@@ -75,9 +75,15 @@ Para evitar o tempo de inatividade ou a perda de funcionalidade, verifique se os
 As versões do Service Fabric na tabela contêm as alterações necessárias para evitar a perda de funcionalidade. Verifique se você está usando uma dessas versões.  
 
 > [!Note]
-> Todas as versões de lançamento do 7,2 incluem as alterações necessárias.
+> **Os clusters do Azure Service Fabric em execução na versão 6,5, precisam executar várias atualizações ao mesmo tempo antes de infrastucuture alterar para evitar a perda de funcionalidade no cluster**. 
+>   -   1. Atualize para o 7.0.466. **Os clusters que executam o sistema operacional Windows que tem o recurso de contêineres do Windows habilitado não podem estar nessa versão intermediária. Eles precisam executar a próxima etapa (II) abaixo. ou seja,  Atualize para estar em versão mais segura e em conformidade para evitar interrupções de serviço**
+>   -   2. Atualize para as últimas versões de reclamação na versão 7,0 * (7.0.478) ou em qualquer uma das versões mais recentes listadas abaixo.
 
-  | Sistema operacional | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch |
+
+> [!Note]
+> **Todas as versões de lançamento do 7,2 incluem as alterações necessárias**.
+
+ | SO | Tempo de execução de Service Fabric atual no cluster | CU/versão do patch |
   | --- | --- |--- |
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |

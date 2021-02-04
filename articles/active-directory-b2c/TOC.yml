@@ -432,6 +432,9 @@
     - name: Proteger uma API do Gerenciamento de API
       href: secure-api-management.md
       displayName: 'apim, api management, migrate, b2clogin.com'
+    - name: MFA baseada em telefone seguro
+      href: phone-based-mfa.md
+      displayName: 'multi-factor authentication, Azure Monitor, Log Analytics'
     - name: Logs e monitoramento
       items:
         - name: Logs de auditoria

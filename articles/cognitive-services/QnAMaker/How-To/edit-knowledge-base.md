@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f5d7094920a21af630e10aec2aa759ce9c505050
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351700"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550577"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Editar pares de QnA na sua base de dados de conhecimento
 
@@ -19,6 +19,23 @@ O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhe
 Os pares de QnA são adicionados de uma fonte de arquivos, como um arquivo ou uma URL, ou adicionados como uma fonte editorial. Uma fonte editorial indica que o par QnA foi adicionado manualmente no portal do QnA. Todos os pares de QnA estão disponíveis para edição.
 
 <a name="add-an-editorial-qna-set"></a>
+
+## <a name="question-and-answer-pairs"></a>Pares de pergunta e resposta
+
+Uma base de dados de conhecimento consiste em pares de perguntas e respostas (QnA).  Cada par tem uma resposta e um par contém todas as informações associadas a essa _resposta_. Uma resposta pode se assemelhar livremente a uma linha de banco de dados ou a uma instância de estrutura de dado. As configurações **necessárias** em um par de QnA (perguntas e respostas) são:
+
+* um texto de **pergunta** da consulta do usuário, usado para o aprendizado de máquina de QnA Maker, para se alinhar com o texto da pergunta do usuário com palavras diferentes, mas a mesma resposta
+* a **resposta-a resposta do** par é a resposta retornada quando uma consulta de usuário é correspondida com a pergunta associada
+
+Cada par é representado por uma **ID**.
+
+As configurações **opcionais** para um par incluem:
+
+* **Formas alternativas da pergunta** – isso ajuda a QnA Maker retornar a resposta correta para uma variedade maior de frases de pergunta
+* **Metadados**: os metadados são marcas associadas a um par de QnA e são representados como pares de chave-valor. As marcas de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência da consulta será executada.
+* **Prompts de múltipla ativação**, usados para continuar uma conversa com vários folheios
+
+![Bases de conhecimento do QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
 ## <a name="add-an-editorial-qna-pair"></a>Adicionar um par editorial QnA
 
@@ -60,7 +77,7 @@ A edição de texto completo do seu texto de resposta oferece uma redução do e
     |--|--|
     |Alterne entre o editor de Rich-Text e a redução. `</>`|CTRL+M|
     |Aplique. **B**|CTR + LB|
-    |Itálico, indicado com um I em itálico **_I_**|Ctrl+I|
+    |Itálico, indicado com um I em itálico ****|Ctrl+I|
     |Lista não ordenada||
     |Lista ordenada||
     |Estilo de parágrafo||
@@ -129,6 +146,14 @@ Selecione periodicamente **salvar e treinar** depois de fazer edições para evi
 A edição de respostas em [Rich Text](#add-an-editorial-qna-set) permite que você, como autor, use uma barra de ferramentas de formatação para selecionar e formatar rapidamente o texto.
 
 A [redução](../reference-markdown-format.md) é uma ferramenta melhor quando você precisa gerar o conteúdo automaticamente para criar bases de dados de conhecimento a serem importadas como parte de um pipeline de CI/CD ou para [testes em lotes](../index.yml).
+
+## <a name="editing-your-knowledge-base-locally"></a>Como editar sua base de dados de conhecimento localmente
+
+Após criar uma base de conhecimento, é recomendável que você faça as edições no texto da base de conhecimento no [portal QnA Maker](https://qnamaker.ai), em vez de exportar e reimportar por meio de arquivos locais. No entanto, pode haver ocasiões em que você precisa editar uma base de conhecimento localmente.
+
+Exporte a base de conhecimento na página **Configurações** e, em seguida, edite-a com o Microsoft Excel. Se você optar por usar outro aplicativo para editar o arquivo exportado, o aplicativo poderá introduzir erros de sintaxe porque não é compatível totalmente com TSV. Em geral, os arquivos TSV do Microsoft Excel não introduzem nenhum erro de formatação.
+
+Depois de concluir as edições, reimporte o arquivo TSV na página **Configurações**. Isso substitui totalmente a base de conhecimento atual pela base de conhecimento importada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

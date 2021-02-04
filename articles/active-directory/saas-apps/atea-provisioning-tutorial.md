@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
 ms.author: Zhchia
-ms.openlocfilehash: 51410bd86fa9679aea76f6d5c48f267ddec79026
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 67b114ac355b293db61d00b89816ab73aaa2e5b2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430689"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550261"
 ---
 # <a name="tutorial-configure-atea-for-automatic-user-provisioning"></a>Tutorial: configurar o Atea para o provisionamento automático de usuário
 
@@ -48,7 +48,7 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-2-configure-atea-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar o Atea para dar suporte ao provisionamento com o Azure AD
 
-Para configurar a intranet da íris para dar suporte ao provisionamento com o Azure AD, é necessário obter a **URL do locatário** e o **token secreto** descartando um email para a [equipe de suporte do Atea](mailto:servicedesk@atea.dk). Esses valores serão inseridos no campo **URL do locatário** e **token secreto** na guia provisionamento do aplicativo do Atea no portal do Azure.
+Para configurar o Atea para dar suporte ao provisionamento com o Azure AD, escreva um email para a equipe de suporte do Atea <SSO.Support@atea.com>
 
 ## <a name="step-3-add-atea-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o Atea da Galeria de aplicativos do Azure AD
 

@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 637f09c5ee52928631b965dfa6caea9368b44991
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936831"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550752"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -88,6 +88,10 @@ Consulte o guia do desenvolvedor para sua linguagem para saber mais sobre como g
 + [JavaScript](functions-reference-node.md#write-trace-output-to-logs) 
 + [PowerShell](functions-reference-powershell.md#logging)
 + [Python](functions-reference-python.md#logging)
+
+## <a name="analyze-data"></a>Analisar dados
+
+Por padrão, os dados coletados do seu aplicativo de funções são armazenados em Application Insights. Na [portal do Azure](https://portal.azure.com), Application insights fornece um amplo conjunto de visualizações de seus dados de telemetria. Você pode analisar logs de erros e consultar métricas e eventos. Para saber mais, incluindo exemplos básicos de como exibir e consultar os dados coletados, consulte [analisar Azure Functions telemetria no Application insights](analyze-telemetry-data.md). 
 
 ## <a name="streaming-logs"></a>Logs de streaming
 

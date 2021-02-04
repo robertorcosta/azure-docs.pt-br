@@ -3,14 +3,14 @@ title: Gerenciar módulos na Automação do Azure
 description: Este artigo informa como usar módulos do PowerShell para habilitar cmdlets em runbooks e recursos DSC em configurações DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a784127cfd6019629f1c2714d0f36850406c3b9d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936628"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548757"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerenciar módulos na Automação do Azure
 
@@ -40,7 +40,11 @@ Essas são limitações conhecidas da área restrita. A solução alternativa re
 
 ## <a name="default-modules"></a>Módulos padrão
 
-A tabela a seguir lista os módulos que a Automação do Azure importa por padrão quando você cria sua conta de Automação. A Automação pode importar versões mais recentes desses módulos. No entanto, não é possível remover a versão original da sua conta de Automação, mesmo que você exclua uma versão mais recente. Observe que esses módulos padrão incluem vários módulos AzureRM. 
+A tabela a seguir lista os módulos que a Automação do Azure importa por padrão quando você cria sua conta de Automação. A Automação pode importar versões mais recentes desses módulos. No entanto, não é possível remover a versão original da sua conta de Automação, mesmo que você exclua uma versão mais recente. Observe que esses módulos padrão incluem vários módulos AzureRM.
+
+Os módulos padrão também são conhecidos como módulos globais. No portal do Azure, a propriedade do **módulo global** será **true** ao exibir um módulo que foi importado quando a conta foi criada.
+
+![Captura de tela da Propriedade do módulo global no portal do Azure](../media/modules/automation-global-modules.png)
 
 A Automação não importa o módulo Az raiz automaticamente para nenhuma conta de automação nova ou existente. Para saber mais sobre como trabalhar com esses módulos, confira [Migrar para módulos Az](#migrate-to-az-modules).
 

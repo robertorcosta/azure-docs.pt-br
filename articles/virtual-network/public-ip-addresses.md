@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 702ca4f4c3fc92eca70479ba02b1ddc8f6858857
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223220"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549653"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -54,7 +54,7 @@ Endereços IP públicos de SKU padrão:
 - Ter um fluxo originado de entrada ajustável tempo limite de ociosidade de fluxo originado de entrada ajustável de 4 a 30 minutos, com um padrão de 4 minutos, e um tempo limite de ociosidade de fluxo originado de saída fixo de 4 minutos.
 - Seguro por padrão e fechado para tráfego de entrada. Permitir listar o tráfego de entrada com um [grupo de segurança de rede](./network-security-groups-overview.md#network-security-groups).
 - Atribuído a interfaces de rede, balanceadores de carga públicos padrão ou gateways de aplicativo. Para obter mais informações sobre o balanceador de carga padrão, consulte [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Pode ser com redundância de zona (desdivulgada de todas as 3 zonas) ou zonal (pode ser criado zonal e garantido em uma zona de disponibilidade específica). Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **IPs com redundância de zona só podem ser criados em [regiões em que três zonas de disponibilidade](../availability-zones/az-region.md) estão ativas.** Os IPs criados antes de as zonas serem ativas não terão redundância de zona.
+- Pode ser com redundância de zona (desdivulgada de todas as 3 zonas), zonal (garantida em uma zona de disponibilidade pré-selecionada específica) ou sem zona (não associada a uma zona de disponibilidade pré-selecionada específica). Para saber mais sobre as zonas de disponibilidade, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de carga Standard e zonas de disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **IPs com redundância de zona só podem ser criados em [regiões em que três zonas de disponibilidade](../availability-zones/az-region.md) estão ativas.** Os IPs criados antes de as zonas serem ativas não terão redundância de zona.
 - Pode ser usado como IPs de front-end anycast para [balanceadores de carga entre regiões](../load-balancer/cross-region-overview.md) (funcionalidade de visualização).
  
 > [!NOTE]
@@ -75,7 +75,7 @@ Endereços básicos do SKU:
 - Ter um fluxo originado de entrada ajustável tempo limite de ociosidade de fluxo originado de entrada ajustável de 4 a 30 minutos, com um padrão de 4 minutos, e um tempo limite de ociosidade de fluxo originado de saída fixo de 4 minutos.
 - Estão abertos por padrão.  Os grupos de segurança de rede são recomendados, mas opcionais, para restringir o tráfego de entrada ou saída.
 - Atribuído a qualquer recurso do Azure que pode ser atribuído a um endereço IP público, como:
-    * Interfaces de rede
+    * Adaptadores de rede
     * Gateways VPN
     * Gateways do Aplicativo
     * Balanceadores de carga públicos

@@ -1,6 +1,6 @@
 ---
-title: Enviar eventos para um ponto de extremidade da Web usando a configuração Azure App
-description: Aprenda a usar as assinaturas de evento de configuração Azure App para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web
+title: Usar a grade de eventos para notificações de alteração de dados de configuração de aplicativo
+description: Saiba como usar Azure App assinaturas de evento de configuração para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.assetid: ''
@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4e005d2f929fd615080d22e93a102a7cc5c1174a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: c188a4b7fe8e9223faa1cdeb52ae01ed83b94d84
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696109"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549772"
 ---
-# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Rotear eventos da Configuração de Aplicativos do Azure para um ponto de extremidade da Web com a CLI do Azure
+# <a name="use-event-grid-for-app-configuration-data-change-notifications"></a>Usar a grade de eventos para notificações de alteração de dados de configuração de aplicativo
 
 Neste artigo, você aprende a configurar Azure App assinaturas de evento de configuração para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web. Azure App configuração os usuários podem assinar eventos emitidos sempre que os valores de chave são modificados. Esses eventos podem disparar ganchos da Web, Azure Functions, filas do armazenamento do Azure ou qualquer outro manipulador de eventos que tenha suporte da grade de eventos do Azure. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 

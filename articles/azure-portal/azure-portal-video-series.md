@@ -4,12 +4,12 @@ description: Encontre demonstrações em vídeo sobre como trabalhar com os serv
 keywords: ''
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 131ec94e321388a3578cd2fd59fdb2fd75339c5e
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852601"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550434"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Série de vídeos explicativos sobre o portal do Azure
 
@@ -17,17 +17,17 @@ A série de vídeos de instruções portal do Azure demonstra como trabalhar com
 
 ## <a name="featured-video"></a>Vídeo em destaque
 
-Neste vídeo em destaque, mostramos como começar no Azure usando o centro de início rápido do Azure.
+Neste vídeo em destaque, mostramos como usar as exibições de gerenciamento de custos do Azure.
 
-> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
+> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
 
-[Como começar a usar o Azure usando o centro de início rápido do Azure](https://www.youtube.com/watch?v=mb5k9nXMtBM)
+[Como usar as exibições de gerenciamento de custos do Azure](https://www.youtube.com/watch?v=VRJA5bn2VH0)
 
 Atualize-se com estes vídeos recentes que você pode ter perdido:
 
-| [Como gerenciar aplicativos no serviço kubernetes do Azure](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [Como criar pastas de trabalho do Azure usando logs e parâmetros](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [Como adicionar e proteger um domínio personalizado em seu aplicativo Web do serviço de aplicativo](https://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [Como usar o pills para filtrar na portal do Azure](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [Como obter uma exibição de visualização de seus recursos](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [Como fixar conteúdo ao seu painel de portal do Azure](https://www.youtube.com/watch?v=eyOJkhYItSg) |
 | ------| ------ | ------ |
-| [![Imagem do vídeo do YouTube sobre como gerenciar aplicativos no serviço kubernetes do Azure](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![Imagem do vídeo do YouTube sobre como criar pastas de trabalho do Azure usando logs e parâmetros](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![Imagem do vídeo do YouTube sobre como adicionar e proteger um domínio personalizado em seu aplicativo Web do serviço de aplicativo](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [![Imagem do vídeo do YouTube sobre como usar o pills para filtrar na portal do Azure](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Imagem do vídeo do YouTube sobre como obter uma exibição de visualização de seus recursos](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Imagem do vídeo do YouTube sobre como fixar conteúdo no seu painel do portal do Azure](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
 
 ## <a name="video-playlist"></a>Playlist de vídeo
 

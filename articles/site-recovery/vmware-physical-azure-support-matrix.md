@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 48eba42548287b54d99d1a2188786437f4b05a2b
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 0b829955d931bd26b7d38c8cb282f55a6043562e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475464"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550837"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -141,19 +141,19 @@ Debian 9,1 | [9,37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-AMD64
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.38-Azure|
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,39](https://support.microsoft.com/help/4597409/) | Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.34-Azure |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,38](https://support.microsoft.com/help/4590304/) | Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.28-Azure |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/),  | Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.22-Azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | Há suporte para todos os [estoques SuSE 12 SP1, SP2, SP3, SP4 e SP5](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.38-Azure|
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,39](https://support.microsoft.com/help/4597409/) | Há suporte para todos os [estoques SuSE 12 SP1, SP2, SP3, SP4 e SP5](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.34-Azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,38](https://support.microsoft.com/help/4590304/) | Há suporte para todos os [estoques SuSE 12 SP1, SP2, SP3, SP4 e SP5](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.28-Azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/),  | Há suporte para todos os [estoques SuSE 12 SP1, SP2, SP3, SP4 e SP5](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-Azure para 4.12.14-6.43-Azure </br> 4.12.14-16,7-Azure para 4.12.14-16.22-Azure  |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE Linux Enterprise Server 15 versões de kernel com suporte
 
 **Versão** | **Versão de serviço de mobilidade** | **Versão do kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9,40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | Por padrão, todos os [kernels 15 e SUSE 15 padrão](https://www.suse.com/support/kb/doc/?id=000019587) são compatíveis.</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.55-Azure </br> 5.3.18-16-Azure </br> 5.3.18-18.5-Azure para 5.3.18-18.29-Azure
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9,39](https://support.microsoft.com/help/4597409/)  | Por padrão, todos os [kernels 15 e SUSE 15 padrão](https://www.suse.com/support/kb/doc/?id=000019587) são compatíveis.</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.47-Azure </br> 5.3.18-16-Azure </br> 5.3.18-18.5-Azure para 5.3.18-18.21-Azure
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9,38](https://support.microsoft.com/help/4590304/)  | Por padrão, todos os [kernels 15 e SUSE 15 padrão](https://www.suse.com/support/kb/doc/?id=000019587) são compatíveis.</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.44-Azure </br> 5.3.18-16-Azure </br> 5.3.18-18.5-Azure para 5.3.18-18.18-Azure
-SUSE Linux Enterprise Server 15 e 15 SP1 | [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/)  | Por padrão, todos os [kernels 15 e SUSE 15 padrão](https://www.suse.com/support/kb/doc/?id=000019587) são compatíveis.</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.38-Azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9,40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | Por padrão, há suporte para todos os [kernels SuSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.55-Azure </br> 5.3.18-16-Azure </br> 5.3.18-18.5-Azure para 5.3.18-18.29-Azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9,39](https://support.microsoft.com/help/4597409/)  | Por padrão, há suporte para todos os [kernels SuSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.47-Azure </br> 5.3.18-16-Azure </br> 5.3.18-18.5-Azure para 5.3.18-18.21-Azure
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9,38](https://support.microsoft.com/help/4590304/)  | Por padrão, há suporte para todos os [kernels SuSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.44-Azure </br> 5.3.18-16-Azure </br> 5.3.18-18.5-Azure para 5.3.18-18.18-Azure
+SUSE Linux Enterprise Server 15 e 15 SP1 | [9,36](https://support.microsoft.com/help/4578241/), [9,37](https://support.microsoft.com/help/4582666/)  | Por padrão, há suporte para todos os [kernels SuSE 15, SP1, SP2](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5.5-Azure para 4.12.14-5.47-Azure </br></br> 4.12.14-8.5-Azure para 4.12.14-8.38-Azure
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de arquivos Linux/armazenamento convidado
 
@@ -231,7 +231,7 @@ NFS do convidado/servidor | Não
 ISCSI de convidado/servidor | Para migração-Sim<br/>Para recuperação de desastre-não, o iSCSI fará o failback como um disco anexado à VM
 SMB 3.0 do convidado/servidor | Não
 RDM do convidado/servidor | Sim<br/><br/> N/D para servidores físicos
-Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 32 TB ao replicar para discos gerenciados (versão 9,40 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
+Disco do convidado/servidor > 1 TB | Sim, o disco deve ter mais de 1024 MB<br/><br/>Até 8.192 GB ao replicar para discos gerenciados (versão 9,26 em diante)<br></br> Até 4.095 GB ao replicar para contas de armazenamento
 Disco do convidado/servidor com tamanho de setor lógico e físico de 4.000 cada | Não
 Disco de convidado/servidor com tamanho de setor físico de 512 bytes e lógicos de 4K | Não
 Volume do convidado/servidor com discos distribuídos >4 TB | Sim
@@ -292,7 +292,7 @@ Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha 
 Tamanho do disco do sistema operacional | Até 2.048 GB. | A verificação falha se não tiver suporte.
 Contagem do disco do sistema operacional | 1 </br> Não há suporte para a partição de inicialização e de sistema em discos diferentes | A verificação falha se não tiver suporte.
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
-Tamanho do disco de dados | Até 32 TB ao replicar para o disco gerenciado (versão 9,40 em diante)<br></br>Até 4.095 GB ao replicar para a conta de armazenamento| A verificação falha se não tiver suporte.
+Tamanho do disco de dados | Até 8.192 GB ao replicar para o disco gerenciado (versão 9,26 em diante)<br></br>Até 4.095 GB ao replicar para a conta de armazenamento| A verificação falha se não tiver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
 VHD compartilhado | Não há suporte. | A verificação falha se não tiver suporte.
 Disco FC | Não há suporte. | A verificação falha se não tiver suporte.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 7772d57937393da1c48fa2658818d8a1a2b28a1f
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695663"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550777"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
 
@@ -42,7 +42,6 @@ Por fim, a experiência é incrivelmente simples.
 Há vários pré-requisitos a serem considerados antes de tentar habilitar o autogerenciamento do Azure em suas máquinas virtuais.
 
 - Somente VMs do Windows Server
-- As VMs devem estar em execução
 - As VMs devem estar em uma região com suporte (consulte o parágrafo abaixo)
 - O usuário deve ter as permissões corretas (consulte o parágrafo abaixo)
 - O autogerenci não dá suporte a assinaturas de área restrita no momento

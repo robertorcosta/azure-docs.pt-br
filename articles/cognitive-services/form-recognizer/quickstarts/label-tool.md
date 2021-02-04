@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845536"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221084"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -202,7 +202,7 @@ Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de text
    1. Clique em **+** para criar uma marca.
    1. Insira o nome da marca.
    1. Pressione Enter para salvar a marca.
-1. No editor principal, clique para selecionar as palavras dos elementos de texto realçados. Na _v2.1 preview.2_, você também pode clicar para selecionar _Marcas de Seleção_ como botões de opção e caixas de seleção como pares chave-valor. O Reconhecimento de Formulários identificará se a marca de seleção está "selecionada" ou "desmarcada" como o valor.
+1. No editor principal, clique para selecionar as palavras dos elementos de texto realçados. Na API _v2.1 versão prévia 2_, você também pode clicar para selecionar _Marcas de Seleção_ como botões de opção e caixas de seleção como pares chave-valor. O Reconhecimento de Formulários identificará se a marca de seleção está "selecionada" ou "desmarcada" como o valor.
 1. Clique na marca que você deseja aplicar ou pressione a tecla correspondente no teclado. As chaves de número são atribuídas como teclas de atalho para as 10 primeiras marcas. Você pode reordenar suas marcas usando os ícones de seta para cima e para baixo no painel do editor de marcas.
     > [!Tip]
     > Lembre-se das dicas a seguir quando estiver rotulando seus formulários.

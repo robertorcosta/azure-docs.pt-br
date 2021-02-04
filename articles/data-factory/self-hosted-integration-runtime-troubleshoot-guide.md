@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942050"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551069"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -244,7 +244,7 @@ Instale os drivers para os armazenamentos de origem e de destino no IR de destin
  
 Se o tráfego não puder passar pela rede entre dois repositórios de armazenamento (por exemplo, eles estiverem configurados em duas redes virtuais), talvez você não conclua a cópia em uma atividade mesmo com o IR instalado. Se não for possível concluir a cópia em uma única atividade, você poderá criar duas atividades de cópia com duas IRs, cada uma em uma ventilação: 
 * Copiar um IR do repositório de armazenamento 1 para o armazenamento de BLOBs do Azure
-* Copie outro IR do armazenamento de BLOBs do Azure para o ddatastore 2. 
+* Copie outro IR do armazenamento de BLOBs do Azure para o repositório de armazenamento 2. 
 
 Essa solução pode simular a necessidade de usar o IR para criar uma ponte que conecta dois repositórios de armazenamento desconectados.
 
@@ -710,7 +710,7 @@ Essa notificação se aplica aos seguintes cenários:
 
 Como determinar se você é afetado:
 
-- Você *não* será afetado se estiver definindo regras de firewall com base em FQDNs (nomes de domínio totalmente qualificados) que usam a abordagem descrita em [definir uma configuração de firewall e uma lista de permissões para endereços IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- Você *não* será afetado se estiver definindo regras de firewall com base em FQDNs (nomes de domínio totalmente qualificados) que usam a abordagem descrita em [definir uma configuração de firewall e uma lista de permissões para endereços IP](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
 - Você *será* afetado se estiver habilitando explicitamente a lista de permissões para IPS de saída em seu firewall corporativo.
 

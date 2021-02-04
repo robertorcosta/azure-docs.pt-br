@@ -1,14 +1,14 @@
 ---
 title: Práticas recomendadas
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
-ms.date: 12/18/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732404"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550854"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -169,6 +169,8 @@ Se você notar um problema envolvendo o comportamento de um nó ou de tarefas em
 
 Para contas do lote no modo de assinatura do usuário, as atualizações automatizadas do sistema operacional podem interromper o andamento da tarefa, especialmente se as tarefas forem de execução longa. A [criação de tarefas idempotentes](#build-durable-tasks) pode ajudar a reduzir erros causados por essas interrupções. Também recomendamos o [agendamento de atualizações de imagem do sistema operacional para horários em que não se espera que as tarefas sejam executadas](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
+Para pools do Windows, `enableAutomaticUpdates` é definido como `true` por padrão. É recomendável permitir atualizações automáticas, mas você pode definir esse valor como `false` se precisar garantir que uma atualização do sistema operacional não aconteça inesperadamente.
+
 ## <a name="isolation-security"></a>Segurança de isolamento
 
 Para fins de isolamento, se seu cenário exigir o isolamento de trabalhos uns dos outros, faça isso colocando-os em pools separados. Um pool é o limite de isolamento de segurança no Lote e, por padrão, dois pools não são visíveis ou capazes de se comunicar entre si. Evite usar contas do Lote separadas como meio de isolamento.
@@ -189,8 +191,7 @@ Examine as diretrizes a seguir relacionadas à conectividade em suas soluções 
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>NSGs (grupos de segurança de rede) e UDRs (rotas definidas pelo usuário)
 
-Ao provisionar [pools do Lote em uma rede virtual](batch-virtual-network.md), verifique se você está seguindo as diretrizes em relação ao uso da marca de serviço `BatchNodeManagement`, das portas, do protocolos e da direção da regra.
-O uso da marca de serviço é altamente recomendado, em vez de usar os endereços IP subjacentes do serviço do Lote. Isso ocorre porque os endereços IP podem mudar ao longo do tempo. Usar endereços IP do serviço do Lote diretamente pode causar instabilidade ou interrupções nos pools do Lote.
+Ao provisionar [pools do Lote em uma rede virtual](batch-virtual-network.md), verifique se você está seguindo as diretrizes em relação ao uso da marca de serviço `BatchNodeManagement`, das portas, do protocolos e da direção da regra. O uso da marca de serviço é altamente recomendado, em vez de usar os endereços IP subjacentes do serviço do Lote. Isso ocorre porque os endereços IP podem mudar ao longo do tempo. Usar endereços IP do serviço do Lote diretamente pode causar instabilidade ou interrupções nos pools do Lote.
 
 Para UDRs (rotas definidas pelo usuário), verifique se você tem um processo em vigor para atualizar os endereços IP do serviço do Lote periodicamente em sua tabela de rotas, pois esses endereços mudam com o passar do tempo. Para saber como obter a lista de endereços IP do serviço do Lote, consulte [Marcas de serviços locais](../virtual-network/service-tags-overview.md). Os endereços IP do serviço do Lote serão associados à marca de serviço `BatchNodeManagement` (ou à variante regional que corresponde à região da sua conta do Lote).
 

@@ -3,14 +3,14 @@ title: Use o Azure Active Directory no Serviço de Kubernetes do Azure
 description: Saiba como usar o Azure Active Directory no Serviço de Kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 08/26/2020
-ms.author: thomasge
-ms.openlocfilehash: 534c355961bb87a816f5ba50a3cc2d397e544a15
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.date: 02/1/2021
+ms.author: miwithro
+ms.openlocfilehash: 7f6cf503a459175e3109a515b666bbeaa3a25b4d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072278"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549992"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração de Azure Active Directory gerenciados pelo AKS
 

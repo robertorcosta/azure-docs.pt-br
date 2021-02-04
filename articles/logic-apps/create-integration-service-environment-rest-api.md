@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/30/2020
-ms.openlocfilehash: ee6c116d02a7be1682d9e8379037ef1b8c92bce8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.date: 02/03/2021
+ms.openlocfilehash: d4500229800fa5d1743779b29927637777647e47
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967031"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550650"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Criar um ambiente do serviço de integração (ISE) usando a API REST de Aplicativos Lógicos
 
@@ -188,17 +188,28 @@ Este exemplo de corpo de solicitação mostra os valores de exemplo:
 
 ## <a name="add-custom-root-certificates"></a>Adicionar certificados raiz personalizados
 
-Você geralmente usa um ISE para se conectar a serviços personalizados em sua rede virtual ou local. Esses serviços personalizados geralmente são protegidos por um certificado emitido pela autoridade de certificação raiz Personalizada, como uma autoridade de certificação corporativa ou um certificado autoassinado. Para obter mais informações sobre o uso de certificados autoassinados, consulte [acesso seguro e acesso a dados para chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Para que o ISE se conecte com êxito a esses serviços por meio do protocolo TLS, o ISE precisa de acesso a esses certificados raiz. Para atualizar o ISE com um certificado raiz confiável personalizado, faça esta `PATCH` solicitação HTTPS:
+Você geralmente usa um ISE para se conectar a serviços personalizados em sua rede virtual ou local. Esses serviços personalizados geralmente são protegidos por um certificado emitido pela autoridade de certificação raiz Personalizada, como uma autoridade de certificação corporativa ou um certificado autoassinado. Para obter mais informações sobre o uso de certificados autoassinados, consulte [acesso seguro e acesso a dados para chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). Para que o ISE se conecte com êxito a esses serviços por meio do protocolo TLS, o ISE precisa de acesso a esses certificados raiz.
 
-`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+#### <a name="considerations-for-adding-custom-root-certificates"></a>Considerações para adicionar certificados raiz personalizados
 
-Antes de executar esta operação, examine estas considerações:
+Antes de atualizar o ISE com um certificado raiz confiável personalizado, examine estas considerações:
 
 * Certifique-se de carregar o certificado raiz *e* todos os certificados intermediários. O número máximo de certificados é 20.
 
 * O carregamento de certificados raiz é uma operação de substituição em que o upload mais recente substitui os carregamentos anteriores. Por exemplo, se você enviar uma solicitação que carregue um certificado e, em seguida, enviar outra solicitação para carregar outro certificado, o ISE usará apenas o segundo certificado. Se você precisar usar ambos os certificados, adicione-os juntos na mesma solicitação.  
 
 * O carregamento de certificados raiz é uma operação assíncrona que pode levar algum tempo. Para verificar o status ou o resultado, você pode enviar uma `GET` solicitação usando o mesmo URI. A mensagem de resposta tem um `provisioningState` campo que retorna o `InProgress` valor quando a operação de carregamento ainda está funcionando. Quando `provisioningState` o valor for `Succeeded` , a operação de carregamento será concluída.
+
+#### <a name="request-syntax"></a>Sintaxe da solicitação
+
+Para atualizar o ISE com um certificado raiz confiável personalizado, envie a seguinte solicitação de PATCH HTTPS para a [URL de Azure Resource Manager, que difere com base em seu ambiente do Azure](../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane), por exemplo:
+
+| Ambiente | URL de Azure Resource Manager |
+|-------------|----------------------------|
+| Global do Azure (multilocatário) | `PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Azure Government | `PATCH https://management.usgovcloudapi.net/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Microsoft Azure na China 21Vianet | `PATCH https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+|||
 
 #### <a name="request-body-syntax-for-adding-custom-root-certificates"></a>Sintaxe do corpo da solicitação para adicionar certificados raiz personalizados
 

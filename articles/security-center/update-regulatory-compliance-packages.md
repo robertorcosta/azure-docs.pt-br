@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5f70f74accba5df439351547fda7497656e2c06e
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 3fca96c6cf11e0b35cd830fe4c0d8ccac8e66bd2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986676"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548857"
 ---
-# <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Como personalizar o conjunto de padrões em seu painel de conformidade regulatória
+# <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões em seu painel de conformidade regulatória
 
 A Central de Segurança do Azure compara continuamente a configuração de seus recursos com os requisitos de padrões, regulamentos e parâmetros de comparação do setor. O **painel de conformidade regulatória** fornece informações sobre sua postura de conformidade com base em como você está atendendo aos requisitos de conformidade específicos.
 
@@ -123,5 +123,5 @@ Neste artigo, você aprendeu a **Adicionar padrões de conformidade** para monit
 Para obter material relacionado, consulte as seguintes páginas:
 
 - [Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Painel de conformidade regulatória da Central de Segurança](security-center-compliance-dashboard.md)
+- [Painel de conformidade regulatória da central de segurança](security-center-compliance-dashboard.md) -saiba como acompanhar e exportar seus dados de conformidade regulatória com a central de segurança e as ferramentas externas
 - [Trabalhar com políticas de segurança](tutorial-security-policy.md)

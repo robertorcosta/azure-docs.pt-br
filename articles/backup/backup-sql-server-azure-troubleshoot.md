@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429459"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549891"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -202,6 +202,13 @@ A operação está bloqueada, pois você atingiu o limite de número de operaç�
 |---|---|---|
 A operação está bloqueada porque o cofre atingiu seu limite máximo para essas operações permitidas em um intervalo de 24 horas. | Quando você atingir o limite máximo permitido para uma operação em um intervalo de 24 horas, esse erro será exibido. Esse erro geralmente aparece quando há operações em escala, como modificar política ou proteção automática. Ao contrário do caso do CloudDosAbsoluteLimitReached, não há muito que você possa fazer para resolver esse estado. Na verdade, o serviço de backup do Azure tentará novamente as operações internamente para todos os itens em questão.<br> Por exemplo: se você tiver um grande número de fontes de fonte protegidas por uma política e tentar modificar essa política, ela irá disparar configurar trabalhos de proteção para cada um dos itens protegidos e, às vezes, poderá atingir o limite máximo permitido para essas operações por dia.| O serviço de backup do Azure repetirá essa operação automaticamente após 24 horas.
 
+### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
+
+| Mensagem de erro | Possíveis causas | Ação recomendada |
+|---|---|---|
+Falha na operação de extensão de carga de trabalho AzureBackup. | A VM é desligada (ou) a VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet.| -Certifique-se de que a VM esteja em execução e tenha conectividade com a Internet.<br>- [Registre novamente a extensão na VM SQL Server](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm).
+
+
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
@@ -212,7 +219,7 @@ A VM não é capaz de contatar o serviço de backup do Azure devido a problemas 
 
 Verifique se um ou mais dos seguintes sintomas existem, antes de acionar a operação de novo registro:
 
-- Todas as operações (como backup, restauração e configuração de backup) estão falhando na VM com um dos seguintes códigos de erro: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- Todas as operações (como backup, restauração e configuração de backup) estão falhando na VM com um dos seguintes códigos de erro: **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 - Se a área de **Status de backup** para o item de backup estiver mostrando **Não acessível**, descarte todas as outras causas que possam resultar no mesmo status:
 
   - Falta de permissão para executar operações relacionadas ao backup na VM.
@@ -250,7 +257,7 @@ Agora, organize-os no seguinte formato:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -279,7 +286,7 @@ O conteúdo do arquivo deve estar neste formato:
 ]
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ```json
 [

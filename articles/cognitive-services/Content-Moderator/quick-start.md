@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, moderação de conteúdo
-ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8ad9c135fea4e582e6ba47764d0401936f8c295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905206"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221169"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Início Rápido: Experimentar o Content Moderator na Web
 
@@ -88,6 +88,6 @@ Ou então, continue com as próximas etapas para começar a usar as APIs de mode
 ## <a name="next-steps"></a>Próximas etapas
 
 Aprenda a usar as próprias APIs de moderação no seu aplicativo.
-- Implemente a moderação de imagem. Use o [console de API](try-image-api.md) ou siga o [guia de início rápido da biblioteca de clientes ou da API REST](client-libraries.md) para examinar as imagens e detectar conteúdo adulto e de conotação sexual em potencial usando marcas, pontuações de confiança e outras informações extraídas.
-- Implementar a moderação de texto. Use o [console de API](try-text-api.md) ou siga o [guia de início rápido da biblioteca de clientes ou da API REST](client-libraries.md) para examinar o conteúdo de texto em busca de conteúdo ofensivo, classificação de textos indesejados assistida por computador (versão prévia) e dados pessoais.
+- Implemente a moderação de imagem. Use o [console de API](try-image-api.md) ou siga um [guia de início rápido](client-libraries.md) para varrer imagens e detectar conteúdo adulto e vigoroso usando tags, índices de confiança e outras informações extraídas.
+- Implementar a moderação de texto. Use o [console de API](try-text-api.md) ou siga um [guia de início rápido](client-libraries.md) para examinar o conteúdo de texto e detectar possíveis obscenidades, dados pessoais e outros textos indesejados.
 - Implementar a moderação de vídeo. Siga as [guia de instruções de moderação de vídeo para C# ](video-moderation-api.md) para verificar a vídeos e detectar possível conteúdo adulto. 

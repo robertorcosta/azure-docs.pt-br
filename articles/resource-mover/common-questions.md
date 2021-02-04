@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: bb8cfa3e1aa874f807ce46b254a22f3003c2f600
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: ab4b8f5a691bc8e4091e9f3f01b709391deeddb0
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222808"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550701"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
@@ -49,6 +49,10 @@ Usando o Resource Mover, no momento, você pode mover os seguintes recursos entr
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Posso mover recursos entre assinaturas quando movê-los entre regiões?
 
 Você pode alterar a assinatura depois de mover os recursos para a região de destino. [Saiba mais](../azure-resource-manager/management/move-resource-group-and-subscription.md) sobre como mover recursos para uma assinatura diferente. 
+
+### <a name="does-azure-resource-move-service-store-customer-data"></a>O serviço de movimentação de recursos do Azure armazena dados do cliente? 
+Não. O serviço de movimentação de recursos não armazena os dados do cliente, ele armazena apenas informações de metadados que facilitam o rastreamento e o progresso dos recursos selecionados para movimentação, pelo cliente.
+
 
 ### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>Onde estão os metadados para mover entre regiões armazenadas?
 

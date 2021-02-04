@@ -4,12 +4,12 @@ description: Saiba como exibir e consultar Azure Functions dados de telemetria c
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 9e03a36824853a3e43bbf8628fd12481cfbcaf25
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493763"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549551"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Analisar Azure Functions telemetria no Application Insights 
 
@@ -139,6 +139,18 @@ Durante a execução em um [plano de consumo](consumption-plan.md), o *custo* de
 As consultas de telemetria a seguir são específicas para métricas que afetam o custo da execução de funções no plano de consumo.
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
+
+## <a name="azure-monitor-metrics"></a>Métricas do Azure Monitor
+
+Além dos dados de telemetria coletados pelo Application Insights, você também pode obter dados sobre como o aplicativo de funções está sendo executado de [métricas de Azure monitor](../azure-monitor/platform/data-platform-metrics.md). Juntamente com as [métricas usuais disponíveis para aplicativos do serviço de aplicativo](../app-service/web-sites-monitor.md#understand-metrics), há duas métricas específicas para funções que são de interesse:
+
+| Métrica | Descrição |
+| ---- | ---- |
+| **FunctionExecutionCount** | A contagem de execução de função indica o número de vezes que seu aplicativo de funções foi executado. Isso se correlaciona com o número de vezes que uma função é executada em seu aplicativo. Atualmente, essa métrica não tem suporte para planos Premium e dedicado (serviço de aplicativo) em execução no Linux. |
+| **FunctionExecutionUnits** | As unidades de execução de função são uma combinação de tempo de execução e seu uso de memória.  Os dados de memória não são uma métrica atualmente disponível por meio de Azure Monitor. No entanto, se você quiser otimizar o uso de memória do seu aplicativo, o poderá usar os dados do contador de desempenho coletados pelo Application Insights. Atualmente, essa métrica não tem suporte para planos Premium e dedicado (serviço de aplicativo) em execução no Linux.|
+
+Para saber mais sobre como calcular os custos de um plano de consumo usando dados Application Insights, consulte [Estimando os custos do plano de consumo](functions-consumption-costs.md). Para saber mais sobre como usar o Gerenciador de monitor para exibir as métricas, confira [introdução ao Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

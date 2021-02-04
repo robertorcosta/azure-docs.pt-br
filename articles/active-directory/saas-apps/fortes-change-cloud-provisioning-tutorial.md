@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2021
 ms.author: Zhchia
-ms.openlocfilehash: 89e64b6e8018fafb22820e8594bc2b3c888bb04a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 43b783d9462205b01d3ac4de0c5779fdc9864470
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732132"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550414"
 ---
 # <a name="tutorial-configure-fortes-change-cloud-for-automatic-user-provisioning"></a>Tutorial: configurar a nuvem de alteração de Forts para o provisionamento automático de usuário
 
@@ -50,17 +50,17 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 ## <a name="step-2-configure-fortes-change-cloud-to-support-provisioning-with-azure-ad"></a>Etapa 2. Configurar a nuvem de alteração de Forts para dar suporte ao provisionamento com o Azure AD
 
-1. Faça logon com sua conta de administrador para fortos de alteração na nuvem. Clique no **ícone configurações** e, em seguida, navegue até **configurações de SCIM**.
+1. Faça logon com sua conta de administrador para fortos de alteração na nuvem. Clique no **ícone configurações** e navegue até **provisionamento do usuário (scim)**.
 
     [![A configuração ](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png) de SCIM de nuvem de alteração de Fort](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png#lightbox)
 
-2. Na nova janela, copie e salve o **token primário**. Esse valor será inserido no campo token secreto na guia provisionamento de seu aplicativo de nuvem de alteração de Fort no portal do Azure.
+2. Na nova janela, copie e salve a **URL do locatário** e o **token primário**. A URL do locatário será inserida no campo **URL do locatário** * e o token primário será inserido no campo token * **secreto** na guia provisionamento do aplicativo de nuvem de alteração de Forts no portal do Azure.
      
       [![O token primário da nuvem de alteração de Fort](media/fortes-change-cloud-provisioning-tutorial/primary-token.png)](media/fortes-change-cloud-provisioning-tutorial/primary-token.png#lightbox)
 
 ## <a name="step-3-add-fortes-change-cloud-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar Forts de alteração na nuvem da Galeria de aplicativos do Azure AD
 
-Adicione a nuvem de alteração de Forts da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para as Forts de alteração na nuvem. Se você tiver configurado anteriormente a nuvem de alteração de Fort para SSO, poderá usar o mesmo aplicativo. No entanto, recomendamos que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
+Adicione a nuvem de alteração de Forts da Galeria de aplicativos do Azure AD para começar a gerenciar o provisionamento para as Forts de alteração na nuvem. Se você tiver configurado anteriormente a nuvem de alteração de Fort para SSO, poderá usar o mesmo aplicativo. No entanto, é recomendável que você crie um aplicativo diferente ao testar a integração no início. Saiba mais sobre como adicionar um aplicativo da galeria [aqui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Etapa 4. Defina quem estará no escopo de provisionamento 
 
@@ -116,7 +116,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
    |name.familyName|String|
    |name.formatted|String|
    |externalId|String|
-   |urn: IETF: params: SCIM: esquemas: extensão: FCC: 2.0: usuário: administrador|Boolean|
+   |urn: IETF: params: SCIM: esquemas: extensão: FCC: 2.0: usuário: administrador|Booliano|
    |urn: IETF: params: SCIM: schemas: Extension: FCC: 2.0: User: loginDisabled|Boolean|
 
   

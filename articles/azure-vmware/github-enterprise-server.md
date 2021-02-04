@@ -2,13 +2,13 @@
 title: Configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware
 description: Saiba como configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 00b3acf721dd7f7a1a15bcd0d24eccf3ca27ff58
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 02/03/2021
+ms.openlocfilehash: 2b05e352fd8a81d6d180d4c60e67ab48465b284f
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326906"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549095"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware
 
@@ -61,7 +61,7 @@ Aplique suas configurações.  Enquanto a instância é reiniciada, você pode c
 
 Depois que a instância for reiniciada, crie uma nova conta de administrador na instância. Lembre-se de anotar a senha desse usuário também.
 
-### <a name="additional-configuration-steps"></a>Etapas de configuração adicionais
+### <a name="other-configuration-steps"></a>Outras etapas de configuração
 
 Para proteger sua instância para uso em produção, as seguintes etapas opcionais de instalação são recomendadas:
 
@@ -182,7 +182,7 @@ Aqui, vamos disponibilizá-lo para todas as organizações, mas você também po
 
 ## <a name="optional-configuring-github-connect"></a>Adicional Configurando o GitHub Connect
 
-Embora essa etapa seja opcional, é recomendável se você planeja consumir ações de código aberto disponíveis em GitHub.com. Isso permite que você crie o trabalho de outras pessoas fazendo referência a essas ações reutilizáveis em seus fluxos.
+Embora essa etapa seja opcional, é recomendável se você planeja consumir ações de código aberto disponíveis em GitHub.com. Ele permite que você crie o trabalho de outras pessoas referenciando essas ações reutilizáveis em seus fluxos.
 
 Para habilitar o GitHub Connect, siga as etapas em [habilitando o acesso automático a ações do github.com usando o GitHub Connect](https://docs.github.com/en/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
@@ -223,14 +223,12 @@ Se tudo tiver sido executado com êxito, você verá um novo problema em seu rep
 
 Parabéns! Você acabou de concluir seu primeiro fluxo de trabalho de ações no GitHub Enterprise Server, em execução em sua nuvem privada da solução Azure VMware.
 
-Estamos apenas abordando a superfície do que você pode fazer com as ações do GitHub. Para obter mais inspiração, faça checkout da lista de ações no [Marketplace do GitHub](https://github.com/marketplace)ou [crie suas próprias](https://docs.github.com/en/actions/creating-actions).
+Neste artigo, configuramos uma nova instância do GitHub Enterprise Server, o equivalente autohospedado de GitHub.com, na parte superior da sua nuvem privada da solução Azure VMware. Essa instância inclui suporte para ações do GitHub e usa o armazenamento de BLOBs do Azure para persistência de logs e artefatos. Mas estamos apenas abordando a superfície do que você pode fazer com as ações do GitHub. Confira a lista de ações no [Marketplace do GitHub](https://github.com/marketplace)ou [Crie sua própria](https://docs.github.com/en/actions/creating-actions).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, configuramos uma nova instância do GitHub Enterprise Server, o equivalente autohospedado de GitHub.com, na parte superior da sua nuvem privada da solução Azure VMware. Essa instância inclui suporte para ações do GitHub e usa o armazenamento de BLOBs do Azure para persistência de logs e artefatos. Essa é uma ótima combinação para uma experiência de desenvolvimento de software moderna, colaborativa e segura. Ele se baseia em uma base sólida da solução Azure VMware, permitindo que você aproveite os recursos de nuvem em uma configuração familiar.
+Agora que você viu como configurar o GitHub Enterprise Server em sua nuvem privada da solução Azure VMware, convém aprender sobre: 
 
-Para obter mais informações, consulte os seguintes recursos:
-
-- [Introdução às ações do GitHub](https://docs.github.com/en/actions)
-- [Participe do programa Beta](https://resources.github.com/beta-signup/)
-- [Saiba mais sobre a administração do GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started)
+- [Introdução às ações do GitHub](https://docs.github.com/en/actions).
+- [Unindo o programa Beta](https://resources.github.com/beta-signup/).
+- [Administração do GitHub Enterprise Server](https://githubtraining.github.io/admin-training/#/00_getting_started).

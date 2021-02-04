@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664020"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071674"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que são Gêmeos Digitais do Azure?
 
@@ -94,10 +94,10 @@ O diagrama a seguir mostra onde se situam os Gêmeos Digitais do Azure no contex
 
 ## <a name="service-limits"></a>Limites de serviço
 
-Para obter uma lista dos limites dos Gêmeos Digitais do Azure, confira [*Referência: limites de serviço*](reference-service-limits.md).
+Para obter uma lista de limites dos Gêmeos Digitais do Azure, confira [*Limites do serviço dos Gêmeos Digitais do Azure*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você trabalhou com a primeira versão prévia dos Gêmeos Digitais do Azure (outubro de 2018), saiba o que mudou: [*Visão geral: diferenças da primeira versão*](overview-differences.md).
+* Aprofunde-se no trabalho com os Gêmeos Digitais do Azure com o auxílio do guia de início rápido: [*Início Rápido: explorar um cenário de exemplo*](quickstart-adt-explorer.md).
 
-Ou aprofunde-se no trabalho com os Gêmeos Digitais do Azure com o auxílio do início rápido: [*Início Rápido: explorar um cenário de exemplo*](quickstart-adt-explorer.md).
+* Alternativamente, comece a ler sobre conceitos dos Gêmeos Digitais do Azure com [*Conceitos: modelos personalizados*](concepts-models.md).

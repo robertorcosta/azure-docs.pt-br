@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: d59826ba0e53c4b4146c13b354a85a124ac29b23
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738094"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490870"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Pesquisa Visual Computacional
 
@@ -30,6 +30,12 @@ Uma nova versão do [contêiner de análise espacial](spatial-analysis-container
 * Agora, as [operações de análise espacial](spatial-analysis-operations.md) podem ser configuradas para detectar se uma pessoa está usando proteção para o rosto, como uma máscara. 
     * Foi habilitado um classificador de máscara para as operações `personcount`, `personcrossingline` e `personcrossingpolygon` configurando o parâmetro `ENABLE_FACE_MASK_CLASSIFIER`.
     * Os atributos `face_mask` e `face_noMask` serão retornados como metadados com a pontuação de confiança para cada pessoa detectada no fluxo de vídeo
+* A operação *personcrossingpolygon* foi estendida para permitir o cálculo do tempo de duração da pesquisa que uma pessoa gasta em uma zona. Você pode definir o parâmetro `type` na configuração de zona da operação para `zonedwelltime` e um novo evento do tipo *personZoneDwellTimeEvent* incluirá o campo `durationMs` populado com o número de milissegundos que a pessoa gastou na zona.
+* **Alteração interruptiva**: O evento *personZoneEvent* foi renomeado para *personZoneEnterExitEvent*. Esse evento é gerado pela operação *personcrossingpolygon* quando uma pessoa entra ou sai da zona e fornece informações direcionais com o lado numerado da zona que foi cruzada.
+* A URL de vídeo pode ser fornecida como "Parâmetro Privado/ofuscado" em todas as operações. A ofuscação é opcional agora e só funcionará se `KEY` e `IV` forem fornecidas como variáveis de ambiente.
+* A calibragem é habilitada por padrão para todas as operações. Defina o `do_calibration: false` para desabilitá-lo.
+* Suporte adicionado para recalibragem automática (desabilitado por padrão) por meio do parâmetro `enable_recalibration`. Confira [Operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para obter detalhes
+* Parâmetros de calibragem de câmera para o `DETECTOR_NODE_CONFIG`. Confira [Operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para obter detalhes.
 
 
 ## <a name="october-2020"></a>Outubro de 2020
