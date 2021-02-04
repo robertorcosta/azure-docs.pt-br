@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: e485c2f0a7deeffe68c932688658ef099fec510e
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 97042479419cbc9d634a06e2dcbcccf9c8fde62b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492748"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560466"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster do serviço kubernetes do Azure
 
@@ -210,7 +210,7 @@ Para obter informações sobre como criar um cluster AKS no portal, consulte [cr
 
 **Tempo estimado:** Aproximadamente 5 minutos.
 
-Se você já tiver o cluster AKS em sua assinatura do Azure e for a versão 1,17 ou inferior, poderá usá-lo para implantar a imagem.
+Se você já tiver o cluster AKS em sua assinatura do Azure, poderá usá-lo com seu espaço de trabalho.
 
 > [!TIP]
 > O cluster AKS existente pode estar em uma região do Azure que não seja seu espaço de trabalho Azure Machine Learning.

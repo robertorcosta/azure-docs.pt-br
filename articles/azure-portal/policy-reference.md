@@ -1,15 +1,15 @@
 ---
 title: Definições de política internas para portal do Azure
 description: Lista Azure Policy definições de política internas para portal do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7b151b5b90589b100cae071d949e2f77aa36b1d7
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 3ba033e9f58d41f5ff690152fa2cddb3c6a7eb9e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99218716"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558503"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-portal"></a>Azure Policy definições internas para portal do Azure
 

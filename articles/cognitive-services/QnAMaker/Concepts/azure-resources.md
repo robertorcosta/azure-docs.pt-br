@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 38115f18d9b35545912fad97767f38fd3827d626
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705397"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559987"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -62,7 +62,7 @@ Normalmente, há três parâmetros que você precisa considerar:
 
 A tabela a seguir fornece algumas diretrizes de alto nível.
 
-|                            | Gerenciamento do QnA Maker | Serviço de Aplicativo | Pesquisa Cognitiva do Azure | Limitações                      |
+|                            | Gerenciamento do QnA Maker | Serviço de Aplicativo | Azure Cognitive Search | Limitações                      |
 | -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | **Experimentação**        | SKU gratuito             | Camada Gratuita   | Camada Gratuita    | Publicar até 2 KB/s, tamanho de 50 MB  |
 | **Ambiente de Desenvolvimento/Teste**   | SKU Standard         | Compartilhado      | Basic        | Publicar até 14 KBs, com tamanho de 2 GB    |
@@ -90,7 +90,7 @@ Normalmente, há três parâmetros que você precisa considerar:
 
 A tabela a seguir fornece algumas diretrizes de alto nível.
 
-|                            |Pesquisa Cognitiva do Azure | Limitações                      |
+|                            |Azure Cognitive Search | Limitações                      |
 | -------------------------- |------------ | -------------------------------- |
 | **Experimentação**        |Camada Gratuita    | Publicar até 2 KB/s, tamanho de 50 MB  |
 | **Ambiente de Desenvolvimento/Teste**   |Basic        | Publicar até 14 KBs, com tamanho de 2 GB    |
@@ -102,7 +102,7 @@ A tabela a seguir fornece algumas diretrizes de alto nível.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 
-|QPS de destino | Serviço de Aplicativo | Pesquisa Cognitiva do Azure |
+|QPS de destino | Serviço de Aplicativo | Azure Cognitive Search |
 | -------------------- | ----------- | ------------ |
 | 3             | S1, 1 réplica   | S1, 1 réplica    |
 | 50         | S3, 10 réplicas       | S1, 12 réplicas         |
@@ -232,22 +232,14 @@ O serviço de gerenciamento do QnA Maker é usado somente para o portal de QnA M
 
 Seu serviço de QnA Maker lida com dois tipos de chaves: chaves de **criação** e **chaves de ponto de extremidade de consulta** usadas com o tempo de execução hospedado no serviço de aplicativo.
 
-Se você estiver procurando sua **chave de assinatura**, [a terminologia foi alterada](#subscription-keys).
-
 Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
 ![Gerenciamento de chaves](../media/qnamaker-how-to-key-management/key-management.png)
 
 |Nome|Localização|Finalidade|
 |--|--|--|
-|Chave de criação|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
+|Chave de criação/assinatura|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
 |Chave do ponto de extremidade da consulta|[Portal do QnA Maker](https://www.qnamaker.ai)|Essas chaves são usadas para consultar o ponto de extremidade da base de dados de conhecimento publicado para obter uma resposta para uma pergunta de usuário. Normalmente, você usa esse ponto de extremidade de consulta em seu bot de chat ou no código do aplicativo cliente que se conecta ao serviço de QnA Maker. Essas chaves são criadas quando você publica sua base de dados de conhecimento QnA Maker.<br><br>Localize essas chaves na página **configurações de serviço** . Localize essa página no menu do usuário no canto superior direito da página no menu suspenso.|
-
-### <a name="subscription-keys"></a>Chaves de assinatura
-
-Os termos criação e chave de ponto de extremidade de consulta são termos corretivos. O termo anterior era a **chave de assinatura**. Se você vir outra documentação referente a chaves de assinatura, elas serão equivalentes às chaves de ponto de extremidade de criação e de consulta (usadas no tempo de execução).
-
-Você deve saber o que a chave está acessando, gerenciamento da base de dados de conhecimento ou consulta da base de dados de conhecimento, para saber qual chave você precisa encontrar.
 
 ### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
@@ -311,22 +303,14 @@ No QnA Maker gerenciado (versão prévia), tanto o gerenciamento quanto os servi
 
 Seu serviço gerenciado (versão prévia) QnA Maker lida com dois tipos de chaves: **chaves de criação** e chaves de **pesquisa cognitiva do Azure** usadas para acessar o serviço na assinatura do cliente.
 
-Se você estiver procurando sua **chave de assinatura**, [a terminologia foi alterada](#subscription-keys).
-
 Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
 ![Visualização gerenciada do gerenciamento de chaves](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
 
 |Nome|Localização|Finalidade|
 |--|--|--|
-|Chave de criação|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
+|Chave de criação/assinatura|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves** .|
 |Chave de administração de Pesquisa Cognitiva do Azure|[Portal do Azure](../../../search/search-security-api-keys.md)|Essas chaves são usadas para se comunicar com o serviço de pesquisa cognitiva do Azure implantado na assinatura do Azure do usuário. Quando você associa uma pesquisa cognitiva do Azure com o serviço QnA Maker gerenciado (versão prévia), a chave de administração é passada automaticamente para o serviço QnA Maker. <br><br>Você pode encontrar essas chaves no recurso **pesquisa cognitiva do Azure** na página **chaves** .|
-
-### <a name="subscription-keys"></a>Chaves de assinatura
-
-Os termos criação e chave de ponto de extremidade de consulta são termos corretivos. O termo anterior era a **chave de assinatura**. Se você vir outra documentação referente a chaves de assinatura, elas serão equivalentes às chaves de ponto de extremidade de criação e de consulta (usadas no tempo de execução).
-
-Você deve saber o que a chave está acessando, gerenciamento da base de dados de conhecimento ou consulta da base de dados de conhecimento, para saber qual chave você precisa encontrar.
 
 ### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede 
 

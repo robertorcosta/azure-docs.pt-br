@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 36cc72745636774ed1dcd34ad24bfe5c816ee235
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c47da0961251ce0c7856fb366f81980cc4811115
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096910"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560952"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|--|
@@ -189,4 +189,4 @@ ms.locfileid: "99096910"
 |[O WAF (Firewall do Aplicativo Web) deve ser habilitado para o Gateway de Aplicativo](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F564feb30-bf6a-4854-b4bb-0d2d2d1e6c66) |Implante o WAF (Firewall de Aplicativo Web) do Azure na frente de aplicativos Web voltados para o público para que haja uma inspeção adicional do tráfego de entrada. O WAF (Firewall de Aplicativo Web) fornece proteção centralizada de seus aplicativos Web contra vulnerabilidades e explorações comuns como injeções de SQL, Cross-Site Scripting e execuções de arquivo locais e remotas. Você também pode restringir o acesso aos seus aplicativos Web de países, intervalos de endereços IP e outros parâmetros http(s) por meio de regras personalizadas. |Audit, Deny, desabilitado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayEnabled_Audit.json) |
 |[O WAF (Firewall de Aplicativo Web) deve ser habilitado para o serviço do Azure Front Door Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F055aa869-bc98-4af8-bafc-23f1ab6ffe2c) |Implante o WAF (Firewall de Aplicativo Web) do Azure na frente de aplicativos Web voltados para o público para que haja uma inspeção adicional do tráfego de entrada. O WAF (Firewall de Aplicativo Web) fornece proteção centralizada de seus aplicativos Web contra vulnerabilidades e explorações comuns como injeções de SQL, Cross-Site Scripting e execuções de arquivo locais e remotas. Você também pode restringir o acesso aos seus aplicativos Web de países, intervalos de endereços IP e outros parâmetros http(s) por meio de regras personalizadas. |Audit, Deny, desabilitado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Enabled_Audit.json) |
 |[Aplicativo Web deve ser acessível somente por HTTPS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa4af4a39-4135-47fb-b175-47fbdf85311d) |O uso do HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito de ataques de interceptação de camada de rede. |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppServiceWebapp_AuditHTTP_Audit.json) |
-|[O Windows Defender Exploit Guard deve estar habilitado em seus computadores](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |O Windows Defender Exploit Guard usa o agente de configuração de convidado Azure Policy. O Exploit Guard tem quatro componentes que foram projetados para bloquear dispositivos contra uma ampla variedade de vetores de ataque e comportamentos de bloqueio comumente usados em ataques de malware, permitindo que as empresas encontrem um equilíbrio entre os requisitos de produtividade e o risco de segurança enfrentados (somente Windows). |AuditIfNotExists, desabilitado |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsDefenderExploitGuard_AINE.json) |
+|[O Microsoft Defender Exploit Guard deve estar habilitado nos computadores](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |O Microsoft Defender Exploit Guard usa o agente de Configuração de Convidado do Azure Policy. O Exploit Guard tem quatro componentes que foram projetados para bloquear dispositivos contra uma ampla variedade de vetores de ataque e comportamentos de bloqueio comumente usados em ataques de malware, permitindo que as empresas encontrem um equilíbrio entre os requisitos de produtividade e o risco de segurança enfrentados (somente Windows). |AuditIfNotExists, desabilitado |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsDefenderExploitGuard_AINE.json) |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786835"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559655"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Usar os serviços de fala por meio de um ponto de extremidade privado
 
@@ -39,7 +39,7 @@ Pontos de extremidade privados exigem um [nome de subdomínio personalizado para
 >
 > Se o seu recurso de fala tiver muitos modelos personalizados e projetos associados criados por meio do [Speech Studio](https://speech.microsoft.com/), é altamente recomendável tentar a configuração com um recurso de teste antes de modificar o recurso usado na produção.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para criar um nome de domínio personalizado usando o portal do Azure, siga estas etapas:
 
@@ -268,8 +268,6 @@ Se você planeja acessar o recurso usando apenas um ponto de extremidade privado
              westeurope.prod.vnet.cog.trafficmanager.net
    ```
 
-3. Confirme se o endereço IP corresponde ao endereço IP do seu ponto de extremidade privado.
-
 > [!NOTE]
 > O endereço IP resolvido aponta para um ponto de extremidade de proxy de rede virtual, que expede o tráfego de rede para o ponto de extremidade privado para o recurso de serviços cognitivas. O comportamento será diferente para um recurso com um nome de domínio personalizado, mas *sem* pontos de extremidade privados. Consulte [esta seção](#dns-configuration) para obter detalhes.
 
@@ -311,6 +309,10 @@ Este é um exemplo de URL de solicitação:
 ```http
 https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
+
+> [!NOTE]
+> Consulte [Este artigo](sovereign-clouds.md) para os pontos de extremidade do Azure governamental e do Azure China.
+
 Depois de habilitar um domínio personalizado para um recurso de fala (que é necessário para pontos de extremidade privados), esse recurso usará o seguinte padrão de nome DNS para o ponto de extremidade básico da API REST: <p/>`{your custom name}.cognitiveservices.azure.com`.
 
 Isso significa que, em nosso exemplo, o nome do ponto de extremidade da API REST será: <p/>`my-private-link-speech.cognitiveservices.azure.com`.
@@ -334,42 +336,35 @@ A [API REST de conversão de fala em texto para áudio curto](rest-speech-to-tex
 - [Pontos de extremidade regionais de serviços cognitivas](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) para se comunicar com a API REST de serviços cognitivas para obter um token de autorização
 - Pontos de extremidade especiais para todas as outras operações
 
-A descrição detalhada dos pontos de extremidade especiais e como sua URL deve ser transformada para um recurso de fala habilitado para ponto de extremidade particular é fornecida nesta [subseção](#general-principles) sobre o uso com o SDK de fala. O mesmo princípio descrito para o SDK se aplica à API REST de fala em texto v 1.0 e à API REST de conversão de texto em fala.
+> [!NOTE]
+> Consulte [Este artigo](sovereign-clouds.md) para os pontos de extremidade do Azure governamental e do Azure China.
+
+A descrição detalhada dos pontos de extremidade especiais e como sua URL deve ser transformada para um recurso de fala habilitado para ponto de extremidade particular é fornecida nesta [subseção](#construct-endpoint-url) sobre o uso com o SDK de fala. O mesmo princípio descrito para o SDK se aplica à API REST de conversão de fala em texto para áudio curto e a API REST de conversão de texto em fala.
 
 Familiarize-se com o material na subseção mencionada no parágrafo anterior e veja o exemplo a seguir. O exemplo descreve a API REST de conversão de texto em fala. O uso da API REST de conversão de fala em texto para áudio curto é totalmente equivalente.
 
 > [!NOTE]
-> Quando você estiver usando a API REST de conversão de fala em texto para um áudio curto em cenários de ponto de extremidade privado, use um token de autorização [passado pelo](rest-speech-to-text.md#request-headers) `Authorization` [cabeçalho](rest-speech-to-text.md#request-headers). Passar uma chave de assinatura de fala para o ponto de extremidade especial por meio do `Ocp-Apim-Subscription-Key` cabeçalho *não* funcionará e gerará o erro 401.
+> Quando você estiver usando a API REST de conversão de fala em texto para a API REST de áudio curto e de conversão de texto em fala em cenários de ponto de extremidade privado, use uma chave de assinatura passada pelo `Ocp-Apim-Subscription-Key` cabeçalho. (Veja os detalhes da [API REST de fala em texto para a API REST de áudio curto](rest-speech-to-text.md#request-headers) e de conversão de [texto em fala](rest-text-to-speech.md#request-headers))
+>
+> Usar um token de autorização e passá-lo para o ponto de extremidade especial por meio do `Authorization` cabeçalho *só* funcionará se você tiver habilitado a opção acesso a **todas as redes** na seção **rede** do seu recurso de fala. Em outros casos, você receberá `Forbidden` um `BadRequest` erro ou ao tentar obter um token de autorização.
 
 **Exemplo de uso da API REST de conversão de texto em fala**
 
 Usaremos Europa Ocidental como uma região do Azure de exemplo e `my-private-link-speech.cognitiveservices.azure.com` como um nome DNS de recurso de fala de exemplo (domínio personalizado). O nome de domínio personalizado `my-private-link-speech.cognitiveservices.azure.com` em nosso exemplo pertence ao recurso de fala criado na região Europa Ocidental.
 
-Para obter a lista das vozes com suporte na região, execute as duas operações a seguir:
+Para obter a lista das vozes com suporte na região, execute a seguinte solicitação:
 
-- Obter um token de autorização:
-  ```http
-  https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
-  ```
-- Usando o token, obtenha a lista de vozes:
-  ```http
-  https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
-  ```
-Veja mais detalhes sobre as etapas anteriores na [documentação da API REST de conversão de texto em fala](rest-text-to-speech.md).
+```http
+https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
+```
+Veja mais detalhes na [documentação da API REST de conversão de texto em fala](rest-text-to-speech.md).
 
-Para o recurso de fala habilitado para ponto de extremidade privado, as URLs de ponto de extremidade para a mesma sequência de operação precisam ser modificadas. A mesma sequência terá a seguinte aparência:
+Para o recurso de fala habilitado para ponto de extremidade privado, a URL do ponto de extremidade para a mesma operação precisa ser modificada. A mesma solicitação terá a seguinte aparência:
 
-- Obter um token de autorização:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
-  ```
-  Consulte a explicação detalhada na subseção anterior de [fala para texto v 3.0 da API REST](#speech-to-text-rest-api-v30) .
-
-- Usando o token obtido, obtenha a lista de vozes:
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
-  ```
-  Consulte uma explicação detalhada na subseção [princípios gerais](#general-principles) para o SDK de fala.
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
+```
+Consulte uma explicação detalhada na subseção [construir URL de ponto de extremidade](#construct-endpoint-url) para o SDK de fala.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>Recurso de fala com um nome de domínio personalizado e um ponto de extremidade privado: uso com o SDK de fala
 
@@ -377,9 +372,9 @@ Usar o SDK de fala com um nome de domínio personalizado e recursos de fala habi
 
 Usaremos `my-private-link-speech.cognitiveservices.azure.com` como um nome DNS de recurso de fala de exemplo (domínio personalizado) para esta seção.
 
-##### <a name="general-principles"></a>Princípios gerais
+##### <a name="construct-endpoint-url"></a>URL de ponto de extremidade de construção
 
-Geralmente em cenários de SDK (bem como nos cenários de API REST de conversão de texto em fala), os recursos de fala usam os pontos de extremidade regionais dedicados para diferentes ofertas de serviço. O formato de nome DNS para esses pontos de extremidade é:
+Geralmente em cenários de SDK (bem como na API REST de conversão de fala em texto para cenários de API REST de áudio curto e de texto em fala), os recursos de fala usam os pontos de extremidade regionais dedicados para diferentes ofertas de serviço. O formato de nome DNS para esses pontos de extremidade é:
 
 `{region}.{speech service offering}.speech.microsoft.com`
 
@@ -387,7 +382,7 @@ Um exemplo de nome DNS é:
 
 `westeurope.stt.speech.microsoft.com`
 
-Todos os valores possíveis para a região (primeiro elemento do nome DNS) são listados em [regiões com suporte do Speech Service](regions.md). A tabela a seguir apresenta os possíveis valores para a oferta de serviços de fala (segundo elemento do nome DNS):
+Todos os valores possíveis para a região (primeiro elemento do nome DNS) são listados em [regiões com suporte do Speech Service](regions.md). (Consulte [Este artigo](sovereign-clouds.md) para os pontos de extremidade do Azure governamental e do Azure China.) A tabela a seguir apresenta os possíveis valores para a oferta de serviços de fala (segundo elemento do nome DNS):
 
 | Valor do nome DNS | Oferta de serviço de fala                                    |
 |----------------|-------------------------------------------------------------|
@@ -459,7 +454,7 @@ Siga estas etapas para modificar seu código:
 
 2. Crie uma `SpeechConfig` instância usando uma URL de ponto de extremidade completa:
 
-   1. Modifique o ponto de extremidade que você acabou de determinar, conforme descrito na seção [princípios gerais](#general-principles) anteriores.
+   1. Modifique o ponto de extremidade que você acabou de determinar, conforme descrito na seção [URL de ponto de extremidade de construção](#construct-endpoint-url) anterior.
 
    1. Modifique como você cria a instância do `SpeechConfig` . Provavelmente, seu aplicativo está usando algo assim:
       ```csharp
@@ -537,70 +532,28 @@ O uso da API REST de fala em texto v 3.0 é totalmente equivalente ao caso de [r
 
 ##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>API REST de fala em texto para API REST de áudio curto e de conversão de texto em fala
 
-Nesse caso, o uso da API REST de fala em texto para um áudio curto e uso da API REST de conversão de texto em fala não tem nenhuma diferença do caso geral, com uma exceção para a API REST de conversão de fala em texto para áudio curto. (Consulte a observação a seguir.) Você deve usar ambas as APIs, conforme descrito na [API REST de fala a texto para a documentação da API REST de áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e de [texto em fala](rest-text-to-speech.md) .
+Nesse caso, o uso da API REST de conversão de fala em texto para um áudio curto e uso da API REST de conversão de texto em fala não tem nenhuma diferença do caso geral, com uma exceção. (Consulte a observação a seguir.) Você deve usar ambas as APIs, conforme descrito na [API REST de fala a texto para a documentação da API REST de áudio curto](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) e de [texto em fala](rest-text-to-speech.md) .
 
 > [!NOTE]
-> Quando você estiver usando a API REST de conversão de fala em texto para áudio curto em cenários de domínio personalizado, use um token de autorização [passado por](rest-speech-to-text.md#request-headers) um `Authorization` [cabeçalho](rest-speech-to-text.md#request-headers). Passar uma chave de assinatura de fala para o ponto de extremidade especial por meio do `Ocp-Apim-Subscription-Key` cabeçalho *não* funcionará e gerará o erro 401.
+> Quando você estiver usando a API REST de conversão de fala em texto para a API REST de áudio curto e de conversão de texto em fala em cenários de domínio personalizado, use uma chave de assinatura passada pelo `Ocp-Apim-Subscription-Key` cabeçalho. (Veja os detalhes da [API REST de fala em texto para a API REST de áudio curto](rest-speech-to-text.md#request-headers) e de conversão de [texto em fala](rest-text-to-speech.md#request-headers))
+>
+> Usar um token de autorização e passá-lo para o ponto de extremidade especial por meio do `Authorization` cabeçalho *só* funcionará se você tiver habilitado a opção acesso a **todas as redes** na seção **rede** do seu recurso de fala. Em outros casos, você receberá `Forbidden` um `BadRequest` erro ou ao tentar obter um token de autorização.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>Recurso de fala com um nome de domínio personalizado e sem pontos de extremidade privados: uso com o SDK de fala
 
-Usar o SDK de fala com recursos de fala habilitados para domínio personalizado *sem* pontos de extremidade privados requer a revisão de e, provavelmente, alterações no código do aplicativo. Observe que essas alterações são diferentes do caso de um [recurso de fala habilitado para ponto de extremidade privado](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk). Estamos trabalhando em um suporte mais direto ao ponto de extremidade privado e a cenários de domínio personalizado.
+Usar o SDK de fala com recursos de fala habilitados para domínio personalizado *sem* pontos de extremidade privados é equivalente ao caso geral, conforme descrito na [documentação do SDK de fala](speech-sdk.md).
 
-Usaremos `my-private-link-speech.cognitiveservices.azure.com` como um nome DNS de recurso de fala de exemplo (domínio personalizado) para esta seção.
+Caso você tenha modificado seu código para usar o com um [recurso de fala habilitado para ponto de extremidade privado](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk), considere o seguinte.
 
 Na seção sobre [recursos de fala habilitados para ponto de extremidade privado](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk), explicamos como determinar a URL do ponto de extremidade, modificá-la e fazê-la funcionar por meio da inicialização "do ponto de extremidade"/"com o ponto de extremidade" da `SpeechConfig` instância de classe.
 
 No entanto, se você tentar executar o mesmo aplicativo depois de ter todos os pontos de extremidade privados removidos (permitindo algum tempo para o reprovisionamento de registro DNS correspondente), obterá um erro de serviço interno (404). O motivo é que o [registro DNS](#dns-configuration) aponta para o ponto de extremidade de serviços cognitivas regionais em vez do proxy de rede virtual, e os caminhos de URL como `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` não serão encontrados lá.
 
-Se você reverter seu aplicativo para a instanciação padrão do `SpeechConfig` no estilo do código a seguir, seu aplicativo será encerrado com o erro de autenticação (401):
+Você precisa reverter seu aplicativo para a instanciação padrão do `SpeechConfig` no estilo do código a seguir:
 
 ```csharp
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
-
-##### <a name="modifying-applications"></a>Modificando aplicativos
-
-Para permitir que seu aplicativo use um recurso de fala com um nome de domínio personalizado e sem pontos de extremidade privados, siga estas etapas:
-
-1. Solicite um token de autorização da API REST dos serviços cognitivas. [Este artigo](../authentication.md#authenticate-with-an-authentication-token) mostra como obter o token.
-
-   Use seu nome de domínio personalizado na URL do ponto de extremidade. Em nosso exemplo, essa URL é:
-   ```http
-   https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
-   ```
-   > [!TIP]
-   > Você pode encontrar essa URL na portal do Azure. Na página de recursos de fala, no grupo **Gerenciamento de recursos** , selecione **chaves e ponto de extremidade**.
-
-1. Crie uma `SpeechConfig` instância usando o token de autorização que você obteve na seção anterior. Suponha que tenhamos as seguintes variáveis definidas:
-
-   - `token`: o token de autorização obtido na seção anterior
-   - `azureRegion`: o nome da [região](regions.md) de recursos de fala (exemplo: `westeurope` )
-   - `outError`: (somente para o caso do [objetivo C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror) )
-
-   Crie uma `SpeechConfig` instância como esta:
-
-   ```csharp
-   var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
-   ```
-   ```cpp
-   auto config = SpeechConfig::FromAuthorizationToken(token, azureRegion);
-   ```
-   ```java
-   SpeechConfig config = SpeechConfig.fromAuthorizationToken(token, azureRegion);
-   ```
-   ```python
-   import azure.cognitiveservices.speech as speechsdk
-   speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
-   ```
-   ```objectivec
-   SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
-   ```
-> [!NOTE]
-> O chamador precisa garantir que o token de autorização seja válido. Antes que o token de autorização expire, o chamador precisa atualizá-lo chamando esse setter com um novo token válido. Como os valores de configuração são copiados quando você estiver criando um novo reconhecedor ou sintetizador, o novo valor de token não será aplicado a reconhecedores ou sintetizadores que já foram criados.
->
-> Para isso, defina o token de autorização do reconhecedor ou sintetizador correspondente para atualizar o token. Se você não atualizar o token, o reconhecedor ou sintetizador encontrará erros durante a operação.
-
-Após essa modificação, seu aplicativo deve funcionar com recursos de fala que usam um nome de domínio personalizado sem pontos de extremidade privados.
 
 ## <a name="pricing"></a>Preços
 
@@ -611,4 +564,4 @@ Para obter detalhes de preço, confira [Preço do Link Privado do Azure](https:/
 * [Link Privado do Azure](../../private-link/private-link-overview.md)
 * [SDK da fala](speech-sdk.md)
 * [API REST de conversão de fala em texto](rest-speech-to-text.md)
-* [API REST de conversão de texto em fala](rest-text-to-speech.md)
+* [API REST conversão de texto em fala](rest-text-to-speech.md)

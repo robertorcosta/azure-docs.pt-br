@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 589081149d08983d3cd5a4a8822873f5a6cfca0e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735257"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559436"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personalizar a configuração de nó para pools de nó do AKS (serviço de kubernetes do Azure) (versão prévia)
 
@@ -67,7 +67,7 @@ Os parâmetros de Kubelet com suporte e os valores aceitos estão listados abaix
 | `imageGcHighThreshold` | 0-100 | 85 | A porcentagem de uso do disco após a qual a coleta de lixo da imagem é sempre executada. Uso mínimo do disco que **irá** disparar a coleta de lixo. Para desabilitar a coleta de lixo de imagem, defina como 100. | 
 | `imageGcLowThreshold` | 0-100, não é maior que `imageGcHighThreshold` | 80 | A porcentagem de uso do disco antes da qual a coleta de lixo da imagem nunca é executada. Uso mínimo do disco que **pode** disparar a coleta de lixo. |
 | `topologyManagerPolicy` | nenhum, melhor esforço, restrito, nó único | nenhum | Otimizar o alinhamento de nó NUMA, veja mais [aqui](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). Somente kubernetes v 18E +. |
-| `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | Nenhum | Lista permitida de padrões de sysctl sysctls ou inseguros. | 
+| `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | Nenhuma | Lista permitida de padrões de sysctl sysctls ou inseguros. | 
 
 ### <a name="linux-os-custom-configuration"></a>Configuração personalizada do SO Linux
 
@@ -127,7 +127,7 @@ As configurações abaixo podem ser usadas para ajustar a operação do subsiste
 | `vm.max_map_count` |  65530-262144 | 65530 | Esse arquivo contém o número máximo de áreas de mapa de memória que um processo pode ter. As áreas de mapa de memória são usadas como um efeito colateral de chamar `malloc` , diretamente por `mmap` ,, e e `mprotect` `madvise` também ao carregar bibliotecas compartilhadas. | 
 | `vm.vfs_cache_pressure` | 1 - 500 | 100 | Esse valor de porcentagem controla a tendência do kernel de recuperar a memória, que é usada para armazenar em cache os objetos de diretório e inode. |
 | `vm.swappiness` | 0–100 | 60 | Esse controle é usado para definir o quão agressivo o kernel vai trocar páginas de memória. Valores mais altos aumentarão a agressividade, os valores mais baixos diminuirão a quantidade de permuta. Um valor de 0 instrui o kernel a não iniciar a permuta até que a quantidade de páginas livres e com backup em arquivo seja menor que a marca d' água alta em uma zona. | 
-| `swapFileSizeMB` | 1 MB-Tamanho do [disco temporário](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | Nenhum | SwapFileSizeMB especifica o tamanho em MB de um arquivo de permuta que será criado nos nós de agente deste pool de nós. | 
+| `swapFileSizeMB` | 1 MB-Tamanho do [disco temporário](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | Nenhuma | SwapFileSizeMB especifica o tamanho em MB de um arquivo de permuta que será criado nos nós de agente deste pool de nós. | 
 | `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | O [Hugepages transparente](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) é um recurso de kernel do Linux destinado a melhorar o desempenho, fazendo uso mais eficiente do hardware de mapeamento de memória do processador. Quando habilitada, o kernel tenta alocar `hugepages` sempre que possível e qualquer processo do Linux receberá páginas de 2 MB se a `mmap` região for 2 MB naturalmente alinhada. Em determinados casos em que o `hugepages` sistema é habilitado, os aplicativos podem acabar alocando mais recursos de memória. Um aplicativo pode `mmap` ser uma região grande, mas apenas toque 1 byte, nesse caso, uma página de 2 MB pode ser alocada em vez de uma página de 4K sem um bom motivo. Esse cenário é o motivo pelo qual é possível desabilitar `hugepages` todo o sistema ou apenas tê-los dentro de `MADV_HUGEPAGE madvise` regiões. | 
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | Esse valor controla se o kernel deve fazer uso agressivo da compactação de memória para tornar mais `hugepages` disponível. | 
 
@@ -166,7 +166,7 @@ Crie um `linuxosconfig.json` arquivo com o seguinte conteúdo:
 }
 ```
 
-Crie um novo cluster especificando as configurações de kublet e so usando os arquivos JSON criados na etapa anterior. 
+Crie um novo cluster especificando as configurações de kubelet e so usando os arquivos JSON criados na etapa anterior. 
 
 > [!NOTE]
 > Ao criar um cluster, você pode especificar a configuração do kubelet, a configuração do sistema operacional ou ambos. Se você especificar uma configuração ao criar um cluster, somente os nós no pool de nós inicial terão essa configuração aplicada. As configurações não configuradas no arquivo JSON manterão o valor padrão.

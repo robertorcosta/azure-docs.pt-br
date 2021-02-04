@@ -6,12 +6,12 @@ ms.author: vlvinogr
 ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 9d1ba226e3ca1276658f7e72e9094918f0379a77
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b8e253f75f56f961a24a441188b7a8e571622667
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653530"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560232"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Políticas de integração do Dapr de gerenciamento de API
 
@@ -85,7 +85,7 @@ A `forward-request` política é mostrada aqui para fins de clareza. A política
 
 | Elemento             | Descrição  | Obrigatório |
 |---------------------|--------------|----------|
-| set-backend-service | Elemento raiz | Yes      |
+| set-backend-service | Elemento raiz | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
@@ -111,7 +111,7 @@ A política pressupõe que o tempo de execução Dapr está sendo executado em u
 ### <a name="policy-statement"></a>Declaração de política
 
 ```xml
-<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic="topic-name" ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template="Liquid" content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -153,7 +153,7 @@ A seção "back-end" está vazia e a solicitação não é encaminhada para o ba
 
 | Elemento             | Descrição  | Obrigatório |
 |---------------------|--------------|----------|
-| publicar em dapr     | Elemento raiz | Yes      |
+| publicar em dapr     | Elemento raiz | Sim      |
 
 ### <a name="attributes"></a>Atributos
 
@@ -161,9 +161,9 @@ A seção "back-end" está vazia e a solicitação não é encaminhada para o ba
 |------------------|---------------------------------|----------|---------|
 | PubSub-nome      | O nome do componente PubSub de destino. Mapeia para o parâmetro [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) em Dapr. Se não estiver presente, o valor do atributo __topic__ deverá estar no formato de `pubsub-name/topic-name` .    | Não       | Nenhum    |
 | topic            | O nome do tópico. Mapeia para o parâmetro [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) no Dapr.               | Sim      | N/D     |
-| ignore-error     | Se definido como `true` instruir a política para não disparar a seção ["On-Error"](api-management-error-handling-policies.md) após receber o erro do tempo de execução do Dapr | No | `false` |
+| ignore-error     | Se definido como `true` instruir a política para não disparar a seção ["On-Error"](api-management-error-handling-policies.md) após receber o erro do tempo de execução do Dapr | Não | `false` |
 | response-variable-name | Nome da entrada de coleção de [variáveis](api-management-policy-expressions.md#ContextVariables) a ser usada para armazenar a resposta do tempo de execução Dapr | Não | Nenhum |
-| tempo limite | Tempo (em segundos) para aguardar o tempo de execução do Dapr responder. Pode variar de 1 a 240 segundos. | No | 5 |
+| tempo limite | Tempo (em segundos) para aguardar o tempo de execução do Dapr responder. Pode variar de 1 a 240 segundos. | Não | 5 |
 | template | O mecanismo de modelagem a ser usado para transformar o conteúdo da mensagem. "Liquid" é o único valor com suporte. | Não | Nenhum |
 | content-type | Tipo do conteúdo da mensagem. "Application/JSON" é o único valor com suporte. | Não | Nenhum |
 
@@ -183,9 +183,9 @@ A política pressupõe que o tempo de execução Dapr está sendo executado em u
 ### <a name="policy-statement"></a>Declaração de política
 
 ```xml
-<invoke-dapr-binding name=”bind-name" operation="op-name" ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid content-type="application/json">
+<invoke-dapr-binding name="bind-name" operation="op-name" ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template="Liquid" content-type="application/json">
     <metadata>
-        <item key=”item-name”><!-- item-value --></item>
+        <item key="item-name"><!-- item-value --></item>
     </metadata>
     <data>
         <!-- message content -->
@@ -236,9 +236,9 @@ A seção "back-end" está vazia e a solicitação não é encaminhada para o ba
 
 | Elemento             | Descrição  | Obrigatório |
 |---------------------|--------------|----------|
-| Invoke-dapr-Binding | Elemento raiz | Yes      |
-| metadata            | Associação de metadados específicos na forma de pares de chave/valor. Mapeia para a propriedade de [metadados](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | No |
-| Dados            | O conteúdo da mensagem. Mapeia para a propriedade [Data](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | No |
+| Invoke-dapr-Binding | Elemento raiz | Sim      |
+| metadata            | Associação de metadados específicos na forma de pares de chave/valor. Mapeia para a propriedade de [metadados](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | Não |
+| data            | O conteúdo da mensagem. Mapeia para a propriedade [Data](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | Não |
 
 
 ### <a name="attributes"></a>Atributos
@@ -247,9 +247,9 @@ A seção "back-end" está vazia e a solicitação não é encaminhada para o ba
 |------------------|---------------------------------|----------|---------|
 | name            | Nome da Associação de destino. Deve corresponder ao nome das associações [definidas](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) em Dapr.           | Sim      | N/D     |
 | operation       | Nome da operação de destino (específico de associação). Mapeia para a propriedade [Operation](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | Não | Nenhum |
-| ignore-error     | Se definido como `true` instruir a política para não disparar a seção ["On-Error"](api-management-error-handling-policies.md) após receber o erro do tempo de execução do Dapr | No | `false` |
+| ignore-error     | Se definido como `true` instruir a política para não disparar a seção ["On-Error"](api-management-error-handling-policies.md) após receber o erro do tempo de execução do Dapr | Não | `false` |
 | response-variable-name | Nome da entrada de coleção de [variáveis](api-management-policy-expressions.md#ContextVariables) a ser usada para armazenar a resposta do tempo de execução Dapr | Não | Nenhum |
-| tempo limite | Tempo (em segundos) para aguardar o tempo de execução do Dapr responder. Pode variar de 1 a 240 segundos. | No | 5 |
+| tempo limite | Tempo (em segundos) para aguardar o tempo de execução do Dapr responder. Pode variar de 1 a 240 segundos. | Não | 5 |
 | template | O mecanismo de modelagem a ser usado para transformar o conteúdo da mensagem. "Liquid" é o único valor com suporte. | Não | Nenhum |
 | content-type | Tipo do conteúdo da mensagem. "Application/JSON" é o único valor com suporte. | Não | Nenhum |
 

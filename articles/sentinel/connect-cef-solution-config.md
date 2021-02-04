@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 80e5cc18888b0e014fc1f617ca27dee05146472e
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 07685cccf5a8dce99ae13e6df5186a5da44b1338
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567686"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559416"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>ETAPA 2: configurar sua solução de segurança para enviar mensagens CEF
 
@@ -30,6 +30,7 @@ Nesta etapa, você executará as alterações de configuração necessárias na 
 Se sua solução de segurança já tiver um conector existente, use as instruções específicas do conector da seguinte maneira:
 
 - [Detecção de IA da Vectra](connect-ai-vectra-detect.md)
+- [Eventos de segurança da Akamai](connect-akamai-security-events.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco ASA](connect-cisco.md)
 - [Citrix WAF](connect-citrix-waf.md)
@@ -39,9 +40,10 @@ Se sua solução de segurança já tiver um conector existente, use as instruç�
 - [Produtos Forcepoint](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive redes AMS](connect-illusive-attack-management-system.md)
+- [Imperva WAF gateway](connect-imperva-waf-gateway.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
-- [Servidor de segredo Thycotic](connect-thycotic-secret-server.md)
+- [Servidor secreto Thycotic](connect-thycotic-secret-server.md)
 - [Deep Security da Trend Micro](connect-trend-micro.md)
 - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
 - [Plataforma de perícia de rede WireX](connect-wirex-systems.md)
