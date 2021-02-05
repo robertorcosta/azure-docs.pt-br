@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 5e97a35a272684a99e1ca21cbec9c8f3edef253c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097415"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576660"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos de extremidade de serviço de Rede Virtual
 
@@ -126,7 +126,7 @@ Os pontos de extremidade de serviço podem ser configurados em redes virtuais in
 
 Para obter mais informações sobre funções internas, consulte [funções internas do Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para obter mais informações sobre como atribuir permissões específicas a funções personalizadas, consulte [funções personalizadas do Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-As redes virtuais e os recursos de serviço do Azure podem estar na mesma assinatura ou em assinaturas diferentes. Se os recursos de serviço da rede virtual e do Azure estão em assinaturas diferentes, os recursos devem estar no mesmo locatário do Active Directory (AD). 
+As redes virtuais e os recursos de serviço do Azure podem estar na mesma assinatura ou em assinaturas diferentes. Determinados serviços do Azure (nem todos), como o armazenamento do Azure e Azure Key Vault também oferecem suporte a pontos de extremidade de serviço em locatários diferentes de Active Directory (AD), ou seja, a rede virtual e o recurso de serviço do Azure podem estar em locatários diferentes de Active Directory (AD). Consulte a documentação do serviço individual para obter mais detalhes.  
 
 ## <a name="pricing-and-limits"></a>Preços e limites
 

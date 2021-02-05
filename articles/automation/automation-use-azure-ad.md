@@ -4,12 +4,12 @@ description: Este artigo informa como usar o Azure Active Directory na Automaç�
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41eaab7be66d446109e1052948a29ad4723b191c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 336c0387ac9febcc517c2ce358d0b04c80d10678
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894653"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576796"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Usar o Azure AD para a autenticação no Azure
 
@@ -50,7 +50,7 @@ Antes de instalar os módulos do Azure Active Directory em seu computador:
 
 1. Verifique se o recurso Microsoft .NET Framework 3.5.x está habilitado no seu computador. É provável que o computador tenha uma versão mais recente instalada, mas a compatibilidade com versões anteriores do .NET Framework pode ser habilitada ou desabilitada. 
 
-2. Instale a versão de 64 bits do [Assistente de conexão do Microsoft Online Services](https://www.microsoft.com/download/details.aspx?id=41950).
+2. Instale a versão de 64 bits do [Assistente de conexão do Microsoft Online Services](https://www.microsoft.com/Download/details.aspx?id=28177).
 
 3. Execute o Windows PowerShell como administrador para criar um prompt de comando elevado do Windows PowerShell.
 

@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b6e523fc4a3dcd0eb8c8ed7a44b3d7d9fcdd7d34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887140"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576524"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Acessar seu aplicativo em uma rede privada
 
 Este documento explica como acessar um ponto de extremidade para seu aplicativo em uma rede privada.  Para obter acesso, você precisa criar uma **zona de DNS privado do Azure** em sua assinatura para converter/resolver o nome de domínio totalmente qualificado (FQDN) privado para seu endereço IP.
 
-Quando a **atribuição de ponto de extremidade** para aplicativos em uma instância do serviço de nuvem do Azure Spring é implantada em sua rede virtual, o ponto de extremidade é um FQDN privado. O domínio só pode ser acessado na rede privada. Aplicativos e serviços usam o ponto de extremidade do aplicativo. Eles incluem o **ponto de extremidade de teste** descrito em [verificar a implantação de preparo](spring-cloud-howto-staging-environment.md#verify-the-staging-deployment). O **streaming de log**, descrito em [transmitir logs de aplicativo de nuvem Spring do Azure em tempo real](spring-cloud-howto-log-streaming.md), também funciona apenas dentro da rede privada.
+Quando a **atribuição de ponto de extremidade** para aplicativos em uma instância do serviço de nuvem do Azure Spring é implantada em sua rede virtual, o ponto de extremidade é um FQDN privado. O domínio só pode ser acessado na rede privada. Aplicativos e serviços usam o ponto de extremidade do aplicativo. Eles incluem o **ponto de extremidade de teste** descrito em [Exibir aplicativos e implantações](spring-cloud-howto-staging-environment.md#view-apps-and-deployments). O **streaming de log**, descrito em [transmitir logs de aplicativo de nuvem Spring do Azure em tempo real](spring-cloud-howto-log-streaming.md), também funciona apenas dentro da rede privada.
 
 ## <a name="create-a-private-dns-zone"></a>Criar uma zona DNS privada
 

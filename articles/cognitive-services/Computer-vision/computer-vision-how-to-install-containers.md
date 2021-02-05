@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, contêiner
-ms.openlocfilehash: a9eae2e547b347c88f8e745742ed34194c37a3b2
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 2298c7b931a5bb51d5067a9f789135ecf86ef3e5
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862484"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576813"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar contêineres de Docker do OCR de leitura (versão prévia) 
 
@@ -32,17 +32,17 @@ O contêiner de OCR de *leitura* permite extrair texto impresso e manuscrito de 
 > [!NOTE]
 > O contêiner Read 3,0-Preview foi preterido. 
 
-O contêiner Read 3,2-Preview fornece:
+O contêiner de OCR Read 3,2-Preview fornece:
 * Novos modelos para precisão aprimorada.
-* Suporte para vários idiomas no mesmo documento
-* Suporte para: Holandês, inglês, francês, alemão, italiano, Português e espanhol.
+* Suporte para vários idiomas no mesmo documento.
+* Suporte para um total de 73 idiomas. Consulte a lista completa de [idiomas com suporte para OCR](./language-support.md#optical-character-recognition-ocr).
 * Uma única operação para documentos e imagens.
 * Suporte para documentos e imagens maiores.
-* Pontuações de confiança de 0 a 1.
-* Suporte para documentos com texto impresso e manuscrito
-* Suporte para chinês simplificado e japonês.
-* pontuações e rótulos de confiança para texto impresso e manuscrito. 
+* Pontuações de confiança.
+* Suporte para documentos com texto impresso e manuscrito.
 * Capacidade de extrair texto apenas das páginas selecionadas em um documento.
+* Escolha a ordem de saída da linha de texto do padrão para uma ordem de leitura mais natural.
+* Classificação de linha de texto como estilo manuscrito ou não somente para idiomas latinos.
 
 Se você estiver usando contêineres de leitura 2,0 hoje, consulte o [Guia de migração](read-container-migration-guide.md) para saber mais sobre as alterações nas novas versões.
 
@@ -50,7 +50,7 @@ Se você estiver usando contêineres de leitura 2,0 hoje, consulte o [Guia de mi
 
 Você deve atender aos seguintes pré-requisitos antes de usar os contêineres:
 
-|Necessária|Finalidade|
+|Obrigatório|Finalidade|
 |--|--|
 |Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
@@ -207,7 +207,7 @@ Use o host, `http://localhost:5000`, para as APIs do contêiner. Você pode exib
 Você pode usar as `POST /vision/v3.2/read/analyze` `GET /vision/v3.2/read/operations/{operationId}` operações e em conjunto para ler de forma assíncrona uma imagem, semelhante a como o serviço de pesquisa Visual computacional usa as operações REST correspondentes. O método POST assíncrono retornará um `operationId` que é usado como o identificador para a solicitação HTTP Get.
 
 
-Na interface do usuário do Swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, selecione **experimentar**  >  **escolher arquivo**. Neste exemplo, usaremos a imagem a seguir:
+Na interface do usuário do Swagger, selecione o `Analyze` para expandi-lo no navegador. Em seguida, selecione **experimentar**  >  **escolher arquivo**. Neste exemplo, usaremos a imagem a seguir:
 
 ![guias vs espaços](media/tabs-vs-spaces.png)
 
@@ -225,51 +225,99 @@ O `operation-location` é a URL totalmente qualificada e é acessado por meio de
 ```json
 {
   "status": "succeeded",
-  "createdDateTime": "2020-09-02T10:30:14Z",
-  "lastUpdatedDateTime": "2020-09-02T10:30:15Z",
+  "createdDateTime": "2021-02-04T06:32:08.2752706+00:00",
+  "lastUpdatedDateTime": "2021-02-04T06:32:08.7706172+00:00",
   "analyzeResult": {
     "version": "3.2.0",
     "readResults": [
       {
         "page": 1,
-        "angle": 2.12,
+        "angle": 2.1243,
         "width": 502,
         "height": 252,
         "unit": "pixel",
-        "language": "",
         "lines": [
           {
-            "boundingBox": [58, 42, 314, 59, 311, 123, 56, 121],
+            "boundingBox": [
+              58,
+              42,
+              314,
+              59,
+              311,
+              123,
+              56,
+              121
+            ],
             "text": "Tabs vs",
             "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.999
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.96
+              }
             },
             "words": [
               {
-                "boundingBox": [85, 45, 242, 62, 241, 122, 83, 123],
+                "boundingBox": [
+                  68,
+                  44,
+                  225,
+                  59,
+                  224,
+                  122,
+                  66,
+                  123
+                ],
                 "text": "Tabs",
-                "confidence": 0.981
+                "confidence": 0.933
               },
               {
-                "boundingBox": [258, 64, 314, 72, 314, 123, 256, 123],
+                "boundingBox": [
+                  241,
+                  61,
+                  314,
+                  72,
+                  314,
+                  123,
+                  239,
+                  122
+                ],
                 "text": "vs",
-                "confidence": 0.958
+                "confidence": 0.977
               }
             ]
           },
           {
-            "boundingBox": [286, 171, 415, 165, 417, 197, 287, 201],
+            "boundingBox": [
+              286,
+              171,
+              415,
+              165,
+              417,
+              197,
+              287,
+              201
+            ],
             "text": "paces",
             "appearance": {
-              "style": "print",
-              "styleConfidence": 0.603
+              "style": {
+                "name": "handwriting",
+                "confidence": 0.746
+              }
             },
             "words": [
               {
-                "boundingBox": [303, 175, 415, 167, 415, 198, 306, 199],
+                "boundingBox": [
+                  286,
+                  179,
+                  404,
+                  166,
+                  405,
+                  198,
+                  290,
+                  201
+                ],
                 "text": "paces",
-                "confidence": 0.918
+                "confidence": 0.938
               }
             ]
           }

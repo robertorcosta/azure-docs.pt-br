@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 875254071d0ea252508242b83102fb8ca8b44e53
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3b7f8f5a0f48bf0cdca7f72e5fb364ea0a5d1315
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825380"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576592"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -60,9 +60,9 @@ A opção **FileSystem** é para fins de depuração temporária e fica desativa
 
 Selecione o **nível** ou o nível de detalhes para o log. A tabela a seguir mostra as categorias de log incluídas em cada nível:
 
-| Nível | Categorias incluídas |
+| Level | Categorias incluídas |
 |-|-|
-|**Desabilitada** | Nenhum |
+|**Desabilitado** | Nenhuma |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
 |**Informações** | Informações, Aviso, Erro, Crítico|
@@ -171,7 +171,7 @@ Para aplicativos do Windows, o arquivo ZIP contém o conteúdo do diretório *D:
 | **Logs de aplicativo** |*/LogFiles/Application/* | Contém um ou mais arquivos de texto. O formato das mensagens de log depende do provedor de log que você usa. |
 | **Rastreamentos de solicitação com falha** | */LogFiles/W3SVC # # # # # # # # #/* | Contém arquivos XML e um arquivo XSL. Você pode exibir os arquivos XML formatados no navegador. |
 | **Logs de erros detalhados** | */LogFiles/DetailedErrors/* | Contém arquivos de erro HTM. Você pode exibir os arquivos HTM no navegador.<br/>Outra maneira de exibir os rastreamentos de solicitação com falha é navegar até a página do aplicativo no Portal. No menu à esquerda, selecione **diagnosticar e resolver problemas**, em seguida, procure **logs de rastreamento de solicitação com falha**, clique no ícone para procurar e exibir o rastreamento desejado. |
-| **Logs do servidor Web** | */LogFiles/http/RawLogs/* | Contém arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou um utilitário como o [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>O serviço de aplicativo não dá suporte aos `s-computername` `s-ip` campos, ou `cs-version` . |
+| **Logs do servidor Web** | */LogFiles/http/RawLogs/* | Contém arquivos de texto formatados usando o [formato de arquivo de log estendido do W3C](/windows/desktop/Http/w3c-logging). Essas informações podem ser lidas usando um editor de texto ou um utilitário como o [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22).<br/>O serviço de aplicativo não dá suporte aos `s-computername` `s-ip` campos, ou `cs-version` . |
 | **Logs de implantação** | */LogFiles/git/* e */Deployments/* | Conter logs gerados pelos processos de implantação internos, bem como logs para implantações do git. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Enviar logs para Azure Monitor (versão prévia)

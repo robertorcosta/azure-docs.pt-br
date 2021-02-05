@@ -4,12 +4,12 @@ description: Como escolher entre os tamanhos de VM disponíveis e as versões de
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 59218361c5fff51b33131fdd2455c599dd12b06a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897486"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576694"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho e uma imagem da VM para nós de computação em um pool do lote do Azure
 
@@ -29,7 +29,7 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 | Série da VM  | Tamanhos com suporte |
 |------------|---------|
 | A Básico | Todos os tamanhos *exceto* Basic_A0 (A0) |
-| Um | Todos os tamanhos *, exceto* Standard_A0 |
+| Um | Todos os tamanhos, *exceto* Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11 |
 | Av2 | Todos os tamanhos |
 | B | Sem suporte |
 | DC | Sem suporte |
