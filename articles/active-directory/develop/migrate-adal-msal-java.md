@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 620f77655f8281919ba0831a7e53af8cd28bc5f2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754988"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583986"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Guia de migração do ADAL para o MSAL para Java
 
@@ -80,7 +80,7 @@ O MSAL para Java adiciona um [cache de token](msal-acquire-cache-tokens.md) para
 
 Em v 1.0, se você usar a `https://login.microsoftonline.com/common` autoridade, os usuários poderão entrar com qualquer conta do Azure Active Directory (AAD) (para qualquer organização).
 
-Se você usar a `https://login.microsoftonline.com/common` autoridade na v 2.0, os usuários poderão entrar com qualquer organização do AAD ou até mesmo uma MSA (conta pessoal da Microsoft). No MSAL para Java, se você quiser restringir o logon a qualquer conta do AAD, será necessário usar a `https://login.microsoftonline.com/organizations` autoridade (que é o mesmo comportamento do ADAL4J). Para especificar uma autoridade, defina o `authority` parâmetro no método [PublicClientApplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) ao criar sua `PublicClientApplication` classe.
+Se você usar a `https://login.microsoftonline.com/common` autoridade na v 2.0, os usuários poderão entrar com qualquer organização do AAD ou até mesmo uma MSA (conta pessoal da Microsoft). No MSAL para Java, se você quiser restringir o logon a qualquer conta do AAD, use a `https://login.microsoftonline.com/organizations` autoridade (que é o mesmo comportamento do ADAL4J). Para especificar uma autoridade, defina o `authority` parâmetro no método [PublicClientApplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) ao criar sua `PublicClientApplication` classe.
 
 ## <a name="v10-and-v20-tokens"></a>Tokens v1.0 e v2.0
 

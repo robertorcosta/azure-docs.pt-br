@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ebc22e3cf300b664aae5842f7cf924769d4d907e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756499"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584424"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurar um aplicativo móvel que chama APIs da Web
 
@@ -82,7 +82,7 @@ As seções a seguir fornecem mais informações sobre como instanciar o aplicat
 
 ##### <a name="specify-the-parent-ui-window-or-activity"></a>Especificar a interface do usuário pai, a janela ou a atividade
 
-No Android, você precisa passar a atividade pai antes de fazer a autenticação interativa. No iOS, ao usar um agente, você precisará entrar `ViewController` . Da mesma forma no UWP, talvez você queira passar a janela pai. Você o passa quando adquire o token. Mas quando você estiver criando o aplicativo, também poderá especificar um retorno de chamada como um delegado que retorna `UIParent` .
+No Android, passe a atividade pai antes de fazer a autenticação interativa. No iOS, quando você usa um agente, o Pass-in `ViewController` . Da mesma forma no UWP, talvez você queira passar a janela pai. Você o passa quando adquire o token. Mas quando você estiver criando o aplicativo, também poderá especificar um retorno de chamada como um delegado que retorna `UIParent` .
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
@@ -218,7 +218,7 @@ Para definir a janela de objeto, siga estas etapas:
 
     `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker."`
 
-1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Veja um exemplo:
+1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Aqui está um exemplo:
 
     Em `App.cs`:
     ```csharp

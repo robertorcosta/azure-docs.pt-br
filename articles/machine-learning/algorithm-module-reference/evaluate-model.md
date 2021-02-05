@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323799"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584933"
 ---
 # <a name="evaluate-model-module"></a>Módulo Avaliar modelo
 
@@ -57,14 +57,14 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
 
 ## <a name="results"></a>Resultados
 
-Depois de executar **Avaliar modelo** , selecione o módulo para abrir o painel de navegação **Avaliar modelo** à direita.  Depois, escolha a guia **Saídas + Logs** e, nessa guia, a seção **Saída de dados** tem vários ícones. O ícone **Visualizar** tem ícone de gráfico de barra e é a primeira maneira de ver os resultados.
+Depois de executar **Avaliar modelo**, selecione o módulo para abrir o painel de navegação **Avaliar modelo** à direita.  Depois, escolha a guia **Saídas + Logs** e, nessa guia, a seção **Saída de dados** tem vários ícones. O ícone **Visualizar** tem ícone de gráfico de barra e é a primeira maneira de ver os resultados.
 
 Para classificação binária, depois de clicar no ícone **Visualizar** , você poderá visualizar a matriz de confusão binária.
 Para várias classificações, você pode encontrar o arquivo de plotagem da matriz de confusão na guia **saídas + logs** , como a seguir:
 > [!div class="mx-imgBorder"]
 > ![Visualização da imagem carregada](media/module/multi-class-confusion-matrix.png)
 
-Se você conectar conjuntos de dados a ambas as entradas de **Avaliar modelo** , os resultados conterão as métricas para o conjunto de dados ou ambos os modelos.
+Se você conectar conjuntos de dados a ambas as entradas de **Avaliar modelo**, os resultados conterão as métricas para o conjunto de dados ou ambos os modelos.
 O modelo ou os dados anexados à porta à esquerda são apresentados primeiro no relatório, seguidos pelas métricas do conjunto de dados ou pelo modelo anexado na porta à direita.  
 
 Por exemplo, a imagem a seguir representa uma comparação de resultados de dois modelos de clustering criados com os mesmos dados, mas com parâmetros diferentes.  
@@ -75,7 +75,7 @@ Como esse é um modelo de clustering, os resultados da avaliação são diferent
 
 ## <a name="metrics"></a>Métricas
 
-Esta seção descreve as métricas retornadas para os tipos específicos de modelos com suporte para uso com **Avaliar modelo** :
+Esta seção descreve as métricas retornadas para os tipos específicos de modelos com suporte para uso com **Avaliar modelo**:
 
 + [modelos de classificação](#metrics-for-classification-models)
 + [modelos de regressão](#metrics-for-regression-models)
@@ -94,7 +94,7 @@ As métricas a seguir são relatadas ao avaliar modelos de classificação biná
   
 -   A **Pontuação F1** é calculada como a média ponderada de precisão e RECALL entre 0 e 1, em que o valor de Pontuação F1 ideal é 1.  
   
--   **AUC** mede a área sob a curva plotada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Essa métrica é útil porque ele fornece um único número que permite comparar modelos de tipos diferentes.  
+-   **AUC** mede a área sob a curva plotada com verdadeiros positivos no eixo y e falsos positivos no eixo x. Essa métrica é útil porque ele fornece um único número que permite comparar modelos de tipos diferentes. AUC é classificação-limite-invariável. Ele mede a qualidade das previsões do modelo, independentemente de qual limite de classificação é escolhido.
 
 
 ### <a name="metrics-for-regression-models"></a>Métricas para modelos de regressão
@@ -113,7 +113,7 @@ As métricas retornadas para modelos de regressão são projetadas para estimar 
   
 
   
-- **Coeficiente de determinação** , frequentemente chamado de R <sup>2</sup>, representa o poder de previsão do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada) e 1 significa que há um ajuste perfeito. No entanto, deve-se ter cuidado ao interpretar valores de R<sup>2</sup>, pois valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
+- **Coeficiente de determinação**, frequentemente chamado de R <sup>2</sup>, representa o poder de previsão do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (não explica nada) e 1 significa que há um ajuste perfeito. No entanto, deve-se ter cuidado ao interpretar valores de R<sup>2</sup>, pois valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
 
 ###  <a name="metrics-for-clustering-models"></a>Métricas para modelos de clustering
 
@@ -133,7 +133,7 @@ As métricas a seguir são relatadas para avaliar modelos de clustering.
   
      Se o número de pontos de dados atribuídos a clusters for menor que o número total de pontos de dados disponíveis, isso significará que não foi possível atribuir os pontos de dados a um cluster.  
   
--   As pontuações na coluna, a **distância máxima ao centro de cluster** , representam o máximo de distâncias entre cada ponto e o centróide do cluster desse ponto.  
+-   As pontuações na coluna, a **distância máxima ao centro de cluster**, representam o máximo de distâncias entre cada ponto e o centróide do cluster desse ponto.  
   
      Se esse número for alto, pode significar que o cluster é amplamente disperso. Você deve examinar essa estatística junto com a **Distância média ao centro de cluster** para determinar o espalhamento do cluster.   
 

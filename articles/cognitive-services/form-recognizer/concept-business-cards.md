@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131111"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585085"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de cartões de visita pré-criados do reconhecedor de formulário 
 
@@ -35,7 +35,7 @@ A API de cartão de visita predefinida extrai campos de chave de cartões de vis
 |:-----|:----|:----|:----|
 | ContactNames | matriz de objetos | Nome do contato extraído do cartão de visita | [{"FirstName": "John", "LastName": "Doe"}] |
 | FirstName | string | Primeiro (fornecido) nome do contato | "John" | 
-| LastName | string | Último nome (família) do contato |   "Doe" | 
+| LastName | string | Último nome (família) do contato |     "Doe" | 
 | Empresasnames | Matriz de cadeias de caracteres | Nome da empresa extraído do cartão de visita | ["Contoso"] | 
 | Departments | Matriz de cadeias de caracteres | Departamento ou organização de contato | ["R&D"] | 
 | JobTitles | Matriz de cadeias de caracteres | Título de trabalho de contato listado | ["Engenheiro de software"] | 
@@ -45,7 +45,7 @@ A API de cartão de visita predefinida extrai campos de chave de cartões de vis
 | MobilePhones | matriz de números de telefone | Número de telefone celular extraído do cartão de visita | ["+ 19876543210"] |
 | Cujo | matriz de números de telefone | Número de telefone de fax extraído do cartão de visita | ["+ 19876543211"] |
 | WorkPhones | matriz de números de telefone | Número de telefone de trabalho extraído do cartão de visita | ["+ 19876543231"] |
-| OtherPhones    | matriz de números de telefone | Outro número de telefone extraído do cartão de visita | ["+ 19876543233"] |
+| OtherPhones     | matriz de números de telefone | Outro número de telefone extraído do cartão de visita | ["+ 19876543233"] |
 
 
 A API do cartão de negócios também pode retornar todo o texto reconhecido do cartão de visita. Essa saída de OCR é incluída na resposta JSON.  

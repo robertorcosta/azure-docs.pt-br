@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845571"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585068"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura predefinido do reconhecedor de formulário
 
@@ -101,13 +101,13 @@ O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir 
 | RemittanceAddressRecipient | string | Nome associado ao RemittanceAddress | Cobrança da contoso |  |
 | Userstartdate | date | Primeira data para o período de serviço (por exemplo, um período de serviço de lista de utilitários) | 14/10/2019 | 2019-10-14 |
 | Fileenddate | date | Data de término do período de serviço (por exemplo, um período de serviço de lista de utilitários) | 11/14/2019 | 2019-11-14 |
-| PreviousUnpaidBalance | número | Saldo explícito anteriormente não pago | $500 | 500 |
+| PreviousUnpaidBalance | número | Saldo explícito anteriormente não pago | US$ 500,00 | 500 |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Experimente suas próprias faturas e exemplos na [interface do usuário de exemplo do reconhecedor de formulário](https://fott-preview.azurewebsites.net/).
-- Conclua um [início rápido do reconhecedor de formulário](quickstarts/client-library.md) para começar a gravar um aplicativo de processamento de faturas com o reconhecedor de formulário no idioma de sua escolha.
+- Conclua um [início rápido do reconhecedor de formulário](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de faturas com o reconhecedor de formulário na linguagem de desenvolvimento de sua escolha.
 
 ## <a name="see-also"></a>Confira também
 

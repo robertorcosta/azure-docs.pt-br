@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8f5324e967c5a67ee77559087a02c3421611d8f3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3ce00c5182246513aaf3178118058826528619d2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752859"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584257"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -85,11 +85,11 @@ Você pode obter uma conta de teste gratuita com todos os recursos premium do Az
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Etapa 1-escolher o padrão de logon único certo para seu aplicativo
 
-Para listar um aplicativo na Galeria de aplicativos do Azure AD, você precisa implementar pelo menos uma das opções de logon único com suporte. Para entender as opções de logon único e como os clientes irão configurá-las no Azure AD, consulte [Opções de SSO](../manage-apps/sso-options.md).
+Para listar um aplicativo na Galeria de aplicativos do Azure AD, implemente pelo menos uma das opções de logon único com suporte. Para entender as opções de logon único e como os clientes irão configurá-las no Azure AD, consulte [Opções de SSO](../manage-apps/sso-options.md).
 
 A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAuth 2,0) com OpenID Connect (OIDC), Security Assertion Markup Language (SAML) e especificação Web Services Federation (WS-alimentado).
 
-| Capacidade| OAuth/OIDC| SAML/WS-Fed |
+| Funcionalidade| OAuth/OIDC| SAML/WS-Fed |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
@@ -186,7 +186,7 @@ Você precisará de um locatário do Azure AD para testar seu aplicativo. Para c
 
 Como alternativa, um locatário do Azure AD vem com cada assinatura Microsoft 365. Para configurar um ambiente de desenvolvimento de Microsoft 365 gratuito, consulte [ingressar no Microsoft 365 programa de desenvolvedor](/office/developer-program/microsoft-365-developer-program).
 
-Depois de ter um locatário, você precisa testar o logon único e o [provisionamento](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Quando você tiver um locatário, teste o logon único e o [provisionamento](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **Para aplicativos OIDC ou Oath**, [Registre seu aplicativo](quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte.
 

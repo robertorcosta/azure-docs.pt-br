@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756465"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584373"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
 
@@ -58,7 +58,7 @@ Outras configurações específicas para APIs Web são a API exposta e os escopo
 
 Os escopos geralmente têm o formato `resourceURI/scopeName` . Por Microsoft Graph, os escopos têm atalhos. Por exemplo, `User.Read` é um atalho para `https://graph.microsoft.com/user.read` .
 
-Durante o registro do aplicativo, você precisa definir esses parâmetros:
+Durante o registro do aplicativo, defina esses parâmetros:
 
 - O URI do recurso
 - Um ou mais escopos
@@ -68,7 +68,7 @@ Por padrão, o portal de registro de aplicativos recomenda que você use o URI d
 
 Para aplicativos cliente, os escopos aparecem como *permissões delegadas e as* funções de aplicativo são exibidas como *permissões de aplicativo* para sua API Web.
 
-Os escopos também aparecem na janela de consentimento que é apresentada aos usuários do seu aplicativo. Portanto, você precisa fornecer as cadeias de caracteres correspondentes que descrevem o escopo:
+Os escopos também aparecem na janela de consentimento que é apresentada aos usuários do seu aplicativo. Portanto, forneça as cadeias de caracteres correspondentes que descrevem o escopo:
 
 - Como visto por um usuário.
 - Como visto por um administrador de locatários, que pode conceder consentimento de administrador.
@@ -99,7 +99,7 @@ Nesta seção, você aprenderá a registrar sua API Web protegida para que os ap
 
 #### <a name="exposing-application-permissions-app-roles"></a>Expondo permissões de aplicativo (funções de aplicativo)
 
-Para expor permissões de aplicativo, você precisa editar o manifesto.
+Para expor permissões de aplicativo, edite o manifesto.
 
 1. No registro do aplicativo para seu aplicativo, selecione **manifesto**.
 1. Para editar o manifesto, localize a `appRoles` configuração e adicione funções de aplicativo. As definições de função são fornecidas no bloco JSON de exemplo a seguir.

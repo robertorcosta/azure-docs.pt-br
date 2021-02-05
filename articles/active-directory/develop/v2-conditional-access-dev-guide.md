@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064361"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584223"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Diretrizes para desenvolvedores de Acesso Condicional do Azure Active Directory
 
@@ -43,9 +43,9 @@ Conhecimento de aplicativos de [único locatário](quickstart-register-app.md) e
 
 ### <a name="app-types-impacted"></a>Tipos de aplicativo afetados
 
-Na maioria dos casos, o Acesso Condicional não altera o comportamento de um aplicativo nem requer alterações por parte do desenvolvedor.  Somente em determinados casos em que um aplicativo solicita indireta ou silenciosamente um token para um serviço, um aplicativo exigirá alterações de código para tratar dos "desafios" do Acesso Condicional.  O que pode ser tão simples quanto executar uma solicitação de entrada interativa.
+Na maioria dos casos, o Acesso Condicional não altera o comportamento de um aplicativo nem requer alterações por parte do desenvolvedor. Somente em determinados casos em que um aplicativo solicita indiretamente ou silenciosamente um token para um serviço, um aplicativo requer alterações de código para lidar com os desafios de acesso condicional.  O que pode ser tão simples quanto executar uma solicitação de entrada interativa.
 
-Especificamente, os seguintes cenários exigem código para tratar dos "desafios" do Acesso Condicional:
+Especificamente, os cenários a seguir exigem código para lidar com os desafios de acesso condicional:
 
 * Aplicativos executando o fluxo em nome de
 * Aplicativos acessando vários serviços/recursos
@@ -54,7 +54,7 @@ Especificamente, os seguintes cenários exigem código para tratar dos "desafios
 
 As políticas de Acesso Condicional podem ser aplicadas ao aplicativo, mas também podem ser aplicadas a uma API Web acessada pelo seu aplicativo. Para saber mais sobre como configurar uma política de acesso condicional, confira [Início Rápido: Exigir MFA para aplicativos específicos com Acesso Condicional ao Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
 
-Dependendo do cenário, um cliente empresarial pode aplicar e remover políticas de Acesso Condicional a qualquer momento. Para que o aplicativo continue funcionando quando uma nova política é aplicada, você precisa implementar o tratamento de "desafio". Os exemplos a seguir ilustram o tratamento de desafio.
+Dependendo do cenário, um cliente empresarial pode aplicar e remover políticas de Acesso Condicional a qualquer momento. Para que seu aplicativo continue funcionando quando uma nova política for aplicada, implemente o tratamento de desafios. Os exemplos a seguir ilustram o tratamento de desafio.
 
 ### <a name="conditional-access-examples"></a>Exemplos de Acesso Condicional
 

@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2f9396e20ae0f426dddd57b32297cfe98e135c44
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 01a69dbf9230154b74145f932b678d6bbebbde08
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225809"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583952"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usar o MSAL em um ambiente de nuvem nacional
 
@@ -40,7 +40,7 @@ Antes de começar, certifique-se de atender a esses pré-requisitos.
 
 ### <a name="choose-the-appropriate-identities"></a>Escolha as identidades apropriadas
 
-Os aplicativos [do Azure governamental](../../azure-government/index.yml) podem usar identidades do Azure ad governamental e identidades públicas do Azure ad para autenticar usuários. Como você pode usar qualquer uma dessas identidades, você precisa decidir qual ponto de extremidade de autoridade deve escolher para seu cenário:
+Os aplicativos [do Azure governamental](../../azure-government/index.yml) podem usar identidades do Azure ad governamental e identidades públicas do Azure ad para autenticar usuários. Como você pode usar qualquer uma dessas identidades, decida qual ponto de extremidade de autoridade você deve escolher para seu cenário:
 
 - Público do Azure AD: normalmente usado se sua organização já tiver um locatário público do Azure AD para dar suporte a Microsoft 365 (pública ou GCC) ou a outro aplicativo.
 - Azure AD governamental: normalmente usado se sua organização já tiver um locatário do Azure AD governamental para dar suporte ao Office 365 (GCC High ou DoD) ou estiver criando um novo locatário no Azure AD governamental.
@@ -85,7 +85,7 @@ Para habilitar seu aplicativo MSAL.js para nuvens soberanas:
     Este tutorial requer que você habilite o [fluxo de concessão implícito](v2-oauth2-implicit-grant-flow.md). 
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Na **concessão implícita e em fluxos híbridos**, selecione **tokens de ID** e **tokens de acesso**. Tokens de ID e tokens de acesso são necessários porque esse aplicativo precisa conectar usuários e chamar uma API.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Etapa 2: configurar seu servidor Web ou projeto
 

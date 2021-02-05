@@ -2,20 +2,21 @@
 title: Recursos técnicos de segurança no Azure-Microsoft Azure
 description: Introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem.
 services: security
-author: terrylanfear
+author: TerryLanfear
+manager: rkarlin
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 353b1708a1c6014f9108ad2be62f22c1e0b0604c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6e0642a2124d58bb3af483313ac824568b6bbb39
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092761"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585136"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -78,7 +79,7 @@ A seguir estão os principais recursos de gerenciamento de identidade do Azure:
 
 - Privileged Identity Management
 
-- Identity Protection
+- Proteção de identidade
 
 #### <a name="single-sign-on"></a>Logon único
 
@@ -140,7 +141,7 @@ O Gerenciamento de identidades com privilégios do AD do Azure:
 
 - Receber alertas sobre o acesso a uma função com privilégios
 
-#### <a name="identity-protection"></a>Identity Protection
+#### <a name="identity-protection"></a>Proteção de identidade
 
 [Azure ad Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) é um serviço de segurança que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. A proteção de identidade usa os recursos de detecção de anomalias de Azure Active Directory existentes (disponíveis por meio dos relatórios de atividade anômala do Azure AD) e introduz novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 
@@ -167,7 +168,7 @@ Uma das chaves de proteção de dados na nuvem é responsável por possíveis es
 - Em repouso: isso inclui todos os objetos de armazenamento, contêineres e tipos de informações que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
 - Em trânsito: quando os dados são transferidos entre componentes, locais ou programas, como pela rede, em um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute), ou durante um processo de entrada/saída, ele é considerado em movimento.
 
-### <a name="encryption-at-rest"></a>Criptografar em repouso
+### <a name="encryption-at-rest"></a>Criptografia em repouso
 
 A criptografia em repouso é discutida em detalhes na [criptografia de dados do Azure em repouso](encryption-atrest.md).
 
@@ -431,20 +432,6 @@ O Gerenciador de Recursos fornece vários benefícios:
 > [!Note]
 > O Gerenciador de Recursos fornece uma nova maneira de implantar e gerenciar suas soluções. Se você usou o modelo de implantação anterior e deseja saber mais sobre as alterações, consulte [noções básicas sobre a implantação do Resource Manager e a implantação clássica](../../azure-resource-manager/management/deployment-models.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-step"></a>Próxima etapa
 
-Saiba mais sobre a segurança lendo alguns dos tópicos detalhados sobre segurança:
-
-- [Auditoria e log](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
-
-- [Crime cibernético](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
-
-- [Design e segurança operacional](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
-
-- [Criptografia](https://www.microsoft.com/en-us/trustcenter/security/encryption)
-
-- [Gerenciamento de identidade e acesso](https://www.microsoft.com/en-us/trustcenter/security/identity)
-
-- [Segurança de rede](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
-
-- [Gerenciamento de ameaças](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
+O programa de [benchmark de segurança do Azure](../benchmarks/introduction.md) inclui uma coleção de recomendações de segurança que você pode usar para ajudar a proteger os serviços que você usa no Azure.

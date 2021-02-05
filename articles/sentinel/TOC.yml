@@ -96,8 +96,14 @@
               href: connect-windows-security-events.md
         - name: Conectar a soluções externas
           items:
+            - name: Agari Phishing Defense e Brand Protection
+              href: connect-agari-phishing-defense.md
             - name: Alcide kAudit
               href: connect-alcide-kaudit.md
+            - name: Alsid para Active Directory
+              href: connect-alsid-active-directory.md
+            - name: Apache HTTP Server
+              href: connect-apache-http-server.md
             - name: WAF do Barracuda
               href: connect-barracuda.md
             - name: Firewall do Barracuda CloudGen
@@ -106,6 +112,8 @@
               href: connect-better-mtd.md
             - name: Beyond Security beSECURE
               href: connect-besecure.md
+            - name: Cisco Umbrella
+              href: connect-cisco-umbrella.md
             - name: Cisco Unified Computing System
               href: connect-cisco-ucs.md
             - name: Citrix Analytics (Segurança)
@@ -164,6 +172,8 @@
                   items:
                     - name: Detecção de IA da Vectra
                       href: connect-ai-vectra-detect.md
+                    - name: Akamai Security Events
+                      href: connect-akamai-security-events.md
                     - name: Ponto de Verificação
                       href: connect-checkpoint.md
                     - name: Cisco ASA
@@ -182,6 +192,8 @@
                       href: connect-fortinet.md
                     - name: Illusive redes AMS
                       href: connect-illusive-attack-management-system.md
+                    - name: Imperva WAF Gateway
+                      href: connect-imperva-waf-gateway.md
                     - name: One Identity Safeguard
                       href: connect-one-identity.md
                     - name: Redes Palo Alto

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756478"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584390"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Chamar uma API Web em um aplicativo móvel
 
@@ -117,7 +117,7 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>Fazer várias solicitações de API
 
-Se você precisar chamar a mesma API várias vezes ou se precisar chamar várias APIs, considere o seguinte ao compilar seu aplicativo:
+Para chamar a mesma API várias vezes ou chamar várias APIs, considere os seguintes assuntos ao compilar seu aplicativo:
 
 - **Consentimento incremental**: a plataforma de identidade da Microsoft permite que os aplicativos obtenham o consentimento do usuário quando forem necessárias permissões em vez de todos no início. Cada vez que seu aplicativo estiver pronto para chamar uma API, ele deverá solicitar apenas os escopos de que precisa.
 
@@ -125,7 +125,7 @@ Se você precisar chamar a mesma API várias vezes ou se precisar chamar várias
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Chamar várias APIs usando o consentimento incremental e o acesso condicional
 
-Se você precisar chamar várias APIs para o mesmo usuário, depois de adquirir um token para o usuário, será possível evitar a solicitação repetida das credenciais do usuário chamando posteriormente `AcquireTokenSilent` para obter um token:
+Para chamar várias APIs para o mesmo usuário, depois de adquirir um token para o usuário, você pode evitar repetidamente solicitar as credenciais ao usuário, chamando posteriormente `AcquireTokenSilent` para obter um token:
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

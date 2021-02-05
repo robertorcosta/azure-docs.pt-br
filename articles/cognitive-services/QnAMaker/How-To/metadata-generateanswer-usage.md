@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f92b8c4835e42e758085e0434ee926fbabce5a38
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936246"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584731"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -277,7 +277,7 @@ Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste u
 
 |Código|Explicação|
 |:--|--|
-|2xx|Êxito|
+|2xx|Sucesso|
 |400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, errados ou são muitos grandes|
 |400|O corpo da solicitação está incorreto, o que significa que o JSON está ausente, errado ou é muito grande|
 |401|Chave inválida|
@@ -291,3 +291,5 @@ A página **publicar** também fornece informações para [gerar uma resposta co
 
 > [!div class="nextstepaction"]
 > [Obter análises na base de dados de conhecimento](../how-to/get-analytics-knowledge-base.md)
+> [!div class="nextstepaction"]
+> [Pontuação de confiança](../Concepts/confidence-score.md)

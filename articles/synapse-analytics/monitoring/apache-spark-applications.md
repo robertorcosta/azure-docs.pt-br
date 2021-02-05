@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 2f9fa6e7ef9a7ee8ea7dd2a09622f26f6fd9739e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 00407b4a55b3c074fa77d4c3664f6e218c23fe21
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223118"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584492"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Use o Synapse Studio para monitorar seus aplicativos Apache Spark
 
@@ -155,6 +155,26 @@ Abra o **Monitor** e, em seguida, selecione **Apache Spark aplicativos**. Para e
 6. Verifique as informações do erro.
 
    ![informações do trabalho com falha](./media/how-to-monitor-spark-applications/failed-job-info.png)
+
+## <a name="compare-apache-spark-applications"></a>Comparar aplicativos Apache Spark
+Clique no botão **comparar aplicativos** e escolha um aplicativo para comparar o desempenho. os usuários podem ver de forma intuitiva a diferença entre os dois aplicativos.
+
+![comparar aplicativos](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+1. Use o mouse para focalizar um aplicativo e, em seguida, o ícone **comparar aplicativos** será exibido.
+
+2. Clique no ícone **comparar aplicativos** e a página comparar aplicativos será exibida.
+
+3. Clique no botão **escolher aplicativo** para abrir a página **escolher aplicativo de comparação** .
+
+4. Ao escolher o aplicativo de comparação, os usuários precisam inserir a URL do aplicativo ou escolher na lista recorrente. Em seguida, clique no botão **OK** . 
+
+   ![escolher aplicativo de comparação](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
+
+5. O resultado da comparação será exibido na página comparar aplicativos.
+
+   ![resultado da comparação](./media/how-to-monitor-spark-applications/comparison-result.png)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

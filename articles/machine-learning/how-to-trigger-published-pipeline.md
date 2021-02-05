@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 12/16/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 56a3183e259a0b1c661dfe84d5e47c4c221e5d48
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881730"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584848"
 ---
-# <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Disparar pipelines do Machine Learning com Azure Machine Learning SDK para Python
+# <a name="trigger-machine-learning-pipelines"></a>Disparar pipelines do Machine Learning
 
-Neste artigo, você aprenderá a agendar programaticamente um pipeline para ser executado no Azure. Você pode optar por criar uma agenda com base no tempo decorrido ou nas alterações do sistema de arquivos. Agendas baseadas em tempo podem ser usadas para cuidar de tarefas rotineiras, como o monitoramento de descompasso de dados. Os agendamentos baseados em alterações podem ser usados para reagir a alterações irregulares ou imprevisíveis, como novos dados carregados ou dados antigos sendo editados. Depois de aprender a criar agendas, você aprenderá a recuperá-las e desativá-las. Por fim, você aprenderá a usar um aplicativo lógico do Azure para permitir a lógica ou o comportamento mais complexo do gatilho.
+Neste artigo, você aprenderá a agendar programaticamente um pipeline para ser executado no Azure. Você pode criar uma agenda com base no tempo decorrido ou nas alterações do sistema de arquivos. Agendas baseadas em tempo podem ser usadas para cuidar de tarefas rotineiras, como o monitoramento de descompasso de dados. Os agendamentos baseados em alterações podem ser usados para reagir a alterações irregulares ou imprevisíveis, como novos dados carregados ou dados antigos sendo editados. Depois de aprender a criar agendas, você aprenderá a recuperá-las e desativá-las. Por fim, você aprenderá a usar outros serviços do Azure, o aplicativo lógico do Azure e o Azure Data Factory, para executar pipelines. Um aplicativo lógico do Azure permite uma lógica ou comportamento mais complexo de gatilho. Azure Data Factory pipelines permitem chamar um pipeline do Machine Learning como parte de um pipeline de orquestração de dados maior.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Neste artigo, você aprenderá a agendar programaticamente um pipeline para ser 
 
 * Um espaço de trabalho Machine Learning com um pipeline publicado. Você pode usar aquela criada para [criar e executar pipelines de Machine Learning com Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
 
-## <a name="initialize-the-workspace--get-data"></a>Inicializar o espaço de trabalho & obter dados
+## <a name="trigger-pipelines-with-azure-machine-learning-sdk-for-python"></a>Disparar pipelines com Azure Machine Learning SDK para Python
 
 Para agendar um pipeline, você precisará de uma referência ao seu espaço de trabalho, o identificador do pipeline publicado e o nome do experimento no qual você deseja criar o agendamento. Você pode obter esses valores com o seguinte código:
 
@@ -81,7 +81,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 ### <a name="create-a-change-based-schedule"></a>Criar uma agenda baseada em alteração
 
-Os pipelines disparados por alterações de arquivo podem ser mais eficientes do que os agendamentos baseados em tempo. Por exemplo, você pode desejar executar uma etapa de pré-processamento quando um arquivo for alterado ou quando um novo arquivo for adicionado a um diretório de dados. Você pode monitorar qualquer alteração em um repositório de armazenamento ou alterações dentro de um diretório específico dentro do repositório de armazenamento. Se você monitorar um diretório específico, as alterações nos subdiretórios desse diretório _não_ dispararão uma execução.
+Os pipelines disparados por alterações de arquivo podem ser mais eficientes do que os agendamentos baseados em tempo. Quando você deseja fazer algo antes de um arquivo ser alterado, ou quando um novo arquivo é adicionado a um diretório de dados, você pode pré-processar esse arquivo. Você pode monitorar qualquer alteração em um repositório de armazenamento ou alterações dentro de um diretório específico dentro do repositório de armazenamento. Se você monitorar um diretório específico, as alterações nos subdiretórios desse diretório _não_ dispararão uma execução.
 
 Para criar um arquivo-reativo `Schedule` , você deve definir o `datastore` parâmetro na chamada para [Schedule. Create](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). Para monitorar uma pasta, defina o `path_on_datastore` argumento.
 
@@ -104,7 +104,7 @@ Além dos argumentos discutidos anteriormente, você pode definir o `status` arg
 
 No navegador da Web, navegue até Azure Machine Learning. Na seção **pontos de extremidade** do painel de navegação, escolha **pontos de extremidade de pipeline**. Isso leva você para uma lista dos pipelines publicados no espaço de trabalho.
 
-![Página pipelines do AML](./media/how-to-trigger-published-pipeline/scheduled-pipelines.png)
+:::image type="content" source="./media/how-to-trigger-published-pipeline/scheduled-pipelines.png" alt-text="Página pipelines do AML":::
 
 Nesta página, você pode ver informações resumidas sobre todos os pipelines no espaço de trabalho: nomes, descrições, status e assim por diante. Faça uma busca detalhada clicando em seu pipeline. Na página resultante, há mais detalhes sobre o pipeline e você pode fazer uma busca detalhada em execuções individuais.
 
@@ -151,7 +151,7 @@ published_pipeline = PublishedPipeline.get(ws, id="<pipeline-id-here>")
 published_pipeline.endpoint 
 ```
 
-## <a name="create-a-logic-app"></a>Criar um Aplicativo Lógico
+## <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 
 Agora, crie uma instância [do aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) . Se desejar, [use um ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) e [Configure uma chave gerenciada pelo cliente](../logic-apps/customer-managed-keys-integration-service-environment.md) para ser usada pelo seu aplicativo lógico.
 
@@ -161,23 +161,23 @@ Depois que seu aplicativo lógico tiver sido provisionado, use estas etapas para
 
 1. Navegue até o modo de exibição designer de aplicativo lógico e selecione o modelo aplicativo lógico em branco. 
     > [!div class="mx-imgBorder"]
-    > ![Modelo em branco](media/how-to-trigger-published-pipeline/blank-template.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/blank-template.png" alt-text="Modelo em branco":::
 
 1. No designer, pesquise por **blob**. Selecione o gatilho **quando um blob é adicionado ou modificado (somente Propriedades)** e adicione esse gatilho ao seu aplicativo lógico.
     > [!div class="mx-imgBorder"]
-    > ![Adicionar gatilho](media/how-to-trigger-published-pipeline/add-trigger.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/add-trigger.png" alt-text="Adicionar gatilho":::
 
 1. Preencha as informações de conexão para a conta de armazenamento de BLOBs que você deseja monitorar para adições ou modificações de BLOB. Selecione o contêiner a ser monitorado. 
  
     Escolha o **intervalo** e a **frequência** para sondar as atualizações que funcionam para você.  
 
     > [!NOTE]
-    > Esse gatilho irá monitorar o contêiner selecionado, mas não monitorará subpastas.
+    > Esse gatilho monitorará o contêiner selecionado, mas não monitorará as subpastas.
 
 1. Adicione uma ação HTTP que será executada quando um blob novo ou modificado for detectado. Selecione **+ nova etapa**, procure e selecione a ação http.
 
   > [!div class="mx-imgBorder"]
-  > ![Pesquisar ação HTTP](media/how-to-trigger-published-pipeline/search-http.png)
+  > :::image type="content" source="media/how-to-trigger-published-pipeline/search-http.png" alt-text="Pesquisar ação HTTP":::
 
   Use as seguintes configurações para configurar sua ação:
 
@@ -208,12 +208,18 @@ Depois que seu aplicativo lógico tiver sido provisionado, use estas etapas para
     Use o `DataStoreName` que você adicionou ao seu espaço de trabalho como um [pré-requisito](#prerequisites).
      
     > [!div class="mx-imgBorder"]
-    > ![Configurações HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/http-settings.png" alt-text="Configurações de HTTP":::
 
 1. Selecione **salvar** e sua agenda agora está pronta.
 
 > [!IMPORTANT]
 > Se você estiver usando o controle de acesso baseado em função do Azure (RBAC do Azure) para gerenciar o acesso ao seu pipeline, [defina as permissões para seu cenário de pipeline (treinamento ou pontuação)](how-to-assign-roles.md#common-scenarios).
+
+## <a name="call-machine-learning-pipelines-from-azure-data-factory-pipelines"></a>Chamar pipelines do Machine Learning de pipelines de Azure Data Factory
+
+Em um pipeline Azure Data Factory, a atividade *Machine Learning executar pipeline* executa um pipeline Azure Machine Learning. Você pode encontrar essa atividade na página de criação do Data Factory na categoria *Machine Learning* :
+
+:::image type="content" source="media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Captura de tela mostrando a atividade de pipeline ML no ambiente de criação de Azure Data Factory":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

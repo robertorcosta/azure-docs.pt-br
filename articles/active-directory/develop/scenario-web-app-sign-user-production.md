@@ -12,27 +12,22 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c7abad31c9936729b8d9c19ed2efcb841ac103ca
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756233"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584290"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicativo Web que conecta usuários: mover para produção
 
-Agora que você sabe como obter um token para chamar APIs da Web, saiba como movê-la para produção.
+Agora que você sabe como obter um token para chamar APIs da Web, aqui estão algumas coisas a serem consideradas ao mover seu aplicativo para produção.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="troubleshooting"></a>Solução de problemas
-
-> [!NOTE]
-> Quando os usuários entram no aplicativo Web pela primeira vez, eles precisarão consentir. No entanto, em algumas organizações, os usuários podem ver uma mensagem semelhante à seguinte:
->
-> *AppName precisa de permissões para acessar recursos em sua organização que somente um administrador pode conceder. Peça a um administrador para conceder permissão a este aplicativo antes de poder usá-lo.*
->
-> Isso ocorre porque o administrador de locatários **desabilitou** a capacidade de consentimento dos usuários. Nesse caso, você precisa entrar em contato com seus administradores de locatários para que eles façam um consentimento de administrador para os escopos exigidos pelo aplicativo.
+Quando os usuários entram no aplicativo Web pela primeira vez, eles precisarão consentir. No entanto, em algumas organizações, os usuários podem ver uma mensagem semelhante à seguinte: *AppName precisa de permissões para acessar recursos em sua organização que somente um administrador pode conceder. Peça a um administrador para conceder permissão a este aplicativo antes de poder usá-lo.*
+Isso ocorre porque o administrador de locatários **desabilitou** a capacidade de consentimento dos usuários. Nesse caso, entre em contato com seus administradores de locatários para que eles façam um consentimento de administrador para os escopos exigidos pelo aplicativo.
 
 ## <a name="same-site"></a>Mesmo site
 

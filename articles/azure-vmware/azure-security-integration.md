@@ -2,13 +2,13 @@
 title: Proteger suas VMs de solução do Azure VMware com a integração da central de segurança do Azure
 description: Saiba como proteger suas VMs de solução do Azure VMware com as ferramentas de segurança nativa do Azure de um único painel na central de segurança do Azure.
 ms.topic: how-to
-ms.date: 11/06/2020
-ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/04/2021
+ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061457"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584950"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteger suas VMs de solução do Azure VMware com a integração da central de segurança do Azure
 
@@ -36,7 +36,12 @@ Você pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel p
 
 - Os serviços nativos do Azure podem ser usados para segurança de ambiente híbrido no Azure, solução Azure VMware e serviços locais.
 - Usando um espaço de trabalho Log Analytics, você pode coletar os dados ou os logs para um único ponto e apresentar os mesmos dados a diferentes serviços nativos do Azure.
-- A central de segurança do Azure fornece recursos de segurança como monitoramento de integridade de arquivo, detecção de ataque sem arquivo, avaliação de patch de sistema operacional, avaliação de configurações incorretas de segurança e avaliação do Endpoint Protection.
+- A central de segurança do Azure oferece uma série de recursos, incluindo:
+    - Monitoramento de integridade do arquivo
+    - Detecção de ataque de não-arquivo
+    - Avaliação de patch do sistema operacional 
+    - Avaliação de configurações incorretas de segurança
+    - Avaliação da proteção de ponto de extremidade
 - O Azure Sentinel permite que você:
     - Colete dados em escala de nuvem em todos os usuários, dispositivos, aplicativos e infraestrutura, tanto localmente quanto em várias nuvens.
     - Detectar ameaças anteriormente não detectadas.
@@ -78,7 +83,7 @@ O Azure defender estende a proteção avançada contra ameaças da central de se
 5. Na guia **detalhes do recurso** , preencha os seguintes detalhes: 
     - Assinatura
     - Grupo de recursos
-    - Região 
+    - Region 
     - Sistema operacional
     - Detalhes do servidor proxy
     
@@ -157,7 +162,7 @@ Depois de conectar fontes de dados ao Azure Sentinel, você pode criar regras pa
     - Nome
     - Descrição
     - Táticas
-    - Gravidade
+    - Severity
     - Status
 
     Selecione **Avançar: definir >de lógica de regra**.
@@ -183,7 +188,7 @@ Depois de conectar fontes de dados ao Azure Sentinel, você pode criar regras pa
 
 6. Na guia **configurações de incidente** , habilite **criar incidentes de alertas disparados por esta regra de análise** e selecione **avançar: resposta automatizada >**.
  
-    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Captura de tela do assistente de regra analítica para criar uma nova regra no Azure Sentinel mostrando criar incidentes de alertas disparados por essa regra de análise como habilitado.":::
+    :::image type="content" source="media/azure-security-integration/create-new-analytic-rule-wizard.png" alt-text="Captura de tela do assistente de regra analítica para criar uma nova regra no Azure Sentinel. Mostra criar incidentes de alertas disparados por esta regra como habilitado.":::
 
 7. Selecione **Avançar: examinar >**.
 
@@ -235,6 +240,8 @@ Você pode criar consultas ou usar a consulta predefinida disponível no Azure S
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Aprenda a usar o [painel do Azure defender](../security-center/azure-defender-dashboard.md).
-- Explore a gama completa de proteção oferecida pelo [Azure defender](../security-center/azure-defender.md).
-- Saiba mais sobre a [detecção avançada de ataques de multiestágio no Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+Agora que você já abordou como proteger suas VMs de solução do Azure VMware, talvez queira saber mais sobre:
+
+- Usando o [painel do Azure defender](../security-center/azure-defender-dashboard.md).
+- [Detecção avançada de ataques de multiestágio no Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+- [Gerenciamento do ciclo de vida de VMs de solução do Azure VMware](lifecycle-management-of-azure-vmware-solution-vms.md).

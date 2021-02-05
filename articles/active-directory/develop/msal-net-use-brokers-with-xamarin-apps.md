@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063477"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583834"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin
 
@@ -91,7 +91,7 @@ Esse método é invocado toda vez que o aplicativo é iniciado. Ele é usado com
 
 ### <a name="step-4-set-uiviewcontroller"></a>Etapa 4: definir UIViewController ()
 
-Ainda no arquivo *AppDelegate.cs* , você precisa definir uma janela de objeto. Normalmente, você não precisa definir a janela de objeto para o Xamarin iOS, mas precisa de uma janela de objeto para enviar e receber respostas do agente.
+Ainda no arquivo *AppDelegate.cs* , defina uma janela de objeto. Normalmente, você não precisa definir a janela de objeto para o Xamarin iOS, mas precisa de uma janela de objeto para enviar e receber respostas do agente.
 
 Para configurar a janela de objeto:
 
@@ -171,7 +171,7 @@ Quando você usa o agente, seu URI de redirecionamento tem um requisito extra. O
 $"msauth.{BundleId}://auth"
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
@@ -237,7 +237,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>Etapa 4: adicionar um URI de redirecionamento ao registro do aplicativo
 
-O MSAL usa URLs para invocar o agente e, em seguida, retornar ao seu aplicativo. Para concluir essa viagem de ida e volta, você precisa registrar um **URI de redirecionamento** para seu aplicativo usando o [portal do Azure](https://portal.azure.com).
+O MSAL usa URLs para invocar o agente e, em seguida, retornar ao seu aplicativo. Para concluir essa viagem de ida e volta, registre um **URI de redirecionamento** para seu aplicativo usando o [portal do Azure](https://portal.azure.com).
 
 O formato do URI de redirecionamento para seu aplicativo depende do certificado usado para assinar o APK. Por exemplo:
 

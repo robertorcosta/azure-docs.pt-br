@@ -8,13 +8,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
+ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 6da9c6775a6d5c96bc52183fefc3e5330272e9ff
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542075"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585119"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorando a referência de dados do Azure Machine Learning
 
@@ -24,7 +25,7 @@ Saiba mais sobre os dados e recursos coletados por Azure Monitor do seu espaço 
 
 Esta seção lista todas as métricas de plataforma coletadas automaticamente coletadas para Azure Machine Learning. O provedor de recursos para essas métricas é [Microsoft. MachineLearningServices/Workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
-**Deprecia**
+**Modelo**
 
 | Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
@@ -73,7 +74,7 @@ Informações sobre execuções de treinamento.
 
 ## <a name="metric-dimensions"></a>Dimensões de métrica
 
-Para obter mais informações sobre quais dimensões de métrica são, consulte [métricas multidimensionais](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
+Para obter mais informações sobre o que são dimensões de métrica, confira [Métricas multidimensionais](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
 
 Azure Machine Learning tem as seguintes dimensões associadas a suas métricas.
 
@@ -178,7 +179,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | MinimumNodeCount | Contagem mínima de nós do cluster |
 | MaximumNodeCount | Contagem máxima de nós do cluster |
 | NodeDeallocationOption | Como o nó deve ser desalocado |
-| Publicador | Editor do tipo de cluster |
+| Editor | Editor do tipo de cluster |
 | Oferta | Oferta com a qual o cluster é criado |
 | Sku | SKU do nó/VM criado dentro do cluster |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -214,7 +215,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | VmSize | Tamanho da VM do nó |
 | VmFamilyName | Família de VMs à qual o nó pertence |
 | VmPriority | Prioridade do nó criado dedicado/LowPriority |
-| Publicador | Editor da imagem da VM. Por exemplo, Microsoft-dsvm |
+| Editor | Editor da imagem da VM. Por exemplo, Microsoft-dsvm |
 | Oferta | Oferta associada à criação da VM |
 | Sku | SKU do nó/VM criado |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
