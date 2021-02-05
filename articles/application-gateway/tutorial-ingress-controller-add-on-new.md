@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 627d5b15a861c3d564cb4db33b366d3227092d37
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 775dc2133473354a1e534275fb0d813f299217d1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296243"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593801"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Habilitar o complemento Controlador de Entrada (versão prévia) para um novo cluster do AKS com uma nova instância do Gateway de Aplicativo
 
@@ -80,7 +80,7 @@ Implantar um novo cluster do AKS com o complemento AGIC habilitado sem especific
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
-Para configurar parâmetros adicionais para o comando `az aks create`, confira [estas referências](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
+Para configurar parâmetros adicionais para o comando `az aks create`, confira [estas referências](/cli/azure/aks#az-aks-create). 
 
 > [!NOTE]
 > O cluster do AKS que você criou aparecerá no grupo de recursos criado, *myResourceGroup*. No entanto, a instância do Gateway de Aplicativo criada automaticamente estará no grupo de recursos do nó, onde os pools de agentes se encontram. O grupo de recursos do nó é denominado *MC_resource-group-name_cluster-name_location* por padrão, mas isso pode ser modificado. 

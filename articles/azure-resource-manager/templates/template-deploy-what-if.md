@@ -3,14 +3,14 @@ title: Implantação de modelo What-If
 description: Determine quais alterações ocorrerão para seus recursos antes de implantar um modelo de Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/05/2021
 ms.author: tomfitz
-ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673963"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591617"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Operação teste de hipóteses de implantação do modelo do ARM
 
@@ -21,10 +21,6 @@ Você pode usar a operação What-If com as operações Azure PowerShell, CLI do
 ## <a name="install-azure-powershell-module"></a>Instalar o módulo do Azure PowerShell
 
 Para usar What-If no PowerShell, você deve ter **a versão 4,2 ou posterior do módulo AZ**.
-
-Mas, antes de instalar o módulo necessário, verifique se você tem o PowerShell Core (6. x ou 7. x). Se você tiver o PowerShell 5. x ou anterior, [Atualize sua versão do PowerShell](/powershell/scripting/install/installing-powershell). Não é possível instalar o módulo necessário no PowerShell 5. x ou anterior.
-
-### <a name="install-latest-version"></a>Instalar a versão mais recente
 
 Para instalar o módulo, use:
 
@@ -326,7 +322,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 A operação What-If dá suporte ao uso do [modo de implantação](deployment-modes.md). Quando definido para o modo completo, os recursos que não estão no modelo são excluídos. O exemplo a seguir implanta um [modelo que não tem recursos definidos](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) no modo completo.
 
-Para visualizar as alterações antes de implantar um modelo, use o parâmetro confirmar opção com o comando de implantação. Se as alterações forem as esperadas, confirme que você deseja concluir a implantação.
+Para visualizar as alterações antes de implantar um modelo, use o parâmetro confirmar opção com o comando de implantação. Se as alterações forem as esperadas, responda que você deseja que a implantação seja concluída.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

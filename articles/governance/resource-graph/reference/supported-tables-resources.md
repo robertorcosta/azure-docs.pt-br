@@ -1,15 +1,15 @@
 ---
 title: Tipos de recursos de Azure Resource Manager com suporte
 description: Forneça uma lista dos tipos de recursos de Azure Resource Manager com suporte pelo grafo de recursos do Azure e pelo histórico de alterações.
-ms.date: 01/06/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 4198c60bc298eb6a1b9902bb92e3df44648b2c0b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 865aed468f8a6bcb848b77a82467efc2c531398b
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251770"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594326"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela e referência de tipo de recursos do Azure Resource Graph
 
@@ -130,6 +130,9 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. azurestack/linkedsubscriptions
 - Microsoft. Azurestack/registros (hubs de Azure Stack)
 - Microsoft. AzureStackHCI/clusters (Azure Stack HCI)
+- Microsoft. azurestackhci/galleryimages
+- Microsoft. azurestackhci/NetworkInterfaces
+- Microsoft. azurestackhci/virtualnetworks
 - microsoft.baremetal/consoleconnections
 - Microsoft. BareMetal/crayServers (servidores Cray)
 - Microsoft. BareMetal/monitoringServers (servidores de monitoramento)
@@ -331,6 +334,9 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. insights/workbooktemplates (modelos de pasta de trabalho do Azure)
 - Microsoft. IntelligentITDigitalTwin/digitalTwins (minervas)
 - Microsoft. intelligentitdigitaltwin/digitaltwins/ativos
+- Microsoft. intelligentitdigitaltwin/digitaltwins/executionplans
+- Microsoft. intelligentitdigitaltwin/digitaltwins/TestPlans
+- Microsoft. intelligentitdigitaltwin/digitaltwins/Tests
 - Microsoft. IoTCentral/IoTApps (aplicativos IoT Central)
 - Microsoft. IoTSpaces/Graph (digital gêmeos (preterido))
 - microsoft.keyvault/hsmpools
@@ -494,6 +500,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. Resources/templateSpecs (especificações do modelo)
 - microsoft.resources/templatespecs/versions
 - Microsoft. SaaS/Applications (software como serviço (clássico))
+- Microsoft. SaaS/Resources (CPX-PlaceHolder)
 - Microsoft. Scheduler/gratuitas (coleções de trabalhos do Agendador)
 - Microsoft. SCVMM/nuvens
 - Microsoft. SCVMM/virtualMachines (máquina virtual do SCVMM – arco do Azure)
@@ -588,6 +595,7 @@ O Azure Resource Graph oferece suporte aos seguintes **tipos de recursos** do [A
 - Microsoft. Web/StaticSites (aplicativos Web estáticos (visualização))
 - Microsoft. WindowsESU/multipleActivationKeys (chaves de ativação múltipla do Windows)
 - Microsoft. WindowsIoT/deviceservices (serviços do Windows 10 IoT Core)
+- Microsoft. workloadbuilder/migrationagents
 - Microsoft. workloadbuilder/cargas de trabalho
 - MyGet. PackageManagement/Services (NuGet hospedado MyGet, NPM, Bower e VSIX)
 - Paraleap. CloudMonix/Services (CloudMonix)

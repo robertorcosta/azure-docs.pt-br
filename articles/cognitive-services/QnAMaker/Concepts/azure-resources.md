@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 8c740e2868d2cd2033bc896f9b6ca897b38e922f
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 0864db8a653ff1d6f89ed0b1c857e51053ff50ff
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584814"
+ms.locfileid: "99592596"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -93,7 +93,7 @@ A tabela a seguir fornece algumas diretrizes de alto nível.
 |                            |Azure Cognitive Search | Limitações                      |
 | -------------------------- |------------ | -------------------------------- |
 | **Experimentação**        |Camada Gratuita    | Publicar até 2 KB/s, tamanho de 50 MB  |
-| **Ambiente de Desenvolvimento/Teste**   |Basic        | Publicar até 14 KBs, com tamanho de 2 GB    |
+| **Ambiente de Desenvolvimento/Teste**   |Básico        | Publicar até 14 KBs, com tamanho de 2 GB    |
 | **Ambiente de Produção** |Standard     | Publicar até 49 KBs, tamanho de 25 GB |
 
 ---
@@ -157,9 +157,9 @@ Você pode exibir e redefinir as chaves de criação do portal do Azure, em que 
 
     ![Lista de recursos do QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
-2. Vá para **as chaves**:
+2. Vá para **chaves e ponto de extremidade**:
 
-    ![Chave de assinatura](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+    ![Chave de assinatura gerenciada QnA Maker (versão prévia)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
 
 ### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Localizar chaves de ponto de extremidade de consulta no portal de QnA Maker
 

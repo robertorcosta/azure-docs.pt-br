@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: acdb635dec5abd73341cc1dda4991b58b82a18c0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574509"
+ms.locfileid: "99593936"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Fluxos de trabalho do GitHub Actions para Aplicativos Web Estáticos do Azure – Visualização
 
@@ -197,12 +197,13 @@ jobs:
 
 ## <a name="monorepo-support"></a>Suporte a monorepositório
 
-Um monorepositório é um repositório que contém código para mais de um aplicativo. Por padrão, um arquivo de fluxo de trabalho de aplicativos Web estáticos rastreia todos os arquivos em um repositório, mas você pode ajustá-lo para o destino de um único aplicativo. Portanto, para monorepositórios, cada site estático tem seu próprio arquivo de configuração que reside lado a lado na pasta *. git* do repositório.
+Um monorepositório é um repositório que contém código para mais de um aplicativo. Por padrão, um arquivo de fluxo de trabalho de aplicativos Web estáticos rastreia todos os arquivos em um repositório, mas você pode ajustá-lo para o destino de um único aplicativo. Portanto, para monostores, cada aplicativo estático tem seu próprio arquivo de configuração, que reside lado a lado na pasta *. github/fluxos de trabalho* do repositório.
 
 ```files
-├── .git
-│   ├── azure-static-web-apps-purple-pond.yml
-│   └── azure-static-web-apps-yellow-shoe.yml
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
 │
 ├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
@@ -210,7 +211,7 @@ Um monorepositório é um repositório que contém código para mais de um aplic
 ├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
 │
-└── readme.md
+└── README.md
 ```
 
 Para direcionar um arquivo de fluxo de trabalho para um único aplicativo, você especifica caminhos nas `push` `pull_request` seções e.
@@ -236,7 +237,7 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-Nessa instância, somente as alterações feitas nos arquivos a seguir disparam uma nova compilação:
+Nessa instância, somente as alterações feitas nos seguintes arquivos disparam uma nova compilação:
 
 - Todos os arquivos dentro da pasta *App1*
 - Todos os arquivos dentro da pasta *api1*

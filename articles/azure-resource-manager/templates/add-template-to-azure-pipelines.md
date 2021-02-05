@@ -2,25 +2,29 @@
 title: CI/CD com Azure Pipelines e modelos
 description: Descreve como configurar a integração contínua no Azure Pipelines usando modelos de Azure Resource Manager. Ele mostra como usar um script do PowerShell ou copiar arquivos para um local de preparo e implantá-los a partir daí.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.date: 02/05/2021
+ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233807"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594190"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos do Resource Manager com Azure Pipelines
 
-Você pode integrar modelos de Azure Resource Manager (modelos ARM) com Azure Pipelines para integração contínua e implantação contínua (CI/CD). O tutorial [integração contínua de modelos ARM com Azure pipelines](deployment-tutorial-pipeline.md) mostra como usar a [tarefa de implantação de modelo ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) para implantar um modelo do seu repositório github. Essa abordagem funciona quando você deseja implantar um modelo diretamente de um repositório.
+Você pode integrar modelos de Azure Resource Manager (modelos ARM) com Azure Pipelines para integração contínua e implantação contínua (CI/CD). Neste artigo, você aprende duas maneiras mais avançadas de implantar modelos com Azure Pipelines.
 
-Neste artigo, você aprende duas maneiras de implantar modelos com Azure Pipelines. Este artigo mostra como:
+## <a name="select-your-option"></a>Selecione sua opção
 
-* **Adicionar tarefa que executa um script de Azure PowerShell** . Essa opção tem a vantagem de fornecer consistência em todo o ciclo de vida de desenvolvimento, pois você pode usar o mesmo script que usou ao executar testes locais. O script implanta o modelo, mas também pode executar outras operações, como obter valores para usar como parâmetros.
+Antes de prosseguir com este artigo, vamos considerar as diferentes opções para implantar um modelo ARM de um pipeline.
+
+* **Use a tarefa de implantação de modelo ARM**. Essa opção é a opção mais fácil. Essa abordagem funciona quando você deseja implantar um modelo diretamente de um repositório. Essa opção não é abordada neste artigo, mas, em vez disso, é abordada no tutorial [integração contínua de modelos ARM com Azure pipelines](deployment-tutorial-pipeline.md). Ele mostra como usar a [tarefa de implantação de modelo ARM](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) para implantar um modelo do seu repositório github.
+
+* **Adicionar tarefa que executa um script de Azure PowerShell**. Essa opção tem a vantagem de fornecer consistência em todo o ciclo de vida de desenvolvimento, pois você pode usar o mesmo script que usou ao executar testes locais. O script implanta o modelo, mas também pode executar outras operações, como obter valores para usar como parâmetros. Essa opção é mostrada neste artigo. Consulte [Azure PowerShell tarefa](#azure-powershell-task).
 
    O Visual Studio fornece o [projeto do grupo de recursos do Azure](create-visual-studio-deployment-project.md) que inclui um script do PowerShell. O script prepara os artefatos do seu projeto para uma conta de armazenamento que o Gerenciador de recursos pode acessar. Os artefatos são itens em seu projeto, como modelos vinculados, scripts e binários de aplicativos. Se você quiser continuar usando o script do projeto, use a tarefa Script do PowerShell mostrada neste artigo.
 
-* **Adicionar tarefas para copiar e implantar tarefas** . Essa opção oferece uma alternativa conveniente ao script do projeto. Você configura duas tarefas no pipeline. Uma tarefa prepara os artefatos para um local acessível. A outra tarefa implanta o modelo desse local.
+* **Adicionar tarefas para copiar e implantar tarefas**. Essa opção oferece uma alternativa conveniente ao script do projeto. Você configura duas tarefas no pipeline. Uma tarefa prepara os artefatos para um local acessível. A outra tarefa implanta o modelo desse local. Essa opção é mostrada neste artigo. Consulte [copiar e implantar tarefas](#copy-and-deploy-tasks).
 
 ## <a name="prepare-your-project"></a>Preparar seu projeto
 
@@ -34,11 +38,11 @@ Este artigo pressupõe que o modelo do ARM e a organização de DevOps do Azure 
 
 ## <a name="create-pipeline"></a>Criar um pipeline
 
-1. Se você ainda não adicionou um pipeline anteriormente, precisará criar um novo pipeline. Na organização do Azure DevOps, selecione **pipelines** e **novo pipeline** .
+1. Se você ainda não adicionou um pipeline anteriormente, precisará criar um novo pipeline. Na organização do Azure DevOps, selecione **pipelines** e **novo pipeline**.
 
    ![Adicionar novo pipeline](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
-1. Especifique onde o código está armazenado. A imagem a seguir mostra a seleção de **Azure Repos git** .
+1. Especifique onde o código está armazenado. A imagem a seguir mostra a seleção de **Azure Repos git**.
 
    ![Selecionar fonte de código](./media/add-template-to-azure-pipelines/select-source.png)
 
@@ -46,7 +50,7 @@ Este artigo pressupõe que o modelo do ARM e a organização de DevOps do Azure 
 
    ![Selecionar repositório](./media/add-template-to-azure-pipelines/select-repo.png)
 
-1. Selecione o tipo de pipeline a ser criado. Você pode selecionar **pipeline de início** .
+1. Selecione o tipo de pipeline a ser criado. Você pode selecionar **pipeline de início**.
 
    ![Selecionar pipeline](./media/add-template-to-azure-pipelines/select-pipeline.png)
 
@@ -101,7 +105,7 @@ No `ScriptArguments` , forneça todos os parâmetros necessários para o script.
 ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Quando você seleciona **salvar** , o pipeline de compilação é executado automaticamente. Volte para o resumo do pipeline de compilação e veja o status.
+Quando você seleciona **salvar**, o pipeline de compilação é executado automaticamente. Volte para o resumo do pipeline de compilação e veja o status.
 
 ![Exibir os resultados](./media/add-template-to-azure-pipelines/view-results.png)
 
@@ -226,7 +230,7 @@ steps:
     deploymentName: 'deploy1'
 ```
 
-Quando você seleciona **salvar** , o pipeline de compilação é executado automaticamente. Volte para o resumo do pipeline de compilação e veja o status.
+Quando você seleciona **salvar**, o pipeline de compilação é executado automaticamente. Volte para o resumo do pipeline de compilação e veja o status.
 
 ## <a name="next-steps"></a>Próximas etapas
 

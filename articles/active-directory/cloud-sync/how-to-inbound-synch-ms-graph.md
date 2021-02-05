@@ -1,5 +1,5 @@
 ---
-title: Sincronização de entrada para sincronização de nuvem usando MS API do Graph
+title: Como configurar programaticamente a sincronização de nuvem usando o MS API do Graph
 description: Este tópico descreve como habilitar a sincronização de entrada usando apenas o API do Graph
 services: active-directory
 author: billmath
@@ -11,23 +11,24 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3796b3d86f647e38cf2ff018e8c0c903d9a64e41
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682031"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593152"
 ---
-# <a name="inbound-synchronization-for-cloud-sync-using-ms-graph-api"></a>Sincronização de entrada para sincronização de nuvem usando MS API do Graph
+# <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>Como configurar programaticamente a sincronização de nuvem usando o MS API do Graph
 
 O documento a seguir descreve como replicar um perfil de sincronização do zero usando apenas APIs MSGraph.  
-A estrutura de como fazer isso consiste nas etapas a seguir.  Elas são:
+A estrutura de como fazer isso consiste nas etapas a seguir.  Eles são:
 
 - [Configuração básica](#basic-setup)
 - [Criar entidades de serviço](#create-service-principals)
 - [Criar trabalho de sincronização](#create-sync-job)
 - [Atualizar domínio de destino](#update-targeted-domain)
 - [Habilitar hashes de senha de sincronização](#enable-sync-password-hashes-on-configuration-blade)
+- [Exclusões acidentais](#accidental-deletes)
 - [Iniciar trabalho de sincronização](#start-sync-job)
 - [Status da revisão](#review-status)
 
@@ -211,6 +212,71 @@ Aqui, o valor de "domínio" realçado é o nome do domínio de Active Directory 
 
  Adicione o esquema no corpo da solicitação. 
 
+## <a name="accidental-deletes"></a>Exclusões acidentais
+Esta seção explicará como habilitar e desabilitar programaticamente e usar [exclusões acidentais](how-to-accidental-deletes.md) programaticamente.
+
+
+### <a name="enabling-and-setting-the-threshold"></a>Habilitando e definindo o limite
+Há duas configurações por trabalho que você pode usar, elas são:
+
+ - DeleteThresholdEnabled – habilita a prevenção acidental de exclusão para o trabalho quando definido como ' true '. Defina como ' true ' por padrão.
+ - DeleteThresholdValue – define o número máximo de exclusões que serão permitidas em cada execução do trabalho quando a prevenção de exclusões acidentais estiver habilitada. O valor é definido como 500 por padrão.  Portanto, se o valor for definido como 500, o número máximo de exclusões permitido será 499 em cada execução.
+
+As configurações de limite de exclusão fazem parte do `SyncNotificationSettings` e podem ser modificadas por meio do grafo. 
+
+Vamos precisar atualizar o SyncNotificationSettings que essa configuração está direcionando, portanto, atualize os segredos.
+
+ ```
+ PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
+ ```
+
+ Adicione o seguinte par de chave/valor na matriz de valores abaixo com base no que você está tentando fazer:
+
+```
+ Request body -
+ {
+   "value":[
+             {
+               "key":"SyncNotificationSettings",
+               "value": "{\"Enabled\":true,\"Recipients\":\"foobar@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"
+              }
+            ]
+  }
+
+
+```
+
+A configuração "Enabled" no exemplo acima é para habilitar/desabilitar emails de notificação quando o trabalho é colocado em quarentena.
+
+
+Atualmente, não há suporte para solicitações de PATCH para segredos, portanto, você precisará adicionar todos os valores no corpo da solicitação PUT (como no exemplo acima) para preservar os outros valores.
+
+Os valores existentes para todos os segredos podem ser recuperados usando 
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+```
+
+### <a name="allowing-deletes"></a>Permitindo exclusões
+Para permitir que as exclusões fluam depois que o trabalho entrar em quarentena, você precisará emitir uma reinicialização com apenas "ForceDeletes" como o escopo. 
+
+```
+Request:
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+```
+Request Body:
+{
+  "criteria": {"resetScope": "ForceDeletes"}
+}
+```
+
+
+
+
+
+
 ## <a name="start-sync-job"></a>Iniciar trabalho de sincronização
 O trabalho pode ser recuperado novamente por meio do seguinte comando:
 
@@ -252,6 +318,6 @@ Procure na seção ' status ' do objeto de retorno para obter detalhes relevante
 
 ## <a name="next-steps"></a>Próximas etapas 
 
-- [O que é a sincronização de nuvem do Azure AD Connect?](what-is-cloud-sync.md)
+- [O que é a sincronização em nuvem do Azure AD Connect?](what-is-cloud-sync.md)
 - [Transformações](how-to-transformation.md)
 - [API de sincronização do Azure AD](/graph/api/resources/synchronization-overview?view=graph-rest-beta)

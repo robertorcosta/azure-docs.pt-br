@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 34a947a2a0f6d8c87c0580f273130b671b4f17fc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722225"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593326"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -191,9 +191,9 @@ Dentro do pacote NuGet do C++, há um `microsoft.azure.remoterendering.Cpp.targe
 
 Caso os objetos renderizados pareçam estar se movendo em conjunto com os movimentos de cabeça, você talvez esteja enfrentando problemas com LSR (*reprojeção de fase tardia*). Veja a seção sobre [Reprojeção de fase tardia](../overview/features/late-stage-reprojection.md) para obter diretrizes sobre como abordar essa situação.
 
-Outro motivo para hologramas instáveis (com oscilações, distorções, tremulações ou saltos) pode ser uma conectividade de rede ruim, em particular uma largura de banda de rede insuficiente ou uma latência muito alta. Um bom indicador para a qualidade da sua conexão de rede é o valor `ARRServiceStats.VideoFramesReused` das [estatísticas de desempenho](../overview/features/performance-queries.md). Quadros reutilizados indicam situações em que um quadro de vídeo antigo precisou ser reutilizado no lado do cliente porque nenhum novo quadro de vídeo estava disponível, por exemplo, devido à perda de pacotes ou devido a variações na latência de rede. Se `ARRServiceStats.VideoFramesReused` é frequentemente maior que zero, isso indica um problema de rede.
+Outro motivo para hologramas instáveis (com oscilações, distorções, tremulações ou saltos) pode ser uma conectividade de rede ruim, em particular uma largura de banda de rede insuficiente ou uma latência muito alta. Um bom indicador para a qualidade da sua conexão de rede é o valor `ServiceStatistics.VideoFramesReused` das [estatísticas de desempenho](../overview/features/performance-queries.md). Quadros reutilizados indicam situações em que um quadro de vídeo antigo precisou ser reutilizado no lado do cliente porque nenhum novo quadro de vídeo estava disponível, por exemplo, devido à perda de pacotes ou devido a variações na latência de rede. Se `ServiceStatistics.VideoFramesReused` é frequentemente maior que zero, isso indica um problema de rede.
 
-Outro valor a ser examinado é `ARRServiceStats.LatencyPoseToReceiveAvg`. Ele deve estar consistentemente abaixo de 100 ms. Ver valores mais altos pode indicar que você está conectado a um data center que está muito longe.
+Outro valor a ser examinado é `ServiceStatistics.LatencyPoseToReceiveAvg`. Ele deve estar consistentemente abaixo de 100 ms. Ver valores mais altos pode indicar que você está conectado a um data center que está muito longe.
 
 Para obter uma lista de possíveis mitigações, confira as [diretrizes para conectividade de rede](../reference/network-requirements.md#guidelines-for-network-connectivity).
 

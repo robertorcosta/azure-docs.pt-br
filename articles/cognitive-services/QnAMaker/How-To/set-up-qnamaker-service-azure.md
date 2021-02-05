@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 4e09f9b8564c9319e68984df1c0f8db7a496a6d0
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: beb45d0d650b07f6106a3307d2d3a955095ee8b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584797"
+ms.locfileid: "99592255"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -92,60 +92,10 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
     ![O recurso criou um novo serviço gerenciado (versão prévia) QnA Maker](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 
     O recurso com o tipo de _Serviços cognitivas_ tem suas chaves de _assinatura_ .
-
+    
 ---
 
-## <a name="find-authoring-keys-in-the-azure-portal"></a>Localizar chaves de criação no portal do Azure
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
-
-Você pode exibir e redefinir as chaves de criação do portal do Azure, em que você criou o recurso de QnA Maker. Essas chaves podem ser chamadas de chaves de assinatura.
-
-1. Vá para o recurso de QnA Maker na portal do Azure e selecione o recurso que tem o tipo de _Serviços cognitivas_ :
-
-    ![Lista de recursos do QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
-
-2. Vá para **chaves e ponto de extremidade**:
-
-    ![Chave de assinatura gerenciada QnA Maker (versão prévia)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Localizar chaves de ponto de extremidade de consulta no portal de QnA Maker
-
-O ponto de extremidade está na mesma região que o recurso porque as chaves de ponto de extremidade são usadas para fazer uma chamada para a base de dados de conhecimento.
-
-As chaves de ponto de extremidade podem ser gerenciadas a partir do [portal do QnA Maker](https://qnamaker.ai).
-
-1. Entre no portal de [QnA Maker](https://qnamaker.ai), acesse seu perfil e, em seguida, selecione **configurações de serviço**:
-
-    ![Chave do ponto de extremidade](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
-
-2. Exibir ou redefinir suas chaves:
-
-    > [!div class="mx-imgBorder"]
-    > ![Gerenciador de chaves de ponto de extremidade](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
-
-    >[!NOTE]
-    >Atualize suas chaves se você acreditar que elas foram comprometidas. Isso pode exigir que sejam feitas as alterações correspondentes no seu aplicativo cliente ou código bot.
-
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
-
-Você pode exibir e redefinir as chaves de criação do portal do Azure, em que você criou o recurso QnA Maker gerenciado (versão prévia). Essas chaves podem ser chamadas de chaves de assinatura.
-
-1. Vá para o QnA Maker recurso gerenciado (versão prévia) no portal do Azure e selecione o recurso que tem o tipo de *Serviços cognitivas* :
-
-    ![Lista de recursos gerenciados QnA Maker (visualização)](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
-
-2. Vá para **chaves e ponto de extremidade**:
-
-    ![Chave de assinatura gerenciada QnA Maker (versão prévia)](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="update-the-resources"></a>Atualizar os recursos
-
-Saiba como atualizar os recursos usados pela sua base de dados de conhecimento. QnA Maker gerenciado (versão prévia) é **gratuito** durante a visualização. 
-
----
-
-### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
+## <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 

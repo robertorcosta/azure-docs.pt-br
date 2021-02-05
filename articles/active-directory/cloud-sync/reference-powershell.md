@@ -11,52 +11,48 @@ ms.date: 11/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 486a1c6c8103db8dc938a956eb1f77da3f15f49c
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: aa358b0c9d7747584deabe761160d3bcbcde8feb
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612965"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593173"
 ---
 # <a name="aadcloudsynctools-powershell-module-for-azure-ad-connect-cloud-sync"></a>Módulo do PowerShell do AADCloudSyncTools para sincronização Azure AD Connect Cloud
 
-Com o lançamento da atualização de visualização pública 2, a Microsoft introduziu o módulo AADCloudSyncTools PowerShell.  Este módulo fornece um conjunto de ferramentas úteis que você pode usar para ajudar a gerenciar suas implantações de sincronização do Azure AD Connect Cloud.
+O módulo AADCloudSyncTools fornece um conjunto de ferramentas úteis que você pode usar para ajudar a gerenciar seu Azure AD Connect implantações de sincronização de nuvem.
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 Os pré-requisitos a seguir são necessários:
-- Esse módulo usa a autenticação MSAL, portanto, ele requer o módulo MSAL.PS instalado. Ele não depende mais do Azure AD ou do Azure AD Preview.   Para verificar, em uma janela do PowerShell de administrador, execute `Get-module MSAL.PS` . Se o módulo estiver instalado corretamente, você receberá uma resposta.  Você pode usar `Install-AADCloudSyncToolsPrerequisites` o para instalar a versão mais recente do MSAL.PS
-- O módulo do PowerShell do AzureAD.  Alguns dos cmdlets dependem de partes do módulo do PowerShell do AzureAD para realizar suas tarefas.  Para verificar, em uma janela do PowerShell de administrador, execute `Get-module AzureAD` . Você deve obter uma resposta.  Você pode usar `Install-AADCloudSyncToolsPrerequisites` o para instalar a versão mais recente do módulo do PowerShell do AzureAD.
-- A instalação de módulos do PowerShell pode ser aplicada usando o TLS 1,2.  Para garantir que você possa instalar os módulos, defina o seguinte: \
-`[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 `
+
+- Todos os pré-requisitos para este módulo podem ser instalados automaticamente usando o `Install-AADCloudSyncToolsPrerequisites`
+- Esse módulo usa a autenticação MSAL, portanto, ele requer o módulo MSAL.PS instalado. Para verificar, em uma janela do PowerShell, execute `Get-module MSAL.PS -ListAvailable` . Se o módulo estiver instalado corretamente, você receberá uma resposta. Você pode usar `Install-AADCloudSyncToolsPrerequisites` o para instalar a versão mais recente do MSAL.PS
+- Embora o módulo do PowerShell do AzureAD não seja um pré-requisito para qualquer funcionalidade desse módulo, é útil ter, portanto, ele também é instalado automaticamente com o usando o `Install-AADCloudSyncToolsPrerequisites` .
+- A instalação manual de módulos do PowerShell requer imposição de TLS 1,2. Para garantir que você possa instalar os módulos, defina o seguinte na sessão do PowerShell antes de usar
+  ```
+   Install-Module:
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+  ```
+
 
 ## <a name="install-the-aadcloudsynctools-powershell-module"></a>Instalar o módulo do PowerShell do AADCloudSyncTools
 Para instalar e usar o módulo AADCloudSyncTools, use as seguintes etapas:
 
-1.  Abrir o Windows PowerShell com privilégios administrativos
-2.  Digite `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` e pressione Enter.
-3.  Digite ou copie e cole o seguinte: 
-    ``` powershell
-    Import-module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"
-    ```
-3.  Pressione Enter.
-4.  Para verificar se o módulo foi instalado, insira ou copie e cole o seguinte "
-    ```powershell
-    Get-module AADCloudSyncTools
-    ```
-5.  Agora você deve ver informações sobre o módulo.
-6.  Próxima execução
-    ``` powershell
-    Install-AADCloudSyncToolsPrerequisites
-    ```
-7.  Isso instalará os módulos do PowerShell Get.  Feche a janela do PowerShell.
-8.  Abrir o Windows PowerShell com privilégios administrativos
-9.  Importe o módulo novamente usando a etapa 3.
-10. Executar `Install-AADCloudSyncToolsPrerequisites` para instalar os módulos MSAL e AzureAD
+1. Abrir o Windows PowerShell com privilégios administrativos
+2. Digite ou copie e cole o seguinte: `Import-module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"`
+3. Pressione Enter.
+4. Para verificar se o módulo foi importado, insira ou copie e cole o seguinte: `Get-module AADCloudSyncTools`
+5. Agora você deve ver informações sobre o módulo.
+6. Em seguida, para instalar a execução dos pré-requisitos do módulo AADCloudSyncTools: `Install-AADCloudSyncToolsPrerequisites`
+7. Na primeira execução, o módulo PoweShellGet será instalado se não estiver presente. Para carregar o novo módulo PowershellGet, feche a janela do PowerShell e abra uma nova sessão do PowerShell com privilégios administrativos. 
+8. Importe o módulo novamente usando a etapa 3.
+9. Executar `Install-AADCloudSyncToolsPrerequisites` para instalar os módulos MSAL e AzureAD
 11. Todos os requisitos devem ser instalados com êxito no ![ módulo de instalação](media/reference-powershell/install-1.png)
+
 
 ## <a name="aadcloudsynctools--cmdlets"></a>Cmdlets AADCloudSyncTools
 ### <a name="connect-aadcloudsynctools"></a>Connect-AADCloudSyncTools
-Usa o módulo AzureAD para se conectar ao Azure AD e ao módulo MSAL.PS para solicitar um token para Microsoft Graph
+Usa o módulo MSAL.PS para solicitar um token para o administrador do Azure AD acessar Microsoft Graph 
 
 
 ### <a name="export-aadcloudsynctoolslogs"></a>Export-AADCloudSyncToolsLogs
@@ -125,5 +121,5 @@ Pausa a sincronização.
 ## <a name="next-steps"></a>Próximas etapas 
 
 - [O que é provisionamento?](what-is-provisioning.md)
-- [O que é Azure AD Connect a sincronização de nuvem?](what-is-cloud-sync.md)
+- [O que é a sincronização de nuvem do Azure AD Connect?](what-is-cloud-sync.md)
 

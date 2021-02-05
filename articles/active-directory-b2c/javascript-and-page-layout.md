@@ -13,12 +13,12 @@ ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1a1fa09c7c9b8baeeb8f3c2c9b2cf8271e513be1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 6bb478038d398226db38dc20e49ed7a14e5d5d0a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963529"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592799"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript e versões de layout de página no Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Para especificar uma versão de layout de página para suas páginas de fluxo de
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Selecione sua política (por exemplo, "B2C_1_SignupSignin") para abri-la.
-1. Selecione **layouts de página**. Em **nome do layout**, selecione uma página de fluxo de usuário e escolha a **versão de layout da página (visualização)**.
+1. Selecione **layouts de página**. Escolha um **nome de layout** e, em seguida, escolha a **versão de layout de página (visualização)**.
 
 Para obter informações sobre as diferentes versões de layout de página, consulte o [log de página versão de layout de alteração](page-layout.md).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2021
 ms.author: allensu
-ms.openlocfilehash: 7f2525b89f03e8bc1a2c3166b46c40b4dbb6ff17
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 22d7af4f307a99d2d2e29bc1f494d327394e4f10
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99562003"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594275"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurar o modo de distribuição para o Azure Load Balancer
 
@@ -46,8 +46,8 @@ Você pode alterar a configuração do modo de distribuição modificando a regr
 As seguintes opções estão disponíveis: 
 
 * **Nenhum (baseado em hash)** – especifica que as solicitações sucessivas do mesmo cliente podem ser tratadas por qualquer máquina virtual.
-* **IP do cliente (afinidade de IP de origem 2-tupla)** – especifica que as solicitações sucessivas do mesmo endereço IP do cliente serão tratadas pela mesma máquina virtual.
-* **IP do cliente e protocolo (afinidade de IP de origem 3-tupla)** – especifica que solicitações sucessivas do mesmo endereço IP do cliente e combinação de protocolos serão manipuladas pela mesma máquina virtual.
+* **IP do cliente (afinidade de duas tuplas de IP de origem)** – especifica que as solicitações sucessivas do mesmo endereço IP do cliente serão tratadas pela mesma máquina virtual.
+* **IP do cliente e protocolo (afinidade do IP de origem três tuplas)** – especifica que solicitações sucessivas do mesmo endereço IP do cliente e combinação de protocolos serão manipuladas pela mesma máquina virtual.
 
 5. Escolha o modo de distribuição e, em seguida, selecione **salvar**.
 
@@ -66,13 +66,36 @@ $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-Defina o valor do `LoadDistribution` elemento para a quantidade de balanceamento de carga necessária. 
+Defina o valor do `LoadDistribution` elemento para o tipo de balanceamento de carga necessário. 
 
-Especifique **sourceIP** para balanceamento de carga de duas tuplas (IP de origem e IP de destino). 
+* Especifique **SourceIP** para balanceamento de carga de duas tuplas (IP de origem e IP de destino). 
 
-Especifique **sourceIPProtocol** para o balanceamento de carga de três tuplas (IP de origem, IP de destino e tipo de protocolo). 
+* Especifique **SourceIPProtocol** para o balanceamento de carga de três tuplas (IP de origem, IP de destino e tipo de protocolo). 
 
-Especifique o **padrão** para o comportamento padrão do balanceamento de carga de cinco tuplas.
+* Especifique o **padrão** para o comportamento padrão do balanceamento de carga de cinco tuplas.
+
+# <a name="cli"></a>[**CLI**](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+Use CLI do Azure para alterar as configurações de distribuição do balanceador de carga em uma regra de balanceamento de carga existente.  O seguinte comando atualiza o modo de distribuição:
+
+```azurecli-interactive
+az network lb rule update \
+    --lb-name myLoadBalancer \
+    --load-distribution SourceIP \
+    --name myHTTPRule \
+    --resource-group myResourceGroupLB 
+```
+Defina o valor de `--load-distribution` para o tipo de balanceamento de carga necessário.
+
+* Especifique **SourceIP** para balanceamento de carga de duas tuplas (IP de origem e IP de destino). 
+
+* Especifique **SourceIPProtocol** para o balanceamento de carga de três tuplas (IP de origem, IP de destino e tipo de protocolo). 
+
+* Especifique o **padrão** para o comportamento padrão do balanceamento de carga de cinco tuplas.
+
+Para obter mais informações sobre o comando usado neste artigo, consulte [AZ Network lb Rule Update](/cli/azure/network/lb/rule#az_network_lb_rule_update)
 
 ---
 

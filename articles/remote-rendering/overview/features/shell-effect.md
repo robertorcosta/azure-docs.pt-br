@@ -1,19 +1,19 @@
 ---
-title: Renderização de Shell
+title: Renderização do shell
 description: Explica como usar o efeito de renderização do Shell
 author: jumeder
 ms.author: jumeder
 ms.date: 10/23/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f59c4f8225d31b61df08f30863c8b9300e20e820
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7af95cba807cea340438a7de30f096758d0369ad
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447540"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594156"
 ---
-# <a name="shell-rendering"></a>Renderização de Shell
+# <a name="shell-rendering"></a>Renderização do shell
 
 O estado do shell do [componente de substituição de estado hierárquico](../../overview/features/override-hierarchical-state.md) é um efeito de transparência. Ao contrário da renderização de [Visualização](../../overview/features/override-hierarchical-state.md) , somente a camada de objetos na frente é visível, semelhante à renderização opaca. Além disso, a aparência normal dos objetos pode ser alterada quando renderizado como shells. O efeito é destinado a casos de uso em que o usuário deve ser visualmente voltado para fora de partes não importantes e ainda manter o reconhecimento espacial de toda a cena.
 
@@ -23,7 +23,7 @@ Você pode configurar a aparência de objetos renderizados pelo shell por meio d
 
 `ShellRenderingSettings`A classe contém as configurações relacionadas às propriedades de renderização do Shell global:
 
-| Parâmetro      | Type    | Descrição                                             |
+| Parâmetro      | Tipo    | Descrição                                             |
 |----------------|---------|---------------------------------------------------------|
 | `Desaturation` | FLOAT   | A quantidade de dessaturação a ser aplicada à cor comum do objeto final, no intervalo 0 (sem dessaturação) a 1 (dessaturação completa) |
 | `Opacity`      | FLOAT   | A opacidade dos objetos renderizados pelo shell, no intervalo 0 (invisível) a 1 (totalmente opaco) |
@@ -42,18 +42,18 @@ O efeito do Shell é aplicado na cor opaca final que a cena seria renderizada co
 O código a seguir mostra um exemplo de uso do `ShellRenderingSettings` estado por meio da API:
 
 ```cs
-void SetShellSettings(AzureSession session)
+void SetShellSettings(RenderingSession session)
 {
-    ShellRenderingSettings shellRenderingSettings = session.Actions.ShellRenderingSettings;
+    ShellRenderingSettings shellRenderingSettings = session.Connection.ShellRenderingSettings;
     shellRenderingSettings.Desaturation = 0.5f;
     shellRenderingSettings.Opacity = 0.1f;
 }
 ```
 
 ```cpp
-void SetShellSettings(ApiHandle<AzureSession> session)
+void SetShellSettings(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Actions()->GetShellRenderingSettings();
+    ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Connection()->GetShellRenderingSettings();
     shellRenderingSettings->SetDesaturation(0.5f);
     shellRenderingSettings->SetOpacity(0.1f);
 }

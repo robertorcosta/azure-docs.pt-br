@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210011"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593122"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -113,6 +113,9 @@ O recurso de restrições de acesso baseado em IP ajuda quando você deseja rest
 * Restrinja o acesso ao tráfego proveniente de um serviço de balanceamento de carga externo ou de outros dispositivos de rede com endereços IP de egresso conhecidos. 
 
 Para saber como habilitar esse recurso, consulte [Configurando restrições de acesso][iprestrictions].
+
+> [!NOTE]
+> As regras de restrição de acesso baseado em IP tratam apenas dos intervalos de endereços de rede virtual quando seu aplicativo está em um Ambiente do Serviço de Aplicativo. Se seu aplicativo estiver no serviço multilocatário, você precisará usar [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) para restringir o tráfego para selecionar sub-redes em sua rede virtual.
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>Regras de restrição de acesso baseadas em pontos de extremidade de serviço 
 
@@ -293,7 +296,7 @@ Configurar pontos de extremidade privados vai expor seus aplicativos em um ender
 
 Se você verificar o serviço de aplicativo, encontrará várias portas que são expostas para conexões de entrada. Não há como bloquear ou controlar o acesso a essas portas no serviço multilocatário. Aqui está a lista de portas expostas:
 
-| Use | Porta ou portas |
+| Uso | Porta ou portas |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Gerenciamento | 454, 455 |

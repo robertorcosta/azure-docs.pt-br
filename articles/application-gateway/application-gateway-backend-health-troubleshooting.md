@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746097"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592748"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solucionar problemas de integridade de back-end no Gateway de Aplicativo
 ==================================================
@@ -24,7 +24,7 @@ Por padrão, o Gateway de Aplicativo do Azure investiga os servidores back-end p
 
 ### <a name="how-to-check-backend-health"></a>Como verificar a integridade do back-end
 
-Para verificar a integridade do pool de back-end, você pode usar a página **Integridade de Back-end** no portal do Azure. Ou você pode usar o [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), a [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) ou a [API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
+Para verificar a integridade do pool de back-end, você pode usar a página **Integridade de Back-end** no portal do Azure. Ou você pode usar o [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), a [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health) ou a [API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 O status recuperado por qualquer um desses métodos pode ser um dos seguintes:
 
@@ -119,7 +119,7 @@ Para aumentar o valor de tempo limite, siga estas etapas:
 
 1.  Se você estiver usando o DNS padrão do Azure, verifique com o seu registrador de nomes de domínio se o registro A ou o mapeamento do registro CNAME adequado foi concluído.
 
-1.  Se o domínio for privado ou interno, tente determiná-lo a partir de uma VM na mesma rede virtual. Se for possível determiná-lo, reinicie o Gateway de Aplicativo e verifique novamente. Para reiniciar o Gateway de Aplicativo, é necessário [parar](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [iniciar](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) usando os comandos do PowerShell descritos nesses recursos vinculados.
+1.  Se o domínio for privado ou interno, tente determiná-lo a partir de uma VM na mesma rede virtual. Se for possível determiná-lo, reinicie o Gateway de Aplicativo e verifique novamente. Para reiniciar o Gateway de Aplicativo, é necessário [parar](/powershell/module/azurerm.network/stop-azurermapplicationgateway) e [iniciar](/powershell/module/azurerm.network/start-azurermapplicationgateway) usando os comandos do PowerShell descritos nesses recursos vinculados.
 
 #### <a name="tcp-connect-error"></a>Erro de conexão TCP
 

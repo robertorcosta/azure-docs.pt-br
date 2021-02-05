@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 514ce0a43904048952f38edd6a9d38713f6ef8f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936665"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592833"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Visão geral da política personalizada Azure AD B2C
 
@@ -115,7 +115,7 @@ Cada pacote de início inclui os seguintes arquivos:
 O modelo de herança é assim:
 
 - A política filho em qualquer nível pode herdar de política pai e estendê-la adicionando novos elementos.
-- Para cenários mais complexos, você pode adicionar mais níveis de herança (até 5 no total).
+- Para cenários mais complexos, você pode adicionar mais níveis de herança (até 10 no total).
 - Você pode adicionar mais políticas de terceira parte confiável. Por exemplo, exclua minha conta, altere um número de telefone, política de terceira parte confiável SAML e muito mais.
 
 O diagrama a seguir mostra a relação entre os arquivos de política e os aplicativos de terceira parte confiável.

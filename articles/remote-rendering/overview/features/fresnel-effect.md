@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 11/09/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8ecd3afc95cf4b8054cd7db3530c15afebea3ce
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f63cd3b50642c3cf531387b4446992b6f15116f2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498227"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594105"
 ---
 # <a name="fresnel-effect"></a>Efeito Fresnel
 
@@ -49,7 +49,7 @@ Como mostrado, os objetos na diagonal são totalmente transparentes, mas o brilh
 Os exemplos de código a seguir mostram como habilitar e personalizar o efeito de Fresnel para um [material de PBR](../../overview/features/pbr-materials.md) e um [material de cor](../../overview/features/color-materials.md):
 
 ```cs
-    void SetFresnelEffect(AzureSession session, Material material)
+    void SetFresnelEffect(RenderingSession session, Material material)
     {
         if (material.MaterialSubType == MaterialType.Pbr)
         {
@@ -69,7 +69,7 @@ Os exemplos de código a seguir mostram como habilitar e personalizar o efeito d
 ```
 
 ```cpp
-void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> material)
+void SetFresnelEffect(ApiHandle<RenderingSession> session, ApiHandle<Material> material)
 {
     if (material->GetMaterialSubType() == MaterialType::Pbr)
     {

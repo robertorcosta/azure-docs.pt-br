@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cefd00609062c30b036f87a0a01a75dc2afb868b
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 69bcc521b4cd00320a5fbecc5244e913ac16c68b
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246138"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593901"
 ---
 # <a name="graphics-binding"></a>Associações de gráficos
 
@@ -38,30 +38,31 @@ A única outra parte relevante para o Unity é o acesso à [associação básica
 Para selecionar uma associação de gráficos, execute as duas etapas a seguir: Primeiro, a associação de gráficos precisa ser inicializada estaticamente quando o programa for inicializado:
 
 ```cs
-RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization;
-managerInit.graphicsApi = GraphicsApiType.WmrD3D11;
-managerInit.connectionType = ConnectionType.General;
-managerInit.right = ///...
+RemoteRenderingInitialization managerInit = new RemoteRenderingInitialization();
+managerInit.GraphicsApi = GraphicsApiType.WmrD3D11;
+managerInit.ConnectionType = ConnectionType.General;
+managerInit.Right = ///...
 RemoteManagerStatic.StartupRemoteRendering(managerInit);
 ```
 
 ```cpp
 RemoteRenderingInitialization managerInit;
-managerInit.graphicsApi = GraphicsApiType::WmrD3D11;
-managerInit.connectionType = ConnectionType::General;
-managerInit.right = ///...
+managerInit.GraphicsApi = GraphicsApiType::WmrD3D11;
+managerInit.ConnectionType = ConnectionType::General;
+managerInit.Right = ///...
 StartupRemoteRendering(managerInit); // static function in namespace Microsoft::Azure::RemoteRendering
+
 ```
 
 A chamada acima é necessária para inicializar o Azure Remote Rendering nas APIs holográficas. Essa função deve ser chamada antes de qualquer API holográfica e de qualquer outra API do Remote Rendering ser acessada. Da mesma forma, a função de-init `RemoteManagerStatic.ShutdownRemoteRendering();` correspondente deve ser chamada depois que todas as chamadas de APIs holográficas terminarem.
 
 ## <a name="span-idaccessaccessing-graphics-binding"></a><span id="access">Acessar associação de gráficos
 
-Depois que um cliente é configurado, a associação básica de gráficos pode ser acessada com o getter `AzureSession.GraphicsBinding`. Por exemplo, as estatísticas do último quadro podem ser recuperadas assim:
+Depois que um cliente é configurado, a associação básica de gráficos pode ser acessada com o getter `RenderingSession.GraphicsBinding`. Por exemplo, as estatísticas do último quadro podem ser recuperadas assim:
 
 ```cs
-AzureSession currentSession = ...;
-if (currentSession.GraphicsBinding)
+RenderingSession currentSession = ...;
+if (currentSession.GraphicsBinding != null)
 {
     FrameStatistics frameStatistics;
     if (currentSession.GraphicsBinding.GetLastFrameStatistics(out frameStatistics) == Result.Success)
@@ -72,11 +73,11 @@ if (currentSession.GraphicsBinding)
 ```
 
 ```cpp
-ApiHandle<AzureSession> currentSession = ...;
+ApiHandle<RenderingSession> currentSession = ...;
 if (ApiHandle<GraphicsBinding> binding = currentSession->GetGraphicsBinding())
 {
     FrameStatistics frameStatistics;
-    if (*binding->GetLastFrameStatistics(&frameStatistics) == Result::Success)
+    if (binding->GetLastFrameStatistics(&frameStatistics) == Result::Success)
     {
         ...
     }
@@ -97,7 +98,7 @@ Há duas ações que precisam ser efetuadas pra usar a associação WRM:
 #### <a name="inform-remote-rendering-of-the-used-coordinate-system"></a>Informar o Remote Rendering do sistema de coordenadas usado
 
 ```cs
-AzureSession currentSession = ...;
+RenderingSession currentSession = ...;
 IntPtr ptr = ...; // native pointer to ISpatialCoordinateSystem
 GraphicsBindingWmrD3d11 wmrBinding = (currentSession.GraphicsBinding as GraphicsBindingWmrD3d11);
 if (wmrBinding.UpdateUserCoordinateSystem(ptr) == Result.Success)
@@ -107,10 +108,10 @@ if (wmrBinding.UpdateUserCoordinateSystem(ptr) == Result.Success)
 ```
 
 ```cpp
-ApiHandle<AzureSession> currentSession = ...;
+ApiHandle<RenderingSession> currentSession = ...;
 void* ptr = ...; // native pointer to ISpatialCoordinateSystem
 ApiHandle<GraphicsBindingWmrD3d11> wmrBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingWmrD3d11>();
-if (*wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
+if (wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
 {
     //...
 }
@@ -126,13 +127,13 @@ No início de cada quadro, o quadro remoto precisa ser renderizado no buffer de 
 > Depois que a imagem remota foi blitda no BackBuffer, o conteúdo local deve ser processado usando uma técnica de renderização estéreo de passagem única, por exemplo, usando **SV_RenderTargetArrayIndex**. Usar outras técnicas de renderização estéreo, como renderizar cada olho em uma passagem separada, pode resultar na degradação do desempenho principal ou em artefatos gráficos e deve ser evitado.
 
 ```cs
-AzureSession currentSession = ...;
+RenderingSession currentSession = ...;
 GraphicsBindingWmrD3d11 wmrBinding = (currentSession.GraphicsBinding as GraphicsBindingWmrD3d11);
 wmrBinding.BlitRemoteFrame();
 ```
 
 ```cpp
-ApiHandle<AzureSession> currentSession = ...;
+ApiHandle<RenderingSession> currentSession = ...;
 ApiHandle<GraphicsBindingWmrD3d11> wmrBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingWmrD3d11>();
 wmrBinding->BlitRemoteFrame();
 ```
@@ -159,7 +160,7 @@ O conteúdo local e remoto precisa ser renderizado para um destino de renderiza�
 O proxy deve corresponder à resolução do buffer de fundo e deve ser int o formato *DXGI_FORMAT_R8G8B8A8_UNORM* ou *DXGI_FORMAT_B8G8R8A8_UNORM* . No caso de renderização estereoscópico, tanto a textura de proxy de cor quanto a de profundidade são usadas, a textura do proxy de profundidade precisa ter duas camadas de matriz em vez de uma. Quando uma sessão estiver pronta, `GraphicsBindingSimD3d11.InitSimulation` precisará ser chamado antes de se conectar a ela:
 
 ```cs
-AzureSession currentSession = ...;
+RenderingSession currentSession = ...;
 IntPtr d3dDevice = ...; // native pointer to ID3D11Device
 IntPtr color = ...; // native pointer to ID3D11Texture2D
 IntPtr depth = ...; // native pointer to ID3D11Texture2D
@@ -172,7 +173,7 @@ simBinding.InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFr
 ```
 
 ```cpp
-ApiHandle<AzureSession> currentSession = ...;
+ApiHandle<RenderingSession> currentSession = ...;
 void* d3dDevice = ...; // native pointer to ID3D11Device
 void* color = ...; // native pointer to ID3D11Texture2D
 void* depth = ...; // native pointer to ID3D11Texture2D
@@ -184,7 +185,7 @@ ApiHandle<GraphicsBindingSimD3d11> simBinding = currentSession->GetGraphicsBindi
 simBinding->InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically, stereoscopicRendering);
 ```
 
-A função init precisa ser fornecida com ponteiros para o d3d-device nativo, bem como para a textura de cores e de profundidade do destino de renderização de proxy. Depois de inicializados, `AzureSession.ConnectToRuntime` e `DisconnectFromRuntime` podem ser chamados várias vezes, mas, ao alternar para uma sessão diferente, `GraphicsBindingSimD3d11.DeinitSimulation` precisa ser chamado primeiro na sessão antiga antes de chamar `GraphicsBindingSimD3d11.InitSimulation` na outra sessão.
+A função init precisa ser fornecida com ponteiros para o d3d-device nativo, bem como para a textura de cores e de profundidade do destino de renderização de proxy. Depois de inicializados, `RenderingSession.ConnectAsync` e `Disconnect` podem ser chamados várias vezes, mas, ao alternar para uma sessão diferente, `GraphicsBindingSimD3d11.DeinitSimulation` precisa ser chamado primeiro na sessão antiga antes de chamar `GraphicsBindingSimD3d11.InitSimulation` na outra sessão.
 
 #### <a name="render-loop-update"></a>Atualização do loop de renderização
 
@@ -196,7 +197,7 @@ Se a atualização de proxy retornada `SimulationUpdate.frameId` for nula, ainda
 1. Em seguida, o buffer de fundo precisa ser associado como um destino de renderização e `GraphicsBindingSimD3d11.ReprojectProxy` ser chamado no ponto em que o buffer de fundo pode ser apresentado.
 
 ```cs
-AzureSession currentSession = ...;
+RenderingSession currentSession = ...;
 GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as GraphicsBindingSimD3d11);
 SimulationUpdateParameters updateParameters = new SimulationUpdateParameters();
 // Fill out camera data with current camera data
@@ -205,7 +206,7 @@ SimulationUpdateParameters updateParameters = new SimulationUpdateParameters();
 SimulationUpdateResult updateResult = new SimulationUpdateResult();
 simBinding.Update(updateParameters, out updateResult);
 // Is the frame data valid?
-if (updateResult.frameId != 0)
+if (updateResult.FrameId != 0)
 {
     // Bind proxy render target
     simBinding.BlitRemoteFrameToProxy();
@@ -223,7 +224,7 @@ else
 ```
 
 ```cpp
-ApiHandle<AzureSession> currentSession;
+ApiHandle<RenderingSession> currentSession;
 ApiHandle<GraphicsBindingSimD3d11> simBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingSimD3d11>();
 
 SimulationUpdateParameters updateParameters;
@@ -233,7 +234,7 @@ SimulationUpdateParameters updateParameters;
 SimulationUpdateResult updateResult;
 simBinding->Update(updateParameters, &updateResult);
 // Is the frame data valid?
-if (updateResult.frameId != 0)
+if (updateResult.FrameId != 0)
 {
     // Bind proxy render target
     simBinding->BlitRemoteFrameToProxy();
@@ -257,18 +258,18 @@ Cada quadro, a **atualização do loop de renderização** da seção anterior e
 ```cs
 public struct SimulationUpdateParameters
 {
-    public UInt32 frameId;
-    public StereoMatrix4x4 viewTransform;
-    public StereoCameraFOV fieldOfView;
+    public int FrameId;
+    public StereoMatrix4x4 ViewTransform;
+    public StereoCameraFov FieldOfView;
 };
 
 public struct SimulationUpdateResult
 {
-    public UInt32 frameId;
-    public float nearPlaneDistance;
-    public float farPlaneDistance;
-    public StereoMatrix4x4 viewTransform;
-    public StereoCameraFOV fieldOfView;
+    public int FrameId;
+    public float NearPlaneDistance;
+    public float FarPlaneDistance;
+    public StereoMatrix4x4 ViewTransform;
+    public StereoCameraFov FieldOfView;
 };
 ```
 
@@ -276,48 +277,52 @@ Os membros da estrutura têm o seguinte significado:
 
 | Membro | DESCRIÇÃO |
 |--------|-------------|
-| frameid | Identificador de quadro contínuo. Necessário para a entrada SimulationUpdateParameters e precisa ser incrementado continuamente para cada novo quadro. Será 0 em SimulationUpdateResult se nenhum dado de quadro estiver disponível ainda. |
-| viewTransform | Par esquerdo-direito-estéreo das matrizes de transformação da exibição de câmera do quadro. Para a renderização monoscopic, somente o `left` membro é válido. |
-| fieldOfView | Par esquerdo-direito-estéreo dos campos de exibição da câmera do quadro no [campo OpenXR da Convenção de exibição](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#angles). Para a renderização monoscopic, somente o `left` membro é válido. |
-| nearPlaneDistance | distância do plano próximo usada para a matriz de projeção do quadro remoto atual. |
-| farPlaneDistance | distância do plano distante usada para a matriz de projeção do quadro remoto atual. |
+| Frameid | Identificador de quadro contínuo. Necessário para a entrada SimulationUpdateParameters e precisa ser incrementado continuamente para cada novo quadro. Será 0 em SimulationUpdateResult se nenhum dado de quadro estiver disponível ainda. |
+| ViewTransform | Par esquerdo-direito-estéreo das matrizes de transformação da exibição de câmera do quadro. Para a renderização monoscopic, somente o `Left` membro é válido. |
+| FieldOfView | Par esquerdo-direito-estéreo dos campos de exibição da câmera do quadro no [campo OpenXR da Convenção de exibição](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#angles). Para a renderização monoscopic, somente o `Left` membro é válido. |
+| NearPlaneDistance | distância do plano próximo usada para a matriz de projeção do quadro remoto atual. |
+| FarPlaneDistance | distância do plano distante usada para a matriz de projeção do quadro remoto atual. |
 
-Os pares estéreo `viewTransform` e `fieldOfView` permite a configuração de ambos os valores da câmera de olho, caso a renderização estereoscópico esteja habilitada. Caso contrário, os `right` Membros serão ignorados. Como você pode ver, somente a transformação da câmera é passada como matrizes de transformação 4x4 simples, enquanto nenhuma matriz de projeção é especificada. As matrizes reais são calculadas pela renderização remota do Azure internamente usando os campos de exibição especificados e o conjunto atual de planos de proximidade e de planos distantes na [API CameraSettings](../overview/features/camera.md).
+Os pares estéreo `ViewTransform` e `FieldOfView` permite a configuração de ambos os valores da câmera de olho, caso a renderização estereoscópico esteja habilitada. Caso contrário, os `Right` Membros serão ignorados. Como você pode ver, somente a transformação da câmera é passada como matrizes de transformação 4x4 simples, enquanto nenhuma matriz de projeção é especificada. As matrizes reais são calculadas pela renderização remota do Azure internamente usando os campos de exibição especificados e o conjunto atual de planos de proximidade e de planos distantes na [API CameraSettings](../overview/features/camera.md).
 
 Como você pode alterar o plano próximo e o plano distante no [CameraSettings](../overview/features/camera.md) durante o tempo de execução conforme desejado e o serviço aplica essas configurações de forma assíncrona, cada SimulationUpdateResult também carrega o próximo plano e o plano distante usado durante a renderização do quadro correspondente. Você pode usar esses valores de plano para adaptar suas matrizes de projeção para renderizar objetos locais para corresponder à renderização de quadro remoto.
 
 Finalmente, embora a chamada de **atualização de simulação** exija o campo de exibição na Convenção OpenXR, para padronização e motivos de segurança de algoritmo, você pode fazer uso das funções de conversão ilustradas nos exemplos de população de estrutura a seguir:
 
 ```cs
-public SimulationUpdateParameters CreateSimulationUpdateParameters(UInt32 frameId, Matrix4x4 viewTransform, Matrix4x4 projectionMatrix)
+public SimulationUpdateParameters CreateSimulationUpdateParameters(int frameId, Matrix4x4 viewTransform, Matrix4x4 projectionMatrix)
 {
-    SimulationUpdateParameters parameters;
-    parameters.frameId = frameId;
-    parameters.viewTransform.left = viewTransform;
-    if(parameters.fieldOfView.left.fromProjectionMatrix(projectionMatrix) != Result.Success)
+    SimulationUpdateParameters parameters = default;
+    parameters.FrameId = frameId;
+    parameters.ViewTransform.Left = viewTransform;
+    if (parameters.FieldOfView.Left.FromProjectionMatrix(projectionMatrix) != Result.Success)
     {
         // Invalid projection matrix
-        return null;
+        throw new ArgumentException("Invalid projection settings");
     }
     return parameters;
 }
 
-public void GetCameraSettingsFromSimulationUpdateResult(SimulationUpdateResult result, out Matrix4x4 projectionMatrix, out Matrix4x4 viewTransform, out UInt32 frameId)
+public void GetCameraSettingsFromSimulationUpdateResult(SimulationUpdateResult result, out Matrix4x4 projectionMatrix, out Matrix4x4 viewTransform, out int frameId)
 {
-    if(result.frameId == 0)
+    projectionMatrix = default;
+    viewTransform = default;
+    frameId = 0;
+
+    if (result.FrameId == 0)
     {
         // Invalid frame data
         return;
     }
-    
+
     // Use the screenspace depth convention you expect for your projection matrix locally
-    if(result.fov.left.toProjectionMatrix(result.nearPlaneDistance, result.farPlaneDistance, DepthConvention.ZeroToOne, projectionMatrix) != Result.Success)
+    if (result.FieldOfView.Left.ToProjectionMatrix(result.NearPlaneDistance, result.FarPlaneDistance, DepthConvention.ZeroToOne, out projectionMatrix) != Result.Success)
     {
         // Invalid field-of-view
         return;
     }
-    viewTransform = result.viewTransform.left;
-    frameId = result.frameId;
+    viewTransform = result.ViewTransform.Left;
+    frameId = result.FrameId;
 }
 ```
 
@@ -325,9 +330,9 @@ public void GetCameraSettingsFromSimulationUpdateResult(SimulationUpdateResult r
 SimulationUpdateParameters CreateSimulationUpdateParameters(uint32_t frameId, Matrix4x4 viewTransform, Matrix4x4 projectionMatrix)
 {
     SimulationUpdateParameters parameters;
-    parameters.frameId = frameId;
-    parameters.viewTransform.left = viewTransform;
-    if(FovFromProjectionMatrix(projectionMatrix, parameters.fieldOfView.left) != Result::Success)
+    parameters.FrameId = frameId;
+    parameters.ViewTransform.Left = viewTransform;
+    if (FovFromProjectionMatrix(projectionMatrix, parameters.FieldOfView.Left) != Result::Success)
     {
         // Invalid projection matrix
         return {};
@@ -337,20 +342,20 @@ SimulationUpdateParameters CreateSimulationUpdateParameters(uint32_t frameId, Ma
 
 void GetCameraSettingsFromSimulationUpdateResult(const SimulationUpdateResult& result, Matrix4x4& projectionMatrix, Matrix4x4& viewTransform, uint32_t& frameId)
 {
-    if(result.frameId == 0)
+    if (result.FrameId == 0)
     {
         // Invalid frame data
         return;
     }
-    
+
     // Use the screenspace depth convention you expect for your projection matrix locally
-    if(FovToProjectionMatrix(result.fieldOfView.left, result.nearPlaneDistance, result.farPlaneDistance, DepthConvention::ZeroToOne, projectionMatrix) != Result::Success)
+    if (FovToProjectionMatrix(result.FieldOfView.Left, result.NearPlaneDistance, result.FarPlaneDistance, DepthConvention::ZeroToOne, projectionMatrix) != Result::Success)
     {
         // Invalid field-of-view
         return;
     }
-    viewTransform = result.viewTransform.left;
-    frameId = result.frameId;
+    viewTransform = result.ViewTransform.Left;
+    frameId = result.FrameId;
 }
 ```
 
