@@ -4,18 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6f7311613057c445ae714b8b11240d0d5be14b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972634"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569541"
 ---
 ### <a name="standard-and-neural-voices"></a>Vozes padrão e neural
 
 Use esta tabela para determinar a disponibilidade de vozes padrão e neurais por região/ponto de extremidade:
 
-| Região | Ponto de extremidade | Vozes padrão | Vozes neurais |
+| Region | Ponto de extremidade | Vozes padrão | Vozes neurais |
 |--------|----------|-----------------|---------------|
 | Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Sim |
 | Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Sim | Não |
@@ -45,7 +45,7 @@ Use esta tabela para determinar a disponibilidade de vozes padrão e neurais por
 
 Se você tiver criado uma fonte de voz personalizada, use o ponto de extremidade que você criou. Você também pode usar os pontos de extremidade listados abaixo, substituindo pelo `{deploymentId}` pela ID de implantação do seu modelo de voz.
 
-| Região | Ponto de extremidade |
+| Region | Ponto de extremidade |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Sul do Brasil | `https://brazilsouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
@@ -67,3 +67,14 @@ Se você tiver criado uma fonte de voz personalizada, use o ponto de extremidade
 | Europa Ocidental | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Oeste dos EUA | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | Oeste dos EUA 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
+### <a name="custom-neural-voice"></a>Sintetização de Voz Personalizada
+
+A tabela a seguir detalha o suporte regional para recursos personalizados de voz neural.
+
+| Recurso | Regiões com suporte |
+|---|---|
+| Hospedagem de modelo de voz | Leste dos EUA, oeste dos EUA 2, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, leste da Austrália |
+| Caracteres em tempo real | Leste dos EUA, oeste dos EUA 2, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, leste da Austrália |
+| Caracteres de áudio longos | Leste dos EUA, Europa Ocidental, Sul do Reino Unido, Sudeste Asiático, Índia central |
+| Treinamento de neural personalizado | Leste dos EUA, Sul do Reino Unido |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 702ca4f4c3fc92eca70479ba02b1ddc8f6858857
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 9a80242422631995f6d5c24ba2118ee98a9b8d32
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549653"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576169"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -62,6 +62,9 @@ Endereços IP públicos de SKU padrão:
 
 > [!NOTE]
 > Somente endereços IP públicos com SKU básico estão disponíveis ao usar o [serviço de metadados de instância IMDS](../virtual-machines/windows/instance-metadata-service.md). Não há suporte para o SKU Standard.
+
+> [!NOTE]
+> As configurações de diagnóstico não aparecem na folha de recursos ao usar um endereço IP público de SKU padrão. Para habilitar o registro em log no seu recurso de endereço IP público do stanrd, navegue até configurações de diagnóstico na folha Azure Monitor e selecione o recurso de endereço IP.
 
 ### <a name="basic"></a>Basic
 
@@ -187,7 +190,7 @@ A tabela a seguir mostra a propriedade por meio da qual um IP público pode ser 
 | Gateway de Aplicativo |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
 | Firewall do Azure | Configuração de front-end | Não | Sim|
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 Os limites para o endereçamento IP são listados no conjunto completo de [limites para rede](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. 
 

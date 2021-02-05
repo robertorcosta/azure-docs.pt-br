@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d71f3fa27dda9edc4c88ad9ed563e5c3a95ffa4b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875137"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574526"
 ---
 # <a name="monitoring-azure-files"></a>Monitorando arquivos do Azure
 
@@ -69,7 +69,7 @@ Você pode criar uma configuração de diagnóstico usando o portal do Azure, o 
 
 Para obter diretrizes gerais, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
+### <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
 1. Entre no portal do Azure.
 
@@ -260,7 +260,7 @@ Para exibir um modelo de Azure Resource Manager que cria uma configuração de d
 
 ---
 
-## <a name="analyzing-metrics"></a>Analisando métricas
+## <a name="analyzing-metrics"></a>Analisando as métricas
 
 Você pode analisar métricas para o Armazenamento do Microsoft Azure com métricas de outros serviços do Azure usando o Metrics Explorer. Para abrir o Metrics Explorer, selecione **Métricas** no menu **Azure Monitor**. Para informações sobre o uso dessa ferramenta, consulte [Introdução ao Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
 
@@ -571,7 +571,7 @@ Para obter mais informações sobre como escrever consultas, consulte [log Analy
 
 ## <a name="alerts"></a>Alertas
 
-Azure Monitor Alertas proativamente notificam você quando condições importantes são encontradas nos dados de monitoramento. Eles permitem que você identifique e resolva problemas em seu sistema antes que os clientes os percebam. Você pode definir alertas em [métricas](../../azure-monitor/platform/alerts-metric-overview.md), [logs](../../azure-monitor/platform/alerts-unified-log.md)e no [log de atividades](../../azure-monitor/platform/activity-log-alerts.md). 
+Os alertas do Azure Monitor notificam você proativamente quando condições importantes são encontradas nos dados de monitoramento. Eles permitem que você identifique e resolva problemas no seu sistema antes que os clientes os percebam. Você pode definir alertas em [métricas](../../azure-monitor/platform/alerts-metric-overview.md), [logs](../../azure-monitor/platform/alerts-unified-log.md) e [log de atividades](../../azure-monitor/platform/activity-log-alerts.md). 
 
 A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica apropriada a ser usada para o alerta:
 
@@ -589,13 +589,13 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 
 3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** e, em seguida, clique em **concluído**. 
 
-4. Clique em **Selecionar condição** e forneça as seguintes informações para o alerta: 
+4. Clique em **Adicionar condição** e forneça as seguintes informações para o alerta: 
 
     - **Métrica**
     - **Nome da dimensão**
     - **Lógica de alerta**
 
-5. Clique em **selecionar grupo de ações** e adicione um grupo de ações (email, SMS, etc.) ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
+5. Clique em **Adicionar grupos de ações** e adicione um grupo de ações (email, SMS, etc.) ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
 
 6. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
 
@@ -609,16 +609,31 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 1. Vá para sua **conta de armazenamento** no **portal do Azure**.
 2. Na seção **monitoramento** , clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
 3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
-4. Clique em **Selecionar condição** para adicionar uma condição.
+4. Clique em **Adicionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica **Transações** .
 6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **tipo de resposta**.
-7. Clique na lista suspensa **valores de dimensão** e selecione **SUCCESSWITHTHROTTLING** (para SMB) ou **ClientThrottlingError** (para REST).
+7. Clique na lista suspensa **valores de dimensão** e selecione os tipos de resposta apropriados para o compartilhamento de arquivos.
+
+    Para compartilhamentos de arquivos padrão, selecione os seguintes tipos de resposta:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Para compartilhamentos de arquivos premium, selecione os seguintes tipos de resposta:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isso significará que o recurso não foi limitado. Para adicionar o valor de dimensão, clique em **adicionar valor personalizado** ao lado da lista suspensa **valores de dimensão** , digite **SuccessWithThrottling** ou **ClientThrottlingError**, clique em **OK** e repita a etapa #7.
+   > Se os tipos de resposta não estiverem listados na lista suspensa **valores de dimensão** , isso significa que o recurso não foi limitado. Para adicionar os valores de dimensão, ao lado da lista suspensa **valores de dimensão** , selecione **adicionar valor personalizado**, insira o tipo resposta (por exemplo, **SuccessWithThrottling**), selecione **OK** e repita essas etapas para adicionar todos os tipos de resposta aplicáveis ao compartilhamento de arquivos.
 
 8. Clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
 9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
+
 
    > [!NOTE]
    > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
@@ -628,8 +643,8 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
     > [!TIP]
     > Se você estiver usando um limite estático, o gráfico de métrica poderá ajudar a determinar um valor de limite razoável se o compartilhamento de arquivos estiver sendo limitado no momento. Se você estiver usando um limite dinâmico, o gráfico de métrica exibirá os limites calculados com base nos dados recentes.
 
-11. Clique em **selecionar grupo de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
-12. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, * * descrição e **severidade**.
+11. Clique em **Adicionar grupos de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
+12. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
 13. Clique em **criar regra de alerta** para criar o alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Como criar um alerta se o tamanho do compartilhamento de arquivos do Azure for de 80% da capacidade
@@ -637,7 +652,7 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 1. Vá para sua **conta de armazenamento** no **portal do Azure**.
 2. Na seção **monitoramento** , clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
 3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
-4. Clique em **Selecionar condição** para adicionar uma condição.
+4. Clique em **Adicionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica de **capacidade de arquivo** .
 6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
 7. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
@@ -647,8 +662,8 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 
 8. Insira o **valor do limite** em bytes. Por exemplo, se o tamanho do compartilhamento de arquivos for 100 TiB e você quiser receber um alerta quando o tamanho do compartilhamento de arquivos for 80% da capacidade, o valor do limite em bytes será 87960930222080.
 9. Defina o restante dos **parâmetros de alerta** (granularidade de agregação e frequência de avaliação) e clique em **concluído**.
-10. Clique em selecionar grupo de ações para adicionar um grupo de ações (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
-11. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, * * descrição e **severidade**.
+10. Clique em **Adicionar grupos de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
+11. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
 12. Clique em **criar regra de alerta** para criar o alerta.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Como criar um alerta se a saída do compartilhamento de arquivos do Azure excedeu 500 GiB em um dia
@@ -656,7 +671,7 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 1. Vá para sua **conta de armazenamento** no **portal do Azure**.
 2. Na seção monitoramento, clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
 3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/File.
-4. Clique em **Selecionar condição** para adicionar uma condição.
+4. Clique em **Adicionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica de **saída** .
 6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
 7. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
@@ -667,8 +682,8 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 8. Insira **536870912000** bytes para o valor de limite. 
 9. Clique na lista suspensa **agregação de granularidade** e selecione **24 horas**.
 10. Selecione a **frequência de avaliação** e **clique em concluído**.
-11. Clique em **selecionar grupo de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
-12. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, * * descrição e **severidade**.
+11. Clique em **Adicionar grupos de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
+12. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
 13. Clique em **criar regra de alerta** para criar o alerta.
 
 ## <a name="next-steps"></a>Próximas etapas

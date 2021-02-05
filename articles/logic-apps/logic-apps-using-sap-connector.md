@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252603"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575476"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
@@ -504,7 +504,7 @@ Se você não puder enviar pacotes IDoc do SAP para o gatilho do seu aplicativo 
   * Para que esses segmentos sejam liberados pelo SAP, entre em contato com o engenheiro do ABAP para seu sistema SAP.
 ### <a name="asynchronous-request-reply-for-triggers"></a>Solicitação-resposta assíncrona para gatilhos
 
-O conector SAP dá suporte ao [padrão assíncrono de solicitação-resposta](/azure/architecture/patterns/async-request-reply.md) do Azure para gatilhos de aplicativos lógicos. Você pode usar esse padrão para criar solicitações bem-sucedidas que teriam falhado com o padrão de solicitação-resposta síncrona padrão. 
+O conector SAP dá suporte ao [padrão assíncrono de solicitação-resposta](/azure/architecture/patterns/async-request-reply) do Azure para gatilhos de aplicativos lógicos. Você pode usar esse padrão para criar solicitações bem-sucedidas que teriam falhado com o padrão de solicitação-resposta síncrona padrão. 
 
 > [!TIP]
 > Em aplicativos lógicos com várias ações de resposta, todas as ações de resposta devem usar o mesmo padrão de solicitação-resposta. Por exemplo, se seu aplicativo lógico usa um controle de alternância com várias ações de resposta possíveis, você deve configurar todas as ações de resposta para usar o mesmo padrão de solicitação-resposta, síncrono ou assíncrono. 
@@ -729,7 +729,7 @@ Aqui está um exemplo que mostra como extrair IDocs individuais de um pacote usa
 
 1. Antes de começar, você precisa de um aplicativo lógico com um gatilho SAP. Se você ainda não tiver esse aplicativo lógico, siga as etapas anteriores neste tópico para [configurar um aplicativo lógico com um gatilho do SAP](#receive-message-from-sap).
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Adicionar gatilho SAP ao aplicativo lógico](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 

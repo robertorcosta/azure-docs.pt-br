@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 86942f509ab067a53c47b5132c451f0585760050
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549636"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574950"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrar e verificar um SQL Server local
 
@@ -67,7 +67,7 @@ Se você planeja usar um usuário existente do SA (administrador do servidor) pa
 Se você quiser criar um novo logon e um usuário para poder verificar o SQL Server, siga as etapas abaixo:
 
 > [!Note]
-    > Todas as etapas abaixo podem ser executadas usando o código fornecido [aqui](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql).
+   > Todas as etapas abaixo podem ser executadas usando o código fornecido [aqui](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
 
 1. Navegue até SQL Server Management Studio (SSMS), conecte-se ao servidor, navegue até segurança, clique com o botão direito do mouse em logon e crie um novo logon. Certifique-se de selecionar Autenticação SQL.
 

@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 01/15/2021
+ms.date: 02/01/2021
 ms.custom: generated
-ms.openlocfilehash: 39385a3ea9dc06875806ac85c06c0df6d5db2698
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3b7b65a558470c4e7f04ed84ea186fc1ea98bc40
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683786"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557347"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -103,6 +103,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Função de leitor de conta do Cosmos DB](#cosmos-db-account-reader-role) | Pode ler dados de contas do Azure Cosmos DB. Consulte [Colaborador de conta do DocumentDB](#documentdb-account-contributor) para gerenciar contas do Azure Cosmos DB. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Operador de Cosmos DB](#cosmos-db-operator) | Permite que você gerencie contas do Azure Cosmos DB, mas não acesse os dados nelas. Impede o acesso a chaves de conta e cadeias de conexão. | 230815da-be43-4aae-9cb4-875f7bd000aa |
 > | [CosmosBackupOperator](#cosmosbackupoperator) | Pode enviar solicitação de restauração de um banco de dados Cosmos DB ou de um contêiner em uma conta | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | [CosmosRestoreOperator](#cosmosrestoreoperator) | É possível executar a ação de restauração para Cosmos DB conta de banco de dados com o modo de backup contínuo | 5432c526-bc82-444a-b7ba-57c5b0b5b34f |
 > | [Colaborador de Conta do DocumentDB](#documentdb-account-contributor) | Pode gerenciar contas do Azure Cosmos DB. O Azure Cosmos DB era anteriormente conhecido como DocumentDB. | 5bd9cd88-fe45-4216-938b-f97437e15450 |
 > | [Colaborador do Cache Redis](#redis-cache-contributor) | Permite gerenciar caches Redis, mas não acessá-los. | e0f68234-74aa-48ED-b826-c38b57376e17 |
 > | [Colaborador do banco de dados SQL](#sql-db-contributor) | Permite gerenciar Bancos de Dados SQL, mas não acessá-los. Além disso, não é possível gerenciar as políticas relacionadas à segurança ou respectivos servidores SQL pai. | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
@@ -1453,6 +1454,7 @@ Permite que você gerencie serviços de backup, exceto remoção de backup, cria
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/Read | Retornar o status da operação executada em itens protegidos. |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/Read | Retornar detalhes do objeto do item protegido |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Provisionar recuperação de item instantânea para item protegido |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/Action | Obter AccessToken para a restauração entre regiões. |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Read | Obter pontos de recuperação para itens protegidos. |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/Restore/Action | Restaurar pontos de recuperação para itens protegidos. |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Revogar a recuperação de item instantânea para item protegido |
@@ -1495,6 +1497,12 @@ Permite que você gerencie serviços de backup, exceto remoção de backup, cria
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupStatus/Action | Verificar o status de backup para os Cofres dos Serviços de Recuperação |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupPreValidateProtection/Action |  |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupValidateFeatures/Action | Validar recursos |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupAadProperties/Read | Obtenha as propriedades do AAD para autenticação na terceira região para a restauração entre regiões. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupCrrJobs/Action | Listar trabalhos de restauração entre regiões na região secundária para o cofre dos serviços de recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupCrrJob/Action | Obter detalhes do trabalho de restauração entre regiões na região secundária para o cofre dos serviços de recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupCrossRegionRestore/Action | Disparar a restauração entre regiões. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupCrrOperationResults/Read | Retorna o resultado da operação de CRR para o cofre dos serviços de recuperação. |
+> | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/backupCrrOperationsStatus/Read | Retorna o status da operação de CRR para o cofre dos serviços de recuperação. |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Vaults/monitoringAlerts/Write | Resolver o alerta. |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Operations/Read | Operação retorna a lista de operações para um provedor de recursos |
 > | [Microsoft. recoveryservices](resource-provider-operations.md#microsoftrecoveryservices)/Locations/operationStatus/Read | Obtém o Status da operação para uma determinada operação |
@@ -1527,6 +1535,7 @@ Permite que você gerencie serviços de backup, exceto remoção de backup, cria
         "Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read",
         "Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read",
         "Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action",
+        "Microsoft.RecoveryServices/vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/action",
         "Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read",
         "Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action",
         "Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action",
@@ -1569,6 +1578,12 @@ Permite que você gerencie serviços de backup, exceto remoção de backup, cria
         "Microsoft.RecoveryServices/locations/backupStatus/action",
         "Microsoft.RecoveryServices/locations/backupPreValidateProtection/action",
         "Microsoft.RecoveryServices/locations/backupValidateFeatures/action",
+        "Microsoft.RecoveryServices/locations/backupAadProperties/read",
+        "Microsoft.RecoveryServices/locations/backupCrrJobs/action",
+        "Microsoft.RecoveryServices/locations/backupCrrJob/action",
+        "Microsoft.RecoveryServices/locations/backupCrossRegionRestore/action",
+        "Microsoft.RecoveryServices/locations/backupCrrOperationResults/read",
+        "Microsoft.RecoveryServices/locations/backupCrrOperationsStatus/read",
         "Microsoft.RecoveryServices/Vaults/monitoringAlerts/write",
         "Microsoft.RecoveryServices/operations/read",
         "Microsoft.RecoveryServices/locations/operationStatus/read",
@@ -2438,6 +2453,7 @@ Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para sa
 > | /StorageAccounts/queueServices/Queues/messages/Delete [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Excluir uma ou mais mensagens de uma fila. |
 > | /StorageAccounts/queueServices/Queues/messages/Read [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Espiar ou recuperar uma ou mais mensagens de uma fila. |
 > | /StorageAccounts/queueServices/Queues/messages/Write [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Adicionar uma mensagem a uma fila. |
+> | /StorageAccounts/queueServices/Queues/messages/Process/Action [Microsoft. Storage](resource-provider-operations.md#microsoftstorage) | Retorna o resultado do processamento de uma mensagem |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -2460,7 +2476,8 @@ Lê, grava e exclui filas do Armazenamento do Azure e mensagens da fila. Para sa
       "dataActions": [
         "Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete",
         "Microsoft.Storage/storageAccounts/queueServices/queues/messages/read",
-        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/write"
+        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/write",
+        "Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action"
       ],
       "notDataActions": []
     }
@@ -3932,6 +3949,49 @@ Pode enviar solicitação de restauração para um banco de dados Cosmos DB ou u
     }
   ],
   "roleName": "CosmosBackupOperator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="cosmosrestoreoperator"></a>CosmosRestoreOperator
+
+É possível executar a ação de restauração para Cosmos DB conta de banco de dados com o modo de backup contínuo
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/Locations/restorableDatabaseAccounts/Restore/Action | Enviar uma solicitação de restauração |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/Locations/restorableDatabaseAccounts/*/Read |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/Locations/restorableDatabaseAccounts/Read | Ler uma conta de banco de dados restaurável ou listar todas as contas de banco de dados restauráveis |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform restore action for Cosmos DB database account with continuous backup mode",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5432c526-bc82-444a-b7ba-57c5b0b5b34f",
+  "name": "5432c526-bc82-444a-b7ba-57c5b0b5b34f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action",
+        "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read",
+        "Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "CosmosRestoreOperator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7788,8 +7848,12 @@ Pode gerenciar Application Insights componentes [saiba mais](../azure-monitor/ap
 > | --- | --- |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar regras de alerta clássicas |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/generateLiveToken/Read | Tokens de obtenção de métricas ao vivo |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/metricAlerts/* | Criar e gerenciar novas regras de alerta |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Components/* | Criar e gerenciar componentes do Insights |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/scheduledqueryrules/* |  |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Topology/Read | Ler topologia |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/Transactions/Read | Transações de leitura |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/webtests/* | Criar e gerenciar testes na Web do insights |
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
@@ -7815,8 +7879,12 @@ Pode gerenciar Application Insights componentes [saiba mais](../azure-monitor/ap
       "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/generateLiveToken/read",
         "Microsoft.Insights/metricAlerts/*",
         "Microsoft.Insights/components/*",
+        "Microsoft.Insights/scheduledqueryrules/*",
+        "Microsoft.Insights/topology/read",
+        "Microsoft.Insights/transactions/read",
         "Microsoft.Insights/webtests/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3752a36d22f879b95b02bd49436be78212fe56a2
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051865"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576034"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer perguntas frequentes
 
@@ -52,9 +52,11 @@ Não, isso não é possível.
 ## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Qual é a taxa de transferência máxima de dados que pode ser obtida por meio de um Azure Load Balancer?
 Como o Azure LB é um balanceador de carga de rede de passagem, as limitações de taxa de transferência são ditadas pelo tipo de máquina virtual usada no pool de back-end. Para saber mais sobre outras informações relacionadas à taxa de transferência de rede, consulte [taxa de transferência de rede de máquina virtual](../virtual-network/virtual-machine-network-throughput.md).
 
-
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Como funcionam as conexões com o armazenamento do Azure na mesma região?
 Não é necessário ter conectividade de saída por meio dos cenários acima para se conectar ao Armazenamento na mesma região que a VM. Se você não quiser isso, use NSGs (grupos de segurança de rede), conforme explicado acima. Para a conectividade com o armazenamento em outras regiões, a conectividade de saída é necessária. Observe que, ao se conectar ao Armazenamento de uma VM na mesma região, o endereço IP de origem nos logs de diagnóstico de Armazenamento será um endereço de provedor interno e não o endereço IP público da VM. Se você quiser restringir o acesso à sua conta de armazenamento a VMs em uma ou mais sub-redes de rede virtual na mesma região, use [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md) (e não seu endereço IP público) ao configurar o firewall da conta de armazenamento. Depois que os pontos de extremidade de serviço forem configurados, você verá seu endereço IP privado da rede virtual nos logs de diagnóstico de armazenamento e não no endereço do provedor interno.
+
+## <a name="does-azure-load-balancer-support-tlsssl-termination"></a>Azure Load Balancer dá suporte à terminação TLS/SSL?
+Não, Azure Load Balancer atualmente não dá suporte à terminação, pois é uma passagem pelo balanceador de carga de rede. O gateway de aplicativo pode ser uma solução potencial se seu aplicativo exigir isso.
 
 ## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>Quais são as melhores práticas em relação à conectividade de saída?
 Standard Load Balancer e IP público padrão introduz recursos e comportamentos diferentes para a conectividade de saída. Eles não são o mesmo que SKUs Básicos. Se quiser ter conectividade de saída ao trabalhar com SKUs Standard, você precisará defini-la explicitamente com endereços IP públicos Standard ou com o Load Balancer Standard público. Isso inclui a criação da conectividade de saída ao usar um Standard Load Balancer interno. É recomendável que você sempre use regras de saída em um Load Balancer Standard público. Isso significa que, quando um Standard Load Balancer for usado, você precisará executar etapas para criar a conectividade de saída para as VMs no pool de back-end se a conectividade de saída for desejada. No contexto de conectividade de saída, uma única VM autônoma, todas as VMs em um conjunto de disponibilidade, todas as instâncias em um VMSS se comportam como um grupo. Isso significa que, se uma única VM em um conjunto de disponibilidade estiver associada a um SKU Standard, todas as instâncias de VM neste conjunto de disponibilidade agora se comportarão de acordo com as mesmas regras que se aplicariam se elas estivessem associados ao SKU Standard, mesmo se uma instância individual não estivesse diretamente associada a ele. Esse comportamento também é observado no caso de uma VM autônoma com várias placas adaptadoras de rede anexadas a um balanceador de carga. Se uma NIC for adicionada como autônoma, ela terá o mesmo comportamento. Revise atentamente todo este documento para entender os conceitos gerais, revise [Standard Load Balancer](./load-balancer-overview.md) para ver as diferenças entre as SKUs e revise [regras de saída](load-balancer-outbound-connections.md#outboundrules).

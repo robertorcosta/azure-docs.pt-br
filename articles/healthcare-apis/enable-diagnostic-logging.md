@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
-ms.date: 11/01/2019
-ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/03/2021
+ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905167"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575425"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitar o log de diagnóstico na API do Azure para FHIR
 
@@ -35,9 +35,9 @@ Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure
     2. **Transmita para o Hub de eventos** para ingestão por um serviço de terceiros ou uma solução analítica personalizada. Você precisará criar um namespace do hub de eventos e uma política do hub de eventos antes de configurar esta etapa.
     3. **Transmitir para o** espaço de trabalho Log Analytics no Azure monitor. Você precisará criar seu espaço de trabalho do log Analytics antes de poder selecionar essa opção.
 
-6. Selecione **AuditLogs** e as métricas que você deseja capturar. Se você estiver usando o conector do Azure IoT para FHIR, certifique-se de selecionar **erros, tráfego e latência** para métricas. 
+6. Selecione **AuditLogs** e/ou todas as **métricas**. As métricas incluem nome do serviço, disponibilidade, tamanho dos dados, latência total, total de solicitações, total de erros e carimbo de data/hora.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="Connector2 IoT" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Configurações de diagnóstico do Azure FHIR. Selecione AuditLogs e/ou todas as métricas." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. Selecione **Salvar**
 
@@ -59,7 +59,7 @@ Neste momento, a API do Azure para o serviço FHIR retorna os seguintes campos n
 |CorrelationId|String| ID de Correlação
 |FhirResourceType|String|O tipo de recurso para o qual a operação foi executada
 |LogCategory|String|A categoria de log (atualmente, estamos retornando ' AuditLogs ' LogCategory)
-|Localização|String|O local do servidor que processou a solicitação (por exemplo, EUA Central do Sul)
+|Location|String|O local do servidor que processou a solicitação (por exemplo, EUA Central do Sul)
 |OperationDuration|int|O tempo necessário para concluir esta solicitação em segundos
 |OperationName|String| Descreve o tipo de operação (por exemplo, atualização, tipo de pesquisa)
 |RequestUri|String|O URI de solicitação 

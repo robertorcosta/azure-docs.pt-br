@@ -4,21 +4,23 @@ description: Este artigo descreve como gerenciar administradores de servidor par
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 2/4/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 62acb526a247362b17c4dfd4e26c52760deecd71
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351717"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573476"
 ---
 # <a name="manage-server-administrators"></a>Gerenciar administradores de servidor
 
 Os administradores de servidor devem ser um usuário, uma entidade de serviço ou um grupo de segurança válido no Azure Active Directory (Azure AD) para o locatário no qual o servidor reside. É possível usar **Administradores do Analysis Services** para o servidor no portal do Azure, Propriedades do Servidor no SSMS, PowerShell ou API REST para gerenciar administradores do servidor. 
 
 Ao adicionar um **grupo de segurança**, use `obj:groupid@tenantid` . Não há suporte para entidades de serviço em grupos de segurança adicionados à função de administrador do servidor.
+
+Para saber mais sobre como adicionar uma entidade de serviço à função de administrador do servidor, consulte [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
 
 Se o Firewall do servidor estiver habilitado, os endereços IP do computador cliente do administrador do servidor deverão ser incluídos em uma regra de firewall. Para saber mais, consulte [Configurar o Firewall do servidor](analysis-services-qs-firewall.md).
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7c5b4f0d5d4b153684683963c56b7506e76d963e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397142"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575646"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever cabeçalhos HTTP com o gateway de aplicativo
 
@@ -49,14 +49,14 @@ Você pode usar uma condição para avaliar se uma variável especificada está 
 Você usa ações de reescrita para especificar os cabeçalhos de solicitação e resposta que deseja reescrever e o novo valor para os cabeçalhos. Você pode criar um novo cabeçalho, modificar o valor de um cabeçalho existente ou excluir um cabeçalho existente. O valor de um novo cabeçalho ou de um cabeçalho existente pode ser definido para esses tipos de valores:
 
 - Text.
-- Cabeçalho da solicitação. Para especificar um cabeçalho de solicitação, você precisa usar a sintaxe {http_req_ *HeaderName* }.
-- Cabeçalho de resposta. Para especificar um cabeçalho de resposta, você precisa usar a sintaxe {http_resp_ *HeaderName* }.
-- Variável de servidor. Para especificar uma variável de servidor, você precisa usar a sintaxe {var_ *serverVariable* }.
+- Cabeçalho da solicitação. Para especificar um cabeçalho de solicitação, você precisa usar a sintaxe {http_req_ *HeaderName*}.
+- Cabeçalho de resposta. Para especificar um cabeçalho de resposta, você precisa usar a sintaxe {http_resp_ *HeaderName*}.
+- Variável de servidor. Para especificar uma variável de servidor, você precisa usar a sintaxe {var_ *serverVariable*}.
 - Uma combinação de texto, um cabeçalho de solicitação, um cabeçalho de resposta e uma variável de servidor.
 
 ## <a name="server-variables"></a>Variáveis de servidor
 
-O gateway de aplicativo usa variáveis de servidor para armazenar informações úteis sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da Web. As variáveis de servidor são alteradas dinamicamente, por exemplo, quando uma nova página é carregada ou quando um formulário é Postado. Você pode usar essas variáveis para avaliar as condições de regravação e reescrever os cabeçalhos. Para usar o valor de variáveis de servidor para regravar os cabeçalhos, você precisará especificar essas variáveis na sintaxe {var_ *serverVariable* }
+O gateway de aplicativo usa variáveis de servidor para armazenar informações úteis sobre o servidor, a conexão com o cliente e a solicitação atual na conexão. Exemplos de informações armazenadas incluem o endereço IP do cliente e o tipo de navegador da Web. As variáveis de servidor são alteradas dinamicamente, por exemplo, quando uma nova página é carregada ou quando um formulário é Postado. Você pode usar essas variáveis para avaliar as condições de regravação e reescrever os cabeçalhos. Para usar o valor de variáveis de servidor para regravar os cabeçalhos, você precisará especificar essas variáveis na sintaxe {var_ *serverVariable*}
 
 O gateway de aplicativo dá suporte a essas variáveis de servidor:
 
@@ -69,21 +69,21 @@ O gateway de aplicativo dá suporte a essas variáveis de servidor:
 | client_port                | A porta do cliente.                                                  |
 | client_tcp_rtt             | Informações sobre a conexão TCP do cliente. Disponível em sistemas que dão suporte à opção de soquete TCP_INFO. |
 | client_user                | Quando a autenticação HTTP é usada, o nome de usuário fornecido para autenticação. |
-| host                       | Nesta ordem de precedência: o nome do host da linha de solicitação, o nome do host do campo de cabeçalho de solicitação do host ou o nome do servidor que corresponde a uma solicitação. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , o valor do host será *contoso.com* |
+| host                       | Nesta ordem de precedência: o nome do host da linha de solicitação, o nome do host do campo de cabeçalho de solicitação do host ou o nome do servidor que corresponde a uma solicitação. Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , o valor do host será *contoso.com* |
 | *nome* do cookie_              | O *nome* do cookie.                                            |
 | http_method                | O método usado para fazer a solicitação de URL. Por exemplo, GET ou POST. |
 | http_status                | O status da sessão. Por exemplo, 200, 400 ou 403.                       |
 | http_version               | O protocolo de solicitação. Geralmente, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string               | A lista de pares de variáveis/valores que segue o "?" na URL solicitada. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , QUERY_STRING valor será *ID = 123&título = Fabrikam* |
+| query_string               | A lista de pares de variáveis/valores que segue o "?" na URL solicitada. Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , QUERY_STRING valor será *ID = 123&título = Fabrikam* |
 | received_bytes             | O comprimento da solicitação (incluindo a linha de solicitação, o cabeçalho e o corpo da solicitação). |
 | request_query              | Os argumentos na linha de solicitação.                                |
 | request_scheme             | O esquema de solicitação: http ou HTTPS.                            |
-| request_uri                | O URI de solicitação original completo (com argumentos). Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , REQUEST_URI valor será */article.aspx? id = 123&title = Fabrikam*   |
+| request_uri                | O URI de solicitação original completo (com argumentos). Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , REQUEST_URI valor será */article.aspx? id = 123&title = Fabrikam*   |
 | sent_bytes                 | O número de bytes enviados a um cliente.                             |
 | server_port                | A porta do servidor que aceitou uma solicitação.                 |
 | ssl_connection_protocol    | O protocolo de uma conexão TLS estabelecida.        |
 | ssl_enabled                | "Ativado" se a conexão opera no modo TLS. Caso contrário, uma cadeia de caracteres vazia. |
-| uri_path                   | Identifica o recurso específico no host que o cliente Web deseja acessar. Essa é a parte do URI de solicitação sem os argumentos. Exemplo: na solicitação *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* , uri_path valor será */article.aspx*  |
+| uri_path                   | Identifica o recurso específico no host que o cliente Web deseja acessar. Essa é a parte do URI de solicitação sem os argumentos. Exemplo: na solicitação `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , uri_path valor será */article.aspx*  |
 
 ## <a name="rewrite-configuration"></a>Reescrever configuração
 
@@ -91,19 +91,19 @@ Para configurar a reescrita do cabeçalho HTTP, você precisa concluir estas eta
 
 1. Crie os objetos que são necessários para a reescrita do cabeçalho HTTP:
 
-   - **Ação de regravação** : usada para especificar os campos de cabeçalho de solicitação e solicitação que você deseja reescrever e o novo valor para os cabeçalhos. Você pode associar uma ou mais condições de regravação a uma ação de regravação.
+   - **Ação de regravação**: usada para especificar os campos de cabeçalho de solicitação e solicitação que você deseja reescrever e o novo valor para os cabeçalhos. Você pode associar uma ou mais condições de regravação a uma ação de regravação.
 
-   - **Condição de regravação** : uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
+   - **Condição de regravação**: uma configuração opcional. As condições de regravação avaliam o conteúdo das solicitações e respostas HTTP (S). A ação de regravação ocorrerá se a solicitação ou resposta HTTP (S) corresponder à condição de regravação.
 
      Se você associar mais de uma condição a uma ação, a ação ocorrerá somente quando todas as condições forem atendidas. Em outras palavras, a operação é uma operação AND lógica.
 
-   - **Regra de regravação** : contém várias combinações de condição de ação de regravação/regravação.
+   - **Regra de regravação**: contém várias combinações de condição de ação de regravação/regravação.
 
-   - **Sequência de regras** : ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir a mesma sequência de regras a duas regras de reescrita, a ordem de execução será não determinística.
+   - **Sequência de regras**: ajuda a determinar a ordem na qual as regras de regravação são executadas. Essa configuração é útil quando você tem várias regras de regravação em um conjunto de regravação. Uma regra de regravação que tem um valor de sequência de regra mais baixo é executada primeiro. Se você atribuir a mesma sequência de regras a duas regras de reescrita, a ordem de execução será não determinística.
 
-   - **Conjunto de regravação** : contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
+   - **Conjunto de regravação**: contém várias regras de regravação que serão associadas a uma regra de roteamento de solicitação.
 
-2. Anexe o conjunto de regravação ( *rewriteRuleSet* ) a uma regra de roteamento. A configuração de regravação é anexada ao ouvinte de origem por meio da regra de roteamento. Quando você usa uma regra de roteamento básica, a configuração de reescrita de cabeçalho é associada a um ouvinte de origem e é uma reescrita de cabeçalho global. Quando você usa uma regra de roteamento com base em caminho, a configuração de reescrita de cabeçalho é definida no mapa de caminho de URL. Nesse caso, ele se aplica somente à área de caminho específica de um site.
+2. Anexe o conjunto de regravação (*rewriteRuleSet*) a uma regra de roteamento. A configuração de regravação é anexada ao ouvinte de origem por meio da regra de roteamento. Quando você usa uma regra de roteamento básica, a configuração de reescrita de cabeçalho é associada a um ouvinte de origem e é uma reescrita de cabeçalho global. Quando você usa uma regra de roteamento com base em caminho, a configuração de reescrita de cabeçalho é definida no mapa de caminho de URL. Nesse caso, ele se aplica somente à área de caminho específica de um site.
    > [!NOTE]
    > Reescrever URL alterar os cabeçalhos; Ele não altera a URL para o caminho.
 

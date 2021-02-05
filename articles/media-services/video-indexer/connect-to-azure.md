@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 8e110ba9818b48d66c5f17bb524bada567d808ab
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4174e63ed12faf5d10029db5b4eb9bf9a40b9b5b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897149"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576271"
 ---
 # <a name="create-a-video-indexer-account"></a>Criar uma conta de Video Indexer
 
@@ -195,7 +195,7 @@ A automatização da criação da conta é um processo de duas etapas:
 1. Use Azure Resource Manager para criar uma conta dos serviços de mídia do Azure + aplicativo do Azure AD.
 
     Consulte um exemplo do [modelo de criação de conta dos serviços de mídia](https://github.com/Azure-Samples/media-services-v3-arm-templates).
-1. Chame [Create-Account com os serviços de mídia e o aplicativo do Azure ad](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
+1. Chame [Create-Account com os serviços de mídia e o aplicativo do Azure ad](https://videoindexer.ai.azure.us/account/login?source=apim).
 
 ## <a name="video-indexer-in-azure-government"></a>Video Indexer no Azure governamental
 
@@ -222,7 +222,7 @@ Para criar uma conta paga por meio do portal de Video Indexer:
     
 ### <a name="create-new-account-via-the-api-on-azure-government"></a>Criar nova conta por meio da API no Azure governamental
 
-Para criar uma conta paga no Azure governamental, siga as instruções em [Create-pagou-Account](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). Esse ponto de extremidade da API inclui apenas regiões de nuvem do governo.
+Para criar uma conta paga no Azure governamental, siga as instruções em [Create-pagou-Account](/azure/media-services/video-indexer/connect-to-azure). Esse ponto de extremidade da API inclui apenas regiões de nuvem do governo.
 
 ### <a name="limitations-of-video-indexer-on-azure-government"></a>Limitações de Video Indexer no Azure governamental
 

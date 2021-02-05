@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, contêiner
-ms.openlocfilehash: 79e53bf39e411569f87a46bfc275c784ce84babc
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 7bebaf7558de8ec5c1fcca3c9a4526330da1d695
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703319"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575781"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalar e executar contêineres do Docker para as APIs do serviço de fala 
 
@@ -41,10 +41,10 @@ Os contêineres de Fala permitem que os clientes criem uma arquitetura de aplica
 
 | Contêiner | Recursos | Última |
 |--|--|--|
-| Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.7.0 |
-| Conversão de fala em texto personalizada | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.7.0 |
-| Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.9.0 |
-| Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.9.0 |
+| Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.9.0 |
+| Conversão de fala em texto personalizada | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.9.0 |
+| Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.11.0 |
+| Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.11.0 |
 | Detecção de Idioma de fala | Detectar o idioma falado nos arquivos de áudio. | 1.0 |
 | Conversão de texto em fala neural | Converte o texto em voz natural usando uma tecnologia de rede neural profunda, permitindo uma fala mais natural sintetizada. | 1.3.0 |
 
@@ -54,7 +54,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala:
 
-| Necessária | Finalidade |
+| Obrigatório | Finalidade |
 |--|--|
 | Mecanismo do Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
@@ -80,7 +80,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 A tabela a seguir descreve a alocação mínima e recomendada de recursos para cada contêiner de fala.
 
-| Contêiner | Mínimo | Recomendado |
+| Contêiner | Mínimo | Recomendadas |
 |-----------|---------|-------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 | Conversão de fala em texto personalizada | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
@@ -317,9 +317,31 @@ Esse comando:
 > Os contêineres dão suporte à entrada de áudio compactado para o SDK de fala usando GStreamer.
 > Para instalar o GStreamer em um contêiner, siga as instruções do Linux para GStreamer em [usar o codec compactado entrada de áudio com o SDK de fala](how-to-use-codec-compressed-audio-input-streams.md).
 
+#### <a name="diarization-on-the-speech-to-text-output"></a>Diarization na saída de conversão de fala em texto
+O Diarization é habilitado por padrão. para obter diarization em sua resposta, use `diarize_speech_config.set_service_property` .
+
+1. Defina o formato de saída da frase como `Detailed` .
+2. Defina o modo de diarization. Os modos com suporte são `Identity` e `Anonymous` .
+```python
+diarize_speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Format',
+    value='Detailed',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+
+diarize_speech_config.set_service_property(
+    name='speechcontext-phraseDetection.speakerDiarization.mode',
+    value='Identity',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+> [!NOTE]
+> O modo "Identity" retorna `"SpeakerId": "Customer"` ou `"SpeakerId": "Agent"` .
+> O modo "Anonymous" retorna `"SpeakerId": "Speaker 1"` ou `"SpeakerId": "Speaker 2"`
+
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analisar o sentimentos na saída de fala para texto 
-A partir do v 2.6.0 do contêiner de fala a texto, você deve usar o ponto de extremidade de API do textanalytics 3,0 em vez da visualização One. Por exemplo
+A partir do v 2.6.0 do contêiner de fala a texto, você deve usar o ponto de extremidade de API do textanalytics 3,0 em vez da visualização One. Por exemplo,
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
 * `https://localhost:5000/text/analytics/v3.0/sentiment`
 

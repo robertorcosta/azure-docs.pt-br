@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 720cd46ac37a82f56aa37c0041ca8d92db177071
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881154"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575764"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como fazer: Exigir políticas de proteção de aplicativo e um aplicativo cliente aprovado para acesso ao aplicativo em nuvem com acesso condicional
 
@@ -34,7 +34,7 @@ No acesso condicional, esses aplicativos cliente são sabidamente protegidos por
 > Nem todos os aplicativos têm suporte como aplicativos aprovados ou dão suporte a políticas de proteção de aplicativo. Para obter uma lista de aplicativos cliente qualificados, confira [Requisito de política de proteção de aplicativo](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
-> "Exigir um dos controles selecionados" em conceder controles é como uma cláusula OR. Isso é usado na política para permitir que os usuários utilizem aplicativos que suportam a **política exigir proteção de aplicativo** ou exigem controles de concessão de **aplicativo cliente aprovados** . **Exigir** que a política de proteção de aplicativo seja imposta se um aplicativo tiver suporte em ambas as políticas. Para saber mais sobre quais aplicativos dão suporte ao controle de concessão **Exigir política de proteção de aplicativo**, confira [Requisito de política de proteção de aplicativo](concept-conditional-access-grant.md#require-app-protection-policy).
+> "Exigir um dos controles selecionados" em conceder controles é como uma cláusula OR. Isso é usado na política para permitir que os usuários utilizem aplicativos que suportam a **política exigir proteção de aplicativo** ou exigem controles de concessão de **aplicativo cliente aprovados** . **Exigir** que a política de proteção de aplicativo seja imposta quando o aplicativo der suporte a esse controle de concessão. Para saber mais sobre quais aplicativos dão suporte ao controle de concessão **Exigir política de proteção de aplicativo**, confira [Requisito de política de proteção de aplicativo](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 1: aplicativos de Microsoft 365 exigem aplicativos aprovados com políticas de proteção de aplicativo
 

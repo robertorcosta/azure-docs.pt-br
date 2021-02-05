@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 02/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 8901877ab3055c02dfc8c129fb35864418cd19d8
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549128"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576305"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
@@ -24,7 +24,7 @@ Este artigo descreve maneiras de detectar e evitar falhas nas operações em seg
 
 ### <a name="resize-timeout-or-failure"></a>Redimensionar tempo limite ou falha
 
-Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado. A operação de criação ou redimensionamento é concluída imediatamente, mas a alocação real de novos nós ou a remoção de nós existentes pode levar vários minutos. Você especifica o Cam o tempo limite de redimensionamento na API de [criação](/rest/api/batchservice/pool/add) ou [redimensionamento](/rest/api/batchservice/pool/resize) . Se o lote não puder obter o número de destino de nós durante o período de tempo limite de redimensionamento, o pool entrará em um estado estável e redimensionará os erros.
+Ao criar um novo pool ou redimensionar um existente, o número de destino de nós é especificado. A operação de criação ou redimensionamento é concluída imediatamente, mas a alocação real de novos nós ou a remoção de nós existentes pode levar vários minutos. Você pode especificar o tempo limite de redimensionamento na API de [criação](/rest/api/batchservice/pool/add) ou [redimensionamento](/rest/api/batchservice/pool/resize) . Se o lote não puder obter o número de destino de nós durante o período de tempo limite de redimensionamento, o pool entrará em um estado estável e redimensionará os erros.
 
 A propriedade [ResizeError](/rest/api/batchservice/pool/get#resizeerror) da avaliação mais recente lista os erros ocorridos.
 

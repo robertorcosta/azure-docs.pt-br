@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736214"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573357"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planejar e gerenciar custos para Azure App serviço
 
@@ -125,7 +125,7 @@ Se você planeja utilizar um número mínimo conhecido de instâncias de computa
 
 O preço da instância reservada se aplica às instâncias aplicáveis em sua assinatura, até o número de instâncias que você reserva. As instâncias reservadas são uma questão de cobrança e não estão ligadas a instâncias de computação específicas. Se você executar menos instâncias do que reservar a qualquer momento durante o período de reserva, você ainda pagará pelas instâncias reservadas. Se você executar mais instâncias do que reservar a qualquer momento durante o período de reserva, você pagará o custo acumulado normal das instâncias adicionais.
 
-A camada **isolada** (ambiente do serviço de aplicativo) também dá suporte a reservas de 1 e 3 anos a preços reduzidos. Para obter mais informações, consulte [como os descontos de reserva se aplicam a carimbos de Azure app de serviço isolados](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md).
+A camada **isolada** (ambiente do serviço de aplicativo) também dá suporte a reservas de 1 e 3 anos a preços reduzidos. Para obter mais informações, consulte [como os descontos de reserva se aplicam ao serviço Azure app](../cost-management-billing/reservations/reservation-discount-app-service.md).
 
 ## <a name="monitor-costs"></a>Monitorar custos
 

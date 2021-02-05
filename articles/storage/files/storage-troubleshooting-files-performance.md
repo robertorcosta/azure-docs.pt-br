@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 729c3e46cf329c525ce9204b26d4c6aefa04c89d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c3dbd76e76ad6e7bed0808278d4516992bc328f0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632488"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574424"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -34,14 +34,28 @@ Para confirmar se o compartilhamento está sendo limitado, você pode acessar e 
 
 1. Selecione **Transações** como a métrica.
 
-1. Adicione um filtro para **tipo de resposta** e, em seguida, verifique se alguma solicitação tem um dos seguintes códigos de resposta:
-   * **SuccessWithThrottling**: para SMB (bloco de mensagens do servidor)
-   * **ClientThrottlingError**: para REST
+1. Adicione um filtro para **tipo de resposta** e, em seguida, verifique se alguma solicitação foi limitada. 
 
-   ![Captura de tela das opções de métricas para compartilhamentos de arquivos premium, mostrando um filtro de propriedade "tipo de resposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
+    Para compartilhamentos de arquivos padrão, os seguintes tipos de resposta serão registrados se uma solicitação for limitada:
 
-   > [!NOTE]
-   > Para receber um alerta, consulte a seção ["como criar um alerta se um compartilhamento de arquivos for limitado"](#how-to-create-an-alert-if-a-file-share-is-throttled) mais adiante neste artigo.
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Para compartilhamentos de arquivos premium, os seguintes tipos de resposta serão registrados se uma solicitação for limitada:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
+
+    Para saber mais sobre cada tipo de resposta, consulte [dimensões de métrica](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+
+    ![Captura de tela das opções de métricas para compartilhamentos de arquivos premium, mostrando um filtro de propriedade "tipo de resposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
+
+    > [!NOTE]
+    > Para receber um alerta, consulte a seção ["como criar um alerta se um compartilhamento de arquivos for limitado"](#how-to-create-an-alert-if-a-file-share-is-throttled) mais adiante neste artigo.
 
 ### <a name="solution"></a>Solução
 
@@ -219,48 +233,63 @@ Para confirmar, você pode usar as métricas do Azure no portal-
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Como criar um alerta se um compartilhamento de arquivos for limitado
 
-1. No portal do Microsoft Azure, acesse sua conta de armazenamento.
-1. Na seção **monitoramento** , selecione **alertas** e, em seguida, selecione **nova regra de alerta**.
-1. Selecione **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e, em seguida, selecione **concluído**. Por exemplo, se o nome da conta de armazenamento for *contoso*, selecione o recurso contoso/File.
-1. Selecione **Selecionar condição** para adicionar uma condição.
-1. Na lista de sinais que têm suporte para a conta de armazenamento, selecione a métrica **Transações** .
-1. No painel **Configurar lógica de sinal** , na lista suspensa **nome da dimensão** , selecione tipo de **resposta**.
-1. Na lista suspensa **valores de dimensão** , selecione **SUCCESSWITHTHROTTLING** (para SMB) ou **ClientThrottlingError** (para REST).
+1. Vá para sua **conta de armazenamento** no **portal do Azure**.
+2. Na seção **monitoramento** , clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
+3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
+4. Clique em **Adicionar condição** para adicionar uma condição.
+5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica **Transações** .
+6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **tipo de resposta**.
+7. Clique na lista suspensa **valores de dimensão** e selecione os tipos de resposta apropriados para o compartilhamento de arquivos.
+
+    Para compartilhamentos de arquivos padrão, selecione os seguintes tipos de resposta:
+
+    - SuccessWithThrottling
+    - ClientThrottlingError
+
+    Para compartilhamentos de arquivos premium, selecione os seguintes tipos de resposta:
+
+    - SuccessWithShareEgressThrottling
+    - SuccessWithShareIngressThrottling
+    - SuccessWithShareIopsThrottling
+    - ClientShareEgressThrottlingError
+    - ClientShareIngressThrottlingError
+    - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > Se nem o valor da dimensão **SuccessWithThrottling** nem o **ClientThrottlingError** estiver listado, isso significa que o recurso não foi limitado. Para adicionar o valor de dimensão, ao lado da lista suspensa **valores de dimensão** , selecione **adicionar valor personalizado**, insira **SuccessWithThrottling** ou **ClientThrottlingError**, selecione **OK** e repita a etapa 7.
+   > Se os tipos de resposta não estiverem listados na lista suspensa **valores de dimensão** , isso significa que o recurso não foi limitado. Para adicionar os valores de dimensão, ao lado da lista suspensa **valores de dimensão** , selecione **adicionar valor personalizado**, insira o tipo resposta (por exemplo, **SuccessWithThrottling**), selecione **OK** e repita essas etapas para adicionar todos os tipos de resposta aplicáveis ao compartilhamento de arquivos.
 
-1. Na lista suspensa **nome da dimensão** , selecione Compartilhamento de **arquivos**.
-1. Na lista suspensa **valores de dimensão** , selecione o compartilhamento de arquivos ou os compartilhamentos que você deseja alertar.
+8. Clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
+9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
+
 
    > [!NOTE]
-   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. A lista suspensa valores de dimensão não lista os compartilhamentos de arquivos, pois as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, recomendamos que você use um compartilhamento de arquivos por conta de armazenamento.
+   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
 
-1. Defina os parâmetros de alerta inserindo **o valor de limite**, o **operador**, a **granularidade de agregação** e a **frequência de avaliação** e, em seguida, selecione **concluído**.
+10. Defina os **parâmetros de alerta** (valor de limite, operador, granularidade de agregação e frequência de avaliação) e clique em **concluído**.
 
     > [!TIP]
-    > Se você estiver usando um limite estático, o gráfico de métrica poderá ajudá-lo a determinar um valor de limite razoável se o compartilhamento de arquivos estiver sendo limitado no momento. Se você estiver usando um limite dinâmico, o gráfico de métrica exibirá os limites calculados com base nos dados recentes.
+    > Se você estiver usando um limite estático, o gráfico de métrica poderá ajudar a determinar um valor de limite razoável se o compartilhamento de arquivos estiver sendo limitado no momento. Se você estiver usando um limite dinâmico, o gráfico de métrica exibirá os limites calculados com base nos dados recentes.
 
-1. Selecione **selecionar grupo de ação** e, em seguida, adicione um grupo de ação (por exemplo, email ou SMS) ao alerta selecionando um grupo de ação existente ou criando um novo grupo de ação.
-1. Insira os detalhes do alerta, como **nome da regra de alerta**, **Descrição** e **severidade**.
-1. Selecione **Criar regra de alerta** para criar o alerta.
+11. Clique em **Adicionar grupos de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
+12. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
+13. Clique em **criar regra de alerta** para criar o alerta.
 
 Para saber mais sobre como configurar alertas no Azure Monitor, consulte [visão geral de alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Como criar alertas se um compartilhamento de arquivos Premium estiver se aproximando da limitação
 
 1. No portal do Microsoft Azure, acesse sua conta de armazenamento.
-1. Na seção **monitoramento** , selecione **alertas** e, em seguida, selecione **nova regra de alerta**.
-1. Selecione **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e, em seguida, selecione **concluído**. Por exemplo, se o nome da conta de armazenamento for *contoso*, selecione o recurso contoso/File.
-1. Selecione **Selecionar condição** para adicionar uma condição.
-1. Na lista de sinais que têm suporte para a conta de armazenamento, selecione a métrica de **saída** .
+2. Na seção **monitoramento** , selecione **alertas** e, em seguida, selecione **nova regra de alerta**.
+3. Selecione **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e, em seguida, selecione **concluído**. Por exemplo, se o nome da conta de armazenamento for *contoso*, selecione o recurso contoso/File.
+4. Selecione **Selecionar condição** para adicionar uma condição.
+5. Na lista de sinais que têm suporte para a conta de armazenamento, selecione a métrica de **saída** .
 
    > [!NOTE]
    > Você precisa criar três alertas separados para serem alertados quando os valores de entrada, de egresso ou de transação excederem os limites definidos. Isso ocorre porque um alerta é disparado somente quando todas as condições são atendidas. Por exemplo, se você colocar todas as condições em um alerta, você só será alertado se a entrada, saída e transações excederem seus valores de limite.
 
-1. Role para baixo. Na lista suspensa **nome da dimensão** , selecione Compartilhamento de **arquivos**.
-1. Na lista suspensa **valores de dimensão** , selecione o compartilhamento de arquivos ou os compartilhamentos que você deseja alertar.
-1. Defina os parâmetros de alerta selecionando valores nas listas suspensas **operador**, **valor de limite**, **granularidade de agregação** e **frequência de avaliação** e, em seguida, selecione **concluído**.
+6. Role para baixo. Na lista suspensa **nome da dimensão** , selecione Compartilhamento de **arquivos**.
+7. Na lista suspensa **valores de dimensão** , selecione o compartilhamento de arquivos ou os compartilhamentos que você deseja alertar.
+8. Defina os parâmetros de alerta selecionando valores nas listas suspensas **operador**, **valor de limite**, **granularidade de agregação** e **frequência de avaliação** e, em seguida, selecione **concluído**.
 
    As métricas de saída, de entrada e de transações são expressas por minuto, embora você tenha provisionado egresso, entrada e e/s por segundo. Portanto, por exemplo, se a saída provisionada for 90 &nbsp; mebibytes por segundo (MiB/s) e você quiser que o limite seja &nbsp; de 80% de saída provisionada, selecione os seguintes parâmetros de alerta: 
    - Para o **valor de limite**: *75497472* 
@@ -271,9 +300,9 @@ Para saber mais sobre como configurar alertas no Azure Monitor, consulte [visão
    - Para **granularidade de agregação**: *1 hora*
    - Para **frequência de avaliação**: *1 hora*
 
-1. Selecione **selecionar grupo de ação** e, em seguida, adicione um grupo de ação (por exemplo, email ou SMS) ao alerta selecionando um grupo de ações existente ou criando um novo.
-1. Insira os detalhes do alerta, como **nome da regra de alerta**, **Descrição** e **severidade**.
-1. Selecione **Criar regra de alerta** para criar o alerta.
+9. Selecione **Adicionar grupos de ação** e, em seguida, adicione um grupo de ação (por exemplo, email ou SMS) ao alerta selecionando um grupo de ações existente ou criando um novo.
+10. Insira os detalhes do alerta, como **nome da regra de alerta**, **Descrição** e **severidade**.
+11. Selecione **Criar regra de alerta** para criar o alerta.
 
     > [!NOTE]
     > - Para ser notificado de que seu compartilhamento de arquivos Premium está perto de ser limitado *devido à entrada provisionada*, siga as instruções anteriores, mas com a seguinte alteração:

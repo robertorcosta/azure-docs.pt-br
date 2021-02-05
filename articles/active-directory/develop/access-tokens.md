@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: e1dcd52660ff43a93c6a170912fea5a5847fe9d3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232379"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575747"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma de identidade da Microsoft
 
@@ -241,7 +241,7 @@ A lógica de negócios do aplicativo determinará esta etapa; alguns métodos co
 * Valide o status de autenticação do cliente que fez a chamada usando `appidacr` – ele não deve ser 0 se os clientes públicos não têm permissão para chamar a API.
 * Verifique em uma lista das últimas declarações `nonce` para confirmar se o token não está sendo reproduzido.
 * Verifique se o `tid` corresponde a um locatário que tem permissão para chamar sua API.
-* Use a declaração `acr` para verificar se o usuário realizou a MFA. Isso deve ser imposto por meio do [acesso condicional](../conditional-access/overview.md).
+* Use a declaração `amr` para verificar se o usuário realizou a MFA. Isso deve ser imposto por meio do [acesso condicional](../conditional-access/overview.md).
 * Se você solicitou as declarações `roles` ou `groups` no token de acesso, verifique se o usuário está no grupo com permissão para executar essa ação.
   * Para os tokens recuperados usando o fluxo implícito, provavelmente, você precisará conferir o [Microsoft Graph](https://developer.microsoft.com/graph/) para esses dados, pois eles costumam ser muito grandes para se ajustarem ao token.
 

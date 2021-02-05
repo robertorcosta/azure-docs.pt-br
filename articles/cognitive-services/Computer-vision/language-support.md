@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1abb857c9f03be502db02099383c6fe0b5110461
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2e0cd424b71ff828ed0d8ad4c16d3333cf8a1c45
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736811"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575865"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte a idiomas para Pesquisa Visual Computacional
 
@@ -25,34 +25,89 @@ Alguns recursos do Pesquisa Visual Computacional dão suporte a vários idiomas;
 
 As APIs de OCR do Pesquisa Visual Computacional dão suporte a vários idiomas. Eles não exigem que você especifique um código de idioma. Consulte [OCR (reconhecimento óptico de caracteres)](concept-recognizing-text.md) para obter mais informações.
 
-|Linguagem| Código de idioma | API DE OCR | Leia 3,0 e 3,1 | Leia v 3.2-Preview. 1 |
+|Linguagem| Código de idioma | API DE OCR | Leia 3.0/3.1 | Leia versão prévia do v 3.2 |
 |:-----|:----:|:-----:|:---:|:---:|
+|Africâner|`af`| | |✔ |
+|Albanês |`sq`| | |✔ |
 |Árabe | `ar`|✔ | | |
+|Asturiano |`ast`| | |✔ |
+|Basco  |`eu`| | |✔ |
+|Bislama   |`bi`| | |✔ |
+|Bretão    |`br`| | |✔ |
+|Catalão    |`ca`| | |✔ |
+|Cebuano    |`ceb`| | |✔ |
+|Chamorro  |`ch`| | |✔ |
 |Chinês (Simplificado) | `zh-Hans`|✔ | |✔ |
-|Chinês (Tradicional) | `zh-Hant`|✔ | | |
-|Tcheco | `cs` |✔ | | |
-|Dinamarquês | `da` |✔ | | |
+|Chinês (Tradicional) | `zh-Hant`|✔ | |✔ |
+|Córnico     |`kw`| | |✔ |
+|Corso      |`co`| | |✔ |
+|Tártaro Crimeia (latino)  |`crh`| | |✔ |
+|Tcheco | `cs` |✔ | |✔ |
+|Dinamarquês | `da` |✔ | |✔ |
 |Holandês | `nl` |✔ |✔ |✔ |
 |Inglês | `en` |✔ |✔ |✔ |
-|Finlandês | `fi` |✔ | | |
+|Estoniano  |`crh`| | |✔ |
+|Fijiano |`fj`| | |✔ |
+|Filipino  |`fil`| | |✔ |
+|Finlandês | `fi` |✔ | |✔ |
 |Francês | `fr` |✔ |✔ |✔ |
+|Friuliano  | `fur` | | |✔ |
+|Galego   | `gl` | | |✔ |
 |Alemão | `de` |✔ |✔ |✔ |
+|Gilbertese    | `gil` | | |✔ |
 |Grego | `el` |✔ | | |
-|Húngaro | `hu` |✔ | | |
+|Groenlandês   | `kl` | | |✔ |
+|Crioulo haitiano  | `ht` | | |✔ |
+|Hani  | `hni` | | |✔ |
+|Hmong daw (latino) | `mww` | | |✔ |
+|Húngaro | `hu` |✔ | | ✔ |
+|Indonésio   | `id` | | |✔ |
+|Interlíngua  | `ia` | | |✔ |
+|Inuktitut (Latino)  | `iu` | | |✔ |
+|Irlandês    | `ga` | | |✔ |
 |Italiano | `it` |✔ |✔ |✔ |
 |Japonês | `ja` |✔ | |✔ |
-|Coreano | `ko` |✔ | | |
+|Javanês | `jv` | | |✔ |
+|Kabuverdianu | `kea` | | |✔ |
+|Kachin (latino) | `kac` | | |✔ |
+|Kara-Kalpak | `kaa` | | |✔ |
+|Kashubian | `csb` | | |✔ |
+|Khasi  | `kha` | | |✔ |
+|Coreano | `ko` |✔ | |✔ |
+|Quiché  | `quc` | | |✔ |
+|Curdo (latino) | `kur` | | |✔ |
+|Luxemburguês  | `lb` | | |✔ |
+|Malaio (latino)  | `ms` | | |✔ |
+|Manx  | `gv` | | |✔ |
+|Neapolitan   | `nap` | | |✔ |
 |Norueguês | `nb` |✔ | | |
-|Polonês | `pl` |✔ | | |
+|Norueguês | `no` | | |✔ |
+|Occitano | `oc` | | |✔ |
+|Polonês | `pl` |✔ | |✔ |
 |Português | `pt` |✔ |✔ |✔ |
 |Romeno | `ro` |✔ | | |
+|Romanche  | `rm` | | |✔ |
 |Russo | `ru` |✔ | | |
+|Scots  | `sco` | | |✔ |
+|Gaélico escocês  | `gd` | | |✔ |
 |Sérvio (cirílico) | `sr-Cyrl` |✔ | | |
 |Sérvio (latino) | `sr-Latn` |✔ | | |
 |Eslovaco | `sk` |✔ | | |
+|Esloveno  | `slv` | | |✔ |
 |Espanhol | `es` |✔ |✔ |✔ |
-|Sueco | `sw` |✔ | | |
-|Turco | `tr` |✔ | | |
+|Quissuaíle (latino)  | `sw` | | |✔ |
+|Sueco | `sv` |✔ | |✔ |
+|Tártaro (latino)  | `tat` | | |✔ |
+|Tetum    | `tet` | | |✔ |
+|Turco | `tr` |✔ | |✔ |
+|Sorábio alto  | `hsb` | | |✔ |
+|Uzbeque (latino)     | `uz` | | |✔ |
+|Volapük   | `vo` | | |✔ |
+|Walser    | `wae` | | |✔ |
+|Frísico ocidental | `fy` | | |✔ |
+|Yucatec Maya | `yua` | | |✔ |
+|Zhuang | `za` | | |✔ |
+|Zulu  | `zu` | | |✔ |
 
 ## <a name="image-analysis"></a>Análise de imagem
 
@@ -65,10 +120,3 @@ Algumas ações da API de [análise de imagem](https://westcentralus.dev.cogniti
 |Japonês | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Português | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Espanhol | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-
-## <a name="next-steps"></a>Próximas etapas
-
-Comece a usar os recursos de Pesquisa Visual Computacional mencionados neste guia.
-
-* [Analisar uma imagem local (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-analyze.md)
-* [Extrair texto impresso (REST)](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-print-text.md)

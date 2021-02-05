@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f13dfa4221f8f09c24cce3a451f3180d15ee3b99
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 0c4ed5dfee80c33009874361ae6b4d23ec00bc26
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435750"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573323"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção do Azure Active Directory híbrido
 
@@ -81,6 +81,8 @@ Como primeira etapa do planejamento, você deve revisar seu ambiente e determina
 - O ingresso no Azure AD híbrido não tem suporte em dispositivos de nível inferior do Windows ao usar a mobilidade de credencial ou o perfil obrigatório ou de roaming de perfil do usuário.
 
 - O sistema operacional Server Core não dá suporte a nenhum tipo de registro de dispositivo.
+
+- A Ferramenta de Migração do Usuário (USMT) não funciona com o registro de dispositivo.  
 
 ### <a name="os-imaging-considerations"></a>Considerações sobre imagens de so
 - Se você estiver contando com a ferramenta de preparação do sistema (Sysprep) e se estiver usando uma imagem **anterior ao Windows 10 1809** para instalação, verifique se a imagem não é de um dispositivo que já está registrado com o Azure ad como uma junção híbrida do Azure AD.
@@ -168,8 +170,8 @@ A tabela a seguir fornece detalhes sobre o suporte a esses UPNs do AD local no i
 | ----- | ----- | ----- | ----- |
 | Roteável | Federado | Da versão 1703 | Disponível para o público geral |
 | Não roteável | Federado | Da versão 1803 | Disponível para o público geral |
-| Roteável | Gerenciado | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
-| Não roteável | Gerenciado | Sem suporte | |
+| Roteável | Gerenciados | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows |
+| Não roteável | Gerenciados | Sem suporte | |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ author: v-dalc
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 02611bdf9689d2f62f661f558fd547ea46bd4d36
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 52b30730ee8ab126521ad0760204ee48ef6a63fe
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744199"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576001"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>Notas de versão da atualização 1,3 do StorSimple virtual array
 
@@ -28,15 +28,15 @@ A atualização 1,3 corresponde à versão de software 10.0.10319.0.
 
 ## <a name="whats-new-in-update-13"></a>O que há de novo na atualização 1,3
 
-Essa atualização contém os seguintes aprimoramentos:
+Essa atualização contém os seguintes aprimoramentos: KB4540725
 
 - O protocolo TLS 1,2 é uma atualização obrigatória e deve ser instalada. A partir desta versão em diante, o TLS 1,2 se torna o protocolo padrão para todas as portal do Azure comunicação.
 - As correções de bug de coleta de lixo melhoram o desempenho do ciclo de coleta de lixo quando a conta de armazenamento e o dispositivo estão em duas regiões distantes.
 - Correção de falhas de backup devido a tempos limite de BLOB.
 - Patches de segurança do sistema operacional/.NET Framework atualizados:
-  - [KB4540725](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4540725\V1.001\free\NEU\X64): março de 2020 Ssu (atualização da pilha de manutenção)
-  - [KB4565541](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Windows6.3\RTM\KB4565541\V1.014\free\NEU\X64): acúmulo de julho de 2020
-  - [KB4565622](\\winsehotfix.segroup.winse.corp.microsoft.com\hotfixes\Partner\DOTNET47x\KB4565622\V1.000\free\NEU\x64): atualização de julho de 2020 .NET Framework
+  - [KB4540725](https://support.microsoft.com/topic/servicing-stack-update-for-windows-8-1-rt-8-1-and-server-2012-r2-march-10-2020-cfa082a3-0b58-a8a3-7dc7-ab424de91b86): março de 2020 Ssu (atualização da pilha de manutenção)
+  - [KB4565541](https://support.microsoft.com/topic/july-14-2020-kb4565541-monthly-rollup-fed6b2b1-3d23-5981-34df-9215a8d8ce01): acúmulo de julho de 2020
+  - [KB4565622](https://support.microsoft.com/topic/security-and-quality-rollup-for-net-framework-4-6-4-6-1-4-6-2-4-7-4-7-1-4-7-2-for-windows-8-1-rt-8-1-and-windows-server-2012-r2-kb4565622-b7320848-1889-a624-da01-719f55ee8a00): atualização de julho de 2020 .NET Framework
 
 ## <a name="download-update-13"></a>Baixar a atualização 1,3
 
