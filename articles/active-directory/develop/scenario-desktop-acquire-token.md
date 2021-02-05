@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785118"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582648"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo da área de trabalho que chama as APIs Web: Adquirir um token
 
@@ -445,7 +445,7 @@ Para obter mais informações sobre consentimento, consulte [permissões e conse
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-No MSAL.NET, você precisa usar:
+Em MSAL.NET, use:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -922,7 +922,7 @@ Não há suporte para esse fluxo na MSAL para macOS.
 
 ### <a name="device-code-flow"></a>Fluxo de código do dispositivo
 
-Caso esteja escrevendo uma ferramenta de linha de comando que não tenha controles da Web e você não possa ou não deseje usar os fluxos anteriores, será necessário usar o fluxo de código do dispositivo.
+Se você estiver escrevendo uma ferramenta de linha de comando que não tem controles da Web e não desejar ou não quiser usar os fluxos anteriores, use o fluxo de código do dispositivo.
 
 A autenticação interativa com o Azure AD requer um navegador da Web. Para obter mais informações, consulte [Uso de navegadores da Web](https://aka.ms/msal-net-uses-web-browser). Para autenticar usuários em dispositivos ou sistemas operacionais que não fornecem um navegador da Web, o fluxo de código do dispositivo permite que o usuário use outro dispositivo, como um computador ou um telefone celular, para entrar interativamente. Usando o fluxo de código do dispositivo, o aplicativo obtém tokens por meio de um processo de duas etapas projetado para esses dispositivos ou sistemas operacionais. Como exemplos desses aplicativos, temos aqueles que são executados em iOT ou em ferramentas de linha de comando (CLI). A ideia é que:
 

@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95752772"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582801"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Restrições e limitações do URI de redirecionamento (URL de resposta)
 
@@ -45,7 +45,7 @@ Você pode usar um máximo de 256 caracteres para cada URI de redirecionamento q
 
 O modelo de aplicativo Azure Active Directory (Azure AD) atualmente dá suporte a esquemas HTTP e HTTPS para aplicativos que entram em contas corporativas ou de estudante no locatário do Azure AD de qualquer organização. Esses tipos de conta são especificados pelos `AzureADMyOrg` `AzureADMultipleOrgs` valores e no `signInAudience` campo do manifesto do aplicativo. Para aplicativos que entram em contas pessoais da Microsoft (MSA) *e* contas corporativas e de estudante (ou seja, o `signInAudience` é definido como `AzureADandPersonalMicrosoftAccount` ), somente o esquema HTTPS é permitido.
 
-Para adicionar URIs de redirecionamento com um esquema HTTP aos registros de aplicativo que entram em contas corporativas ou de estudante, você precisa usar o editor de manifesto do aplicativo no [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. No entanto, embora seja possível definir um URI de redirecionamento baseado em HTTP usando o editor de manifesto, é *altamente* recomendável que você use o esquema HTTPS para seus URIs de redirecionamento.
+Para adicionar URIs de redirecionamento com um esquema HTTP aos registros de aplicativo que entram em contas corporativas ou de estudante, use o editor de manifesto do aplicativo em [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. No entanto, embora seja possível definir um URI de redirecionamento baseado em HTTP usando o editor de manifesto, é *altamente* recomendável que você use o esquema HTTPS para seus URIs de redirecionamento.
 
 ## <a name="localhost-exceptions"></a>Exceções de localhost
 
@@ -65,7 +65,7 @@ Do ponto de vista do desenvolvimento, isso significa algumas coisas:
 * Não registre vários URIs de redirecionamento onde apenas a porta difere. O servidor de logon escolherá um arbitrariamente e usará o comportamento associado a esse URI de redirecionamento (por exemplo, se for um `web` `native` redirecionamento-,-ou `spa` -tipo).
 
     Isso é especialmente importante quando você deseja usar fluxos de autenticação diferentes no mesmo registro de aplicativo, por exemplo, tanto a concessão de código de autorização quanto o fluxo implícito. Para associar o comportamento de resposta correto a cada URI de redirecionamento, o servidor de logon deve ser capaz de distinguir entre os URIs de redirecionamento e não pode fazê-lo quando apenas a porta difere.
-* Se você precisar registrar vários URIs de redirecionamento no localhost para testar fluxos diferentes durante o desenvolvimento, diferencie-os usando o componente de *caminho* do URI. Por exemplo, `http://localhost/MyWebApp` não corresponde `http://localhost/MyNativeApp` .
+* Para registrar vários URIs de redirecionamento no localhost para testar fluxos diferentes durante o desenvolvimento, diferencie-os usando o componente de *caminho* do URI. Por exemplo, `http://localhost/MyWebApp` não corresponde `http://localhost/MyNativeApp` .
 * O endereço de loopback IPv6 ( `[::1]` ) não tem suporte no momento.
 
 #### <a name="prefer-127001-over-localhost"></a>Preferir 127.0.0.1 em localhost
@@ -84,7 +84,7 @@ URIs de curinga como `https://*.contoso.com` podem parecer convenientes, mas dev
 
 Atualmente, não há suporte para URIs curinga em registros de aplicativo configurados para entrar em contas pessoais da Microsoft e contas corporativas ou de estudante. Os URIs curinga são permitidos, no entanto, para aplicativos configurados para entrar somente em contas corporativas ou de estudante no locatário do Azure AD de uma organização.
 
-Para adicionar URIs de redirecionamento com caracteres curinga aos registros de aplicativo que entram em contas corporativas ou de estudante, você precisa usar o editor de manifesto do aplicativo no [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Embora seja possível definir um URI de redirecionamento com um curinga usando o editor de manifesto, é *altamente* recomendável aderir à [seção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e usar apenas URIs absolutos.
+Para adicionar URIs de redirecionamento com curingas aos registros de aplicativo que entram em contas corporativas ou de estudante, use o editor de manifesto do aplicativo em [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) no portal do Azure. Embora seja possível definir um URI de redirecionamento com um curinga usando o editor de manifesto, é *altamente* recomendável aderir à [seção 3.1.2 do RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e usar apenas URIs absolutos.
 
 Se seu cenário exigir mais URIs de redirecionamento do que o limite máximo permitido, considere a seguinte [abordagem de parâmetro de estado](#use-a-state-parameter) em vez de adicionar um URI de redirecionamento de caractere curinga.
 

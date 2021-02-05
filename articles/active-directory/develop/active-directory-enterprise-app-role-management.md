@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 10b61dd4b6cc3a99b8eecf86cb5ba7e718d64743
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 076054b7240712fec57d0908615ce7abbfb62013
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015106"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582223"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -30,7 +30,7 @@ Usando o Azure AD (Azure Active Directory), você pode personalizar o tipo de de
 
 ## <a name="when-to-use-this-feature"></a>Quando usar esse recurso
 
-Se o aplicativo esperar que as funções personalizadas sejam passadas em uma resposta SAML, será necessário usar esse recurso. Você pode criar quantas funções precisar para passar do Azure AD para o aplicativo.
+Use esse recurso se seu aplicativo espera funções personalizadas na resposta SAML retornada pelo Azure AD. Você pode criar quantas funções forem necessárias.
 
 ## <a name="create-roles-for-an-application"></a>Criar funções para um aplicativo
 
@@ -139,7 +139,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
     ![Painel "Editar Atribuição" e painel "Selecionar Função"](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     
-    Você precisa atualizar sua sessão no Portal do Azure para ver as novas funções.
+    Atualize sua sessão no portal do Azure para ver novas funções.
 
 1. Atualize a tabela **Atributos** para definir um mapeamento personalizado da declaração de função.
 

@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761381"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580931"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicativo
 
@@ -73,7 +73,7 @@ Se você não especificar uma instância, seu aplicativo será direcionado para 
 
 O público-alvo depende das necessidades comerciais para seu aplicativo:
 
-- Se você for um desenvolvedor de LOB (linha de negócios), provavelmente produzirá um aplicativo de locatário único que será usado somente em sua organização. Nesse caso, você precisa especificar a organização, seja por sua ID de locatário (a ID da sua instância do Azure AD) ou por um nome de domínio associado à instância do Azure AD.
+- Se você for um desenvolvedor de LOB (linha de negócios), provavelmente produzirá um aplicativo de locatário único que será usado somente em sua organização. Nesse caso, especifique a organização por sua ID de locatário (a ID da sua instância do Azure AD) ou por um nome de domínio associado à instância do Azure AD.
 - Se você for um ISV, talvez queira conectar usuários com suas contas corporativas e de estudante em qualquer organização ou em algumas organizações (aplicativo multilocatário). Mas talvez você também queira fazer com que os usuários entrem com suas contas pessoais da Microsoft.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Como especificar o público em seu código/configuração
@@ -122,9 +122,9 @@ Se você for um desenvolvedor de aplicativo cliente público que está usando o 
   | UWP | valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Isso habilita o SSO com o navegador definindo o valor como o resultado de WebAuthenticationBroker. GetCurrentApplicationCallbackUri () que você precisa registrar |
   | .NET Core | `https://localhost`. Isso permite que o usuário use o navegador do sistema para autenticação interativa, já que o .NET Core não tem uma interface do usuário para a exibição da Web inserida no momento. |
 
-- Você não precisará adicionar um URI de redirecionamento se estiver criando um aplicativo Xamarin Android e iOS que não dá suporte ao agente (o URI de redirecionamento é definido automaticamente como `msal{ClientId}://auth` para o Xamarin Android e Ios
+- Você não precisará adicionar um URI de redirecionamento se estiver criando um aplicativo Xamarin Android e iOS que não dá suporte ao URI de redirecionamento do agente. Ele é definido automaticamente como `msal{ClientId}://auth` para o Xamarin Android e Ios.
 
-- Você precisa configurar o URI de redirecionamento no [registros de aplicativo](https://aka.ms/appregistrations):
+- Configure o URI de redirecionamento no [registros de aplicativo](https://aka.ms/appregistrations):
 
    ![URI de redirecionamento no Registros de aplicativo](media/msal-client-application-configuration/redirect-uri.png)
 
@@ -146,7 +146,7 @@ Para aplicativos de daemon, você não precisa especificar um URI de redireciona
 
 Esta opção especifica o segredo do cliente para o aplicativo cliente confidencial. Esse segredo (senha de aplicativo) é fornecido pelo portal de registro de aplicativo ou fornecido ao Azure AD durante o registro do aplicativo com o PowerShell AzureAD, PowerShell AzureRM ou CLI do Azure.
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 Para ajudar em cenários de solução de problemas de falha de depuração e autenticação, a biblioteca de autenticação da Microsoft fornece suporte de log interno. O registro em log é cada biblioteca abordada nos seguintes artigos:
 
 :::row:::

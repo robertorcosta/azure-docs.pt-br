@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 04ee4ccc3b0553d6532869d6403000fdedd93b5f
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 8dc9bff86a07f3d4a0ec6fd224de6d5633165a6d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062704"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582834"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Aplicativo daemon que chama APIs da Web – mover para produção
 
@@ -25,7 +25,7 @@ Agora que você sabe como adquirir e usar um token para uma chamada de serviço 
 
 ## <a name="deployment---multitenant-daemon-apps"></a>Implantação – aplicativos de daemon multilocatário
 
-Se você for um ISV criando um aplicativo daemon que pode ser executado em vários locatários, você precisará certificar-se de que o administrador do locatário:
+Se você for um ISV criando um aplicativo daemon que pode ser executado em vários locatários, certifique-se de que o administrador do locatário:
 
 - Provisiona uma entidade de serviço para o aplicativo.
 - Concede consentimento ao aplicativo.

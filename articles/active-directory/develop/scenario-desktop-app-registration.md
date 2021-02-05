@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 46c8127a93cef8f662930fffd07a2fa3d22b8871
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 4031e43b3ec6f6f451fbc4888cc482249042690b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753710"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582716"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>Aplicativo de área de trabalho que chama APIs da Web: registro de aplicativo
 
 Este artigo aborda as especificações de registro do aplicativo para um aplicativo de área de trabalho.
 
-## <a name="supported-account-types"></a>Tipos de conta compatíveis
+## <a name="supported-account-types"></a>Tipos de conta com suporte
 
 Os tipos de conta com suporte em um aplicativo de área de trabalho dependem da experiência que você deseja acender. Devido a essa relação, os tipos de conta com suporte dependem dos fluxos que você deseja usar.
 
@@ -47,7 +47,7 @@ Os URIs de redirecionamento a serem usados em um aplicativo de área de trabalho
 
 - Se você criar um aplicativo de Objective-C ou Swift nativo para macOS, registre o URI de redirecionamento com base no identificador de pacote do seu aplicativo no seguinte formato: `msauth.<your.app.bundle.id>://auth` . Substitua `<your.app.bundle.id>` pelo identificador do pacote do seu aplicativo.
 - Se seu aplicativo usar apenas a autenticação integrada do Windows ou um nome de usuário e uma senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esses fluxos fazem uma viagem de ida e volta para o ponto de extremidade v 2.0 da plataforma de identidade da Microsoft. Seu aplicativo não será chamado de volta em nenhum URI específico.
-- Para distinguir [o fluxo de código do dispositivo](scenario-desktop-acquire-token.md#device-code-flow), a [autenticação integrada do Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)e um nome de [usuário e uma senha](scenario-desktop-acquire-token.md#username-and-password) de um aplicativo cliente confidencial usando um fluxo de credencial de cliente usado em [aplicativos daemon](scenario-daemon-overview.md), nenhum deles requer um URI de redirecionamento, você precisa configurá-lo como um aplicativo cliente público. Para alcançar essa configuração:
+- Para distinguir [o fluxo de código do dispositivo](scenario-desktop-acquire-token.md#device-code-flow), a [autenticação integrada do Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)e um nome de [usuário e uma senha](scenario-desktop-acquire-token.md#username-and-password) de um aplicativo cliente confidencial usando um fluxo de credencial de cliente usado em [aplicativos daemon](scenario-daemon-overview.md), nenhum deles requer um URI de redirecionamento, configure-o como um aplicativo cliente público. Para alcançar essa configuração:
 
     1. Na <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portal do Azure</a>, selecione seu aplicativo no **registros de aplicativo** e, em seguida, selecione **autenticação**.
     1. Em **Configurações avançadas**,  >  **permitir fluxos de cliente público**  >  **habilite os seguintes fluxos móveis e de área de trabalho:**, selecione **Sim**.

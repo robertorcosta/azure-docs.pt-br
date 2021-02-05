@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014936"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581747"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -55,7 +55,7 @@ Para verificar suas permissões de assinatura:
 
 1. Pesquise e selecione **assinaturas**, ou selecione **assinaturas** na **Home** Page do.
 
-   ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selecione a assinatura na qual você deseja criar a entidade de serviço.
 
@@ -115,7 +115,7 @@ A próxima seção mostra como obter valores necessários ao entrar de modo prog
 
 ## <a name="get-tenant-and-app-id-values-for-signing-in"></a>Obter valores de ID do aplicativo e locatário para entrar
 
-Ao entrar de forma programática, você precisa passar a ID de locatário com sua solicitação de autenticação e a ID do aplicativo.  Você também precisa de um certificado ou de uma chave de autenticação (descrita na seção a seguir). Para obter esses valores, use as seguintes etapas:
+Ao entrar de forma programática, passe a ID de locatário com sua solicitação de autenticação e a ID do aplicativo.  Você também precisa de um certificado ou de uma chave de autenticação (descrita na seção a seguir). Para obter esses valores, use as seguintes etapas:
 
 1. Selecione **Azure Active Directory**.
 1. Em **Registros de aplicativo** no Azure AD, selecione seu aplicativo.
@@ -162,7 +162,7 @@ Para carregar o certificado:
 
 1. Selecione **Adicionar**.
 
-Depois de registrar o certificado com seu aplicativo no portal de registro de aplicativos, você precisa habilitar o código do aplicativo cliente para usar o certificado.
+Depois de registrar o certificado com seu aplicativo no portal de registro de aplicativos, habilite o código do aplicativo cliente para usar o certificado.
 
 ### <a name="option-2-create-a-new-application-secret"></a>Opção 2: criar um novo segredo do aplicativo
 

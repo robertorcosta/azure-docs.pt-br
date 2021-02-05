@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 096b8ed60bf9880b6904ab952d4558939ca13574
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b07679c6dd5e03131fde1439213783893971a088
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652068"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581798"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como usar o Azure PowerShell para criar uma entidade de serviço com um certificado
 
@@ -72,7 +72,7 @@ O exemplo fica suspenso por 20 segundos para dar tempo para a nova entidade de s
 
 Você pode definir o escopo da atribuição de função para um grupo de recursos específico usando o parâmetro **ResourceGroupName**. Você pode definir o escopo para um recurso específico também usando os parâmetros **ResourceType** e **ResourceName**. 
 
-Se você **não tiver o Windows 10 ou o Windows Server 2016**, precisará baixar o [Gerador de certificado autoassinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) no Script Center da Microsoft. Extraia seu conteúdo e importe o cmdlet necessário.
+Se você **não tiver o Windows 10 ou o Windows Server 2016**, baixe o [gerador de certificado autoassinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) do Microsoft Script Center. Extraia seu conteúdo e importe o cmdlet necessário.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
@@ -91,7 +91,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer certificado por meio do script PowerShell automatizado
 
-Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório do aplicativo do AD. Um locatário é uma instância do Azure AD.
+Sempre que você entrar como uma entidade de serviço, forneça a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Azure AD.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
@@ -151,7 +151,7 @@ Param (
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>Fornecer certificado por meio do script PowerShell automatizado
-Sempre que você entrar como uma entidade de serviço, precisará fornecer a ID do locatário do diretório do aplicativo do AD. Um locatário é uma instância do Azure AD.
+Sempre que você entrar como uma entidade de serviço, forneça a ID do locatário do diretório para seu aplicativo do AD. Um locatário é uma instância do Azure AD.
 
 ```powershell
 Param (

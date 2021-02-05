@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: e171e642440b7c6c99353169e426a722885f1bcf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1ebb89ae318e57f1d4e0708a08019515ca43158d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725930"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581322"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Planejar e gerenciar custos para o gerenciamento de API
 
@@ -89,10 +89,10 @@ Você também pode [exportar seus dados de custo](../cost-management-billing/cos
 
 ### <a name="choose-tier"></a>Escolher camada
 
-Examine a [comparação baseada em recursos das camadas de gerenciamento de API do Azure](api-management-features.md) para ajudar a decidir qual camada de serviço pode ser apropriada para seus cenários. As diferentes camadas de serviço dão suporte a combinações de recursos e funcionalidades projetadas para vários casos de uso, com custos diferentes. [Atualize](upgrade-and-scale.md) para uma camada de serviço diferente a qualquer momento.
+Examine a [comparação baseada em recursos das camadas de gerenciamento de API do Azure](api-management-features.md) para ajudar a decidir qual camada de serviço pode ser apropriada para seus cenários. As diferentes camadas de serviço dão suporte a combinações de recursos e funcionalidades projetadas para vários casos de uso, com custos diferentes. 
 
 * A camada de serviço de **consumo** fornece uma opção leve e sem servidor que incorre em custos fixos. Você será cobrado com base no número de chamadas de API para o serviço acima de um determinado limite. A capacidade também é dimensionada automaticamente com base na carga no serviço.
-* Outras camadas de gerenciamento de API incorrem em custos mensais e fornecem maior taxa de transferência e conjuntos de recursos mais avançados para cargas de trabalho de avaliação e produção.
+* As camadas de gerenciamento de API de **desenvolvedor**, **básica**, **Standard** e **Premium** incorrem em custos mensais e fornecem maior taxa de transferência e conjuntos de recursos mais avançados para cargas de trabalho de avaliação e produção. [Atualize](upgrade-and-scale.md) para uma camada de serviço diferente a qualquer momento.
 
 ### <a name="scale-using-capacity-units"></a>Dimensionar usando unidades de capacidade
 

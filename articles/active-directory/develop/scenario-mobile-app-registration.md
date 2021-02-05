@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cdd32185d1ffddb4c6bc3d62b91690f68dec17ca
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 902348063a24b50d1de0a821d9d6e67931cc53cd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014715"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582529"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrar aplicativos móveis que chamam APIs da Web
 
@@ -79,9 +79,9 @@ Se preferir configurar manualmente o URI de redirecionamento, você poderá faze
 
 ### <a name="username-password-authentication"></a>Nome de usuário-autenticação de senha
 
-Se seu aplicativo usar apenas a autenticação de nome de usuário-senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esse fluxo faz uma viagem de ida e volta para o ponto de extremidade da plataforma Microsoft Identity versão 2,0. Seu aplicativo não será chamado de volta em nenhum URI específico.
+Se seu aplicativo usar apenas a autenticação de nome de usuário-senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esse fluxo faz uma viagem de ida e volta para a plataforma de identidade da Microsoft. Seu aplicativo não será chamado de volta em nenhum URI específico.
 
-No entanto, você precisa identificar seu aplicativo como um aplicativo cliente público. Para fazer isso:
+No entanto, identifique seu aplicativo como um aplicativo cliente público. Para fazer isso:
 
 1. Ainda no <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portal do Azure</a>, selecione seu aplicativo no **registros de aplicativo** e, em seguida, selecione **autenticação**.
 1. Em **Configurações avançadas**,  >  **permitir fluxos de cliente público**  >  **habilite os seguintes fluxos móveis e de área de trabalho:**, selecione **Sim**.

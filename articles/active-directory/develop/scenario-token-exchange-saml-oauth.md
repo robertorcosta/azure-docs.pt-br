@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 92d0dad86b3f048eb96dd7b17ed09f6e20d7cde2
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 812bf7bd68362667fcd1b636d0d28fdbb21c1409
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063290"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582342"
 ---
 # <a name="microsoft-identity-platform-token-exchange-scenarios-with-saml-and-oidcoauth"></a>Cenários de troca de tokens da plataforma Microsoft Identity com SAML e OIDC/OAuth
 
 SAML e OpenID Connect (OIDC)/OAuth são protocolos populares usados para implementar um único Sign-On (SSO). Alguns aplicativos podem implementar apenas SAML e outros podem implementar apenas OIDC/OAuth. Ambos os protocolos usam tokens para comunicar segredos. Para saber mais sobre o SAML, consulte [protocolo SAML de Sign-On único](single-sign-on-saml-protocol.md). Para saber mais sobre o OIDC/OAuth, consulte [protocolos OAuth 2,0 e OpenID Connect na plataforma de identidade da Microsoft](active-directory-v2-protocols.md).
 
-Este artigo descreve um cenário comum em que um aplicativo implementa SAML, mas você precisa chamar o API do Graph, que usa OIDC/OAuth. As diretrizes básicas são fornecidas para pessoas que trabalham com esse cenário.
+Este artigo descreve um cenário comum em que um aplicativo implementa SAML, mas chama o API do Graph, que usa OIDC/OAuth. As diretrizes básicas são fornecidas para pessoas que trabalham com esse cenário.
 
 ## <a name="scenario-you-have-a-saml-token-and-want-to-call-the-graph-api"></a>Cenário: você tem um token SAML e deseja chamar o API do Graph
 Muitos aplicativos são implementados com o SAML. No entanto, o API do Graph usa os protocolos OIDC/OAuth. É possível, embora não trivial, adicionar a funcionalidade OIDC/OAuth a um aplicativo SAML. Depois que a funcionalidade do OAuth estiver disponível em um aplicativo, a API do Graph poderá ser usada.

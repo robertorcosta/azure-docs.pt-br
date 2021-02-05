@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c858f48a67cd434a620fb610046833d29b7475f7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a01ee4e2b0d4e72c1b17cf56953675e735ead79
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756588"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582883"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
 
@@ -111,7 +111,7 @@ Quando você cria um cliente confidencial com certificados, o [parameters.jsno](
 
 ### <a name="instantiate-the-msal-application"></a>Instanciar o aplicativo MSAL
 
-Para instanciar o aplicativo MSAL, você precisa adicionar, referenciar ou importar o pacote MSAL (dependendo do idioma).
+Para criar uma instância do aplicativo MSAL, adicione, referencie ou importe o pacote MSAL (dependendo do idioma).
 
 A construção é diferente, dependendo se você estiver usando os segredos ou certificados do cliente (ou, como um cenário avançado, asserções assinadas).
 
@@ -289,7 +289,7 @@ MSAL.NET tem dois métodos para fornecer asserções assinadas ao aplicativo cli
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-Ao usar `WithClientAssertion` o, você precisa fornecer um JWT assinado. Esse cenário avançado é detalhado em [declarações de cliente](msal-net-client-assertions.md).
+Quando você usa `WithClientAssertion` o, forneça um JWT assinado. Esse cenário avançado é detalhado em [declarações de cliente](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();

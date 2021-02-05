@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b35b39d7072b22d9cc3f7b4f4ef8886431b06f69
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7e2fcf2dc0dc53038b82bbf182cb12f580d88357
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754660"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583579"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Escopos para uma API Web aceitando tokens v 1.0
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Para ler e gravar com o MSAL.NET Azure AD usando a API de Microsoft Graph (https: \/ /Graph.Microsoft.com/), você precisa criar uma lista de escopos, conforme mostrado nos exemplos a seguir:
+Para ler e gravar com o MSAL.NET Azure AD usando a API de Microsoft Graph (https: \/ /Graph.Microsoft.com/), crie uma lista de escopos, conforme mostrado nos exemplos a seguir:
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Para gravar o escopo correspondente à API de Azure Resource Manager (https: \/ /Management.Core.Windows.net/), você precisa solicitar o seguinte escopo (Observe as duas barras):
+Para gravar o escopo correspondente à API de Azure Resource Manager (https: \/ /Management.Core.Windows.net/), solicite o seguinte escopo (Observe as duas barras):
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -59,7 +59,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> Você precisa usar duas barras, pois a API do Azure Resource Manager espera uma barra em sua declaração de público-alvo (aud), e, em seguida, há uma barra para separar o nome da API do escopo.
+> Use duas barras porque a API Azure Resource Manager espera uma barra em sua identidade de público (AUD) e, em seguida, há uma barra para separar o nome da API do escopo.
 
 A lógica usada pelo Azure AD é a seguinte:
 

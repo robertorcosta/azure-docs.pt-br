@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d6ae9585ce5b5a6f666a96ae8c5e7e9e3c5e248a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427330"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580390"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -19,7 +19,7 @@ ms.locfileid: "99427330"
 Siga estas etapas para instalar a CLI de Fala no Windows:
 
 1. No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma. Ao instalá-los pela primeira vez, pode ser necessária uma reinicialização.
-1. Instale o [.NET Core 3.1](/dotnet/core/install/linux.md).
+1. Instale o [.NET Core 3.1](/dotnet/core/install/linux).
 2. Instale a CLI de Fala usando o NuGet por meio deste comando:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
@@ -41,7 +41,7 @@ Se você produzir a saída em um arquivo, um editor de texto como o Bloco de not
 
 Siga estas etapas para instalar a CLI de Fala no Linux em uma CPU x64:
 
-1. Instale o [.NET Core 3.1](/dotnet/core/install/linux.md).
+1. Instale o [.NET Core 3.1](/dotnet/core/install/linux).
 2. Instale a CLI de Fala usando o NuGet por meio deste comando:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`

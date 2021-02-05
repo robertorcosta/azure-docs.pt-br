@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c9cc8e6fcc796cfc7a09cf7bc1431646a6603af0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 434c255f0b9634e0d17bad1627ddd92af9498bfe
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442966"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582427"
 ---
 # <a name="scenario-protected-web-api"></a>Cenário: API Web protegida
 
 Nesse cenário, você aprende a expor uma API da Web. Você também aprende a proteger a API Web para que somente usuários autenticados possam acessá-la.
 
-Para usar sua API Web, você precisa habilitar usuários autenticados com contas corporativas e de estudante ou habilitar contas pessoais da Microsoft.
+Para usar sua API Web, habilite usuários autenticados com contas corporativas e de estudante ou habilite contas pessoais da Microsoft.
 
 ## <a name="specifics"></a>Especificações
 

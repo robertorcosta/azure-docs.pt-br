@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a1ec8c31681ab6c0ac40ba33e94f33057ee948e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754805"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580839"
 ---
 # <a name="differences-between-msaljs-and-adaljs"></a>Diferenças entre MSAL.js e ADAL.js
 
@@ -48,7 +48,7 @@ No entanto, você ainda precisará usar a ADAL.js se seu aplicativo precisar con
 
 Na v1.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você permitirá que os usuários entrem com qualquer conta do Azure AD (para qualquer organização).
 
-Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você permitirá que os usuários entrem com uma conta da organização do Azure AD ou com uma conta pessoal da Microsoft (MSA). Para restringir a entrada apenas a contas do Azure AD (mesmo comportamento com a ADAL.js), será preciso usar `https://login.microsoftonline.com/organizations`. Para ver detalhes, confira a opção de configuração `authority` em [Inicializar usando a MSAL.js](msal-js-initializing-client-applications.md).
+Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você permitirá que os usuários entrem com uma conta da organização do Azure AD ou com uma conta pessoal da Microsoft (MSA). Para restringir a entrada somente às contas do Azure AD (mesmo comportamento que com o ADAL.js), use `https://login.microsoftonline.com/organizations` . Para ver detalhes, confira a opção de configuração `authority` em [Inicializar usando a MSAL.js](msal-js-initializing-client-applications.md).
 
 ### <a name="scopes-for-acquiring-tokens"></a>Escopos para adquirir tokens
 * Escopo em vez do parâmetro de recursos em solicitações de autenticação para adquirir tokens

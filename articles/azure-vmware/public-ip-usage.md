@@ -2,13 +2,13 @@
 title: Como usar a funcionalidade de IP público na solução VMware do Azure
 description: Este artigo explica como usar a funcionalidade de IP público na WAN virtual do Azure.
 ms.topic: how-to
-ms.date: 10/28/2020
-ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.date: 02/04/2021
+ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517896"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581373"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Como usar a funcionalidade de IP público na solução VMware do Azure
 
@@ -56,7 +56,7 @@ Nesse cenário, você publicará o servidor webiis na Internet. Use o recurso IP
 
    :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Captura de tela da nuvem privada da solução Azure VMware." border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
-1. Em **gerenciar** , selecione **conectividade**.
+1. Em **gerenciar**, selecione **conectividade**.
 
    :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Captura de tela da seção conectividade." border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
@@ -120,7 +120,7 @@ Depois que todos os componentes forem implantados, você poderá vê-los no grup
 
 1. Na guia **DNS** , selecione **desabilitar** e, em seguida, selecione **Avançar: regras**.
 
-1. Selecione **Adicionar uma coleção de regras** , forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, **Avançar: inteligência contra ameaças**.
+1. Selecione **Adicionar uma coleção de regras**, forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, **Avançar: inteligência contra ameaças**.
 
    -  Nome
    -  Tipo de coleção de regras-DNAT
@@ -128,8 +128,8 @@ Depois que todos os componentes forem implantados, você poderá vê-los no grup
    -  Ação de coleção de regras – permitir
    -  Nome da regra
    -  Tipo de origem- **IPAddress**
-   -  Origem-* *\** _
-   -  Protocolo – _ *TCP**
+   -  Original **\***
+   -  Protocolo – **TCP**
    -  Porta de destino – **80**
    -  Tipo de destino – **endereço IP**
    -  Destino – **endereço IP público**
@@ -156,5 +156,7 @@ Você pode ter 100 IPs públicos por SDDCs.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como usar endereços IP públicos usando a [Wan virtual do Azure](../virtual-wan/virtual-wan-about.md).
+Agora que você já abordou como usar a funcionalidade de IP público na solução VMware do Azure, talvez queira saber mais sobre:
 
+- Usando endereços IP públicos com a [Wan virtual do Azure](../virtual-wan/virtual-wan-about.md).
+- [Criando um túnel IPSec na solução VMware do Azure](create-ipsec-tunnel.md).

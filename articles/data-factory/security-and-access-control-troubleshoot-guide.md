@@ -5,15 +5,15 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 70e4d0c1a9f26f83924c1343e4e8e51c5595b324
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 37da2869f0cf315ac0a6851c9a77dcee4debf71a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944510"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581679"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Solucionar problemas Azure Data Factory segurança e controle de acesso
 
@@ -88,9 +88,10 @@ Para verificar se o FQDN (nome de domínio totalmente qualificado) do Data Facto
 #### <a name="resolution"></a>Resolução
 
 Para resolver o problema, faça o seguinte:
-- Consulte o [link privado do Azure para Azure data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) artigo. A instrução é para configurar a zona DNS privada ou o servidor para resolver o Data Factory FQDN para um endereço IP privado.
 
-- É recomendável usar um DNS personalizado como a solução de longo prazo. No entanto, se você não quiser configurar a zona DNS privada ou o servidor, tente a seguinte solução temporária:
+- Como opção, gostaríamos de sugerir que você adicione manualmente um "link de rede virtual" na Data Factory "zona DNS de link privado". Para obter detalhes, consulte o [link privado do Azure para Azure data Factory](./data-factory-private-link.md#dns-changes-for-private-endpoints) artigo. A instrução é para configurar a zona DNS privada ou o servidor DNS personalizado para resolver o Data Factory FQDN para um endereço IP privado. 
+
+- No entanto, se você não quiser configurar a zona DNS privada ou o servidor DNS personalizado, tente a seguinte solução temporária:
 
   1. Altere o arquivo de host no Windows e mapeie o IP privado (o Azure Data Factory ponto de extremidade privado) para o Azure Data Factory FQDN.
   

@@ -12,12 +12,12 @@ ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5dec4958c3a1d955d8f8c1dce90e27696fbebfe5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d39f378171443f028ef6b549b120b22f2a3405c4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063341"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582934"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Como alterar os padrões de tempo de vida do token para um aplicativo personalizado
 
@@ -27,7 +27,7 @@ Este artigo mostra como usar o PowerShell do Azure AD para definir uma política
 > Depois de maio de 2020, os locatários não poderão mais configurar a atualização e tempos de vida de token de sessão.  Azure Active Directory deixará de respeitar a configuração existente e o token de sessão em políticas após 30 de janeiro de 2021. Você ainda pode configurar tempos de vida de token de acesso após a reprovação. Para obter mais informações, leia [tempos de vida de token configuráveis no Azure ad](./active-directory-configurable-token-lifetimes.md).
 > Implementamos os [recursos de gerenciamento de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md)   no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada.  
 
-Para definir uma política de tempo de vida do token de acesso, você precisa baixar o [módulo do PowerShell do Azure ad](https://www.powershellgallery.com/packages/AzureADPreview).
+Para definir uma política de tempo de vida do token de acesso, baixe o [módulo do PowerShell do Azure ad](https://www.powershellgallery.com/packages/AzureADPreview).
 Execute o comando **Connect-AzureAD -Confirm**.
 
 Aqui está um exemplo de política que exige que os usuários se autentiquem com mais frequência em seu aplicativo Web. Essa política define o tempo de vida do acesso à entidade de serviço do seu aplicativo Web. Crie a política e atribua-a à sua entidade de serviço. Você também precisará da ObjectId de sua entidade de serviço.

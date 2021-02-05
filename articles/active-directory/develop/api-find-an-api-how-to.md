@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a108f8f5c5b333a9fc7e6eabbfa516b6578ca76
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 28cfb3d8b09c9661d16ac6e7146c50e7043d913a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063817"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581951"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Como localizar uma API específica necessária para um aplicativo personalizado
 
-O acesso às APIs exigem configuração de escopos de acesso e funções. Se você quiser expor suas APIs web do aplicativo de recursos para aplicativos cliente, precisará configurar escopos de acesso e funções da API. Se desejar que um aplicativo cliente acesse uma API web, você precisará configurar permissões para acessar a API no registro de aplicativo.
+O acesso às APIs exigem configuração de escopos de acesso e funções. Se você quiser expor suas APIs da Web do aplicativo de recurso para aplicativos cliente, configure escopos de acesso e funções para a API. Se você quiser que um aplicativo cliente acesse uma API da Web, configure as permissões para acessar a API no registro do aplicativo.
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configurando um aplicativo de recurso para expor APIs Web
 

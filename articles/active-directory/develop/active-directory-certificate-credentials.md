@@ -13,12 +13,12 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795618"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582019"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenciais de certificado de autenticação do aplicativo da plataforma de identidade da Microsoft
 
@@ -101,12 +101,12 @@ No registro do aplicativo do Azure para o aplicativo cliente:
 
 ### <a name="updating-the-application-manifest"></a>Atualizando o manifesto do aplicativo
 
-Com a suspensão de um certificado, você precisa calcular:
+Depois de adquirir um certificado, calcule esses valores:
 
 - `$base64Thumbprint` -Valor codificado na base64 do hash do certificado
 - `$base64Value` -Valor codificado na base64 dos dados brutos do certificado
 
-Você também deve fornecer um GUID para identificar a chave no manifesto do aplicativo (`$keyId`).
+Forneça um GUID para identificar a chave no manifesto do aplicativo ( `$keyId` ).
 
 No registro do aplicativo do Azure para o aplicativo cliente:
 1. Selecione **Manifesto** para abrir o manifesto do aplicativo.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 938a19276839d5e0d2bd3e0244510fc068cb029c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995991"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582900"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Aplicativo daemon que chama APIs Web-registro de aplicativo
 
@@ -24,7 +24,7 @@ Para um aplicativo daemon, veja o que você precisa saber ao registrar o aplicat
 
 ## <a name="supported-account-types"></a>Tipos de conta com suporte
 
-Os aplicativos daemon fazem sentido apenas em locatários do Azure AD. Portanto, ao criar o aplicativo, você precisa escolher uma das seguintes opções:
+Os aplicativos daemon fazem sentido apenas em locatários do Azure AD. Assim, quando você criar o aplicativo, escolha uma das seguintes opções:
 
 - **Contas somente neste diretório organizacional**. Essa opção é a mais comum porque os aplicativos de daemon são geralmente escritos por desenvolvedores de linha de negócios (LOB).
 - **Contas em qualquer diretório organizacional**. Você fará essa escolha se for um ISV que fornece uma ferramenta de utilitário para seus clientes. Você precisará dos administradores de locatário de seus clientes para aprová-lo.

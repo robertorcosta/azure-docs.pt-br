@@ -2,13 +2,13 @@
 title: Configurar Servidor de Backup do Azure para a solução VMware do Azure
 description: Configure seu ambiente de solução do Azure VMware para fazer backup de máquinas virtuais usando Servidor de Backup do Azure.
 ms.topic: how-to
-ms.date: 10/23/2020
-ms.openlocfilehash: 7885c0bc73bd5f7cd802e76ed9db470f77eda30d
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.date: 02/04/2021
+ms.openlocfilehash: e9204b9f86c7e9ef67d2e3d6b45ccf4248d00b32
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703395"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581475"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar Servidor de Backup do Azure para a solução VMware do Azure
 
@@ -74,7 +74,7 @@ A tabela resume o número máximo de cargas de trabalho protegidas para cada Ser
 
 | Máximo de cargas de trabalho protegidas | Tamanho médio da carga de trabalho | Variação de carga de trabalho média (diariamente) | IOPS de armazenamento mínimo | Tipo/tamanho de disco recomendado      | Tamanho de VM recomendado |
 |-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
-| 20                      | 100 GB                | Variação de 5% NET                   | 2.000             | HDD Standard (8 TB ou acima do tamanho por disco)  | A4V2       |
+| 20                      | 100 GB                | Variação de 5% NET                   | 2\.000             | HDD Standard (8 TB ou acima do tamanho por disco)  | A4V2       |
 | 40                      | 150 GB                | Variação de 10% NET                  | 4\.500             | SSD Premium * (1 TB ou acima do tamanho por disco) | DS3_V2     |
 | 60                      | 200 GB                | Variação de 10% NET                  | 10.500            | SSD Premium * (8 TB ou acima do tamanho por disco) | DS3_V2     |
 
@@ -389,7 +389,7 @@ Servidor de Backup do Azure v3 só aceita volumes de armazenamento. Quando você
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Continue no próximo tutorial para saber como configurar um backup de VMs VMware em execução na solução VMware do Azure usando Servidor de Backup do Azure.
+Agora que você já abordou como configurar o Servidor de Backup do Azure para a solução Azure VMware, talvez queira saber mais sobre:
 
-> [!div class="nextstepaction"]
-> [Configurar o backup de VMs de solução do Azure VMware](backup-azure-vmware-solution-virtual-machines.md)
+- [Configurando backups para suas VMs de solução do Azure VMware](backup-azure-vmware-solution-virtual-machines.md).
+- [Proteger suas VMs de solução do Azure VMware com a integração da central de segurança do Azure](azure-security-integration.md).
