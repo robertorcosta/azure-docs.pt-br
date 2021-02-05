@@ -967,6 +967,8 @@
           href: kantegassoforjira-tutorial.md
         - name: Gerenciador de senhas e cofre digital Keeper
           href: keeperpasswordmanager-tutorial.md
+        - name: Kendis – Plataforma de escalonamento ágil
+          href: kendis-scaling-agile-platform-tutorial.md
         - name: KFAdvance
           href: kfadvance-tutorial.md
         - name: Khoros Care
